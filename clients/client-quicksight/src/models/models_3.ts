@@ -1,4 +1,6 @@
 // smithy-typescript generated code
+import type { DocumentType as __DocumentType } from "@smithy/types";
+
 import type {
   AssetBundleExportFormat,
   AssetBundleExportJobStatus,
@@ -34,9 +36,6 @@ import type {
   HorizontalTextAlignment,
   IdentityStore,
   IncludeFolderMembers,
-  IngestionErrorType,
-  IngestionRequestSource,
-  IngestionRequestType,
   IngestionStatus,
   IngestionType,
   JoinType,
@@ -60,6 +59,7 @@ import type {
   Status,
   TextQualifier,
   TextTransform,
+  TimeGranularity,
   TopicRelativeDateFilterFunction,
   TopicScheduleType,
   TopicTimeGranularity,
@@ -72,6 +72,8 @@ import type {
   AccountInfo,
   AccountSettings,
   ActionConnector,
+  Agent,
+  AggregateOperation,
   Analysis,
   AnalysisDefaults,
   AnalysisError,
@@ -89,6 +91,7 @@ import type {
   _Parameters,
   AnalysisDefinition,
   AnonymousUserSnapshotJobResult,
+  AppendOperation,
   AssetBundleCloudFormationOverridePropertyConfiguration,
   AssetBundleExportJobError,
   AssetBundleExportJobValidationStrategy,
@@ -105,6 +108,7 @@ import type {
   BrandDetail,
   Capabilities,
   CastColumnTypeOperation,
+  CastColumnTypesOperation,
   CellValueSynonym,
   CollectiveConstant,
   ColumnGroup,
@@ -118,32 +122,278 @@ import type {
   CreateColumnsOperation,
   DashboardPublishOptions,
   DashboardVersionDefinition,
-  DataPrepConfiguration,
   DataSetReference,
   DataSetRefreshProperties,
   DataSourceParameters,
-  DateTimeDatasetParameter,
-  DecimalDatasetParameter,
+  DestinationTable,
   DisplayFormatOptions,
   FilterOperation,
+  FiltersOperation,
+  ImportTableOperation,
   InputColumn,
-  IntegerDatasetParameter,
+  JoinOperation,
   LinkSharingConfiguration,
+  PivotOperation,
   ProjectOperation,
   RenameColumnOperation,
+  RenameColumnsOperation,
   ResourcePermission,
   SheetDefinition,
   SnapshotFile,
   SnapshotJobResultFileGroup,
   SnapshotS3DestinationConfiguration,
+  SourceTable,
   SslProperties,
   StaticFile,
-  StringDatasetParameterDefaultValues,
   Tag,
   TooltipSheetDefinition,
+  UnpivotOperation,
   ValidationStrategy,
   VpcConnectionProperties,
 } from "./models_2";
+
+/**
+ * <p>A step in data preparation that performs a specific operation on the data.</p>
+ * @public
+ */
+export interface TransformStep {
+  /**
+   * <p>A transform step that brings data from a source table.</p>
+   * @public
+   */
+  ImportTableStep?: ImportTableOperation | undefined;
+
+  /**
+   * <p>A transform operation that projects columns. Operations that come after a projection
+   *             can only refer to projected columns.</p>
+   * @public
+   */
+  ProjectStep?: ProjectOperation | undefined;
+
+  /**
+   * <p>A transform step that applies filter conditions.</p>
+   * @public
+   */
+  FiltersStep?: FiltersOperation | undefined;
+
+  /**
+   * <p>A transform operation that creates calculated columns. Columns created in one such
+   *             operation form a lexical closure.</p>
+   * @public
+   */
+  CreateColumnsStep?: CreateColumnsOperation | undefined;
+
+  /**
+   * <p>A transform step that changes the names of one or more columns.</p>
+   * @public
+   */
+  RenameColumnsStep?: RenameColumnsOperation | undefined;
+
+  /**
+   * <p>A transform step that changes the data types of one or more columns.</p>
+   * @public
+   */
+  CastColumnTypesStep?: CastColumnTypesOperation | undefined;
+
+  /**
+   * <p>A transform step that combines data from two sources based on specified join conditions.</p>
+   * @public
+   */
+  JoinStep?: JoinOperation | undefined;
+
+  /**
+   * <p>A transform step that groups data and applies aggregation functions to calculate summary values.</p>
+   * @public
+   */
+  AggregateStep?: AggregateOperation | undefined;
+
+  /**
+   * <p>A transform step that converts row values into columns to reshape the data structure.</p>
+   * @public
+   */
+  PivotStep?: PivotOperation | undefined;
+
+  /**
+   * <p>A transform step that converts columns into rows to normalize the data structure.</p>
+   * @public
+   */
+  UnpivotStep?: UnpivotOperation | undefined;
+
+  /**
+   * <p>A transform step that combines rows from multiple sources by stacking them vertically.</p>
+   * @public
+   */
+  AppendStep?: AppendOperation | undefined;
+}
+
+/**
+ * <p>Configuration for data preparation operations, defining the complete pipeline from source tables
+ *            through transformations to destination tables.</p>
+ * @public
+ */
+export interface DataPrepConfiguration {
+  /**
+   * <p>A map of source tables that provide information about underlying sources.</p>
+   * @public
+   */
+  SourceTableMap: Record<string, SourceTable> | undefined;
+
+  /**
+   * <p>A map of transformation steps that process the data.</p>
+   * @public
+   */
+  TransformStepMap: Record<string, TransformStep> | undefined;
+
+  /**
+   * <p>A map of destination tables that receive the final prepared data.</p>
+   * @public
+   */
+  DestinationTableMap: Record<string, DestinationTable> | undefined;
+}
+
+/**
+ * <p>The default values of a date time parameter.</p>
+ * @public
+ */
+export interface DateTimeDatasetParameterDefaultValues {
+  /**
+   * <p>A list of static default values for a given date time parameter.</p>
+   * @public
+   */
+  StaticValues?: Date[] | undefined;
+}
+
+/**
+ * <p>A date time parameter for a dataset.</p>
+ * @public
+ */
+export interface DateTimeDatasetParameter {
+  /**
+   * <p>An identifier for the parameter that is created in the dataset.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The name of the date time parameter that is created in the dataset.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The value type of the dataset parameter. Valid values are <code>single value</code> or <code>multi value</code>.</p>
+   * @public
+   */
+  ValueType: DatasetParameterValueType | undefined;
+
+  /**
+   * <p>The time granularity of the date time parameter.</p>
+   * @public
+   */
+  TimeGranularity?: TimeGranularity | undefined;
+
+  /**
+   * <p>A list of default values for a given date time parameter. This structure only accepts static values.</p>
+   * @public
+   */
+  DefaultValues?: DateTimeDatasetParameterDefaultValues | undefined;
+}
+
+/**
+ * <p>The default values of a decimal parameter.</p>
+ * @public
+ */
+export interface DecimalDatasetParameterDefaultValues {
+  /**
+   * <p>A list of static default values for a given decimal parameter.</p>
+   * @public
+   */
+  StaticValues?: number[] | undefined;
+}
+
+/**
+ * <p>A decimal parameter for a dataset.</p>
+ * @public
+ */
+export interface DecimalDatasetParameter {
+  /**
+   * <p>An identifier for the decimal parameter created in the dataset.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The name of the decimal parameter that is created in the dataset.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The value type of the dataset parameter. Valid values are <code>single value</code> or <code>multi value</code>.</p>
+   * @public
+   */
+  ValueType: DatasetParameterValueType | undefined;
+
+  /**
+   * <p>A list of default values for a given decimal parameter. This structure only accepts static values.</p>
+   * @public
+   */
+  DefaultValues?: DecimalDatasetParameterDefaultValues | undefined;
+}
+
+/**
+ * <p>The default values of an integer parameter.</p>
+ * @public
+ */
+export interface IntegerDatasetParameterDefaultValues {
+  /**
+   * <p>A list of static default values for a given integer parameter.</p>
+   * @public
+   */
+  StaticValues?: number[] | undefined;
+}
+
+/**
+ * <p>An integer parameter for a dataset.</p>
+ * @public
+ */
+export interface IntegerDatasetParameter {
+  /**
+   * <p>An identifier for the integer parameter created in the dataset.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The name of the integer parameter that is created in the dataset.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The value type of the dataset parameter. Valid values are <code>single value</code> or <code>multi value</code>.</p>
+   * @public
+   */
+  ValueType: DatasetParameterValueType | undefined;
+
+  /**
+   * <p>A list of default values for a given integer parameter. This structure only accepts static values.</p>
+   * @public
+   */
+  DefaultValues?: IntegerDatasetParameterDefaultValues | undefined;
+}
+
+/**
+ * <p>The default values of a string parameter.</p>
+ * @public
+ */
+export interface StringDatasetParameterDefaultValues {
+  /**
+   * <p>A list of static default values for a given string parameter.</p>
+   * @public
+   */
+  StaticValues?: string[] | undefined;
+}
 
 /**
  * <p>A string parameter for a dataset.</p>
@@ -1649,6 +1899,165 @@ export interface CreateDataSourceResponse {
 }
 
 /**
+ * <p>A structure that contains the permission information for one principal against one flow.</p>
+ * @public
+ */
+export interface Permission {
+  /**
+   * <p>A list of actions that the principal can perform against the flow.</p>
+   *          <p>The following are the list of values to set a principal as a flow owner:</p>
+   *          <ul>
+   *             <li>
+   *                <p>quicksight:PublishFlow</p>
+   *             </li>
+   *             <li>
+   *                <p>quicksight:GetFlow</p>
+   *             </li>
+   *             <li>
+   *                <p>quicksight:UpdateFlowPermissions</p>
+   *             </li>
+   *             <li>
+   *                <p>quicksight:GetFlowSession</p>
+   *             </li>
+   *             <li>
+   *                <p>quicksight:StartFlowSession</p>
+   *             </li>
+   *             <li>
+   *                <p>quicksight:StopFlowSession</p>
+   *             </li>
+   *             <li>
+   *                <p>quicksight:UpdateFlowSession</p>
+   *             </li>
+   *             <li>
+   *                <p>quicksight:UnpublishFlow</p>
+   *             </li>
+   *             <li>
+   *                <p>quicksight:GetFlowStages</p>
+   *             </li>
+   *             <li>
+   *                <p>quicksight:DeleteFlow</p>
+   *             </li>
+   *             <li>
+   *                <p>quicksight:DescribeFlowPermissions</p>
+   *             </li>
+   *             <li>
+   *                <p>quicksight:UpdateFlow</p>
+   *             </li>
+   *             <li>
+   *                <p>quicksight:CreatePresignedUrl</p>
+   *             </li>
+   *          </ul>
+   *          <p>The following are the list of values to set a principal as a flow viewer:</p>
+   *          <ul>
+   *             <li>
+   *                <p>quicksight:GetFlow</p>
+   *             </li>
+   *             <li>
+   *                <p>quicksight:UpdateFlowSession</p>
+   *             </li>
+   *             <li>
+   *                <p>quicksight:StartFlowSession</p>
+   *             </li>
+   *             <li>
+   *                <p>quicksight:StopFlowSession</p>
+   *             </li>
+   *             <li>
+   *                <p>quicksight:GetFlowSession</p>
+   *             </li>
+   *             <li>
+   *                <p>quicksight:CreatePresignedUrl</p>
+   *             </li>
+   *             <li>
+   *                <p>quicksight:GetFlowStages</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Actions: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the principal.
+   *             This can be an Amazon Quick user, group or namespace associated with the flow.
+   *             Namespace principal can only be set as a viewer and will grant everyone in the same namespace viewer permissions.</p>
+   * @public
+   */
+  Principal: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateFlowRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account where you want to create the flow.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The display name for the flow.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The description for the flow.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The definition of the flow, specifying the steps and configurations. This is the flow definition in Quick Flow's internal format. The format is subject to change.</p>
+   *          <note>
+   *             <p>Always derive or depend on the flow definition from the <code>DescribeFlow</code> operation to ensure you are working with the latest format.</p>
+   *          </note>
+   * @public
+   */
+  FlowDefinition: __DocumentType | undefined;
+
+  /**
+   * <p>Initial permissions for the flow. If omitted, the flow is created without any permissions.</p>
+   * @public
+   */
+  Permissions?: Permission[] | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateFlowResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the flow.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the flow.</p>
+   * @public
+   */
+  FlowId: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateFolderRequest {
@@ -2569,6 +2978,58 @@ export interface CreateRoleMembershipResponse {
    * @public
    */
   Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateSpaceRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the space.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the space. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  SpaceId: string | undefined;
+
+  /**
+   * <p>A display name for the space.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A description of the space.</p>
+   * @public
+   */
+  Description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateSpaceResponse {
+  /**
+   * <p>The ID of the space.</p>
+   * @public
+   */
+  spaceId: string | undefined;
+
+  /**
+   * <p>The ARN of the space.</p>
+   * @public
+   */
+  spaceArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
 }
 
 /**
@@ -5731,6 +6192,34 @@ export interface DeleteActionConnectorResponse {
 /**
  * @public
  */
+export interface DeleteAgentRequest {
+  /**
+   * <p>The unique identifier for the agent to delete.</p>
+   * @public
+   */
+  AgentId: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the agent.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAgentResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteAnalysisRequest {
   /**
    * <p>The ID of the Amazon Web Services account where you want to delete an analysis.</p>
@@ -6089,6 +6578,40 @@ export interface DeleteDefaultQBusinessApplicationRequest {
  * @public
  */
 export interface DeleteDefaultQBusinessApplicationResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteFlowRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the flow that you are deleting.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the flow to delete.</p>
+   * @public
+   */
+  FlowId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteFlowResponse {
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
@@ -6580,6 +7103,46 @@ export interface DeleteRoleMembershipResponse {
    * @public
    */
   Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSpaceRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the space.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the space that you want to delete.</p>
+   * @public
+   */
+  SpaceId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSpaceResponse {
+  /**
+   * <p>The ID of the space.</p>
+   * @public
+   */
+  spaceId: string | undefined;
+
+  /**
+   * <p>The ARN of the space.</p>
+   * @public
+   */
+  spaceArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
 }
 
 /**
@@ -7387,6 +7950,86 @@ export interface DescribeActionConnectorPermissionsResponse {
    * @public
    */
   Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAgentRequest {
+  /**
+   * <p>The unique identifier for the agent.</p>
+   * @public
+   */
+  AgentId: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the agent.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAgentResponse {
+  /**
+   * <p>The full details of the agent, including its configuration, status, and associations.</p>
+   * @public
+   */
+  Agent: Agent | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAgentPermissionsRequest {
+  /**
+   * <p>The unique identifier for the agent.</p>
+   * @public
+   */
+  AgentId: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the agent.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAgentPermissionsResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the agent.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the agent.</p>
+   * @public
+   */
+  AgentId: string | undefined;
+
+  /**
+   * <p>The resource permissions for the agent.</p>
+   * @public
+   */
+  Permissions: ResourcePermission[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId: string | undefined;
 }
 
 /**
@@ -8994,706 +9637,4 @@ export interface DescribeDataSourcePermissionsRequest {
    * @public
    */
   DataSourceId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeDataSourcePermissionsResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the data source.</p>
-   * @public
-   */
-  DataSourceArn?: string | undefined;
-
-  /**
-   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each
-   * 				Amazon Web Services account.</p>
-   * @public
-   */
-  DataSourceId?: string | undefined;
-
-  /**
-   * <p>A list of resource permissions on the data source.</p>
-   * @public
-   */
-  Permissions?: ResourcePermission[] | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeDefaultQBusinessApplicationRequest {
-  /**
-   * <p>The ID of the Quick Sight account that is linked to the Amazon Q Business application that you want described.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The Quick Sight namespace that contains the linked Amazon Q Business application. If this field is left blank, the default namespace is used. Currently, the default namespace is the only valid value for this parameter.</p>
-   * @public
-   */
-  Namespace?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeDefaultQBusinessApplicationResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The ID of the Amazon Q Business application that is linked to the Quick Sight account.</p>
-   * @public
-   */
-  ApplicationId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeFolderRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that contains the folder.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the folder.</p>
-   * @public
-   */
-  FolderId: string | undefined;
-}
-
-/**
- * <p>A folder in Quick Sight.</p>
- * @public
- */
-export interface Folder {
-  /**
-   * <p>The ID of the folder.</p>
-   * @public
-   */
-  FolderId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the folder.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>A display name for the folder.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The type of folder it is.</p>
-   * @public
-   */
-  FolderType?: FolderType | undefined;
-
-  /**
-   * <p>An array of ancestor ARN strings for the folder.</p>
-   * @public
-   */
-  FolderPath?: string[] | undefined;
-
-  /**
-   * <p>The time that the folder was created.</p>
-   * @public
-   */
-  CreatedTime?: Date | undefined;
-
-  /**
-   * <p>The time that the folder was last updated.</p>
-   * @public
-   */
-  LastUpdatedTime?: Date | undefined;
-
-  /**
-   * <p>The sharing scope of the folder.</p>
-   * @public
-   */
-  SharingModel?: SharingModel | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeFolderResponse {
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>Information about the folder.</p>
-   * @public
-   */
-  Folder?: Folder | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeFolderPermissionsRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that contains the folder.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the folder.</p>
-   * @public
-   */
-  FolderId: string | undefined;
-
-  /**
-   * <p>The namespace of the folder whose permissions you want described.</p>
-   * @public
-   */
-  Namespace?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>A pagination token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeFolderPermissionsResponse {
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The ID of the folder.</p>
-   * @public
-   */
-  FolderId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the folder.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>Information about the permissions on the folder.</p>
-   * @public
-   */
-  Permissions?: ResourcePermission[] | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The pagination token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeFolderResolvedPermissionsRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that contains the folder.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the folder.</p>
-   * @public
-   */
-  FolderId: string | undefined;
-
-  /**
-   * <p>The namespace of the folder whose permissions you want described.</p>
-   * @public
-   */
-  Namespace?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>A pagination token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeFolderResolvedPermissionsResponse {
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The ID of the folder.</p>
-   * @public
-   */
-  FolderId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the folder.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>Information about the permissions for the folder.</p>
-   * @public
-   */
-  Permissions?: ResourcePermission[] | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>A pagination token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeGroupRequest {
-  /**
-   * <p>The name of the group that you want to describe.</p>
-   * @public
-   */
-  GroupName: string | undefined;
-
-  /**
-   * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
-   * 			Amazon Web Services account that contains your Amazon Quick Sight account.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The namespace of the group that you want described.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeGroupResponse {
-  /**
-   * <p>The name of the group.</p>
-   * @public
-   */
-  Group?: Group | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeGroupMembershipRequest {
-  /**
-   * <p>The user name of the user that you want to search for.</p>
-   * @public
-   */
-  MemberName: string | undefined;
-
-  /**
-   * <p>The name of the group that you want to search.</p>
-   * @public
-   */
-  GroupName: string | undefined;
-
-  /**
-   * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
-   *          Amazon Web Services account that contains your Amazon Quick Sight account.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The namespace that includes the group you are searching within.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeGroupMembershipResponse {
-  /**
-   * <p>A member of an Quick Sight group. Currently, group members must be users. Groups
-   *             can't be members of another group. .</p>
-   * @public
-   */
-  GroupMember?: GroupMember | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeIAMPolicyAssignmentRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the assignment that you want to
-   * 			describe.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The name of the assignment, also called a rule.</p>
-   * @public
-   */
-  AssignmentName: string | undefined;
-
-  /**
-   * <p>The namespace that contains the assignment.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-}
-
-/**
- * <p>An Identity and Access Management (IAM) policy assignment.</p>
- * @public
- */
-export interface IAMPolicyAssignment {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId?: string | undefined;
-
-  /**
-   * <p>Assignment ID.</p>
-   * @public
-   */
-  AssignmentId?: string | undefined;
-
-  /**
-   * <p>Assignment name.</p>
-   * @public
-   */
-  AssignmentName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the IAM policy.</p>
-   * @public
-   */
-  PolicyArn?: string | undefined;
-
-  /**
-   * <p>Identities.</p>
-   * @public
-   */
-  Identities?: Record<string, string[]> | undefined;
-
-  /**
-   * <p>Assignment status.</p>
-   * @public
-   */
-  AssignmentStatus?: AssignmentStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeIAMPolicyAssignmentResponse {
-  /**
-   * <p>Information describing the IAM policy assignment.</p>
-   * @public
-   */
-  IAMPolicyAssignment?: IAMPolicyAssignment | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeIngestionRequest {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the dataset used in the ingestion.</p>
-   * @public
-   */
-  DataSetId: string | undefined;
-
-  /**
-   * <p>An ID for the ingestion.</p>
-   * @public
-   */
-  IngestionId: string | undefined;
-}
-
-/**
- * <p>Error information for the SPICE ingestion of a dataset.</p>
- * @public
- */
-export interface ErrorInfo {
-  /**
-   * <p>Error type.</p>
-   * @public
-   */
-  Type?: IngestionErrorType | undefined;
-
-  /**
-   * <p>Error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-}
-
-/**
- * <p>Information about a queued dataset SPICE ingestion.</p>
- * @public
- */
-export interface QueueInfo {
-  /**
-   * <p>The ID of the queued ingestion.</p>
-   * @public
-   */
-  WaitingOnIngestion: string | undefined;
-
-  /**
-   * <p>The ID of the ongoing ingestion. The queued ingestion is waiting for the ongoing
-   *             ingestion to complete.</p>
-   * @public
-   */
-  QueuedIngestion: string | undefined;
-}
-
-/**
- * <p>Information about rows for a data set SPICE ingestion.</p>
- * @public
- */
-export interface RowInfo {
-  /**
-   * <p>The number of rows that were ingested.</p>
-   * @public
-   */
-  RowsIngested?: number | undefined;
-
-  /**
-   * <p>The number of rows that were not ingested.</p>
-   * @public
-   */
-  RowsDropped?: number | undefined;
-
-  /**
-   * <p>The total number of rows in the dataset.</p>
-   * @public
-   */
-  TotalRowsInDataset?: number | undefined;
-}
-
-/**
- * <p>Information about the SPICE ingestion for a dataset.</p>
- * @public
- */
-export interface Ingestion {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   * @public
-   */
-  Arn: string | undefined;
-
-  /**
-   * <p>Ingestion ID.</p>
-   * @public
-   */
-  IngestionId?: string | undefined;
-
-  /**
-   * <p>Ingestion status.</p>
-   * @public
-   */
-  IngestionStatus: IngestionStatus | undefined;
-
-  /**
-   * <p>Error information for this ingestion.</p>
-   * @public
-   */
-  ErrorInfo?: ErrorInfo | undefined;
-
-  /**
-   * <p>Information about rows for a data set SPICE ingestion.</p>
-   * @public
-   */
-  RowInfo?: RowInfo | undefined;
-
-  /**
-   * <p>Information about a queued dataset SPICE ingestion.</p>
-   * @public
-   */
-  QueueInfo?: QueueInfo | undefined;
-
-  /**
-   * <p>The time that this ingestion started.</p>
-   * @public
-   */
-  CreatedTime: Date | undefined;
-
-  /**
-   * <p>The time that this ingestion took, measured in seconds.</p>
-   * @public
-   */
-  IngestionTimeInSeconds?: number | undefined;
-
-  /**
-   * <p>The size of the data ingested, in bytes.</p>
-   * @public
-   */
-  IngestionSizeInBytes?: number | undefined;
-
-  /**
-   * <p>Event source for this ingestion.</p>
-   * @public
-   */
-  RequestSource?: IngestionRequestSource | undefined;
-
-  /**
-   * <p>Type of this ingestion.</p>
-   * @public
-   */
-  RequestType?: IngestionRequestType | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeIngestionResponse {
-  /**
-   * <p>Information about the ingestion.</p>
-   * @public
-   */
-  Ingestion?: Ingestion | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeIpRestrictionRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the IP rules.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
 }

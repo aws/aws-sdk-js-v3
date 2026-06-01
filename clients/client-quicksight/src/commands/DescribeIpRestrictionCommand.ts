@@ -4,8 +4,7 @@ import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { DescribeIpRestrictionRequest } from "../models/models_3";
-import type { DescribeIpRestrictionResponse } from "../models/models_4";
+import type { DescribeIpRestrictionRequest, DescribeIpRestrictionResponse } from "../models/models_4";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { DescribeIpRestriction$ } from "../schemas/schemas_0";
 

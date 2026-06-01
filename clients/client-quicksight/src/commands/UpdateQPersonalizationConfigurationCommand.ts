@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type {
   UpdateQPersonalizationConfigurationRequest,
   UpdateQPersonalizationConfigurationResponse,
-} from "../models/models_4";
+} from "../models/models_5";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { UpdateQPersonalizationConfiguration$ } from "../schemas/schemas_0";
 

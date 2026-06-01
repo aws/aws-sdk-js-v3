@@ -172,6 +172,63 @@ export type DashboardBehavior = (typeof DashboardBehavior)[keyof typeof Dashboar
  * @public
  * @enum
  */
+export const AgentLifecycle = {
+  PREVIEW: "PREVIEW",
+  PUBLISHED: "PUBLISHED",
+} as const;
+/**
+ * @public
+ */
+export type AgentLifecycle = (typeof AgentLifecycle)[keyof typeof AgentLifecycle];
+
+/**
+ * @public
+ * @enum
+ */
+export const AgentStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  FAILED: "FAILED",
+  UPDATING: "UPDATING",
+} as const;
+/**
+ * @public
+ */
+export type AgentStatus = (typeof AgentStatus)[keyof typeof AgentStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const AgentOwnershipFilterAttribute = {
+  AGENT_NAME: "AGENT_NAME",
+  DIRECT_QUICKSIGHT_OWNER: "DIRECT_QUICKSIGHT_OWNER",
+  DIRECT_QUICKSIGHT_SOLE_OWNER: "DIRECT_QUICKSIGHT_SOLE_OWNER",
+  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER: "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
+} as const;
+/**
+ * @public
+ */
+export type AgentOwnershipFilterAttribute =
+  (typeof AgentOwnershipFilterAttribute)[keyof typeof AgentOwnershipFilterAttribute];
+
+/**
+ * @public
+ * @enum
+ */
+export const ComparisonOperator = {
+  StringEquals: "StringEquals",
+  StringLike: "StringLike",
+} as const;
+/**
+ * @public
+ */
+export type ComparisonOperator = (typeof ComparisonOperator)[keyof typeof ComparisonOperator];
+
+/**
+ * @public
+ * @enum
+ */
 export const AggType = {
   AVERAGE: "AVERAGE",
   COLUMN: "COLUMN",
@@ -3832,6 +3889,20 @@ export type SnapshotJobStatus = (typeof SnapshotJobStatus)[keyof typeof Snapshot
  * @public
  * @enum
  */
+export const FlowPublishState = {
+  DRAFT: "DRAFT",
+  PENDING_APPROVAL: "PENDING_APPROVAL",
+  PUBLISHED: "PUBLISHED",
+} as const;
+/**
+ * @public
+ */
+export type FlowPublishState = (typeof FlowPublishState)[keyof typeof FlowPublishState];
+
+/**
+ * @public
+ * @enum
+ */
 export const IngestionErrorType = {
   ACCOUNT_CAPACITY_LIMIT_EXCEEDED: "ACCOUNT_CAPACITY_LIMIT_EXCEEDED",
   CONNECTION_FAILURE: "CONNECTION_FAILURE",
@@ -3981,6 +4052,25 @@ export type SelfUpgradeStatus = (typeof SelfUpgradeStatus)[keyof typeof SelfUpgr
  * @public
  * @enum
  */
+export const SpaceQuickSightResourceType = {
+  ACTION_CONNECTOR: "ACTION_CONNECTOR",
+  ARTIFACT: "ARTIFACT",
+  DASHBOARD: "DASHBOARD",
+  DATA_SET: "DATA_SET",
+  KNOWLEDGE_BASE: "KNOWLEDGE_BASE",
+  SPACE: "SPACE",
+  TOPIC: "TOPIC",
+} as const;
+/**
+ * @public
+ */
+export type SpaceQuickSightResourceType =
+  (typeof SpaceQuickSightResourceType)[keyof typeof SpaceQuickSightResourceType];
+
+/**
+ * @public
+ * @enum
+ */
 export const TemplateErrorType = {
   ACCESS_DENIED: "ACCESS_DENIED",
   DATA_SET_NOT_FOUND: "DATA_SET_NOT_FOUND",
@@ -4122,20 +4212,6 @@ export type FieldName = (typeof FieldName)[keyof typeof FieldName];
  * @public
  * @enum
  */
-export const FlowPublishState = {
-  DRAFT: "DRAFT",
-  PENDING_APPROVAL: "PENDING_APPROVAL",
-  PUBLISHED: "PUBLISHED",
-} as const;
-/**
- * @public
- */
-export type FlowPublishState = (typeof FlowPublishState)[keyof typeof FlowPublishState];
-
-/**
- * @public
- * @enum
- */
 export const FolderFilterAttribute = {
   DIRECT_QUICKSIGHT_OWNER: "DIRECT_QUICKSIGHT_OWNER",
   DIRECT_QUICKSIGHT_SOLE_OWNER: "DIRECT_QUICKSIGHT_SOLE_OWNER",
@@ -4269,6 +4345,40 @@ export const SearchFilterOperator = {
  * @public
  */
 export type SearchFilterOperator = (typeof SearchFilterOperator)[keyof typeof SearchFilterOperator];
+
+/**
+ * @public
+ * @enum
+ */
+export const SpaceQuickSightSearchFilterName = {
+  CONSUMED_SOURCE_SIZE: "CONSUMED_SOURCE_SIZE",
+  CONTRIBUTED_BY: "CONTRIBUTED_BY",
+  CREATED_BY: "CREATED_BY",
+  DIRECT_QUICKSIGHT_OWNER: "DIRECT_QUICKSIGHT_OWNER",
+  DIRECT_QUICKSIGHT_SOLE_OWNER: "DIRECT_QUICKSIGHT_SOLE_OWNER",
+  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER: "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
+  SPACE_ID: "SPACE_ID",
+  SPACE_NAME: "SPACE_NAME",
+} as const;
+/**
+ * @public
+ */
+export type SpaceQuickSightSearchFilterName =
+  (typeof SpaceQuickSightSearchFilterName)[keyof typeof SpaceQuickSightSearchFilterName];
+
+/**
+ * @public
+ * @enum
+ */
+export const SpaceSearchOperator = {
+  NUMBER_RANGE: "NUMBER_RANGE",
+  STRING_EQUALS: "STRING_EQUALS",
+  STRING_LIKE: "STRING_LIKE",
+} as const;
+/**
+ * @public
+ */
+export type SpaceSearchOperator = (typeof SpaceSearchOperator)[keyof typeof SpaceSearchOperator];
 
 /**
  * @public

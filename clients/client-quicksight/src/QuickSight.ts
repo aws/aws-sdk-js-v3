@@ -33,6 +33,11 @@ import {
   CreateActionConnectorCommand,
 } from "./commands/CreateActionConnectorCommand";
 import {
+  type CreateAgentCommandInput,
+  type CreateAgentCommandOutput,
+  CreateAgentCommand,
+} from "./commands/CreateAgentCommand";
+import {
   type CreateAnalysisCommandInput,
   type CreateAnalysisCommandOutput,
   CreateAnalysisCommand,
@@ -62,6 +67,11 @@ import {
   type CreateDataSourceCommandOutput,
   CreateDataSourceCommand,
 } from "./commands/CreateDataSourceCommand";
+import {
+  type CreateFlowCommandInput,
+  type CreateFlowCommandOutput,
+  CreateFlowCommand,
+} from "./commands/CreateFlowCommand";
 import {
   type CreateFolderCommandInput,
   type CreateFolderCommandOutput,
@@ -112,6 +122,11 @@ import {
   type CreateRoleMembershipCommandOutput,
   CreateRoleMembershipCommand,
 } from "./commands/CreateRoleMembershipCommand";
+import {
+  type CreateSpaceCommandInput,
+  type CreateSpaceCommandOutput,
+  CreateSpaceCommand,
+} from "./commands/CreateSpaceCommand";
 import {
   type CreateTemplateAliasCommandInput,
   type CreateTemplateAliasCommandOutput,
@@ -168,6 +183,11 @@ import {
   DeleteActionConnectorCommand,
 } from "./commands/DeleteActionConnectorCommand";
 import {
+  type DeleteAgentCommandInput,
+  type DeleteAgentCommandOutput,
+  DeleteAgentCommand,
+} from "./commands/DeleteAgentCommand";
+import {
   type DeleteAnalysisCommandInput,
   type DeleteAnalysisCommandOutput,
   DeleteAnalysisCommand,
@@ -212,6 +232,11 @@ import {
   type DeleteDefaultQBusinessApplicationCommandOutput,
   DeleteDefaultQBusinessApplicationCommand,
 } from "./commands/DeleteDefaultQBusinessApplicationCommand";
+import {
+  type DeleteFlowCommandInput,
+  type DeleteFlowCommandOutput,
+  DeleteFlowCommand,
+} from "./commands/DeleteFlowCommand";
 import {
   type DeleteFolderCommandInput,
   type DeleteFolderCommandOutput,
@@ -267,6 +292,11 @@ import {
   type DeleteRoleMembershipCommandOutput,
   DeleteRoleMembershipCommand,
 } from "./commands/DeleteRoleMembershipCommand";
+import {
+  type DeleteSpaceCommandInput,
+  type DeleteSpaceCommandOutput,
+  DeleteSpaceCommand,
+} from "./commands/DeleteSpaceCommand";
 import {
   type DeleteTemplateAliasCommandInput,
   type DeleteTemplateAliasCommandOutput,
@@ -347,6 +377,16 @@ import {
   type DescribeActionConnectorPermissionsCommandOutput,
   DescribeActionConnectorPermissionsCommand,
 } from "./commands/DescribeActionConnectorPermissionsCommand";
+import {
+  type DescribeAgentCommandInput,
+  type DescribeAgentCommandOutput,
+  DescribeAgentCommand,
+} from "./commands/DescribeAgentCommand";
+import {
+  type DescribeAgentPermissionsCommandInput,
+  type DescribeAgentPermissionsCommandOutput,
+  DescribeAgentPermissionsCommand,
+} from "./commands/DescribeAgentPermissionsCommand";
 import {
   type DescribeAnalysisCommandInput,
   type DescribeAnalysisCommandOutput,
@@ -458,6 +498,11 @@ import {
   DescribeDefaultQBusinessApplicationCommand,
 } from "./commands/DescribeDefaultQBusinessApplicationCommand";
 import {
+  type DescribeFlowCommandInput,
+  type DescribeFlowCommandOutput,
+  DescribeFlowCommand,
+} from "./commands/DescribeFlowCommand";
+import {
   type DescribeFolderCommandInput,
   type DescribeFolderCommandOutput,
   DescribeFolderCommand,
@@ -537,6 +582,16 @@ import {
   type DescribeSelfUpgradeConfigurationCommandOutput,
   DescribeSelfUpgradeConfigurationCommand,
 } from "./commands/DescribeSelfUpgradeConfigurationCommand";
+import {
+  type DescribeSpaceCommandInput,
+  type DescribeSpaceCommandOutput,
+  DescribeSpaceCommand,
+} from "./commands/DescribeSpaceCommand";
+import {
+  type DescribeSpacePermissionsCommandInput,
+  type DescribeSpacePermissionsCommandOutput,
+  DescribeSpacePermissionsCommand,
+} from "./commands/DescribeSpacePermissionsCommand";
 import {
   type DescribeTemplateAliasCommandInput,
   type DescribeTemplateAliasCommandOutput,
@@ -647,6 +702,11 @@ import {
   type ListActionConnectorsCommandOutput,
   ListActionConnectorsCommand,
 } from "./commands/ListActionConnectorsCommand";
+import {
+  type ListAgentsCommandInput,
+  type ListAgentsCommandOutput,
+  ListAgentsCommand,
+} from "./commands/ListAgentsCommand";
 import {
   type ListAnalysesCommandInput,
   type ListAnalysesCommandOutput,
@@ -764,6 +824,16 @@ import {
   ListSelfUpgradesCommand,
 } from "./commands/ListSelfUpgradesCommand";
 import {
+  type ListSpaceResourcesCommandInput,
+  type ListSpaceResourcesCommandOutput,
+  ListSpaceResourcesCommand,
+} from "./commands/ListSpaceResourcesCommand";
+import {
+  type ListSpacesCommandInput,
+  type ListSpacesCommandOutput,
+  ListSpacesCommand,
+} from "./commands/ListSpacesCommand";
+import {
   type ListTagsForResourceCommandInput,
   type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
@@ -850,6 +920,11 @@ import {
   SearchActionConnectorsCommand,
 } from "./commands/SearchActionConnectorsCommand";
 import {
+  type SearchAgentsCommandInput,
+  type SearchAgentsCommandOutput,
+  SearchAgentsCommand,
+} from "./commands/SearchAgentsCommand";
+import {
   type SearchAnalysesCommandInput,
   type SearchAnalysesCommandOutput,
   SearchAnalysesCommand,
@@ -884,6 +959,11 @@ import {
   type SearchGroupsCommandOutput,
   SearchGroupsCommand,
 } from "./commands/SearchGroupsCommand";
+import {
+  type SearchSpacesCommandInput,
+  type SearchSpacesCommandOutput,
+  SearchSpacesCommand,
+} from "./commands/SearchSpacesCommand";
 import {
   type SearchTopicsCommandInput,
   type SearchTopicsCommandOutput,
@@ -949,6 +1029,16 @@ import {
   type UpdateActionConnectorPermissionsCommandOutput,
   UpdateActionConnectorPermissionsCommand,
 } from "./commands/UpdateActionConnectorPermissionsCommand";
+import {
+  type UpdateAgentCommandInput,
+  type UpdateAgentCommandOutput,
+  UpdateAgentCommand,
+} from "./commands/UpdateAgentCommand";
+import {
+  type UpdateAgentPermissionsCommandInput,
+  type UpdateAgentPermissionsCommandOutput,
+  UpdateAgentPermissionsCommand,
+} from "./commands/UpdateAgentPermissionsCommand";
 import {
   type UpdateAnalysisCommandInput,
   type UpdateAnalysisCommandOutput,
@@ -1035,6 +1125,11 @@ import {
   UpdateDefaultQBusinessApplicationCommand,
 } from "./commands/UpdateDefaultQBusinessApplicationCommand";
 import {
+  type UpdateFlowCommandInput,
+  type UpdateFlowCommandOutput,
+  UpdateFlowCommand,
+} from "./commands/UpdateFlowCommand";
+import {
   type UpdateFlowPermissionsCommandInput,
   type UpdateFlowPermissionsCommandOutput,
   UpdateFlowPermissionsCommand,
@@ -1114,6 +1209,21 @@ import {
   type UpdateSelfUpgradeConfigurationCommandOutput,
   UpdateSelfUpgradeConfigurationCommand,
 } from "./commands/UpdateSelfUpgradeConfigurationCommand";
+import {
+  type UpdateSpaceCommandInput,
+  type UpdateSpaceCommandOutput,
+  UpdateSpaceCommand,
+} from "./commands/UpdateSpaceCommand";
+import {
+  type UpdateSpacePermissionsCommandInput,
+  type UpdateSpacePermissionsCommandOutput,
+  UpdateSpacePermissionsCommand,
+} from "./commands/UpdateSpacePermissionsCommand";
+import {
+  type UpdateSpaceResourcesCommandInput,
+  type UpdateSpaceResourcesCommandOutput,
+  UpdateSpaceResourcesCommand,
+} from "./commands/UpdateSpaceResourcesCommand";
 import {
   type UpdateSPICECapacityConfigurationCommandInput,
   type UpdateSPICECapacityConfigurationCommandOutput,
@@ -1230,12 +1340,14 @@ const commands = {
   CreateAccountCustomizationCommand,
   CreateAccountSubscriptionCommand,
   CreateActionConnectorCommand,
+  CreateAgentCommand,
   CreateAnalysisCommand,
   CreateBrandCommand,
   CreateCustomPermissionsCommand,
   CreateDashboardCommand,
   CreateDataSetCommand,
   CreateDataSourceCommand,
+  CreateFlowCommand,
   CreateFolderCommand,
   CreateFolderMembershipCommand,
   CreateGroupCommand,
@@ -1246,6 +1358,7 @@ const commands = {
   CreateOAuthClientApplicationCommand,
   CreateRefreshScheduleCommand,
   CreateRoleMembershipCommand,
+  CreateSpaceCommand,
   CreateTemplateCommand,
   CreateTemplateAliasCommand,
   CreateThemeCommand,
@@ -1257,6 +1370,7 @@ const commands = {
   DeleteAccountCustomPermissionCommand,
   DeleteAccountSubscriptionCommand,
   DeleteActionConnectorCommand,
+  DeleteAgentCommand,
   DeleteAnalysisCommand,
   DeleteBrandCommand,
   DeleteBrandAssignmentCommand,
@@ -1266,6 +1380,7 @@ const commands = {
   DeleteDataSetRefreshPropertiesCommand,
   DeleteDataSourceCommand,
   DeleteDefaultQBusinessApplicationCommand,
+  DeleteFlowCommand,
   DeleteFolderCommand,
   DeleteFolderMembershipCommand,
   DeleteGroupCommand,
@@ -1277,6 +1392,7 @@ const commands = {
   DeleteRefreshScheduleCommand,
   DeleteRoleCustomPermissionCommand,
   DeleteRoleMembershipCommand,
+  DeleteSpaceCommand,
   DeleteTemplateCommand,
   DeleteTemplateAliasCommand,
   DeleteThemeCommand,
@@ -1293,6 +1409,8 @@ const commands = {
   DescribeAccountSubscriptionCommand,
   DescribeActionConnectorCommand,
   DescribeActionConnectorPermissionsCommand,
+  DescribeAgentCommand,
+  DescribeAgentPermissionsCommand,
   DescribeAnalysisCommand,
   DescribeAnalysisDefinitionCommand,
   DescribeAnalysisPermissionsCommand,
@@ -1315,6 +1433,7 @@ const commands = {
   DescribeDataSourceCommand,
   DescribeDataSourcePermissionsCommand,
   DescribeDefaultQBusinessApplicationCommand,
+  DescribeFlowCommand,
   DescribeFolderCommand,
   DescribeFolderPermissionsCommand,
   DescribeFolderResolvedPermissionsCommand,
@@ -1331,6 +1450,8 @@ const commands = {
   DescribeRefreshScheduleCommand,
   DescribeRoleCustomPermissionCommand,
   DescribeSelfUpgradeConfigurationCommand,
+  DescribeSpaceCommand,
+  DescribeSpacePermissionsCommand,
   DescribeTemplateCommand,
   DescribeTemplateAliasCommand,
   DescribeTemplateDefinitionCommand,
@@ -1353,6 +1474,7 @@ const commands = {
   GetIdentityContextCommand,
   GetSessionEmbedUrlCommand,
   ListActionConnectorsCommand,
+  ListAgentsCommand,
   ListAnalysesCommand,
   ListAssetBundleExportJobsCommand,
   ListAssetBundleImportJobsCommand,
@@ -1377,6 +1499,8 @@ const commands = {
   ListRefreshSchedulesCommand,
   ListRoleMembershipsCommand,
   ListSelfUpgradesCommand,
+  ListSpaceResourcesCommand,
+  ListSpacesCommand,
   ListTagsForResourceCommand,
   ListTemplateAliasesCommand,
   ListTemplatesCommand,
@@ -1395,6 +1519,7 @@ const commands = {
   RegisterUserCommand,
   RestoreAnalysisCommand,
   SearchActionConnectorsCommand,
+  SearchAgentsCommand,
   SearchAnalysesCommand,
   SearchDashboardsCommand,
   SearchDataSetsCommand,
@@ -1402,6 +1527,7 @@ const commands = {
   SearchFlowsCommand,
   SearchFoldersCommand,
   SearchGroupsCommand,
+  SearchSpacesCommand,
   SearchTopicsCommand,
   StartAssetBundleExportJobCommand,
   StartAssetBundleImportJobCommand,
@@ -1415,6 +1541,8 @@ const commands = {
   UpdateAccountSettingsCommand,
   UpdateActionConnectorCommand,
   UpdateActionConnectorPermissionsCommand,
+  UpdateAgentCommand,
+  UpdateAgentPermissionsCommand,
   UpdateAnalysisCommand,
   UpdateAnalysisPermissionsCommand,
   UpdateApplicationWithTokenExchangeGrantCommand,
@@ -1432,6 +1560,7 @@ const commands = {
   UpdateDataSourceCommand,
   UpdateDataSourcePermissionsCommand,
   UpdateDefaultQBusinessApplicationCommand,
+  UpdateFlowCommand,
   UpdateFlowPermissionsCommand,
   UpdateFolderCommand,
   UpdateFolderPermissionsCommand,
@@ -1448,6 +1577,9 @@ const commands = {
   UpdateRoleCustomPermissionCommand,
   UpdateSelfUpgradeCommand,
   UpdateSelfUpgradeConfigurationCommand,
+  UpdateSpaceCommand,
+  UpdateSpacePermissionsCommand,
+  UpdateSpaceResourcesCommand,
   UpdateSPICECapacityConfigurationCommand,
   UpdateTemplateCommand,
   UpdateTemplateAliasCommand,
@@ -1611,6 +1743,23 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link CreateAgentCommand}
+   */
+  createAgent(
+    args: CreateAgentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAgentCommandOutput>;
+  createAgent(
+    args: CreateAgentCommandInput,
+    cb: (err: any, data?: CreateAgentCommandOutput) => void
+  ): void;
+  createAgent(
+    args: CreateAgentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAgentCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateAnalysisCommand}
    */
   createAnalysis(
@@ -1710,6 +1859,23 @@ export interface QuickSight {
     args: CreateDataSourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateDataSourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateFlowCommand}
+   */
+  createFlow(
+    args: CreateFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateFlowCommandOutput>;
+  createFlow(
+    args: CreateFlowCommandInput,
+    cb: (err: any, data?: CreateFlowCommandOutput) => void
+  ): void;
+  createFlow(
+    args: CreateFlowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateFlowCommandOutput) => void
   ): void;
 
   /**
@@ -1880,6 +2046,23 @@ export interface QuickSight {
     args: CreateRoleMembershipCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateRoleMembershipCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateSpaceCommand}
+   */
+  createSpace(
+    args: CreateSpaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSpaceCommandOutput>;
+  createSpace(
+    args: CreateSpaceCommandInput,
+    cb: (err: any, data?: CreateSpaceCommandOutput) => void
+  ): void;
+  createSpace(
+    args: CreateSpaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateSpaceCommandOutput) => void
   ): void;
 
   /**
@@ -2070,6 +2253,23 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link DeleteAgentCommand}
+   */
+  deleteAgent(
+    args: DeleteAgentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAgentCommandOutput>;
+  deleteAgent(
+    args: DeleteAgentCommandInput,
+    cb: (err: any, data?: DeleteAgentCommandOutput) => void
+  ): void;
+  deleteAgent(
+    args: DeleteAgentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAgentCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteAnalysisCommand}
    */
   deleteAnalysis(
@@ -2220,6 +2420,23 @@ export interface QuickSight {
     args: DeleteDefaultQBusinessApplicationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteDefaultQBusinessApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteFlowCommand}
+   */
+  deleteFlow(
+    args: DeleteFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteFlowCommandOutput>;
+  deleteFlow(
+    args: DeleteFlowCommandInput,
+    cb: (err: any, data?: DeleteFlowCommandOutput) => void
+  ): void;
+  deleteFlow(
+    args: DeleteFlowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteFlowCommandOutput) => void
   ): void;
 
   /**
@@ -2407,6 +2624,23 @@ export interface QuickSight {
     args: DeleteRoleMembershipCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteRoleMembershipCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteSpaceCommand}
+   */
+  deleteSpace(
+    args: DeleteSpaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSpaceCommandOutput>;
+  deleteSpace(
+    args: DeleteSpaceCommandInput,
+    cb: (err: any, data?: DeleteSpaceCommandOutput) => void
+  ): void;
+  deleteSpace(
+    args: DeleteSpaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteSpaceCommandOutput) => void
   ): void;
 
   /**
@@ -2679,6 +2913,40 @@ export interface QuickSight {
     args: DescribeActionConnectorPermissionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeActionConnectorPermissionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeAgentCommand}
+   */
+  describeAgent(
+    args: DescribeAgentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAgentCommandOutput>;
+  describeAgent(
+    args: DescribeAgentCommandInput,
+    cb: (err: any, data?: DescribeAgentCommandOutput) => void
+  ): void;
+  describeAgent(
+    args: DescribeAgentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAgentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeAgentPermissionsCommand}
+   */
+  describeAgentPermissions(
+    args: DescribeAgentPermissionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAgentPermissionsCommandOutput>;
+  describeAgentPermissions(
+    args: DescribeAgentPermissionsCommandInput,
+    cb: (err: any, data?: DescribeAgentPermissionsCommandOutput) => void
+  ): void;
+  describeAgentPermissions(
+    args: DescribeAgentPermissionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAgentPermissionsCommandOutput) => void
   ): void;
 
   /**
@@ -3056,6 +3324,23 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link DescribeFlowCommand}
+   */
+  describeFlow(
+    args: DescribeFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeFlowCommandOutput>;
+  describeFlow(
+    args: DescribeFlowCommandInput,
+    cb: (err: any, data?: DescribeFlowCommandOutput) => void
+  ): void;
+  describeFlow(
+    args: DescribeFlowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeFlowCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeFolderCommand}
    */
   describeFolder(
@@ -3325,6 +3610,40 @@ export interface QuickSight {
     args: DescribeSelfUpgradeConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeSelfUpgradeConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeSpaceCommand}
+   */
+  describeSpace(
+    args: DescribeSpaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeSpaceCommandOutput>;
+  describeSpace(
+    args: DescribeSpaceCommandInput,
+    cb: (err: any, data?: DescribeSpaceCommandOutput) => void
+  ): void;
+  describeSpace(
+    args: DescribeSpaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeSpaceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeSpacePermissionsCommand}
+   */
+  describeSpacePermissions(
+    args: DescribeSpacePermissionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeSpacePermissionsCommandOutput>;
+  describeSpacePermissions(
+    args: DescribeSpacePermissionsCommandInput,
+    cb: (err: any, data?: DescribeSpacePermissionsCommandOutput) => void
+  ): void;
+  describeSpacePermissions(
+    args: DescribeSpacePermissionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeSpacePermissionsCommandOutput) => void
   ): void;
 
   /**
@@ -3699,6 +4018,23 @@ export interface QuickSight {
     args: ListActionConnectorsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListActionConnectorsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAgentsCommand}
+   */
+  listAgents(
+    args: ListAgentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAgentsCommandOutput>;
+  listAgents(
+    args: ListAgentsCommandInput,
+    cb: (err: any, data?: ListAgentsCommandOutput) => void
+  ): void;
+  listAgents(
+    args: ListAgentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAgentsCommandOutput) => void
   ): void;
 
   /**
@@ -4110,6 +4446,40 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link ListSpaceResourcesCommand}
+   */
+  listSpaceResources(
+    args: ListSpaceResourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSpaceResourcesCommandOutput>;
+  listSpaceResources(
+    args: ListSpaceResourcesCommandInput,
+    cb: (err: any, data?: ListSpaceResourcesCommandOutput) => void
+  ): void;
+  listSpaceResources(
+    args: ListSpaceResourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSpaceResourcesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSpacesCommand}
+   */
+  listSpaces(
+    args: ListSpacesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSpacesCommandOutput>;
+  listSpaces(
+    args: ListSpacesCommandInput,
+    cb: (err: any, data?: ListSpacesCommandOutput) => void
+  ): void;
+  listSpaces(
+    args: ListSpacesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSpacesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListTagsForResourceCommand}
    */
   listTagsForResource(
@@ -4416,6 +4786,23 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link SearchAgentsCommand}
+   */
+  searchAgents(
+    args: SearchAgentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchAgentsCommandOutput>;
+  searchAgents(
+    args: SearchAgentsCommandInput,
+    cb: (err: any, data?: SearchAgentsCommandOutput) => void
+  ): void;
+  searchAgents(
+    args: SearchAgentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchAgentsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link SearchAnalysesCommand}
    */
   searchAnalyses(
@@ -4532,6 +4919,23 @@ export interface QuickSight {
     args: SearchGroupsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SearchGroupsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SearchSpacesCommand}
+   */
+  searchSpaces(
+    args: SearchSpacesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchSpacesCommandOutput>;
+  searchSpaces(
+    args: SearchSpacesCommandInput,
+    cb: (err: any, data?: SearchSpacesCommandOutput) => void
+  ): void;
+  searchSpaces(
+    args: SearchSpacesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchSpacesCommandOutput) => void
   ): void;
 
   /**
@@ -4753,6 +5157,40 @@ export interface QuickSight {
     args: UpdateActionConnectorPermissionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateActionConnectorPermissionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAgentCommand}
+   */
+  updateAgent(
+    args: UpdateAgentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAgentCommandOutput>;
+  updateAgent(
+    args: UpdateAgentCommandInput,
+    cb: (err: any, data?: UpdateAgentCommandOutput) => void
+  ): void;
+  updateAgent(
+    args: UpdateAgentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAgentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAgentPermissionsCommand}
+   */
+  updateAgentPermissions(
+    args: UpdateAgentPermissionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAgentPermissionsCommandOutput>;
+  updateAgentPermissions(
+    args: UpdateAgentPermissionsCommandInput,
+    cb: (err: any, data?: UpdateAgentPermissionsCommandOutput) => void
+  ): void;
+  updateAgentPermissions(
+    args: UpdateAgentPermissionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAgentPermissionsCommandOutput) => void
   ): void;
 
   /**
@@ -5045,6 +5483,23 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link UpdateFlowCommand}
+   */
+  updateFlow(
+    args: UpdateFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateFlowCommandOutput>;
+  updateFlow(
+    args: UpdateFlowCommandInput,
+    cb: (err: any, data?: UpdateFlowCommandOutput) => void
+  ): void;
+  updateFlow(
+    args: UpdateFlowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateFlowCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateFlowPermissionsCommand}
    */
   updateFlowPermissions(
@@ -5314,6 +5769,57 @@ export interface QuickSight {
     args: UpdateSelfUpgradeConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateSelfUpgradeConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateSpaceCommand}
+   */
+  updateSpace(
+    args: UpdateSpaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSpaceCommandOutput>;
+  updateSpace(
+    args: UpdateSpaceCommandInput,
+    cb: (err: any, data?: UpdateSpaceCommandOutput) => void
+  ): void;
+  updateSpace(
+    args: UpdateSpaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSpaceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateSpacePermissionsCommand}
+   */
+  updateSpacePermissions(
+    args: UpdateSpacePermissionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSpacePermissionsCommandOutput>;
+  updateSpacePermissions(
+    args: UpdateSpacePermissionsCommandInput,
+    cb: (err: any, data?: UpdateSpacePermissionsCommandOutput) => void
+  ): void;
+  updateSpacePermissions(
+    args: UpdateSpacePermissionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSpacePermissionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateSpaceResourcesCommand}
+   */
+  updateSpaceResources(
+    args: UpdateSpaceResourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSpaceResourcesCommandOutput>;
+  updateSpaceResources(
+    args: UpdateSpaceResourcesCommandInput,
+    cb: (err: any, data?: UpdateSpaceResourcesCommandOutput) => void
+  ): void;
+  updateSpaceResources(
+    args: UpdateSpaceResourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSpaceResourcesCommandOutput) => void
   ): void;
 
   /**

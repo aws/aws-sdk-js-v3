@@ -4,8 +4,7 @@ import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { UpdateRoleCustomPermissionRequest } from "../models/models_4";
-import type { UpdateRoleCustomPermissionResponse } from "../models/models_5";
+import type { UpdateRoleCustomPermissionRequest, UpdateRoleCustomPermissionResponse } from "../models/models_5";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { UpdateRoleCustomPermission$ } from "../schemas/schemas_0";
 

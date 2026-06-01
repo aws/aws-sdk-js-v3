@@ -59,6 +59,8 @@ import type {
   TableTotalsScrollStatus,
   TextWrap,
   TimeGranularity,
+  TooltipTarget,
+  TooltipTitleType,
   TopBottomComputationType,
   TopBottomSortOrder,
   TransposedColumnType,
@@ -77,6 +79,7 @@ import type {
   ChartAxisLabelOptions,
   ColumnIdentifier,
   ColumnSort,
+  ColumnTooltipItem,
   ContributionAnalysisDefault,
   CustomActionFilterOperation,
   CustomActionNavigationOperation,
@@ -85,7 +88,6 @@ import type {
   DataLabelOptions,
   DecalSettings,
   DimensionField,
-  FieldBasedTooltip,
   FieldSort,
   FieldSortOptions,
   FontConfiguration,
@@ -96,11 +98,106 @@ import type {
   NumberDisplayFormatConfiguration,
   PercentageDisplayFormatConfiguration,
   ReferenceLine,
-  SheetTooltip,
   SmallMultiplesOptions,
   VisualCustomAction,
   VisualInteractionOptions,
 } from "./models_0";
+
+/**
+ * <p>The tooltip item for the fields.</p>
+ * @public
+ */
+export interface FieldTooltipItem {
+  /**
+   * <p>The unique ID of the field that is targeted by the tooltip.</p>
+   * @public
+   */
+  FieldId: string | undefined;
+
+  /**
+   * <p>The label of the tooltip item.</p>
+   * @public
+   */
+  Label?: string | undefined;
+
+  /**
+   * <p>The visibility of the tooltip item.</p>
+   * @public
+   */
+  Visibility?: Visibility | undefined;
+
+  /**
+   * <p>Determines the target of the field tooltip item in a combo chart visual.</p>
+   * @public
+   */
+  TooltipTarget?: TooltipTarget | undefined;
+}
+
+/**
+ * <p>The tooltip.</p>
+ *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * @public
+ */
+export interface TooltipItem {
+  /**
+   * <p>The tooltip item for the fields.</p>
+   * @public
+   */
+  FieldTooltipItem?: FieldTooltipItem | undefined;
+
+  /**
+   * <p>The tooltip item for the columns that are not part of a field well.</p>
+   * @public
+   */
+  ColumnTooltipItem?: ColumnTooltipItem | undefined;
+}
+
+/**
+ * <p>The setup for the detailed tooltip.</p>
+ * @public
+ */
+export interface FieldBasedTooltip {
+  /**
+   * <p>The visibility of <code>Show aggregations</code>.</p>
+   * @public
+   */
+  AggregationVisibility?: Visibility | undefined;
+
+  /**
+   * <p>The type for the >tooltip title. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code>: Doesn't use the primary value as the title.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PRIMARY_VALUE</code>: Uses primary value as the title.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  TooltipTitleType?: TooltipTitleType | undefined;
+
+  /**
+   * <p>The fields configuration in the
+   *             tooltip.</p>
+   * @public
+   */
+  TooltipFields?: TooltipItem[] | undefined;
+}
+
+/**
+ * <p>The configuration of the sheet tooltip.</p>
+ * @public
+ */
+export interface SheetTooltip {
+  /**
+   * <p>The sheet ID of the tooltip sheet that is used by the tooltip.</p>
+   * @public
+   */
+  SheetId?: string | undefined;
+}
 
 /**
  * <p>The display options for the visual tooltip.</p>
@@ -8376,76 +8473,4 @@ export interface TreeMapVisual {
    * @public
    */
   VisualContentAltText?: string | undefined;
-}
-
-/**
- * <p>The color configuration for individual groups within a waterfall visual.</p>
- * @public
- */
-export interface WaterfallChartGroupColorConfiguration {
-  /**
-   * <p>Defines the color for the positive bars of a waterfall chart.</p>
-   * @public
-   */
-  PositiveBarColor?: string | undefined;
-
-  /**
-   * <p>Defines the color for the negative bars of a waterfall chart.</p>
-   * @public
-   */
-  NegativeBarColor?: string | undefined;
-
-  /**
-   * <p>Defines the color for the total bars of a waterfall chart.</p>
-   * @public
-   */
-  TotalBarColor?: string | undefined;
-}
-
-/**
- * <p>The color configuration of a waterfall visual.</p>
- * @public
- */
-export interface WaterfallChartColorConfiguration {
-  /**
-   * <p>The color configuration for individual groups within a waterfall visual.</p>
-   * @public
-   */
-  GroupColorConfiguration?: WaterfallChartGroupColorConfiguration | undefined;
-}
-
-/**
- * <p>The field well configuration of a waterfall visual.</p>
- * @public
- */
-export interface WaterfallChartAggregatedFieldWells {
-  /**
-   * <p>The category field wells of a waterfall visual.</p>
-   * @public
-   */
-  Categories?: DimensionField[] | undefined;
-
-  /**
-   * <p>The value field wells of a waterfall visual.</p>
-   * @public
-   */
-  Values?: MeasureField[] | undefined;
-
-  /**
-   * <p>The breakdown field wells of a waterfall visual.</p>
-   * @public
-   */
-  Breakdowns?: DimensionField[] | undefined;
-}
-
-/**
- * <p>The field well configuration of a waterfall visual.</p>
- * @public
- */
-export interface WaterfallChartFieldWells {
-  /**
-   * <p>The field well configuration of a waterfall visual.</p>
-   * @public
-   */
-  WaterfallChartAggregatedFieldWells?: WaterfallChartAggregatedFieldWells | undefined;
 }

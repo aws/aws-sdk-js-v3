@@ -4,7 +4,7 @@ import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { UpdateBrandPublishedVersionRequest, UpdateBrandPublishedVersionResponse } from "../models/models_4";
+import type { UpdateBrandPublishedVersionRequest, UpdateBrandPublishedVersionResponse } from "../models/models_5";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { UpdateBrandPublishedVersion$ } from "../schemas/schemas_0";
 

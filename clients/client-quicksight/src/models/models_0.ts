@@ -3,6 +3,9 @@ import type {
   ActionConnectorErrorType,
   ActionConnectorSearchFilterNameEnum,
   ActionConnectorType,
+  AgentLifecycle,
+  AgentOwnershipFilterAttribute,
+  AgentStatus,
   AggType,
   AnalysisErrorType,
   AnchorOption,
@@ -14,6 +17,7 @@ import type {
   ClientCredentialsSource,
   ColumnRole,
   CommitMode,
+  ComparisonOperator,
   ConnectionAuthType,
   ControlSortDirection,
   CrossDatasetTypes,
@@ -77,7 +81,6 @@ import type {
   TargetVisualOptions,
   TimeGranularity,
   TooltipTarget,
-  TooltipTitleType,
   TopicTimeGranularity,
   URLTargetConfiguration,
   ValueWhenUnsetOption,
@@ -814,6 +817,240 @@ export interface AdHocFilteringOption {
    * @public
    */
   AvailabilityStatus?: DashboardBehavior | undefined;
+}
+
+/**
+ * <p>The custom prompt interface configuration that defines how an agent's prompt is configured.</p>
+ * @public
+ */
+export interface CustomPromptInterface {
+  /**
+   * <p>The identifier of the model profile.</p>
+   * @public
+   */
+  ModelProfileId: string | undefined;
+
+  /**
+   * <p>The subscription identifier.</p>
+   * @public
+   */
+  SubscriptionId: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID for the Q Business service.</p>
+   * @public
+   */
+  QbsAwsAccountId: string | undefined;
+
+  /**
+   * <p>Instructions for the desired response length.</p>
+   * @public
+   */
+  ResponseLength?: string | undefined;
+
+  /**
+   * <p>Instructions for the desired output style.</p>
+   * @public
+   */
+  OutputStyle?: string | undefined;
+
+  /**
+   * <p>Instructions that define the agent's identity and persona.</p>
+   * @public
+   */
+  Identity?: string | undefined;
+
+  /**
+   * <p>Instructions for the desired tone of responses.</p>
+   * @public
+   */
+  Tone?: string | undefined;
+
+  /**
+   * <p>Custom instructions for the agent's behavior.</p>
+   * @public
+   */
+  CustomInstructions?: string | undefined;
+
+  /**
+   * <p>A summary of the custom prompt configuration.</p>
+   * @public
+   */
+  promptSummary?: string | undefined;
+}
+
+/**
+ * <p>An agent resource in Amazon QuickSight that provides AI-powered conversational experiences.</p>
+ * @public
+ */
+export interface Agent {
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the spaces attached to the agent.</p>
+   * @public
+   */
+  Spaces?: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the action connectors attached to the agent.</p>
+   * @public
+   */
+  ActionConnectors?: string[] | undefined;
+
+  /**
+   * <p>A description of the agent.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The icon identifier for the agent.</p>
+   * @public
+   */
+  IconId?: string | undefined;
+
+  /**
+   * <p>The name of the agent.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A list of starter prompts that are displayed to users when they begin interacting with the agent.</p>
+   * @public
+   */
+  StarterPrompts?: string[] | undefined;
+
+  /**
+   * <p>The welcome message that is displayed when a user starts a conversation with the agent.</p>
+   * @public
+   */
+  WelcomeMessage?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the agent.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the agent.</p>
+   * @public
+   */
+  AgentId: string | undefined;
+
+  /**
+   * <p>The lifecycle state of the agent. Valid values are <code>PREVIEW</code> and <code>PUBLISHED</code>.</p>
+   * @public
+   */
+  AgentLifecycle: AgentLifecycle | undefined;
+
+  /**
+   * <p>The status of the agent.</p>
+   * @public
+   */
+  AgentStatus: AgentStatus | undefined;
+
+  /**
+   * <p>The date and time that the agent was created.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The identity of the user who created the agent.</p>
+   * @public
+   */
+  Creator: string | undefined;
+
+  /**
+   * <p>The custom prompt interface configuration for the agent.</p>
+   * @public
+   */
+  CustomPromptInterface?: CustomPromptInterface | undefined;
+
+  /**
+   * <p>An error message associated with the agent, if applicable.</p>
+   * @public
+   */
+  ErrorMessage?: string | undefined;
+
+  /**
+   * <p>The date and time that the agent was last updated.</p>
+   * @public
+   */
+  UpdatedAt: Date | undefined;
+}
+
+/**
+ * <p>A filter to apply when searching agents.</p>
+ * @public
+ */
+export interface AgentSearchFilter {
+  /**
+   * <p>The name of the field to filter on.</p>
+   * @public
+   */
+  Name?: AgentOwnershipFilterAttribute | undefined;
+
+  /**
+   * <p>The comparison operator to use for the filter.</p>
+   * @public
+   */
+  Operator?: ComparisonOperator | undefined;
+
+  /**
+   * <p>The value to filter on.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * <p>A summary of an agent, including its identifier, name, and metadata.</p>
+ * @public
+ */
+export interface AgentSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the agent.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the agent.</p>
+   * @public
+   */
+  AgentId: string | undefined;
+
+  /**
+   * <p>The name of the agent.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A description of the agent.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The date and time that the agent was created.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The date and time that the agent was last updated.</p>
+   * @public
+   */
+  UpdatedAt: Date | undefined;
+
+  /**
+   * <p>The icon identifier for the agent.</p>
+   * @public
+   */
+  IconId?: string | undefined;
 }
 
 /**
@@ -8446,100 +8683,4 @@ export interface ColumnTooltipItem {
    * @public
    */
   TooltipTarget?: TooltipTarget | undefined;
-}
-
-/**
- * <p>The tooltip item for the fields.</p>
- * @public
- */
-export interface FieldTooltipItem {
-  /**
-   * <p>The unique ID of the field that is targeted by the tooltip.</p>
-   * @public
-   */
-  FieldId: string | undefined;
-
-  /**
-   * <p>The label of the tooltip item.</p>
-   * @public
-   */
-  Label?: string | undefined;
-
-  /**
-   * <p>The visibility of the tooltip item.</p>
-   * @public
-   */
-  Visibility?: Visibility | undefined;
-
-  /**
-   * <p>Determines the target of the field tooltip item in a combo chart visual.</p>
-   * @public
-   */
-  TooltipTarget?: TooltipTarget | undefined;
-}
-
-/**
- * <p>The tooltip.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
- * @public
- */
-export interface TooltipItem {
-  /**
-   * <p>The tooltip item for the fields.</p>
-   * @public
-   */
-  FieldTooltipItem?: FieldTooltipItem | undefined;
-
-  /**
-   * <p>The tooltip item for the columns that are not part of a field well.</p>
-   * @public
-   */
-  ColumnTooltipItem?: ColumnTooltipItem | undefined;
-}
-
-/**
- * <p>The setup for the detailed tooltip.</p>
- * @public
- */
-export interface FieldBasedTooltip {
-  /**
-   * <p>The visibility of <code>Show aggregations</code>.</p>
-   * @public
-   */
-  AggregationVisibility?: Visibility | undefined;
-
-  /**
-   * <p>The type for the >tooltip title. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>NONE</code>: Doesn't use the primary value as the title.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PRIMARY_VALUE</code>: Uses primary value as the title.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  TooltipTitleType?: TooltipTitleType | undefined;
-
-  /**
-   * <p>The fields configuration in the
-   *             tooltip.</p>
-   * @public
-   */
-  TooltipFields?: TooltipItem[] | undefined;
-}
-
-/**
- * <p>The configuration of the sheet tooltip.</p>
- * @public
- */
-export interface SheetTooltip {
-  /**
-   * <p>The sheet ID of the tooltip sheet that is used by the tooltip.</p>
-   * @public
-   */
-  SheetId?: string | undefined;
 }

@@ -75,6 +75,7 @@ import type {
   CreateActionConnectorCommandInput,
   CreateActionConnectorCommandOutput,
 } from "./commands/CreateActionConnectorCommand";
+import type { CreateAgentCommandInput, CreateAgentCommandOutput } from "./commands/CreateAgentCommand";
 import type { CreateAnalysisCommandInput, CreateAnalysisCommandOutput } from "./commands/CreateAnalysisCommand";
 import type { CreateBrandCommandInput, CreateBrandCommandOutput } from "./commands/CreateBrandCommand";
 import type {
@@ -84,6 +85,7 @@ import type {
 import type { CreateDashboardCommandInput, CreateDashboardCommandOutput } from "./commands/CreateDashboardCommand";
 import type { CreateDataSetCommandInput, CreateDataSetCommandOutput } from "./commands/CreateDataSetCommand";
 import type { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "./commands/CreateDataSourceCommand";
+import type { CreateFlowCommandInput, CreateFlowCommandOutput } from "./commands/CreateFlowCommand";
 import type { CreateFolderCommandInput, CreateFolderCommandOutput } from "./commands/CreateFolderCommand";
 import type {
   CreateFolderMembershipCommandInput,
@@ -112,6 +114,7 @@ import type {
   CreateRoleMembershipCommandInput,
   CreateRoleMembershipCommandOutput,
 } from "./commands/CreateRoleMembershipCommand";
+import type { CreateSpaceCommandInput, CreateSpaceCommandOutput } from "./commands/CreateSpaceCommand";
 import type {
   CreateTemplateAliasCommandInput,
   CreateTemplateAliasCommandOutput,
@@ -144,6 +147,7 @@ import type {
   DeleteActionConnectorCommandInput,
   DeleteActionConnectorCommandOutput,
 } from "./commands/DeleteActionConnectorCommand";
+import type { DeleteAgentCommandInput, DeleteAgentCommandOutput } from "./commands/DeleteAgentCommand";
 import type { DeleteAnalysisCommandInput, DeleteAnalysisCommandOutput } from "./commands/DeleteAnalysisCommand";
 import type {
   DeleteBrandAssignmentCommandInput,
@@ -165,6 +169,7 @@ import type {
   DeleteDefaultQBusinessApplicationCommandInput,
   DeleteDefaultQBusinessApplicationCommandOutput,
 } from "./commands/DeleteDefaultQBusinessApplicationCommand";
+import type { DeleteFlowCommandInput, DeleteFlowCommandOutput } from "./commands/DeleteFlowCommand";
 import type { DeleteFolderCommandInput, DeleteFolderCommandOutput } from "./commands/DeleteFolderCommand";
 import type {
   DeleteFolderMembershipCommandInput,
@@ -200,6 +205,7 @@ import type {
   DeleteRoleMembershipCommandInput,
   DeleteRoleMembershipCommandOutput,
 } from "./commands/DeleteRoleMembershipCommand";
+import type { DeleteSpaceCommandInput, DeleteSpaceCommandOutput } from "./commands/DeleteSpaceCommand";
 import type {
   DeleteTemplateAliasCommandInput,
   DeleteTemplateAliasCommandOutput,
@@ -249,6 +255,11 @@ import type {
   DescribeActionConnectorPermissionsCommandInput,
   DescribeActionConnectorPermissionsCommandOutput,
 } from "./commands/DescribeActionConnectorPermissionsCommand";
+import type { DescribeAgentCommandInput, DescribeAgentCommandOutput } from "./commands/DescribeAgentCommand";
+import type {
+  DescribeAgentPermissionsCommandInput,
+  DescribeAgentPermissionsCommandOutput,
+} from "./commands/DescribeAgentPermissionsCommand";
 import type { DescribeAnalysisCommandInput, DescribeAnalysisCommandOutput } from "./commands/DescribeAnalysisCommand";
 import type {
   DescribeAnalysisDefinitionCommandInput,
@@ -328,6 +339,7 @@ import type {
   DescribeDefaultQBusinessApplicationCommandInput,
   DescribeDefaultQBusinessApplicationCommandOutput,
 } from "./commands/DescribeDefaultQBusinessApplicationCommand";
+import type { DescribeFlowCommandInput, DescribeFlowCommandOutput } from "./commands/DescribeFlowCommand";
 import type { DescribeFolderCommandInput, DescribeFolderCommandOutput } from "./commands/DescribeFolderCommand";
 import type {
   DescribeFolderPermissionsCommandInput,
@@ -386,6 +398,11 @@ import type {
   DescribeSelfUpgradeConfigurationCommandInput,
   DescribeSelfUpgradeConfigurationCommandOutput,
 } from "./commands/DescribeSelfUpgradeConfigurationCommand";
+import type { DescribeSpaceCommandInput, DescribeSpaceCommandOutput } from "./commands/DescribeSpaceCommand";
+import type {
+  DescribeSpacePermissionsCommandInput,
+  DescribeSpacePermissionsCommandOutput,
+} from "./commands/DescribeSpacePermissionsCommand";
 import type {
   DescribeTemplateAliasCommandInput,
   DescribeTemplateAliasCommandOutput,
@@ -459,6 +476,7 @@ import type {
   ListActionConnectorsCommandInput,
   ListActionConnectorsCommandOutput,
 } from "./commands/ListActionConnectorsCommand";
+import type { ListAgentsCommandInput, ListAgentsCommandOutput } from "./commands/ListAgentsCommand";
 import type { ListAnalysesCommandInput, ListAnalysesCommandOutput } from "./commands/ListAnalysesCommand";
 import type {
   ListAssetBundleExportJobsCommandInput,
@@ -523,6 +541,11 @@ import type {
 } from "./commands/ListRoleMembershipsCommand";
 import type { ListSelfUpgradesCommandInput, ListSelfUpgradesCommandOutput } from "./commands/ListSelfUpgradesCommand";
 import type {
+  ListSpaceResourcesCommandInput,
+  ListSpaceResourcesCommandOutput,
+} from "./commands/ListSpaceResourcesCommand";
+import type { ListSpacesCommandInput, ListSpacesCommandOutput } from "./commands/ListSpacesCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
@@ -567,6 +590,7 @@ import type {
   SearchActionConnectorsCommandInput,
   SearchActionConnectorsCommandOutput,
 } from "./commands/SearchActionConnectorsCommand";
+import type { SearchAgentsCommandInput, SearchAgentsCommandOutput } from "./commands/SearchAgentsCommand";
 import type { SearchAnalysesCommandInput, SearchAnalysesCommandOutput } from "./commands/SearchAnalysesCommand";
 import type { SearchDashboardsCommandInput, SearchDashboardsCommandOutput } from "./commands/SearchDashboardsCommand";
 import type { SearchDataSetsCommandInput, SearchDataSetsCommandOutput } from "./commands/SearchDataSetsCommand";
@@ -577,6 +601,7 @@ import type {
 import type { SearchFlowsCommandInput, SearchFlowsCommandOutput } from "./commands/SearchFlowsCommand";
 import type { SearchFoldersCommandInput, SearchFoldersCommandOutput } from "./commands/SearchFoldersCommand";
 import type { SearchGroupsCommandInput, SearchGroupsCommandOutput } from "./commands/SearchGroupsCommand";
+import type { SearchSpacesCommandInput, SearchSpacesCommandOutput } from "./commands/SearchSpacesCommand";
 import type { SearchTopicsCommandInput, SearchTopicsCommandOutput } from "./commands/SearchTopicsCommand";
 import type {
   StartAssetBundleExportJobCommandInput,
@@ -620,6 +645,11 @@ import type {
   UpdateActionConnectorPermissionsCommandInput,
   UpdateActionConnectorPermissionsCommandOutput,
 } from "./commands/UpdateActionConnectorPermissionsCommand";
+import type { UpdateAgentCommandInput, UpdateAgentCommandOutput } from "./commands/UpdateAgentCommand";
+import type {
+  UpdateAgentPermissionsCommandInput,
+  UpdateAgentPermissionsCommandOutput,
+} from "./commands/UpdateAgentPermissionsCommand";
 import type { UpdateAnalysisCommandInput, UpdateAnalysisCommandOutput } from "./commands/UpdateAnalysisCommand";
 import type {
   UpdateAnalysisPermissionsCommandInput,
@@ -673,6 +703,7 @@ import type {
   UpdateDefaultQBusinessApplicationCommandInput,
   UpdateDefaultQBusinessApplicationCommandOutput,
 } from "./commands/UpdateDefaultQBusinessApplicationCommand";
+import type { UpdateFlowCommandInput, UpdateFlowCommandOutput } from "./commands/UpdateFlowCommand";
 import type {
   UpdateFlowPermissionsCommandInput,
   UpdateFlowPermissionsCommandOutput,
@@ -731,6 +762,15 @@ import type {
   UpdateSelfUpgradeConfigurationCommandInput,
   UpdateSelfUpgradeConfigurationCommandOutput,
 } from "./commands/UpdateSelfUpgradeConfigurationCommand";
+import type { UpdateSpaceCommandInput, UpdateSpaceCommandOutput } from "./commands/UpdateSpaceCommand";
+import type {
+  UpdateSpacePermissionsCommandInput,
+  UpdateSpacePermissionsCommandOutput,
+} from "./commands/UpdateSpacePermissionsCommand";
+import type {
+  UpdateSpaceResourcesCommandInput,
+  UpdateSpaceResourcesCommandOutput,
+} from "./commands/UpdateSpaceResourcesCommand";
 import type {
   UpdateSPICECapacityConfigurationCommandInput,
   UpdateSPICECapacityConfigurationCommandOutput,
@@ -789,12 +829,14 @@ export type ServiceInputTypes =
   | CreateAccountCustomizationCommandInput
   | CreateAccountSubscriptionCommandInput
   | CreateActionConnectorCommandInput
+  | CreateAgentCommandInput
   | CreateAnalysisCommandInput
   | CreateBrandCommandInput
   | CreateCustomPermissionsCommandInput
   | CreateDashboardCommandInput
   | CreateDataSetCommandInput
   | CreateDataSourceCommandInput
+  | CreateFlowCommandInput
   | CreateFolderCommandInput
   | CreateFolderMembershipCommandInput
   | CreateGroupCommandInput
@@ -805,6 +847,7 @@ export type ServiceInputTypes =
   | CreateOAuthClientApplicationCommandInput
   | CreateRefreshScheduleCommandInput
   | CreateRoleMembershipCommandInput
+  | CreateSpaceCommandInput
   | CreateTemplateAliasCommandInput
   | CreateTemplateCommandInput
   | CreateThemeAliasCommandInput
@@ -816,6 +859,7 @@ export type ServiceInputTypes =
   | DeleteAccountCustomizationCommandInput
   | DeleteAccountSubscriptionCommandInput
   | DeleteActionConnectorCommandInput
+  | DeleteAgentCommandInput
   | DeleteAnalysisCommandInput
   | DeleteBrandAssignmentCommandInput
   | DeleteBrandCommandInput
@@ -825,6 +869,7 @@ export type ServiceInputTypes =
   | DeleteDataSetRefreshPropertiesCommandInput
   | DeleteDataSourceCommandInput
   | DeleteDefaultQBusinessApplicationCommandInput
+  | DeleteFlowCommandInput
   | DeleteFolderCommandInput
   | DeleteFolderMembershipCommandInput
   | DeleteGroupCommandInput
@@ -836,6 +881,7 @@ export type ServiceInputTypes =
   | DeleteRefreshScheduleCommandInput
   | DeleteRoleCustomPermissionCommandInput
   | DeleteRoleMembershipCommandInput
+  | DeleteSpaceCommandInput
   | DeleteTemplateAliasCommandInput
   | DeleteTemplateCommandInput
   | DeleteThemeAliasCommandInput
@@ -852,6 +898,8 @@ export type ServiceInputTypes =
   | DescribeAccountSubscriptionCommandInput
   | DescribeActionConnectorCommandInput
   | DescribeActionConnectorPermissionsCommandInput
+  | DescribeAgentCommandInput
+  | DescribeAgentPermissionsCommandInput
   | DescribeAnalysisCommandInput
   | DescribeAnalysisDefinitionCommandInput
   | DescribeAnalysisPermissionsCommandInput
@@ -874,6 +922,7 @@ export type ServiceInputTypes =
   | DescribeDataSourceCommandInput
   | DescribeDataSourcePermissionsCommandInput
   | DescribeDefaultQBusinessApplicationCommandInput
+  | DescribeFlowCommandInput
   | DescribeFolderCommandInput
   | DescribeFolderPermissionsCommandInput
   | DescribeFolderResolvedPermissionsCommandInput
@@ -890,6 +939,8 @@ export type ServiceInputTypes =
   | DescribeRefreshScheduleCommandInput
   | DescribeRoleCustomPermissionCommandInput
   | DescribeSelfUpgradeConfigurationCommandInput
+  | DescribeSpaceCommandInput
+  | DescribeSpacePermissionsCommandInput
   | DescribeTemplateAliasCommandInput
   | DescribeTemplateCommandInput
   | DescribeTemplateDefinitionCommandInput
@@ -912,6 +963,7 @@ export type ServiceInputTypes =
   | GetIdentityContextCommandInput
   | GetSessionEmbedUrlCommandInput
   | ListActionConnectorsCommandInput
+  | ListAgentsCommandInput
   | ListAnalysesCommandInput
   | ListAssetBundleExportJobsCommandInput
   | ListAssetBundleImportJobsCommandInput
@@ -936,6 +988,8 @@ export type ServiceInputTypes =
   | ListRefreshSchedulesCommandInput
   | ListRoleMembershipsCommandInput
   | ListSelfUpgradesCommandInput
+  | ListSpaceResourcesCommandInput
+  | ListSpacesCommandInput
   | ListTagsForResourceCommandInput
   | ListTemplateAliasesCommandInput
   | ListTemplateVersionsCommandInput
@@ -954,6 +1008,7 @@ export type ServiceInputTypes =
   | RegisterUserCommandInput
   | RestoreAnalysisCommandInput
   | SearchActionConnectorsCommandInput
+  | SearchAgentsCommandInput
   | SearchAnalysesCommandInput
   | SearchDashboardsCommandInput
   | SearchDataSetsCommandInput
@@ -961,6 +1016,7 @@ export type ServiceInputTypes =
   | SearchFlowsCommandInput
   | SearchFoldersCommandInput
   | SearchGroupsCommandInput
+  | SearchSpacesCommandInput
   | SearchTopicsCommandInput
   | StartAssetBundleExportJobCommandInput
   | StartAssetBundleImportJobCommandInput
@@ -974,6 +1030,8 @@ export type ServiceInputTypes =
   | UpdateAccountSettingsCommandInput
   | UpdateActionConnectorCommandInput
   | UpdateActionConnectorPermissionsCommandInput
+  | UpdateAgentCommandInput
+  | UpdateAgentPermissionsCommandInput
   | UpdateAnalysisCommandInput
   | UpdateAnalysisPermissionsCommandInput
   | UpdateApplicationWithTokenExchangeGrantCommandInput
@@ -991,6 +1049,7 @@ export type ServiceInputTypes =
   | UpdateDataSourceCommandInput
   | UpdateDataSourcePermissionsCommandInput
   | UpdateDefaultQBusinessApplicationCommandInput
+  | UpdateFlowCommandInput
   | UpdateFlowPermissionsCommandInput
   | UpdateFolderCommandInput
   | UpdateFolderPermissionsCommandInput
@@ -1008,6 +1067,9 @@ export type ServiceInputTypes =
   | UpdateSPICECapacityConfigurationCommandInput
   | UpdateSelfUpgradeCommandInput
   | UpdateSelfUpgradeConfigurationCommandInput
+  | UpdateSpaceCommandInput
+  | UpdateSpacePermissionsCommandInput
+  | UpdateSpaceResourcesCommandInput
   | UpdateTemplateAliasCommandInput
   | UpdateTemplateCommandInput
   | UpdateTemplatePermissionsCommandInput
@@ -1031,12 +1093,14 @@ export type ServiceOutputTypes =
   | CreateAccountCustomizationCommandOutput
   | CreateAccountSubscriptionCommandOutput
   | CreateActionConnectorCommandOutput
+  | CreateAgentCommandOutput
   | CreateAnalysisCommandOutput
   | CreateBrandCommandOutput
   | CreateCustomPermissionsCommandOutput
   | CreateDashboardCommandOutput
   | CreateDataSetCommandOutput
   | CreateDataSourceCommandOutput
+  | CreateFlowCommandOutput
   | CreateFolderCommandOutput
   | CreateFolderMembershipCommandOutput
   | CreateGroupCommandOutput
@@ -1047,6 +1111,7 @@ export type ServiceOutputTypes =
   | CreateOAuthClientApplicationCommandOutput
   | CreateRefreshScheduleCommandOutput
   | CreateRoleMembershipCommandOutput
+  | CreateSpaceCommandOutput
   | CreateTemplateAliasCommandOutput
   | CreateTemplateCommandOutput
   | CreateThemeAliasCommandOutput
@@ -1058,6 +1123,7 @@ export type ServiceOutputTypes =
   | DeleteAccountCustomizationCommandOutput
   | DeleteAccountSubscriptionCommandOutput
   | DeleteActionConnectorCommandOutput
+  | DeleteAgentCommandOutput
   | DeleteAnalysisCommandOutput
   | DeleteBrandAssignmentCommandOutput
   | DeleteBrandCommandOutput
@@ -1067,6 +1133,7 @@ export type ServiceOutputTypes =
   | DeleteDataSetRefreshPropertiesCommandOutput
   | DeleteDataSourceCommandOutput
   | DeleteDefaultQBusinessApplicationCommandOutput
+  | DeleteFlowCommandOutput
   | DeleteFolderCommandOutput
   | DeleteFolderMembershipCommandOutput
   | DeleteGroupCommandOutput
@@ -1078,6 +1145,7 @@ export type ServiceOutputTypes =
   | DeleteRefreshScheduleCommandOutput
   | DeleteRoleCustomPermissionCommandOutput
   | DeleteRoleMembershipCommandOutput
+  | DeleteSpaceCommandOutput
   | DeleteTemplateAliasCommandOutput
   | DeleteTemplateCommandOutput
   | DeleteThemeAliasCommandOutput
@@ -1094,6 +1162,8 @@ export type ServiceOutputTypes =
   | DescribeAccountSubscriptionCommandOutput
   | DescribeActionConnectorCommandOutput
   | DescribeActionConnectorPermissionsCommandOutput
+  | DescribeAgentCommandOutput
+  | DescribeAgentPermissionsCommandOutput
   | DescribeAnalysisCommandOutput
   | DescribeAnalysisDefinitionCommandOutput
   | DescribeAnalysisPermissionsCommandOutput
@@ -1116,6 +1186,7 @@ export type ServiceOutputTypes =
   | DescribeDataSourceCommandOutput
   | DescribeDataSourcePermissionsCommandOutput
   | DescribeDefaultQBusinessApplicationCommandOutput
+  | DescribeFlowCommandOutput
   | DescribeFolderCommandOutput
   | DescribeFolderPermissionsCommandOutput
   | DescribeFolderResolvedPermissionsCommandOutput
@@ -1132,6 +1203,8 @@ export type ServiceOutputTypes =
   | DescribeRefreshScheduleCommandOutput
   | DescribeRoleCustomPermissionCommandOutput
   | DescribeSelfUpgradeConfigurationCommandOutput
+  | DescribeSpaceCommandOutput
+  | DescribeSpacePermissionsCommandOutput
   | DescribeTemplateAliasCommandOutput
   | DescribeTemplateCommandOutput
   | DescribeTemplateDefinitionCommandOutput
@@ -1154,6 +1227,7 @@ export type ServiceOutputTypes =
   | GetIdentityContextCommandOutput
   | GetSessionEmbedUrlCommandOutput
   | ListActionConnectorsCommandOutput
+  | ListAgentsCommandOutput
   | ListAnalysesCommandOutput
   | ListAssetBundleExportJobsCommandOutput
   | ListAssetBundleImportJobsCommandOutput
@@ -1178,6 +1252,8 @@ export type ServiceOutputTypes =
   | ListRefreshSchedulesCommandOutput
   | ListRoleMembershipsCommandOutput
   | ListSelfUpgradesCommandOutput
+  | ListSpaceResourcesCommandOutput
+  | ListSpacesCommandOutput
   | ListTagsForResourceCommandOutput
   | ListTemplateAliasesCommandOutput
   | ListTemplateVersionsCommandOutput
@@ -1196,6 +1272,7 @@ export type ServiceOutputTypes =
   | RegisterUserCommandOutput
   | RestoreAnalysisCommandOutput
   | SearchActionConnectorsCommandOutput
+  | SearchAgentsCommandOutput
   | SearchAnalysesCommandOutput
   | SearchDashboardsCommandOutput
   | SearchDataSetsCommandOutput
@@ -1203,6 +1280,7 @@ export type ServiceOutputTypes =
   | SearchFlowsCommandOutput
   | SearchFoldersCommandOutput
   | SearchGroupsCommandOutput
+  | SearchSpacesCommandOutput
   | SearchTopicsCommandOutput
   | StartAssetBundleExportJobCommandOutput
   | StartAssetBundleImportJobCommandOutput
@@ -1216,6 +1294,8 @@ export type ServiceOutputTypes =
   | UpdateAccountSettingsCommandOutput
   | UpdateActionConnectorCommandOutput
   | UpdateActionConnectorPermissionsCommandOutput
+  | UpdateAgentCommandOutput
+  | UpdateAgentPermissionsCommandOutput
   | UpdateAnalysisCommandOutput
   | UpdateAnalysisPermissionsCommandOutput
   | UpdateApplicationWithTokenExchangeGrantCommandOutput
@@ -1233,6 +1313,7 @@ export type ServiceOutputTypes =
   | UpdateDataSourceCommandOutput
   | UpdateDataSourcePermissionsCommandOutput
   | UpdateDefaultQBusinessApplicationCommandOutput
+  | UpdateFlowCommandOutput
   | UpdateFlowPermissionsCommandOutput
   | UpdateFolderCommandOutput
   | UpdateFolderPermissionsCommandOutput
@@ -1250,6 +1331,9 @@ export type ServiceOutputTypes =
   | UpdateSPICECapacityConfigurationCommandOutput
   | UpdateSelfUpgradeCommandOutput
   | UpdateSelfUpgradeConfigurationCommandOutput
+  | UpdateSpaceCommandOutput
+  | UpdateSpacePermissionsCommandOutput
+  | UpdateSpaceResourcesCommandOutput
   | UpdateTemplateAliasCommandOutput
   | UpdateTemplateCommandOutput
   | UpdateTemplatePermissionsCommandOutput

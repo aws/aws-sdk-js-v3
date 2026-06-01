@@ -1,6 +1,8 @@
 // smithy-typescript generated code
 import type {
   ActionConnectorType,
+  AgentLifecycle,
+  AgentStatus,
   AggType,
   AnalysisFilterAttribute,
   AnchorType,
@@ -37,7 +39,6 @@ import type {
   DashboardUIState,
   DataSetDateComparisonFilterOperator,
   DataSetNumericComparisonFilterOperator,
-  DatasetParameterValueType,
   DataSetStringComparisonFilterOperator,
   DataSetStringListFilterOperator,
   DisplayFormat,
@@ -80,7 +81,6 @@ import type {
   AdditionalNotes,
   AdHocFilteringOption,
   AggFunction,
-  AggregateOperation,
   AggregationPartitionBy,
   AmazonElasticsearchParameters,
   AmazonOpenSearchParameters,
@@ -143,9 +143,79 @@ import type {
   VisualPalette,
   VisualSubtitleLabelOptions,
   VisualTitleLabelOptions,
-  WaterfallChartColorConfiguration,
-  WaterfallChartFieldWells,
 } from "./models_1";
+
+/**
+ * <p>The color configuration for individual groups within a waterfall visual.</p>
+ * @public
+ */
+export interface WaterfallChartGroupColorConfiguration {
+  /**
+   * <p>Defines the color for the positive bars of a waterfall chart.</p>
+   * @public
+   */
+  PositiveBarColor?: string | undefined;
+
+  /**
+   * <p>Defines the color for the negative bars of a waterfall chart.</p>
+   * @public
+   */
+  NegativeBarColor?: string | undefined;
+
+  /**
+   * <p>Defines the color for the total bars of a waterfall chart.</p>
+   * @public
+   */
+  TotalBarColor?: string | undefined;
+}
+
+/**
+ * <p>The color configuration of a waterfall visual.</p>
+ * @public
+ */
+export interface WaterfallChartColorConfiguration {
+  /**
+   * <p>The color configuration for individual groups within a waterfall visual.</p>
+   * @public
+   */
+  GroupColorConfiguration?: WaterfallChartGroupColorConfiguration | undefined;
+}
+
+/**
+ * <p>The field well configuration of a waterfall visual.</p>
+ * @public
+ */
+export interface WaterfallChartAggregatedFieldWells {
+  /**
+   * <p>The category field wells of a waterfall visual.</p>
+   * @public
+   */
+  Categories?: DimensionField[] | undefined;
+
+  /**
+   * <p>The value field wells of a waterfall visual.</p>
+   * @public
+   */
+  Values?: MeasureField[] | undefined;
+
+  /**
+   * <p>The breakdown field wells of a waterfall visual.</p>
+   * @public
+   */
+  Breakdowns?: DimensionField[] | undefined;
+}
+
+/**
+ * <p>The field well configuration of a waterfall visual.</p>
+ * @public
+ */
+export interface WaterfallChartFieldWells {
+  /**
+   * <p>The field well configuration of a waterfall visual.</p>
+   * @public
+   */
+  WaterfallChartAggregatedFieldWells?: WaterfallChartAggregatedFieldWells | undefined;
+}
 
 /**
  * <p>The sort configuration of a waterfall visual.</p>
@@ -9192,6 +9262,225 @@ export interface CreateActionConnectorResponse {
 }
 
 /**
+ * <p>A reference to an existing custom prompt profile.</p>
+ * @public
+ */
+export interface CustomPromptProfile {
+  /**
+   * <p>The identifier of the model profile.</p>
+   * @public
+   */
+  ModelProfileId: string | undefined;
+
+  /**
+   * <p>The subscription identifier.</p>
+   * @public
+   */
+  SubscriptionId: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID for the Q Business service.</p>
+   * @public
+   */
+  QbsAwsAccountId: string | undefined;
+}
+
+/**
+ * <p>The parameters for configuring a custom prompt for an agent.</p>
+ * @public
+ */
+export interface CustomPromptInputParameters {
+  /**
+   * <p>Instructions for the desired response length.</p>
+   * @public
+   */
+  ResponseLength?: string | undefined;
+
+  /**
+   * <p>Instructions for the desired output style.</p>
+   * @public
+   */
+  OutputStyle?: string | undefined;
+
+  /**
+   * <p>Instructions that define the agent's identity and persona.</p>
+   * @public
+   */
+  Identity?: string | undefined;
+
+  /**
+   * <p>Instructions for the desired tone of responses.</p>
+   * @public
+   */
+  Tone?: string | undefined;
+
+  /**
+   * <p>Custom instructions for the agent's behavior.</p>
+   * @public
+   */
+  CustomInstructions?: string | undefined;
+}
+
+/**
+ * <p>The custom prompt input for an agent. This is a union type that can be either an existing prompt profile or new prompt parameters.</p>
+ * @public
+ */
+export type CustomPromptInput =
+  | CustomPromptInput.ExistingPromptMember
+  | CustomPromptInput.NewPromptMember
+  | CustomPromptInput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace CustomPromptInput {
+  /**
+   * <p>An existing custom prompt profile to use for the agent.</p>
+   * @public
+   */
+  export interface ExistingPromptMember {
+    ExistingPrompt: CustomPromptProfile;
+    NewPrompt?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>New custom prompt parameters to configure for the agent.</p>
+   * @public
+   */
+  export interface NewPromptMember {
+    ExistingPrompt?: never;
+    NewPrompt: CustomPromptInputParameters;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    ExistingPrompt?: never;
+    NewPrompt?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    ExistingPrompt: (value: CustomPromptProfile) => T;
+    NewPrompt: (value: CustomPromptInputParameters) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateAgentRequest {
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the spaces to attach to the agent.</p>
+   * @public
+   */
+  Spaces?: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the action connectors to attach to the agent.</p>
+   * @public
+   */
+  ActionConnectors?: string[] | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the agent.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>A unique identifier for the agent.</p>
+   * @public
+   */
+  AgentId: string | undefined;
+
+  /**
+   * <p>The name of the agent.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A description of the agent.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The icon identifier for the agent.</p>
+   * @public
+   */
+  IconId?: string | undefined;
+
+  /**
+   * <p>A list of starter prompts that are displayed to users when they begin interacting with the agent.</p>
+   * @public
+   */
+  StarterPrompts?: string[] | undefined;
+
+  /**
+   * <p>The welcome message that is displayed when a user starts a conversation with the agent.</p>
+   * @public
+   */
+  WelcomeMessage?: string | undefined;
+
+  /**
+   * <p>The lifecycle state of the agent. Valid values are <code>PREVIEW</code> and <code>PUBLISHED</code>.</p>
+   * @public
+   */
+  AgentLifecycle?: AgentLifecycle | undefined;
+
+  /**
+   * <p>The custom prompt configuration for the agent.</p>
+   * @public
+   */
+  CustomPromptInput?: CustomPromptInput | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAgentResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the agent.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the agent.</p>
+   * @public
+   */
+  AgentId: string | undefined;
+
+  /**
+   * <p>The status of the agent.</p>
+   * @public
+   */
+  AgentStatus: AgentStatus | undefined;
+
+  /**
+   * <p>The name of the agent.</p>
+   * @public
+   */
+  AgentName: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
  * <p>A date-time parameter.</p>
  * @public
  */
@@ -10879,247 +11168,4 @@ export interface UnpivotOperation {
    * @public
    */
   UnpivotedValueColumnId: string | undefined;
-}
-
-/**
- * <p>A step in data preparation that performs a specific operation on the data.</p>
- * @public
- */
-export interface TransformStep {
-  /**
-   * <p>A transform step that brings data from a source table.</p>
-   * @public
-   */
-  ImportTableStep?: ImportTableOperation | undefined;
-
-  /**
-   * <p>A transform operation that projects columns. Operations that come after a projection
-   *             can only refer to projected columns.</p>
-   * @public
-   */
-  ProjectStep?: ProjectOperation | undefined;
-
-  /**
-   * <p>A transform step that applies filter conditions.</p>
-   * @public
-   */
-  FiltersStep?: FiltersOperation | undefined;
-
-  /**
-   * <p>A transform operation that creates calculated columns. Columns created in one such
-   *             operation form a lexical closure.</p>
-   * @public
-   */
-  CreateColumnsStep?: CreateColumnsOperation | undefined;
-
-  /**
-   * <p>A transform step that changes the names of one or more columns.</p>
-   * @public
-   */
-  RenameColumnsStep?: RenameColumnsOperation | undefined;
-
-  /**
-   * <p>A transform step that changes the data types of one or more columns.</p>
-   * @public
-   */
-  CastColumnTypesStep?: CastColumnTypesOperation | undefined;
-
-  /**
-   * <p>A transform step that combines data from two sources based on specified join conditions.</p>
-   * @public
-   */
-  JoinStep?: JoinOperation | undefined;
-
-  /**
-   * <p>A transform step that groups data and applies aggregation functions to calculate summary values.</p>
-   * @public
-   */
-  AggregateStep?: AggregateOperation | undefined;
-
-  /**
-   * <p>A transform step that converts row values into columns to reshape the data structure.</p>
-   * @public
-   */
-  PivotStep?: PivotOperation | undefined;
-
-  /**
-   * <p>A transform step that converts columns into rows to normalize the data structure.</p>
-   * @public
-   */
-  UnpivotStep?: UnpivotOperation | undefined;
-
-  /**
-   * <p>A transform step that combines rows from multiple sources by stacking them vertically.</p>
-   * @public
-   */
-  AppendStep?: AppendOperation | undefined;
-}
-
-/**
- * <p>Configuration for data preparation operations, defining the complete pipeline from source tables
- *            through transformations to destination tables.</p>
- * @public
- */
-export interface DataPrepConfiguration {
-  /**
-   * <p>A map of source tables that provide information about underlying sources.</p>
-   * @public
-   */
-  SourceTableMap: Record<string, SourceTable> | undefined;
-
-  /**
-   * <p>A map of transformation steps that process the data.</p>
-   * @public
-   */
-  TransformStepMap: Record<string, TransformStep> | undefined;
-
-  /**
-   * <p>A map of destination tables that receive the final prepared data.</p>
-   * @public
-   */
-  DestinationTableMap: Record<string, DestinationTable> | undefined;
-}
-
-/**
- * <p>The default values of a date time parameter.</p>
- * @public
- */
-export interface DateTimeDatasetParameterDefaultValues {
-  /**
-   * <p>A list of static default values for a given date time parameter.</p>
-   * @public
-   */
-  StaticValues?: Date[] | undefined;
-}
-
-/**
- * <p>A date time parameter for a dataset.</p>
- * @public
- */
-export interface DateTimeDatasetParameter {
-  /**
-   * <p>An identifier for the parameter that is created in the dataset.</p>
-   * @public
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The name of the date time parameter that is created in the dataset.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The value type of the dataset parameter. Valid values are <code>single value</code> or <code>multi value</code>.</p>
-   * @public
-   */
-  ValueType: DatasetParameterValueType | undefined;
-
-  /**
-   * <p>The time granularity of the date time parameter.</p>
-   * @public
-   */
-  TimeGranularity?: TimeGranularity | undefined;
-
-  /**
-   * <p>A list of default values for a given date time parameter. This structure only accepts static values.</p>
-   * @public
-   */
-  DefaultValues?: DateTimeDatasetParameterDefaultValues | undefined;
-}
-
-/**
- * <p>The default values of a decimal parameter.</p>
- * @public
- */
-export interface DecimalDatasetParameterDefaultValues {
-  /**
-   * <p>A list of static default values for a given decimal parameter.</p>
-   * @public
-   */
-  StaticValues?: number[] | undefined;
-}
-
-/**
- * <p>A decimal parameter for a dataset.</p>
- * @public
- */
-export interface DecimalDatasetParameter {
-  /**
-   * <p>An identifier for the decimal parameter created in the dataset.</p>
-   * @public
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The name of the decimal parameter that is created in the dataset.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The value type of the dataset parameter. Valid values are <code>single value</code> or <code>multi value</code>.</p>
-   * @public
-   */
-  ValueType: DatasetParameterValueType | undefined;
-
-  /**
-   * <p>A list of default values for a given decimal parameter. This structure only accepts static values.</p>
-   * @public
-   */
-  DefaultValues?: DecimalDatasetParameterDefaultValues | undefined;
-}
-
-/**
- * <p>The default values of an integer parameter.</p>
- * @public
- */
-export interface IntegerDatasetParameterDefaultValues {
-  /**
-   * <p>A list of static default values for a given integer parameter.</p>
-   * @public
-   */
-  StaticValues?: number[] | undefined;
-}
-
-/**
- * <p>An integer parameter for a dataset.</p>
- * @public
- */
-export interface IntegerDatasetParameter {
-  /**
-   * <p>An identifier for the integer parameter created in the dataset.</p>
-   * @public
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The name of the integer parameter that is created in the dataset.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The value type of the dataset parameter. Valid values are <code>single value</code> or <code>multi value</code>.</p>
-   * @public
-   */
-  ValueType: DatasetParameterValueType | undefined;
-
-  /**
-   * <p>A list of default values for a given integer parameter. This structure only accepts static values.</p>
-   * @public
-   */
-  DefaultValues?: IntegerDatasetParameterDefaultValues | undefined;
-}
-
-/**
- * <p>The default values of a string parameter.</p>
- * @public
- */
-export interface StringDatasetParameterDefaultValues {
-  /**
-   * <p>A list of static default values for a given string parameter.</p>
-   * @public
-   */
-  StaticValues?: string[] | undefined;
 }

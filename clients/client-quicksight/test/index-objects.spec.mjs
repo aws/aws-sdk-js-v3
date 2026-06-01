@@ -15,6 +15,12 @@ import {
   ActiveIAMPolicyAssignment$,
   AdditionalNotes$,
   AdHocFilteringOption$,
+  Agent$,
+  AgentLifecycle,
+  AgentOwnershipFilterAttribute,
+  AgentSearchFilter$,
+  AgentStatus,
+  AgentSummary$,
   AggFunction$,
   AggregateOperation$,
   Aggregation$,
@@ -271,6 +277,7 @@ import {
   ComparisonFormatConfiguration$,
   ComparisonMethod,
   ComparisonMethodType,
+  ComparisonOperator,
   Computation$,
   ConcurrentUpdatingException,
   ConcurrentUpdatingException$,
@@ -313,6 +320,10 @@ import {
   CreateActionConnectorCommand,
   CreateActionConnectorRequest$,
   CreateActionConnectorResponse$,
+  CreateAgent$,
+  CreateAgentCommand,
+  CreateAgentRequest$,
+  CreateAgentResponse$,
   CreateAnalysis$,
   CreateAnalysisCommand,
   CreateAnalysisRequest$,
@@ -338,6 +349,10 @@ import {
   CreateDataSourceCommand,
   CreateDataSourceRequest$,
   CreateDataSourceResponse$,
+  CreateFlow$,
+  CreateFlowCommand,
+  CreateFlowRequest$,
+  CreateFlowResponse$,
   CreateFolder$,
   CreateFolderCommand,
   CreateFolderMembership$,
@@ -378,6 +393,10 @@ import {
   CreateRoleMembershipCommand,
   CreateRoleMembershipRequest$,
   CreateRoleMembershipResponse$,
+  CreateSpace$,
+  CreateSpaceCommand,
+  CreateSpaceRequest$,
+  CreateSpaceResponse$,
   CreateTemplate$,
   CreateTemplateAlias$,
   CreateTemplateAliasCommand,
@@ -429,6 +448,10 @@ import {
   CustomNarrativeOptions$,
   CustomParameterValues$,
   CustomPermissions$,
+  CustomPromptInput$,
+  CustomPromptInputParameters$,
+  CustomPromptInterface$,
+  CustomPromptProfile$,
   CustomSql$,
   CustomValuesConfiguration$,
   Dashboard$,
@@ -585,6 +608,10 @@ import {
   DeleteActionConnectorCommand,
   DeleteActionConnectorRequest$,
   DeleteActionConnectorResponse$,
+  DeleteAgent$,
+  DeleteAgentCommand,
+  DeleteAgentRequest$,
+  DeleteAgentResponse$,
   DeleteAnalysis$,
   DeleteAnalysisCommand,
   DeleteAnalysisRequest$,
@@ -621,6 +648,10 @@ import {
   DeleteDefaultQBusinessApplicationCommand,
   DeleteDefaultQBusinessApplicationRequest$,
   DeleteDefaultQBusinessApplicationResponse$,
+  DeleteFlow$,
+  DeleteFlowCommand,
+  DeleteFlowRequest$,
+  DeleteFlowResponse$,
   DeleteFolder$,
   DeleteFolderCommand,
   DeleteFolderMembership$,
@@ -665,6 +696,10 @@ import {
   DeleteRoleMembershipCommand,
   DeleteRoleMembershipRequest$,
   DeleteRoleMembershipResponse$,
+  DeleteSpace$,
+  DeleteSpaceCommand,
+  DeleteSpaceRequest$,
+  DeleteSpaceResponse$,
   DeleteTemplate$,
   DeleteTemplateAlias$,
   DeleteTemplateAliasCommand,
@@ -729,6 +764,14 @@ import {
   DescribeActionConnectorPermissionsResponse$,
   DescribeActionConnectorRequest$,
   DescribeActionConnectorResponse$,
+  DescribeAgent$,
+  DescribeAgentCommand,
+  DescribeAgentPermissions$,
+  DescribeAgentPermissionsCommand,
+  DescribeAgentPermissionsRequest$,
+  DescribeAgentPermissionsResponse$,
+  DescribeAgentRequest$,
+  DescribeAgentResponse$,
   DescribeAnalysis$,
   DescribeAnalysisCommand,
   DescribeAnalysisDefinition$,
@@ -817,6 +860,10 @@ import {
   DescribeDefaultQBusinessApplicationCommand,
   DescribeDefaultQBusinessApplicationRequest$,
   DescribeDefaultQBusinessApplicationResponse$,
+  DescribeFlow$,
+  DescribeFlowCommand,
+  DescribeFlowRequest$,
+  DescribeFlowResponse$,
   DescribeFolder$,
   DescribeFolderCommand,
   DescribeFolderPermissions$,
@@ -881,6 +928,14 @@ import {
   DescribeSelfUpgradeConfigurationCommand,
   DescribeSelfUpgradeConfigurationRequest$,
   DescribeSelfUpgradeConfigurationResponse$,
+  DescribeSpace$,
+  DescribeSpaceCommand,
+  DescribeSpacePermissions$,
+  DescribeSpacePermissionsCommand,
+  DescribeSpacePermissionsRequest$,
+  DescribeSpacePermissionsResponse$,
+  DescribeSpaceRequest$,
+  DescribeSpaceResponse$,
   DescribeTemplate$,
   DescribeTemplateAlias$,
   DescribeTemplateAliasCommand,
@@ -962,6 +1017,8 @@ import {
   ExportToCSVOption$,
   ExportWithHiddenFieldsOption$,
   FailedKeyRegistrationEntry$,
+  FailedSpaceResourceOperation$,
+  FailedToUpdateAssociation$,
   FieldBarSeriesItem$,
   FieldBasedTooltip$,
   FieldComboSeriesItem$,
@@ -1004,6 +1061,7 @@ import {
   FilterTextAreaControl$,
   FilterTextFieldControl$,
   FilterVisualScope,
+  FlowDetail$,
   FlowPublishState,
   FlowSummary$,
   Folder$,
@@ -1277,6 +1335,10 @@ import {
   ListActionConnectorsCommand,
   ListActionConnectorsRequest$,
   ListActionConnectorsResponse$,
+  ListAgents$,
+  ListAgentsCommand,
+  ListAgentsRequest$,
+  ListAgentsResponse$,
   ListAnalyses$,
   ListAnalysesCommand,
   ListAnalysesRequest$,
@@ -1376,6 +1438,14 @@ import {
   ListSelfUpgradesCommand,
   ListSelfUpgradesRequest$,
   ListSelfUpgradesResponse$,
+  ListSpaceResources$,
+  ListSpaceResourcesCommand,
+  ListSpaceResourcesRequest$,
+  ListSpaceResourcesResponse$,
+  ListSpaces$,
+  ListSpacesCommand,
+  ListSpacesRequest$,
+  ListSpacesResponse$,
   ListTagsForResource$,
   ListTagsForResourceCommand,
   ListTagsForResourceRequest$,
@@ -1770,6 +1840,10 @@ import {
   SearchActionConnectorsCommand,
   SearchActionConnectorsRequest$,
   SearchActionConnectorsResponse$,
+  SearchAgents$,
+  SearchAgentsCommand,
+  SearchAgentsRequest$,
+  SearchAgentsResponse$,
   SearchAnalyses$,
   SearchAnalysesCommand,
   SearchAnalysesRequest$,
@@ -1800,6 +1874,10 @@ import {
   SearchGroupsCommand,
   SearchGroupsRequest$,
   SearchGroupsResponse$,
+  SearchSpaces$,
+  SearchSpacesCommand,
+  SearchSpacesRequest$,
+  SearchSpacesResponse$,
   SearchTopics$,
   SearchTopicsCommand,
   SearchTopicsRequest$,
@@ -1901,6 +1979,17 @@ import {
   SnowflakeParameters$,
   SortDirection,
   SourceTable$,
+  SpaceContributor$,
+  SpaceDetails$,
+  SpaceQuickSightResource$,
+  SpaceQuickSightResourceDetails$,
+  SpaceQuickSightResourceType,
+  SpaceQuicksightSearchFilter$,
+  SpaceQuickSightSearchFilterName,
+  SpaceResourceOperation$,
+  SpaceResourceSummary$,
+  SpaceSearchOperator,
+  SpaceSummary$,
   Spacing$,
   SparklineAxisBehavior,
   SparklinesOptions$,
@@ -1938,6 +2027,7 @@ import {
   StaticFileSource$,
   StaticFileUrlSourceOptions$,
   Status,
+  StepAliasMapping$,
   StringDatasetParameter$,
   StringDatasetParameterDefaultValues$,
   StringDefaultValues$,
@@ -2138,6 +2228,14 @@ import {
   UpdateActionConnectorPermissionsResponse$,
   UpdateActionConnectorRequest$,
   UpdateActionConnectorResponse$,
+  UpdateAgent$,
+  UpdateAgentCommand,
+  UpdateAgentPermissions$,
+  UpdateAgentPermissionsCommand,
+  UpdateAgentPermissionsRequest$,
+  UpdateAgentPermissionsResponse$,
+  UpdateAgentRequest$,
+  UpdateAgentResponse$,
   UpdateAnalysis$,
   UpdateAnalysisCommand,
   UpdateAnalysisPermissions$,
@@ -2206,10 +2304,14 @@ import {
   UpdateDefaultQBusinessApplicationCommand,
   UpdateDefaultQBusinessApplicationRequest$,
   UpdateDefaultQBusinessApplicationResponse$,
+  UpdateFlow$,
+  UpdateFlowCommand,
   UpdateFlowPermissions$,
   UpdateFlowPermissionsCommand,
   UpdateFlowPermissionsInput$,
   UpdateFlowPermissionsOutput$,
+  UpdateFlowRequest$,
+  UpdateFlowResponse$,
   UpdateFolder$,
   UpdateFolderCommand,
   UpdateFolderPermissions$,
@@ -2270,6 +2372,18 @@ import {
   UpdateSelfUpgradeConfigurationResponse$,
   UpdateSelfUpgradeRequest$,
   UpdateSelfUpgradeResponse$,
+  UpdateSpace$,
+  UpdateSpaceCommand,
+  UpdateSpacePermissions$,
+  UpdateSpacePermissionsCommand,
+  UpdateSpacePermissionsRequest$,
+  UpdateSpacePermissionsResponse$,
+  UpdateSpaceRequest$,
+  UpdateSpaceResources$,
+  UpdateSpaceResourcesCommand,
+  UpdateSpaceResourcesRequest$,
+  UpdateSpaceResourcesResponse$,
+  UpdateSpaceResponse$,
   UpdateSPICECapacityConfiguration$,
   UpdateSPICECapacityConfigurationCommand,
   UpdateSPICECapacityConfigurationRequest$,
@@ -2402,6 +2516,8 @@ assert(typeof CreateAccountSubscriptionCommand === "function");
 assert(typeof CreateAccountSubscription$ === "object");
 assert(typeof CreateActionConnectorCommand === "function");
 assert(typeof CreateActionConnector$ === "object");
+assert(typeof CreateAgentCommand === "function");
+assert(typeof CreateAgent$ === "object");
 assert(typeof CreateAnalysisCommand === "function");
 assert(typeof CreateAnalysis$ === "object");
 assert(typeof CreateBrandCommand === "function");
@@ -2414,6 +2530,8 @@ assert(typeof CreateDataSetCommand === "function");
 assert(typeof CreateDataSet$ === "object");
 assert(typeof CreateDataSourceCommand === "function");
 assert(typeof CreateDataSource$ === "object");
+assert(typeof CreateFlowCommand === "function");
+assert(typeof CreateFlow$ === "object");
 assert(typeof CreateFolderCommand === "function");
 assert(typeof CreateFolder$ === "object");
 assert(typeof CreateFolderMembershipCommand === "function");
@@ -2434,6 +2552,8 @@ assert(typeof CreateRefreshScheduleCommand === "function");
 assert(typeof CreateRefreshSchedule$ === "object");
 assert(typeof CreateRoleMembershipCommand === "function");
 assert(typeof CreateRoleMembership$ === "object");
+assert(typeof CreateSpaceCommand === "function");
+assert(typeof CreateSpace$ === "object");
 assert(typeof CreateTemplateCommand === "function");
 assert(typeof CreateTemplate$ === "object");
 assert(typeof CreateTemplateAliasCommand === "function");
@@ -2456,6 +2576,8 @@ assert(typeof DeleteAccountSubscriptionCommand === "function");
 assert(typeof DeleteAccountSubscription$ === "object");
 assert(typeof DeleteActionConnectorCommand === "function");
 assert(typeof DeleteActionConnector$ === "object");
+assert(typeof DeleteAgentCommand === "function");
+assert(typeof DeleteAgent$ === "object");
 assert(typeof DeleteAnalysisCommand === "function");
 assert(typeof DeleteAnalysis$ === "object");
 assert(typeof DeleteBrandCommand === "function");
@@ -2474,6 +2596,8 @@ assert(typeof DeleteDataSourceCommand === "function");
 assert(typeof DeleteDataSource$ === "object");
 assert(typeof DeleteDefaultQBusinessApplicationCommand === "function");
 assert(typeof DeleteDefaultQBusinessApplication$ === "object");
+assert(typeof DeleteFlowCommand === "function");
+assert(typeof DeleteFlow$ === "object");
 assert(typeof DeleteFolderCommand === "function");
 assert(typeof DeleteFolder$ === "object");
 assert(typeof DeleteFolderMembershipCommand === "function");
@@ -2496,6 +2620,8 @@ assert(typeof DeleteRoleCustomPermissionCommand === "function");
 assert(typeof DeleteRoleCustomPermission$ === "object");
 assert(typeof DeleteRoleMembershipCommand === "function");
 assert(typeof DeleteRoleMembership$ === "object");
+assert(typeof DeleteSpaceCommand === "function");
+assert(typeof DeleteSpace$ === "object");
 assert(typeof DeleteTemplateCommand === "function");
 assert(typeof DeleteTemplate$ === "object");
 assert(typeof DeleteTemplateAliasCommand === "function");
@@ -2528,6 +2654,10 @@ assert(typeof DescribeActionConnectorCommand === "function");
 assert(typeof DescribeActionConnector$ === "object");
 assert(typeof DescribeActionConnectorPermissionsCommand === "function");
 assert(typeof DescribeActionConnectorPermissions$ === "object");
+assert(typeof DescribeAgentCommand === "function");
+assert(typeof DescribeAgent$ === "object");
+assert(typeof DescribeAgentPermissionsCommand === "function");
+assert(typeof DescribeAgentPermissions$ === "object");
 assert(typeof DescribeAnalysisCommand === "function");
 assert(typeof DescribeAnalysis$ === "object");
 assert(typeof DescribeAnalysisDefinitionCommand === "function");
@@ -2572,6 +2702,8 @@ assert(typeof DescribeDataSourcePermissionsCommand === "function");
 assert(typeof DescribeDataSourcePermissions$ === "object");
 assert(typeof DescribeDefaultQBusinessApplicationCommand === "function");
 assert(typeof DescribeDefaultQBusinessApplication$ === "object");
+assert(typeof DescribeFlowCommand === "function");
+assert(typeof DescribeFlow$ === "object");
 assert(typeof DescribeFolderCommand === "function");
 assert(typeof DescribeFolder$ === "object");
 assert(typeof DescribeFolderPermissionsCommand === "function");
@@ -2604,6 +2736,10 @@ assert(typeof DescribeRoleCustomPermissionCommand === "function");
 assert(typeof DescribeRoleCustomPermission$ === "object");
 assert(typeof DescribeSelfUpgradeConfigurationCommand === "function");
 assert(typeof DescribeSelfUpgradeConfiguration$ === "object");
+assert(typeof DescribeSpaceCommand === "function");
+assert(typeof DescribeSpace$ === "object");
+assert(typeof DescribeSpacePermissionsCommand === "function");
+assert(typeof DescribeSpacePermissions$ === "object");
 assert(typeof DescribeTemplateCommand === "function");
 assert(typeof DescribeTemplate$ === "object");
 assert(typeof DescribeTemplateAliasCommand === "function");
@@ -2648,6 +2784,8 @@ assert(typeof GetSessionEmbedUrlCommand === "function");
 assert(typeof GetSessionEmbedUrl$ === "object");
 assert(typeof ListActionConnectorsCommand === "function");
 assert(typeof ListActionConnectors$ === "object");
+assert(typeof ListAgentsCommand === "function");
+assert(typeof ListAgents$ === "object");
 assert(typeof ListAnalysesCommand === "function");
 assert(typeof ListAnalyses$ === "object");
 assert(typeof ListAssetBundleExportJobsCommand === "function");
@@ -2696,6 +2834,10 @@ assert(typeof ListRoleMembershipsCommand === "function");
 assert(typeof ListRoleMemberships$ === "object");
 assert(typeof ListSelfUpgradesCommand === "function");
 assert(typeof ListSelfUpgrades$ === "object");
+assert(typeof ListSpaceResourcesCommand === "function");
+assert(typeof ListSpaceResources$ === "object");
+assert(typeof ListSpacesCommand === "function");
+assert(typeof ListSpaces$ === "object");
 assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
 assert(typeof ListTemplateAliasesCommand === "function");
@@ -2732,6 +2874,8 @@ assert(typeof RestoreAnalysisCommand === "function");
 assert(typeof RestoreAnalysis$ === "object");
 assert(typeof SearchActionConnectorsCommand === "function");
 assert(typeof SearchActionConnectors$ === "object");
+assert(typeof SearchAgentsCommand === "function");
+assert(typeof SearchAgents$ === "object");
 assert(typeof SearchAnalysesCommand === "function");
 assert(typeof SearchAnalyses$ === "object");
 assert(typeof SearchDashboardsCommand === "function");
@@ -2746,6 +2890,8 @@ assert(typeof SearchFoldersCommand === "function");
 assert(typeof SearchFolders$ === "object");
 assert(typeof SearchGroupsCommand === "function");
 assert(typeof SearchGroups$ === "object");
+assert(typeof SearchSpacesCommand === "function");
+assert(typeof SearchSpaces$ === "object");
 assert(typeof SearchTopicsCommand === "function");
 assert(typeof SearchTopics$ === "object");
 assert(typeof StartAssetBundleExportJobCommand === "function");
@@ -2772,6 +2918,10 @@ assert(typeof UpdateActionConnectorCommand === "function");
 assert(typeof UpdateActionConnector$ === "object");
 assert(typeof UpdateActionConnectorPermissionsCommand === "function");
 assert(typeof UpdateActionConnectorPermissions$ === "object");
+assert(typeof UpdateAgentCommand === "function");
+assert(typeof UpdateAgent$ === "object");
+assert(typeof UpdateAgentPermissionsCommand === "function");
+assert(typeof UpdateAgentPermissions$ === "object");
 assert(typeof UpdateAnalysisCommand === "function");
 assert(typeof UpdateAnalysis$ === "object");
 assert(typeof UpdateAnalysisPermissionsCommand === "function");
@@ -2806,6 +2956,8 @@ assert(typeof UpdateDataSourcePermissionsCommand === "function");
 assert(typeof UpdateDataSourcePermissions$ === "object");
 assert(typeof UpdateDefaultQBusinessApplicationCommand === "function");
 assert(typeof UpdateDefaultQBusinessApplication$ === "object");
+assert(typeof UpdateFlowCommand === "function");
+assert(typeof UpdateFlow$ === "object");
 assert(typeof UpdateFlowPermissionsCommand === "function");
 assert(typeof UpdateFlowPermissions$ === "object");
 assert(typeof UpdateFolderCommand === "function");
@@ -2838,6 +2990,12 @@ assert(typeof UpdateSelfUpgradeCommand === "function");
 assert(typeof UpdateSelfUpgrade$ === "object");
 assert(typeof UpdateSelfUpgradeConfigurationCommand === "function");
 assert(typeof UpdateSelfUpgradeConfiguration$ === "object");
+assert(typeof UpdateSpaceCommand === "function");
+assert(typeof UpdateSpace$ === "object");
+assert(typeof UpdateSpacePermissionsCommand === "function");
+assert(typeof UpdateSpacePermissions$ === "object");
+assert(typeof UpdateSpaceResourcesCommand === "function");
+assert(typeof UpdateSpaceResources$ === "object");
 assert(typeof UpdateSPICECapacityConfigurationCommand === "function");
 assert(typeof UpdateSPICECapacityConfiguration$ === "object");
 assert(typeof UpdateTemplateCommand === "function");
@@ -2875,6 +3033,9 @@ assert(typeof ActionConnectorSummary$ === "object");
 assert(typeof ActiveIAMPolicyAssignment$ === "object");
 assert(typeof AdditionalNotes$ === "object");
 assert(typeof AdHocFilteringOption$ === "object");
+assert(typeof Agent$ === "object");
+assert(typeof AgentSearchFilter$ === "object");
+assert(typeof AgentSummary$ === "object");
 assert(typeof AggFunction$ === "object");
 assert(typeof AggregateOperation$ === "object");
 assert(typeof Aggregation$ === "object");
@@ -3099,6 +3260,8 @@ assert(typeof CreateAccountSubscriptionRequest$ === "object");
 assert(typeof CreateAccountSubscriptionResponse$ === "object");
 assert(typeof CreateActionConnectorRequest$ === "object");
 assert(typeof CreateActionConnectorResponse$ === "object");
+assert(typeof CreateAgentRequest$ === "object");
+assert(typeof CreateAgentResponse$ === "object");
 assert(typeof CreateAnalysisRequest$ === "object");
 assert(typeof CreateAnalysisResponse$ === "object");
 assert(typeof CreateBrandRequest$ === "object");
@@ -3112,6 +3275,8 @@ assert(typeof CreateDataSetRequest$ === "object");
 assert(typeof CreateDataSetResponse$ === "object");
 assert(typeof CreateDataSourceRequest$ === "object");
 assert(typeof CreateDataSourceResponse$ === "object");
+assert(typeof CreateFlowRequest$ === "object");
+assert(typeof CreateFlowResponse$ === "object");
 assert(typeof CreateFolderMembershipRequest$ === "object");
 assert(typeof CreateFolderMembershipResponse$ === "object");
 assert(typeof CreateFolderRequest$ === "object");
@@ -3132,6 +3297,8 @@ assert(typeof CreateRefreshScheduleRequest$ === "object");
 assert(typeof CreateRefreshScheduleResponse$ === "object");
 assert(typeof CreateRoleMembershipRequest$ === "object");
 assert(typeof CreateRoleMembershipResponse$ === "object");
+assert(typeof CreateSpaceRequest$ === "object");
+assert(typeof CreateSpaceResponse$ === "object");
 assert(typeof CreateTemplateAliasRequest$ === "object");
 assert(typeof CreateTemplateAliasResponse$ === "object");
 assert(typeof CreateTemplateRequest$ === "object");
@@ -3164,6 +3331,10 @@ assert(typeof CustomInstructions$ === "object");
 assert(typeof CustomNarrativeOptions$ === "object");
 assert(typeof CustomParameterValues$ === "object");
 assert(typeof CustomPermissions$ === "object");
+assert(typeof CustomPromptInput$ === "object");
+assert(typeof CustomPromptInputParameters$ === "object");
+assert(typeof CustomPromptInterface$ === "object");
+assert(typeof CustomPromptProfile$ === "object");
 assert(typeof CustomSql$ === "object");
 assert(typeof CustomValuesConfiguration$ === "object");
 assert(typeof Dashboard$ === "object");
@@ -3285,6 +3456,8 @@ assert(typeof DeleteAccountSubscriptionRequest$ === "object");
 assert(typeof DeleteAccountSubscriptionResponse$ === "object");
 assert(typeof DeleteActionConnectorRequest$ === "object");
 assert(typeof DeleteActionConnectorResponse$ === "object");
+assert(typeof DeleteAgentRequest$ === "object");
+assert(typeof DeleteAgentResponse$ === "object");
 assert(typeof DeleteAnalysisRequest$ === "object");
 assert(typeof DeleteAnalysisResponse$ === "object");
 assert(typeof DeleteBrandAssignmentRequest$ === "object");
@@ -3303,6 +3476,8 @@ assert(typeof DeleteDataSourceRequest$ === "object");
 assert(typeof DeleteDataSourceResponse$ === "object");
 assert(typeof DeleteDefaultQBusinessApplicationRequest$ === "object");
 assert(typeof DeleteDefaultQBusinessApplicationResponse$ === "object");
+assert(typeof DeleteFlowRequest$ === "object");
+assert(typeof DeleteFlowResponse$ === "object");
 assert(typeof DeleteFolderMembershipRequest$ === "object");
 assert(typeof DeleteFolderMembershipResponse$ === "object");
 assert(typeof DeleteFolderRequest$ === "object");
@@ -3325,6 +3500,8 @@ assert(typeof DeleteRoleCustomPermissionRequest$ === "object");
 assert(typeof DeleteRoleCustomPermissionResponse$ === "object");
 assert(typeof DeleteRoleMembershipRequest$ === "object");
 assert(typeof DeleteRoleMembershipResponse$ === "object");
+assert(typeof DeleteSpaceRequest$ === "object");
+assert(typeof DeleteSpaceResponse$ === "object");
 assert(typeof DeleteTemplateAliasRequest$ === "object");
 assert(typeof DeleteTemplateAliasResponse$ === "object");
 assert(typeof DeleteTemplateRequest$ === "object");
@@ -3357,6 +3534,10 @@ assert(typeof DescribeActionConnectorPermissionsRequest$ === "object");
 assert(typeof DescribeActionConnectorPermissionsResponse$ === "object");
 assert(typeof DescribeActionConnectorRequest$ === "object");
 assert(typeof DescribeActionConnectorResponse$ === "object");
+assert(typeof DescribeAgentPermissionsRequest$ === "object");
+assert(typeof DescribeAgentPermissionsResponse$ === "object");
+assert(typeof DescribeAgentRequest$ === "object");
+assert(typeof DescribeAgentResponse$ === "object");
 assert(typeof DescribeAnalysisDefinitionRequest$ === "object");
 assert(typeof DescribeAnalysisDefinitionResponse$ === "object");
 assert(typeof DescribeAnalysisPermissionsRequest$ === "object");
@@ -3401,6 +3582,8 @@ assert(typeof DescribeDataSourceRequest$ === "object");
 assert(typeof DescribeDataSourceResponse$ === "object");
 assert(typeof DescribeDefaultQBusinessApplicationRequest$ === "object");
 assert(typeof DescribeDefaultQBusinessApplicationResponse$ === "object");
+assert(typeof DescribeFlowRequest$ === "object");
+assert(typeof DescribeFlowResponse$ === "object");
 assert(typeof DescribeFolderPermissionsRequest$ === "object");
 assert(typeof DescribeFolderPermissionsResponse$ === "object");
 assert(typeof DescribeFolderRequest$ === "object");
@@ -3433,6 +3616,10 @@ assert(typeof DescribeRoleCustomPermissionRequest$ === "object");
 assert(typeof DescribeRoleCustomPermissionResponse$ === "object");
 assert(typeof DescribeSelfUpgradeConfigurationRequest$ === "object");
 assert(typeof DescribeSelfUpgradeConfigurationResponse$ === "object");
+assert(typeof DescribeSpacePermissionsRequest$ === "object");
+assert(typeof DescribeSpacePermissionsResponse$ === "object");
+assert(typeof DescribeSpaceRequest$ === "object");
+assert(typeof DescribeSpaceResponse$ === "object");
 assert(typeof DescribeTemplateAliasRequest$ === "object");
 assert(typeof DescribeTemplateAliasResponse$ === "object");
 assert(typeof DescribeTemplateDefinitionRequest$ === "object");
@@ -3481,6 +3668,8 @@ assert(typeof ExportHiddenFieldsOption$ === "object");
 assert(typeof ExportToCSVOption$ === "object");
 assert(typeof ExportWithHiddenFieldsOption$ === "object");
 assert(typeof FailedKeyRegistrationEntry$ === "object");
+assert(typeof FailedSpaceResourceOperation$ === "object");
+assert(typeof FailedToUpdateAssociation$ === "object");
 assert(typeof FieldBarSeriesItem$ === "object");
 assert(typeof FieldBasedTooltip$ === "object");
 assert(typeof FieldComboSeriesItem$ === "object");
@@ -3517,6 +3706,7 @@ assert(typeof FilterSliderControl$ === "object");
 assert(typeof FiltersOperation$ === "object");
 assert(typeof FilterTextAreaControl$ === "object");
 assert(typeof FilterTextFieldControl$ === "object");
+assert(typeof FlowDetail$ === "object");
 assert(typeof FlowSummary$ === "object");
 assert(typeof Folder$ === "object");
 assert(typeof FolderMember$ === "object");
@@ -3711,6 +3901,8 @@ assert(typeof LineSeriesAxisDisplayOptions$ === "object");
 assert(typeof LinkSharingConfiguration$ === "object");
 assert(typeof ListActionConnectorsRequest$ === "object");
 assert(typeof ListActionConnectorsResponse$ === "object");
+assert(typeof ListAgentsRequest$ === "object");
+assert(typeof ListAgentsResponse$ === "object");
 assert(typeof ListAnalysesRequest$ === "object");
 assert(typeof ListAnalysesResponse$ === "object");
 assert(typeof ListAssetBundleExportJobsRequest$ === "object");
@@ -3762,6 +3954,10 @@ assert(typeof ListRoleMembershipsRequest$ === "object");
 assert(typeof ListRoleMembershipsResponse$ === "object");
 assert(typeof ListSelfUpgradesRequest$ === "object");
 assert(typeof ListSelfUpgradesResponse$ === "object");
+assert(typeof ListSpaceResourcesRequest$ === "object");
+assert(typeof ListSpaceResourcesResponse$ === "object");
+assert(typeof ListSpacesRequest$ === "object");
+assert(typeof ListSpacesResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof ListTemplateAliasesRequest$ === "object");
@@ -4008,6 +4204,8 @@ assert(typeof SchedulesConfigurations$ === "object");
 assert(typeof ScrollBarOptions$ === "object");
 assert(typeof SearchActionConnectorsRequest$ === "object");
 assert(typeof SearchActionConnectorsResponse$ === "object");
+assert(typeof SearchAgentsRequest$ === "object");
+assert(typeof SearchAgentsResponse$ === "object");
 assert(typeof SearchAnalysesRequest$ === "object");
 assert(typeof SearchAnalysesResponse$ === "object");
 assert(typeof SearchDashboardsRequest$ === "object");
@@ -4023,6 +4221,8 @@ assert(typeof SearchFoldersRequest$ === "object");
 assert(typeof SearchFoldersResponse$ === "object");
 assert(typeof SearchGroupsRequest$ === "object");
 assert(typeof SearchGroupsResponse$ === "object");
+assert(typeof SearchSpacesRequest$ === "object");
+assert(typeof SearchSpacesResponse$ === "object");
 assert(typeof SearchTopicsRequest$ === "object");
 assert(typeof SearchTopicsResponse$ === "object");
 assert(typeof SecondaryValueOptions$ === "object");
@@ -4095,6 +4295,14 @@ assert(typeof SnapshotUserConfiguration$ === "object");
 assert(typeof SnapshotUserConfigurationRedacted$ === "object");
 assert(typeof SnowflakeParameters$ === "object");
 assert(typeof SourceTable$ === "object");
+assert(typeof SpaceContributor$ === "object");
+assert(typeof SpaceDetails$ === "object");
+assert(typeof SpaceQuickSightResource$ === "object");
+assert(typeof SpaceQuickSightResourceDetails$ === "object");
+assert(typeof SpaceQuicksightSearchFilter$ === "object");
+assert(typeof SpaceResourceOperation$ === "object");
+assert(typeof SpaceResourceSummary$ === "object");
+assert(typeof SpaceSummary$ === "object");
 assert(typeof Spacing$ === "object");
 assert(typeof SparklinesOptions$ === "object");
 assert(typeof SparkParameters$ === "object");
@@ -4117,6 +4325,7 @@ assert(typeof StaticFile$ === "object");
 assert(typeof StaticFileS3SourceOptions$ === "object");
 assert(typeof StaticFileSource$ === "object");
 assert(typeof StaticFileUrlSourceOptions$ === "object");
+assert(typeof StepAliasMapping$ === "object");
 assert(typeof StringDatasetParameter$ === "object");
 assert(typeof StringDatasetParameterDefaultValues$ === "object");
 assert(typeof StringDefaultValues$ === "object");
@@ -4265,6 +4474,10 @@ assert(typeof UpdateActionConnectorPermissionsRequest$ === "object");
 assert(typeof UpdateActionConnectorPermissionsResponse$ === "object");
 assert(typeof UpdateActionConnectorRequest$ === "object");
 assert(typeof UpdateActionConnectorResponse$ === "object");
+assert(typeof UpdateAgentPermissionsRequest$ === "object");
+assert(typeof UpdateAgentPermissionsResponse$ === "object");
+assert(typeof UpdateAgentRequest$ === "object");
+assert(typeof UpdateAgentResponse$ === "object");
 assert(typeof UpdateAnalysisPermissionsRequest$ === "object");
 assert(typeof UpdateAnalysisPermissionsResponse$ === "object");
 assert(typeof UpdateAnalysisRequest$ === "object");
@@ -4301,6 +4514,8 @@ assert(typeof UpdateDefaultQBusinessApplicationRequest$ === "object");
 assert(typeof UpdateDefaultQBusinessApplicationResponse$ === "object");
 assert(typeof UpdateFlowPermissionsInput$ === "object");
 assert(typeof UpdateFlowPermissionsOutput$ === "object");
+assert(typeof UpdateFlowRequest$ === "object");
+assert(typeof UpdateFlowResponse$ === "object");
 assert(typeof UpdateFolderPermissionsRequest$ === "object");
 assert(typeof UpdateFolderPermissionsResponse$ === "object");
 assert(typeof UpdateFolderRequest$ === "object");
@@ -4331,6 +4546,12 @@ assert(typeof UpdateSelfUpgradeConfigurationRequest$ === "object");
 assert(typeof UpdateSelfUpgradeConfigurationResponse$ === "object");
 assert(typeof UpdateSelfUpgradeRequest$ === "object");
 assert(typeof UpdateSelfUpgradeResponse$ === "object");
+assert(typeof UpdateSpacePermissionsRequest$ === "object");
+assert(typeof UpdateSpacePermissionsResponse$ === "object");
+assert(typeof UpdateSpaceRequest$ === "object");
+assert(typeof UpdateSpaceResourcesRequest$ === "object");
+assert(typeof UpdateSpaceResourcesResponse$ === "object");
+assert(typeof UpdateSpaceResponse$ === "object");
 assert(typeof UpdateSPICECapacityConfigurationRequest$ === "object");
 assert(typeof UpdateSPICECapacityConfigurationResponse$ === "object");
 assert(typeof UpdateTemplateAliasRequest$ === "object");
@@ -4405,6 +4626,9 @@ assert(typeof YAxisOptions$ === "object");
 assert(typeof ActionConnectorErrorType === "object");
 assert(typeof ActionConnectorSearchFilterNameEnum === "object");
 assert(typeof ActionConnectorType === "object");
+assert(typeof AgentLifecycle === "object");
+assert(typeof AgentOwnershipFilterAttribute === "object");
+assert(typeof AgentStatus === "object");
 assert(typeof AggType === "object");
 assert(typeof AnalysisErrorType === "object");
 assert(typeof AnalysisFilterAttribute === "object");
@@ -4456,6 +4680,7 @@ assert(typeof ColumnTagName === "object");
 assert(typeof CommitMode === "object");
 assert(typeof ComparisonMethod === "object");
 assert(typeof ComparisonMethodType === "object");
+assert(typeof ComparisonOperator === "object");
 assert(typeof ConditionalFormattingIconDisplayOption === "object");
 assert(typeof ConditionalFormattingIconSetType === "object");
 assert(typeof ConnectionAuthType === "object");
@@ -4631,6 +4856,9 @@ assert(typeof SnapshotFileFormatType === "object");
 assert(typeof SnapshotFileSheetSelectionScope === "object");
 assert(typeof SnapshotJobStatus === "object");
 assert(typeof SortDirection === "object");
+assert(typeof SpaceQuickSightResourceType === "object");
+assert(typeof SpaceQuickSightSearchFilterName === "object");
+assert(typeof SpaceSearchOperator === "object");
 assert(typeof SparklineAxisBehavior === "object");
 assert(typeof SparklineVisualType === "object");
 assert(typeof SpecialValue === "object");
