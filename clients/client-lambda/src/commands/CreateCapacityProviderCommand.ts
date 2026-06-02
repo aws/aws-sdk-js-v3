@@ -74,6 +74,12 @@ export interface CreateCapacityProviderCommandOutput extends CreateCapacityProvi
  *   Tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   PropagateTags: { // PropagateTags
+ *     Mode: "None" || "Explicit",
+ *     ExplicitTags: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
  * };
  * const command = new CreateCapacityProviderCommand(input);
  * const response = await client.send(command);
@@ -115,6 +121,12 @@ export interface CreateCapacityProviderCommandOutput extends CreateCapacityProvi
  * //     },
  * //     KmsKeyArn: "STRING_VALUE",
  * //     LastModified: "STRING_VALUE",
+ * //     PropagateTags: { // PropagateTags
+ * //       Mode: "None" || "Explicit",
+ * //       ExplicitTags: { // Tags
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
  * //   },
  * // };
  *

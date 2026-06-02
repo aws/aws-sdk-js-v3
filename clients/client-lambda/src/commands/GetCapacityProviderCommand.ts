@@ -79,6 +79,12 @@ export interface GetCapacityProviderCommandOutput extends GetCapacityProviderRes
  * //     },
  * //     KmsKeyArn: "STRING_VALUE",
  * //     LastModified: "STRING_VALUE",
+ * //     PropagateTags: { // PropagateTags
+ * //       Mode: "None" || "Explicit",
+ * //       ExplicitTags: { // Tags
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
  * //   },
  * // };
  *

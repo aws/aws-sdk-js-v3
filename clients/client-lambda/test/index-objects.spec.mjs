@@ -419,6 +419,8 @@ import {
   PolicyLengthExceededException$,
   PreconditionFailedException,
   PreconditionFailedException$,
+  PropagateTags$,
+  PropagateTagsMode,
   ProvisionedConcurrencyConfigListItem$,
   ProvisionedConcurrencyConfigNotFoundException,
   ProvisionedConcurrencyConfigNotFoundException$,
@@ -970,6 +972,7 @@ assert(typeof OnFailure$ === "object");
 assert(typeof OnSuccess$ === "object");
 assert(typeof Operation$ === "object");
 assert(typeof OperationUpdate$ === "object");
+assert(typeof PropagateTags$ === "object");
 assert(typeof ProvisionedConcurrencyConfigListItem$ === "object");
 assert(typeof ProvisionedPollerConfig$ === "object");
 assert(typeof PublishLayerVersionRequest$ === "object");
@@ -1067,6 +1070,7 @@ assert(typeof OperationAction === "object");
 assert(typeof OperationStatus === "object");
 assert(typeof OperationType === "object");
 assert(typeof PackageType === "object");
+assert(typeof PropagateTagsMode === "object");
 assert(typeof ProvisionedConcurrencyStatusEnum === "object");
 assert(typeof RecursiveLoop === "object");
 assert(typeof ResponseStreamingInvocationType === "object");

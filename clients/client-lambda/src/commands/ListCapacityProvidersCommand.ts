@@ -82,6 +82,12 @@ export interface ListCapacityProvidersCommandOutput extends ListCapacityProvider
  * //       },
  * //       KmsKeyArn: "STRING_VALUE",
  * //       LastModified: "STRING_VALUE",
+ * //       PropagateTags: { // PropagateTags
+ * //         Mode: "None" || "Explicit",
+ * //         ExplicitTags: { // Tags
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   NextMarker: "STRING_VALUE",

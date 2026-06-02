@@ -133,6 +133,25 @@ export type CapacityProviderPredefinedMetricType =
  * @public
  * @enum
  */
+export const PropagateTagsMode = {
+  /**
+   * <p>Tags specified in <code>ExplicitTags</code> are applied to managed resources at launch.</p>
+   */
+  Explicit: "Explicit",
+  /**
+   * <p>Tag propagation is disabled. No tags are applied to managed resources.</p>
+   */
+  None: "None",
+} as const;
+/**
+ * @public
+ */
+export type PropagateTagsMode = (typeof PropagateTagsMode)[keyof typeof PropagateTagsMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const CapacityProviderState = {
   Active: "Active",
   Deleting: "Deleting",

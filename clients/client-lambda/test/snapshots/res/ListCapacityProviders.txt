@@ -28,7 +28,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "InstanceRequirements": {},
       "CapacityProviderScalingConfig": {},
       "KmsKeyArn": "__KmsKeyArn__",
-      "LastModified": "__LastModified__"
+      "LastModified": "__LastModified__",
+      "PropagateTags": {}
     },
     {
       "CapacityProviderArn": "__CapacityProviderArn__",
@@ -51,7 +52,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "InstanceRequirements": {},
       "CapacityProviderScalingConfig": {},
       "KmsKeyArn": "__KmsKeyArn__",
-      "LastModified": "__LastModified__"
+      "LastModified": "__LastModified__",
+      "PropagateTags": {}
     },
     {
       "CapacityProviderArn": "__CapacityProviderArn__",
@@ -74,7 +76,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "InstanceRequirements": {},
       "CapacityProviderScalingConfig": {},
       "KmsKeyArn": "__KmsKeyArn__",
-      "LastModified": "__LastModified__"
+      "LastModified": "__LastModified__",
+      "PropagateTags": {}
     }
   ],
   "NextMarker": "__NextMarker__"
@@ -105,7 +108,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       InstanceRequirements: {},
       CapacityProviderScalingConfig: {},
       KmsKeyArn: "__KmsKeyArn__",
-      LastModified: "__LastModified__"
+      LastModified: "__LastModified__",
+      PropagateTags: {}
     },
     {
       CapacityProviderArn: "__CapacityProviderArn__",
@@ -128,7 +132,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       InstanceRequirements: {},
       CapacityProviderScalingConfig: {},
       KmsKeyArn: "__KmsKeyArn__",
-      LastModified: "__LastModified__"
+      LastModified: "__LastModified__",
+      PropagateTags: {}
     },
     {
       CapacityProviderArn: "__CapacityProviderArn__",
@@ -151,7 +156,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       InstanceRequirements: {},
       CapacityProviderScalingConfig: {},
       KmsKeyArn: "__KmsKeyArn__",
-      LastModified: "__LastModified__"
+      LastModified: "__LastModified__",
+      PropagateTags: {}
     }
   ],
   NextMarker: "__NextMarker__",
@@ -228,7 +234,15 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         ]
       },
       "KmsKeyArn": "__KmsKeyArn__",
-      "LastModified": "__LastModified__"
+      "LastModified": "__LastModified__",
+      "PropagateTags": {
+        "Mode": "__Mode__",
+        "ExplicitTags": {
+          "key1": "__value__",
+          "key2": "__value__",
+          "key3": "__value__"
+        }
+      }
     },
     {
       "CapacityProviderArn": "__CapacityProviderArn__",
@@ -284,7 +298,15 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         ]
       },
       "KmsKeyArn": "__KmsKeyArn__",
-      "LastModified": "__LastModified__"
+      "LastModified": "__LastModified__",
+      "PropagateTags": {
+        "Mode": "__Mode__",
+        "ExplicitTags": {
+          "key1": "__value__",
+          "key2": "__value__",
+          "key3": "__value__"
+        }
+      }
     },
     {
       "CapacityProviderArn": "__CapacityProviderArn__",
@@ -340,7 +362,15 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         ]
       },
       "KmsKeyArn": "__KmsKeyArn__",
-      "LastModified": "__LastModified__"
+      "LastModified": "__LastModified__",
+      "PropagateTags": {
+        "Mode": "__Mode__",
+        "ExplicitTags": {
+          "key1": "__value__",
+          "key2": "__value__",
+          "key3": "__value__"
+        }
+      }
     }
   ],
   "NextMarker": "__NextMarker__"
@@ -404,7 +434,15 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         ]
       },
       KmsKeyArn: "__KmsKeyArn__",
-      LastModified: "__LastModified__"
+      LastModified: "__LastModified__",
+      PropagateTags: {
+        Mode: "__Mode__",
+        ExplicitTags: {
+          key1: "__value__",
+          key2: "__value__",
+          key3: "__value__"
+        }
+      }
     },
     {
       CapacityProviderArn: "__CapacityProviderArn__",
@@ -460,7 +498,15 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         ]
       },
       KmsKeyArn: "__KmsKeyArn__",
-      LastModified: "__LastModified__"
+      LastModified: "__LastModified__",
+      PropagateTags: {
+        Mode: "__Mode__",
+        ExplicitTags: {
+          key1: "__value__",
+          key2: "__value__",
+          key3: "__value__"
+        }
+      }
     },
     {
       CapacityProviderArn: "__CapacityProviderArn__",
@@ -516,7 +562,15 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         ]
       },
       KmsKeyArn: "__KmsKeyArn__",
-      LastModified: "__LastModified__"
+      LastModified: "__LastModified__",
+      PropagateTags: {
+        Mode: "__Mode__",
+        ExplicitTags: {
+          key1: "__value__",
+          key2: "__value__",
+          key3: "__value__"
+        }
+      }
     }
   ],
   NextMarker: "__NextMarker__",

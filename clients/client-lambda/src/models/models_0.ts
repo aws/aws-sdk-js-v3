@@ -31,6 +31,7 @@ import type {
   OperationStatus,
   OperationType,
   PackageType,
+  PropagateTagsMode,
   ProvisionedConcurrencyStatusEnum,
   RecursiveLoop,
   ResponseStreamingInvocationType,
@@ -476,6 +477,24 @@ export interface CapacityProviderPermissionsConfig {
 }
 
 /**
+ * <p>Configuration for tag propagation to managed resources launched by the capacity provider.</p>
+ * @public
+ */
+export interface PropagateTags {
+  /**
+   * <p>The tag propagation mode. Set to <code>Explicit</code> to propagate the tags specified in <code>ExplicitTags</code> to managed resources. Set to <code>None</code> to disable tag propagation.</p>
+   * @public
+   */
+  Mode?: PropagateTagsMode | undefined;
+
+  /**
+   * <p>A list of tags to apply to managed resources when <code>Mode</code> is set to <code>Explicit</code>. You can specify up to 40 tags.</p>
+   * @public
+   */
+  ExplicitTags?: Record<string, string> | undefined;
+}
+
+/**
  * <p>VPC configuration that specifies the network settings for compute instances managed by the capacity provider.</p>
  * @public
  */
@@ -538,6 +557,12 @@ export interface CreateCapacityProviderRequest {
    * @public
    */
   Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The tag propagation configuration for the capacity provider. Specifies tags to apply to managed resources at launch.</p>
+   * @public
+   */
+  PropagateTags?: PropagateTags | undefined;
 }
 
 /**
@@ -592,6 +617,12 @@ export interface CapacityProvider {
    * @public
    */
   LastModified?: string | undefined;
+
+  /**
+   * <p>Configuration for tag propagation to managed resources launched by the capacity provider.</p>
+   * @public
+   */
+  PropagateTags?: PropagateTags | undefined;
 }
 
 /**
@@ -768,6 +799,12 @@ export interface UpdateCapacityProviderRequest {
    * @public
    */
   CapacityProviderScalingConfig?: CapacityProviderScalingConfig | undefined;
+
+  /**
+   * <p>Configuration for tag propagation to managed resources launched by the capacity provider.</p>
+   * @public
+   */
+  PropagateTags?: PropagateTags | undefined;
 }
 
 /**

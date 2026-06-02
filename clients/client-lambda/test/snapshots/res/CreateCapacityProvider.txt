@@ -27,7 +27,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     "InstanceRequirements": {},
     "CapacityProviderScalingConfig": {},
     "KmsKeyArn": "__KmsKeyArn__",
-    "LastModified": "__LastModified__"
+    "LastModified": "__LastModified__",
+    "PropagateTags": {}
   }
 }
 
@@ -55,7 +56,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     InstanceRequirements: {},
     CapacityProviderScalingConfig: {},
     KmsKeyArn: "__KmsKeyArn__",
-    LastModified: "__LastModified__"
+    LastModified: "__LastModified__",
+    PropagateTags: {}
   },
   $metadata: {
     httpStatusCode: (number) 200,
@@ -129,7 +131,15 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ]
     },
     "KmsKeyArn": "__KmsKeyArn__",
-    "LastModified": "__LastModified__"
+    "LastModified": "__LastModified__",
+    "PropagateTags": {
+      "Mode": "__Mode__",
+      "ExplicitTags": {
+        "key1": "__value__",
+        "key2": "__value__",
+        "key3": "__value__"
+      }
+    }
   }
 }
 
@@ -190,7 +200,15 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ]
     },
     KmsKeyArn: "__KmsKeyArn__",
-    LastModified: "__LastModified__"
+    LastModified: "__LastModified__",
+    PropagateTags: {
+      Mode: "__Mode__",
+      ExplicitTags: {
+        key1: "__value__",
+        key2: "__value__",
+        key3: "__value__"
+      }
+    }
   },
   $metadata: {
     httpStatusCode: (number) 200,

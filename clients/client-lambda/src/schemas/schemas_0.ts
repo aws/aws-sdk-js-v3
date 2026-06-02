@@ -206,6 +206,7 @@ const _ETn = "EndTimestamp";
 const _ETv = "EventType";
 const _ETve = "EventTimestamp";
 const _ETx = "ExecutionTimeout";
+const _ETxp = "ExplicitTags";
 const _EV = "ExecutedVersion";
 const _EVN = "EnvironmentVariableName";
 const _EVV = "EnvironmentVariableValue";
@@ -510,7 +511,8 @@ const _PPCCRu = "PutProvisionedConcurrencyConfigResponse";
 const _PRMC = "PutRuntimeManagementConfig";
 const _PRMCR = "PutRuntimeManagementConfigRequest";
 const _PRMCRu = "PutRuntimeManagementConfigResponse";
-const _PT = "PackageType";
+const _PT = "PropagateTags";
+const _PTa = "PackageType";
 const _PTu = "PublishTo";
 const _PV = "PublishVersion";
 const _PVR = "PublishVersionRequest";
@@ -1170,8 +1172,8 @@ export var CallbackTimedOutDetails$: StaticStructureSchema = [3, n0, _CTOD,
 ];
 export var CapacityProvider$: StaticStructureSchema = [3, n0, _CP,
   0,
-  [_CPA, _St, _VC, _PC, _IR, _CPSC, _KKA, _LM],
-  [0, 0, () => CapacityProviderVpcConfig$, () => CapacityProviderPermissionsConfig$, () => InstanceRequirements$, () => CapacityProviderScalingConfig$, 0, 0], 4
+  [_CPA, _St, _VC, _PC, _IR, _CPSC, _KKA, _LM, _PT],
+  [0, 0, () => CapacityProviderVpcConfig$, () => CapacityProviderPermissionsConfig$, () => InstanceRequirements$, () => CapacityProviderScalingConfig$, 0, 0, () => PropagateTags$], 4
 ];
 export var CapacityProviderConfig$: StaticStructureSchema = [3, n0, _CPC,
   0,
@@ -1295,8 +1297,8 @@ export var CreateAliasRequest$: StaticStructureSchema = [3, n0, _CAR,
 ];
 export var CreateCapacityProviderRequest$: StaticStructureSchema = [3, n0, _CCPR,
   0,
-  [_CPN, _VC, _PC, _IR, _CPSC, _KKA, _Ta],
-  [0, () => CapacityProviderVpcConfig$, () => CapacityProviderPermissionsConfig$, () => InstanceRequirements$, () => CapacityProviderScalingConfig$, 0, 128 | 0], 3
+  [_CPN, _VC, _PC, _IR, _CPSC, _KKA, _Ta, _PT],
+  [0, () => CapacityProviderVpcConfig$, () => CapacityProviderPermissionsConfig$, () => InstanceRequirements$, () => CapacityProviderScalingConfig$, 0, 128 | 0, () => PropagateTags$], 3
 ];
 export var CreateCapacityProviderResponse$: StaticStructureSchema = [3, n0, _CCPRr,
   0,
@@ -1320,7 +1322,7 @@ export var CreateEventSourceMappingRequest$: StaticStructureSchema = [3, n0, _CE
 ];
 export var CreateFunctionRequest$: StaticStructureSchema = [3, n0, _CFR,
   0,
-  [_FN, _Ro, _Cod, _Ru, _H, _D, _Ti, _MS, _Pu, _VC, _PT, _DLC, _Env, _KMSKA, _TC, _Ta, _L, _FSC, _IC, _CSCA, _Ar, _ES, _SSn, _LC, _CPC, _PTu, _DCu, _TCe],
+  [_FN, _Ro, _Cod, _Ru, _H, _D, _Ti, _MS, _Pu, _VC, _PTa, _DLC, _Env, _KMSKA, _TC, _Ta, _L, _FSC, _IC, _CSCA, _Ar, _ES, _SSn, _LC, _CPC, _PTu, _DCu, _TCe],
   [0, 0, [() => FunctionCode$, 0], 0, 0, 0, 1, 1, 2, () => VpcConfig$, 0, () => DeadLetterConfig$, [() => Environment$, 0], 0, () => TracingConfig$, 128 | 0, 64 | 0, () => FileSystemConfigList, () => ImageConfig$, 0, 64 | 0, () => EphemeralStorage$, () => SnapStart$, () => LoggingConfig$, () => CapacityProviderConfig$, 0, () => DurableConfig$, () => TenancyConfig$], 3
 ];
 export var CreateFunctionUrlConfigRequest$: StaticStructureSchema = [3, n0, _CFUCR,
@@ -1550,7 +1552,7 @@ export var FunctionCodeLocation$: StaticStructureSchema = [3, n0, _FCL,
 ];
 export var FunctionConfiguration$: StaticStructureSchema = [3, n0, _FCun,
   0,
-  [_FN, _FA, _Ru, _Ro, _H, _CS, _D, _Ti, _MS, _LM, _CSo, _Ve, _VC, _DLC, _Env, _KMSKA, _TC, _MAa, _RI, _L, _St, _SR, _SRCt, _LUS, _LUSR, _LUSRC, _FSC, _PT, _ICR, _SPVAi, _SJA, _Ar, _ES, _SSn, _RVC, _LC, _CPC, _CSon, _DCu, _TCe],
+  [_FN, _FA, _Ru, _Ro, _H, _CS, _D, _Ti, _MS, _LM, _CSo, _Ve, _VC, _DLC, _Env, _KMSKA, _TC, _MAa, _RI, _L, _St, _SR, _SRCt, _LUS, _LUSR, _LUSRC, _FSC, _PTa, _ICR, _SPVAi, _SJA, _Ar, _ES, _SSn, _RVC, _LC, _CPC, _CSon, _DCu, _TCe],
   [0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, () => VpcConfigResponse$, () => DeadLetterConfig$, [() => EnvironmentResponse$, 0], 0, () => TracingConfigResponse$, 0, 0, () => LayersReferenceList, 0, 0, 0, 0, 0, 0, () => FileSystemConfigList, 0, [() => ImageConfigResponse$, 0], 0, 0, 64 | 0, () => EphemeralStorage$, () => SnapStartResponse$, [() => RuntimeVersionConfig$, 0], () => LoggingConfig$, () => CapacityProviderConfig$, 0, () => DurableConfig$, () => TenancyConfig$]
 ];
 export var FunctionEventInvokeConfig$: StaticStructureSchema = [3, n0, _FEIC,
@@ -2053,6 +2055,11 @@ export var OperationUpdate$: StaticStructureSchema = [3, n0, _OU,
   [_Id, _T, _A, _PI, _N, _STu, _Pa, _E, _COo, _SO, _WO, _CO, _CIO],
   [0, 0, 0, 0, 0, 0, [() => OperationPayload, 0], [() => ErrorObject$, 0], () => ContextOptions$, () => StepOptions$, () => WaitOptions$, () => CallbackOptions$, () => ChainedInvokeOptions$], 3
 ];
+export var PropagateTags$: StaticStructureSchema = [3, n0, _PT,
+  0,
+  [_Mo, _ETxp],
+  [0, 128 | 0]
+];
 export var ProvisionedConcurrencyConfigListItem$: StaticStructureSchema = [3, n0, _PCCLI,
   0,
   [_FA, _RPCE, _APCE, _APCEl, _Sta, _SRt, _LM],
@@ -2305,8 +2312,8 @@ export var UpdateAliasRequest$: StaticStructureSchema = [3, n0, _UAR,
 ];
 export var UpdateCapacityProviderRequest$: StaticStructureSchema = [3, n0, _UCPR,
   0,
-  [_CPN, _CPSC],
-  [[0, 1], () => CapacityProviderScalingConfig$], 1
+  [_CPN, _CPSC, _PT],
+  [[0, 1], () => CapacityProviderScalingConfig$, () => PropagateTags$], 1
 ];
 export var UpdateCapacityProviderResponse$: StaticStructureSchema = [3, n0, _UCPRp,
   0,

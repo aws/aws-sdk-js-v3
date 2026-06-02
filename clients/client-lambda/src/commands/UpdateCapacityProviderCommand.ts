@@ -48,6 +48,12 @@ export interface UpdateCapacityProviderCommandOutput extends UpdateCapacityProvi
  *       },
  *     ],
  *   },
+ *   PropagateTags: { // PropagateTags
+ *     Mode: "None" || "Explicit",
+ *     ExplicitTags: { // Tags
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
  * };
  * const command = new UpdateCapacityProviderCommand(input);
  * const response = await client.send(command);
@@ -89,6 +95,12 @@ export interface UpdateCapacityProviderCommandOutput extends UpdateCapacityProvi
  * //     },
  * //     KmsKeyArn: "STRING_VALUE",
  * //     LastModified: "STRING_VALUE",
+ * //     PropagateTags: { // PropagateTags
+ * //       Mode: "None" || "Explicit",
+ * //       ExplicitTags: { // Tags
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
  * //   },
  * // };
  *
