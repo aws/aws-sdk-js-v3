@@ -1,5 +1,12 @@
 // smithy-typescript generated code
-import type { OriginType, ShardFilterType, ShardIteratorType, StreamStatus, StreamViewType } from "./enums";
+import type {
+  IteratorPosition,
+  OriginType,
+  ShardFilterType,
+  ShardIteratorType,
+  StreamStatus,
+  StreamViewType,
+} from "./enums";
 
 /**
  * @public
@@ -34,6 +41,18 @@ export interface KeyspacesMetadata {
    * @public
    */
   writeTime?: string | undefined;
+}
+
+/**
+ * <p>Provides information about the current iterator.</p>
+ * @public
+ */
+export interface IteratorDescription {
+  /**
+   * <p> Indicates the current iterator's position within the shard. The possible values are: </p> <ul> <li> <p> <code>AT_TIP</code> - No more records are currently available.</p> </li> <li> <p> <code>BEHIND_TIP</code> - Additional records may be available.</p> </li> </ul> <p>Stream progresses in absence of customer records. <code>BEHIND_TIP</code> with an empty <code>changeRecords</code> list indicates the stream is progressing but no customer records are available at this position. Continue polling normally.</p>
+   * @public
+   */
+  iteratorPosition?: IteratorPosition | undefined;
 }
 
 /**
@@ -1424,4 +1443,10 @@ export interface GetRecordsOutput {
    * @public
    */
   nextShardIterator?: string | undefined;
+
+  /**
+   * <p> Provides information about the current iterator at the time GetRecords request was processed by Keyspaces. </p>
+   * @public
+   */
+  iteratorDescription?: IteratorDescription | undefined;
 }

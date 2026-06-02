@@ -8,6 +8,7 @@ const _GSII = "GetShardIteratorInput";
 const _GSIO = "GetShardIteratorOutput";
 const _GSIe = "GetShardIterator";
 const _GSO = "GetStreamOutput";
+const _ID = "IteratorDescription";
 const _ISE = "InternalServerException";
 const _KC = "KeyspacesCell";
 const _KCL = "KeyspacesCellList";
@@ -55,6 +56,8 @@ const _eT = "expirationTime";
 const _eV = "eventVersion";
 const _fT = "floatT";
 const _hE = "httpError";
+const _iD = "iteratorDescription";
+const _iP = "iteratorPosition";
 const _iT = "inetT";
 const _iTn = "intT";
 const _k = "key";
@@ -178,8 +181,8 @@ export var GetRecordsInput$: StaticStructureSchema = [3, n0, _GRI,
 ];
 export var GetRecordsOutput$: StaticStructureSchema = [3, n0, _GRO,
   0,
-  [_cR, _nSI],
-  [() => RecordList, 0]
+  [_cR, _nSI, _iD],
+  [() => RecordList, 0, () => IteratorDescription$]
 ];
 export var GetShardIteratorInput$: StaticStructureSchema = [3, n0, _GSII,
   0,
@@ -200,6 +203,11 @@ export var GetStreamOutput$: StaticStructureSchema = [3, n0, _GSO,
   0,
   [_sA, _sL, _sS, _sVT, _cRDT, _kN, _tN, _sh, _nT],
   [0, 0, 0, 0, 4, 0, 0, () => ShardDescriptionList, 0], 7
+];
+export var IteratorDescription$: StaticStructureSchema = [3, n0, _ID,
+  0,
+  [_iP],
+  [0]
 ];
 export var KeyspacesCell$: StaticStructureSchema = [3, n0, _KC,
   0,

@@ -17,6 +17,8 @@ import {
   GetStreamOutput$,
   InternalServerException,
   InternalServerException$,
+  IteratorDescription$,
+  IteratorPosition,
   KeyspacesCell$,
   KeyspacesCellMapDefinition$,
   KeyspacesCellValue$,
@@ -67,6 +69,7 @@ assert(typeof GetShardIteratorInput$ === "object");
 assert(typeof GetShardIteratorOutput$ === "object");
 assert(typeof GetStreamInput$ === "object");
 assert(typeof GetStreamOutput$ === "object");
+assert(typeof IteratorDescription$ === "object");
 assert(typeof KeyspacesCell$ === "object");
 assert(typeof KeyspacesCellMapDefinition$ === "object");
 assert(typeof KeyspacesCellValue$ === "object");
@@ -80,6 +83,7 @@ assert(typeof Shard$ === "object");
 assert(typeof ShardFilter$ === "object");
 assert(typeof _Stream$ === "object");
 // enums
+assert(typeof IteratorPosition === "object");
 assert(typeof OriginType === "object");
 assert(typeof ShardFilterType === "object");
 assert(typeof ShardIteratorType === "object");

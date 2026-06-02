@@ -190,6 +190,9 @@ export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBea
  * //     },
  * //   ],
  * //   nextShardIterator: "STRING_VALUE",
+ * //   iteratorDescription: { // IteratorDescription
+ * //     iteratorPosition: "AT_TIP" || "BEHIND_TIP",
+ * //   },
  * // };
  *
  * ```

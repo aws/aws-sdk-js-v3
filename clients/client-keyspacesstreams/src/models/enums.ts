@@ -17,6 +17,19 @@ export type OriginType = (typeof OriginType)[keyof typeof OriginType];
  * @public
  * @enum
  */
+export const IteratorPosition = {
+  AT_TIP: "AT_TIP",
+  BEHIND_TIP: "BEHIND_TIP",
+} as const;
+/**
+ * @public
+ */
+export type IteratorPosition = (typeof IteratorPosition)[keyof typeof IteratorPosition];
+
+/**
+ * @public
+ * @enum
+ */
 export const ValidationExceptionType = {
   ExpiredIterator: "ExpiredIterator",
   ExpiredNextToken: "ExpiredNextToken",
