@@ -22,7 +22,6 @@ import {
 } from "@aws-sdk/client-s3";
 import { type Logger, LogLevel } from "@aws-sdk/config/logger";
 import { type StreamingBlobPayloadOutputTypes } from "@smithy/types";
-import { Readable } from "node:stream";
 
 import { byteLength } from "../byteLength";
 import { getChunk } from "../chunker";
@@ -41,7 +40,7 @@ import type {
   UploadRequest,
   UploadResponse,
 } from "./types";
-import { type DataSource, defaultWorkerCount, WorkerHttpHandler } from "./worker-http-handler";
+import { type DataSource, createEmptyReadable, defaultWorkerCount, WorkerHttpHandler } from "./worker-http-handler";
 
 /**
  * Client for efficient transfer of objects to and from Amazon S3.
@@ -308,7 +307,7 @@ export class S3TransferManager implements IS3TransferManager {
         response = await this.threadedUploadInPartsFromFile(request, totalContentLength, transferOptions);
       } else if (this.workerThreadCount > 1 && this.isInMemoryBody(request.Body)) {
         if (typeof request.Body === "string") {
-          request = { ...request, Body: Buffer.from(request.Body) };
+          request = { ...request, Body: new TextEncoder().encode(request.Body) };
         }
         response = await this.threadedUploadInParts(request, totalContentLength, transferOptions);
       } else {
@@ -1124,8 +1123,8 @@ export class S3TransferManager implements IS3TransferManager {
    * Checks if the body is a file read stream with a .path property.
    * @internal
    */
-  private isFileBody(body: any): body is Readable & { path: string } {
-    return body instanceof Readable && typeof (body as any).path === "string";
+  private isFileBody(body: any): boolean {
+    return typeof body?.pipe === "function" && typeof (body as any).path === "string";
   }
 
   /**
@@ -1133,7 +1132,7 @@ export class S3TransferManager implements IS3TransferManager {
    * @internal
    */
   private isInMemoryBody(body: any): body is Uint8Array | string {
-    return body instanceof Uint8Array || Buffer.isBuffer(body) || typeof body === "string";
+    return body instanceof Uint8Array || typeof body === "string";
   }
 
   /**
@@ -1259,11 +1258,7 @@ export class S3TransferManager implements IS3TransferManager {
           // Readable placeholder — the checksum middleware sees a stream,
           // sets up aws-chunked headers, and the signer signs them.
           // The worker fulfills this contract by sending aws-chunked framed data.
-          const placeholderBody = new Readable({
-            read() {
-              this.push(null);
-            },
-          });
+          const placeholderBody = createEmptyReadable();
 
           const partRequest: UploadPartCommandInput = {
             ...request,

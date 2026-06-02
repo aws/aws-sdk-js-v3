@@ -15,7 +15,21 @@ import type { HttpHandlerOptions, HttpRequest, HttpResponse as HttpResponseShape
 import { existsSync } from "node:fs";
 import { cpus } from "node:os";
 import * as path from "node:path";
+import { Readable } from "node:stream";
 import { Worker } from "node:worker_threads";
+
+/**
+ * Creates an empty Readable stream that immediately ends.
+ * Used as a placeholder body for UploadPart in threaded uploads.
+ * @internal
+ */
+export function createEmptyReadable(): Readable {
+  return new Readable({
+    read() {
+      this.push(null);
+    },
+  });
+}
 
 /**
  * Serializable subset of HttpRequest.

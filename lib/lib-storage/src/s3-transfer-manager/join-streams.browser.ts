@@ -1,5 +1,5 @@
+import { isReadableStream, sdkStreamMixin } from "@smithy/core/serde";
 import type { StreamingBlobPayloadOutputTypes } from "@smithy/types";
-import { isReadableStream, sdkStreamMixin } from "@smithy/util-stream";
 
 import type { JoinStreamIterationEvents } from "./types";
 

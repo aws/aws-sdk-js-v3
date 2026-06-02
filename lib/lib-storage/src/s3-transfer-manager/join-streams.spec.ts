@@ -1,4 +1,4 @@
-import { sdkStreamMixin } from "@smithy/util-stream";
+import { sdkStreamMixin } from "@smithy/core/serde";
 import { Readable } from "node:stream";
 import { describe, expect, test as it } from "vitest";
 

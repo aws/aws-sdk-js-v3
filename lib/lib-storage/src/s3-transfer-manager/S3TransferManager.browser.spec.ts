@@ -1,5 +1,5 @@
+import { sdkStreamMixin } from "@smithy/core/serde";
 import type { StreamingBlobPayloadOutputTypes } from "@smithy/types";
-import { sdkStreamMixin } from "@smithy/util-stream";
 import { describe, expect, it, vi } from "vitest";
 
 import { joinStreams } from "./join-streams.browser";

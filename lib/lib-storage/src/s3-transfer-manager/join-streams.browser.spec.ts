@@ -1,4 +1,4 @@
-import { sdkStreamMixin } from "@smithy/util-stream";
+import { sdkStreamMixin } from "@smithy/core/serde";
 import { describe, expect, test as it } from "vitest";
 
 import { joinStreams } from "./join-streams.browser";
