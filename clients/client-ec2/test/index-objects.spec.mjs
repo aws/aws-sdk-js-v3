@@ -98,6 +98,7 @@ import {
   AnalysisSecurityGroupRule$,
   AnalysisStatus,
   ApplianceModeSupportValue,
+  ApplyCancellationCharges,
   ApplySecurityGroupsToClientVpnTargetNetwork$,
   ApplySecurityGroupsToClientVpnTargetNetworkCommand,
   ApplySecurityGroupsToClientVpnTargetNetworkRequest$,
@@ -317,6 +318,7 @@ import {
   CancelImportTaskCommand,
   CancelImportTaskRequest$,
   CancelImportTaskResult$,
+  CancellationTerms$,
   CancelledSpotInstanceRequest$,
   CancelReservedInstancesListing$,
   CancelReservedInstancesListingCommand,
@@ -355,7 +357,10 @@ import {
   CapacityReservation$,
   CapacityReservationBillingRequest$,
   CapacityReservationBillingRequestStatus,
+  CapacityReservationCancellationQuote$,
+  CapacityReservationCancellationQuoteState,
   CapacityReservationCommitmentInfo$,
+  CapacityReservationConfiguration$,
   CapacityReservationDeliveryPreference,
   CapacityReservationFleet$,
   CapacityReservationFleetCancellationState$,
@@ -465,6 +470,10 @@ import {
   CreateCapacityReservationBySplittingCommand,
   CreateCapacityReservationBySplittingRequest$,
   CreateCapacityReservationBySplittingResult$,
+  CreateCapacityReservationCancellationQuote$,
+  CreateCapacityReservationCancellationQuoteCommand,
+  CreateCapacityReservationCancellationQuoteRequest$,
+  CreateCapacityReservationCancellationQuoteResult$,
   CreateCapacityReservationCommand,
   CreateCapacityReservationFleet$,
   CreateCapacityReservationFleetCommand,
@@ -1361,6 +1370,10 @@ import {
   DescribeCapacityReservationBillingRequestsCommand,
   DescribeCapacityReservationBillingRequestsRequest$,
   DescribeCapacityReservationBillingRequestsResult$,
+  DescribeCapacityReservationCancellationQuotes$,
+  DescribeCapacityReservationCancellationQuotesCommand,
+  DescribeCapacityReservationCancellationQuotesRequest$,
+  DescribeCapacityReservationCancellationQuotesResult$,
   DescribeCapacityReservationFleets$,
   DescribeCapacityReservationFleetsCommand,
   DescribeCapacityReservationFleetsRequest$,
@@ -4752,6 +4765,8 @@ assert(typeof CreateCapacityReservationCommand === "function");
 assert(typeof CreateCapacityReservation$ === "object");
 assert(typeof CreateCapacityReservationBySplittingCommand === "function");
 assert(typeof CreateCapacityReservationBySplitting$ === "object");
+assert(typeof CreateCapacityReservationCancellationQuoteCommand === "function");
+assert(typeof CreateCapacityReservationCancellationQuote$ === "object");
 assert(typeof CreateCapacityReservationFleetCommand === "function");
 assert(typeof CreateCapacityReservationFleet$ === "object");
 assert(typeof CreateCarrierGatewayCommand === "function");
@@ -5188,6 +5203,8 @@ assert(typeof DescribeCapacityManagerDataExportsCommand === "function");
 assert(typeof DescribeCapacityManagerDataExports$ === "object");
 assert(typeof DescribeCapacityReservationBillingRequestsCommand === "function");
 assert(typeof DescribeCapacityReservationBillingRequests$ === "object");
+assert(typeof DescribeCapacityReservationCancellationQuotesCommand === "function");
+assert(typeof DescribeCapacityReservationCancellationQuotes$ === "object");
 assert(typeof DescribeCapacityReservationFleetsCommand === "function");
 assert(typeof DescribeCapacityReservationFleets$ === "object");
 assert(typeof DescribeCapacityReservationsCommand === "function");
@@ -6316,6 +6333,7 @@ assert(typeof CancelImageLaunchPermissionRequest$ === "object");
 assert(typeof CancelImageLaunchPermissionResult$ === "object");
 assert(typeof CancelImportTaskRequest$ === "object");
 assert(typeof CancelImportTaskResult$ === "object");
+assert(typeof CancellationTerms$ === "object");
 assert(typeof CancelledSpotInstanceRequest$ === "object");
 assert(typeof CancelReservedInstancesListingRequest$ === "object");
 assert(typeof CancelReservedInstancesListingResult$ === "object");
@@ -6340,7 +6358,9 @@ assert(typeof CapacityManagerMonitoredTagKey$ === "object");
 assert(typeof CapacityManagerTagDimension$ === "object");
 assert(typeof CapacityReservation$ === "object");
 assert(typeof CapacityReservationBillingRequest$ === "object");
+assert(typeof CapacityReservationCancellationQuote$ === "object");
 assert(typeof CapacityReservationCommitmentInfo$ === "object");
+assert(typeof CapacityReservationConfiguration$ === "object");
 assert(typeof CapacityReservationFleet$ === "object");
 assert(typeof CapacityReservationFleetCancellationState$ === "object");
 assert(typeof CapacityReservationGroup$ === "object");
@@ -6411,6 +6431,8 @@ assert(typeof CreateCapacityManagerDataExportRequest$ === "object");
 assert(typeof CreateCapacityManagerDataExportResult$ === "object");
 assert(typeof CreateCapacityReservationBySplittingRequest$ === "object");
 assert(typeof CreateCapacityReservationBySplittingResult$ === "object");
+assert(typeof CreateCapacityReservationCancellationQuoteRequest$ === "object");
+assert(typeof CreateCapacityReservationCancellationQuoteResult$ === "object");
 assert(typeof CreateCapacityReservationFleetRequest$ === "object");
 assert(typeof CreateCapacityReservationFleetResult$ === "object");
 assert(typeof CreateCapacityReservationRequest$ === "object");
@@ -6860,6 +6882,8 @@ assert(typeof DescribeCapacityManagerDataExportsRequest$ === "object");
 assert(typeof DescribeCapacityManagerDataExportsResult$ === "object");
 assert(typeof DescribeCapacityReservationBillingRequestsRequest$ === "object");
 assert(typeof DescribeCapacityReservationBillingRequestsResult$ === "object");
+assert(typeof DescribeCapacityReservationCancellationQuotesRequest$ === "object");
+assert(typeof DescribeCapacityReservationCancellationQuotesResult$ === "object");
 assert(typeof DescribeCapacityReservationFleetsRequest$ === "object");
 assert(typeof DescribeCapacityReservationFleetsResult$ === "object");
 assert(typeof DescribeCapacityReservationsRequest$ === "object");
@@ -8554,6 +8578,7 @@ assert(typeof AllowsMultipleInstanceTypes === "object");
 assert(typeof AmdSevSnpSpecification === "object");
 assert(typeof AnalysisStatus === "object");
 assert(typeof ApplianceModeSupportValue === "object");
+assert(typeof ApplyCancellationCharges === "object");
 assert(typeof ArchitectureType === "object");
 assert(typeof ArchitectureValues === "object");
 assert(typeof AsnAssociationState === "object");
@@ -8590,6 +8615,7 @@ assert(typeof CapacityManagerDataExportStatus === "object");
 assert(typeof CapacityManagerMonitoredTagKeyStatus === "object");
 assert(typeof CapacityManagerStatus === "object");
 assert(typeof CapacityReservationBillingRequestStatus === "object");
+assert(typeof CapacityReservationCancellationQuoteState === "object");
 assert(typeof CapacityReservationDeliveryPreference === "object");
 assert(typeof CapacityReservationFleetState === "object");
 assert(typeof CapacityReservationInstancePlatform === "object");

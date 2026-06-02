@@ -5,7 +5,8 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { DescribeStaleSecurityGroupsRequest, DescribeStaleSecurityGroupsResult } from "../models/models_4";
+import type { DescribeStaleSecurityGroupsRequest } from "../models/models_4";
+import type { DescribeStaleSecurityGroupsResult } from "../models/models_5";
 import { DescribeStaleSecurityGroups$ } from "../schemas/schemas_0";
 
 /**

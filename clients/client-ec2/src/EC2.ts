@@ -324,6 +324,11 @@ import {
   CreateCapacityReservationBySplittingCommand,
 } from "./commands/CreateCapacityReservationBySplittingCommand";
 import {
+  type CreateCapacityReservationCancellationQuoteCommandInput,
+  type CreateCapacityReservationCancellationQuoteCommandOutput,
+  CreateCapacityReservationCancellationQuoteCommand,
+} from "./commands/CreateCapacityReservationCancellationQuoteCommand";
+import {
   type CreateCapacityReservationCommandInput,
   type CreateCapacityReservationCommandOutput,
   CreateCapacityReservationCommand,
@@ -1410,6 +1415,11 @@ import {
   type DescribeCapacityReservationBillingRequestsCommandOutput,
   DescribeCapacityReservationBillingRequestsCommand,
 } from "./commands/DescribeCapacityReservationBillingRequestsCommand";
+import {
+  type DescribeCapacityReservationCancellationQuotesCommandInput,
+  type DescribeCapacityReservationCancellationQuotesCommandOutput,
+  DescribeCapacityReservationCancellationQuotesCommand,
+} from "./commands/DescribeCapacityReservationCancellationQuotesCommand";
 import {
   type DescribeCapacityReservationFleetsCommandInput,
   type DescribeCapacityReservationFleetsCommandOutput,
@@ -4171,6 +4181,7 @@ const commands = {
   CreateCapacityManagerDataExportCommand,
   CreateCapacityReservationCommand,
   CreateCapacityReservationBySplittingCommand,
+  CreateCapacityReservationCancellationQuoteCommand,
   CreateCapacityReservationFleetCommand,
   CreateCarrierGatewayCommand,
   CreateClientVpnEndpointCommand,
@@ -4389,6 +4400,7 @@ const commands = {
   DescribeCapacityBlockStatusCommand,
   DescribeCapacityManagerDataExportsCommand,
   DescribeCapacityReservationBillingRequestsCommand,
+  DescribeCapacityReservationCancellationQuotesCommand,
   DescribeCapacityReservationFleetsCommand,
   DescribeCapacityReservationsCommand,
   DescribeCapacityReservationTopologyCommand,
@@ -6199,6 +6211,23 @@ export interface EC2 {
     args: CreateCapacityReservationBySplittingCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateCapacityReservationBySplittingCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateCapacityReservationCancellationQuoteCommand}
+   */
+  createCapacityReservationCancellationQuote(
+    args: CreateCapacityReservationCancellationQuoteCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCapacityReservationCancellationQuoteCommandOutput>;
+  createCapacityReservationCancellationQuote(
+    args: CreateCapacityReservationCancellationQuoteCommandInput,
+    cb: (err: any, data?: CreateCapacityReservationCancellationQuoteCommandOutput) => void
+  ): void;
+  createCapacityReservationCancellationQuote(
+    args: CreateCapacityReservationCancellationQuoteCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCapacityReservationCancellationQuoteCommandOutput) => void
   ): void;
 
   /**
@@ -9939,6 +9968,24 @@ export interface EC2 {
     args: DescribeCapacityReservationBillingRequestsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeCapacityReservationBillingRequestsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeCapacityReservationCancellationQuotesCommand}
+   */
+  describeCapacityReservationCancellationQuotes(): Promise<DescribeCapacityReservationCancellationQuotesCommandOutput>;
+  describeCapacityReservationCancellationQuotes(
+    args: DescribeCapacityReservationCancellationQuotesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeCapacityReservationCancellationQuotesCommandOutput>;
+  describeCapacityReservationCancellationQuotes(
+    args: DescribeCapacityReservationCancellationQuotesCommandInput,
+    cb: (err: any, data?: DescribeCapacityReservationCancellationQuotesCommandOutput) => void
+  ): void;
+  describeCapacityReservationCancellationQuotes(
+    args: DescribeCapacityReservationCancellationQuotesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeCapacityReservationCancellationQuotesCommandOutput) => void
   ): void;
 
   /**

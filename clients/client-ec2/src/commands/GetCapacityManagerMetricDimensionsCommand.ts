@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type {
   GetCapacityManagerMetricDimensionsRequest,
   GetCapacityManagerMetricDimensionsResult,
-} from "../models/models_5";
+} from "../models/models_6";
 import { GetCapacityManagerMetricDimensions$ } from "../schemas/schemas_0";
 
 /**

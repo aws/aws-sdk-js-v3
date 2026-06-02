@@ -4,6 +4,7 @@ import type {
   AddressTransferStatus,
   AllocationType,
   ApplianceModeSupportValue,
+  ApplyCancellationCharges,
   AsnAssociationState,
   AssociationStatusCode,
   AttachmentStatus,
@@ -14,6 +15,7 @@ import type {
   ByoipCidrState,
   CancelBatchErrorCode,
   CancelSpotInstanceRequestState,
+  CapacityReservationCancellationQuoteState,
   CapacityReservationDeliveryPreference,
   CapacityReservationFleetState,
   CapacityReservationInstancePlatform,
@@ -68,7 +70,6 @@ import type {
   SSEType,
   SubnetCidrBlockStateCode,
   SubnetState,
-  Tenancy,
   TrafficIpAddressType,
   TransitGatewayAssociationState,
   TransitGatewayAttachmentResourceType,
@@ -82,11 +83,7 @@ import type {
   VolumeState,
   VolumeType,
   VpcCidrBlockStateCode,
-  VpcEncryptionControlExclusionState,
-  VpcEncryptionControlMode,
-  VpcEncryptionControlState,
   VpcPeeringConnectionStateReasonCode,
-  VpcState,
   VpnTunnelProvisioningStatus,
   WeekDay,
 } from "./enums";
@@ -6880,6 +6877,23 @@ export interface CancelCapacityReservationRequest {
    * @public
    */
   DryRun?: boolean | undefined;
+
+  /**
+   * <p>Specifies the cancellation charge type to apply when cancelling a future-dated Capacity
+   * 			Reservation during its commitment duration. Possible values include
+   * 			<code>commitment-wind-down</code>, which continues billing for the remaining commitment
+   * 			duration without delivering capacity.</p>
+   * @public
+   */
+  ApplyCancellationCharges?: ApplyCancellationCharges | undefined;
+
+  /**
+   * <p>The ID of the cancellation quote to use for the cancellation. You can generate a
+   * 			cancellation quote by using the <code>CreateCapacityReservationCancellationQuote</code>
+   * 			action. The cancellation quote must be in an <code>active</code> state.</p>
+   * @public
+   */
+  QuoteId?: string | undefined;
 }
 
 /**
@@ -8789,6 +8803,13 @@ export interface CapacityReservation {
    * 		can't support the future-dated Capacity Reservation request due to capacity constraints. You can view
    * 		unsupported requests for 30 days. The Capacity Reservation will not be delivered.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>cancelling</code> - (<i>Future-dated Capacity Reservations</i>) The
+   * 		Capacity Reservation is being cancelled. Capacity has been released but charges continue for
+   * 		the commitment wind-down period. The reservation transitions to <code>cancelled</code> when
+   * 		the wind-down completes.</p>
+   *             </li>
    *          </ul>
    * @public
    */
@@ -9019,6 +9040,161 @@ export interface CreateCapacityReservationBySplittingResult {
    * @public
    */
   InstanceCount?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCapacityReservationCancellationQuoteRequest {
+  /**
+   * <p>The ID of the Capacity Reservation.</p>
+   * @public
+   */
+  CapacityReservationId: string | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensure Idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The tags to apply to the cancellation quote.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Describes the cancellation terms for cancelling a future-dated Capacity Reservation
+ * 			during its commitment duration.</p>
+ * @public
+ */
+export interface CancellationTerms {
+  /**
+   * <p>The type of cancellation charge. Possible values include
+   * 			<code>commitment-wind-down</code>.</p>
+   * @public
+   */
+  CancellationType?: ApplyCancellationCharges | undefined;
+
+  /**
+   * <p>The state that the Capacity Reservation will transition to after
+   * 			cancellation.</p>
+   * @public
+   */
+  ReservationState?: string | undefined;
+
+  /**
+   * <p>The number of instances under commitment after cancellation.</p>
+   * @public
+   */
+  CommittedInstanceCount?: number | undefined;
+
+  /**
+   * <p>The number of hours for which cancellation charges will apply.</p>
+   * @public
+   */
+  ChargeCommitmentDurationHours?: number | undefined;
+
+  /**
+   * <p>The date and time at which cancellation charges will stop.</p>
+   * @public
+   */
+  ChargeEndDate?: Date | undefined;
+}
+
+/**
+ * <p>Describes the configuration of a Capacity Reservation.</p>
+ * @public
+ */
+export interface CapacityReservationConfiguration {
+  /**
+   * <p>The number of instances in the Capacity Reservation.</p>
+   * @public
+   */
+  InstanceCount?: number | undefined;
+
+  /**
+   * <p>The current state of the Capacity Reservation.</p>
+   * @public
+   */
+  ReservationState?: string | undefined;
+}
+
+/**
+ * <p>Describes a Capacity Reservation cancellation quote, which provides the cancellation
+ * 			terms for cancelling a future-dated Capacity Reservation during its commitment
+ * 			duration.</p>
+ * @public
+ */
+export interface CapacityReservationCancellationQuote {
+  /**
+   * <p>The ID of the cancellation quote.</p>
+   * @public
+   */
+  CapacityReservationCancellationQuoteId?: string | undefined;
+
+  /**
+   * <p>The ID of the Capacity Reservation associated with the cancellation quote.</p>
+   * @public
+   */
+  CapacityReservationId?: string | undefined;
+
+  /**
+   * <p>The date and time at which the cancellation quote was created.</p>
+   * @public
+   */
+  CreateTime?: Date | undefined;
+
+  /**
+   * <p>The date and time at which the cancellation quote expires.</p>
+   * @public
+   */
+  ExpirationTime?: Date | undefined;
+
+  /**
+   * <p>The state of the cancellation quote. Possible values include
+   * 			<code>pending</code>, <code>active</code>, and <code>expired</code>.</p>
+   * @public
+   */
+  QuoteState?: CapacityReservationCancellationQuoteState | undefined;
+
+  /**
+   * <p>The current configuration of the Capacity Reservation.</p>
+   * @public
+   */
+  CurrentConfiguration?: CapacityReservationConfiguration | undefined;
+
+  /**
+   * <p>The cancellation terms associated with the quote, including the fee type and
+   * 			charge details.</p>
+   * @public
+   */
+  CancellationTerms?: CancellationTerms[] | undefined;
+
+  /**
+   * <p>The tags assigned to the cancellation quote.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCapacityReservationCancellationQuoteResult {
+  /**
+   * <p>Information about the Capacity Reservation cancellation quote.</p>
+   * @public
+   */
+  CapacityReservationCancellationQuote?: CapacityReservationCancellationQuote | undefined;
 }
 
 /**
@@ -10542,217 +10718,4 @@ export interface CreateDefaultVpcRequest {
    * @public
    */
   DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Describes an exclusion configuration for VPC Encryption Control.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html">Enforce VPC encryption in transit</a> in the <i>Amazon VPC User Guide</i>.</p>
- * @public
- */
-export interface VpcEncryptionControlExclusion {
-  /**
-   * <p>The current state of the exclusion configuration.</p>
-   * @public
-   */
-  State?: VpcEncryptionControlExclusionState | undefined;
-
-  /**
-   * <p>A message providing additional information about the exclusion state.</p>
-   * @public
-   */
-  StateMessage?: string | undefined;
-}
-
-/**
- * <p>Describes the exclusion configurations for various resource types in VPC Encryption Control.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html">Enforce VPC encryption in transit</a> in the <i>Amazon VPC User Guide</i>.</p>
- * @public
- */
-export interface VpcEncryptionControlExclusions {
-  /**
-   * <p>The exclusion configuration for internet gateway traffic.</p>
-   * @public
-   */
-  InternetGateway?: VpcEncryptionControlExclusion | undefined;
-
-  /**
-   * <p>The exclusion configuration for egress-only internet gateway traffic.</p>
-   * @public
-   */
-  EgressOnlyInternetGateway?: VpcEncryptionControlExclusion | undefined;
-
-  /**
-   * <p>The exclusion configuration for NAT gateway traffic.</p>
-   * @public
-   */
-  NatGateway?: VpcEncryptionControlExclusion | undefined;
-
-  /**
-   * <p>The exclusion configuration for virtual private gateway traffic.</p>
-   * @public
-   */
-  VirtualPrivateGateway?: VpcEncryptionControlExclusion | undefined;
-
-  /**
-   * <p>The exclusion configuration for VPC peering connection traffic.</p>
-   * @public
-   */
-  VpcPeering?: VpcEncryptionControlExclusion | undefined;
-
-  /**
-   * <p>The exclusion configuration for Lambda function traffic.</p>
-   * @public
-   */
-  Lambda?: VpcEncryptionControlExclusion | undefined;
-
-  /**
-   * <p>The exclusion configuration for VPC Lattice traffic.</p>
-   * @public
-   */
-  VpcLattice?: VpcEncryptionControlExclusion | undefined;
-
-  /**
-   * <p>The exclusion configuration for Elastic File System traffic.</p>
-   * @public
-   */
-  ElasticFileSystem?: VpcEncryptionControlExclusion | undefined;
-}
-
-/**
- * <p>Describes the configuration and state of VPC encryption controls.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html">Enforce VPC encryption in transit</a> in the <i>Amazon VPC User Guide</i>.</p>
- * @public
- */
-export interface VpcEncryptionControl {
-  /**
-   * <p>The ID of the VPC associated with the encryption control configuration.</p>
-   * @public
-   */
-  VpcId?: string | undefined;
-
-  /**
-   * <p>The ID of the VPC Encryption Control configuration.</p>
-   * @public
-   */
-  VpcEncryptionControlId?: string | undefined;
-
-  /**
-   * <p>The encryption mode for the VPC Encryption Control configuration.</p>
-   * @public
-   */
-  Mode?: VpcEncryptionControlMode | undefined;
-
-  /**
-   * <p>The current state of the VPC Encryption Control configuration.</p>
-   * @public
-   */
-  State?: VpcEncryptionControlState | undefined;
-
-  /**
-   * <p>A message providing additional information about the encryption control state.</p>
-   * @public
-   */
-  StateMessage?: string | undefined;
-
-  /**
-   * <p>Information about resource exclusions for the VPC Encryption Control configuration.</p>
-   * @public
-   */
-  ResourceExclusions?: VpcEncryptionControlExclusions | undefined;
-
-  /**
-   * <p>The tags assigned to the VPC Encryption Control configuration.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * <p>Describes a VPC.</p>
- * @public
- */
-export interface Vpc {
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the VPC.</p>
-   * @public
-   */
-  OwnerId?: string | undefined;
-
-  /**
-   * <p>The allowed tenancy of instances launched into the VPC.</p>
-   * @public
-   */
-  InstanceTenancy?: Tenancy | undefined;
-
-  /**
-   * <p>Information about the IPv6 CIDR blocks associated with the VPC.</p>
-   * @public
-   */
-  Ipv6CidrBlockAssociationSet?: VpcIpv6CidrBlockAssociation[] | undefined;
-
-  /**
-   * <p>Information about the IPv4 CIDR blocks associated with the VPC.</p>
-   * @public
-   */
-  CidrBlockAssociationSet?: VpcCidrBlockAssociation[] | undefined;
-
-  /**
-   * <p>Indicates whether the VPC is the default VPC.</p>
-   * @public
-   */
-  IsDefault?: boolean | undefined;
-
-  /**
-   * <p>Describes the configuration and state of VPC encryption controls.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html">Enforce VPC encryption in transit</a> in the <i>Amazon VPC User Guide</i>.</p>
-   * @public
-   */
-  EncryptionControl?: VpcEncryptionControl | undefined;
-
-  /**
-   * <p>Any tags assigned to the VPC.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>The state of VPC Block Public Access (BPA).</p>
-   * @public
-   */
-  BlockPublicAccessStates?: BlockPublicAccessStates | undefined;
-
-  /**
-   * <p>The ID of the VPC.</p>
-   * @public
-   */
-  VpcId?: string | undefined;
-
-  /**
-   * <p>The current state of the VPC.</p>
-   * @public
-   */
-  State?: VpcState | undefined;
-
-  /**
-   * <p>The primary IPv4 CIDR block for the VPC.</p>
-   * @public
-   */
-  CidrBlock?: string | undefined;
-
-  /**
-   * <p>The ID of the set of DHCP options you've associated with the VPC.</p>
-   * @public
-   */
-  DhcpOptionsId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateDefaultVpcResult {
-  /**
-   * <p>Information about the VPC.</p>
-   * @public
-   */
-  Vpc?: Vpc | undefined;
 }

@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type {
   DescribeInstanceConnectEndpointsRequest,
   DescribeInstanceConnectEndpointsResult,
-} from "../models/models_3";
+} from "../models/models_4";
 import { DescribeInstanceConnectEndpoints$ } from "../schemas/schemas_0";
 
 /**

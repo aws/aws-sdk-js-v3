@@ -1,0 +1,509 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeCapacityReservationCancellationQuotesResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeCapacityReservationCancellationQuotesResult xmlns="https://placeholder.amazonaws.com">
+    <capacityReservationCancellationQuoteSet>
+        <item>
+            <capacityReservationCancellationQuoteId>
+                __CapacityReservationCancellationQuoteId__
+            </capacityReservationCancellationQuoteId>
+            <capacityReservationId>
+                __CapacityReservationId__
+            </capacityReservationId>
+            <createTime>
+                2000-01-01T04:59:59.999Z
+            </createTime>
+            <expirationTime>
+                2000-01-01T04:59:59.999Z
+            </expirationTime>
+            <quoteState>
+                __QuoteState__
+            </quoteState>
+            <currentConfiguration>
+                <instanceCount>
+                    0
+                </instanceCount>
+                <reservationState>
+                    __ReservationState__
+                </reservationState>
+            </currentConfiguration>
+            <cancellationTermSet>
+                <item>
+                    <cancellationType>
+                        __CancellationType__
+                    </cancellationType>
+                    <reservationState>
+                        __ReservationState__
+                    </reservationState>
+                    <committedInstanceCount>
+                        0
+                    </committedInstanceCount>
+                    <chargeCommitmentDurationHours>
+                        0
+                    </chargeCommitmentDurationHours>
+                    <chargeEndDate>
+                        2000-01-01T04:59:59.999Z
+                    </chargeEndDate>
+                </item>
+                <item>
+                    <cancellationType>
+                        __CancellationType__
+                    </cancellationType>
+                    <reservationState>
+                        __ReservationState__
+                    </reservationState>
+                    <committedInstanceCount>
+                        0
+                    </committedInstanceCount>
+                    <chargeCommitmentDurationHours>
+                        0
+                    </chargeCommitmentDurationHours>
+                    <chargeEndDate>
+                        2000-01-01T04:59:59.999Z
+                    </chargeEndDate>
+                </item>
+                <item>
+                    <cancellationType>
+                        __CancellationType__
+                    </cancellationType>
+                    <reservationState>
+                        __ReservationState__
+                    </reservationState>
+                    <committedInstanceCount>
+                        0
+                    </committedInstanceCount>
+                    <chargeCommitmentDurationHours>
+                        0
+                    </chargeCommitmentDurationHours>
+                    <chargeEndDate>
+                        2000-01-01T04:59:59.999Z
+                    </chargeEndDate>
+                </item>
+            </cancellationTermSet>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+        <item>
+            <capacityReservationCancellationQuoteId>
+                __CapacityReservationCancellationQuoteId__
+            </capacityReservationCancellationQuoteId>
+            <capacityReservationId>
+                __CapacityReservationId__
+            </capacityReservationId>
+            <createTime>
+                2000-01-01T04:59:59.999Z
+            </createTime>
+            <expirationTime>
+                2000-01-01T04:59:59.999Z
+            </expirationTime>
+            <quoteState>
+                __QuoteState__
+            </quoteState>
+            <currentConfiguration>
+                <instanceCount>
+                    0
+                </instanceCount>
+                <reservationState>
+                    __ReservationState__
+                </reservationState>
+            </currentConfiguration>
+            <cancellationTermSet>
+                <item>
+                    <cancellationType>
+                        __CancellationType__
+                    </cancellationType>
+                    <reservationState>
+                        __ReservationState__
+                    </reservationState>
+                    <committedInstanceCount>
+                        0
+                    </committedInstanceCount>
+                    <chargeCommitmentDurationHours>
+                        0
+                    </chargeCommitmentDurationHours>
+                    <chargeEndDate>
+                        2000-01-01T04:59:59.999Z
+                    </chargeEndDate>
+                </item>
+                <item>
+                    <cancellationType>
+                        __CancellationType__
+                    </cancellationType>
+                    <reservationState>
+                        __ReservationState__
+                    </reservationState>
+                    <committedInstanceCount>
+                        0
+                    </committedInstanceCount>
+                    <chargeCommitmentDurationHours>
+                        0
+                    </chargeCommitmentDurationHours>
+                    <chargeEndDate>
+                        2000-01-01T04:59:59.999Z
+                    </chargeEndDate>
+                </item>
+                <item>
+                    <cancellationType>
+                        __CancellationType__
+                    </cancellationType>
+                    <reservationState>
+                        __ReservationState__
+                    </reservationState>
+                    <committedInstanceCount>
+                        0
+                    </committedInstanceCount>
+                    <chargeCommitmentDurationHours>
+                        0
+                    </chargeCommitmentDurationHours>
+                    <chargeEndDate>
+                        2000-01-01T04:59:59.999Z
+                    </chargeEndDate>
+                </item>
+            </cancellationTermSet>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+        <item>
+            <capacityReservationCancellationQuoteId>
+                __CapacityReservationCancellationQuoteId__
+            </capacityReservationCancellationQuoteId>
+            <capacityReservationId>
+                __CapacityReservationId__
+            </capacityReservationId>
+            <createTime>
+                2000-01-01T04:59:59.999Z
+            </createTime>
+            <expirationTime>
+                2000-01-01T04:59:59.999Z
+            </expirationTime>
+            <quoteState>
+                __QuoteState__
+            </quoteState>
+            <currentConfiguration>
+                <instanceCount>
+                    0
+                </instanceCount>
+                <reservationState>
+                    __ReservationState__
+                </reservationState>
+            </currentConfiguration>
+            <cancellationTermSet>
+                <item>
+                    <cancellationType>
+                        __CancellationType__
+                    </cancellationType>
+                    <reservationState>
+                        __ReservationState__
+                    </reservationState>
+                    <committedInstanceCount>
+                        0
+                    </committedInstanceCount>
+                    <chargeCommitmentDurationHours>
+                        0
+                    </chargeCommitmentDurationHours>
+                    <chargeEndDate>
+                        2000-01-01T04:59:59.999Z
+                    </chargeEndDate>
+                </item>
+                <item>
+                    <cancellationType>
+                        __CancellationType__
+                    </cancellationType>
+                    <reservationState>
+                        __ReservationState__
+                    </reservationState>
+                    <committedInstanceCount>
+                        0
+                    </committedInstanceCount>
+                    <chargeCommitmentDurationHours>
+                        0
+                    </chargeCommitmentDurationHours>
+                    <chargeEndDate>
+                        2000-01-01T04:59:59.999Z
+                    </chargeEndDate>
+                </item>
+                <item>
+                    <cancellationType>
+                        __CancellationType__
+                    </cancellationType>
+                    <reservationState>
+                        __ReservationState__
+                    </reservationState>
+                    <committedInstanceCount>
+                        0
+                    </committedInstanceCount>
+                    <chargeCommitmentDurationHours>
+                        0
+                    </chargeCommitmentDurationHours>
+                    <chargeEndDate>
+                        2000-01-01T04:59:59.999Z
+                    </chargeEndDate>
+                </item>
+            </cancellationTermSet>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+    </capacityReservationCancellationQuoteSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</DescribeCapacityReservationCancellationQuotesResult>
+
+
+--- [output object] ---
+{
+  CapacityReservationCancellationQuotes: [
+    {
+      CapacityReservationCancellationQuoteId: "__CapacityReservationCancellationQuoteId__",
+      CapacityReservationId: "__CapacityReservationId__",
+      CreateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ExpirationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      QuoteState: "__QuoteState__",
+      CurrentConfiguration: {
+        InstanceCount: (number) 0,
+        ReservationState: "__ReservationState__"
+      },
+      CancellationTerms: [
+        {
+          CancellationType: "__CancellationType__",
+          ReservationState: "__ReservationState__",
+          CommittedInstanceCount: (number) 0,
+          ChargeCommitmentDurationHours: (number) 0,
+          ChargeEndDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          CancellationType: "__CancellationType__",
+          ReservationState: "__ReservationState__",
+          CommittedInstanceCount: (number) 0,
+          ChargeCommitmentDurationHours: (number) 0,
+          ChargeEndDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          CancellationType: "__CancellationType__",
+          ReservationState: "__ReservationState__",
+          CommittedInstanceCount: (number) 0,
+          ChargeCommitmentDurationHours: (number) 0,
+          ChargeEndDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      ],
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    },
+    {
+      CapacityReservationCancellationQuoteId: "__CapacityReservationCancellationQuoteId__",
+      CapacityReservationId: "__CapacityReservationId__",
+      CreateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ExpirationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      QuoteState: "__QuoteState__",
+      CurrentConfiguration: {
+        InstanceCount: (number) 0,
+        ReservationState: "__ReservationState__"
+      },
+      CancellationTerms: [
+        {
+          CancellationType: "__CancellationType__",
+          ReservationState: "__ReservationState__",
+          CommittedInstanceCount: (number) 0,
+          ChargeCommitmentDurationHours: (number) 0,
+          ChargeEndDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          CancellationType: "__CancellationType__",
+          ReservationState: "__ReservationState__",
+          CommittedInstanceCount: (number) 0,
+          ChargeCommitmentDurationHours: (number) 0,
+          ChargeEndDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          CancellationType: "__CancellationType__",
+          ReservationState: "__ReservationState__",
+          CommittedInstanceCount: (number) 0,
+          ChargeCommitmentDurationHours: (number) 0,
+          ChargeEndDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      ],
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    },
+    {
+      CapacityReservationCancellationQuoteId: "__CapacityReservationCancellationQuoteId__",
+      CapacityReservationId: "__CapacityReservationId__",
+      CreateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ExpirationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      QuoteState: "__QuoteState__",
+      CurrentConfiguration: {
+        InstanceCount: (number) 0,
+        ReservationState: "__ReservationState__"
+      },
+      CancellationTerms: [
+        {
+          CancellationType: "__CancellationType__",
+          ReservationState: "__ReservationState__",
+          CommittedInstanceCount: (number) 0,
+          ChargeCommitmentDurationHours: (number) 0,
+          ChargeEndDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          CancellationType: "__CancellationType__",
+          ReservationState: "__ReservationState__",
+          CommittedInstanceCount: (number) 0,
+          ChargeCommitmentDurationHours: (number) 0,
+          ChargeEndDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          CancellationType: "__CancellationType__",
+          ReservationState: "__ReservationState__",
+          CommittedInstanceCount: (number) 0,
+          ChargeCommitmentDurationHours: (number) 0,
+          ChargeEndDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      ],
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    }
+  ],
+  NextToken: "__NextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

@@ -8,7 +8,6 @@ import type {
   ArchitectureValues,
   AsnState,
   AssociatedNetworkType,
-  AttachmentStatus,
   AutoPlacement,
   AvailabilityZoneOptInStatus,
   AvailabilityZoneState,
@@ -95,6 +94,7 @@ import type {
   BundleTask,
   ByoipCidr,
   CapacityReservation,
+  CapacityReservationCancellationQuote,
   CarrierGateway,
   ClientVpnAuthorizationRuleStatus,
   ClientVpnEndpointStatus,
@@ -103,7 +103,6 @@ import type {
   CustomerGateway,
   FleetCapacityReservation,
   IamInstanceProfileAssociation,
-  OperatorResponse,
   Tag,
   TransitGatewayClientVpnAttachment,
   TransitGatewayPeeringAttachment,
@@ -111,13 +110,11 @@ import type {
   UnsuccessfulItem,
   VerifiedAccessInstance,
   VerifiedAccessTrustProvider,
-  VpcEncryptionControl,
 } from "./models_0";
 import type {
   AttributeValue,
   BlockDeviceMapping,
   DhcpOptions,
-  Ec2InstanceConnectEndpoint,
   EgressOnlyInternetGateway,
   ExportTask,
   FleetLaunchTemplateOverrides,
@@ -125,8 +122,10 @@ import type {
   GroupIdentifier,
   LaunchTemplateAndOverridesResponse,
   StateReason,
+  VpcEncryptionControl,
 } from "./models_1";
 import type {
+  SubnetCidrReservation,
   TransitGateway,
   TransitGatewayConnect,
   TransitGatewayConnectPeer,
@@ -142,6 +141,107 @@ import type {
   VerifiedAccessGroup,
   VpcBlockPublicAccessExclusion,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DeleteSubnetRequest {
+  /**
+   * <p>The ID of the subnet.</p>
+   * @public
+   */
+  SubnetId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSubnetCidrReservationRequest {
+  /**
+   * <p>The ID of the subnet CIDR reservation.</p>
+   * @public
+   */
+  SubnetCidrReservationId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSubnetCidrReservationResult {
+  /**
+   * <p>Information about the deleted subnet CIDR reservation.</p>
+   * @public
+   */
+  DeletedSubnetCidrReservation?: SubnetCidrReservation | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTagsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The IDs of the resources, separated by spaces.</p>
+   *          <p>Constraints: Up to 1000 resource IDs. We recommend breaking up this request into smaller batches.</p>
+   * @public
+   */
+  Resources: string[] | undefined;
+
+  /**
+   * <p>The tags to delete. Specify a tag key and an optional tag value to delete
+   *             specific tags. If you specify a tag key without a tag value, we delete any tag with this
+   *             key regardless of its value. If you specify a tag key with an empty string as the tag
+   *             value, we delete the tag only if its value is an empty string.</p>
+   *          <p>If you omit this parameter, we delete all user-defined tags for the specified
+   *             resources. We do not delete Amazon Web Services-generated tags (tags that have the <code>aws:</code>
+   *             prefix).</p>
+   *          <p>Constraints: Up to 1000 tags.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTrafficMirrorFilterRequest {
+  /**
+   * <p>The ID of the Traffic Mirror filter.</p>
+   * @public
+   */
+  TrafficMirrorFilterId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
 
 /**
  * @public
@@ -3628,6 +3728,59 @@ export interface DescribeCapacityReservationBillingRequestsResult {
    * @public
    */
   CapacityReservationBillingRequests?: CapacityReservationBillingRequest[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCapacityReservationCancellationQuotesRequest {
+  /**
+   * <p>The IDs of the cancellation quotes to describe.</p>
+   * @public
+   */
+  CapacityReservationCancellationQuoteIds?: string[] | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information,
+   *     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>One or more filters. Filter names and values are case-sensitive.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCapacityReservationCancellationQuotesResult {
+  /**
+   * <p>Information about the Capacity Reservation cancellation quotes.</p>
+   * @public
+   */
+  CapacityReservationCancellationQuotes?: CapacityReservationCancellationQuote[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }
 
 /**
@@ -10839,310 +10992,4 @@ export interface DescribeInstanceAttributeRequest {
    * @public
    */
   Attribute: InstanceAttributeName | undefined;
-}
-
-/**
- * <p>Describes a parameter used to set up an EBS volume in a block device mapping.</p>
- * @public
- */
-export interface EbsInstanceBlockDevice {
-  /**
-   * <p>The time stamp when the attachment initiated.</p>
-   * @public
-   */
-  AttachTime?: Date | undefined;
-
-  /**
-   * <p>Indicates whether the volume is deleted on instance termination.</p>
-   * @public
-   */
-  DeleteOnTermination?: boolean | undefined;
-
-  /**
-   * <p>The attachment state.</p>
-   * @public
-   */
-  Status?: AttachmentStatus | undefined;
-
-  /**
-   * <p>The ID of the EBS volume.</p>
-   * @public
-   */
-  VolumeId?: string | undefined;
-
-  /**
-   * <p>The ARN of the Amazon Web Services-managed resource
-   *             to which the volume is attached.</p>
-   * @public
-   */
-  AssociatedResource?: string | undefined;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the volume.</p>
-   *          <p>This parameter is returned only for volumes that are attached to
-   *             Amazon Web Services-managed resources.</p>
-   * @public
-   */
-  VolumeOwnerId?: string | undefined;
-
-  /**
-   * <p>The service provider that manages the EBS volume.</p>
-   * @public
-   */
-  Operator?: OperatorResponse | undefined;
-
-  /**
-   * <p>The index of the EBS card. Some instance types support multiple EBS cards. The default EBS card index is 0.</p>
-   * @public
-   */
-  EbsCardIndex?: number | undefined;
-}
-
-/**
- * <p>Describes a block device mapping.</p>
- * @public
- */
-export interface InstanceBlockDeviceMapping {
-  /**
-   * <p>The device name.</p>
-   * @public
-   */
-  DeviceName?: string | undefined;
-
-  /**
-   * <p>Parameters used to automatically set up EBS volumes when the instance is
-   *             launched.</p>
-   * @public
-   */
-  Ebs?: EbsInstanceBlockDevice | undefined;
-}
-
-/**
- * <p>Describes a value for a resource attribute that is a Boolean value.</p>
- * @public
- */
-export interface AttributeBooleanValue {
-  /**
-   * <p>The attribute value. The valid values are <code>true</code> or <code>false</code>.</p>
-   * @public
-   */
-  Value?: boolean | undefined;
-}
-
-/**
- * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro
- *             Enclaves.</p>
- * @public
- */
-export interface EnclaveOptions {
-  /**
-   * <p>If this parameter is set to <code>true</code>, the instance is enabled for Amazon Web Services Nitro Enclaves; otherwise, it is not enabled for Amazon Web Services Nitro
-   *             Enclaves.</p>
-   * @public
-   */
-  Enabled?: boolean | undefined;
-}
-
-/**
- * <p>Describes an instance attribute.</p>
- * @public
- */
-export interface InstanceAttribute {
-  /**
-   * <p>The block device mapping of the instance.</p>
-   * @public
-   */
-  BlockDeviceMappings?: InstanceBlockDeviceMapping[] | undefined;
-
-  /**
-   * <p>Indicates whether termination protection is enabled. If the value is <code>true</code>,
-   *             you can't terminate the instance using the Amazon EC2 console, command line tools, or API.</p>
-   * @public
-   */
-  DisableApiTermination?: AttributeBooleanValue | undefined;
-
-  /**
-   * <p>Indicates whether enhanced networking with ENA is enabled.</p>
-   * @public
-   */
-  EnaSupport?: AttributeBooleanValue | undefined;
-
-  /**
-   * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves.</p>
-   * @public
-   */
-  EnclaveOptions?: EnclaveOptions | undefined;
-
-  /**
-   * <p>Indicates whether the instance is optimized for Amazon EBS I/O.</p>
-   * @public
-   */
-  EbsOptimized?: AttributeBooleanValue | undefined;
-
-  /**
-   * <p>The ID of the instance.</p>
-   * @public
-   */
-  InstanceId?: string | undefined;
-
-  /**
-   * <p>Indicates whether an instance stops or terminates when you initiate shutdown from the
-   *             instance (using the operating system command for system shutdown).</p>
-   * @public
-   */
-  InstanceInitiatedShutdownBehavior?: AttributeValue | undefined;
-
-  /**
-   * <p>The instance type.</p>
-   * @public
-   */
-  InstanceType?: AttributeValue | undefined;
-
-  /**
-   * <p>The kernel ID.</p>
-   * @public
-   */
-  KernelId?: AttributeValue | undefined;
-
-  /**
-   * <p>The product codes.</p>
-   * @public
-   */
-  ProductCodes?: ProductCode[] | undefined;
-
-  /**
-   * <p>The RAM disk ID.</p>
-   * @public
-   */
-  RamdiskId?: AttributeValue | undefined;
-
-  /**
-   * <p>The device name of the root device volume (for example,
-   *             <code>/dev/sda1</code>).</p>
-   * @public
-   */
-  RootDeviceName?: AttributeValue | undefined;
-
-  /**
-   * <p>Indicates whether source/destination checks are enabled.</p>
-   * @public
-   */
-  SourceDestCheck?: AttributeBooleanValue | undefined;
-
-  /**
-   * <p>Indicates whether enhanced networking with the Intel 82599 Virtual Function interface
-   *             is enabled.</p>
-   * @public
-   */
-  SriovNetSupport?: AttributeValue | undefined;
-
-  /**
-   * <p>The user data.</p>
-   * @public
-   */
-  UserData?: AttributeValue | undefined;
-
-  /**
-   * <p>Indicates whether stop protection is enabled for the instance.</p>
-   * @public
-   */
-  DisableApiStop?: AttributeBooleanValue | undefined;
-
-  /**
-   * <p>The security groups associated with the instance.</p>
-   * @public
-   */
-  Groups?: GroupIdentifier[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeInstanceConnectEndpointsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   *          To get the next page of items, make another request with the token returned in the output.
-   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>instance-connect-endpoint-id</code> - The ID of the EC2 Instance Connect Endpoint.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the EC2 Instance Connect Endpoint (<code>create-in-progress</code> | <code>create-complete</code> | <code>create-failed</code> |
-   *                     <code>delete-in-progress</code> | <code>delete-complete</code> | <code>delete-failed</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>subnet-id</code> - The ID of the subnet in which the EC2 Instance
-   *                     Connect Endpoint was created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-value</code> - The value of a tag assigned to the resource. Use this filter to find all resources
-   *                     that have a tag with a specific value, regardless of tag key.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpc-id</code> - The ID of the VPC in which the EC2 Instance Connect
-   *                     Endpoint was created.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>One or more EC2 Instance Connect Endpoint IDs.</p>
-   * @public
-   */
-  InstanceConnectEndpointIds?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeInstanceConnectEndpointsResult {
-  /**
-   * <p>Information about the EC2 Instance Connect Endpoints.</p>
-   * @public
-   */
-  InstanceConnectEndpoints?: Ec2InstanceConnectEndpoint[] | undefined;
-
-  /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
-   *          are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
 }

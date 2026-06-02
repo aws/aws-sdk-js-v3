@@ -272,6 +272,10 @@ import type {
   CreateCapacityReservationBySplittingCommandOutput,
 } from "./commands/CreateCapacityReservationBySplittingCommand";
 import type {
+  CreateCapacityReservationCancellationQuoteCommandInput,
+  CreateCapacityReservationCancellationQuoteCommandOutput,
+} from "./commands/CreateCapacityReservationCancellationQuoteCommand";
+import type {
   CreateCapacityReservationCommandInput,
   CreateCapacityReservationCommandOutput,
 } from "./commands/CreateCapacityReservationCommand";
@@ -1015,6 +1019,10 @@ import type {
   DescribeCapacityReservationBillingRequestsCommandInput,
   DescribeCapacityReservationBillingRequestsCommandOutput,
 } from "./commands/DescribeCapacityReservationBillingRequestsCommand";
+import type {
+  DescribeCapacityReservationCancellationQuotesCommandInput,
+  DescribeCapacityReservationCancellationQuotesCommandOutput,
+} from "./commands/DescribeCapacityReservationCancellationQuotesCommand";
 import type {
   DescribeCapacityReservationFleetsCommandInput,
   DescribeCapacityReservationFleetsCommandOutput,
@@ -2863,6 +2871,7 @@ export type ServiceInputTypes =
   | CopyVolumesCommandInput
   | CreateCapacityManagerDataExportCommandInput
   | CreateCapacityReservationBySplittingCommandInput
+  | CreateCapacityReservationCancellationQuoteCommandInput
   | CreateCapacityReservationCommandInput
   | CreateCapacityReservationFleetCommandInput
   | CreateCarrierGatewayCommandInput
@@ -3082,6 +3091,7 @@ export type ServiceInputTypes =
   | DescribeCapacityBlocksCommandInput
   | DescribeCapacityManagerDataExportsCommandInput
   | DescribeCapacityReservationBillingRequestsCommandInput
+  | DescribeCapacityReservationCancellationQuotesCommandInput
   | DescribeCapacityReservationFleetsCommandInput
   | DescribeCapacityReservationTopologyCommandInput
   | DescribeCapacityReservationsCommandInput
@@ -3633,6 +3643,7 @@ export type ServiceOutputTypes =
   | CopyVolumesCommandOutput
   | CreateCapacityManagerDataExportCommandOutput
   | CreateCapacityReservationBySplittingCommandOutput
+  | CreateCapacityReservationCancellationQuoteCommandOutput
   | CreateCapacityReservationCommandOutput
   | CreateCapacityReservationFleetCommandOutput
   | CreateCarrierGatewayCommandOutput
@@ -3852,6 +3863,7 @@ export type ServiceOutputTypes =
   | DescribeCapacityBlocksCommandOutput
   | DescribeCapacityManagerDataExportsCommandOutput
   | DescribeCapacityReservationBillingRequestsCommandOutput
+  | DescribeCapacityReservationCancellationQuotesCommandOutput
   | DescribeCapacityReservationFleetsCommandOutput
   | DescribeCapacityReservationTopologyCommandOutput
   | DescribeCapacityReservationsCommandOutput

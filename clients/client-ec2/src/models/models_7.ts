@@ -31,6 +31,7 @@ import type {
   InterruptionType,
   IpAddressType,
   Ipv6SupportValue,
+  ManagedResourceDefaultVisibility,
   MarketType,
   MembershipType,
   NestedVirtualizationSpecification,
@@ -74,6 +75,7 @@ import type {
   ByoipCidr,
   CapacityReservation,
   ClientVpnAuthorizationRuleStatus,
+  EnaSrdSpecification,
   IamInstanceProfileAssociation,
   IamInstanceProfileSpecification,
   IpPermission,
@@ -89,10 +91,11 @@ import type {
   VerifiedAccessInstance,
   VerifiedAccessSseSpecificationResponse,
   VerifiedAccessTrustProvider,
-  VpcEncryptionControl,
 } from "./models_0";
 import type {
+  AttributeValue,
   BlockDeviceMapping,
+  ConnectionTrackingSpecificationRequest,
   CreditSpecificationRequest,
   ElasticGpuSpecification,
   IcmpTypeCode,
@@ -102,6 +105,7 @@ import type {
   OperatorRequest,
   Placement,
   RouteServer,
+  VpcEncryptionControl,
 } from "./models_1";
 import type {
   DnsOptionsSpecification,
@@ -129,7 +133,6 @@ import type {
   VpnTunnelLogOptionsSpecification,
 } from "./models_2";
 import type {
-  AttributeBooleanValue,
   Byoasn,
   CapacityBlock,
   CapacityBlockExtension,
@@ -139,6 +142,7 @@ import type {
   IpamPoolCidr,
 } from "./models_3";
 import type {
+  AttributeBooleanValue,
   CreateVolumePermission,
   InstanceNetworkInterfaceSpecification,
   InstanceState,
@@ -155,12 +159,244 @@ import type {
   SpotPlacement,
 } from "./models_4";
 import type {
-  CapacityManagerMonitoredTagKey,
   VerifiedAccessInstanceLoggingConfiguration,
   VolumeModification,
   VpcBlockPublicAccessOptions,
 } from "./models_5";
-import type { CapacityReservationSpecification, EnclaveOptionsRequest, Purchase } from "./models_6";
+import type {
+  CapacityManagerMonitoredTagKey,
+  CapacityReservationSpecification,
+  EnclaveOptionsRequest,
+  ManagedResourceVisibilitySettings,
+  Purchase,
+} from "./models_6";
+
+/**
+ * @public
+ */
+export interface ModifyManagedPrefixListResult {
+  /**
+   * <p>Information about the prefix list.</p>
+   * @public
+   */
+  PrefixList?: ManagedPrefixList | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyManagedResourceVisibilityRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the operation, without actually making the
+   *   request, and provides an error response. If you have the required permissions, the error response is
+   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The default visibility setting for managed resources. Valid values:
+   *             <code>hidden</code> | <code>visible</code>.</p>
+   * @public
+   */
+  DefaultVisibility: ManagedResourceDefaultVisibility | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyManagedResourceVisibilityResult {
+  /**
+   * <p>The updated managed resource visibility settings for the account.</p>
+   * @public
+   */
+  Visibility?: ManagedResourceVisibilitySettings | undefined;
+}
+
+/**
+ * <p>Describes an attachment change.</p>
+ * @public
+ */
+export interface NetworkInterfaceAttachmentChanges {
+  /**
+   * <p>The default number of the ENA queues.</p>
+   * @public
+   */
+  DefaultEnaQueueCount?: boolean | undefined;
+
+  /**
+   * <p>The number of ENA queues to be created with the instance.</p>
+   * @public
+   */
+  EnaQueueCount?: number | undefined;
+
+  /**
+   * <p>The ID of the network interface attachment.</p>
+   * @public
+   */
+  AttachmentId?: string | undefined;
+
+  /**
+   * <p>Indicates whether the network interface is deleted when the instance is
+   *             terminated.</p>
+   * @public
+   */
+  DeleteOnTermination?: boolean | undefined;
+}
+
+/**
+ * <p>Contains the parameters for ModifyNetworkInterfaceAttribute.</p>
+ * @public
+ */
+export interface ModifyNetworkInterfaceAttributeRequest {
+  /**
+   * <p>Updates the ENA Express configuration for the network interface that’s attached to the
+   *             instance.</p>
+   * @public
+   */
+  EnaSrdSpecification?: EnaSrdSpecification | undefined;
+
+  /**
+   * <p>If you’re modifying a network interface in a dual-stack or IPv6-only subnet, you have
+   *             the option to assign a primary IPv6 IP address. A primary IPv6 address is an IPv6 GUA
+   *             address associated with an ENI that you have enabled to use a primary IPv6 address. Use
+   *             this option if the instance that this ENI will be attached to relies on its IPv6 address
+   *             not changing. Amazon Web Services will automatically assign an IPv6 address associated
+   *             with the ENI attached to your instance to be the primary IPv6 address. Once you enable
+   *             an IPv6 GUA address to be a primary IPv6, you cannot disable it. When you enable an IPv6
+   *             GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6
+   *             address until the instance is terminated or the network interface is detached. If you
+   *             have multiple IPv6 addresses associated with an ENI attached to your instance and you
+   *             enable a primary IPv6 address, the first IPv6 GUA address associated with the ENI
+   *             becomes the primary IPv6 address.</p>
+   * @public
+   */
+  EnablePrimaryIpv6?: boolean | undefined;
+
+  /**
+   * <p>A connection tracking specification.</p>
+   * @public
+   */
+  ConnectionTrackingSpecification?: ConnectionTrackingSpecificationRequest | undefined;
+
+  /**
+   * <p>Indicates whether to assign a public IPv4 address to a network interface. This option
+   *             can be enabled for any network interface but will only apply to the primary network
+   *             interface (eth0).</p>
+   * @public
+   */
+  AssociatePublicIpAddress?: boolean | undefined;
+
+  /**
+   * <p>A list of subnet IDs to associate with the network interface.</p>
+   * @public
+   */
+  AssociatedSubnetIds?: string[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the network interface.</p>
+   * @public
+   */
+  NetworkInterfaceId: string | undefined;
+
+  /**
+   * <p>A description for the network interface.</p>
+   * @public
+   */
+  Description?: AttributeValue | undefined;
+
+  /**
+   * <p>Enable or disable source/destination checks, which ensure that the instance is either
+   *             the source or the destination of any traffic that it receives. If the value is
+   *                 <code>true</code>, source/destination checks are enabled; otherwise, they are
+   *             disabled. The default value is <code>true</code>. You must disable source/destination
+   *             checks if the instance runs services such as network address translation, routing, or
+   *             firewalls.</p>
+   * @public
+   */
+  SourceDestCheck?: AttributeBooleanValue | undefined;
+
+  /**
+   * <p>Changes the security groups for the network interface. The new set of groups you
+   *             specify replaces the current set. You must specify at least one group, even if it's just
+   *             the default security group in the VPC. You must specify the ID of the security group,
+   *             not the name.</p>
+   * @public
+   */
+  Groups?: string[] | undefined;
+
+  /**
+   * <p>Information about the interface attachment. If modifying the <code>delete on
+   *                 termination</code> attribute, you must specify the ID of the interface
+   *             attachment.</p>
+   * @public
+   */
+  Attachment?: NetworkInterfaceAttachmentChanges | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyPrivateDnsNameOptionsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The type of hostname for EC2 instances. For IPv4 only subnets, an instance DNS name
+   *             must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name
+   *             must be based on the instance ID. For dual-stack subnets, you can specify whether DNS
+   *             names use the instance IPv4 address or the instance ID.</p>
+   * @public
+   */
+  PrivateDnsHostnameType?: HostnameType | undefined;
+
+  /**
+   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS A
+   *             records.</p>
+   * @public
+   */
+  EnableResourceNameDnsARecord?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA
+   *             records.</p>
+   * @public
+   */
+  EnableResourceNameDnsAAAARecord?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyPrivateDnsNameOptionsResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an
+   *             error.</p>
+   * @public
+   */
+  Return?: boolean | undefined;
+}
 
 /**
  * @public

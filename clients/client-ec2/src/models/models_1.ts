@@ -94,7 +94,6 @@ import type {
   Protocol,
   ReplaceRootVolumeTaskState,
   ResourceType,
-  RouteOrigin,
   RouteServerBfdState,
   RouteServerBgpState,
   RouteServerEndpointState,
@@ -103,7 +102,6 @@ import type {
   RouteServerPersistRoutesAction,
   RouteServerPersistRoutesState,
   RouteServerState,
-  RouteState,
   RuleAction,
   SecondaryInterfaceType,
   ShutdownBehavior,
@@ -117,6 +115,10 @@ import type {
   TokenState,
   TrafficType,
   VolumeType,
+  VpcEncryptionControlExclusionState,
+  VpcEncryptionControlMode,
+  VpcEncryptionControlState,
+  VpcState,
   WeekDay,
 } from "./enums";
 import type {
@@ -128,17 +130,232 @@ import type {
   AccessScopePathRequest,
   AddIpamOperatingRegion,
   AddPrefixListEntry,
+  BlockPublicAccessStates,
   InstanceEventWindow,
   Ipv4PrefixSpecification,
   NatGatewayAddress,
   OperatorResponse,
   PortRange,
   ReservedInstancesListing,
-  RouteTableAssociationState,
   Tag,
   TagSpecification,
   UnsuccessfulItem,
+  VpcCidrBlockAssociation,
+  VpcIpv6CidrBlockAssociation,
 } from "./models_0";
+
+/**
+ * <p>Describes an exclusion configuration for VPC Encryption Control.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html">Enforce VPC encryption in transit</a> in the <i>Amazon VPC User Guide</i>.</p>
+ * @public
+ */
+export interface VpcEncryptionControlExclusion {
+  /**
+   * <p>The current state of the exclusion configuration.</p>
+   * @public
+   */
+  State?: VpcEncryptionControlExclusionState | undefined;
+
+  /**
+   * <p>A message providing additional information about the exclusion state.</p>
+   * @public
+   */
+  StateMessage?: string | undefined;
+}
+
+/**
+ * <p>Describes the exclusion configurations for various resource types in VPC Encryption Control.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html">Enforce VPC encryption in transit</a> in the <i>Amazon VPC User Guide</i>.</p>
+ * @public
+ */
+export interface VpcEncryptionControlExclusions {
+  /**
+   * <p>The exclusion configuration for internet gateway traffic.</p>
+   * @public
+   */
+  InternetGateway?: VpcEncryptionControlExclusion | undefined;
+
+  /**
+   * <p>The exclusion configuration for egress-only internet gateway traffic.</p>
+   * @public
+   */
+  EgressOnlyInternetGateway?: VpcEncryptionControlExclusion | undefined;
+
+  /**
+   * <p>The exclusion configuration for NAT gateway traffic.</p>
+   * @public
+   */
+  NatGateway?: VpcEncryptionControlExclusion | undefined;
+
+  /**
+   * <p>The exclusion configuration for virtual private gateway traffic.</p>
+   * @public
+   */
+  VirtualPrivateGateway?: VpcEncryptionControlExclusion | undefined;
+
+  /**
+   * <p>The exclusion configuration for VPC peering connection traffic.</p>
+   * @public
+   */
+  VpcPeering?: VpcEncryptionControlExclusion | undefined;
+
+  /**
+   * <p>The exclusion configuration for Lambda function traffic.</p>
+   * @public
+   */
+  Lambda?: VpcEncryptionControlExclusion | undefined;
+
+  /**
+   * <p>The exclusion configuration for VPC Lattice traffic.</p>
+   * @public
+   */
+  VpcLattice?: VpcEncryptionControlExclusion | undefined;
+
+  /**
+   * <p>The exclusion configuration for Elastic File System traffic.</p>
+   * @public
+   */
+  ElasticFileSystem?: VpcEncryptionControlExclusion | undefined;
+}
+
+/**
+ * <p>Describes the configuration and state of VPC encryption controls.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html">Enforce VPC encryption in transit</a> in the <i>Amazon VPC User Guide</i>.</p>
+ * @public
+ */
+export interface VpcEncryptionControl {
+  /**
+   * <p>The ID of the VPC associated with the encryption control configuration.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+
+  /**
+   * <p>The ID of the VPC Encryption Control configuration.</p>
+   * @public
+   */
+  VpcEncryptionControlId?: string | undefined;
+
+  /**
+   * <p>The encryption mode for the VPC Encryption Control configuration.</p>
+   * @public
+   */
+  Mode?: VpcEncryptionControlMode | undefined;
+
+  /**
+   * <p>The current state of the VPC Encryption Control configuration.</p>
+   * @public
+   */
+  State?: VpcEncryptionControlState | undefined;
+
+  /**
+   * <p>A message providing additional information about the encryption control state.</p>
+   * @public
+   */
+  StateMessage?: string | undefined;
+
+  /**
+   * <p>Information about resource exclusions for the VPC Encryption Control configuration.</p>
+   * @public
+   */
+  ResourceExclusions?: VpcEncryptionControlExclusions | undefined;
+
+  /**
+   * <p>The tags assigned to the VPC Encryption Control configuration.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * <p>Describes a VPC.</p>
+ * @public
+ */
+export interface Vpc {
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the VPC.</p>
+   * @public
+   */
+  OwnerId?: string | undefined;
+
+  /**
+   * <p>The allowed tenancy of instances launched into the VPC.</p>
+   * @public
+   */
+  InstanceTenancy?: Tenancy | undefined;
+
+  /**
+   * <p>Information about the IPv6 CIDR blocks associated with the VPC.</p>
+   * @public
+   */
+  Ipv6CidrBlockAssociationSet?: VpcIpv6CidrBlockAssociation[] | undefined;
+
+  /**
+   * <p>Information about the IPv4 CIDR blocks associated with the VPC.</p>
+   * @public
+   */
+  CidrBlockAssociationSet?: VpcCidrBlockAssociation[] | undefined;
+
+  /**
+   * <p>Indicates whether the VPC is the default VPC.</p>
+   * @public
+   */
+  IsDefault?: boolean | undefined;
+
+  /**
+   * <p>Describes the configuration and state of VPC encryption controls.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html">Enforce VPC encryption in transit</a> in the <i>Amazon VPC User Guide</i>.</p>
+   * @public
+   */
+  EncryptionControl?: VpcEncryptionControl | undefined;
+
+  /**
+   * <p>Any tags assigned to the VPC.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The state of VPC Block Public Access (BPA).</p>
+   * @public
+   */
+  BlockPublicAccessStates?: BlockPublicAccessStates | undefined;
+
+  /**
+   * <p>The ID of the VPC.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+
+  /**
+   * <p>The current state of the VPC.</p>
+   * @public
+   */
+  State?: VpcState | undefined;
+
+  /**
+   * <p>The primary IPv4 CIDR block for the VPC.</p>
+   * @public
+   */
+  CidrBlock?: string | undefined;
+
+  /**
+   * <p>The ID of the set of DHCP options you've associated with the VPC.</p>
+   * @public
+   */
+  DhcpOptionsId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateDefaultVpcResult {
+  /**
+   * <p>Information about the VPC.</p>
+   * @public
+   */
+  Vpc?: Vpc | undefined;
+}
 
 /**
  * @public
@@ -7418,7 +7635,9 @@ export interface ConnectionTrackingSpecificationRequest {
   /**
    * <p>Timeout (in seconds) for idle TCP
    * 						connections in an established state. Min: 60 seconds. Max: 432000 seconds (5
-   * 						days). Default: 432000 seconds. Recommended: Less than 432000 seconds.</p>
+   * 						days). Default: 350 seconds for Nitro v6 instance types (excluding
+   * 						P6e-GB200); 432000 seconds for all other instance types (including
+   * 						P6e-GB200). Recommended: Less than 432000 seconds.</p>
    * @public
    */
   TcpEstablishedTimeout?: number | undefined;
@@ -9046,7 +9265,9 @@ export interface ConnectionTrackingSpecification {
   /**
    * <p>Timeout (in seconds) for idle TCP
    * 						connections in an established state. Min: 60 seconds. Max: 432000 seconds (5
-   * 						days). Default: 432000 seconds. Recommended: Less than 432000 seconds.</p>
+   * 						days). Default: 350 seconds for Nitro v6 instance types (excluding
+   * 						P6e-GB200); 432000 seconds for all other instance types (including
+   * 						P6e-GB200). Recommended: Less than 432000 seconds.</p>
    * @public
    */
   TcpEstablishedTimeout?: number | undefined;
@@ -12337,7 +12558,9 @@ export interface ConnectionTrackingConfiguration {
   /**
    * <p>Timeout (in seconds) for idle TCP
    * 						connections in an established state. Min: 60 seconds. Max: 432000 seconds (5
-   * 						days). Default: 432000 seconds. Recommended: Less than 432000 seconds.</p>
+   * 						days). Default: 350 seconds for Nitro v6 instance types (excluding
+   * 						P6e-GB200); 432000 seconds for all other instance types (including
+   * 						P6e-GB200). Recommended: Less than 432000 seconds.</p>
    * @public
    */
   TcpEstablishedTimeout?: number | undefined;
@@ -13954,264 +14177,4 @@ export interface CreateRouteTableRequest {
    * @public
    */
   VpcId: string | undefined;
-}
-
-/**
- * <p>Describes an association between a route table and a subnet or gateway.</p>
- * @public
- */
-export interface RouteTableAssociation {
-  /**
-   * <p>Indicates whether this is the main route table.</p>
-   * @public
-   */
-  Main?: boolean | undefined;
-
-  /**
-   * <p>The ID of the association.</p>
-   * @public
-   */
-  RouteTableAssociationId?: string | undefined;
-
-  /**
-   * <p>The ID of the route table.</p>
-   * @public
-   */
-  RouteTableId?: string | undefined;
-
-  /**
-   * <p>The ID of the subnet. A subnet ID is not returned for an implicit association.</p>
-   * @public
-   */
-  SubnetId?: string | undefined;
-
-  /**
-   * <p>The ID of the internet gateway or virtual private gateway.</p>
-   * @public
-   */
-  GatewayId?: string | undefined;
-
-  /**
-   * <p>The ID of a public IPv4 pool. A public IPv4 pool is a pool of IPv4 addresses that you've brought to Amazon Web Services with BYOIP.</p>
-   * @public
-   */
-  PublicIpv4Pool?: string | undefined;
-
-  /**
-   * <p>The state of the association.</p>
-   * @public
-   */
-  AssociationState?: RouteTableAssociationState | undefined;
-}
-
-/**
- * <p>Describes a virtual private gateway propagating route.</p>
- * @public
- */
-export interface PropagatingVgw {
-  /**
-   * <p>The ID of the virtual private gateway.</p>
-   * @public
-   */
-  GatewayId?: string | undefined;
-}
-
-/**
- * <p>Describes a route in a route table.</p>
- * @public
- */
-export interface Route {
-  /**
-   * <p>The IPv4 CIDR block used for the destination match.</p>
-   * @public
-   */
-  DestinationCidrBlock?: string | undefined;
-
-  /**
-   * <p>The IPv6 CIDR block used for the destination match.</p>
-   * @public
-   */
-  DestinationIpv6CidrBlock?: string | undefined;
-
-  /**
-   * <p>The prefix of the Amazon Web Services service.</p>
-   * @public
-   */
-  DestinationPrefixListId?: string | undefined;
-
-  /**
-   * <p>The ID of the egress-only internet gateway.</p>
-   * @public
-   */
-  EgressOnlyInternetGatewayId?: string | undefined;
-
-  /**
-   * <p>The ID of a gateway attached to your VPC.</p>
-   * @public
-   */
-  GatewayId?: string | undefined;
-
-  /**
-   * <p>The ID of a NAT instance in your VPC.</p>
-   * @public
-   */
-  InstanceId?: string | undefined;
-
-  /**
-   * <p>The ID of Amazon Web Services account that owns the instance.</p>
-   * @public
-   */
-  InstanceOwnerId?: string | undefined;
-
-  /**
-   * <p>The ID of a NAT gateway.</p>
-   * @public
-   */
-  NatGatewayId?: string | undefined;
-
-  /**
-   * <p>The ID of a transit gateway.</p>
-   * @public
-   */
-  TransitGatewayId?: string | undefined;
-
-  /**
-   * <p>The ID of the local gateway.</p>
-   * @public
-   */
-  LocalGatewayId?: string | undefined;
-
-  /**
-   * <p>The ID of the carrier gateway.</p>
-   * @public
-   */
-  CarrierGatewayId?: string | undefined;
-
-  /**
-   * <p>The ID of the network interface.</p>
-   * @public
-   */
-  NetworkInterfaceId?: string | undefined;
-
-  /**
-   * <p>Describes how the route was created.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CreateRouteTable</code> - The route was automatically created when the route table was created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CreateRoute</code> - The route was manually added to the route table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>EnableVgwRoutePropagation</code> - The route was propagated by route propagation.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Advertisement</code> - The route was created dynamically by Amazon VPC Route Server.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Origin?: RouteOrigin | undefined;
-
-  /**
-   * <p>The state of the route. The <code>blackhole</code> state indicates that the
-   * 				route's target isn't available (for example, the specified gateway isn't attached to the
-   * 				VPC, or the specified NAT instance has been terminated).</p>
-   * @public
-   */
-  State?: RouteState | undefined;
-
-  /**
-   * <p>The ID of a VPC peering connection.</p>
-   * @public
-   */
-  VpcPeeringConnectionId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the core network.</p>
-   * @public
-   */
-  CoreNetworkArn?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the ODB network.</p>
-   * @public
-   */
-  OdbNetworkArn?: string | undefined;
-
-  /**
-   * <p>The next hop IP address for routes propagated by VPC Route
-   *             Server into VPC route tables.</p>
-   * @public
-   */
-  IpAddress?: string | undefined;
-}
-
-/**
- * <p>Describes a route table.</p>
- * @public
- */
-export interface RouteTable {
-  /**
-   * <p>The associations between the route table and your subnets or gateways.</p>
-   * @public
-   */
-  Associations?: RouteTableAssociation[] | undefined;
-
-  /**
-   * <p>Any virtual private gateway (VGW) propagating routes.</p>
-   * @public
-   */
-  PropagatingVgws?: PropagatingVgw[] | undefined;
-
-  /**
-   * <p>The ID of the route table.</p>
-   * @public
-   */
-  RouteTableId?: string | undefined;
-
-  /**
-   * <p>The routes in the route table.</p>
-   * @public
-   */
-  Routes?: Route[] | undefined;
-
-  /**
-   * <p>Any tags assigned to the route table.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>The ID of the VPC.</p>
-   * @public
-   */
-  VpcId?: string | undefined;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the route table.</p>
-   * @public
-   */
-  OwnerId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateRouteTableResult {
-  /**
-   * <p>Information about the route table.</p>
-   * @public
-   */
-  RouteTable?: RouteTable | undefined;
-
-  /**
-   * <p>Unique, case-sensitive identifier to ensure the idempotency of the request. Only returned if a client token was provided in the request.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
 }

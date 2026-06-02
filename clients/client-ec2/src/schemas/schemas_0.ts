@@ -41,6 +41,7 @@ const _ABCRd = "AdvertiseByoipCidrResult";
 const _ABHP = "ActualBlockHourlyPrice";
 const _ABV = "AttributeBooleanValue";
 const _AC = "AcceleratorCount";
+const _ACC = "ApplyCancellationCharges";
 const _ACIA = "AssociateCarrierIpAddress";
 const _ACL = "AnalysisComponentList";
 const _ACLV = "AttachClassicLinkVpc";
@@ -547,6 +548,7 @@ const _CCB = "ClientCidrBlock";
 const _CCC = "CreateCoipCidr";
 const _CCCR = "CreateCoipCidrRequest";
 const _CCCRr = "CreateCoipCidrResult";
+const _CCDH = "ChargeCommitmentDurationHours";
 const _CCG = "CreateCarrierGateway";
 const _CCGR = "CreateCarrierGatewayRequest";
 const _CCGRr = "CreateCarrierGatewayResult";
@@ -565,6 +567,9 @@ const _CCR = "CancelConversionRequest";
 const _CCRBS = "CreateCapacityReservationBySplitting";
 const _CCRBSR = "CreateCapacityReservationBySplittingRequest";
 const _CCRBSRr = "CreateCapacityReservationBySplittingResult";
+const _CCRCQ = "CreateCapacityReservationCancellationQuote";
+const _CCRCQR = "CreateCapacityReservationCancellationQuoteRequest";
+const _CCRCQRr = "CreateCapacityReservationCancellationQuoteResult";
 const _CCRF = "CancelCapacityReservationFleets";
 const _CCRFE = "CancelCapacityReservationFleetError";
 const _CCRFR = "CancelCapacityReservationFleetsRequest";
@@ -591,6 +596,7 @@ const _CCl = "ClientConfiguration";
 const _CCo = "CoipCidr";
 const _CCor = "CoreCount";
 const _CCp = "CpuCredits";
+const _CCu = "CurrentConfiguration";
 const _CD = "CreateDate";
 const _CDC = "CreationDateCondition";
 const _CDCR = "CreationDateConditionRequest";
@@ -619,7 +625,8 @@ const _CDr = "CreationDate";
 const _CDre = "CreatedDate";
 const _CE = "ConnectionEvents";
 const _CECSD = "CidrEndpointsCustomSubDomain";
-const _CED = "CommitmentEndDate";
+const _CED = "ChargeEndDate";
+const _CEDo = "CommitmentEndDate";
 const _CEOIG = "CreateEgressOnlyInternetGateway";
 const _CEOIGR = "CreateEgressOnlyInternetGatewayRequest";
 const _CEOIGRr = "CreateEgressOnlyInternetGatewayResult";
@@ -859,9 +866,16 @@ const _CRA = "CapacityReservationArn";
 const _CRBR = "CapacityReservationBillingRequest";
 const _CRBRS = "CapacityReservationBillingRequestSet";
 const _CRBRa = "CapacityReservationBillingRequests";
+const _CRC = "CapacityReservationConfiguration";
 const _CRCC = "ClientRootCertificateChain";
 const _CRCCA = "ClientRootCertificateChainArn";
 const _CRCI = "CapacityReservationCommitmentInfo";
+const _CRCQ = "CapacityReservationCancellationQuote";
+const _CRCQI = "CapacityReservationCancellationQuoteId";
+const _CRCQIS = "CapacityReservationCancellationQuoteIdSet";
+const _CRCQIa = "CapacityReservationCancellationQuoteIds";
+const _CRCQRS = "CapacityReservationCancellationQuoteResponseSet";
+const _CRCQa = "CapacityReservationCancellationQuotes";
 const _CREO = "ClientRouteEnforcementOptions";
 const _CRERO = "ClientRouteEnforcementResponseOptions";
 const _CRF = "CapacityReservationFleet";
@@ -1046,6 +1060,9 @@ const _CTR = "CreateTagsRequest";
 const _CTS = "ConnectionTrackingSpecification";
 const _CTSR = "ConnectionTrackingSpecificationRequest";
 const _CTSRo = "ConnectionTrackingSpecificationResponse";
+const _CTSa = "CancellationTermsSet";
+const _CTa = "CancellationTerms";
+const _CTan = "CancellationType";
 const _CTo = "ConversionTask";
 const _CTom = "CompleteTime";
 const _CTomp = "CompletionTime";
@@ -1281,6 +1298,9 @@ const _DCRBORi = "DisassociateCapacityReservationBillingOwnerResult";
 const _DCRBR = "DescribeCapacityReservationBillingRequests";
 const _DCRBRR = "DescribeCapacityReservationBillingRequestsRequest";
 const _DCRBRRe = "DescribeCapacityReservationBillingRequestsResult";
+const _DCRCQ = "DescribeCapacityReservationCancellationQuotes";
+const _DCRCQR = "DescribeCapacityReservationCancellationQuotesRequest";
+const _DCRCQRe = "DescribeCapacityReservationCancellationQuotesResult";
 const _DCRF = "DescribeCapacityReservationFleets";
 const _DCRFR = "DescribeCapacityReservationFleetsRequest";
 const _DCRFRe = "DescribeCapacityReservationFleetsResult";
@@ -4650,6 +4670,8 @@ const _Prov = "Provisioned";
 const _Pu = "Public";
 const _Pur = "Purchase";
 const _Q = "Quantity";
+const _QI = "QuoteId";
+const _QS = "QuoteState";
 const _R = "Return";
 const _RA = "RuleAction";
 const _RAA = "ResetAddressAttribute";
@@ -6320,12 +6342,14 @@ const _cBSid = "cidrBlockSet";
 const _cBr = "createdBy";
 const _cC = "currencyCode";
 const _cCB = "clientCidrBlock";
+const _cCDH = "chargeCommitmentDurationHours";
 const _cCO = "clientConnectOptions";
 const _cCRFE = "cancelCapacityReservationFleetError";
 const _cCl = "clientConfiguration";
 const _cCo = "coreCount";
 const _cCoi = "coipCidr";
 const _cCp = "cpuCredits";
+const _cCu = "currentConfiguration";
 const _cD = "createDate";
 const _cDC = "creationDateCondition";
 const _cDM = "completionDurationMinutes";
@@ -6333,7 +6357,8 @@ const _cDr = "creationDate";
 const _cDre = "createdDate";
 const _cE = "connectionEvents";
 const _cECSD = "cidrEndpointsCustomSubDomain";
-const _cED = "commitmentEndDate";
+const _cED = "chargeEndDate";
+const _cEDo = "commitmentEndDate";
 const _cET = "connectionEstablishedTime";
 const _cETo = "connectionEndTime";
 const _cEr = "cronExpression";
@@ -6399,6 +6424,9 @@ const _cR = "capacityReservation";
 const _cRA = "capacityReservationArn";
 const _cRBRS = "capacityReservationBillingRequestSet";
 const _cRCC = "clientRootCertificateChain";
+const _cRCQ = "capacityReservationCancellationQuote";
+const _cRCQI = "capacityReservationCancellationQuoteId";
+const _cRCQS = "capacityReservationCancellationQuoteSet";
 const _cREO = "clientRouteEnforcementOptions";
 const _cRFA = "capacityReservationFleetArn";
 const _cRFI = "capacityReservationFleetId";
@@ -6432,7 +6460,9 @@ const _cSur = "currentStatus";
 const _cT = "clientToken";
 const _cTC = "connectionTrackingConfiguration";
 const _cTI = "conversionTaskId";
-const _cTS = "connectionTrackingSpecification";
+const _cTS = "cancellationTermSet";
+const _cTSo = "connectionTrackingSpecification";
+const _cTa = "cancellationType";
 const _cTo = "conversionTasks";
 const _cTom = "completeTime";
 const _cTomp = "completionTime";
@@ -7517,6 +7547,7 @@ const _prov = "provisioned";
 const _pu = "public";
 const _pur = "purchase";
 const _q = "quantity";
+const _qS = "quoteState";
 const _r = "return";
 const _rA = "ruleAction";
 const _rAE = "remoteAccessEnabled";
@@ -9294,8 +9325,8 @@ export var CancelCapacityReservationFleetsResult$: StaticStructureSchema = [3, n
 ];
 export var CancelCapacityReservationRequest$: StaticStructureSchema = [3, n0, _CCRR,
   0,
-  [_CRI, _DR],
-  [0, 2], 1
+  [_CRI, _DR, _ACC, _QI],
+  [0, 2, 0, 0], 1
 ];
 export var CancelCapacityReservationResult$: StaticStructureSchema = [3, n0, _CCRRa,
   0,
@@ -9351,6 +9382,16 @@ export var CancelImportTaskResult$: StaticStructureSchema = [3, n0, _CITRa,
   , [_xN]: _iTI }], [0, { [_eQN]: `PreviousState`
   , [_xN]: _pSr }], [0, { [_eQN]: `State`
   , [_xN]: _st }]]
+];
+export var CancellationTerms$: StaticStructureSchema = [3, n0, _CTa,
+  0,
+  [_CTan, _RSe, _CIC, _CCDH, _CED],
+  [[0, { [_eQN]: `CancellationType`
+  , [_xN]: _cTa }], [0, { [_eQN]: `ReservationState`
+  , [_xN]: _rS }], [1, { [_eQN]: `CommittedInstanceCount`
+  , [_xN]: _cIC }], [1, { [_eQN]: `ChargeCommitmentDurationHours`
+  , [_xN]: _cCDH }], [4, { [_eQN]: `ChargeEndDate`
+  , [_xN]: _cED }]]
 ];
 export var CancelledSpotInstanceRequest$: StaticStructureSchema = [3, n0, _CSIR,
   0,
@@ -9627,12 +9668,32 @@ export var CapacityReservationBillingRequest$: StaticStructureSchema = [3, n0, _
   , [_xN]: _sMt }], [() => CapacityReservationInfo$, { [_eQN]: `CapacityReservationInfo`
   , [_xN]: _cRIa }]]
 ];
+export var CapacityReservationCancellationQuote$: StaticStructureSchema = [3, n0, _CRCQ,
+  0,
+  [_CRCQI, _CRI, _CTr, _ET, _QS, _CCu, _CTa, _T],
+  [[0, { [_eQN]: `CapacityReservationCancellationQuoteId`
+  , [_xN]: _cRCQI }], [0, { [_eQN]: `CapacityReservationId`
+  , [_xN]: _cRI }], [4, { [_eQN]: `CreateTime`
+  , [_xN]: _cTr }], [4, { [_eQN]: `ExpirationTime`
+  , [_xN]: _eT }], [0, { [_eQN]: `QuoteState`
+  , [_xN]: _qS }], [() => CapacityReservationConfiguration$, { [_eQN]: `CurrentConfiguration`
+  , [_xN]: _cCu }], [() => CancellationTermsSet, { [_eQN]: `CancellationTermSet`
+  , [_xN]: _cTS }], [() => TagList, { [_eQN]: `TagSet`
+  , [_xN]: _tS }]]
+];
 export var CapacityReservationCommitmentInfo$: StaticStructureSchema = [3, n0, _CRCI,
   0,
-  [_CIC, _CED],
+  [_CIC, _CEDo],
   [[1, { [_eQN]: `CommittedInstanceCount`
   , [_xN]: _cIC }], [4, { [_eQN]: `CommitmentEndDate`
-  , [_xN]: _cED }]]
+  , [_xN]: _cEDo }]]
+];
+export var CapacityReservationConfiguration$: StaticStructureSchema = [3, n0, _CRC,
+  0,
+  [_IC, _RSe],
+  [[1, { [_eQN]: `InstanceCount`
+  , [_xN]: _iC }], [0, { [_eQN]: `ReservationState`
+  , [_xN]: _rS }]]
 ];
 export var CapacityReservationFleet$: StaticStructureSchema = [3, n0, _CRF,
   0,
@@ -10176,6 +10237,17 @@ export var CreateCapacityReservationBySplittingResult$: StaticStructureSchema = 
   , [_xN]: _sCR }], [() => CapacityReservation$, { [_eQN]: `DestinationCapacityReservation`
   , [_xN]: _dCR }], [1, { [_eQN]: `InstanceCount`
   , [_xN]: _iC }]]
+];
+export var CreateCapacityReservationCancellationQuoteRequest$: StaticStructureSchema = [3, n0, _CCRCQR,
+  0,
+  [_CRI, _CT, _TS, _DR],
+  [0, [0, 4], [() => TagSpecificationList, { [_xN]: _TSa }], 2], 1
+];
+export var CreateCapacityReservationCancellationQuoteResult$: StaticStructureSchema = [3, n0, _CCRCQRr,
+  0,
+  [_CRCQ],
+  [[() => CapacityReservationCancellationQuote$, { [_eQN]: `CapacityReservationCancellationQuote`
+  , [_xN]: _cRCQ }]]
 ];
 export var CreateCapacityReservationFleetRequest$: StaticStructureSchema = [3, n0, _CCRFRr,
   0,
@@ -12848,6 +12920,18 @@ export var DescribeCapacityReservationBillingRequestsResult$: StaticStructureSch
   [[0, { [_eQN]: `NextToken`
   , [_xN]: _nTe }], [() => CapacityReservationBillingRequestSet, { [_eQN]: `CapacityReservationBillingRequestSet`
   , [_xN]: _cRBRS }]]
+];
+export var DescribeCapacityReservationCancellationQuotesRequest$: StaticStructureSchema = [3, n0, _DCRCQR,
+  0,
+  [_CRCQIa, _MR, _NTe, _DR, _Fi],
+  [[() => CapacityReservationCancellationQuoteIdSet, { [_xN]: _CRCQI }], 1, 0, 2, [() => FilterList, { [_xN]: _Fil }]]
+];
+export var DescribeCapacityReservationCancellationQuotesResult$: StaticStructureSchema = [3, n0, _DCRCQRe,
+  0,
+  [_CRCQa, _NTe],
+  [[() => CapacityReservationCancellationQuoteResponseSet, { [_eQN]: `CapacityReservationCancellationQuoteSet`
+  , [_xN]: _cRCQS }], [0, { [_eQN]: `NextToken`
+  , [_xN]: _nTe }]]
 ];
 export var DescribeCapacityReservationFleetsRequest$: StaticStructureSchema = [3, n0, _DCRFR,
   0,
@@ -19563,7 +19647,7 @@ export var LaunchTemplateInstanceNetworkInterfaceSpecification$: StaticStructure
   , [_xN]: _iPCpv }], [2, { [_eQN]: `PrimaryIpv6`
   , [_xN]: _pIri }], [() => LaunchTemplateEnaSrdSpecification$, { [_eQN]: `EnaSrdSpecification`
   , [_xN]: _eSS }], [() => ConnectionTrackingSpecification$, { [_eQN]: `ConnectionTrackingSpecification`
-  , [_xN]: _cTS }], [1, { [_eQN]: `EnaQueueCount`
+  , [_xN]: _cTSo }], [1, { [_eQN]: `EnaQueueCount`
   , [_xN]: _eQC }]]
 ];
 export var LaunchTemplateInstanceNetworkInterfaceSpecificationRequest$: StaticStructureSchema = [3, n0, _LTINISR,
@@ -25929,6 +26013,10 @@ var ByoipCidrSet: StaticListSchema = [1, n0, _BCS,
   0, [() => ByoipCidr$,
     { [_xN]: _it }]
 ];
+var CancellationTermsSet: StaticListSchema = [1, n0, _CTSa,
+  0, [() => CancellationTerms$,
+    { [_xN]: _it }]
+];
 var CancelledSpotInstanceRequestList: StaticListSchema = [1, n0, _CSIRL,
   0, [() => CancelledSpotInstanceRequest$,
     { [_xN]: _it }]
@@ -25995,6 +26083,14 @@ var CapacityManagerTagDimensionSet: StaticListSchema = [1, n0, _CMTDS,
 ];
 var CapacityReservationBillingRequestSet: StaticListSchema = [1, n0, _CRBRS,
   0, [() => CapacityReservationBillingRequest$,
+    { [_xN]: _it }]
+];
+var CapacityReservationCancellationQuoteIdSet: StaticListSchema = [1, n0, _CRCQIS,
+  0, [0,
+    { [_xN]: _it }]
+];
+var CapacityReservationCancellationQuoteResponseSet: StaticListSchema = [1, n0, _CRCQRS,
+  0, [() => CapacityReservationCancellationQuote$,
     { [_xN]: _it }]
 ];
 var CapacityReservationFleetCancellationStateSet: StaticListSchema = [1, n0, _CRFCSS,
@@ -28773,6 +28869,9 @@ export var CreateCapacityReservation$: StaticOperationSchema = [9, n0, _CCRr,
 export var CreateCapacityReservationBySplitting$: StaticOperationSchema = [9, n0, _CCRBS,
   0, () => CreateCapacityReservationBySplittingRequest$, () => CreateCapacityReservationBySplittingResult$
 ];
+export var CreateCapacityReservationCancellationQuote$: StaticOperationSchema = [9, n0, _CCRCQ,
+  0, () => CreateCapacityReservationCancellationQuoteRequest$, () => CreateCapacityReservationCancellationQuoteResult$
+];
 export var CreateCapacityReservationFleet$: StaticOperationSchema = [9, n0, _CCRFr,
   0, () => CreateCapacityReservationFleetRequest$, () => CreateCapacityReservationFleetResult$
 ];
@@ -29426,6 +29525,9 @@ export var DescribeCapacityManagerDataExports$: StaticOperationSchema = [9, n0, 
 ];
 export var DescribeCapacityReservationBillingRequests$: StaticOperationSchema = [9, n0, _DCRBR,
   0, () => DescribeCapacityReservationBillingRequestsRequest$, () => DescribeCapacityReservationBillingRequestsResult$
+];
+export var DescribeCapacityReservationCancellationQuotes$: StaticOperationSchema = [9, n0, _DCRCQ,
+  0, () => DescribeCapacityReservationCancellationQuotesRequest$, () => DescribeCapacityReservationCancellationQuotesResult$
 ];
 export var DescribeCapacityReservationFleets$: StaticOperationSchema = [9, n0, _DCRF,
   0, () => DescribeCapacityReservationFleetsRequest$, () => DescribeCapacityReservationFleetsResult$

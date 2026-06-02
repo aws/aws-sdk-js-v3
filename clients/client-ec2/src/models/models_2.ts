@@ -30,6 +30,8 @@ import type {
   MulticastSupportValue,
   PayerResponsibility,
   ProtocolValue,
+  RouteOrigin,
+  RouteState,
   SecondaryNetworkCidrBlockAssociationState,
   SecondaryNetworkState,
   SecondaryNetworkType,
@@ -92,6 +94,7 @@ import type {
   ClientVpnRouteStatus,
   CoipCidr,
   CoipPool,
+  RouteTableAssociationState,
   Subnet,
   Tag,
   TagSpecification,
@@ -101,9 +104,7 @@ import type {
   VerifiedAccessInstance,
   VerifiedAccessSseSpecificationResponse,
   VerifiedAccessTrustProvider,
-  Vpc,
   VpcAttachment,
-  VpcEncryptionControl,
   VpcPeeringConnection,
 } from "./models_0";
 import type {
@@ -128,7 +129,269 @@ import type {
   RouteServer,
   RouteServerEndpoint,
   RouteServerPeer,
+  Vpc,
+  VpcEncryptionControl,
 } from "./models_1";
+
+/**
+ * <p>Describes an association between a route table and a subnet or gateway.</p>
+ * @public
+ */
+export interface RouteTableAssociation {
+  /**
+   * <p>Indicates whether this is the main route table.</p>
+   * @public
+   */
+  Main?: boolean | undefined;
+
+  /**
+   * <p>The ID of the association.</p>
+   * @public
+   */
+  RouteTableAssociationId?: string | undefined;
+
+  /**
+   * <p>The ID of the route table.</p>
+   * @public
+   */
+  RouteTableId?: string | undefined;
+
+  /**
+   * <p>The ID of the subnet. A subnet ID is not returned for an implicit association.</p>
+   * @public
+   */
+  SubnetId?: string | undefined;
+
+  /**
+   * <p>The ID of the internet gateway or virtual private gateway.</p>
+   * @public
+   */
+  GatewayId?: string | undefined;
+
+  /**
+   * <p>The ID of a public IPv4 pool. A public IPv4 pool is a pool of IPv4 addresses that you've brought to Amazon Web Services with BYOIP.</p>
+   * @public
+   */
+  PublicIpv4Pool?: string | undefined;
+
+  /**
+   * <p>The state of the association.</p>
+   * @public
+   */
+  AssociationState?: RouteTableAssociationState | undefined;
+}
+
+/**
+ * <p>Describes a virtual private gateway propagating route.</p>
+ * @public
+ */
+export interface PropagatingVgw {
+  /**
+   * <p>The ID of the virtual private gateway.</p>
+   * @public
+   */
+  GatewayId?: string | undefined;
+}
+
+/**
+ * <p>Describes a route in a route table.</p>
+ * @public
+ */
+export interface Route {
+  /**
+   * <p>The IPv4 CIDR block used for the destination match.</p>
+   * @public
+   */
+  DestinationCidrBlock?: string | undefined;
+
+  /**
+   * <p>The IPv6 CIDR block used for the destination match.</p>
+   * @public
+   */
+  DestinationIpv6CidrBlock?: string | undefined;
+
+  /**
+   * <p>The prefix of the Amazon Web Services service.</p>
+   * @public
+   */
+  DestinationPrefixListId?: string | undefined;
+
+  /**
+   * <p>The ID of the egress-only internet gateway.</p>
+   * @public
+   */
+  EgressOnlyInternetGatewayId?: string | undefined;
+
+  /**
+   * <p>The ID of a gateway attached to your VPC.</p>
+   * @public
+   */
+  GatewayId?: string | undefined;
+
+  /**
+   * <p>The ID of a NAT instance in your VPC.</p>
+   * @public
+   */
+  InstanceId?: string | undefined;
+
+  /**
+   * <p>The ID of Amazon Web Services account that owns the instance.</p>
+   * @public
+   */
+  InstanceOwnerId?: string | undefined;
+
+  /**
+   * <p>The ID of a NAT gateway.</p>
+   * @public
+   */
+  NatGatewayId?: string | undefined;
+
+  /**
+   * <p>The ID of a transit gateway.</p>
+   * @public
+   */
+  TransitGatewayId?: string | undefined;
+
+  /**
+   * <p>The ID of the local gateway.</p>
+   * @public
+   */
+  LocalGatewayId?: string | undefined;
+
+  /**
+   * <p>The ID of the carrier gateway.</p>
+   * @public
+   */
+  CarrierGatewayId?: string | undefined;
+
+  /**
+   * <p>The ID of the network interface.</p>
+   * @public
+   */
+  NetworkInterfaceId?: string | undefined;
+
+  /**
+   * <p>Describes how the route was created.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CreateRouteTable</code> - The route was automatically created when the route table was created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CreateRoute</code> - The route was manually added to the route table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EnableVgwRoutePropagation</code> - The route was propagated by route propagation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Advertisement</code> - The route was created dynamically by Amazon VPC Route Server.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Origin?: RouteOrigin | undefined;
+
+  /**
+   * <p>The state of the route. The <code>blackhole</code> state indicates that the
+   * 				route's target isn't available (for example, the specified gateway isn't attached to the
+   * 				VPC, or the specified NAT instance has been terminated).</p>
+   * @public
+   */
+  State?: RouteState | undefined;
+
+  /**
+   * <p>The ID of a VPC peering connection.</p>
+   * @public
+   */
+  VpcPeeringConnectionId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the core network.</p>
+   * @public
+   */
+  CoreNetworkArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the ODB network.</p>
+   * @public
+   */
+  OdbNetworkArn?: string | undefined;
+
+  /**
+   * <p>The next hop IP address for routes propagated by VPC Route
+   *             Server into VPC route tables.</p>
+   * @public
+   */
+  IpAddress?: string | undefined;
+}
+
+/**
+ * <p>Describes a route table.</p>
+ * @public
+ */
+export interface RouteTable {
+  /**
+   * <p>The associations between the route table and your subnets or gateways.</p>
+   * @public
+   */
+  Associations?: RouteTableAssociation[] | undefined;
+
+  /**
+   * <p>Any virtual private gateway (VGW) propagating routes.</p>
+   * @public
+   */
+  PropagatingVgws?: PropagatingVgw[] | undefined;
+
+  /**
+   * <p>The ID of the route table.</p>
+   * @public
+   */
+  RouteTableId?: string | undefined;
+
+  /**
+   * <p>The routes in the route table.</p>
+   * @public
+   */
+  Routes?: Route[] | undefined;
+
+  /**
+   * <p>Any tags assigned to the route table.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The ID of the VPC.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the route table.</p>
+   * @public
+   */
+  OwnerId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRouteTableResult {
+  /**
+   * <p>Information about the route table.</p>
+   * @public
+   */
+  RouteTable?: RouteTable | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier to ensure the idempotency of the request. Only returned if a client token was provided in the request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
 
 /**
  * @public
@@ -9500,107 +9763,6 @@ export interface DeleteSpotDatafeedSubscriptionRequest {
    *             making the request, and provides an error response. If you have the required
    *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
    *             <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteSubnetRequest {
-  /**
-   * <p>The ID of the subnet.</p>
-   * @public
-   */
-  SubnetId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteSubnetCidrReservationRequest {
-  /**
-   * <p>The ID of the subnet CIDR reservation.</p>
-   * @public
-   */
-  SubnetCidrReservationId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteSubnetCidrReservationResult {
-  /**
-   * <p>Information about the deleted subnet CIDR reservation.</p>
-   * @public
-   */
-  DeletedSubnetCidrReservation?: SubnetCidrReservation | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteTagsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The IDs of the resources, separated by spaces.</p>
-   *          <p>Constraints: Up to 1000 resource IDs. We recommend breaking up this request into smaller batches.</p>
-   * @public
-   */
-  Resources: string[] | undefined;
-
-  /**
-   * <p>The tags to delete. Specify a tag key and an optional tag value to delete
-   *             specific tags. If you specify a tag key without a tag value, we delete any tag with this
-   *             key regardless of its value. If you specify a tag key with an empty string as the tag
-   *             value, we delete the tag only if its value is an empty string.</p>
-   *          <p>If you omit this parameter, we delete all user-defined tags for the specified
-   *             resources. We do not delete Amazon Web Services-generated tags (tags that have the <code>aws:</code>
-   *             prefix).</p>
-   *          <p>Constraints: Up to 1000 tags.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteTrafficMirrorFilterRequest {
-  /**
-   * <p>The ID of the Traffic Mirror filter.</p>
-   * @public
-   */
-  TrafficMirrorFilterId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
   DryRun?: boolean | undefined;

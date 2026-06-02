@@ -72,7 +72,7 @@ export interface DescribeCapacityReservationsCommandOutput extends DescribeCapac
  * //       AvailableInstanceCount: Number("int"),
  * //       EbsOptimized: true || false,
  * //       EphemeralStorage: true || false,
- * //       State: "active" || "expired" || "cancelled" || "pending" || "failed" || "scheduled" || "payment-pending" || "payment-failed" || "assessing" || "delayed" || "unsupported" || "unavailable",
+ * //       State: "active" || "expired" || "cancelled" || "pending" || "failed" || "scheduled" || "payment-pending" || "payment-failed" || "assessing" || "delayed" || "unsupported" || "cancelling" || "unavailable",
  * //       StartDate: new Date("TIMESTAMP"),
  * //       EndDate: new Date("TIMESTAMP"),
  * //       EndDateType: "unlimited" || "limited",
@@ -89,7 +89,7 @@ export interface DescribeCapacityReservationsCommandOutput extends DescribeCapac
  * //       PlacementGroupArn: "STRING_VALUE",
  * //       CapacityAllocations: [ // CapacityAllocations
  * //         { // CapacityAllocation
- * //           AllocationType: "used" || "future",
+ * //           AllocationType: "used" || "future" || "cancelling",
  * //           Count: Number("int"),
  * //           AllocationMetadata: [ // CapacityAllocationMetadataList
  * //             { // CapacityAllocationMetadataEntry

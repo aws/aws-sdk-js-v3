@@ -68,6 +68,7 @@ export const ResourceType = {
   capacity_block: "capacity-block",
   capacity_manager_data_export: "capacity-manager-data-export",
   capacity_reservation: "capacity-reservation",
+  capacity_reservation_cancellation_quote: "capacity-reservation-cancellation-quote",
   capacity_reservation_fleet: "capacity-reservation-fleet",
   carrier_gateway: "carrier-gateway",
   client_vpn_endpoint: "client-vpn-endpoint",
@@ -649,6 +650,7 @@ export type AllocationStrategy = (typeof AllocationStrategy)[keyof typeof Alloca
  * @enum
  */
 export const AllocationType = {
+  cancelling: "cancelling",
   future: "future",
   used: "used",
 } as const;
@@ -1064,6 +1066,18 @@ export type BundleTaskState = (typeof BundleTaskState)[keyof typeof BundleTaskSt
  * @public
  * @enum
  */
+export const ApplyCancellationCharges = {
+  COMMITMENT_WIND_DOWN: "commitment-wind-down",
+} as const;
+/**
+ * @public
+ */
+export type ApplyCancellationCharges = (typeof ApplyCancellationCharges)[keyof typeof ApplyCancellationCharges];
+
+/**
+ * @public
+ * @enum
+ */
 export const CapacityReservationFleetState = {
   ACTIVE: "active",
   CANCELLED: "cancelled",
@@ -1381,6 +1395,7 @@ export const CapacityReservationState = {
   active: "active",
   assessing: "assessing",
   cancelled: "cancelled",
+  cancelling: "cancelling",
   delayed: "delayed",
   expired: "expired",
   failed: "failed",
@@ -1395,6 +1410,21 @@ export const CapacityReservationState = {
  * @public
  */
 export type CapacityReservationState = (typeof CapacityReservationState)[keyof typeof CapacityReservationState];
+
+/**
+ * @public
+ * @enum
+ */
+export const CapacityReservationCancellationQuoteState = {
+  active: "active",
+  expired: "expired",
+  pending: "pending",
+} as const;
+/**
+ * @public
+ */
+export type CapacityReservationCancellationQuoteState =
+  (typeof CapacityReservationCancellationQuoteState)[keyof typeof CapacityReservationCancellationQuoteState];
 
 /**
  * @public

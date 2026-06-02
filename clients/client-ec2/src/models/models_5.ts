@@ -2,7 +2,6 @@
 import type {
   AllowedImagesSettingsDisabledState,
   AllowedImagesSettingsEnabledState,
-  CapacityManagerMonitoredTagKeyStatus,
   CapacityManagerStatus,
   CapacityTenancy,
   ClientCertificateRevocationListStatusCode,
@@ -73,15 +72,15 @@ import type {
   TransitGatewayPolicyTableAssociation,
   TransitGatewayVpcAttachment,
   TrunkInterfaceAssociation,
+  UserIdGroupPair,
   VerifiedAccessInstance,
   VerifiedAccessTrustProvider,
   Volume,
-  Vpc,
   VpcCidrBlockAssociation,
-  VpcEncryptionControl,
   VpcIpv6CidrBlockAssociation,
   VpcPeeringConnection,
 } from "./models_0";
+import type { Vpc, VpcEncryptionControl } from "./models_1";
 import type {
   ConnectionNotification,
   DnsEntry,
@@ -108,14 +107,416 @@ import type {
   VpnGateway,
 } from "./models_2";
 import type {
-  AttributeBooleanValue,
   ExportTaskS3Location,
   FastLaunchLaunchTemplateSpecificationResponse,
   FastLaunchSnapshotConfigurationResponse,
   Filter,
   ProductCode,
 } from "./models_3";
-import type { RegisteredInstance } from "./models_4";
+import type { AttributeBooleanValue, RegisteredInstance } from "./models_4";
+
+/**
+ * <p>Describes a stale rule in a security group.</p>
+ * @public
+ */
+export interface StaleIpPermission {
+  /**
+   * <p>If the protocol is TCP or UDP, this is the start of the port range.
+   *           If the protocol is ICMP or ICMPv6, this is the ICMP type or -1 (all ICMP types).</p>
+   * @public
+   */
+  FromPort?: number | undefined;
+
+  /**
+   * <p>The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>, <code>icmpv6</code>) or number
+   *           (see <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers)</a>.</p>
+   * @public
+   */
+  IpProtocol?: string | undefined;
+
+  /**
+   * <p>The IP ranges. Not applicable for stale security group rules.</p>
+   * @public
+   */
+  IpRanges?: string[] | undefined;
+
+  /**
+   * <p>The prefix list IDs. Not applicable for stale security group rules.</p>
+   * @public
+   */
+  PrefixListIds?: string[] | undefined;
+
+  /**
+   * <p>If the protocol is TCP or UDP, this is the end of the port range.
+   *           If the protocol is ICMP or ICMPv6, this is the ICMP code or -1 (all ICMP codes).</p>
+   * @public
+   */
+  ToPort?: number | undefined;
+
+  /**
+   * <p>The security group pairs. Returns the ID of the referenced security group and VPC, and the ID and status of the VPC peering connection.</p>
+   * @public
+   */
+  UserIdGroupPairs?: UserIdGroupPair[] | undefined;
+}
+
+/**
+ * <p>Describes a stale security group (a security group that contains stale rules).</p>
+ * @public
+ */
+export interface StaleSecurityGroup {
+  /**
+   * <p>The description of the security group.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The ID of the security group.</p>
+   * @public
+   */
+  GroupId?: string | undefined;
+
+  /**
+   * <p>The name of the security group.</p>
+   * @public
+   */
+  GroupName?: string | undefined;
+
+  /**
+   * <p>Information about the stale inbound rules in the security group.</p>
+   * @public
+   */
+  StaleIpPermissions?: StaleIpPermission[] | undefined;
+
+  /**
+   * <p>Information about the stale outbound rules in the security group.</p>
+   * @public
+   */
+  StaleIpPermissionsEgress?: StaleIpPermission[] | undefined;
+
+  /**
+   * <p>The ID of the VPC for the security group.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeStaleSecurityGroupsResult {
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Information about the stale security groups.</p>
+   * @public
+   */
+  StaleSecurityGroupSet?: StaleSecurityGroup[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeStoreImageTasksRequest {
+  /**
+   * <p>The AMI IDs for which to show progress. Up to 20 AMI IDs can be included in a
+   *       request.</p>
+   * @public
+   */
+  ImageIds?: string[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>task-state</code> - Returns tasks in a certain state (<code>InProgress</code> |
+   *           <code>Completed</code> | <code>Failed</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>bucket</code> - Returns task information for tasks that targeted a specific
+   *           bucket. For the filter value, specify the bucket name.</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>When you specify the <code>ImageIds</code> parameter, any filters that you specify are
+   *         ignored. To use the filters, you must remove the <code>ImageIds</code> parameter.</p>
+   *          </note>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   *          <p>You cannot specify this parameter and the <code>ImageIds</code> parameter in the same
+   *       call.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>The information about the AMI store task, including the progress of the task.</p>
+ * @public
+ */
+export interface StoreImageTaskResult {
+  /**
+   * <p>The ID of the AMI that is being stored.</p>
+   * @public
+   */
+  AmiId?: string | undefined;
+
+  /**
+   * <p>The time the task started.</p>
+   * @public
+   */
+  TaskStartTime?: Date | undefined;
+
+  /**
+   * <p>The name of the Amazon S3 bucket that contains the stored AMI object.</p>
+   * @public
+   */
+  Bucket?: string | undefined;
+
+  /**
+   * <p>The name of the stored AMI object in the bucket.</p>
+   * @public
+   */
+  S3objectKey?: string | undefined;
+
+  /**
+   * <p>The progress of the task as a percentage.</p>
+   * @public
+   */
+  ProgressPercentage?: number | undefined;
+
+  /**
+   * <p>The state of the store task (<code>InProgress</code>, <code>Completed</code>, or
+   *       <code>Failed</code>).</p>
+   * @public
+   */
+  StoreTaskState?: string | undefined;
+
+  /**
+   * <p>If the tasks fails, the reason for the failure is returned. If the task succeeds,
+   *       <code>null</code> is returned.</p>
+   * @public
+   */
+  StoreTaskFailureReason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeStoreImageTasksResult {
+  /**
+   * <p>The information about the AMI store tasks.</p>
+   * @public
+   */
+  StoreImageTaskResults?: StoreImageTaskResult[] | undefined;
+
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeSubnetsRequest {
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone</code> - The Availability Zone for the subnet. You can also use
+   *                     <code>availabilityZone</code> as the filter name.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone-id</code> - The ID of the Availability Zone for the subnet.
+   *                     You can also use <code>availabilityZoneId</code> as the filter name.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>available-ip-address-count</code> - The number of IPv4 addresses in the
+   *                     subnet that are available.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>cidr-block</code> - The IPv4 CIDR block of the subnet. The CIDR block
+   *                     you specify must exactly match the subnet's CIDR block for information to be
+   *                     returned for the subnet. You can also use <code>cidr</code> or
+   *                         <code>cidrBlock</code> as the filter names.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>customer-owned-ipv4-pool</code> - The customer-owned IPv4 address pool
+   *                     associated with the subnet.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>default-for-az</code> - Indicates whether this is the default subnet for
+   *                     the Availability Zone (<code>true</code> | <code>false</code>). You can also use
+   *                         <code>defaultForAz</code> as the filter name.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>enable-dns64</code> - Indicates whether DNS queries made to the
+   *                     Amazon-provided DNS Resolver in this subnet should return synthetic IPv6
+   *                     addresses for IPv4-only destinations.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>enable-lni-at-device-index</code> - Indicates the device position for
+   *                     local network interfaces in this subnet. For example, <code>1</code> indicates
+   *                     local network interfaces in this subnet are the secondary network interface
+   *                     (eth1). </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ipv6-cidr-block-association.ipv6-cidr-block</code> - An IPv6 CIDR
+   *                     block associated with the subnet.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ipv6-cidr-block-association.association-id</code> - An association ID
+   *                     for an IPv6 CIDR block associated with the subnet.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ipv6-cidr-block-association.state</code> - The state of an IPv6 CIDR
+   *                     block associated with the subnet.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ipv6-native</code> - Indicates whether this is an IPv6 only subnet
+   *                         (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>map-customer-owned-ip-on-launch</code> - Indicates whether a network
+   *                     interface created in this subnet (including a network interface created by <a>RunInstances</a>) receives a customer-owned IPv4 address.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>map-public-ip-on-launch</code> - Indicates whether instances launched in
+   *                     this subnet receive a public IPv4 address.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the
+   *                     subnet.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>private-dns-name-options-on-launch.hostname-type</code> - The type of
+   *                     hostname to assign to instances in the subnet at launch. For IPv4-only and
+   *                     dual-stack (IPv4 and IPv6) subnets, an instance DNS name can be based on the
+   *                     instance IPv4 address (ip-name) or the instance ID (resource-name). For IPv6
+   *                     only subnets, an instance DNS name must be based on the instance ID
+   *                     (resource-name).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>private-dns-name-options-on-launch.enable-resource-name-dns-a-record</code>
+   *                     - Indicates whether to respond to DNS queries for instance hostnames with DNS A
+   *                     records.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>private-dns-name-options-on-launch.enable-resource-name-dns-aaaa-record</code>
+   *                     - Indicates whether to respond to DNS queries for instance hostnames with DNS
+   *                     AAAA records.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the subnet (<code>pending</code> | <code>available</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>subnet-arn</code> - The Amazon Resource Name (ARN) of the subnet.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>subnet-id</code> - The ID of the subnet.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vpc-id</code> - The ID of the VPC for the subnet.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The IDs of the subnets.</p>
+   *          <p>Default: Describes all your subnets.</p>
+   * @public
+   */
+  SubnetIds?: string[] | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
 
 /**
  * @public
@@ -8911,251 +9312,4 @@ export interface CapacityManagerDimension {
    * @public
    */
   Tags?: CapacityManagerTagDimension[] | undefined;
-}
-
-/**
- * <p>
- * Represents a single metric value with its associated statistic, such as the sum or average of unused capacity hours.
- * </p>
- * @public
- */
-export interface MetricValue {
-  /**
-   * <p>
-   * The name of the metric.
-   * </p>
-   * @public
-   */
-  Metric?: Metric | undefined;
-
-  /**
-   * <p>
-   * The numerical value of the metric for the specified statistic and time period.
-   * </p>
-   * @public
-   */
-  Value?: number | undefined;
-}
-
-/**
- * <p>
- * Contains a single data point from a capacity metrics query, including the dimension values, timestamp, and metric values for that specific combination.
- * </p>
- * @public
- */
-export interface MetricDataResult {
-  /**
-   * <p>
-   * The dimension values that identify this specific data point, such as account ID, region, and instance family.
-   * </p>
-   * @public
-   */
-  Dimension?: CapacityManagerDimension | undefined;
-
-  /**
-   * <p>
-   * The timestamp for this data point, indicating when the capacity usage occurred.
-   * </p>
-   * @public
-   */
-  Timestamp?: Date | undefined;
-
-  /**
-   * <p>
-   * The metric values and statistics for this data point, containing the actual capacity usage numbers.
-   * </p>
-   * @public
-   */
-  MetricValues?: MetricValue[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCapacityManagerMetricDataResult {
-  /**
-   * <p>
-   * The metric data points returned by the query. Each result contains dimension values, timestamp, and metric values with their associated statistics.
-   * </p>
-   * @public
-   */
-  MetricDataResults?: MetricDataResult[] | undefined;
-
-  /**
-   * <p>
-   * The token to use to retrieve the next page of results. This value is null when there are no more results to return.
-   * </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCapacityManagerMetricDimensionsRequest {
-  /**
-   * <p>
-   * The dimensions to group by when retrieving available dimension values. This determines which dimension combinations are returned. Required parameter.
-   * </p>
-   * @public
-   */
-  GroupBy: GroupBy[] | undefined;
-
-  /**
-   * <p>
-   * Conditions to filter which dimension values are returned. Each filter specifies a dimension, comparison operator, and values to match against.
-   * </p>
-   * @public
-   */
-  FilterBy?: CapacityManagerCondition[] | undefined;
-
-  /**
-   * <p>
-   * The start time for the dimension query, in ISO 8601 format. Only dimensions with data in this time range will be returned.
-   * </p>
-   * @public
-   */
-  StartTime: Date | undefined;
-
-  /**
-   * <p>
-   * The end time for the dimension query, in ISO 8601 format. Only dimensions with data in this time range will be returned.
-   * </p>
-   * @public
-   */
-  EndTime: Date | undefined;
-
-  /**
-   * <p>
-   * The metric names to use as an additional filter when retrieving dimensions. Only dimensions that have data for these
-   * metrics will be returned. Required parameter with maximum size of 1 for v1.
-   * </p>
-   * @public
-   */
-  MetricNames: Metric[] | undefined;
-
-  /**
-   * <p>
-   * The maximum number of dimension combinations to return. Valid range is 1 to 1000. Use with NextToken for pagination.
-   * </p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>
-   * The token for the next page of results. Use this value in a subsequent call to retrieve additional dimension values.
-   * </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>
-   * Checks whether you have the required permissions for the action, without actually making the request, and provides
-   * an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.
-   * </p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCapacityManagerMetricDimensionsResult {
-  /**
-   * <p>
-   * The available dimension combinations that have data within the specified time range and filters.
-   * </p>
-   * @public
-   */
-  MetricDimensionResults?: CapacityManagerDimension[] | undefined;
-
-  /**
-   * <p>
-   * The token to use to retrieve the next page of results. This value is null when there are no more results to return.
-   * </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCapacityManagerMonitoredTagKeysRequest {
-  /**
-   * <p>
-   * The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned <code>NextToken</code> value. If not specified, up to 1000 results are returned.
-   * </p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>
-   * The token for the next page of results. Use the value returned from a previous call to retrieve additional results.
-   * </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>
-   * Checks whether you have the required permissions for the action, without actually making the request, and provides an error response.
-   * If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.
-   * </p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>
- * Describes a tag key that is being monitored by Capacity Manager, including its activation status and the earliest available data point.
- * </p>
- * @public
- */
-export interface CapacityManagerMonitoredTagKey {
-  /**
-   * <p>
-   * The tag key being monitored.
-   * </p>
-   * @public
-   */
-  TagKey?: string | undefined;
-
-  /**
-   * <p>
-   * The current status of the monitored tag key. Valid values are <code>activating</code>, <code>activated</code>, <code>deactivating</code>, and <code>suspended</code>.
-   * </p>
-   * @public
-   */
-  Status?: CapacityManagerMonitoredTagKeyStatus | undefined;
-
-  /**
-   * <p>
-   * A message providing additional details about the current status of the monitored tag key.
-   * </p>
-   * @public
-   */
-  StatusMessage?: string | undefined;
-
-  /**
-   * <p>
-   * Indicates whether this tag key is provided by Capacity Manager by default, rather than being user-activated.
-   * </p>
-   * @public
-   */
-  CapacityManagerProvided?: boolean | undefined;
-
-  /**
-   * <p>
-   * The earliest timestamp from which tag data is available for queries, in UTC ISO 8601 format.
-   * </p>
-   * @public
-   */
-  EarliestDatapointTimestamp?: Date | undefined;
 }

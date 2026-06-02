@@ -5,7 +5,8 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { CreateDefaultVpcRequest, CreateDefaultVpcResult } from "../models/models_0";
+import type { CreateDefaultVpcRequest } from "../models/models_0";
+import type { CreateDefaultVpcResult } from "../models/models_1";
 import { CreateDefaultVpc$ } from "../schemas/schemas_0";
 
 /**

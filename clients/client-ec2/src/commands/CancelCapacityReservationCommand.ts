@@ -38,9 +38,21 @@ export interface CancelCapacityReservationCommandOutput extends CancelCapacityRe
  *             </li>
  *             <li>
  *                <p>
+ *                   <code>scheduled</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <code>active</code> and there is no commitment duration or the commitment
- * 					duration has elapsed. You can't cancel a future-dated Capacity Reservation
- * 					during the commitment duration.</p>
+ * 					duration has elapsed.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>active</code> during the commitment duration, if you provide a
+ * 					cancellation quote ID and accept the cancellation charges. Use
+ * 					<code>CreateCapacityReservationCancellationQuote</code> to generate a quote.
+ * 					The Capacity Reservation transitions to <code>cancelling</code> while charges
+ * 					are applied.</p>
  *             </li>
  *          </ul>
  *          <note>
@@ -65,6 +77,8 @@ export interface CancelCapacityReservationCommandOutput extends CancelCapacityRe
  * const input = { // CancelCapacityReservationRequest
  *   CapacityReservationId: "STRING_VALUE", // required
  *   DryRun: true || false,
+ *   ApplyCancellationCharges: "commitment-wind-down",
+ *   QuoteId: "STRING_VALUE",
  * };
  * const command = new CancelCapacityReservationCommand(input);
  * const response = await client.send(command);
