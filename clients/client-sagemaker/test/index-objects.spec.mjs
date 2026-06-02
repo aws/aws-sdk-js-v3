@@ -478,6 +478,10 @@ import {
   CreateInferenceRecommendationsJobCommand,
   CreateInferenceRecommendationsJobRequest$,
   CreateInferenceRecommendationsJobResponse$,
+  CreateJob$,
+  CreateJobCommand,
+  CreateJobRequest$,
+  CreateJobResponse$,
   CreateLabelingJob$,
   CreateLabelingJobCommand,
   CreateLabelingJobRequest$,
@@ -757,6 +761,10 @@ import {
   DeleteInferenceExperimentCommand,
   DeleteInferenceExperimentRequest$,
   DeleteInferenceExperimentResponse$,
+  DeleteJob$,
+  DeleteJobCommand,
+  DeleteJobRequest$,
+  DeleteJobResponse$,
   DeleteMlflowApp$,
   DeleteMlflowAppCommand,
   DeleteMlflowAppRequest$,
@@ -1013,6 +1021,14 @@ import {
   DescribeInferenceRecommendationsJobCommand,
   DescribeInferenceRecommendationsJobRequest$,
   DescribeInferenceRecommendationsJobResponse$,
+  DescribeJob$,
+  DescribeJobCommand,
+  DescribeJobRequest$,
+  DescribeJobResponse$,
+  DescribeJobSchemaVersion$,
+  DescribeJobSchemaVersionCommand,
+  DescribeJobSchemaVersionRequest$,
+  DescribeJobSchemaVersionResponse$,
   DescribeLabelingJob$,
   DescribeLabelingJobCommand,
   DescribeLabelingJobRequest$,
@@ -1426,6 +1442,13 @@ import {
   IntegerParameterRangeSpecification$,
   IPAddressType,
   IsTrackingServerActive,
+  JobCategory,
+  JobConfigSchemaVersionSummary$,
+  JobSecondaryStatus,
+  JobSecondaryStatusTransition$,
+  JobStatus,
+  JobStepMetadata$,
+  JobSummary$,
   JobType,
   JoinSource,
   JupyterLabAppImageConfig$,
@@ -1633,6 +1656,14 @@ import {
   ListInferenceRecommendationsJobStepsCommand,
   ListInferenceRecommendationsJobStepsRequest$,
   ListInferenceRecommendationsJobStepsResponse$,
+  ListJobs$,
+  ListJobSchemaVersions$,
+  ListJobSchemaVersionsCommand,
+  ListJobSchemaVersionsRequest$,
+  ListJobSchemaVersionsResponse$,
+  ListJobsCommand,
+  ListJobsRequest$,
+  ListJobsResponse$,
   ListLabelingJobs$,
   ListLabelingJobsCommand,
   ListLabelingJobsForWorkteam$,
@@ -2051,6 +2082,8 @@ import {
   paginateListInferenceExperiments,
   paginateListInferenceRecommendationsJobs,
   paginateListInferenceRecommendationsJobSteps,
+  paginateListJobs,
+  paginateListJobSchemaVersions,
   paginateListLabelingJobs,
   paginateListLabelingJobsForWorkteam,
   paginateListLineageGroups,
@@ -2426,6 +2459,10 @@ import {
   StopInferenceRecommendationsJob$,
   StopInferenceRecommendationsJobCommand,
   StopInferenceRecommendationsJobRequest$,
+  StopJob$,
+  StopJobCommand,
+  StopJobRequest$,
+  StopJobResponse$,
   StopLabelingJob$,
   StopLabelingJobCommand,
   StopLabelingJobRequest$,
@@ -2888,6 +2925,8 @@ assert(typeof CreateInferenceExperimentCommand === "function");
 assert(typeof CreateInferenceExperiment$ === "object");
 assert(typeof CreateInferenceRecommendationsJobCommand === "function");
 assert(typeof CreateInferenceRecommendationsJob$ === "object");
+assert(typeof CreateJobCommand === "function");
+assert(typeof CreateJob$ === "object");
 assert(typeof CreateLabelingJobCommand === "function");
 assert(typeof CreateLabelingJob$ === "object");
 assert(typeof CreateMlflowAppCommand === "function");
@@ -3024,6 +3063,8 @@ assert(typeof DeleteInferenceComponentCommand === "function");
 assert(typeof DeleteInferenceComponent$ === "object");
 assert(typeof DeleteInferenceExperimentCommand === "function");
 assert(typeof DeleteInferenceExperiment$ === "object");
+assert(typeof DeleteJobCommand === "function");
+assert(typeof DeleteJob$ === "object");
 assert(typeof DeleteMlflowAppCommand === "function");
 assert(typeof DeleteMlflowApp$ === "object");
 assert(typeof DeleteMlflowTrackingServerCommand === "function");
@@ -3158,6 +3199,10 @@ assert(typeof DescribeInferenceExperimentCommand === "function");
 assert(typeof DescribeInferenceExperiment$ === "object");
 assert(typeof DescribeInferenceRecommendationsJobCommand === "function");
 assert(typeof DescribeInferenceRecommendationsJob$ === "object");
+assert(typeof DescribeJobCommand === "function");
+assert(typeof DescribeJob$ === "object");
+assert(typeof DescribeJobSchemaVersionCommand === "function");
+assert(typeof DescribeJobSchemaVersion$ === "object");
 assert(typeof DescribeLabelingJobCommand === "function");
 assert(typeof DescribeLabelingJob$ === "object");
 assert(typeof DescribeLineageGroupCommand === "function");
@@ -3336,6 +3381,10 @@ assert(typeof ListInferenceRecommendationsJobsCommand === "function");
 assert(typeof ListInferenceRecommendationsJobs$ === "object");
 assert(typeof ListInferenceRecommendationsJobStepsCommand === "function");
 assert(typeof ListInferenceRecommendationsJobSteps$ === "object");
+assert(typeof ListJobsCommand === "function");
+assert(typeof ListJobs$ === "object");
+assert(typeof ListJobSchemaVersionsCommand === "function");
+assert(typeof ListJobSchemaVersions$ === "object");
 assert(typeof ListLabelingJobsCommand === "function");
 assert(typeof ListLabelingJobs$ === "object");
 assert(typeof ListLabelingJobsForWorkteamCommand === "function");
@@ -3480,6 +3529,8 @@ assert(typeof StopInferenceExperimentCommand === "function");
 assert(typeof StopInferenceExperiment$ === "object");
 assert(typeof StopInferenceRecommendationsJobCommand === "function");
 assert(typeof StopInferenceRecommendationsJob$ === "object");
+assert(typeof StopJobCommand === "function");
+assert(typeof StopJob$ === "object");
 assert(typeof StopLabelingJobCommand === "function");
 assert(typeof StopLabelingJob$ === "object");
 assert(typeof StopMlflowTrackingServerCommand === "function");
@@ -3882,6 +3933,8 @@ assert(typeof CreateInferenceExperimentRequest$ === "object");
 assert(typeof CreateInferenceExperimentResponse$ === "object");
 assert(typeof CreateInferenceRecommendationsJobRequest$ === "object");
 assert(typeof CreateInferenceRecommendationsJobResponse$ === "object");
+assert(typeof CreateJobRequest$ === "object");
+assert(typeof CreateJobResponse$ === "object");
 assert(typeof CreateLabelingJobRequest$ === "object");
 assert(typeof CreateLabelingJobResponse$ === "object");
 assert(typeof CreateMlflowAppRequest$ === "object");
@@ -4020,6 +4073,8 @@ assert(typeof DeleteImageVersionResponse$ === "object");
 assert(typeof DeleteInferenceComponentInput$ === "object");
 assert(typeof DeleteInferenceExperimentRequest$ === "object");
 assert(typeof DeleteInferenceExperimentResponse$ === "object");
+assert(typeof DeleteJobRequest$ === "object");
+assert(typeof DeleteJobResponse$ === "object");
 assert(typeof DeleteMlflowAppRequest$ === "object");
 assert(typeof DeleteMlflowAppResponse$ === "object");
 assert(typeof DeleteMlflowTrackingServerRequest$ === "object");
@@ -4142,6 +4197,10 @@ assert(typeof DescribeInferenceExperimentRequest$ === "object");
 assert(typeof DescribeInferenceExperimentResponse$ === "object");
 assert(typeof DescribeInferenceRecommendationsJobRequest$ === "object");
 assert(typeof DescribeInferenceRecommendationsJobResponse$ === "object");
+assert(typeof DescribeJobRequest$ === "object");
+assert(typeof DescribeJobResponse$ === "object");
+assert(typeof DescribeJobSchemaVersionRequest$ === "object");
+assert(typeof DescribeJobSchemaVersionResponse$ === "object");
 assert(typeof DescribeLabelingJobRequest$ === "object");
 assert(typeof DescribeLabelingJobResponse$ === "object");
 assert(typeof DescribeLineageGroupRequest$ === "object");
@@ -4395,6 +4454,10 @@ assert(typeof InstancePoolSummary$ === "object");
 assert(typeof InstanceRequirementsEniConfiguration$ === "object");
 assert(typeof IntegerParameterRange$ === "object");
 assert(typeof IntegerParameterRangeSpecification$ === "object");
+assert(typeof JobConfigSchemaVersionSummary$ === "object");
+assert(typeof JobSecondaryStatusTransition$ === "object");
+assert(typeof JobStepMetadata$ === "object");
+assert(typeof JobSummary$ === "object");
 assert(typeof JupyterLabAppImageConfig$ === "object");
 assert(typeof JupyterLabAppSettings$ === "object");
 assert(typeof JupyterServerAppSettings$ === "object");
@@ -4504,6 +4567,10 @@ assert(typeof ListInferenceRecommendationsJobsRequest$ === "object");
 assert(typeof ListInferenceRecommendationsJobsResponse$ === "object");
 assert(typeof ListInferenceRecommendationsJobStepsRequest$ === "object");
 assert(typeof ListInferenceRecommendationsJobStepsResponse$ === "object");
+assert(typeof ListJobSchemaVersionsRequest$ === "object");
+assert(typeof ListJobSchemaVersionsResponse$ === "object");
+assert(typeof ListJobsRequest$ === "object");
+assert(typeof ListJobsResponse$ === "object");
 assert(typeof ListLabelingJobsForWorkteamRequest$ === "object");
 assert(typeof ListLabelingJobsForWorkteamResponse$ === "object");
 assert(typeof ListLabelingJobsRequest$ === "object");
@@ -4910,6 +4977,8 @@ assert(typeof StopHyperParameterTuningJobRequest$ === "object");
 assert(typeof StopInferenceExperimentRequest$ === "object");
 assert(typeof StopInferenceExperimentResponse$ === "object");
 assert(typeof StopInferenceRecommendationsJobRequest$ === "object");
+assert(typeof StopJobRequest$ === "object");
+assert(typeof StopJobResponse$ === "object");
 assert(typeof StopLabelingJobRequest$ === "object");
 assert(typeof StopMlflowTrackingServerRequest$ === "object");
 assert(typeof StopMlflowTrackingServerResponse$ === "object");
@@ -5264,6 +5333,9 @@ assert(typeof InstanceGroupStatus === "object");
 assert(typeof _InstanceType === "object");
 assert(typeof IPAddressType === "object");
 assert(typeof IsTrackingServerActive === "object");
+assert(typeof JobCategory === "object");
+assert(typeof JobSecondaryStatus === "object");
+assert(typeof JobStatus === "object");
 assert(typeof JobType === "object");
 assert(typeof JoinSource === "object");
 assert(typeof LabelingJobStatus === "object");
@@ -5542,6 +5614,8 @@ assert(typeof paginateListInferenceComponents === "function");
 assert(typeof paginateListInferenceExperiments === "function");
 assert(typeof paginateListInferenceRecommendationsJobSteps === "function");
 assert(typeof paginateListInferenceRecommendationsJobs === "function");
+assert(typeof paginateListJobSchemaVersions === "function");
+assert(typeof paginateListJobs === "function");
 assert(typeof paginateListLabelingJobs === "function");
 assert(typeof paginateListLabelingJobsForWorkteam === "function");
 assert(typeof paginateListLineageGroups === "function");

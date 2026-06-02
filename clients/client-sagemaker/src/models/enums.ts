@@ -3729,6 +3729,19 @@ export type FlatInvocations = (typeof FlatInvocations)[keyof typeof FlatInvocati
  * @public
  * @enum
  */
+export const JobCategory = {
+  AGENT_RFT: "AgentRFT",
+  AGENT_RFT_EVALUATION: "AgentRFTEvaluation",
+} as const;
+/**
+ * @public
+ */
+export type JobCategory = (typeof JobCategory)[keyof typeof JobCategory];
+
+/**
+ * @public
+ * @enum
+ */
 export const ModelRegistrationMode = {
   AUTO_MODEL_REGISTRATION_DISABLED: "AutoModelRegistrationDisabled",
   AUTO_MODEL_REGISTRATION_ENABLED: "AutoModelRegistrationEnabled",
@@ -4860,6 +4873,50 @@ export const RecommendationJobStatus = {
  * @public
  */
 export type RecommendationJobStatus = (typeof RecommendationJobStatus)[keyof typeof RecommendationJobStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const JobStatus = {
+  COMPLETED: "Completed",
+  DELETE_FAILED: "DeleteFailed",
+  DELETING: "Deleting",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+} as const;
+/**
+ * @public
+ */
+export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const JobSecondaryStatus = {
+  COMPLETED: "Completed",
+  DELETE_FAILED: "DeleteFailed",
+  DELETING: "Deleting",
+  DOWNLOADING: "Downloading",
+  EVALUATING: "Evaluating",
+  FAILED: "Failed",
+  INTERRUPTED: "Interrupted",
+  MAX_RUNTIME_EXCEEDED: "MaxRuntimeExceeded",
+  PENDING: "Pending",
+  RESTARTING: "Restarting",
+  STARTING: "Starting",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+  TRAINING: "Training",
+  UPLOADING: "Uploading",
+} as const;
+/**
+ * @public
+ */
+export type JobSecondaryStatus = (typeof JobSecondaryStatus)[keyof typeof JobSecondaryStatus];
 
 /**
  * @public

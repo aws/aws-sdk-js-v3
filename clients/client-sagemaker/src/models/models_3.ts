@@ -50,12 +50,16 @@ import type {
   ImageVersionSortBy,
   ImageVersionSortOrder,
   ImageVersionStatus,
+  InferenceComponentCapacitySizeType,
   InferenceComponentSortKey,
   InferenceComponentStatus,
   InferenceExperimentStatus,
   InferenceExperimentType,
   IPAddressType,
   IsTrackingServerActive,
+  JobCategory,
+  JobSecondaryStatus,
+  JobStatus,
   LabelingJobStatus,
   ListAIBenchmarkJobsSortBy,
   ListAIRecommendationJobsSortBy,
@@ -65,7 +69,6 @@ import type {
   ListEdgeDeploymentPlansSortBy,
   ListEdgePackagingJobsSortBy,
   ListInferenceRecommendationsJobsSortBy,
-  ListLabelingJobsForWorkteamSortByOptions,
   MaintenanceStatus,
   ManagedStorageType,
   MlflowAppStatus,
@@ -114,16 +117,12 @@ import type {
   SortActionsBy,
   SortArtifactsBy,
   SortAssociationsBy,
-  SortBy,
   SortClusterSchedulerConfigBy,
   SortContextsBy,
   SortExperimentsBy,
   SortInferenceExperimentsBy,
-  SortLineageGroupsBy,
-  SortMlflowAppBy,
   SortOrder,
   SortQuotaBy,
-  SortTrackingServerBy,
   SpaceStatus,
   StudioLifecycleConfigAppType,
   TrackingServerMaintenanceStatus,
@@ -156,6 +155,7 @@ import type {
   AssociationSummary,
   AutoMLCandidate,
   AutoMLJobSummary,
+  AutoRollbackConfig,
   AvailableUpgrade,
   BatchDataCaptureConfig,
   CfnTemplateProviderDetail,
@@ -260,8 +260,6 @@ import type {
   HyperParameterTrainingJobSummary,
   HyperParameterTuningJobCompletionDetails,
   HyperParameterTuningJobConsumedResources,
-  InferenceComponentDeploymentConfig,
-  InferenceComponentPlacementStatus,
   InfraCheckConfig,
   LastUpdateStatus,
   MemberDefinition,
@@ -299,6 +297,90 @@ import type {
   TrialComponentStatus,
   WorkerAccessConfiguration,
 } from "./models_2";
+
+/**
+ * <p>Specifies the type and size of the endpoint capacity to activate for a rolling deployment or a rollback strategy. You can specify your batches as either of the following:</p> <ul> <li> <p>A count of inference component copies </p> </li> <li> <p>The overall percentage or your fleet </p> </li> </ul> <p>For a rollback strategy, if you don't specify the fields in this object, or if you set the <code>Value</code> parameter to 100%, then SageMaker AI uses a blue/green rollback strategy and rolls all traffic back to the blue fleet.</p>
+ * @public
+ */
+export interface InferenceComponentCapacitySize {
+  /**
+   * <p>Specifies the endpoint capacity type.</p> <dl> <dt>COPY_COUNT</dt> <dd> <p>The endpoint activates based on the number of inference component copies.</p> </dd> <dt>CAPACITY_PERCENT</dt> <dd> <p>The endpoint activates based on the specified percentage of capacity.</p> </dd> </dl>
+   * @public
+   */
+  Type: InferenceComponentCapacitySizeType | undefined;
+
+  /**
+   * <p>Defines the capacity size, either as a number of inference component copies or a capacity percentage.</p>
+   * @public
+   */
+  Value: number | undefined;
+}
+
+/**
+ * <p>Specifies a rolling deployment strategy for updating a SageMaker AI inference component.</p>
+ * @public
+ */
+export interface InferenceComponentRollingUpdatePolicy {
+  /**
+   * <p>The batch size for each rolling step in the deployment process. For each step, SageMaker AI provisions capacity on the new endpoint fleet, routes traffic to that fleet, and terminates capacity on the old endpoint fleet. The value must be between 5% to 50% of the copy count of the inference component.</p>
+   * @public
+   */
+  MaximumBatchSize: InferenceComponentCapacitySize | undefined;
+
+  /**
+   * <p>The length of the baking period, during which SageMaker AI monitors alarms for each batch on the new fleet.</p>
+   * @public
+   */
+  WaitIntervalInSeconds: number | undefined;
+
+  /**
+   * <p>The time limit for the total deployment. Exceeding this limit causes a timeout.</p>
+   * @public
+   */
+  MaximumExecutionTimeoutInSeconds?: number | undefined;
+
+  /**
+   * <p>The batch size for a rollback to the old endpoint fleet. If this field is absent, the value is set to the default, which is 100% of the total capacity. When the default is used, SageMaker AI provisions the entire capacity of the old fleet at once during rollback.</p>
+   * @public
+   */
+  RollbackMaximumBatchSize?: InferenceComponentCapacitySize | undefined;
+}
+
+/**
+ * <p>The deployment configuration for an endpoint that hosts inference components. The configuration includes the desired deployment strategy and rollback settings.</p>
+ * @public
+ */
+export interface InferenceComponentDeploymentConfig {
+  /**
+   * <p>Specifies a rolling deployment strategy for updating a SageMaker AI endpoint.</p>
+   * @public
+   */
+  RollingUpdatePolicy: InferenceComponentRollingUpdatePolicy | undefined;
+
+  /**
+   * <p>Automatic rollback configuration for handling endpoint deployment failures and recovery.</p>
+   * @public
+   */
+  AutoRollbackConfiguration?: AutoRollbackConfig | undefined;
+}
+
+/**
+ * <p>The placement status of an inference component on a specific instance type. Shows the number of inference component copies currently placed on instances of a given type.</p>
+ * @public
+ */
+export interface InferenceComponentPlacementStatus {
+  /**
+   * <p>The ML compute instance type where the inference component copies are placed.</p>
+   * @public
+   */
+  InstanceType: ProductionVariantInstanceType | undefined;
+
+  /**
+   * <p>The number of inference component copies currently placed on instances of this type.</p>
+   * @public
+   */
+  CurrentCopyCount: number | undefined;
+}
 
 /**
  * <p>Details about the runtime settings for the model that is deployed with the inference component.</p>
@@ -977,6 +1059,182 @@ export interface DescribeInferenceRecommendationsJobResponse {
    * @public
    */
   EndpointPerformances?: EndpointPerformance[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeJobRequest {
+  /**
+   * <p>The name of the job to describe.</p>
+   * @public
+   */
+  JobName: string | undefined;
+
+  /**
+   * <p>The category of the job.</p>
+   * @public
+   */
+  JobCategory: JobCategory | undefined;
+}
+
+/**
+ * <p>Represents a secondary status transition for a job. Jobs progress through multiple secondary statuses during execution. Each transition records the status, start time, optional end time, and an optional message with additional details.</p>
+ * @public
+ */
+export interface JobSecondaryStatusTransition {
+  /**
+   * <p>The secondary status of the job at this transition point.</p>
+   * @public
+   */
+  Status: JobSecondaryStatus | undefined;
+
+  /**
+   * <p>The date and time that the status transition started.</p>
+   * @public
+   */
+  StartTime: Date | undefined;
+
+  /**
+   * <p>The date and time that the status transition ended.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>A detailed message about the status transition.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeJobResponse {
+  /**
+   * <p>The name of the job.</p>
+   * @public
+   */
+  JobName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the job.</p>
+   * @public
+   */
+  JobArn: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role associated with the job.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>The category of the job.</p>
+   * @public
+   */
+  JobCategory: JobCategory | undefined;
+
+  /**
+   * <p>The schema version used for the job configuration document.</p>
+   * @public
+   */
+  JobConfigSchemaVersion: string | undefined;
+
+  /**
+   * <p>The JSON configuration document for the job.</p>
+   * @public
+   */
+  JobConfigDocument?: string | undefined;
+
+  /**
+   * <p>The date and time that the job was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The date and time that the job was last modified.</p>
+   * @public
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The date and time that the job ended.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>The current status of the job.</p>
+   * @public
+   */
+  JobStatus: JobStatus | undefined;
+
+  /**
+   * <p>The detailed secondary status of the job, providing more granular information about the job's progress. Secondary statuses may change between releases.</p>
+   * @public
+   */
+  SecondaryStatus: JobSecondaryStatus | undefined;
+
+  /**
+   * <p>A list of secondary status transitions for the job, with timestamps and optional status messages.</p>
+   * @public
+   */
+  SecondaryStatusTransitions: JobSecondaryStatusTransition[] | undefined;
+
+  /**
+   * <p>If the job failed, the reason it failed.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+
+  /**
+   * <p>The tags associated with the job.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeJobSchemaVersionRequest {
+  /**
+   * <p>The category of the job schema to describe.</p>
+   * @public
+   */
+  JobCategory: JobCategory | undefined;
+
+  /**
+   * <p>The version of the schema to retrieve. If not specified, the latest version is returned.</p>
+   * @public
+   */
+  JobConfigSchemaVersion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeJobSchemaVersionResponse {
+  /**
+   * <p>The category of the job schema.</p>
+   * @public
+   */
+  JobCategory: JobCategory | undefined;
+
+  /**
+   * <p>The version of the schema.</p>
+   * @public
+   */
+  JobConfigSchemaVersion: string | undefined;
+
+  /**
+   * <p>The JSON schema document that defines the structure of the job configuration.</p>
+   * @public
+   */
+  JobConfigSchema: string | undefined;
 }
 
 /**
@@ -8082,6 +8340,84 @@ export interface InferenceRecommendationsJobStep {
 }
 
 /**
+ * <p>Provides summary information about a job configuration schema version.</p>
+ * @public
+ */
+export interface JobConfigSchemaVersionSummary {
+  /**
+   * <p>The version of the job configuration schema.</p>
+   * @public
+   */
+  JobConfigSchemaVersion: string | undefined;
+}
+
+/**
+ * <p>Metadata for a SageMaker job step.</p>
+ * @public
+ */
+export interface JobStepMetadata {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the SageMaker job that was run by this step execution.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+}
+
+/**
+ * <p>Provides summary information about a job, returned by the <code>ListJobs</code> operation. Use <code>DescribeJob</code> to get full details for a specific job.</p>
+ * @public
+ */
+export interface JobSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the job.</p>
+   * @public
+   */
+  JobArn: string | undefined;
+
+  /**
+   * <p>The name of the job.</p>
+   * @public
+   */
+  JobName: string | undefined;
+
+  /**
+   * <p>The category of the job.</p>
+   * @public
+   */
+  JobCategory: JobCategory | undefined;
+
+  /**
+   * <p>The current status of the job.</p>
+   * @public
+   */
+  JobStatus: JobStatus | undefined;
+
+  /**
+   * <p>The secondary status of the job, providing more granular information about the job's progress. Secondary statuses may change between releases.</p>
+   * @public
+   */
+  JobSecondaryStatus: JobSecondaryStatus | undefined;
+
+  /**
+   * <p>The date and time that the job was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The date and time that the job was last modified.</p>
+   * @public
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The date and time that the job ended.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+}
+
+/**
  * <p>Provides counts for human-labeled tasks in the labeling job.</p>
  * @public
  */
@@ -11370,458 +11706,6 @@ export interface ListInferenceRecommendationsJobStepsResponse {
 
   /**
    * <p>A token that you can specify in your next request to return more results from the list.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListLabelingJobsRequest {
-  /**
-   * <p>A filter that returns only labeling jobs created after the specified time (timestamp).</p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only labeling jobs created before the specified time (timestamp).</p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only labeling jobs modified after the specified time (timestamp).</p>
-   * @public
-   */
-  LastModifiedTimeAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only labeling jobs modified before the specified time (timestamp).</p>
-   * @public
-   */
-  LastModifiedTimeBefore?: Date | undefined;
-
-  /**
-   * <p>The maximum number of labeling jobs to return in each page of the response.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>If the result of the previous <code>ListLabelingJobs</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of labeling jobs, use the token in the next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>A string in the labeling job name. This filter returns only labeling jobs whose name contains the specified string.</p>
-   * @public
-   */
-  NameContains?: string | undefined;
-
-  /**
-   * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
-   * @public
-   */
-  SortBy?: SortBy | undefined;
-
-  /**
-   * <p>The sort order for results. The default is <code>Ascending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>A filter that retrieves only labeling jobs with a specific status.</p>
-   * @public
-   */
-  StatusEquals?: LabelingJobStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface ListLabelingJobsResponse {
-  /**
-   * <p>An array of <code>LabelingJobSummary</code> objects, each describing a labeling job.</p>
-   * @public
-   */
-  LabelingJobSummaryList?: LabelingJobSummary[] | undefined;
-
-  /**
-   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of labeling jobs, use it in the subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListLabelingJobsForWorkteamRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the work team for which you want to see labeling jobs for.</p>
-   * @public
-   */
-  WorkteamArn: string | undefined;
-
-  /**
-   * <p>The maximum number of labeling jobs to return in each page of the response.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>If the result of the previous <code>ListLabelingJobsForWorkteam</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of labeling jobs, use the token in the next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>A filter that returns only labeling jobs created after the specified time (timestamp).</p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only labeling jobs created before the specified time (timestamp).</p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>A filter the limits jobs to only the ones whose job reference code contains the specified string.</p>
-   * @public
-   */
-  JobReferenceCodeContains?: string | undefined;
-
-  /**
-   * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
-   * @public
-   */
-  SortBy?: ListLabelingJobsForWorkteamSortByOptions | undefined;
-
-  /**
-   * <p>The sort order for results. The default is <code>Ascending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-}
-
-/**
- * @public
- */
-export interface ListLabelingJobsForWorkteamResponse {
-  /**
-   * <p>An array of <code>LabelingJobSummary</code> objects, each describing a labeling job.</p>
-   * @public
-   */
-  LabelingJobSummaryList: LabelingJobForWorkteamSummary[] | undefined;
-
-  /**
-   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of labeling jobs, use it in the subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListLineageGroupsRequest {
-  /**
-   * <p>A timestamp to filter against lineage groups created after a certain point in time.</p>
-   * @public
-   */
-  CreatedAfter?: Date | undefined;
-
-  /**
-   * <p>A timestamp to filter against lineage groups created before a certain point in time.</p>
-   * @public
-   */
-  CreatedBefore?: Date | undefined;
-
-  /**
-   * <p>The parameter by which to sort the results. The default is <code>CreationTime</code>.</p>
-   * @public
-   */
-  SortBy?: SortLineageGroupsBy | undefined;
-
-  /**
-   * <p>The sort order for the results. The default is <code>Ascending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of algorithms, use it in the subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of endpoints to return in the response. This value defaults to 10.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListLineageGroupsResponse {
-  /**
-   * <p>A list of lineage groups and their properties.</p>
-   * @public
-   */
-  LineageGroupSummaries?: LineageGroupSummary[] | undefined;
-
-  /**
-   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of algorithms, use it in the subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListMlflowAppsRequest {
-  /**
-   * <p>Use the <code>CreatedAfter</code> filter to only list MLflow Apps created after a specific date and time. Listed MLflow Apps are shown with a date and time such as <code>"2024-03-16T01:46:56+00:00"</code>. The <code>CreatedAfter</code> parameter takes in a Unix timestamp.</p>
-   * @public
-   */
-  CreatedAfter?: Date | undefined;
-
-  /**
-   * <p>Use the <code>CreatedBefore</code> filter to only list MLflow Apps created before a specific date and time. Listed MLflow Apps are shown with a date and time such as <code>"2024-03-16T01:46:56+00:00"</code>. The <code>CreatedAfter</code> parameter takes in a Unix timestamp.</p>
-   * @public
-   */
-  CreatedBefore?: Date | undefined;
-
-  /**
-   * <p>Filter for Mlflow apps with a specific creation status.</p>
-   * @public
-   */
-  Status?: MlflowAppStatus | undefined;
-
-  /**
-   * <p>Filter for Mlflow Apps with the specified version.</p>
-   * @public
-   */
-  MlflowVersion?: string | undefined;
-
-  /**
-   * <p>Filter for MLflow Apps with the specified default SageMaker Domain ID.</p>
-   * @public
-   */
-  DefaultForDomainId?: string | undefined;
-
-  /**
-   * <p>Filter for MLflow Apps with the specified <code>AccountDefaultStatus</code>.</p>
-   * @public
-   */
-  AccountDefaultStatus?: AccountDefaultStatus | undefined;
-
-  /**
-   * <p>Filter for MLflow Apps sorting by name, creation time, or creation status.</p>
-   * @public
-   */
-  SortBy?: SortMlflowAppBy | undefined;
-
-  /**
-   * <p>Change the order of the listed MLflow Apps. By default, MLflow Apps are listed in <code>Descending</code> order by creation time. To change the list order, specify <code>SortOrder</code> to be <code>Ascending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>If the previous response was truncated, use this token in your next request to receive the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of MLflow Apps to list.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>The summary of the Mlflow App to list.</p>
- * @public
- */
-export interface MlflowAppSummary {
-  /**
-   * <p>The ARN of a listed MLflow App.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The name of the MLflow App.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The status of the MLflow App.</p>
-   * @public
-   */
-  Status?: MlflowAppStatus | undefined;
-
-  /**
-   * <p>The creation time of a listed MLflow App.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>The last modified time of a listed MLflow App.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>The version of a listed MLflow App.</p>
-   * @public
-   */
-  MlflowVersion?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListMlflowAppsResponse {
-  /**
-   * <p>A list of MLflow Apps according to chosen filters.</p>
-   * @public
-   */
-  Summaries?: MlflowAppSummary[] | undefined;
-
-  /**
-   * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListMlflowTrackingServersRequest {
-  /**
-   * <p>Use the <code>CreatedAfter</code> filter to only list tracking servers created after a specific date and time. Listed tracking servers are shown with a date and time such as <code>"2024-03-16T01:46:56+00:00"</code>. The <code>CreatedAfter</code> parameter takes in a Unix timestamp. To convert a date and time into a Unix timestamp, see <a href="https://www.epochconverter.com/">EpochConverter</a>.</p>
-   * @public
-   */
-  CreatedAfter?: Date | undefined;
-
-  /**
-   * <p>Use the <code>CreatedBefore</code> filter to only list tracking servers created before a specific date and time. Listed tracking servers are shown with a date and time such as <code>"2024-03-16T01:46:56+00:00"</code>. The <code>CreatedBefore</code> parameter takes in a Unix timestamp. To convert a date and time into a Unix timestamp, see <a href="https://www.epochconverter.com/">EpochConverter</a>.</p>
-   * @public
-   */
-  CreatedBefore?: Date | undefined;
-
-  /**
-   * <p>Filter for tracking servers with a specified creation status.</p>
-   * @public
-   */
-  TrackingServerStatus?: TrackingServerStatus | undefined;
-
-  /**
-   * <p>Filter for tracking servers using the specified MLflow version.</p>
-   * @public
-   */
-  MlflowVersion?: string | undefined;
-
-  /**
-   * <p>Filter for trackings servers sorting by name, creation time, or creation status.</p>
-   * @public
-   */
-  SortBy?: SortTrackingServerBy | undefined;
-
-  /**
-   * <p>Change the order of the listed tracking servers. By default, tracking servers are listed in <code>Descending</code> order by creation time. To change the list order, you can specify <code>SortOrder</code> to be <code>Ascending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of tracking servers to list.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>The summary of the tracking server to list.</p>
- * @public
- */
-export interface TrackingServerSummary {
-  /**
-   * <p>The ARN of a listed tracking server.</p>
-   * @public
-   */
-  TrackingServerArn?: string | undefined;
-
-  /**
-   * <p>The name of a listed tracking server.</p>
-   * @public
-   */
-  TrackingServerName?: string | undefined;
-
-  /**
-   * <p>The creation time of a listed tracking server.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>The last modified time of a listed tracking server.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>The creation status of a listed tracking server.</p>
-   * @public
-   */
-  TrackingServerStatus?: TrackingServerStatus | undefined;
-
-  /**
-   * <p>The activity status of a listed tracking server.</p>
-   * @public
-   */
-  IsActive?: IsTrackingServerActive | undefined;
-
-  /**
-   * <p>The MLflow version used for a listed tracking server.</p>
-   * @public
-   */
-  MlflowVersion?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListMlflowTrackingServersResponse {
-  /**
-   * <p>A list of tracking servers according to chosen filters.</p>
-   * @public
-   */
-  TrackingServerSummaries?: TrackingServerSummary[] | undefined;
-
-  /**
-   * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
    * @public
    */
   NextToken?: string | undefined;

@@ -6,12 +6,20 @@ import type {
   SearchSortOrder,
   WorkforceIpAddressType,
 } from "./enums";
+import type { CfnUpdateTemplateProvider, Tag } from "./models_0";
 import type { UserSettings } from "./models_1";
 import type {
   MemberDefinition,
   NotificationConfiguration,
   OidcConfig,
+  ParallelismConfiguration,
+  PartnerAppConfig,
+  PartnerAppMaintenanceConfig,
+  PipelineDefinitionS3Location,
+  ProfilerRuleConfiguration,
+  ProvisioningParameter,
   SourceIpConfig,
+  SpaceSettings,
   TrialComponentArtifact,
   TrialComponentParameterValue,
   TrialComponentStatus,
@@ -19,7 +27,417 @@ import type {
   WorkforceVpcConfigRequest,
 } from "./models_2";
 import type { Filter, Workforce, Workteam } from "./models_3";
-import type { NestedFilters, VisibilityConditions } from "./models_4";
+import type {
+  NestedFilters,
+  ProfilerConfigForUpdate,
+  RemoteDebugConfigForUpdate,
+  ResourceConfigForUpdate,
+  VisibilityConditions,
+} from "./models_4";
+
+/**
+ * @public
+ */
+export interface UpdateNotebookInstanceLifecycleConfigOutput {}
+
+/**
+ * @public
+ */
+export interface UpdatePartnerAppRequest {
+  /**
+   * <p>The ARN of the SageMaker Partner AI App to update.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>Maintenance configuration settings for the SageMaker Partner AI App.</p>
+   * @public
+   */
+  MaintenanceConfig?: PartnerAppMaintenanceConfig | undefined;
+
+  /**
+   * <p>Indicates the instance type and size of the cluster attached to the SageMaker Partner AI App.</p>
+   * @public
+   */
+  Tier?: string | undefined;
+
+  /**
+   * <p>Configuration settings for the SageMaker Partner AI App.</p>
+   * @public
+   */
+  ApplicationConfig?: PartnerAppConfig | undefined;
+
+  /**
+   * <p>When set to <code>TRUE</code>, the SageMaker Partner AI App sets the Amazon Web Services IAM session name or the authenticated IAM user as the identity of the SageMaker Partner AI App user.</p>
+   * @public
+   */
+  EnableIamSessionBasedIdentity?: boolean | undefined;
+
+  /**
+   * <p>When set to <code>TRUE</code>, the SageMaker Partner AI App is automatically upgraded to the latest minor version during the next scheduled maintenance window, if one is available.</p>
+   * @public
+   */
+  EnableAutoMinorVersionUpgrade?: boolean | undefined;
+
+  /**
+   * <p>The semantic version to upgrade the SageMaker Partner AI App to. Must be the same semantic version returned in the <code>AvailableUpgrade</code> field from <code>DescribePartnerApp</code>. Version skipping and downgrades are not supported.</p>
+   * @public
+   */
+  AppVersion?: string | undefined;
+
+  /**
+   * <p>A unique token that guarantees that the call to this API is idempotent.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>Each tag consists of a key and an optional value. Tag keys must be unique per resource.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePartnerAppResponse {
+  /**
+   * <p>The ARN of the SageMaker Partner AI App that was updated.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePipelineRequest {
+  /**
+   * <p>The name of the pipeline to update.</p>
+   * @public
+   */
+  PipelineName: string | undefined;
+
+  /**
+   * <p>The display name of the pipeline.</p>
+   * @public
+   */
+  PipelineDisplayName?: string | undefined;
+
+  /**
+   * <p>The JSON pipeline definition.</p>
+   * @public
+   */
+  PipelineDefinition?: string | undefined;
+
+  /**
+   * <p>The location of the pipeline definition stored in Amazon S3. If specified, SageMaker will retrieve the pipeline definition from this location.</p>
+   * @public
+   */
+  PipelineDefinitionS3Location?: PipelineDefinitionS3Location | undefined;
+
+  /**
+   * <p>The description of the pipeline.</p>
+   * @public
+   */
+  PipelineDescription?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that the pipeline uses to execute.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * <p>If specified, it applies to all executions of this pipeline by default.</p>
+   * @public
+   */
+  ParallelismConfiguration?: ParallelismConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePipelineResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the updated pipeline.</p>
+   * @public
+   */
+  PipelineArn?: string | undefined;
+
+  /**
+   * <p>The ID of the pipeline version.</p>
+   * @public
+   */
+  PipelineVersionId?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePipelineExecutionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+   * @public
+   */
+  PipelineExecutionArn: string | undefined;
+
+  /**
+   * <p>The description of the pipeline execution.</p>
+   * @public
+   */
+  PipelineExecutionDescription?: string | undefined;
+
+  /**
+   * <p>The display name of the pipeline execution.</p>
+   * @public
+   */
+  PipelineExecutionDisplayName?: string | undefined;
+
+  /**
+   * <p>This configuration, if specified, overrides the parallelism configuration of the parent pipeline for this specific run.</p>
+   * @public
+   */
+  ParallelismConfiguration?: ParallelismConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePipelineExecutionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the updated pipeline execution.</p>
+   * @public
+   */
+  PipelineExecutionArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePipelineVersionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline.</p>
+   * @public
+   */
+  PipelineArn: string | undefined;
+
+  /**
+   * <p>The pipeline version ID to update.</p>
+   * @public
+   */
+  PipelineVersionId: number | undefined;
+
+  /**
+   * <p>The display name of the pipeline version.</p>
+   * @public
+   */
+  PipelineVersionDisplayName?: string | undefined;
+
+  /**
+   * <p>The description of the pipeline version.</p>
+   * @public
+   */
+  PipelineVersionDescription?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePipelineVersionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline.</p>
+   * @public
+   */
+  PipelineArn?: string | undefined;
+
+  /**
+   * <p>The ID of the pipeline version.</p>
+   * @public
+   */
+  PipelineVersionId?: number | undefined;
+}
+
+/**
+ * <p>Details that you specify to provision a service catalog product. For information about service catalog, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is Amazon Web Services Service Catalog</a>. </p>
+ * @public
+ */
+export interface ServiceCatalogProvisioningUpdateDetails {
+  /**
+   * <p>The ID of the provisioning artifact.</p>
+   * @public
+   */
+  ProvisioningArtifactId?: string | undefined;
+
+  /**
+   * <p>A list of key value pairs that you specify when you provision a product.</p>
+   * @public
+   */
+  ProvisioningParameters?: ProvisioningParameter[] | undefined;
+}
+
+/**
+ * <p> Contains configuration details for updating an existing template provider in the project. </p>
+ * @public
+ */
+export interface UpdateTemplateProvider {
+  /**
+   * <p> The CloudFormation template provider configuration to update. </p>
+   * @public
+   */
+  CfnTemplateProvider?: CfnUpdateTemplateProvider | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateProjectInput {
+  /**
+   * <p>The name of the project.</p>
+   * @public
+   */
+  ProjectName: string | undefined;
+
+  /**
+   * <p>The description for the project.</p>
+   * @public
+   */
+  ProjectDescription?: string | undefined;
+
+  /**
+   * <p>The product ID and provisioning artifact ID to provision a service catalog. The provisioning artifact ID will default to the latest provisioning artifact ID of the product, if you don't provide the provisioning artifact ID. For more information, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is Amazon Web Services Service Catalog</a>. </p>
+   * @public
+   */
+  ServiceCatalogProvisioningUpdateDetails?: ServiceCatalogProvisioningUpdateDetails | undefined;
+
+  /**
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in different ways, for example, by purpose, owner, or environment. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>. In addition, the project must have tag update constraints set in order to include this parameter in the request. For more information, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/constraints-resourceupdate.html">Amazon Web Services Service Catalog Tag Update Constraints</a>.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p> The template providers to update in the project. </p>
+   * @public
+   */
+  TemplateProvidersToUpdate?: UpdateTemplateProvider[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateProjectOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the project.</p>
+   * @public
+   */
+  ProjectArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSpaceRequest {
+  /**
+   * <p>The ID of the associated domain.</p>
+   * @public
+   */
+  DomainId: string | undefined;
+
+  /**
+   * <p>The name of the space.</p>
+   * @public
+   */
+  SpaceName: string | undefined;
+
+  /**
+   * <p>A collection of space settings.</p>
+   * @public
+   */
+  SpaceSettings?: SpaceSettings | undefined;
+
+  /**
+   * <p>The name of the space that appears in the Amazon SageMaker Studio UI.</p>
+   * @public
+   */
+  SpaceDisplayName?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSpaceResponse {
+  /**
+   * <p>The space's Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  SpaceArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTrainingJobRequest {
+  /**
+   * <p>The name of a training job to update the Debugger profiling configuration.</p>
+   * @public
+   */
+  TrainingJobName: string | undefined;
+
+  /**
+   * <p>Configuration information for Amazon SageMaker Debugger system monitoring, framework profiling, and storage paths.</p>
+   * @public
+   */
+  ProfilerConfig?: ProfilerConfigForUpdate | undefined;
+
+  /**
+   * <p>Configuration information for Amazon SageMaker Debugger rules for profiling system and framework metrics.</p>
+   * @public
+   */
+  ProfilerRuleConfigurations?: ProfilerRuleConfiguration[] | undefined;
+
+  /**
+   * <p>The training job <code>ResourceConfig</code> to update warm pool retention length.</p>
+   * @public
+   */
+  ResourceConfig?: ResourceConfigForUpdate | undefined;
+
+  /**
+   * <p>Configuration for remote debugging while the training job is running. You can update the remote debugging configuration when the <code>SecondaryStatus</code> of the job is <code>Downloading</code> or <code>Training</code>.To learn more about the remote debugging functionality of SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-remote-debugging.html">Access a training container through Amazon Web Services Systems Manager (SSM) for remote debugging</a>.</p>
+   * @public
+   */
+  RemoteDebugConfig?: RemoteDebugConfigForUpdate | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTrainingJobResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the training job.</p>
+   * @public
+   */
+  TrainingJobArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTrialRequest {
+  /**
+   * <p>The name of the trial to update.</p>
+   * @public
+   */
+  TrialName: string | undefined;
+
+  /**
+   * <p>The name of the trial as displayed. The name doesn't need to be unique. If <code>DisplayName</code> isn't specified, <code>TrialName</code> is displayed.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+}
 
 /**
  * @public

@@ -225,6 +225,7 @@ import {
   type CreateInferenceRecommendationsJobCommandOutput,
   CreateInferenceRecommendationsJobCommand,
 } from "./commands/CreateInferenceRecommendationsJobCommand";
+import { type CreateJobCommandInput, type CreateJobCommandOutput, CreateJobCommand } from "./commands/CreateJobCommand";
 import {
   type CreateLabelingJobCommandInput,
   type CreateLabelingJobCommandOutput,
@@ -557,6 +558,7 @@ import {
   type DeleteInferenceExperimentCommandOutput,
   DeleteInferenceExperimentCommand,
 } from "./commands/DeleteInferenceExperimentCommand";
+import { type DeleteJobCommandInput, type DeleteJobCommandOutput, DeleteJobCommand } from "./commands/DeleteJobCommand";
 import {
   type DeleteMlflowAppCommandInput,
   type DeleteMlflowAppCommandOutput,
@@ -892,6 +894,16 @@ import {
   type DescribeInferenceRecommendationsJobCommandOutput,
   DescribeInferenceRecommendationsJobCommand,
 } from "./commands/DescribeInferenceRecommendationsJobCommand";
+import {
+  type DescribeJobCommandInput,
+  type DescribeJobCommandOutput,
+  DescribeJobCommand,
+} from "./commands/DescribeJobCommand";
+import {
+  type DescribeJobSchemaVersionCommandInput,
+  type DescribeJobSchemaVersionCommandOutput,
+  DescribeJobSchemaVersionCommand,
+} from "./commands/DescribeJobSchemaVersionCommand";
 import {
   type DescribeLabelingJobCommandInput,
   type DescribeLabelingJobCommandOutput,
@@ -1330,6 +1342,12 @@ import {
   ListInferenceRecommendationsJobStepsCommand,
 } from "./commands/ListInferenceRecommendationsJobStepsCommand";
 import {
+  type ListJobSchemaVersionsCommandInput,
+  type ListJobSchemaVersionsCommandOutput,
+  ListJobSchemaVersionsCommand,
+} from "./commands/ListJobSchemaVersionsCommand";
+import { type ListJobsCommandInput, type ListJobsCommandOutput, ListJobsCommand } from "./commands/ListJobsCommand";
+import {
   type ListLabelingJobsCommandInput,
   type ListLabelingJobsCommandOutput,
   ListLabelingJobsCommand,
@@ -1681,6 +1699,7 @@ import {
   type StopInferenceRecommendationsJobCommandOutput,
   StopInferenceRecommendationsJobCommand,
 } from "./commands/StopInferenceRecommendationsJobCommand";
+import { type StopJobCommandInput, type StopJobCommandOutput, StopJobCommand } from "./commands/StopJobCommand";
 import {
   type StopLabelingJobCommandInput,
   type StopLabelingJobCommandOutput,
@@ -1993,6 +2012,8 @@ import { paginateListInferenceRecommendationsJobs } from "./pagination/ListInfer
 import {
   paginateListInferenceRecommendationsJobSteps,
 } from "./pagination/ListInferenceRecommendationsJobStepsPaginator";
+import { paginateListJobSchemaVersions } from "./pagination/ListJobSchemaVersionsPaginator";
+import { paginateListJobs } from "./pagination/ListJobsPaginator";
 import { paginateListLabelingJobsForWorkteam } from "./pagination/ListLabelingJobsForWorkteamPaginator";
 import { paginateListLabelingJobs } from "./pagination/ListLabelingJobsPaginator";
 import { paginateListLineageGroups } from "./pagination/ListLineageGroupsPaginator";
@@ -2109,6 +2130,7 @@ const commands = {
   CreateInferenceComponentCommand,
   CreateInferenceExperimentCommand,
   CreateInferenceRecommendationsJobCommand,
+  CreateJobCommand,
   CreateLabelingJobCommand,
   CreateMlflowAppCommand,
   CreateMlflowTrackingServerCommand,
@@ -2177,6 +2199,7 @@ const commands = {
   DeleteImageVersionCommand,
   DeleteInferenceComponentCommand,
   DeleteInferenceExperimentCommand,
+  DeleteJobCommand,
   DeleteMlflowAppCommand,
   DeleteMlflowTrackingServerCommand,
   DeleteModelCommand,
@@ -2244,6 +2267,8 @@ const commands = {
   DescribeInferenceComponentCommand,
   DescribeInferenceExperimentCommand,
   DescribeInferenceRecommendationsJobCommand,
+  DescribeJobCommand,
+  DescribeJobSchemaVersionCommand,
   DescribeLabelingJobCommand,
   DescribeLineageGroupCommand,
   DescribeMlflowAppCommand,
@@ -2333,6 +2358,8 @@ const commands = {
   ListInferenceExperimentsCommand,
   ListInferenceRecommendationsJobsCommand,
   ListInferenceRecommendationsJobStepsCommand,
+  ListJobsCommand,
+  ListJobSchemaVersionsCommand,
   ListLabelingJobsCommand,
   ListLabelingJobsForWorkteamCommand,
   ListLineageGroupsCommand,
@@ -2405,6 +2432,7 @@ const commands = {
   StopHyperParameterTuningJobCommand,
   StopInferenceExperimentCommand,
   StopInferenceRecommendationsJobCommand,
+  StopJobCommand,
   StopLabelingJobCommand,
   StopMlflowTrackingServerCommand,
   StopMonitoringScheduleCommand,
@@ -2502,6 +2530,8 @@ const paginators = {
   paginateListInferenceExperiments,
   paginateListInferenceRecommendationsJobs,
   paginateListInferenceRecommendationsJobSteps,
+  paginateListJobs,
+  paginateListJobSchemaVersions,
   paginateListLabelingJobs,
   paginateListLabelingJobsForWorkteam,
   paginateListLineageGroups,
@@ -3348,6 +3378,23 @@ export interface SageMaker {
     args: CreateInferenceRecommendationsJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateInferenceRecommendationsJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateJobCommand}
+   */
+  createJob(
+    args: CreateJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateJobCommandOutput>;
+  createJob(
+    args: CreateJobCommandInput,
+    cb: (err: any, data?: CreateJobCommandOutput) => void
+  ): void;
+  createJob(
+    args: CreateJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateJobCommandOutput) => void
   ): void;
 
   /**
@@ -4509,6 +4556,23 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link DeleteJobCommand}
+   */
+  deleteJob(
+    args: DeleteJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteJobCommandOutput>;
+  deleteJob(
+    args: DeleteJobCommandInput,
+    cb: (err: any, data?: DeleteJobCommandOutput) => void
+  ): void;
+  deleteJob(
+    args: DeleteJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteJobCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteMlflowAppCommand}
    */
   deleteMlflowApp(
@@ -5645,6 +5709,40 @@ export interface SageMaker {
     args: DescribeInferenceRecommendationsJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeInferenceRecommendationsJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeJobCommand}
+   */
+  describeJob(
+    args: DescribeJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeJobCommandOutput>;
+  describeJob(
+    args: DescribeJobCommandInput,
+    cb: (err: any, data?: DescribeJobCommandOutput) => void
+  ): void;
+  describeJob(
+    args: DescribeJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeJobSchemaVersionCommand}
+   */
+  describeJobSchemaVersion(
+    args: DescribeJobSchemaVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeJobSchemaVersionCommandOutput>;
+  describeJobSchemaVersion(
+    args: DescribeJobSchemaVersionCommandInput,
+    cb: (err: any, data?: DescribeJobSchemaVersionCommandOutput) => void
+  ): void;
+  describeJobSchemaVersion(
+    args: DescribeJobSchemaVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeJobSchemaVersionCommandOutput) => void
   ): void;
 
   /**
@@ -7198,6 +7296,40 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link ListJobsCommand}
+   */
+  listJobs(
+    args: ListJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListJobsCommandOutput>;
+  listJobs(
+    args: ListJobsCommandInput,
+    cb: (err: any, data?: ListJobsCommandOutput) => void
+  ): void;
+  listJobs(
+    args: ListJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListJobsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListJobSchemaVersionsCommand}
+   */
+  listJobSchemaVersions(
+    args: ListJobSchemaVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListJobSchemaVersionsCommandOutput>;
+  listJobSchemaVersions(
+    args: ListJobSchemaVersionsCommandInput,
+    cb: (err: any, data?: ListJobSchemaVersionsCommandOutput) => void
+  ): void;
+  listJobSchemaVersions(
+    args: ListJobSchemaVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListJobSchemaVersionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListLabelingJobsCommand}
    */
   listLabelingJobs(): Promise<ListLabelingJobsCommandOutput>;
@@ -8456,6 +8588,23 @@ export interface SageMaker {
     args: StopInferenceRecommendationsJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StopInferenceRecommendationsJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopJobCommand}
+   */
+  stopJob(
+    args: StopJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopJobCommandOutput>;
+  stopJob(
+    args: StopJobCommandInput,
+    cb: (err: any, data?: StopJobCommandOutput) => void
+  ): void;
+  stopJob(
+    args: StopJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopJobCommandOutput) => void
   ): void;
 
   /**
@@ -9826,6 +9975,28 @@ export interface SageMaker {
     args: ListInferenceRecommendationsJobStepsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListInferenceRecommendationsJobStepsCommandOutput>;
+
+  /**
+   * @see {@link ListJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListJobsCommandOutput}.
+   */
+  paginateListJobs(
+    args: ListJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListJobsCommandOutput>;
+
+  /**
+   * @see {@link ListJobSchemaVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListJobSchemaVersionsCommandOutput}.
+   */
+  paginateListJobSchemaVersions(
+    args: ListJobSchemaVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListJobSchemaVersionsCommandOutput>;
 
   /**
    * @see {@link ListLabelingJobsCommand}

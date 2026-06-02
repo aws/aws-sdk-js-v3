@@ -170,6 +170,9 @@ export interface ListPipelineExecutionStepsCommandOutput extends ListPipelineExe
  * //             },
  * //           ],
  * //         },
+ * //         Job: { // JobStepMetadata
+ * //           Arn: "STRING_VALUE",
+ * //         },
  * //       },
  * //       AttemptCount: Number("int"),
  * //       SelectiveExecutionResult: { // SelectiveExecutionResult

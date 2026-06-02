@@ -44,11 +44,13 @@ import type {
   HyperParameterTuningJobStatus,
   ImageStatus,
   ImageVersionStatus,
-  InferenceComponentCapacitySizeType,
   InputMode,
+  JobCategory,
   JobType,
   JoinSource,
   LastUpdateStatusValue,
+  ModelSpeculativeDecodingS3DataType,
+  ModelSpeculativeDecodingTechnique,
   ObjectiveStatus,
   OfflineStoreStatusValue,
   OptimizationJobDeploymentInstanceType,
@@ -119,7 +121,6 @@ import type {
   AutoMLProblemTypeConfig,
   AutoMLResolvedAttributes,
   AutoMLSecurityConfig,
-  AutoRollbackConfig,
   Autotune,
   BatchDataCaptureConfig,
   CfnCreateTemplateProvider,
@@ -187,7 +188,6 @@ import type {
   ModelDeployConfig,
   ModelQuantizationConfig,
   ModelShardingConfig,
-  ModelSpeculativeDecodingConfig,
   MonitoringNetworkConfig,
   MonitoringOutputConfig,
   MonitoringResources,
@@ -208,6 +208,42 @@ import type {
   TrainingSpecification,
   UserSettings,
 } from "./models_1";
+
+/**
+ * <p>Contains information about the training data source for speculative decoding.</p>
+ * @public
+ */
+export interface ModelSpeculativeDecodingTrainingDataSource {
+  /**
+   * <p>The Amazon S3 URI that points to the training data for speculative decoding.</p>
+   * @public
+   */
+  S3Uri: string | undefined;
+
+  /**
+   * <p>The type of data stored in the Amazon S3 location. Valid values are <code>S3Prefix</code> or <code>ManifestFile</code>.</p>
+   * @public
+   */
+  S3DataType: ModelSpeculativeDecodingS3DataType | undefined;
+}
+
+/**
+ * <p>Settings for the model speculative decoding technique that's applied by a model optimization job.</p>
+ * @public
+ */
+export interface ModelSpeculativeDecodingConfig {
+  /**
+   * <p>The speculative decoding technique to apply during model optimization.</p>
+   * @public
+   */
+  Technique: ModelSpeculativeDecodingTechnique | undefined;
+
+  /**
+   * <p>The location of the training data to use for speculative decoding. The data must be formatted as ShareGPT, OpenAI Completions or OpenAI Chat Completions. The input can also be unencrypted captured data from a SageMaker endpoint as long as the endpoint uses one of the above formats.</p>
+   * @public
+   */
+  TrainingDataSource?: ModelSpeculativeDecodingTrainingDataSource | undefined;
+}
 
 /**
  * <p>Settings for an optimization technique that you apply with a model optimization job.</p>
@@ -3725,6 +3761,28 @@ export interface DeleteInferenceExperimentResponse {
    */
   InferenceExperimentArn: string | undefined;
 }
+
+/**
+ * @public
+ */
+export interface DeleteJobRequest {
+  /**
+   * <p>The name of the job to delete.</p>
+   * @public
+   */
+  JobName: string | undefined;
+
+  /**
+   * <p>The category of the job to delete.</p>
+   * @public
+   */
+  JobCategory: JobCategory | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteJobResponse {}
 
 /**
  * @public
@@ -8464,88 +8522,4 @@ export interface DescribeInferenceComponentInput {
    * @public
    */
   InferenceComponentName: string | undefined;
-}
-
-/**
- * <p>Specifies the type and size of the endpoint capacity to activate for a rolling deployment or a rollback strategy. You can specify your batches as either of the following:</p> <ul> <li> <p>A count of inference component copies </p> </li> <li> <p>The overall percentage or your fleet </p> </li> </ul> <p>For a rollback strategy, if you don't specify the fields in this object, or if you set the <code>Value</code> parameter to 100%, then SageMaker AI uses a blue/green rollback strategy and rolls all traffic back to the blue fleet.</p>
- * @public
- */
-export interface InferenceComponentCapacitySize {
-  /**
-   * <p>Specifies the endpoint capacity type.</p> <dl> <dt>COPY_COUNT</dt> <dd> <p>The endpoint activates based on the number of inference component copies.</p> </dd> <dt>CAPACITY_PERCENT</dt> <dd> <p>The endpoint activates based on the specified percentage of capacity.</p> </dd> </dl>
-   * @public
-   */
-  Type: InferenceComponentCapacitySizeType | undefined;
-
-  /**
-   * <p>Defines the capacity size, either as a number of inference component copies or a capacity percentage.</p>
-   * @public
-   */
-  Value: number | undefined;
-}
-
-/**
- * <p>Specifies a rolling deployment strategy for updating a SageMaker AI inference component.</p>
- * @public
- */
-export interface InferenceComponentRollingUpdatePolicy {
-  /**
-   * <p>The batch size for each rolling step in the deployment process. For each step, SageMaker AI provisions capacity on the new endpoint fleet, routes traffic to that fleet, and terminates capacity on the old endpoint fleet. The value must be between 5% to 50% of the copy count of the inference component.</p>
-   * @public
-   */
-  MaximumBatchSize: InferenceComponentCapacitySize | undefined;
-
-  /**
-   * <p>The length of the baking period, during which SageMaker AI monitors alarms for each batch on the new fleet.</p>
-   * @public
-   */
-  WaitIntervalInSeconds: number | undefined;
-
-  /**
-   * <p>The time limit for the total deployment. Exceeding this limit causes a timeout.</p>
-   * @public
-   */
-  MaximumExecutionTimeoutInSeconds?: number | undefined;
-
-  /**
-   * <p>The batch size for a rollback to the old endpoint fleet. If this field is absent, the value is set to the default, which is 100% of the total capacity. When the default is used, SageMaker AI provisions the entire capacity of the old fleet at once during rollback.</p>
-   * @public
-   */
-  RollbackMaximumBatchSize?: InferenceComponentCapacitySize | undefined;
-}
-
-/**
- * <p>The deployment configuration for an endpoint that hosts inference components. The configuration includes the desired deployment strategy and rollback settings.</p>
- * @public
- */
-export interface InferenceComponentDeploymentConfig {
-  /**
-   * <p>Specifies a rolling deployment strategy for updating a SageMaker AI endpoint.</p>
-   * @public
-   */
-  RollingUpdatePolicy: InferenceComponentRollingUpdatePolicy | undefined;
-
-  /**
-   * <p>Automatic rollback configuration for handling endpoint deployment failures and recovery.</p>
-   * @public
-   */
-  AutoRollbackConfiguration?: AutoRollbackConfig | undefined;
-}
-
-/**
- * <p>The placement status of an inference component on a specific instance type. Shows the number of inference component copies currently placed on instances of a given type.</p>
- * @public
- */
-export interface InferenceComponentPlacementStatus {
-  /**
-   * <p>The ML compute instance type where the inference component copies are placed.</p>
-   * @public
-   */
-  InstanceType: ProductionVariantInstanceType | undefined;
-
-  /**
-   * <p>The number of inference component copies currently placed on instances of this type.</p>
-   * @public
-   */
-  CurrentCopyCount: number | undefined;
 }

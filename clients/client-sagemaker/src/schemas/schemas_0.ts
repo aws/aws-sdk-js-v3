@@ -526,9 +526,12 @@ const _CIo = "ContainerImage";
 const _CIom = "CommitId";
 const _CIr = "CreateImage";
 const _CIu = "CustomImage";
+const _CJ = "CreateJob";
 const _CJA = "CheckJobArn";
 const _CJAo = "CompilationJobArn";
 const _CJN = "CompilationJobName";
+const _CJR = "CreateJobRequest";
+const _CJRr = "CreateJobResponse";
 const _CJS = "CompilationJobSummary";
 const _CJSo = "CompilationJobStatus";
 const _CJSom = "CompilationJobSummaries";
@@ -1085,6 +1088,15 @@ const _DIel = "DeleteImage";
 const _DIep = "DeployedImages";
 const _DIer = "DerivedInformation";
 const _DIes = "DescribeImage";
+const _DJ = "DeleteJob";
+const _DJR = "DeleteJobRequest";
+const _DJRe = "DeleteJobResponse";
+const _DJRes = "DescribeJobRequest";
+const _DJResc = "DescribeJobResponse";
+const _DJSV = "DescribeJobSchemaVersion";
+const _DJSVR = "DescribeJobSchemaVersionRequest";
+const _DJSVRe = "DescribeJobSchemaVersionResponse";
+const _DJe = "DescribeJob";
 const _DL = "DesiredLabels";
 const _DLC = "DisassociateLifecycleConfig";
 const _DLG = "DescribeLineageGroup";
@@ -1837,6 +1849,12 @@ const _Ins = "Instance";
 const _Is = "Issuer";
 const _J = "Json";
 const _JA = "JobArn";
+const _JC = "JobCategory";
+const _JCD = "JobConfigDocument";
+const _JCS = "JobConfigSchema";
+const _JCSV = "JobConfigSchemaVersion";
+const _JCSVS = "JobConfigSchemaVersionSummary";
+const _JCSo = "JobConfigSchemas";
 const _JCT = "JsonContentTypes";
 const _JD = "JobDescription";
 const _JDA = "JobDefinitionArn";
@@ -1851,8 +1869,16 @@ const _JRC = "JobReferenceCode";
 const _JRCC = "JobReferenceCodeContains";
 const _JS = "JoinSource";
 const _JSAS = "JupyterServerAppSettings";
+const _JSM = "JobStepMetadata";
+const _JSS = "JobSecondaryStatus";
+const _JSST = "JobSecondaryStatusTransition";
+const _JSSTo = "JobSecondaryStatusTransitions";
+const _JSo = "JobStatus";
+const _JSob = "JobSummary";
+const _JSobu = "JobSummaries";
 const _JT = "JobType";
 const _JU = "JwksUri";
+const _Jo = "Job";
 const _K = "Key";
 const _KAPIS = "KeepAlivePeriodInSeconds";
 const _KC = "KubernetesConfig";
@@ -2021,6 +2047,7 @@ const _LIVRi = "ListImageVersionsResponse";
 const _LIa = "LatestInference";
 const _LIi = "ListingId";
 const _LIis = "ListImages";
+const _LJ = "ListJobs";
 const _LJA = "LabelingJobArn";
 const _LJAC = "LabelingJobAlgorithmsConfig";
 const _LJASA = "LabelingJobAlgorithmSpecificationArn";
@@ -2032,12 +2059,17 @@ const _LJIC = "LabelingJobInputConfig";
 const _LJN = "LabelingJobName";
 const _LJO = "LabelingJobOutput";
 const _LJOC = "LabelingJobOutputConfig";
+const _LJR = "ListJobsRequest";
 const _LJRC = "LabelingJobResourceConfig";
+const _LJRi = "ListJobsResponse";
 const _LJS = "LabelingJobStatus";
 const _LJSC = "LabelingJobStoppingConditions";
 const _LJSDS = "LabelingJobS3DataSource";
 const _LJSDSa = "LabelingJobSnsDataSource";
 const _LJSL = "LabelingJobSummaryList";
+const _LJSV = "ListJobSchemaVersions";
+const _LJSVR = "ListJobSchemaVersionsRequest";
+const _LJSVRi = "ListJobSchemaVersionsResponse";
 const _LJSa = "LabelingJobSummary";
 const _LLG = "ListLineageGroups";
 const _LLGR = "ListLineageGroupsRequest";
@@ -3054,8 +3086,11 @@ const _SIp = "SpecifiedImage";
 const _SIt = "StepId";
 const _SIu = "SubnetIds";
 const _SIub = "SubnetId";
+const _SJ = "StopJob";
 const _SJC = "ServerlessJobConfig";
 const _SJLAS = "SpaceJupyterLabAppSettings";
+const _SJR = "StopJobRequest";
+const _SJRt = "StopJobResponse";
 const _SKKI = "S3KmsKeyId";
 const _SL = "SpaceList";
 const _SLC = "StudioLifecycleConfigs";
@@ -5146,6 +5181,16 @@ export var CreateInferenceRecommendationsJobResponse$: StaticStructureSchema = [
   [_JA],
   [0], 1
 ];
+export var CreateJobRequest$: StaticStructureSchema = [3, n0, _CJR,
+  0,
+  [_JN, _RAo, _JC, _JCSV, _JCD, _Ta],
+  [0, 0, 0, 0, 0, () => TagList], 5
+];
+export var CreateJobResponse$: StaticStructureSchema = [3, n0, _CJRr,
+  0,
+  [_JA],
+  [0], 1
+];
 export var CreateLabelingJobRequest$: StaticStructureSchema = [3, n0, _CLJR,
   0,
   [_LJN, _LAN, _ICnp, _OCu, _RAo, _HTC, _LCCSU, _SCto, _LJAC, _Ta],
@@ -5826,6 +5871,16 @@ export var DeleteInferenceExperimentResponse$: StaticStructureSchema = [3, n0, _
   [_IEA],
   [0], 1
 ];
+export var DeleteJobRequest$: StaticStructureSchema = [3, n0, _DJR,
+  0,
+  [_JN, _JC],
+  [0, 0], 2
+];
+export var DeleteJobResponse$: StaticStructureSchema = [3, n0, _DJRe,
+  0,
+  [],
+  []
+];
 export var DeleteMlflowAppRequest$: StaticStructureSchema = [3, n0, _DMAR,
   0,
   [_Ar],
@@ -6435,6 +6490,26 @@ export var DescribeInferenceRecommendationsJobResponse$: StaticStructureSchema =
   0,
   [_JN, _JT, _JA, _RAo, _St, _CT, _LMT, _ICnp, _JD, _CTom, _FR, _SCto, _IRnf, _EPn],
   [0, 0, 0, 0, 0, 4, 4, () => RecommendationJobInputConfig$, 0, 4, 0, () => RecommendationJobStoppingConditions$, () => InferenceRecommendations, () => EndpointPerformances], 8
+];
+export var DescribeJobRequest$: StaticStructureSchema = [3, n0, _DJRes,
+  0,
+  [_JN, _JC],
+  [0, 0], 2
+];
+export var DescribeJobResponse$: StaticStructureSchema = [3, n0, _DJResc,
+  0,
+  [_JN, _JA, _RAo, _JC, _JCSV, _CT, _LMT, _JSo, _SSe, _SST, _JCD, _ETn, _FR, _Ta],
+  [0, 0, 0, 0, 0, 4, 4, 0, 0, () => JobSecondaryStatusTransitions, 0, 4, 0, () => TagList], 10
+];
+export var DescribeJobSchemaVersionRequest$: StaticStructureSchema = [3, n0, _DJSVR,
+  0,
+  [_JC, _JCSV],
+  [0, 0], 1
+];
+export var DescribeJobSchemaVersionResponse$: StaticStructureSchema = [3, n0, _DJSVRe,
+  0,
+  [_JC, _JCSV, _JCS],
+  [0, 0, 0], 3
 ];
 export var DescribeLabelingJobRequest$: StaticStructureSchema = [3, n0, _DLJR,
   0,
@@ -7696,6 +7771,26 @@ export var IntegerParameterRangeSpecification$: StaticStructureSchema = [3, n0, 
   [_MV, _MVa],
   [0, 0], 2
 ];
+export var JobConfigSchemaVersionSummary$: StaticStructureSchema = [3, n0, _JCSVS,
+  0,
+  [_JCSV],
+  [0], 1
+];
+export var JobSecondaryStatusTransition$: StaticStructureSchema = [3, n0, _JSST,
+  0,
+  [_St, _STt, _ETn, _SM],
+  [0, 4, 4, 0], 2
+];
+export var JobStepMetadata$: StaticStructureSchema = [3, n0, _JSM,
+  0,
+  [_Ar],
+  [0]
+];
+export var JobSummary$: StaticStructureSchema = [3, n0, _JSob,
+  0,
+  [_JA, _JN, _JC, _JSo, _JSS, _CT, _LMT, _ETn],
+  [0, 0, 0, 0, 0, 4, 4, 4], 7
+];
 export var JupyterLabAppImageConfig$: StaticStructureSchema = [3, n0, _JLAIC,
   0,
   [_FSC, _CCon],
@@ -8240,6 +8335,26 @@ export var ListInferenceRecommendationsJobStepsResponse$: StaticStructureSchema 
   0,
   [_Ste, _NTe],
   [() => InferenceRecommendationsJobSteps, 0]
+];
+export var ListJobSchemaVersionsRequest$: StaticStructureSchema = [3, n0, _LJSVR,
+  0,
+  [_JC, _NTe, _MR],
+  [0, 0, 1], 1
+];
+export var ListJobSchemaVersionsResponse$: StaticStructureSchema = [3, n0, _LJSVRi,
+  0,
+  [_JCSo, _NTe],
+  [() => JobConfigSchemas, 0], 1
+];
+export var ListJobsRequest$: StaticStructureSchema = [3, n0, _LJR,
+  0,
+  [_JC, _NTe, _MR, _CTA, _CTB, _LMTA, _LMTB, _NCa, _SBo, _SO, _SE],
+  [0, 0, 1, 4, 4, 4, 4, 0, 0, 0, 0], 1
+];
+export var ListJobsResponse$: StaticStructureSchema = [3, n0, _LJRi,
+  0,
+  [_JSobu, _NTe],
+  [() => JobSummaries, 0], 1
 ];
 export var ListLabelingJobsForWorkteamRequest$: StaticStructureSchema = [3, n0, _LLJFWR,
   0,
@@ -9438,8 +9553,8 @@ export var PipelineExecutionStep$: StaticStructureSchema = [3, n0, _PESipe,
 ];
 export var PipelineExecutionStepMetadata$: StaticStructureSchema = [3, n0, _PESM,
   0,
-  [_TJ, _PJ, _TJr, _TJu, _Mode, _RMe, _Cond, _Cal, _Lam, _EMR, _QC, _CCla, _Fai, _AMLJ, _En, _ECndpo, _BCM, _BCMD, _BPMT, _BMI, _ICnfer, _Lin],
-  [() => TrainingJobStepMetadata$, () => ProcessingJobStepMetadata$, () => TransformJobStepMetadata$, () => TuningJobStepMetaData$, () => ModelStepMetadata$, () => RegisterModelStepMetadata$, () => ConditionStepMetadata$, () => CallbackStepMetadata$, () => LambdaStepMetadata$, () => EMRStepMetadata$, () => QualityCheckStepMetadata$, () => ClarifyCheckStepMetadata$, () => FailStepMetadata$, () => AutoMLJobStepMetadata$, () => EndpointStepMetadata$, () => EndpointConfigStepMetadata$, () => BedrockCustomModelMetadata$, () => BedrockCustomModelDeploymentMetadata$, () => BedrockProvisionedModelThroughputMetadata$, () => BedrockModelImportMetadata$, () => InferenceComponentMetadata$, () => LineageMetadata$]
+  [_TJ, _PJ, _TJr, _TJu, _Mode, _RMe, _Cond, _Cal, _Lam, _EMR, _QC, _CCla, _Fai, _AMLJ, _En, _ECndpo, _BCM, _BCMD, _BPMT, _BMI, _ICnfer, _Lin, _Jo],
+  [() => TrainingJobStepMetadata$, () => ProcessingJobStepMetadata$, () => TransformJobStepMetadata$, () => TuningJobStepMetaData$, () => ModelStepMetadata$, () => RegisterModelStepMetadata$, () => ConditionStepMetadata$, () => CallbackStepMetadata$, () => LambdaStepMetadata$, () => EMRStepMetadata$, () => QualityCheckStepMetadata$, () => ClarifyCheckStepMetadata$, () => FailStepMetadata$, () => AutoMLJobStepMetadata$, () => EndpointStepMetadata$, () => EndpointConfigStepMetadata$, () => BedrockCustomModelMetadata$, () => BedrockCustomModelDeploymentMetadata$, () => BedrockProvisionedModelThroughputMetadata$, () => BedrockModelImportMetadata$, () => InferenceComponentMetadata$, () => LineageMetadata$, () => JobStepMetadata$]
 ];
 export var PipelineExecutionSummary$: StaticStructureSchema = [3, n0, _PESipel,
   0,
@@ -10255,6 +10370,16 @@ export var StopInferenceRecommendationsJobRequest$: StaticStructureSchema = [3, 
   0,
   [_JN],
   [0], 1
+];
+export var StopJobRequest$: StaticStructureSchema = [3, n0, _SJR,
+  0,
+  [_JN, _JC],
+  [0, 0], 2
+];
+export var StopJobResponse$: StaticStructureSchema = [3, n0, _SJRt,
+  0,
+  [],
+  []
 ];
 export var StopLabelingJobRequest$: StaticStructureSchema = [3, n0, _SLJR,
   0,
@@ -11670,6 +11795,15 @@ var InstanceRequirementsEniConfigurations: StaticListSchema = [1, n0, _IREC,
 var IntegerParameterRanges: StaticListSchema = [1, n0, _IPRn,
   0, () => IntegerParameterRange$
 ];
+var JobConfigSchemas: StaticListSchema = [1, n0, _JCSo,
+  0, () => JobConfigSchemaVersionSummary$
+];
+var JobSecondaryStatusTransitions: StaticListSchema = [1, n0, _JSSTo,
+  0, () => JobSecondaryStatusTransition$
+];
+var JobSummaries: StaticListSchema = [1, n0, _JSobu,
+  0, () => JobSummary$
+];
 var JsonContentTypes = 64 | 0;
 var KernelSpecs: StaticListSchema = [1, n0, _KSe,
   0, () => KernelSpec$
@@ -12282,6 +12416,9 @@ export var CreateInferenceExperiment$: StaticOperationSchema = [9, n0, _CIE,
 export var CreateInferenceRecommendationsJob$: StaticOperationSchema = [9, n0, _CIRJ,
   0, () => CreateInferenceRecommendationsJobRequest$, () => CreateInferenceRecommendationsJobResponse$
 ];
+export var CreateJob$: StaticOperationSchema = [9, n0, _CJ,
+  0, () => CreateJobRequest$, () => CreateJobResponse$
+];
 export var CreateLabelingJob$: StaticOperationSchema = [9, n0, _CLJ,
   0, () => CreateLabelingJobRequest$, () => CreateLabelingJobResponse$
 ];
@@ -12486,6 +12623,9 @@ export var DeleteInferenceComponent$: StaticOperationSchema = [9, n0, _DICe,
 export var DeleteInferenceExperiment$: StaticOperationSchema = [9, n0, _DIEe,
   0, () => DeleteInferenceExperimentRequest$, () => DeleteInferenceExperimentResponse$
 ];
+export var DeleteJob$: StaticOperationSchema = [9, n0, _DJ,
+  2, () => DeleteJobRequest$, () => DeleteJobResponse$
+];
 export var DeleteMlflowApp$: StaticOperationSchema = [9, n0, _DMA,
   0, () => DeleteMlflowAppRequest$, () => DeleteMlflowAppResponse$
 ];
@@ -12686,6 +12826,12 @@ export var DescribeInferenceExperiment$: StaticOperationSchema = [9, n0, _DIEes,
 ];
 export var DescribeInferenceRecommendationsJob$: StaticOperationSchema = [9, n0, _DIRJ,
   0, () => DescribeInferenceRecommendationsJobRequest$, () => DescribeInferenceRecommendationsJobResponse$
+];
+export var DescribeJob$: StaticOperationSchema = [9, n0, _DJe,
+  0, () => DescribeJobRequest$, () => DescribeJobResponse$
+];
+export var DescribeJobSchemaVersion$: StaticOperationSchema = [9, n0, _DJSV,
+  0, () => DescribeJobSchemaVersionRequest$, () => DescribeJobSchemaVersionResponse$
 ];
 export var DescribeLabelingJob$: StaticOperationSchema = [9, n0, _DLJ,
   0, () => DescribeLabelingJobRequest$, () => DescribeLabelingJobResponse$
@@ -12954,6 +13100,12 @@ export var ListInferenceRecommendationsJobs$: StaticOperationSchema = [9, n0, _L
 export var ListInferenceRecommendationsJobSteps$: StaticOperationSchema = [9, n0, _LIRJS,
   0, () => ListInferenceRecommendationsJobStepsRequest$, () => ListInferenceRecommendationsJobStepsResponse$
 ];
+export var ListJobs$: StaticOperationSchema = [9, n0, _LJ,
+  0, () => ListJobsRequest$, () => ListJobsResponse$
+];
+export var ListJobSchemaVersions$: StaticOperationSchema = [9, n0, _LJSV,
+  0, () => ListJobSchemaVersionsRequest$, () => ListJobSchemaVersionsResponse$
+];
 export var ListLabelingJobs$: StaticOperationSchema = [9, n0, _LLJ,
   0, () => ListLabelingJobsRequest$, () => ListLabelingJobsResponse$
 ];
@@ -13169,6 +13321,9 @@ export var StopInferenceExperiment$: StaticOperationSchema = [9, n0, _SIEt,
 ];
 export var StopInferenceRecommendationsJob$: StaticOperationSchema = [9, n0, _SIRJ,
   0, () => StopInferenceRecommendationsJobRequest$, () => __Unit
+];
+export var StopJob$: StaticOperationSchema = [9, n0, _SJ,
+  0, () => StopJobRequest$, () => StopJobResponse$
 ];
 export var StopLabelingJob$: StaticOperationSchema = [9, n0, _SLJ,
   0, () => StopLabelingJobRequest$, () => __Unit

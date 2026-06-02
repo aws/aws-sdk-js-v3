@@ -45,6 +45,7 @@ import type {
   InferenceExecutionMode,
   InferenceExperimentType,
   IPAddressType,
+  JobCategory,
   JobType,
   ManagedInstanceScalingScaleInStrategy,
   ManagedInstanceScalingStatus,
@@ -57,8 +58,6 @@ import type {
   ModelInfrastructureType,
   ModelPackageRegistrationType,
   ModelRegistrationMode,
-  ModelSpeculativeDecodingS3DataType,
-  ModelSpeculativeDecodingTechnique,
   MonitoringProblemType,
   MonitoringType,
   NotebookInstanceAcceleratorType,
@@ -6185,6 +6184,58 @@ export interface CreateInferenceRecommendationsJobResponse {
 }
 
 /**
+ * @public
+ */
+export interface CreateJobRequest {
+  /**
+   * <p>The name of the job. The name must be unique within your account and Amazon Web Services Region.</p>
+   * @public
+   */
+  JobName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker assumes to perform the job. The role must have the necessary permissions to access the resources required by the job configuration.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>The category of the job. The category determines the type of workload that the job runs.</p>
+   * @public
+   */
+  JobCategory: JobCategory | undefined;
+
+  /**
+   * <p>The version of the configuration schema to use for the job configuration document. Use <code>ListJobSchemaVersions</code> to get available schema versions for a job category.</p>
+   * @public
+   */
+  JobConfigSchemaVersion: string | undefined;
+
+  /**
+   * <p>The JSON configuration document for the job. The document must conform to the schema specified by <code>JobConfigSchemaVersion</code>. Use <code>DescribeJobSchemaVersion</code> to retrieve the schema for validation.</p>
+   * @public
+   */
+  JobConfigDocument: string | undefined;
+
+  /**
+   * <p>An array of key-value pairs to apply to the job as tags. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateJobResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the job.</p>
+   * @public
+   */
+  JobArn: string | undefined;
+}
+
+/**
  * <p>Provided configuration information for the worker UI for a labeling job. Provide either <code>HumanTaskUiArn</code> or <code>UiTemplateS3Uri</code>.</p> <p>For named entity recognition, 3D point cloud and video frame labeling jobs, use <code>HumanTaskUiArn</code>.</p> <p>For all other Ground Truth built-in task types and custom task types, use <code>UiTemplateS3Uri</code> to specify the location of a worker task template in Amazon S3.</p>
  * @public
  */
@@ -8398,40 +8449,4 @@ export interface ModelShardingConfig {
    * @public
    */
   OverrideEnvironment?: Record<string, string> | undefined;
-}
-
-/**
- * <p>Contains information about the training data source for speculative decoding.</p>
- * @public
- */
-export interface ModelSpeculativeDecodingTrainingDataSource {
-  /**
-   * <p>The Amazon S3 URI that points to the training data for speculative decoding.</p>
-   * @public
-   */
-  S3Uri: string | undefined;
-
-  /**
-   * <p>The type of data stored in the Amazon S3 location. Valid values are <code>S3Prefix</code> or <code>ManifestFile</code>.</p>
-   * @public
-   */
-  S3DataType: ModelSpeculativeDecodingS3DataType | undefined;
-}
-
-/**
- * <p>Settings for the model speculative decoding technique that's applied by a model optimization job.</p>
- * @public
- */
-export interface ModelSpeculativeDecodingConfig {
-  /**
-   * <p>The speculative decoding technique to apply during model optimization.</p>
-   * @public
-   */
-  Technique: ModelSpeculativeDecodingTechnique | undefined;
-
-  /**
-   * <p>The location of the training data to use for speculative decoding. The data must be formatted as ShareGPT, OpenAI Completions or OpenAI Chat Completions. The input can also be unencrypted captured data from a SageMaker endpoint as long as the endpoint uses one of the above formats.</p>
-   * @public
-   */
-  TrainingDataSource?: ModelSpeculativeDecodingTrainingDataSource | undefined;
 }

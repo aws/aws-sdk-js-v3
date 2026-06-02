@@ -182,6 +182,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               "DestinationArn": "__DestinationArn__"
             }
           ]
+        },
+        "Job": {
+          "Arn": "__Arn__"
         }
       },
       "AttemptCount": 0,
@@ -342,6 +345,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               "DestinationArn": "__DestinationArn__"
             }
           ]
+        },
+        "Job": {
+          "Arn": "__Arn__"
         }
       },
       "AttemptCount": 0,
@@ -502,6 +508,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               "DestinationArn": "__DestinationArn__"
             }
           ]
+        },
+        "Job": {
+          "Arn": "__Arn__"
         }
       },
       "AttemptCount": 0,
@@ -670,6 +679,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               DestinationArn: "__DestinationArn__"
             }
           ]
+        },
+        Job: {
+          Arn: "__Arn__"
         }
       },
       AttemptCount: (number) 0,
@@ -830,6 +842,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               DestinationArn: "__DestinationArn__"
             }
           ]
+        },
+        Job: {
+          Arn: "__Arn__"
         }
       },
       AttemptCount: (number) 0,
@@ -990,6 +1005,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               DestinationArn: "__DestinationArn__"
             }
           ]
+        },
+        Job: {
+          Arn: "__Arn__"
         }
       },
       AttemptCount: (number) 0,

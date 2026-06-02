@@ -196,6 +196,7 @@ import type {
   CreateInferenceRecommendationsJobCommandInput,
   CreateInferenceRecommendationsJobCommandOutput,
 } from "./commands/CreateInferenceRecommendationsJobCommand";
+import type { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
 import type {
   CreateLabelingJobCommandInput,
   CreateLabelingJobCommandOutput,
@@ -402,6 +403,7 @@ import type {
   DeleteInferenceExperimentCommandInput,
   DeleteInferenceExperimentCommandOutput,
 } from "./commands/DeleteInferenceExperimentCommand";
+import type { DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand";
 import type { DeleteMlflowAppCommandInput, DeleteMlflowAppCommandOutput } from "./commands/DeleteMlflowAppCommand";
 import type {
   DeleteMlflowTrackingServerCommandInput,
@@ -607,6 +609,11 @@ import type {
   DescribeInferenceRecommendationsJobCommandInput,
   DescribeInferenceRecommendationsJobCommandOutput,
 } from "./commands/DescribeInferenceRecommendationsJobCommand";
+import type { DescribeJobCommandInput, DescribeJobCommandOutput } from "./commands/DescribeJobCommand";
+import type {
+  DescribeJobSchemaVersionCommandInput,
+  DescribeJobSchemaVersionCommandOutput,
+} from "./commands/DescribeJobSchemaVersionCommand";
 import type {
   DescribeLabelingJobCommandInput,
   DescribeLabelingJobCommandOutput,
@@ -885,6 +892,11 @@ import type {
   ListInferenceRecommendationsJobStepsCommandInput,
   ListInferenceRecommendationsJobStepsCommandOutput,
 } from "./commands/ListInferenceRecommendationsJobStepsCommand";
+import type {
+  ListJobSchemaVersionsCommandInput,
+  ListJobSchemaVersionsCommandOutput,
+} from "./commands/ListJobSchemaVersionsCommand";
+import type { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import type { ListLabelingJobsCommandInput, ListLabelingJobsCommandOutput } from "./commands/ListLabelingJobsCommand";
 import type {
   ListLabelingJobsForWorkteamCommandInput,
@@ -1110,6 +1122,7 @@ import type {
   StopInferenceRecommendationsJobCommandInput,
   StopInferenceRecommendationsJobCommandOutput,
 } from "./commands/StopInferenceRecommendationsJobCommand";
+import type { StopJobCommandInput, StopJobCommandOutput } from "./commands/StopJobCommand";
 import type { StopLabelingJobCommandInput, StopLabelingJobCommandOutput } from "./commands/StopLabelingJobCommand";
 import type {
   StopMlflowTrackingServerCommandInput,
@@ -1318,6 +1331,7 @@ export type ServiceInputTypes =
   | CreateInferenceComponentCommandInput
   | CreateInferenceExperimentCommandInput
   | CreateInferenceRecommendationsJobCommandInput
+  | CreateJobCommandInput
   | CreateLabelingJobCommandInput
   | CreateMlflowAppCommandInput
   | CreateMlflowTrackingServerCommandInput
@@ -1386,6 +1400,7 @@ export type ServiceInputTypes =
   | DeleteImageVersionCommandInput
   | DeleteInferenceComponentCommandInput
   | DeleteInferenceExperimentCommandInput
+  | DeleteJobCommandInput
   | DeleteMlflowAppCommandInput
   | DeleteMlflowTrackingServerCommandInput
   | DeleteModelBiasJobDefinitionCommandInput
@@ -1453,6 +1468,8 @@ export type ServiceInputTypes =
   | DescribeInferenceComponentCommandInput
   | DescribeInferenceExperimentCommandInput
   | DescribeInferenceRecommendationsJobCommandInput
+  | DescribeJobCommandInput
+  | DescribeJobSchemaVersionCommandInput
   | DescribeLabelingJobCommandInput
   | DescribeLineageGroupCommandInput
   | DescribeMlflowAppCommandInput
@@ -1542,6 +1559,8 @@ export type ServiceInputTypes =
   | ListInferenceExperimentsCommandInput
   | ListInferenceRecommendationsJobStepsCommandInput
   | ListInferenceRecommendationsJobsCommandInput
+  | ListJobSchemaVersionsCommandInput
+  | ListJobsCommandInput
   | ListLabelingJobsCommandInput
   | ListLabelingJobsForWorkteamCommandInput
   | ListLineageGroupsCommandInput
@@ -1614,6 +1633,7 @@ export type ServiceInputTypes =
   | StopHyperParameterTuningJobCommandInput
   | StopInferenceExperimentCommandInput
   | StopInferenceRecommendationsJobCommandInput
+  | StopJobCommandInput
   | StopLabelingJobCommandInput
   | StopMlflowTrackingServerCommandInput
   | StopMonitoringScheduleCommandInput
@@ -1719,6 +1739,7 @@ export type ServiceOutputTypes =
   | CreateInferenceComponentCommandOutput
   | CreateInferenceExperimentCommandOutput
   | CreateInferenceRecommendationsJobCommandOutput
+  | CreateJobCommandOutput
   | CreateLabelingJobCommandOutput
   | CreateMlflowAppCommandOutput
   | CreateMlflowTrackingServerCommandOutput
@@ -1787,6 +1808,7 @@ export type ServiceOutputTypes =
   | DeleteImageVersionCommandOutput
   | DeleteInferenceComponentCommandOutput
   | DeleteInferenceExperimentCommandOutput
+  | DeleteJobCommandOutput
   | DeleteMlflowAppCommandOutput
   | DeleteMlflowTrackingServerCommandOutput
   | DeleteModelBiasJobDefinitionCommandOutput
@@ -1854,6 +1876,8 @@ export type ServiceOutputTypes =
   | DescribeInferenceComponentCommandOutput
   | DescribeInferenceExperimentCommandOutput
   | DescribeInferenceRecommendationsJobCommandOutput
+  | DescribeJobCommandOutput
+  | DescribeJobSchemaVersionCommandOutput
   | DescribeLabelingJobCommandOutput
   | DescribeLineageGroupCommandOutput
   | DescribeMlflowAppCommandOutput
@@ -1943,6 +1967,8 @@ export type ServiceOutputTypes =
   | ListInferenceExperimentsCommandOutput
   | ListInferenceRecommendationsJobStepsCommandOutput
   | ListInferenceRecommendationsJobsCommandOutput
+  | ListJobSchemaVersionsCommandOutput
+  | ListJobsCommandOutput
   | ListLabelingJobsCommandOutput
   | ListLabelingJobsForWorkteamCommandOutput
   | ListLineageGroupsCommandOutput
@@ -2015,6 +2041,7 @@ export type ServiceOutputTypes =
   | StopHyperParameterTuningJobCommandOutput
   | StopInferenceExperimentCommandOutput
   | StopInferenceRecommendationsJobCommandOutput
+  | StopJobCommandOutput
   | StopLabelingJobCommandOutput
   | StopMlflowTrackingServerCommandOutput
   | StopMonitoringScheduleCommandOutput

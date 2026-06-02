@@ -1,0 +1,230 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "JobName": "__JobName__",
+  "JobArn": "__JobArn__",
+  "RoleArn": "__RoleArn__",
+  "JobCategory": "__JobCategory__",
+  "JobConfigSchemaVersion": "__JobConfigSchemaVersion__",
+  "CreationTime": 946702799.999,
+  "LastModifiedTime": 946702799.999,
+  "JobStatus": "__JobStatus__",
+  "SecondaryStatus": "__SecondaryStatus__",
+  "SecondaryStatusTransitions": [
+    {
+      "Status": "__Status__",
+      "StartTime": 946702799.999,
+      "EndTime": 946702799.999,
+      "StatusMessage": "__StatusMessage__"
+    },
+    {
+      "Status": "__Status__",
+      "StartTime": 946702799.999,
+      "EndTime": 946702799.999,
+      "StatusMessage": "__StatusMessage__"
+    },
+    {
+      "Status": "__Status__",
+      "StartTime": 946702799.999,
+      "EndTime": 946702799.999,
+      "StatusMessage": "__StatusMessage__"
+    }
+  ],
+  "JobConfigDocument": "__JobConfigDocument__",
+  "EndTime": 946702799.999,
+  "FailureReason": "__FailureReason__",
+  "Tags": [
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    },
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    },
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    }
+  ]
+}
+
+
+--- [output object] ---
+{
+  JobName: "__JobName__",
+  JobArn: "__JobArn__",
+  RoleArn: "__RoleArn__",
+  JobCategory: "__JobCategory__",
+  JobConfigSchemaVersion: "__JobConfigSchemaVersion__",
+  CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  JobStatus: "__JobStatus__",
+  SecondaryStatus: "__SecondaryStatus__",
+  SecondaryStatusTransitions: [
+    {
+      Status: "__Status__",
+      StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      StatusMessage: "__StatusMessage__"
+    },
+    {
+      Status: "__Status__",
+      StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      StatusMessage: "__StatusMessage__"
+    },
+    {
+      Status: "__Status__",
+      StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      StatusMessage: "__StatusMessage__"
+    }
+  ],
+  JobConfigDocument: "__JobConfigDocument__",
+  EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  FailureReason: "__FailureReason__",
+  Tags: [
+    {
+      Key: "__Key__",
+      Value: "__Value__"
+    },
+    {
+      Key: "__Key__",
+      Value: "__Value__"
+    },
+    {
+      Key: "__Key__",
+      Value: "__Value__"
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "JobName": "__JobName__",
+  "JobArn": "__JobArn__",
+  "RoleArn": "__RoleArn__",
+  "JobCategory": "__JobCategory__",
+  "JobConfigSchemaVersion": "__JobConfigSchemaVersion__",
+  "CreationTime": 946702799.999,
+  "LastModifiedTime": 946702799.999,
+  "JobStatus": "__JobStatus__",
+  "SecondaryStatus": "__SecondaryStatus__",
+  "SecondaryStatusTransitions": [
+    {
+      "Status": "__Status__",
+      "StartTime": 946702799.999,
+      "EndTime": 946702799.999,
+      "StatusMessage": "__StatusMessage__"
+    },
+    {
+      "Status": "__Status__",
+      "StartTime": 946702799.999,
+      "EndTime": 946702799.999,
+      "StatusMessage": "__StatusMessage__"
+    },
+    {
+      "Status": "__Status__",
+      "StartTime": 946702799.999,
+      "EndTime": 946702799.999,
+      "StatusMessage": "__StatusMessage__"
+    }
+  ],
+  "JobConfigDocument": "__JobConfigDocument__",
+  "EndTime": 946702799.999,
+  "FailureReason": "__FailureReason__",
+  "Tags": [
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    },
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    },
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    }
+  ]
+}
+
+
+--- [output object] ---
+{
+  JobName: "__JobName__",
+  JobArn: "__JobArn__",
+  RoleArn: "__RoleArn__",
+  JobCategory: "__JobCategory__",
+  JobConfigSchemaVersion: "__JobConfigSchemaVersion__",
+  CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  JobStatus: "__JobStatus__",
+  SecondaryStatus: "__SecondaryStatus__",
+  SecondaryStatusTransitions: [
+    {
+      Status: "__Status__",
+      StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      StatusMessage: "__StatusMessage__"
+    },
+    {
+      Status: "__Status__",
+      StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      StatusMessage: "__StatusMessage__"
+    },
+    {
+      Status: "__Status__",
+      StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      StatusMessage: "__StatusMessage__"
+    }
+  ],
+  JobConfigDocument: "__JobConfigDocument__",
+  EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  FailureReason: "__FailureReason__",
+  Tags: [
+    {
+      Key: "__Key__",
+      Value: "__Value__"
+    },
+    {
+      Key: "__Key__",
+      Value: "__Value__"
+    },
+    {
+      Key: "__Key__",
+      Value: "__Value__"
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
