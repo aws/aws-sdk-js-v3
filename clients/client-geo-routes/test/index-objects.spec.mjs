@@ -69,12 +69,19 @@ import {
   RoadSnapTravelModeOptions$,
   RoadSnapTruckOptions$,
   Route$,
+  RouteAccessibilityAttribute,
+  RouteAccessibilityAvailability,
+  RouteAccessibilityAvailabilityDetails$,
+  RouteAccessPointDetails$,
   RouteAllowOptions$,
+  RouteAttribution$,
+  RouteAttributionType,
   RouteAvoidanceArea$,
   RouteAvoidanceAreaGeometry$,
   RouteAvoidanceOptions$,
   RouteAvoidanceZoneCategory$,
   RouteCarOptions$,
+  RouteChargeStepDetails$,
   RouteContinueHighwayStepDetails$,
   RouteContinueStepDetails$,
   RouteDestinationOptions$,
@@ -103,6 +110,13 @@ import {
   RouteFerryTravelStep$,
   RouteFerryTravelStepType,
   RouteHazardousCargoType,
+  RouteIntermodalEnabledLegs,
+  RouteIntermodalOptions$,
+  RouteIntermodalPedestrianOptions$,
+  RouteIntermodalRentalOptions$,
+  RouteIntermodalTaxiOptions$,
+  RouteIntermodalTransitOptions$,
+  RouteIntermodalVehicleOptions$,
   RouteKeepStepDetails$,
   RouteLeg$,
   RouteLegAdditionalFeature,
@@ -145,6 +159,8 @@ import {
   RouteOriginOptions$,
   RoutePassThroughPlace$,
   RoutePassThroughWaypoint$,
+  RoutePedestrianAfterTravelStep$,
+  RoutePedestrianAfterTravelStepType,
   RoutePedestrianArrival$,
   RoutePedestrianDeparture$,
   RoutePedestrianLegDetails$,
@@ -153,12 +169,30 @@ import {
   RoutePedestrianOptions$,
   RoutePedestrianOverviewSummary$,
   RoutePedestrianPlace$,
+  RoutePedestrianPlaceType,
   RoutePedestrianSpan$,
   RoutePedestrianSummary$,
   RoutePedestrianTravelOnlySummary$,
   RoutePedestrianTravelStep$,
   RoutePedestrianTravelStepType,
   RouteRampStepDetails$,
+  RouteRentalAfterTravelStep$,
+  RouteRentalAfterTravelStepType,
+  RouteRentalAgency$,
+  RouteRentalArrival$,
+  RouteRentalBeforeTravelStep$,
+  RouteRentalBeforeTravelStepType,
+  RouteRentalDeparture$,
+  RouteRentalLegDetails$,
+  RouteRentalMode,
+  RouteRentalOverviewSummary$,
+  RouteRentalPlace$,
+  RouteRentalPlaceType,
+  RouteRentalSummary$,
+  RouteRentalTransportModeDetails$,
+  RouteRentalTravelOnlySummary$,
+  RouteRentalTravelStep$,
+  RouteRentalTravelStepType,
   RouteResponseNotice$,
   RouteResponseNoticeCode,
   RouteRoad$,
@@ -181,8 +215,28 @@ import {
   RouteSpanScooterAccessAttribute,
   RouteSpanSpeedLimitDetails$,
   RouteSpanTruckAccessAttribute,
+  RouteStationDetails$,
   RouteSteeringDirection,
   RouteSummary$,
+  RouteTaxiAfterTravelStep$,
+  RouteTaxiAfterTravelStepType,
+  RouteTaxiAgency$,
+  RouteTaxiArrival$,
+  RouteTaxiBeforeTravelStep$,
+  RouteTaxiBeforeTravelStepType,
+  RouteTaxiDeparture$,
+  RouteTaxiLegDetails$,
+  RouteTaxiMode,
+  RouteTaxiNotice$,
+  RouteTaxiNoticeCode,
+  RouteTaxiOverviewSummary$,
+  RouteTaxiPlace$,
+  RouteTaxiPlaceType,
+  RouteTaxiSummary$,
+  RouteTaxiTransportModeDetails$,
+  RouteTaxiTravelOnlySummary$,
+  RouteTaxiTravelStep$,
+  RouteTaxiTravelStepType,
   RouteToll$,
   RouteTollOptions$,
   RouteTollPass$,
@@ -199,6 +253,35 @@ import {
   RouteTollVehicleCategory,
   RouteTrafficOptions$,
   RouteTrailerOptions$,
+  RouteTransitAfterTravelStep$,
+  RouteTransitAfterTravelStepType,
+  RouteTransitAgency$,
+  RouteTransitArrival$,
+  RouteTransitBeforeTravelStep$,
+  RouteTransitBeforeTravelStepType,
+  RouteTransitDeparture$,
+  RouteTransitIncident$,
+  RouteTransitIncidentEffect,
+  RouteTransitIncidentType,
+  RouteTransitIntermediateStop$,
+  RouteTransitIntermediateStopAttribute,
+  RouteTransitLegDetails$,
+  RouteTransitMode,
+  RouteTransitNextDeparture$,
+  RouteTransitNotice$,
+  RouteTransitNoticeCode,
+  RouteTransitOptions$,
+  RouteTransitOverviewSummary$,
+  RouteTransitPedestrianOptions$,
+  RouteTransitPlace$,
+  RouteTransitPlaceType,
+  RouteTransitSpan$,
+  RouteTransitSummary$,
+  RouteTransitTransportModeDetails$,
+  RouteTransitTravelOnlySummary$,
+  RouteTransitTravelStep$,
+  RouteTransitTravelStepType,
+  RouteTransitTripStatus,
   RouteTransponder$,
   RouteTravelMode,
   RouteTravelModeOptions$,
@@ -208,6 +291,8 @@ import {
   RouteTurnIntensity,
   RouteTurnStepDetails$,
   RouteUTurnStepDetails$,
+  RouteVehicleAfterTravelStep$,
+  RouteVehicleAfterTravelStepType,
   RouteVehicleArrival$,
   RouteVehicleDeparture$,
   RouteVehicleIncident$,
@@ -215,11 +300,13 @@ import {
   RouteVehicleIncidentType,
   RouteVehicleLegDetails$,
   RouteVehicleLicensePlate$,
+  RouteVehicleMode,
   RouteVehicleNotice$,
   RouteVehicleNoticeCode,
   RouteVehicleNoticeDetail$,
   RouteVehicleOverviewSummary$,
   RouteVehiclePlace$,
+  RouteVehiclePlaceType,
   RouteVehicleSpan$,
   RouteVehicleSummary$,
   RouteVehicleTravelOnlySummary$,
@@ -227,6 +314,8 @@ import {
   RouteVehicleTravelStepType,
   RouteViolatedConstraints$,
   RouteWaypoint$,
+  RouteWebLink$,
+  RouteWebLinkDeviceType,
   RouteWeightConstraint$,
   RouteWeightConstraintType,
   RouteZone$,
@@ -337,12 +426,16 @@ assert(typeof RoadSnapTrailerOptions$ === "object");
 assert(typeof RoadSnapTravelModeOptions$ === "object");
 assert(typeof RoadSnapTruckOptions$ === "object");
 assert(typeof Route$ === "object");
+assert(typeof RouteAccessibilityAvailabilityDetails$ === "object");
+assert(typeof RouteAccessPointDetails$ === "object");
 assert(typeof RouteAllowOptions$ === "object");
+assert(typeof RouteAttribution$ === "object");
 assert(typeof RouteAvoidanceArea$ === "object");
 assert(typeof RouteAvoidanceAreaGeometry$ === "object");
 assert(typeof RouteAvoidanceOptions$ === "object");
 assert(typeof RouteAvoidanceZoneCategory$ === "object");
 assert(typeof RouteCarOptions$ === "object");
+assert(typeof RouteChargeStepDetails$ === "object");
 assert(typeof RouteContinueHighwayStepDetails$ === "object");
 assert(typeof RouteContinueStepDetails$ === "object");
 assert(typeof RouteDestinationOptions$ === "object");
@@ -364,6 +457,12 @@ assert(typeof RouteFerrySpan$ === "object");
 assert(typeof RouteFerrySummary$ === "object");
 assert(typeof RouteFerryTravelOnlySummary$ === "object");
 assert(typeof RouteFerryTravelStep$ === "object");
+assert(typeof RouteIntermodalOptions$ === "object");
+assert(typeof RouteIntermodalPedestrianOptions$ === "object");
+assert(typeof RouteIntermodalRentalOptions$ === "object");
+assert(typeof RouteIntermodalTaxiOptions$ === "object");
+assert(typeof RouteIntermodalTransitOptions$ === "object");
+assert(typeof RouteIntermodalVehicleOptions$ === "object");
 assert(typeof RouteKeepStepDetails$ === "object");
 assert(typeof RouteLeg$ === "object");
 assert(typeof RouteLegGeometry$ === "object");
@@ -397,6 +496,7 @@ assert(typeof RouteNumber$ === "object");
 assert(typeof RouteOriginOptions$ === "object");
 assert(typeof RoutePassThroughPlace$ === "object");
 assert(typeof RoutePassThroughWaypoint$ === "object");
+assert(typeof RoutePedestrianAfterTravelStep$ === "object");
 assert(typeof RoutePedestrianArrival$ === "object");
 assert(typeof RoutePedestrianDeparture$ === "object");
 assert(typeof RoutePedestrianLegDetails$ === "object");
@@ -409,6 +509,18 @@ assert(typeof RoutePedestrianSummary$ === "object");
 assert(typeof RoutePedestrianTravelOnlySummary$ === "object");
 assert(typeof RoutePedestrianTravelStep$ === "object");
 assert(typeof RouteRampStepDetails$ === "object");
+assert(typeof RouteRentalAfterTravelStep$ === "object");
+assert(typeof RouteRentalAgency$ === "object");
+assert(typeof RouteRentalArrival$ === "object");
+assert(typeof RouteRentalBeforeTravelStep$ === "object");
+assert(typeof RouteRentalDeparture$ === "object");
+assert(typeof RouteRentalLegDetails$ === "object");
+assert(typeof RouteRentalOverviewSummary$ === "object");
+assert(typeof RouteRentalPlace$ === "object");
+assert(typeof RouteRentalSummary$ === "object");
+assert(typeof RouteRentalTransportModeDetails$ === "object");
+assert(typeof RouteRentalTravelOnlySummary$ === "object");
+assert(typeof RouteRentalTravelStep$ === "object");
 assert(typeof RouteResponseNotice$ === "object");
 assert(typeof RouteRoad$ === "object");
 assert(typeof RouteRoundaboutEnterStepDetails$ === "object");
@@ -420,7 +532,21 @@ assert(typeof RouteSignpost$ === "object");
 assert(typeof RouteSignpostLabel$ === "object");
 assert(typeof RouteSpanDynamicSpeedDetails$ === "object");
 assert(typeof RouteSpanSpeedLimitDetails$ === "object");
+assert(typeof RouteStationDetails$ === "object");
 assert(typeof RouteSummary$ === "object");
+assert(typeof RouteTaxiAfterTravelStep$ === "object");
+assert(typeof RouteTaxiAgency$ === "object");
+assert(typeof RouteTaxiArrival$ === "object");
+assert(typeof RouteTaxiBeforeTravelStep$ === "object");
+assert(typeof RouteTaxiDeparture$ === "object");
+assert(typeof RouteTaxiLegDetails$ === "object");
+assert(typeof RouteTaxiNotice$ === "object");
+assert(typeof RouteTaxiOverviewSummary$ === "object");
+assert(typeof RouteTaxiPlace$ === "object");
+assert(typeof RouteTaxiSummary$ === "object");
+assert(typeof RouteTaxiTransportModeDetails$ === "object");
+assert(typeof RouteTaxiTravelOnlySummary$ === "object");
+assert(typeof RouteTaxiTravelStep$ === "object");
 assert(typeof RouteToll$ === "object");
 assert(typeof RouteTollOptions$ === "object");
 assert(typeof RouteTollPass$ === "object");
@@ -434,11 +560,31 @@ assert(typeof RouteTollSummary$ === "object");
 assert(typeof RouteTollSystem$ === "object");
 assert(typeof RouteTrafficOptions$ === "object");
 assert(typeof RouteTrailerOptions$ === "object");
+assert(typeof RouteTransitAfterTravelStep$ === "object");
+assert(typeof RouteTransitAgency$ === "object");
+assert(typeof RouteTransitArrival$ === "object");
+assert(typeof RouteTransitBeforeTravelStep$ === "object");
+assert(typeof RouteTransitDeparture$ === "object");
+assert(typeof RouteTransitIncident$ === "object");
+assert(typeof RouteTransitIntermediateStop$ === "object");
+assert(typeof RouteTransitLegDetails$ === "object");
+assert(typeof RouteTransitNextDeparture$ === "object");
+assert(typeof RouteTransitNotice$ === "object");
+assert(typeof RouteTransitOptions$ === "object");
+assert(typeof RouteTransitOverviewSummary$ === "object");
+assert(typeof RouteTransitPedestrianOptions$ === "object");
+assert(typeof RouteTransitPlace$ === "object");
+assert(typeof RouteTransitSpan$ === "object");
+assert(typeof RouteTransitSummary$ === "object");
+assert(typeof RouteTransitTransportModeDetails$ === "object");
+assert(typeof RouteTransitTravelOnlySummary$ === "object");
+assert(typeof RouteTransitTravelStep$ === "object");
 assert(typeof RouteTransponder$ === "object");
 assert(typeof RouteTravelModeOptions$ === "object");
 assert(typeof RouteTruckOptions$ === "object");
 assert(typeof RouteTurnStepDetails$ === "object");
 assert(typeof RouteUTurnStepDetails$ === "object");
+assert(typeof RouteVehicleAfterTravelStep$ === "object");
 assert(typeof RouteVehicleArrival$ === "object");
 assert(typeof RouteVehicleDeparture$ === "object");
 assert(typeof RouteVehicleIncident$ === "object");
@@ -454,6 +600,7 @@ assert(typeof RouteVehicleTravelOnlySummary$ === "object");
 assert(typeof RouteVehicleTravelStep$ === "object");
 assert(typeof RouteViolatedConstraints$ === "object");
 assert(typeof RouteWaypoint$ === "object");
+assert(typeof RouteWebLink$ === "object");
 assert(typeof RouteWeightConstraint$ === "object");
 assert(typeof RouteZone$ === "object");
 assert(typeof SnapToRoadsRequest$ === "object");
@@ -500,6 +647,9 @@ assert(typeof MeasurementSystem === "object");
 assert(typeof RoadSnapHazardousCargoType === "object");
 assert(typeof RoadSnapNoticeCode === "object");
 assert(typeof RoadSnapTravelMode === "object");
+assert(typeof RouteAccessibilityAttribute === "object");
+assert(typeof RouteAccessibilityAvailability === "object");
+assert(typeof RouteAttributionType === "object");
 assert(typeof RouteDirection === "object");
 assert(typeof RouteEngineType === "object");
 assert(typeof RouteFerryAfterTravelStepType === "object");
@@ -507,6 +657,7 @@ assert(typeof RouteFerryBeforeTravelStepType === "object");
 assert(typeof RouteFerryNoticeCode === "object");
 assert(typeof RouteFerryTravelStepType === "object");
 assert(typeof RouteHazardousCargoType === "object");
+assert(typeof RouteIntermodalEnabledLegs === "object");
 assert(typeof RouteLegAdditionalFeature === "object");
 assert(typeof RouteLegTravelMode === "object");
 assert(typeof RouteLegType === "object");
@@ -516,8 +667,15 @@ assert(typeof RouteMatrixTravelMode === "object");
 assert(typeof RouteMatrixTruckType === "object");
 assert(typeof RouteMatrixZoneCategory === "object");
 assert(typeof RouteNoticeImpact === "object");
+assert(typeof RoutePedestrianAfterTravelStepType === "object");
 assert(typeof RoutePedestrianNoticeCode === "object");
+assert(typeof RoutePedestrianPlaceType === "object");
 assert(typeof RoutePedestrianTravelStepType === "object");
+assert(typeof RouteRentalAfterTravelStepType === "object");
+assert(typeof RouteRentalBeforeTravelStepType === "object");
+assert(typeof RouteRentalMode === "object");
+assert(typeof RouteRentalPlaceType === "object");
+assert(typeof RouteRentalTravelStepType === "object");
 assert(typeof RouteResponseNoticeCode === "object");
 assert(typeof RouteRoadType === "object");
 assert(typeof RouteSideOfStreet === "object");
@@ -530,17 +688,37 @@ assert(typeof RouteSpanRoadAttribute === "object");
 assert(typeof RouteSpanScooterAccessAttribute === "object");
 assert(typeof RouteSpanTruckAccessAttribute === "object");
 assert(typeof RouteSteeringDirection === "object");
+assert(typeof RouteTaxiAfterTravelStepType === "object");
+assert(typeof RouteTaxiBeforeTravelStepType === "object");
+assert(typeof RouteTaxiMode === "object");
+assert(typeof RouteTaxiNoticeCode === "object");
+assert(typeof RouteTaxiPlaceType === "object");
+assert(typeof RouteTaxiTravelStepType === "object");
 assert(typeof RouteTollPassValidityPeriodType === "object");
 assert(typeof RouteTollPaymentMethod === "object");
 assert(typeof RouteTollVehicleCategory === "object");
+assert(typeof RouteTransitAfterTravelStepType === "object");
+assert(typeof RouteTransitBeforeTravelStepType === "object");
+assert(typeof RouteTransitIncidentEffect === "object");
+assert(typeof RouteTransitIncidentType === "object");
+assert(typeof RouteTransitIntermediateStopAttribute === "object");
+assert(typeof RouteTransitMode === "object");
+assert(typeof RouteTransitNoticeCode === "object");
+assert(typeof RouteTransitPlaceType === "object");
+assert(typeof RouteTransitTravelStepType === "object");
+assert(typeof RouteTransitTripStatus === "object");
 assert(typeof RouteTravelMode === "object");
 assert(typeof RouteTravelStepType === "object");
 assert(typeof RouteTruckType === "object");
 assert(typeof RouteTurnIntensity === "object");
+assert(typeof RouteVehicleAfterTravelStepType === "object");
 assert(typeof RouteVehicleIncidentSeverity === "object");
 assert(typeof RouteVehicleIncidentType === "object");
+assert(typeof RouteVehicleMode === "object");
 assert(typeof RouteVehicleNoticeCode === "object");
+assert(typeof RouteVehiclePlaceType === "object");
 assert(typeof RouteVehicleTravelStepType === "object");
+assert(typeof RouteWebLinkDeviceType === "object");
 assert(typeof RouteWeightConstraintType === "object");
 assert(typeof RouteZoneCategory === "object");
 assert(typeof RoutingObjective === "object");

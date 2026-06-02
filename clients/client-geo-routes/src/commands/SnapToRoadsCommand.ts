@@ -50,12 +50,12 @@ export interface SnapToRoadsCommandOutput extends SnapToRoadsResponse, __Metadat
  *       Timestamp: "STRING_VALUE",
  *     },
  *   ],
- *   TravelMode: "STRING_VALUE",
+ *   TravelMode: "Car" || "Pedestrian" || "Scooter" || "Truck",
  *   TravelModeOptions: { // RoadSnapTravelModeOptions
  *     Truck: { // RoadSnapTruckOptions
  *       GrossWeight: Number("long"),
  *       HazardousCargos: [ // RoadSnapHazardousCargoTypeList
- *         "STRING_VALUE",
+ *         "Combustible" || "Corrosive" || "Explosive" || "Flammable" || "Gas" || "HarmfulToWater" || "Organic" || "Other" || "Poison" || "PoisonousInhalation" || "Radioactive",
  *       ],
  *       Height: Number("long"),
  *       Length: Number("long"),
@@ -72,7 +72,7 @@ export interface SnapToRoadsCommandOutput extends SnapToRoadsResponse, __Metadat
  * // { // SnapToRoadsResponse
  * //   Notices: [ // RoadSnapNoticeList // required
  * //     { // RoadSnapNotice
- * //       Code: "STRING_VALUE", // required
+ * //       Code: "TracePointsHeadingIgnored" || "TracePointsIgnored" || "TracePointsMovedByLargeDistance" || "TracePointsNotMatched" || "TracePointsOutOfSequence" || "TracePointsSpeedEstimated" || "TracePointsSpeedIgnored", // required
  * //       Title: "STRING_VALUE", // required
  * //       TracePointIndexes: [ // RoadSnapTracePointIndexList // required
  * //         Number("int"),

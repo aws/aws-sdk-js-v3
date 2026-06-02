@@ -306,8 +306,11 @@ export type MeasurementSystem = (typeof MeasurementSystem)[keyof typeof Measurem
  * @enum
  */
 export const RouteLegAdditionalFeature = {
+  BOOKINGS: "Bookings",
   ELEVATION: "Elevation",
   INCIDENTS: "Incidents",
+  INTERMEDIATE_STOPS: "IntermediateStops",
+  NEXT_DEPARTURES: "NextDepartures",
   PASS_THROUGH_WAYPOINTS: "PassThroughWaypoints",
   SUMMARY: "Summary",
   TOLLS: "Tolls",
@@ -374,8 +377,10 @@ export type RouteTollVehicleCategory = (typeof RouteTollVehicleCategory)[keyof t
  */
 export const RouteTravelMode = {
   CAR: "Car",
+  INTERMODAL: "Intermodal",
   PEDESTRIAN: "Pedestrian",
   SCOOTER: "Scooter",
+  TRANSIT: "Transit",
   TRUCK: "Truck",
 } as const;
 /**
@@ -396,6 +401,100 @@ export const RouteEngineType = {
  * @public
  */
 export type RouteEngineType = (typeof RouteEngineType)[keyof typeof RouteEngineType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RouteAccessibilityAttribute = {
+  WHEELCHAIR: "Wheelchair",
+} as const;
+/**
+ * @public
+ */
+export type RouteAccessibilityAttribute =
+  (typeof RouteAccessibilityAttribute)[keyof typeof RouteAccessibilityAttribute];
+
+/**
+ * @public
+ * @enum
+ */
+export const RouteRentalMode = {
+  ALL: "All",
+  CAR: "Car",
+} as const;
+/**
+ * @public
+ */
+export type RouteRentalMode = (typeof RouteRentalMode)[keyof typeof RouteRentalMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const RouteIntermodalEnabledLegs = {
+  ENTIRE_ROUTE: "EntireRoute",
+  FIRST_LEG: "FirstLeg",
+  LAST_LEG: "LastLeg",
+  NONE: "None",
+} as const;
+/**
+ * @public
+ */
+export type RouteIntermodalEnabledLegs = (typeof RouteIntermodalEnabledLegs)[keyof typeof RouteIntermodalEnabledLegs];
+
+/**
+ * @public
+ * @enum
+ */
+export const RouteTaxiMode = {
+  ALL: "All",
+  CAR: "Car",
+} as const;
+/**
+ * @public
+ */
+export type RouteTaxiMode = (typeof RouteTaxiMode)[keyof typeof RouteTaxiMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const RouteTransitMode = {
+  AERIAL_TRAMWAY: "AerialTramway",
+  AIRPLANE: "Airplane",
+  ALL: "All",
+  BUS: "Bus",
+  BUS_RAPID_TRANSIT: "BusRapidTransit",
+  CITY_TRAIN: "CityTrain",
+  FERRY: "Ferry",
+  FUNICULAR_RAILWAY: "FunicularRailway",
+  HIGH_SPEED_TRAIN: "HighSpeedTrain",
+  INTERCITY_TRAIN: "IntercityTrain",
+  INTERREGIONAL_TRAIN: "InterregionalTrain",
+  LIGHT_RAIL: "LightRail",
+  MONORAIL: "Monorail",
+  PRIVATE_BUS: "PrivateBus",
+  REGIONAL_TRAIN: "RegionalTrain",
+  SUBWAY: "Subway",
+} as const;
+/**
+ * @public
+ */
+export type RouteTransitMode = (typeof RouteTransitMode)[keyof typeof RouteTransitMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const RouteVehicleMode = {
+  ALL: "All",
+  CAR: "Car",
+} as const;
+/**
+ * @public
+ */
+export type RouteVehicleMode = (typeof RouteVehicleMode)[keyof typeof RouteVehicleMode];
 
 /**
  * @public
@@ -452,7 +551,10 @@ export type RouteTravelStepType = (typeof RouteTravelStepType)[keyof typeof Rout
  */
 export const RouteResponseNoticeCode = {
   MAIN_LANGUAGE_NOT_FOUND: "MainLanguageNotFound",
+  NO_TRANSIT_STATIONS_FOUND: "NoTransitStationsFound",
   OTHER: "Other",
+  TRANSIT_DATA_UNAVAILABLE: "TransitDataUnavailable",
+  TRANSIT_ROUTE_UNAVAILABLE: "TransitRouteUnavailable",
   TRAVEL_TIME_EXCEEDS_DRIVER_WORK_HOURS: "TravelTimeExceedsDriverWorkHours",
 } as const;
 /**
@@ -537,6 +639,35 @@ export type RouteFerryTravelStepType = (typeof RouteFerryTravelStepType)[keyof t
  * @public
  * @enum
  */
+export const RoutePedestrianAfterTravelStepType = {
+  WAIT: "Wait",
+} as const;
+/**
+ * @public
+ */
+export type RoutePedestrianAfterTravelStepType =
+  (typeof RoutePedestrianAfterTravelStepType)[keyof typeof RoutePedestrianAfterTravelStepType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RouteAccessibilityAvailability = {
+  AVAILABLE: "Available",
+  LIMITED: "Limited",
+  UNAVAILABLE: "Unavailable",
+  UNKNOWN: "Unknown",
+} as const;
+/**
+ * @public
+ */
+export type RouteAccessibilityAvailability =
+  (typeof RouteAccessibilityAvailability)[keyof typeof RouteAccessibilityAvailability];
+
+/**
+ * @public
+ * @enum
+ */
 export const RouteSideOfStreet = {
   LEFT: "Left",
   RIGHT: "Right",
@@ -545,6 +676,21 @@ export const RouteSideOfStreet = {
  * @public
  */
 export type RouteSideOfStreet = (typeof RouteSideOfStreet)[keyof typeof RouteSideOfStreet];
+
+/**
+ * @public
+ * @enum
+ */
+export const RoutePedestrianPlaceType = {
+  ACCESS_POINT: "AccessPoint",
+  DOCKING_STATION: "DockingStation",
+  PARKING_LOT: "ParkingLot",
+  STATION: "Station",
+} as const;
+/**
+ * @public
+ */
+export type RoutePedestrianPlaceType = (typeof RoutePedestrianPlaceType)[keyof typeof RoutePedestrianPlaceType];
 
 /**
  * @public
@@ -685,12 +831,333 @@ export type RoutePedestrianTravelStepType =
  * @public
  * @enum
  */
+export const RouteRentalAfterTravelStepType = {
+  PARK: "Park",
+} as const;
+/**
+ * @public
+ */
+export type RouteRentalAfterTravelStepType =
+  (typeof RouteRentalAfterTravelStepType)[keyof typeof RouteRentalAfterTravelStepType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RouteRentalPlaceType = {
+  ACCESS_POINT: "AccessPoint",
+  DOCKING_STATION: "DockingStation",
+  PARKING_LOT: "ParkingLot",
+  STATION: "Station",
+} as const;
+/**
+ * @public
+ */
+export type RouteRentalPlaceType = (typeof RouteRentalPlaceType)[keyof typeof RouteRentalPlaceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RouteAttributionType = {
+  DISCLAIMER: "Disclaimer",
+  TARIFF: "Tariff",
+} as const;
+/**
+ * @public
+ */
+export type RouteAttributionType = (typeof RouteAttributionType)[keyof typeof RouteAttributionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RouteWebLinkDeviceType = {
+  ANDROID: "Android",
+  IOS: "Ios",
+  WEB: "Web",
+} as const;
+/**
+ * @public
+ */
+export type RouteWebLinkDeviceType = (typeof RouteWebLinkDeviceType)[keyof typeof RouteWebLinkDeviceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RouteRentalBeforeTravelStepType = {
+  SETUP: "Setup",
+} as const;
+/**
+ * @public
+ */
+export type RouteRentalBeforeTravelStepType =
+  (typeof RouteRentalBeforeTravelStepType)[keyof typeof RouteRentalBeforeTravelStepType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RouteRentalTravelStepType = {
+  ARRIVE: "Arrive",
+  CONTINUE: "Continue",
+  DEPART: "Depart",
+  EXIT: "Exit",
+  KEEP: "Keep",
+  RAMP: "Ramp",
+  ROUNDABOUT_ENTER: "RoundaboutEnter",
+  ROUNDABOUT_EXIT: "RoundaboutExit",
+  ROUNDABOUT_PASS: "RoundaboutPass",
+  TURN: "Turn",
+  U_TURN: "UTurn",
+} as const;
+/**
+ * @public
+ */
+export type RouteRentalTravelStepType = (typeof RouteRentalTravelStepType)[keyof typeof RouteRentalTravelStepType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RouteTaxiAfterTravelStepType = {
+  PARK: "Park",
+} as const;
+/**
+ * @public
+ */
+export type RouteTaxiAfterTravelStepType =
+  (typeof RouteTaxiAfterTravelStepType)[keyof typeof RouteTaxiAfterTravelStepType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RouteTaxiPlaceType = {
+  ACCESS_POINT: "AccessPoint",
+  STATION: "Station",
+} as const;
+/**
+ * @public
+ */
+export type RouteTaxiPlaceType = (typeof RouteTaxiPlaceType)[keyof typeof RouteTaxiPlaceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RouteTaxiBeforeTravelStepType = {
+  WAIT: "Wait",
+} as const;
+/**
+ * @public
+ */
+export type RouteTaxiBeforeTravelStepType =
+  (typeof RouteTaxiBeforeTravelStepType)[keyof typeof RouteTaxiBeforeTravelStepType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RouteTaxiNoticeCode = {
+  ACCURATE_POLYLINE_UNAVAILABLE: "AccuratePolylineUnavailable",
+  OTHER: "Other",
+} as const;
+/**
+ * @public
+ */
+export type RouteTaxiNoticeCode = (typeof RouteTaxiNoticeCode)[keyof typeof RouteTaxiNoticeCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const RouteTaxiTravelStepType = {
+  ARRIVE: "Arrive",
+  CONTINUE: "Continue",
+  DEPART: "Depart",
+  EXIT: "Exit",
+  KEEP: "Keep",
+  RAMP: "Ramp",
+  ROUNDABOUT_ENTER: "RoundaboutEnter",
+  ROUNDABOUT_EXIT: "RoundaboutExit",
+  ROUNDABOUT_PASS: "RoundaboutPass",
+  TURN: "Turn",
+  U_TURN: "UTurn",
+} as const;
+/**
+ * @public
+ */
+export type RouteTaxiTravelStepType = (typeof RouteTaxiTravelStepType)[keyof typeof RouteTaxiTravelStepType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RouteTransitAfterTravelStepType = {
+  DEBOARD: "Deboard",
+} as const;
+/**
+ * @public
+ */
+export type RouteTransitAfterTravelStepType =
+  (typeof RouteTransitAfterTravelStepType)[keyof typeof RouteTransitAfterTravelStepType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RouteTransitPlaceType = {
+  STATION: "Station",
+} as const;
+/**
+ * @public
+ */
+export type RouteTransitPlaceType = (typeof RouteTransitPlaceType)[keyof typeof RouteTransitPlaceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RouteTransitTripStatus = {
+  ADDED: "Added",
+  CANCELLED: "Cancelled",
+  REPLACED: "Replaced",
+  SCHEDULED: "Scheduled",
+} as const;
+/**
+ * @public
+ */
+export type RouteTransitTripStatus = (typeof RouteTransitTripStatus)[keyof typeof RouteTransitTripStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const RouteTransitBeforeTravelStepType = {
+  BOARD: "Board",
+} as const;
+/**
+ * @public
+ */
+export type RouteTransitBeforeTravelStepType =
+  (typeof RouteTransitBeforeTravelStepType)[keyof typeof RouteTransitBeforeTravelStepType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RouteTransitIncidentEffect = {
+  DELAYED: "Delayed",
+  DETOURED: "Detoured",
+  OTHER: "Other",
+  SERVICE_ADDED: "ServiceAdded",
+  SERVICE_CANCELLED: "ServiceCancelled",
+  SERVICE_MODIFIED: "ServiceModified",
+  SERVICE_REDUCED: "ServiceReduced",
+  STOP_MOVED: "StopMoved",
+} as const;
+/**
+ * @public
+ */
+export type RouteTransitIncidentEffect = (typeof RouteTransitIncidentEffect)[keyof typeof RouteTransitIncidentEffect];
+
+/**
+ * @public
+ * @enum
+ */
+export const RouteTransitIncidentType = {
+  ACCIDENT: "Accident",
+  CONSTRUCTION: "Construction",
+  DEMONSTRATION: "Demonstration",
+  HOLIDAY: "Holiday",
+  MAINTENANCE: "Maintenance",
+  MEDICAL_EMERGENCY: "MedicalEmergency",
+  OTHER: "Other",
+  POLICE_ACTIVITY: "PoliceActivity",
+  STRIKE: "Strike",
+  TECHNICAL_PROBLEM: "TechnicalProblem",
+  WEATHER: "Weather",
+} as const;
+/**
+ * @public
+ */
+export type RouteTransitIncidentType = (typeof RouteTransitIncidentType)[keyof typeof RouteTransitIncidentType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RouteTransitIntermediateStopAttribute = {
+  NO_ENTRY: "NoEntry",
+  NO_EXIT: "NoExit",
+} as const;
+/**
+ * @public
+ */
+export type RouteTransitIntermediateStopAttribute =
+  (typeof RouteTransitIntermediateStopAttribute)[keyof typeof RouteTransitIntermediateStopAttribute];
+
+/**
+ * @public
+ * @enum
+ */
+export const RouteTransitNoticeCode = {
+  ACCURATE_POLYLINE_UNAVAILABLE: "AccuratePolylineUnavailable",
+  INTERMEDIATE_STOPS_UNAVAILABLE: "IntermediateStopsUnavailable",
+  NO_SCHEDULE: "NoSchedule",
+  OTHER: "Other",
+  POTENTIAL_VIOLATED_VEHICLE_RESTRICTION_USAGE: "PotentialViolatedVehicleRestrictionUsage",
+  SCHEDULED_TIMES: "ScheduledTimes",
+  SEASONAL_CLOSURE: "SeasonalClosure",
+  VIOLATED_AVOID_AREAS: "ViolatedAvoidAreas",
+  VIOLATED_AVOID_FERRY: "ViolatedAvoidFerry",
+  VIOLATED_AVOID_RAIL_FERRY: "ViolatedAvoidRailFerry",
+  VIOLATED_EXCLUDED_TRANSIT_MODE: "ViolatedExcludedTransitMode",
+  VIOLATED_VEHICLE_RESTRICTION: "ViolatedVehicleRestriction",
+} as const;
+/**
+ * @public
+ */
+export type RouteTransitNoticeCode = (typeof RouteTransitNoticeCode)[keyof typeof RouteTransitNoticeCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const RouteTransitTravelStepType = {
+  DEPART: "Depart",
+} as const;
+/**
+ * @public
+ */
+export type RouteTransitTravelStepType = (typeof RouteTransitTravelStepType)[keyof typeof RouteTransitTravelStepType];
+
+/**
+ * @public
+ * @enum
+ */
 export const RouteLegTravelMode = {
+  AERIAL_TRAMWAY: "AerialTramway",
+  AIRPLANE: "Airplane",
+  BUS: "Bus",
+  BUS_RAPID_TRANSIT: "BusRapidTransit",
   CAR: "Car",
   CAR_SHUTTLE_TRAIN: "CarShuttleTrain",
+  CITY_TRAIN: "CityTrain",
   FERRY: "Ferry",
+  FUNICULAR_RAILWAY: "FunicularRailway",
+  HIGH_SPEED_TRAIN: "HighSpeedTrain",
+  INTERCITY_TRAIN: "IntercityTrain",
+  INTERREGIONAL_TRAIN: "InterregionalTrain",
+  LIGHT_RAIL: "LightRail",
+  MONORAIL: "Monorail",
   PEDESTRIAN: "Pedestrian",
+  PRIVATE_BUS: "PrivateBus",
+  REGIONAL_TRAIN: "RegionalTrain",
   SCOOTER: "Scooter",
+  SUBWAY: "Subway",
   TRUCK: "Truck",
 } as const;
 /**
@@ -705,12 +1172,43 @@ export type RouteLegTravelMode = (typeof RouteLegTravelMode)[keyof typeof RouteL
 export const RouteLegType = {
   FERRY: "Ferry",
   PEDESTRIAN: "Pedestrian",
+  RENTAL: "Rental",
+  TAXI: "Taxi",
+  TRANSIT: "Transit",
   VEHICLE: "Vehicle",
 } as const;
 /**
  * @public
  */
 export type RouteLegType = (typeof RouteLegType)[keyof typeof RouteLegType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RouteVehicleAfterTravelStepType = {
+  PARK: "Park",
+} as const;
+/**
+ * @public
+ */
+export type RouteVehicleAfterTravelStepType =
+  (typeof RouteVehicleAfterTravelStepType)[keyof typeof RouteVehicleAfterTravelStepType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RouteVehiclePlaceType = {
+  ACCESS_POINT: "AccessPoint",
+  DOCKING_STATION: "DockingStation",
+  PARKING_LOT: "ParkingLot",
+  STATION: "Station",
+} as const;
+/**
+ * @public
+ */
+export type RouteVehiclePlaceType = (typeof RouteVehiclePlaceType)[keyof typeof RouteVehiclePlaceType];
 
 /**
  * @public

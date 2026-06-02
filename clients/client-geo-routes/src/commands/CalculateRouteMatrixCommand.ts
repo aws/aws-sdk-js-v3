@@ -74,7 +74,7 @@ export interface CalculateRouteMatrixCommandOutput extends CalculateRouteMatrixR
  *     UTurns: true || false,
  *     ZoneCategories: [ // RouteMatrixAvoidanceZoneCategoryList
  *       { // RouteMatrixAvoidanceZoneCategory
- *         Category: "STRING_VALUE",
+ *         Category: "CongestionPricing" || "Environmental" || "Vignette",
  *       },
  *     ],
  *   },
@@ -89,13 +89,13 @@ export interface CalculateRouteMatrixCommandOutput extends CalculateRouteMatrixR
  *           NameHint: "STRING_VALUE",
  *           OnRoadThreshold: Number("long"),
  *           Radius: Number("long"),
- *           Strategy: "STRING_VALUE",
+ *           Strategy: "MatchAny" || "MatchMostSignificantRoad",
  *         },
  *         SideOfStreet: { // RouteMatrixSideOfStreetOptions
  *           Position: [ // required
  *             Number("double"),
  *           ],
- *           UseWith: "STRING_VALUE",
+ *           UseWith: "AnyStreet" || "DividedStreetOnly",
  *         },
  *       },
  *       Position: "<Position>", // required
@@ -107,7 +107,7 @@ export interface CalculateRouteMatrixCommandOutput extends CalculateRouteMatrixR
  *     ],
  *   },
  *   Key: "STRING_VALUE",
- *   OptimizeRoutingFor: "STRING_VALUE",
+ *   OptimizeRoutingFor: "FastestRoute" || "ShortestRoute",
  *   Origins: [ // RouteMatrixOriginList // required
  *     { // RouteMatrixOrigin
  *       Options: { // RouteMatrixOriginOptions
@@ -117,11 +117,11 @@ export interface CalculateRouteMatrixCommandOutput extends CalculateRouteMatrixR
  *           NameHint: "STRING_VALUE",
  *           OnRoadThreshold: Number("long"),
  *           Radius: Number("long"),
- *           Strategy: "STRING_VALUE",
+ *           Strategy: "MatchAny" || "MatchMostSignificantRoad",
  *         },
  *         SideOfStreet: {
  *           Position: "<Position>", // required
- *           UseWith: "STRING_VALUE",
+ *           UseWith: "AnyStreet" || "DividedStreetOnly",
  *         },
  *       },
  *       Position: "<Position>", // required
@@ -150,9 +150,9 @@ export interface CalculateRouteMatrixCommandOutput extends CalculateRouteMatrixR
  *   },
  *   Traffic: { // RouteMatrixTrafficOptions
  *     FlowEventThresholdOverride: Number("long"),
- *     Usage: "STRING_VALUE",
+ *     Usage: "IgnoreTrafficData" || "UseTrafficData",
  *   },
- *   TravelMode: "STRING_VALUE",
+ *   TravelMode: "Car" || "Pedestrian" || "Scooter" || "Truck",
  *   TravelModeOptions: { // RouteMatrixTravelModeOptions
  *     Car: { // RouteMatrixCarOptions
  *       LicensePlate: { // RouteMatrixVehicleLicensePlate
@@ -172,7 +172,7 @@ export interface CalculateRouteMatrixCommandOutput extends CalculateRouteMatrixR
  *       AxleCount: Number("int"),
  *       GrossWeight: Number("long"),
  *       HazardousCargos: [ // RouteMatrixHazardousCargoTypeList
- *         "STRING_VALUE",
+ *         "Combustible" || "Corrosive" || "Explosive" || "Flammable" || "Gas" || "HarmfulToWater" || "Organic" || "Other" || "Poison" || "PoisonousInhalation" || "Radioactive",
  *       ],
  *       Height: Number("long"),
  *       KpraLength: Number("long"),
@@ -186,7 +186,7 @@ export interface CalculateRouteMatrixCommandOutput extends CalculateRouteMatrixR
  *       Trailer: { // RouteMatrixTrailerOptions
  *         TrailerCount: Number("int"),
  *       },
- *       TruckType: "STRING_VALUE",
+ *       TruckType: "LightTruck" || "StraightTruck" || "Tractor",
  *       TunnelRestrictionCode: "STRING_VALUE",
  *       WeightPerAxle: Number("long"),
  *       WeightPerAxleGroup: { // WeightPerAxleGroup
@@ -210,7 +210,7 @@ export interface CalculateRouteMatrixCommandOutput extends CalculateRouteMatrixR
  * //       { // RouteMatrixEntry
  * //         Distance: Number("long"), // required
  * //         Duration: Number("long"), // required
- * //         Error: "STRING_VALUE",
+ * //         Error: "NoMatch" || "NoMatchDestination" || "NoMatchOrigin" || "NoRoute" || "OutOfBounds" || "OutOfBoundsDestination" || "OutOfBoundsOrigin" || "Other" || "Violation",
  * //       },
  * //     ],
  * //   ],

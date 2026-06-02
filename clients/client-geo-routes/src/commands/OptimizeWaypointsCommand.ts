@@ -84,7 +84,7 @@ export interface OptimizeWaypointsCommandOutput extends OptimizeWaypointsRespons
  *       Position: [ // required
  *         Number("double"),
  *       ],
- *       UseWith: "STRING_VALUE",
+ *       UseWith: "AnyStreet" || "DividedStreetOnly",
  *     },
  *   },
  *   Driver: { // WaypointOptimizationDriverOptions
@@ -101,7 +101,7 @@ export interface OptimizeWaypointsCommandOutput extends OptimizeWaypointsRespons
  *     RestProfile: { // WaypointOptimizationRestProfile
  *       Profile: "STRING_VALUE", // required
  *     },
- *     TreatServiceTimeAs: "STRING_VALUE",
+ *     TreatServiceTimeAs: "Rest" || "Work",
  *   },
  *   Exclude: { // WaypointOptimizationExclusionOptions
  *     Countries: [ // CountryCodeList // required
@@ -109,7 +109,7 @@ export interface OptimizeWaypointsCommandOutput extends OptimizeWaypointsRespons
  *     ],
  *   },
  *   Key: "STRING_VALUE",
- *   OptimizeSequencingFor: "STRING_VALUE",
+ *   OptimizeSequencingFor: "FastestRoute" || "ShortestRoute",
  *   Origin: [ // required
  *     Number("double"),
  *   ],
@@ -117,9 +117,9 @@ export interface OptimizeWaypointsCommandOutput extends OptimizeWaypointsRespons
  *     Id: "STRING_VALUE",
  *   },
  *   Traffic: { // WaypointOptimizationTrafficOptions
- *     Usage: "STRING_VALUE",
+ *     Usage: "IgnoreTrafficData" || "UseTrafficData",
  *   },
- *   TravelMode: "STRING_VALUE",
+ *   TravelMode: "Car" || "Pedestrian" || "Scooter" || "Truck",
  *   TravelModeOptions: { // WaypointOptimizationTravelModeOptions
  *     Pedestrian: { // WaypointOptimizationPedestrianOptions
  *       Speed: Number("double"),
@@ -127,14 +127,14 @@ export interface OptimizeWaypointsCommandOutput extends OptimizeWaypointsRespons
  *     Truck: { // WaypointOptimizationTruckOptions
  *       GrossWeight: Number("long"),
  *       HazardousCargos: [ // WaypointOptimizationHazardousCargoTypeList
- *         "STRING_VALUE",
+ *         "Combustible" || "Corrosive" || "Explosive" || "Flammable" || "Gas" || "HarmfulToWater" || "Organic" || "Other" || "Poison" || "PoisonousInhalation" || "Radioactive",
  *       ],
  *       Height: Number("long"),
  *       Length: Number("long"),
  *       Trailer: { // WaypointOptimizationTrailerOptions
  *         TrailerCount: Number("int"),
  *       },
- *       TruckType: "STRING_VALUE",
+ *       TruckType: "StraightTruck" || "Tractor",
  *       TunnelRestrictionCode: "STRING_VALUE",
  *       WeightPerAxle: Number("long"),
  *       Width: Number("long"),
@@ -164,7 +164,7 @@ export interface OptimizeWaypointsCommandOutput extends OptimizeWaypointsRespons
  *       ServiceDuration: Number("long"),
  *       SideOfStreet: {
  *         Position: "<Position>", // required
- *         UseWith: "STRING_VALUE",
+ *         UseWith: "AnyStreet" || "DividedStreetOnly",
  *       },
  *     },
  *   ],
@@ -188,7 +188,7 @@ export interface OptimizeWaypointsCommandOutput extends OptimizeWaypointsRespons
  * //     { // WaypointOptimizationImpedingWaypoint
  * //       FailedConstraints: [ // WaypointOptimizationFailedConstraintList // required
  * //         { // WaypointOptimizationFailedConstraint
- * //           Constraint: "STRING_VALUE",
+ * //           Constraint: "AccessHours" || "AppointmentTime" || "Before" || "Heading" || "ServiceDuration" || "SideOfStreet",
  * //           Reason: "STRING_VALUE",
  * //         },
  * //       ],

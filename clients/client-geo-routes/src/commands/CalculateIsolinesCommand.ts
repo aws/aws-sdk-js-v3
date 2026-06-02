@@ -117,7 +117,7 @@ export interface CalculateIsolinesCommandOutput extends CalculateIsolinesRespons
  *     UTurns: true || false,
  *     ZoneCategories: [ // IsolineAvoidanceZoneCategoryList
  *       { // IsolineAvoidanceZoneCategory
- *         Category: "STRING_VALUE",
+ *         Category: "CongestionPricing" || "Environmental" || "Vignette",
  *       },
  *     ],
  *   },
@@ -131,11 +131,11 @@ export interface CalculateIsolinesCommandOutput extends CalculateIsolinesRespons
  *       NameHint: "STRING_VALUE",
  *       OnRoadThreshold: Number("long"),
  *       Radius: Number("long"),
- *       Strategy: "STRING_VALUE",
+ *       Strategy: "MatchAny" || "MatchMostSignificantRoad",
  *     },
  *     SideOfStreet: { // IsolineSideOfStreetOptions
  *       Position: "<Position>", // required
- *       UseWith: "STRING_VALUE",
+ *       UseWith: "AnyStreet" || "DividedStreetOnly",
  *     },
  *   },
  *   IsolineGeometryFormat: "FlexiblePolyline" || "Simple",
@@ -144,8 +144,8 @@ export interface CalculateIsolinesCommandOutput extends CalculateIsolinesRespons
  *     MaxResolution: Number("long"),
  *   },
  *   Key: "STRING_VALUE",
- *   OptimizeIsolineFor: "STRING_VALUE",
- *   OptimizeRoutingFor: "STRING_VALUE",
+ *   OptimizeIsolineFor: "AccurateCalculation" || "BalancedCalculation" || "FastCalculation",
+ *   OptimizeRoutingFor: "FastestRoute" || "ShortestRoute",
  *   Origin: "<Position>",
  *   OriginOptions: { // IsolineOriginOptions
  *     AvoidActionsForDistance: Number("long"),
@@ -154,11 +154,11 @@ export interface CalculateIsolinesCommandOutput extends CalculateIsolinesRespons
  *       NameHint: "STRING_VALUE",
  *       OnRoadThreshold: Number("long"),
  *       Radius: Number("long"),
- *       Strategy: "STRING_VALUE",
+ *       Strategy: "MatchAny" || "MatchMostSignificantRoad",
  *     },
  *     SideOfStreet: {
  *       Position: "<Position>", // required
- *       UseWith: "STRING_VALUE",
+ *       UseWith: "AnyStreet" || "DividedStreetOnly",
  *     },
  *   },
  *   Thresholds: { // IsolineThresholds
@@ -171,12 +171,12 @@ export interface CalculateIsolinesCommandOutput extends CalculateIsolinesRespons
  *   },
  *   Traffic: { // IsolineTrafficOptions
  *     FlowEventThresholdOverride: Number("long"),
- *     Usage: "STRING_VALUE",
+ *     Usage: "IgnoreTrafficData" || "UseTrafficData",
  *   },
- *   TravelMode: "STRING_VALUE",
+ *   TravelMode: "Car" || "Pedestrian" || "Scooter" || "Truck",
  *   TravelModeOptions: { // IsolineTravelModeOptions
  *     Car: { // IsolineCarOptions
- *       EngineType: "STRING_VALUE",
+ *       EngineType: "Electric" || "InternalCombustion" || "PluginHybrid",
  *       LicensePlate: { // IsolineVehicleLicensePlate
  *         LastCharacter: "STRING_VALUE",
  *       },
@@ -184,7 +184,7 @@ export interface CalculateIsolinesCommandOutput extends CalculateIsolinesRespons
  *       Occupancy: Number("int"),
  *     },
  *     Scooter: { // IsolineScooterOptions
- *       EngineType: "STRING_VALUE",
+ *       EngineType: "Electric" || "InternalCombustion" || "PluginHybrid",
  *       LicensePlate: {
  *         LastCharacter: "STRING_VALUE",
  *       },
@@ -193,10 +193,10 @@ export interface CalculateIsolinesCommandOutput extends CalculateIsolinesRespons
  *     },
  *     Truck: { // IsolineTruckOptions
  *       AxleCount: Number("int"),
- *       EngineType: "STRING_VALUE",
+ *       EngineType: "Electric" || "InternalCombustion" || "PluginHybrid",
  *       GrossWeight: Number("long"),
  *       HazardousCargos: [ // IsolineHazardousCargoTypeList
- *         "STRING_VALUE",
+ *         "Combustible" || "Corrosive" || "Explosive" || "Flammable" || "Gas" || "HarmfulToWater" || "Organic" || "Other" || "Poison" || "PoisonousInhalation" || "Radioactive",
  *       ],
  *       Height: Number("long"),
  *       HeightAboveFirstAxle: Number("long"),
@@ -213,7 +213,7 @@ export interface CalculateIsolinesCommandOutput extends CalculateIsolinesRespons
  *         AxleCount: Number("int"),
  *         TrailerCount: Number("int"),
  *       },
- *       TruckType: "STRING_VALUE",
+ *       TruckType: "LightTruck" || "StraightTruck" || "Tractor",
  *       TunnelRestrictionCode: "STRING_VALUE",
  *       WeightPerAxle: Number("long"),
  *       WeightPerAxleGroup: { // WeightPerAxleGroup

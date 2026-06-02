@@ -13,6 +13,9 @@ import type {
   RoadSnapHazardousCargoType,
   RoadSnapNoticeCode,
   RoadSnapTravelMode,
+  RouteAccessibilityAttribute,
+  RouteAccessibilityAvailability,
+  RouteAttributionType,
   RouteDirection,
   RouteEngineType,
   RouteFerryAfterTravelStepType,
@@ -20,6 +23,7 @@ import type {
   RouteFerryNoticeCode,
   RouteFerryTravelStepType,
   RouteHazardousCargoType,
+  RouteIntermodalEnabledLegs,
   RouteLegAdditionalFeature,
   RouteLegTravelMode,
   RouteLegType,
@@ -29,8 +33,15 @@ import type {
   RouteMatrixTruckType,
   RouteMatrixZoneCategory,
   RouteNoticeImpact,
+  RoutePedestrianAfterTravelStepType,
   RoutePedestrianNoticeCode,
+  RoutePedestrianPlaceType,
   RoutePedestrianTravelStepType,
+  RouteRentalAfterTravelStepType,
+  RouteRentalBeforeTravelStepType,
+  RouteRentalMode,
+  RouteRentalPlaceType,
+  RouteRentalTravelStepType,
   RouteResponseNoticeCode,
   RouteRoadType,
   RouteSideOfStreet,
@@ -43,17 +54,37 @@ import type {
   RouteSpanScooterAccessAttribute,
   RouteSpanTruckAccessAttribute,
   RouteSteeringDirection,
+  RouteTaxiAfterTravelStepType,
+  RouteTaxiBeforeTravelStepType,
+  RouteTaxiMode,
+  RouteTaxiNoticeCode,
+  RouteTaxiPlaceType,
+  RouteTaxiTravelStepType,
   RouteTollPassValidityPeriodType,
   RouteTollPaymentMethod,
   RouteTollVehicleCategory,
+  RouteTransitAfterTravelStepType,
+  RouteTransitBeforeTravelStepType,
+  RouteTransitIncidentEffect,
+  RouteTransitIncidentType,
+  RouteTransitIntermediateStopAttribute,
+  RouteTransitMode,
+  RouteTransitNoticeCode,
+  RouteTransitPlaceType,
+  RouteTransitTravelStepType,
+  RouteTransitTripStatus,
   RouteTravelMode,
   RouteTravelStepType,
   RouteTruckType,
   RouteTurnIntensity,
+  RouteVehicleAfterTravelStepType,
   RouteVehicleIncidentSeverity,
   RouteVehicleIncidentType,
+  RouteVehicleMode,
   RouteVehicleNoticeCode,
+  RouteVehiclePlaceType,
   RouteVehicleTravelStepType,
+  RouteWebLinkDeviceType,
   RouteWeightConstraintType,
   RouteZoneCategory,
   RoutingObjective,
@@ -1261,25 +1292,25 @@ export interface RouteMatrixOrigin {
 }
 
 /**
- * <p>Provides the circle that was used while calculating the route.</p>
+ * <p> <code>AutoCircle</code> requests the route matrix service to define a <code>Circle</code> boundary that best attempts to include most waypoints (<code>Origins</code> and <code>Destinations</code>) using the <code>AutoCircle</code> settings. Any waypoints outside of the auto-defined <code>Circle</code> boundary will be considered out of the routing boundary, which results in a route matrix entry error.</p> <p> <code>AutoCircle</code> is only used in the request to configure a <code>Circle</code> for the route calculation. The derived <code>Circle</code> will also be provided in the response.</p>
  * @public
  */
 export interface RouteMatrixAutoCircle {
   /**
-   * <p>The margin provided for the calculation.</p>
+   * <p>The minimal distance, in meters, between any waypoint and the perimeter of the circle auto-defined for the boundary. Some margin is usually recommended so that the routing has enough leeway to travel from one waypoint to another optimally without conflicting with the routing boundary.</p> <p>The total of <code>MaxRadius</code> and <code>Margin</code> must be less than or equal to 200,000 meters.</p>
    * @public
    */
   Margin?: number | undefined;
 
   /**
-   * <p>The maximum size of the radius provided for the calculation.</p>
+   * <p>The maximum radius, in meters, that the auto-defined <code>Circle</code> boundary should have, before the <code>Margin</code> distance is added to the circle.</p> <p>The total of <code>MaxRadius</code> and <code>Margin</code> must be less than or equal to 200,000 meters.</p>
    * @public
    */
   MaxRadius?: number | undefined;
 }
 
 /**
- * <p>Geometry defined as a circle. When request routing boundary was set as <code>AutoCircle</code>, the response routing boundary will return <code>Circle</code> derived from the <code>AutoCircle</code> settings.</p>
+ * <p>Geometry defined as a circle. The circle defines the routing boundary area. Any waypoints outside the circle will result in a route matrix entry error.</p> <p>You can specify a <code>Circle</code> directly in the request, or it will be auto-derived when <code>AutoCircle</code> is used. When <code>AutoCircle</code> is set in the request, the response routing boundary will return <code>Circle</code> derived from the <code>AutoCircle</code> settings.</p>
  * @public
  */
 export interface Circle {
@@ -1290,7 +1321,7 @@ export interface Circle {
   Center: number[] | undefined;
 
   /**
-   * <p>Radius of the Circle.</p> <p> <b>Unit</b>: <code>meters</code> </p>
+   * <p>Radius of the Circle.</p> <p> <b>Unit</b>: <code>meters</code> </p> <p>Valid Range: Minimum value of 0. Maximum value of 200000.</p>
    * @public
    */
   Radius: number | undefined;
@@ -1302,25 +1333,25 @@ export interface Circle {
  */
 export interface RouteMatrixBoundaryGeometry {
   /**
-   * <p>Provides the circle that was used while calculating the route.</p>
+   * <p> <code>AutoCircle</code> requests the route matrix service to define a <code>Circle</code> boundary that best attempts to include most waypoints (<code>Origins</code> and <code>Destinations</code>) using the <code>AutoCircle</code> settings. Any waypoints outside of the auto-defined <code>Circle</code> boundary will be considered out of the routing boundary, which results in a route matrix entry error.</p> <p> <code>AutoCircle</code> is only used in the request to configure a <code>Circle</code> for the route calculation. The derived <code>Circle</code> will also be provided in the response.</p>
    * @public
    */
   AutoCircle?: RouteMatrixAutoCircle | undefined;
 
   /**
-   * <p>Geometry defined as a circle. When request routing boundary was set as <code>AutoCircle</code>, the response routing boundary will return <code>Circle</code> derived from the <code>AutoCircle</code> settings.</p>
+   * <p>Geometry defined as a circle. The circle defines the routing boundary area. Any waypoints outside the circle will result in a route matrix entry error.</p> <p>You can specify a <code>Circle</code> directly in the request, or it will be auto-derived when <code>AutoCircle</code> is used. When <code>AutoCircle</code> is set in the request, the response routing boundary will return <code>Circle</code> derived from the <code>AutoCircle</code> settings.</p>
    * @public
    */
   Circle?: Circle | undefined;
 
   /**
-   * <p>Geometry defined as a bounding box. The first pair represents the X and Y coordinates (longitude and latitude,) of the southwest corner of the bounding box; the second pair represents the X and Y coordinates (longitude and latitude) of the northeast corner.</p>
+   * <p>Geometry defined as a bounding box. The first pair represents the X and Y coordinates (longitude and latitude,) of the southwest corner of the bounding box; the second pair represents the X and Y coordinates (longitude and latitude) of the northeast corner.</p> <p>Diagonal distance of the bounding box must be less than or equal to 400,000 meters.</p>
    * @public
    */
   BoundingBox?: number[] | undefined;
 
   /**
-   * <p>Geometry defined as a polygon with only one linear ring.</p>
+   * <p>Geometry defined as a polygon with only one linear ring. A linear ring is a closed sequence of four or more coordinates. The first and last coordinates are the same, forming a closed boundary. Each coordinate is a position in [longitude, latitude] format.</p> <p>The structure is an array of linear rings (only 1 allowed). Each linear ring is an array of coordinates (minimum 4), and each coordinate is an array of two doubles [longitude, latitude].</p> <p>Maximum distance between any two vertices must be less than or equal to 400,000 meters.</p>
    * @public
    */
   Polygon?: number[][][] | undefined;
@@ -1589,7 +1620,7 @@ export interface CalculateRouteMatrixRequest {
   DepartureTime?: string | undefined;
 
   /**
-   * <p>List of destinations for the route.</p> <note> <p>Route calculations are billed for each origin and destination pair. If you use a large matrix of origins and destinations, your costs will increase accordingly. For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/routes-pricing.html">Routes pricing</a> in the <i>Amazon Location Service Developer Guide</i>.</p> </note>
+   * <p>List of destinations for the route in World Geodetic System (WGS 84) format: [longitude, latitude].</p> <note> <p>Route calculations are billed for each origin and destination pair. If you use a large matrix of origins and destinations, your costs will increase accordingly. For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/routes-pricing.html">Routes pricing</a> in the <i>Amazon Location Service Developer Guide</i>.</p> </note> <p>The maximum number of destinations depends on the routing boundary configuration:</p> <ul> <li> <p>With <code>RoutingBoundary.Geometry</code> set: maximum 500 destinations</p> </li> <li> <p>With <code>RoutingBoundary.Unbounded</code> set to <code>true</code>: maximum 100 destinations</p> </li> <li> <p>For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers in <code>ap-southeast-1</code> and <code>ap-southeast-5</code>: maximum 350 destinations</p> </li> </ul> <p>The total matrix size (origins × destinations) must not exceed:</p> <ul> <li> <p>With <code>RoutingBoundary.Geometry</code>: 160,000</p> </li> <li> <p>With <code>RoutingBoundary.Unbounded</code>: 100</p> </li> <li> <p>For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers in <code>ap-southeast-1</code> and <code>ap-southeast-5</code>: 122,500</p> </li> </ul>
    * @public
    */
   Destinations: RouteMatrixDestination[] | undefined;
@@ -1613,13 +1644,13 @@ export interface CalculateRouteMatrixRequest {
   OptimizeRoutingFor?: RoutingObjective | undefined;
 
   /**
-   * <p>The position for the origin in World Geodetic System (WGS 84) format: [longitude, latitude].</p> <note> <p>Route calculations are billed for each origin and destination pair. Using a large amount of Origins in a request can lead you to incur unexpected charges. For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/routes-pricing.html">Routes pricing</a> in the <i>Amazon Location Service Developer Guide</i>.</p> </note>
+   * <p>List of origins for the route in World Geodetic System (WGS 84) format: [longitude, latitude].</p> <note> <p>Route calculations are billed for each origin and destination pair. Using a large amount of Origins in a request can lead you to incur unexpected charges. For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/routes-pricing.html">Routes pricing</a> in the <i>Amazon Location Service Developer Guide</i>.</p> </note> <p>The maximum number of origins depends on the routing boundary configuration:</p> <ul> <li> <p>With <code>RoutingBoundary.Geometry</code> set: maximum 500 origins</p> </li> <li> <p>With <code>RoutingBoundary.Unbounded</code> set to <code>true</code>: maximum 15 origins</p> </li> <li> <p>For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers in <code>ap-southeast-1</code> and <code>ap-southeast-5</code>: maximum 350 origins</p> </li> </ul> <p>The total matrix size (origins × destinations) must not exceed:</p> <ul> <li> <p>With <code>RoutingBoundary.Geometry</code>: 160,000</p> </li> <li> <p>With <code>RoutingBoundary.Unbounded</code>: 100</p> </li> <li> <p>For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers in <code>ap-southeast-1</code> and <code>ap-southeast-5</code>: 122,500</p> </li> </ul>
    * @public
    */
   Origins: RouteMatrixOrigin[] | undefined;
 
   /**
-   * <p> Boundary within which the matrix is to be calculated. All data, origins and destinations outside the boundary are considered invalid. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers, <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only <code>Unbounded</code> set to <code>true</code>. </p> <p>Default value: <code>Unbounded set to true</code> </p> <note> <p>When request routing boundary was set as AutoCircle, the response routing boundary will return Circle derived from the AutoCircle settings.</p> </note>
+   * <p> Boundary within which the matrix is to be calculated. All data, origins and destinations outside the boundary are considered invalid. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers, <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only <code>Unbounded</code> set to <code>true</code>. </p> <p>Default value: <code>Unbounded set to true</code> </p> <note> <p>When <code>AutoCircle</code> is set in the request, the response routing boundary will return <code>Circle</code> derived from the <code>AutoCircle</code> settings.</p> </note>
    * @public
    */
   RoutingBoundary?: RouteMatrixBoundary | undefined;
@@ -1690,7 +1721,7 @@ export interface CalculateRouteMatrixResponse {
   RouteMatrix: RouteMatrixEntry[][] | undefined;
 
   /**
-   * <p>Boundary within which the matrix is to be calculated. All data, origins and destinations outside the boundary are considered invalid.</p> <note> <p>When request routing boundary was set as AutoCircle, the response routing boundary will return Circle derived from the AutoCircle settings.</p> </note>
+   * <p>Boundary within which the matrix is to be calculated. All data, origins and destinations outside the boundary are considered invalid.</p> <note> <p>When <code>AutoCircle</code> is set in the request, the response routing boundary will return <code>Circle</code> derived from the <code>AutoCircle</code> settings.</p> </note>
    * @public
    */
   RoutingBoundary: RouteMatrixBoundary | undefined;
@@ -2141,6 +2172,168 @@ export interface RouteCarOptions {
 }
 
 /**
+ * <p>Options for the pedestrian leg of the intermodal route.</p>
+ * @public
+ */
+export interface RouteIntermodalPedestrianOptions {
+  /**
+   * <p>Maximum walking distance allowed.</p> <p> <b>Unit</b>: <code>meters</code> </p>
+   * @public
+   */
+  MaxDistance?: number | undefined;
+
+  /**
+   * <p>Walking speed.</p> <p> <b>Unit</b>: <code>kilometers per hour</code> </p>
+   * @public
+   */
+  Speed?: number | undefined;
+}
+
+/**
+ * <p>Options for the rental leg of the intermodal route.</p>
+ * @public
+ */
+export interface RouteIntermodalRentalOptions {
+  /**
+   * <p>Allowed rental transport modes when calculating the route. By default, all transport modes are allowed. Cannot be used together with <code>ExcludedModes</code>.</p>
+   * @public
+   */
+  AllowedModes?: RouteRentalMode[] | undefined;
+
+  /**
+   * <p>Specifies the portion of the route for which this leg type is enabled. By default, the leg type is enabled for all legs. Valid values:</p> <ul> <li> <p> <code>FirstLeg</code> - Enable this leg type for the first non-pedestrian leg of the route.</p> </li> <li> <p> <code>LastLeg</code> - Enable this leg type for the last non-pedestrian leg of the route.</p> </li> <li> <p> <code>EntireRoute</code> - Enable this leg type for the entire route.</p> </li> <li> <p> <code>None</code> - Disable this leg type entirely.</p> </li> </ul>
+   * @public
+   */
+  EnabledFor?: RouteIntermodalEnabledLegs[] | undefined;
+
+  /**
+   * <p>Excluded rental transport modes when calculating the route. By default, all transport modes are allowed. Cannot be used together with <code>AllowedModes</code>.</p>
+   * @public
+   */
+  ExcludedModes?: RouteRentalMode[] | undefined;
+}
+
+/**
+ * <p>Options for the taxi leg of the intermodal route.</p>
+ * @public
+ */
+export interface RouteIntermodalTaxiOptions {
+  /**
+   * <p>Allowed taxi transport modes when calculating the route. By default, all transport modes are allowed. Cannot be used together with <code>ExcludedModes</code>.</p>
+   * @public
+   */
+  AllowedModes?: RouteTaxiMode[] | undefined;
+
+  /**
+   * <p>Specifies the portion of the route for which this leg type is enabled. By default, the leg type is enabled for all legs. Valid values:</p> <ul> <li> <p> <code>FirstLeg</code> - Enable this leg type for the first non-pedestrian leg of the route.</p> </li> <li> <p> <code>LastLeg</code> - Enable this leg type for the last non-pedestrian leg of the route.</p> </li> <li> <p> <code>EntireRoute</code> - Enable this leg type for the entire route.</p> </li> <li> <p> <code>None</code> - Disable this leg type entirely.</p> </li> </ul>
+   * @public
+   */
+  EnabledFor?: RouteIntermodalEnabledLegs[] | undefined;
+
+  /**
+   * <p>Excluded taxi transport modes when calculating the route. By default, all transport modes are allowed. Cannot be used together with <code>AllowedModes</code>.</p>
+   * @public
+   */
+  ExcludedModes?: RouteTaxiMode[] | undefined;
+}
+
+/**
+ * <p>Options for the transit leg of the intermodal route.</p>
+ * @public
+ */
+export interface RouteIntermodalTransitOptions {
+  /**
+   * <p>Allowed transit transport modes when calculating the route. By default, all transport modes are allowed. Cannot be used together with <code>ExcludedModes</code>.</p>
+   * @public
+   */
+  AllowedModes?: RouteTransitMode[] | undefined;
+
+  /**
+   * <p>Specifies the portion of the route for which this leg type is enabled. By default, the leg type is enabled for all legs. Valid values:</p> <ul> <li> <p> <code>FirstLeg</code> - Enable this leg type for the first non-pedestrian leg of the route.</p> </li> <li> <p> <code>LastLeg</code> - Enable this leg type for the last non-pedestrian leg of the route.</p> </li> <li> <p> <code>EntireRoute</code> - Enable this leg type for the entire route.</p> </li> <li> <p> <code>None</code> - Disable this leg type entirely.</p> </li> </ul>
+   * @public
+   */
+  EnabledFor?: RouteIntermodalEnabledLegs[] | undefined;
+
+  /**
+   * <p>Excluded transit transport modes when calculating the route. By default, all transport modes are allowed. Cannot be used together with <code>AllowedModes</code>.</p>
+   * @public
+   */
+  ExcludedModes?: RouteTransitMode[] | undefined;
+}
+
+/**
+ * <p>Options for the vehicle leg of the intermodal route.</p>
+ * @public
+ */
+export interface RouteIntermodalVehicleOptions {
+  /**
+   * <p>Allowed vehicle transport modes when calculating the route. By default, all transport modes are allowed. Cannot be used together with <code>ExcludedModes</code>.</p>
+   * @public
+   */
+  AllowedModes?: RouteVehicleMode[] | undefined;
+
+  /**
+   * <p>Specifies the portion of the route for which this leg type is enabled. By default, the leg type is enabled for all legs. Valid values:</p> <ul> <li> <p> <code>FirstLeg</code> - Enable this leg type for the first non-pedestrian leg of the route.</p> </li> <li> <p> <code>LastLeg</code> - Enable this leg type for the last non-pedestrian leg of the route.</p> </li> <li> <p> <code>EntireRoute</code> - Enable this leg type for the entire route.</p> </li> <li> <p> <code>None</code> - Disable this leg type entirely.</p> </li> </ul>
+   * @public
+   */
+  EnabledFor?: RouteIntermodalEnabledLegs[] | undefined;
+
+  /**
+   * <p>Excluded vehicle transport modes when calculating the route. By default, all transport modes are allowed. Cannot be used together with <code>AllowedModes</code>.</p>
+   * @public
+   */
+  ExcludedModes?: RouteVehicleMode[] | undefined;
+}
+
+/**
+ * <p>Options related to intermodal routing.</p> <note> <p>Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers.</p> </note>
+ * @public
+ */
+export interface RouteIntermodalOptions {
+  /**
+   * <p>Accessibility attributes to consider when calculating the route.</p>
+   * @public
+   */
+  AccessibilityAttributes?: RouteAccessibilityAttribute[] | undefined;
+
+  /**
+   * <p>Maximum number of transfers allowed when calculating the route.</p>
+   * @public
+   */
+  MaxTransfers?: number | undefined;
+
+  /**
+   * <p>Options for the pedestrian leg of the intermodal route.</p>
+   * @public
+   */
+  Pedestrian?: RouteIntermodalPedestrianOptions | undefined;
+
+  /**
+   * <p>Options for the rental leg of the intermodal route.</p>
+   * @public
+   */
+  Rental?: RouteIntermodalRentalOptions | undefined;
+
+  /**
+   * <p>Options for the taxi leg of the intermodal route.</p>
+   * @public
+   */
+  Taxi?: RouteIntermodalTaxiOptions | undefined;
+
+  /**
+   * <p>Options for the transit leg of the intermodal route.</p>
+   * @public
+   */
+  Transit?: RouteIntermodalTransitOptions | undefined;
+
+  /**
+   * <p>Options for the vehicle leg of the intermodal route.</p>
+   * @public
+   */
+  Vehicle?: RouteIntermodalVehicleOptions | undefined;
+}
+
+/**
  * <p> Options related to the pedestrian. Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
  * @public
  */
@@ -2180,6 +2373,60 @@ export interface RouteScooterOptions {
    * @public
    */
   Occupancy?: number | undefined;
+}
+
+/**
+ * <p>Options for the pedestrian leg of the transit route.</p>
+ * @public
+ */
+export interface RouteTransitPedestrianOptions {
+  /**
+   * <p>Maximum walking distance allowed.</p> <p> <b>Unit</b>: <code>meters</code> </p>
+   * @public
+   */
+  MaxDistance?: number | undefined;
+
+  /**
+   * <p>Walking speed.</p> <p> <b>Unit</b>: <code>kilometers per hour</code> </p>
+   * @public
+   */
+  Speed?: number | undefined;
+}
+
+/**
+ * <p>Options related to transit routing.</p> <note> <p>Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers.</p> </note>
+ * @public
+ */
+export interface RouteTransitOptions {
+  /**
+   * <p>Accessibility attributes to consider when calculating the route.</p>
+   * @public
+   */
+  AccessibilityAttributes?: RouteAccessibilityAttribute[] | undefined;
+
+  /**
+   * <p>Allowed transit transport modes when calculating the route. By default, all transport modes are allowed. Cannot be used together with <code>ExcludedModes</code>.</p>
+   * @public
+   */
+  AllowedModes?: RouteTransitMode[] | undefined;
+
+  /**
+   * <p>Excluded transit transport modes when calculating the route. By default, all transport modes are allowed. Cannot be used together with <code>AllowedModes</code>.</p>
+   * @public
+   */
+  ExcludedModes?: RouteTransitMode[] | undefined;
+
+  /**
+   * <p>Maximum number of transfers allowed when calculating the route.</p>
+   * @public
+   */
+  MaxTransfers?: number | undefined;
+
+  /**
+   * <p>Options for the pedestrian leg of the transit route.</p>
+   * @public
+   */
+  Pedestrian?: RouteTransitPedestrianOptions | undefined;
 }
 
 /**
@@ -2348,6 +2595,18 @@ export interface RouteTravelModeOptions {
    * @public
    */
   Truck?: RouteTruckOptions | undefined;
+
+  /**
+   * <p>Travel mode options when the provided travel mode is <code>Intermodal</code>.</p> <note> <p>Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers.</p> </note>
+   * @public
+   */
+  Intermodal?: RouteIntermodalOptions | undefined;
+
+  /**
+   * <p>Travel mode options when the provided travel mode is <code>Transit</code>.</p> <note> <p>Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers.</p> </note>
+   * @public
+   */
+  Transit?: RouteTransitOptions | undefined;
 }
 
 /**
@@ -2637,13 +2896,13 @@ export interface RouteFerryPlace {
  */
 export interface RouteFerryArrival {
   /**
-   * <p>The place details.</p>
+   * <p>Place details corresponding to the arrival.</p>
    * @public
    */
   Place: RouteFerryPlace | undefined;
 
   /**
-   * <p>The time.</p>
+   * <p>The arrival time.</p>
    * @public
    */
   Time?: string | undefined;
@@ -2679,13 +2938,13 @@ export interface RouteFerryBeforeTravelStep {
  */
 export interface RouteFerryDeparture {
   /**
-   * <p>The place details.</p>
+   * <p>Place details corresponding to the departure.</p>
    * @public
    */
   Place: RouteFerryPlace | undefined;
 
   /**
-   * <p>The time.</p>
+   * <p>The departure time.</p>
    * @public
    */
   Time?: string | undefined;
@@ -2745,7 +3004,7 @@ export interface RoutePassThroughWaypoint {
   GeometryOffset?: number | undefined;
 
   /**
-   * <p>The place details.</p>
+   * <p>Place details corresponding to the pass-through waypoint.</p>
    * @public
    */
   Place: RoutePassThroughPlace | undefined;
@@ -2799,7 +3058,7 @@ export interface RouteFerrySpan {
   GeometryOffset?: number | undefined;
 
   /**
-   * <p>Provides an array of names of the ferry span in available languages.</p>
+   * <p>Names of the ferry span in available languages.</p>
    * @public
    */
   Names?: LocalizedString[] | undefined;
@@ -2812,18 +3071,18 @@ export interface RouteFerrySpan {
 }
 
 /**
- * <p>Summarized details of the leg.</p>
+ * <p>Summary including duration and distance for the entire leg.</p>
  * @public
  */
 export interface RouteFerryOverviewSummary {
   /**
-   * <p>Distance of the step.</p>
+   * <p>Distance of the entire leg.</p> <p> <b>Unit</b>: <code>meters</code> </p>
    * @public
    */
   Distance: number | undefined;
 
   /**
-   * <p>Duration of the step.</p> <p> <b>Unit</b>: <code>seconds</code> </p>
+   * <p>Duration of the entire leg.</p> <p> <b>Unit</b>: <code>seconds</code> </p>
    * @public
    */
   Duration: number | undefined;
@@ -2980,10 +3239,88 @@ export interface RouteLegGeometry {
 }
 
 /**
+ * <p>Steps of a leg that must be performed after the travel portion of the leg.</p>
+ * @public
+ */
+export interface RoutePedestrianAfterTravelStep {
+  /**
+   * <p>Duration of the step.</p> <p> <b>Unit</b>: <code>seconds</code> </p>
+   * @public
+   */
+  Duration: number | undefined;
+
+  /**
+   * <p>Brief description of the step in the requested language.</p> <note> <p>Only available when the TravelStepType is Default.</p> </note>
+   * @public
+   */
+  Instruction?: string | undefined;
+
+  /**
+   * <p>Type of the step.</p>
+   * @public
+   */
+  Type: RoutePedestrianAfterTravelStepType | undefined;
+}
+
+/**
+ * <p>Details about the availability of accessibility features.</p>
+ * @public
+ */
+export interface RouteAccessibilityAvailabilityDetails {
+  /**
+   * <p>Wheelchair accessibility status.</p>
+   * @public
+   */
+  Wheelchair?: RouteAccessibilityAvailability | undefined;
+}
+
+/**
+ * <p>Details of the access point.</p>
+ * @public
+ */
+export interface RouteAccessPointDetails {
+  /**
+   * <p>Wheelchair accessibility information for the access point.</p>
+   * @public
+   */
+  Accessibility?: RouteAccessibilityAvailabilityDetails | undefined;
+}
+
+/**
+ * <p>Details about the station.</p>
+ * @public
+ */
+export interface RouteStationDetails {
+  /**
+   * <p>Wheelchair accessibility information for the station.</p>
+   * @public
+   */
+  Accessibility?: RouteAccessibilityAvailabilityDetails | undefined;
+
+  /**
+   * <p>Platform name or number.</p>
+   * @public
+   */
+  PlatformName?: string | undefined;
+
+  /**
+   * <p>Short text or a number that identifies the station.</p>
+   * @public
+   */
+  ShortName?: string | undefined;
+}
+
+/**
  * <p>Place details corresponding to the arrival or departure.</p>
  * @public
  */
 export interface RoutePedestrianPlace {
+  /**
+   * <p>Details of the access point.</p>
+   * @public
+   */
+  AccessPointDetails?: RouteAccessPointDetails | undefined;
+
   /**
    * <p>The name of the place.</p>
    * @public
@@ -3009,6 +3346,18 @@ export interface RoutePedestrianPlace {
   SideOfStreet?: RouteSideOfStreet | undefined;
 
   /**
+   * <p>Details about the station.</p>
+   * @public
+   */
+  StationDetails?: RouteStationDetails | undefined;
+
+  /**
+   * <p>The type of the place.</p>
+   * @public
+   */
+  Type?: RoutePedestrianPlaceType | undefined;
+
+  /**
    * <p>Index of the waypoint in the request.</p>
    * @public
    */
@@ -3021,13 +3370,13 @@ export interface RoutePedestrianPlace {
  */
 export interface RoutePedestrianArrival {
   /**
-   * <p>The place details.</p>
+   * <p>Place details corresponding to the arrival.</p>
    * @public
    */
   Place: RoutePedestrianPlace | undefined;
 
   /**
-   * <p>The time.</p>
+   * <p>The arrival time.</p>
    * @public
    */
   Time?: string | undefined;
@@ -3039,13 +3388,13 @@ export interface RoutePedestrianArrival {
  */
 export interface RoutePedestrianDeparture {
   /**
-   * <p>The place details.</p>
+   * <p>Place details corresponding to the departure.</p>
    * @public
    */
   Place: RoutePedestrianPlace | undefined;
 
   /**
-   * <p>The time.</p>
+   * <p>The departure time.</p>
    * @public
    */
   Time?: string | undefined;
@@ -3232,18 +3581,18 @@ export interface RoutePedestrianSpan {
 }
 
 /**
- * <p>Provides a summary of a pedestrian route step.</p>
+ * <p>Summary including duration and distance for the entire leg.</p>
  * @public
  */
 export interface RoutePedestrianOverviewSummary {
   /**
-   * <p>Distance of the step.</p>
+   * <p>Distance of the entire leg.</p> <p> <b>Unit</b>: <code>meters</code> </p>
    * @public
    */
   Distance: number | undefined;
 
   /**
-   * <p>Duration of the step.</p>
+   * <p>Duration of the entire leg.</p> <p> <b>Unit</b>: <code>seconds</code> </p>
    * @public
    */
   Duration: number | undefined;
@@ -3603,6 +3952,12 @@ export interface RoutePedestrianTravelStep {
  */
 export interface RoutePedestrianLegDetails {
   /**
+   * <p>Steps of a leg that must be performed after the travel portion of the leg.</p>
+   * @public
+   */
+  AfterTravelSteps: RoutePedestrianAfterTravelStep[] | undefined;
+
+  /**
    * <p>Details corresponding to the arrival for the leg.</p>
    * @public
    */
@@ -3646,6 +4001,1638 @@ export interface RoutePedestrianLegDetails {
 }
 
 /**
+ * <p>A step that must be performed after the travel portion of the leg.</p>
+ * @public
+ */
+export interface RouteRentalAfterTravelStep {
+  /**
+   * <p>Duration of the step.</p> <p> <b>Unit</b>: <code>seconds</code> </p>
+   * @public
+   */
+  Duration: number | undefined;
+
+  /**
+   * <p>Brief description of the step in the requested language.</p>
+   * @public
+   */
+  Instruction?: string | undefined;
+
+  /**
+   * <p>Type of the step.</p>
+   * @public
+   */
+  Type: RouteRentalAfterTravelStepType | undefined;
+}
+
+/**
+ * <p>Details about the rental agency.</p>
+ * @public
+ */
+export interface RouteRentalAgency {
+  /**
+   * <p>Name of the agency.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>URL to the agency's website.</p>
+   * @public
+   */
+  Url?: string | undefined;
+}
+
+/**
+ * <p>Place details corresponding to the arrival or departure.</p>
+ * @public
+ */
+export interface RouteRentalPlace {
+  /**
+   * <p>Details of the access point.</p>
+   * @public
+   */
+  AccessPointDetails?: RouteAccessPointDetails | undefined;
+
+  /**
+   * <p>The name of the place.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>Position provided in the request.</p>
+   * @public
+   */
+  OriginalPosition?: number[] | undefined;
+
+  /**
+   * <p>Position in World Geodetic System (WGS 84) format: [longitude, latitude].</p>
+   * @public
+   */
+  Position: number[] | undefined;
+
+  /**
+   * <p>Details about the station.</p>
+   * @public
+   */
+  StationDetails?: RouteStationDetails | undefined;
+
+  /**
+   * <p>The type of the place.</p>
+   * @public
+   */
+  Type?: RouteRentalPlaceType | undefined;
+
+  /**
+   * <p>Index of the waypoint in the request.</p>
+   * @public
+   */
+  WaypointIndex?: number | undefined;
+}
+
+/**
+ * <p>Details corresponding to the arrival for the leg.</p>
+ * @public
+ */
+export interface RouteRentalArrival {
+  /**
+   * <p>Place details corresponding to the arrival.</p>
+   * @public
+   */
+  Place: RouteRentalPlace | undefined;
+
+  /**
+   * <p>The arrival time.</p>
+   * @public
+   */
+  Time?: string | undefined;
+}
+
+/**
+ * <p>The URL to an external resource.</p>
+ * @public
+ */
+export interface RouteWebLink {
+  /**
+   * <p>The interactive or clickable portion of the text.</p>
+   * @public
+   */
+  AnchorText?: string | undefined;
+
+  /**
+   * <p>Text describing the URL.</p>
+   * @public
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>Device type for which the link is intended.</p>
+   * @public
+   */
+  DeviceType?: RouteWebLinkDeviceType | undefined;
+
+  /**
+   * <p>The URL of the link.</p>
+   * @public
+   */
+  Url?: string | undefined;
+}
+
+/**
+ * <p>Required attribution to display.</p>
+ * @public
+ */
+export interface RouteAttribution {
+  /**
+   * <p>The type of the attribution link.</p>
+   * @public
+   */
+  AttributionType?: RouteAttributionType | undefined;
+
+  /**
+   * <p>The URL to an external resource.</p>
+   * @public
+   */
+  WebLink: RouteWebLink | undefined;
+}
+
+/**
+ * <p>A step that must be performed before the travel portion of the leg.</p>
+ * @public
+ */
+export interface RouteRentalBeforeTravelStep {
+  /**
+   * <p>Duration of the step.</p> <p> <b>Unit</b>: <code>seconds</code> </p>
+   * @public
+   */
+  Duration: number | undefined;
+
+  /**
+   * <p>Brief description of the step in the requested language.</p>
+   * @public
+   */
+  Instruction?: string | undefined;
+
+  /**
+   * <p>Type of the step.</p>
+   * @public
+   */
+  Type: RouteRentalBeforeTravelStepType | undefined;
+}
+
+/**
+ * <p>Details corresponding to the departure for the leg.</p>
+ * @public
+ */
+export interface RouteRentalDeparture {
+  /**
+   * <p>Place details corresponding to the departure.</p>
+   * @public
+   */
+  Place: RouteRentalPlace | undefined;
+
+  /**
+   * <p>The departure time.</p>
+   * @public
+   */
+  Time?: string | undefined;
+}
+
+/**
+ * <p>Summary including duration and distance for the entire leg.</p>
+ * @public
+ */
+export interface RouteRentalOverviewSummary {
+  /**
+   * <p>Duration of the entire leg.</p> <p> <b>Unit</b>: <code>seconds</code> </p>
+   * @public
+   */
+  Duration: number | undefined;
+
+  /**
+   * <p>Distance of the entire leg.</p> <p> <b>Unit</b>: <code>meters</code> </p>
+   * @public
+   */
+  Distance: number | undefined;
+}
+
+/**
+ * <p>Summary including duration and distance for the travel portion of the leg only.</p>
+ * @public
+ */
+export interface RouteRentalTravelOnlySummary {
+  /**
+   * <p>Duration of the travel portion of the rental leg.</p> <p> <b>Unit</b>: <code>seconds</code> </p>
+   * @public
+   */
+  Duration: number | undefined;
+}
+
+/**
+ * <p>Summary of the rental leg.</p>
+ * @public
+ */
+export interface RouteRentalSummary {
+  /**
+   * <p>Summary including duration and distance for the entire leg.</p>
+   * @public
+   */
+  Overview?: RouteRentalOverviewSummary | undefined;
+
+  /**
+   * <p>Summary including duration and distance for the travel portion of the leg only.</p>
+   * @public
+   */
+  TravelOnly?: RouteRentalTravelOnlySummary | undefined;
+}
+
+/**
+ * <p>Transport mode details for the rental leg.</p>
+ * @public
+ */
+export interface RouteRentalTransportModeDetails {
+  /**
+   * <p>Number of available seats in the vehicle.</p>
+   * @public
+   */
+  AvailableSeats?: number | undefined;
+
+  /**
+   * <p>Human readable transport category.</p>
+   * @public
+   */
+  Category?: string | undefined;
+
+  /**
+   * <p>Color of the transport polyline and background for the transport name.</p>
+   * @public
+   */
+  Color?: string | undefined;
+
+  /**
+   * <p>Vehicle engine type.</p>
+   * @public
+   */
+  Engine?: RouteEngineType | undefined;
+
+  /**
+   * <p>Vehicle license plate number.</p>
+   * @public
+   */
+  LicensePlate?: string | undefined;
+
+  /**
+   * <p>Mode of the rental transport.</p>
+   * @public
+   */
+  Mode: RouteRentalMode | undefined;
+
+  /**
+   * <p>Vehicle model.</p>
+   * @public
+   */
+  Model?: string | undefined;
+
+  /**
+   * <p>Vehicle name or mobility provider name.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>Color of the transport name text.</p>
+   * @public
+   */
+  TextColor?: string | undefined;
+}
+
+/**
+ * <p>Details related to the exit step.</p>
+ * @public
+ */
+export interface RouteExitStepDetails {
+  /**
+   * <p>Name of the intersection, if applicable to the step.</p>
+   * @public
+   */
+  Intersection: LocalizedString[] | undefined;
+
+  /**
+   * <p>Exit to be taken.</p>
+   * @public
+   */
+  RelativeExit?: number | undefined;
+
+  /**
+   * <p>Steering direction for the step.</p>
+   * @public
+   */
+  SteeringDirection?: RouteSteeringDirection | undefined;
+
+  /**
+   * <p>Angle of the turn.</p>
+   * @public
+   */
+  TurnAngle?: number | undefined;
+
+  /**
+   * <p>Intensity of the turn.</p>
+   * @public
+   */
+  TurnIntensity?: RouteTurnIntensity | undefined;
+}
+
+/**
+ * <p>Details that are specific to a ramp step.</p>
+ * @public
+ */
+export interface RouteRampStepDetails {
+  /**
+   * <p>Name of the intersection, if applicable to the step.</p>
+   * @public
+   */
+  Intersection: LocalizedString[] | undefined;
+
+  /**
+   * <p>Steering direction for the step.</p>
+   * @public
+   */
+  SteeringDirection?: RouteSteeringDirection | undefined;
+
+  /**
+   * <p>Angle of the turn.</p>
+   * @public
+   */
+  TurnAngle?: number | undefined;
+
+  /**
+   * <p>Intensity of the turn.</p>
+   * @public
+   */
+  TurnIntensity?: RouteTurnIntensity | undefined;
+}
+
+/**
+ * <p>Details related to the U-turn step.</p>
+ * @public
+ */
+export interface RouteUTurnStepDetails {
+  /**
+   * <p>Name of the intersection, if applicable to the step.</p>
+   * @public
+   */
+  Intersection: LocalizedString[] | undefined;
+
+  /**
+   * <p>Steering direction for the step.</p>
+   * @public
+   */
+  SteeringDirection?: RouteSteeringDirection | undefined;
+
+  /**
+   * <p>Angle of the turn.</p>
+   * @public
+   */
+  TurnAngle?: number | undefined;
+
+  /**
+   * <p>Intensity of the turn.</p>
+   * @public
+   */
+  TurnIntensity?: RouteTurnIntensity | undefined;
+}
+
+/**
+ * <p>A step that must be performed during the travel portion of the leg.</p>
+ * @public
+ */
+export interface RouteRentalTravelStep {
+  /**
+   * <p>Details related to the continue step.</p>
+   * @public
+   */
+  ContinueStepDetails?: RouteContinueStepDetails | undefined;
+
+  /**
+   * <p>Distance of the step.</p> <p> <b>Unit</b>: <code>meters</code> </p>
+   * @public
+   */
+  Distance?: number | undefined;
+
+  /**
+   * <p>Duration of the step.</p> <p> <b>Unit</b>: <code>seconds</code> </p>
+   * @public
+   */
+  Duration: number | undefined;
+
+  /**
+   * <p>Details related to the exit step.</p>
+   * @public
+   */
+  ExitStepDetails?: RouteExitStepDetails | undefined;
+
+  /**
+   * <p>Offset in the leg geometry corresponding to the start of this step.</p>
+   * @public
+   */
+  GeometryOffset?: number | undefined;
+
+  /**
+   * <p>Brief description of the step in the requested language.</p>
+   * @public
+   */
+  Instruction?: string | undefined;
+
+  /**
+   * <p>Details that are specific to a Keep step.</p>
+   * @public
+   */
+  KeepStepDetails?: RouteKeepStepDetails | undefined;
+
+  /**
+   * <p>Details that are specific to a ramp step.</p>
+   * @public
+   */
+  RampStepDetails?: RouteRampStepDetails | undefined;
+
+  /**
+   * <p>Details about the roundabout leg.</p>
+   * @public
+   */
+  RoundaboutEnterStepDetails?: RouteRoundaboutEnterStepDetails | undefined;
+
+  /**
+   * <p>Details about the roundabout step.</p>
+   * @public
+   */
+  RoundaboutExitStepDetails?: RouteRoundaboutExitStepDetails | undefined;
+
+  /**
+   * <p>Details about the step.</p>
+   * @public
+   */
+  RoundaboutPassStepDetails?: RouteRoundaboutPassStepDetails | undefined;
+
+  /**
+   * <p>Details related to the turn step.</p>
+   * @public
+   */
+  TurnStepDetails?: RouteTurnStepDetails | undefined;
+
+  /**
+   * <p>Type of the step.</p>
+   * @public
+   */
+  Type: RouteRentalTravelStepType | undefined;
+
+  /**
+   * <p>Details related to the U-turn step.</p>
+   * @public
+   */
+  UTurnStepDetails?: RouteUTurnStepDetails | undefined;
+}
+
+/**
+ * <p>Populated when the Leg type is Rental, and provides additional information that is specific to rental vehicle travel.</p>
+ * @public
+ */
+export interface RouteRentalLegDetails {
+  /**
+   * <p>Steps of a leg that must be performed after the travel portion of the leg.</p>
+   * @public
+   */
+  AfterTravelSteps: RouteRentalAfterTravelStep[] | undefined;
+
+  /**
+   * <p>Details about the rental agency.</p>
+   * @public
+   */
+  Agency: RouteRentalAgency | undefined;
+
+  /**
+   * <p>Details corresponding to the arrival for the leg.</p>
+   * @public
+   */
+  Arrival: RouteRentalArrival | undefined;
+
+  /**
+   * <p>List of required attributions to display.</p>
+   * @public
+   */
+  Attributions: RouteAttribution[] | undefined;
+
+  /**
+   * <p>Steps of a leg that must be performed before the travel portion of the leg.</p>
+   * @public
+   */
+  BeforeTravelSteps: RouteRentalBeforeTravelStep[] | undefined;
+
+  /**
+   * <p>Web links to external ticket booking services for the rental.</p>
+   * @public
+   */
+  BookingWebLinks: RouteWebLink[] | undefined;
+
+  /**
+   * <p>Details corresponding to the departure for the leg.</p>
+   * @public
+   */
+  Departure: RouteRentalDeparture | undefined;
+
+  /**
+   * <p>Summary of the rental leg.</p>
+   * @public
+   */
+  Summary?: RouteRentalSummary | undefined;
+
+  /**
+   * <p>Transport mode details for the rental leg.</p>
+   * @public
+   */
+  Transport: RouteRentalTransportModeDetails | undefined;
+
+  /**
+   * <p>Steps of a leg that must be performed during the travel portion of the leg.</p>
+   * @public
+   */
+  TravelSteps: RouteRentalTravelStep[] | undefined;
+}
+
+/**
+ * <p>A step that must be performed after the travel portion of the leg.</p>
+ * @public
+ */
+export interface RouteTaxiAfterTravelStep {
+  /**
+   * <p>Duration of the step.</p> <p> <b>Unit</b>: <code>seconds</code> </p>
+   * @public
+   */
+  Duration: number | undefined;
+
+  /**
+   * <p>Brief description of the step in the requested language.</p>
+   * @public
+   */
+  Instruction?: string | undefined;
+
+  /**
+   * <p>Type of the step.</p>
+   * @public
+   */
+  Type: RouteTaxiAfterTravelStepType | undefined;
+}
+
+/**
+ * <p>Details about the taxi agency.</p>
+ * @public
+ */
+export interface RouteTaxiAgency {
+  /**
+   * <p>Name of the agency.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>URL to the agency's website.</p>
+   * @public
+   */
+  Url?: string | undefined;
+}
+
+/**
+ * <p>Place details corresponding to the arrival or departure.</p>
+ * @public
+ */
+export interface RouteTaxiPlace {
+  /**
+   * <p>Details of the access point.</p>
+   * @public
+   */
+  AccessPointDetails?: RouteAccessPointDetails | undefined;
+
+  /**
+   * <p>The name of the place.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>Position provided in the request.</p>
+   * @public
+   */
+  OriginalPosition?: number[] | undefined;
+
+  /**
+   * <p>Position in World Geodetic System (WGS 84) format: [longitude, latitude].</p>
+   * @public
+   */
+  Position: number[] | undefined;
+
+  /**
+   * <p>Details about the station.</p>
+   * @public
+   */
+  StationDetails?: RouteStationDetails | undefined;
+
+  /**
+   * <p>The type of the place.</p>
+   * @public
+   */
+  Type?: RouteTaxiPlaceType | undefined;
+
+  /**
+   * <p>Index of the waypoint in the request.</p>
+   * @public
+   */
+  WaypointIndex?: number | undefined;
+}
+
+/**
+ * <p>Details corresponding to the arrival for the leg.</p>
+ * @public
+ */
+export interface RouteTaxiArrival {
+  /**
+   * <p>Place details corresponding to the arrival.</p>
+   * @public
+   */
+  Place: RouteTaxiPlace | undefined;
+
+  /**
+   * <p>The arrival time.</p>
+   * @public
+   */
+  Time?: string | undefined;
+}
+
+/**
+ * <p>A step that must be performed before the travel portion of the leg.</p>
+ * @public
+ */
+export interface RouteTaxiBeforeTravelStep {
+  /**
+   * <p>Duration of the step.</p> <p> <b>Unit</b>: <code>seconds</code> </p>
+   * @public
+   */
+  Duration: number | undefined;
+
+  /**
+   * <p>Brief description of the step in the requested language.</p>
+   * @public
+   */
+  Instruction?: string | undefined;
+
+  /**
+   * <p>Type of the step.</p>
+   * @public
+   */
+  Type: RouteTaxiBeforeTravelStepType | undefined;
+}
+
+/**
+ * <p>Details corresponding to the departure for the leg.</p>
+ * @public
+ */
+export interface RouteTaxiDeparture {
+  /**
+   * <p>Place details corresponding to the departure.</p>
+   * @public
+   */
+  Place: RouteTaxiPlace | undefined;
+
+  /**
+   * <p>The departure time.</p>
+   * @public
+   */
+  Time?: string | undefined;
+}
+
+/**
+ * <p>A notice that indicates an issue that occurred during route calculation.</p>
+ * @public
+ */
+export interface RouteTaxiNotice {
+  /**
+   * <p>Code corresponding to the issue.</p>
+   * @public
+   */
+  Code: RouteTaxiNoticeCode | undefined;
+
+  /**
+   * <p>Impact corresponding to the issue. While Low impact notices can be safely ignored, High impact notices must be evaluated further to determine the impact.</p>
+   * @public
+   */
+  Impact?: RouteNoticeImpact | undefined;
+}
+
+/**
+ * <p>Summary including duration and distance for the entire leg.</p>
+ * @public
+ */
+export interface RouteTaxiOverviewSummary {
+  /**
+   * <p>Duration of the entire leg.</p> <p> <b>Unit</b>: <code>seconds</code> </p>
+   * @public
+   */
+  Duration: number | undefined;
+
+  /**
+   * <p>Distance of the entire leg.</p> <p> <b>Unit</b>: <code>meters</code> </p>
+   * @public
+   */
+  Distance: number | undefined;
+}
+
+/**
+ * <p>Summary including duration and distance for the travel portion of the leg only.</p>
+ * @public
+ */
+export interface RouteTaxiTravelOnlySummary {
+  /**
+   * <p>Duration of the travel portion of the taxi leg.</p> <p> <b>Unit</b>: <code>seconds</code> </p>
+   * @public
+   */
+  Duration: number | undefined;
+}
+
+/**
+ * <p>Summary of the taxi leg.</p>
+ * @public
+ */
+export interface RouteTaxiSummary {
+  /**
+   * <p>Summary including duration and distance for the entire leg.</p>
+   * @public
+   */
+  Overview?: RouteTaxiOverviewSummary | undefined;
+
+  /**
+   * <p>Summary including duration and distance for the travel portion of the leg only.</p>
+   * @public
+   */
+  TravelOnly?: RouteTaxiTravelOnlySummary | undefined;
+}
+
+/**
+ * <p>Transport mode details for the taxi leg.</p>
+ * @public
+ */
+export interface RouteTaxiTransportModeDetails {
+  /**
+   * <p>Number of available seats in the vehicle.</p>
+   * @public
+   */
+  AvailableSeats?: number | undefined;
+
+  /**
+   * <p>Human readable transport category.</p>
+   * @public
+   */
+  Category?: string | undefined;
+
+  /**
+   * <p>Color of the transport polyline and background for the transport name.</p>
+   * @public
+   */
+  Color?: string | undefined;
+
+  /**
+   * <p>Vehicle engine type.</p>
+   * @public
+   */
+  Engine?: RouteEngineType | undefined;
+
+  /**
+   * <p>Vehicle license plate number.</p>
+   * @public
+   */
+  LicensePlate?: string | undefined;
+
+  /**
+   * <p>Mode of the taxi transport.</p>
+   * @public
+   */
+  Mode: RouteTaxiMode | undefined;
+
+  /**
+   * <p>Vehicle model.</p>
+   * @public
+   */
+  Model?: string | undefined;
+
+  /**
+   * <p>Vehicle name or mobility provider name.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>Color of the transport name text.</p>
+   * @public
+   */
+  TextColor?: string | undefined;
+}
+
+/**
+ * <p>A step that must be performed during the travel portion of the leg.</p>
+ * @public
+ */
+export interface RouteTaxiTravelStep {
+  /**
+   * <p>Details related to the continue step.</p>
+   * @public
+   */
+  ContinueStepDetails?: RouteContinueStepDetails | undefined;
+
+  /**
+   * <p>Distance of the step.</p> <p> <b>Unit</b>: <code>meters</code> </p>
+   * @public
+   */
+  Distance?: number | undefined;
+
+  /**
+   * <p>Duration of the step.</p> <p> <b>Unit</b>: <code>seconds</code> </p>
+   * @public
+   */
+  Duration: number | undefined;
+
+  /**
+   * <p>Details related to the exit step.</p>
+   * @public
+   */
+  ExitStepDetails?: RouteExitStepDetails | undefined;
+
+  /**
+   * <p>Offset in the leg geometry corresponding to the start of this step.</p>
+   * @public
+   */
+  GeometryOffset?: number | undefined;
+
+  /**
+   * <p>Brief description of the step in the requested language.</p>
+   * @public
+   */
+  Instruction?: string | undefined;
+
+  /**
+   * <p>Details that are specific to a Keep step.</p>
+   * @public
+   */
+  KeepStepDetails?: RouteKeepStepDetails | undefined;
+
+  /**
+   * <p>Details that are specific to a ramp step.</p>
+   * @public
+   */
+  RampStepDetails?: RouteRampStepDetails | undefined;
+
+  /**
+   * <p>Details about the roundabout leg.</p>
+   * @public
+   */
+  RoundaboutEnterStepDetails?: RouteRoundaboutEnterStepDetails | undefined;
+
+  /**
+   * <p>Details about the roundabout step.</p>
+   * @public
+   */
+  RoundaboutExitStepDetails?: RouteRoundaboutExitStepDetails | undefined;
+
+  /**
+   * <p>Details about the step.</p>
+   * @public
+   */
+  RoundaboutPassStepDetails?: RouteRoundaboutPassStepDetails | undefined;
+
+  /**
+   * <p>Details related to the turn step.</p>
+   * @public
+   */
+  TurnStepDetails?: RouteTurnStepDetails | undefined;
+
+  /**
+   * <p>Type of the step.</p>
+   * @public
+   */
+  Type: RouteTaxiTravelStepType | undefined;
+
+  /**
+   * <p>Details related to the U-turn step.</p>
+   * @public
+   */
+  UTurnStepDetails?: RouteUTurnStepDetails | undefined;
+}
+
+/**
+ * <p>Populated when the Leg type is Taxi, and provides additional information that is specific to taxi travel.</p>
+ * @public
+ */
+export interface RouteTaxiLegDetails {
+  /**
+   * <p>Steps of a leg that must be performed after the travel portion of the leg.</p>
+   * @public
+   */
+  AfterTravelSteps: RouteTaxiAfterTravelStep[] | undefined;
+
+  /**
+   * <p>Details about the taxi agency.</p>
+   * @public
+   */
+  Agency: RouteTaxiAgency | undefined;
+
+  /**
+   * <p>Details corresponding to the arrival for the leg.</p>
+   * @public
+   */
+  Arrival: RouteTaxiArrival | undefined;
+
+  /**
+   * <p>List of required attributions to display.</p>
+   * @public
+   */
+  Attributions: RouteAttribution[] | undefined;
+
+  /**
+   * <p>Steps of a leg that must be performed before the travel portion of the leg.</p>
+   * @public
+   */
+  BeforeTravelSteps: RouteTaxiBeforeTravelStep[] | undefined;
+
+  /**
+   * <p>Web links to external ticket booking services for the taxi.</p>
+   * @public
+   */
+  BookingWebLinks: RouteWebLink[] | undefined;
+
+  /**
+   * <p>Details corresponding to the departure for the leg.</p>
+   * @public
+   */
+  Departure: RouteTaxiDeparture | undefined;
+
+  /**
+   * <p>List of notices that indicate issues that occurred during route calculation.</p>
+   * @public
+   */
+  Notices: RouteTaxiNotice[] | undefined;
+
+  /**
+   * <p>Summary of the taxi leg.</p>
+   * @public
+   */
+  Summary?: RouteTaxiSummary | undefined;
+
+  /**
+   * <p>Transport mode details for the taxi leg.</p>
+   * @public
+   */
+  Transport: RouteTaxiTransportModeDetails | undefined;
+
+  /**
+   * <p>Steps of a leg that must be performed during the travel portion of the leg.</p>
+   * @public
+   */
+  TravelSteps: RouteTaxiTravelStep[] | undefined;
+}
+
+/**
+ * <p>A step that must be performed after the travel portion of the leg.</p>
+ * @public
+ */
+export interface RouteTransitAfterTravelStep {
+  /**
+   * <p>Duration of the step.</p> <p> <b>Unit</b>: <code>seconds</code> </p>
+   * @public
+   */
+  Duration: number | undefined;
+
+  /**
+   * <p>Brief description of the step in the requested language.</p>
+   * @public
+   */
+  Instruction?: string | undefined;
+
+  /**
+   * <p>Type of the step.</p>
+   * @public
+   */
+  Type: RouteTransitAfterTravelStepType | undefined;
+}
+
+/**
+ * <p>Details about the transit agency.</p>
+ * @public
+ */
+export interface RouteTransitAgency {
+  /**
+   * <p>Name of the agency.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>URL to the agency's website.</p>
+   * @public
+   */
+  Url?: string | undefined;
+}
+
+/**
+ * <p>Place details corresponding to the arrival or departure.</p>
+ * @public
+ */
+export interface RouteTransitPlace {
+  /**
+   * <p>The name of the place.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>Position provided in the request.</p>
+   * @public
+   */
+  OriginalPosition?: number[] | undefined;
+
+  /**
+   * <p>Position in World Geodetic System (WGS 84) format: [longitude, latitude].</p>
+   * @public
+   */
+  Position: number[] | undefined;
+
+  /**
+   * <p>Details about the station.</p>
+   * @public
+   */
+  StationDetails?: RouteStationDetails | undefined;
+
+  /**
+   * <p>The type of the place.</p>
+   * @public
+   */
+  Type?: RouteTransitPlaceType | undefined;
+
+  /**
+   * <p>Index of the waypoint in the request.</p>
+   * @public
+   */
+  WaypointIndex?: number | undefined;
+}
+
+/**
+ * <p>Details corresponding to the arrival for the leg.</p>
+ * @public
+ */
+export interface RouteTransitArrival {
+  /**
+   * <p>The delay from the scheduled arrival time.</p> <p> <b>Unit</b>: <code>seconds</code> </p>
+   * @public
+   */
+  Delay?: number | undefined;
+
+  /**
+   * <p>Place details corresponding to the arrival.</p>
+   * @public
+   */
+  Place: RouteTransitPlace | undefined;
+
+  /**
+   * <p>The status of the arrival.</p>
+   * @public
+   */
+  Status?: RouteTransitTripStatus | undefined;
+
+  /**
+   * <p>The arrival time.</p>
+   * @public
+   */
+  Time?: string | undefined;
+}
+
+/**
+ * <p>A step that must be performed before the travel portion of the leg.</p>
+ * @public
+ */
+export interface RouteTransitBeforeTravelStep {
+  /**
+   * <p>Duration of the step.</p> <p> <b>Unit</b>: <code>seconds</code> </p>
+   * @public
+   */
+  Duration: number | undefined;
+
+  /**
+   * <p>Brief description of the step in the requested language.</p>
+   * @public
+   */
+  Instruction?: string | undefined;
+
+  /**
+   * <p>Type of the step.</p>
+   * @public
+   */
+  Type: RouteTransitBeforeTravelStepType | undefined;
+}
+
+/**
+ * <p>Details corresponding to the departure for the leg.</p>
+ * @public
+ */
+export interface RouteTransitDeparture {
+  /**
+   * <p>The delay from the scheduled departure time.</p> <p> <b>Unit</b>: <code>seconds</code> </p>
+   * @public
+   */
+  Delay?: number | undefined;
+
+  /**
+   * <p>Place details corresponding to the departure.</p>
+   * @public
+   */
+  Place: RouteTransitPlace | undefined;
+
+  /**
+   * <p>The status of the departure.</p>
+   * @public
+   */
+  Status?: RouteTransitTripStatus | undefined;
+
+  /**
+   * <p>The departure time.</p>
+   * @public
+   */
+  Time?: string | undefined;
+}
+
+/**
+ * <p>An incident describes disruptions on the transit route.</p>
+ * @public
+ */
+export interface RouteTransitIncident {
+  /**
+   * <p>A human readable description of the incident.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The effect of the incident on the transit service.</p>
+   * @public
+   */
+  Effect: RouteTransitIncidentEffect | undefined;
+
+  /**
+   * <p>The end time of the incident.</p>
+   * @public
+   */
+  EndTime?: string | undefined;
+
+  /**
+   * <p>The start time of the incident.</p>
+   * @public
+   */
+  StartTime?: string | undefined;
+
+  /**
+   * <p>Type of the incident.</p>
+   * @public
+   */
+  Type: RouteTransitIncidentType | undefined;
+
+  /**
+   * <p>URL to the original incident published at the agency website.</p>
+   * @public
+   */
+  Url?: string | undefined;
+}
+
+/**
+ * <p>Transport mode details for the transit leg.</p>
+ * @public
+ */
+export interface RouteTransitTransportModeDetails {
+  /**
+   * <p>Wheelchair accessibility information for the transit vehicle.</p>
+   * @public
+   */
+  Accessibility?: RouteAccessibilityAvailabilityDetails | undefined;
+
+  /**
+   * <p>Color of the transport polyline and background for the transport name.</p>
+   * @public
+   */
+  Color?: string | undefined;
+
+  /**
+   * <p>Transit route headsign.</p>
+   * @public
+   */
+  Headsign?: string | undefined;
+
+  /**
+   * <p>Long name of the transit route.</p>
+   * @public
+   */
+  LongRouteName?: string | undefined;
+
+  /**
+   * <p>Mode of the transit transport.</p>
+   * @public
+   */
+  Mode: RouteTransitMode | undefined;
+
+  /**
+   * <p>Transit route name.</p>
+   * @public
+   */
+  RouteName?: string | undefined;
+
+  /**
+   * <p>Short name of the transit route.</p>
+   * @public
+   */
+  ShortRouteName?: string | undefined;
+
+  /**
+   * <p>Color of the transport name text.</p>
+   * @public
+   */
+  TextColor?: string | undefined;
+}
+
+/**
+ * <p>An intermediate stop between departure and destination of the transit route.</p>
+ * @public
+ */
+export interface RouteTransitIntermediateStop {
+  /**
+   * <p>Attributes of the intermediate stop.</p>
+   * @public
+   */
+  Attributes?: RouteTransitIntermediateStopAttribute[] | undefined;
+
+  /**
+   * <p>Departure details for the intermediate stop.</p>
+   * @public
+   */
+  Departure: RouteTransitDeparture | undefined;
+
+  /**
+   * <p>Duration of the stop.</p> <p> <b>Unit</b>: <code>seconds</code> </p>
+   * @public
+   */
+  Duration: number | undefined;
+
+  /**
+   * <p>Offset in the leg geometry corresponding to the start of this stop.</p>
+   * @public
+   */
+  GeometryOffset?: number | undefined;
+
+  /**
+   * <p>Transport mode details at the intermediate stop.</p>
+   * @public
+   */
+  Transport?: RouteTransitTransportModeDetails | undefined;
+}
+
+/**
+ * <p>Details about the next available departure for the transit service.</p>
+ * @public
+ */
+export interface RouteTransitNextDeparture {
+  /**
+   * <p>The delay from the scheduled departure time.</p> <p> <b>Unit</b>: <code>seconds</code> </p>
+   * @public
+   */
+  Delay?: number | undefined;
+
+  /**
+   * <p>Platform name or number for the departure.</p>
+   * @public
+   */
+  PlatformName?: string | undefined;
+
+  /**
+   * <p>The status of the departure.</p>
+   * @public
+   */
+  Status?: RouteTransitTripStatus | undefined;
+
+  /**
+   * <p>The departure time.</p>
+   * @public
+   */
+  Time: string | undefined;
+
+  /**
+   * <p>Transport mode details for this departure.</p>
+   * @public
+   */
+  Transport?: RouteTransitTransportModeDetails | undefined;
+}
+
+/**
+ * <p>A notice that indicates an issue that occurred during route calculation.</p>
+ * @public
+ */
+export interface RouteTransitNotice {
+  /**
+   * <p>Code corresponding to the issue.</p>
+   * @public
+   */
+  Code: RouteTransitNoticeCode | undefined;
+
+  /**
+   * <p>Impact corresponding to the issue. While Low impact notices can be safely ignored, High impact notices must be evaluated further to determine the impact.</p>
+   * @public
+   */
+  Impact?: RouteNoticeImpact | undefined;
+}
+
+/**
+ * <p>Span computed for the requested SpanAdditionalFeatures.</p>
+ * @public
+ */
+export interface RouteTransitSpan {
+  /**
+   * <p>3 letter Country code corresponding to the Span.</p>
+   * @public
+   */
+  Country?: string | undefined;
+
+  /**
+   * <p>Distance of the computed span. This feature doesn't split a span, but is always computed on a span split by other properties.</p> <p> <b>Unit</b>: <code>meters</code> </p>
+   * @public
+   */
+  Distance?: number | undefined;
+
+  /**
+   * <p>Duration of the computed span. This feature doesn't split a span, but is always computed on a span split by other properties.</p> <p> <b>Unit</b>: <code>seconds</code> </p>
+   * @public
+   */
+  Duration?: number | undefined;
+
+  /**
+   * <p>Offset in the leg geometry corresponding to the start of this span.</p>
+   * @public
+   */
+  GeometryOffset?: number | undefined;
+
+  /**
+   * <p>Names of the transit span in available languages.</p>
+   * @public
+   */
+  Names?: LocalizedString[] | undefined;
+
+  /**
+   * <p>2-3 letter Region code corresponding to the Span. This is either a province or a state.</p>
+   * @public
+   */
+  Region?: string | undefined;
+}
+
+/**
+ * <p>Summary including duration and distance for the entire leg.</p>
+ * @public
+ */
+export interface RouteTransitOverviewSummary {
+  /**
+   * <p>Distance of the entire leg.</p> <p> <b>Unit</b>: <code>meters</code> </p>
+   * @public
+   */
+  Distance: number | undefined;
+
+  /**
+   * <p>Duration of the entire leg.</p> <p> <b>Unit</b>: <code>seconds</code> </p>
+   * @public
+   */
+  Duration: number | undefined;
+}
+
+/**
+ * <p>Summary including duration and distance for the travel portion of the leg only.</p>
+ * @public
+ */
+export interface RouteTransitTravelOnlySummary {
+  /**
+   * <p>Duration of the travel portion of the transit leg.</p> <p> <b>Unit</b>: <code>seconds</code> </p>
+   * @public
+   */
+  Duration: number | undefined;
+}
+
+/**
+ * <p>Summary of the transit leg.</p>
+ * @public
+ */
+export interface RouteTransitSummary {
+  /**
+   * <p>Summary including duration and distance for the entire leg.</p>
+   * @public
+   */
+  Overview?: RouteTransitOverviewSummary | undefined;
+
+  /**
+   * <p>Summary including duration and distance for the travel portion of the leg only.</p>
+   * @public
+   */
+  TravelOnly?: RouteTransitTravelOnlySummary | undefined;
+}
+
+/**
+ * <p>A step that must be performed during the travel portion of the leg.</p>
+ * @public
+ */
+export interface RouteTransitTravelStep {
+  /**
+   * <p>Distance of the step.</p> <p> <b>Unit</b>: <code>meters</code> </p>
+   * @public
+   */
+  Distance?: number | undefined;
+
+  /**
+   * <p>Duration of the step.</p> <p> <b>Unit</b>: <code>seconds</code> </p>
+   * @public
+   */
+  Duration: number | undefined;
+
+  /**
+   * <p>Offset in the leg geometry corresponding to the start of this step.</p>
+   * @public
+   */
+  GeometryOffset?: number | undefined;
+
+  /**
+   * <p>Brief description of the step in the requested language.</p>
+   * @public
+   */
+  Instruction?: string | undefined;
+
+  /**
+   * <p>Type of the step.</p>
+   * @public
+   */
+  Type: RouteTransitTravelStepType | undefined;
+}
+
+/**
+ * <p>Populated when the Leg type is Transit, and provides additional information that is specific to public transit travel.</p>
+ * @public
+ */
+export interface RouteTransitLegDetails {
+  /**
+   * <p>Steps of a leg that must be performed after the travel portion of the leg.</p>
+   * @public
+   */
+  AfterTravelSteps: RouteTransitAfterTravelStep[] | undefined;
+
+  /**
+   * <p>Details about the transit agency.</p>
+   * @public
+   */
+  Agency?: RouteTransitAgency | undefined;
+
+  /**
+   * <p>Details corresponding to the arrival for the leg.</p>
+   * @public
+   */
+  Arrival: RouteTransitArrival | undefined;
+
+  /**
+   * <p>List of required attributions to display.</p>
+   * @public
+   */
+  Attributions: RouteAttribution[] | undefined;
+
+  /**
+   * <p>Steps of a leg that must be performed before the travel portion of the leg.</p>
+   * @public
+   */
+  BeforeTravelSteps: RouteTransitBeforeTravelStep[] | undefined;
+
+  /**
+   * <p>Web links to external ticket booking services for the transit.</p>
+   * @public
+   */
+  BookingWebLinks: RouteWebLink[] | undefined;
+
+  /**
+   * <p>Details corresponding to the departure for the leg.</p>
+   * @public
+   */
+  Departure: RouteTransitDeparture | undefined;
+
+  /**
+   * <p>Incidents affecting this leg of the transit route.</p>
+   * @public
+   */
+  Incidents: RouteTransitIncident[] | undefined;
+
+  /**
+   * <p>Intermediate stops between departure and destination of the transit route.</p>
+   * @public
+   */
+  IntermediateStops: RouteTransitIntermediateStop[] | undefined;
+
+  /**
+   * <p>List of next departures that cover the same section of the route.</p>
+   * @public
+   */
+  NextDepartures: RouteTransitNextDeparture[] | undefined;
+
+  /**
+   * <p>List of notices that indicate issues that occurred during route calculation.</p>
+   * @public
+   */
+  Notices: RouteTransitNotice[] | undefined;
+
+  /**
+   * <p>Waypoints that were passed through during the leg. This includes the waypoints that were configured with the PassThrough option. Not populated when the TravelMode is <code>Transit</code> or <code>Intermodal</code>.</p>
+   * @public
+   */
+  PassThroughWaypoints: RoutePassThroughWaypoint[] | undefined;
+
+  /**
+   * <p>Spans that were computed for the requested SpanAdditionalFeatures. Not populated when the TravelMode is <code>Transit</code> or <code>Intermodal</code>.</p>
+   * @public
+   */
+  Spans: RouteTransitSpan[] | undefined;
+
+  /**
+   * <p>Summary of the transit leg.</p>
+   * @public
+   */
+  Summary?: RouteTransitSummary | undefined;
+
+  /**
+   * <p>Transport mode details for the transit leg.</p>
+   * @public
+   */
+  Transport: RouteTransitTransportModeDetails | undefined;
+
+  /**
+   * <p>Steps of a leg that must be performed during the travel portion of the leg.</p>
+   * @public
+   */
+  TravelSteps: RouteTransitTravelStep[] | undefined;
+}
+
+/**
+ * <p>Details about the EV charge at the current step.</p>
+ * @public
+ */
+export interface RouteChargeStepDetails {
+  /**
+   * <p>Estimated vehicle battery charge before this step (in kWh). </p>
+   * @public
+   */
+  ArrivalCharge?: number | undefined;
+
+  /**
+   * <p>Maximum charging power available to the vehicle.</p> <p> <b>Unit</b>: <code>KwH</code> </p>
+   * @public
+   */
+  ConsumablePower?: number | undefined;
+
+  /**
+   * <p>Details that are specific to a Charge step.</p> <p> <b>Unit</b>: <code>KwH</code> </p>
+   * @public
+   */
+  DesiredCharge?: number | undefined;
+}
+
+/**
+ * <p>Steps of a leg that must be performed after the travel portion of the leg.</p>
+ * @public
+ */
+export interface RouteVehicleAfterTravelStep {
+  /**
+   * <p>Details that are specific to a Charge step.</p> <p> <b>Unit</b>: <code>KwH </code> </p>
+   * @public
+   */
+  ChargeStepDetails?: RouteChargeStepDetails | undefined;
+
+  /**
+   * <p>Duration of the step.</p> <p> <b>Unit</b>: <code>seconds</code> </p>
+   * @public
+   */
+  Duration: number | undefined;
+
+  /**
+   * <p>Brief description of the step in the requested language.</p> <note> <p>Only available when the TravelStepType is Default.</p> </note>
+   * @public
+   */
+  Instruction?: string | undefined;
+
+  /**
+   * <p>Type of the step.</p>
+   * @public
+   */
+  Type: RouteVehicleAfterTravelStepType | undefined;
+}
+
+/**
  * <p>Place details corresponding to the arrival or departure.</p>
  * @public
  */
@@ -3679,6 +5666,24 @@ export interface RouteVehiclePlace {
    * @public
    */
   WaypointIndex?: number | undefined;
+
+  /**
+   * <p>Details of the access point.</p>
+   * @public
+   */
+  AccessPointDetails?: RouteAccessPointDetails | undefined;
+
+  /**
+   * <p>Details about the station.</p>
+   * @public
+   */
+  StationDetails?: RouteStationDetails | undefined;
+
+  /**
+   * <p>The type of the place.</p>
+   * @public
+   */
+  Type?: RouteVehiclePlaceType | undefined;
 }
 
 /**
@@ -3687,13 +5692,13 @@ export interface RouteVehiclePlace {
  */
 export interface RouteVehicleArrival {
   /**
-   * <p>The place details.</p>
+   * <p>Place details corresponding to the arrival.</p>
    * @public
    */
   Place: RouteVehiclePlace | undefined;
 
   /**
-   * <p>The time.</p>
+   * <p>The arrival time.</p>
    * @public
    */
   Time?: string | undefined;
@@ -3705,7 +5710,7 @@ export interface RouteVehicleArrival {
  */
 export interface RouteVehicleDeparture {
   /**
-   * <p>The place details.</p>
+   * <p>Place details corresponding to the departure.</p>
    * @public
    */
   Place: RouteVehiclePlace | undefined;
@@ -4096,7 +6101,7 @@ export interface RouteVehicleSpan {
 }
 
 /**
- * <p>Summarized details of the leg.</p>
+ * <p>Summary including duration and distance for the entire leg.</p>
  * @public
  */
 export interface RouteVehicleOverviewSummary {
@@ -4107,19 +6112,19 @@ export interface RouteVehicleOverviewSummary {
   BestCaseDuration?: number | undefined;
 
   /**
-   * <p>Distance of the step.</p>
+   * <p>Distance of the entire leg.</p> <p> <b>Unit</b>: <code>meters</code> </p>
    * @public
    */
   Distance: number | undefined;
 
   /**
-   * <p>Duration of the step.</p> <p> <b>Unit</b>: <code>seconds</code> </p>
+   * <p>Duration of the entire leg.</p> <p> <b>Unit</b>: <code>seconds</code> </p>
    * @public
    */
   Duration: number | undefined;
 
   /**
-   * <p>Duration of the computed span under typical traffic congestion. </p> <p> <b>Unit</b>: <code>seconds</code> </p>
+   * <p>Duration of the leg under typical traffic congestion.</p> <p> <b>Unit</b>: <code>seconds</code> </p>
    * @public
    */
   TypicalDuration?: number | undefined;
@@ -4143,7 +6148,7 @@ export interface RouteVehicleTravelOnlySummary {
   Duration: number | undefined;
 
   /**
-   * <p>Duration of the computed span under typical traffic congestion.</p> <p> <b>Unit</b>: <code>seconds</code> </p>
+   * <p>Duration of the leg under typical traffic congestion.</p> <p> <b>Unit</b>: <code>seconds</code> </p>
    * @public
    */
   TypicalDuration?: number | undefined;
@@ -4468,102 +6473,6 @@ export interface RouteEnterHighwayStepDetails {
 }
 
 /**
- * <p>Details related to the exit step.</p>
- * @public
- */
-export interface RouteExitStepDetails {
-  /**
-   * <p>Name of the intersection, if applicable to the step.</p>
-   * @public
-   */
-  Intersection: LocalizedString[] | undefined;
-
-  /**
-   * <p>Exit to be taken.</p>
-   * @public
-   */
-  RelativeExit?: number | undefined;
-
-  /**
-   * <p>Steering direction for the step.</p>
-   * @public
-   */
-  SteeringDirection?: RouteSteeringDirection | undefined;
-
-  /**
-   * <p>Angle of the turn.</p>
-   * @public
-   */
-  TurnAngle?: number | undefined;
-
-  /**
-   * <p>Intensity of the turn.</p>
-   * @public
-   */
-  TurnIntensity?: RouteTurnIntensity | undefined;
-}
-
-/**
- * <p>Details that are specific to a ramp step.</p>
- * @public
- */
-export interface RouteRampStepDetails {
-  /**
-   * <p>Name of the intersection, if applicable to the step.</p>
-   * @public
-   */
-  Intersection: LocalizedString[] | undefined;
-
-  /**
-   * <p>Steering direction for the step.</p>
-   * @public
-   */
-  SteeringDirection?: RouteSteeringDirection | undefined;
-
-  /**
-   * <p>Angle of the turn.</p>
-   * @public
-   */
-  TurnAngle?: number | undefined;
-
-  /**
-   * <p>Intensity of the turn.</p>
-   * @public
-   */
-  TurnIntensity?: RouteTurnIntensity | undefined;
-}
-
-/**
- * <p>Details related to the U-turn step.</p>
- * @public
- */
-export interface RouteUTurnStepDetails {
-  /**
-   * <p>Name of the intersection, if applicable to the step.</p>
-   * @public
-   */
-  Intersection: LocalizedString[] | undefined;
-
-  /**
-   * <p>Steering direction for the step.</p>
-   * @public
-   */
-  SteeringDirection?: RouteSteeringDirection | undefined;
-
-  /**
-   * <p>Angle of the turn.</p>
-   * @public
-   */
-  TurnAngle?: number | undefined;
-
-  /**
-   * <p>Intensity of the turn.</p>
-   * @public
-   */
-  TurnIntensity?: RouteTurnIntensity | undefined;
-}
-
-/**
  * <p>Steps of a leg that correspond to the travel portion of the leg.</p>
  * @public
  */
@@ -4713,6 +6622,12 @@ export interface RouteZone {
  */
 export interface RouteVehicleLegDetails {
   /**
+   * <p>Steps of a leg that must be performed after the travel portion of the leg.</p>
+   * @public
+   */
+  AfterTravelSteps: RouteVehicleAfterTravelStep[] | undefined;
+
+  /**
    * <p>Details corresponding to the arrival for the leg.</p>
    * @public
    */
@@ -4831,6 +6746,24 @@ export interface RouteLeg {
    * @public
    */
   VehicleLegDetails?: RouteVehicleLegDetails | undefined;
+
+  /**
+   * <p>Details related to the rental leg.</p> <note> <p>Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers.</p> </note>
+   * @public
+   */
+  RentalLegDetails?: RouteRentalLegDetails | undefined;
+
+  /**
+   * <p>Details related to the taxi leg.</p> <note> <p>Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers.</p> </note>
+   * @public
+   */
+  TaxiLegDetails?: RouteTaxiLegDetails | undefined;
+
+  /**
+   * <p>Details related to the transit leg.</p>
+   * @public
+   */
+  TransitLegDetails?: RouteTransitLegDetails | undefined;
 }
 
 /**
@@ -5533,7 +7466,7 @@ export interface OptimizeWaypointsRequest {
   TravelModeOptions?: WaypointOptimizationTravelModeOptions | undefined;
 
   /**
-   * <p>List of waypoints between the <code>Origin</code> and <code>Destination</code>.</p>
+   * <p>List of waypoints between the <code>Origin</code> and <code>Destination</code>, in World Geodetic System (WGS 84) format: [longitude, latitude].</p> <p>The maximum number of waypoints allowed per request:</p> <ul> <li> <p>Maximum 50 waypoints per request</p> </li> <li> <p>Maximum 20 waypoints when using constraints (<code>AccessHours</code>, <code>AppointmentTime</code>, <code>ServiceDuration</code>, <code>Heading</code>, <code>SideOfStreet</code>, <code>Before</code>)</p> </li> </ul>
    * @public
    */
   Waypoints?: WaypointOptimizationWaypoint[] | undefined;

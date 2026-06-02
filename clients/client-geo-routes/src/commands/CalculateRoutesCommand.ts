@@ -117,7 +117,7 @@ export interface CalculateRoutesCommandOutput extends CalculateRoutesResponse, _
  *     UTurns: true || false,
  *     ZoneCategories: [ // RouteAvoidanceZoneCategoryList
  *       { // RouteAvoidanceZoneCategory
- *         Category: "STRING_VALUE", // required
+ *         Category: "CongestionPricing" || "Environmental" || "Vignette", // required
  *       },
  *     ],
  *   },
@@ -132,11 +132,11 @@ export interface CalculateRoutesCommandOutput extends CalculateRoutesResponse, _
  *       NameHint: "STRING_VALUE",
  *       OnRoadThreshold: Number("long"),
  *       Radius: Number("long"),
- *       Strategy: "STRING_VALUE",
+ *       Strategy: "MatchAny" || "MatchMostSignificantRoad",
  *     },
  *     SideOfStreet: { // RouteSideOfStreetOptions
  *       Position: "<Position>", // required
- *       UseWith: "STRING_VALUE",
+ *       UseWith: "AnyStreet" || "DividedStreetOnly",
  *     },
  *     StopDuration: Number("long"),
  *   },
@@ -159,11 +159,11 @@ export interface CalculateRoutesCommandOutput extends CalculateRoutesResponse, _
  *     "STRING_VALUE",
  *   ],
  *   LegAdditionalFeatures: [ // RouteLegAdditionalFeatureList
- *     "STRING_VALUE",
+ *     "Elevation" || "Incidents" || "PassThroughWaypoints" || "Summary" || "Tolls" || "TravelStepInstructions" || "TruckRoadTypes" || "TypicalDuration" || "Zones" || "Bookings" || "IntermediateStops" || "NextDepartures",
  *   ],
  *   LegGeometryFormat: "FlexiblePolyline" || "Simple",
  *   MaxAlternatives: Number("int"),
- *   OptimizeRoutingFor: "STRING_VALUE",
+ *   OptimizeRoutingFor: "FastestRoute" || "ShortestRoute",
  *   Origin: "<Position>", // required
  *   OriginOptions: { // RouteOriginOptions
  *     AvoidActionsForDistance: Number("long"),
@@ -173,15 +173,15 @@ export interface CalculateRoutesCommandOutput extends CalculateRoutesResponse, _
  *       NameHint: "STRING_VALUE",
  *       OnRoadThreshold: Number("long"),
  *       Radius: Number("long"),
- *       Strategy: "STRING_VALUE",
+ *       Strategy: "MatchAny" || "MatchMostSignificantRoad",
  *     },
  *     SideOfStreet: {
  *       Position: "<Position>", // required
- *       UseWith: "STRING_VALUE",
+ *       UseWith: "AnyStreet" || "DividedStreetOnly",
  *     },
  *   },
  *   SpanAdditionalFeatures: [ // RouteSpanAdditionalFeatureList
- *     "STRING_VALUE",
+ *     "BestCaseDuration" || "CarAccess" || "Country" || "Distance" || "Duration" || "DynamicSpeed" || "FunctionalClassification" || "Gates" || "Incidents" || "Names" || "Notices" || "PedestrianAccess" || "RailwayCrossings" || "Region" || "RoadAttributes" || "RouteNumbers" || "ScooterAccess" || "SpeedLimit" || "TollSystems" || "TruckAccess" || "TruckRoadTypes" || "TypicalDuration" || "Zones" || "Consumption",
  *   ],
  *   Tolls: { // RouteTollOptions
  *     AllTransponders: true || false,
@@ -191,16 +191,16 @@ export interface CalculateRoutesCommandOutput extends CalculateRoutesResponse, _
  *       Co2EmissionClass: "STRING_VALUE",
  *       Type: "STRING_VALUE", // required
  *     },
- *     VehicleCategory: "STRING_VALUE",
+ *     VehicleCategory: "Minibus",
  *   },
  *   Traffic: { // RouteTrafficOptions
  *     FlowEventThresholdOverride: Number("long"),
- *     Usage: "STRING_VALUE",
+ *     Usage: "IgnoreTrafficData" || "UseTrafficData",
  *   },
- *   TravelMode: "STRING_VALUE",
+ *   TravelMode: "Car" || "Pedestrian" || "Scooter" || "Truck" || "Intermodal" || "Transit",
  *   TravelModeOptions: { // RouteTravelModeOptions
  *     Car: { // RouteCarOptions
- *       EngineType: "STRING_VALUE",
+ *       EngineType: "Electric" || "InternalCombustion" || "PluginHybrid",
  *       LicensePlate: { // RouteVehicleLicensePlate
  *         LastCharacter: "STRING_VALUE",
  *       },
@@ -211,7 +211,7 @@ export interface CalculateRoutesCommandOutput extends CalculateRoutesResponse, _
  *       Speed: Number("double"),
  *     },
  *     Scooter: { // RouteScooterOptions
- *       EngineType: "STRING_VALUE",
+ *       EngineType: "Electric" || "InternalCombustion" || "PluginHybrid",
  *       LicensePlate: {
  *         LastCharacter: "STRING_VALUE",
  *       },
@@ -220,10 +220,10 @@ export interface CalculateRoutesCommandOutput extends CalculateRoutesResponse, _
  *     },
  *     Truck: { // RouteTruckOptions
  *       AxleCount: Number("int"),
- *       EngineType: "STRING_VALUE",
+ *       EngineType: "Electric" || "InternalCombustion" || "PluginHybrid",
  *       GrossWeight: Number("long"),
  *       HazardousCargos: [ // RouteHazardousCargoTypeList
- *         "STRING_VALUE",
+ *         "Combustible" || "Corrosive" || "Explosive" || "Flammable" || "Gas" || "HarmfulToWater" || "Organic" || "Other" || "Poison" || "PoisonousInhalation" || "Radioactive",
  *       ],
  *       Height: Number("long"),
  *       HeightAboveFirstAxle: Number("long"),
@@ -240,7 +240,7 @@ export interface CalculateRoutesCommandOutput extends CalculateRoutesResponse, _
  *         AxleCount: Number("int"),
  *         TrailerCount: Number("int"),
  *       },
- *       TruckType: "STRING_VALUE",
+ *       TruckType: "LightTruck" || "StraightTruck" || "Tractor",
  *       TunnelRestrictionCode: "STRING_VALUE",
  *       WeightPerAxle: Number("long"),
  *       WeightPerAxleGroup: { // WeightPerAxleGroup
@@ -252,8 +252,78 @@ export interface CalculateRoutesCommandOutput extends CalculateRoutesResponse, _
  *       },
  *       Width: Number("long"),
  *     },
+ *     Intermodal: { // RouteIntermodalOptions
+ *       AccessibilityAttributes: [ // RouteAccessibilityAttributeList
+ *         "Wheelchair",
+ *       ],
+ *       MaxTransfers: Number("int"),
+ *       Pedestrian: { // RouteIntermodalPedestrianOptions
+ *         MaxDistance: Number("long"),
+ *         Speed: Number("double"),
+ *       },
+ *       Rental: { // RouteIntermodalRentalOptions
+ *         AllowedModes: [ // RouteRentalModeList
+ *           "All" || "Car",
+ *         ],
+ *         EnabledFor: [ // RouteIntermodalEnabledLegsList
+ *           "FirstLeg" || "LastLeg" || "EntireRoute" || "None",
+ *         ],
+ *         ExcludedModes: [
+ *           "All" || "Car",
+ *         ],
+ *       },
+ *       Taxi: { // RouteIntermodalTaxiOptions
+ *         AllowedModes: [ // RouteTaxiModeList
+ *           "All" || "Car",
+ *         ],
+ *         EnabledFor: [
+ *           "FirstLeg" || "LastLeg" || "EntireRoute" || "None",
+ *         ],
+ *         ExcludedModes: [
+ *           "All" || "Car",
+ *         ],
+ *       },
+ *       Transit: { // RouteIntermodalTransitOptions
+ *         AllowedModes: [ // RouteTransitModeList
+ *           "AerialTramway" || "Airplane" || "All" || "Bus" || "BusRapidTransit" || "CityTrain" || "Ferry" || "FunicularRailway" || "HighSpeedTrain" || "IntercityTrain" || "InterregionalTrain" || "LightRail" || "Monorail" || "PrivateBus" || "RegionalTrain" || "Subway",
+ *         ],
+ *         EnabledFor: [
+ *           "FirstLeg" || "LastLeg" || "EntireRoute" || "None",
+ *         ],
+ *         ExcludedModes: [
+ *           "AerialTramway" || "Airplane" || "All" || "Bus" || "BusRapidTransit" || "CityTrain" || "Ferry" || "FunicularRailway" || "HighSpeedTrain" || "IntercityTrain" || "InterregionalTrain" || "LightRail" || "Monorail" || "PrivateBus" || "RegionalTrain" || "Subway",
+ *         ],
+ *       },
+ *       Vehicle: { // RouteIntermodalVehicleOptions
+ *         AllowedModes: [ // RouteVehicleModeList
+ *           "All" || "Car",
+ *         ],
+ *         EnabledFor: [
+ *           "FirstLeg" || "LastLeg" || "EntireRoute" || "None",
+ *         ],
+ *         ExcludedModes: [
+ *           "All" || "Car",
+ *         ],
+ *       },
+ *     },
+ *     Transit: { // RouteTransitOptions
+ *       AccessibilityAttributes: [
+ *         "Wheelchair",
+ *       ],
+ *       AllowedModes: [
+ *         "AerialTramway" || "Airplane" || "All" || "Bus" || "BusRapidTransit" || "CityTrain" || "Ferry" || "FunicularRailway" || "HighSpeedTrain" || "IntercityTrain" || "InterregionalTrain" || "LightRail" || "Monorail" || "PrivateBus" || "RegionalTrain" || "Subway",
+ *       ],
+ *       ExcludedModes: [
+ *         "AerialTramway" || "Airplane" || "All" || "Bus" || "BusRapidTransit" || "CityTrain" || "Ferry" || "FunicularRailway" || "HighSpeedTrain" || "IntercityTrain" || "InterregionalTrain" || "LightRail" || "Monorail" || "PrivateBus" || "RegionalTrain" || "Subway",
+ *       ],
+ *       MaxTransfers: Number("int"),
+ *       Pedestrian: { // RouteTransitPedestrianOptions
+ *         MaxDistance: Number("long"),
+ *         Speed: Number("double"),
+ *       },
+ *     },
  *   },
- *   TravelStepType: "STRING_VALUE",
+ *   TravelStepType: "Default" || "TurnByTurn",
  *   Waypoints: [ // RouteWaypointList
  *     { // RouteWaypoint
  *       AvoidActionsForDistance: Number("long"),
@@ -263,13 +333,13 @@ export interface CalculateRoutesCommandOutput extends CalculateRoutesResponse, _
  *         NameHint: "STRING_VALUE",
  *         OnRoadThreshold: Number("long"),
  *         Radius: Number("long"),
- *         Strategy: "STRING_VALUE",
+ *         Strategy: "MatchAny" || "MatchMostSignificantRoad",
  *       },
  *       PassThrough: true || false,
  *       Position: "<Position>", // required
  *       SideOfStreet: {
  *         Position: "<Position>", // required
- *         UseWith: "STRING_VALUE",
+ *         UseWith: "AnyStreet" || "DividedStreetOnly",
  *       },
  *       StopDuration: Number("long"),
  *     },
@@ -281,8 +351,8 @@ export interface CalculateRoutesCommandOutput extends CalculateRoutesResponse, _
  * //   LegGeometryFormat: "FlexiblePolyline" || "Simple", // required
  * //   Notices: [ // RouteResponseNoticeList // required
  * //     { // RouteResponseNotice
- * //       Code: "STRING_VALUE", // required
- * //       Impact: "STRING_VALUE",
+ * //       Code: "MainLanguageNotFound" || "Other" || "TravelTimeExceedsDriverWorkHours" || "TransitDataUnavailable" || "TransitRouteUnavailable" || "NoTransitStationsFound", // required
+ * //       Impact: "High" || "Low",
  * //     },
  * //   ],
  * //   PricingBucket: "STRING_VALUE", // required
@@ -295,7 +365,7 @@ export interface CalculateRoutesCommandOutput extends CalculateRoutesResponse, _
  * //               { // RouteFerryAfterTravelStep
  * //                 Duration: Number("long"), // required
  * //                 Instruction: "STRING_VALUE",
- * //                 Type: "STRING_VALUE", // required
+ * //                 Type: "Deboard", // required
  * //               },
  * //             ],
  * //             Arrival: { // RouteFerryArrival
@@ -315,7 +385,7 @@ export interface CalculateRoutesCommandOutput extends CalculateRoutesResponse, _
  * //               { // RouteFerryBeforeTravelStep
  * //                 Duration: Number("long"), // required
  * //                 Instruction: "STRING_VALUE",
- * //                 Type: "STRING_VALUE", // required
+ * //                 Type: "Board", // required
  * //               },
  * //             ],
  * //             Departure: { // RouteFerryDeparture
@@ -333,8 +403,8 @@ export interface CalculateRoutesCommandOutput extends CalculateRoutesResponse, _
  * //             },
  * //             Notices: [ // RouteFerryNoticeList // required
  * //               { // RouteFerryNotice
- * //                 Code: "STRING_VALUE", // required
- * //                 Impact: "STRING_VALUE",
+ * //                 Code: "AccuratePolylineUnavailable" || "NoSchedule" || "Other" || "ViolatedAvoidFerry" || "ViolatedAvoidRailFerry" || "SeasonalClosure" || "PotentialViolatedVehicleRestrictionUsage" || "ViolatedAvoidAreas" || "ViolatedVehicleRestriction", // required
+ * //                 Impact: "High" || "Low",
  * //               },
  * //             ],
  * //             PassThroughWaypoints: [ // RoutePassThroughWaypointList // required
@@ -380,7 +450,7 @@ export interface CalculateRoutesCommandOutput extends CalculateRoutesResponse, _
  * //                 Duration: Number("long"), // required
  * //                 GeometryOffset: Number("int"),
  * //                 Instruction: "STRING_VALUE",
- * //                 Type: "STRING_VALUE", // required
+ * //                 Type: "Depart" || "Continue" || "Arrive", // required
  * //               },
  * //             ],
  * //           },
@@ -394,30 +464,63 @@ export interface CalculateRoutesCommandOutput extends CalculateRoutesResponse, _
  * //           },
  * //           Language: "STRING_VALUE",
  * //           PedestrianLegDetails: { // RoutePedestrianLegDetails
+ * //             AfterTravelSteps: [ // RoutePedestrianAfterTravelStepList // required
+ * //               { // RoutePedestrianAfterTravelStep
+ * //                 Duration: Number("long"), // required
+ * //                 Instruction: "STRING_VALUE",
+ * //                 Type: "Wait", // required
+ * //               },
+ * //             ],
  * //             Arrival: { // RoutePedestrianArrival
  * //               Place: { // RoutePedestrianPlace
+ * //                 AccessPointDetails: { // RouteAccessPointDetails
+ * //                   Accessibility: { // RouteAccessibilityAvailabilityDetails
+ * //                     Wheelchair: "Available" || "Limited" || "Unavailable" || "Unknown",
+ * //                   },
+ * //                 },
  * //                 Name: "STRING_VALUE",
  * //                 OriginalPosition: "<Position23>",
  * //                 Position: "<Position23>", // required
- * //                 SideOfStreet: "STRING_VALUE",
+ * //                 SideOfStreet: "Left" || "Right",
+ * //                 StationDetails: { // RouteStationDetails
+ * //                   Accessibility: {
+ * //                     Wheelchair: "Available" || "Limited" || "Unavailable" || "Unknown",
+ * //                   },
+ * //                   PlatformName: "STRING_VALUE",
+ * //                   ShortName: "STRING_VALUE",
+ * //                 },
+ * //                 Type: "AccessPoint" || "DockingStation" || "ParkingLot" || "Station",
  * //                 WaypointIndex: Number("int"),
  * //               },
  * //               Time: "STRING_VALUE",
  * //             },
  * //             Departure: { // RoutePedestrianDeparture
  * //               Place: {
+ * //                 AccessPointDetails: {
+ * //                   Accessibility: {
+ * //                     Wheelchair: "Available" || "Limited" || "Unavailable" || "Unknown",
+ * //                   },
+ * //                 },
  * //                 Name: "STRING_VALUE",
  * //                 OriginalPosition: "<Position23>",
  * //                 Position: "<Position23>", // required
- * //                 SideOfStreet: "STRING_VALUE",
+ * //                 SideOfStreet: "Left" || "Right",
+ * //                 StationDetails: {
+ * //                   Accessibility: {
+ * //                     Wheelchair: "Available" || "Limited" || "Unavailable" || "Unknown",
+ * //                   },
+ * //                   PlatformName: "STRING_VALUE",
+ * //                   ShortName: "STRING_VALUE",
+ * //                 },
+ * //                 Type: "AccessPoint" || "DockingStation" || "ParkingLot" || "Station",
  * //                 WaypointIndex: Number("int"),
  * //               },
  * //               Time: "STRING_VALUE",
  * //             },
  * //             Notices: [ // RoutePedestrianNoticeList // required
  * //               { // RoutePedestrianNotice
- * //                 Code: "STRING_VALUE", // required
- * //                 Impact: "STRING_VALUE",
+ * //                 Code: "AccuratePolylineUnavailable" || "Other" || "ViolatedAvoidDirtRoad" || "ViolatedAvoidTunnel" || "ViolatedPedestrianOption" || "ViolatedAvoidAreas", // required
+ * //                 Impact: "High" || "Low",
  * //               },
  * //             ],
  * //             PassThroughWaypoints: [ // required
@@ -453,15 +556,15 @@ export interface CalculateRoutesCommandOutput extends CalculateRoutesResponse, _
  * //                   },
  * //                 ],
  * //                 PedestrianAccess: [ // RouteSpanPedestrianAccessAttributeList
- * //                   "STRING_VALUE",
+ * //                   "Allowed" || "Indoors" || "NoThroughTraffic" || "Park" || "Stairs" || "TollRoad",
  * //                 ],
  * //                 Region: "STRING_VALUE",
  * //                 RoadAttributes: [ // RouteSpanRoadAttributeList
- * //                   "STRING_VALUE",
+ * //                   "Bridge" || "BuiltUpArea" || "ControlledAccessHighway" || "DirtRoad" || "DividedRoad" || "Motorway" || "PrivateRoad" || "Ramp" || "RightHandTraffic" || "Roundabout" || "Tunnel" || "UnderConstruction",
  * //                 ],
  * //                 RouteNumbers: [ // RouteNumberList
  * //                   { // RouteNumber
- * //                     Direction: "STRING_VALUE",
+ * //                     Direction: "East" || "North" || "South" || "West",
  * //                     Language: "STRING_VALUE",
  * //                     Value: "STRING_VALUE", // required
  * //                   },
@@ -501,7 +604,7 @@ export interface CalculateRoutesCommandOutput extends CalculateRoutesResponse, _
  * //                   ],
  * //                   RouteNumber: [ // required
  * //                     {
- * //                       Direction: "STRING_VALUE",
+ * //                       Direction: "East" || "North" || "South" || "West",
  * //                       Language: "STRING_VALUE",
  * //                       Value: "STRING_VALUE", // required
  * //                     },
@@ -512,7 +615,7 @@ export interface CalculateRoutesCommandOutput extends CalculateRoutesResponse, _
  * //                       Value: "STRING_VALUE", // required
  * //                     },
  * //                   ],
- * //                   Type: "STRING_VALUE",
+ * //                   Type: "Highway" || "Rural" || "Urban",
  * //                 },
  * //                 Distance: Number("long"),
  * //                 Duration: Number("long"), // required
@@ -521,39 +624,39 @@ export interface CalculateRoutesCommandOutput extends CalculateRoutesResponse, _
  * //                 Instruction: "STRING_VALUE",
  * //                 KeepStepDetails: { // RouteKeepStepDetails
  * //                   Intersection: "<LocalizedStringList>", // required
- * //                   SteeringDirection: "STRING_VALUE",
+ * //                   SteeringDirection: "Left" || "Right" || "Straight",
  * //                   TurnAngle: Number("double"),
- * //                   TurnIntensity: "STRING_VALUE",
+ * //                   TurnIntensity: "Sharp" || "Slight" || "Typical",
  * //                 },
  * //                 NextRoad: {
  * //                   RoadName: "<LocalizedStringList>", // required
  * //                   RouteNumber: [ // required
  * //                     {
- * //                       Direction: "STRING_VALUE",
+ * //                       Direction: "East" || "North" || "South" || "West",
  * //                       Language: "STRING_VALUE",
  * //                       Value: "STRING_VALUE", // required
  * //                     },
  * //                   ],
  * //                   Towards: "<LocalizedStringList>", // required
- * //                   Type: "STRING_VALUE",
+ * //                   Type: "Highway" || "Rural" || "Urban",
  * //                 },
  * //                 RoundaboutEnterStepDetails: { // RouteRoundaboutEnterStepDetails
  * //                   Intersection: "<LocalizedStringList>", // required
- * //                   SteeringDirection: "STRING_VALUE",
+ * //                   SteeringDirection: "Left" || "Right" || "Straight",
  * //                   TurnAngle: Number("double"),
- * //                   TurnIntensity: "STRING_VALUE",
+ * //                   TurnIntensity: "Sharp" || "Slight" || "Typical",
  * //                 },
  * //                 RoundaboutExitStepDetails: { // RouteRoundaboutExitStepDetails
  * //                   Intersection: "<LocalizedStringList>", // required
  * //                   RelativeExit: Number("int"),
  * //                   RoundaboutAngle: Number("double"),
- * //                   SteeringDirection: "STRING_VALUE",
+ * //                   SteeringDirection: "Left" || "Right" || "Straight",
  * //                 },
  * //                 RoundaboutPassStepDetails: { // RouteRoundaboutPassStepDetails
  * //                   Intersection: "<LocalizedStringList>", // required
- * //                   SteeringDirection: "STRING_VALUE",
+ * //                   SteeringDirection: "Left" || "Right" || "Straight",
  * //                   TurnAngle: Number("double"),
- * //                   TurnIntensity: "STRING_VALUE",
+ * //                   TurnIntensity: "Sharp" || "Slight" || "Typical",
  * //                 },
  * //                 Signpost: { // RouteSignpost
  * //                   Labels: [ // RouteSignpostLabelList // required
@@ -565,24 +668,47 @@ export interface CalculateRoutesCommandOutput extends CalculateRoutesResponse, _
  * //                 },
  * //                 TurnStepDetails: { // RouteTurnStepDetails
  * //                   Intersection: "<LocalizedStringList>", // required
- * //                   SteeringDirection: "STRING_VALUE",
+ * //                   SteeringDirection: "Left" || "Right" || "Straight",
  * //                   TurnAngle: Number("double"),
- * //                   TurnIntensity: "STRING_VALUE",
+ * //                   TurnIntensity: "Sharp" || "Slight" || "Typical",
  * //                 },
- * //                 Type: "STRING_VALUE", // required
+ * //                 Type: "Arrive" || "Continue" || "Depart" || "Keep" || "RoundaboutEnter" || "RoundaboutExit" || "RoundaboutPass" || "Turn", // required
  * //               },
  * //             ],
  * //           },
- * //           TravelMode: "STRING_VALUE", // required
- * //           Type: "STRING_VALUE", // required
+ * //           TravelMode: "Car" || "Ferry" || "Pedestrian" || "Scooter" || "Truck" || "CarShuttleTrain" || "AerialTramway" || "Airplane" || "Bus" || "BusRapidTransit" || "CityTrain" || "FunicularRailway" || "HighSpeedTrain" || "IntercityTrain" || "InterregionalTrain" || "LightRail" || "Monorail" || "PrivateBus" || "RegionalTrain" || "Subway", // required
+ * //           Type: "Ferry" || "Pedestrian" || "Vehicle" || "Rental" || "Taxi" || "Transit", // required
  * //           VehicleLegDetails: { // RouteVehicleLegDetails
+ * //             AfterTravelSteps: [ // RouteVehicleAfterTravelStepList // required
+ * //               { // RouteVehicleAfterTravelStep
+ * //                 ChargeStepDetails: { // RouteChargeStepDetails
+ * //                   ArrivalCharge: Number("double"),
+ * //                   ConsumablePower: Number("double"),
+ * //                   DesiredCharge: Number("double"),
+ * //                 },
+ * //                 Duration: Number("long"), // required
+ * //                 Instruction: "STRING_VALUE",
+ * //                 Type: "Park", // required
+ * //               },
+ * //             ],
  * //             Arrival: { // RouteVehicleArrival
  * //               Place: { // RouteVehiclePlace
  * //                 Name: "STRING_VALUE",
  * //                 OriginalPosition: "<Position23>",
  * //                 Position: "<Position23>", // required
- * //                 SideOfStreet: "STRING_VALUE",
+ * //                 SideOfStreet: "Left" || "Right",
  * //                 WaypointIndex: Number("int"),
+ * //                 AccessPointDetails: {
+ * //                   Accessibility: {
+ * //                     Wheelchair: "Available" || "Limited" || "Unavailable" || "Unknown",
+ * //                   },
+ * //                 },
+ * //                 StationDetails: {
+ * //                   Accessibility: "<RouteAccessibilityAvailabilityDetails>",
+ * //                   PlatformName: "STRING_VALUE",
+ * //                   ShortName: "STRING_VALUE",
+ * //                 },
+ * //                 Type: "AccessPoint" || "DockingStation" || "ParkingLot" || "Station",
  * //               },
  * //               Time: "STRING_VALUE",
  * //             },
@@ -591,8 +717,17 @@ export interface CalculateRoutesCommandOutput extends CalculateRoutesResponse, _
  * //                 Name: "STRING_VALUE",
  * //                 OriginalPosition: "<Position23>",
  * //                 Position: "<Position23>", // required
- * //                 SideOfStreet: "STRING_VALUE",
+ * //                 SideOfStreet: "Left" || "Right",
  * //                 WaypointIndex: Number("int"),
+ * //                 AccessPointDetails: {
+ * //                   Accessibility: "<RouteAccessibilityAvailabilityDetails>",
+ * //                 },
+ * //                 StationDetails: {
+ * //                   Accessibility: "<RouteAccessibilityAvailabilityDetails>",
+ * //                   PlatformName: "STRING_VALUE",
+ * //                   ShortName: "STRING_VALUE",
+ * //                 },
+ * //                 Type: "AccessPoint" || "DockingStation" || "ParkingLot" || "Station",
  * //               },
  * //               Time: "STRING_VALUE",
  * //             },
@@ -600,14 +735,14 @@ export interface CalculateRoutesCommandOutput extends CalculateRoutesResponse, _
  * //               { // RouteVehicleIncident
  * //                 Description: "STRING_VALUE",
  * //                 EndTime: "STRING_VALUE",
- * //                 Severity: "STRING_VALUE",
+ * //                 Severity: "Critical" || "High" || "Medium" || "Low",
  * //                 StartTime: "STRING_VALUE",
- * //                 Type: "STRING_VALUE",
+ * //                 Type: "Accident" || "Congestion" || "Construction" || "DisabledVehicle" || "LaneRestriction" || "MassTransit" || "Other" || "PlannedEvent" || "RoadClosure" || "RoadHazard" || "Weather",
  * //               },
  * //             ],
  * //             Notices: [ // RouteVehicleNoticeList // required
  * //               { // RouteVehicleNotice
- * //                 Code: "STRING_VALUE", // required
+ * //                 Code: "AccuratePolylineUnavailable" || "Other" || "PotentialViolatedAvoidTollRoadUsage" || "PotentialViolatedCarpoolUsage" || "PotentialViolatedTurnRestrictionUsage" || "PotentialViolatedVehicleRestrictionUsage" || "PotentialViolatedZoneRestrictionUsage" || "SeasonalClosure" || "TollsDataTemporarilyUnavailable" || "TollsDataUnavailable" || "TollTransponder" || "ViolatedAvoidControlledAccessHighway" || "ViolatedAvoidDifficultTurns" || "ViolatedAvoidDirtRoad" || "ViolatedAvoidSeasonalClosure" || "ViolatedAvoidTollRoad" || "ViolatedAvoidTollTransponder" || "ViolatedAvoidTruckRoadType" || "ViolatedAvoidTunnel" || "ViolatedAvoidUTurns" || "ViolatedBlockedRoad" || "ViolatedCarpool" || "ViolatedEmergencyGate" || "ViolatedStartDirection" || "ViolatedTurnRestriction" || "ViolatedVehicleRestriction" || "ViolatedZoneRestriction" || "TravelTimeExceedsDriverWorkHours", // required
  * //                 Details: [ // RouteVehicleNoticeDetailList // required
  * //                   { // RouteVehicleNoticeDetail
  * //                     Title: "STRING_VALUE",
@@ -618,14 +753,14 @@ export interface CalculateRoutesCommandOutput extends CalculateRoutesResponse, _
  * //                         Max: Number("int"),
  * //                       },
  * //                       HazardousCargos: [ // RouteHazardousCargoTypeList // required
- * //                         "STRING_VALUE",
+ * //                         "Combustible" || "Corrosive" || "Explosive" || "Flammable" || "Gas" || "HarmfulToWater" || "Organic" || "Other" || "Poison" || "PoisonousInhalation" || "Radioactive",
  * //                       ],
  * //                       MaxHeight: Number("long"),
  * //                       MaxKpraLength: Number("long"),
  * //                       MaxLength: Number("long"),
  * //                       MaxPayloadCapacity: Number("long"),
  * //                       MaxWeight: { // RouteWeightConstraint
- * //                         Type: "STRING_VALUE", // required
+ * //                         Type: "Current" || "Gross" || "Unknown", // required
  * //                         Value: Number("long"), // required
  * //                       },
  * //                       MaxWeightPerAxle: Number("long"),
@@ -649,12 +784,12 @@ export interface CalculateRoutesCommandOutput extends CalculateRoutesResponse, _
  * //                       },
  * //                       TravelMode: true || false,
  * //                       TruckRoadType: "STRING_VALUE",
- * //                       TruckType: "STRING_VALUE",
+ * //                       TruckType: "LightTruck" || "StraightTruck" || "Tractor",
  * //                       TunnelRestrictionCode: "STRING_VALUE",
  * //                     },
  * //                   },
  * //                 ],
- * //                 Impact: "STRING_VALUE",
+ * //                 Impact: "High" || "Low",
  * //               },
  * //             ],
  * //             PassThroughWaypoints: [ // required
@@ -671,7 +806,7 @@ export interface CalculateRoutesCommandOutput extends CalculateRoutesResponse, _
  * //               { // RouteVehicleSpan
  * //                 BestCaseDuration: Number("long"),
  * //                 CarAccess: [ // RouteSpanCarAccessAttributeList
- * //                   "STRING_VALUE",
+ * //                   "Allowed" || "NoThroughTraffic" || "TollRoad",
  * //                 ],
  * //                 Country: "STRING_VALUE",
  * //                 Distance: Number("long"),
@@ -682,7 +817,7 @@ export interface CalculateRoutesCommandOutput extends CalculateRoutesResponse, _
  * //                   TypicalSpeed: Number("double"),
  * //                 },
  * //                 FunctionalClassification: Number("int"),
- * //                 Gate: "STRING_VALUE",
+ * //                 Gate: "Emergency" || "KeyAccess" || "PermissionRequired",
  * //                 GeometryOffset: Number("int"),
  * //                 Incidents: [
  * //                   Number("int"),
@@ -691,16 +826,16 @@ export interface CalculateRoutesCommandOutput extends CalculateRoutesResponse, _
  * //                 Notices: [
  * //                   Number("int"),
  * //                 ],
- * //                 RailwayCrossing: "STRING_VALUE",
+ * //                 RailwayCrossing: "Protected" || "Unprotected",
  * //                 Region: "STRING_VALUE",
  * //                 RoadAttributes: [
- * //                   "STRING_VALUE",
+ * //                   "Bridge" || "BuiltUpArea" || "ControlledAccessHighway" || "DirtRoad" || "DividedRoad" || "Motorway" || "PrivateRoad" || "Ramp" || "RightHandTraffic" || "Roundabout" || "Tunnel" || "UnderConstruction",
  * //                 ],
  * //                 RouteNumbers: [
  * //                   "<RouteNumber>",
  * //                 ],
  * //                 ScooterAccess: [ // RouteSpanScooterAccessAttributeList
- * //                   "STRING_VALUE",
+ * //                   "Allowed" || "NoThroughTraffic" || "TollRoad",
  * //                 ],
  * //                 SpeedLimit: {
  * //                   MaxSpeed: Number("double"),
@@ -710,7 +845,7 @@ export interface CalculateRoutesCommandOutput extends CalculateRoutesResponse, _
  * //                   Number("int"),
  * //                 ],
  * //                 TruckAccess: [ // RouteSpanTruckAccessAttributeList
- * //                   "STRING_VALUE",
+ * //                   "Allowed" || "NoThroughTraffic" || "TollRoad",
  * //                 ],
  * //                 TruckRoadTypes: [
  * //                   Number("int"),
@@ -774,12 +909,12 @@ export interface CalculateRoutesCommandOutput extends CalculateRoutesResponse, _
  * //                       TransferCount: Number("int"),
  * //                       TripCount: Number("int"),
  * //                       ValidityPeriod: { // RouteTollPassValidityPeriod
- * //                         Period: "STRING_VALUE", // required
+ * //                         Period: "Annual" || "Days" || "ExtendedAnnual" || "Minutes" || "Months", // required
  * //                         PeriodCount: Number("int"),
  * //                       },
  * //                     },
  * //                     PaymentMethods: [ // RouteTollPaymentMethodList // required
- * //                       "STRING_VALUE",
+ * //                       "BankCard" || "Cash" || "CashExact" || "CreditCard" || "PassSubscription" || "TravelCard" || "Transponder" || "VideoToll",
  * //                     ],
  * //                     Transponders: [ // RouteTransponderList // required
  * //                       { // RouteTransponder
@@ -800,9 +935,9 @@ export interface CalculateRoutesCommandOutput extends CalculateRoutesResponse, _
  * //               { // RouteVehicleTravelStep
  * //                 ContinueHighwayStepDetails: { // RouteContinueHighwayStepDetails
  * //                   Intersection: "<LocalizedStringList>", // required
- * //                   SteeringDirection: "STRING_VALUE",
+ * //                   SteeringDirection: "Left" || "Right" || "Straight",
  * //                   TurnAngle: Number("double"),
- * //                   TurnIntensity: "STRING_VALUE",
+ * //                   TurnIntensity: "Sharp" || "Slight" || "Typical",
  * //                 },
  * //                 ContinueStepDetails: {
  * //                   Intersection: "<LocalizedStringList>", // required
@@ -813,61 +948,61 @@ export interface CalculateRoutesCommandOutput extends CalculateRoutesResponse, _
  * //                     "<RouteNumber>",
  * //                   ],
  * //                   Towards: "<LocalizedStringList>", // required
- * //                   Type: "STRING_VALUE",
+ * //                   Type: "Highway" || "Rural" || "Urban",
  * //                 },
  * //                 Distance: Number("long"),
  * //                 Duration: Number("long"), // required
  * //                 EnterHighwayStepDetails: { // RouteEnterHighwayStepDetails
  * //                   Intersection: "<LocalizedStringList>", // required
- * //                   SteeringDirection: "STRING_VALUE",
+ * //                   SteeringDirection: "Left" || "Right" || "Straight",
  * //                   TurnAngle: Number("double"),
- * //                   TurnIntensity: "STRING_VALUE",
+ * //                   TurnIntensity: "Sharp" || "Slight" || "Typical",
  * //                 },
  * //                 ExitNumber: "<LocalizedStringList>",
  * //                 ExitStepDetails: { // RouteExitStepDetails
  * //                   Intersection: "<LocalizedStringList>", // required
  * //                   RelativeExit: Number("int"),
- * //                   SteeringDirection: "STRING_VALUE",
+ * //                   SteeringDirection: "Left" || "Right" || "Straight",
  * //                   TurnAngle: Number("double"),
- * //                   TurnIntensity: "STRING_VALUE",
+ * //                   TurnIntensity: "Sharp" || "Slight" || "Typical",
  * //                 },
  * //                 GeometryOffset: Number("int"),
  * //                 Instruction: "STRING_VALUE",
  * //                 KeepStepDetails: {
  * //                   Intersection: "<LocalizedStringList>", // required
- * //                   SteeringDirection: "STRING_VALUE",
+ * //                   SteeringDirection: "Left" || "Right" || "Straight",
  * //                   TurnAngle: Number("double"),
- * //                   TurnIntensity: "STRING_VALUE",
+ * //                   TurnIntensity: "Sharp" || "Slight" || "Typical",
  * //                 },
  * //                 NextRoad: {
  * //                   RoadName: "<LocalizedStringList>", // required
  * //                   RouteNumber: "<RouteNumberList>", // required
  * //                   Towards: "<LocalizedStringList>", // required
- * //                   Type: "STRING_VALUE",
+ * //                   Type: "Highway" || "Rural" || "Urban",
  * //                 },
  * //                 RampStepDetails: { // RouteRampStepDetails
  * //                   Intersection: "<LocalizedStringList>", // required
- * //                   SteeringDirection: "STRING_VALUE",
+ * //                   SteeringDirection: "Left" || "Right" || "Straight",
  * //                   TurnAngle: Number("double"),
- * //                   TurnIntensity: "STRING_VALUE",
+ * //                   TurnIntensity: "Sharp" || "Slight" || "Typical",
  * //                 },
  * //                 RoundaboutEnterStepDetails: {
  * //                   Intersection: "<LocalizedStringList>", // required
- * //                   SteeringDirection: "STRING_VALUE",
+ * //                   SteeringDirection: "Left" || "Right" || "Straight",
  * //                   TurnAngle: Number("double"),
- * //                   TurnIntensity: "STRING_VALUE",
+ * //                   TurnIntensity: "Sharp" || "Slight" || "Typical",
  * //                 },
  * //                 RoundaboutExitStepDetails: {
  * //                   Intersection: "<LocalizedStringList>", // required
  * //                   RelativeExit: Number("int"),
  * //                   RoundaboutAngle: Number("double"),
- * //                   SteeringDirection: "STRING_VALUE",
+ * //                   SteeringDirection: "Left" || "Right" || "Straight",
  * //                 },
  * //                 RoundaboutPassStepDetails: {
  * //                   Intersection: "<LocalizedStringList>", // required
- * //                   SteeringDirection: "STRING_VALUE",
+ * //                   SteeringDirection: "Left" || "Right" || "Straight",
  * //                   TurnAngle: Number("double"),
- * //                   TurnIntensity: "STRING_VALUE",
+ * //                   TurnIntensity: "Sharp" || "Slight" || "Typical",
  * //                 },
  * //                 Signpost: {
  * //                   Labels: [ // required
@@ -879,16 +1014,16 @@ export interface CalculateRoutesCommandOutput extends CalculateRoutesResponse, _
  * //                 },
  * //                 TurnStepDetails: {
  * //                   Intersection: "<LocalizedStringList>", // required
- * //                   SteeringDirection: "STRING_VALUE",
+ * //                   SteeringDirection: "Left" || "Right" || "Straight",
  * //                   TurnAngle: Number("double"),
- * //                   TurnIntensity: "STRING_VALUE",
+ * //                   TurnIntensity: "Sharp" || "Slight" || "Typical",
  * //                 },
- * //                 Type: "STRING_VALUE", // required
+ * //                 Type: "Arrive" || "Continue" || "ContinueHighway" || "Depart" || "EnterHighway" || "Exit" || "Keep" || "Ramp" || "RoundaboutEnter" || "RoundaboutExit" || "RoundaboutPass" || "Turn" || "UTurn", // required
  * //                 UTurnStepDetails: { // RouteUTurnStepDetails
  * //                   Intersection: "<LocalizedStringList>", // required
- * //                   SteeringDirection: "STRING_VALUE",
+ * //                   SteeringDirection: "Left" || "Right" || "Straight",
  * //                   TurnAngle: Number("double"),
- * //                   TurnIntensity: "STRING_VALUE",
+ * //                   TurnIntensity: "Sharp" || "Slight" || "Typical",
  * //                 },
  * //               },
  * //             ],
@@ -897,8 +1032,482 @@ export interface CalculateRoutesCommandOutput extends CalculateRoutesResponse, _
  * //             ],
  * //             Zones: [ // RouteZoneList // required
  * //               { // RouteZone
- * //                 Category: "STRING_VALUE",
+ * //                 Category: "CongestionPricing" || "Environmental" || "Vignette",
  * //                 Name: "STRING_VALUE",
+ * //               },
+ * //             ],
+ * //           },
+ * //           RentalLegDetails: { // RouteRentalLegDetails
+ * //             AfterTravelSteps: [ // RouteRentalAfterTravelStepList // required
+ * //               { // RouteRentalAfterTravelStep
+ * //                 Duration: Number("long"), // required
+ * //                 Instruction: "STRING_VALUE",
+ * //                 Type: "Park", // required
+ * //               },
+ * //             ],
+ * //             Agency: { // RouteRentalAgency
+ * //               Name: "STRING_VALUE", // required
+ * //               Url: "STRING_VALUE",
+ * //             },
+ * //             Arrival: { // RouteRentalArrival
+ * //               Place: { // RouteRentalPlace
+ * //                 AccessPointDetails: {
+ * //                   Accessibility: "<RouteAccessibilityAvailabilityDetails>",
+ * //                 },
+ * //                 Name: "STRING_VALUE",
+ * //                 OriginalPosition: "<Position23>",
+ * //                 Position: "<Position23>", // required
+ * //                 StationDetails: {
+ * //                   Accessibility: "<RouteAccessibilityAvailabilityDetails>",
+ * //                   PlatformName: "STRING_VALUE",
+ * //                   ShortName: "STRING_VALUE",
+ * //                 },
+ * //                 Type: "AccessPoint" || "DockingStation" || "ParkingLot" || "Station",
+ * //                 WaypointIndex: Number("int"),
+ * //               },
+ * //               Time: "STRING_VALUE",
+ * //             },
+ * //             Attributions: [ // RouteAttributionList // required
+ * //               { // RouteAttribution
+ * //                 AttributionType: "Disclaimer" || "Tariff",
+ * //                 WebLink: { // RouteWebLink
+ * //                   AnchorText: "STRING_VALUE",
+ * //                   Description: "STRING_VALUE", // required
+ * //                   DeviceType: "Android" || "Ios" || "Web",
+ * //                   Url: "STRING_VALUE",
+ * //                 },
+ * //               },
+ * //             ],
+ * //             BeforeTravelSteps: [ // RouteRentalBeforeTravelStepList // required
+ * //               { // RouteRentalBeforeTravelStep
+ * //                 Duration: Number("long"), // required
+ * //                 Instruction: "STRING_VALUE",
+ * //                 Type: "Setup", // required
+ * //               },
+ * //             ],
+ * //             BookingWebLinks: [ // RouteWebLinkList // required
+ * //               {
+ * //                 AnchorText: "STRING_VALUE",
+ * //                 Description: "STRING_VALUE", // required
+ * //                 DeviceType: "Android" || "Ios" || "Web",
+ * //                 Url: "STRING_VALUE",
+ * //               },
+ * //             ],
+ * //             Departure: { // RouteRentalDeparture
+ * //               Place: {
+ * //                 AccessPointDetails: "<RouteAccessPointDetails>",
+ * //                 Name: "STRING_VALUE",
+ * //                 OriginalPosition: "<Position23>",
+ * //                 Position: "<Position23>", // required
+ * //                 StationDetails: "<RouteStationDetails>",
+ * //                 Type: "AccessPoint" || "DockingStation" || "ParkingLot" || "Station",
+ * //                 WaypointIndex: Number("int"),
+ * //               },
+ * //               Time: "STRING_VALUE",
+ * //             },
+ * //             Summary: { // RouteRentalSummary
+ * //               Overview: { // RouteRentalOverviewSummary
+ * //                 Duration: Number("long"), // required
+ * //                 Distance: Number("long"), // required
+ * //               },
+ * //               TravelOnly: { // RouteRentalTravelOnlySummary
+ * //                 Duration: Number("long"), // required
+ * //               },
+ * //             },
+ * //             Transport: { // RouteRentalTransportModeDetails
+ * //               AvailableSeats: Number("int"),
+ * //               Category: "STRING_VALUE",
+ * //               Color: "STRING_VALUE",
+ * //               Engine: "Electric" || "InternalCombustion" || "PluginHybrid",
+ * //               LicensePlate: "STRING_VALUE",
+ * //               Mode: "All" || "Car", // required
+ * //               Model: "STRING_VALUE",
+ * //               Name: "STRING_VALUE",
+ * //               TextColor: "STRING_VALUE",
+ * //             },
+ * //             TravelSteps: [ // RouteRentalTravelStepList // required
+ * //               { // RouteRentalTravelStep
+ * //                 ContinueStepDetails: {
+ * //                   Intersection: "<LocalizedStringList>", // required
+ * //                 },
+ * //                 Distance: Number("long"),
+ * //                 Duration: Number("long"), // required
+ * //                 ExitStepDetails: {
+ * //                   Intersection: "<LocalizedStringList>", // required
+ * //                   RelativeExit: Number("int"),
+ * //                   SteeringDirection: "Left" || "Right" || "Straight",
+ * //                   TurnAngle: Number("double"),
+ * //                   TurnIntensity: "Sharp" || "Slight" || "Typical",
+ * //                 },
+ * //                 GeometryOffset: Number("int"),
+ * //                 Instruction: "STRING_VALUE",
+ * //                 KeepStepDetails: {
+ * //                   Intersection: "<LocalizedStringList>", // required
+ * //                   SteeringDirection: "Left" || "Right" || "Straight",
+ * //                   TurnAngle: Number("double"),
+ * //                   TurnIntensity: "Sharp" || "Slight" || "Typical",
+ * //                 },
+ * //                 RampStepDetails: {
+ * //                   Intersection: "<LocalizedStringList>", // required
+ * //                   SteeringDirection: "Left" || "Right" || "Straight",
+ * //                   TurnAngle: Number("double"),
+ * //                   TurnIntensity: "Sharp" || "Slight" || "Typical",
+ * //                 },
+ * //                 RoundaboutEnterStepDetails: {
+ * //                   Intersection: "<LocalizedStringList>", // required
+ * //                   SteeringDirection: "Left" || "Right" || "Straight",
+ * //                   TurnAngle: Number("double"),
+ * //                   TurnIntensity: "Sharp" || "Slight" || "Typical",
+ * //                 },
+ * //                 RoundaboutExitStepDetails: {
+ * //                   Intersection: "<LocalizedStringList>", // required
+ * //                   RelativeExit: Number("int"),
+ * //                   RoundaboutAngle: Number("double"),
+ * //                   SteeringDirection: "Left" || "Right" || "Straight",
+ * //                 },
+ * //                 RoundaboutPassStepDetails: {
+ * //                   Intersection: "<LocalizedStringList>", // required
+ * //                   SteeringDirection: "Left" || "Right" || "Straight",
+ * //                   TurnAngle: Number("double"),
+ * //                   TurnIntensity: "Sharp" || "Slight" || "Typical",
+ * //                 },
+ * //                 TurnStepDetails: {
+ * //                   Intersection: "<LocalizedStringList>", // required
+ * //                   SteeringDirection: "Left" || "Right" || "Straight",
+ * //                   TurnAngle: Number("double"),
+ * //                   TurnIntensity: "Sharp" || "Slight" || "Typical",
+ * //                 },
+ * //                 Type: "Arrive" || "Continue" || "Depart" || "Exit" || "Keep" || "Ramp" || "RoundaboutEnter" || "RoundaboutExit" || "RoundaboutPass" || "Turn" || "UTurn", // required
+ * //                 UTurnStepDetails: {
+ * //                   Intersection: "<LocalizedStringList>", // required
+ * //                   SteeringDirection: "Left" || "Right" || "Straight",
+ * //                   TurnAngle: Number("double"),
+ * //                   TurnIntensity: "Sharp" || "Slight" || "Typical",
+ * //                 },
+ * //               },
+ * //             ],
+ * //           },
+ * //           TaxiLegDetails: { // RouteTaxiLegDetails
+ * //             AfterTravelSteps: [ // RouteTaxiAfterTravelStepList // required
+ * //               { // RouteTaxiAfterTravelStep
+ * //                 Duration: Number("long"), // required
+ * //                 Instruction: "STRING_VALUE",
+ * //                 Type: "Park", // required
+ * //               },
+ * //             ],
+ * //             Agency: { // RouteTaxiAgency
+ * //               Name: "STRING_VALUE", // required
+ * //               Url: "STRING_VALUE",
+ * //             },
+ * //             Arrival: { // RouteTaxiArrival
+ * //               Place: { // RouteTaxiPlace
+ * //                 AccessPointDetails: "<RouteAccessPointDetails>",
+ * //                 Name: "STRING_VALUE",
+ * //                 OriginalPosition: "<Position23>",
+ * //                 Position: "<Position23>", // required
+ * //                 StationDetails: "<RouteStationDetails>",
+ * //                 Type: "AccessPoint" || "Station",
+ * //                 WaypointIndex: Number("int"),
+ * //               },
+ * //               Time: "STRING_VALUE",
+ * //             },
+ * //             Attributions: [ // required
+ * //               {
+ * //                 AttributionType: "Disclaimer" || "Tariff",
+ * //                 WebLink: {
+ * //                   AnchorText: "STRING_VALUE",
+ * //                   Description: "STRING_VALUE", // required
+ * //                   DeviceType: "Android" || "Ios" || "Web",
+ * //                   Url: "STRING_VALUE",
+ * //                 },
+ * //               },
+ * //             ],
+ * //             BeforeTravelSteps: [ // RouteTaxiBeforeTravelStepList // required
+ * //               { // RouteTaxiBeforeTravelStep
+ * //                 Duration: Number("long"), // required
+ * //                 Instruction: "STRING_VALUE",
+ * //                 Type: "Wait", // required
+ * //               },
+ * //             ],
+ * //             BookingWebLinks: [ // required
+ * //               {
+ * //                 AnchorText: "STRING_VALUE",
+ * //                 Description: "STRING_VALUE", // required
+ * //                 DeviceType: "Android" || "Ios" || "Web",
+ * //                 Url: "STRING_VALUE",
+ * //               },
+ * //             ],
+ * //             Departure: { // RouteTaxiDeparture
+ * //               Place: {
+ * //                 AccessPointDetails: "<RouteAccessPointDetails>",
+ * //                 Name: "STRING_VALUE",
+ * //                 OriginalPosition: "<Position23>",
+ * //                 Position: "<Position23>", // required
+ * //                 StationDetails: "<RouteStationDetails>",
+ * //                 Type: "AccessPoint" || "Station",
+ * //                 WaypointIndex: Number("int"),
+ * //               },
+ * //               Time: "STRING_VALUE",
+ * //             },
+ * //             Notices: [ // RouteTaxiNoticeList // required
+ * //               { // RouteTaxiNotice
+ * //                 Code: "AccuratePolylineUnavailable" || "Other", // required
+ * //                 Impact: "High" || "Low",
+ * //               },
+ * //             ],
+ * //             Summary: { // RouteTaxiSummary
+ * //               Overview: { // RouteTaxiOverviewSummary
+ * //                 Duration: Number("long"), // required
+ * //                 Distance: Number("long"), // required
+ * //               },
+ * //               TravelOnly: { // RouteTaxiTravelOnlySummary
+ * //                 Duration: Number("long"), // required
+ * //               },
+ * //             },
+ * //             Transport: { // RouteTaxiTransportModeDetails
+ * //               AvailableSeats: Number("int"),
+ * //               Category: "STRING_VALUE",
+ * //               Color: "STRING_VALUE",
+ * //               Engine: "Electric" || "InternalCombustion" || "PluginHybrid",
+ * //               LicensePlate: "STRING_VALUE",
+ * //               Mode: "All" || "Car", // required
+ * //               Model: "STRING_VALUE",
+ * //               Name: "STRING_VALUE",
+ * //               TextColor: "STRING_VALUE",
+ * //             },
+ * //             TravelSteps: [ // RouteTaxiTravelStepList // required
+ * //               { // RouteTaxiTravelStep
+ * //                 ContinueStepDetails: {
+ * //                   Intersection: "<LocalizedStringList>", // required
+ * //                 },
+ * //                 Distance: Number("long"),
+ * //                 Duration: Number("long"), // required
+ * //                 ExitStepDetails: {
+ * //                   Intersection: "<LocalizedStringList>", // required
+ * //                   RelativeExit: Number("int"),
+ * //                   SteeringDirection: "Left" || "Right" || "Straight",
+ * //                   TurnAngle: Number("double"),
+ * //                   TurnIntensity: "Sharp" || "Slight" || "Typical",
+ * //                 },
+ * //                 GeometryOffset: Number("int"),
+ * //                 Instruction: "STRING_VALUE",
+ * //                 KeepStepDetails: {
+ * //                   Intersection: "<LocalizedStringList>", // required
+ * //                   SteeringDirection: "Left" || "Right" || "Straight",
+ * //                   TurnAngle: Number("double"),
+ * //                   TurnIntensity: "Sharp" || "Slight" || "Typical",
+ * //                 },
+ * //                 RampStepDetails: {
+ * //                   Intersection: "<LocalizedStringList>", // required
+ * //                   SteeringDirection: "Left" || "Right" || "Straight",
+ * //                   TurnAngle: Number("double"),
+ * //                   TurnIntensity: "Sharp" || "Slight" || "Typical",
+ * //                 },
+ * //                 RoundaboutEnterStepDetails: {
+ * //                   Intersection: "<LocalizedStringList>", // required
+ * //                   SteeringDirection: "Left" || "Right" || "Straight",
+ * //                   TurnAngle: Number("double"),
+ * //                   TurnIntensity: "Sharp" || "Slight" || "Typical",
+ * //                 },
+ * //                 RoundaboutExitStepDetails: {
+ * //                   Intersection: "<LocalizedStringList>", // required
+ * //                   RelativeExit: Number("int"),
+ * //                   RoundaboutAngle: Number("double"),
+ * //                   SteeringDirection: "Left" || "Right" || "Straight",
+ * //                 },
+ * //                 RoundaboutPassStepDetails: {
+ * //                   Intersection: "<LocalizedStringList>", // required
+ * //                   SteeringDirection: "Left" || "Right" || "Straight",
+ * //                   TurnAngle: Number("double"),
+ * //                   TurnIntensity: "Sharp" || "Slight" || "Typical",
+ * //                 },
+ * //                 TurnStepDetails: {
+ * //                   Intersection: "<LocalizedStringList>", // required
+ * //                   SteeringDirection: "Left" || "Right" || "Straight",
+ * //                   TurnAngle: Number("double"),
+ * //                   TurnIntensity: "Sharp" || "Slight" || "Typical",
+ * //                 },
+ * //                 Type: "Arrive" || "Continue" || "Depart" || "Exit" || "Keep" || "Ramp" || "RoundaboutEnter" || "RoundaboutExit" || "RoundaboutPass" || "Turn" || "UTurn", // required
+ * //                 UTurnStepDetails: {
+ * //                   Intersection: "<LocalizedStringList>", // required
+ * //                   SteeringDirection: "Left" || "Right" || "Straight",
+ * //                   TurnAngle: Number("double"),
+ * //                   TurnIntensity: "Sharp" || "Slight" || "Typical",
+ * //                 },
+ * //               },
+ * //             ],
+ * //           },
+ * //           TransitLegDetails: { // RouteTransitLegDetails
+ * //             AfterTravelSteps: [ // RouteTransitAfterTravelStepList // required
+ * //               { // RouteTransitAfterTravelStep
+ * //                 Duration: Number("long"), // required
+ * //                 Instruction: "STRING_VALUE",
+ * //                 Type: "Deboard", // required
+ * //               },
+ * //             ],
+ * //             Agency: { // RouteTransitAgency
+ * //               Name: "STRING_VALUE", // required
+ * //               Url: "STRING_VALUE",
+ * //             },
+ * //             Arrival: { // RouteTransitArrival
+ * //               Delay: Number("long"),
+ * //               Place: { // RouteTransitPlace
+ * //                 Name: "STRING_VALUE",
+ * //                 OriginalPosition: "<Position23>",
+ * //                 Position: "<Position23>", // required
+ * //                 StationDetails: "<RouteStationDetails>",
+ * //                 Type: "Station",
+ * //                 WaypointIndex: Number("int"),
+ * //               },
+ * //               Status: "Added" || "Cancelled" || "Replaced" || "Scheduled",
+ * //               Time: "STRING_VALUE",
+ * //             },
+ * //             Attributions: [ // required
+ * //               {
+ * //                 AttributionType: "Disclaimer" || "Tariff",
+ * //                 WebLink: {
+ * //                   AnchorText: "STRING_VALUE",
+ * //                   Description: "STRING_VALUE", // required
+ * //                   DeviceType: "Android" || "Ios" || "Web",
+ * //                   Url: "STRING_VALUE",
+ * //                 },
+ * //               },
+ * //             ],
+ * //             BeforeTravelSteps: [ // RouteTransitBeforeTravelStepList // required
+ * //               { // RouteTransitBeforeTravelStep
+ * //                 Duration: Number("long"), // required
+ * //                 Instruction: "STRING_VALUE",
+ * //                 Type: "Board", // required
+ * //               },
+ * //             ],
+ * //             BookingWebLinks: [ // required
+ * //               "<RouteWebLink>",
+ * //             ],
+ * //             Departure: { // RouteTransitDeparture
+ * //               Delay: Number("long"),
+ * //               Place: {
+ * //                 Name: "STRING_VALUE",
+ * //                 OriginalPosition: "<Position23>",
+ * //                 Position: "<Position23>", // required
+ * //                 StationDetails: "<RouteStationDetails>",
+ * //                 Type: "Station",
+ * //                 WaypointIndex: Number("int"),
+ * //               },
+ * //               Status: "Added" || "Cancelled" || "Replaced" || "Scheduled",
+ * //               Time: "STRING_VALUE",
+ * //             },
+ * //             Incidents: [ // RouteTransitIncidentList // required
+ * //               { // RouteTransitIncident
+ * //                 Description: "STRING_VALUE",
+ * //                 Effect: "Delayed" || "Detoured" || "Other" || "ServiceAdded" || "ServiceCancelled" || "ServiceModified" || "ServiceReduced" || "StopMoved", // required
+ * //                 EndTime: "STRING_VALUE",
+ * //                 StartTime: "STRING_VALUE",
+ * //                 Type: "Accident" || "Construction" || "Demonstration" || "Holiday" || "Maintenance" || "MedicalEmergency" || "Other" || "PoliceActivity" || "Strike" || "TechnicalProblem" || "Weather", // required
+ * //                 Url: "STRING_VALUE",
+ * //               },
+ * //             ],
+ * //             IntermediateStops: [ // RouteTransitIntermediateStopList // required
+ * //               { // RouteTransitIntermediateStop
+ * //                 Attributes: [ // RouteTransitIntermediateStopAttributeList
+ * //                   "NoEntry" || "NoExit",
+ * //                 ],
+ * //                 Departure: {
+ * //                   Delay: Number("long"),
+ * //                   Place: {
+ * //                     Name: "STRING_VALUE",
+ * //                     OriginalPosition: "<Position23>",
+ * //                     Position: "<Position23>", // required
+ * //                     StationDetails: "<RouteStationDetails>",
+ * //                     Type: "Station",
+ * //                     WaypointIndex: Number("int"),
+ * //                   },
+ * //                   Status: "Added" || "Cancelled" || "Replaced" || "Scheduled",
+ * //                   Time: "STRING_VALUE",
+ * //                 },
+ * //                 Duration: Number("long"), // required
+ * //                 GeometryOffset: Number("int"),
+ * //                 Transport: { // RouteTransitTransportModeDetails
+ * //                   Accessibility: "<RouteAccessibilityAvailabilityDetails>",
+ * //                   Color: "STRING_VALUE",
+ * //                   Headsign: "STRING_VALUE",
+ * //                   LongRouteName: "STRING_VALUE",
+ * //                   Mode: "AerialTramway" || "Airplane" || "All" || "Bus" || "BusRapidTransit" || "CityTrain" || "Ferry" || "FunicularRailway" || "HighSpeedTrain" || "IntercityTrain" || "InterregionalTrain" || "LightRail" || "Monorail" || "PrivateBus" || "RegionalTrain" || "Subway", // required
+ * //                   RouteName: "STRING_VALUE",
+ * //                   ShortRouteName: "STRING_VALUE",
+ * //                   TextColor: "STRING_VALUE",
+ * //                 },
+ * //               },
+ * //             ],
+ * //             NextDepartures: [ // RouteTransitNextDepartureList // required
+ * //               { // RouteTransitNextDeparture
+ * //                 Delay: Number("long"),
+ * //                 PlatformName: "STRING_VALUE",
+ * //                 Status: "Added" || "Cancelled" || "Replaced" || "Scheduled",
+ * //                 Time: "STRING_VALUE", // required
+ * //                 Transport: {
+ * //                   Accessibility: "<RouteAccessibilityAvailabilityDetails>",
+ * //                   Color: "STRING_VALUE",
+ * //                   Headsign: "STRING_VALUE",
+ * //                   LongRouteName: "STRING_VALUE",
+ * //                   Mode: "AerialTramway" || "Airplane" || "All" || "Bus" || "BusRapidTransit" || "CityTrain" || "Ferry" || "FunicularRailway" || "HighSpeedTrain" || "IntercityTrain" || "InterregionalTrain" || "LightRail" || "Monorail" || "PrivateBus" || "RegionalTrain" || "Subway", // required
+ * //                   RouteName: "STRING_VALUE",
+ * //                   ShortRouteName: "STRING_VALUE",
+ * //                   TextColor: "STRING_VALUE",
+ * //                 },
+ * //               },
+ * //             ],
+ * //             Notices: [ // RouteTransitNoticeList // required
+ * //               { // RouteTransitNotice
+ * //                 Code: "AccuratePolylineUnavailable" || "IntermediateStopsUnavailable" || "NoSchedule" || "Other" || "PotentialViolatedVehicleRestrictionUsage" || "ScheduledTimes" || "SeasonalClosure" || "ViolatedAvoidFerry" || "ViolatedAvoidRailFerry" || "ViolatedExcludedTransitMode" || "ViolatedVehicleRestriction" || "ViolatedAvoidAreas", // required
+ * //                 Impact: "High" || "Low",
+ * //               },
+ * //             ],
+ * //             PassThroughWaypoints: [ // required
+ * //               {
+ * //                 GeometryOffset: Number("int"),
+ * //                 Place: {
+ * //                   OriginalPosition: "<Position23>",
+ * //                   Position: "<Position23>", // required
+ * //                   WaypointIndex: Number("int"),
+ * //                 },
+ * //               },
+ * //             ],
+ * //             Spans: [ // RouteTransitSpanList // required
+ * //               { // RouteTransitSpan
+ * //                 Country: "STRING_VALUE",
+ * //                 Distance: Number("long"),
+ * //                 Duration: Number("long"),
+ * //                 GeometryOffset: Number("int"),
+ * //                 Names: "<LocalizedStringList>",
+ * //                 Region: "STRING_VALUE",
+ * //               },
+ * //             ],
+ * //             Summary: { // RouteTransitSummary
+ * //               Overview: { // RouteTransitOverviewSummary
+ * //                 Distance: Number("long"), // required
+ * //                 Duration: Number("long"), // required
+ * //               },
+ * //               TravelOnly: { // RouteTransitTravelOnlySummary
+ * //                 Duration: Number("long"), // required
+ * //               },
+ * //             },
+ * //             Transport: {
+ * //               Accessibility: "<RouteAccessibilityAvailabilityDetails>",
+ * //               Color: "STRING_VALUE",
+ * //               Headsign: "STRING_VALUE",
+ * //               LongRouteName: "STRING_VALUE",
+ * //               Mode: "AerialTramway" || "Airplane" || "All" || "Bus" || "BusRapidTransit" || "CityTrain" || "Ferry" || "FunicularRailway" || "HighSpeedTrain" || "IntercityTrain" || "InterregionalTrain" || "LightRail" || "Monorail" || "PrivateBus" || "RegionalTrain" || "Subway", // required
+ * //               RouteName: "STRING_VALUE",
+ * //               ShortRouteName: "STRING_VALUE",
+ * //               TextColor: "STRING_VALUE",
+ * //             },
+ * //             TravelSteps: [ // RouteTransitTravelStepList // required
+ * //               { // RouteTransitTravelStep
+ * //                 Distance: Number("long"),
+ * //                 Duration: Number("long"), // required
+ * //                 GeometryOffset: Number("int"),
+ * //                 Instruction: "STRING_VALUE",
+ * //                 Type: "Depart", // required
  * //               },
  * //             ],
  * //           },
