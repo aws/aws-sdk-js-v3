@@ -9,5 +9,5 @@ export {
   s3ExpressHttpSigningMiddleware,
   s3ExpressHttpSigningMiddlewareOptions,
 } from "./functions/s3ExpressHttpSigningMiddleware";
-export { S3ExpressIdentity } from "./interfaces/S3ExpressIdentity";
-export { S3ExpressIdentityProvider } from "./interfaces/S3ExpressIdentityProvider";
+export type { S3ExpressIdentity } from "./interfaces/S3ExpressIdentity";
+export type { S3ExpressIdentityProvider } from "./interfaces/S3ExpressIdentityProvider";

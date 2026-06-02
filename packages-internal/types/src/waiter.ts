@@ -1,1 +1,1 @@
-export { WaiterConfiguration } from "@smithy/types";
+export type { WaiterConfiguration } from "@smithy/types";

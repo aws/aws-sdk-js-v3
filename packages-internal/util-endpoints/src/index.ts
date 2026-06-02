@@ -15,16 +15,16 @@ export type {
   DefaultAwsRegionalEndpointsResolvedConfig,
 } from "@aws-sdk/core/client";
 export { EndpointError } from "@smithy/core/endpoints";
-export {
+export type {
   EndpointObjectProperties,
   EndpointObjectHeaders,
   EndpointObject,
   EndpointRuleObject,
 } from "@smithy/core/endpoints";
-export { ErrorRuleObject } from "@smithy/core/endpoints";
-export { RuleSetRules, TreeRuleObject } from "@smithy/core/endpoints";
-export { DeprecatedObject, ParameterObject, RuleSetObject } from "@smithy/core/endpoints";
-export {
+export type { ErrorRuleObject } from "@smithy/core/endpoints";
+export type { RuleSetRules, TreeRuleObject } from "@smithy/core/endpoints";
+export type { DeprecatedObject, ParameterObject, RuleSetObject } from "@smithy/core/endpoints";
+export type {
   ReferenceObject,
   FunctionObject,
   FunctionArgv,

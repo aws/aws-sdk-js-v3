@@ -4,13 +4,16 @@
     "signature": true
   },
   "tasks": {
+    "prebuild": {
+      "cache": false
+    },
     "build": {
       "outputs": ["dist-types/**", "dist-cjs/**", "dist-es/**"],
       "dependsOn": ["^build"]
     },
     "build:cjs": {
       "outputs": ["dist-cjs/**"],
-      "dependsOn": ["^build:types", "build:es"]
+      "dependsOn": ["build:es", "^build:cjs"]
     },
     "build:docs": {
       "outputs": ["dist-cjs/**"],
@@ -18,7 +21,7 @@
     },
     "build:es": {
       "outputs": ["dist-es/**"],
-      "dependsOn": ["build:types", "^build:types"]
+      "dependsOn": ["prebuild"]
     },
     "build:include:deps": {
       "outputs": ["dist-types/**", "dist-cjs/**", "dist-es/**"],
@@ -26,7 +29,7 @@
     },
     "build:types": {
       "outputs": ["dist-types/**"],
-      "dependsOn": ["^build:types"]
+      "dependsOn": ["prebuild", "^build:types"]
     },
     "build:types:downlevel": {
       "outputs": ["dist-types/ts3.4/**"],

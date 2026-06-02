@@ -1,5 +1,5 @@
 import type { HttpResponse } from "@smithy/types";
-export {
+export type {
   Endpoint,
   HeaderBag,
   HttpHandlerOptions,

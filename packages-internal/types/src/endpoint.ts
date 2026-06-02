@@ -1,9 +1,9 @@
-export {
+export type {
   EndpointARN,
   EndpointPartition,
-  EndpointURLScheme,
   EndpointURL,
   EndpointObjectProperty,
   EndpointV2,
   EndpointParameters,
 } from "@smithy/types";
+export { EndpointURLScheme } from "@smithy/types";

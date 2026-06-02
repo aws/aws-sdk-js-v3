@@ -1,4 +1,4 @@
-export {
+export type {
   EndpointObjectProperties,
   EndpointObjectHeaders,
   EndpointObject,

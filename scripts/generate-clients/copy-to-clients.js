@@ -69,6 +69,7 @@ const mergeManifest = async (fromContent = {}, toContent = {}, parentKey = "root
       if (name === "scripts") {
         // build CJS after types and ES because of rollup inliner.
         fromContent[name]["build"] = `concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs`;
+        fromContent[name]["build:es"] = "node ../../scripts/compilation/build-es.js";
         fromContent[name]["build:include:deps"] = `yarn g:turbo run build -F="$npm_package_name"`;
 
         for (const [k, v] of Object.entries(fromContent[name])) {

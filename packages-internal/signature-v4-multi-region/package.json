@@ -4,7 +4,7 @@
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline signature-v4-multi-region",
-    "build:es": "tsc -p tsconfig.es.json",
+    "build:es": "node ../../scripts/compilation/build-es.js",
     "build:browser": "node ./test-browser/browser-build/esbuild",
     "build:include:deps": "yarn g:turbo run build -F=\"$npm_package_name\"",
     "build:types": "tsc -p tsconfig.types.json",

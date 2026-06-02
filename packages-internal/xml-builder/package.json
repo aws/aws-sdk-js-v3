@@ -10,7 +10,7 @@
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline xml-builder",
-    "build:es": "tsc -p tsconfig.es.json",
+    "build:es": "node ../../scripts/compilation/build-es.js",
     "build:include:deps": "yarn g:turbo run build -F=\"$npm_package_name\"",
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
@@ -44,8 +44,7 @@
     "./dist-es/xml-parser": "./dist-es/xml-parser.browser"
   },
   "react-native": {
-    "./dist-es/xml-parser": "./dist-es/xml-parser.browser",
-    "./dist-cjs/xml-parser": "./dist-cjs/xml-parser.browser"
+    "./dist-es/xml-parser": "./dist-es/xml-parser.browser"
   },
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/xml-builder",
   "repository": {

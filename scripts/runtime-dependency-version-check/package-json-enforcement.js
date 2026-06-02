@@ -11,15 +11,12 @@ const path = require("node:path");
  * The script will enforce several things on a package json object:
  *
  * - main and module must be defined.
- *   In the future this may change. Browser is more standard than module, and
- *   exports may be used for ESM (.mjs) support.
  *
  * - If a react-native entry exists, browser and react native entries must be of the
  *   same type (object replacement directives or string entry point).
  *   If either is not defined, both must not be defined.
  *
- * - when react-native has file replacement directives, it must include both
- *   CJS and ESM dist replacements.
+ * - browser and react-native fields must only reference dist-es paths (never dist-cjs).
  *
  * - exports must not be defined unless the package is a submodule carrier.
  */
@@ -111,27 +108,18 @@ module.exports = function (pkgJsonFilePath, overwrite = false) {
         }
       }
 
-      const reactNativeCanonical = [
-        ...new Set([
-          ...Object.entries(pkgJson["react-native"]).map(([k, v]) => [
-            k.replace("dist-cjs", "dist-es"),
-            typeof v === "string" ? v.replace("dist-cjs", "dist-es") : v,
-          ]),
-          ...Object.entries(pkgJson["react-native"]).map(([k, v]) => [
-            k.replace("dist-es", "dist-cjs"),
-            typeof v === "string" ? v.replace("dist-es", "dist-cjs") : v,
-          ]),
-        ]),
-      ].reduce((acc, [k, v]) => {
-        acc[k] = v;
+      const reactNativeCanonical = Object.entries(pkgJson["react-native"]).reduce((acc, [k, v]) => {
+        // Ban dist-cjs paths in react-native field.
+        if (k.includes("dist-cjs")) {
+          errors.push(`${pkgJson.name} react-native["${k}"] must not reference dist-cjs`);
+        } else {
+          acc[k] = v;
+        }
         return acc;
       }, {});
 
-      if (Object.keys(reactNativeCanonical).length !== Object.keys(pkgJson["react-native"]).length) {
-        errors.push(`${pkgJson.name} react-native field is incomplete.`);
-        if (overwrite) {
-          pkgJson["react-native"] = reactNativeCanonical;
-        }
+      if (overwrite && Object.keys(reactNativeCanonical).length !== Object.keys(pkgJson["react-native"]).length) {
+        pkgJson["react-native"] = reactNativeCanonical;
       }
     } else {
       // For submodule packages, validate that index.browser.ts/index.native.ts are declared.
@@ -165,8 +153,7 @@ module.exports = function (pkgJsonFilePath, overwrite = false) {
           const exportEntry = pkgJson.exports?.[`./${sub}`];
           if (exportEntry) {
             const esBrowser = esBrowserExpected;
-            const cjsBrowser = esBrowser.replace("dist-es", "dist-cjs");
-            const expectedBrowser = { import: esBrowser, require: cjsBrowser };
+            const expectedBrowser = { import: esBrowser, require: esBrowser };
             if (JSON.stringify(exportEntry.browser) !== JSON.stringify(expectedBrowser)) {
               errors.push(`${pkgJson.name} exports["./${sub}"].browser should be ${JSON.stringify(expectedBrowser)}`);
               if (overwrite) {
@@ -176,8 +163,7 @@ module.exports = function (pkgJsonFilePath, overwrite = false) {
             // react-native condition: native variant if exists, otherwise browser fallback.
             const hasNative = fs.existsSync(path.join(subPath, "index.native.ts"));
             const esRn = hasNative ? `./dist-es/submodules/${sub}/index.native.js` : esBrowser;
-            const cjsRn = esRn.replace("dist-es", "dist-cjs");
-            const expectedRn = { import: esRn, require: cjsRn };
+            const expectedRn = { import: esRn, require: esRn };
             if (JSON.stringify(exportEntry["react-native"]) !== JSON.stringify(expectedRn)) {
               errors.push(
                 `${pkgJson.name} exports["./${sub}"]["react-native"] should be ${JSON.stringify(expectedRn)}`
@@ -191,9 +177,8 @@ module.exports = function (pkgJsonFilePath, overwrite = false) {
 
         if (fs.existsSync(path.join(subPath, "index.native.ts"))) {
           const esNativeExpected = `./dist-es/submodules/${sub}/index.native.js`;
-          const cjsNativeExpected = `./dist-cjs/submodules/${sub}/index.native.js`;
 
-          // react-native field: re-path both dist-es and dist-cjs.
+          // react-native field: re-path dist-es only.
           if (reactNativeField[esIndex] !== esNativeExpected) {
             errors.push(`${pkgJson.name} react-native["${esIndex}"] should be "${esNativeExpected}"`);
             if (overwrite) {
@@ -201,17 +186,19 @@ module.exports = function (pkgJsonFilePath, overwrite = false) {
               didModify = true;
             }
           }
-          if (reactNativeField[cjsIndex] !== cjsNativeExpected) {
-            errors.push(`${pkgJson.name} react-native["${cjsIndex}"] should be "${cjsNativeExpected}"`);
+          // Ban dist-cjs in react-native field.
+          if (cjsIndex in reactNativeField) {
+            errors.push(
+              `${pkgJson.name} react-native["${cjsIndex}"] must not exist (no dist-cjs in browser/native paths)`
+            );
             if (overwrite) {
-              reactNativeField[cjsIndex] = cjsNativeExpected;
+              delete reactNativeField[cjsIndex];
               didModify = true;
             }
           }
         } else if (fs.existsSync(path.join(subPath, "index.browser.ts"))) {
-          // No native variant — react-native falls back to browser for both dist-es and dist-cjs.
+          // No native variant — react-native falls back to browser for dist-es only.
           const esBrowserExpected = `./dist-es/submodules/${sub}/index.browser.js`;
-          const cjsBrowserExpected = `./dist-cjs/submodules/${sub}/index.browser.js`;
 
           if (reactNativeField[esIndex] !== esBrowserExpected) {
             errors.push(
@@ -222,12 +209,13 @@ module.exports = function (pkgJsonFilePath, overwrite = false) {
               didModify = true;
             }
           }
-          if (reactNativeField[cjsIndex] !== cjsBrowserExpected) {
+          // Ban dist-cjs in react-native field.
+          if (cjsIndex in reactNativeField) {
             errors.push(
-              `${pkgJson.name} react-native["${cjsIndex}"] should be "${cjsBrowserExpected}" (fallback to browser)`
+              `${pkgJson.name} react-native["${cjsIndex}"] must not exist (no dist-cjs in browser/native paths)`
             );
             if (overwrite) {
-              reactNativeField[cjsIndex] = cjsBrowserExpected;
+              delete reactNativeField[cjsIndex];
               didModify = true;
             }
           }
@@ -319,26 +307,12 @@ module.exports = function (pkgJsonFilePath, overwrite = false) {
                 didModify = true;
               }
             }
-            if (reactNativeField[cjsCanonical] !== cjsVariant) {
-              errors.push(`${pkgJson.name} react-native["${cjsCanonical}"] should be "${cjsVariant}"`);
-              if (overwrite) {
-                reactNativeField[cjsCanonical] = cjsVariant;
-                didModify = true;
-              }
-            }
           }
         } else if (variant === "native") {
           if (reactNativeField[esCanonical] !== esVariant) {
             errors.push(`${pkgJson.name} react-native["${esCanonical}"] should be "${esVariant}"`);
             if (overwrite) {
               reactNativeField[esCanonical] = esVariant;
-              didModify = true;
-            }
-          }
-          if (reactNativeField[cjsCanonical] !== cjsVariant) {
-            errors.push(`${pkgJson.name} react-native["${cjsCanonical}"] should be "${cjsVariant}"`);
-            if (overwrite) {
-              reactNativeField[cjsCanonical] = cjsVariant;
               didModify = true;
             }
           }

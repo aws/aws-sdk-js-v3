@@ -29,6 +29,11 @@ async function validateImportResolution(distCjsDir, options = {}) {
     let match;
 
     while ((match = importPattern.exec(contents)) !== null) {
+      // Skip matches inside block comments (lines starting with * after whitespace)
+      const lineStart = contents.lastIndexOf("\n", match.index) + 1;
+      const linePrefix = contents.slice(lineStart, match.index).trimStart();
+      if (linePrefix.startsWith("*") || linePrefix.startsWith("//")) continue;
+
       const argContent = match[1].trim();
 
       // Validate argument is a string literal
