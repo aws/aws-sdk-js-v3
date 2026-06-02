@@ -24,6 +24,7 @@ import {
   DEFAULT_RETRY_MODE,
   NODE_MAX_ATTEMPT_CONFIG_OPTIONS,
   NODE_RETRY_MODE_CONFIG_OPTIONS,
+  Retry,
 } from "@smithy/core/retry";
 import { calculateBodyLength, Hash } from "@smithy/core/serde";
 import { NodeHttpHandler as RequestHandler, streamCollector } from "@smithy/node-http-handler";
@@ -55,7 +56,7 @@ export const getRuntimeConfig = (config: DynamoDBClientConfig) => {
     credentialDefaultProvider: config?.credentialDefaultProvider ?? credentialDefaultProvider,
     defaultUserAgentProvider: config?.defaultUserAgentProvider ?? createDefaultUserAgentProvider({serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version}),
     endpointDiscoveryEnabledProvider: config?.endpointDiscoveryEnabledProvider ?? loadNodeConfig(NODE_ENDPOINT_DISCOVERY_CONFIG_OPTIONS, loaderConfig),
-    maxAttempts: config?.maxAttempts ?? loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS, config),
+    maxAttempts: config?.maxAttempts ?? loadNodeConfig(Retry.v2026 ? { ...NODE_MAX_ATTEMPT_CONFIG_OPTIONS, default: 4 } : NODE_MAX_ATTEMPT_CONFIG_OPTIONS, config),
     region: config?.region ?? loadNodeConfig(
         NODE_REGION_CONFIG_OPTIONS,
         {...NODE_REGION_CONFIG_FILE_OPTIONS, ...loaderConfig}

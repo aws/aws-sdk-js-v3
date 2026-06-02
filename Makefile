@@ -15,6 +15,7 @@ sync:
 	make -f Makefile.private.mk sync
 
 bundles: build-s3-browser-bundle build-signature-v4-multi-region-browser-bundle
+	node ./packages-internal/core/scripts/browser-build/esbuild.js
 
 test-unit: bundles
 	yarn g:vitest run -c vitest.config.mts

@@ -8,54 +8,100 @@ import { Readable } from "node:stream";
 import { beforeAll, describe, expect, test as it } from "vitest";
 
 describe("retry customization", () => {
+  const credentials = { accessKeyId: "INTEG", secretAccessKey: "INTEG" };
+
   for (const DDBCtor of [DynamoDB, DynamoDBStreams]) {
-    describe(DDBCtor.name, () => {
+    describe(DDBCtor.name + " w/ Retry.v2026", () => {
       beforeAll(async () => {
         Retry.v2026 = true;
       });
 
-      it("has a custom retry strategy when no maxAttempts or retryMode are set", async () => {
-        const streams = new DDBCtor({
-          region: "us-west-2",
-          credentials: {
-            accessKeyId: "INTEG",
-            secretAccessKey: "INTEG",
-          },
-        });
-        const retryStrategy = await streams.config.retryStrategy();
+      it("defaults to 4 attempts with 25ms delay base, standard retry strategy", async () => {
+        const client = new DDBCtor({ region: "us-west-2", credentials });
+        const retryStrategy = await client.config.retryStrategy();
         expect(retryStrategy).toBeInstanceOf(StandardRetryStrategy);
-
         expect(await (retryStrategy as any).maxAttemptsProvider()).toBe(4);
         expect((retryStrategy as any).baseDelay).toBe(25);
       });
 
-      it("uses derived retryStrategy when retryMode is set", async () => {
-        const streams = new DDBCtor({
-          region: "us-west-2",
-          credentials: {
-            accessKeyId: "INTEG",
-            secretAccessKey: "INTEG",
-          },
-          retryMode: "adaptive",
-        });
-        const retryStrategy = await streams.config.retryStrategy();
+      it("preserves 4 attempts and 25ms delay base if adaptive mode is set", async () => {
+        const client = new DDBCtor({ region: "us-west-2", credentials, retryMode: "adaptive" });
+        const retryStrategy = await client.config.retryStrategy();
         expect(retryStrategy).toBeInstanceOf(AdaptiveRetryStrategy);
+        expect(await (retryStrategy as any).maxAttemptsProvider()).toBe(4);
+        expect((retryStrategy as any).standardRetryStrategy.baseDelay).toBe(25);
       });
 
-      it("uses derived retryStrategy when maxAttempts is set", async () => {
-        const streams = new DDBCtor({
-          region: "us-west-2",
-          credentials: {
-            accessKeyId: "INTEG",
-            secretAccessKey: "INTEG",
-          },
-          maxAttempts: 5,
-        });
-        const retryStrategy = await streams.config.retryStrategy();
+      it("preserves standard mode and 25ms delay base if 10 attempts are set", async () => {
+        const client = new DDBCtor({ region: "us-west-2", credentials, maxAttempts: 10 });
+        const retryStrategy = await client.config.retryStrategy();
         expect(retryStrategy).toBeInstanceOf(StandardRetryStrategy);
+        expect(await (retryStrategy as any).maxAttemptsProvider()).toBe(10);
+        expect((retryStrategy as any).baseDelay).toBe(25);
+      });
 
-        expect(await (retryStrategy as any).maxAttemptsProvider()).toBe(5);
-        expect((retryStrategy as any).baseDelay).toBe(50);
+      it("providing a RetryStrategy object overrides the attempt count and delay base", async () => {
+        const custom = new StandardRetryStrategy({ maxAttempts: 7, baseDelay: 100 });
+        const client = new DDBCtor({ region: "us-west-2", credentials, retryStrategy: custom });
+        const retryStrategy = await client.config.retryStrategy();
+        expect(retryStrategy).toBe(custom);
+        expect(await (retryStrategy as any).maxAttemptsProvider()).toBe(7);
+        expect((retryStrategy as any).baseDelay).toBe(100);
+      });
+
+      it("resolves precedence: code > env > ddb default", async () => {
+        process.env.AWS_MAX_ATTEMPTS = "9";
+        try {
+          const clientWithEnv = new DDBCtor({ region: "us-west-2", credentials });
+          expect(await clientWithEnv.config.maxAttempts()).toBe(9);
+
+          const clientWithCode = new DDBCtor({ region: "us-west-2", credentials, maxAttempts: 5 });
+          expect(await clientWithCode.config.maxAttempts()).toBe(5);
+        } finally {
+          delete process.env.AWS_MAX_ATTEMPTS;
+        }
+
+        const clientDefault = new DDBCtor({ region: "us-west-2", credentials });
+        expect(await clientDefault.config.maxAttempts()).toBe(4);
+      });
+    });
+
+    describe(DDBCtor.name + " WITHOUT Retry.v2026", () => {
+      beforeAll(async () => {
+        Retry.v2026 = false;
+      });
+
+      it("defaults to 3 attempts with 100ms delay base, standard retry strategy", async () => {
+        const client = new DDBCtor({ region: "us-west-2", credentials });
+        const retryStrategy = await client.config.retryStrategy();
+        expect(retryStrategy).toBeInstanceOf(StandardRetryStrategy);
+        expect(await (retryStrategy as any).maxAttemptsProvider()).toBe(3);
+        expect((retryStrategy as any).baseDelay).toBe(100);
+      });
+
+      it("preserves 3 attempts and 100ms delay base if adaptive mode is set", async () => {
+        const client = new DDBCtor({ region: "us-west-2", credentials, retryMode: "adaptive" });
+        const retryStrategy = await client.config.retryStrategy();
+        expect(retryStrategy).toBeInstanceOf(AdaptiveRetryStrategy);
+        expect(await (retryStrategy as any).maxAttemptsProvider()).toBe(3);
+        expect((retryStrategy as any).standardRetryStrategy.baseDelay).toBe(100);
+      });
+
+      it("preserves standard mode and 100ms delay base if 10 attempts are set", async () => {
+        const client = new DDBCtor({ region: "us-west-2", credentials, maxAttempts: 10 });
+        const retryStrategy = await client.config.retryStrategy();
+        expect(retryStrategy).toBeInstanceOf(StandardRetryStrategy);
+        expect(await (retryStrategy as any).maxAttemptsProvider()).toBe(10);
+        expect((retryStrategy as any).baseDelay).toBe(100);
+      });
+
+      it("providing a RetryStrategy object overrides the attempt count and delay base", async () => {
+        const custom = new StandardRetryStrategy({ maxAttempts: 7, baseDelay: 100 });
+        const client = new DDBCtor({ region: "us-west-2", credentials, retryStrategy: custom });
+        const retryStrategy = await client.config.retryStrategy();
+        expect(retryStrategy).toBe(custom);
+        expect(await (retryStrategy as any).maxAttemptsProvider()).toBe(7);
+        expect((retryStrategy as any).baseDelay).toBe(100);
       });
     });
   }

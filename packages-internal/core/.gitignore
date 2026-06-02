@@ -1,1 +1,2 @@
 src/submodules/client/util-endpoints/lib/aws/partitions.ts
+scripts/browser-build/browser-dynamodb-bundle.js

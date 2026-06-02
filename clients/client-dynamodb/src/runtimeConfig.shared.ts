@@ -4,7 +4,6 @@ import { AwsJson1_0Protocol } from "@aws-sdk/core/protocols";
 import { DynamoDBJsonCodec } from "@aws-sdk/dynamodb-codec";
 import { NoOpLogger } from "@smithy/core/client";
 import { parseUrl } from "@smithy/core/protocols";
-import { Retry, StandardRetryStrategy } from "@smithy/core/retry";
 import { fromBase64, fromUtf8, toBase64, toUtf8 } from "@smithy/core/serde";
 import type { IdentityProviderConfig } from "@smithy/types";
 
@@ -43,14 +42,6 @@ export const getRuntimeConfig = (config: DynamoDBClientConfig) => {
       serviceTarget: "DynamoDB_20120810",
       jsonCodec: new DynamoDBJsonCodec(),
     },
-    retryStrategy: config?.retryStrategy ?? (
-      config?.maxAttempts == null && config?.retryMode == null && Retry.v2026
-        ? new StandardRetryStrategy({
-            maxAttempts: 4,
-            baseDelay: 25,
-          })
-        : undefined
-    ),
     serviceId: config?.serviceId ?? "DynamoDB",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

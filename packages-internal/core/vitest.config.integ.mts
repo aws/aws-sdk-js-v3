@@ -4,5 +4,6 @@ export default defineConfig({
   test: {
     include: ["**/*.integ.spec.ts"],
     environment: "node",
+    globalSetup: ["./scripts/browser-build/esbuild.js"],
   },
 });

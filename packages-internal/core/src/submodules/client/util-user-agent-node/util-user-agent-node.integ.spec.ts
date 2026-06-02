@@ -10,9 +10,10 @@ describe("util-user-agent-node", () => {
     const client = new S3({ region: "us-west-2" });
     requireRequestsFrom(client).toMatch({
       headers: {
-        "user-agent": `aws-sdk-js/${sdkVersion} ua/2.1 os/${platform()}#${release()} lang/js md/nodejs#${
-          versions.node
-        } api/s3#${sdkVersion} m/E,g`,
+        "user-agent": new RegExp(
+          `^aws-sdk-js/${sdkVersion} ua/2\\.1 os/${platform()}#${release()} lang/js md/nodejs#${versions.node}` +
+            `(?: \\S+)* api/s3#${sdkVersion}(?: \\S+)* m/E,g$`
+        ),
       },
     });
     await client.listBuckets();

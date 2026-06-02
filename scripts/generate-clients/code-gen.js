@@ -32,10 +32,7 @@ const generateClient = async (clientName) => {
   cleanSdkCodegenOutput();
 
   // Ensure the dependency is built before using --no-rebuild.
-  const depJar = join(CODE_GEN_ROOT, "smithy-aws-typescript-codegen", "build", "libs");
-  if (!existsSync(depJar)) {
-    await spawnProcess("./gradlew", [":smithy-aws-typescript-codegen:build"], { cwd: CODE_GEN_ROOT });
-  }
+  await spawnProcess("./gradlew", [":smithy-aws-typescript-codegen:build"], { cwd: CODE_GEN_ROOT });
 
   const options = [
     ":sdk-codegen:build",

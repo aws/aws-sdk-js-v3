@@ -4,9 +4,9 @@ import { DynamoDB } from "@aws-sdk/client-dynamodb";
 import { S3 } from "@aws-sdk/client-s3";
 import { fromTemporaryCredentials } from "@aws-sdk/credential-providers";
 import { DynamoDBDocument } from "@aws-sdk/lib-dynamodb";
-import { STSClient } from "@aws-sdk/nested-clients/sts";
 import type { AwsSdkFeatures } from "@aws-sdk/types";
-import { describe, expect, test as it, vi } from "vitest";
+import { Readable } from "node:stream";
+import { describe, expect, test as it } from "vitest";
 
 describe("middleware-user-agent", () => {
   describe(CodeCatalyst.name, () => {
@@ -32,12 +32,43 @@ describe("middleware-user-agent", () => {
 
   describe("user agent customization", () => {
     it("should propagate the application id configuration to inner clients", async () => {
+      let stsUserAgent = "";
+
       const s3 = new S3({
         region: "us-west-2",
         credentials: fromTemporaryCredentials({
           masterCredentials: {
             accessKeyId: "my-access-key",
             secretAccessKey: "my-secretKey",
+          },
+          clientConfig: {
+            region: "us-west-2",
+            requestHandler: {
+              async handle(request: any) {
+                stsUserAgent = request.headers["user-agent"] ?? "";
+                return {
+                  response: {
+                    statusCode: 200,
+                    headers: { "content-type": "text/xml" },
+                    body: Readable.from(`<AssumeRoleResponse xmlns="https://sts.amazonaws.com/doc/2011-06-15/">
+                      <AssumeRoleResult>
+                        <Credentials>
+                          <AccessKeyId>A</AccessKeyId>
+                          <SecretAccessKey>S</SecretAccessKey>
+                          <SessionToken>T</SessionToken>
+                          <Expiration>2099-01-01T00:00:00Z</Expiration>
+                        </Credentials>
+                      </AssumeRoleResult>
+                    </AssumeRoleResponse>`),
+                  },
+                };
+              },
+              metadata: { handlerProtocol: "" },
+              updateHttpClientConfig() {},
+              httpHandlerConfigs() {
+                return {};
+              },
+            },
           },
           params: {
             RoleArn: "arn:aws:iam::1234567890:role/Rigmarole",
@@ -52,22 +83,9 @@ describe("middleware-user-agent", () => {
         },
       });
 
-      const actual = STSClient.prototype.send;
-      vi.spyOn(STSClient.prototype, "send").mockImplementation(async function (this: STSClient, ...args) {
-        if (this instanceof STSClient) {
-          expect(await this.config.userAgentAppId()).toEqual("widget-factory");
-          return {
-            Credentials: {
-              AccessKeyId: "A",
-              SecretAccessKey: "S",
-            },
-          };
-        }
-        return actual.bind(this)(...args);
-      });
-
       await s3.listBuckets();
 
+      expect(stsUserAgent).toMatch(/app\/widget-factory$/);
       expect.assertions(2);
     });
 

@@ -5,6 +5,7 @@
 package software.amazon.smithy.aws.typescript.codegen;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
@@ -26,10 +27,16 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
  * Adds long poll designator for specific operations.
- * Adds custom retryStrategy for DynamoDB.
+ * Adds custom retry defaults for DynamoDB (baseDelay: 25ms, maxAttempts: 4).
  */
 @SmithyInternalApi
 public class AddRetryCustomizations implements TypeScriptIntegration {
+
+    @Override
+    public byte priority() {
+        // Run after the default retry runtime config writer so our maxAttempts override takes effect.
+        return -1;
+    }
 
     @Override
     public List<RuntimeClientPlugin> getClientPlugins() {
@@ -48,36 +55,99 @@ public class AddRetryCustomizations implements TypeScriptIntegration {
     }
 
     @Override
+    public void mutateClientPlugins(List<RuntimeClientPlugin> plugins) {
+        for (int i = 0; i < plugins.size(); i++) {
+            RuntimeClientPlugin plugin = plugins.get(i);
+            if (
+                plugin.getResolveFunction().isPresent()
+                    && plugin.getResolveFunction().get().getSymbol().getName().equals("resolveRetryConfig")
+            ) {
+                plugins.set(
+                    i,
+                    plugin.toBuilder()
+                        .additionalResolveFunctionParamsSupplier((model, service, operation) -> {
+                            if (service != null && isDynamoDB(service)) {
+                                return Map.of(
+                                    "defaultMaxAttempts",
+                                    Symbol.builder()
+                                        .name("Retry.v2026 ? 4 : undefined")
+                                        .build(),
+                                    "defaultBaseDelay",
+                                    Symbol.builder()
+                                        .name("Retry.v2026 ? 25 : undefined")
+                                        .build()
+                                );
+                            }
+                            return Collections.emptyMap();
+                        })
+                        .build()
+                );
+                break;
+            }
+        }
+    }
+
+    @Override
+    public void addConfigInterfaceFields(
+        TypeScriptSettings settings,
+        Model model,
+        SymbolProvider symbolProvider,
+        TypeScriptWriter writer
+    ) {
+        ServiceShape service = settings.getService(model);
+        if (isDynamoDB(service)) {
+            writer.addImportSubmodule("Retry", null, TypeScriptDependency.SMITHY_CORE, SmithyCoreSubmodules.RETRY);
+        }
+    }
+
+    @Override
     public Map<String, Consumer<TypeScriptWriter>> getRuntimeConfigWriters(
         TypeScriptSettings settings,
         Model model,
         SymbolProvider symbolProvider,
         LanguageTarget target
     ) {
-        if (LanguageTarget.SHARED.equals(target) && isDynamoDB(settings.getService(model))) {
-            return Map.of(
-                "retryStrategy",
-                (w) -> {
-                    w.addImportSubmodule(
-                        "StandardRetryStrategy",
+        ServiceShape service = settings.getService(model);
+        if (isDynamoDB(service)) {
+            Map<String, Consumer<TypeScriptWriter>> configs = new HashMap<>();
+            if (target.equals(LanguageTarget.NODE)) {
+                configs.put("maxAttempts", writer -> {
+                    writer.addImportSubmodule(
+                        "NODE_MAX_ATTEMPT_CONFIG_OPTIONS",
                         null,
                         TypeScriptDependency.SMITHY_CORE,
                         SmithyCoreSubmodules.RETRY
                     );
-                    w.addImportSubmodule("Retry", null, TypeScriptDependency.SMITHY_CORE, SmithyCoreSubmodules.RETRY);
-
-                    // todo(retry): Retry.v2026 condition can be removed when made permanent.
-                    w.write("""
-                            (
-                              config?.maxAttempts == null && config?.retryMode == null && Retry.v2026
-                                ? new StandardRetryStrategy({
-                                    maxAttempts: 4,
-                                    baseDelay: 25,
-                                  })
-                                : undefined
-                            )""");
-                }
-            );
+                    writer.addImportSubmodule(
+                        "Retry",
+                        null,
+                        TypeScriptDependency.SMITHY_CORE,
+                        SmithyCoreSubmodules.RETRY
+                    );
+                    writer.write(
+                        "loadNodeConfig("
+                            + "Retry.v2026 ? { ...NODE_MAX_ATTEMPT_CONFIG_OPTIONS, default: 4 }"
+                            + " : NODE_MAX_ATTEMPT_CONFIG_OPTIONS, config)"
+                    );
+                });
+            } else if (target.equals(LanguageTarget.BROWSER)) {
+                configs.put("maxAttempts", writer -> {
+                    writer.addImportSubmodule(
+                        "Retry",
+                        null,
+                        TypeScriptDependency.SMITHY_CORE,
+                        SmithyCoreSubmodules.RETRY
+                    );
+                    writer.addImportSubmodule(
+                        "DEFAULT_MAX_ATTEMPTS",
+                        null,
+                        TypeScriptDependency.SMITHY_CORE,
+                        SmithyCoreSubmodules.RETRY
+                    );
+                    writer.write("(Retry.v2026 ? 4 : DEFAULT_MAX_ATTEMPTS)");
+                });
+            }
+            return configs;
         }
         return Collections.emptyMap();
     }

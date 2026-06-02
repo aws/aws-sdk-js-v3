@@ -1,10 +1,7 @@
 import { requireRequestsFrom } from "@aws-sdk/aws-util-test/src";
 import { S3 } from "@aws-sdk/client-s3";
 import { HttpResponse } from "@smithy/core/protocols";
-import { retryMiddleware } from "@smithy/core/retry";
 import { describe, expect, test as it } from "vitest";
-
-import { flexibleChecksumsMiddleware } from "./flexibleChecksumsMiddleware";
 
 describe("middleware-flexible-checksums.retry", () => {
   it("retry reuses the checksum", async () => {
@@ -25,7 +22,7 @@ describe("middleware-flexible-checksums.retry", () => {
         return next(args);
       },
       {
-        toMiddleware: flexibleChecksumsMiddleware.name,
+        toMiddleware: "flexibleChecksumsMiddleware",
         relation: "after",
       }
     );
@@ -37,7 +34,7 @@ describe("middleware-flexible-checksums.retry", () => {
         return next(args);
       },
       {
-        toMiddleware: retryMiddleware.name,
+        toMiddleware: "retryMiddleware",
         relation: "after",
       }
     );
