@@ -106,6 +106,7 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResult, __Met
  * //     KmsKeyId: "STRING_VALUE",
  * //     ARN: "STRING_VALUE",
  * //     DataTiering: "enabled" || "disabled",
+ * //     Durability: "default" || "async" || "sync" || "disabled",
  * //   },
  * // };
  *

@@ -105,6 +105,7 @@ export interface ModifyReplicationGroupCommandOutput extends ModifyReplicationGr
  *   TransitEncryptionEnabled: true || false,
  *   TransitEncryptionMode: "preferred" || "required",
  *   ClusterMode: "enabled" || "disabled" || "compatible",
+ *   Durability: "default" || "async" || "sync" || "disabled",
  * };
  * const command = new ModifyReplicationGroupCommand(input);
  * const response = await client.send(command);
@@ -200,6 +201,7 @@ export interface ModifyReplicationGroupCommandOutput extends ModifyReplicationGr
  * //       "STRING_VALUE",
  * //     ],
  * //     KmsKeyId: "STRING_VALUE",
+ * //     StorageEncryptionType: "none" || "sse-elasticache" || "sse-kms",
  * //     ARN: "STRING_VALUE",
  * //     UserGroupIds: [
  * //       "STRING_VALUE",
@@ -229,6 +231,8 @@ export interface ModifyReplicationGroupCommandOutput extends ModifyReplicationGr
  * //     TransitEncryptionMode: "preferred" || "required",
  * //     ClusterMode: "enabled" || "disabled" || "compatible",
  * //     Engine: "STRING_VALUE",
+ * //     Durability: "default" || "async" || "sync" || "disabled",
+ * //     EffectiveDurability: "async" || "sync" || "disabled",
  * //   },
  * // };
  *

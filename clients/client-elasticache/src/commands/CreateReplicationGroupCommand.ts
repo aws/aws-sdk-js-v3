@@ -149,6 +149,7 @@ export interface CreateReplicationGroupCommandOutput extends CreateReplicationGr
  *   TransitEncryptionMode: "preferred" || "required",
  *   ClusterMode: "enabled" || "disabled" || "compatible",
  *   ServerlessCacheSnapshotName: "STRING_VALUE",
+ *   Durability: "default" || "async" || "sync" || "disabled",
  * };
  * const command = new CreateReplicationGroupCommand(input);
  * const response = await client.send(command);
@@ -244,6 +245,7 @@ export interface CreateReplicationGroupCommandOutput extends CreateReplicationGr
  * //       "STRING_VALUE",
  * //     ],
  * //     KmsKeyId: "STRING_VALUE",
+ * //     StorageEncryptionType: "none" || "sse-elasticache" || "sse-kms",
  * //     ARN: "STRING_VALUE",
  * //     UserGroupIds: [
  * //       "STRING_VALUE",
@@ -273,6 +275,8 @@ export interface CreateReplicationGroupCommandOutput extends CreateReplicationGr
  * //     TransitEncryptionMode: "preferred" || "required",
  * //     ClusterMode: "enabled" || "disabled" || "compatible",
  * //     Engine: "STRING_VALUE",
+ * //     Durability: "default" || "async" || "sync" || "disabled",
+ * //     EffectiveDurability: "async" || "sync" || "disabled",
  * //   },
  * // };
  *

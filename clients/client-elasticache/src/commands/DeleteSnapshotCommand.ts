@@ -98,6 +98,7 @@ export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResult, __Met
  * //     KmsKeyId: "STRING_VALUE",
  * //     ARN: "STRING_VALUE",
  * //     DataTiering: "enabled" || "disabled",
+ * //     Durability: "default" || "async" || "sync" || "disabled",
  * //   },
  * // };
  *

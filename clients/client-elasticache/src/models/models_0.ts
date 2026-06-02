@@ -10,6 +10,8 @@ import type {
   DataStorageUnit,
   DataTieringStatus,
   DestinationType,
+  Durability,
+  EffectiveDurability,
   InputAuthenticationType,
   IpDiscovery,
   LogDeliveryConfigurationStatus,
@@ -26,6 +28,7 @@ import type {
   ServiceUpdateType,
   SlaMet,
   SourceType,
+  StorageEncryptionType,
   TransitEncryptionMode,
   UpdateActionStatus,
 } from "./enums";
@@ -918,17 +921,11 @@ export interface ReplicationGroup {
   TransitEncryptionEnabled?: boolean | undefined;
 
   /**
-   * <p>A flag that enables encryption at-rest when set to <code>true</code>.</p>
-   *          <p>You cannot modify the value of <code>AtRestEncryptionEnabled</code> after the cluster
-   *             is created. To enable encryption at-rest on a cluster you must set
-   *                 <code>AtRestEncryptionEnabled</code> to <code>true</code> when you create a
-   *             cluster.</p>
-   *          <p>
-   *             <b>Required:</b> Only available when creating a replication
-   *             group in an Amazon VPC using Redis OSS version <code>3.2.6</code>, <code>4.x</code> or
-   *             later.</p>
-   *          <p>Default: <code>false</code>
-   *          </p>
+   * <p>A flag that enables encryption at-rest on the cluster when set to <code>true</code>.
+   *             In some cases, encryption at-rest may be enabled even when this value is false.
+   *             Use <code>StorageEncryptionType</code> to view the effective encryption state of a cluster.</p>
+   *          <p>You cannot modify the value of <code>AtRestEncryptionEnabled</code> after the cluster is created.</p>
+   *          <p>Default: <code>true</code> when using Valkey, <code>false</code> when using Redis OSS</p>
    * @public
    */
   AtRestEncryptionEnabled?: boolean | undefined;
@@ -944,6 +941,15 @@ export interface ReplicationGroup {
    * @public
    */
   KmsKeyId?: string | undefined;
+
+  /**
+   * <p>Indicates the type of encryption for data stored at rest in the replication group.
+   *             The value is <code>none</code> if at-rest encryption is not enabled,
+   *             <code>sse-elasticache</code> if an ElastiCache service-managed key is used, or
+   *             <code>sse-kms</code> if a customer-managed KMS key is used.</p>
+   * @public
+   */
+  StorageEncryptionType?: StorageEncryptionType | undefined;
 
   /**
    * <p>The ARN (Amazon Resource Name) of the replication group.</p>
@@ -1023,6 +1029,21 @@ export interface ReplicationGroup {
    * @public
    */
   Engine?: string | undefined;
+
+  /**
+   * <p>The durability setting of the replication group. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Durability.html">Durability</a>.</p>
+   * @public
+   */
+  Durability?: Durability | undefined;
+
+  /**
+   * <p>The effective durability of the replication group. When <code>Durability</code> is set to
+   *             <code>default</code>, the service resolves the actual durability based on the engine version,
+   *             cluster mode, and other parameters. This field reflects the resolved value. For more
+   *             information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ConfiguringDurability.html">Configuring Durability</a>.</p>
+   * @public
+   */
+  EffectiveDurability?: EffectiveDurability | undefined;
 }
 
 /**
@@ -1746,6 +1767,14 @@ export interface Snapshot {
    * @public
    */
   DataTiering?: DataTieringStatus | undefined;
+
+  /**
+   * <p>The durability setting of the cluster when the snapshot was taken. When restoring from this snapshot,
+   *             the cluster uses this durability setting unless overridden in the restore request. For more information,
+   *             see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Durability.html">Durability</a>.</p>
+   * @public
+   */
+  Durability?: Durability | undefined;
 }
 
 /**
@@ -4347,15 +4376,10 @@ export interface CreateReplicationGroupMessage {
   TransitEncryptionEnabled?: boolean | undefined;
 
   /**
-   * <p>A flag that enables encryption at rest when set to <code>true</code>.</p>
-   *          <p>You cannot modify the value of <code>AtRestEncryptionEnabled</code> after the
-   *             replication group is created. To enable encryption at rest on a replication group you
-   *             must set <code>AtRestEncryptionEnabled</code> to <code>true</code> when you create the
-   *             replication group. </p>
-   *          <p>
-   *             <b>Required:</b> Only available when creating a replication
-   *             group in an Amazon VPC using Valkey <code>7.2</code> and later, Redis OSS version <code>3.2.6</code>, or Redis OSS <code>4.x</code> and
-   *             later.</p>
+   * <p>A flag that enables encryption at-rest on the replication group when set to <code>true</code>.
+   *             In some cases, encryption at-rest may be enabled even when this value is false.
+   *             Use <code>StorageEncryptionType</code> to view the effective encryption state of a cluster.</p>
+   *          <p>You cannot modify the value of <code>AtRestEncryptionEnabled</code> after the replication group is created.</p>
    *          <p>Default: <code>true</code> when using Valkey, <code>false</code> when using Redis OSS</p>
    * @public
    */
@@ -4436,6 +4460,16 @@ export interface CreateReplicationGroupMessage {
    * @public
    */
   ServerlessCacheSnapshotName?: string | undefined;
+
+  /**
+   * <p>Specifies the durability setting for the replication group.
+   *             When set to <code>default</code>, the service determines the effective durability based on
+   *             the engine version, cluster mode, and other parameters. The resolved setting is reflected
+   *             in the <code>EffectiveDurability</code> property of the replication group. For more
+   *             information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Durability.html">Durability</a>.</p>
+   * @public
+   */
+  Durability?: Durability | undefined;
 }
 
 /**
@@ -4604,7 +4638,7 @@ export interface CreateServerlessCacheRequest {
   /**
    * <p>The IP protocol version used by the serverless cache.
    *            Must be either <code>ipv4</code> | <code>ipv6</code> | <code>dual_stack</code>.
-   *            <code>ipv6</code> is only supported with ipv6-only subnets.
+   *            <code>ipv6</code> is only supported with IPv6-only subnets.
    *            If not specified, defaults to <code>ipv4</code>, unless all provided subnets are IPv6-only, in which case it defaults to <code>ipv6</code>.
    *            </p>
    * @public
@@ -4670,6 +4704,15 @@ export interface ServerlessCache {
    * @public
    */
   KmsKeyId?: string | undefined;
+
+  /**
+   * <p>Indicates the type of encryption for data stored at rest in the serverless cache.
+   *             Serverless caches are always encrypted at rest. The value is
+   *             <code>sse-elasticache</code> if an ElastiCache service-managed key is used, or
+   *             <code>sse-kms</code> if a customer-managed KMS key is used.</p>
+   * @public
+   */
+  StorageEncryptionType?: StorageEncryptionType | undefined;
 
   /**
    * <p>The IDs of the EC2 security groups associated with the serverless
@@ -9568,6 +9611,15 @@ export interface ModifyReplicationGroupMessage {
    * @public
    */
   ClusterMode?: ClusterMode | undefined;
+
+  /**
+   * <p>Specifies the durability setting for the replication group.
+   *             Use this parameter to change the durability mode of an existing replication group,
+   *             for example from <code>sync</code> to <code>async</code> or vice versa. For more
+   *             information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Durability.html">Durability</a>.</p>
+   * @public
+   */
+  Durability?: Durability | undefined;
 }
 
 /**

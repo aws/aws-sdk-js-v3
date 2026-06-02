@@ -96,6 +96,7 @@ export interface CreateServerlessCacheCommandOutput extends CreateServerlessCach
  * //       },
  * //     },
  * //     KmsKeyId: "STRING_VALUE",
+ * //     StorageEncryptionType: "none" || "sse-elasticache" || "sse-kms",
  * //     SecurityGroupIds: [ // SecurityGroupIdsList
  * //       "STRING_VALUE",
  * //     ],

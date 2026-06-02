@@ -257,7 +257,8 @@ const _DUR = "DefaultUserRequired";
 const _DURe = "DescribeUsersResult";
 const _DUe = "DescribeUsers";
 const _Da = "Date";
-const _Du = "Duration";
+const _Du = "Durability";
+const _Dur = "Duration";
 const _E = "Engine";
 const _ECPUPS = "ECPUPerSecond";
 const _ECSG = "EC2SecurityGroups";
@@ -266,6 +267,7 @@ const _ECSGN = "EC2SecurityGroupName";
 const _ECSGOI = "EC2SecurityGroupOwnerId";
 const _ECSGe = "EC2SecurityGroup";
 const _ED = "EngineDefaults";
+const _EDf = "EffectiveDurability";
 const _EL = "EventList";
 const _EM = "EventsMessage";
 const _EMr = "ErrorMessage";
@@ -586,6 +588,7 @@ const _SCT = "SnapshotCreateTime";
 const _SCc = "ScaleConfig";
 const _SCe = "ServerlessCaches";
 const _SDM = "ScaleDownModifications";
+const _SET = "StorageEncryptionType";
 const _SFNSF = "SnapshotFeatureNotSupportedFault";
 const _SG = "SecurityGroups";
 const _SGI = "SecurityGroupIds";
@@ -1508,8 +1511,8 @@ export var CreateGlobalReplicationGroupResult$: StaticStructureSchema = [3, n0, 
 ];
 export var CreateReplicationGroupMessage$: StaticStructureSchema = [3, n0, _CRGM,
   0,
-  [_RGIe, _RGD, _GRGI, _PCI, _AFE, _MAZE, _NCC, _PCCAZ, _NNG, _RPNG, _NGC, _CNT, _E, _EV, _CPGN, _CSGNa, _CSGNac, _SGI, _T, _SA, _SN, _PMW, _Po, _NTA, _AMVU, _SRL, _SW, _AT, _TEE, _AREE, _KKI, _UGI, _LDC, _DTE, _NT, _ID, _TEM, _CM, _SCSN],
-  [0, 0, 0, 0, 2, 2, 1, [() => AvailabilityZonesList, 0], 1, 1, [() => NodeGroupConfigurationList, 0], 0, 0, 0, 0, 0, [() => CacheSecurityGroupNameList, 0], [() => SecurityGroupIdsList, 0], [() => TagList, 0], [() => SnapshotArnsList, 0], 0, 0, 1, 0, 2, 1, 0, 0, 2, 2, 0, 64 | 0, [() => LogDeliveryConfigurationRequestList, 0], 2, 0, 0, 0, 0, 0], 2
+  [_RGIe, _RGD, _GRGI, _PCI, _AFE, _MAZE, _NCC, _PCCAZ, _NNG, _RPNG, _NGC, _CNT, _E, _EV, _CPGN, _CSGNa, _CSGNac, _SGI, _T, _SA, _SN, _PMW, _Po, _NTA, _AMVU, _SRL, _SW, _AT, _TEE, _AREE, _KKI, _UGI, _LDC, _DTE, _NT, _ID, _TEM, _CM, _SCSN, _Du],
+  [0, 0, 0, 0, 2, 2, 1, [() => AvailabilityZonesList, 0], 1, 1, [() => NodeGroupConfigurationList, 0], 0, 0, 0, 0, 0, [() => CacheSecurityGroupNameList, 0], [() => SecurityGroupIdsList, 0], [() => TagList, 0], [() => SnapshotArnsList, 0], 0, 0, 1, 0, 2, 1, 0, 0, 2, 2, 0, 64 | 0, [() => LogDeliveryConfigurationRequestList, 0], 2, 0, 0, 0, 0, 0, 0], 2
 ];
 export var CreateReplicationGroupResult$: StaticStructureSchema = [3, n0, _CRGR,
   0,
@@ -1713,7 +1716,7 @@ export var DescribeEngineDefaultParametersResult$: StaticStructureSchema = [3, n
 ];
 export var DescribeEventsMessage$: StaticStructureSchema = [3, n0, _DEM,
   0,
-  [_SIo, _ST, _STt, _ET, _Du, _MR, _M],
+  [_SIo, _ST, _STt, _ET, _Dur, _MR, _M],
   [0, 0, 4, 4, 1, 1, 0]
 ];
 export var DescribeGlobalReplicationGroupsMessage$: StaticStructureSchema = [3, n0, _DGRGMe,
@@ -1733,12 +1736,12 @@ export var DescribeReplicationGroupsMessage$: StaticStructureSchema = [3, n0, _D
 ];
 export var DescribeReservedCacheNodesMessage$: StaticStructureSchema = [3, n0, _DRCNM,
   0,
-  [_RCNI, _RCNOI, _CNT, _Du, _PD, _OT, _MR, _M],
+  [_RCNI, _RCNOI, _CNT, _Dur, _PD, _OT, _MR, _M],
   [0, 0, 0, 0, 0, 0, 1, 0]
 ];
 export var DescribeReservedCacheNodesOfferingsMessage$: StaticStructureSchema = [3, n0, _DRCNOM,
   0,
-  [_RCNOI, _CNT, _Du, _PD, _OT, _MR, _M],
+  [_RCNOI, _CNT, _Dur, _PD, _OT, _MR, _M],
   [0, 0, 0, 0, 0, 1, 0]
 ];
 export var DescribeServerlessCacheSnapshotsRequest$: StaticStructureSchema = [3, n0, _DSCSRes,
@@ -1973,8 +1976,8 @@ export var ModifyGlobalReplicationGroupResult$: StaticStructureSchema = [3, n0, 
 ];
 export var ModifyReplicationGroupMessage$: StaticStructureSchema = [3, n0, _MRGM,
   0,
-  [_RGIe, _RGD, _PCI, _SCI, _AFE, _MAZE, _NGI, _CSGNac, _SGI, _PMW, _NTA, _CPGN, _NTS, _AI, _E, _EV, _AMVU, _SRL, _SW, _CNT, _AT, _ATUS, _UGITA, _UGITR, _RUG, _LDC, _ID, _TEE, _TEM, _CM],
-  [0, 0, 0, 0, 2, 2, 0, [() => CacheSecurityGroupNameList, 0], [() => SecurityGroupIdsList, 0], 0, 0, 0, 0, 2, 0, 0, 2, 1, 0, 0, 0, 0, 64 | 0, 64 | 0, 2, [() => LogDeliveryConfigurationRequestList, 0], 0, 2, 0, 0], 1
+  [_RGIe, _RGD, _PCI, _SCI, _AFE, _MAZE, _NGI, _CSGNac, _SGI, _PMW, _NTA, _CPGN, _NTS, _AI, _E, _EV, _AMVU, _SRL, _SW, _CNT, _AT, _ATUS, _UGITA, _UGITR, _RUG, _LDC, _ID, _TEE, _TEM, _CM, _Du],
+  [0, 0, 0, 0, 2, 2, 0, [() => CacheSecurityGroupNameList, 0], [() => SecurityGroupIdsList, 0], 0, 0, 0, 0, 2, 0, 0, 2, 1, 0, 0, 0, 0, 64 | 0, 64 | 0, 2, [() => LogDeliveryConfigurationRequestList, 0], 0, 2, 0, 0, 0], 1
 ];
 export var ModifyReplicationGroupResult$: StaticStructureSchema = [3, n0, _MRGR,
   0,
@@ -2118,8 +2121,8 @@ export var RemoveTagsFromResourceMessage$: StaticStructureSchema = [3, n0, _RTFR
 ];
 export var ReplicationGroup$: StaticStructureSchema = [3, n0, _RG,
   0,
-  [_RGIe, _D, _GRGIl, _St, _PMV, _MC, _NGo, _SCI, _AF, _MAZ, _CE, _SRL, _SW, _CEl, _CNT, _ATE, _ATLMD, _TEE, _AREE, _MCOA, _KKI, _ARN, _UGI, _LDC, _RGCT, _DTa, _AMVU, _NT, _ID, _TEM, _CM, _E],
-  [0, 0, () => GlobalReplicationGroupInfo$, 0, () => ReplicationGroupPendingModifiedValues$, [() => ClusterIdList, 0], [() => NodeGroupList, 0], 0, 0, 0, () => Endpoint$, 1, 0, 2, 0, 2, 4, 2, 2, [() => ReplicationGroupOutpostArnList, 0], 0, 0, 64 | 0, [() => LogDeliveryConfigurationList, 0], 4, 0, 2, 0, 0, 0, 0, 0]
+  [_RGIe, _D, _GRGIl, _St, _PMV, _MC, _NGo, _SCI, _AF, _MAZ, _CE, _SRL, _SW, _CEl, _CNT, _ATE, _ATLMD, _TEE, _AREE, _MCOA, _KKI, _SET, _ARN, _UGI, _LDC, _RGCT, _DTa, _AMVU, _NT, _ID, _TEM, _CM, _E, _Du, _EDf],
+  [0, 0, () => GlobalReplicationGroupInfo$, 0, () => ReplicationGroupPendingModifiedValues$, [() => ClusterIdList, 0], [() => NodeGroupList, 0], 0, 0, 0, () => Endpoint$, 1, 0, 2, 0, 2, 4, 2, 2, [() => ReplicationGroupOutpostArnList, 0], 0, 0, 0, 64 | 0, [() => LogDeliveryConfigurationList, 0], 4, 0, 2, 0, 0, 0, 0, 0, 0, 0]
 ];
 export var ReplicationGroupMessage$: StaticStructureSchema = [3, n0, _RGM,
   0,
@@ -2133,7 +2136,7 @@ export var ReplicationGroupPendingModifiedValues$: StaticStructureSchema = [3, n
 ];
 export var ReservedCacheNode$: StaticStructureSchema = [3, n0, _RCN,
   0,
-  [_RCNI, _RCNOI, _CNT, _STt, _Du, _FP, _UP, _CNC, _PD, _OT, _Sta, _RCecu, _RARN],
+  [_RCNI, _RCNOI, _CNT, _STt, _Dur, _FP, _UP, _CNC, _PD, _OT, _Sta, _RCecu, _RARN],
   [0, 0, 0, 4, 1, 1, 1, 1, 0, 0, 0, [() => RecurringChargeList, 0], 0]
 ];
 export var ReservedCacheNodeMessage$: StaticStructureSchema = [3, n0, _RCNM,
@@ -2143,7 +2146,7 @@ export var ReservedCacheNodeMessage$: StaticStructureSchema = [3, n0, _RCNM,
 ];
 export var ReservedCacheNodesOffering$: StaticStructureSchema = [3, n0, _RCNO,
   0,
-  [_RCNOI, _CNT, _Du, _FP, _UP, _PD, _OT, _RCecu],
+  [_RCNOI, _CNT, _Dur, _FP, _UP, _PD, _OT, _RCecu],
   [0, 0, 1, 1, 1, 0, 0, [() => RecurringChargeList, 0]]
 ];
 export var ReservedCacheNodesOfferingMessage$: StaticStructureSchema = [3, n0, _RCNOM,
@@ -2188,8 +2191,8 @@ export var SecurityGroupMembership$: StaticStructureSchema = [3, n0, _SGM,
 ];
 export var ServerlessCache$: StaticStructureSchema = [3, n0, _SC,
   0,
-  [_SCN, _D, _CTr, _St, _E, _MEVa, _FEV, _CUL, _KKI, _SGI, _En, _RE, _ARN, _UGIs, _SI, _SRL, _DST, _NT],
-  [0, 0, 4, 0, 0, 0, 0, () => CacheUsageLimits$, 0, [() => SecurityGroupIdsList, 0], () => Endpoint$, () => Endpoint$, 0, 0, [() => SubnetIdsList, 0], 1, 0, 0]
+  [_SCN, _D, _CTr, _St, _E, _MEVa, _FEV, _CUL, _KKI, _SET, _SGI, _En, _RE, _ARN, _UGIs, _SI, _SRL, _DST, _NT],
+  [0, 0, 4, 0, 0, 0, 0, () => CacheUsageLimits$, 0, 0, [() => SecurityGroupIdsList, 0], () => Endpoint$, () => Endpoint$, 0, 0, [() => SubnetIdsList, 0], 1, 0, 0]
 ];
 export var ServerlessCacheConfiguration$: StaticStructureSchema = [3, n0, _SCC,
   0,
@@ -2218,8 +2221,8 @@ export var SlotMigration$: StaticStructureSchema = [3, n0, _SM,
 ];
 export var Snapshot$: StaticStructureSchema = [3, n0, _Sn,
   0,
-  [_SN, _RGIe, _RGD, _CCIa, _SSn, _SS, _CNT, _E, _EV, _NCN, _PAZ, _POA, _CCCT, _PMW, _TA, _Po, _CPGN, _CSGNa, _VI, _AMVU, _SRL, _SW, _NNG, _AF, _NSo, _KKI, _ARN, _DTa],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 4, 0, 0, 1, 0, 0, 0, 2, 1, 0, 1, 0, [() => NodeSnapshotList, 0], 0, 0, 0]
+  [_SN, _RGIe, _RGD, _CCIa, _SSn, _SS, _CNT, _E, _EV, _NCN, _PAZ, _POA, _CCCT, _PMW, _TA, _Po, _CPGN, _CSGNa, _VI, _AMVU, _SRL, _SW, _NNG, _AF, _NSo, _KKI, _ARN, _DTa, _Du],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 4, 0, 0, 1, 0, 0, 0, 2, 1, 0, 1, 0, [() => NodeSnapshotList, 0], 0, 0, 0, 0]
 ];
 export var StartMigrationMessage$: StaticStructureSchema = [3, n0, _SMM,
   0,

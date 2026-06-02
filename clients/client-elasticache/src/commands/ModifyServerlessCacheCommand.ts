@@ -83,6 +83,7 @@ export interface ModifyServerlessCacheCommandOutput extends ModifyServerlessCach
  * //       },
  * //     },
  * //     KmsKeyId: "STRING_VALUE",
+ * //     StorageEncryptionType: "none" || "sse-elasticache" || "sse-kms",
  * //     SecurityGroupIds: [ // SecurityGroupIdsList
  * //       "STRING_VALUE",
  * //     ],

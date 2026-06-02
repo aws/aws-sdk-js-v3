@@ -192,6 +192,7 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  * //     KmsKeyId: "STRING_VALUE",
  * //     ARN: "STRING_VALUE",
  * //     DataTiering: "enabled" || "disabled",
+ * //     Durability: "default" || "async" || "sync" || "disabled",
  * //   },
  * // };
  *

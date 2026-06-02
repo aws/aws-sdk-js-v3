@@ -259,8 +259,10 @@ import {
   DisassociateGlobalReplicationGroupResult$,
   DuplicateUserNameFault,
   DuplicateUserNameFault$,
+  Durability,
   EC2SecurityGroup$,
   ECPUPerSecond$,
+  EffectiveDurability,
   ElastiCache,
   ElastiCacheClient,
   ElastiCacheServiceException,
@@ -514,6 +516,7 @@ import {
   StartMigrationCommand,
   StartMigrationMessage$,
   StartMigrationResponse$,
+  StorageEncryptionType,
   Subnet$,
   SubnetInUse,
   SubnetInUse$,
@@ -943,6 +946,8 @@ assert(typeof ClusterMode === "object");
 assert(typeof DataStorageUnit === "object");
 assert(typeof DataTieringStatus === "object");
 assert(typeof DestinationType === "object");
+assert(typeof Durability === "object");
+assert(typeof EffectiveDurability === "object");
 assert(typeof InputAuthenticationType === "object");
 assert(typeof IpDiscovery === "object");
 assert(typeof LogDeliveryConfigurationStatus === "object");
@@ -959,6 +964,7 @@ assert(typeof ServiceUpdateStatus === "object");
 assert(typeof ServiceUpdateType === "object");
 assert(typeof SlaMet === "object");
 assert(typeof SourceType === "object");
+assert(typeof StorageEncryptionType === "object");
 assert(typeof TransitEncryptionMode === "object");
 assert(typeof UpdateActionStatus === "object");
 // errors

@@ -65,6 +65,35 @@ export type DataTieringStatus = (typeof DataTieringStatus)[keyof typeof DataTier
  * @public
  * @enum
  */
+export const Durability = {
+  ASYNC: "async",
+  DEFAULT: "default",
+  DISABLED: "disabled",
+  SYNC: "sync",
+} as const;
+/**
+ * @public
+ */
+export type Durability = (typeof Durability)[keyof typeof Durability];
+
+/**
+ * @public
+ * @enum
+ */
+export const EffectiveDurability = {
+  ASYNC: "async",
+  DISABLED: "disabled",
+  SYNC: "sync",
+} as const;
+/**
+ * @public
+ */
+export type EffectiveDurability = (typeof EffectiveDurability)[keyof typeof EffectiveDurability];
+
+/**
+ * @public
+ * @enum
+ */
 export const IpDiscovery = {
   IPV4: "ipv4",
   IPV6: "ipv6",
@@ -196,6 +225,20 @@ export const TransitEncryptionMode = {
  * @public
  */
 export type TransitEncryptionMode = (typeof TransitEncryptionMode)[keyof typeof TransitEncryptionMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const StorageEncryptionType = {
+  NONE: "none",
+  SSE_ELASTICACHE: "sse-elasticache",
+  SSE_KMS: "sse-kms",
+} as const;
+/**
+ * @public
+ */
+export type StorageEncryptionType = (typeof StorageEncryptionType)[keyof typeof StorageEncryptionType];
 
 /**
  * @public

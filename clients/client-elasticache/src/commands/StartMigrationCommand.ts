@@ -139,6 +139,7 @@ export interface StartMigrationCommandOutput extends StartMigrationResponse, __M
  * //       "STRING_VALUE",
  * //     ],
  * //     KmsKeyId: "STRING_VALUE",
+ * //     StorageEncryptionType: "none" || "sse-elasticache" || "sse-kms",
  * //     ARN: "STRING_VALUE",
  * //     UserGroupIds: [
  * //       "STRING_VALUE",
@@ -168,6 +169,8 @@ export interface StartMigrationCommandOutput extends StartMigrationResponse, __M
  * //     TransitEncryptionMode: "preferred" || "required",
  * //     ClusterMode: "enabled" || "disabled" || "compatible",
  * //     Engine: "STRING_VALUE",
+ * //     Durability: "default" || "async" || "sync" || "disabled",
+ * //     EffectiveDurability: "async" || "sync" || "disabled",
  * //   },
  * // };
  *

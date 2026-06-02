@@ -68,6 +68,7 @@ export interface DeleteServerlessCacheCommandOutput extends DeleteServerlessCach
  * //       },
  * //     },
  * //     KmsKeyId: "STRING_VALUE",
+ * //     StorageEncryptionType: "none" || "sse-elasticache" || "sse-kms",
  * //     SecurityGroupIds: [ // SecurityGroupIdsList
  * //       "STRING_VALUE",
  * //     ],
