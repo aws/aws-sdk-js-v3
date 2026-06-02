@@ -4,6 +4,7 @@
  */
 package software.amazon.smithy.aws.typescript.codegen;
 
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Set;
 import java.util.TreeSet;
@@ -54,7 +55,7 @@ final class DocumentAggregatedClientGenerator implements Runnable {
     public void run() {
         // Note: using addImport would register this dependency on the dynamodb client, which must be avoided.
         writer.write("""
-                     import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
+                     import type { DynamoDBClient } from "@aws-sdk/client-dynamodb";
                      """);
         writer.addRelativeImport(
             DocumentClientUtils.CLIENT_NAME,
@@ -107,14 +108,14 @@ final class DocumentAggregatedClientGenerator implements Runnable {
                 );
                 SymbolReference options = ApplicationProtocol.createDefaultHttpApplicationProtocol().getOptionsType();
 
-                String commandFileLocation = String.format(
-                    "./%s/%s",
+                Path commandFilePath = Paths.get(
+                    ".",
                     DocumentClientUtils.CLIENT_COMMANDS_FOLDER,
                     name
                 );
-                writer.addImport(name, name, commandFileLocation);
-                writer.addImport(input, input, commandFileLocation);
-                writer.addImport(output, output, commandFileLocation);
+                writer.addRelativeImport(name, name, commandFilePath);
+                writer.addRelativeTypeImport(input, input, commandFilePath);
+                writer.addRelativeTypeImport(output, output, commandFilePath);
 
                 String methodName = StringUtils.uncapitalize(
                     DocumentClientUtils.getModifiedName(operationSymbol.getName().replaceAll("Command$", ""))
@@ -134,7 +135,7 @@ final class DocumentAggregatedClientGenerator implements Runnable {
                     """
                     public $1L(
                       args: $2L,
-                      options?: $3T,
+                      options?: $3T
                     ): Promise<$4L>;
                     public $1L(
                       args: $2L,
@@ -150,17 +151,17 @@ final class DocumentAggregatedClientGenerator implements Runnable {
                       optionsOrCb?: $3T | ((err: any, data?: $4L) => void),
                       cb?: (err: any, data?: $4L) => void
                     ): Promise<$4L> | void {
-                        const command = new $5L(args);
-                        if (typeof optionsOrCb === "function") {
-                          this.send(command, optionsOrCb);
-                        } else if (typeof cb === "function") {
-                          if (typeof optionsOrCb !== "object") {
-                            throw new Error(`Expect http options but get $${typeof optionsOrCb}`)
-                          }
-                          this.send(command, optionsOrCb || {}, cb);
-                        } else {
-                          return this.send(command, optionsOrCb);
+                      const command = new $5L(args);
+                      if (typeof optionsOrCb === "function") {
+                        this.send(command, optionsOrCb);
+                      } else if (typeof cb === "function") {
+                        if (typeof optionsOrCb !== "object") {
+                          throw new Error(`Expect http options but get $${typeof optionsOrCb}`);
                         }
+                        this.send(command, optionsOrCb || {}, cb);
+                      } else {
+                        return this.send(command, optionsOrCb);
+                      }
                     }""",
                     methodName,
                     input,

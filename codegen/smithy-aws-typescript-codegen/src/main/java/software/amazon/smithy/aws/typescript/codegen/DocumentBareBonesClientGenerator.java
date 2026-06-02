@@ -4,6 +4,8 @@
  */
 package software.amazon.smithy.aws.typescript.codegen;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
@@ -61,13 +63,13 @@ final class DocumentBareBonesClientGenerator implements Runnable {
         // Add required imports.
         // Note: using addImport would register these dependencies on the dynamodb client, which must be avoided.
         writer.write("""
-                     import {
+                     import type {
                        DynamoDBClient,
                        DynamoDBClientResolvedConfig,
                        ServiceInputTypes as __ServiceInputTypes,
                        ServiceOutputTypes as __ServiceOutputTypes,
                      } from "@aws-sdk/client-dynamodb";
-                     import { marshallOptions, unmarshallOptions } from "@aws-sdk/util-dynamodb";
+                     import type { marshallOptions, unmarshallOptions } from "@aws-sdk/util-dynamodb";
                      """);
 
         writer.addImportSubmodule("Client", "__Client", TypeScriptDependency.SMITHY_CORE, SmithyCoreSubmodules.CLIENT);
@@ -124,13 +126,13 @@ final class DocumentBareBonesClientGenerator implements Runnable {
                     operationSymbol.expectProperty("outputType", Symbol.class).getName()
                 );
 
-                String commandFileLocation = String.format(
-                    "./%s/%s",
+                Path commandFileLocation = Paths.get(
+                    ".",
                     DocumentClientUtils.CLIENT_COMMANDS_FOLDER,
                     name
                 );
-                writer.addImport(input, input, commandFileLocation);
-                writer.addImport(output, output, commandFileLocation);
+                writer.addRelativeTypeImport(input, input, commandFileLocation);
+                writer.addRelativeTypeImport(output, output, commandFileLocation);
             }
         }
     }
@@ -147,8 +149,10 @@ final class DocumentBareBonesClientGenerator implements Runnable {
             .map(operationtypeName -> DocumentClientUtils.getModifiedName(operationtypeName))
             .collect(Collectors.toList());
 
-        writer.write("export type $L = $L", typeName, String.format("__%s", typeName));
+        writer.writeInline("export type $L =", typeName);
+        writer.write("");
         writer.indent();
+        writer.write("| $L", String.format("__%s", typeName));
         for (int i = 0; i < operationTypeNames.size(); i++) {
             writer.write("| $L$L", operationTypeNames.get(i), i == operationTypeNames.size() - 1 ? ";" : "");
         }
@@ -184,7 +188,7 @@ final class DocumentBareBonesClientGenerator implements Runnable {
 
     private void generateClientConstructor() {
         writer.openBlock(
-            "protected constructor(client: $L, translateConfig?: $L){",
+            "protected constructor(client: $L, translateConfig?: $L) {",
             "}",
             symbol.getName(),
             DocumentClientUtils.CLIENT_TRANSLATE_CONFIG_TYPE,
@@ -194,14 +198,14 @@ final class DocumentBareBonesClientGenerator implements Runnable {
                 writer.write("this.config = client.config;");
                 writer.write("this.config.translateConfig = translateConfig;");
                 writer.write("this.middlewareStack = client.middlewareStack;");
-                writer.write("""
-                             if (this.config?.cacheMiddleware) {
-                                 throw new Error(
-                                     "@aws-sdk/lib-dynamodb - cacheMiddleware=true is not compatible with the"
-                                       + " DynamoDBDocumentClient. This option must be set to false."
-                                 );
-                             }
-                             """);
+                writer.openBlock("if (this.config?.cacheMiddleware) {", "}", () -> {
+                    writer.write("throw new Error(");
+                    writer.indent();
+                    writer.write("\"@aws-sdk/lib-dynamodb - cacheMiddleware=true is not compatible with the\" +");
+                    writer.write("  \" DynamoDBDocumentClient. This option must be set to false.\"");
+                    writer.dedent();
+                    writer.write(");");
+                });
                 writer.popState();
             }
         );
@@ -211,7 +215,7 @@ final class DocumentBareBonesClientGenerator implements Runnable {
         writer.pushState(CLIENT_CONFIG_SECTION);
         String translateConfigType = DocumentClientUtils.CLIENT_TRANSLATE_CONFIG_TYPE;
         writer.writeDocs("@public");
-        writer.openBlock("export type $L = {", "}", translateConfigType, () -> {
+        writer.openBlock("export type $L = {", "};", translateConfigType, () -> {
             generateTranslateConfigOption(DocumentClientUtils.CLIENT_MARSHALL_OPTIONS);
             generateTranslateConfigOption(DocumentClientUtils.CLIENT_UNMARSHALL_OPTIONS);
         });

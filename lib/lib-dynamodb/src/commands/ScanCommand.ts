@@ -1,10 +1,14 @@
 // smithy-typescript generated code
 import { Command as $Command } from "@smithy/core/client";
-import { type HttpHandlerOptions as __HttpHandlerOptions, Handler, MiddlewareStack } from "@smithy/types";
+import type { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@smithy/types";
 
 import { DynamoDBDocumentClientCommand } from "../baseCommand/DynamoDBDocumentClientCommand";
 import { ALL_MEMBERS, ALL_VALUES } from "../commands/utils";
-import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
+import type {
+  DynamoDBDocumentClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../DynamoDBDocumentClient";
 import { ScanCommand as __ScanCommand } from "@aws-sdk/client-dynamodb";
 
 /**
@@ -15,18 +19,13 @@ export { DynamoDBDocumentClientCommand, $Command };
 /**
  * @public
  */
-export type ScanCommandInput = Omit<
-  __ScanCommandInput,
-  "ScanFilter" | "ExclusiveStartKey" | "ExpressionAttributeValues"
-> & {
-  ScanFilter?:
-    | Record<
-        string,
-        Omit<Condition, "AttributeValueList"> & {
-          AttributeValueList?: NativeAttributeValue[] | undefined;
-        }
-      >
-    | undefined;
+export type ScanCommandInput = Omit<__ScanCommandInput, "ScanFilter" | "ExclusiveStartKey" | "ExpressionAttributeValues"> & {
+  ScanFilter?: Record<
+    string,
+    Omit<Condition, "AttributeValueList"> & {
+      AttributeValueList?: NativeAttributeValue[] | undefined;
+    }
+  > | undefined;
   ExclusiveStartKey?: Record<string, NativeAttributeValue> | undefined;
   ExpressionAttributeValues?: Record<string, NativeAttributeValue> | undefined;
 };
@@ -72,10 +71,8 @@ export class ScanCommand extends DynamoDBDocumentClientCommand<
   };
 
   protected readonly clientCommand: __ScanCommand;
-  public readonly middlewareStack: MiddlewareStack<
-    ScanCommandInput | __ScanCommandInput,
-    ScanCommandOutput | __ScanCommandOutput
-  >;
+  public readonly middlewareStack: MiddlewareStack<ScanCommandInput | __ScanCommandInput,
+  ScanCommandOutput | __ScanCommandOutput>;
 
   constructor(readonly input: ScanCommandInput) {
     super();
@@ -104,5 +101,6 @@ import type {
   ScanCommandInput as __ScanCommandInput,
   ScanCommandOutput as __ScanCommandOutput,
 } from "@aws-sdk/client-dynamodb";
-
-import type { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
+import type {
+  NativeAttributeValue,
+} from "@aws-sdk/util-dynamodb";

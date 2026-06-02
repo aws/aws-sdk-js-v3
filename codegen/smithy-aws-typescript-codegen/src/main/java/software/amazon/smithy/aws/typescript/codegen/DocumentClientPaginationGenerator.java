@@ -61,8 +61,8 @@ final class DocumentClientPaginationGenerator implements Runnable {
             DocumentClientUtils.getModifiedName(operationTypeName)
         );
         writer.addRelativeImport(operationTypeName, operationTypeName, commandFileLocation);
-        writer.addRelativeImport(inputTypeName, inputTypeName, commandFileLocation);
-        writer.addRelativeImport(outputTypeName, outputTypeName, commandFileLocation);
+        writer.addRelativeTypeImport(inputTypeName, inputTypeName, commandFileLocation);
+        writer.addRelativeTypeImport(outputTypeName, outputTypeName, commandFileLocation);
         writer.addRelativeImport(
             DocumentClientUtils.CLIENT_NAME,
             DocumentClientUtils.CLIENT_NAME,
@@ -72,14 +72,14 @@ final class DocumentClientPaginationGenerator implements Runnable {
         // Import Pagination types
         writer.addImport("Paginator", "Paginator", TypeScriptDependency.SMITHY_TYPES);
         writer.addImport("createPaginator", "createPaginator", TypeScriptDependency.SMITHY_CORE);
-        writer.addRelativeImport(
+        writer.addRelativeTypeImport(
             paginationType,
             paginationType,
             Paths.get(".", getInterfaceFilelocation().replace(".ts", ""))
         );
 
         writer.writeDocs("@public");
-        writer.write("export { Paginator }");
+        writer.write("export { Paginator };");
 
         writePager();
     }
