@@ -351,6 +351,7 @@ const _FNe = "FeatureName";
 const _FNi = "FilterNames";
 const _FNil = "FileName";
 const _FNu = "FunctionName";
+const _FO = "FileOperation";
 const _FP = "FilePath";
 const _FPF = "FindingPublishingFrequency";
 const _FPi = "FilePaths";
@@ -747,6 +748,7 @@ const _RDID = "RdsDbInstanceDetails";
 const _RDUD = "RdsDbUserDetails";
 const _RDe = "ResourceData";
 const _RDu = "RuntimeDetails";
+const _RFP = "RelatedFilePaths";
 const _RI = "ResourceId";
 const _RID = "RemoteIpDetails";
 const _RIe = "RevisionId";
@@ -1231,6 +1233,7 @@ const _fN = "functionName";
 const _fNe = "featureName";
 const _fNi = "filterNames";
 const _fNil = "fileName";
+const _fO = "fileOperation";
 const _fP = "filePath";
 const _fPF = "findingPublishingFrequency";
 const _fPi = "filePaths";
@@ -1439,6 +1442,7 @@ const _rD = "resourceDetails";
 const _rDID = "rdsDbInstanceDetails";
 const _rDUD = "rdsDbUserDetails";
 const _rDu = "runtimeDetails";
+const _rFP = "relatedFilePaths";
 const _rI = "resourceId";
 const _rID = "remoteIpDetails";
 const _rIe = "revisionId";
@@ -3310,8 +3314,8 @@ export var ResourceV2$: StaticStructureSchema = [3, n0, _RV,
 ];
 export var RuntimeContext$: StaticStructureSchema = [3, n0, _RC,
   0,
-  [_MPo, _MA, _SP, _LP, _LPV, _SPo, _RBP, _RAP, _MSo, _MTo, _FSTi, _Fl, _MN, _MFP, _MSod, _SHFP, _TP, _AF, _IPN, _MRe, _TNo, _TC, _SN, _CLE, _TFP],
-  [[() => ProcessDetails$, { [_jN]: _mPo }], [4, { [_jN]: _mA }], [0, { [_jN]: _sP }], [0, { [_jN]: _lP }], [0, { [_jN]: _lPV }], [0, { [_jN]: _sPo }], [0, { [_jN]: _rBP }], [0, { [_jN]: _rAP }], [0, { [_jN]: _mS }], [0, { [_jN]: _mTo }], [0, { [_jN]: _fSTi }], [64 | 0, { [_jN]: _fl }], [0, { [_jN]: _mN }], [0, { [_jN]: _mFP }], [0, { [_jN]: _mSo }], [0, { [_jN]: _sHFP }], [() => ProcessDetails$, { [_jN]: _tP }], [0, { [_jN]: _aF }], [1, { [_jN]: _iPN }], [64 | 0, { [_jN]: _mRe }], [0, { [_jN]: _tNo }], [0, { [_jN]: _tC }], [0, { [_jN]: _sN }], [0, { [_jN]: _cLE }], [0, { [_jN]: _tFP }]]
+  [_MPo, _MA, _SP, _LP, _LPV, _SPo, _RBP, _RAP, _MSo, _MTo, _FSTi, _Fl, _MN, _MFP, _MSod, _SHFP, _TP, _AF, _IPN, _MRe, _TNo, _TC, _SN, _CLE, _TFP, _FO, _FP, _RFP],
+  [[() => ProcessDetails$, { [_jN]: _mPo }], [4, { [_jN]: _mA }], [0, { [_jN]: _sP }], [0, { [_jN]: _lP }], [0, { [_jN]: _lPV }], [0, { [_jN]: _sPo }], [0, { [_jN]: _rBP }], [0, { [_jN]: _rAP }], [0, { [_jN]: _mS }], [0, { [_jN]: _mTo }], [0, { [_jN]: _fSTi }], [64 | 0, { [_jN]: _fl }], [0, { [_jN]: _mN }], [0, { [_jN]: _mFP }], [0, { [_jN]: _mSo }], [0, { [_jN]: _sHFP }], [() => ProcessDetails$, { [_jN]: _tP }], [0, { [_jN]: _aF }], [1, { [_jN]: _iPN }], [64 | 0, { [_jN]: _mRe }], [0, { [_jN]: _tNo }], [0, { [_jN]: _tC }], [0, { [_jN]: _sN }], [0, { [_jN]: _cLE }], [0, { [_jN]: _tFP }], [0, { [_jN]: _fO }], [0, { [_jN]: _fP }], [64 | 0, { [_jN]: _rFP }]]
 ];
 export var RuntimeDetails$: StaticStructureSchema = [3, n0, _RDu,
   0,
@@ -4023,6 +4027,7 @@ var ProductCodes: StaticListSchema = [1, n0, _PC,
   0, [() => ProductCode$,
     0]
 ];
+var RelatedFilePathsList = 64 | 0;
 var ResourceList = 64 | 0;
 var Resources: StaticListSchema = [1, n0, _Reso,
   0, [() => ResourceV2$,

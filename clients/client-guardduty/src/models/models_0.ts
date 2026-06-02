@@ -6621,6 +6621,24 @@ export interface RuntimeContext {
    * @public
    */
   ThreatFilePath?: string | undefined;
+
+  /**
+   * <p>Represents the type of file operation that triggered the finding, such as Write, Delete, Rename, Link, or Symlink.</p>
+   * @public
+   */
+  FileOperation?: string | undefined;
+
+  /**
+   * <p>The path of the sensitive file that was modified. Modification includes write, delete, rename, link, or symlink operations. This field is indexed for filtering.</p>
+   * @public
+   */
+  FilePath?: string | undefined;
+
+  /**
+   * <p>All file paths modified by the same process that triggered the finding, up to a maximum of 25 paths.</p>
+   * @public
+   */
+  RelatedFilePaths?: string[] | undefined;
 }
 
 /**

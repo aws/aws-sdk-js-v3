@@ -791,6 +791,11 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //             ServiceName: "STRING_VALUE",
  * //             CommandLineExample: "STRING_VALUE",
  * //             ThreatFilePath: "STRING_VALUE",
+ * //             FileOperation: "STRING_VALUE",
+ * //             FilePath: "STRING_VALUE",
+ * //             RelatedFilePaths: [ // RelatedFilePathsList
+ * //               "STRING_VALUE",
+ * //             ],
  * //           },
  * //         },
  * //         Detection: { // Detection
