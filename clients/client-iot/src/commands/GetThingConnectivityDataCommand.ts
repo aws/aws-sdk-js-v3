@@ -27,7 +27,7 @@ export interface GetThingConnectivityDataCommandInput extends GetThingConnectivi
 export interface GetThingConnectivityDataCommandOutput extends GetThingConnectivityDataResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the live connectivity status per device.</p>
+ * <p>Retrieves the live connectivity status per device. If a device has never connected to IoT Core or was disconnected for more than 1 hour before fleet indexing's <code>thingConnectivityIndexingMode</code> was enabled, the response will have the <code>connected</code> field set to <code>false</code> with no additional session details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

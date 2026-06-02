@@ -1646,14 +1646,13 @@ export interface ThingConnectivity {
   connected?: boolean | undefined;
 
   /**
-   * <p>The epoch time (in milliseconds) when the thing last connected or disconnected. If the
-   *       thing has been disconnected for approximately an hour, the time value might be missing. When you enable or update the indexing configuration, this value might be <code>0</code> (the Unix epoch time) for devices that have never connected or have been disconnected for more than an hour.</p>
+   * <p>The epoch time (in milliseconds) when the thing last connected or disconnected.</p>
    * @public
    */
   timestamp?: number | undefined;
 
   /**
-   * <p>The reason why the client is disconnected. When you enable or update the indexing configuration, this value might be missing for devices that have never connected or have been disconnected for more than an hour.</p>
+   * <p>The reason that the client is disconnected.</p>
    * @public
    */
   disconnectReason?: string | undefined;

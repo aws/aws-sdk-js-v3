@@ -4974,13 +4974,13 @@ export interface GetThingConnectivityDataResponse {
   connected?: boolean | undefined;
 
   /**
-   * <p>The timestamp of when the event occurred. When you enable or update the indexing configuration, this value might be the Unix epoch time (0) for devices that have never connected or have been disconnected for more than an hour.</p>
+   * <p>The timestamp of when the device connected or disconnected.</p>
    * @public
    */
   timestamp?: Date | undefined;
 
   /**
-   * <p>The reason why the client is disconnecting. When you enable or update the indexing configuration, this value might be <code>UNKNOWN</code> for devices that have never connected or have been disconnected for more than an hour.</p>
+   * <p>The reason that the client is disconnected.</p>
    * @public
    */
   disconnectReason?: DisconnectReasonValue | undefined;
