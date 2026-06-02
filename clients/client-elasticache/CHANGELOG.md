@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1059.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1058.0...v3.1059.0) (2026-06-02)
+
+
+### Features
+
+* **client-elasticache:** Amazon ElastiCache for Valkey now supports durability. This new capability is enabled through a Multi-AZ transactional log, enabling fast recovery and restart during failures. ([7e7e796](https://github.com/aws/aws-sdk-js-v3/commit/7e7e79636c5f91c9583f638ea490cbba461a9fc5))
+
+
+
+
+
 # [3.1058.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1057.0...v3.1058.0) (2026-06-01)
 
 **Note:** Version bump only for package @aws-sdk/client-elasticache

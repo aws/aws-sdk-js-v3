@@ -3,6 +3,62 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1059.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1058.0...v3.1059.0) (2026-06-02)
+
+
+### Features
+
+* **client-cloudwatch:** Adding new BDD representation of endpoint ruleset ([cf2abcc](https://github.com/aws/aws-sdk-js-v3/commit/cf2abcc89f02348a58aaec6c4b515255ce012f04))
+* **client-ec2:** Amazon EC2 now supports self-service cancellation of future-dated Capacity Reservations. A cancellation charge applies based on remaining commitment. Customers can generate a cancellation quote to review charges before confirming. ([bc81e97](https://github.com/aws/aws-sdk-js-v3/commit/bc81e97a5b305df40abb5b2665c8cc18c06a60c2))
+* **client-elasticache:** Amazon ElastiCache for Valkey now supports durability. This new capability is enabled through a Multi-AZ transactional log, enabling fast recovery and restart during failures. ([7e7e796](https://github.com/aws/aws-sdk-js-v3/commit/7e7e79636c5f91c9583f638ea490cbba461a9fc5))
+* **client-geo-routes:** Added Transit and Intermodal travel modes to CalculateRoutes. Plan routes using public transit (bus, subway, train, ferry) or combine transit with driving, taxi, and rental car segments in a single multi-modal route. ([462e13e](https://github.com/aws/aws-sdk-js-v3/commit/462e13e0825f94cdb5ae838fa48d9be34a82aeef))
+* **client-guardduty:** Amazon GuardDuty Runtime Monitoring now supports 3 new SensitiveFileModified finding types (Persistence, PrivilegeEscalation, DefenseEvasion) that detect when security-sensitive system files are modified on EC2 instances or containers, indicating potential compromise through file tampering. ([55413a1](https://github.com/aws/aws-sdk-js-v3/commit/55413a1decafb6946ce1e05fa8e64f704a392156))
+* **client-keyspacesstreams:** Added iterator description to the GetRecords API response for Amazon Keyspaces Change Data Capture (CDC) streams, enabling consumers to track their current position within the stream. ([6f9b8a6](https://github.com/aws/aws-sdk-js-v3/commit/6f9b8a69fdafe9cd61dac7d85ecd3bcdce9c2b9e))
+* **client-lambda:** Adds configuration for tag propagation to Lambda-managed resources. ([d2a9416](https://github.com/aws/aws-sdk-js-v3/commit/d2a9416fa61927e2aafba0a54982a8c335a91d2e))
+* **client-lex-runtime-service:** Adding new BDD representation of endpoint ruleset ([e47af6b](https://github.com/aws/aws-sdk-js-v3/commit/e47af6bde754c6ad27b0f6a9e45025b3c329b0cc))
+* **client-managedblockchain:** Adding new BDD representation of endpoint ruleset ([9c140f8](https://github.com/aws/aws-sdk-js-v3/commit/9c140f8de2c38480280734b34e70ce9c569efc1c))
+* **client-marketplace-metering:** Adding new BDD representation of endpoint ruleset ([cffe742](https://github.com/aws/aws-sdk-js-v3/commit/cffe742123559fa869955b6aca61ff7774c031f4))
+* **client-mediaconvert:** Adding new BDD representation of endpoint ruleset ([77b7313](https://github.com/aws/aws-sdk-js-v3/commit/77b73137ef2c93e58f7980c1c09bc8a583f46d60))
+* **client-medialive:** Adding new BDD representation of endpoint ruleset ([fc6eaf6](https://github.com/aws/aws-sdk-js-v3/commit/fc6eaf60c4fbde72dae42b6a55fcd1ea199eec81))
+* **client-mediastore:** Adding new BDD representation of endpoint ruleset ([17a0e01](https://github.com/aws/aws-sdk-js-v3/commit/17a0e01397699ab1495434d65c5dcc409c7fd60e))
+* **client-migration-hub:** Adding new BDD representation of endpoint ruleset ([2432567](https://github.com/aws/aws-sdk-js-v3/commit/2432567836e6706c0ed62b6f45381fd19d39bf6e))
+* **client-mturk:** Adding new BDD representation of endpoint ruleset ([413f406](https://github.com/aws/aws-sdk-js-v3/commit/413f4066a815dbfd7ceebd398b6a66d47053ba6a))
+* **client-neptune:** Adding new BDD representation of endpoint ruleset ([9c6c356](https://github.com/aws/aws-sdk-js-v3/commit/9c6c356ef61f1a331d9cd9c4bec42aa48285001b))
+* **client-personalize-runtime:** Adding new BDD representation of endpoint ruleset ([e578bf9](https://github.com/aws/aws-sdk-js-v3/commit/e578bf9142bab3055bbb2f0ede93c5fe23e06e7f))
+* **client-pi:** Adding new BDD representation of endpoint ruleset ([7e00807](https://github.com/aws/aws-sdk-js-v3/commit/7e00807a7e7eec1349b18b3b4ab164faeababd47))
+* **client-pinpoint-email:** Adding new BDD representation of endpoint ruleset ([556489a](https://github.com/aws/aws-sdk-js-v3/commit/556489af7dd848e2694d442932ade6baa49af1b0))
+* **client-pinpoint:** Adding new BDD representation of endpoint ruleset ([81501bb](https://github.com/aws/aws-sdk-js-v3/commit/81501bb052433b635b46c07bd0ec2b93dcba3254))
+* **client-polly:** Adding new BDD representation of endpoint ruleset ([c88a5ba](https://github.com/aws/aws-sdk-js-v3/commit/c88a5bac631f0e7324d2f8f8ccd82ecbd53e01fb))
+* **client-ram:** Adding new BDD representation of endpoint ruleset ([f349b64](https://github.com/aws/aws-sdk-js-v3/commit/f349b64a07c7973e4f2a5beddd7cfe4fa98a365f))
+* **client-redshift:** Adding new BDD representation of endpoint ruleset ([a2545b1](https://github.com/aws/aws-sdk-js-v3/commit/a2545b1e94bccb21d8d40a12b43dec491256d4af))
+* **client-rekognition:** Adding new BDD representation of endpoint ruleset ([fdbac92](https://github.com/aws/aws-sdk-js-v3/commit/fdbac926f9035b76059fa19e33b68cd072ff2600))
+* **client-resource-groups-tagging-api:** Adding new BDD representation of endpoint ruleset ([3f93549](https://github.com/aws/aws-sdk-js-v3/commit/3f93549562ffa1a87a8bf530e851f7daf8683940))
+* **client-route-53-domains:** Adding new BDD representation of endpoint ruleset ([374fda6](https://github.com/aws/aws-sdk-js-v3/commit/374fda69eb25c74b0e7b821315604edb62169018))
+* **client-route-53:** Adding new BDD representation of endpoint ruleset ([86c9030](https://github.com/aws/aws-sdk-js-v3/commit/86c903061707b2825a77bc84e7b1e055c42faebf))
+* **client-s3:** Adding new BDD representation of endpoint ruleset ([c261060](https://github.com/aws/aws-sdk-js-v3/commit/c2610606ff85a4309511558232cb0701fd4c5b63))
+* **client-sagemaker:** Amazon SageMaker Job is a new service to help you manage various workloads related to model fine tuning, evaluation etc. Two job categories are supported today, AgentRFT for multi-turn agentic reinforcement fine tuning, and AgentRFTEvaluation for evaluating base model or trained model from AgentRFT. ([fa498a2](https://github.com/aws/aws-sdk-js-v3/commit/fa498a217cde5eb0c9263f96ee98274ea7f48c3f))
+* **client-sagemakerjobruntime:** Amazon SageMaker Job Runtime is a new service for managing trajectory data during multi-turn customization jobs. It provides APIs to send inference requests to models during job execution, mark rollouts as complete, and submit reward values for training trajectories. ([75c6d35](https://github.com/aws/aws-sdk-js-v3/commit/75c6d359ebaa96823c875166cf26753900d88911))
+* **client-secrets-manager:** Adding new BDD representation of endpoint ruleset ([9f23fbc](https://github.com/aws/aws-sdk-js-v3/commit/9f23fbc4d988b8aa43dd5d6fb06d291eb58daf1e))
+* **client-service-catalog:** Adding new BDD representation of endpoint ruleset ([a14dfb2](https://github.com/aws/aws-sdk-js-v3/commit/a14dfb2219bfddfda757554ed66189d5f4bdc727))
+* **client-sfn:** Adding new BDD representation of endpoint ruleset ([e49a22b](https://github.com/aws/aws-sdk-js-v3/commit/e49a22bf454065b2621aa0f7e698bfebc2549a10))
+* **client-shield:** Adding new BDD representation of endpoint ruleset ([71f5f7e](https://github.com/aws/aws-sdk-js-v3/commit/71f5f7e47ec48e94b7207e4abb38d670c3cb389b))
+* **client-snowball:** Adding new BDD representation of endpoint ruleset ([2be7cb1](https://github.com/aws/aws-sdk-js-v3/commit/2be7cb1c7a0dac2d79809c5fc252d26a9d949829))
+* **client-sqs:** Adding new BDD representation of endpoint ruleset ([d2a4593](https://github.com/aws/aws-sdk-js-v3/commit/d2a4593640151529b3143fa7439e8a7fd3ee0a14))
+* **client-ssm:** Adding new BDD representation of endpoint ruleset ([44b3221](https://github.com/aws/aws-sdk-js-v3/commit/44b3221c38e996460a116969763853013cbea7e0))
+* **client-sso:** Adding new BDD representation of endpoint ruleset ([4578d43](https://github.com/aws/aws-sdk-js-v3/commit/4578d430b4d7924943ae84780ab9912b5d9a80f3))
+* **client-storage-gateway:** Adding new BDD representation of endpoint ruleset ([7953156](https://github.com/aws/aws-sdk-js-v3/commit/7953156c7392bc921096fc6634d10f3e6e7b6dae))
+* **client-sts:** Adding new BDD representation of endpoint ruleset ([469246b](https://github.com/aws/aws-sdk-js-v3/commit/469246b8e57419ded863183452b0f4254f29cb9d))
+* **client-swf:** Adding new BDD representation of endpoint ruleset ([875e374](https://github.com/aws/aws-sdk-js-v3/commit/875e3740326741e445a2efc9ad8f112aaad9f6f0))
+* **client-transcribe:** Release new Language locales including am-ET, es-MX, fa-AF, ht-HT, jv-ID, km-KH, my-MM, sq-AL, ne-NP. The commit shows past locales that have already been release which include cy-gb, ga-ie, gd-gb. ([bd20b50](https://github.com/aws/aws-sdk-js-v3/commit/bd20b5083a5e4f01680209bec2d108fe07bc3e13))
+* **client-transfer:** Adding new BDD representation of endpoint ruleset ([da0b48f](https://github.com/aws/aws-sdk-js-v3/commit/da0b48fc0df0ec755c3d0c19798e782ce885ed92))
+* **client-waf:** Adding new BDD representation of endpoint ruleset ([4d90e8e](https://github.com/aws/aws-sdk-js-v3/commit/4d90e8eb2e5214f5a15ece31032d5ca013e467e6))
+* **client-xray:** Adding new BDD representation of endpoint ruleset ([37c3656](https://github.com/aws/aws-sdk-js-v3/commit/37c3656117e4a4a32092e6e8caef3f71c41b0d82))
+* **clients:** update client endpoints as of 2026-06-02 ([164aa65](https://github.com/aws/aws-sdk-js-v3/commit/164aa659d183948f25a60b53233ed7662c6a05c0))
+
+
+
+
+
 # [3.1058.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1057.0...v3.1058.0) (2026-06-01)
 
 

@@ -51,6 +51,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.49 (2026-06-01)
+### Chores
+* **codegen:** sync for adaptive retry fix, EAI_AGAIN transient error ([#8067](https://github.com/aws/aws-sdk-js-v3/issues/8067)) ([6b082a6](https://github.com/aws/aws-sdk-js-v3/commit/6b082a6526a0bb0ba213bb16b4c97a0b1134bc45))
+
+
+
 # 3.972.48 (2026-05-29)
 ### Bug Fixes
 * **credential-provider-node:** update cached credential on forceRefresh ([#8055](https://github.com/aws/aws-sdk-js-v3/issues/8055)) ([bae4bc0](https://github.com/aws/aws-sdk-js-v3/commit/bae4bc0f1bafc951f6593c94c223e63c47f24692))

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1059.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1058.0...v3.1059.0) (2026-06-02)
+
+
+### Features
+
+* **client-lambda:** Adds configuration for tag propagation to Lambda-managed resources. ([d2a9416](https://github.com/aws/aws-sdk-js-v3/commit/d2a9416fa61927e2aafba0a54982a8c335a91d2e))
+
+
+
+
+
 # [3.1058.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1057.0...v3.1058.0) (2026-06-01)
 
 **Note:** Version bump only for package @aws-sdk/client-lambda

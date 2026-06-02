@@ -27,6 +27,13 @@
 
 
 
+
+# 3.0.28 (2026-06-01)
+### Chores
+* **codegen:** sync for adaptive retry fix, EAI_AGAIN transient error ([#8067](https://github.com/aws/aws-sdk-js-v3/issues/8067)) ([6b082a6](https://github.com/aws/aws-sdk-js-v3/commit/6b082a6526a0bb0ba213bb16b4c97a0b1134bc45))
+
+
+
 # 3.0.27 (2026-05-28)
 ### Chores
 * **codegen:** sync for smithy 1.71.0 and snapshot-testing fix ([#8053](https://github.com/aws/aws-sdk-js-v3/issues/8053)) ([e55a387](https://github.com/aws/aws-sdk-js-v3/commit/e55a38791745be6ed4be7009808d14a2a393adf9))

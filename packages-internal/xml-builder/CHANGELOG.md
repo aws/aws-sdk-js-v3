@@ -10,6 +10,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.27 (2026-06-01)
+### Chores
+* **codegen:** sync for adaptive retry fix, EAI_AGAIN transient error ([#8067](https://github.com/aws/aws-sdk-js-v3/issues/8067)) ([6b082a6](https://github.com/aws/aws-sdk-js-v3/commit/6b082a6526a0bb0ba213bb16b4c97a0b1134bc45))
+
+
+
 # 3.972.26 (2026-05-26)
 ### Tests
 * **scripts:** static analysis validations ([#8041](https://github.com/aws/aws-sdk-js-v3/issues/8041)) ([64fd9d2](https://github.com/aws/aws-sdk-js-v3/commit/64fd9d2ee6b373faf44c997e48eddef2827bd9a2))
