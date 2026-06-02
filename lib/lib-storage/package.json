@@ -18,6 +18,8 @@
     "test:watch": "yarn g:vitest watch",
     "test:integration": "yarn g:vitest run -c vitest.config.integ.mts",
     "test:integration:watch": "yarn g:vitest watch -c vitest.config.integ.mts",
+    "test:browser": "yarn g:vitest run -c vitest.config.browser.mts",
+    "test:browser:watch": "yarn g:vitest watch -c vitest.config.browser.mts",
     "test:e2e": "yarn g:vitest run -c vitest.config.e2e.mts --mode development",
     "test:e2e:watch": "yarn g:vitest watch -c vitest.config.e2e.mts"
   },
@@ -30,7 +32,9 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@aws-sdk/config": "workspace:3.1058.0",
     "@smithy/core": "^3.24.6",
+    "@smithy/node-http-handler": "^4.7.6",
     "@smithy/types": "^4.14.3",
     "buffer": "5.6.0",
     "events": "3.3.0",
@@ -59,9 +63,14 @@
   },
   "browser": {
     "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.browser",
+    "./dist-es/s3-transfer-manager/join-streams": "./dist-es/s3-transfer-manager/join-streams.browser",
+    "./dist-es/s3-transfer-manager/worker-http-handler": "./dist-es/s3-transfer-manager/worker-http-handler.browser",
     "fs": false,
     "stream": "stream-browserify"
   },
+  "standaloneFiles": [
+    "s3-transfer-manager/http-request-worker.js"
+  ],
   "react-native": {
     "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.native"
   },

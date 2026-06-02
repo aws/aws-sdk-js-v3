@@ -10753,7 +10753,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/config@workspace:packages/config":
+"@aws-sdk/config@workspace:3.1058.0, @aws-sdk/config@workspace:packages/config":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/config@workspace:packages/config"
   dependencies:
@@ -11180,7 +11180,9 @@ __metadata:
   resolution: "@aws-sdk/lib-storage@workspace:lib/lib-storage"
   dependencies:
     "@aws-sdk/client-s3": "workspace:3.1058.0"
+    "@aws-sdk/config": "workspace:3.1058.0"
     "@smithy/core": "npm:^3.24.6"
+    "@smithy/node-http-handler": "npm:^4.7.6"
     "@smithy/types": "npm:^4.14.3"
     "@tsconfig/recommended": "npm:1.0.1"
     "@types/node": "npm:^20.14.8"

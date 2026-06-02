@@ -509,9 +509,11 @@
   "@aws-sdk/lib-storage": {
     "BodyDataTypes": "type(union)",
     "Configuration": "type(interface)",
+    "IS3TransferManager": "type(interface)",
     "Options": "type(interface)",
     "Progress": "type(interface)",
     "RawDataPart": "type(interface)",
+    "S3TransferManager": "function",
     "ServiceClients": "type(object)",
     "Upload": "function"
   },
