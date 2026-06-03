@@ -47,6 +47,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.974.26 (2026-06-03)
+### Chores
+* **middleware-sdk-s3:** consolidate S3 internal packages ([#8026](https://github.com/aws/aws-sdk-js-v3/issues/8026)) ([1216094](https://github.com/aws/aws-sdk-js-v3/commit/121609400451d15166872f5dc2a2d8fe75c7d7f6))
+
+
+
 # 3.974.25 (2026-06-02)
 ### Bug Fixes
 * **client-dynamodb:** dynamodb special retry config fixed to be merge-compatible with user-supplied retry config ([#8068](https://github.com/aws/aws-sdk-js-v3/issues/8068)) ([a569d9c](https://github.com/aws/aws-sdk-js-v3/commit/a569d9c425edae68ceb45331fffdff18f8710628))

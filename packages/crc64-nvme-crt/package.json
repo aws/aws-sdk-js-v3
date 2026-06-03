@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/crc64-nvme-crt",
-  "version": "3.1060.0",
+  "version": "3.1061.0",
   "description": "An implementation of CRC64-NVME checksum based on AWS Common Runtime https://github.com/awslabs/aws-crt-nodejs",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -24,7 +24,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/checksums": "workspace:^3.1000.0",
+    "@aws-sdk/checksums": "workspace:^3.1000.1",
     "@aws-sdk/crt-loader": "workspace:^3.972.47",
     "@smithy/core": "^3.24.6",
     "@smithy/types": "^4.14.3",

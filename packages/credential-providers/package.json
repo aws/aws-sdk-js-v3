@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-providers",
-  "version": "3.1060.0",
+  "version": "3.1061.0",
   "description": "A collection of credential providers, without requiring service clients like STS, Cognito",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -39,7 +39,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/client-cognito-identity": "workspace:3.1060.0",
+    "@aws-sdk/client-cognito-identity": "workspace:3.1061.0",
     "@aws-sdk/core": "workspace:^3.974.17",
     "@aws-sdk/credential-provider-cognito-identity": "workspace:^3.972.40",
     "@aws-sdk/credential-provider-env": "workspace:^3.972.43",

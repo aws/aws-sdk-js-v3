@@ -3,6 +3,50 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1061.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1060.0...v3.1061.0) (2026-06-03)
+
+
+### Features
+
+* **client-apigatewaymanagementapi:** Adding new BDD representation of endpoint ruleset ([672907d](https://github.com/aws/aws-sdk-js-v3/commit/672907d8101178bef41bd3c1c20cd2ec986a72dd))
+* **client-appconfigdata:** Adding new BDD representation of endpoint ruleset ([e648b96](https://github.com/aws/aws-sdk-js-v3/commit/e648b9684d6f5553212fa9890e2da3a37b3019c1))
+* **client-appfabric:** Adding new BDD representation of endpoint ruleset ([802d460](https://github.com/aws/aws-sdk-js-v3/commit/802d4609a4bcf3233a5375beb4fe2f4a22e78c6e))
+* **client-application-auto-scaling:** Adding new BDD representation of endpoint ruleset ([1230344](https://github.com/aws/aws-sdk-js-v3/commit/1230344280919128f81acfc7f2b1bbc82a3614b7))
+* **client-arc-region-switch:** ARC Region Switch now supports three new execution blocks for multi-Region database workloads-Amazon Aurora Serverless scaling, Amazon Aurora Provisioned scaling, and Amazon Neptune Global Database failover. ([69c7232](https://github.com/aws/aws-sdk-js-v3/commit/69c723251329730bc85d33b714d31c02cac647a4))
+* **client-cloudfront:** Adding new BDD representation of endpoint ruleset ([1316608](https://github.com/aws/aws-sdk-js-v3/commit/1316608643943dd905dfa9be0fa73d4a793d3127))
+* **client-cloudtrail-data:** Adding new BDD representation of endpoint ruleset ([43c7e35](https://github.com/aws/aws-sdk-js-v3/commit/43c7e358c423ffc1286a4eeb33e6f0bf3bb000b2))
+* **client-cloudwatch-logs:** Adding new BDD representation of endpoint ruleset ([b4e3e68](https://github.com/aws/aws-sdk-js-v3/commit/b4e3e68919af66b27d5fbdc8bad70291cea85555))
+* **client-compute-optimizer:** This release lets customers extend the lookback period for Amazon EBS volume and Amazon ECS rightsizing recommendations to 32 days. ([d6abbe1](https://github.com/aws/aws-sdk-js-v3/commit/d6abbe1b4b37aa7908f38b8af2f90f55bf76335d))
+* **client-connectcampaigns:** Adding new BDD representation of endpoint ruleset ([81d5579](https://github.com/aws/aws-sdk-js-v3/commit/81d55791c458a324d81ed500db83281dc5cf45a9))
+* **client-connect:** SearchContacts Connect API now supports filtering contacts by the AI Agents involved in handling them ([e18e618](https://github.com/aws/aws-sdk-js-v3/commit/e18e6189fc85180cf6faaf0727a570044c7d10af))
+* **client-cost-explorer:** Added support for target-coverage-based Savings Plans purchase analysis. The StartCommitmentPurchaseAnalysis API now accepts a new TARGET AVERAGE COVERAGE value for AnalysisType, as well as an optional SavingsPlansTargetCoverage field in SavingsPlansPurchaseAnalysisConfiguration ([bb1e38a](https://github.com/aws/aws-sdk-js-v3/commit/bb1e38a52e1c8eda55aed7f778d790a2ffc0e5a2))
+* **client-dax:** Adding new BDD representation of endpoint ruleset ([8e47fa8](https://github.com/aws/aws-sdk-js-v3/commit/8e47fa8fe5794e337221dc4895d00bc1273f3bd9))
+* **client-direct-connect:** Adding new BDD representation of endpoint ruleset ([c407f18](https://github.com/aws/aws-sdk-js-v3/commit/c407f18cb8edb15df006227dd1996dc1524f0521))
+* **client-firehose:** Adding new BDD representation of endpoint ruleset ([4064ae7](https://github.com/aws/aws-sdk-js-v3/commit/4064ae73c96f688ed16a96cdff13fef6bf1eacf8))
+* **client-inspector2:** Inspector support for enhanced scanning ([c84f4ec](https://github.com/aws/aws-sdk-js-v3/commit/c84f4ec3fcbfcc4d92cc9edfed2c0249a0ea1353))
+* **client-iot-events:** Adding new BDD representation of endpoint ruleset ([c2d17f7](https://github.com/aws/aws-sdk-js-v3/commit/c2d17f78972316cafcf918e89f728b3fa3447a5e))
+* **client-iotsecuretunneling:** Adding new BDD representation of endpoint ruleset ([573ad2c](https://github.com/aws/aws-sdk-js-v3/commit/573ad2c43a6dcd6552713ffa0289386412205afe))
+* **client-kinesis:** Adding new BDD representation of endpoint ruleset ([2094b2d](https://github.com/aws/aws-sdk-js-v3/commit/2094b2d98a23cd24e8681136eab368cb388c5785))
+* **client-lakeformation:** Adding new BDD representation of endpoint ruleset ([82b6e65](https://github.com/aws/aws-sdk-js-v3/commit/82b6e6530a27310351bd389a097a3ac106b37d19))
+* **client-macie2:** Adding new BDD representation of endpoint ruleset ([b40f72a](https://github.com/aws/aws-sdk-js-v3/commit/b40f72aa53ba4a9df077820a4c8809aa4c7d3684))
+* **client-pinpoint-sms-voice:** Adding new BDD representation of endpoint ruleset ([b44ce4d](https://github.com/aws/aws-sdk-js-v3/commit/b44ce4d1afea7e56212acbfcefb75d47931ef3c3))
+* **client-rds:** Adding new BDD representation of endpoint ruleset ([907053d](https://github.com/aws/aws-sdk-js-v3/commit/907053d559e5b0a4d4e02ca679d919537b91dee5))
+* **client-resource-groups:** Adding new BDD representation of endpoint ruleset ([287b030](https://github.com/aws/aws-sdk-js-v3/commit/287b030ecdd635545050c08914bf705a2131f5dd))
+* **client-route53profiles:** Adding new BDD representation of endpoint ruleset ([fdb2439](https://github.com/aws/aws-sdk-js-v3/commit/fdb24398918f5389e27031ac73e8a16d639fc6bf))
+* **client-s3outposts:** Adding new BDD representation of endpoint ruleset ([5a69738](https://github.com/aws/aws-sdk-js-v3/commit/5a697389d067341a8bda91d457aa78239b9b7786))
+* **client-securitylake:** Adding new BDD representation of endpoint ruleset ([60fd3fe](https://github.com/aws/aws-sdk-js-v3/commit/60fd3fe7e01d12537c8eb624948053b9dbbbabdb))
+* **client-ses:** Adding new BDD representation of endpoint ruleset ([ce4a6b0](https://github.com/aws/aws-sdk-js-v3/commit/ce4a6b072757c50e2696cb0bfad19769b48ff575))
+* **client-snow-device-management:** Adding new BDD representation of endpoint ruleset ([3dd8d2a](https://github.com/aws/aws-sdk-js-v3/commit/3dd8d2ad513c9a3d335dda1798cc2f93bc04f4d4))
+* **client-socialmessaging:** Adding support for WhatsApp flow APIs and adding AccessDeniedByMetaException for Template APIs ([5e9c74c](https://github.com/aws/aws-sdk-js-v3/commit/5e9c74c60135388db6cc3066de80465f8a7090c9))
+* **client-transcribe-streaming:** Adding new BDD representation of endpoint ruleset ([f6c86b7](https://github.com/aws/aws-sdk-js-v3/commit/f6c86b79686140d06478951a9bcd5884b3ec4f7c))
+* **client-vpc-lattice:** Adding new BDD representation of endpoint ruleset ([2ced3aa](https://github.com/aws/aws-sdk-js-v3/commit/2ced3aa90f074030969fbf2be5cdef3bbebf7897))
+* **client-waf-regional:** Adding new BDD representation of endpoint ruleset ([b3ce6f4](https://github.com/aws/aws-sdk-js-v3/commit/b3ce6f437f8792d3a5c82bea93af60bc92252295))
+* **client-wisdom:** Adding new BDD representation of endpoint ruleset ([fbac5a3](https://github.com/aws/aws-sdk-js-v3/commit/fbac5a35c58251510760edf0fdbf5dad2cf9d40f))
+
+
+
+
+
 # [3.1060.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1059.0...v3.1060.0) (2026-06-03)
 
 

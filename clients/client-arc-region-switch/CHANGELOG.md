@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1061.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1060.0...v3.1061.0) (2026-06-03)
+
+
+### Features
+
+* **client-arc-region-switch:** ARC Region Switch now supports three new execution blocks for multi-Region database workloads-Amazon Aurora Serverless scaling, Amazon Aurora Provisioned scaling, and Amazon Neptune Global Database failover. ([69c7232](https://github.com/aws/aws-sdk-js-v3/commit/69c723251329730bc85d33b714d31c02cac647a4))
+
+
+
+
+
 # [3.1060.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1059.0...v3.1060.0) (2026-06-03)
 
 **Note:** Version bump only for package @aws-sdk/client-arc-region-switch

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/checksums",
-  "version": "3.1000.0",
+  "version": "3.1000.1",
   "description": "Checksum algorithms and flexible checksums middleware for the AWS SDK",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",

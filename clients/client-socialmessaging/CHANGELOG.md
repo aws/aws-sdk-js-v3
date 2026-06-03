@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1061.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1060.0...v3.1061.0) (2026-06-03)
+
+
+### Features
+
+* **client-socialmessaging:** Adding support for WhatsApp flow APIs and adding AccessDeniedByMetaException for Template APIs ([5e9c74c](https://github.com/aws/aws-sdk-js-v3/commit/5e9c74c60135388db6cc3066de80465f8a7090c9))
+
+
+
+
+
 # [3.1060.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1059.0...v3.1060.0) (2026-06-03)
 
 **Note:** Version bump only for package @aws-sdk/client-socialmessaging
