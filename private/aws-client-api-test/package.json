@@ -35,13 +35,13 @@
     "@aws-sdk/middleware-flexible-checksums": "workspace:^3.974.26",
     "@aws-sdk/middleware-sdk-s3": "workspace:^3.972.47",
     "@aws-sdk/signature-v4-multi-region": "workspace:^3.996.31",
+    "@aws-sdk/weather": "workspace:^3.1061.0",
     "@smithy/core": "^3.24.6",
     "@smithy/node-http-handler": "^4.7.6",
     "@smithy/types": "^4.14.3",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@aws-sdk/weather": "workspace:^3.1061.0",
     "@tsconfig/node20": "20.1.8",
     "@types/node": "^20.14.8",
     "concurrently": "7.0.0",

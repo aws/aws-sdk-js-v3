@@ -7,11 +7,10 @@ import type {
   DefaultCredentialProvider,
   RoleAssumer,
   RoleAssumerWithWebIdentity,
-  STSRoleAssumerOptions,
-} from "./defaultStsRoleAssumers";
+  STSRoleAssumerOptions} from "./defaultStsRoleAssumers";
 import {
   getDefaultRoleAssumer as StsGetDefaultRoleAssumer,
-  getDefaultRoleAssumerWithWebIdentity as StsGetDefaultRoleAssumerWithWebIdentity,
+  getDefaultRoleAssumerWithWebIdentity as StsGetDefaultRoleAssumerWithWebIdentity
 } from "./defaultStsRoleAssumers";
 import type { ServiceInputTypes, ServiceOutputTypes, STSClientConfig } from "./STSClient";
 import { STSClient } from "./STSClient";

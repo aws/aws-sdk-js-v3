@@ -2,9 +2,10 @@
 import type {
   AwsSdkSigV4AuthInputConfig,
   AwsSdkSigV4AuthResolvedConfig,
-  AwsSdkSigV4PreviouslyResolved,
+  AwsSdkSigV4PreviouslyResolved} from "@aws-sdk/core/httpAuthSchemes";
+import {
+  resolveAwsSdkSigV4Config,
 } from "@aws-sdk/core/httpAuthSchemes";
-import { resolveAwsSdkSigV4Config } from "@aws-sdk/core/httpAuthSchemes";
 import { getSmithyContext, normalizeProvider } from "@smithy/core/client";
 import type {
   HandlerExecutionContext,
@@ -47,11 +48,9 @@ export const defaultSSOHttpAuthSchemeParametersProvider = async (
 ): Promise<SSOHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 

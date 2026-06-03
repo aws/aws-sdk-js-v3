@@ -73,12 +73,16 @@ export { __Client };
 /**
  * @public
  */
-export type ServiceInputTypes = AssumeRoleCommandInput | AssumeRoleWithWebIdentityCommandInput;
+export type ServiceInputTypes =
+  | AssumeRoleCommandInput
+  | AssumeRoleWithWebIdentityCommandInput;
 
 /**
  * @public
  */
-export type ServiceOutputTypes = AssumeRoleCommandOutput | AssumeRoleWithWebIdentityCommandOutput;
+export type ServiceOutputTypes =
+  | AssumeRoleCommandOutput
+  | AssumeRoleWithWebIdentityCommandOutput;
 
 /**
  * @public

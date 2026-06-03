@@ -70,61 +70,70 @@ const _s_registry = TypeRegistry.for(_s);
 export var SSOOIDCServiceException$: StaticErrorSchema = [-3, _s, "SSOOIDCServiceException", 0, [], []];
 _s_registry.registerError(SSOOIDCServiceException$, SSOOIDCServiceException);
 const n0_registry = TypeRegistry.for(n0);
-export var AccessDeniedException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 400 },
   [_e, _r, _ed],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
 n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
-export var AuthorizationPendingException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _APE,
+export var AuthorizationPendingException$: StaticErrorSchema = [-3, n0, _APE,
   { [_e]: _c, [_hE]: 400 },
   [_e, _ed],
-  [0, 0],
+  [0, 0]
 ];
 n0_registry.registerError(AuthorizationPendingException$, AuthorizationPendingException);
-export var ExpiredTokenException$: StaticErrorSchema = [-3, n0, _ETE, { [_e]: _c, [_hE]: 400 }, [_e, _ed], [0, 0]];
+export var ExpiredTokenException$: StaticErrorSchema = [-3, n0, _ETE,
+  { [_e]: _c, [_hE]: 400 },
+  [_e, _ed],
+  [0, 0]
+];
 n0_registry.registerError(ExpiredTokenException$, ExpiredTokenException);
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_e, _ed], [0, 0]];
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_e, _ed],
+  [0, 0]
+];
 n0_registry.registerError(InternalServerException$, InternalServerException);
-export var InvalidClientException$: StaticErrorSchema = [-3, n0, _ICE, { [_e]: _c, [_hE]: 401 }, [_e, _ed], [0, 0]];
+export var InvalidClientException$: StaticErrorSchema = [-3, n0, _ICE,
+  { [_e]: _c, [_hE]: 401 },
+  [_e, _ed],
+  [0, 0]
+];
 n0_registry.registerError(InvalidClientException$, InvalidClientException);
-export var InvalidGrantException$: StaticErrorSchema = [-3, n0, _IGE, { [_e]: _c, [_hE]: 400 }, [_e, _ed], [0, 0]];
+export var InvalidGrantException$: StaticErrorSchema = [-3, n0, _IGE,
+  { [_e]: _c, [_hE]: 400 },
+  [_e, _ed],
+  [0, 0]
+];
 n0_registry.registerError(InvalidGrantException$, InvalidGrantException);
-export var InvalidRequestException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRE,
+export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
   { [_e]: _c, [_hE]: 400 },
   [_e, _r, _ed],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
 n0_registry.registerError(InvalidRequestException$, InvalidRequestException);
-export var InvalidScopeException$: StaticErrorSchema = [-3, n0, _ISEn, { [_e]: _c, [_hE]: 400 }, [_e, _ed], [0, 0]];
-n0_registry.registerError(InvalidScopeException$, InvalidScopeException);
-export var SlowDownException$: StaticErrorSchema = [-3, n0, _SDE, { [_e]: _c, [_hE]: 400 }, [_e, _ed], [0, 0]];
-n0_registry.registerError(SlowDownException$, SlowDownException);
-export var UnauthorizedClientException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _UCE,
+export var InvalidScopeException$: StaticErrorSchema = [-3, n0, _ISEn,
   { [_e]: _c, [_hE]: 400 },
   [_e, _ed],
-  [0, 0],
+  [0, 0]
+];
+n0_registry.registerError(InvalidScopeException$, InvalidScopeException);
+export var SlowDownException$: StaticErrorSchema = [-3, n0, _SDE,
+  { [_e]: _c, [_hE]: 400 },
+  [_e, _ed],
+  [0, 0]
+];
+n0_registry.registerError(SlowDownException$, SlowDownException);
+export var UnauthorizedClientException$: StaticErrorSchema = [-3, n0, _UCE,
+  { [_e]: _c, [_hE]: 400 },
+  [_e, _ed],
+  [0, 0]
 ];
 n0_registry.registerError(UnauthorizedClientException$, UnauthorizedClientException);
-export var UnsupportedGrantTypeException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _UGTE,
+export var UnsupportedGrantTypeException$: StaticErrorSchema = [-3, n0, _UGTE,
   { [_e]: _c, [_hE]: 400 },
   [_e, _ed],
-  [0, 0],
+  [0, 0]
 ];
 n0_registry.registerError(UnsupportedGrantTypeException$, UnsupportedGrantTypeException);
 /**
@@ -132,35 +141,26 @@ n0_registry.registerError(UnsupportedGrantTypeException$, UnsupportedGrantTypeEx
  * @internal
  *
  */
-export const errorTypeRegistries = [_s_registry, n0_registry];
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var AccessToken: StaticSimpleSchema = [0, n0, _AT, 8, 0];
 var ClientSecret: StaticSimpleSchema = [0, n0, _CS, 8, 0];
 var CodeVerifier: StaticSimpleSchema = [0, n0, _CV, 8, 0];
 var IdToken: StaticSimpleSchema = [0, n0, _IT, 8, 0];
 var RefreshToken: StaticSimpleSchema = [0, n0, _RT, 8, 0];
-export var CreateTokenRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CTR,
+export var CreateTokenRequest$: StaticStructureSchema = [3, n0, _CTR,
   0,
   [_cI, _cS, _gT, _dC, _co, _rT, _sc, _rU, _cV],
-  [0, [() => ClientSecret, 0], 0, 0, 0, [() => RefreshToken, 0], 64 | 0, 0, [() => CodeVerifier, 0]],
-  3,
+  [0, [() => ClientSecret, 0], 0, 0, 0, [() => RefreshToken, 0], 64 | 0, 0, [() => CodeVerifier, 0]], 3
 ];
-export var CreateTokenResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _CTRr,
+export var CreateTokenResponse$: StaticStructureSchema = [3, n0, _CTRr,
   0,
   [_aT, _tT, _eI, _rT, _iT],
-  [[() => AccessToken, 0], 0, 1, [() => RefreshToken, 0], [() => IdToken, 0]],
+  [[() => AccessToken, 0], 0, 1, [() => RefreshToken, 0], [() => IdToken, 0]]
 ];
 var Scopes = 64 | 0;
-export var CreateToken$: StaticOperationSchema = [
-  9,
-  n0,
-  _CT,
-  { [_h]: ["POST", "/token", 200] },
-  () => CreateTokenRequest$,
-  () => CreateTokenResponse$,
+export var CreateToken$: StaticOperationSchema = [9, n0, _CT,
+  { [_h]: ["POST", "/token", 200] }, () => CreateTokenRequest$, () => CreateTokenResponse$
 ];
