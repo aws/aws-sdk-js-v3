@@ -4,11 +4,8 @@ import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  CreateWhatsAppMessageTemplateMediaInput,
-  CreateWhatsAppMessageTemplateMediaOutput,
-} from "../models/models_0";
-import { CreateWhatsAppMessageTemplateMedia$ } from "../schemas/schemas_0";
+import type { DeleteWhatsAppFlowInput, DeleteWhatsAppFlowOutput } from "../models/models_0";
+import { DeleteWhatsAppFlow$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -23,45 +20,40 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link CreateWhatsAppMessageTemplateMediaCommand}.
+ * The input for {@link DeleteWhatsAppFlowCommand}.
  */
-export interface CreateWhatsAppMessageTemplateMediaCommandInput extends CreateWhatsAppMessageTemplateMediaInput {}
+export interface DeleteWhatsAppFlowCommandInput extends DeleteWhatsAppFlowInput {}
 /**
  * @public
  *
- * The output of {@link CreateWhatsAppMessageTemplateMediaCommand}.
+ * The output of {@link DeleteWhatsAppFlowCommand}.
  */
-export interface CreateWhatsAppMessageTemplateMediaCommandOutput extends CreateWhatsAppMessageTemplateMediaOutput, __MetadataBearer {}
+export interface DeleteWhatsAppFlowCommandOutput extends DeleteWhatsAppFlowOutput, __MetadataBearer {}
 
 /**
- * <p>Uploads media for use in a WhatsApp message template.</p>
+ * <p>Deletes a WhatsApp Flow permanently. Only Flows in DRAFT status can be deleted. Published or deprecated Flows cannot be deleted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SocialMessagingClient, CreateWhatsAppMessageTemplateMediaCommand } from "@aws-sdk/client-socialmessaging"; // ES Modules import
- * // const { SocialMessagingClient, CreateWhatsAppMessageTemplateMediaCommand } = require("@aws-sdk/client-socialmessaging"); // CommonJS import
+ * import { SocialMessagingClient, DeleteWhatsAppFlowCommand } from "@aws-sdk/client-socialmessaging"; // ES Modules import
+ * // const { SocialMessagingClient, DeleteWhatsAppFlowCommand } = require("@aws-sdk/client-socialmessaging"); // CommonJS import
  * // import type { SocialMessagingClientConfig } from "@aws-sdk/client-socialmessaging";
  * const config = {}; // type is SocialMessagingClientConfig
  * const client = new SocialMessagingClient(config);
- * const input = { // CreateWhatsAppMessageTemplateMediaInput
+ * const input = { // DeleteWhatsAppFlowInput
  *   id: "STRING_VALUE", // required
- *   sourceS3File: { // S3File
- *     bucketName: "STRING_VALUE", // required
- *     key: "STRING_VALUE", // required
- *   },
+ *   flowId: "STRING_VALUE", // required
  * };
- * const command = new CreateWhatsAppMessageTemplateMediaCommand(input);
+ * const command = new DeleteWhatsAppFlowCommand(input);
  * const response = await client.send(command);
- * // { // CreateWhatsAppMessageTemplateMediaOutput
- * //   metaHeaderHandle: "STRING_VALUE",
- * // };
+ * // {};
  *
  * ```
  *
- * @param CreateWhatsAppMessageTemplateMediaCommandInput - {@link CreateWhatsAppMessageTemplateMediaCommandInput}
- * @returns {@link CreateWhatsAppMessageTemplateMediaCommandOutput}
- * @see {@link CreateWhatsAppMessageTemplateMediaCommandInput} for command's `input` shape.
- * @see {@link CreateWhatsAppMessageTemplateMediaCommandOutput} for command's `response` shape.
+ * @param DeleteWhatsAppFlowCommandInput - {@link DeleteWhatsAppFlowCommandInput}
+ * @returns {@link DeleteWhatsAppFlowCommandOutput}
+ * @see {@link DeleteWhatsAppFlowCommandInput} for command's `input` shape.
+ * @see {@link DeleteWhatsAppFlowCommandOutput} for command's `response` shape.
  * @see {@link SocialMessagingClientResolvedConfig | config} for SocialMessagingClient's `config` shape.
  *
  * @throws {@link AccessDeniedByMetaException} (client fault)
@@ -95,10 +87,10 @@ export interface CreateWhatsAppMessageTemplateMediaCommandOutput extends CreateW
  *
  * @public
  */
-export class CreateWhatsAppMessageTemplateMediaCommand extends $Command
+export class DeleteWhatsAppFlowCommand extends $Command
   .classBuilder<
-    CreateWhatsAppMessageTemplateMediaCommandInput,
-    CreateWhatsAppMessageTemplateMediaCommandOutput,
+    DeleteWhatsAppFlowCommandInput,
+    DeleteWhatsAppFlowCommandOutput,
     SocialMessagingClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -107,19 +99,19 @@ export class CreateWhatsAppMessageTemplateMediaCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: SocialMessagingClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("SocialMessaging", "CreateWhatsAppMessageTemplateMedia", {})
-  .n("SocialMessagingClient", "CreateWhatsAppMessageTemplateMediaCommand")
-  .sc(CreateWhatsAppMessageTemplateMedia$)
+  .s("SocialMessaging", "DeleteWhatsAppFlow", {})
+  .n("SocialMessagingClient", "DeleteWhatsAppFlowCommand")
+  .sc(DeleteWhatsAppFlow$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: CreateWhatsAppMessageTemplateMediaInput;
-      output: CreateWhatsAppMessageTemplateMediaOutput;
+      input: DeleteWhatsAppFlowInput;
+      output: {};
     };
     sdk: {
-      input: CreateWhatsAppMessageTemplateMediaCommandInput;
-      output: CreateWhatsAppMessageTemplateMediaCommandOutput;
+      input: DeleteWhatsAppFlowCommandInput;
+      output: DeleteWhatsAppFlowCommandOutput;
     };
   };
 }

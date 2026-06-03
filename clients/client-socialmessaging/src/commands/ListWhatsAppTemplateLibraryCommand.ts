@@ -95,6 +95,9 @@ export interface ListWhatsAppTemplateLibraryCommandOutput extends ListWhatsAppTe
  * @see {@link ListWhatsAppTemplateLibraryCommandOutput} for command's `response` shape.
  * @see {@link SocialMessagingClientResolvedConfig | config} for SocialMessagingClient's `config` shape.
  *
+ * @throws {@link AccessDeniedByMetaException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
  * @throws {@link DependencyException} (server fault)
  *  <p>Thrown when performing an action because a dependency would be broken.</p>
  *

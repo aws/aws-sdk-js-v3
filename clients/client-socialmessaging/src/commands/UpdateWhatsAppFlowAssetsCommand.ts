@@ -4,11 +4,8 @@ import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  CreateWhatsAppMessageTemplateMediaInput,
-  CreateWhatsAppMessageTemplateMediaOutput,
-} from "../models/models_0";
-import { CreateWhatsAppMessageTemplateMedia$ } from "../schemas/schemas_0";
+import type { UpdateWhatsAppFlowAssetsInput, UpdateWhatsAppFlowAssetsOutput } from "../models/models_0";
+import { UpdateWhatsAppFlowAssets$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -23,45 +20,45 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link CreateWhatsAppMessageTemplateMediaCommand}.
+ * The input for {@link UpdateWhatsAppFlowAssetsCommand}.
  */
-export interface CreateWhatsAppMessageTemplateMediaCommandInput extends CreateWhatsAppMessageTemplateMediaInput {}
+export interface UpdateWhatsAppFlowAssetsCommandInput extends UpdateWhatsAppFlowAssetsInput {}
 /**
  * @public
  *
- * The output of {@link CreateWhatsAppMessageTemplateMediaCommand}.
+ * The output of {@link UpdateWhatsAppFlowAssetsCommand}.
  */
-export interface CreateWhatsAppMessageTemplateMediaCommandOutput extends CreateWhatsAppMessageTemplateMediaOutput, __MetadataBearer {}
+export interface UpdateWhatsAppFlowAssetsCommandOutput extends UpdateWhatsAppFlowAssetsOutput, __MetadataBearer {}
 
 /**
- * <p>Uploads media for use in a WhatsApp message template.</p>
+ * <p>Updates the Flow JSON definition (assets) of a WhatsApp Flow. Updating a published Flow's assets reverts it to DRAFT status, requiring re-publishing.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SocialMessagingClient, CreateWhatsAppMessageTemplateMediaCommand } from "@aws-sdk/client-socialmessaging"; // ES Modules import
- * // const { SocialMessagingClient, CreateWhatsAppMessageTemplateMediaCommand } = require("@aws-sdk/client-socialmessaging"); // CommonJS import
+ * import { SocialMessagingClient, UpdateWhatsAppFlowAssetsCommand } from "@aws-sdk/client-socialmessaging"; // ES Modules import
+ * // const { SocialMessagingClient, UpdateWhatsAppFlowAssetsCommand } = require("@aws-sdk/client-socialmessaging"); // CommonJS import
  * // import type { SocialMessagingClientConfig } from "@aws-sdk/client-socialmessaging";
  * const config = {}; // type is SocialMessagingClientConfig
  * const client = new SocialMessagingClient(config);
- * const input = { // CreateWhatsAppMessageTemplateMediaInput
+ * const input = { // UpdateWhatsAppFlowAssetsInput
  *   id: "STRING_VALUE", // required
- *   sourceS3File: { // S3File
- *     bucketName: "STRING_VALUE", // required
- *     key: "STRING_VALUE", // required
- *   },
+ *   flowId: "STRING_VALUE", // required
+ *   flowJson: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
  * };
- * const command = new CreateWhatsAppMessageTemplateMediaCommand(input);
+ * const command = new UpdateWhatsAppFlowAssetsCommand(input);
  * const response = await client.send(command);
- * // { // CreateWhatsAppMessageTemplateMediaOutput
- * //   metaHeaderHandle: "STRING_VALUE",
+ * // { // UpdateWhatsAppFlowAssetsOutput
+ * //   validationErrors: [ // ValidationErrorList
+ * //     "STRING_VALUE",
+ * //   ],
  * // };
  *
  * ```
  *
- * @param CreateWhatsAppMessageTemplateMediaCommandInput - {@link CreateWhatsAppMessageTemplateMediaCommandInput}
- * @returns {@link CreateWhatsAppMessageTemplateMediaCommandOutput}
- * @see {@link CreateWhatsAppMessageTemplateMediaCommandInput} for command's `input` shape.
- * @see {@link CreateWhatsAppMessageTemplateMediaCommandOutput} for command's `response` shape.
+ * @param UpdateWhatsAppFlowAssetsCommandInput - {@link UpdateWhatsAppFlowAssetsCommandInput}
+ * @returns {@link UpdateWhatsAppFlowAssetsCommandOutput}
+ * @see {@link UpdateWhatsAppFlowAssetsCommandInput} for command's `input` shape.
+ * @see {@link UpdateWhatsAppFlowAssetsCommandOutput} for command's `response` shape.
  * @see {@link SocialMessagingClientResolvedConfig | config} for SocialMessagingClient's `config` shape.
  *
  * @throws {@link AccessDeniedByMetaException} (client fault)
@@ -95,10 +92,10 @@ export interface CreateWhatsAppMessageTemplateMediaCommandOutput extends CreateW
  *
  * @public
  */
-export class CreateWhatsAppMessageTemplateMediaCommand extends $Command
+export class UpdateWhatsAppFlowAssetsCommand extends $Command
   .classBuilder<
-    CreateWhatsAppMessageTemplateMediaCommandInput,
-    CreateWhatsAppMessageTemplateMediaCommandOutput,
+    UpdateWhatsAppFlowAssetsCommandInput,
+    UpdateWhatsAppFlowAssetsCommandOutput,
     SocialMessagingClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -107,19 +104,19 @@ export class CreateWhatsAppMessageTemplateMediaCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: SocialMessagingClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("SocialMessaging", "CreateWhatsAppMessageTemplateMedia", {})
-  .n("SocialMessagingClient", "CreateWhatsAppMessageTemplateMediaCommand")
-  .sc(CreateWhatsAppMessageTemplateMedia$)
+  .s("SocialMessaging", "UpdateWhatsAppFlowAssets", {})
+  .n("SocialMessagingClient", "UpdateWhatsAppFlowAssetsCommand")
+  .sc(UpdateWhatsAppFlowAssets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: CreateWhatsAppMessageTemplateMediaInput;
-      output: CreateWhatsAppMessageTemplateMediaOutput;
+      input: UpdateWhatsAppFlowAssetsInput;
+      output: UpdateWhatsAppFlowAssetsOutput;
     };
     sdk: {
-      input: CreateWhatsAppMessageTemplateMediaCommandInput;
-      output: CreateWhatsAppMessageTemplateMediaCommandOutput;
+      input: UpdateWhatsAppFlowAssetsCommandInput;
+      output: UpdateWhatsAppFlowAssetsCommandOutput;
     };
   };
 }

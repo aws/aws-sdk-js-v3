@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import type { RegistrationStatus } from "./enums";
+import type { MetaFlowCategory, RegistrationStatus } from "./enums";
 
 /**
  * <p>The tag for a resource.</p>
@@ -373,6 +373,64 @@ export interface AssociateWhatsAppBusinessAccountOutput {
 /**
  * @public
  */
+export interface CreateWhatsAppFlowInput {
+  /**
+   * <p>The ID of the WhatsApp Business Account to associate with this Flow.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the Flow. Must be unique within the WhatsApp Business Account.</p>
+   * @public
+   */
+  flowName: string | undefined;
+
+  /**
+   * <p>The categories that classify the business purpose of the Flow. At least one category is required.</p>
+   * @public
+   */
+  categories: MetaFlowCategory[] | undefined;
+
+  /**
+   * <p>The Flow JSON definition that describes the screens, components, and logic of the Flow. Maximum size is 10 MB.</p>
+   * @public
+   */
+  flowJson?: Uint8Array | undefined;
+
+  /**
+   * <p>Set to <code>true</code> to publish the Flow immediately after creation. Requires a valid <code>flowJson</code> that passes Meta's validation.</p>
+   * @public
+   */
+  publish?: boolean | undefined;
+
+  /**
+   * <p>The ID of an existing Flow within the same WhatsApp Business Account to clone.</p>
+   * @public
+   */
+  cloneFlowId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateWhatsAppFlowOutput {
+  /**
+   * <p>The unique identifier assigned to the Flow by Meta.</p>
+   * @public
+   */
+  flowId?: string | undefined;
+
+  /**
+   * <p>A list of validation errors returned by Meta, if any. Validation errors must be resolved before the Flow can be published.</p>
+   * @public
+   */
+  validationErrors?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface CreateWhatsAppMessageTemplateInput {
   /**
    * <p>The complete template definition as a JSON blob.</p>
@@ -623,6 +681,28 @@ export interface CreateWhatsAppMessageTemplateMediaOutput {
 /**
  * @public
  */
+export interface DeleteWhatsAppFlowInput {
+  /**
+   * <p>The ID of the WhatsApp Business Account associated with this Flow.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Flow to delete.</p>
+   * @public
+   */
+  flowId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteWhatsAppFlowOutput {}
+
+/**
+ * @public
+ */
 export interface DeleteWhatsAppMessageMediaInput {
   /**
    * <p>The unique identifier of the media file to delete. Use the <code>mediaId</code> returned from <a href="https://console.aws.amazon.com/social-messaging/latest/APIReference/API_PostWhatsAppMessageMedia.html">PostWhatsAppMessageMedia</a>.</p>
@@ -685,6 +765,28 @@ export interface DeleteWhatsAppMessageTemplateInput {
  * @public
  */
 export interface DeleteWhatsAppMessageTemplateOutput {}
+
+/**
+ * @public
+ */
+export interface DeprecateWhatsAppFlowInput {
+  /**
+   * <p>The ID of the WhatsApp Business Account associated with this Flow.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Flow to deprecate.</p>
+   * @public
+   */
+  flowId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeprecateWhatsAppFlowOutput {}
 
 /**
  * @public
@@ -874,6 +976,260 @@ export interface GetLinkedWhatsAppBusinessAccountPhoneNumberOutput {
    * @public
    */
   linkedWhatsAppBusinessAccountId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetWhatsAppFlowInput {
+  /**
+   * <p>The ID of the WhatsApp Business Account associated with this Flow.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Flow to retrieve.</p>
+   * @public
+   */
+  flowId: string | undefined;
+}
+
+/**
+ * <p>Contains the Meta application metadata associated with a WhatsApp Flow.</p>
+ * @public
+ */
+export interface MetaFlowApplicationInfo {
+  /**
+   * <p>The URL link for the Meta application.</p>
+   * @public
+   */
+  link?: string | undefined;
+
+  /**
+   * <p>The name of the Meta application.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Meta application.</p>
+   * @public
+   */
+  id: string | undefined;
+}
+
+/**
+ * <p>Represents a single entity in the health status check for a WhatsApp Flow.</p>
+ * @public
+ */
+export interface MetaFlowHealthEntity {
+  /**
+   * <p>The type of entity (for example, FLOW, WABA, BUSINESS, or APP).</p>
+   * @public
+   */
+  entityType: string | undefined;
+
+  /**
+   * <p>The unique identifier of the entity.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The messaging availability status for this entity (for example, AVAILABLE, LIMITED, or BLOCKED).</p>
+   * @public
+   */
+  canSendMessage: string | undefined;
+}
+
+/**
+ * <p>Contains the overall health status and per-entity breakdown for a WhatsApp Flow.</p>
+ * @public
+ */
+export interface MetaFlowHealthStatus {
+  /**
+   * <p>The overall messaging availability status (for example, AVAILABLE, LIMITED, or BLOCKED).</p>
+   * @public
+   */
+  canSendMessage: string | undefined;
+
+  /**
+   * <p>A list of health status entities with per-entity availability information.</p>
+   * @public
+   */
+  entities?: MetaFlowHealthEntity[] | undefined;
+}
+
+/**
+ * <p>Contains the preview URL for testing a WhatsApp Flow and its expiration timestamp.</p>
+ * @public
+ */
+export interface MetaFlowPreviewInfo {
+  /**
+   * <p>The web URL for previewing the Flow. Can be shared with stakeholders for review.</p>
+   * @public
+   */
+  previewUrl: string | undefined;
+
+  /**
+   * <p>The timestamp when the preview URL expires.</p>
+   * @public
+   */
+  expiresAt: string | undefined;
+}
+
+/**
+ * <p>Contains WhatsApp Business Account metadata associated with a Flow, as returned by Meta.</p>
+ * @public
+ */
+export interface MetaFlowWhatsAppBusinessAccountInfo {
+  /**
+   * <p>The WhatsApp Business Account ID from Meta.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the WhatsApp Business Account.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The currency code for the WhatsApp Business Account (for example, USD).</p>
+   * @public
+   */
+  currency?: string | undefined;
+
+  /**
+   * <p>The timezone ID for the WhatsApp Business Account.</p>
+   * @public
+   */
+  timezoneId?: string | undefined;
+
+  /**
+   * <p>The message template namespace for the WhatsApp Business Account.</p>
+   * @public
+   */
+  messageTemplateNamespace?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetWhatsAppFlowOutput {
+  /**
+   * <p>The unique identifier of the Flow.</p>
+   * @public
+   */
+  flowId: string | undefined;
+
+  /**
+   * <p>The name of the Flow.</p>
+   * @public
+   */
+  flowName: string | undefined;
+
+  /**
+   * <p>The lifecycle status of the Flow. Valid values are DRAFT, PUBLISHED, DEPRECATED, BLOCKED, and THROTTLED.</p>
+   * @public
+   */
+  flowStatus: string | undefined;
+
+  /**
+   * <p>The categories that classify the business purpose of the Flow.</p>
+   * @public
+   */
+  categories?: MetaFlowCategory[] | undefined;
+
+  /**
+   * <p>A list of validation errors from Meta, if any.</p>
+   * @public
+   */
+  validationErrors?: string[] | undefined;
+
+  /**
+   * <p>The version of the Flow JSON schema used by this Flow (for example, 7.3).</p>
+   * @public
+   */
+  jsonVersion?: string | undefined;
+
+  /**
+   * <p>The data API version for data exchange endpoint Flows.</p>
+   * @public
+   */
+  dataApiVersion?: string | undefined;
+
+  /**
+   * <p>The endpoint URI for data exchange Flows, if configured.</p>
+   * @public
+   */
+  endpointUri?: string | undefined;
+
+  /**
+   * <p>The preview URL and its expiration timestamp for testing the Flow.</p>
+   * @public
+   */
+  preview?: MetaFlowPreviewInfo | undefined;
+
+  /**
+   * <p>The WhatsApp Business Account information from Meta associated with this Flow.</p>
+   * @public
+   */
+  whatsAppBusinessAccount?: MetaFlowWhatsAppBusinessAccountInfo | undefined;
+
+  /**
+   * <p>The Meta application information associated with this Flow.</p>
+   * @public
+   */
+  application?: MetaFlowApplicationInfo | undefined;
+
+  /**
+   * <p>The health status information for this Flow from Meta.</p>
+   * @public
+   */
+  healthStatus?: MetaFlowHealthStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetWhatsAppFlowPreviewInput {
+  /**
+   * <p>The ID of the WhatsApp Business Account associated with this Flow.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Flow to preview.</p>
+   * @public
+   */
+  flowId: string | undefined;
+
+  /**
+   * <p>Set to <code>true</code> to force generation of a new preview URL. Use this if the previous URL has been compromised or you want a fresh expiration period.</p>
+   * @public
+   */
+  invalidate?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetWhatsAppFlowPreviewOutput {
+  /**
+   * <p>The unique identifier of the Flow.</p>
+   * @public
+   */
+  flowId: string | undefined;
+
+  /**
+   * <p>The preview URL and its expiration timestamp.</p>
+   * @public
+   */
+  preview: MetaFlowPreviewInfo | undefined;
 }
 
 /**
@@ -1132,6 +1488,152 @@ export interface ListLinkedWhatsAppBusinessAccountsOutput {
 /**
  * @public
  */
+export interface ListWhatsAppFlowAssetsInput {
+  /**
+   * <p>The ID of the WhatsApp Business Account associated with this Flow.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Flow whose assets to list.</p>
+   * @public
+   */
+  flowId: string | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Represents a single asset file associated with a WhatsApp Flow, including a presigned download URL.</p>
+ * @public
+ */
+export interface MetaFlowAsset {
+  /**
+   * <p>The filename of the asset (for example, flow.json).</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of asset. Currently the only supported value is FLOW_JSON.</p>
+   * @public
+   */
+  assetType: string | undefined;
+
+  /**
+   * <p>A presigned URL from Meta for downloading the asset. The URL expires after a short period.</p>
+   * @public
+   */
+  downloadUrl: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListWhatsAppFlowAssetsOutput {
+  /**
+   * <p>A list of Flow assets with download URLs.</p>
+   * @public
+   */
+  flowAssets: MetaFlowAsset[] | undefined;
+
+  /**
+   * <p>The token to retrieve the next page of results, if any.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListWhatsAppFlowsInput {
+  /**
+   * <p>The ID of the WhatsApp Business Account to list Flows for.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Contains summary information about a WhatsApp Flow, including its ID, name, status, and categories.</p>
+ * @public
+ */
+export interface MetaFlowSummary {
+  /**
+   * <p>The unique identifier of the Flow assigned by Meta.</p>
+   * @public
+   */
+  flowId: string | undefined;
+
+  /**
+   * <p>The name of the Flow.</p>
+   * @public
+   */
+  flowName: string | undefined;
+
+  /**
+   * <p>The lifecycle status of the Flow (DRAFT, PUBLISHED, DEPRECATED, BLOCKED, or THROTTLED).</p>
+   * @public
+   */
+  flowStatus: string | undefined;
+
+  /**
+   * <p>The categories that classify the business purpose of the Flow.</p>
+   * @public
+   */
+  flowCategories: MetaFlowCategory[] | undefined;
+
+  /**
+   * <p>A list of validation errors from Meta, if any.</p>
+   * @public
+   */
+  validationErrors: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListWhatsAppFlowsOutput {
+  /**
+   * <p>A list of Flow summaries.</p>
+   * @public
+   */
+  flows: MetaFlowSummary[] | undefined;
+
+  /**
+   * <p>The token to retrieve the next page of results, if any.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListWhatsAppMessageTemplatesInput {
   /**
    * <p>The ID of the WhatsApp Business Account to list templates for.</p>
@@ -1332,6 +1834,28 @@ export interface ListWhatsAppTemplateLibraryOutput {
 /**
  * @public
  */
+export interface PublishWhatsAppFlowInput {
+  /**
+   * <p>The ID of the WhatsApp Business Account associated with this Flow.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Flow to publish.</p>
+   * @public
+   */
+  flowId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PublishWhatsAppFlowOutput {}
+
+/**
+ * @public
+ */
 export interface PutWhatsAppBusinessAccountEventDestinationsInput {
   /**
    * <p>The unique identifier of your WhatsApp Business Account. WABA identifiers are formatted as
@@ -1352,6 +1876,74 @@ export interface PutWhatsAppBusinessAccountEventDestinationsInput {
  * @public
  */
 export interface PutWhatsAppBusinessAccountEventDestinationsOutput {}
+
+/**
+ * @public
+ */
+export interface UpdateWhatsAppFlowInput {
+  /**
+   * <p>The ID of the WhatsApp Business Account associated with this Flow.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Flow to update.</p>
+   * @public
+   */
+  flowId: string | undefined;
+
+  /**
+   * <p>The updated name for the Flow.</p>
+   * @public
+   */
+  flowName?: string | undefined;
+
+  /**
+   * <p>The updated categories for the Flow.</p>
+   * @public
+   */
+  categories?: MetaFlowCategory[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateWhatsAppFlowOutput {}
+
+/**
+ * @public
+ */
+export interface UpdateWhatsAppFlowAssetsInput {
+  /**
+   * <p>The ID of the WhatsApp Business Account associated with this Flow.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Flow whose assets to update.</p>
+   * @public
+   */
+  flowId: string | undefined;
+
+  /**
+   * <p>The updated Flow JSON definition. Maximum size is 10 MB.</p>
+   * @public
+   */
+  flowJson: Uint8Array | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateWhatsAppFlowAssetsOutput {
+  /**
+   * <p>A list of validation errors returned by Meta, if any. Validation errors must be resolved before the Flow can be published.</p>
+   * @public
+   */
+  validationErrors?: string[] | undefined;
+}
 
 /**
  * @public

@@ -4,11 +4,8 @@ import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  CreateWhatsAppMessageTemplateMediaInput,
-  CreateWhatsAppMessageTemplateMediaOutput,
-} from "../models/models_0";
-import { CreateWhatsAppMessageTemplateMedia$ } from "../schemas/schemas_0";
+import type { DeprecateWhatsAppFlowInput, DeprecateWhatsAppFlowOutput } from "../models/models_0";
+import { DeprecateWhatsAppFlow$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -23,45 +20,40 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link CreateWhatsAppMessageTemplateMediaCommand}.
+ * The input for {@link DeprecateWhatsAppFlowCommand}.
  */
-export interface CreateWhatsAppMessageTemplateMediaCommandInput extends CreateWhatsAppMessageTemplateMediaInput {}
+export interface DeprecateWhatsAppFlowCommandInput extends DeprecateWhatsAppFlowInput {}
 /**
  * @public
  *
- * The output of {@link CreateWhatsAppMessageTemplateMediaCommand}.
+ * The output of {@link DeprecateWhatsAppFlowCommand}.
  */
-export interface CreateWhatsAppMessageTemplateMediaCommandOutput extends CreateWhatsAppMessageTemplateMediaOutput, __MetadataBearer {}
+export interface DeprecateWhatsAppFlowCommandOutput extends DeprecateWhatsAppFlowOutput, __MetadataBearer {}
 
 /**
- * <p>Uploads media for use in a WhatsApp message template.</p>
+ * <p>Deprecates a published WhatsApp Flow, marking it as no longer recommended for use. The Flow must be in PUBLISHED status. This is an irreversible operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SocialMessagingClient, CreateWhatsAppMessageTemplateMediaCommand } from "@aws-sdk/client-socialmessaging"; // ES Modules import
- * // const { SocialMessagingClient, CreateWhatsAppMessageTemplateMediaCommand } = require("@aws-sdk/client-socialmessaging"); // CommonJS import
+ * import { SocialMessagingClient, DeprecateWhatsAppFlowCommand } from "@aws-sdk/client-socialmessaging"; // ES Modules import
+ * // const { SocialMessagingClient, DeprecateWhatsAppFlowCommand } = require("@aws-sdk/client-socialmessaging"); // CommonJS import
  * // import type { SocialMessagingClientConfig } from "@aws-sdk/client-socialmessaging";
  * const config = {}; // type is SocialMessagingClientConfig
  * const client = new SocialMessagingClient(config);
- * const input = { // CreateWhatsAppMessageTemplateMediaInput
+ * const input = { // DeprecateWhatsAppFlowInput
  *   id: "STRING_VALUE", // required
- *   sourceS3File: { // S3File
- *     bucketName: "STRING_VALUE", // required
- *     key: "STRING_VALUE", // required
- *   },
+ *   flowId: "STRING_VALUE", // required
  * };
- * const command = new CreateWhatsAppMessageTemplateMediaCommand(input);
+ * const command = new DeprecateWhatsAppFlowCommand(input);
  * const response = await client.send(command);
- * // { // CreateWhatsAppMessageTemplateMediaOutput
- * //   metaHeaderHandle: "STRING_VALUE",
- * // };
+ * // {};
  *
  * ```
  *
- * @param CreateWhatsAppMessageTemplateMediaCommandInput - {@link CreateWhatsAppMessageTemplateMediaCommandInput}
- * @returns {@link CreateWhatsAppMessageTemplateMediaCommandOutput}
- * @see {@link CreateWhatsAppMessageTemplateMediaCommandInput} for command's `input` shape.
- * @see {@link CreateWhatsAppMessageTemplateMediaCommandOutput} for command's `response` shape.
+ * @param DeprecateWhatsAppFlowCommandInput - {@link DeprecateWhatsAppFlowCommandInput}
+ * @returns {@link DeprecateWhatsAppFlowCommandOutput}
+ * @see {@link DeprecateWhatsAppFlowCommandInput} for command's `input` shape.
+ * @see {@link DeprecateWhatsAppFlowCommandOutput} for command's `response` shape.
  * @see {@link SocialMessagingClientResolvedConfig | config} for SocialMessagingClient's `config` shape.
  *
  * @throws {@link AccessDeniedByMetaException} (client fault)
@@ -95,10 +87,10 @@ export interface CreateWhatsAppMessageTemplateMediaCommandOutput extends CreateW
  *
  * @public
  */
-export class CreateWhatsAppMessageTemplateMediaCommand extends $Command
+export class DeprecateWhatsAppFlowCommand extends $Command
   .classBuilder<
-    CreateWhatsAppMessageTemplateMediaCommandInput,
-    CreateWhatsAppMessageTemplateMediaCommandOutput,
+    DeprecateWhatsAppFlowCommandInput,
+    DeprecateWhatsAppFlowCommandOutput,
     SocialMessagingClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -107,19 +99,19 @@ export class CreateWhatsAppMessageTemplateMediaCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: SocialMessagingClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("SocialMessaging", "CreateWhatsAppMessageTemplateMedia", {})
-  .n("SocialMessagingClient", "CreateWhatsAppMessageTemplateMediaCommand")
-  .sc(CreateWhatsAppMessageTemplateMedia$)
+  .s("SocialMessaging", "DeprecateWhatsAppFlow", {})
+  .n("SocialMessagingClient", "DeprecateWhatsAppFlowCommand")
+  .sc(DeprecateWhatsAppFlow$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: CreateWhatsAppMessageTemplateMediaInput;
-      output: CreateWhatsAppMessageTemplateMediaOutput;
+      input: DeprecateWhatsAppFlowInput;
+      output: {};
     };
     sdk: {
-      input: CreateWhatsAppMessageTemplateMediaCommandInput;
-      output: CreateWhatsAppMessageTemplateMediaCommandOutput;
+      input: DeprecateWhatsAppFlowCommandInput;
+      output: DeprecateWhatsAppFlowCommandOutput;
     };
   };
 }

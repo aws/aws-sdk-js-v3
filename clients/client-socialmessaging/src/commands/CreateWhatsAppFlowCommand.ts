@@ -4,11 +4,8 @@ import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  CreateWhatsAppMessageTemplateMediaInput,
-  CreateWhatsAppMessageTemplateMediaOutput,
-} from "../models/models_0";
-import { CreateWhatsAppMessageTemplateMedia$ } from "../schemas/schemas_0";
+import type { CreateWhatsAppFlowInput, CreateWhatsAppFlowOutput } from "../models/models_0";
+import { CreateWhatsAppFlow$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -23,45 +20,53 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link CreateWhatsAppMessageTemplateMediaCommand}.
+ * The input for {@link CreateWhatsAppFlowCommand}.
  */
-export interface CreateWhatsAppMessageTemplateMediaCommandInput extends CreateWhatsAppMessageTemplateMediaInput {}
+export interface CreateWhatsAppFlowCommandInput extends CreateWhatsAppFlowInput {}
 /**
  * @public
  *
- * The output of {@link CreateWhatsAppMessageTemplateMediaCommand}.
+ * The output of {@link CreateWhatsAppFlowCommand}.
  */
-export interface CreateWhatsAppMessageTemplateMediaCommandOutput extends CreateWhatsAppMessageTemplateMediaOutput, __MetadataBearer {}
+export interface CreateWhatsAppFlowCommandOutput extends CreateWhatsAppFlowOutput, __MetadataBearer {}
 
 /**
- * <p>Uploads media for use in a WhatsApp message template.</p>
+ * <p>Creates a new WhatsApp Flow. Flows enable businesses to create rich, interactive forms and experiences
+ *          that users can complete without leaving WhatsApp. The Flow is created in DRAFT status. If <code>publish</code>
+ *          is set to <code>true</code> and a valid <code>flowJson</code> is provided, the Flow is published immediately.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SocialMessagingClient, CreateWhatsAppMessageTemplateMediaCommand } from "@aws-sdk/client-socialmessaging"; // ES Modules import
- * // const { SocialMessagingClient, CreateWhatsAppMessageTemplateMediaCommand } = require("@aws-sdk/client-socialmessaging"); // CommonJS import
+ * import { SocialMessagingClient, CreateWhatsAppFlowCommand } from "@aws-sdk/client-socialmessaging"; // ES Modules import
+ * // const { SocialMessagingClient, CreateWhatsAppFlowCommand } = require("@aws-sdk/client-socialmessaging"); // CommonJS import
  * // import type { SocialMessagingClientConfig } from "@aws-sdk/client-socialmessaging";
  * const config = {}; // type is SocialMessagingClientConfig
  * const client = new SocialMessagingClient(config);
- * const input = { // CreateWhatsAppMessageTemplateMediaInput
+ * const input = { // CreateWhatsAppFlowInput
  *   id: "STRING_VALUE", // required
- *   sourceS3File: { // S3File
- *     bucketName: "STRING_VALUE", // required
- *     key: "STRING_VALUE", // required
- *   },
+ *   flowName: "STRING_VALUE", // required
+ *   categories: [ // MetaFlowCategoryList // required
+ *     "SIGN_UP" || "SIGN_IN" || "APPOINTMENT_BOOKING" || "LEAD_GENERATION" || "SHOPPING" || "CONTACT_US" || "CUSTOMER_SUPPORT" || "SURVEY" || "OTHER",
+ *   ],
+ *   flowJson: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *   publish: true || false,
+ *   cloneFlowId: "STRING_VALUE",
  * };
- * const command = new CreateWhatsAppMessageTemplateMediaCommand(input);
+ * const command = new CreateWhatsAppFlowCommand(input);
  * const response = await client.send(command);
- * // { // CreateWhatsAppMessageTemplateMediaOutput
- * //   metaHeaderHandle: "STRING_VALUE",
+ * // { // CreateWhatsAppFlowOutput
+ * //   flowId: "STRING_VALUE",
+ * //   validationErrors: [ // ValidationErrorList
+ * //     "STRING_VALUE",
+ * //   ],
  * // };
  *
  * ```
  *
- * @param CreateWhatsAppMessageTemplateMediaCommandInput - {@link CreateWhatsAppMessageTemplateMediaCommandInput}
- * @returns {@link CreateWhatsAppMessageTemplateMediaCommandOutput}
- * @see {@link CreateWhatsAppMessageTemplateMediaCommandInput} for command's `input` shape.
- * @see {@link CreateWhatsAppMessageTemplateMediaCommandOutput} for command's `response` shape.
+ * @param CreateWhatsAppFlowCommandInput - {@link CreateWhatsAppFlowCommandInput}
+ * @returns {@link CreateWhatsAppFlowCommandOutput}
+ * @see {@link CreateWhatsAppFlowCommandInput} for command's `input` shape.
+ * @see {@link CreateWhatsAppFlowCommandOutput} for command's `response` shape.
  * @see {@link SocialMessagingClientResolvedConfig | config} for SocialMessagingClient's `config` shape.
  *
  * @throws {@link AccessDeniedByMetaException} (client fault)
@@ -95,10 +100,10 @@ export interface CreateWhatsAppMessageTemplateMediaCommandOutput extends CreateW
  *
  * @public
  */
-export class CreateWhatsAppMessageTemplateMediaCommand extends $Command
+export class CreateWhatsAppFlowCommand extends $Command
   .classBuilder<
-    CreateWhatsAppMessageTemplateMediaCommandInput,
-    CreateWhatsAppMessageTemplateMediaCommandOutput,
+    CreateWhatsAppFlowCommandInput,
+    CreateWhatsAppFlowCommandOutput,
     SocialMessagingClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -107,19 +112,19 @@ export class CreateWhatsAppMessageTemplateMediaCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: SocialMessagingClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("SocialMessaging", "CreateWhatsAppMessageTemplateMedia", {})
-  .n("SocialMessagingClient", "CreateWhatsAppMessageTemplateMediaCommand")
-  .sc(CreateWhatsAppMessageTemplateMedia$)
+  .s("SocialMessaging", "CreateWhatsAppFlow", {})
+  .n("SocialMessagingClient", "CreateWhatsAppFlowCommand")
+  .sc(CreateWhatsAppFlow$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: CreateWhatsAppMessageTemplateMediaInput;
-      output: CreateWhatsAppMessageTemplateMediaOutput;
+      input: CreateWhatsAppFlowInput;
+      output: CreateWhatsAppFlowOutput;
     };
     sdk: {
-      input: CreateWhatsAppMessageTemplateMediaCommandInput;
-      output: CreateWhatsAppMessageTemplateMediaCommandOutput;
+      input: CreateWhatsAppFlowCommandInput;
+      output: CreateWhatsAppFlowCommandOutput;
     };
   };
 }

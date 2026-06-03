@@ -4,6 +4,9 @@ const _AIPT = "AssociateInProgressToken";
 const _AWABA = "AssociateWhatsAppBusinessAccount";
 const _AWABAI = "AssociateWhatsAppBusinessAccountInput";
 const _AWABAO = "AssociateWhatsAppBusinessAccountOutput";
+const _CWAF = "CreateWhatsAppFlow";
+const _CWAFI = "CreateWhatsAppFlowInput";
+const _CWAFO = "CreateWhatsAppFlowOutput";
 const _CWAMT = "CreateWhatsAppMessageTemplate";
 const _CWAMTFL = "CreateWhatsAppMessageTemplateFromLibrary";
 const _CWAMTFLI = "CreateWhatsAppMessageTemplateFromLibraryInput";
@@ -17,6 +20,12 @@ const _DE = "DependencyException";
 const _DWABA = "DisassociateWhatsAppBusinessAccount";
 const _DWABAI = "DisassociateWhatsAppBusinessAccountInput";
 const _DWABAO = "DisassociateWhatsAppBusinessAccountOutput";
+const _DWAF = "DeleteWhatsAppFlow";
+const _DWAFI = "DeleteWhatsAppFlowInput";
+const _DWAFIe = "DeprecateWhatsAppFlowInput";
+const _DWAFO = "DeleteWhatsAppFlowOutput";
+const _DWAFOe = "DeprecateWhatsAppFlowOutput";
+const _DWAFe = "DeprecateWhatsAppFlow";
 const _DWAMM = "DeleteWhatsAppMessageMedia";
 const _DWAMMI = "DeleteWhatsAppMessageMediaInput";
 const _DWAMMO = "DeleteWhatsAppMessageMediaOutput";
@@ -29,6 +38,12 @@ const _GLWABAO = "GetLinkedWhatsAppBusinessAccountOutput";
 const _GLWABAPN = "GetLinkedWhatsAppBusinessAccountPhoneNumber";
 const _GLWABAPNI = "GetLinkedWhatsAppBusinessAccountPhoneNumberInput";
 const _GLWABAPNO = "GetLinkedWhatsAppBusinessAccountPhoneNumberOutput";
+const _GWAF = "GetWhatsAppFlow";
+const _GWAFI = "GetWhatsAppFlowInput";
+const _GWAFO = "GetWhatsAppFlowOutput";
+const _GWAFP = "GetWhatsAppFlowPreview";
+const _GWAFPI = "GetWhatsAppFlowPreviewInput";
+const _GWAFPO = "GetWhatsAppFlowPreviewOutput";
 const _GWAMM = "GetWhatsAppMessageMedia";
 const _GWAMMI = "GetWhatsAppMessageMediaInput";
 const _GWAMMO = "GetWhatsAppMessageMediaOutput";
@@ -52,12 +67,28 @@ const _LWABA = "LinkedWhatsAppBusinessAccount";
 const _LWABAIMD = "LinkedWhatsAppBusinessAccountIdMetaData";
 const _LWABAS = "LinkedWhatsAppBusinessAccountSummary";
 const _LWABASL = "LinkedWhatsAppBusinessAccountSummaryList";
+const _LWAF = "ListWhatsAppFlows";
+const _LWAFA = "ListWhatsAppFlowAssets";
+const _LWAFAI = "ListWhatsAppFlowAssetsInput";
+const _LWAFAO = "ListWhatsAppFlowAssetsOutput";
+const _LWAFI = "ListWhatsAppFlowsInput";
+const _LWAFO = "ListWhatsAppFlowsOutput";
 const _LWAMT = "ListWhatsAppMessageTemplates";
 const _LWAMTI = "ListWhatsAppMessageTemplatesInput";
 const _LWAMTO = "ListWhatsAppMessageTemplatesOutput";
 const _LWATL = "ListWhatsAppTemplateLibrary";
 const _LWATLI = "ListWhatsAppTemplateLibraryInput";
 const _LWATLO = "ListWhatsAppTemplateLibraryOutput";
+const _MFA = "MetaFlowAsset";
+const _MFAI = "MetaFlowApplicationInfo";
+const _MFAL = "MetaFlowAssetList";
+const _MFHE = "MetaFlowHealthEntity";
+const _MFHEL = "MetaFlowHealthEntityList";
+const _MFHS = "MetaFlowHealthStatus";
+const _MFPI = "MetaFlowPreviewInfo";
+const _MFS = "MetaFlowSummary";
+const _MFSL = "MetaFlowSummaryList";
+const _MFWABAI = "MetaFlowWhatsAppBusinessAccountInfo";
 const _MLT = "MetaLibraryTemplate";
 const _MLTBI = "MetaLibraryTemplateButtonInputs";
 const _MLTBL = "MetaLibraryTemplateButtonList";
@@ -66,6 +97,9 @@ const _MLTL = "MetaLibraryTemplatesList";
 const _PWABAED = "PutWhatsAppBusinessAccountEventDestinations";
 const _PWABAEDI = "PutWhatsAppBusinessAccountEventDestinationsInput";
 const _PWABAEDO = "PutWhatsAppBusinessAccountEventDestinationsOutput";
+const _PWAF = "PublishWhatsAppFlow";
+const _PWAFI = "PublishWhatsAppFlowInput";
+const _PWAFO = "PublishWhatsAppFlowOutput";
 const _PWAMM = "PostWhatsAppMessageMedia";
 const _PWAMMI = "PostWhatsAppMessageMediaInput";
 const _PWAMMO = "PostWhatsAppMessageMediaOutput";
@@ -88,6 +122,12 @@ const _TSL = "TemplateSummaryList";
 const _UR = "UntagResource";
 const _URI = "UntagResourceInput";
 const _URO = "UntagResourceOutput";
+const _UWAF = "UpdateWhatsAppFlow";
+const _UWAFA = "UpdateWhatsAppFlowAssets";
+const _UWAFAI = "UpdateWhatsAppFlowAssetsInput";
+const _UWAFAO = "UpdateWhatsAppFlowAssetsOutput";
+const _UWAFI = "UpdateWhatsAppFlowInput";
+const _UWAFO = "UpdateWhatsAppFlowOutput";
 const _UWAMT = "UpdateWhatsAppMessageTemplate";
 const _UWAMTI = "UpdateWhatsAppMessageTemplateInput";
 const _UWAMTO = "UpdateWhatsAppMessageTemplateOutput";
@@ -111,33 +151,56 @@ const _aIPT = "associateInProgressToken";
 const _aLML = "addLearnMoreLink";
 const _aN = "accountName";
 const _aSR = "addSecurityRecommendation";
-const _aT = "accessToken";
+const _aT = "assetType";
 const _aTPL = "addTrackPackageLink";
+const _aTc = "accessToken";
+const _ap = "application";
 const _ar = "arn";
 const _bN = "bucketName";
 const _c = "client";
 const _cEM = "codeExpirationMinutes";
+const _cFI = "cloneFlowId";
+const _cSM = "canSendMessage";
 const _cU = "callbackUrl";
 const _cULTOO = "ctaUrlLinkTrackingOptedOut";
-const _ca = "category";
+const _ca = "categories";
+const _cat = "category";
+const _cu = "currency";
 const _dAL = "deleteAllLanguages";
 const _dAT = "deleteAllTemplates";
+const _dAV = "dataApiVersion";
 const _dLR = "dataLocalizationRegion";
 const _dPN = "displayPhoneNumber";
 const _dPNN = "displayPhoneNumberName";
 const _dSF = "destinationS3File";
 const _dSPU = "destinationS3PresignedUrl";
+const _dU = "downloadUrl";
 const _e = "error";
+const _eA = "expiresAt";
 const _eD = "eventDestinations";
 const _eDA = "eventDestinationArn";
-const _f = "filters";
-const _fS = "fileSize";
+const _eT = "entityType";
+const _eU = "endpointUri";
+const _en = "entities";
+const _f = "flows";
+const _fA = "flowAssets";
+const _fC = "flowCategories";
+const _fI = "flowId";
+const _fJ = "flowJson";
+const _fN = "flowName";
+const _fS = "flowStatus";
+const _fSi = "fileSize";
+const _fi = "filters";
 const _h = "headers";
 const _hE = "httpError";
 const _hQ = "httpQuery";
+const _hS = "healthStatus";
 const _ht = "http";
 const _i = "id";
+const _in = "invalidate";
+const _jV = "jsonVersion";
 const _k = "key";
+const _l = "link";
 const _lA = "linkedAccounts";
 const _lAWIS = "linkedAccountsWithIncompleteSetup";
 const _lD = "linkDate";
@@ -158,14 +221,19 @@ const _mPNI = "metaPhoneNumberId";
 const _mR = "maxResults";
 const _mT = "mimeType";
 const _mTI = "metaTemplateId";
+const _mTN = "messageTemplateNamespace";
+const _n = "name";
 const _nT = "nextToken";
 const _oPNI = "originationPhoneNumberId";
 const _oT = "otpType";
+const _p = "publish";
 const _pF = "parameterFormat";
 const _pN = "phoneNumber";
 const _pNI = "phoneNumberId";
 const _pNP = "phoneNumberParent";
 const _pNh = "phoneNumbers";
+const _pU = "previewUrl";
+const _pr = "preview";
 const _qR = "qualityRating";
 const _rA = "resourceArn";
 const _rAo = "roleArn";
@@ -189,8 +257,9 @@ const _tCe = "templateComponents";
 const _tD = "templateDefinition";
 const _tFP = "twoFactorPin";
 const _tH = "templateHeader";
-const _tI = "templateIndustry";
-const _tIe = "templateId";
+const _tI = "timezoneId";
+const _tIe = "templateIndustry";
+const _tIem = "templateId";
 const _tK = "tagKeys";
 const _tL = "templateLanguage";
 const _tLC = "templateLanguageCode";
@@ -206,7 +275,9 @@ const _ty = "type";
 const _u = "url";
 const _uWAPN = "unregisteredWhatsAppPhoneNumbers";
 const _v = "value";
+const _vE = "validationErrors";
 const _w = "waba";
+const _wABA = "whatsAppBusinessAccount";
 const _wI = "wabaId";
 const _wN = "wabaName";
 const _zTTA = "zeroTapTermsAccepted";
@@ -317,6 +388,16 @@ export var AssociateWhatsAppBusinessAccountOutput$: StaticStructureSchema = [3, 
   [_sCR, _sCt, _lWABAI],
   [[() => WhatsAppSignupCallbackResult$, 0], 1, 0]
 ];
+export var CreateWhatsAppFlowInput$: StaticStructureSchema = [3, n0, _CWAFI,
+  0,
+  [_i, _fN, _ca, _fJ, _p, _cFI],
+  [0, 0, 64 | 0, 21, 2, 0], 3
+];
+export var CreateWhatsAppFlowOutput$: StaticStructureSchema = [3, n0, _CWAFO,
+  0,
+  [_fI, _vE],
+  [0, 64 | 0]
+];
 export var CreateWhatsAppMessageTemplateFromLibraryInput$: StaticStructureSchema = [3, n0, _CWAMTFLI,
   0,
   [_mLT, _i],
@@ -324,7 +405,7 @@ export var CreateWhatsAppMessageTemplateFromLibraryInput$: StaticStructureSchema
 ];
 export var CreateWhatsAppMessageTemplateFromLibraryOutput$: StaticStructureSchema = [3, n0, _CWAMTFLO,
   0,
-  [_mTI, _tS, _ca],
+  [_mTI, _tS, _cat],
   [0, 0, 0]
 ];
 export var CreateWhatsAppMessageTemplateInput$: StaticStructureSchema = [3, n0, _CWAMTI,
@@ -344,8 +425,18 @@ export var CreateWhatsAppMessageTemplateMediaOutput$: StaticStructureSchema = [3
 ];
 export var CreateWhatsAppMessageTemplateOutput$: StaticStructureSchema = [3, n0, _CWAMTO,
   0,
-  [_mTI, _tS, _ca],
+  [_mTI, _tS, _cat],
   [0, 0, 0]
+];
+export var DeleteWhatsAppFlowInput$: StaticStructureSchema = [3, n0, _DWAFI,
+  0,
+  [_i, _fI],
+  [[0, { [_hQ]: _i }], [0, { [_hQ]: _fI }]], 2
+];
+export var DeleteWhatsAppFlowOutput$: StaticStructureSchema = [3, n0, _DWAFO,
+  0,
+  [],
+  []
 ];
 export var DeleteWhatsAppMessageMediaInput$: StaticStructureSchema = [3, n0, _DWAMMI,
   0,
@@ -363,6 +454,16 @@ export var DeleteWhatsAppMessageTemplateInput$: StaticStructureSchema = [3, n0, 
   [[0, { [_hQ]: _i }], [0, { [_hQ]: _tN }], [0, { [_hQ]: _mTI }], [2, { [_hQ]: _dAT }]], 2
 ];
 export var DeleteWhatsAppMessageTemplateOutput$: StaticStructureSchema = [3, n0, _DWAMTO,
+  0,
+  [],
+  []
+];
+export var DeprecateWhatsAppFlowInput$: StaticStructureSchema = [3, n0, _DWAFIe,
+  0,
+  [_i, _fI],
+  [0, 0], 2
+];
+export var DeprecateWhatsAppFlowOutput$: StaticStructureSchema = [3, n0, _DWAFOe,
   0,
   [],
   []
@@ -397,6 +498,26 @@ export var GetLinkedWhatsAppBusinessAccountPhoneNumberOutput$: StaticStructureSc
   [_pN, _lWABAI],
   [() => WhatsAppPhoneNumberDetail$, 0]
 ];
+export var GetWhatsAppFlowInput$: StaticStructureSchema = [3, n0, _GWAFI,
+  0,
+  [_i, _fI],
+  [[0, { [_hQ]: _i }], [0, { [_hQ]: _fI }]], 2
+];
+export var GetWhatsAppFlowOutput$: StaticStructureSchema = [3, n0, _GWAFO,
+  0,
+  [_fI, _fN, _fS, _ca, _vE, _jV, _dAV, _eU, _pr, _wABA, _ap, _hS],
+  [0, 0, 0, 64 | 0, 64 | 0, 0, 0, 0, () => MetaFlowPreviewInfo$, () => MetaFlowWhatsAppBusinessAccountInfo$, () => MetaFlowApplicationInfo$, () => MetaFlowHealthStatus$], 3
+];
+export var GetWhatsAppFlowPreviewInput$: StaticStructureSchema = [3, n0, _GWAFPI,
+  0,
+  [_i, _fI, _in],
+  [[0, { [_hQ]: _i }], [0, { [_hQ]: _fI }], [2, { [_hQ]: _in }]], 2
+];
+export var GetWhatsAppFlowPreviewOutput$: StaticStructureSchema = [3, n0, _GWAFPO,
+  0,
+  [_fI, _pr],
+  [0, () => MetaFlowPreviewInfo$], 2
+];
 export var GetWhatsAppMessageMediaInput$: StaticStructureSchema = [3, n0, _GWAMMI,
   0,
   [_mI, _oPNI, _mO, _dSPU, _dSF],
@@ -404,7 +525,7 @@ export var GetWhatsAppMessageMediaInput$: StaticStructureSchema = [3, n0, _GWAMM
 ];
 export var GetWhatsAppMessageMediaOutput$: StaticStructureSchema = [3, n0, _GWAMMO,
   0,
-  [_mT, _fS],
+  [_mT, _fSi],
   [0, 1]
 ];
 export var GetWhatsAppMessageTemplateInput$: StaticStructureSchema = [3, n0, _GWAMTI,
@@ -467,6 +588,26 @@ export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
   [_sCt, _ta],
   [1, () => TagList]
 ];
+export var ListWhatsAppFlowAssetsInput$: StaticStructureSchema = [3, n0, _LWAFAI,
+  0,
+  [_i, _fI, _nT, _mR],
+  [[0, { [_hQ]: _i }], [0, { [_hQ]: _fI }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 2
+];
+export var ListWhatsAppFlowAssetsOutput$: StaticStructureSchema = [3, n0, _LWAFAO,
+  0,
+  [_fA, _nT],
+  [() => MetaFlowAssetList, 0], 1
+];
+export var ListWhatsAppFlowsInput$: StaticStructureSchema = [3, n0, _LWAFI,
+  0,
+  [_i, _nT, _mR],
+  [[0, { [_hQ]: _i }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
+];
+export var ListWhatsAppFlowsOutput$: StaticStructureSchema = [3, n0, _LWAFO,
+  0,
+  [_f, _nT],
+  [() => MetaFlowSummaryList, 0], 1
+];
 export var ListWhatsAppMessageTemplatesInput$: StaticStructureSchema = [3, n0, _LWAMTI,
   0,
   [_i, _nT, _mR],
@@ -479,13 +620,48 @@ export var ListWhatsAppMessageTemplatesOutput$: StaticStructureSchema = [3, n0, 
 ];
 export var ListWhatsAppTemplateLibraryInput$: StaticStructureSchema = [3, n0, _LWATLI,
   0,
-  [_i, _nT, _mR, _f],
+  [_i, _nT, _mR, _fi],
   [[0, { [_hQ]: _i }], 0, 1, 128 | 0], 1
 ];
 export var ListWhatsAppTemplateLibraryOutput$: StaticStructureSchema = [3, n0, _LWATLO,
   0,
   [_mLTe, _nT],
   [() => MetaLibraryTemplatesList, 0]
+];
+export var MetaFlowApplicationInfo$: StaticStructureSchema = [3, n0, _MFAI,
+  0,
+  [_n, _i, _l],
+  [0, 0, 0], 2
+];
+export var MetaFlowAsset$: StaticStructureSchema = [3, n0, _MFA,
+  0,
+  [_n, _aT, _dU],
+  [0, 0, 0], 3
+];
+export var MetaFlowHealthEntity$: StaticStructureSchema = [3, n0, _MFHE,
+  0,
+  [_eT, _i, _cSM],
+  [0, 0, 0], 3
+];
+export var MetaFlowHealthStatus$: StaticStructureSchema = [3, n0, _MFHS,
+  0,
+  [_cSM, _en],
+  [0, () => MetaFlowHealthEntityList], 1
+];
+export var MetaFlowPreviewInfo$: StaticStructureSchema = [3, n0, _MFPI,
+  0,
+  [_pU, _eA],
+  [0, 0], 2
+];
+export var MetaFlowSummary$: StaticStructureSchema = [3, n0, _MFS,
+  0,
+  [_fI, _fN, _fS, _fC, _vE],
+  [0, 0, 0, 64 | 0, 64 | 0], 5
+];
+export var MetaFlowWhatsAppBusinessAccountInfo$: StaticStructureSchema = [3, n0, _MFWABAI,
+  0,
+  [_i, _n, _cu, _tI, _mTN],
+  [0, 0, 0, 0, 0], 2
 ];
 export var MetaLibraryTemplate$: StaticStructureSchema = [3, n0, _MLT,
   0,
@@ -494,7 +670,7 @@ export var MetaLibraryTemplate$: StaticStructureSchema = [3, n0, _MLT,
 ];
 export var MetaLibraryTemplateDefinition$: StaticStructureSchema = [3, n0, _MLTD,
   0,
-  [_tN, _tL, _tC, _tT, _tUC, _tI, _tH, _tB, _tBe, _tIe, _tBEP],
+  [_tN, _tL, _tC, _tT, _tUC, _tIe, _tH, _tB, _tBe, _tIem, _tBEP],
   [0, 0, 0, 0, 0, 64 | 0, 0, 0, () => MetaLibraryTemplateButtonList, 0, 64 | 0]
 ];
 export var PostWhatsAppMessageMediaInput$: StaticStructureSchema = [3, n0, _PWAMMI,
@@ -506,6 +682,16 @@ export var PostWhatsAppMessageMediaOutput$: StaticStructureSchema = [3, n0, _PWA
   0,
   [_mI],
   [0]
+];
+export var PublishWhatsAppFlowInput$: StaticStructureSchema = [3, n0, _PWAFI,
+  0,
+  [_i, _fI],
+  [0, 0], 2
+];
+export var PublishWhatsAppFlowOutput$: StaticStructureSchema = [3, n0, _PWAFO,
+  0,
+  [],
+  []
 ];
 export var PutWhatsAppBusinessAccountEventDestinationsInput$: StaticStructureSchema = [3, n0, _PWABAEDI,
   0,
@@ -567,6 +753,26 @@ export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
   [_sCt],
   [1]
 ];
+export var UpdateWhatsAppFlowAssetsInput$: StaticStructureSchema = [3, n0, _UWAFAI,
+  0,
+  [_i, _fI, _fJ],
+  [0, 0, 21], 3
+];
+export var UpdateWhatsAppFlowAssetsOutput$: StaticStructureSchema = [3, n0, _UWAFAO,
+  0,
+  [_vE],
+  [64 | 0]
+];
+export var UpdateWhatsAppFlowInput$: StaticStructureSchema = [3, n0, _UWAFI,
+  0,
+  [_i, _fI, _fN, _ca],
+  [0, 0, 0, 64 | 0], 2
+];
+export var UpdateWhatsAppFlowOutput$: StaticStructureSchema = [3, n0, _UWAFO,
+  0,
+  [],
+  []
+];
 export var UpdateWhatsAppMessageTemplateInput$: StaticStructureSchema = [3, n0, _UWAMTI,
   0,
   [_i, _mTI, _tN, _tLC, _pF, _tC, _tCe, _cULTOO],
@@ -609,7 +815,7 @@ export var WhatsAppSetupFinalization$: StaticStructureSchema = [3, n0, _WASF,
 ];
 export var WhatsAppSignupCallback$: StaticStructureSchema = [3, n0, _WASC,
   0,
-  [_aT, _cU],
+  [_aTc, _cU],
   [0, 0], 1
 ];
 export var WhatsAppSignupCallbackResult$: StaticStructureSchema = [3, n0, _WASCR,
@@ -619,6 +825,16 @@ export var WhatsAppSignupCallbackResult$: StaticStructureSchema = [3, n0, _WASCR
 ];
 var LinkedWhatsAppBusinessAccountSummaryList: StaticListSchema = [1, n0, _LWABASL,
   0, () => LinkedWhatsAppBusinessAccountSummary$
+];
+var MetaFlowAssetList: StaticListSchema = [1, n0, _MFAL,
+  0, () => MetaFlowAsset$
+];
+var MetaFlowCategoryList = 64 | 0;
+var MetaFlowHealthEntityList: StaticListSchema = [1, n0, _MFHEL,
+  0, () => MetaFlowHealthEntity$
+];
+var MetaFlowSummaryList: StaticListSchema = [1, n0, _MFSL,
+  0, () => MetaFlowSummary$
 ];
 var MetaIndustries = 64 | 0;
 var MetaLibraryTemplateButtonInputs: StaticListSchema = [1, n0, _MLTBI,
@@ -641,6 +857,7 @@ var TagList: StaticListSchema = [1, n0, _TL,
 var TemplateSummaryList: StaticListSchema = [1, n0, _TSL,
   0, () => TemplateSummary$
 ];
+var ValidationErrorList = 64 | 0;
 var WabaPhoneNumberSetupFinalizationList: StaticListSchema = [1, n0, _WPNSFL,
   0, [() => WabaPhoneNumberSetupFinalization$,
     0]
@@ -664,6 +881,9 @@ var SupportedApp = 128 | 0;
 export var AssociateWhatsAppBusinessAccount$: StaticOperationSchema = [9, n0, _AWABA,
   { [_ht]: ["POST", "/v1/whatsapp/signup", 200] }, () => AssociateWhatsAppBusinessAccountInput$, () => AssociateWhatsAppBusinessAccountOutput$
 ];
+export var CreateWhatsAppFlow$: StaticOperationSchema = [9, n0, _CWAF,
+  { [_ht]: ["POST", "/v1/whatsapp/flow/create", 200] }, () => CreateWhatsAppFlowInput$, () => CreateWhatsAppFlowOutput$
+];
 export var CreateWhatsAppMessageTemplate$: StaticOperationSchema = [9, n0, _CWAMT,
   { [_ht]: ["POST", "/v1/whatsapp/template/put", 200] }, () => CreateWhatsAppMessageTemplateInput$, () => CreateWhatsAppMessageTemplateOutput$
 ];
@@ -673,11 +893,17 @@ export var CreateWhatsAppMessageTemplateFromLibrary$: StaticOperationSchema = [9
 export var CreateWhatsAppMessageTemplateMedia$: StaticOperationSchema = [9, n0, _CWAMTM,
   { [_ht]: ["POST", "/v1/whatsapp/template/media", 200] }, () => CreateWhatsAppMessageTemplateMediaInput$, () => CreateWhatsAppMessageTemplateMediaOutput$
 ];
+export var DeleteWhatsAppFlow$: StaticOperationSchema = [9, n0, _DWAF,
+  { [_ht]: ["DELETE", "/v1/whatsapp/flow", 200] }, () => DeleteWhatsAppFlowInput$, () => DeleteWhatsAppFlowOutput$
+];
 export var DeleteWhatsAppMessageMedia$: StaticOperationSchema = [9, n0, _DWAMM,
   { [_ht]: ["DELETE", "/v1/whatsapp/media", 200] }, () => DeleteWhatsAppMessageMediaInput$, () => DeleteWhatsAppMessageMediaOutput$
 ];
 export var DeleteWhatsAppMessageTemplate$: StaticOperationSchema = [9, n0, _DWAMT,
   { [_ht]: ["DELETE", "/v1/whatsapp/template", 200] }, () => DeleteWhatsAppMessageTemplateInput$, () => DeleteWhatsAppMessageTemplateOutput$
+];
+export var DeprecateWhatsAppFlow$: StaticOperationSchema = [9, n0, _DWAFe,
+  { [_ht]: ["POST", "/v1/whatsapp/flow/deprecate", 200] }, () => DeprecateWhatsAppFlowInput$, () => DeprecateWhatsAppFlowOutput$
 ];
 export var DisassociateWhatsAppBusinessAccount$: StaticOperationSchema = [9, n0, _DWABA,
   { [_ht]: ["DELETE", "/v1/whatsapp/waba/disassociate", 200] }, () => DisassociateWhatsAppBusinessAccountInput$, () => DisassociateWhatsAppBusinessAccountOutput$
@@ -687,6 +913,12 @@ export var GetLinkedWhatsAppBusinessAccount$: StaticOperationSchema = [9, n0, _G
 ];
 export var GetLinkedWhatsAppBusinessAccountPhoneNumber$: StaticOperationSchema = [9, n0, _GLWABAPN,
   { [_ht]: ["GET", "/v1/whatsapp/waba/phone/details", 200] }, () => GetLinkedWhatsAppBusinessAccountPhoneNumberInput$, () => GetLinkedWhatsAppBusinessAccountPhoneNumberOutput$
+];
+export var GetWhatsAppFlow$: StaticOperationSchema = [9, n0, _GWAF,
+  { [_ht]: ["GET", "/v1/whatsapp/flow", 200] }, () => GetWhatsAppFlowInput$, () => GetWhatsAppFlowOutput$
+];
+export var GetWhatsAppFlowPreview$: StaticOperationSchema = [9, n0, _GWAFP,
+  { [_ht]: ["GET", "/v1/whatsapp/flow/preview", 200] }, () => GetWhatsAppFlowPreviewInput$, () => GetWhatsAppFlowPreviewOutput$
 ];
 export var GetWhatsAppMessageMedia$: StaticOperationSchema = [9, n0, _GWAMM,
   { [_ht]: ["POST", "/v1/whatsapp/media/get", 200] }, () => GetWhatsAppMessageMediaInput$, () => GetWhatsAppMessageMediaOutput$
@@ -700,6 +932,12 @@ export var ListLinkedWhatsAppBusinessAccounts$: StaticOperationSchema = [9, n0, 
 export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
   { [_ht]: ["GET", "/v1/tags/list", 200] }, () => ListTagsForResourceInput$, () => ListTagsForResourceOutput$
 ];
+export var ListWhatsAppFlowAssets$: StaticOperationSchema = [9, n0, _LWAFA,
+  { [_ht]: ["GET", "/v1/whatsapp/flow/assets", 200] }, () => ListWhatsAppFlowAssetsInput$, () => ListWhatsAppFlowAssetsOutput$
+];
+export var ListWhatsAppFlows$: StaticOperationSchema = [9, n0, _LWAF,
+  { [_ht]: ["GET", "/v1/whatsapp/flow/list", 200] }, () => ListWhatsAppFlowsInput$, () => ListWhatsAppFlowsOutput$
+];
 export var ListWhatsAppMessageTemplates$: StaticOperationSchema = [9, n0, _LWAMT,
   { [_ht]: ["GET", "/v1/whatsapp/template/list", 200] }, () => ListWhatsAppMessageTemplatesInput$, () => ListWhatsAppMessageTemplatesOutput$
 ];
@@ -708,6 +946,9 @@ export var ListWhatsAppTemplateLibrary$: StaticOperationSchema = [9, n0, _LWATL,
 ];
 export var PostWhatsAppMessageMedia$: StaticOperationSchema = [9, n0, _PWAMM,
   { [_ht]: ["POST", "/v1/whatsapp/media", 200] }, () => PostWhatsAppMessageMediaInput$, () => PostWhatsAppMessageMediaOutput$
+];
+export var PublishWhatsAppFlow$: StaticOperationSchema = [9, n0, _PWAF,
+  { [_ht]: ["POST", "/v1/whatsapp/flow/publish", 200] }, () => PublishWhatsAppFlowInput$, () => PublishWhatsAppFlowOutput$
 ];
 export var PutWhatsAppBusinessAccountEventDestinations$: StaticOperationSchema = [9, n0, _PWABAED,
   { [_ht]: ["PUT", "/v1/whatsapp/waba/eventdestinations", 200] }, () => PutWhatsAppBusinessAccountEventDestinationsInput$, () => PutWhatsAppBusinessAccountEventDestinationsOutput$
@@ -720,6 +961,12 @@ export var TagResource$: StaticOperationSchema = [9, n0, _TR,
 ];
 export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
   { [_ht]: ["POST", "/v1/tags/untag-resource", 200] }, () => UntagResourceInput$, () => UntagResourceOutput$
+];
+export var UpdateWhatsAppFlow$: StaticOperationSchema = [9, n0, _UWAF,
+  { [_ht]: ["POST", "/v1/whatsapp/flow/update", 200] }, () => UpdateWhatsAppFlowInput$, () => UpdateWhatsAppFlowOutput$
+];
+export var UpdateWhatsAppFlowAssets$: StaticOperationSchema = [9, n0, _UWAFA,
+  { [_ht]: ["POST", "/v1/whatsapp/flow/assets/update", 200] }, () => UpdateWhatsAppFlowAssetsInput$, () => UpdateWhatsAppFlowAssetsOutput$
 ];
 export var UpdateWhatsAppMessageTemplate$: StaticOperationSchema = [9, n0, _UWAMT,
   { [_ht]: ["POST", "/v1/whatsapp/template", 200] }, () => UpdateWhatsAppMessageTemplateInput$, () => UpdateWhatsAppMessageTemplateOutput$

@@ -8,6 +8,11 @@ import {
   AssociateWhatsAppBusinessAccountCommand,
 } from "./commands/AssociateWhatsAppBusinessAccountCommand";
 import {
+  type CreateWhatsAppFlowCommandInput,
+  type CreateWhatsAppFlowCommandOutput,
+  CreateWhatsAppFlowCommand,
+} from "./commands/CreateWhatsAppFlowCommand";
+import {
   type CreateWhatsAppMessageTemplateCommandInput,
   type CreateWhatsAppMessageTemplateCommandOutput,
   CreateWhatsAppMessageTemplateCommand,
@@ -23,6 +28,11 @@ import {
   CreateWhatsAppMessageTemplateMediaCommand,
 } from "./commands/CreateWhatsAppMessageTemplateMediaCommand";
 import {
+  type DeleteWhatsAppFlowCommandInput,
+  type DeleteWhatsAppFlowCommandOutput,
+  DeleteWhatsAppFlowCommand,
+} from "./commands/DeleteWhatsAppFlowCommand";
+import {
   type DeleteWhatsAppMessageMediaCommandInput,
   type DeleteWhatsAppMessageMediaCommandOutput,
   DeleteWhatsAppMessageMediaCommand,
@@ -32,6 +42,11 @@ import {
   type DeleteWhatsAppMessageTemplateCommandOutput,
   DeleteWhatsAppMessageTemplateCommand,
 } from "./commands/DeleteWhatsAppMessageTemplateCommand";
+import {
+  type DeprecateWhatsAppFlowCommandInput,
+  type DeprecateWhatsAppFlowCommandOutput,
+  DeprecateWhatsAppFlowCommand,
+} from "./commands/DeprecateWhatsAppFlowCommand";
 import {
   type DisassociateWhatsAppBusinessAccountCommandInput,
   type DisassociateWhatsAppBusinessAccountCommandOutput,
@@ -47,6 +62,16 @@ import {
   type GetLinkedWhatsAppBusinessAccountPhoneNumberCommandOutput,
   GetLinkedWhatsAppBusinessAccountPhoneNumberCommand,
 } from "./commands/GetLinkedWhatsAppBusinessAccountPhoneNumberCommand";
+import {
+  type GetWhatsAppFlowCommandInput,
+  type GetWhatsAppFlowCommandOutput,
+  GetWhatsAppFlowCommand,
+} from "./commands/GetWhatsAppFlowCommand";
+import {
+  type GetWhatsAppFlowPreviewCommandInput,
+  type GetWhatsAppFlowPreviewCommandOutput,
+  GetWhatsAppFlowPreviewCommand,
+} from "./commands/GetWhatsAppFlowPreviewCommand";
 import {
   type GetWhatsAppMessageMediaCommandInput,
   type GetWhatsAppMessageMediaCommandOutput,
@@ -68,6 +93,16 @@ import {
   ListTagsForResourceCommand,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListWhatsAppFlowAssetsCommandInput,
+  type ListWhatsAppFlowAssetsCommandOutput,
+  ListWhatsAppFlowAssetsCommand,
+} from "./commands/ListWhatsAppFlowAssetsCommand";
+import {
+  type ListWhatsAppFlowsCommandInput,
+  type ListWhatsAppFlowsCommandOutput,
+  ListWhatsAppFlowsCommand,
+} from "./commands/ListWhatsAppFlowsCommand";
+import {
   type ListWhatsAppMessageTemplatesCommandInput,
   type ListWhatsAppMessageTemplatesCommandOutput,
   ListWhatsAppMessageTemplatesCommand,
@@ -82,6 +117,11 @@ import {
   type PostWhatsAppMessageMediaCommandOutput,
   PostWhatsAppMessageMediaCommand,
 } from "./commands/PostWhatsAppMessageMediaCommand";
+import {
+  type PublishWhatsAppFlowCommandInput,
+  type PublishWhatsAppFlowCommandOutput,
+  PublishWhatsAppFlowCommand,
+} from "./commands/PublishWhatsAppFlowCommand";
 import {
   type PutWhatsAppBusinessAccountEventDestinationsCommandInput,
   type PutWhatsAppBusinessAccountEventDestinationsCommandOutput,
@@ -103,40 +143,64 @@ import {
   UntagResourceCommand,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateWhatsAppFlowAssetsCommandInput,
+  type UpdateWhatsAppFlowAssetsCommandOutput,
+  UpdateWhatsAppFlowAssetsCommand,
+} from "./commands/UpdateWhatsAppFlowAssetsCommand";
+import {
+  type UpdateWhatsAppFlowCommandInput,
+  type UpdateWhatsAppFlowCommandOutput,
+  UpdateWhatsAppFlowCommand,
+} from "./commands/UpdateWhatsAppFlowCommand";
+import {
   type UpdateWhatsAppMessageTemplateCommandInput,
   type UpdateWhatsAppMessageTemplateCommandOutput,
   UpdateWhatsAppMessageTemplateCommand,
 } from "./commands/UpdateWhatsAppMessageTemplateCommand";
 import { paginateListLinkedWhatsAppBusinessAccounts } from "./pagination/ListLinkedWhatsAppBusinessAccountsPaginator";
+import { paginateListWhatsAppFlowAssets } from "./pagination/ListWhatsAppFlowAssetsPaginator";
+import { paginateListWhatsAppFlows } from "./pagination/ListWhatsAppFlowsPaginator";
 import { paginateListWhatsAppMessageTemplates } from "./pagination/ListWhatsAppMessageTemplatesPaginator";
 import { paginateListWhatsAppTemplateLibrary } from "./pagination/ListWhatsAppTemplateLibraryPaginator";
 import { SocialMessagingClient } from "./SocialMessagingClient";
 
 const commands = {
   AssociateWhatsAppBusinessAccountCommand,
+  CreateWhatsAppFlowCommand,
   CreateWhatsAppMessageTemplateCommand,
   CreateWhatsAppMessageTemplateFromLibraryCommand,
   CreateWhatsAppMessageTemplateMediaCommand,
+  DeleteWhatsAppFlowCommand,
   DeleteWhatsAppMessageMediaCommand,
   DeleteWhatsAppMessageTemplateCommand,
+  DeprecateWhatsAppFlowCommand,
   DisassociateWhatsAppBusinessAccountCommand,
   GetLinkedWhatsAppBusinessAccountCommand,
   GetLinkedWhatsAppBusinessAccountPhoneNumberCommand,
+  GetWhatsAppFlowCommand,
+  GetWhatsAppFlowPreviewCommand,
   GetWhatsAppMessageMediaCommand,
   GetWhatsAppMessageTemplateCommand,
   ListLinkedWhatsAppBusinessAccountsCommand,
   ListTagsForResourceCommand,
+  ListWhatsAppFlowAssetsCommand,
+  ListWhatsAppFlowsCommand,
   ListWhatsAppMessageTemplatesCommand,
   ListWhatsAppTemplateLibraryCommand,
   PostWhatsAppMessageMediaCommand,
+  PublishWhatsAppFlowCommand,
   PutWhatsAppBusinessAccountEventDestinationsCommand,
   SendWhatsAppMessageCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateWhatsAppFlowCommand,
+  UpdateWhatsAppFlowAssetsCommand,
   UpdateWhatsAppMessageTemplateCommand,
 };
 const paginators = {
   paginateListLinkedWhatsAppBusinessAccounts,
+  paginateListWhatsAppFlowAssets,
+  paginateListWhatsAppFlows,
   paginateListWhatsAppMessageTemplates,
   paginateListWhatsAppTemplateLibrary,
 };
@@ -158,6 +222,23 @@ export interface SocialMessaging {
     args: AssociateWhatsAppBusinessAccountCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociateWhatsAppBusinessAccountCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateWhatsAppFlowCommand}
+   */
+  createWhatsAppFlow(
+    args: CreateWhatsAppFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateWhatsAppFlowCommandOutput>;
+  createWhatsAppFlow(
+    args: CreateWhatsAppFlowCommandInput,
+    cb: (err: any, data?: CreateWhatsAppFlowCommandOutput) => void
+  ): void;
+  createWhatsAppFlow(
+    args: CreateWhatsAppFlowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateWhatsAppFlowCommandOutput) => void
   ): void;
 
   /**
@@ -212,6 +293,23 @@ export interface SocialMessaging {
   ): void;
 
   /**
+   * @see {@link DeleteWhatsAppFlowCommand}
+   */
+  deleteWhatsAppFlow(
+    args: DeleteWhatsAppFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteWhatsAppFlowCommandOutput>;
+  deleteWhatsAppFlow(
+    args: DeleteWhatsAppFlowCommandInput,
+    cb: (err: any, data?: DeleteWhatsAppFlowCommandOutput) => void
+  ): void;
+  deleteWhatsAppFlow(
+    args: DeleteWhatsAppFlowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteWhatsAppFlowCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteWhatsAppMessageMediaCommand}
    */
   deleteWhatsAppMessageMedia(
@@ -243,6 +341,23 @@ export interface SocialMessaging {
     args: DeleteWhatsAppMessageTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteWhatsAppMessageTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeprecateWhatsAppFlowCommand}
+   */
+  deprecateWhatsAppFlow(
+    args: DeprecateWhatsAppFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeprecateWhatsAppFlowCommandOutput>;
+  deprecateWhatsAppFlow(
+    args: DeprecateWhatsAppFlowCommandInput,
+    cb: (err: any, data?: DeprecateWhatsAppFlowCommandOutput) => void
+  ): void;
+  deprecateWhatsAppFlow(
+    args: DeprecateWhatsAppFlowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeprecateWhatsAppFlowCommandOutput) => void
   ): void;
 
   /**
@@ -294,6 +409,40 @@ export interface SocialMessaging {
     args: GetLinkedWhatsAppBusinessAccountPhoneNumberCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetLinkedWhatsAppBusinessAccountPhoneNumberCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetWhatsAppFlowCommand}
+   */
+  getWhatsAppFlow(
+    args: GetWhatsAppFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetWhatsAppFlowCommandOutput>;
+  getWhatsAppFlow(
+    args: GetWhatsAppFlowCommandInput,
+    cb: (err: any, data?: GetWhatsAppFlowCommandOutput) => void
+  ): void;
+  getWhatsAppFlow(
+    args: GetWhatsAppFlowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetWhatsAppFlowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetWhatsAppFlowPreviewCommand}
+   */
+  getWhatsAppFlowPreview(
+    args: GetWhatsAppFlowPreviewCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetWhatsAppFlowPreviewCommandOutput>;
+  getWhatsAppFlowPreview(
+    args: GetWhatsAppFlowPreviewCommandInput,
+    cb: (err: any, data?: GetWhatsAppFlowPreviewCommandOutput) => void
+  ): void;
+  getWhatsAppFlowPreview(
+    args: GetWhatsAppFlowPreviewCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetWhatsAppFlowPreviewCommandOutput) => void
   ): void;
 
   /**
@@ -366,6 +515,40 @@ export interface SocialMessaging {
   ): void;
 
   /**
+   * @see {@link ListWhatsAppFlowAssetsCommand}
+   */
+  listWhatsAppFlowAssets(
+    args: ListWhatsAppFlowAssetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListWhatsAppFlowAssetsCommandOutput>;
+  listWhatsAppFlowAssets(
+    args: ListWhatsAppFlowAssetsCommandInput,
+    cb: (err: any, data?: ListWhatsAppFlowAssetsCommandOutput) => void
+  ): void;
+  listWhatsAppFlowAssets(
+    args: ListWhatsAppFlowAssetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListWhatsAppFlowAssetsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListWhatsAppFlowsCommand}
+   */
+  listWhatsAppFlows(
+    args: ListWhatsAppFlowsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListWhatsAppFlowsCommandOutput>;
+  listWhatsAppFlows(
+    args: ListWhatsAppFlowsCommandInput,
+    cb: (err: any, data?: ListWhatsAppFlowsCommandOutput) => void
+  ): void;
+  listWhatsAppFlows(
+    args: ListWhatsAppFlowsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListWhatsAppFlowsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListWhatsAppMessageTemplatesCommand}
    */
   listWhatsAppMessageTemplates(
@@ -414,6 +597,23 @@ export interface SocialMessaging {
     args: PostWhatsAppMessageMediaCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PostWhatsAppMessageMediaCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PublishWhatsAppFlowCommand}
+   */
+  publishWhatsAppFlow(
+    args: PublishWhatsAppFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PublishWhatsAppFlowCommandOutput>;
+  publishWhatsAppFlow(
+    args: PublishWhatsAppFlowCommandInput,
+    cb: (err: any, data?: PublishWhatsAppFlowCommandOutput) => void
+  ): void;
+  publishWhatsAppFlow(
+    args: PublishWhatsAppFlowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PublishWhatsAppFlowCommandOutput) => void
   ): void;
 
   /**
@@ -485,6 +685,40 @@ export interface SocialMessaging {
   ): void;
 
   /**
+   * @see {@link UpdateWhatsAppFlowCommand}
+   */
+  updateWhatsAppFlow(
+    args: UpdateWhatsAppFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateWhatsAppFlowCommandOutput>;
+  updateWhatsAppFlow(
+    args: UpdateWhatsAppFlowCommandInput,
+    cb: (err: any, data?: UpdateWhatsAppFlowCommandOutput) => void
+  ): void;
+  updateWhatsAppFlow(
+    args: UpdateWhatsAppFlowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateWhatsAppFlowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateWhatsAppFlowAssetsCommand}
+   */
+  updateWhatsAppFlowAssets(
+    args: UpdateWhatsAppFlowAssetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateWhatsAppFlowAssetsCommandOutput>;
+  updateWhatsAppFlowAssets(
+    args: UpdateWhatsAppFlowAssetsCommandInput,
+    cb: (err: any, data?: UpdateWhatsAppFlowAssetsCommandOutput) => void
+  ): void;
+  updateWhatsAppFlowAssets(
+    args: UpdateWhatsAppFlowAssetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateWhatsAppFlowAssetsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateWhatsAppMessageTemplateCommand}
    */
   updateWhatsAppMessageTemplate(
@@ -511,6 +745,28 @@ export interface SocialMessaging {
     args?: ListLinkedWhatsAppBusinessAccountsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListLinkedWhatsAppBusinessAccountsCommandOutput>;
+
+  /**
+   * @see {@link ListWhatsAppFlowAssetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWhatsAppFlowAssetsCommandOutput}.
+   */
+  paginateListWhatsAppFlowAssets(
+    args: ListWhatsAppFlowAssetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWhatsAppFlowAssetsCommandOutput>;
+
+  /**
+   * @see {@link ListWhatsAppFlowsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWhatsAppFlowsCommandOutput}.
+   */
+  paginateListWhatsAppFlows(
+    args: ListWhatsAppFlowsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWhatsAppFlowsCommandOutput>;
 
   /**
    * @see {@link ListWhatsAppMessageTemplatesCommand}

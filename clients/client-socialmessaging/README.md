@@ -47,16 +47,16 @@ To install this package, use the CLI of your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SocialMessagingClient` and
-the commands you need, for example `ListTagsForResourceCommand`:
+the commands you need, for example `ListWhatsAppFlowsCommand`:
 
 ```js
 // ES5 example
-const { SocialMessagingClient, ListTagsForResourceCommand } = require("@aws-sdk/client-socialmessaging");
+const { SocialMessagingClient, ListWhatsAppFlowsCommand } = require("@aws-sdk/client-socialmessaging");
 ```
 
 ```ts
 // ES6+ example
-import { SocialMessagingClient, ListTagsForResourceCommand } from "@aws-sdk/client-socialmessaging";
+import { SocialMessagingClient, ListWhatsAppFlowsCommand } from "@aws-sdk/client-socialmessaging";
 ```
 
 ### Usage
@@ -73,7 +73,7 @@ To send a request:
 const client = new SocialMessagingClient({ region: "REGION" });
 
 const params = { /** input parameters */ };
-const command = new ListTagsForResourceCommand(params);
+const command = new ListWhatsAppFlowsCommand(params);
 ```
 
 #### Async/await
@@ -129,7 +129,7 @@ const client = new SocialMessaging({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.listTagsForResource(params);
+  const data = await client.listWhatsAppFlows(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -137,7 +137,7 @@ try {
 
 // Promises.
 client
-  .listTagsForResource(params)
+  .listWhatsAppFlows(params)
   .then((data) => {
     // process data.
   })
@@ -146,7 +146,7 @@ client
   });
 
 // callbacks (not recommended).
-client.listTagsForResource(params, (err, data) => {
+client.listWhatsAppFlows(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -213,6 +213,13 @@ AssociateWhatsAppBusinessAccount
 </details>
 <details>
 <summary>
+CreateWhatsAppFlow
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/socialmessaging/command/CreateWhatsAppFlowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/CreateWhatsAppFlowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/CreateWhatsAppFlowCommandOutput/)
+</details>
+<details>
+<summary>
 CreateWhatsAppMessageTemplate
 </summary>
 
@@ -234,6 +241,13 @@ CreateWhatsAppMessageTemplateMedia
 </details>
 <details>
 <summary>
+DeleteWhatsAppFlow
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/socialmessaging/command/DeleteWhatsAppFlowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/DeleteWhatsAppFlowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/DeleteWhatsAppFlowCommandOutput/)
+</details>
+<details>
+<summary>
 DeleteWhatsAppMessageMedia
 </summary>
 
@@ -245,6 +259,13 @@ DeleteWhatsAppMessageTemplate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/socialmessaging/command/DeleteWhatsAppMessageTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/DeleteWhatsAppMessageTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/DeleteWhatsAppMessageTemplateCommandOutput/)
+</details>
+<details>
+<summary>
+DeprecateWhatsAppFlow
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/socialmessaging/command/DeprecateWhatsAppFlowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/DeprecateWhatsAppFlowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/DeprecateWhatsAppFlowCommandOutput/)
 </details>
 <details>
 <summary>
@@ -266,6 +287,20 @@ GetLinkedWhatsAppBusinessAccountPhoneNumber
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/socialmessaging/command/GetLinkedWhatsAppBusinessAccountPhoneNumberCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/GetLinkedWhatsAppBusinessAccountPhoneNumberCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/GetLinkedWhatsAppBusinessAccountPhoneNumberCommandOutput/)
+</details>
+<details>
+<summary>
+GetWhatsAppFlow
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/socialmessaging/command/GetWhatsAppFlowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/GetWhatsAppFlowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/GetWhatsAppFlowCommandOutput/)
+</details>
+<details>
+<summary>
+GetWhatsAppFlowPreview
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/socialmessaging/command/GetWhatsAppFlowPreviewCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/GetWhatsAppFlowPreviewCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/GetWhatsAppFlowPreviewCommandOutput/)
 </details>
 <details>
 <summary>
@@ -297,6 +332,20 @@ ListTagsForResource
 </details>
 <details>
 <summary>
+ListWhatsAppFlowAssets
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/socialmessaging/command/ListWhatsAppFlowAssetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/ListWhatsAppFlowAssetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/ListWhatsAppFlowAssetsCommandOutput/)
+</details>
+<details>
+<summary>
+ListWhatsAppFlows
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/socialmessaging/command/ListWhatsAppFlowsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/ListWhatsAppFlowsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/ListWhatsAppFlowsCommandOutput/)
+</details>
+<details>
+<summary>
 ListWhatsAppMessageTemplates
 </summary>
 
@@ -315,6 +364,13 @@ PostWhatsAppMessageMedia
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/socialmessaging/command/PostWhatsAppMessageMediaCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/PostWhatsAppMessageMediaCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/PostWhatsAppMessageMediaCommandOutput/)
+</details>
+<details>
+<summary>
+PublishWhatsAppFlow
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/socialmessaging/command/PublishWhatsAppFlowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/PublishWhatsAppFlowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/PublishWhatsAppFlowCommandOutput/)
 </details>
 <details>
 <summary>
@@ -343,6 +399,20 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/socialmessaging/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/UntagResourceCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateWhatsAppFlow
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/socialmessaging/command/UpdateWhatsAppFlowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/UpdateWhatsAppFlowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/UpdateWhatsAppFlowCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateWhatsAppFlowAssets
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/socialmessaging/command/UpdateWhatsAppFlowAssetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/UpdateWhatsAppFlowAssetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/UpdateWhatsAppFlowAssetsCommandOutput/)
 </details>
 <details>
 <summary>
