@@ -5,9 +5,11 @@ import type {
   AwsSdkSigV4APreviouslyResolved,
   AwsSdkSigV4AuthInputConfig,
   AwsSdkSigV4AuthResolvedConfig,
-  AwsSdkSigV4PreviouslyResolved,
+  AwsSdkSigV4PreviouslyResolved} from "@aws-sdk/core/httpAuthSchemes";
+import {
+  resolveAwsSdkSigV4AConfig,
+  resolveAwsSdkSigV4Config,
 } from "@aws-sdk/core/httpAuthSchemes";
-import { resolveAwsSdkSigV4AConfig, resolveAwsSdkSigV4Config } from "@aws-sdk/core/httpAuthSchemes";
 import { SignatureV4MultiRegion } from "@aws-sdk/signature-v4-multi-region";
 import { getSmithyContext, normalizeProvider } from "@smithy/core/client";
 import { type EndpointParameterInstructions, resolveParams } from "@smithy/core/endpoints";
@@ -123,11 +125,9 @@ const _defaultSTSHttpAuthSchemeParametersProvider = async (
 ): Promise<_STSHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 /**
@@ -286,13 +286,11 @@ const _defaultSTSHttpAuthSchemeProvider: _STSHttpAuthSchemeProvider = (authParam
  */
 export const defaultSTSHttpAuthSchemeProvider: STSHttpAuthSchemeProvider = createEndpointRuleSetHttpAuthSchemeProvider(
   defaultEndpointResolver,
-  _defaultSTSHttpAuthSchemeProvider,
-  {
+  _defaultSTSHttpAuthSchemeProvider, {
     "aws.auth#sigv4": createAwsAuthSigv4HttpAuthOption,
     "aws.auth#sigv4a": createAwsAuthSigv4aHttpAuthOption,
     "smithy.api#noAuth": createSmithyApiNoAuthHttpAuthOption,
-  }
-);
+  });
 
 /**
  * @public

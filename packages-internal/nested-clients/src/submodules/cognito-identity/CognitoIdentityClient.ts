@@ -72,12 +72,16 @@ export { __Client };
 /**
  * @public
  */
-export type ServiceInputTypes = GetCredentialsForIdentityCommandInput | GetIdCommandInput;
+export type ServiceInputTypes =
+  | GetCredentialsForIdentityCommandInput
+  | GetIdCommandInput;
 
 /**
  * @public
  */
-export type ServiceOutputTypes = GetCredentialsForIdentityCommandOutput | GetIdCommandOutput;
+export type ServiceOutputTypes =
+  | GetCredentialsForIdentityCommandOutput
+  | GetIdCommandOutput;
 
 /**
  * @public

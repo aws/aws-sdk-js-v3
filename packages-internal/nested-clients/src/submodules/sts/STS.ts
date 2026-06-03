@@ -23,8 +23,14 @@ export interface STS {
   /**
    * @see {@link AssumeRoleCommand}
    */
-  assumeRole(args: AssumeRoleCommandInput, options?: __HttpHandlerOptions): Promise<AssumeRoleCommandOutput>;
-  assumeRole(args: AssumeRoleCommandInput, cb: (err: any, data?: AssumeRoleCommandOutput) => void): void;
+  assumeRole(
+    args: AssumeRoleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssumeRoleCommandOutput>;
+  assumeRole(
+    args: AssumeRoleCommandInput,
+    cb: (err: any, data?: AssumeRoleCommandOutput) => void
+  ): void;
   assumeRole(
     args: AssumeRoleCommandInput,
     options: __HttpHandlerOptions,

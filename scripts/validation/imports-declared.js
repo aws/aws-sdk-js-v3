@@ -42,6 +42,9 @@ async function validateDist(packageDir, pkgJson, distName) {
       if (NODE_BUILTINS.has(specifier)) {
         continue;
       }
+      if (specifier === "vitest") {
+        continue;
+      }
       const pkg = getPackageName(specifier);
       if (pkg === pkgJson.name) {
         continue;
@@ -80,10 +83,7 @@ async function validate(packageDir) {
 async function main() {
   const packages = getPackageDirs();
   const errors = [];
-  for (const { dir, generated } of packages) {
-    if (generated) {
-      continue;
-    }
+  for (const { dir } of packages) {
     errors.push(...(await validate(dir)));
   }
   if (errors.length) {

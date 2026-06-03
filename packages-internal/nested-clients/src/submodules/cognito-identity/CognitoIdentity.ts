@@ -36,8 +36,14 @@ export interface CognitoIdentity {
   /**
    * @see {@link GetIdCommand}
    */
-  getId(args: GetIdCommandInput, options?: __HttpHandlerOptions): Promise<GetIdCommandOutput>;
-  getId(args: GetIdCommandInput, cb: (err: any, data?: GetIdCommandOutput) => void): void;
+  getId(
+    args: GetIdCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIdCommandOutput>;
+  getId(
+    args: GetIdCommandInput,
+    cb: (err: any, data?: GetIdCommandOutput) => void
+  ): void;
   getId(
     args: GetIdCommandInput,
     options: __HttpHandlerOptions,

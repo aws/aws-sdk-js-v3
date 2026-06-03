@@ -11,7 +11,6 @@ import {
   resolveHostHeaderConfig,
   resolveUserAgentConfig,
 } from "@aws-sdk/core/client";
-import { getAddExpectContinuePlugin } from "@aws-sdk/middleware-sdk-s3/s3";
 import {
   type FlexibleChecksumsInputConfig,
   type FlexibleChecksumsResolvedConfig,
@@ -20,6 +19,7 @@ import {
 import {
   type S3InputConfig,
   type S3ResolvedConfig,
+  getAddExpectContinuePlugin,
   getRegionRedirectMiddlewarePlugin,
   getS3ExpressHttpSigningPlugin,
   getS3ExpressPlugin,

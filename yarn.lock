@@ -108,6 +108,7 @@ __metadata:
     "@aws-sdk/middleware-flexible-checksums": "workspace:^3.974.26"
     "@aws-sdk/middleware-sdk-s3": "workspace:^3.972.47"
     "@aws-sdk/signature-v4-multi-region": "workspace:^3.996.31"
+    "@aws-sdk/weather": "workspace:^3.1061.0"
     "@smithy/core": "npm:^3.24.6"
     "@smithy/node-http-handler": "npm:^4.7.6"
     "@smithy/types": "npm:^4.14.3"
@@ -8717,8 +8718,7 @@ __metadata:
     "@aws-crypto/sha256-js": "npm:5.2.0"
     "@aws-sdk/core": "workspace:^3.974.17"
     "@aws-sdk/credential-provider-node": "workspace:^3.972.50"
-    "@aws-sdk/middleware-bucket-endpoint": "workspace:^3.972.20"
-    "@aws-sdk/middleware-sdk-s3-control": "workspace:^3.972.21"
+    "@aws-sdk/middleware-sdk-s3": "workspace:^3.972.47"
     "@aws-sdk/types": "workspace:^3.973.10"
     "@smithy/core": "npm:^3.24.6"
     "@smithy/fetch-http-handler": "npm:^5.4.6"
@@ -8746,12 +8746,8 @@ __metadata:
     "@aws-crypto/sha256-js": "npm:5.2.0"
     "@aws-sdk/core": "workspace:^3.974.17"
     "@aws-sdk/credential-provider-node": "workspace:^3.972.50"
-    "@aws-sdk/middleware-bucket-endpoint": "workspace:^3.972.20"
-    "@aws-sdk/middleware-expect-continue": "workspace:^3.972.16"
     "@aws-sdk/middleware-flexible-checksums": "workspace:^3.974.26"
-    "@aws-sdk/middleware-location-constraint": "workspace:^3.972.13"
     "@aws-sdk/middleware-sdk-s3": "workspace:^3.972.47"
-    "@aws-sdk/middleware-ssec": "workspace:^3.972.13"
     "@aws-sdk/signature-v4-crt": "workspace:3.1061.0"
     "@aws-sdk/signature-v4-multi-region": "workspace:^3.996.31"
     "@aws-sdk/types": "workspace:^3.973.10"
@@ -11300,7 +11296,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/middleware-expect-continue@workspace:^3.972.16, @aws-sdk/middleware-expect-continue@workspace:packages-internal/middleware-expect-continue":
+"@aws-sdk/middleware-expect-continue@workspace:packages-internal/middleware-expect-continue":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/middleware-expect-continue@workspace:packages-internal/middleware-expect-continue"
   dependencies:
@@ -11353,7 +11349,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/middleware-location-constraint@workspace:^3.972.13, @aws-sdk/middleware-location-constraint@workspace:packages-internal/middleware-location-constraint":
+"@aws-sdk/middleware-location-constraint@workspace:packages-internal/middleware-location-constraint":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/middleware-location-constraint@workspace:packages-internal/middleware-location-constraint"
   dependencies:
@@ -11490,7 +11486,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/middleware-sdk-s3-control@workspace:^3.972.21, @aws-sdk/middleware-sdk-s3-control@workspace:packages-internal/middleware-sdk-s3-control":
+"@aws-sdk/middleware-sdk-s3-control@workspace:packages-internal/middleware-sdk-s3-control":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/middleware-sdk-s3-control@workspace:packages-internal/middleware-sdk-s3-control"
   dependencies:
@@ -11586,7 +11582,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/middleware-ssec@workspace:^3.972.13, @aws-sdk/middleware-ssec@workspace:packages-internal/middleware-ssec":
+"@aws-sdk/middleware-ssec@workspace:packages-internal/middleware-ssec":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/middleware-ssec@workspace:packages-internal/middleware-ssec"
   dependencies:
@@ -12084,7 +12080,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/weather@workspace:private/weather":
+"@aws-sdk/weather@workspace:^3.1061.0, @aws-sdk/weather@workspace:private/weather":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/weather@workspace:private/weather"
   dependencies:

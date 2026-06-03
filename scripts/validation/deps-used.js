@@ -12,7 +12,7 @@ const path = require("node:path");
 const walk = require("../utils/walk");
 const { getPackageName, extractImports, getPackageDirs } = require("./validation-shared");
 
-const IMPLICIT_DEPS = new Set(["tslib", "@aws-sdk/types", "@smithy/types"]);
+const IMPLICIT_DEPS = new Set(["tslib", "@aws-sdk/types", "@smithy/types", "vitest"]);
 const DTS_IMPORT_RE = /from\s+["']([^"']+)["']/g;
 
 /**
@@ -93,10 +93,8 @@ async function validate(packageDir) {
 async function main() {
   const packages = getPackageDirs();
   const errors = [];
-  for (const { dir, generated } of packages) {
-    if (generated) {
-      continue;
-    }
+  for (const { dir } of packages) {
+    if (dir.includes("/private/")) continue;
     errors.push(...(await validate(dir)));
   }
   if (errors.length) {

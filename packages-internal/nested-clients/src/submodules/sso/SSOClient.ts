@@ -71,12 +71,14 @@ export { __Client };
 /**
  * @public
  */
-export type ServiceInputTypes = GetRoleCredentialsCommandInput;
+export type ServiceInputTypes =
+  | GetRoleCredentialsCommandInput;
 
 /**
  * @public
  */
-export type ServiceOutputTypes = GetRoleCredentialsCommandOutput;
+export type ServiceOutputTypes =
+  | GetRoleCredentialsCommandOutput;
 
 /**
  * @public

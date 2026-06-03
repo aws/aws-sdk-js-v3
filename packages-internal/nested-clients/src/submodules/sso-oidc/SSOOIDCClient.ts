@@ -68,12 +68,14 @@ export { __Client };
 /**
  * @public
  */
-export type ServiceInputTypes = CreateTokenCommandInput;
+export type ServiceInputTypes =
+  | CreateTokenCommandInput;
 
 /**
  * @public
  */
-export type ServiceOutputTypes = CreateTokenCommandOutput;
+export type ServiceOutputTypes =
+  | CreateTokenCommandOutput;
 
 /**
  * @public

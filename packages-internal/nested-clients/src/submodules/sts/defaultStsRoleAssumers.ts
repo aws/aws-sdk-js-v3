@@ -7,8 +7,11 @@ import type { AwsCredentialIdentity, Logger, Provider } from "@smithy/types";
 
 import type { AssumeRoleCommandInput } from "./commands/AssumeRoleCommand";
 import { AssumeRoleCommand } from "./commands/AssumeRoleCommand";
-import type { AssumeRoleWithWebIdentityCommandInput } from "./commands/AssumeRoleWithWebIdentityCommand";
-import { AssumeRoleWithWebIdentityCommand } from "./commands/AssumeRoleWithWebIdentityCommand";
+import type {
+  AssumeRoleWithWebIdentityCommandInput} from "./commands/AssumeRoleWithWebIdentityCommand";
+import {
+  AssumeRoleWithWebIdentityCommand
+} from "./commands/AssumeRoleWithWebIdentityCommand";
 import type { STSClient, STSClientConfig } from "./STSClient";
 
 /**

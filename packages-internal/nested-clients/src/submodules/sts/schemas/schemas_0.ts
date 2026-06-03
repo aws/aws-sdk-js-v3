@@ -84,67 +84,46 @@ const _s_registry = TypeRegistry.for(_s);
 export var STSServiceException$: StaticErrorSchema = [-3, _s, "STSServiceException", 0, [], []];
 _s_registry.registerError(STSServiceException$, STSServiceException);
 const n0_registry = TypeRegistry.for(n0);
-export var ExpiredTokenException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _ETE,
+export var ExpiredTokenException$: StaticErrorSchema = [-3, n0, _ETE,
   { [_aQE]: [`ExpiredTokenException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
 n0_registry.registerError(ExpiredTokenException$, ExpiredTokenException);
-export var IDPCommunicationErrorException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IDPCEE,
+export var IDPCommunicationErrorException$: StaticErrorSchema = [-3, n0, _IDPCEE,
   { [_aQE]: [`IDPCommunicationError`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
 n0_registry.registerError(IDPCommunicationErrorException$, IDPCommunicationErrorException);
-export var IDPRejectedClaimException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IDPRCE,
+export var IDPRejectedClaimException$: StaticErrorSchema = [-3, n0, _IDPRCE,
   { [_aQE]: [`IDPRejectedClaim`, 403], [_e]: _c, [_hE]: 403 },
   [_m],
-  [0],
+  [0]
 ];
 n0_registry.registerError(IDPRejectedClaimException$, IDPRejectedClaimException);
-export var InvalidIdentityTokenException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IITE,
+export var InvalidIdentityTokenException$: StaticErrorSchema = [-3, n0, _IITE,
   { [_aQE]: [`InvalidIdentityToken`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
 n0_registry.registerError(InvalidIdentityTokenException$, InvalidIdentityTokenException);
-export var MalformedPolicyDocumentException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _MPDE,
+export var MalformedPolicyDocumentException$: StaticErrorSchema = [-3, n0, _MPDE,
   { [_aQE]: [`MalformedPolicyDocument`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
 n0_registry.registerError(MalformedPolicyDocumentException$, MalformedPolicyDocumentException);
-export var PackedPolicyTooLargeException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _PPTLE,
+export var PackedPolicyTooLargeException$: StaticErrorSchema = [-3, n0, _PPTLE,
   { [_aQE]: [`PackedPolicyTooLarge`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
 n0_registry.registerError(PackedPolicyTooLargeException$, PackedPolicyTooLargeException);
-export var RegionDisabledException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _RDE,
+export var RegionDisabledException$: StaticErrorSchema = [-3, n0, _RDE,
   { [_aQE]: [`RegionDisabledException`, 403], [_e]: _c, [_hE]: 403 },
   [_m],
-  [0],
+  [0]
 ];
 n0_registry.registerError(RegionDisabledException$, RegionDisabledException);
 /**
@@ -152,66 +131,70 @@ n0_registry.registerError(RegionDisabledException$, RegionDisabledException);
  * @internal
  *
  */
-export const errorTypeRegistries = [_s_registry, n0_registry];
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var accessKeySecretType: StaticSimpleSchema = [0, n0, _aKST, 8, 0];
 var clientTokenType: StaticSimpleSchema = [0, n0, _cTT, 8, 0];
-export var AssumedRoleUser$: StaticStructureSchema = [3, n0, _ARU, 0, [_ARI, _A], [0, 0], 2];
-export var AssumeRoleRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _ARR,
+export var AssumedRoleUser$: StaticStructureSchema = [3, n0, _ARU,
+  0,
+  [_ARI, _A],
+  [0, 0], 2
+];
+export var AssumeRoleRequest$: StaticStructureSchema = [3, n0, _ARR,
   0,
   [_RA, _RSN, _PA, _P, _DS, _T, _TTK, _EI, _SN, _TC, _SI, _PC],
-  [0, 0, () => policyDescriptorListType, 0, 1, () => tagListType, 64 | 0, 0, 0, 0, 0, () => ProvidedContextsListType],
-  2,
+  [0, 0, () => policyDescriptorListType, 0, 1, () => tagListType, 64 | 0, 0, 0, 0, 0, () => ProvidedContextsListType], 2
 ];
-export var AssumeRoleResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _ARRs,
+export var AssumeRoleResponse$: StaticStructureSchema = [3, n0, _ARRs,
   0,
   [_C, _ARU, _PPS, _SI],
-  [[() => Credentials$, 0], () => AssumedRoleUser$, 1, 0],
+  [[() => Credentials$, 0], () => AssumedRoleUser$, 1, 0]
 ];
-export var AssumeRoleWithWebIdentityRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _ARWWIR,
+export var AssumeRoleWithWebIdentityRequest$: StaticStructureSchema = [3, n0, _ARWWIR,
   0,
   [_RA, _RSN, _WIT, _PI, _PA, _P, _DS],
-  [0, 0, [() => clientTokenType, 0], 0, () => policyDescriptorListType, 0, 1],
-  3,
+  [0, 0, [() => clientTokenType, 0], 0, () => policyDescriptorListType, 0, 1], 3
 ];
-export var AssumeRoleWithWebIdentityResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _ARWWIRs,
+export var AssumeRoleWithWebIdentityResponse$: StaticStructureSchema = [3, n0, _ARWWIRs,
   0,
   [_C, _SFWIT, _ARU, _PPS, _Pr, _Au, _SI],
-  [[() => Credentials$, 0], 0, () => AssumedRoleUser$, 1, 0, 0, 0],
+  [[() => Credentials$, 0], 0, () => AssumedRoleUser$, 1, 0, 0, 0]
 ];
-export var Credentials$: StaticStructureSchema = [
-  3,
-  n0,
-  _C,
+export var Credentials$: StaticStructureSchema = [3, n0, _C,
   0,
   [_AKI, _SAK, _ST, _E],
-  [0, [() => accessKeySecretType, 0], 0, 4],
-  4,
+  [0, [() => accessKeySecretType, 0], 0, 4], 4
 ];
-export var PolicyDescriptorType$: StaticStructureSchema = [3, n0, _PDT, 0, [_a], [0]];
-export var ProvidedContext$: StaticStructureSchema = [3, n0, _PCr, 0, [_PAr, _CA], [0, 0]];
-export var Tag$: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _V], [0, 0], 2];
-var policyDescriptorListType: StaticListSchema = [1, n0, _pDLT, 0, () => PolicyDescriptorType$];
-var ProvidedContextsListType: StaticListSchema = [1, n0, _PCLT, 0, () => ProvidedContext$];
-var tagKeyListType = 64 | 0;
-var tagListType: StaticListSchema = [1, n0, _tLT, 0, () => Tag$];
-export var AssumeRole$: StaticOperationSchema = [9, n0, _AR, 0, () => AssumeRoleRequest$, () => AssumeRoleResponse$];
-export var AssumeRoleWithWebIdentity$: StaticOperationSchema = [
-  9,
-  n0,
-  _ARWWI,
+export var PolicyDescriptorType$: StaticStructureSchema = [3, n0, _PDT,
   0,
-  () => AssumeRoleWithWebIdentityRequest$,
-  () => AssumeRoleWithWebIdentityResponse$,
+  [_a],
+  [0]
+];
+export var ProvidedContext$: StaticStructureSchema = [3, n0, _PCr,
+  0,
+  [_PAr, _CA],
+  [0, 0]
+];
+export var Tag$: StaticStructureSchema = [3, n0, _Ta,
+  0,
+  [_K, _V],
+  [0, 0], 2
+];
+var policyDescriptorListType: StaticListSchema = [1, n0, _pDLT,
+  0, () => PolicyDescriptorType$
+];
+var ProvidedContextsListType: StaticListSchema = [1, n0, _PCLT,
+  0, () => ProvidedContext$
+];
+var tagKeyListType = 64 | 0;
+var tagListType: StaticListSchema = [1, n0, _tLT,
+  0, () => Tag$
+];
+export var AssumeRole$: StaticOperationSchema = [9, n0, _AR,
+  0, () => AssumeRoleRequest$, () => AssumeRoleResponse$
+];
+export var AssumeRoleWithWebIdentity$: StaticOperationSchema = [9, n0, _ARWWI,
+  0, () => AssumeRoleWithWebIdentityRequest$, () => AssumeRoleWithWebIdentityResponse$
 ];
