@@ -349,6 +349,16 @@ export interface SavingsPlansPurchaseAnalysisConfiguration {
    * @public
    */
   LookBackTimePeriod: DateInterval | undefined;
+
+  /**
+   * <p>Specifies the target Savings Plans coverage as a percentage from <code>10</code> to
+   *             <code>100</code>. This field is required when <code>AnalysisType</code> is
+   *             <code>TARGET_AVERAGE_COVERAGE</code>. It defines the target average hourly coverage
+   *             that the recommended Savings Plans commitment should achieve over the lookback
+   *             period.</p>
+   * @public
+   */
+  SavingsPlansTargetCoverage?: number | undefined;
 }
 
 /**

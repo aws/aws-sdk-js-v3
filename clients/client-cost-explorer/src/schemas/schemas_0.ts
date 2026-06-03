@@ -516,6 +516,7 @@ const _SPPRS = "SavingsPlansPurchaseRecommendationSummary";
 const _SPS = "SavingsPlansSavings";
 const _SPT = "SavingsPlansType";
 const _SPTA = "SavingsPlansToAdd";
+const _SPTC = "SavingsPlansTargetCoverage";
 const _SPTE = "SavingsPlansToExclude";
 const _SPU = "SavingsPlansUtilization";
 const _SPUA = "SavingsPlansUtilizationAggregates";
@@ -1542,8 +1543,8 @@ export var SavingsPlansDetails$: StaticStructureSchema = [3, n0, _SPD,
 ];
 export var SavingsPlansPurchaseAnalysisConfiguration$: StaticStructureSchema = [3, n0, _SPPAC,
   0,
-  [_AT, _SPTA, _LBTP, _ASc, _AIc, _SPTE],
-  [0, () => SavingsPlansToAdd, () => DateInterval$, 0, 0, 64 | 0], 3
+  [_AT, _SPTA, _LBTP, _ASc, _AIc, _SPTE, _SPTC],
+  [0, () => SavingsPlansToAdd, () => DateInterval$, 0, 0, 64 | 0, 1], 3
 ];
 export var SavingsPlansPurchaseAnalysisDetails$: StaticStructureSchema = [3, n0, _SPPAD,
   0,

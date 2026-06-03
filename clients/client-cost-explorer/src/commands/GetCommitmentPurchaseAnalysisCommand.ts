@@ -87,7 +87,7 @@ export interface GetCommitmentPurchaseAnalysisCommandOutput extends GetCommitmen
  * //     SavingsPlansPurchaseAnalysisConfiguration: { // SavingsPlansPurchaseAnalysisConfiguration
  * //       AccountScope: "PAYER" || "LINKED",
  * //       AccountId: "STRING_VALUE",
- * //       AnalysisType: "MAX_SAVINGS" || "CUSTOM_COMMITMENT", // required
+ * //       AnalysisType: "MAX_SAVINGS" || "CUSTOM_COMMITMENT" || "TARGET_AVERAGE_COVERAGE", // required
  * //       SavingsPlansToAdd: [ // SavingsPlansToAdd // required
  * //         { // SavingsPlans
  * //           PaymentOption: "NO_UPFRONT" || "PARTIAL_UPFRONT" || "ALL_UPFRONT" || "LIGHT_UTILIZATION" || "MEDIUM_UTILIZATION" || "HEAVY_UTILIZATION",
@@ -106,6 +106,7 @@ export interface GetCommitmentPurchaseAnalysisCommandOutput extends GetCommitmen
  * //         Start: "STRING_VALUE", // required
  * //         End: "STRING_VALUE", // required
  * //       },
+ * //       SavingsPlansTargetCoverage: Number("int"),
  * //     },
  * //   },
  * // };

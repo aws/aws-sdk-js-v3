@@ -33,6 +33,7 @@ export type AnalysisStatus = (typeof AnalysisStatus)[keyof typeof AnalysisStatus
 export const AnalysisType = {
   CUSTOM_COMMITMENT: "CUSTOM_COMMITMENT",
   MAX_SAVINGS: "MAX_SAVINGS",
+  TARGET_AVERAGE_COVERAGE: "TARGET_AVERAGE_COVERAGE",
 } as const;
 /**
  * @public
