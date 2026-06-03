@@ -1,22 +1,27 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <ul>
+ * <note>
+ *             <p>Amazon Connect now refers to a portfolio of agentic solutions for business functions. The
+ *     legacy product is now called Amazon Connect Customer, or simply Customer. The legacy name
+ *     is used interchangeably in this documentation.</p>
+ *          </note>
+ *          <ul>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Connect_Service.html">Connect Customer actions</a>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Connect_Service.html">Connect Customer Customer actions</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Service.html">Connect Customer data types</a>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Service.html">Connect Customer Customer data types</a>
  *                </p>
  *             </li>
  *          </ul>
- *          <p>Connect Customer is a cloud-based contact center solution that you use to set up and manage a customer contact
- *    center and provide reliable customer engagement at any scale.</p>
- *          <p>Connect Customer provides metrics and real-time reporting that enable you to optimize contact routing. You can
- *    also resolve customer issues more efficiently by getting customers in touch with the appropriate agents.</p>
+ *          <p>Connect Customer Customer engages customers at every touchpoint and creates deeper
+ *    relationships with AI powered capabilities.</p>
+ *          <p>Build and manage customer communication experiences. Connect customers to agents, enable
+ *    intelligent routing, and track performance in real-time.</p>
  *          <p>There are limits to the number of Connect Customer resources that you can create. There are also limits to the
  *    number of requests that you can make per second. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Connect Customer Service Quotas</a> in the
  *      <i>Connect Customer Administrator Guide</i>.</p>

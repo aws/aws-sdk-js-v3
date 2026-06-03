@@ -129,7 +129,9 @@ import type {
   GlobalResiliencyMetadata,
   HierarchyGroup,
   NextContactEntry,
+  Prompt,
   QualityMetrics,
+  Queue,
   QueueInfo,
   QuickConnect,
   RecordingInfo,
@@ -144,6 +146,7 @@ import type {
   ContactFlowModuleSearchFilter,
   ContactFlowSearchFilter,
   ContactSearchSummaryAgentInfo,
+  ContactSearchSummaryAiAgentInfo,
   ContactSearchSummaryQueueInfo,
   ControlPlaneTagFilter,
   DataTableSearchFilter,
@@ -157,10 +160,76 @@ import type {
   NotificationSearchFilter,
   NumberCondition,
   PromptSearchFilter,
-  QueueSearchFilter,
   SignInConfig,
   TelephonyConfig,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface SearchPromptsResponse {
+  /**
+   * <p>Information about the prompts.</p>
+   * @public
+   */
+  Prompts?: Prompt[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The total number of quick connects which matched your search query.</p>
+   * @public
+   */
+  ApproximateTotalCount?: number | undefined;
+}
+
+/**
+ * <p>Filters to be applied to search results.</p>
+ * @public
+ */
+export interface QueueSearchFilter {
+  /**
+   * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an
+   *     <code>OR</code> of <code>AND</code> (List of List) input where:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Top level list specifies conditions that need to be applied with <code>OR</code> operator</p>
+   *             </li>
+   *             <li>
+   *                <p>Inner list specifies conditions that need to be applied with <code>AND</code> operator.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  TagFilter?: ControlPlaneTagFilter | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchQueuesResponse {
+  /**
+   * <p>Information about the queues.</p>
+   * @public
+   */
+  Queues?: Queue[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The total number of queues which matched your search query.</p>
+   * @public
+   */
+  ApproximateTotalCount?: number | undefined;
+}
 
 /**
  * <p>Filters to be applied to search results.</p>
@@ -1742,20 +1811,11 @@ export interface ChatMessage {
   ContentType: string | undefined;
 
   /**
-   * <p>The content of the chat message. </p>
-   *          <ul>
-   *             <li>
-   *                <p>For <code>text/plain</code> and <code>text/markdown</code>, the Length Constraints are Minimum of 1, Maximum
-   *      of 1024. </p>
-   *             </li>
-   *             <li>
-   *                <p>For <code>application/json</code>, the Length Constraints are Minimum of 1, Maximum of 12000. </p>
-   *             </li>
-   *             <li>
-   *                <p>For <code>application/vnd.amazonaws.connect.message.interactive.response</code>, the Length Constraints are
-   *      Minimum of 1, Maximum of 12288.</p>
-   *             </li>
-   *          </ul>
+   * <p>The content of the chat message. Maximum of 16,384 bytes for all content types
+   *    (<code>text/plain</code>, <code>text/markdown</code>, <code>application/json</code>, and
+   *    <code>application/vnd.amazonaws.connect.message.interactive.response</code>).</p>
+   *          <p>Some messaging channels enforce lower limits. For channel-specific message size limits, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/feature-limits.html#chat-message-size-limits">Chat message size limits
+   *    by channel</a> in the <i>Amazon Connect Customer Administrator Guide</i>.</p>
    * @public
    */
   Content: string | undefined;
@@ -9376,6 +9436,12 @@ export interface ContactSearchSummary {
    * @public
    */
   GlobalResiliencyMetadata?: GlobalResiliencyMetadata | undefined;
+
+  /**
+   * <p>Information about the AI agents involved in the contact.</p>
+   * @public
+   */
+  AiAgentInfo?: ContactSearchSummaryAiAgentInfo[] | undefined;
 }
 
 /**

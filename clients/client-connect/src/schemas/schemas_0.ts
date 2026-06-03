@@ -1,8 +1,9 @@
 const _A = "Arn";
 const _AA = "AutoAccept";
-const _AAC = "AttributeAndCondition";
+const _AAC = "AiAgentsCriteria";
 const _AACHGI = "AllowedAccessControlHierarchyGroupId";
 const _AACT = "AllowedAccessControlTags";
+const _AACt = "AttributeAndCondition";
 const _AACu = "AutoAcceptConfig";
 const _AACut = "AutoAcceptConfigs";
 const _AADS = "AssociateAnalyticsDataSet";
@@ -13,6 +14,8 @@ const _AAI = "AiAgentInfo";
 const _AAMP = "AwaitAnswerMachinePrompt";
 const _AAO = "AssociateApprovedOrigin";
 const _AAOR = "AssociateApprovedOriginRequest";
+const _AASC = "AiAgentSearchCriteria";
+const _AASCL = "AiAgentSearchCriteriaList";
 const _AAT = "AgentAvailabilityTimer";
 const _AAVI = "AiAgentVersionId";
 const _AAi = "AiAgents";
@@ -496,6 +499,8 @@ const _CSP = "CreateSecurityProfile";
 const _CSPR = "CreateSecurityProfileRequest";
 const _CSPRr = "CreateSecurityProfileResponse";
 const _CSS = "ContactSearchSummary";
+const _CSSAAI = "ContactSearchSummaryAiAgentInfo";
+const _CSSAAIL = "ContactSearchSummaryAiAgentInfoList";
 const _CSSAI = "ContactSearchSummaryAgentInfo";
 const _CSSQI = "ContactSearchSummaryQueueInfo";
 const _CSSSA = "ContactSearchSummarySegmentAttributes";
@@ -567,9 +572,9 @@ const _Conf = "Config";
 const _Cons = "Constraints";
 const _Cont = "Contact";
 const _Conta = "Contacts";
-const _Cr = "Created";
-const _Cre = "Credentials";
-const _Cri = "Criteria";
+const _Cr = "Criteria";
+const _Cre = "Created";
+const _Cred = "Credentials";
 const _Cu = "Customer";
 const _D = "Description";
 const _DA = "DirectoryAlias";
@@ -2691,6 +2696,7 @@ const _VL = "ValueList";
 const _VLL = "ValueLockLevel";
 const _VM = "ValueMap";
 const _VN = "ViewName";
+const _VNe = "VersionNumber";
 const _VNo = "VocabularyName";
 const _VRC = "VoiceRecordingConfiguration";
 const _VRT = "VoiceRecordingTrack";
@@ -3164,6 +3170,16 @@ export var AiAgentInfo$: StaticStructureSchema = [3, n0, _AAI,
   [_AUC, _AAVI, _AAE],
   [0, 0, 2]
 ];
+export var AiAgentsCriteria$: StaticStructureSchema = [3, n0, _AAC,
+  0,
+  [_Cr],
+  [() => AiAgentSearchCriteriaList]
+];
+export var AiAgentSearchCriteria$: StaticStructureSchema = [3, n0, _AASC,
+  0,
+  [_I, _VNe, _AAE, _AUC],
+  [0, 1, 2, 0]
+];
 export var AliasConfiguration$: StaticStructureSchema = [3, n0, _ACl,
   0,
   [_EAI],
@@ -3394,7 +3410,7 @@ export var Attribute$: StaticStructureSchema = [3, n0, _Att,
   [_ATt, _V],
   [0, 0]
 ];
-export var AttributeAndCondition$: StaticStructureSchema = [3, n0, _AAC,
+export var AttributeAndCondition$: StaticStructureSchema = [3, n0, _AACt,
   0,
   [_TC, _HGC],
   [() => TagAndConditionList, () => HierarchyGroupCondition$]
@@ -3456,7 +3472,7 @@ export var BatchAssociateAnalyticsDataSetRequest$: StaticStructureSchema = [3, n
 ];
 export var BatchAssociateAnalyticsDataSetResponse$: StaticStructureSchema = [3, n0, _BAADSRa,
   0,
-  [_Cr, _Er],
+  [_Cre, _Er],
   [() => AnalyticsDataAssociationResults, () => ErrorResults]
 ];
 export var BatchCreateDataTableValueFailureResult$: StaticStructureSchema = [3, n0, _BCDTVFR,
@@ -3791,13 +3807,18 @@ export var ContactMetricResult$: StaticStructureSchema = [3, n0, _CMR,
 ];
 export var ContactSearchSummary$: StaticStructureSchema = [3, n0, _CSS,
   0,
-  [_A, _I, _ICI, _PCI, _IM, _C, _QIu, _AI, _IT, _DT, _STc, _SAe, _N, _RC, _Ta, _GRM],
-  [0, 0, 0, 0, 0, 0, () => ContactSearchSummaryQueueInfo$, () => ContactSearchSummaryAgentInfo$, 4, 4, 4, [() => ContactSearchSummarySegmentAttributes, 0], [() => Name, 0], () => RoutingCriteria$, 128 | 0, () => GlobalResiliencyMetadata$]
+  [_A, _I, _ICI, _PCI, _IM, _C, _QIu, _AI, _IT, _DT, _STc, _SAe, _N, _RC, _Ta, _GRM, _AAI],
+  [0, 0, 0, 0, 0, 0, () => ContactSearchSummaryQueueInfo$, () => ContactSearchSummaryAgentInfo$, 4, 4, 4, [() => ContactSearchSummarySegmentAttributes, 0], [() => Name, 0], () => RoutingCriteria$, 128 | 0, () => GlobalResiliencyMetadata$, () => ContactSearchSummaryAiAgentInfoList]
 ];
 export var ContactSearchSummaryAgentInfo$: StaticStructureSchema = [3, n0, _CSSAI,
   0,
   [_I, _CTAT],
   [0, 4]
+];
+export var ContactSearchSummaryAiAgentInfo$: StaticStructureSchema = [3, n0, _CSSAAI,
+  0,
+  [_AAVI, _AAE, _AUC],
+  [0, 2, 0]
 ];
 export var ContactSearchSummaryQueueInfo$: StaticStructureSchema = [3, n0, _CSSQI,
   0,
@@ -4194,7 +4215,7 @@ export var CreateWorkspaceResponse$: StaticStructureSchema = [3, n0, _CWRr,
   [_WI, _WA],
   [0, 0], 2
 ];
-export var Credentials$: StaticStructureSchema = [3, n0, _Cre,
+export var Credentials$: StaticStructureSchema = [3, n0, _Cred,
   8,
   [_ATc, _ATE, _RTef, _RTE],
   [[() => SecurityToken, 0], 4, [() => SecurityToken, 0], 4]
@@ -5636,7 +5657,7 @@ export var GetFederationTokenRequest$: StaticStructureSchema = [3, n0, _GFTR,
 ];
 export var GetFederationTokenResponse$: StaticStructureSchema = [3, n0, _GFTRe,
   0,
-  [_Cre, _SIU, _UA, _UI],
+  [_Cred, _SIU, _UA, _UI],
   [[() => Credentials$, 0], 0, 0, 0]
 ];
 export var GetFlowAssociationRequest$: StaticStructureSchema = [3, n0, _GFAR,
@@ -7361,7 +7382,7 @@ export var SearchableAgentCriteriaStep$: StaticStructureSchema = [3, n0, _SACS,
 ];
 export var SearchableContactAttributes$: StaticStructureSchema = [3, n0, _SCA,
   0,
-  [_Cri, _MTa],
+  [_Cr, _MTa],
   [[() => SearchableContactAttributesCriteriaList, 0], 0], 1
 ];
 export var SearchableContactAttributesCriteria$: StaticStructureSchema = [3, n0, _SCAC,
@@ -7381,7 +7402,7 @@ export var SearchableRoutingCriteriaStep$: StaticStructureSchema = [3, n0, _SRCS
 ];
 export var SearchableSegmentAttributes$: StaticStructureSchema = [3, n0, _SSA,
   0,
-  [_Cri, _MTa],
+  [_Cr, _MTa],
   [[() => SearchableSegmentAttributesCriteriaList, 0], 0], 1
 ];
 export var SearchableSegmentAttributesCriteria$: StaticStructureSchema = [3, n0, _SSAC,
@@ -7441,7 +7462,7 @@ export var SearchContactFlowsResponse$: StaticStructureSchema = [3, n0, _SCFRe,
 ];
 export var SearchContactsAdditionalTimeRange$: StaticStructureSchema = [3, n0, _SCATR,
   0,
-  [_Cri, _MTa],
+  [_Cr, _MTa],
   [() => SearchContactsAdditionalTimeRangeCriteriaList, 0], 2
 ];
 export var SearchContactsAdditionalTimeRangeCriteria$: StaticStructureSchema = [3, n0, _SCATRC,
@@ -7471,8 +7492,8 @@ export var SearchContactsTimestampCondition$: StaticStructureSchema = [3, n0, _S
 ];
 export var SearchCriteria$: StaticStructureSchema = [3, n0, _SCe,
   0,
-  [_N, _AIg, _AHGg, _Ch, _CAo, _IMn, _QIue, _RC, _ATR, _SCA, _SSA, _ARct, _CTonta],
-  [[() => NameCriteria$, 0], 64 | 0, () => AgentHierarchyGroups$, 64 | 0, [() => ContactAnalysis$, 0], 64 | 0, 64 | 0, () => SearchableRoutingCriteria$, () => SearchContactsAdditionalTimeRange$, [() => SearchableContactAttributes$, 0], [() => SearchableSegmentAttributes$, 0], 64 | 0, () => ControlPlaneTagFilter$]
+  [_N, _AIg, _AHGg, _Ch, _CAo, _IMn, _QIue, _RC, _ATR, _SCA, _SSA, _ARct, _CTonta, _AAi],
+  [[() => NameCriteria$, 0], 64 | 0, () => AgentHierarchyGroups$, 64 | 0, [() => ContactAnalysis$, 0], 64 | 0, 64 | 0, () => SearchableRoutingCriteria$, () => SearchContactsAdditionalTimeRange$, [() => SearchableContactAttributes$, 0], [() => SearchableSegmentAttributes$, 0], 64 | 0, () => ControlPlaneTagFilter$, () => AiAgentsCriteria$]
 ];
 export var SearchDataTablesRequest$: StaticStructureSchema = [3, n0, _SDTR,
   0,
@@ -8156,7 +8177,7 @@ export var TrafficDistributionGroupUserSummary$: StaticStructureSchema = [3, n0,
 ];
 export var Transcript$: StaticStructureSchema = [3, n0, _Tr,
   0,
-  [_Cri, _MTa],
+  [_Cr, _MTa],
   [[() => TranscriptCriteriaList, 0], 0], 1
 ];
 export var TranscriptCriteria$: StaticStructureSchema = [3, n0, _TCr,
@@ -8952,6 +8973,9 @@ var AgentStatusTypes = 64 | 0;
 var AiAgents: StaticListSchema = [1, n0, _AAi,
   0, () => AiAgentInfo$
 ];
+var AiAgentSearchCriteriaList: StaticListSchema = [1, n0, _AASCL,
+  0, () => AiAgentSearchCriteria$
+];
 var AliasConfigurationList: StaticListSchema = [1, n0, _ACL,
   0, () => AliasConfiguration$
 ];
@@ -9084,6 +9108,9 @@ var ContactMetrics: StaticListSchema = [1, n0, _CMo,
 var Contacts: StaticListSchema = [1, n0, _Conta,
   0, [() => ContactSearchSummary$,
     0]
+];
+var ContactSearchSummaryAiAgentInfoList: StaticListSchema = [1, n0, _CSSAAIL,
+  0, () => ContactSearchSummaryAiAgentInfo$
 ];
 var ContactStates = 64 | 0;
 var ContactTagKeys = 64 | 0;

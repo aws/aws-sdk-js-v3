@@ -80,7 +80,6 @@ import type {
   ViewStatus,
   ViewType,
   VocabularyLanguageCode,
-  VocabularyState,
   VoiceEnhancementMode,
 } from "./enums";
 
@@ -945,6 +944,50 @@ export interface AiAgentInfo {
    * @public
    */
   AiAgentEscalated?: boolean | undefined;
+}
+
+/**
+ * <p>The search criteria based on AI Agents metadata.</p>
+ * @public
+ */
+export interface AiAgentSearchCriteria {
+  /**
+   * <p>ID of the AI Agent that was involved in the contact.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>Version of the AI agent that was involved in the contact. ID is required if VersionNumber
+   *    is passed.</p>
+   * @public
+   */
+  VersionNumber?: number | undefined;
+
+  /**
+   * <p>A boolean flag indicating whether the contact initially handled by this AI agent was
+   *    escalated to a human agent.</p>
+   * @public
+   */
+  AiAgentEscalated?: boolean | undefined;
+
+  /**
+   * <p>The use case or scenario for which the AI agent is involved in the contact.</p>
+   * @public
+   */
+  AiUseCase?: AiUseCase | undefined;
+}
+
+/**
+ * <p>AI Agent search criteria definitions.</p>
+ * @public
+ */
+export interface AiAgentsCriteria {
+  /**
+   * <p>The list of criteria based on AI Agent metadata.</p>
+   * @public
+   */
+  Criteria?: AiAgentSearchCriteria[] | undefined;
 }
 
 /**
@@ -7994,45 +8037,4 @@ export interface CreateVocabularyRequest {
    * @public
    */
   Tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateVocabularyResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the custom vocabulary.</p>
-   * @public
-   */
-  VocabularyArn: string | undefined;
-
-  /**
-   * <p>The identifier of the custom vocabulary.</p>
-   * @public
-   */
-  VocabularyId: string | undefined;
-
-  /**
-   * <p>The current state of the custom vocabulary.</p>
-   * @public
-   */
-  State: VocabularyState | undefined;
-}
-
-/**
- * <p>Contains logo image configuration for workspace themes.</p>
- * @public
- */
-export interface ImagesLogo {
-  /**
-   * <p>The default logo image displayed in the workspace.</p>
-   * @public
-   */
-  Default?: string | undefined;
-
-  /**
-   * <p>The favicon image displayed in the browser tab.</p>
-   * @public
-   */
-  Favicon?: string | undefined;
 }

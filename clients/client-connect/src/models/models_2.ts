@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import type {
   AgentStatusType,
+  AiUseCase,
   ArtifactStatus,
   AttachmentScope,
   AutoEvaluationStatus,
@@ -74,6 +75,7 @@ import type {
   AgentHierarchyGroups,
   AgentStatus,
   AgentStatusSummary,
+  AiAgentsCriteria,
   AliasConfiguration,
   AnalyticsDataAssociationResult,
   Application,
@@ -106,11 +108,53 @@ import type {
   HoursOfOperation,
   HoursOfOperationOverride,
   HoursOfOperationsIdentifier,
+  MetricDataV2,
+  MetricInterval,
   Notification,
   PredefinedAttribute,
-  Prompt,
-  Queue,
 } from "./models_1";
+
+/**
+ * <p>Contains information about the metric results.</p>
+ * @public
+ */
+export interface MetricResultV2 {
+  /**
+   * <p>The dimension for the metrics.</p>
+   * @public
+   */
+  Dimensions?: Record<string, string> | undefined;
+
+  /**
+   * <p>The interval period with the start and end time for the metrics.</p>
+   * @public
+   */
+  MetricInterval?: MetricInterval | undefined;
+
+  /**
+   * <p>The set of metrics.</p>
+   * @public
+   */
+  Collections?: MetricDataV2[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMetricDataV2Response {
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Information about the metrics requested in the API request If no grouping is specified, a summary of metric data
+   *    is returned. </p>
+   * @public
+   */
+  MetricResults?: MetricResultV2[] | undefined;
+}
 
 /**
  * @public
@@ -8039,6 +8083,12 @@ export interface SearchCriteria {
    * @public
    */
   ContactTags?: ControlPlaneTagFilter | undefined;
+
+  /**
+   * <p>AI Agent search criteria definitions.</p>
+   * @public
+   */
+  AiAgents?: AiAgentsCriteria | undefined;
 }
 
 /**
@@ -8118,6 +8168,33 @@ export interface ContactSearchSummaryAgentInfo {
    * @public
    */
   ConnectedToAgentTimestamp?: Date | undefined;
+}
+
+/**
+ * <p>Information of the AI agent involved in the contact.</p>
+ * @public
+ */
+export interface ContactSearchSummaryAiAgentInfo {
+  /**
+   * <p>The unique identifier that specifies both the AI agent ID and its version number that was
+   *    involved in the contact.</p>
+   * @public
+   */
+  AiAgentVersionId?: string | undefined;
+
+  /**
+   * <p>A boolean flag indicating whether the contact initially handled by this AI agent was
+   *    escalated to a human agent.</p>
+   * @public
+   */
+  AiAgentEscalated?: boolean | undefined;
+
+  /**
+   * <p>The use case or scenario for which the AI agent is involved in the contact. Valid values
+   *    are <code>AgentAssistance</code> and <code>SelfService</code>.</p>
+   * @public
+   */
+  AiUseCase?: AiUseCase | undefined;
 }
 
 /**
@@ -8664,71 +8741,4 @@ export interface PromptSearchFilter {
    * @public
    */
   TagFilter?: ControlPlaneTagFilter | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchPromptsResponse {
-  /**
-   * <p>Information about the prompts.</p>
-   * @public
-   */
-  Prompts?: Prompt[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The total number of quick connects which matched your search query.</p>
-   * @public
-   */
-  ApproximateTotalCount?: number | undefined;
-}
-
-/**
- * <p>Filters to be applied to search results.</p>
- * @public
- */
-export interface QueueSearchFilter {
-  /**
-   * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an
-   *     <code>OR</code> of <code>AND</code> (List of List) input where:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Top level list specifies conditions that need to be applied with <code>OR</code> operator</p>
-   *             </li>
-   *             <li>
-   *                <p>Inner list specifies conditions that need to be applied with <code>AND</code> operator.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  TagFilter?: ControlPlaneTagFilter | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchQueuesResponse {
-  /**
-   * <p>Information about the queues.</p>
-   * @public
-   */
-  Queues?: Queue[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The total number of queues which matched your search query.</p>
-   * @public
-   */
-  ApproximateTotalCount?: number | undefined;
 }

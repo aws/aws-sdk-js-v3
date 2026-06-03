@@ -164,6 +164,16 @@ export interface SearchContactsCommandOutput extends SearchContactsResponse, __M
  *       ],
  *       TagCondition: "<TagCondition>",
  *     },
+ *     AiAgents: { // AiAgentsCriteria
+ *       Criteria: [ // AiAgentSearchCriteriaList
+ *         { // AiAgentSearchCriteria
+ *           Id: "STRING_VALUE",
+ *           VersionNumber: Number("int"),
+ *           AiAgentEscalated: true || false,
+ *           AiUseCase: "AgentAssistance" || "SelfService",
+ *         },
+ *       ],
+ *     },
  *   },
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
@@ -325,6 +335,13 @@ export interface SearchContactsCommandOutput extends SearchContactsResponse, __M
  * //         OriginRegion: "STRING_VALUE",
  * //         TrafficDistributionGroupId: "STRING_VALUE",
  * //       },
+ * //       AiAgentInfo: [ // ContactSearchSummaryAiAgentInfoList
+ * //         { // ContactSearchSummaryAiAgentInfo
+ * //           AiAgentVersionId: "STRING_VALUE",
+ * //           AiAgentEscalated: true || false,
+ * //           AiUseCase: "AgentAssistance" || "SelfService",
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

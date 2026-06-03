@@ -29,6 +29,8 @@ import {
   AgentStatusSummary$,
   AgentStatusType,
   AiAgentInfo$,
+  AiAgentsCriteria$,
+  AiAgentSearchCriteria$,
   AiUseCase,
   AliasConfiguration$,
   AllowedCapabilities$,
@@ -256,6 +258,7 @@ import {
   ContactRecordingType,
   ContactSearchSummary$,
   ContactSearchSummaryAgentInfo$,
+  ContactSearchSummaryAiAgentInfo$,
   ContactSearchSummaryQueueInfo$,
   ContactSearchSummarySegmentAttributeValue$,
   ContactState,
@@ -3017,6 +3020,8 @@ assert(typeof AgentStatusSearchCriteria$ === "object");
 assert(typeof AgentStatusSearchFilter$ === "object");
 assert(typeof AgentStatusSummary$ === "object");
 assert(typeof AiAgentInfo$ === "object");
+assert(typeof AiAgentsCriteria$ === "object");
+assert(typeof AiAgentSearchCriteria$ === "object");
 assert(typeof AliasConfiguration$ === "object");
 assert(typeof AllowedCapabilities$ === "object");
 assert(typeof AllowedExtension$ === "object");
@@ -3145,6 +3150,7 @@ assert(typeof ContactMetricResult$ === "object");
 assert(typeof ContactMetricValue$ === "object");
 assert(typeof ContactSearchSummary$ === "object");
 assert(typeof ContactSearchSummaryAgentInfo$ === "object");
+assert(typeof ContactSearchSummaryAiAgentInfo$ === "object");
 assert(typeof ContactSearchSummaryQueueInfo$ === "object");
 assert(typeof ContactSearchSummarySegmentAttributeValue$ === "object");
 assert(typeof ControlPlaneAttributeFilter$ === "object");
