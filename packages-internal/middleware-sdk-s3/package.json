@@ -4,7 +4,7 @@
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline middleware-sdk-s3",
-    "build:es": "tsc -p tsconfig.es.json",
+    "build:es": "node ../../scripts/compilation/build-es.js",
     "build:include:deps": "yarn g:turbo run build -F=\"$npm_package_name\"",
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
@@ -59,8 +59,7 @@
     "./dist-es/toStream": "./dist-es/toStream.browser"
   },
   "react-native": {
-    "./dist-es/toStream": "./dist-es/toStream.browser",
-    "./dist-cjs/toStream": "./dist-cjs/toStream.browser"
+    "./dist-es/toStream": "./dist-es/toStream.browser"
   },
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/middleware-sdk-s3",
   "repository": {

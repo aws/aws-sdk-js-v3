@@ -1,7 +1,7 @@
 import type { AwsCredentialIdentity, AwsCredentialIdentityProvider, Logger, RequestHandler } from "@smithy/types";
 
 import type { AwsSdkCredentialsFeatures } from "../feature-ids";
-export { AwsCredentialIdentity, AwsCredentialIdentityProvider, IdentityProvider } from "@smithy/types";
+export type { AwsCredentialIdentity, AwsCredentialIdentityProvider, IdentityProvider } from "@smithy/types";
 
 /**
  * @public

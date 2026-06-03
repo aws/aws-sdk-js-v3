@@ -2,7 +2,7 @@ import type { HandlerExecutionContext } from "@smithy/types";
 
 import type { AwsSdkFeatures } from "./feature-ids";
 
-export {
+export type {
   AbsoluteLocation,
   BuildHandler,
   BuildHandlerArguments,
