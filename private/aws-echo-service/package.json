@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/aws-echo-service",
   "description": "@aws-sdk/aws-echo-service client",
-  "version": "3.1059.0",
+  "version": "3.1060.0",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -18,7 +18,7 @@
   "dependencies": {
     "@aws-crypto/sha256-browser": "5.2.0",
     "@aws-crypto/sha256-js": "5.2.0",
-    "@aws-sdk/core": "workspace:^3.974.16",
+    "@aws-sdk/core": "workspace:^3.974.17",
     "@smithy/core": "^3.24.6",
     "@smithy/fetch-http-handler": "^5.4.6",
     "@smithy/node-http-handler": "^4.7.6",

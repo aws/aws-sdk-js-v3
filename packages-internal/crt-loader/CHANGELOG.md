@@ -49,6 +49,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.47 (2026-06-03)
+### Chores
+* **crt-loader:** update dependencies.
+
+
+
 # 3.972.46 (2026-06-02)
 ### Chores
 * **crt-loader:** update dependencies.

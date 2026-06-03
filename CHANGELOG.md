@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1060.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1059.0...v3.1060.0) (2026-06-03)
+
+
+### Bug Fixes
+
+* **client-dynamodb:** dynamodb special retry config fixed to be merge-compatible with user-supplied retry config ([#8068](https://github.com/aws/aws-sdk-js-v3/issues/8068)) ([a569d9c](https://github.com/aws/aws-sdk-js-v3/commit/a569d9c425edae68ceb45331fffdff18f8710628))
+
+
+### Features
+
+* **client-geo-routes:** Add "standardRegionalEndpoints" back to fix 'Could not connect to the endpoint URL' ([324aa6a](https://github.com/aws/aws-sdk-js-v3/commit/324aa6ade9e3caa1d7b9f0abb818224c4a408da9))
+* **clients:** update client endpoints as of 2026-06-03 ([8e6cc9f](https://github.com/aws/aws-sdk-js-v3/commit/8e6cc9f1e60bc431fc2f9c65399fdcf1b2814280))
+
+
+
+
+
 # [3.1059.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1058.0...v3.1059.0) (2026-06-02)
 
 

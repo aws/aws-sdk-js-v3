@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1060.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1059.0...v3.1060.0) (2026-06-03)
+
+
+### Features
+
+* **client-geo-routes:** Add "standardRegionalEndpoints" back to fix 'Could not connect to the endpoint URL' ([324aa6a](https://github.com/aws/aws-sdk-js-v3/commit/324aa6ade9e3caa1d7b9f0abb818224c4a408da9))
+
+
+
+
+
 # [3.1059.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1058.0...v3.1059.0) (2026-06-02)
 
 

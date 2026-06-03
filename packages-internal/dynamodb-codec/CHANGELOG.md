@@ -48,6 +48,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.973.17 (2026-06-03)
+### Chores
+* **dynamodb-codec:** update dependencies.
+
+
+
 # 3.973.16 (2026-06-01)
 ### Chores
 * **codegen:** sync for adaptive retry fix, EAI_AGAIN transient error ([#8067](https://github.com/aws/aws-sdk-js-v3/issues/8067)) ([6b082a6](https://github.com/aws/aws-sdk-js-v3/commit/6b082a6526a0bb0ba213bb16b4c97a0b1134bc45))

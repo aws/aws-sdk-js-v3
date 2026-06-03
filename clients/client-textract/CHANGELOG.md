@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1060.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1059.0...v3.1060.0) (2026-06-03)
+
+**Note:** Version bump only for package @aws-sdk/client-textract
+
+
+
+
+
 # [3.1059.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1058.0...v3.1059.0) (2026-06-02)
 
 **Note:** Version bump only for package @aws-sdk/client-textract

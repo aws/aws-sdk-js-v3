@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1060.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1059.0...v3.1060.0) (2026-06-03)
+
+
+### Bug Fixes
+
+* **client-dynamodb:** dynamodb special retry config fixed to be merge-compatible with user-supplied retry config ([#8068](https://github.com/aws/aws-sdk-js-v3/issues/8068)) ([a569d9c](https://github.com/aws/aws-sdk-js-v3/commit/a569d9c425edae68ceb45331fffdff18f8710628))
+
+
+
+
+
 # [3.1059.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1058.0...v3.1059.0) (2026-06-02)
 
 **Note:** Version bump only for package @aws-sdk/client-dynamodb

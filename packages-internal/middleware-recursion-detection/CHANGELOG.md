@@ -21,6 +21,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.19 (2026-06-03)
+### Chores
+* **middleware-recursion-detection:** update dependencies.
+
+
+
 # 3.972.18 (2026-06-02)
 ### Chores
 * **middleware-recursion-detection:** update dependencies.

@@ -46,6 +46,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.974.25 (2026-06-02)
+### Bug Fixes
+* **client-dynamodb:** dynamodb special retry config fixed to be merge-compatible with user-supplied retry config ([#8068](https://github.com/aws/aws-sdk-js-v3/issues/8068)) ([a569d9c](https://github.com/aws/aws-sdk-js-v3/commit/a569d9c425edae68ceb45331fffdff18f8710628))
+
+
+
 # 3.974.24 (2026-06-01)
 ### Chores
 * **codegen:** sync for adaptive retry fix, EAI_AGAIN transient error ([#8067](https://github.com/aws/aws-sdk-js-v3/issues/8067)) ([6b082a6](https://github.com/aws/aws-sdk-js-v3/commit/6b082a6526a0bb0ba213bb16b4c97a0b1134bc45))

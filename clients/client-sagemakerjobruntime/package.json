@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-sagemakerjobruntime",
   "description": "AWS SDK for JavaScript Sagemakerjobruntime Client for Node.js, Browser and React Native",
-  "version": "3.1059.0",
+  "version": "3.1060.0",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline client-sagemakerjobruntime",
@@ -21,8 +21,8 @@
   "dependencies": {
     "@aws-crypto/sha256-browser": "5.2.0",
     "@aws-crypto/sha256-js": "5.2.0",
-    "@aws-sdk/core": "workspace:^3.974.16",
-    "@aws-sdk/credential-provider-node": "workspace:^3.972.49",
+    "@aws-sdk/core": "workspace:^3.974.17",
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.50",
     "@aws-sdk/types": "workspace:^3.973.10",
     "@smithy/core": "^3.24.6",
     "@smithy/fetch-http-handler": "^5.4.6",
