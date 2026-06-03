@@ -1067,6 +1067,7 @@ export type EcrScanFrequency = (typeof EcrScanFrequency)[keyof typeof EcrScanFre
  */
 export const ScanMode = {
   EC2_AGENTLESS: "EC2_AGENTLESS",
+  EC2_INSPECTOR_AGENT_BASED: "EC2_INSPECTOR_AGENT_BASED",
   EC2_SSM_AGENT_BASED: "EC2_SSM_AGENT_BASED",
 } as const;
 /**
@@ -1241,6 +1242,20 @@ export const Ec2ScanModeStatus = {
  * @public
  */
 export type Ec2ScanModeStatus = (typeof Ec2ScanModeStatus)[keyof typeof Ec2ScanModeStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const VMScannerStatus = {
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  SUCCESS: "SUCCESS",
+} as const;
+/**
+ * @public
+ */
+export type VMScannerStatus = (typeof VMScannerStatus)[keyof typeof VMScannerStatus];
 
 /**
  * @public

@@ -54,6 +54,11 @@ export interface GetConfigurationCommandOutput extends GetConfigurationResponse,
  * //       scanMode: "STRING_VALUE",
  * //       scanModeStatus: "STRING_VALUE",
  * //     },
+ * //     vmScannerState: { // VMScannerState
+ * //       activated: true || false,
+ * //       activatedAt: new Date("TIMESTAMP"),
+ * //       status: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

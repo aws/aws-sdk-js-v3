@@ -102,6 +102,7 @@ import type {
   TagComparison,
   TitleSortBy,
   UsageType,
+  VMScannerStatus,
   VulnerabilitySource,
 } from "./enums";
 
@@ -4891,7 +4892,7 @@ export interface CoverageFilterCriteria {
 
   /**
    * <p>The filter to search for Amazon EC2 instance coverage by scan mode. Valid values are
-   *             <code>EC2_SSM_AGENT_BASED</code> and <code>EC2_AGENTLESS</code>.</p>
+   *             <code>EC2_SSM_AGENT_BASED</code>, <code>EC2_AGENTLESS</code>, and <code>EC2_INSPECTOR_AGENT_BASED</code>.</p>
    * @public
    */
   scanMode?: CoverageStringFilter[] | undefined;
@@ -6361,6 +6362,12 @@ export interface Ec2Configuration {
    * @public
    */
   scanMode: Ec2ScanMode | undefined;
+
+  /**
+   * <p>Whether to activate Amazon Inspector VM scanner for Amazon EC2 scanning.</p>
+   * @public
+   */
+  activateVMScanner?: boolean | undefined;
 }
 
 /**
@@ -6382,6 +6389,30 @@ export interface Ec2ScanModeState {
 }
 
 /**
+ * <p>The state of the Amazon Inspector VM scanner.</p>
+ * @public
+ */
+export interface VMScannerState {
+  /**
+   * <p>Whether the VM scanner is activated.</p>
+   * @public
+   */
+  activated?: boolean | undefined;
+
+  /**
+   * <p>The date and time the VM scanner was activated.</p>
+   * @public
+   */
+  activatedAt?: Date | undefined;
+
+  /**
+   * <p>The status of the VM scanner.</p>
+   * @public
+   */
+  status?: VMScannerStatus | undefined;
+}
+
+/**
  * <p>Details about the state of the EC2 scan configuration for your environment.</p>
  * @public
  */
@@ -6391,6 +6422,12 @@ export interface Ec2ConfigurationState {
    * @public
    */
   scanModeState?: Ec2ScanModeState | undefined;
+
+  /**
+   * <p>An object that contains details about the state of the Amazon Inspector VM scanner.</p>
+   * @public
+   */
+  vmScannerState?: VMScannerState | undefined;
 }
 
 /**
@@ -9045,21 +9082,4 @@ export interface StartCisSessionMessage {
    * @public
    */
   sessionToken: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartCisSessionRequest {
-  /**
-   * <p>A unique identifier for the scan job.</p>
-   * @public
-   */
-  scanJobId: string | undefined;
-
-  /**
-   * <p>The start CIS session message.</p>
-   * @public
-   */
-  message: StartCisSessionMessage | undefined;
 }

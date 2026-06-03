@@ -618,6 +618,8 @@ import {
   ValidationException$,
   ValidationExceptionField$,
   ValidationExceptionReason,
+  VMScannerState$,
+  VMScannerStatus,
   Vulnerability$,
   VulnerabilitySource,
   VulnerablePackage$,
@@ -1109,6 +1111,7 @@ assert(typeof UpdateOrgEc2DeepInspectionConfigurationResponse$ === "object");
 assert(typeof Usage$ === "object");
 assert(typeof UsageTotal$ === "object");
 assert(typeof ValidationExceptionField$ === "object");
+assert(typeof VMScannerState$ === "object");
 assert(typeof Vulnerability$ === "object");
 assert(typeof VulnerablePackage$ === "object");
 assert(typeof WeeklySchedule$ === "object");
@@ -1217,6 +1220,7 @@ assert(typeof TagComparison === "object");
 assert(typeof TitleSortBy === "object");
 assert(typeof UsageType === "object");
 assert(typeof ValidationExceptionReason === "object");
+assert(typeof VMScannerStatus === "object");
 assert(typeof VulnerabilitySource === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof Inspector2ServiceException);

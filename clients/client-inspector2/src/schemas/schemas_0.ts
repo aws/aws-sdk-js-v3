@@ -501,13 +501,15 @@ const _V = "Vulnerability";
 const _VE = "ValidationException";
 const _VEF = "ValidationExceptionField";
 const _VEFa = "ValidationExceptionFields";
+const _VMSS = "VMScannerState";
 const _VP = "VulnerablePackage";
 const _VPL = "VulnerablePackageList";
 const _Vu = "Vulnerabilities";
 const _WS = "WeeklySchedule";
 const _a = "amis";
-const _aA = "accountAggregation";
+const _aA = "activatedAt";
 const _aAI = "awsAccountId";
+const _aAc = "accountAggregation";
 const _aAm = "amiAggregation";
 const _aC = "adjustedCvss";
 const _aCR = "associateConfigurationRequests";
@@ -531,8 +533,10 @@ const _aR = "aggregationRequest";
 const _aT = "accessToken";
 const _aTg = "aggregationType";
 const _aU = "authorizationUrl";
+const _aVMS = "activateVMScanner";
 const _ac = "accounts";
 const _act = "action";
+const _acti = "activated";
 const _ad = "adjustments";
 const _al = "all";
 const _am = "ami";
@@ -971,6 +975,7 @@ const _vIu = "vulnerabilityId";
 const _vIul = "vulnerabilityIds";
 const _vP = "vulnerablePackages";
 const _vS = "vulnerabilitySource";
+const _vSS = "vmScannerState";
 const _vSe = "vendorSeverity";
 const _vUA = "vendorUpdatedAt";
 const _va = "value";
@@ -1708,13 +1713,13 @@ export var DisassociateMemberResponse$: StaticStructureSchema = [3, n0, _DMRi,
 ];
 export var Ec2Configuration$: StaticStructureSchema = [3, n0, _EC,
   0,
-  [_sM],
-  [0], 1
+  [_sM, _aVMS],
+  [0, 2], 1
 ];
 export var Ec2ConfigurationState$: StaticStructureSchema = [3, n0, _ECS,
   0,
-  [_sMS],
-  [() => Ec2ScanModeState$]
+  [_sMS, _vSS],
+  [() => Ec2ScanModeState$, () => VMScannerState$]
 ];
 export var Ec2InstanceAggregation$: StaticStructureSchema = [3, n0, _EIA,
   0,
@@ -2686,6 +2691,11 @@ export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   [_na, _m],
   [0, 0], 2
 ];
+export var VMScannerState$: StaticStructureSchema = [3, n0, _VMSS,
+  0,
+  [_acti, _aA, _st],
+  [2, 4, 0]
+];
 export var Vulnerability$: StaticStructureSchema = [3, n0, _V,
   0,
   [_id, _cw, _cDi, _so, _de, _aD, _vSe, _cvs, _cvss, _rV, _cvss_, _vCA, _vUA, _sU, _rU, _eO, _dP, _ep],
@@ -2997,12 +3007,12 @@ var TargetResourceTags: StaticMapSchema = [2, n0, _TRT,
 ];
 export var AggregationRequest$: StaticUnionSchema = [4, n0, _AR,
   0,
-  [_aA, _aAm, _aECA, _eIAc, _fTA, _iLA, _pAa, _rAe, _tAi, _lLA, _lFA, _cRA],
+  [_aAc, _aAm, _aECA, _eIAc, _fTA, _iLA, _pAa, _rAe, _tAi, _lLA, _lFA, _cRA],
   [() => AccountAggregation$, () => AmiAggregation$, () => AwsEcrContainerAggregation$, () => Ec2InstanceAggregation$, () => FindingTypeAggregation$, () => ImageLayerAggregation$, () => PackageAggregation$, () => RepositoryAggregation$, () => TitleAggregation$, () => LambdaLayerAggregation$, () => LambdaFunctionAggregation$, () => CodeRepositoryAggregation$]
 ];
 export var AggregationResponse$: StaticUnionSchema = [4, n0, _ARg,
   0,
-  [_aA, _aAm, _aECA, _eIAc, _fTA, _iLA, _pAa, _rAe, _tAi, _lLA, _lFA, _cRA],
+  [_aAc, _aAm, _aECA, _eIAc, _fTA, _iLA, _pAa, _rAe, _tAi, _lLA, _lFA, _cRA],
   [() => AccountAggregationResponse$, () => AmiAggregationResponse$, () => AwsEcrContainerAggregationResponse$, () => Ec2InstanceAggregationResponse$, () => FindingTypeAggregationResponse$, () => ImageLayerAggregationResponse$, () => PackageAggregationResponse$, () => RepositoryAggregationResponse$, () => TitleAggregationResponse$, () => LambdaLayerAggregationResponse$, () => LambdaFunctionAggregationResponse$, () => CodeRepositoryAggregationResponse$]
 ];
 export var ClusterMetadata$: StaticUnionSchema = [4, n0, _CM,

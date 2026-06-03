@@ -18,7 +18,25 @@ import type {
   EcrConfiguration,
   FilterCriteria,
   Schedule,
+  StartCisSessionMessage,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface StartCisSessionRequest {
+  /**
+   * <p>A unique identifier for the scan job.</p>
+   * @public
+   */
+  scanJobId: string | undefined;
+
+  /**
+   * <p>The start CIS session message.</p>
+   * @public
+   */
+  message: StartCisSessionMessage | undefined;
+}
 
 /**
  * @public

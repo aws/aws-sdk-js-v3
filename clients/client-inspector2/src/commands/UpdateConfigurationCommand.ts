@@ -46,6 +46,7 @@ export interface UpdateConfigurationCommandOutput extends UpdateConfigurationRes
  *   },
  *   ec2Configuration: { // Ec2Configuration
  *     scanMode: "STRING_VALUE", // required
+ *     activateVMScanner: true || false,
  *   },
  * };
  * const command = new UpdateConfigurationCommand(input);
