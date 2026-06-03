@@ -123,6 +123,7 @@ export interface GetEBSVolumeRecommendationsCommandOutput extends GetEBSVolumeRe
  * //         savingsEstimationMode: { // EBSSavingsEstimationMode
  * //           source: "PublicPricing" || "CostExplorerRightsizing" || "CostOptimizationHub",
  * //         },
+ * //         lookBackPeriod: "DAYS_14" || "DAYS_32" || "DAYS_93",
  * //       },
  * //       tags: [ // Tags
  * //         { // Tag

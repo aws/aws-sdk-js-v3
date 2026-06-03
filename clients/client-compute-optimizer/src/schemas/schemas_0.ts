@@ -636,8 +636,8 @@ export var DescribeRecommendationExportJobsResponse$: StaticStructureSchema = [3
 ];
 export var EBSEffectiveRecommendationPreferences$: StaticStructureSchema = [3, n0, _EBSERP,
   0,
-  [_sEM],
-  [() => EBSSavingsEstimationMode$]
+  [_sEM, _lBP],
+  [() => EBSSavingsEstimationMode$, 0]
 ];
 export var EBSEstimatedMonthlySavings$: StaticStructureSchema = [3, n0, _EBSEMS,
   0,
@@ -666,8 +666,8 @@ export var EBSUtilizationMetric$: StaticStructureSchema = [3, n0, _EBSUM,
 ];
 export var ECSEffectiveRecommendationPreferences$: StaticStructureSchema = [3, n0, _ECSERP,
   0,
-  [_sEM],
-  [() => ECSSavingsEstimationMode$]
+  [_sEM, _lBP],
+  [() => ECSSavingsEstimationMode$, 0]
 ];
 export var ECSEstimatedMonthlySavings$: StaticStructureSchema = [3, n0, _ECSEMS,
   0,
