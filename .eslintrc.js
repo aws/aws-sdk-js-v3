@@ -177,6 +177,28 @@ module.exports = {
                 group: ["@aws-sdk/util-arn-parser", "@aws-sdk/util-format-url"],
                 message: "This package has been consolidated into @aws-sdk/core/util.",
               },
+              {
+                group: ["@aws-sdk/middleware-sdk-s3", "!@aws-sdk/middleware-sdk-s3/"],
+                message:
+                  "Import from a specific submodule like @aws-sdk/middleware-sdk-s3/s3 or @aws-sdk/middleware-sdk-s3/s3-control instead.",
+              },
+              {
+                group: [
+                  "@aws-sdk/middleware-bucket-endpoint",
+                  "@aws-sdk/middleware-expect-continue",
+                  "@aws-sdk/middleware-location-constraint",
+                  "@aws-sdk/middleware-ssec",
+                ],
+                message: "This package has been consolidated into @aws-sdk/middleware-sdk-s3/s3.",
+              },
+              {
+                group: ["@aws-sdk/middleware-sdk-s3-control"],
+                message: "This package has been consolidated into @aws-sdk/middleware-sdk-s3/s3-control.",
+              },
+              {
+                group: ["@aws-sdk/crc64-nvme", "@aws-sdk/middleware-flexible-checksums"],
+                message: "This package has been consolidated into @aws-sdk/checksums.",
+              },
             ],
           },
         ],

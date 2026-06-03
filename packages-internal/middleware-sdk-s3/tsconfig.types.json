@@ -4,7 +4,9 @@
     "declarationDir": "dist-types",
     "rootDir": "src",
     "paths": {
-      "@smithy/core/*": ["../../node_modules/@smithy/core/dist-types/submodules/*/index.d.ts"]
+      "@smithy/core/*": ["../../node_modules/@smithy/core/dist-types/submodules/*/index.d.ts"],
+      "@aws-sdk/middleware-sdk-s3/s3": ["./src/submodules/s3/index.ts"],
+      "@aws-sdk/middleware-sdk-s3/s3-control": ["./src/submodules/s3-control/index.ts"]
     }
   },
   "extends": "../../tsconfig.types.json",

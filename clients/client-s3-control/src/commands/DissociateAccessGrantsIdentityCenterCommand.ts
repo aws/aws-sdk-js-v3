@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3-control";
+import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3/s3-control";
 import { Command as $Command } from "@smithy/core/client";
 import { getEndpointPlugin } from "@smithy/core/endpoints";
 import { getApplyMd5BodyChecksumPlugin } from "@smithy/middleware-apply-body-checksum";

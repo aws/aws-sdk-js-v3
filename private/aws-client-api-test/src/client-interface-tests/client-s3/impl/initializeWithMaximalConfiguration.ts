@@ -3,12 +3,12 @@ import { S3Client } from "@aws-sdk/client-s3";
 import { defaultUserAgent } from "@aws-sdk/core/client";
 import { AwsRestXmlProtocol } from "@aws-sdk/core/protocols";
 import { defaultProvider as credentialDefaultProvider, defaultProvider } from "@aws-sdk/credential-provider-node";
-import { NODE_USE_ARN_REGION_CONFIG_OPTIONS } from "@aws-sdk/middleware-bucket-endpoint";
+import { NODE_USE_ARN_REGION_CONFIG_OPTIONS } from "@aws-sdk/middleware-sdk-s3/s3";
 import {
   DEFAULT_REQUEST_CHECKSUM_CALCULATION,
   DEFAULT_RESPONSE_CHECKSUM_VALIDATION,
 } from "@aws-sdk/middleware-flexible-checksums";
-import { S3ExpressIdentityProviderImpl } from "@aws-sdk/middleware-sdk-s3";
+import { S3ExpressIdentityProviderImpl } from "@aws-sdk/middleware-sdk-s3/s3";
 import { SignatureV4MultiRegion } from "@aws-sdk/signature-v4-multi-region";
 import { readableStreamHasher as streamHasher } from "@smithy/core/checksum";
 import { loadConfigsForDefaultMode } from "@smithy/core/client";

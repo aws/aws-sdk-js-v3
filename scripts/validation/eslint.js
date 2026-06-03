@@ -35,7 +35,7 @@ function main() {
   }
 
   try {
-    execFileSync("npx", ["eslint", "-c", eslintConfig, ...globs], {
+    execFileSync("npx", ["eslint", "--quiet", "-c", eslintConfig, ...globs], {
       cwd: root,
       stdio: "pipe",
       encoding: "utf-8",

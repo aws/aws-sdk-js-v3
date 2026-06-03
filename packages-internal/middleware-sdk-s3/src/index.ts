@@ -1,9 +1,40 @@
-export * from "./check-content-length-header";
-export * from "./region-redirect-endpoint-middleware";
-export * from "./region-redirect-middleware";
-export * from "./s3-expires-middleware";
-export * from "./s3-express/index";
-export * from "./s3Configuration";
-export * from "./throw-200-exceptions";
-export * from "./validate-bucket-name";
-export { S3RestXmlProtocol } from "./protocol/S3RestXmlProtocol";
+export {
+  checkContentLengthHeader,
+  checkContentLengthHeaderMiddlewareOptions,
+  getCheckContentLengthHeaderPlugin,
+  regionRedirectEndpointMiddleware,
+  regionRedirectEndpointMiddlewareOptions,
+  regionRedirectMiddleware,
+  regionRedirectMiddlewareOptions,
+  getRegionRedirectMiddlewarePlugin,
+  resolveS3Config,
+  s3ExpiresMiddleware,
+  s3ExpiresMiddlewareOptions,
+  getS3ExpiresMiddlewarePlugin,
+  S3ExpressIdentityCache,
+  S3ExpressIdentityCacheEntry,
+  S3ExpressIdentityProviderImpl,
+  SignatureV4S3Express,
+  NODE_DISABLE_S3_EXPRESS_SESSION_AUTH_OPTIONS,
+  getS3ExpressPlugin,
+  s3ExpressMiddleware,
+  s3ExpressMiddlewareOptions,
+  getS3ExpressHttpSigningPlugin,
+  s3ExpressHttpSigningMiddleware,
+  s3ExpressHttpSigningMiddlewareOptions,
+  throw200ExceptionsMiddleware,
+  throw200ExceptionsMiddlewareOptions,
+  getThrow200ExceptionsPlugin,
+  validateBucketNameMiddleware,
+  validateBucketNameMiddlewareOptions,
+  getValidateBucketNamePlugin,
+  S3RestXmlProtocol,
+} from "./submodules/s3/index";
+
+export type {
+  PreviouslyResolved,
+  S3InputConfig,
+  S3ResolvedConfig,
+  S3ExpressIdentity,
+  S3ExpressIdentityProvider,
+} from "./submodules/s3/index";

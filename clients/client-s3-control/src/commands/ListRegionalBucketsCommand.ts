@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { getRedirectFromPostIdPlugin } from "@aws-sdk/middleware-sdk-s3-control";
+import { getRedirectFromPostIdPlugin } from "@aws-sdk/middleware-sdk-s3/s3-control";
 import { Command as $Command } from "@smithy/core/client";
 import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";

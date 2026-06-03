@@ -3,6 +3,10 @@
     "baseUrl": ".",
     "outDir": "dist-cjs",
     "rootDir": "src",
+    "paths": {
+      "@aws-sdk/middleware-sdk-s3/s3": ["./src/submodules/s3/index.ts"],
+      "@aws-sdk/middleware-sdk-s3/s3-control": ["./src/submodules/s3-control/index.ts"]
+    },
     "noCheck": true
   },
   "extends": "../../tsconfig.cjs.json",

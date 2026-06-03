@@ -120,6 +120,20 @@ for (const { name, dir } of bundlerDirs) {
     } else {
       console.log(`  ✅ PASS: No global Buffer references`);
     }
+
+    // Check that toStream uses ReadableStream (browser) and not Readable.from (node)
+    const toStreamMatch = content.match(/(?:function\s+toStream|(?:var|let|const)\s+toStream\s*=)\s*\(?[^)]*\)?\s*(?:=>)?\s*\{[^}]*\}/g) || [];
+    for (const fn of toStreamMatch) {
+      if (!fn.includes("ReadableStream")) {
+        console.error(`  ❌ FAIL: toStream does not use ReadableStream`);
+        failed = true;
+      } else if (fn.includes("Readable.from")) {
+        console.error(`  ❌ FAIL: toStream contains Readable.from (node-only code in browser bundle)`);
+        failed = true;
+      } else {
+        console.log(`  ✅ PASS: toStream uses ReadableStream, no Readable.from`);
+      }
+    }
   }
 }
 

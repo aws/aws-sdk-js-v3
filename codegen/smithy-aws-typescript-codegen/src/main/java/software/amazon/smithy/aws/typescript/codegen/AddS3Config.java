@@ -340,7 +340,12 @@ public final class AddS3Config implements TypeScriptIntegration {
                     },
                     "protocol",
                     writer -> {
-                        writer.addImport("S3RestXmlProtocol", null, AwsDependency.S3_MIDDLEWARE);
+                        writer.addImportSubmodule(
+                            "S3RestXmlProtocol",
+                            null,
+                            AwsDependency.S3_MIDDLEWARE,
+                            AwsSdkS3Submodules.S3
+                        );
                         writer.write("""
                                      S3RestXmlProtocol""");
                     }
@@ -355,11 +360,12 @@ public final class AddS3Config implements TypeScriptIntegration {
                             TypeScriptDependency.SMITHY_CORE,
                             SmithyCoreSubmodules.CONFIG
                         )
-                            .addDependency(AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE)
-                            .addImport(
+                            .addDependency(AwsDependency.S3_MIDDLEWARE)
+                            .addImportSubmodule(
                                 "NODE_USE_ARN_REGION_CONFIG_OPTIONS",
                                 "NODE_USE_ARN_REGION_CONFIG_OPTIONS",
-                                AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE
+                                AwsDependency.S3_MIDDLEWARE,
+                                AwsSdkS3Submodules.S3
                             )
                             .write("loadNodeConfig(NODE_USE_ARN_REGION_CONFIG_OPTIONS, loaderConfig)");
                     },
@@ -372,10 +378,11 @@ public final class AddS3Config implements TypeScriptIntegration {
                             SmithyCoreSubmodules.CONFIG
                         )
                             .addDependency(AwsDependency.S3_MIDDLEWARE)
-                            .addImport(
+                            .addImportSubmodule(
                                 "NODE_DISABLE_S3_EXPRESS_SESSION_AUTH_OPTIONS",
                                 "NODE_DISABLE_S3_EXPRESS_SESSION_AUTH_OPTIONS",
-                                AwsDependency.S3_MIDDLEWARE
+                                AwsDependency.S3_MIDDLEWARE,
+                                AwsSdkS3Submodules.S3
                             )
                             .write("loadNodeConfig(NODE_DISABLE_S3_EXPRESS_SESSION_AUTH_OPTIONS, loaderConfig)");
                     }
@@ -390,7 +397,8 @@ public final class AddS3Config implements TypeScriptIntegration {
         return ListUtils.of(
             RuntimeClientPlugin.builder()
                 .withConventions(
-                    AwsDependency.S3_MIDDLEWARE.dependency,
+                    AwsDependency.S3_MIDDLEWARE.dependency.getPackageName() + AwsSdkS3Submodules.S3,
+                    AwsDependency.S3_MIDDLEWARE.dependency.getVersion(),
                     "ValidateBucketName",
                     HAS_MIDDLEWARE
                 )
@@ -398,7 +406,8 @@ public final class AddS3Config implements TypeScriptIntegration {
                 .build(),
             RuntimeClientPlugin.builder()
                 .withConventions(
-                    AwsDependency.S3_MIDDLEWARE.dependency,
+                    AwsDependency.S3_MIDDLEWARE.dependency.getPackageName() + AwsSdkS3Submodules.S3,
+                    AwsDependency.S3_MIDDLEWARE.dependency.getVersion(),
                     "CheckContentLengthHeader",
                     HAS_MIDDLEWARE
                 )
@@ -406,7 +415,8 @@ public final class AddS3Config implements TypeScriptIntegration {
                 .build(),
             RuntimeClientPlugin.builder()
                 .withConventions(
-                    AwsDependency.S3_MIDDLEWARE.dependency,
+                    AwsDependency.S3_MIDDLEWARE.dependency.getPackageName() + AwsSdkS3Submodules.S3,
+                    AwsDependency.S3_MIDDLEWARE.dependency.getVersion(),
                     "throw200Exceptions",
                     HAS_MIDDLEWARE
                 )
@@ -443,14 +453,20 @@ public final class AddS3Config implements TypeScriptIntegration {
                 .build(),
             RuntimeClientPlugin.builder()
                 .withConventions(
-                    AwsDependency.ADD_EXPECT_CONTINUE.dependency,
+                    AwsDependency.S3_MIDDLEWARE.dependency.getPackageName() + AwsSdkS3Submodules.S3,
+                    AwsDependency.S3_MIDDLEWARE.dependency.getVersion(),
                     "AddExpectContinue",
                     HAS_MIDDLEWARE
                 )
                 .servicePredicate((m, s) -> isS3(s))
                 .build(),
             RuntimeClientPlugin.builder()
-                .withConventions(AwsDependency.SSEC_MIDDLEWARE.dependency, "Ssec", HAS_MIDDLEWARE)
+                .withConventions(
+                    AwsDependency.S3_MIDDLEWARE.dependency.getPackageName() + AwsSdkS3Submodules.S3,
+                    AwsDependency.S3_MIDDLEWARE.dependency.getVersion(),
+                    "Ssec",
+                    HAS_MIDDLEWARE
+                )
                 .operationPredicate(
                     (m, s, o) -> containsInputMembers(m, o, SSEC_INPUT_KEYS)
                         && isS3(s)
@@ -458,7 +474,8 @@ public final class AddS3Config implements TypeScriptIntegration {
                 .build(),
             RuntimeClientPlugin.builder()
                 .withConventions(
-                    AwsDependency.LOCATION_CONSTRAINT.dependency,
+                    AwsDependency.S3_MIDDLEWARE.dependency.getPackageName() + AwsSdkS3Submodules.S3,
+                    AwsDependency.S3_MIDDLEWARE.dependency.getVersion(),
                     "LocationConstraint",
                     HAS_MIDDLEWARE
                 )
@@ -470,21 +487,21 @@ public final class AddS3Config implements TypeScriptIntegration {
             RuntimeClientPlugin.builder()
                 .inputConfig(
                     Symbol.builder()
-                        .namespace(AwsDependency.S3_MIDDLEWARE.dependency.getPackageName(), "/")
+                        .namespace(AwsDependency.S3_MIDDLEWARE.dependency.getPackageName() + AwsSdkS3Submodules.S3, "/")
                         .name("S3InputConfig")
                         .putProperty("typeOnly", true)
                         .build()
                 )
                 .resolvedConfig(
                     Symbol.builder()
-                        .namespace(AwsDependency.S3_MIDDLEWARE.dependency.getPackageName(), "/")
+                        .namespace(AwsDependency.S3_MIDDLEWARE.dependency.getPackageName() + AwsSdkS3Submodules.S3, "/")
                         .name("S3ResolvedConfig")
                         .putProperty("typeOnly", true)
                         .build()
                 )
                 .resolveFunction(
                     Symbol.builder()
-                        .namespace(AwsDependency.S3_MIDDLEWARE.dependency.getPackageName(), "/")
+                        .namespace(AwsDependency.S3_MIDDLEWARE.dependency.getPackageName() + AwsSdkS3Submodules.S3, "/")
                         .name("resolveS3Config")
                         .addDependency(
                             AwsDependency.S3_MIDDLEWARE.dependency
@@ -511,7 +528,8 @@ public final class AddS3Config implements TypeScriptIntegration {
              */
             RuntimeClientPlugin.builder()
                 .withConventions(
-                    AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE.dependency,
+                    AwsDependency.S3_MIDDLEWARE.dependency.getPackageName() + AwsSdkS3Submodules.S3,
+                    AwsDependency.S3_MIDDLEWARE.dependency.getVersion(),
                     "BucketEndpoint",
                     HAS_CONFIG
                 )
@@ -519,7 +537,8 @@ public final class AddS3Config implements TypeScriptIntegration {
                 .build(),
             RuntimeClientPlugin.builder()
                 .withConventions(
-                    AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE.dependency,
+                    AwsDependency.S3_MIDDLEWARE.dependency.getPackageName() + AwsSdkS3Submodules.S3,
+                    AwsDependency.S3_MIDDLEWARE.dependency.getVersion(),
                     "BucketEndpoint",
                     HAS_MIDDLEWARE
                 )
@@ -532,7 +551,8 @@ public final class AddS3Config implements TypeScriptIntegration {
                 .build(),
             RuntimeClientPlugin.builder()
                 .withConventions(
-                    AwsDependency.S3_MIDDLEWARE.dependency,
+                    AwsDependency.S3_MIDDLEWARE.dependency.getPackageName() + AwsSdkS3Submodules.S3,
+                    AwsDependency.S3_MIDDLEWARE.dependency.getVersion(),
                     "RegionRedirectMiddleware",
                     HAS_MIDDLEWARE
                 )
@@ -540,7 +560,8 @@ public final class AddS3Config implements TypeScriptIntegration {
                 .build(),
             RuntimeClientPlugin.builder()
                 .withConventions(
-                    AwsDependency.S3_MIDDLEWARE.dependency,
+                    AwsDependency.S3_MIDDLEWARE.dependency.getPackageName() + AwsSdkS3Submodules.S3,
+                    AwsDependency.S3_MIDDLEWARE.dependency.getVersion(),
                     "S3ExpiresMiddleware",
                     HAS_MIDDLEWARE
                 )
@@ -548,7 +569,8 @@ public final class AddS3Config implements TypeScriptIntegration {
                 .build(),
             RuntimeClientPlugin.builder()
                 .withConventions(
-                    AwsDependency.S3_MIDDLEWARE.dependency,
+                    AwsDependency.S3_MIDDLEWARE.dependency.getPackageName() + AwsSdkS3Submodules.S3,
+                    AwsDependency.S3_MIDDLEWARE.dependency.getVersion(),
                     "S3Express",
                     HAS_MIDDLEWARE
                 )
@@ -556,7 +578,8 @@ public final class AddS3Config implements TypeScriptIntegration {
                 .build(),
             RuntimeClientPlugin.builder()
                 .withConventions(
-                    AwsDependency.S3_MIDDLEWARE.dependency,
+                    AwsDependency.S3_MIDDLEWARE.dependency.getPackageName() + AwsSdkS3Submodules.S3,
+                    AwsDependency.S3_MIDDLEWARE.dependency.getVersion(),
                     "S3ExpressHttpSigning",
                     HAS_MIDDLEWARE
                 )
