@@ -320,8 +320,35 @@ export type LambdaEventSourceMappingUngracefulBehavior =
  * @public
  * @enum
  */
+export const NeptuneDefaultBehavior = {
+  FAILOVER: "failover",
+  SWITCHOVER_ONLY: "switchoverOnly",
+} as const;
+/**
+ * @public
+ */
+export type NeptuneDefaultBehavior = (typeof NeptuneDefaultBehavior)[keyof typeof NeptuneDefaultBehavior];
+
+/**
+ * @public
+ * @enum
+ */
+export const NeptuneUngracefulBehavior = {
+  FAILOVER: "failover",
+} as const;
+/**
+ * @public
+ */
+export type NeptuneUngracefulBehavior = (typeof NeptuneUngracefulBehavior)[keyof typeof NeptuneUngracefulBehavior];
+
+/**
+ * @public
+ * @enum
+ */
 export const ExecutionBlockType = {
   AURORA: "AuroraGlobalDatabase",
+  AURORA_PROVISIONED_SCALING: "AuroraProvisionedScaling",
+  AURORA_SERVERLESS_SCALING: "AuroraServerlessScaling",
   CUSTOM_ACTION_LAMBDA: "CustomActionLambda",
   DOCUMENTDB: "DocumentDb",
   EC2_ASG: "EC2AutoScaling",
@@ -329,6 +356,7 @@ export const ExecutionBlockType = {
   EKS_RESOURCE_SCALING: "EKSResourceScaling",
   EXECUTION_APPROVAL: "ManualApproval",
   LAMBDA_EVENT_SOURCE_MAPPING: "LambdaEventSourceMapping",
+  NEPTUNE: "NeptuneGlobalDatabase",
   PARALLEL: "Parallel",
   RDS_CREATE_CROSS_REGION_REPLICA: "RdsCreateCrossRegionReplica",
   RDS_PROMOTE_READ_REPLICA: "RdsPromoteReadReplica",

@@ -73,6 +73,9 @@ export interface ListRoute53HealthChecksCommandOutput extends ListRoute53HealthC
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p> <p>HTTP Status Code: 403</p>
  *
+ * @throws {@link IllegalArgumentException} (client fault)
+ *  <p>The request processing has an invalid argument.</p>
+ *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request processing has failed because of an unknown error, exception, or failure.</p> <p>HTTP Status Code: 500</p>
  *

@@ -286,8 +286,43 @@ export interface UpdatePlanCommandOutput extends UpdatePlanResponse, __MetadataB
  *                         behavior: "skip",
  *                       },
  *                     },
+ *                     auroraServerlessScalingConfig: { // AuroraServerlessScalingConfiguration
+ *                       timeoutMinutes: Number("int"),
+ *                       crossAccountRole: "STRING_VALUE",
+ *                       externalId: "STRING_VALUE",
+ *                       globalClusterIdentifier: "STRING_VALUE", // required
+ *                       regionDatabaseClusterArns: { // RegionAuroraClusterMap // required
+ *                         "<keys>": "STRING_VALUE",
+ *                       },
+ *                       targetPercent: Number("int"),
+ *                     },
+ *                     auroraProvisionedScalingConfig: { // AuroraProvisionedScalingConfiguration
+ *                       timeoutMinutes: Number("int"),
+ *                       crossAccountRole: "STRING_VALUE",
+ *                       externalId: "STRING_VALUE",
+ *                       globalClusterIdentifier: "STRING_VALUE", // required
+ *                       regionDatabaseClusterArns: { // required
+ *                         "<keys>": "STRING_VALUE",
+ *                       },
+ *                       instanceArns: { // RegionAuroraInstanceArnMap // required
+ *                         "<keys>": "STRING_VALUE",
+ *                       },
+ *                     },
+ *                     neptuneGlobalDatabaseConfig: { // NeptuneGlobalDatabaseConfiguration
+ *                       timeoutMinutes: Number("int"),
+ *                       crossAccountRole: "STRING_VALUE",
+ *                       externalId: "STRING_VALUE",
+ *                       behavior: "switchoverOnly" || "failover", // required
+ *                       ungraceful: { // NeptuneUngraceful
+ *                         ungraceful: "failover",
+ *                       },
+ *                       globalClusterIdentifier: "STRING_VALUE", // required
+ *                       regionDatabaseClusterArns: { // RegionNeptuneClusterArnMap // required
+ *                         "<keys>": "STRING_VALUE",
+ *                       },
+ *                     },
  *                   },
- *                   executionBlockType: "CustomActionLambda" || "ManualApproval" || "AuroraGlobalDatabase" || "EC2AutoScaling" || "ARCRoutingControl" || "ARCRegionSwitchPlan" || "Parallel" || "ECSServiceScaling" || "EKSResourceScaling" || "Route53HealthCheck" || "DocumentDb" || "RdsPromoteReadReplica" || "RdsCreateCrossRegionReplica" || "LambdaEventSourceMapping", // required
+ *                   executionBlockType: "CustomActionLambda" || "ManualApproval" || "AuroraGlobalDatabase" || "EC2AutoScaling" || "ARCRoutingControl" || "ARCRegionSwitchPlan" || "Parallel" || "ECSServiceScaling" || "EKSResourceScaling" || "Route53HealthCheck" || "DocumentDb" || "RdsPromoteReadReplica" || "RdsCreateCrossRegionReplica" || "LambdaEventSourceMapping" || "AuroraServerlessScaling" || "AuroraProvisionedScaling" || "NeptuneGlobalDatabase", // required
  *                 },
  *               ],
  *             },
@@ -398,8 +433,43 @@ export interface UpdatePlanCommandOutput extends UpdatePlanResponse, __MetadataB
  *                 behavior: "skip",
  *               },
  *             },
+ *             auroraServerlessScalingConfig: {
+ *               timeoutMinutes: Number("int"),
+ *               crossAccountRole: "STRING_VALUE",
+ *               externalId: "STRING_VALUE",
+ *               globalClusterIdentifier: "STRING_VALUE", // required
+ *               regionDatabaseClusterArns: { // required
+ *                 "<keys>": "STRING_VALUE",
+ *               },
+ *               targetPercent: Number("int"),
+ *             },
+ *             auroraProvisionedScalingConfig: {
+ *               timeoutMinutes: Number("int"),
+ *               crossAccountRole: "STRING_VALUE",
+ *               externalId: "STRING_VALUE",
+ *               globalClusterIdentifier: "STRING_VALUE", // required
+ *               regionDatabaseClusterArns: { // required
+ *                 "<keys>": "STRING_VALUE",
+ *               },
+ *               instanceArns: { // required
+ *                 "<keys>": "STRING_VALUE",
+ *               },
+ *             },
+ *             neptuneGlobalDatabaseConfig: {
+ *               timeoutMinutes: Number("int"),
+ *               crossAccountRole: "STRING_VALUE",
+ *               externalId: "STRING_VALUE",
+ *               behavior: "switchoverOnly" || "failover", // required
+ *               ungraceful: {
+ *                 ungraceful: "failover",
+ *               },
+ *               globalClusterIdentifier: "STRING_VALUE", // required
+ *               regionDatabaseClusterArns: { // required
+ *                 "<keys>": "STRING_VALUE",
+ *               },
+ *             },
  *           },
- *           executionBlockType: "CustomActionLambda" || "ManualApproval" || "AuroraGlobalDatabase" || "EC2AutoScaling" || "ARCRoutingControl" || "ARCRegionSwitchPlan" || "Parallel" || "ECSServiceScaling" || "EKSResourceScaling" || "Route53HealthCheck" || "DocumentDb" || "RdsPromoteReadReplica" || "RdsCreateCrossRegionReplica" || "LambdaEventSourceMapping", // required
+ *           executionBlockType: "CustomActionLambda" || "ManualApproval" || "AuroraGlobalDatabase" || "EC2AutoScaling" || "ARCRoutingControl" || "ARCRegionSwitchPlan" || "Parallel" || "ECSServiceScaling" || "EKSResourceScaling" || "Route53HealthCheck" || "DocumentDb" || "RdsPromoteReadReplica" || "RdsCreateCrossRegionReplica" || "LambdaEventSourceMapping" || "AuroraServerlessScaling" || "AuroraProvisionedScaling" || "NeptuneGlobalDatabase", // required
  *         },
  *       ],
  *       workflowTargetAction: "activate" || "deactivate" || "postRecovery", // required
@@ -691,8 +761,43 @@ export interface UpdatePlanCommandOutput extends UpdatePlanResponse, __MetadataB
  * //                           behavior: "skip",
  * //                         },
  * //                       },
+ * //                       auroraServerlessScalingConfig: { // AuroraServerlessScalingConfiguration
+ * //                         timeoutMinutes: Number("int"),
+ * //                         crossAccountRole: "STRING_VALUE",
+ * //                         externalId: "STRING_VALUE",
+ * //                         globalClusterIdentifier: "STRING_VALUE", // required
+ * //                         regionDatabaseClusterArns: { // RegionAuroraClusterMap // required
+ * //                           "<keys>": "STRING_VALUE",
+ * //                         },
+ * //                         targetPercent: Number("int"),
+ * //                       },
+ * //                       auroraProvisionedScalingConfig: { // AuroraProvisionedScalingConfiguration
+ * //                         timeoutMinutes: Number("int"),
+ * //                         crossAccountRole: "STRING_VALUE",
+ * //                         externalId: "STRING_VALUE",
+ * //                         globalClusterIdentifier: "STRING_VALUE", // required
+ * //                         regionDatabaseClusterArns: { // required
+ * //                           "<keys>": "STRING_VALUE",
+ * //                         },
+ * //                         instanceArns: { // RegionAuroraInstanceArnMap // required
+ * //                           "<keys>": "STRING_VALUE",
+ * //                         },
+ * //                       },
+ * //                       neptuneGlobalDatabaseConfig: { // NeptuneGlobalDatabaseConfiguration
+ * //                         timeoutMinutes: Number("int"),
+ * //                         crossAccountRole: "STRING_VALUE",
+ * //                         externalId: "STRING_VALUE",
+ * //                         behavior: "switchoverOnly" || "failover", // required
+ * //                         ungraceful: { // NeptuneUngraceful
+ * //                           ungraceful: "failover",
+ * //                         },
+ * //                         globalClusterIdentifier: "STRING_VALUE", // required
+ * //                         regionDatabaseClusterArns: { // RegionNeptuneClusterArnMap // required
+ * //                           "<keys>": "STRING_VALUE",
+ * //                         },
+ * //                       },
  * //                     },
- * //                     executionBlockType: "CustomActionLambda" || "ManualApproval" || "AuroraGlobalDatabase" || "EC2AutoScaling" || "ARCRoutingControl" || "ARCRegionSwitchPlan" || "Parallel" || "ECSServiceScaling" || "EKSResourceScaling" || "Route53HealthCheck" || "DocumentDb" || "RdsPromoteReadReplica" || "RdsCreateCrossRegionReplica" || "LambdaEventSourceMapping", // required
+ * //                     executionBlockType: "CustomActionLambda" || "ManualApproval" || "AuroraGlobalDatabase" || "EC2AutoScaling" || "ARCRoutingControl" || "ARCRegionSwitchPlan" || "Parallel" || "ECSServiceScaling" || "EKSResourceScaling" || "Route53HealthCheck" || "DocumentDb" || "RdsPromoteReadReplica" || "RdsCreateCrossRegionReplica" || "LambdaEventSourceMapping" || "AuroraServerlessScaling" || "AuroraProvisionedScaling" || "NeptuneGlobalDatabase", // required
  * //                   },
  * //                 ],
  * //               },
@@ -803,8 +908,43 @@ export interface UpdatePlanCommandOutput extends UpdatePlanResponse, __MetadataB
  * //                   behavior: "skip",
  * //                 },
  * //               },
+ * //               auroraServerlessScalingConfig: {
+ * //                 timeoutMinutes: Number("int"),
+ * //                 crossAccountRole: "STRING_VALUE",
+ * //                 externalId: "STRING_VALUE",
+ * //                 globalClusterIdentifier: "STRING_VALUE", // required
+ * //                 regionDatabaseClusterArns: { // required
+ * //                   "<keys>": "STRING_VALUE",
+ * //                 },
+ * //                 targetPercent: Number("int"),
+ * //               },
+ * //               auroraProvisionedScalingConfig: {
+ * //                 timeoutMinutes: Number("int"),
+ * //                 crossAccountRole: "STRING_VALUE",
+ * //                 externalId: "STRING_VALUE",
+ * //                 globalClusterIdentifier: "STRING_VALUE", // required
+ * //                 regionDatabaseClusterArns: { // required
+ * //                   "<keys>": "STRING_VALUE",
+ * //                 },
+ * //                 instanceArns: { // required
+ * //                   "<keys>": "STRING_VALUE",
+ * //                 },
+ * //               },
+ * //               neptuneGlobalDatabaseConfig: {
+ * //                 timeoutMinutes: Number("int"),
+ * //                 crossAccountRole: "STRING_VALUE",
+ * //                 externalId: "STRING_VALUE",
+ * //                 behavior: "switchoverOnly" || "failover", // required
+ * //                 ungraceful: {
+ * //                   ungraceful: "failover",
+ * //                 },
+ * //                 globalClusterIdentifier: "STRING_VALUE", // required
+ * //                 regionDatabaseClusterArns: { // required
+ * //                   "<keys>": "STRING_VALUE",
+ * //                 },
+ * //               },
  * //             },
- * //             executionBlockType: "CustomActionLambda" || "ManualApproval" || "AuroraGlobalDatabase" || "EC2AutoScaling" || "ARCRoutingControl" || "ARCRegionSwitchPlan" || "Parallel" || "ECSServiceScaling" || "EKSResourceScaling" || "Route53HealthCheck" || "DocumentDb" || "RdsPromoteReadReplica" || "RdsCreateCrossRegionReplica" || "LambdaEventSourceMapping", // required
+ * //             executionBlockType: "CustomActionLambda" || "ManualApproval" || "AuroraGlobalDatabase" || "EC2AutoScaling" || "ARCRoutingControl" || "ARCRegionSwitchPlan" || "Parallel" || "ECSServiceScaling" || "EKSResourceScaling" || "Route53HealthCheck" || "DocumentDb" || "RdsPromoteReadReplica" || "RdsCreateCrossRegionReplica" || "LambdaEventSourceMapping" || "AuroraServerlessScaling" || "AuroraProvisionedScaling" || "NeptuneGlobalDatabase", // required
  * //           },
  * //         ],
  * //         workflowTargetAction: "activate" || "deactivate" || "postRecovery", // required

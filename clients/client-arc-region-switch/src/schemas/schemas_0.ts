@@ -9,9 +9,11 @@ const _AP = "AbbreviatedPlan";
 const _APES = "ApprovePlanExecutionStep";
 const _APESR = "ApprovePlanExecutionStepRequest";
 const _APESRp = "ApprovePlanExecutionStepResponse";
+const _APSC = "AuroraProvisionedScalingConfiguration";
 const _ARCC = "ArcRoutingControlConfiguration";
 const _ARCS = "ArcRoutingControlState";
 const _ARCSr = "ArcRoutingControlStates";
+const _ASSC = "AuroraServerlessScalingConfiguration";
 const _CALC = "CustomActionLambdaConfiguration";
 const _CP = "CreatePlan";
 const _CPE = "CancelPlanExecution";
@@ -88,6 +90,8 @@ const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
 const _LU = "LambdaUngraceful";
 const _MW = "MinimalWorkflow";
+const _NGDC = "NeptuneGlobalDatabaseConfiguration";
+const _NU = "NeptuneUngraceful";
 const _P = "Plan";
 const _PEBC = "ParallelExecutionBlockConfiguration";
 const _PL = "PlanList";
@@ -145,10 +149,12 @@ const _a = "arn";
 const _aA = "associatedAlarms";
 const _aAN = "associatedAlarmName";
 const _aPE = "activePlanExecution";
+const _aPSC = "auroraProvisionedScalingConfig";
 const _aR = "approvalRole";
 const _aRCC = "arcRoutingControlConfig";
 const _aRT = "actualRecoveryTime";
 const _aRc = "activateRegion";
+const _aSSC = "auroraServerlessScalingConfig";
 const _aT = "alarmType";
 const _aTT = "actionToTake";
 const _aV = "apiVersion";
@@ -200,6 +206,7 @@ const _hE = "httpError";
 const _hN = "hpaName";
 const _hZI = "hostedZoneId";
 const _i = "items";
+const _iA = "instanceArns";
 const _k = "kind";
 const _kRT = "kubernetesResourceType";
 const _l = "lambdas";
@@ -213,6 +220,7 @@ const _mR = "maxResults";
 const _mSP = "minimumSuccessPercentage";
 const _mo = "mode";
 const _n = "name";
+const _nGDC = "neptuneGlobalDatabaseConfig";
 const _nT = "nextToken";
 const _na = "namespace";
 const _o = "owner";
@@ -230,6 +238,7 @@ const _rAe = "resourceArn";
 const _rC = "reportConfiguration";
 const _rCA = "routingControlArn";
 const _rCCRRRC = "rdsCreateCrossRegionReadReplicaConfig";
+const _rDCA = "regionDatabaseClusterArns";
 const _rEI = "recoveryExecutionId";
 const _rESM = "regionEventSourceMappings";
 const _rGT = "reportGenerationTime";
@@ -387,6 +396,16 @@ export var AssociatedAlarm$: StaticStructureSchema = [3, n0, _AA,
   0,
   [_rI, _aT, _cAR, _eIx],
   [0, 0, 0, 0], 2
+];
+export var AuroraProvisionedScalingConfiguration$: StaticStructureSchema = [3, n0, _APSC,
+  0,
+  [_gCI, _rDCA, _iA, _tM, _cAR, _eIx],
+  [0, 128 | 0, 128 | 0, 1, 0, 0], 3
+];
+export var AuroraServerlessScalingConfiguration$: StaticStructureSchema = [3, n0, _ASSC,
+  0,
+  [_gCI, _rDCA, _tM, _cAR, _eIx, _tP],
+  [0, 128 | 0, 1, 0, 0, 1], 2
 ];
 export var CancelPlanExecutionRequest$: StaticStructureSchema = [3, n0, _CPER,
   0,
@@ -648,6 +667,16 @@ export var MinimalWorkflow$: StaticStructureSchema = [3, n0, _MW,
   [_ac, _n],
   [0, 0]
 ];
+export var NeptuneGlobalDatabaseConfiguration$: StaticStructureSchema = [3, n0, _NGDC,
+  0,
+  [_b, _gCI, _rDCA, _tM, _cAR, _eIx, _u],
+  [0, 0, 128 | 0, 1, 0, 0, () => NeptuneUngraceful$], 3
+];
+export var NeptuneUngraceful$: StaticStructureSchema = [3, n0, _NU,
+  0,
+  [_u],
+  [0]
+];
 export var ParallelExecutionBlockConfiguration$: StaticStructureSchema = [3, n0, _PEBC,
   0,
   [_ste],
@@ -873,14 +902,17 @@ var RegionalScalingResource: StaticMapSchema = [2, n0, _RSR,
 var RegionAndRoutingControls: StaticMapSchema = [2, n0, _RARC,
   0, 0, () => ArcRoutingControlStates
 ];
+var RegionAuroraClusterMap = 128 | 0;
+var RegionAuroraInstanceArnMap = 128 | 0;
 var RegionEventSourceMappingMap: StaticMapSchema = [2, n0, _RESMM,
   0, 0, () => EventSourceMapping$
 ];
+var RegionNeptuneClusterArnMap = 128 | 0;
 var Tags = 128 | 0;
 export var ExecutionBlockConfiguration$: StaticUnionSchema = [4, n0, _EBC,
   0,
-  [_cALC, _eACIC, _eAC, _aRCC, _gAC, _pC, _rSPC, _eCIC, _eRSC, _rHCC, _dDC, _rPRRC, _rCCRRRC, _lESMC],
-  [() => CustomActionLambdaConfiguration$, () => Ec2AsgCapacityIncreaseConfiguration$, () => ExecutionApprovalConfiguration$, () => ArcRoutingControlConfiguration$, () => GlobalAuroraConfiguration$, () => ParallelExecutionBlockConfiguration$, () => RegionSwitchPlanConfiguration$, () => EcsCapacityIncreaseConfiguration$, () => EksResourceScalingConfiguration$, () => Route53HealthCheckConfiguration$, () => DocumentDbConfiguration$, () => RdsPromoteReadReplicaConfiguration$, () => RdsCreateCrossRegionReplicaConfiguration$, () => LambdaEventSourceMappingConfiguration$]
+  [_cALC, _eACIC, _eAC, _aRCC, _gAC, _pC, _rSPC, _eCIC, _eRSC, _rHCC, _dDC, _rPRRC, _rCCRRRC, _lESMC, _aSSC, _aPSC, _nGDC],
+  [() => CustomActionLambdaConfiguration$, () => Ec2AsgCapacityIncreaseConfiguration$, () => ExecutionApprovalConfiguration$, () => ArcRoutingControlConfiguration$, () => GlobalAuroraConfiguration$, () => ParallelExecutionBlockConfiguration$, () => RegionSwitchPlanConfiguration$, () => EcsCapacityIncreaseConfiguration$, () => EksResourceScalingConfiguration$, () => Route53HealthCheckConfiguration$, () => DocumentDbConfiguration$, () => RdsPromoteReadReplicaConfiguration$, () => RdsCreateCrossRegionReplicaConfiguration$, () => LambdaEventSourceMappingConfiguration$, () => AuroraServerlessScalingConfiguration$, () => AuroraProvisionedScalingConfiguration$, () => NeptuneGlobalDatabaseConfiguration$]
 ];
 export var ReportOutput$: StaticUnionSchema = [4, n0, _RO,
   0,

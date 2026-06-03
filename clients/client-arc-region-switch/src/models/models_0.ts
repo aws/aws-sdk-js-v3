@@ -20,6 +20,8 @@ import type {
   GlobalAuroraUngracefulBehavior,
   LambdaEventSourceMappingUngracefulBehavior,
   LambdaUngracefulBehavior,
+  NeptuneDefaultBehavior,
+  NeptuneUngracefulBehavior,
   RecoveryApproach,
   RegionToRunIn,
   ResourceWarningStatus,
@@ -729,6 +731,90 @@ export interface ArcRoutingControlConfiguration {
 }
 
 /**
+ * <p>Configuration for Amazon Aurora provisioned cluster scaling used in a Region switch plan.</p>
+ * @public
+ */
+export interface AuroraProvisionedScalingConfiguration {
+  /**
+   * <p>The timeout value specified for the configuration.</p>
+   * @public
+   */
+  timeoutMinutes?: number | undefined;
+
+  /**
+   * <p>The cross account role for the configuration.</p>
+   * @public
+   */
+  crossAccountRole?: string | undefined;
+
+  /**
+   * <p>The external ID (secret key) for the configuration.</p>
+   * @public
+   */
+  externalId?: string | undefined;
+
+  /**
+   * <p>The global cluster identifier for a global database.</p>
+   * @public
+   */
+  globalClusterIdentifier: string | undefined;
+
+  /**
+   * <p>Per-Region configuration that maps each Region to the Aurora database cluster ARN for scaling.</p>
+   * @public
+   */
+  regionDatabaseClusterArns: Record<string, string> | undefined;
+
+  /**
+   * <p>Per-Region configuration that maps each Region to the Aurora database instance ARN for scaling.</p>
+   * @public
+   */
+  instanceArns: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Configuration for Amazon Aurora Serverless scaling used in a Region switch plan.</p>
+ * @public
+ */
+export interface AuroraServerlessScalingConfiguration {
+  /**
+   * <p>The timeout value specified for the configuration.</p>
+   * @public
+   */
+  timeoutMinutes?: number | undefined;
+
+  /**
+   * <p>The cross account role for the configuration.</p>
+   * @public
+   */
+  crossAccountRole?: string | undefined;
+
+  /**
+   * <p>The external ID (secret key) for the configuration.</p>
+   * @public
+   */
+  externalId?: string | undefined;
+
+  /**
+   * <p>The global cluster identifier for a global database.</p>
+   * @public
+   */
+  globalClusterIdentifier: string | undefined;
+
+  /**
+   * <p>Per-Region configuration that maps each Region to the Aurora database cluster ARN for scaling.</p>
+   * @public
+   */
+  regionDatabaseClusterArns: Record<string, string> | undefined;
+
+  /**
+   * <p>The target capacity percentage for Aurora Serverless scaling.</p>
+   * @public
+   */
+  targetPercent?: number | undefined;
+}
+
+/**
  * <p>Configuration for Amazon Web Services Lambda functions used in a Region switch plan.</p>
  * @public
  */
@@ -1281,6 +1367,66 @@ export interface LambdaEventSourceMappingConfiguration {
 }
 
 /**
+ * <p>Configuration for handling failures when performing operations on Neptune global databases.</p>
+ * @public
+ */
+export interface NeptuneUngraceful {
+  /**
+   * <p>The settings for ungraceful execution.</p>
+   * @public
+   */
+  ungraceful?: NeptuneUngracefulBehavior | undefined;
+}
+
+/**
+ * <p>Configuration for Amazon Neptune global databases used in a Region switch plan.</p>
+ * @public
+ */
+export interface NeptuneGlobalDatabaseConfiguration {
+  /**
+   * <p>The timeout value specified for the configuration.</p>
+   * @public
+   */
+  timeoutMinutes?: number | undefined;
+
+  /**
+   * <p>The cross account role for the configuration.</p>
+   * @public
+   */
+  crossAccountRole?: string | undefined;
+
+  /**
+   * <p>The external ID (secret key) for the configuration.</p>
+   * @public
+   */
+  externalId?: string | undefined;
+
+  /**
+   * <p>The behavior for a global database, that is, only allow switchover or also allow failover.</p>
+   * @public
+   */
+  behavior: NeptuneDefaultBehavior | undefined;
+
+  /**
+   * <p>The settings for ungraceful execution.</p>
+   * @public
+   */
+  ungraceful?: NeptuneUngraceful | undefined;
+
+  /**
+   * <p>The global cluster identifier for a Neptune global database.</p>
+   * @public
+   */
+  globalClusterIdentifier: string | undefined;
+
+  /**
+   * <p>The database cluster Amazon Resource Names (ARNs) for a Neptune global database.</p>
+   * @public
+   */
+  regionDatabaseClusterArns: Record<string, string> | undefined;
+}
+
+/**
  * <p>Configuration for creating an Amazon RDS cross-Region read replica during post-recovery in a Region switch.</p>
  * @public
  */
@@ -1686,7 +1832,7 @@ export interface ListRoute53HealthChecksRequest {
   recordName?: string | undefined;
 
   /**
-   * <p>The number of objects that you want to return with this call.</p>
+   * <p>The maximum number of results to return in the response.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -1745,7 +1891,7 @@ export interface ListRoute53HealthChecksResponse {
   healthChecks?: Route53HealthCheck[] | undefined;
 
   /**
-   * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>nextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>nextToken</code> response to request the next page of results.</p>
+   * <p>A pagination token. A response may contain no results while still including a <code>nextToken</code>. Continue paginating until <code>nextToken</code> is null to retrieve all results.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -1774,7 +1920,7 @@ export interface ListRoute53HealthChecksInRegionRequest {
   recordName?: string | undefined;
 
   /**
-   * <p>The number of objects that you want to return with this call.</p>
+   * <p>The maximum number of results to return in the response.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -1797,7 +1943,7 @@ export interface ListRoute53HealthChecksInRegionResponse {
   healthChecks?: Route53HealthCheck[] | undefined;
 
   /**
-   * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>nextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>nextToken</code> response to request the next page of results.</p>
+   * <p>A pagination token. A response may contain no results while still including a <code>nextToken</code>. Continue paginating until <code>nextToken</code> is null to retrieve all results.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -2092,6 +2238,8 @@ export interface UpdatePlanExecutionStepResponse {}
  */
 export type ExecutionBlockConfiguration =
   | ExecutionBlockConfiguration.ArcRoutingControlConfigMember
+  | ExecutionBlockConfiguration.AuroraProvisionedScalingConfigMember
+  | ExecutionBlockConfiguration.AuroraServerlessScalingConfigMember
   | ExecutionBlockConfiguration.CustomActionLambdaConfigMember
   | ExecutionBlockConfiguration.DocumentDbConfigMember
   | ExecutionBlockConfiguration.Ec2AsgCapacityIncreaseConfigMember
@@ -2100,6 +2248,7 @@ export type ExecutionBlockConfiguration =
   | ExecutionBlockConfiguration.ExecutionApprovalConfigMember
   | ExecutionBlockConfiguration.GlobalAuroraConfigMember
   | ExecutionBlockConfiguration.LambdaEventSourceMappingConfigMember
+  | ExecutionBlockConfiguration.NeptuneGlobalDatabaseConfigMember
   | ExecutionBlockConfiguration.ParallelConfigMember
   | ExecutionBlockConfiguration.RdsCreateCrossRegionReadReplicaConfigMember
   | ExecutionBlockConfiguration.RdsPromoteReadReplicaConfigMember
@@ -2130,6 +2279,9 @@ export namespace ExecutionBlockConfiguration {
     rdsPromoteReadReplicaConfig?: never;
     rdsCreateCrossRegionReadReplicaConfig?: never;
     lambdaEventSourceMappingConfig?: never;
+    auroraServerlessScalingConfig?: never;
+    auroraProvisionedScalingConfig?: never;
+    neptuneGlobalDatabaseConfig?: never;
     $unknown?: never;
   }
 
@@ -2152,6 +2304,9 @@ export namespace ExecutionBlockConfiguration {
     rdsPromoteReadReplicaConfig?: never;
     rdsCreateCrossRegionReadReplicaConfig?: never;
     lambdaEventSourceMappingConfig?: never;
+    auroraServerlessScalingConfig?: never;
+    auroraProvisionedScalingConfig?: never;
+    neptuneGlobalDatabaseConfig?: never;
     $unknown?: never;
   }
 
@@ -2174,6 +2329,9 @@ export namespace ExecutionBlockConfiguration {
     rdsPromoteReadReplicaConfig?: never;
     rdsCreateCrossRegionReadReplicaConfig?: never;
     lambdaEventSourceMappingConfig?: never;
+    auroraServerlessScalingConfig?: never;
+    auroraProvisionedScalingConfig?: never;
+    neptuneGlobalDatabaseConfig?: never;
     $unknown?: never;
   }
 
@@ -2196,6 +2354,9 @@ export namespace ExecutionBlockConfiguration {
     rdsPromoteReadReplicaConfig?: never;
     rdsCreateCrossRegionReadReplicaConfig?: never;
     lambdaEventSourceMappingConfig?: never;
+    auroraServerlessScalingConfig?: never;
+    auroraProvisionedScalingConfig?: never;
+    neptuneGlobalDatabaseConfig?: never;
     $unknown?: never;
   }
 
@@ -2218,6 +2379,9 @@ export namespace ExecutionBlockConfiguration {
     rdsPromoteReadReplicaConfig?: never;
     rdsCreateCrossRegionReadReplicaConfig?: never;
     lambdaEventSourceMappingConfig?: never;
+    auroraServerlessScalingConfig?: never;
+    auroraProvisionedScalingConfig?: never;
+    neptuneGlobalDatabaseConfig?: never;
     $unknown?: never;
   }
 
@@ -2240,6 +2404,9 @@ export namespace ExecutionBlockConfiguration {
     rdsPromoteReadReplicaConfig?: never;
     rdsCreateCrossRegionReadReplicaConfig?: never;
     lambdaEventSourceMappingConfig?: never;
+    auroraServerlessScalingConfig?: never;
+    auroraProvisionedScalingConfig?: never;
+    neptuneGlobalDatabaseConfig?: never;
     $unknown?: never;
   }
 
@@ -2262,6 +2429,9 @@ export namespace ExecutionBlockConfiguration {
     rdsPromoteReadReplicaConfig?: never;
     rdsCreateCrossRegionReadReplicaConfig?: never;
     lambdaEventSourceMappingConfig?: never;
+    auroraServerlessScalingConfig?: never;
+    auroraProvisionedScalingConfig?: never;
+    neptuneGlobalDatabaseConfig?: never;
     $unknown?: never;
   }
 
@@ -2284,6 +2454,9 @@ export namespace ExecutionBlockConfiguration {
     rdsPromoteReadReplicaConfig?: never;
     rdsCreateCrossRegionReadReplicaConfig?: never;
     lambdaEventSourceMappingConfig?: never;
+    auroraServerlessScalingConfig?: never;
+    auroraProvisionedScalingConfig?: never;
+    neptuneGlobalDatabaseConfig?: never;
     $unknown?: never;
   }
 
@@ -2306,6 +2479,9 @@ export namespace ExecutionBlockConfiguration {
     rdsPromoteReadReplicaConfig?: never;
     rdsCreateCrossRegionReadReplicaConfig?: never;
     lambdaEventSourceMappingConfig?: never;
+    auroraServerlessScalingConfig?: never;
+    auroraProvisionedScalingConfig?: never;
+    neptuneGlobalDatabaseConfig?: never;
     $unknown?: never;
   }
 
@@ -2328,6 +2504,9 @@ export namespace ExecutionBlockConfiguration {
     rdsPromoteReadReplicaConfig?: never;
     rdsCreateCrossRegionReadReplicaConfig?: never;
     lambdaEventSourceMappingConfig?: never;
+    auroraServerlessScalingConfig?: never;
+    auroraProvisionedScalingConfig?: never;
+    neptuneGlobalDatabaseConfig?: never;
     $unknown?: never;
   }
 
@@ -2350,6 +2529,9 @@ export namespace ExecutionBlockConfiguration {
     rdsPromoteReadReplicaConfig?: never;
     rdsCreateCrossRegionReadReplicaConfig?: never;
     lambdaEventSourceMappingConfig?: never;
+    auroraServerlessScalingConfig?: never;
+    auroraProvisionedScalingConfig?: never;
+    neptuneGlobalDatabaseConfig?: never;
     $unknown?: never;
   }
 
@@ -2372,6 +2554,9 @@ export namespace ExecutionBlockConfiguration {
     rdsPromoteReadReplicaConfig: RdsPromoteReadReplicaConfiguration;
     rdsCreateCrossRegionReadReplicaConfig?: never;
     lambdaEventSourceMappingConfig?: never;
+    auroraServerlessScalingConfig?: never;
+    auroraProvisionedScalingConfig?: never;
+    neptuneGlobalDatabaseConfig?: never;
     $unknown?: never;
   }
 
@@ -2394,6 +2579,9 @@ export namespace ExecutionBlockConfiguration {
     rdsPromoteReadReplicaConfig?: never;
     rdsCreateCrossRegionReadReplicaConfig: RdsCreateCrossRegionReplicaConfiguration;
     lambdaEventSourceMappingConfig?: never;
+    auroraServerlessScalingConfig?: never;
+    auroraProvisionedScalingConfig?: never;
+    neptuneGlobalDatabaseConfig?: never;
     $unknown?: never;
   }
 
@@ -2416,6 +2604,84 @@ export namespace ExecutionBlockConfiguration {
     rdsPromoteReadReplicaConfig?: never;
     rdsCreateCrossRegionReadReplicaConfig?: never;
     lambdaEventSourceMappingConfig: LambdaEventSourceMappingConfiguration;
+    auroraServerlessScalingConfig?: never;
+    auroraProvisionedScalingConfig?: never;
+    neptuneGlobalDatabaseConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An Aurora Serverless scaling execution block.</p>
+   * @public
+   */
+  export interface AuroraServerlessScalingConfigMember {
+    customActionLambdaConfig?: never;
+    ec2AsgCapacityIncreaseConfig?: never;
+    executionApprovalConfig?: never;
+    arcRoutingControlConfig?: never;
+    globalAuroraConfig?: never;
+    parallelConfig?: never;
+    regionSwitchPlanConfig?: never;
+    ecsCapacityIncreaseConfig?: never;
+    eksResourceScalingConfig?: never;
+    route53HealthCheckConfig?: never;
+    documentDbConfig?: never;
+    rdsPromoteReadReplicaConfig?: never;
+    rdsCreateCrossRegionReadReplicaConfig?: never;
+    lambdaEventSourceMappingConfig?: never;
+    auroraServerlessScalingConfig: AuroraServerlessScalingConfiguration;
+    auroraProvisionedScalingConfig?: never;
+    neptuneGlobalDatabaseConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An Aurora provisioned cluster scaling execution block.</p>
+   * @public
+   */
+  export interface AuroraProvisionedScalingConfigMember {
+    customActionLambdaConfig?: never;
+    ec2AsgCapacityIncreaseConfig?: never;
+    executionApprovalConfig?: never;
+    arcRoutingControlConfig?: never;
+    globalAuroraConfig?: never;
+    parallelConfig?: never;
+    regionSwitchPlanConfig?: never;
+    ecsCapacityIncreaseConfig?: never;
+    eksResourceScalingConfig?: never;
+    route53HealthCheckConfig?: never;
+    documentDbConfig?: never;
+    rdsPromoteReadReplicaConfig?: never;
+    rdsCreateCrossRegionReadReplicaConfig?: never;
+    lambdaEventSourceMappingConfig?: never;
+    auroraServerlessScalingConfig?: never;
+    auroraProvisionedScalingConfig: AuroraProvisionedScalingConfiguration;
+    neptuneGlobalDatabaseConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A Neptune global database execution block.</p>
+   * @public
+   */
+  export interface NeptuneGlobalDatabaseConfigMember {
+    customActionLambdaConfig?: never;
+    ec2AsgCapacityIncreaseConfig?: never;
+    executionApprovalConfig?: never;
+    arcRoutingControlConfig?: never;
+    globalAuroraConfig?: never;
+    parallelConfig?: never;
+    regionSwitchPlanConfig?: never;
+    ecsCapacityIncreaseConfig?: never;
+    eksResourceScalingConfig?: never;
+    route53HealthCheckConfig?: never;
+    documentDbConfig?: never;
+    rdsPromoteReadReplicaConfig?: never;
+    rdsCreateCrossRegionReadReplicaConfig?: never;
+    lambdaEventSourceMappingConfig?: never;
+    auroraServerlessScalingConfig?: never;
+    auroraProvisionedScalingConfig?: never;
+    neptuneGlobalDatabaseConfig: NeptuneGlobalDatabaseConfiguration;
     $unknown?: never;
   }
 
@@ -2437,6 +2703,9 @@ export namespace ExecutionBlockConfiguration {
     rdsPromoteReadReplicaConfig?: never;
     rdsCreateCrossRegionReadReplicaConfig?: never;
     lambdaEventSourceMappingConfig?: never;
+    auroraServerlessScalingConfig?: never;
+    auroraProvisionedScalingConfig?: never;
+    neptuneGlobalDatabaseConfig?: never;
     $unknown: [string, any];
   }
 
@@ -2459,6 +2728,9 @@ export namespace ExecutionBlockConfiguration {
     rdsPromoteReadReplicaConfig: (value: RdsPromoteReadReplicaConfiguration) => T;
     rdsCreateCrossRegionReadReplicaConfig: (value: RdsCreateCrossRegionReplicaConfiguration) => T;
     lambdaEventSourceMappingConfig: (value: LambdaEventSourceMappingConfiguration) => T;
+    auroraServerlessScalingConfig: (value: AuroraServerlessScalingConfiguration) => T;
+    auroraProvisionedScalingConfig: (value: AuroraProvisionedScalingConfiguration) => T;
+    neptuneGlobalDatabaseConfig: (value: NeptuneGlobalDatabaseConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 }

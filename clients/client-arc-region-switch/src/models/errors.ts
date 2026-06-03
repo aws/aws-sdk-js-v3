@@ -44,26 +44,6 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request processing has failed because of an unknown error, exception, or failure.</p> <p>HTTP Status Code: 500</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name = "InternalServerException" as const;
-  readonly $fault = "server" as const;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
  * <p>The request processing has an invalid argument.</p>
  * @public
  */
@@ -80,6 +60,26 @@ export class IllegalArgumentException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, IllegalArgumentException.prototype);
+  }
+}
+
+/**
+ * <p>The request processing has failed because of an unknown error, exception, or failure.</p> <p>HTTP Status Code: 500</p>
+ * @public
+ */
+export class InternalServerException extends __BaseException {
+  readonly name = "InternalServerException" as const;
+  readonly $fault = "server" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
   }
 }
 

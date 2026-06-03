@@ -17,6 +17,8 @@ import {
   ArcRoutingControlState$,
   Asg$,
   AssociatedAlarm$,
+  AuroraProvisionedScalingConfiguration$,
+  AuroraServerlessScalingConfiguration$,
   CancelPlanExecution$,
   CancelPlanExecutionCommand,
   CancelPlanExecutionRequest$,
@@ -121,6 +123,10 @@ import {
   ListTagsForResourceRequest$,
   ListTagsForResourceResponse$,
   MinimalWorkflow$,
+  NeptuneDefaultBehavior,
+  NeptuneGlobalDatabaseConfiguration$,
+  NeptuneUngraceful$,
+  NeptuneUngracefulBehavior,
   paginateGetPlanEvaluationStatus,
   paginateGetPlanExecution,
   paginateListPlanExecutionEvents,
@@ -245,6 +251,8 @@ assert(typeof ArcRoutingControlConfiguration$ === "object");
 assert(typeof ArcRoutingControlState$ === "object");
 assert(typeof Asg$ === "object");
 assert(typeof AssociatedAlarm$ === "object");
+assert(typeof AuroraProvisionedScalingConfiguration$ === "object");
+assert(typeof AuroraServerlessScalingConfiguration$ === "object");
 assert(typeof CancelPlanExecutionRequest$ === "object");
 assert(typeof CancelPlanExecutionResponse$ === "object");
 assert(typeof CreatePlanRequest$ === "object");
@@ -298,6 +306,8 @@ assert(typeof ListRoute53HealthChecksResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof MinimalWorkflow$ === "object");
+assert(typeof NeptuneGlobalDatabaseConfiguration$ === "object");
+assert(typeof NeptuneUngraceful$ === "object");
 assert(typeof ParallelExecutionBlockConfiguration$ === "object");
 assert(typeof Plan$ === "object");
 assert(typeof RdsCreateCrossRegionReplicaConfiguration$ === "object");
@@ -351,6 +361,8 @@ assert(typeof GlobalAuroraDefaultBehavior === "object");
 assert(typeof GlobalAuroraUngracefulBehavior === "object");
 assert(typeof LambdaEventSourceMappingUngracefulBehavior === "object");
 assert(typeof LambdaUngracefulBehavior === "object");
+assert(typeof NeptuneDefaultBehavior === "object");
+assert(typeof NeptuneUngracefulBehavior === "object");
 assert(typeof RecoveryApproach === "object");
 assert(typeof RegionToRunIn === "object");
 assert(typeof ResourceWarningStatus === "object");
