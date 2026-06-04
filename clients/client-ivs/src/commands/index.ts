@@ -37,5 +37,6 @@ export * from "./StartViewerSessionRevocationCommand";
 export * from "./StopStreamCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
+export * from "./UpdateAdConfigurationCommand";
 export * from "./UpdateChannelCommand";
 export * from "./UpdatePlaybackRestrictionPolicyCommand";

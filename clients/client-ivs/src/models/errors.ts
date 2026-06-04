@@ -141,7 +141,7 @@ export class ServiceUnavailable extends __BaseException {
   xAmznErrorType?: string | undefined;
 
   /**
-   * <p/>
+   * <p>The service is temporarily unavailable.</p>
    * @public
    */
   exceptionMessage?: string | undefined;

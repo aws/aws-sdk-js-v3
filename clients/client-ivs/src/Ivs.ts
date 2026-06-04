@@ -189,6 +189,11 @@ import {
   UntagResourceCommand,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateAdConfigurationCommandInput,
+  type UpdateAdConfigurationCommandOutput,
+  UpdateAdConfigurationCommand,
+} from "./commands/UpdateAdConfigurationCommand";
+import {
   type UpdateChannelCommandInput,
   type UpdateChannelCommandOutput,
   UpdateChannelCommand,
@@ -247,6 +252,7 @@ const commands = {
   StopStreamCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateAdConfigurationCommand,
   UpdateChannelCommand,
   UpdatePlaybackRestrictionPolicyCommand,
 };
@@ -914,6 +920,23 @@ export interface Ivs {
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAdConfigurationCommand}
+   */
+  updateAdConfiguration(
+    args: UpdateAdConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAdConfigurationCommandOutput>;
+  updateAdConfiguration(
+    args: UpdateAdConfigurationCommandInput,
+    cb: (err: any, data?: UpdateAdConfigurationCommandOutput) => void
+  ): void;
+  updateAdConfiguration(
+    args: UpdateAdConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAdConfigurationCommandOutput) => void
   ): void;
 
   /**

@@ -221,6 +221,10 @@ import {
   UntagResourceCommand,
   UntagResourceRequest$,
   UntagResourceResponse$,
+  UpdateAdConfiguration$,
+  UpdateAdConfigurationCommand,
+  UpdateAdConfigurationRequest$,
+  UpdateAdConfigurationResponse$,
   UpdateChannel$,
   UpdateChannelCommand,
   UpdateChannelRequest$,
@@ -314,6 +318,8 @@ assert(typeof TagResourceCommand === "function");
 assert(typeof TagResource$ === "object");
 assert(typeof UntagResourceCommand === "function");
 assert(typeof UntagResource$ === "object");
+assert(typeof UpdateAdConfigurationCommand === "function");
+assert(typeof UpdateAdConfiguration$ === "object");
 assert(typeof UpdateChannelCommand === "function");
 assert(typeof UpdateChannel$ === "object");
 assert(typeof UpdatePlaybackRestrictionPolicyCommand === "function");
@@ -420,6 +426,8 @@ assert(typeof TagResourceResponse$ === "object");
 assert(typeof ThumbnailConfiguration$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UntagResourceResponse$ === "object");
+assert(typeof UpdateAdConfigurationRequest$ === "object");
+assert(typeof UpdateAdConfigurationResponse$ === "object");
 assert(typeof UpdateChannelRequest$ === "object");
 assert(typeof UpdateChannelResponse$ === "object");
 assert(typeof UpdatePlaybackRestrictionPolicyRequest$ === "object");

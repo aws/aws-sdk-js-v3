@@ -447,6 +447,13 @@ UntagResource
 </details>
 <details>
 <summary>
+UpdateAdConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ivs/command/UpdateAdConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs/Interface/UpdateAdConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs/Interface/UpdateAdConfigurationCommandOutput/)
+</details>
+<details>
+<summary>
 UpdateChannel
 </summary>
 

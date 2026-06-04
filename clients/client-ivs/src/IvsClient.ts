@@ -155,6 +155,10 @@ import type {
 import type { StopStreamCommandInput, StopStreamCommandOutput } from "./commands/StopStreamCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
+  UpdateAdConfigurationCommandInput,
+  UpdateAdConfigurationCommandOutput,
+} from "./commands/UpdateAdConfigurationCommand";
 import type { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "./commands/UpdateChannelCommand";
 import type {
   UpdatePlaybackRestrictionPolicyCommandInput,
@@ -213,6 +217,7 @@ export type ServiceInputTypes =
   | StopStreamCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateAdConfigurationCommandInput
   | UpdateChannelCommandInput
   | UpdatePlaybackRestrictionPolicyCommandInput;
 
@@ -258,6 +263,7 @@ export type ServiceOutputTypes =
   | StopStreamCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateAdConfigurationCommandOutput
   | UpdateChannelCommandOutput
   | UpdatePlaybackRestrictionPolicyCommandOutput;
 

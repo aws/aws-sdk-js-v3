@@ -46,7 +46,7 @@ export interface AdConfiguration {
   name?: string | undefined;
 
   /**
-   * <p>List of integration configurations with media tailor resources.</p>
+   * <p>List of integration configurations with MediaTailor resources. The first item in the list is the default playback configuration used for the ad configuration. To select a different configuration per viewing session, see <a href="https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/private-channels-generate-tokens.html">Generate and Sign IVS Playback Tokens</a>.</p>
    * @public
    */
   mediaTailorPlaybackConfigurations: MediaTailorPlaybackConfiguration[] | undefined;
@@ -76,7 +76,7 @@ export interface AdConfigurationSummary {
   name?: string | undefined;
 
   /**
-   * <p>List of integration configurations with media tailor resources.</p>
+   * <p>List of integration configurations with MediaTailor resources. The first item in the list is the default playback configuration used for the ad configuration. To select a different configuration per viewing session, see <a href="https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/private-channels-generate-tokens.html">Generate and Sign IVS Playback Tokens</a>.</p>
    * @public
    */
   mediaTailorPlaybackConfigurations: MediaTailorPlaybackConfiguration[] | undefined;
@@ -165,7 +165,7 @@ export interface Channel {
   latencyMode?: ChannelLatencyMode | undefined;
 
   /**
-   * <p>Channel type, which determines the allowable resolution and bitrate. <i>If you exceed the allowable input resolution or bitrate, the stream probably will disconnect immediately.</i> Default: <code>STANDARD</code>. For details, see <a href="https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/channel-types.html">Channel Types</a>.</p>
+   * <p>Channel type, which determines the allowable resolution and bitrate. <i>If you exceed the allowable input resolution or bitrate, the stream probably will disconnect immediately.</i> Default: <code>STANDARD</code>. For details, see <a href="https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/channel-types.html">Channel Types</a>.</p>
    * @public
    */
   type?: ChannelType | undefined;
@@ -555,7 +555,7 @@ export interface CreateAdConfigurationRequest {
   name?: string | undefined;
 
   /**
-   * <p>List of integration configurations with media tailor resources.</p>
+   * <p>List of integration configurations with MediaTailor resources. The first item in the list is the default playback configuration used for the ad configuration. To select a different configuration per viewing session, see <a href="https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/private-channels-generate-tokens.html">Generate and Sign IVS Playback Tokens</a>.</p>
    * @public
    */
   mediaTailorPlaybackConfigurations: MediaTailorPlaybackConfiguration[] | undefined;
@@ -595,7 +595,7 @@ export interface CreateChannelRequest {
   latencyMode?: ChannelLatencyMode | undefined;
 
   /**
-   * <p>Channel type, which determines the allowable resolution and bitrate. <i>If you exceed the allowable input resolution or bitrate, the stream probably will disconnect immediately.</i> Default: <code>STANDARD</code>. For details, see <a href="https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/channel-types.html">Channel Types</a>.</p>
+   * <p>Channel type, which determines the allowable resolution and bitrate. <i>If you exceed the allowable input resolution or bitrate, the stream probably will disconnect immediately.</i> Default: <code>STANDARD</code>. For details, see <a href="https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/channel-types.html">Channel Types</a>.</p>
    * @public
    */
   type?: ChannelType | undefined;
@@ -1570,7 +1570,7 @@ export interface InsertAdBreakRequest {
   channelArn: string | undefined;
 
   /**
-   * <p>Maximum duration of the ad break, in seconds.</p>
+   * <p>Duration of the ad break, in seconds.</p>
    * @public
    */
   durationSeconds: number | undefined;
@@ -1710,7 +1710,7 @@ export interface ChannelSummary {
   insecureIngest?: boolean | undefined;
 
   /**
-   * <p>Channel type, which determines the allowable resolution and bitrate. <i>If you exceed the allowable input resolution or bitrate, the stream probably will disconnect immediately.</i> Default: <code>STANDARD</code>. For details, see <a href="https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/channel-types.html">Channel Types</a>.</p>
+   * <p>Channel type, which determines the allowable resolution and bitrate. <i>If you exceed the allowable input resolution or bitrate, the stream probably will disconnect immediately.</i> Default: <code>STANDARD</code>. For details, see <a href="https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/channel-types.html">Channel Types</a>.</p>
    * @public
    */
   type?: ChannelType | undefined;
@@ -2313,6 +2313,40 @@ export interface UntagResourceResponse {}
 /**
  * @public
  */
+export interface UpdateAdConfigurationRequest {
+  /**
+   * <p>ARN of the ad configuration to be updated.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>Ad configuration name. The value does not need to be unique.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>List of integration configurations with MediaTailor resources. The first item in the list is the default playback configuration used for the ad configuration. To select a different configuration per viewing session, see <a href="https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/private-channels-generate-tokens.html">Generate and Sign IVS Playback Tokens</a>.</p>
+   * @public
+   */
+  mediaTailorPlaybackConfigurations?: MediaTailorPlaybackConfiguration[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAdConfigurationResponse {
+  /**
+   * <p>Object specifying the updated ad configuration.</p>
+   * @public
+   */
+  adConfiguration: AdConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdateChannelRequest {
   /**
    * <p>ARN of the channel to be updated.</p>
@@ -2333,7 +2367,7 @@ export interface UpdateChannelRequest {
   latencyMode?: ChannelLatencyMode | undefined;
 
   /**
-   * <p>Channel type, which determines the allowable resolution and bitrate. <i>If you exceed the allowable input resolution or bitrate, the stream probably will disconnect immediately.</i> Default: <code>STANDARD</code>. For details, see <a href="https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/channel-types.html">Channel Types</a>.</p>
+   * <p>Channel type, which determines the allowable resolution and bitrate. <i>If you exceed the allowable input resolution or bitrate, the stream probably will disconnect immediately.</i> Default: <code>STANDARD</code>. For details, see <a href="https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/channel-types.html">Channel Types</a>.</p>
    * @public
    */
   type?: ChannelType | undefined;

@@ -168,6 +168,9 @@ const _TE = "ThrottlingException";
 const _TR = "TagResource";
 const _TRR = "TagResourceRequest";
 const _TRRa = "TagResourceResponse";
+const _UAC = "UpdateAdConfiguration";
+const _UACR = "UpdateAdConfigurationRequest";
+const _UACRp = "UpdateAdConfigurationResponse";
 const _UC = "UpdateChannel";
 const _UCR = "UpdateChannelRequest";
 const _UCRp = "UpdateChannelResponse";
@@ -920,6 +923,16 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   [],
   []
 ];
+export var UpdateAdConfigurationRequest$: StaticStructureSchema = [3, n0, _UACR,
+  0,
+  [_a, _n, _mTPC],
+  [0, 0, () => MediaTailorPlaybackConfigurationsList], 1
+];
+export var UpdateAdConfigurationResponse$: StaticStructureSchema = [3, n0, _UACRp,
+  0,
+  [_aC],
+  [() => AdConfiguration$], 1
+];
 export var UpdateChannelRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
   [_a, _n, _lM, _ty, _au, _rCA, _iI, _p, _pRPA, _mIC, _cF, _aCA],
@@ -1120,6 +1133,9 @@ export var TagResource$: StaticOperationSchema = [9, n0, _TR,
 ];
 export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
   { [_ht]: ["DELETE", "/tags/{resourceArn}", 200] }, () => UntagResourceRequest$, () => UntagResourceResponse$
+];
+export var UpdateAdConfiguration$: StaticOperationSchema = [9, n0, _UAC,
+  { [_ht]: ["POST", "/UpdateAdConfiguration", 200] }, () => UpdateAdConfigurationRequest$, () => UpdateAdConfigurationResponse$
 ];
 export var UpdateChannel$: StaticOperationSchema = [9, n0, _UC,
   { [_ht]: ["POST", "/UpdateChannel", 200] }, () => UpdateChannelRequest$, () => UpdateChannelResponse$
