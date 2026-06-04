@@ -32,8 +32,8 @@ export interface CreateParticipantConnectionCommandOutput extends CreateParticip
 
 /**
  * <p>Creates the participant's connection. </p>
- *          <p>For security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Amazon Connect Chat security best practices</a>. </p>
- *          <p>For WebRTC security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-webrtc-security">Amazon Connect WebRTC security best practices</a>. </p>
+ *          <p>For security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Connect Customer Chat security best practices</a>. </p>
+ *          <p>For WebRTC security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-webrtc-security">Connect Customer WebRTC security best practices</a>. </p>
  *          <note>
  *             <p>
  *                <code>ParticipantToken</code> is used for invoking this API instead of

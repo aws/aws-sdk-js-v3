@@ -33,7 +33,7 @@ export interface GetAuthenticationUrlCommandOutput extends GetAuthenticationUrlR
 /**
  * <p>Retrieves the AuthenticationUrl for the current authentication session for the
  *             AuthenticateCustomer flow block. </p>
- *          <p>For security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Amazon Connect Chat security best practices</a>.</p>
+ *          <p>For security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Connect Customer Chat security best practices</a>.</p>
  *          <note>
  *             <ul>
  *                <li>

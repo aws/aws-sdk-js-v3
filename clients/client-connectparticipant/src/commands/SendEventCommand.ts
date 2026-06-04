@@ -40,7 +40,7 @@ export interface SendEventCommandOutput extends SendEventResponse, __MetadataBea
  *          <p>Sends an event. Message receipts are not supported when there are more than two active
  *             participants in the chat. Using the SendEvent API for message receipts when a supervisor
  *             is barged-in will result in a conflict exception.</p>
- *          <p>For security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Amazon Connect Chat security best practices</a>. </p>
+ *          <p>For security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Connect Customer Chat security best practices</a>. </p>
  *          <note>
  *             <p>
  *                <code>ConnectionToken</code> is used for invoking this API instead of

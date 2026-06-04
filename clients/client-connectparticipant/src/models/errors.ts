@@ -152,7 +152,7 @@ export class ResourceNotFoundException extends __BaseException {
   ResourceId?: string | undefined;
 
   /**
-   * <p>The type of Amazon Connect resource.</p>
+   * <p>The type of Connect Customer resource.</p>
    * @public
    */
   ResourceType?: ResourceType | undefined;
