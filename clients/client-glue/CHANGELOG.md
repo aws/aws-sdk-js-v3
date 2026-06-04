@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1062.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1061.0...v3.1062.0) (2026-06-04)
+
+
+### Features
+
+* **client-glue:** AWS Glue Interactive Sessions now supports Apache Spark Connect, enabling remote Spark execution over gRPC with minimal client-side dependencies. Adds GetSessionEndpoint and GetDashboardUrl APIs. Modifies CreateSession now accepts SPARK CONNECT session type. ([41ebf94](https://github.com/aws/aws-sdk-js-v3/commit/41ebf943216c010b938508d2da389586e0d0a5fb))
+
+
+
+
+
 # [3.1061.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1060.0...v3.1061.0) (2026-06-03)
 
 **Note:** Version bump only for package @aws-sdk/client-glue

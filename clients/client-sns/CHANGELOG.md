@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1062.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1061.0...v3.1062.0) (2026-06-04)
+
+
+### Features
+
+* **client-sns:** Adding new BDD representation of endpoint ruleset ([1cc60ac](https://github.com/aws/aws-sdk-js-v3/commit/1cc60ac87a8da9aebbf96337912b4e65e779ae02))
+
+
+
+
+
 # [3.1061.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1060.0...v3.1061.0) (2026-06-03)
 
 **Note:** Version bump only for package @aws-sdk/client-sns

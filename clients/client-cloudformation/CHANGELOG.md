@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1062.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1061.0...v3.1062.0) (2026-06-04)
+
+
+### Features
+
+* **client-cloudformation:** Adding new BDD representation of endpoint ruleset ([64f2514](https://github.com/aws/aws-sdk-js-v3/commit/64f2514b791c1ca2e4aaa577439778ea44e4751a))
+
+
+
+
+
 # [3.1061.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1060.0...v3.1061.0) (2026-06-03)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudformation

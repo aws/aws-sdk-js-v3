@@ -40,6 +40,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.997.16 (2026-06-03)
+### Chores
+* **scripts:** include generated packages when validating declared imports 1-1 with used imports ([#8072](https://github.com/aws/aws-sdk-js-v3/issues/8072)) ([291ad36](https://github.com/aws/aws-sdk-js-v3/commit/291ad3664d63b413e6c9631ac0a833e5819ceeaa))
+
+
+
 # 3.997.15 (2026-06-03)
 ### Chores
 * **nested-clients:** update dependencies.

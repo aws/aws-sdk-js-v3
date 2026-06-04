@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1062.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1061.0...v3.1062.0) (2026-06-04)
+
+
+### Features
+
+* **client-config-service:** AWS Config now supports internal service-linked rules, allowing AWS service partners to deploy Config rules for customers and use the evaluation results to build enhanced features. ([ba9173b](https://github.com/aws/aws-sdk-js-v3/commit/ba9173b9efa45159b4af240bcc5d5acce01897aa))
+
+
+
+
+
 # [3.1061.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1060.0...v3.1061.0) (2026-06-03)
 
 **Note:** Version bump only for package @aws-sdk/client-config-service

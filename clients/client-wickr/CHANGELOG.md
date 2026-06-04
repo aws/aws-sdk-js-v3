@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1062.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1061.0...v3.1062.0) (2026-06-04)
+
+
+### Features
+
+* **client-wickr:** AWS Wickr now allows network administrators to configure a maximum session duration for non-SSO users in security groups, and display customizable consent popups to users at login for terms of use or compliance acknowledgements. ([ceb38f6](https://github.com/aws/aws-sdk-js-v3/commit/ceb38f6b46181ccb1a05990f287e82ac3e98e584))
+
+
+
+
+
 # [3.1061.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1060.0...v3.1061.0) (2026-06-03)
 
 **Note:** Version bump only for package @aws-sdk/client-wickr

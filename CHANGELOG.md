@@ -3,6 +3,51 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1062.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1061.0...v3.1062.0) (2026-06-04)
+
+
+### Features
+
+* **client-amplifybackend:** Adding new BDD representation of endpoint ruleset ([40fcadd](https://github.com/aws/aws-sdk-js-v3/commit/40fcadd6821780a74f121ff8960bb74296e47c8f))
+* **client-appflow:** Adding new BDD representation of endpoint ruleset ([63dd2cd](https://github.com/aws/aws-sdk-js-v3/commit/63dd2cd097a121cc2340cac08d53815f5293044e))
+* **client-appintegrations:** Adding new BDD representation of endpoint ruleset ([3b257e6](https://github.com/aws/aws-sdk-js-v3/commit/3b257e66010f7c5a1da0f3af5c92fbea08d9e368))
+* **client-auditmanager:** Adding new BDD representation of endpoint ruleset ([b2fff65](https://github.com/aws/aws-sdk-js-v3/commit/b2fff65521418ea053a630f116985d48ade7c70f))
+* **client-chime-sdk-voice:** Adding new BDD representation of endpoint ruleset ([1ff9833](https://github.com/aws/aws-sdk-js-v3/commit/1ff983366658074676acc14a2185fbc5dffc0ce4))
+* **client-cloudformation:** Adding new BDD representation of endpoint ruleset ([64f2514](https://github.com/aws/aws-sdk-js-v3/commit/64f2514b791c1ca2e4aaa577439778ea44e4751a))
+* **client-config-service:** AWS Config now supports internal service-linked rules, allowing AWS service partners to deploy Config rules for customers and use the evaluation results to build enhanced features. ([ba9173b](https://github.com/aws/aws-sdk-js-v3/commit/ba9173b9efa45159b4af240bcc5d5acce01897aa))
+* **client-connectparticipant:** Adding new BDD representation of endpoint ruleset ([22db2a6](https://github.com/aws/aws-sdk-js-v3/commit/22db2a6a6f37796f76290bcd3faf1a5bec0f4426))
+* **client-cost-explorer:** Adding new BDD representation of endpoint ruleset ([fb8ea9c](https://github.com/aws/aws-sdk-js-v3/commit/fb8ea9cba5827971024a2059753b8950e19fd320))
+* **client-ec2-instance-connect:** Adding new BDD representation of endpoint ruleset ([c2a4981](https://github.com/aws/aws-sdk-js-v3/commit/c2a4981e83ab456c1335204c4c5693cf2b4ef510))
+* **client-efs:** Adding new BDD representation of endpoint ruleset ([c7b29f3](https://github.com/aws/aws-sdk-js-v3/commit/c7b29f338f7b26d10f3e73100be0b09b71d6171a))
+* **client-emr:** Added support for Spark Connect interactive sessions on Amazon EMR on EC2 with new APIs - StartSession, GetSession, GetSessionEndpoint, ListSessions, and TerminateSession. Added sessionEnabled field in RunJobFlow and DescribeCluster to enable Spark Connect endpoints on EMR clusters. ([ba57019](https://github.com/aws/aws-sdk-js-v3/commit/ba570192099541cc0c98e2eaa91dd14f6db29c2f))
+* **client-geo-maps:** Adding new BDD representation of endpoint ruleset ([5835084](https://github.com/aws/aws-sdk-js-v3/commit/5835084269aeb80c8bffefcd4d55c52e97fa620c))
+* **client-glue:** AWS Glue Interactive Sessions now supports Apache Spark Connect, enabling remote Spark execution over gRPC with minimal client-side dependencies. Adds GetSessionEndpoint and GetDashboardUrl APIs. Modifies CreateSession now accepts SPARK CONNECT session type. ([41ebf94](https://github.com/aws/aws-sdk-js-v3/commit/41ebf943216c010b938508d2da389586e0d0a5fb))
+* **client-interconnect:** Adding new BDD representation of endpoint ruleset ([34e23ef](https://github.com/aws/aws-sdk-js-v3/commit/34e23ef23951a492d90749601a3c2e395177b019))
+* **client-ivs:** adds UpdateAdConfiguration operation to AWS IVS low-latency APIs ([8cda4ea](https://github.com/aws/aws-sdk-js-v3/commit/8cda4ea154dd3c189830933573452d2492535ed6))
+* **client-kendra:** Adding new BDD representation of endpoint ruleset ([51dfa7c](https://github.com/aws/aws-sdk-js-v3/commit/51dfa7c30d47a9fbb1b861c64a7d25cff587eea8))
+* **client-mediaconnect:** BDD bulk update change rollout ([789ef79](https://github.com/aws/aws-sdk-js-v3/commit/789ef792d1bf9eac73a735366c77ec49d4dd51d6))
+* **client-mediapackage-vod:** Adding new BDD representation of endpoint ruleset ([f949a4c](https://github.com/aws/aws-sdk-js-v3/commit/f949a4c52062a1a7f375eb7da0da46d49484aaae))
+* **client-mediapackage:** Adding new BDD representation of endpoint ruleset ([eaa3192](https://github.com/aws/aws-sdk-js-v3/commit/eaa31923091a4c04a8811b14c63ae9b31b688d38))
+* **client-mq:** BDD bulk update change rollout ([e058b8f](https://github.com/aws/aws-sdk-js-v3/commit/e058b8fd7fb9bffbacde2468108973c5a82139e2))
+* **client-mwaa-serverless:** Adding new BDD representation of endpoint ruleset ([7cb9160](https://github.com/aws/aws-sdk-js-v3/commit/7cb9160420bc692521a0eec4f59b1ea16e6b7e10))
+* **client-opensearchserverless:** Adding new BDD representation of endpoint ruleset ([d08ce2e](https://github.com/aws/aws-sdk-js-v3/commit/d08ce2edcdb37c500c66138d4f6c2c1bac8b36ca))
+* **client-route53-recovery-readiness:** Adding new BDD representation of endpoint ruleset ([78b2555](https://github.com/aws/aws-sdk-js-v3/commit/78b2555f57cdd1c38543c47b77873fcb17b2c306))
+* **client-s3files:** Adding new BDD representation of endpoint ruleset ([e538b48](https://github.com/aws/aws-sdk-js-v3/commit/e538b48504723a02bd02efc80c9ff0787ab5258e))
+* **client-sagemaker-runtime-http2:** Adding new BDD representation of endpoint ruleset ([924b2e3](https://github.com/aws/aws-sdk-js-v3/commit/924b2e3a04ac179162c0f535613295cdae53ad6d))
+* **client-sagemaker:** Adds the IncludedData parameter to DescribeModelCard and DescribeModelPackage. Set it to MetadataOnly to retrieve a model card without decrypt permission on the customer managed AWS KMS key (default AllData returns full content). Adds support for the MTRL Job resource in SageMaker Search. ([215af86](https://github.com/aws/aws-sdk-js-v3/commit/215af86dc4da79e119fc403c4e7be097192cb60d))
+* **client-signer-data:** Adding new BDD representation of endpoint ruleset ([36e2055](https://github.com/aws/aws-sdk-js-v3/commit/36e20555e76357a54133dc76cc421241de806b01))
+* **client-sns:** Adding new BDD representation of endpoint ruleset ([1cc60ac](https://github.com/aws/aws-sdk-js-v3/commit/1cc60ac87a8da9aebbf96337912b4e65e779ae02))
+* **client-sustainability:** Adding new BDD representation of endpoint ruleset ([506f985](https://github.com/aws/aws-sdk-js-v3/commit/506f985f631874d8fe9e668db062e58f8c365a6c))
+* **client-taxsettings:** Adding new BDD representation of endpoint ruleset ([dcc90be](https://github.com/aws/aws-sdk-js-v3/commit/dcc90beeea0c2febba9aa034952afc736f0f0635))
+* **client-uxc:** Adding new BDD representation of endpoint ruleset ([4d2a802](https://github.com/aws/aws-sdk-js-v3/commit/4d2a80261c03584ad3947b03b0903004da83f83b))
+* **client-wickr:** AWS Wickr now allows network administrators to configure a maximum session duration for non-SSO users in security groups, and display customizable consent popups to users at login for terms of use or compliance acknowledgements. ([ceb38f6](https://github.com/aws/aws-sdk-js-v3/commit/ceb38f6b46181ccb1a05990f287e82ac3e98e584))
+* **client-workdocs:** Adding new BDD representation of endpoint ruleset ([a88a31d](https://github.com/aws/aws-sdk-js-v3/commit/a88a31d073e755f030a78d46d4657924500be15f))
+* **client-workspaces:** Adding new BDD representation of endpoint ruleset ([6b1e360](https://github.com/aws/aws-sdk-js-v3/commit/6b1e3602cde54d7840c6ab80610c46c9bd07262c))
+
+
+
+
+
 # [3.1061.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1060.0...v3.1061.0) (2026-06-03)
 
 
