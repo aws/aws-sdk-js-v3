@@ -74,6 +74,8 @@ export default defineConfig({
       "tests/clients/client-kinesis/test/Kinesis.e2e.spec.ts",
       // requires .wav file.
       "tests/clients/client-transcribe-streaming/test/TranscribeStreaming.e2e.spec.ts",
+      // blocked by CORS policy.
+      "tests/clients/client-s3-control/test/s3-control-features.e2e.spec.ts",
     ],
     setupFiles: ["vitest.browser.setup.mts"],
     environment: "happy-dom",
