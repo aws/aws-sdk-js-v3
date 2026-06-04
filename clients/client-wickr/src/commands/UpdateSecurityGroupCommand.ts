@@ -88,6 +88,7 @@ export interface UpdateSecurityGroupCommandOutput extends UpdateSecurityGroupRes
  *       intensity: Number("int"),
  *     },
  *     ssoMaxIdleMinutes: Number("int"),
+ *     maxNonSsoSessionMinutes: Number("int"),
  *     federationMode: Number("int"),
  *     lockoutThreshold: Number("int"),
  *     permittedNetworks: [ // PermittedNetworksList
@@ -166,6 +167,7 @@ export interface UpdateSecurityGroupCommandOutput extends UpdateSecurityGroupRes
  * //         intensity: Number("int"),
  * //       },
  * //       ssoMaxIdleMinutes: Number("int"),
+ * //       maxNonSsoSessionMinutes: Number("int"),
  * //       federationMode: Number("int"),
  * //       lockoutThreshold: Number("int"),
  * //       permittedNetworks: [ // PermittedNetworksList

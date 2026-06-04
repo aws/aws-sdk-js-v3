@@ -48,6 +48,7 @@ const _CDRBRr = "CreateDataRetentionBotResponse";
 const _CN = "CreateNetwork";
 const _CNR = "CreateNetworkRequest";
 const _CNRr = "CreateNetworkResponse";
+const _CPC = "ConsentPopupConfig";
 const _CS = "CallingSettings";
 const _CSG = "CreateSecurityGroup";
 const _CSGR = "CreateSecurityGroupRequest";
@@ -211,6 +212,7 @@ const _bP = "billingPeriod";
 const _bl = "block";
 const _bo = "bots";
 const _c = "client";
+const _cBL = "closeButtonLabel";
 const _cC = "caCertificate";
 const _cCo = "codeChallenge";
 const _cCou = "countryCode";
@@ -218,6 +220,7 @@ const _cF = "challengeFailures";
 const _cFU = "checkForUpdates";
 const _cI = "clientId";
 const _cIo = "companyId";
+const _cP = "consentPopup";
 const _cPM = "canProcessManually";
 const _cS = "clientSecret";
 const _cSC = "canStart11Call";
@@ -230,7 +233,8 @@ const _ca = "calling";
 const _ce = "certificate";
 const _cel = "cell";
 const _ch = "challenge";
-const _co = "code";
+const _co = "content";
+const _cod = "code";
 const _cou = "count";
 const _cr = "created";
 const _d = "domain";
@@ -254,6 +258,7 @@ const _eRGF = "enableRestrictedGlobalFederation";
 const _eSE = "endSessionEndpoint";
 const _eT = "endTime";
 const _eTDF = "enableTrustedDataFormat";
+const _en = "enabled";
 const _f = "failed";
 const _fDL = "forceDeviceLockout";
 const _fE = "filesEnabled";
@@ -269,11 +274,12 @@ const _gF = "globalFederation";
 const _gI = "groupId";
 const _gT = "grantType";
 const _gTS = "grantTypesSupported";
-const _h = "history";
+const _h = "header";
 const _hC = "hasChallenge";
 const _hE = "httpError";
 const _hH = "httpHeader";
 const _hQ = "httpQuery";
+const _hi = "history";
 const _ht = "http";
 const _i = "issuer";
 const _iA = "isAdmin";
@@ -308,6 +314,7 @@ const _mFE = "messageForwardingEnabled";
 const _mL = "minLength";
 const _mMRT = "microsoftMultiRefreshToken";
 const _mN = "middleName";
+const _mNSSM = "maxNonSsoSessionMinutes";
 const _mR = "maxResults";
 const _mS = "migrationState";
 const _mT = "maxTtl";
@@ -581,6 +588,11 @@ export var CallingSettings$: StaticStructureSchema = [3, n0, _CS,
   [_cSC, _cVC, _fTC],
   [2, 2, 2]
 ];
+export var ConsentPopupConfig$: StaticStructureSchema = [3, n0, _CPC,
+  0,
+  [_en, _h, _co, _cBL],
+  [2, 0, 0, 0], 1
+];
 export var CreateBotRequest$: StaticStructureSchema = [3, n0, _CBR,
   0,
   [_nI, _us, _gI, _ch, _dN],
@@ -713,7 +725,7 @@ export var GetGuestUserHistoryCountRequest$: StaticStructureSchema = [3, n0, _GG
 ];
 export var GetGuestUserHistoryCountResponse$: StaticStructureSchema = [3, n0, _GGUHCRe,
   0,
-  [_h],
+  [_hi],
   [() => GuestUserHistoryCountList], 1
 ];
 export var GetNetworkRequest$: StaticStructureSchema = [3, n0, _GNR,
@@ -738,8 +750,8 @@ export var GetNetworkSettingsResponse$: StaticStructureSchema = [3, n0, _GNSRe,
 ];
 export var GetOidcInfoRequest$: StaticStructureSchema = [3, n0, _GOIR,
   0,
-  [_nI, _cI, _co, _gT, _rU, _ur, _cS, _cVo, _ce],
-  [[0, 1], [0, { [_hQ]: _cI }], [0, { [_hQ]: _co }], [0, { [_hQ]: _gT }], [0, { [_hQ]: _rU }], [0, { [_hQ]: _ur }], [() => SensitiveString, { [_hQ]: _cS }], [0, { [_hQ]: _cVo }], [0, { [_hQ]: _ce }]], 1
+  [_nI, _cI, _cod, _gT, _rU, _ur, _cS, _cVo, _ce],
+  [[0, 1], [0, { [_hQ]: _cI }], [0, { [_hQ]: _cod }], [0, { [_hQ]: _gT }], [0, { [_hQ]: _rU }], [0, { [_hQ]: _ur }], [() => SensitiveString, { [_hQ]: _cS }], [0, { [_hQ]: _cVo }], [0, { [_hQ]: _ce }]], 1
 ];
 export var GetOidcInfoResponse$: StaticStructureSchema = [3, n0, _GOIRe,
   0,
@@ -883,8 +895,8 @@ export var Network$: StaticStructureSchema = [3, n0, _N,
 ];
 export var NetworkSettings$: StaticStructureSchema = [3, n0, _NS,
   0,
-  [_eCM, _rRC, _dR, _eTDF],
-  [2, () => ReadReceiptConfig$, 2, 2]
+  [_eCM, _rRC, _dR, _eTDF, _cP],
+  [2, () => ReadReceiptConfig$, 2, 2, () => ConsentPopupConfig$]
 ];
 export var OidcConfigInfo$: StaticStructureSchema = [3, n0, _OCI,
   0,
@@ -948,8 +960,8 @@ export var SecurityGroup$: StaticStructureSchema = [3, n0, _SG,
 ];
 export var SecurityGroupSettings$: StaticStructureSchema = [3, n0, _SGS,
   0,
-  [_aR, _aPV, _ca, _cFU, _eA, _eCR, _eFD, _eGF, _eNP, _eOAO, _eRGF, _fE, _fDL, _fOA, _fRR, _gF, _iAE, _iLPE, _lAM, _lEo, _mADS, _mB, _mT, _mFE, _pR, _pE, _qR, _sMRK, _sh, _sMIM, _fM, _lT, _pN, _pWAN, _pWEN],
-  [2, 64 | 0, () => CallingSettings$, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 2, () => PasswordRequirements$, 2, 64 | 0, 2, () => ShredderSettings$, 1, 1, 1, 64 | 0, () => WickrAwsNetworksList, () => PermittedWickrEnterpriseNetworksList]
+  [_aR, _aPV, _ca, _cFU, _eA, _eCR, _eFD, _eGF, _eNP, _eOAO, _eRGF, _fE, _fDL, _fOA, _fRR, _gF, _iAE, _iLPE, _lAM, _lEo, _mADS, _mB, _mT, _mFE, _pR, _pE, _qR, _sMRK, _sh, _sMIM, _mNSSM, _fM, _lT, _pN, _pWAN, _pWEN],
+  [2, 64 | 0, () => CallingSettings$, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 2, () => PasswordRequirements$, 2, 64 | 0, 2, () => ShredderSettings$, 1, 1, 1, 1, 64 | 0, () => WickrAwsNetworksList, () => PermittedWickrEnterpriseNetworksList]
 ];
 export var SecurityGroupSettingsRequest$: StaticStructureSchema = [3, n0, _SGSR,
   0,

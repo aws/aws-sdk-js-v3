@@ -38,6 +38,7 @@ import {
   Bot$,
   BotStatus,
   CallingSettings$,
+  ConsentPopupConfig$,
   CreateBot$,
   CreateBotCommand,
   CreateBotRequest$,
@@ -353,6 +354,7 @@ assert(typeof BatchUserSuccessResponseItem$ === "object");
 assert(typeof BlockedGuestUser$ === "object");
 assert(typeof Bot$ === "object");
 assert(typeof CallingSettings$ === "object");
+assert(typeof ConsentPopupConfig$ === "object");
 assert(typeof CreateBotRequest$ === "object");
 assert(typeof CreateBotResponse$ === "object");
 assert(typeof CreateDataRetentionBotChallengeRequest$ === "object");

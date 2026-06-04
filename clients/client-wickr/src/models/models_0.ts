@@ -752,6 +752,36 @@ export interface CallingSettings {
 }
 
 /**
+ * <p>Consent popup configuration displayed to users on login.</p>
+ * @public
+ */
+export interface ConsentPopupConfig {
+  /**
+   * <p>Whether the consent popup is enabled. When set to true, the popup is displayed to users on login.</p>
+   * @public
+   */
+  enabled: boolean | undefined;
+
+  /**
+   * <p>Header text displayed at the top of the consent popup. Maximum 100 characters.</p>
+   * @public
+   */
+  header?: string | undefined;
+
+  /**
+   * <p>Body content of the consent popup in Markdown format. Maximum 5000 characters.</p>
+   * @public
+   */
+  content?: string | undefined;
+
+  /**
+   * <p>Label for the close button on the consent popup. Maximum 20 characters. Defaults to "Acknowledge" if not provided.</p>
+   * @public
+   */
+  closeButtonLabel?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateBotRequest {
@@ -1079,7 +1109,7 @@ export interface PasswordRequirements {
 }
 
 /**
- * <p>Configuration for the message shredder feature, which securely deletes messages and files from devices to prevent data recovery.</p>
+ * <p>Configuration for the Wickr shredder feature, which writes random data over free memory and disk space on client devices. You can configure your Wickr shredder intensity using the parameters below. </p> <note> <p>Secure Shredder will not write over files that are permanently stored on the device or saved outside of the Wickr client. Wickr Network Administrators are able to disable file downloads within Security Group Settings.</p> </note>
  * @public
  */
 export interface ShredderSettings {
@@ -1090,7 +1120,7 @@ export interface ShredderSettings {
   canProcessManually?: boolean | undefined;
 
   /**
-   * <p>Prevents Wickr data from being recovered by overwriting deleted Wickr data. Valid Values: Must be one of [0, 20, 60, 100]</p>
+   * <p>Controls the rate (MB/minute) at which the shredder function runs on clients. Valid Values: Must be one of [0, 20, 60, 100].</p> <note> <p>A higher intensity setting could lead to higher battery usage on mobile devices.</p> </note>
    * @public
    */
   intensity?: number | undefined;
@@ -1280,6 +1310,12 @@ export interface SecurityGroupSettings {
    * @public
    */
   ssoMaxIdleMinutes?: number | undefined;
+
+  /**
+   * <p>Maximum session duration in minutes for non-SSO users. Set to 0 to disable. Valid range is 60 to 525600 (1 hour to 365 days).</p>
+   * @public
+   */
+  maxNonSsoSessionMinutes?: number | undefined;
 
   /**
    * <p>The local federation mode controlling how users can communicate with other networks. Values: 0 (none), 1 (federated), 2 (restricted).</p>
@@ -2865,6 +2901,12 @@ export interface NetworkSettings {
    * @public
    */
   enableTrustedDataFormat?: boolean | undefined;
+
+  /**
+   * <p>Consent popup configuration for the network, displayed to users on login.</p>
+   * @public
+   */
+  consentPopup?: ConsentPopupConfig | undefined;
 }
 
 /**

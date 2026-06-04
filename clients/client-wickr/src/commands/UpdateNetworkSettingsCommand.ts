@@ -45,6 +45,12 @@ export interface UpdateNetworkSettingsCommandOutput extends UpdateNetworkSetting
  *     },
  *     dataRetention: true || false,
  *     enableTrustedDataFormat: true || false,
+ *     consentPopup: { // ConsentPopupConfig
+ *       enabled: true || false, // required
+ *       header: "STRING_VALUE",
+ *       content: "STRING_VALUE",
+ *       closeButtonLabel: "STRING_VALUE",
+ *     },
  *   },
  * };
  * const command = new UpdateNetworkSettingsCommand(input);

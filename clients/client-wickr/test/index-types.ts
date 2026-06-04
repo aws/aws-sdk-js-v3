@@ -163,6 +163,7 @@ export type {
   BlockedGuestUser,
   Bot,
   CallingSettings,
+  ConsentPopupConfig,
   CreateBotRequest,
   CreateBotResponse,
   CreateDataRetentionBotChallengeRequest,

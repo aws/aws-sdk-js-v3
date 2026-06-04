@@ -122,6 +122,7 @@ export interface CreateSecurityGroupCommandOutput extends CreateSecurityGroupRes
  * //         intensity: Number("int"),
  * //       },
  * //       ssoMaxIdleMinutes: Number("int"),
+ * //       maxNonSsoSessionMinutes: Number("int"),
  * //       federationMode: Number("int"),
  * //       lockoutThreshold: Number("int"),
  * //       permittedNetworks: [ // PermittedNetworksList
