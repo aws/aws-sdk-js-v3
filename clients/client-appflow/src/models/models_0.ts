@@ -369,7 +369,7 @@ export interface CancelFlowExecutionsResponse {
 }
 
 /**
- * <p> The connector metadata specific to Amazon Connect Customer Profiles. </p>
+ * <p> The connector metadata specific to Connect Customer Customer Profiles. </p>
  * @public
  */
 export interface CustomerProfilesMetadata {}
@@ -680,7 +680,7 @@ export interface ConnectorMetadata {
   Upsolver?: UpsolverMetadata | undefined;
 
   /**
-   * <p> The connector metadata specific to Amazon Connect Customer Profiles. </p>
+   * <p> The connector metadata specific to Connect Customer Customer Profiles. </p>
    * @public
    */
   CustomerProfiles?: CustomerProfilesMetadata | undefined;
@@ -3020,19 +3020,19 @@ export interface CustomConnectorDestinationProperties {
 }
 
 /**
- * <p> The properties that are applied when Amazon Connect Customer Profiles is used as a
+ * <p> The properties that are applied when Connect Customer Customer Profiles is used as a
  *       destination. </p>
  * @public
  */
 export interface CustomerProfilesDestinationProperties {
   /**
-   * <p> The unique name of the Amazon Connect Customer Profiles domain. </p>
+   * <p> The unique name of the Connect Customer Customer Profiles domain. </p>
    * @public
    */
   domainName: string | undefined;
 
   /**
-   * <p> The object specified in the Amazon Connect Customer Profiles flow destination.
+   * <p> The object specified in the Connect Customer Customer Profiles flow destination.
    *     </p>
    * @public
    */
@@ -3599,7 +3599,7 @@ export interface DestinationConnectorProperties {
   Honeycode?: HoneycodeDestinationProperties | undefined;
 
   /**
-   * <p> The properties required to query Amazon Connect Customer Profiles. </p>
+   * <p> The properties required to query Connect Customer Customer Profiles. </p>
    * @public
    */
   CustomerProfiles?: CustomerProfilesDestinationProperties | undefined;
@@ -5451,7 +5451,7 @@ export interface ResetConnectorMetadataCacheRequest {
   /**
    * <p>The name of the connector profile that you want to reset cached metadata for.</p>
    *          <p>You can omit this parameter if you're resetting the cache for any of the following
-   *       connectors: Amazon Connect, Amazon EventBridge, Amazon Lookout for Metrics, Amazon S3, or Upsolver. If you're resetting the cache for any other connector, you must include this
+   *       connectors: Connect Customer, Amazon EventBridge, Amazon Lookout for Metrics, Amazon S3, or Upsolver. If you're resetting the cache for any other connector, you must include this
    *       parameter in your request.</p>
    * @public
    */
@@ -5460,7 +5460,7 @@ export interface ResetConnectorMetadataCacheRequest {
   /**
    * <p>The type of connector to reset cached metadata for.</p>
    *          <p>You must include this parameter in your request if you're resetting the cache for any of
-   *       the following connectors: Amazon Connect, Amazon EventBridge, Amazon Lookout for Metrics,
+   *       the following connectors: Connect Customer, Amazon EventBridge, Amazon Lookout for Metrics,
    *         Amazon S3, or Upsolver. If you're resetting the cache for any other connector, you
    *       can omit this parameter from your request. </p>
    * @public
