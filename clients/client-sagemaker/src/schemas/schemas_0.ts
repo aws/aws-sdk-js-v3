@@ -1744,6 +1744,7 @@ const _ICs = "IsCheckpoint";
 const _ID = "InstanceDetails";
 const _IDC = "InputDataConfig";
 const _IDm = "ImageDigest";
+const _IDn = "IncludedData";
 const _IE = "InferenceExperiments";
 const _IEA = "InferenceExperimentArn";
 const _IEC = "InferenceExecutionConfig";
@@ -1847,7 +1848,7 @@ const _In = "Input";
 const _Inl = "Inline";
 const _Ins = "Instance";
 const _Is = "Issuer";
-const _J = "Json";
+const _J = "Job";
 const _JA = "JobArn";
 const _JC = "JobCategory";
 const _JCD = "JobConfigDocument";
@@ -1878,7 +1879,7 @@ const _JSob = "JobSummary";
 const _JSobu = "JobSummaries";
 const _JT = "JobType";
 const _JU = "JwksUri";
-const _Jo = "Job";
+const _Js = "Json";
 const _K = "Key";
 const _KAPIS = "KeepAlivePeriodInSeconds";
 const _KC = "KubernetesConfig";
@@ -6573,8 +6574,8 @@ export var DescribeModelCardExportJobResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var DescribeModelCardRequest$: StaticStructureSchema = [3, n0, _DMCRe,
   0,
-  [_MCN, _MCV],
-  [0, 1], 1
+  [_MCN, _MCV, _IDn],
+  [0, 1, 0], 1
 ];
 export var DescribeModelCardResponse$: StaticStructureSchema = [3, n0, _DMCRes,
   0,
@@ -6613,8 +6614,8 @@ export var DescribeModelPackageGroupOutput$: StaticStructureSchema = [3, n0, _DM
 ];
 export var DescribeModelPackageInput$: StaticStructureSchema = [3, n0, _DMPIe,
   0,
-  [_MPN],
-  [0], 1
+  [_MPN, _IDn],
+  [0, 0], 1
 ];
 export var DescribeModelPackageOutput$: StaticStructureSchema = [3, n0, _DMPO,
   0,
@@ -7770,6 +7771,11 @@ export var IntegerParameterRangeSpecification$: StaticStructureSchema = [3, n0, 
   0,
   [_MV, _MVa],
   [0, 0], 2
+];
+export var Job$: StaticStructureSchema = [3, n0, _J,
+  0,
+  [_JN, _JA, _RAo, _JC, _JCSV, _JCD, _CT, _LMT, _ETn, _JSo, _SSe, _SST, _FR, _Ta],
+  [0, 0, 0, 0, 0, 0, 4, 4, 4, 0, 0, () => JobSecondaryStatusTransitions, 0, () => TagList]
 ];
 export var JobConfigSchemaVersionSummary$: StaticStructureSchema = [3, n0, _JCSVS,
   0,
@@ -9228,7 +9234,7 @@ export var MonitoringCsvDatasetFormat$: StaticStructureSchema = [3, n0, _MCDF,
 ];
 export var MonitoringDatasetFormat$: StaticStructureSchema = [3, n0, _MDF,
   0,
-  [_Cs, _J, _Pa],
+  [_Cs, _Js, _Pa],
   [() => MonitoringCsvDatasetFormat$, () => MonitoringJsonDatasetFormat$, () => MonitoringParquetDatasetFormat$]
 ];
 export var MonitoringExecutionSummary$: StaticStructureSchema = [3, n0, _MESo,
@@ -9553,7 +9559,7 @@ export var PipelineExecutionStep$: StaticStructureSchema = [3, n0, _PESipe,
 ];
 export var PipelineExecutionStepMetadata$: StaticStructureSchema = [3, n0, _PESM,
   0,
-  [_TJ, _PJ, _TJr, _TJu, _Mode, _RMe, _Cond, _Cal, _Lam, _EMR, _QC, _CCla, _Fai, _AMLJ, _En, _ECndpo, _BCM, _BCMD, _BPMT, _BMI, _ICnfer, _Lin, _Jo],
+  [_TJ, _PJ, _TJr, _TJu, _Mode, _RMe, _Cond, _Cal, _Lam, _EMR, _QC, _CCla, _Fai, _AMLJ, _En, _ECndpo, _BCM, _BCMD, _BPMT, _BMI, _ICnfer, _Lin, _J],
   [() => TrainingJobStepMetadata$, () => ProcessingJobStepMetadata$, () => TransformJobStepMetadata$, () => TuningJobStepMetaData$, () => ModelStepMetadata$, () => RegisterModelStepMetadata$, () => ConditionStepMetadata$, () => CallbackStepMetadata$, () => LambdaStepMetadata$, () => EMRStepMetadata$, () => QualityCheckStepMetadata$, () => ClarifyCheckStepMetadata$, () => FailStepMetadata$, () => AutoMLJobStepMetadata$, () => EndpointStepMetadata$, () => EndpointConfigStepMetadata$, () => BedrockCustomModelMetadata$, () => BedrockCustomModelDeploymentMetadata$, () => BedrockProvisionedModelThroughputMetadata$, () => BedrockModelImportMetadata$, () => InferenceComponentMetadata$, () => LineageMetadata$, () => JobStepMetadata$]
 ];
 export var PipelineExecutionSummary$: StaticStructureSchema = [3, n0, _PESipel,
@@ -10068,8 +10074,8 @@ export var SearchExpression$: StaticStructureSchema = [3, n0, _SEe,
 ];
 export var SearchRecord$: StaticStructureSchema = [3, n0, _SRe,
   0,
-  [_TJ, _Exp, _Tr, _TCr, _En, _MPo, _MPG, _Pi, _PE, _PVi, _FG, _FMe, _Proj, _HPTJ, _MCod, _Mode],
-  [() => TrainingJob$, () => Experiment$, () => Trial$, () => TrialComponent$, () => Endpoint$, [() => ModelPackage$, 0], () => ModelPackageGroup$, () => Pipeline$, () => PipelineExecution$, () => PipelineVersion$, () => FeatureGroup$, () => FeatureMetadata$, () => Project$, () => HyperParameterTuningJobSearchEntity$, [() => ModelCard$, 0], () => ModelDashboardModel$]
+  [_TJ, _Exp, _Tr, _TCr, _En, _MPo, _MPG, _Pi, _PE, _PVi, _FG, _FMe, _Proj, _HPTJ, _MCod, _Mode, _J],
+  [() => TrainingJob$, () => Experiment$, () => Trial$, () => TrialComponent$, () => Endpoint$, [() => ModelPackage$, 0], () => ModelPackageGroup$, () => Pipeline$, () => PipelineExecution$, () => PipelineVersion$, () => FeatureGroup$, () => FeatureMetadata$, () => Project$, () => HyperParameterTuningJobSearchEntity$, [() => ModelCard$, 0], () => ModelDashboardModel$, () => Job$]
 ];
 export var SearchRequest$: StaticStructureSchema = [3, n0, _SRea,
   0,

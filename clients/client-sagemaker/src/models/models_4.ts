@@ -181,7 +181,6 @@ import type {
   ModelVariantConfig,
   MonitoringScheduleConfig,
   NetworkConfig,
-  NotebookInstanceLifecycleHook,
   RetryStrategy,
   SchedulerConfig,
   ShadowModeConfig,
@@ -235,6 +234,8 @@ import type {
   HyperParameterTuningJobSearchEntity,
   InferenceComponentDeploymentConfig,
   InferenceComponentMetadata,
+  InferenceRecommendationsJobStep,
+  Job,
   JobConfigSchemaVersionSummary,
   JobStepMetadata,
   JobSummary,
@@ -261,6 +262,23 @@ import type {
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface ListInferenceRecommendationsJobStepsResponse {
+  /**
+   * <p>A list of all subtask details in Inference Recommender.</p>
+   * @public
+   */
+  Steps?: InferenceRecommendationsJobStep[] | undefined;
+
+  /**
+   * <p>A token that you can specify in your next request to return more results from the list.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -7859,6 +7877,13 @@ export interface SearchRecord {
    * @public
    */
   Model?: ModelDashboardModel | undefined;
+
+  /**
+   * Search shape for Job. Mirrors DescribeJobResponse fields.
+   * If you update DescribeJobResponse, update this structure as well.
+   * @public
+   */
+  Job?: Job | undefined;
 }
 
 /**
@@ -10304,26 +10329,3 @@ export interface UpdateNotebookInstanceInput {
  * @public
  */
 export interface UpdateNotebookInstanceOutput {}
-
-/**
- * @public
- */
-export interface UpdateNotebookInstanceLifecycleConfigInput {
-  /**
-   * <p>The name of the lifecycle configuration.</p>
-   * @public
-   */
-  NotebookInstanceLifecycleConfigName: string | undefined;
-
-  /**
-   * <p>The shell script that runs only once, when you create a notebook instance. The shell script must be a base64-encoded string.</p>
-   * @public
-   */
-  OnCreate?: NotebookInstanceLifecycleHook[] | undefined;
-
-  /**
-   * <p>The shell script that runs every time you start a notebook instance, including when you create the notebook instance. The shell script must be a base64-encoded string.</p>
-   * @public
-   */
-  OnStart?: NotebookInstanceLifecycleHook[] | undefined;
-}

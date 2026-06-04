@@ -5029,6 +5029,19 @@ export type TrackingServerStatus = (typeof TrackingServerStatus)[keyof typeof Tr
  * @public
  * @enum
  */
+export const IncludedData = {
+  ALL_DATA: "AllData",
+  METADATA_ONLY: "MetadataOnly",
+} as const;
+/**
+ * @public
+ */
+export type IncludedData = (typeof IncludedData)[keyof typeof IncludedData];
+
+/**
+ * @public
+ * @enum
+ */
 export const ModelCardProcessingStatus = {
   CONTENT_DELETED: "ContentDeleted",
   DELETE_COMPLETED: "DeleteCompleted",
@@ -5594,6 +5607,7 @@ export const ResourceType = {
   HYPER_PARAMETER_TUNING_JOB: "HyperParameterTuningJob",
   IMAGE: "Image",
   IMAGE_VERSION: "ImageVersion",
+  JOB: "Job",
   MODEL: "Model",
   MODEL_CARD: "ModelCard",
   MODEL_PACKAGE: "ModelPackage",

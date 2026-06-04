@@ -27,7 +27,7 @@ export interface DescribeModelCardCommandInput extends DescribeModelCardRequest 
 export interface DescribeModelCardCommandOutput extends DescribeModelCardResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the content, creation time, and security configuration of an Amazon SageMaker Model Card.</p>
+ * <p>Describes the content, creation time, and security configuration of an Amazon SageMaker Model Card.</p> <important> <p>To retrieve only metadata about a model card without requiring <code>kms:Decrypt</code> permission on the associated customer-managed Amazon Web Services KMS key, set <code>IncludedData</code> to <code>MetadataOnly</code>. The default is <code>AllData</code>, which returns the full model card <code>Content</code> and requires <code>kms:Decrypt</code> permission when a customer-managed key is configured.</p> </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -39,6 +39,7 @@ export interface DescribeModelCardCommandOutput extends DescribeModelCardRespons
  * const input = { // DescribeModelCardRequest
  *   ModelCardName: "STRING_VALUE", // required
  *   ModelCardVersion: Number("int"),
+ *   IncludedData: "AllData" || "MetadataOnly",
  * };
  * const command = new DescribeModelCardCommand(input);
  * const response = await client.send(command);

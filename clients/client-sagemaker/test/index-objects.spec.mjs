@@ -1388,6 +1388,7 @@ import {
   ImportHubContentCommand,
   ImportHubContentRequest$,
   ImportHubContentResponse$,
+  IncludedData,
   InferenceComponentAvailabilityZoneBalance$,
   InferenceComponentCapacitySize$,
   InferenceComponentCapacitySizeType,
@@ -1442,6 +1443,7 @@ import {
   IntegerParameterRangeSpecification$,
   IPAddressType,
   IsTrackingServerActive,
+  Job$,
   JobCategory,
   JobConfigSchemaVersionSummary$,
   JobSecondaryStatus,
@@ -4454,6 +4456,7 @@ assert(typeof InstancePoolSummary$ === "object");
 assert(typeof InstanceRequirementsEniConfiguration$ === "object");
 assert(typeof IntegerParameterRange$ === "object");
 assert(typeof IntegerParameterRangeSpecification$ === "object");
+assert(typeof Job$ === "object");
 assert(typeof JobConfigSchemaVersionSummary$ === "object");
 assert(typeof JobSecondaryStatusTransition$ === "object");
 assert(typeof JobStepMetadata$ === "object");
@@ -5320,6 +5323,7 @@ assert(typeof ImageStatus === "object");
 assert(typeof ImageVersionSortBy === "object");
 assert(typeof ImageVersionSortOrder === "object");
 assert(typeof ImageVersionStatus === "object");
+assert(typeof IncludedData === "object");
 assert(typeof InferenceComponentCapacitySizeType === "object");
 assert(typeof InferenceComponentPlacementStrategy === "object");
 assert(typeof InferenceComponentSortKey === "object");

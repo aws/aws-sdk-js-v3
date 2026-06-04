@@ -7,7 +7,7 @@ import type {
   WorkforceIpAddressType,
 } from "./enums";
 import type { CfnUpdateTemplateProvider, Tag } from "./models_0";
-import type { UserSettings } from "./models_1";
+import type { NotebookInstanceLifecycleHook, UserSettings } from "./models_1";
 import type {
   MemberDefinition,
   NotificationConfiguration,
@@ -34,6 +34,29 @@ import type {
   ResourceConfigForUpdate,
   VisibilityConditions,
 } from "./models_4";
+
+/**
+ * @public
+ */
+export interface UpdateNotebookInstanceLifecycleConfigInput {
+  /**
+   * <p>The name of the lifecycle configuration.</p>
+   * @public
+   */
+  NotebookInstanceLifecycleConfigName: string | undefined;
+
+  /**
+   * <p>The shell script that runs only once, when you create a notebook instance. The shell script must be a base64-encoded string.</p>
+   * @public
+   */
+  OnCreate?: NotebookInstanceLifecycleHook[] | undefined;
+
+  /**
+   * <p>The shell script that runs every time you start a notebook instance, including when you create the notebook instance. The shell script must be a base64-encoded string.</p>
+   * @public
+   */
+  OnStart?: NotebookInstanceLifecycleHook[] | undefined;
+}
 
 /**
  * @public

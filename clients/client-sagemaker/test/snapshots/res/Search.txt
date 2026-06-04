@@ -7981,6 +7981,54 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "ModelId": "__ModelId__",
           "RiskRating": "__RiskRating__"
         }
+      },
+      "Job": {
+        "JobName": "__JobName__",
+        "JobArn": "__JobArn__",
+        "RoleArn": "__RoleArn__",
+        "JobCategory": "__JobCategory__",
+        "JobConfigSchemaVersion": "__JobConfigSchemaVersion__",
+        "JobConfigDocument": "__JobConfigDocument__",
+        "CreationTime": 946702799.999,
+        "LastModifiedTime": 946702799.999,
+        "EndTime": 946702799.999,
+        "JobStatus": "__JobStatus__",
+        "SecondaryStatus": "__SecondaryStatus__",
+        "SecondaryStatusTransitions": [
+          {
+            "Status": "__Status__",
+            "StartTime": 946702799.999,
+            "EndTime": 946702799.999,
+            "StatusMessage": "__StatusMessage__"
+          },
+          {
+            "Status": "__Status__",
+            "StartTime": 946702799.999,
+            "EndTime": 946702799.999,
+            "StatusMessage": "__StatusMessage__"
+          },
+          {
+            "Status": "__Status__",
+            "StartTime": 946702799.999,
+            "EndTime": 946702799.999,
+            "StatusMessage": "__StatusMessage__"
+          }
+        ],
+        "FailureReason": "__FailureReason__",
+        "Tags": [
+          {
+            "Key": "__Key__",
+            "Value": "__Value__"
+          },
+          {
+            "Key": "__Key__",
+            "Value": "__Value__"
+          },
+          {
+            "Key": "__Key__",
+            "Value": "__Value__"
+          }
+        ]
       }
     },
     {
@@ -15935,6 +15983,54 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "ModelId": "__ModelId__",
           "RiskRating": "__RiskRating__"
         }
+      },
+      "Job": {
+        "JobName": "__JobName__",
+        "JobArn": "__JobArn__",
+        "RoleArn": "__RoleArn__",
+        "JobCategory": "__JobCategory__",
+        "JobConfigSchemaVersion": "__JobConfigSchemaVersion__",
+        "JobConfigDocument": "__JobConfigDocument__",
+        "CreationTime": 946702799.999,
+        "LastModifiedTime": 946702799.999,
+        "EndTime": 946702799.999,
+        "JobStatus": "__JobStatus__",
+        "SecondaryStatus": "__SecondaryStatus__",
+        "SecondaryStatusTransitions": [
+          {
+            "Status": "__Status__",
+            "StartTime": 946702799.999,
+            "EndTime": 946702799.999,
+            "StatusMessage": "__StatusMessage__"
+          },
+          {
+            "Status": "__Status__",
+            "StartTime": 946702799.999,
+            "EndTime": 946702799.999,
+            "StatusMessage": "__StatusMessage__"
+          },
+          {
+            "Status": "__Status__",
+            "StartTime": 946702799.999,
+            "EndTime": 946702799.999,
+            "StatusMessage": "__StatusMessage__"
+          }
+        ],
+        "FailureReason": "__FailureReason__",
+        "Tags": [
+          {
+            "Key": "__Key__",
+            "Value": "__Value__"
+          },
+          {
+            "Key": "__Key__",
+            "Value": "__Value__"
+          },
+          {
+            "Key": "__Key__",
+            "Value": "__Value__"
+          }
+        ]
       }
     },
     {
@@ -23889,6 +23985,54 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "ModelId": "__ModelId__",
           "RiskRating": "__RiskRating__"
         }
+      },
+      "Job": {
+        "JobName": "__JobName__",
+        "JobArn": "__JobArn__",
+        "RoleArn": "__RoleArn__",
+        "JobCategory": "__JobCategory__",
+        "JobConfigSchemaVersion": "__JobConfigSchemaVersion__",
+        "JobConfigDocument": "__JobConfigDocument__",
+        "CreationTime": 946702799.999,
+        "LastModifiedTime": 946702799.999,
+        "EndTime": 946702799.999,
+        "JobStatus": "__JobStatus__",
+        "SecondaryStatus": "__SecondaryStatus__",
+        "SecondaryStatusTransitions": [
+          {
+            "Status": "__Status__",
+            "StartTime": 946702799.999,
+            "EndTime": 946702799.999,
+            "StatusMessage": "__StatusMessage__"
+          },
+          {
+            "Status": "__Status__",
+            "StartTime": 946702799.999,
+            "EndTime": 946702799.999,
+            "StatusMessage": "__StatusMessage__"
+          },
+          {
+            "Status": "__Status__",
+            "StartTime": 946702799.999,
+            "EndTime": 946702799.999,
+            "StatusMessage": "__StatusMessage__"
+          }
+        ],
+        "FailureReason": "__FailureReason__",
+        "Tags": [
+          {
+            "Key": "__Key__",
+            "Value": "__Value__"
+          },
+          {
+            "Key": "__Key__",
+            "Value": "__Value__"
+          },
+          {
+            "Key": "__Key__",
+            "Value": "__Value__"
+          }
+        ]
       }
     }
   ],
@@ -31855,6 +31999,54 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           ModelId: "__ModelId__",
           RiskRating: "__RiskRating__"
         }
+      },
+      Job: {
+        JobName: "__JobName__",
+        JobArn: "__JobArn__",
+        RoleArn: "__RoleArn__",
+        JobCategory: "__JobCategory__",
+        JobConfigSchemaVersion: "__JobConfigSchemaVersion__",
+        JobConfigDocument: "__JobConfigDocument__",
+        CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        JobStatus: "__JobStatus__",
+        SecondaryStatus: "__SecondaryStatus__",
+        SecondaryStatusTransitions: [
+          {
+            Status: "__Status__",
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            StatusMessage: "__StatusMessage__"
+          },
+          {
+            Status: "__Status__",
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            StatusMessage: "__StatusMessage__"
+          },
+          {
+            Status: "__Status__",
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            StatusMessage: "__StatusMessage__"
+          }
+        ],
+        FailureReason: "__FailureReason__",
+        Tags: [
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          }
+        ]
       }
     },
     {
@@ -39809,6 +40001,54 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           ModelId: "__ModelId__",
           RiskRating: "__RiskRating__"
         }
+      },
+      Job: {
+        JobName: "__JobName__",
+        JobArn: "__JobArn__",
+        RoleArn: "__RoleArn__",
+        JobCategory: "__JobCategory__",
+        JobConfigSchemaVersion: "__JobConfigSchemaVersion__",
+        JobConfigDocument: "__JobConfigDocument__",
+        CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        JobStatus: "__JobStatus__",
+        SecondaryStatus: "__SecondaryStatus__",
+        SecondaryStatusTransitions: [
+          {
+            Status: "__Status__",
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            StatusMessage: "__StatusMessage__"
+          },
+          {
+            Status: "__Status__",
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            StatusMessage: "__StatusMessage__"
+          },
+          {
+            Status: "__Status__",
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            StatusMessage: "__StatusMessage__"
+          }
+        ],
+        FailureReason: "__FailureReason__",
+        Tags: [
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          }
+        ]
       }
     },
     {
@@ -47763,6 +48003,54 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           ModelId: "__ModelId__",
           RiskRating: "__RiskRating__"
         }
+      },
+      Job: {
+        JobName: "__JobName__",
+        JobArn: "__JobArn__",
+        RoleArn: "__RoleArn__",
+        JobCategory: "__JobCategory__",
+        JobConfigSchemaVersion: "__JobConfigSchemaVersion__",
+        JobConfigDocument: "__JobConfigDocument__",
+        CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        JobStatus: "__JobStatus__",
+        SecondaryStatus: "__SecondaryStatus__",
+        SecondaryStatusTransitions: [
+          {
+            Status: "__Status__",
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            StatusMessage: "__StatusMessage__"
+          },
+          {
+            Status: "__Status__",
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            StatusMessage: "__StatusMessage__"
+          },
+          {
+            Status: "__Status__",
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            StatusMessage: "__StatusMessage__"
+          }
+        ],
+        FailureReason: "__FailureReason__",
+        Tags: [
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          }
+        ]
       }
     }
   ],

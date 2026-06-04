@@ -38,7 +38,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // SearchRequest
- *   Resource: "TrainingJob" || "Experiment" || "ExperimentTrial" || "ExperimentTrialComponent" || "Endpoint" || "Model" || "ModelPackage" || "ModelPackageGroup" || "Pipeline" || "PipelineExecution" || "FeatureGroup" || "FeatureMetadata" || "Image" || "ImageVersion" || "Project" || "HyperParameterTuningJob" || "ModelCard" || "PipelineVersion", // required
+ *   Resource: "TrainingJob" || "Experiment" || "ExperimentTrial" || "ExperimentTrialComponent" || "Endpoint" || "Model" || "ModelPackage" || "ModelPackageGroup" || "Pipeline" || "PipelineExecution" || "FeatureGroup" || "FeatureMetadata" || "Image" || "ImageVersion" || "Project" || "HyperParameterTuningJob" || "ModelCard" || "PipelineVersion" || "Job", // required
  *   SearchExpression: { // SearchExpression
  *     Filters: [ // FilterList
  *       { // Filter
@@ -2293,6 +2293,29 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //           ModelId: "STRING_VALUE",
  * //           RiskRating: "STRING_VALUE",
  * //         },
+ * //       },
+ * //       Job: { // Job
+ * //         JobName: "STRING_VALUE",
+ * //         JobArn: "STRING_VALUE",
+ * //         RoleArn: "STRING_VALUE",
+ * //         JobCategory: "AgentRFT" || "AgentRFTEvaluation",
+ * //         JobConfigSchemaVersion: "STRING_VALUE",
+ * //         JobConfigDocument: "STRING_VALUE",
+ * //         CreationTime: new Date("TIMESTAMP"),
+ * //         LastModifiedTime: new Date("TIMESTAMP"),
+ * //         EndTime: new Date("TIMESTAMP"),
+ * //         JobStatus: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped" || "Deleting" || "DeleteFailed",
+ * //         SecondaryStatus: "Starting" || "Downloading" || "Training" || "Uploading" || "Stopping" || "Stopped" || "MaxRuntimeExceeded" || "Interrupted" || "Failed" || "Completed" || "Restarting" || "Pending" || "Evaluating" || "Deleting" || "DeleteFailed",
+ * //         SecondaryStatusTransitions: [ // JobSecondaryStatusTransitions
+ * //           { // JobSecondaryStatusTransition
+ * //             Status: "Starting" || "Downloading" || "Training" || "Uploading" || "Stopping" || "Stopped" || "MaxRuntimeExceeded" || "Interrupted" || "Failed" || "Completed" || "Restarting" || "Pending" || "Evaluating" || "Deleting" || "DeleteFailed", // required
+ * //             StartTime: new Date("TIMESTAMP"), // required
+ * //             EndTime: new Date("TIMESTAMP"),
+ * //             StatusMessage: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         FailureReason: "STRING_VALUE",
+ * //         Tags: "<TagList>",
  * //       },
  * //     },
  * //   ],

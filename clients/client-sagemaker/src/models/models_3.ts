@@ -50,6 +50,7 @@ import type {
   ImageVersionSortBy,
   ImageVersionSortOrder,
   ImageVersionStatus,
+  IncludedData,
   InferenceComponentCapacitySizeType,
   InferenceComponentSortKey,
   InferenceComponentStatus,
@@ -1882,6 +1883,12 @@ export interface DescribeModelCardRequest {
    * @public
    */
   ModelCardVersion?: number | undefined;
+
+  /**
+   * <p>Specifies the level of model card data to include in the response. Use this parameter to call <code>DescribeModelCard</code> without requiring <code>kms:Decrypt</code> permission on the customer-managed Amazon Web Services KMS key.</p> <ul> <li> <p> <code>AllData</code>: Returns the full model card <code>Content</code>. This option requires <code>kms:Decrypt</code> permission on the customer-managed key, if one is associated with the model card. This is the default.</p> </li> <li> <p> <code>MetadataOnly</code>: Returns the model card with sanitized <code>Content</code> that includes only a small set of unencrypted metadata fields. This option does not require <code>kms:Decrypt</code> permission. For the list of fields preserved in the response, see <code>Content</code>.</p> </li> </ul> <p>If you don't specify a value, SageMaker returns <code>AllData</code>.</p>
+   * @public
+   */
+  IncludedData?: IncludedData | undefined;
 }
 
 /**
@@ -1907,7 +1914,7 @@ export interface DescribeModelCardResponse {
   ModelCardVersion: number | undefined;
 
   /**
-   * <p>The content of the model card.</p>
+   * <p>The content of the model card. Content is provided as a string in the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema">model card JSON schema</a>.</p> <p>When you set <code>IncludedData</code> to <code>MetadataOnly</code> in the request, SageMaker returns a sanitized version of <code>Content</code> that includes only the following JSON paths, when present in the model card:</p> <ul> <li> <p> <code>model_overview.model_id</code> </p> </li> <li> <p> <code>model_overview.model_name</code> </p> </li> <li> <p> <code>intended_uses.risk_rating</code> </p> </li> <li> <p> <code>model_package_details.model_package_group_name</code> </p> </li> <li> <p> <code>model_package_details.model_package_arn</code> </p> </li> </ul> <p>All other fields are removed from <code>Content</code> when <code>IncludedData</code> is <code>MetadataOnly</code>, including model description, training details, evaluation details, business details, and additional information. To retrieve the complete <code>Content</code>, set <code>IncludedData</code> to <code>AllData</code> or omit the parameter.</p>
    * @public
    */
   Content: string | undefined;
@@ -2134,6 +2141,12 @@ export interface DescribeModelPackageInput {
    * @public
    */
   ModelPackageName: string | undefined;
+
+  /**
+   * <p>Specifies the level of model package data to include in the response. Use this parameter to call <code>DescribeModelPackage</code> on a model package that has an associated model card without requiring <code>kms:Decrypt</code> permission on the customer-managed KMS key associated with the embedded model card.</p> <ul> <li> <p> <code>AllData</code>: Returns the full model package response, including the unredacted <code>ModelCard.ModelCardContent</code>. This option requires <code>kms:Decrypt</code> permission on the customer-managed key, if one is associated with the embedded model card. This is the default.</p> </li> <li> <p> <code>MetadataOnly</code>: Returns the full model package response, but with the embedded <code>ModelCard.ModelCardContent</code> sanitized to include only a small set of unencrypted metadata fields. This option does not require <code>kms:Decrypt</code> permission. All other top-level response fields, including <code>InferenceSpecification</code>, <code>ModelMetrics</code>, <code>DriftCheckBaselines</code>, and <code>SecurityConfig</code>, are returned unchanged. For the list of fields preserved within <code>ModelCardContent</code>, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeModelPackage.html#sagemaker-DescribeModelPackage-response-ModelCard">ModelCard</a>.</p> </li> </ul> <p>If you don't specify a value, SageMaker returns <code>AllData</code>.</p>
+   * @public
+   */
+  IncludedData?: IncludedData | undefined;
 }
 
 /**
@@ -2357,7 +2370,7 @@ export interface DescribeModelPackageOutput {
   SecurityConfig?: ModelPackageSecurityConfig | undefined;
 
   /**
-   * <p>The model card associated with the model package. Since <code>ModelPackageModelCard</code> is tied to a model package, it is a specific usage of a model card and its schema is simplified compared to the schema of <code>ModelCard</code>. The <code>ModelPackageModelCard</code> schema does not include <code>model_package_details</code>, and <code>model_overview</code> is composed of the <code>model_creator</code> and <code>model_artifact</code> properties. For more information about the model package model card schema, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html#model-card-schema">Model package model card schema</a>. For more information about the model card associated with the model package, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html">View the Details of a Model Version</a>.</p>
+   * <p>The model card associated with the model package. Since <code>ModelPackageModelCard</code> is tied to a model package, it is a specific usage of a model card and its schema is simplified compared to the schema of <code>ModelCard</code>. The <code>ModelPackageModelCard</code> schema does not include <code>model_package_details</code>, and <code>model_overview</code> is composed of the <code>model_creator</code> and <code>model_artifact</code> properties. For more information about the model package model card schema, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html#model-card-schema">Model package model card schema</a>. For more information about the model card associated with the model package, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html">View the Details of a Model Version</a>.</p> <p>When you set <code>IncludedData</code> to <code>MetadataOnly</code> in the request, <code>ModelCardStatus</code> is preserved and <code>ModelCardContent</code> is sanitized to include only the following JSON paths, when present in the model card:</p> <ul> <li> <p> <code>model_overview.model_id</code> </p> </li> <li> <p> <code>model_overview.model_name</code> </p> </li> <li> <p> <code>intended_uses.risk_rating</code> </p> </li> <li> <p> <code>model_package_details.model_package_group_name</code> </p> </li> <li> <p> <code>model_package_details.model_package_arn</code> </p> </li> </ul> <p>Because the <code>ModelPackageModelCard</code> schema does not include <code>model_package_details</code> and limits <code>model_overview</code> to <code>model_creator</code> and <code>model_artifact</code>, the sanitized <code>ModelCardContent</code> for a model package typically contains only <code>intended_uses.risk_rating</code> if it was provided when the model card was created. To retrieve the complete <code>ModelCardContent</code>, set <code>IncludedData</code> to <code>AllData</code> or omit the parameter.</p>
    * @public
    */
   ModelCard?: ModelPackageModelCard | undefined;
@@ -8340,6 +8353,97 @@ export interface InferenceRecommendationsJobStep {
 }
 
 /**
+ * Search shape for Job. Mirrors DescribeJobResponse fields.
+ * If you update DescribeJobResponse, update this structure as well.
+ * @public
+ */
+export interface Job {
+  /**
+   * <p>The name of the job.</p>
+   * @public
+   */
+  JobName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the job.</p>
+   * @public
+   */
+  JobArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role associated with the job.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * <p>The category of the job.</p>
+   * @public
+   */
+  JobCategory?: JobCategory | undefined;
+
+  /**
+   * <p>The schema version used for the job configuration document.</p>
+   * @public
+   */
+  JobConfigSchemaVersion?: string | undefined;
+
+  /**
+   * <p>The JSON configuration document for the job.</p>
+   * @public
+   */
+  JobConfigDocument?: string | undefined;
+
+  /**
+   * <p>The date and time that the job was created.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>The date and time that the job was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The date and time that the job ended.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>The current status of the job.</p>
+   * @public
+   */
+  JobStatus?: JobStatus | undefined;
+
+  /**
+   * <p>The detailed secondary status of the job, providing more granular information about the job's progress.</p>
+   * @public
+   */
+  SecondaryStatus?: JobSecondaryStatus | undefined;
+
+  /**
+   * <p>A list of secondary status transitions for the job, with timestamps and optional status messages.</p>
+   * @public
+   */
+  SecondaryStatusTransitions?: JobSecondaryStatusTransition[] | undefined;
+
+  /**
+   * <p>If the job failed, the reason it failed.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+
+  /**
+   * <p>The tags associated with the job.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
  * <p>Provides summary information about a job configuration schema version.</p>
  * @public
  */
@@ -11689,23 +11793,6 @@ export interface ListInferenceRecommendationsJobStepsRequest {
 
   /**
    * <p>A token that you can specify to return more results from the list. Specify this field if you have a token that was returned from a previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListInferenceRecommendationsJobStepsResponse {
-  /**
-   * <p>A list of all subtask details in Inference Recommender.</p>
-   * @public
-   */
-  Steps?: InferenceRecommendationsJobStep[] | undefined;
-
-  /**
-   * <p>A token that you can specify in your next request to return more results from the list.</p>
    * @public
    */
   NextToken?: string | undefined;
