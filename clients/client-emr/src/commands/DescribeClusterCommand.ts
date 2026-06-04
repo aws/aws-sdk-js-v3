@@ -182,6 +182,7 @@ export interface DescribeClusterCommandOutput extends DescribeClusterOutput, __M
  * //         },
  * //       },
  * //     },
+ * //     SessionEnabled: true || false,
  * //   },
  * // };
  *

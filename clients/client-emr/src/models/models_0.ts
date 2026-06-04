@@ -40,6 +40,7 @@ import type {
   RepoUpgradeOnBoot,
   ScaleDownBehavior,
   ScalingStrategy,
+  SessionState,
   SpotProvisioningAllocationStrategy,
   SpotProvisioningTimeoutAction,
   Statistic,
@@ -914,6 +915,12 @@ export interface AddTagsInput {
    * @public
    */
   Tags: Tag[] | undefined;
+
+  /**
+   * <p>The ID of the cluster that scopes the tag operation. Required when the resource being tagged is a session-scoped resource.</p>
+   * @public
+   */
+  ClusterId?: string | undefined;
 }
 
 /**
@@ -1201,6 +1208,24 @@ export interface CancelStepsOutput {
 }
 
 /**
+ * <p>Describes the certificate authority used to establish an mTLS connection to the Spark Connect server when connecting directly over VPC peering.</p>
+ * @public
+ */
+export interface CertificateAuthority {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the certificate authority in Amazon Web Services Private CA that issued the Spark Connect server certificate.</p>
+   * @public
+   */
+  CertificateArn?: string | undefined;
+
+  /**
+   * <p>The PEM-encoded root CA certificate data. Provide this certificate to your client's trust store when connecting directly to the Spark Connect server over VPC peering.</p>
+   * @public
+   */
+  CertificateData?: string | undefined;
+}
+
+/**
  * <p>Holds CloudWatch log configuration settings and metadata that specify settings like log files to monitor and where to send them.</p>
  * @public
  */
@@ -1388,30 +1413,35 @@ export interface S3LoggingConfiguration {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>system-logs</code>: System-level logs including daemon logs, bootstrap logs, and other infrastructure logs.</p>
+   *                   <code>system-logs</code>: EMR Daemon logs.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>application-logs</code>: Application-level logs from frameworks like Hadoop, Spark, Hive, etc.</p>
+   *                   <code>application-logs</code>: Framework logs from Hadoop, Spark, Hive and other applications running on the cluster.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>persistent-ui-logs</code>: Logs for persistent application UIs like Spark History Server.</p>
+   *                   <code>persistent-ui-logs</code>: Logs required for persistent application UIs such as Spark History Server and Tez UI.</p>
    *             </li>
    *          </ul>
    *          <p>Valid upload policies:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>emr-managed</code>: Logs are uploaded to both the EMR-managed S3 bucket and the customer-specified S3 bucket (if LogUri is provided).</p>
+   *                   <code>emr-managed</code>: Standard behavior. Logs are uploaded to S3 bucket as configured in your
+   *                 LogUri, with certain logs retained by the service for operational
+   *                 support and troubleshooting purposes.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>on-customer-s3only</code>: Logs are uploaded only to the customer-specified S3 bucket. Requires LogUri to be specified in the cluster configuration.</p>
+   *                   <code>on-customer-s3only</code>: Logs are uploaded only to the customer-specified S3 bucket. This requires you to specify a LogUri
+   *                 when creating the cluster. Persistent-ui-logs cannot have
+   *                 on-customer-s3only policy. Allowed policies for persistent-ui-logs
+   *                 are emr-managed and disabled.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>disabled</code>: Log upload is disabled for this log type.</p>
+   *                   <code>disabled</code>: No S3 upload for this log type.</p>
    *             </li>
    *          </ul>
    * @public
@@ -3748,6 +3778,180 @@ export interface GetPersistentAppUIPresignedURLOutput {
 }
 
 /**
+ * <p>Input to the <code>GetSession</code> operation.</p>
+ * @public
+ */
+export interface GetSessionInput {
+  /**
+   * <p>The ID of the cluster that the session belongs to.</p>
+   * @public
+   */
+  ClusterId: string | undefined;
+
+  /**
+   * <p>The ID of the session.</p>
+   * @public
+   */
+  SessionId: string | undefined;
+}
+
+/**
+ * <p>The CloudWatch Logs configuration for a session.</p>
+ * @public
+ */
+export interface SessionCloudWatchLoggingConfiguration {
+  /**
+   * <p>Whether CloudWatch Logs is enabled for the session.</p>
+   * @public
+   */
+  Enabled?: boolean | undefined;
+
+  /**
+   * <p>The name of the log group where session logs are published.</p>
+   * @public
+   */
+  LogGroup?: string | undefined;
+
+  /**
+   * <p>The prefix applied to the log stream name where session logs are published.</p>
+   * @public
+   */
+  LogStreamNamePrefix?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the logs published to CloudWatch Logs.</p>
+   * @public
+   */
+  EncryptionKeyArn?: string | undefined;
+
+  /**
+   * <p>A map of log component names (for example, <code>SPARK_DRIVER</code>, <code>SPARK_EXECUTOR</code>) to the list of log types to publish for that component (for example, <code>stdout</code>, <code>stderr</code>).</p>
+   * @public
+   */
+  LogTypes?: Record<string, string[]> | undefined;
+}
+
+/**
+ * <p>The Amazon EMR-managed logging configuration for a session.</p>
+ * @public
+ */
+export interface SessionManagedLoggingConfiguration {
+  /**
+   * <p>Whether Amazon EMR-managed logging is enabled for the session.</p>
+   * @public
+   */
+  Enabled?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the managed logs.</p>
+   * @public
+   */
+  EncryptionKeyArn?: string | undefined;
+}
+
+/**
+ * <p>The Amazon S3 logging configuration for a session.</p>
+ * @public
+ */
+export interface SessionS3LoggingConfiguration {
+  /**
+   * <p>Whether Amazon S3 logging is enabled for the session.</p>
+   * @public
+   */
+  Enabled?: boolean | undefined;
+
+  /**
+   * <p>The Amazon S3 destination URI where session logs are published.</p>
+   * @public
+   */
+  LogUri?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt logs published to Amazon S3.</p>
+   * @public
+   */
+  EncryptionKeyArn?: string | undefined;
+
+  /**
+   * <p>A map of log component names (for example, <code>SPARK_DRIVER</code>, <code>SPARK_EXECUTOR</code>) to the list of log types to publish for that component (for example, <code>stdout</code>, <code>stderr</code>).</p>
+   * @public
+   */
+  LogTypes?: Record<string, string[]> | undefined;
+}
+
+/**
+ * <p>The monitoring configuration for a session. Controls where session logs are published.</p>
+ * @public
+ */
+export interface SessionMonitoringConfiguration {
+  /**
+   * <p>The CloudWatch Logs configuration for the session.</p>
+   * @public
+   */
+  CloudWatchLoggingConfiguration?: SessionCloudWatchLoggingConfiguration | undefined;
+
+  /**
+   * <p>The Amazon EMR-managed logging configuration for the session.</p>
+   * @public
+   */
+  ManagedLoggingConfiguration?: SessionManagedLoggingConfiguration | undefined;
+
+  /**
+   * <p>The Amazon S3 logging configuration for the session.</p>
+   * @public
+   */
+  S3LoggingConfiguration?: SessionS3LoggingConfiguration | undefined;
+}
+
+/**
+ * <p>Input to the <code>GetSessionEndpoint</code> operation.</p>
+ * @public
+ */
+export interface GetSessionEndpointInput {
+  /**
+   * <p>The ID of the cluster that the session belongs to.</p>
+   * @public
+   */
+  ClusterId: string | undefined;
+
+  /**
+   * <p>The ID of the session.</p>
+   * @public
+   */
+  SessionId: string | undefined;
+}
+
+/**
+ * <p>Output of the <code>GetSessionEndpoint</code> operation.</p>
+ * @public
+ */
+export interface GetSessionEndpointOutput {
+  /**
+   * <p>The Spark Connect endpoint URL to use in the PySpark client.</p>
+   * @public
+   */
+  Endpoint: string | undefined;
+
+  /**
+   * <p>A time-limited authentication token used to connect to the Spark Connect endpoint.</p>
+   * @public
+   */
+  AuthToken?: string | undefined;
+
+  /**
+   * <p>The time at which the authentication token expires. After this time, call <code>GetSessionEndpoint</code> again to obtain a new token.</p>
+   * @public
+   */
+  AuthTokenExpirationTime?: Date | undefined;
+
+  /**
+   * <p>Username and password used to authenticate with the Spark Connect server when connecting directly over VPC peering.</p>
+   * @public
+   */
+  Credentials?: Credentials | undefined;
+}
+
+/**
  * @public
  */
 export interface GetStudioSessionMappingInput {
@@ -4745,6 +4949,36 @@ export interface ListSecurityConfigurationsOutput {
 }
 
 /**
+ * <p>Input to the <code>ListSessions</code> operation.</p>
+ * @public
+ */
+export interface ListSessionsInput {
+  /**
+   * <p>The ID of the cluster to list sessions for.</p>
+   * @public
+   */
+  ClusterId: string | undefined;
+
+  /**
+   * <p>An optional filter that limits the results to sessions in the specified states.</p>
+   * @public
+   */
+  SessionStates?: SessionState[] | undefined;
+
+  /**
+   * <p>The pagination token returned by a previous <code>ListSessions</code> call. Use it to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of sessions to return in each page of results.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
  * <p>This input determines which steps to list.</p>
  * @public
  */
@@ -5367,6 +5601,12 @@ export interface RemoveTagsInput {
    * @public
    */
   TagKeys: string[] | undefined;
+
+  /**
+   * <p>The ID of the cluster that scopes the tag operation. Required when the resource being untagged is a session-scoped resource.</p>
+   * @public
+   */
+  ClusterId?: string | undefined;
 }
 
 /**
@@ -5633,6 +5873,42 @@ export interface StartNotebookExecutionOutput {
 }
 
 /**
+ * <p>Output of the <code>StartSession</code> operation.</p>
+ * @public
+ */
+export interface StartSessionOutput {
+  /**
+   * <p>The output contains the ID of the session.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The ID of the cluster that the session was started on.</p>
+   * @public
+   */
+  ClusterId?: string | undefined;
+
+  /**
+   * <p>The output contains the ARN of the session.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID that owns the session.</p>
+   * @public
+   */
+  AccountId?: string | undefined;
+
+  /**
+   * <p>The state of the session at the time the request returned. When a session is first created, it enters the <code>SUBMITTED</code> state.</p>
+   * @public
+   */
+  State?: SessionState | undefined;
+}
+
+/**
  * @public
  */
 export interface StopNotebookExecutionInput {
@@ -5653,6 +5929,48 @@ export interface TerminateJobFlowsInput {
    * @public
    */
   JobFlowIds: string[] | undefined;
+}
+
+/**
+ * <p>Input to the <code>TerminateSession</code> operation.</p>
+ * @public
+ */
+export interface TerminateSessionInput {
+  /**
+   * <p>The ID of the cluster that the session belongs to.</p>
+   * @public
+   */
+  ClusterId: string | undefined;
+
+  /**
+   * <p>The ID of the session to terminate.</p>
+   * @public
+   */
+  SessionId: string | undefined;
+}
+
+/**
+ * <p>Output of the <code>TerminateSession</code> operation.</p>
+ * @public
+ */
+export interface TerminateSessionOutput {
+  /**
+   * <p>The ID of the cluster that the session belonged to.</p>
+   * @public
+   */
+  ClusterId: string | undefined;
+
+  /**
+   * <p>The ID of the terminated session.</p>
+   * @public
+   */
+  SessionId: string | undefined;
+
+  /**
+   * <p>The state of the session after the terminate request has been accepted.</p>
+   * @public
+   */
+  State: SessionState | undefined;
 }
 
 /**
@@ -6096,6 +6414,12 @@ export interface Cluster {
    * @public
    */
   MonitoringConfiguration?: MonitoringConfiguration | undefined;
+
+  /**
+   * <p>Indicates whether Spark Connect sessions are enabled on the cluster.</p>
+   * @public
+   */
+  SessionEnabled?: boolean | undefined;
 }
 
 /**
@@ -6373,6 +6697,186 @@ export interface InstanceTypeSpecification {
 }
 
 /**
+ * <p>Detailed information about a Spark Connect session.</p>
+ * @public
+ */
+export interface Session {
+  /**
+   * <p>The ID of the session.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The ID of the cluster that the session belongs to.</p>
+   * @public
+   */
+  ClusterId: string | undefined;
+
+  /**
+   * <p>The name of the session, if one was provided at creation time.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the session.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The current state of the session. Valid values are <code>SUBMITTED</code>, <code>STARTING</code>, <code>STARTED</code>, <code>IDLE</code>, <code>BUSY</code>, <code>TERMINATING</code>, <code>TERMINATED</code>, and <code>FAILED</code>.</p>
+   * @public
+   */
+  State: SessionState | undefined;
+
+  /**
+   * <p>A human-readable message describing the most recent state change.</p>
+   * @public
+   */
+  StateChangeReason?: string | undefined;
+
+  /**
+   * <p>The Amazon EMR release label of the cluster that the session is running on.</p>
+   * @public
+   */
+  ReleaseLabel?: string | undefined;
+
+  /**
+   * <p>The execution role ARN for the session. Amazon EMR uses this role to access Amazon Web Services resources on your behalf during session execution.</p>
+   * @public
+   */
+  ExecutionRoleArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID that owns the session.</p>
+   * @public
+   */
+  AccountId?: string | undefined;
+
+  /**
+   * <p>The date and time that the session was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The date and time that the session was last updated.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The date and time that the session entered the <code>STARTED</code> state.</p>
+   * @public
+   */
+  StartedAt?: Date | undefined;
+
+  /**
+   * <p>The date and time that the session was terminated or failed.</p>
+   * @public
+   */
+  EndedAt?: Date | undefined;
+
+  /**
+   * <p>The date and time that the session last entered the <code>IDLE</code> state.</p>
+   * @public
+   */
+  IdleSince?: Date | undefined;
+
+  /**
+   * <p>The configuration overrides for the session. Only runtime configuration overrides are supported.</p>
+   * @public
+   */
+  EngineConfigurations?: Configuration[] | undefined;
+
+  /**
+   * <p>The monitoring configuration for the session.</p>
+   * @public
+   */
+  MonitoringConfiguration?: SessionMonitoringConfiguration | undefined;
+
+  /**
+   * <p>The idle timeout, in minutes. If the session is idle for this duration, Amazon EMR automatically terminates it.</p>
+   * @public
+   */
+  SessionIdleTimeoutInMinutes?: number | undefined;
+
+  /**
+   * <p>The certificate authority used to establish an mTLS connection to the Spark Connect server when connecting directly over VPC peering.</p>
+   * @public
+   */
+  CertificateAuthority?: CertificateAuthority | undefined;
+
+  /**
+   * <p>The Spark Connect server URL for the session. Use this URL with the <code>Credentials</code> returned by <code>GetSessionEndpoint</code> to connect directly to the session over VPC peering.</p>
+   * @public
+   */
+  ServerUrl?: string | undefined;
+
+  /**
+   * <p>The tags associated with the session.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * <p>Input to the <code>StartSession</code> operation.</p>
+ * @public
+ */
+export interface StartSessionInput {
+  /**
+   * <p>An optional name for the session.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The ID of the cluster on which to start the session.</p>
+   * @public
+   */
+  ClusterId: string | undefined;
+
+  /**
+   * <p>The execution role ARN for the session. Amazon EMR uses this role to access Amazon Web Services resources on your behalf during session execution.</p>
+   * @public
+   */
+  ExecutionRoleArn?: string | undefined;
+
+  /**
+   * <p>The configuration overrides for the session. Only runtime configuration overrides are supported.</p>
+   * @public
+   */
+  EngineConfigurations?: Configuration[] | undefined;
+
+  /**
+   * <p>The monitoring configuration that controls where session logs are published, such as Amazon S3, CloudWatch, or managed logging.</p>
+   * @public
+   */
+  MonitoringConfiguration?: SessionMonitoringConfiguration | undefined;
+
+  /**
+   * <p>The idle timeout, in minutes. If the session is idle for this duration, Amazon EMR EC2 automatically terminates it.</p>
+   * @public
+   */
+  SessionIdleTimeoutInMinutes?: number | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you retry a request that completed successfully using the same client request token, the service returns the original response without performing the operation again.</p>
+   * @public
+   */
+  ClientRequestToken?: string | undefined;
+
+  /**
+   * <p>The tags to assign to the session.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
  * <p>This output contains the description of the cluster.</p>
  * @public
  */
@@ -6418,6 +6922,18 @@ export interface GetBlockPublicAccessConfigurationOutput {
    * @public
    */
   BlockPublicAccessConfigurationMetadata: BlockPublicAccessConfigurationMetadata | undefined;
+}
+
+/**
+ * <p>Output of the <code>GetSession</code> operation.</p>
+ * @public
+ */
+export interface GetSessionOutput {
+  /**
+   * <p>The output displays information about the session.</p>
+   * @public
+   */
+  Session: Session | undefined;
 }
 
 /**
@@ -6728,6 +7244,24 @@ export interface InstanceFleetModifyConfig {
    * @public
    */
   Context?: string | undefined;
+}
+
+/**
+ * <p>Output of the <code>ListSessions</code> operation.</p>
+ * @public
+ */
+export interface ListSessionsOutput {
+  /**
+   * <p>The sessions that match the request.</p>
+   * @public
+   */
+  Sessions?: Session[] | undefined;
+
+  /**
+   * <p>The pagination token to use in a subsequent <code>ListSessions</code> call to retrieve the next page of results. This field is absent when there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }
 
 /**
@@ -7431,4 +7965,10 @@ export interface RunJobFlowInput {
    * @public
    */
   MonitoringConfiguration?: MonitoringConfiguration | undefined;
+
+  /**
+   * <p>Indicates whether Spark Connect sessions are enabled on the cluster. When set to <code>true</code>, you can start Spark Connect sessions using the <code>StartSession</code> operation.</p>
+   * @public
+   */
+  SessionEnabled?: boolean | undefined;
 }

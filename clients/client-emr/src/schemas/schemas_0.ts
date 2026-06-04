@@ -8,6 +8,7 @@ const _AIFO = "AddInstanceFleetOutput";
 const _AIG = "AddInstanceGroups";
 const _AIGI = "AddInstanceGroupsInput";
 const _AIGO = "AddInstanceGroupsOutput";
+const _AIc = "AccountId";
 const _AIp = "ApplicationId";
 const _AIu = "AuthorId";
 const _AJFS = "AddJobFlowSteps";
@@ -27,11 +28,13 @@ const _ASPSCR = "AutoScalingPolicyStateChangeReason";
 const _ASR = "AutoScalingRole";
 const _ASSG = "AdditionalSlaveSecurityGroups";
 const _AT = "AutoTerminate";
+const _ATET = "AuthTokenExpirationTime";
 const _ATI = "AddTagsInput";
 const _ATO = "AddTagsOutput";
 const _ATP = "AutoTerminationPolicy";
 const _ATd = "AdjustmentType";
 const _ATdd = "AddTags";
+const _ATu = "AuthToken";
 const _AV = "AmiVersion";
 const _AZ = "AvailabilityZone";
 const _AZv = "AvailabilityZones";
@@ -55,11 +58,15 @@ const _BPSGR = "BlockPublicSecurityGroupRules";
 const _C = "Constraints";
 const _CA = "ClusterArn";
 const _CAI = "CustomAmiId";
+const _CAe = "CertificateAuthority";
+const _CAer = "CertificateArn";
 const _CAr = "CreatedAfter";
+const _CAre = "CreatedAt";
 const _CB = "CreatedBefore";
 const _CBA = "CreatedByArn";
-const _CD = "CoolDown";
+const _CD = "CertificateData";
 const _CDT = "CreationDateTime";
+const _CDo = "CoolDown";
 const _CI = "ClusterId";
 const _CL = "ComputeLimits";
 const _CLo = "CommandList";
@@ -71,6 +78,7 @@ const _CPAUIO = "CreatePersistentAppUIOutput";
 const _CRO = "CapacityReservationOptions";
 const _CRP = "CapacityReservationPreference";
 const _CRRGA = "CapacityReservationResourceGroupArn";
+const _CRT = "ClientRequestToken";
 const _CRTPP = "CrossRealmTrustPrincipalPassword";
 const _CS = "ClusterStatus";
 const _CSC = "CreateSecurityConfiguration";
@@ -95,6 +103,7 @@ const _CTr = "CreationTime";
 const _CV = "ConfigurationsVersion";
 const _CWAD = "CloudWatchAlarmDefinition";
 const _CWLC = "CloudWatchLogConfiguration";
+const _CWLCl = "CloudWatchLoggingConfiguration";
 const _Cl = "Classification";
 const _Clu = "Cluster";
 const _Clus = "Clusters";
@@ -145,6 +154,7 @@ const _Dev = "Device";
 const _E = "Enabled";
 const _EA = "ExpiresAt";
 const _EAZ = "Ec2AvailabilityZone";
+const _EAn = "EndedAt";
 const _EBD = "EbsBlockDevice";
 const _EBDC = "EbsBlockDeviceConfig";
 const _EBDCL = "EbsBlockDeviceConfigList";
@@ -154,6 +164,7 @@ const _EBDb = "EbsBlockDevices";
 const _EC = "ErrorCode";
 const _ECIITT = "EC2InstanceIdsToTerminate";
 const _ECb = "EbsConfiguration";
+const _ECn = "EngineConfigurations";
 const _ED = "ErrorDetails";
 const _EDL = "ErrorDetailList";
 const _EDT = "EndDateTime";
@@ -190,6 +201,7 @@ const _EV = "EbsVolume";
 const _EVL = "EbsVolumeList";
 const _EVb = "EbsVolumes";
 const _EVn = "EnvironmentVariables";
+const _En = "Endpoint";
 const _F = "From";
 const _FD = "FailureDetails";
 const _Fi = "Filters";
@@ -211,6 +223,12 @@ const _GOCAUIPURLO = "GetOnClusterAppUIPresignedURLOutput";
 const _GPAUIPURL = "GetPersistentAppUIPresignedURL";
 const _GPAUIPURLI = "GetPersistentAppUIPresignedURLInput";
 const _GPAUIPURLO = "GetPersistentAppUIPresignedURLOutput";
+const _GS = "GetSession";
+const _GSE = "GetSessionEndpoint";
+const _GSEI = "GetSessionEndpointInput";
+const _GSEO = "GetSessionEndpointOutput";
+const _GSI = "GetSessionInput";
+const _GSO = "GetSessionOutput";
 const _GSSM = "GetStudioSessionMapping";
 const _GSSMI = "GetStudioSessionMappingInput";
 const _GSSMO = "GetStudioSessionMappingOutput";
@@ -268,6 +286,7 @@ const _IS = "InstanceStatus";
 const _ISCR = "InstanceStateChangeReason";
 const _ISE = "InternalServerError";
 const _ISEn = "InternalServerException";
+const _ISd = "IdleSince";
 const _ISn = "InstanceStates";
 const _IT = "IdleTimeout";
 const _ITC = "InstanceTypeConfigs";
@@ -313,6 +332,7 @@ const _LCI = "ListClustersInput";
 const _LCO = "ListClustersOutput";
 const _LEKKI = "LogEncryptionKmsKeyId";
 const _LF = "LogFile";
+const _LG = "LogGroup";
 const _LGN = "LogGroupName";
 const _LI = "ListInstances";
 const _LIF = "ListInstanceFleets";
@@ -337,19 +357,22 @@ const _LSC = "ListSecurityConfigurations";
 const _LSCI = "ListSecurityConfigurationsInput";
 const _LSCO = "ListSecurityConfigurationsOutput";
 const _LSCR = "LastStateChangeReason";
-const _LSI = "ListStepsInput";
+const _LSI = "ListSessionsInput";
 const _LSIT = "ListSupportedInstanceTypes";
 const _LSITI = "ListSupportedInstanceTypesInput";
 const _LSITO = "ListSupportedInstanceTypesOutput";
-const _LSIi = "ListStudiosInput";
+const _LSIi = "ListStepsInput";
+const _LSIis = "ListStudiosInput";
 const _LSNP = "LogStreamNamePrefix";
-const _LSO = "ListStepsOutput";
-const _LSOi = "ListStudiosOutput";
+const _LSO = "ListSessionsOutput";
+const _LSOi = "ListStepsOutput";
+const _LSOis = "ListStudiosOutput";
 const _LSSM = "ListStudioSessionMappings";
 const _LSSMI = "ListStudioSessionMappingsInput";
 const _LSSMO = "ListStudioSessionMappingsOutput";
-const _LSi = "ListSteps";
-const _LSis = "ListStudios";
+const _LSi = "ListSessions";
+const _LSis = "ListSteps";
+const _LSist = "ListStudios";
 const _LT = "LogTypes";
 const _LTM = "LogTypesMap";
 const _LTUP = "LogTypeUploadPolicy";
@@ -375,6 +398,7 @@ const _MIGI = "ModifyInstanceGroupsInput";
 const _MII = "MasterInstanceId";
 const _MISGI = "MasterInstanceSecurityGroupId";
 const _MIT = "MasterInstanceType";
+const _MLC = "ManagedLoggingConfiguration";
 const _MN = "MetricName";
 const _MODCU = "MaximumOnDemandCapacityUnits";
 const _MPDN = "MasterPublicDnsName";
@@ -499,7 +523,8 @@ const _SAL = "SimplifiedApplicationList";
 const _SASG = "ServiceAccessSecurityGroup";
 const _SAc = "ScalingAdjustment";
 const _SAi = "SimplifiedApplication";
-const _SAt = "StudioArn";
+const _SAt = "StartedAt";
+const _SAtu = "StudioArn";
 const _SBA = "ScriptBootstrapAction";
 const _SBAC = "ScriptBootstrapActionConfig";
 const _SC = "SecurityConfiguration";
@@ -509,6 +534,7 @@ const _SCLt = "StepConfigList";
 const _SCO = "StepCancellationOption";
 const _SCR = "StateChangeReason";
 const _SCS = "SecurityConfigurationSummary";
+const _SCWLC = "SessionCloudWatchLoggingConfiguration";
 const _SCc = "ScalingConstraints";
 const _SCe = "SecurityConfigurations";
 const _SCt = "StepConfig";
@@ -516,25 +542,31 @@ const _SD = "StepDetail";
 const _SDB = "ScaleDownBehavior";
 const _SDL = "StepDetailList";
 const _SDT = "StartDateTime";
+const _SE = "SessionEnabled";
 const _SERA = "StepExecutionRoleArn";
 const _SESD = "StepExecutionStatusDetail";
 const _SGB = "StorageGB";
 const _SI = "StepIds";
 const _SIGB = "SizeInGB";
 const _SIT = "SlaveInstanceType";
+const _SITIM = "SessionIdleTimeoutInMinutes";
 const _SITL = "SupportedInstanceTypesList";
 const _SITu = "SupportedInstanceTypes";
 const _SITup = "SupportedInstanceType";
+const _SIe = "SessionId";
 const _SIt = "StepId";
 const _SItu = "StudioId";
 const _SIu = "SubnetIds";
 const _SKJFAWNS = "SetKeepJobFlowAliveWhenNoSteps";
 const _SKJFAWNSI = "SetKeepJobFlowAliveWhenNoStepsInput";
+const _SL = "SessionList";
 const _SLC = "S3LoggingConfiguration";
 const _SM = "SessionMapping";
 const _SMC = "S3MonitoringConfiguration";
+const _SMCe = "SessionMonitoringConfiguration";
 const _SMCt = "StepMonitoringConfiguration";
 const _SMD = "SessionMappingDetail";
+const _SMLC = "SessionManagedLoggingConfiguration";
 const _SMS = "SessionMappingSummary";
 const _SMSL = "SessionMappingSummaryList";
 const _SMe = "SessionMappings";
@@ -554,13 +586,19 @@ const _SRL = "ScalingRuleList";
 const _SRS = "SpotResizeSpecification";
 const _SRSp = "SpotResizingSpecification";
 const _SRc = "ScalingRule";
-const _SS = "SpotSpecification";
+const _SS = "SensitiveString";
 const _SSCR = "StepStateChangeReason";
+const _SSI = "StartSessionInput";
 const _SSL = "StepSummaryList";
+const _SSLC = "SessionS3LoggingConfiguration";
 const _SSLt = "StudioSummaryList";
+const _SSO = "StartSessionOutput";
 const _SSPC = "SimpleScalingPolicyConfiguration";
 const _SSc = "ScalingStrategy";
+const _SSe = "SessionStates";
+const _SSp = "SpotSpecification";
 const _SSt = "StepStates";
+const _SSta = "StartSession";
 const _SSte = "StepStatus";
 const _SStep = "StepSummary";
 const _SStu = "StudioSummary";
@@ -569,10 +607,13 @@ const _STP = "SetTerminationProtection";
 const _STPI = "SetTerminationProtectionInput";
 const _STc = "ScalingTrigger";
 const _STt = "StepTimeline";
+const _SU = "ServerUrl";
 const _SUNR = "SetUnhealthyNodeReplacement";
 const _SUNRI = "SetUnhealthyNodeReplacementInput";
 const _SVTAU = "SetVisibleToAllUsers";
 const _SVTAUI = "SetVisibleToAllUsersInput";
+const _Se = "Session";
+const _Ses = "Sessions";
 const _St = "Status";
 const _Sta = "State";
 const _Stat = "Statistic";
@@ -590,7 +631,10 @@ const _TL = "TagList";
 const _TODC = "TargetOnDemandCapacity";
 const _TP = "TerminationProtected";
 const _TRA = "TargetResourceArn";
+const _TS = "TerminateSession";
 const _TSC = "TargetSpotCapacity";
+const _TSI = "TerminateSessionInput";
+const _TSO = "TerminateSessionOutput";
 const _Ta = "Tag";
 const _Th = "Threshold";
 const _Thr = "Throughput";
@@ -599,6 +643,7 @@ const _To = "To";
 const _Tr = "Trigger";
 const _Ty = "Type";
 const _U = "Unit";
+const _UA = "UpdatedAt";
 const _UNR = "UnhealthyNodeReplacement";
 const _UP = "UsernamePassword";
 const _UPI = "UtilizationPerformanceIndex";
@@ -638,6 +683,7 @@ import type {
   StaticListSchema,
   StaticMapSchema,
   StaticOperationSchema,
+  StaticSimpleSchema,
   StaticStructureSchema,
   StaticUnionSchema,
 } from "@smithy/types";
@@ -677,6 +723,7 @@ export const errorTypeRegistries = [
   _s_registry,
   n0_registry,
 ]
+var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
 export var AddInstanceFleetInput$: StaticStructureSchema = [3, n0, _AIFI,
   0,
   [_CI, _IF],
@@ -709,8 +756,8 @@ export var AddJobFlowStepsOutput$: StaticStructureSchema = [3, n0, _AJFSO,
 ];
 export var AddTagsInput$: StaticStructureSchema = [3, n0, _ATI,
   0,
-  [_RI, _T],
-  [0, () => TagList], 2
+  [_RI, _T, _CI],
+  [0, () => TagList, 0], 2
 ];
 export var AddTagsOutput$: StaticStructureSchema = [3, n0, _ATO,
   0,
@@ -782,6 +829,11 @@ export var CancelStepsOutput$: StaticStructureSchema = [3, n0, _CSO,
   [_CSIL],
   [() => CancelStepsInfoList]
 ];
+export var CertificateAuthority$: StaticStructureSchema = [3, n0, _CAe,
+  0,
+  [_CAer, _CD],
+  [0, 0]
+];
 export var CloudWatchAlarmDefinition$: StaticStructureSchema = [3, n0, _CWAD,
   0,
   [_CO, _MN, _Pe, _Th, _EP, _Na, _Stat, _U, _D],
@@ -794,8 +846,8 @@ export var CloudWatchLogConfiguration$: StaticStructureSchema = [3, n0, _CWLC,
 ];
 export var Cluster$: StaticStructureSchema = [3, n0, _Clu,
   0,
-  [_I, _N, _St, _EIA, _ICT, _LU, _LEKKI, _RAV, _RAVu, _RL, _AT, _TP, _UNR, _VTAU, _Ap, _T, _SR, _NIH, _MPDN, _Con, _SC, _ASR, _SDB, _CAI, _ERVS, _RUOB, _KA, _CA, _OA, _SCL, _PG, _OSRL, _ERVI, _ERVT, _ES, _MC],
-  [0, 0, () => ClusterStatus$, () => Ec2InstanceAttributes$, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, () => ApplicationList, () => TagList, 0, 1, 0, () => ConfigurationList, 0, 0, 0, 0, 1, 0, () => KerberosAttributes$, 0, 0, 1, () => PlacementGroupConfigList, 0, 1, 1, 2, () => MonitoringConfiguration$]
+  [_I, _N, _St, _EIA, _ICT, _LU, _LEKKI, _RAV, _RAVu, _RL, _AT, _TP, _UNR, _VTAU, _Ap, _T, _SR, _NIH, _MPDN, _Con, _SC, _ASR, _SDB, _CAI, _ERVS, _RUOB, _KA, _CA, _OA, _SCL, _PG, _OSRL, _ERVI, _ERVT, _ES, _MC, _SE],
+  [0, 0, () => ClusterStatus$, () => Ec2InstanceAttributes$, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, () => ApplicationList, () => TagList, 0, 1, 0, () => ConfigurationList, 0, 0, 0, 0, 1, 0, () => KerberosAttributes$, 0, 0, 1, () => PlacementGroupConfigList, 0, 1, 1, 2, () => MonitoringConfiguration$, 2]
 ];
 export var ClusterStateChangeReason$: StaticStructureSchema = [3, n0, _CSCR,
   0,
@@ -1072,6 +1124,26 @@ export var GetPersistentAppUIPresignedURLOutput$: StaticStructureSchema = [3, n0
   [_PURLR, _PURL],
   [2, 0]
 ];
+export var GetSessionEndpointInput$: StaticStructureSchema = [3, n0, _GSEI,
+  0,
+  [_CI, _SIe],
+  [0, 0], 2
+];
+export var GetSessionEndpointOutput$: StaticStructureSchema = [3, n0, _GSEO,
+  0,
+  [_En, _ATu, _ATET, _Cr],
+  [0, [() => SensitiveString, 0], 4, [() => Credentials$, 0]], 1
+];
+export var GetSessionInput$: StaticStructureSchema = [3, n0, _GSI,
+  0,
+  [_CI, _SIe],
+  [0, 0], 2
+];
+export var GetSessionOutput$: StaticStructureSchema = [3, n0, _GSO,
+  0,
+  [_Se],
+  [() => Session$], 1
+];
 export var GetStudioSessionMappingInput$: StaticStructureSchema = [3, n0, _GSSMI,
   0,
   [_SItu, _ITd, _II, _IN],
@@ -1114,7 +1186,7 @@ export var InstanceFleetModifyConfig$: StaticStructureSchema = [3, n0, _IFMC,
 ];
 export var InstanceFleetProvisioningSpecifications$: StaticStructureSchema = [3, n0, _IFPS,
   0,
-  [_SS, _ODS],
+  [_SSp, _ODS],
   [() => SpotProvisioningSpecification$, () => OnDemandProvisioningSpecification$]
 ];
 export var InstanceFleetResizingSpecifications$: StaticStructureSchema = [3, n0, _IFRS,
@@ -1312,12 +1384,22 @@ export var ListSecurityConfigurationsOutput$: StaticStructureSchema = [3, n0, _L
   [_SCe, _Mar],
   [() => SecurityConfigurationList, 0]
 ];
-export var ListStepsInput$: StaticStructureSchema = [3, n0, _LSI,
+export var ListSessionsInput$: StaticStructureSchema = [3, n0, _LSI,
+  0,
+  [_CI, _SSe, _NT, _MR],
+  [0, 64 | 0, 0, 1], 1
+];
+export var ListSessionsOutput$: StaticStructureSchema = [3, n0, _LSO,
+  0,
+  [_Ses, _NT],
+  [() => SessionList, 0]
+];
+export var ListStepsInput$: StaticStructureSchema = [3, n0, _LSIi,
   0,
   [_CI, _SSt, _SI, _Mar],
   [0, 64 | 0, 64 | 0, 0], 1
 ];
-export var ListStepsOutput$: StaticStructureSchema = [3, n0, _LSO,
+export var ListStepsOutput$: StaticStructureSchema = [3, n0, _LSOi,
   0,
   [_S, _Mar],
   [() => StepSummaryList, 0]
@@ -1332,12 +1414,12 @@ export var ListStudioSessionMappingsOutput$: StaticStructureSchema = [3, n0, _LS
   [_SMe, _Mar],
   [() => SessionMappingSummaryList, 0]
 ];
-export var ListStudiosInput$: StaticStructureSchema = [3, n0, _LSIi,
+export var ListStudiosInput$: StaticStructureSchema = [3, n0, _LSIis,
   0,
   [_Mar],
   [0]
 ];
-export var ListStudiosOutput$: StaticStructureSchema = [3, n0, _LSOi,
+export var ListStudiosOutput$: StaticStructureSchema = [3, n0, _LSOis,
   0,
   [_Stud, _Mar],
   [() => StudioSummaryList, 0]
@@ -1534,8 +1616,8 @@ export var RemoveManagedScalingPolicyOutput$: StaticStructureSchema = [3, n0, _R
 ];
 export var RemoveTagsInput$: StaticStructureSchema = [3, n0, _RTI,
   0,
-  [_RI, _TK],
-  [0, 64 | 0], 2
+  [_RI, _TK, _CI],
+  [0, 64 | 0, 0], 2
 ];
 export var RemoveTagsOutput$: StaticStructureSchema = [3, n0, _RTO,
   0,
@@ -1544,8 +1626,8 @@ export var RemoveTagsOutput$: StaticStructureSchema = [3, n0, _RTO,
 ];
 export var RunJobFlowInput$: StaticStructureSchema = [3, n0, _RJFI,
   0,
-  [_N, _Ins, _LU, _LEKKI, _AI, _AV, _RL, _S, _SERA, _BA, _SPu, _NSP, _Ap, _Con, _VTAU, _JFR, _SR, _T, _SC, _ASR, _SDB, _CAI, _ERVS, _RUOB, _KA, _SCL, _MSP, _PGCl, _ATP, _OSRL, _ERVI, _ERVT, _ES, _MC],
-  [0, () => JobFlowInstancesConfig$, 0, 0, 0, 0, 0, () => StepConfigList, 0, () => BootstrapActionConfigList, 64 | 0, () => NewSupportedProductsList, () => ApplicationList, () => ConfigurationList, 2, 0, 0, () => TagList, 0, 0, 0, 0, 1, 0, () => KerberosAttributes$, 1, () => ManagedScalingPolicy$, () => PlacementGroupConfigList, () => AutoTerminationPolicy$, 0, 1, 1, 2, () => MonitoringConfiguration$], 2
+  [_N, _Ins, _LU, _LEKKI, _AI, _AV, _RL, _S, _SERA, _BA, _SPu, _NSP, _Ap, _Con, _VTAU, _JFR, _SR, _T, _SC, _ASR, _SDB, _CAI, _ERVS, _RUOB, _KA, _SCL, _MSP, _PGCl, _ATP, _OSRL, _ERVI, _ERVT, _ES, _MC, _SE],
+  [0, () => JobFlowInstancesConfig$, 0, 0, 0, 0, 0, () => StepConfigList, 0, () => BootstrapActionConfigList, 64 | 0, () => NewSupportedProductsList, () => ApplicationList, () => ConfigurationList, 2, 0, 0, () => TagList, 0, 0, 0, 0, 1, 0, () => KerberosAttributes$, 1, () => ManagedScalingPolicy$, () => PlacementGroupConfigList, () => AutoTerminationPolicy$, 0, 1, 1, 2, () => MonitoringConfiguration$, 2], 2
 ];
 export var RunJobFlowOutput$: StaticStructureSchema = [3, n0, _RJFO,
   0,
@@ -1592,6 +1674,21 @@ export var SecurityConfigurationSummary$: StaticStructureSchema = [3, n0, _SCS,
   [_N, _CDT],
   [0, 4]
 ];
+export var Session$: StaticStructureSchema = [3, n0, _Se,
+  0,
+  [_I, _CI, _Arn, _Sta, _N, _SCR, _RL, _ERA, _AIc, _CAre, _UA, _SAt, _EAn, _ISd, _ECn, _MC, _SITIM, _CAe, _SU, _T],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 4, () => ConfigurationList, () => SessionMonitoringConfiguration$, 1, () => CertificateAuthority$, 0, () => TagList], 4
+];
+export var SessionCloudWatchLoggingConfiguration$: StaticStructureSchema = [3, n0, _SCWLC,
+  0,
+  [_E, _LG, _LSNP, _EKA, _LT],
+  [2, 0, 0, 0, [2, n0, _LTM, 0, 0, 64 | 0]]
+];
+export var SessionManagedLoggingConfiguration$: StaticStructureSchema = [3, n0, _SMLC,
+  0,
+  [_E, _EKA],
+  [2, 0]
+];
 export var SessionMappingDetail$: StaticStructureSchema = [3, n0, _SMD,
   0,
   [_SItu, _II, _IN, _ITd, _SPA, _CTr, _LMT],
@@ -1601,6 +1698,16 @@ export var SessionMappingSummary$: StaticStructureSchema = [3, n0, _SMS,
   0,
   [_SItu, _II, _IN, _ITd, _SPA, _CTr],
   [0, 0, 0, 0, 0, 4]
+];
+export var SessionMonitoringConfiguration$: StaticStructureSchema = [3, n0, _SMCe,
+  0,
+  [_CWLCl, _MLC, _SLC],
+  [() => SessionCloudWatchLoggingConfiguration$, () => SessionManagedLoggingConfiguration$, () => SessionS3LoggingConfiguration$]
+];
+export var SessionS3LoggingConfiguration$: StaticStructureSchema = [3, n0, _SSLC,
+  0,
+  [_E, _LU, _EKA, _LT],
+  [2, 0, 0, [2, n0, _LTM, 0, 0, 64 | 0]]
 ];
 export var SetKeepJobFlowAliveWhenNoStepsInput$: StaticStructureSchema = [3, n0, _SKJFAWNSI,
   0,
@@ -1629,7 +1736,7 @@ export var ShrinkPolicy$: StaticStructureSchema = [3, n0, _SPh,
 ];
 export var SimpleScalingPolicyConfiguration$: StaticStructureSchema = [3, n0, _SSPC,
   0,
-  [_SAc, _ATd, _CD],
+  [_SAc, _ATd, _CDo],
   [1, 0, 1], 1
 ];
 export var SimplifiedApplication$: StaticStructureSchema = [3, n0, _SAi,
@@ -1656,6 +1763,16 @@ export var StartNotebookExecutionOutput$: StaticStructureSchema = [3, n0, _SNEO,
   0,
   [_NEI],
   [0]
+];
+export var StartSessionInput$: StaticStructureSchema = [3, n0, _SSI,
+  0,
+  [_CI, _N, _ERA, _ECn, _MC, _SITIM, _CRT, _T],
+  [0, 0, 0, () => ConfigurationList, () => SessionMonitoringConfiguration$, 1, 0, () => TagList], 1
+];
+export var StartSessionOutput$: StaticStructureSchema = [3, n0, _SSO,
+  0,
+  [_I, _CI, _Arn, _AIc, _Sta],
+  [0, 0, 0, 0, 0], 1
 ];
 export var Step$: StaticStructureSchema = [3, n0, _Ste,
   0,
@@ -1709,7 +1826,7 @@ export var StopNotebookExecutionInput$: StaticStructureSchema = [3, n0, _SNEIt,
 ];
 export var Studio$: StaticStructureSchema = [3, n0, _Stu,
   0,
-  [_SItu, _SAt, _N, _De, _AM, _VI, _SIu, _SR, _UR, _WSGI, _ESGI, _Ur, _CTr, _DSL, _IAU, _IRSPN, _T, _IIA, _TIPE, _IUA, _EKA],
+  [_SItu, _SAtu, _N, _De, _AM, _VI, _SIu, _SR, _UR, _WSGI, _ESGI, _Ur, _CTr, _DSL, _IAU, _IRSPN, _T, _IIA, _TIPE, _IUA, _EKA],
   [0, 0, 0, 0, 0, 0, 64 | 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, () => TagList, 0, 2, 0, 0]
 ];
 export var StudioSummary$: StaticStructureSchema = [3, n0, _SStu,
@@ -1736,6 +1853,16 @@ export var TerminateJobFlowsInput$: StaticStructureSchema = [3, n0, _TJFI,
   0,
   [_JFIo],
   [64 | 0], 1
+];
+export var TerminateSessionInput$: StaticStructureSchema = [3, n0, _TSI,
+  0,
+  [_CI, _SIe],
+  [0, 0], 2
+];
+export var TerminateSessionOutput$: StaticStructureSchema = [3, n0, _TSO,
+  0,
+  [_CI, _SIe, _Sta],
+  [0, 0, 0], 3
 ];
 export var UpdateStudioInput$: StaticStructureSchema = [3, n0, _USI,
   0,
@@ -1860,9 +1987,13 @@ var SecurityConfigurationList: StaticListSchema = [1, n0, _SCLe,
   0, () => SecurityConfigurationSummary$
 ];
 var SecurityGroupsList = 64 | 0;
+var SessionList: StaticListSchema = [1, n0, _SL,
+  0, () => Session$
+];
 var SessionMappingSummaryList: StaticListSchema = [1, n0, _SMSL,
   0, () => SessionMappingSummary$
 ];
+var SessionStateList = 64 | 0;
 var SimplifiedApplicationList: StaticListSchema = [1, n0, _SAL,
   0, () => SimplifiedApplication$
 ];
@@ -1980,6 +2111,12 @@ export var GetOnClusterAppUIPresignedURL$: StaticOperationSchema = [9, n0, _GOCA
 export var GetPersistentAppUIPresignedURL$: StaticOperationSchema = [9, n0, _GPAUIPURL,
   0, () => GetPersistentAppUIPresignedURLInput$, () => GetPersistentAppUIPresignedURLOutput$
 ];
+export var GetSession$: StaticOperationSchema = [9, n0, _GS,
+  0, () => GetSessionInput$, () => GetSessionOutput$
+];
+export var GetSessionEndpoint$: StaticOperationSchema = [9, n0, _GSE,
+  0, () => GetSessionEndpointInput$, () => GetSessionEndpointOutput$
+];
 export var GetStudioSessionMapping$: StaticOperationSchema = [9, n0, _GSSM,
   0, () => GetStudioSessionMappingInput$, () => GetStudioSessionMappingOutput$
 ];
@@ -2007,10 +2144,13 @@ export var ListReleaseLabels$: StaticOperationSchema = [9, n0, _LRL,
 export var ListSecurityConfigurations$: StaticOperationSchema = [9, n0, _LSC,
   0, () => ListSecurityConfigurationsInput$, () => ListSecurityConfigurationsOutput$
 ];
-export var ListSteps$: StaticOperationSchema = [9, n0, _LSi,
+export var ListSessions$: StaticOperationSchema = [9, n0, _LSi,
+  0, () => ListSessionsInput$, () => ListSessionsOutput$
+];
+export var ListSteps$: StaticOperationSchema = [9, n0, _LSis,
   0, () => ListStepsInput$, () => ListStepsOutput$
 ];
-export var ListStudios$: StaticOperationSchema = [9, n0, _LSis,
+export var ListStudios$: StaticOperationSchema = [9, n0, _LSist,
   0, () => ListStudiosInput$, () => ListStudiosOutput$
 ];
 export var ListStudioSessionMappings$: StaticOperationSchema = [9, n0, _LSSM,
@@ -2070,11 +2210,17 @@ export var SetVisibleToAllUsers$: StaticOperationSchema = [9, n0, _SVTAU,
 export var StartNotebookExecution$: StaticOperationSchema = [9, n0, _SNE,
   0, () => StartNotebookExecutionInput$, () => StartNotebookExecutionOutput$
 ];
+export var StartSession$: StaticOperationSchema = [9, n0, _SSta,
+  0, () => StartSessionInput$, () => StartSessionOutput$
+];
 export var StopNotebookExecution$: StaticOperationSchema = [9, n0, _SNEt,
   0, () => StopNotebookExecutionInput$, () => __Unit
 ];
 export var TerminateJobFlows$: StaticOperationSchema = [9, n0, _TJF,
   0, () => TerminateJobFlowsInput$, () => __Unit
+];
+export var TerminateSession$: StaticOperationSchema = [9, n0, _TS,
+  0, () => TerminateSessionInput$, () => TerminateSessionOutput$
 ];
 export var UpdateStudio$: StaticOperationSchema = [9, n0, _USp,
   0, () => UpdateStudioInput$, () => __Unit

@@ -45,6 +45,7 @@ export interface RemoveTagsCommandOutput extends RemoveTagsOutput, __MetadataBea
  *   TagKeys: [ // StringList // required
  *     "STRING_VALUE",
  *   ],
+ *   ClusterId: "STRING_VALUE",
  * };
  * const command = new RemoveTagsCommand(input);
  * const response = await client.send(command);

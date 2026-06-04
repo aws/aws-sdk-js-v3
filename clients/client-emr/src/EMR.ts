@@ -134,6 +134,16 @@ import {
   GetPersistentAppUIPresignedURLCommand,
 } from "./commands/GetPersistentAppUIPresignedURLCommand";
 import {
+  type GetSessionCommandInput,
+  type GetSessionCommandOutput,
+  GetSessionCommand,
+} from "./commands/GetSessionCommand";
+import {
+  type GetSessionEndpointCommandInput,
+  type GetSessionEndpointCommandOutput,
+  GetSessionEndpointCommand,
+} from "./commands/GetSessionEndpointCommand";
+import {
   type GetStudioSessionMappingCommandInput,
   type GetStudioSessionMappingCommandOutput,
   GetStudioSessionMappingCommand,
@@ -178,6 +188,11 @@ import {
   type ListSecurityConfigurationsCommandOutput,
   ListSecurityConfigurationsCommand,
 } from "./commands/ListSecurityConfigurationsCommand";
+import {
+  type ListSessionsCommandInput,
+  type ListSessionsCommandOutput,
+  ListSessionsCommand,
+} from "./commands/ListSessionsCommand";
 import { type ListStepsCommandInput, type ListStepsCommandOutput, ListStepsCommand } from "./commands/ListStepsCommand";
 import {
   type ListStudiosCommandInput,
@@ -280,6 +295,11 @@ import {
   StartNotebookExecutionCommand,
 } from "./commands/StartNotebookExecutionCommand";
 import {
+  type StartSessionCommandInput,
+  type StartSessionCommandOutput,
+  StartSessionCommand,
+} from "./commands/StartSessionCommand";
+import {
   type StopNotebookExecutionCommandInput,
   type StopNotebookExecutionCommandOutput,
   StopNotebookExecutionCommand,
@@ -289,6 +309,11 @@ import {
   type TerminateJobFlowsCommandOutput,
   TerminateJobFlowsCommand,
 } from "./commands/TerminateJobFlowsCommand";
+import {
+  type TerminateSessionCommandInput,
+  type TerminateSessionCommandOutput,
+  TerminateSessionCommand,
+} from "./commands/TerminateSessionCommand";
 import {
   type UpdateStudioCommandInput,
   type UpdateStudioCommandOutput,
@@ -309,6 +334,7 @@ import { paginateListInstances } from "./pagination/ListInstancesPaginator";
 import { paginateListNotebookExecutions } from "./pagination/ListNotebookExecutionsPaginator";
 import { paginateListReleaseLabels } from "./pagination/ListReleaseLabelsPaginator";
 import { paginateListSecurityConfigurations } from "./pagination/ListSecurityConfigurationsPaginator";
+import { paginateListSessions } from "./pagination/ListSessionsPaginator";
 import { paginateListSteps } from "./pagination/ListStepsPaginator";
 import { paginateListStudioSessionMappings } from "./pagination/ListStudioSessionMappingsPaginator";
 import { paginateListStudios } from "./pagination/ListStudiosPaginator";
@@ -344,6 +370,8 @@ const commands = {
   GetManagedScalingPolicyCommand,
   GetOnClusterAppUIPresignedURLCommand,
   GetPersistentAppUIPresignedURLCommand,
+  GetSessionCommand,
+  GetSessionEndpointCommand,
   GetStudioSessionMappingCommand,
   ListBootstrapActionsCommand,
   ListClustersCommand,
@@ -353,6 +381,7 @@ const commands = {
   ListNotebookExecutionsCommand,
   ListReleaseLabelsCommand,
   ListSecurityConfigurationsCommand,
+  ListSessionsCommand,
   ListStepsCommand,
   ListStudiosCommand,
   ListStudioSessionMappingsCommand,
@@ -374,8 +403,10 @@ const commands = {
   SetUnhealthyNodeReplacementCommand,
   SetVisibleToAllUsersCommand,
   StartNotebookExecutionCommand,
+  StartSessionCommand,
   StopNotebookExecutionCommand,
   TerminateJobFlowsCommand,
+  TerminateSessionCommand,
   UpdateStudioCommand,
   UpdateStudioSessionMappingCommand,
 };
@@ -388,6 +419,7 @@ const paginators = {
   paginateListNotebookExecutions,
   paginateListReleaseLabels,
   paginateListSecurityConfigurations,
+  paginateListSessions,
   paginateListSteps,
   paginateListStudios,
   paginateListStudioSessionMappings,
@@ -846,6 +878,40 @@ export interface EMR {
   ): void;
 
   /**
+   * @see {@link GetSessionCommand}
+   */
+  getSession(
+    args: GetSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSessionCommandOutput>;
+  getSession(
+    args: GetSessionCommandInput,
+    cb: (err: any, data?: GetSessionCommandOutput) => void
+  ): void;
+  getSession(
+    args: GetSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSessionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetSessionEndpointCommand}
+   */
+  getSessionEndpoint(
+    args: GetSessionEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSessionEndpointCommandOutput>;
+  getSessionEndpoint(
+    args: GetSessionEndpointCommandInput,
+    cb: (err: any, data?: GetSessionEndpointCommandOutput) => void
+  ): void;
+  getSessionEndpoint(
+    args: GetSessionEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSessionEndpointCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetStudioSessionMappingCommand}
    */
   getStudioSessionMapping(
@@ -1000,6 +1066,23 @@ export interface EMR {
     args: ListSecurityConfigurationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListSecurityConfigurationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSessionsCommand}
+   */
+  listSessions(
+    args: ListSessionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSessionsCommandOutput>;
+  listSessions(
+    args: ListSessionsCommandInput,
+    cb: (err: any, data?: ListSessionsCommandOutput) => void
+  ): void;
+  listSessions(
+    args: ListSessionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSessionsCommandOutput) => void
   ): void;
 
   /**
@@ -1363,6 +1446,23 @@ export interface EMR {
   ): void;
 
   /**
+   * @see {@link StartSessionCommand}
+   */
+  startSession(
+    args: StartSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartSessionCommandOutput>;
+  startSession(
+    args: StartSessionCommandInput,
+    cb: (err: any, data?: StartSessionCommandOutput) => void
+  ): void;
+  startSession(
+    args: StartSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartSessionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StopNotebookExecutionCommand}
    */
   stopNotebookExecution(
@@ -1394,6 +1494,23 @@ export interface EMR {
     args: TerminateJobFlowsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: TerminateJobFlowsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TerminateSessionCommand}
+   */
+  terminateSession(
+    args: TerminateSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TerminateSessionCommandOutput>;
+  terminateSession(
+    args: TerminateSessionCommandInput,
+    cb: (err: any, data?: TerminateSessionCommandOutput) => void
+  ): void;
+  terminateSession(
+    args: TerminateSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TerminateSessionCommandOutput) => void
   ): void;
 
   /**
@@ -1517,6 +1634,17 @@ export interface EMR {
     args?: ListSecurityConfigurationsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListSecurityConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link ListSessionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSessionsCommandOutput}.
+   */
+  paginateListSessions(
+    args: ListSessionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSessionsCommandOutput>;
 
   /**
    * @see {@link ListStepsCommand}

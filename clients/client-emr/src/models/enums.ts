@@ -637,6 +637,25 @@ export type OnClusterAppUIType = (typeof OnClusterAppUIType)[keyof typeof OnClus
  * @public
  * @enum
  */
+export const SessionState = {
+  BUSY: "BUSY",
+  FAILED: "FAILED",
+  IDLE: "IDLE",
+  STARTED: "STARTED",
+  STARTING: "STARTING",
+  SUBMITTED: "SUBMITTED",
+  TERMINATED: "TERMINATED",
+  TERMINATING: "TERMINATING",
+} as const;
+/**
+ * @public
+ */
+export type SessionState = (typeof SessionState)[keyof typeof SessionState];
+
+/**
+ * @public
+ * @enum
+ */
 export const InstanceFleetState = {
   BOOTSTRAPPING: "BOOTSTRAPPING",
   PROVISIONING: "PROVISIONING",

@@ -48,6 +48,7 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  *       Value: "STRING_VALUE",
  *     },
  *   ],
+ *   ClusterId: "STRING_VALUE",
  * };
  * const command = new AddTagsCommand(input);
  * const response = await client.send(command);

@@ -362,6 +362,7 @@ export interface RunJobFlowCommandOutput extends RunJobFlowOutput, __MetadataBea
  *       },
  *     },
  *   },
+ *   SessionEnabled: true || false,
  * };
  * const command = new RunJobFlowCommand(input);
  * const response = await client.send(command);

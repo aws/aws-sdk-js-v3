@@ -36,6 +36,7 @@ import {
   CancelStepsInput$,
   CancelStepsOutput$,
   CancelStepsRequestStatus,
+  CertificateAuthority$,
   CloudWatchAlarmDefinition$,
   CloudWatchLogConfiguration$,
   Cluster$,
@@ -145,6 +146,14 @@ import {
   GetPersistentAppUIPresignedURLCommand,
   GetPersistentAppUIPresignedURLInput$,
   GetPersistentAppUIPresignedURLOutput$,
+  GetSession$,
+  GetSessionCommand,
+  GetSessionEndpoint$,
+  GetSessionEndpointCommand,
+  GetSessionEndpointInput$,
+  GetSessionEndpointOutput$,
+  GetSessionInput$,
+  GetSessionOutput$,
   GetStudioSessionMapping$,
   GetStudioSessionMappingCommand,
   GetStudioSessionMappingInput$,
@@ -230,6 +239,10 @@ import {
   ListSecurityConfigurationsCommand,
   ListSecurityConfigurationsInput$,
   ListSecurityConfigurationsOutput$,
+  ListSessions$,
+  ListSessionsCommand,
+  ListSessionsInput$,
+  ListSessionsOutput$,
   ListSteps$,
   ListStepsCommand,
   ListStepsInput$,
@@ -286,6 +299,7 @@ import {
   paginateListNotebookExecutions,
   paginateListReleaseLabels,
   paginateListSecurityConfigurations,
+  paginateListSessions,
   paginateListSteps,
   paginateListStudios,
   paginateListStudioSessionMappings,
@@ -346,8 +360,14 @@ import {
   ScalingTrigger$,
   ScriptBootstrapActionConfig$,
   SecurityConfigurationSummary$,
+  Session$,
+  SessionCloudWatchLoggingConfiguration$,
+  SessionManagedLoggingConfiguration$,
   SessionMappingDetail$,
   SessionMappingSummary$,
+  SessionMonitoringConfiguration$,
+  SessionS3LoggingConfiguration$,
+  SessionState,
   SetKeepJobFlowAliveWhenNoSteps$,
   SetKeepJobFlowAliveWhenNoStepsCommand,
   SetKeepJobFlowAliveWhenNoStepsInput$,
@@ -371,6 +391,10 @@ import {
   StartNotebookExecutionCommand,
   StartNotebookExecutionInput$,
   StartNotebookExecutionOutput$,
+  StartSession$,
+  StartSessionCommand,
+  StartSessionInput$,
+  StartSessionOutput$,
   Statistic,
   Step$,
   StepCancellationOption,
@@ -396,6 +420,10 @@ import {
   TerminateJobFlows$,
   TerminateJobFlowsCommand,
   TerminateJobFlowsInput$,
+  TerminateSession$,
+  TerminateSessionCommand,
+  TerminateSessionInput$,
+  TerminateSessionOutput$,
   Unit,
   UpdateStudio$,
   UpdateStudioCommand,
@@ -469,6 +497,10 @@ assert(typeof GetOnClusterAppUIPresignedURLCommand === "function");
 assert(typeof GetOnClusterAppUIPresignedURL$ === "object");
 assert(typeof GetPersistentAppUIPresignedURLCommand === "function");
 assert(typeof GetPersistentAppUIPresignedURL$ === "object");
+assert(typeof GetSessionCommand === "function");
+assert(typeof GetSession$ === "object");
+assert(typeof GetSessionEndpointCommand === "function");
+assert(typeof GetSessionEndpoint$ === "object");
 assert(typeof GetStudioSessionMappingCommand === "function");
 assert(typeof GetStudioSessionMapping$ === "object");
 assert(typeof ListBootstrapActionsCommand === "function");
@@ -487,6 +519,8 @@ assert(typeof ListReleaseLabelsCommand === "function");
 assert(typeof ListReleaseLabels$ === "object");
 assert(typeof ListSecurityConfigurationsCommand === "function");
 assert(typeof ListSecurityConfigurations$ === "object");
+assert(typeof ListSessionsCommand === "function");
+assert(typeof ListSessions$ === "object");
 assert(typeof ListStepsCommand === "function");
 assert(typeof ListSteps$ === "object");
 assert(typeof ListStudiosCommand === "function");
@@ -529,10 +563,14 @@ assert(typeof SetVisibleToAllUsersCommand === "function");
 assert(typeof SetVisibleToAllUsers$ === "object");
 assert(typeof StartNotebookExecutionCommand === "function");
 assert(typeof StartNotebookExecution$ === "object");
+assert(typeof StartSessionCommand === "function");
+assert(typeof StartSession$ === "object");
 assert(typeof StopNotebookExecutionCommand === "function");
 assert(typeof StopNotebookExecution$ === "object");
 assert(typeof TerminateJobFlowsCommand === "function");
 assert(typeof TerminateJobFlows$ === "object");
+assert(typeof TerminateSessionCommand === "function");
+assert(typeof TerminateSession$ === "object");
 assert(typeof UpdateStudioCommand === "function");
 assert(typeof UpdateStudio$ === "object");
 assert(typeof UpdateStudioSessionMappingCommand === "function");
@@ -559,6 +597,7 @@ assert(typeof BootstrapActionDetail$ === "object");
 assert(typeof CancelStepsInfo$ === "object");
 assert(typeof CancelStepsInput$ === "object");
 assert(typeof CancelStepsOutput$ === "object");
+assert(typeof CertificateAuthority$ === "object");
 assert(typeof CloudWatchAlarmDefinition$ === "object");
 assert(typeof CloudWatchLogConfiguration$ === "object");
 assert(typeof Cluster$ === "object");
@@ -618,6 +657,10 @@ assert(typeof GetOnClusterAppUIPresignedURLInput$ === "object");
 assert(typeof GetOnClusterAppUIPresignedURLOutput$ === "object");
 assert(typeof GetPersistentAppUIPresignedURLInput$ === "object");
 assert(typeof GetPersistentAppUIPresignedURLOutput$ === "object");
+assert(typeof GetSessionEndpointInput$ === "object");
+assert(typeof GetSessionEndpointOutput$ === "object");
+assert(typeof GetSessionInput$ === "object");
+assert(typeof GetSessionOutput$ === "object");
 assert(typeof GetStudioSessionMappingInput$ === "object");
 assert(typeof GetStudioSessionMappingOutput$ === "object");
 assert(typeof HadoopJarStepConfig$ === "object");
@@ -666,6 +709,8 @@ assert(typeof ListReleaseLabelsInput$ === "object");
 assert(typeof ListReleaseLabelsOutput$ === "object");
 assert(typeof ListSecurityConfigurationsInput$ === "object");
 assert(typeof ListSecurityConfigurationsOutput$ === "object");
+assert(typeof ListSessionsInput$ === "object");
+assert(typeof ListSessionsOutput$ === "object");
 assert(typeof ListStepsInput$ === "object");
 assert(typeof ListStepsOutput$ === "object");
 assert(typeof ListStudioSessionMappingsInput$ === "object");
@@ -722,8 +767,13 @@ assert(typeof ScalingRule$ === "object");
 assert(typeof ScalingTrigger$ === "object");
 assert(typeof ScriptBootstrapActionConfig$ === "object");
 assert(typeof SecurityConfigurationSummary$ === "object");
+assert(typeof Session$ === "object");
+assert(typeof SessionCloudWatchLoggingConfiguration$ === "object");
+assert(typeof SessionManagedLoggingConfiguration$ === "object");
 assert(typeof SessionMappingDetail$ === "object");
 assert(typeof SessionMappingSummary$ === "object");
+assert(typeof SessionMonitoringConfiguration$ === "object");
+assert(typeof SessionS3LoggingConfiguration$ === "object");
 assert(typeof SetKeepJobFlowAliveWhenNoStepsInput$ === "object");
 assert(typeof SetTerminationProtectionInput$ === "object");
 assert(typeof SetUnhealthyNodeReplacementInput$ === "object");
@@ -735,6 +785,8 @@ assert(typeof SpotProvisioningSpecification$ === "object");
 assert(typeof SpotResizingSpecification$ === "object");
 assert(typeof StartNotebookExecutionInput$ === "object");
 assert(typeof StartNotebookExecutionOutput$ === "object");
+assert(typeof StartSessionInput$ === "object");
+assert(typeof StartSessionOutput$ === "object");
 assert(typeof Step$ === "object");
 assert(typeof StepConfig$ === "object");
 assert(typeof StepDetail$ === "object");
@@ -751,6 +803,8 @@ assert(typeof SupportedInstanceType$ === "object");
 assert(typeof SupportedProductConfig$ === "object");
 assert(typeof Tag$ === "object");
 assert(typeof TerminateJobFlowsInput$ === "object");
+assert(typeof TerminateSessionInput$ === "object");
+assert(typeof TerminateSessionOutput$ === "object");
 assert(typeof UpdateStudioInput$ === "object");
 assert(typeof UpdateStudioSessionMappingInput$ === "object");
 assert(typeof UsernamePassword$ === "object");
@@ -796,6 +850,7 @@ assert(typeof ReconfigurationType === "object");
 assert(typeof RepoUpgradeOnBoot === "object");
 assert(typeof ScaleDownBehavior === "object");
 assert(typeof ScalingStrategy === "object");
+assert(typeof SessionState === "object");
 assert(typeof SpotProvisioningAllocationStrategy === "object");
 assert(typeof SpotProvisioningTimeoutAction === "object");
 assert(typeof Statistic === "object");
@@ -828,6 +883,7 @@ assert(typeof paginateListInstances === "function");
 assert(typeof paginateListNotebookExecutions === "function");
 assert(typeof paginateListReleaseLabels === "function");
 assert(typeof paginateListSecurityConfigurations === "function");
+assert(typeof paginateListSessions === "function");
 assert(typeof paginateListSteps === "function");
 assert(typeof paginateListStudioSessionMappings === "function");
 assert(typeof paginateListStudios === "function");

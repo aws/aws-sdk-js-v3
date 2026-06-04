@@ -128,6 +128,11 @@ import type {
   GetPersistentAppUIPresignedURLCommandInput,
   GetPersistentAppUIPresignedURLCommandOutput,
 } from "./commands/GetPersistentAppUIPresignedURLCommand";
+import type { GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
+import type {
+  GetSessionEndpointCommandInput,
+  GetSessionEndpointCommandOutput,
+} from "./commands/GetSessionEndpointCommand";
 import type {
   GetStudioSessionMappingCommandInput,
   GetStudioSessionMappingCommandOutput,
@@ -158,6 +163,7 @@ import type {
   ListSecurityConfigurationsCommandInput,
   ListSecurityConfigurationsCommandOutput,
 } from "./commands/ListSecurityConfigurationsCommand";
+import type { ListSessionsCommandInput, ListSessionsCommandOutput } from "./commands/ListSessionsCommand";
 import type { ListStepsCommandInput, ListStepsCommandOutput } from "./commands/ListStepsCommand";
 import type { ListStudiosCommandInput, ListStudiosCommandOutput } from "./commands/ListStudiosCommand";
 import type {
@@ -227,6 +233,7 @@ import type {
   StartNotebookExecutionCommandInput,
   StartNotebookExecutionCommandOutput,
 } from "./commands/StartNotebookExecutionCommand";
+import type { StartSessionCommandInput, StartSessionCommandOutput } from "./commands/StartSessionCommand";
 import type {
   StopNotebookExecutionCommandInput,
   StopNotebookExecutionCommandOutput,
@@ -235,6 +242,7 @@ import type {
   TerminateJobFlowsCommandInput,
   TerminateJobFlowsCommandOutput,
 } from "./commands/TerminateJobFlowsCommand";
+import type { TerminateSessionCommandInput, TerminateSessionCommandOutput } from "./commands/TerminateSessionCommand";
 import type { UpdateStudioCommandInput, UpdateStudioCommandOutput } from "./commands/UpdateStudioCommand";
 import type {
   UpdateStudioSessionMappingCommandInput,
@@ -281,6 +289,8 @@ export type ServiceInputTypes =
   | GetManagedScalingPolicyCommandInput
   | GetOnClusterAppUIPresignedURLCommandInput
   | GetPersistentAppUIPresignedURLCommandInput
+  | GetSessionCommandInput
+  | GetSessionEndpointCommandInput
   | GetStudioSessionMappingCommandInput
   | ListBootstrapActionsCommandInput
   | ListClustersCommandInput
@@ -290,6 +300,7 @@ export type ServiceInputTypes =
   | ListNotebookExecutionsCommandInput
   | ListReleaseLabelsCommandInput
   | ListSecurityConfigurationsCommandInput
+  | ListSessionsCommandInput
   | ListStepsCommandInput
   | ListStudioSessionMappingsCommandInput
   | ListStudiosCommandInput
@@ -311,8 +322,10 @@ export type ServiceInputTypes =
   | SetUnhealthyNodeReplacementCommandInput
   | SetVisibleToAllUsersCommandInput
   | StartNotebookExecutionCommandInput
+  | StartSessionCommandInput
   | StopNotebookExecutionCommandInput
   | TerminateJobFlowsCommandInput
+  | TerminateSessionCommandInput
   | UpdateStudioCommandInput
   | UpdateStudioSessionMappingCommandInput;
 
@@ -346,6 +359,8 @@ export type ServiceOutputTypes =
   | GetManagedScalingPolicyCommandOutput
   | GetOnClusterAppUIPresignedURLCommandOutput
   | GetPersistentAppUIPresignedURLCommandOutput
+  | GetSessionCommandOutput
+  | GetSessionEndpointCommandOutput
   | GetStudioSessionMappingCommandOutput
   | ListBootstrapActionsCommandOutput
   | ListClustersCommandOutput
@@ -355,6 +370,7 @@ export type ServiceOutputTypes =
   | ListNotebookExecutionsCommandOutput
   | ListReleaseLabelsCommandOutput
   | ListSecurityConfigurationsCommandOutput
+  | ListSessionsCommandOutput
   | ListStepsCommandOutput
   | ListStudioSessionMappingsCommandOutput
   | ListStudiosCommandOutput
@@ -376,8 +392,10 @@ export type ServiceOutputTypes =
   | SetUnhealthyNodeReplacementCommandOutput
   | SetVisibleToAllUsersCommandOutput
   | StartNotebookExecutionCommandOutput
+  | StartSessionCommandOutput
   | StopNotebookExecutionCommandOutput
   | TerminateJobFlowsCommandOutput
+  | TerminateSessionCommandOutput
   | UpdateStudioCommandOutput
   | UpdateStudioSessionMappingCommandOutput;
 

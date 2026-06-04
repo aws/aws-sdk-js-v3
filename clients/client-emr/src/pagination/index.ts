@@ -8,6 +8,7 @@ export * from "./ListInstancesPaginator";
 export * from "./ListNotebookExecutionsPaginator";
 export * from "./ListReleaseLabelsPaginator";
 export * from "./ListSecurityConfigurationsPaginator";
+export * from "./ListSessionsPaginator";
 export * from "./ListStepsPaginator";
 export * from "./ListStudiosPaginator";
 export * from "./ListStudioSessionMappingsPaginator";
