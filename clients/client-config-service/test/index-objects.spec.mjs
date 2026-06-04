@@ -621,6 +621,7 @@ import {
   ResourceValue$,
   ResourceValueType,
   RetentionConfiguration$,
+  RuleEvaluationVisibility,
   Scope$,
   SelectAggregateResourceConfig$,
   SelectAggregateResourceConfigCommand,
@@ -1195,6 +1196,7 @@ assert(typeof ResourceCountGroupKey === "object");
 assert(typeof ResourceEvaluationStatus === "object");
 assert(typeof ResourceType === "object");
 assert(typeof ResourceValueType === "object");
+assert(typeof RuleEvaluationVisibility === "object");
 assert(typeof SortBy === "object");
 assert(typeof SortOrder === "object");
 // errors

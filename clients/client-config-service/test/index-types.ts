@@ -329,6 +329,7 @@ export type {
   ResourceEvaluationStatus,
   ResourceType,
   ResourceValueType,
+  RuleEvaluationVisibility,
   SortBy,
   SortOrder,
   AccountAggregationSource,

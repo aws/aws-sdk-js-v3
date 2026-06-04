@@ -594,6 +594,7 @@ const _RES = "RemediationExecutionStatuses";
 const _RESe = "RemediationExecutionStatus";
 const _RESem = "RemediationExecutionStep";
 const _RESeme = "RemediationExecutionSteps";
+const _REV = "RuleEvaluationVisibility";
 const _REe = "ResourceEvaluations";
 const _REem = "RemediationException";
 const _REes = "ResourceEvaluation";
@@ -654,6 +655,7 @@ const _SI = "SourceId";
 const _SIo = "SourceIdentifier";
 const _SO = "SortOrder";
 const _SP = "ServicePrincipal";
+const _SPe = "ServicePrincipals";
 const _SQ = "StoredQuery";
 const _SQM = "StoredQueryMetadata";
 const _SQML = "StoredQueryMetadataList";
@@ -1361,8 +1363,8 @@ export var ConfigExportDeliveryInfo$: StaticStructureSchema = [3, n0, _CEDI,
 ];
 export var ConfigRule$: StaticStructureSchema = [3, n0, _CRo,
   0,
-  [_S, _CRN, _CRAo, _CRI, _D, _Sc, _IP, _MEF, _CRS, _CB, _EM],
-  [() => Source$, 0, 0, 0, 0, () => Scope$, 0, 0, 0, 0, () => EvaluationModes], 1
+  [_S, _CRN, _CRAo, _CRI, _D, _Sc, _IP, _MEF, _CRS, _CB, _EM, _REV],
+  [() => Source$, 0, 0, 0, 0, () => Scope$, 0, 0, 0, 0, () => EvaluationModes, 0], 1
 ];
 export var ConfigRuleComplianceFilters$: StaticStructureSchema = [3, n0, _CRCF,
   0,
@@ -1661,8 +1663,8 @@ export var DescribeConfigRuleEvaluationStatusResponse$: StaticStructureSchema = 
 ];
 export var DescribeConfigRulesFilters$: StaticStructureSchema = [3, n0, _DCRF,
   0,
-  [_EMv],
-  [0]
+  [_EMv, _REV],
+  [0, 0]
 ];
 export var DescribeConfigRulesRequest$: StaticStructureSchema = [3, n0, _DCRRes,
   0,
@@ -2511,8 +2513,8 @@ export var RetentionConfiguration$: StaticStructureSchema = [3, n0, _RCet,
 ];
 export var Scope$: StaticStructureSchema = [3, n0, _Sc,
   0,
-  [_CRTo, _TK, _TVa, _CRIo],
-  [64 | 0, 0, 0, 0]
+  [_CRTo, _TK, _TVa, _CRIo, _SPe],
+  [64 | 0, 0, 0, 0, 64 | 0]
 ];
 export var SelectAggregateResourceConfigRequest$: StaticStructureSchema = [3, n0, _SARCR,
   0,
@@ -2841,6 +2843,7 @@ var RetentionConfigurationList: StaticListSchema = [1, n0, _RCL,
   0, () => RetentionConfiguration$
 ];
 var RetentionConfigurationNameList = 64 | 0;
+var ServicePrincipals = 64 | 0;
 var ServicePrincipalValueList = 64 | 0;
 var SourceDetails: StaticListSchema = [1, n0, _SDo,
   0, () => SourceDetail$

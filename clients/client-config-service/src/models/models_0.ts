@@ -36,6 +36,7 @@ import type {
   ResourceEvaluationStatus,
   ResourceType,
   ResourceValueType,
+  RuleEvaluationVisibility,
   SortBy,
   SortOrder,
 } from "./enums";
@@ -1653,6 +1654,15 @@ export interface Scope {
    * @public
    */
   ComplianceResourceId?: string | undefined;
+
+  /**
+   * <p>The service principals of the Amazon Web Services services for the rule.</p>
+   *          <note>
+   *             <p>The field is populated only if the service-linked rule is created by a service. The field is empty if you create your own rule.</p>
+   *          </note>
+   * @public
+   */
+  ServicePrincipals?: string[] | undefined;
 }
 
 /**
@@ -1945,6 +1955,12 @@ export interface ConfigRule {
    * @public
    */
   EvaluationModes?: EvaluationModeConfiguration[] | undefined;
+
+  /**
+   * <p>Indicates whether you can get <a>Evaluation</a>s for the Config rule. You can get <a>Evaluation</a>s for the Amazon Web Services Config rule if this value is <code>EXTERNAL</code>. You cannot get <a>Evaluation</a>s for the Amazon Web Services Config rule if this value is <code>INTERNAL</code>.</p>
+   * @public
+   */
+  RuleEvaluationVisibility?: RuleEvaluationVisibility | undefined;
 }
 
 /**
@@ -3728,6 +3744,12 @@ export interface DescribeConfigRulesFilters {
    * @public
    */
   EvaluationMode?: EvaluationMode | undefined;
+
+  /**
+   * <p>Filters the results by <code>RuleEvaluationVisibility</code>.</p>
+   * @public
+   */
+  RuleEvaluationVisibility?: RuleEvaluationVisibility | undefined;
 }
 
 /**

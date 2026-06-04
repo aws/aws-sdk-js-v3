@@ -43,6 +43,7 @@ export interface DescribeConfigRulesCommandOutput extends DescribeConfigRulesRes
  *   NextToken: "STRING_VALUE",
  *   Filters: { // DescribeConfigRulesFilters
  *     EvaluationMode: "DETECTIVE" || "PROACTIVE",
+ *     RuleEvaluationVisibility: "EXTERNAL" || "INTERNAL",
  *   },
  * };
  * const command = new DescribeConfigRulesCommand(input);
@@ -61,6 +62,9 @@ export interface DescribeConfigRulesCommandOutput extends DescribeConfigRulesRes
  * //         TagKey: "STRING_VALUE",
  * //         TagValue: "STRING_VALUE",
  * //         ComplianceResourceId: "STRING_VALUE",
+ * //         ServicePrincipals: [ // ServicePrincipals
+ * //           "STRING_VALUE",
+ * //         ],
  * //       },
  * //       Source: { // Source
  * //         Owner: "CUSTOM_LAMBDA" || "AWS" || "CUSTOM_POLICY", // required
@@ -87,6 +91,7 @@ export interface DescribeConfigRulesCommandOutput extends DescribeConfigRulesRes
  * //           Mode: "DETECTIVE" || "PROACTIVE",
  * //         },
  * //       ],
+ * //       RuleEvaluationVisibility: "EXTERNAL" || "INTERNAL",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

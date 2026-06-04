@@ -757,6 +757,19 @@ export type MaximumExecutionFrequency = (typeof MaximumExecutionFrequency)[keyof
  * @public
  * @enum
  */
+export const RuleEvaluationVisibility = {
+  EXTERNAL: "EXTERNAL",
+  INTERNAL: "INTERNAL",
+} as const;
+/**
+ * @public
+ */
+export type RuleEvaluationVisibility = (typeof RuleEvaluationVisibility)[keyof typeof RuleEvaluationVisibility];
+
+/**
+ * @public
+ * @enum
+ */
 export const Owner = {
   Aws: "AWS",
   Custom_Lambda: "CUSTOM_LAMBDA",

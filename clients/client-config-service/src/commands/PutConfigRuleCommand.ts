@@ -95,6 +95,9 @@ export interface PutConfigRuleCommandOutput extends __MetadataBearer {}
  *       TagKey: "STRING_VALUE",
  *       TagValue: "STRING_VALUE",
  *       ComplianceResourceId: "STRING_VALUE",
+ *       ServicePrincipals: [ // ServicePrincipals
+ *         "STRING_VALUE",
+ *       ],
  *     },
  *     Source: { // Source
  *       Owner: "CUSTOM_LAMBDA" || "AWS" || "CUSTOM_POLICY", // required
@@ -121,6 +124,7 @@ export interface PutConfigRuleCommandOutput extends __MetadataBearer {}
  *         Mode: "DETECTIVE" || "PROACTIVE",
  *       },
  *     ],
+ *     RuleEvaluationVisibility: "EXTERNAL" || "INTERNAL",
  *   },
  *   Tags: [ // TagsList
  *     { // Tag
