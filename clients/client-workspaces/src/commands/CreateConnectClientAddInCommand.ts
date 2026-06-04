@@ -27,9 +27,9 @@ export interface CreateConnectClientAddInCommandInput extends CreateConnectClien
 export interface CreateConnectClientAddInCommandOutput extends CreateConnectClientAddInResult, __MetadataBearer {}
 
 /**
- * <p>Creates a client-add-in for Amazon Connect within a directory. You can create only
- *          one Amazon Connect client add-in within a directory.</p>
- *          <p>This client add-in allows WorkSpaces users to seamlessly connect to Amazon Connect.</p>
+ * <p>Creates a client-add-in for Connect Customer within a directory. You can create only
+ *          one Connect Customer client add-in within a directory.</p>
+ *          <p>This client add-in allows WorkSpaces users to seamlessly connect to Connect Customer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

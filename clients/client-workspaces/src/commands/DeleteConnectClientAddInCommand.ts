@@ -27,7 +27,7 @@ export interface DeleteConnectClientAddInCommandInput extends DeleteConnectClien
 export interface DeleteConnectClientAddInCommandOutput extends DeleteConnectClientAddInResult, __MetadataBearer {}
 
 /**
- * <p>Deletes a client-add-in for Amazon Connect that is configured within a
+ * <p>Deletes a client-add-in for Connect Customer that is configured within a
  *          directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

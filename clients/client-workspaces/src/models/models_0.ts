@@ -784,7 +784,7 @@ export interface ClientPropertiesResult {
 }
 
 /**
- * <p>Describes an Amazon Connect client add-in.</p>
+ * <p>Describes an Connect Customer client add-in.</p>
  * @public
  */
 export interface ConnectClientAddIn {
@@ -1018,7 +1018,7 @@ export interface CreateConnectClientAddInRequest {
   Name: string | undefined;
 
   /**
-   * <p>The endpoint URL of the Amazon Connect client add-in.</p>
+   * <p>The endpoint URL of the Connect Customer client add-in.</p>
    * @public
    */
   URL: string | undefined;
@@ -6134,7 +6134,7 @@ export interface UpdateConnectClientAddInRequest {
   Name?: string | undefined;
 
   /**
-   * <p>The endpoint URL of the Amazon Connect client add-in.</p>
+   * <p>The endpoint URL of the Connect Customer client add-in.</p>
    * @public
    */
   URL?: string | undefined;

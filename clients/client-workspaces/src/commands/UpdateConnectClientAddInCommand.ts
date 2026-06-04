@@ -27,8 +27,8 @@ export interface UpdateConnectClientAddInCommandInput extends UpdateConnectClien
 export interface UpdateConnectClientAddInCommandOutput extends UpdateConnectClientAddInResult, __MetadataBearer {}
 
 /**
- * <p>Updates a Amazon Connect client add-in. Use this action to update the name and
- *          endpoint URL of a Amazon Connect client add-in.</p>
+ * <p>Updates a Connect Customer client add-in. Use this action to update the name and
+ *          endpoint URL of a Connect Customer client add-in.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -27,7 +27,7 @@ export interface DescribeConnectClientAddInsCommandInput extends DescribeConnect
 export interface DescribeConnectClientAddInsCommandOutput extends DescribeConnectClientAddInsResult, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of Amazon Connect client add-ins that have been created.</p>
+ * <p>Retrieves a list of Connect Customer client add-ins that have been created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
