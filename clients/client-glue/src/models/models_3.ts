@@ -31,6 +31,7 @@ import type {
   ConnectorDataSource,
   ConnectorDataTarget,
   CustomCode,
+  DatabaseInput,
   DirectJDBCSource,
   DirectKafkaSource,
   DirectKinesisSource,
@@ -123,14 +124,113 @@ import type {
   TransformParameters,
   UserDefinedFunctionInput,
 } from "./models_1";
-import type {
-  ColumnRowFilter,
-  DevEndpointCustomLibraries,
-  FederatedTable,
-  SchemaVersionNumber,
-  ViewDefinition,
-  ViewValidation,
-} from "./models_2";
+import type { ColumnRowFilter, FederatedTable, SchemaVersionNumber, ViewDefinition, ViewValidation } from "./models_2";
+
+/**
+ * @public
+ */
+export interface UpdateDatabaseRequest {
+  /**
+   * <p>The ID of the Data Catalog in which the metadata database resides. If none is provided,
+   *       the Amazon Web Services account ID is used by default.</p>
+   * @public
+   */
+  CatalogId?: string | undefined;
+
+  /**
+   * <p>The name of the database to update in the catalog. For Hive
+   *       compatibility, this is folded to lowercase.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A <code>DatabaseInput</code> object specifying the new definition
+   *       of the metadata database in the catalog.</p>
+   * @public
+   */
+  DatabaseInput: DatabaseInput | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDatabaseResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateDataQualityRulesetRequest {
+  /**
+   * <p>The name of the data quality ruleset.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A description of the ruleset.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>A Data Quality Definition Language (DQDL) ruleset. For more information, see the Glue developer guide.</p>
+   * @public
+   */
+  Ruleset?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDataQualityRulesetResponse {
+  /**
+   * <p>The name of the data quality ruleset.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>A description of the ruleset.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>A Data Quality Definition Language (DQDL) ruleset. For more information, see the Glue developer guide.</p>
+   * @public
+   */
+  Ruleset?: string | undefined;
+}
+
+/**
+ * <p>Custom libraries to be loaded into a development endpoint.</p>
+ * @public
+ */
+export interface DevEndpointCustomLibraries {
+  /**
+   * <p>The paths to one or more Python libraries in an Amazon Simple Storage Service (Amazon S3)
+   *       bucket that should be loaded in your <code>DevEndpoint</code>. Multiple values must be
+   *       complete paths separated by a comma.</p>
+   *          <note>
+   *             <p>You can only use pure Python libraries with a <code>DevEndpoint</code>. Libraries that rely on
+   *         C extensions, such as the <a href="http://pandas.pydata.org/">pandas</a> Python data
+   *         analysis library, are not currently supported.</p>
+   *          </note>
+   * @public
+   */
+  ExtraPythonLibsS3Path?: string | undefined;
+
+  /**
+   * <p>The path to one or more Java <code>.jar</code> files in an S3 bucket that should be loaded
+   *       in your <code>DevEndpoint</code>.</p>
+   *          <note>
+   *             <p>You can only use pure Java/Scala libraries with a <code>DevEndpoint</code>.</p>
+   *          </note>
+   * @public
+   */
+  ExtraJarsS3Path?: string | undefined;
+}
 
 /**
  * @public

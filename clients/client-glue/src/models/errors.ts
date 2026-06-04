@@ -944,6 +944,32 @@ export class IllegalWorkflowStateException extends __BaseException {
 }
 
 /**
+ * <p>The session is currently busy processing another request and cannot accept new operations.</p>
+ * @public
+ */
+export class SessionBusyException extends __BaseException {
+  readonly name = "SessionBusyException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>A message describing the problem.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SessionBusyException, __BaseException>) {
+    super({
+      name: "SessionBusyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SessionBusyException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>The blueprint is in an invalid state to perform a requested operation.</p>
  * @public
  */

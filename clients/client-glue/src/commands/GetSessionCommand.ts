@@ -73,6 +73,7 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  * //     DPUSeconds: Number("double"),
  * //     IdleTimeout: Number("int"),
  * //     ProfileName: "STRING_VALUE",
+ * //     SessionType: "LIVY" || "SPARK_CONNECT",
  * //   },
  * // };
  *

@@ -700,6 +700,10 @@ import {
   GetCustomEntityTypeCommand,
   GetCustomEntityTypeRequest$,
   GetCustomEntityTypeResponse$,
+  GetDashboardUrl$,
+  GetDashboardUrlCommand,
+  GetDashboardUrlRequest$,
+  GetDashboardUrlResponse$,
   GetDatabase$,
   GetDatabaseCommand,
   GetDatabaseRequest$,
@@ -862,6 +866,10 @@ import {
   GetSecurityConfigurationsResponse$,
   GetSession$,
   GetSessionCommand,
+  GetSessionEndpoint$,
+  GetSessionEndpointCommand,
+  GetSessionEndpointRequest$,
+  GetSessionEndpointResponse$,
   GetSessionRequest$,
   GetSessionResponse$,
   GetStatement$,
@@ -946,6 +954,7 @@ import {
   GlueEncryptionException$,
   GluePolicy$,
   GlueRecordType,
+  GlueResourceType,
   GlueSchema$,
   GlueServiceException,
   GlueStudioSchemaColumn$,
@@ -1436,8 +1445,12 @@ import {
   Separator,
   SerDeInfo$,
   Session$,
+  SessionBusyException,
+  SessionBusyException$,
   SessionCommand$,
+  SessionEndpoint$,
   SessionStatus,
+  SessionType,
   SettingSource,
   SkewedInfo$,
   SnowflakeNodeData$,
@@ -1994,6 +2007,8 @@ assert(typeof GetCrawlersCommand === "function");
 assert(typeof GetCrawlers$ === "object");
 assert(typeof GetCustomEntityTypeCommand === "function");
 assert(typeof GetCustomEntityType$ === "object");
+assert(typeof GetDashboardUrlCommand === "function");
+assert(typeof GetDashboardUrl$ === "object");
 assert(typeof GetDatabaseCommand === "function");
 assert(typeof GetDatabase$ === "object");
 assert(typeof GetDatabasesCommand === "function");
@@ -2076,6 +2091,8 @@ assert(typeof GetSecurityConfigurationsCommand === "function");
 assert(typeof GetSecurityConfigurations$ === "object");
 assert(typeof GetSessionCommand === "function");
 assert(typeof GetSession$ === "object");
+assert(typeof GetSessionEndpointCommand === "function");
+assert(typeof GetSessionEndpoint$ === "object");
 assert(typeof GetStatementCommand === "function");
 assert(typeof GetStatement$ === "object");
 assert(typeof GetTableCommand === "function");
@@ -2704,6 +2721,8 @@ assert(typeof GetCrawlersRequest$ === "object");
 assert(typeof GetCrawlersResponse$ === "object");
 assert(typeof GetCustomEntityTypeRequest$ === "object");
 assert(typeof GetCustomEntityTypeResponse$ === "object");
+assert(typeof GetDashboardUrlRequest$ === "object");
+assert(typeof GetDashboardUrlResponse$ === "object");
 assert(typeof GetDatabaseRequest$ === "object");
 assert(typeof GetDatabaseResponse$ === "object");
 assert(typeof GetDatabasesRequest$ === "object");
@@ -2784,6 +2803,8 @@ assert(typeof GetSecurityConfigurationRequest$ === "object");
 assert(typeof GetSecurityConfigurationResponse$ === "object");
 assert(typeof GetSecurityConfigurationsRequest$ === "object");
 assert(typeof GetSecurityConfigurationsResponse$ === "object");
+assert(typeof GetSessionEndpointRequest$ === "object");
+assert(typeof GetSessionEndpointResponse$ === "object");
 assert(typeof GetSessionRequest$ === "object");
 assert(typeof GetSessionResponse$ === "object");
 assert(typeof GetStatementRequest$ === "object");
@@ -3078,6 +3099,7 @@ assert(typeof SelectFromCollection$ === "object");
 assert(typeof SerDeInfo$ === "object");
 assert(typeof Session$ === "object");
 assert(typeof SessionCommand$ === "object");
+assert(typeof SessionEndpoint$ === "object");
 assert(typeof SkewedInfo$ === "object");
 assert(typeof SnowflakeNodeData$ === "object");
 assert(typeof SnowflakeSource$ === "object");
@@ -3322,6 +3344,7 @@ assert(typeof FilterOperator === "object");
 assert(typeof FilterValueType === "object");
 assert(typeof FunctionType === "object");
 assert(typeof GlueRecordType === "object");
+assert(typeof GlueResourceType === "object");
 assert(typeof HTTPMethod === "object");
 assert(typeof HudiTargetCompressionType === "object");
 assert(typeof HyperTargetCompressionType === "object");
@@ -3376,6 +3399,7 @@ assert(typeof SchemaStatus === "object");
 assert(typeof SchemaVersionStatus === "object");
 assert(typeof Separator === "object");
 assert(typeof SessionStatus === "object");
+assert(typeof SessionType === "object");
 assert(typeof SettingSource === "object");
 assert(typeof Sort === "object");
 assert(typeof SortDirectionType === "object");
@@ -3493,6 +3517,8 @@ assert(SchedulerRunningException.prototype instanceof GlueServiceException);
 assert(typeof SchedulerRunningException$ === "object");
 assert(SchedulerTransitioningException.prototype instanceof GlueServiceException);
 assert(typeof SchedulerTransitioningException$ === "object");
+assert(SessionBusyException.prototype instanceof GlueServiceException);
+assert(typeof SessionBusyException$ === "object");
 assert(TargetResourceNotFound.prototype instanceof GlueServiceException);
 assert(typeof TargetResourceNotFound$ === "object");
 assert(ThrottlingException.prototype instanceof GlueServiceException);

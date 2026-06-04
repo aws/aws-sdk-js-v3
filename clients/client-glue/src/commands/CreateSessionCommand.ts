@@ -63,6 +63,7 @@ export interface CreateSessionCommandOutput extends CreateSessionResponse, __Met
  *     "<keys>": "STRING_VALUE",
  *   },
  *   RequestOrigin: "STRING_VALUE",
+ *   SessionType: "LIVY" || "SPARK_CONNECT",
  * };
  * const command = new CreateSessionCommand(input);
  * const response = await client.send(command);
@@ -97,6 +98,7 @@ export interface CreateSessionCommandOutput extends CreateSessionResponse, __Met
  * //     DPUSeconds: Number("double"),
  * //     IdleTimeout: Number("int"),
  * //     ProfileName: "STRING_VALUE",
+ * //     SessionType: "LIVY" || "SPARK_CONNECT",
  * //   },
  * // };
  *
@@ -122,6 +124,9 @@ export interface CreateSessionCommandOutput extends CreateSessionResponse, __Met
  *
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationNotSupportedException} (client fault)
+ *  <p>The operation is not available in the region.</p>
  *
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>

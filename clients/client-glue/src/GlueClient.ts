@@ -346,6 +346,7 @@ import type {
   GetCustomEntityTypeCommandInput,
   GetCustomEntityTypeCommandOutput,
 } from "./commands/GetCustomEntityTypeCommand";
+import type { GetDashboardUrlCommandInput, GetDashboardUrlCommandOutput } from "./commands/GetDashboardUrlCommand";
 import type { GetDatabaseCommandInput, GetDatabaseCommandOutput } from "./commands/GetDatabaseCommand";
 import type { GetDatabasesCommandInput, GetDatabasesCommandOutput } from "./commands/GetDatabasesCommand";
 import type {
@@ -441,6 +442,10 @@ import type {
   GetSecurityConfigurationsCommandOutput,
 } from "./commands/GetSecurityConfigurationsCommand";
 import type { GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
+import type {
+  GetSessionEndpointCommandInput,
+  GetSessionEndpointCommandOutput,
+} from "./commands/GetSessionEndpointCommand";
 import type { GetStatementCommandInput, GetStatementCommandOutput } from "./commands/GetStatementCommand";
 import type { GetTableCommandInput, GetTableCommandOutput } from "./commands/GetTableCommand";
 import type {
@@ -869,6 +874,7 @@ export type ServiceInputTypes =
   | GetCrawlerMetricsCommandInput
   | GetCrawlersCommandInput
   | GetCustomEntityTypeCommandInput
+  | GetDashboardUrlCommandInput
   | GetDataCatalogEncryptionSettingsCommandInput
   | GetDataQualityModelCommandInput
   | GetDataQualityModelResultCommandInput
@@ -910,6 +916,7 @@ export type ServiceInputTypes =
   | GetSecurityConfigurationCommandInput
   | GetSecurityConfigurationsCommandInput
   | GetSessionCommandInput
+  | GetSessionEndpointCommandInput
   | GetStatementCommandInput
   | GetTableCommandInput
   | GetTableOptimizerCommandInput
@@ -1139,6 +1146,7 @@ export type ServiceOutputTypes =
   | GetCrawlerMetricsCommandOutput
   | GetCrawlersCommandOutput
   | GetCustomEntityTypeCommandOutput
+  | GetDashboardUrlCommandOutput
   | GetDataCatalogEncryptionSettingsCommandOutput
   | GetDataQualityModelCommandOutput
   | GetDataQualityModelResultCommandOutput
@@ -1180,6 +1188,7 @@ export type ServiceOutputTypes =
   | GetSecurityConfigurationCommandOutput
   | GetSecurityConfigurationsCommandOutput
   | GetSessionCommandOutput
+  | GetSessionEndpointCommandOutput
   | GetStatementCommandOutput
   | GetTableCommandOutput
   | GetTableOptimizerCommandOutput

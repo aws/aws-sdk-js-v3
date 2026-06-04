@@ -1419,6 +1419,19 @@ export type S3EncryptionMode = (typeof S3EncryptionMode)[keyof typeof S3Encrypti
  * @public
  * @enum
  */
+export const SessionType = {
+  LIVY: "LIVY",
+  SPARK_CONNECT: "SPARK_CONNECT",
+} as const;
+/**
+ * @public
+ */
+export type SessionType = (typeof SessionType)[keyof typeof SessionType];
+
+/**
+ * @public
+ * @enum
+ */
 export const SessionStatus = {
   FAILED: "FAILED",
   PROVISIONING: "PROVISIONING",
@@ -1726,6 +1739,19 @@ export const SettingSource = {
  * @public
  */
 export type SettingSource = (typeof SettingSource)[keyof typeof SettingSource];
+
+/**
+ * @public
+ * @enum
+ */
+export const GlueResourceType = {
+  JOB: "JOB",
+  SESSION: "SESSION",
+} as const;
+/**
+ * @public
+ */
+export type GlueResourceType = (typeof GlueResourceType)[keyof typeof GlueResourceType];
 
 /**
  * @public

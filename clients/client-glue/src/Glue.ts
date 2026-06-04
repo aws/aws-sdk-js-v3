@@ -540,6 +540,11 @@ import {
   GetCustomEntityTypeCommand,
 } from "./commands/GetCustomEntityTypeCommand";
 import {
+  type GetDashboardUrlCommandInput,
+  type GetDashboardUrlCommandOutput,
+  GetDashboardUrlCommand,
+} from "./commands/GetDashboardUrlCommand";
+import {
   type GetDatabaseCommandInput,
   type GetDatabaseCommandOutput,
   GetDatabaseCommand,
@@ -724,6 +729,11 @@ import {
   type GetSessionCommandOutput,
   GetSessionCommand,
 } from "./commands/GetSessionCommand";
+import {
+  type GetSessionEndpointCommandInput,
+  type GetSessionEndpointCommandOutput,
+  GetSessionEndpointCommand,
+} from "./commands/GetSessionEndpointCommand";
 import {
   type GetStatementCommandInput,
   type GetStatementCommandOutput,
@@ -1441,6 +1451,7 @@ const commands = {
   GetCrawlerMetricsCommand,
   GetCrawlersCommand,
   GetCustomEntityTypeCommand,
+  GetDashboardUrlCommand,
   GetDatabaseCommand,
   GetDatabasesCommand,
   GetDataCatalogEncryptionSettingsCommand,
@@ -1482,6 +1493,7 @@ const commands = {
   GetSecurityConfigurationCommand,
   GetSecurityConfigurationsCommand,
   GetSessionCommand,
+  GetSessionEndpointCommand,
   GetStatementCommand,
   GetTableCommand,
   GetTableOptimizerCommand,
@@ -3514,6 +3526,23 @@ export interface Glue {
   ): void;
 
   /**
+   * @see {@link GetDashboardUrlCommand}
+   */
+  getDashboardUrl(
+    args: GetDashboardUrlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDashboardUrlCommandOutput>;
+  getDashboardUrl(
+    args: GetDashboardUrlCommandInput,
+    cb: (err: any, data?: GetDashboardUrlCommandOutput) => void
+  ): void;
+  getDashboardUrl(
+    args: GetDashboardUrlCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDashboardUrlCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetDatabaseCommand}
    */
   getDatabase(
@@ -4219,6 +4248,23 @@ export interface Glue {
     args: GetSessionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetSessionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetSessionEndpointCommand}
+   */
+  getSessionEndpoint(
+    args: GetSessionEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSessionEndpointCommandOutput>;
+  getSessionEndpoint(
+    args: GetSessionEndpointCommandInput,
+    cb: (err: any, data?: GetSessionEndpointCommandOutput) => void
+  ): void;
+  getSessionEndpoint(
+    args: GetSessionEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSessionEndpointCommandOutput) => void
   ): void;
 
   /**

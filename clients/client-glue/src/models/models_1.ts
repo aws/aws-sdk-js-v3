@@ -27,6 +27,7 @@ import type {
   FieldDataType,
   FieldFilterOperator,
   FunctionType,
+  GlueResourceType,
   HTTPMethod,
   IcebergNullOrder,
   IcebergSortDirection,
@@ -51,6 +52,7 @@ import type {
   SchemaStatus,
   SchemaVersionStatus,
   SessionStatus,
+  SessionType,
   SettingSource,
   TableOptimizerType,
   TaskStatusType,
@@ -1965,6 +1967,12 @@ export interface CreateSessionRequest {
    * @public
    */
   RequestOrigin?: string | undefined;
+
+  /**
+   * <p>The type of session to create.</p>
+   * @public
+   */
+  SessionType?: SessionType | undefined;
 }
 
 /**
@@ -2093,6 +2101,12 @@ export interface Session {
    * @public
    */
   ProfileName?: string | undefined;
+
+  /**
+   * <p>The type of the session.</p>
+   * @public
+   */
+  SessionType?: SessionType | undefined;
 }
 
 /**
@@ -7056,6 +7070,40 @@ export interface GetCustomEntityTypeResponse {
 /**
  * @public
  */
+export interface GetDashboardUrlRequest {
+  /**
+   * <p>The unique identifier of the resource for which to retrieve the dashboard URL.</p>
+   * @public
+   */
+  ResourceId: string | undefined;
+
+  /**
+   * <p>The type of the resource. Valid values are <code>SESSION</code> and <code>JOB</code>.</p>
+   * @public
+   */
+  ResourceType: GlueResourceType | undefined;
+
+  /**
+   * <p>The origin of the request. </p>
+   * @public
+   */
+  RequestOrigin?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDashboardUrlResponse {
+  /**
+   * <p>The URL for the Spark monitoring dashboard.</p>
+   * @public
+   */
+  Url: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetDatabaseRequest {
   /**
    * <p>The ID of the Data Catalog in which the database resides. If none is provided, the Amazon Web Services
@@ -8556,34 +8604,4 @@ export interface GetMaterializedViewRefreshTaskRunResponse {
    * @public
    */
   MaterializedViewRefreshTaskRun?: MaterializedViewRefreshTaskRun | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMLTaskRunRequest {
-  /**
-   * <p>The unique identifier of the machine learning transform.</p>
-   * @public
-   */
-  TransformId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the task run.</p>
-   * @public
-   */
-  TaskRunId: string | undefined;
-}
-
-/**
- * <p>Specifies configuration properties for an exporting labels task run.</p>
- * @public
- */
-export interface ExportLabelsTaskRunProperties {
-  /**
-   * <p>The Amazon Simple Storage Service (Amazon S3) path where you will export the
-   *       labels.</p>
-   * @public
-   */
-  OutputS3Path?: string | undefined;
 }

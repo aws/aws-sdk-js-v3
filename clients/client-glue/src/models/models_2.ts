@@ -56,7 +56,6 @@ import type {
   ConnectionInput,
   CrawlerTargets,
   CustomEntityType,
-  DatabaseInput,
   DataQualityTargetTable,
   DataSource,
   ErrorDetail,
@@ -86,7 +85,6 @@ import type {
   DataCatalogEncryptionSettings,
   DataQualityEvaluationRunAdditionalRunOptions,
   EncryptionConfiguration,
-  ExportLabelsTaskRunProperties,
   IntegrationConfig,
   IntegrationError,
   JobBookmarkEntry,
@@ -104,6 +102,36 @@ import type {
   TransformEncryption,
   TransformParameters,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface GetMLTaskRunRequest {
+  /**
+   * <p>The unique identifier of the machine learning transform.</p>
+   * @public
+   */
+  TransformId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the task run.</p>
+   * @public
+   */
+  TaskRunId: string | undefined;
+}
+
+/**
+ * <p>Specifies configuration properties for an exporting labels task run.</p>
+ * @public
+ */
+export interface ExportLabelsTaskRunProperties {
+  /**
+   * <p>The Amazon Simple Storage Service (Amazon S3) path where you will export the
+   *       labels.</p>
+   * @public
+   */
+  OutputS3Path?: string | undefined;
+}
 
 /**
  * <p>Specifies configuration properties for a Find Matches task run.</p>
@@ -2087,6 +2115,52 @@ export interface GetSessionResponse {
    * @public
    */
   Session?: Session | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSessionEndpointRequest {
+  /**
+   * <p>The unique identifier of the interactive session.</p>
+   * @public
+   */
+  SessionId: string | undefined;
+}
+
+/**
+ * <p>Contains the Spark Connect endpoint details for an interactive session, including the URL and authentication credentials.</p>
+ * @public
+ */
+export interface SessionEndpoint {
+  /**
+   * <p>The Spark Connect endpoint URL for the session.</p>
+   * @public
+   */
+  Url: string | undefined;
+
+  /**
+   * <p>The authentication token to include in requests to the Spark Connect endpoint.</p>
+   * @public
+   */
+  AuthToken: string | undefined;
+
+  /**
+   * <p>The time at which the authentication token expires.</p>
+   * @public
+   */
+  AuthTokenExpirationTime: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSessionEndpointResponse {
+  /**
+   * <p>The Spark Connect endpoint details for the session.</p>
+   * @public
+   */
+  SparkConnect: SessionEndpoint | undefined;
 }
 
 /**
@@ -8222,109 +8296,3 @@ export interface UpdateCrawlerScheduleRequest {
  * @public
  */
 export interface UpdateCrawlerScheduleResponse {}
-
-/**
- * @public
- */
-export interface UpdateDatabaseRequest {
-  /**
-   * <p>The ID of the Data Catalog in which the metadata database resides. If none is provided,
-   *       the Amazon Web Services account ID is used by default.</p>
-   * @public
-   */
-  CatalogId?: string | undefined;
-
-  /**
-   * <p>The name of the database to update in the catalog. For Hive
-   *       compatibility, this is folded to lowercase.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>A <code>DatabaseInput</code> object specifying the new definition
-   *       of the metadata database in the catalog.</p>
-   * @public
-   */
-  DatabaseInput: DatabaseInput | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateDatabaseResponse {}
-
-/**
- * @public
- */
-export interface UpdateDataQualityRulesetRequest {
-  /**
-   * <p>The name of the data quality ruleset.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>A description of the ruleset.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>A Data Quality Definition Language (DQDL) ruleset. For more information, see the Glue developer guide.</p>
-   * @public
-   */
-  Ruleset?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateDataQualityRulesetResponse {
-  /**
-   * <p>The name of the data quality ruleset.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>A description of the ruleset.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>A Data Quality Definition Language (DQDL) ruleset. For more information, see the Glue developer guide.</p>
-   * @public
-   */
-  Ruleset?: string | undefined;
-}
-
-/**
- * <p>Custom libraries to be loaded into a development endpoint.</p>
- * @public
- */
-export interface DevEndpointCustomLibraries {
-  /**
-   * <p>The paths to one or more Python libraries in an Amazon Simple Storage Service (Amazon S3)
-   *       bucket that should be loaded in your <code>DevEndpoint</code>. Multiple values must be
-   *       complete paths separated by a comma.</p>
-   *          <note>
-   *             <p>You can only use pure Python libraries with a <code>DevEndpoint</code>. Libraries that rely on
-   *         C extensions, such as the <a href="http://pandas.pydata.org/">pandas</a> Python data
-   *         analysis library, are not currently supported.</p>
-   *          </note>
-   * @public
-   */
-  ExtraPythonLibsS3Path?: string | undefined;
-
-  /**
-   * <p>The path to one or more Java <code>.jar</code> files in an S3 bucket that should be loaded
-   *       in your <code>DevEndpoint</code>.</p>
-   *          <note>
-   *             <p>You can only use pure Java/Scala libraries with a <code>DevEndpoint</code>.</p>
-   *          </note>
-   * @public
-   */
-  ExtraJarsS3Path?: string | undefined;
-}

@@ -61,6 +61,7 @@ const _ARTd = "AddRecordTimestamp";
 const _AS = "AuthStrategy";
 const _ASC = "AllowSingleColumn";
 const _AT = "AccessToken";
+const _ATET = "AuthTokenExpirationTime";
 const _ATG = "AttributesToGet";
 const _ATc = "AccessType";
 const _ATn = "AnalyzedTime";
@@ -948,6 +949,9 @@ const _GDR = "GetDatabaseRequest";
 const _GDRe = "GetDatabaseResponse";
 const _GDRet = "GetDatabasesRequest";
 const _GDReta = "GetDatabasesResponse";
+const _GDU = "GetDashboardUrl";
+const _GDUR = "GetDashboardUrlRequest";
+const _GDURe = "GetDashboardUrlResponse";
 const _GDe = "GetDatabases";
 const _GEE = "GlueEncryptionException";
 const _GER = "GetEntityRecords";
@@ -1034,6 +1038,9 @@ const _GSCRet = "GetSecurityConfigurationsRequest";
 const _GSCRete = "GetSecurityConfigurationsResponse";
 const _GSCe = "GetSecurityConfiguration";
 const _GSCet = "GetSecurityConfigurations";
+const _GSE = "GetSessionEndpoint";
+const _GSER = "GetSessionEndpointRequest";
+const _GSERe = "GetSessionEndpointResponse";
 const _GSI = "GetSchemaInput";
 const _GSPL = "GlueStudioPathList";
 const _GSR = "GetSchemaResponse";
@@ -1725,6 +1732,7 @@ const _RIM = "RetryIntervalMs";
 const _RIe = "RegistryId";
 const _RIef = "RefreshInterval";
 const _RIes = "ResultId";
+const _RIeso = "ResourceId";
 const _RIu = "RunId";
 const _RIun = "RunIdentifier";
 const _RJB = "ResetJobBookmark";
@@ -1833,6 +1841,7 @@ const _SAto = "StoppedActions";
 const _SAtr = "StreamArn";
 const _SAu = "SucceededActions";
 const _SB = "StartedBefore";
+const _SBE = "SessionBusyException";
 const _SBR = "StartBlueprintRun";
 const _SBRR = "StartBlueprintRunRequest";
 const _SBRRt = "StartBlueprintRunResponse";
@@ -1876,6 +1885,7 @@ const _SCT = "SparkConnectorTarget";
 const _SCTa = "S3CatalogTarget";
 const _SCV = "SkewedColumnValues";
 const _SCVLM = "SkewedColumnValueLocationMaps";
+const _SC_ = "SPARK_CONNECT";
 const _SCc = "SchemaCheckpoint";
 const _SCca = "ScalaCode";
 const _SCch = "SchemaColumn";
@@ -1887,6 +1897,7 @@ const _SCo = "SourceConfiguration";
 const _SCor = "SortCriteria";
 const _SCort = "SortCriterion";
 const _SCorto = "SortColumns";
+const _SCp = "SparkConnect";
 const _SCt = "StartCrawler";
 const _SCto = "StopCrawler";
 const _SD = "SchemaDefinition";
@@ -1920,6 +1931,7 @@ const _SELTRRt = "StartExportLabelsTaskRunResponse";
 const _SEM = "S3EncryptionMode";
 const _SES = "S3ExcelSource";
 const _SEc = "ScheduleExpression";
+const _SEe = "SessionEndpoint";
 const _SEn = "S3Encryption";
 const _SF = "SelectFields";
 const _SFC = "SelectFromCollection";
@@ -2010,7 +2022,7 @@ const _SR = "StatusReason";
 const _SRE = "SchedulerRunningException";
 const _SRO = "StatisticRecordedOn";
 const _SRc = "SchemaReference";
-const _SS = "SuccessfulSubmissions";
+const _SS = "SensitiveString";
 const _SSAO = "S3SourceAdditionalOptions";
 const _SSL = "StatisticSummaryList";
 const _SSQL = "SparkSQL";
@@ -2023,6 +2035,7 @@ const _SSe = "SettingSource";
 const _SSn = "SnowflakeSource";
 const _SSt = "StatisticSummary";
 const _SSto = "StopSession";
+const _SSu = "SuccessfulSubmissions";
 const _ST = "SourceType";
 const _STC = "SourceTableConfig";
 const _STE = "SchedulerTransitioningException";
@@ -2036,8 +2049,9 @@ const _STRtop = "StopTriggerResponse";
 const _STa = "S3Targets";
 const _STar = "S3Target";
 const _STc = "ScheduleType";
-const _STe = "SearchText";
-const _STea = "SearchTables";
+const _STe = "SessionType";
+const _STea = "SearchText";
+const _STear = "SearchTables";
 const _STn = "SnowflakeTarget";
 const _STo = "SourceTable";
 const _STt = "StagingTable";
@@ -2045,6 +2059,7 @@ const _STta = "StartTime";
 const _STtar = "StartingTimestamp";
 const _STtart = "StartTrigger";
 const _STto = "StopTrigger";
+const _SU = "SensitiveUrl";
 const _SV = "SupportedValues";
 const _SVE = "SchemaVersionErrors";
 const _SVEI = "SchemaVersionErrorItem";
@@ -2395,6 +2410,7 @@ const _en = "enabled";
 const _gCN = "glueConnectionName";
 const _hE = "httpError";
 const _iC = "icebergConfiguration";
+const _jN = "jsonName";
 const _k = "key";
 const _l = "location";
 const _lR = "lastRun";
@@ -2479,6 +2495,7 @@ import {
   SchedulerNotRunningException,
   SchedulerRunningException,
   SchedulerTransitioningException,
+  SessionBusyException,
   TargetResourceNotFound,
   ThrottlingException,
   ValidationException,
@@ -2755,6 +2772,12 @@ export var SchedulerTransitioningException$: StaticErrorSchema = [-3, n0, _STE,
   [0]
 ];
 n0_registry.registerError(SchedulerTransitioningException$, SchedulerTransitioningException);
+export var SessionBusyException$: StaticErrorSchema = [-3, n0, _SBE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(SessionBusyException$, SessionBusyException);
 export var TargetResourceNotFound$: StaticErrorSchema = [-3, n0, _TRNF,
   { [_e]: _c, [_hE]: 404 },
   [_M],
@@ -2796,6 +2819,8 @@ var JwtToken: StaticSimpleSchema = [0, n0, _JT, 8, 0];
 var Password: StaticSimpleSchema = [0, n0, _P, 8, 0];
 var _Record: StaticSimpleSchema = [0, n0, _R, 8, 15];
 var RefreshToken: StaticSimpleSchema = [0, n0, _RT, 8, 0];
+var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
+var SensitiveUrl: StaticSimpleSchema = [0, n0, _SU, 8, 0];
 var UserManagedClientApplicationClientSecret: StaticSimpleSchema = [0, n0, _UMCACS, 8, 0];
 export var Action$: StaticStructureSchema = [3, n0, _A,
   0,
@@ -3084,7 +3109,7 @@ export var BatchStopJobRunRequest$: StaticStructureSchema = [3, n0, _BSJRR,
 ];
 export var BatchStopJobRunResponse$: StaticStructureSchema = [3, n0, _BSJRRa,
   0,
-  [_SS, _E],
+  [_SSu, _E],
   [() => BatchStopJobRunSuccessfulSubmissionList, () => BatchStopJobRunErrorList]
 ];
 export var BatchStopJobRunSuccessfulSubmission$: StaticStructureSchema = [3, n0, _BSJRSS,
@@ -3724,8 +3749,8 @@ export var CreateSecurityConfigurationResponse$: StaticStructureSchema = [3, n0,
 ];
 export var CreateSessionRequest$: StaticStructureSchema = [3, n0, _CSRreat,
   0,
-  [_Id, _Rol, _Comm, _D, _T, _ITd, _DA, _Conn, _MCax, _NOW, _WT, _SC, _GV, _Tag, _RO],
-  [0, 0, () => SessionCommand$, 0, 1, 1, 128 | 0, () => ConnectionsList$, 1, 1, 0, 0, 0, 128 | 0, 0], 3
+  [_Id, _Rol, _Comm, _D, _T, _ITd, _DA, _Conn, _MCax, _NOW, _WT, _SC, _GV, _Tag, _RO, _STe],
+  [0, 0, () => SessionCommand$, 0, 1, 1, 128 | 0, () => ConnectionsList$, 1, 1, 0, 0, 0, 128 | 0, 0, 0], 3
 ];
 export var CreateSessionResponse$: StaticStructureSchema = [3, n0, _CSRreate,
   0,
@@ -4782,6 +4807,16 @@ export var GetCustomEntityTypeResponse$: StaticStructureSchema = [3, n0, _GCETRe
   [_N, _RSe, _CW],
   [0, 0, 64 | 0]
 ];
+export var GetDashboardUrlRequest$: StaticStructureSchema = [3, n0, _GDUR,
+  0,
+  [_RIeso, _RTes, _RO],
+  [0, 0, 0], 2
+];
+export var GetDashboardUrlResponse$: StaticStructureSchema = [3, n0, _GDURe,
+  0,
+  [_Ur],
+  [[() => SensitiveUrl, 0]], 1
+];
 export var GetDatabaseRequest$: StaticStructureSchema = [3, n0, _GDR,
   0,
   [_N, _CI],
@@ -5181,6 +5216,16 @@ export var GetSecurityConfigurationsResponse$: StaticStructureSchema = [3, n0, _
   0,
   [_SCec, _NTe],
   [() => SecurityConfigurationList, 0]
+];
+export var GetSessionEndpointRequest$: StaticStructureSchema = [3, n0, _GSER,
+  0,
+  [_SIe],
+  [0], 1
+];
+export var GetSessionEndpointResponse$: StaticStructureSchema = [3, n0, _GSERe,
+  0,
+  [_SCp],
+  [[() => SessionEndpoint$, { [_jN]: _SC_ }]], 1
 ];
 export var GetSessionRequest$: StaticStructureSchema = [3, n0, _GSRe,
   0,
@@ -6609,7 +6654,7 @@ export var SchemaVersionNumber$: StaticStructureSchema = [3, n0, _SVN,
 ];
 export var SearchTablesRequest$: StaticStructureSchema = [3, n0, _STR,
   0,
-  [_CI, _NTe, _Fil, _STe, _SCor, _MRax, _RST, _ISD],
+  [_CI, _NTe, _Fil, _STea, _SCor, _MRax, _RST, _ISD],
   [0, 0, () => SearchPropertyPredicates, 0, () => SortCriteria, 1, 0, 2]
 ];
 export var SearchTablesResponse$: StaticStructureSchema = [3, n0, _STRe,
@@ -6644,13 +6689,18 @@ export var SerDeInfo$: StaticStructureSchema = [3, n0, _SDI,
 ];
 export var Session$: StaticStructureSchema = [3, n0, _Ses,
   0,
-  [_Id, _CO, _St, _EM, _D, _Rol, _Comm, _DA, _Conn, _Prog, _MCax, _SC, _GV, _NOW, _WT, _COo, _ETxe, _DPUS, _ITd, _PN],
-  [0, 4, 0, 0, 0, 0, () => SessionCommand$, 128 | 0, () => ConnectionsList$, 1, 1, 0, 0, 1, 0, 4, 1, 1, 1, 0]
+  [_Id, _CO, _St, _EM, _D, _Rol, _Comm, _DA, _Conn, _Prog, _MCax, _SC, _GV, _NOW, _WT, _COo, _ETxe, _DPUS, _ITd, _PN, _STe],
+  [0, 4, 0, 0, 0, 0, () => SessionCommand$, 128 | 0, () => ConnectionsList$, 1, 1, 0, 0, 1, 0, 4, 1, 1, 1, 0, 0]
 ];
 export var SessionCommand$: StaticStructureSchema = [3, n0, _SCess,
   0,
   [_N, _PVy],
   [0, 0]
+];
+export var SessionEndpoint$: StaticStructureSchema = [3, n0, _SEe,
+  0,
+  [_Ur, _ATuth, _ATET],
+  [0, [() => SensitiveString, 0], 4], 3
 ];
 export var SkewedInfo$: StaticStructureSchema = [3, n0, _SIk,
   0,
@@ -8489,6 +8539,9 @@ export var GetCrawlers$: StaticOperationSchema = [9, n0, _GCetra,
 export var GetCustomEntityType$: StaticOperationSchema = [9, n0, _GCET,
   0, () => GetCustomEntityTypeRequest$, () => GetCustomEntityTypeResponse$
 ];
+export var GetDashboardUrl$: StaticOperationSchema = [9, n0, _GDU,
+  0, () => GetDashboardUrlRequest$, () => GetDashboardUrlResponse$
+];
 export var GetDatabase$: StaticOperationSchema = [9, n0, _GD,
   0, () => GetDatabaseRequest$, () => GetDatabaseResponse$
 ];
@@ -8611,6 +8664,9 @@ export var GetSecurityConfigurations$: StaticOperationSchema = [9, n0, _GSCet,
 ];
 export var GetSession$: StaticOperationSchema = [9, n0, _GSet,
   0, () => GetSessionRequest$, () => GetSessionResponse$
+];
+export var GetSessionEndpoint$: StaticOperationSchema = [9, n0, _GSE,
+  0, () => GetSessionEndpointRequest$, () => GetSessionEndpointResponse$
 ];
 export var GetStatement$: StaticOperationSchema = [9, n0, _GSett,
   0, () => GetStatementRequest$, () => GetStatementResponse$
@@ -8792,7 +8848,7 @@ export var ResumeWorkflowRun$: StaticOperationSchema = [9, n0, _RWR,
 export var RunStatement$: StaticOperationSchema = [9, n0, _RSu,
   0, () => RunStatementRequest$, () => RunStatementResponse$
 ];
-export var SearchTables$: StaticOperationSchema = [9, n0, _STea,
+export var SearchTables$: StaticOperationSchema = [9, n0, _STear,
   0, () => SearchTablesRequest$, () => SearchTablesResponse$
 ];
 export var StartBlueprintRun$: StaticOperationSchema = [9, n0, _SBR,

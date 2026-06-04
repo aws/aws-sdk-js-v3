@@ -81,6 +81,7 @@ export interface ListSessionsCommandOutput extends ListSessionsResponse, __Metad
  * //       DPUSeconds: Number("double"),
  * //       IdleTimeout: Number("int"),
  * //       ProfileName: "STRING_VALUE",
+ * //       SessionType: "LIVY" || "SPARK_CONNECT",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
