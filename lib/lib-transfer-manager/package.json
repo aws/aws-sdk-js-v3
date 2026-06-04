@@ -1,0 +1,81 @@
+{
+  "name": "@aws-sdk/lib-transfer-manager",
+  "version": "0.0.1",
+  "private": true,
+  "description": "S3 Transfer Manager for AWS SDK JS v3",
+  "main": "./dist-cjs/index.js",
+  "module": "./dist-es/index.js",
+  "types": "./dist-types/index.d.ts",
+  "scripts": {
+    "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
+    "build:cjs": "node ../../scripts/compilation/inline lib-transfer-manager",
+    "build:es": "tsc -p tsconfig.es.json",
+    "build:include:deps": "yarn g:turbo run build -F=\"$npm_package_name\"",
+    "build:types": "tsc -p tsconfig.types.json",
+    "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+    "clean": "premove dist-cjs dist-es dist-types tsconfig.cjs.tsbuildinfo tsconfig.es.tsbuildinfo tsconfig.types.tsbuildinfo",
+    "test": "yarn g:vitest run",
+    "test:watch": "yarn g:vitest watch",
+    "test:browser": "yarn g:vitest run -c vitest.config.browser.mts",
+    "test:browser:watch": "yarn g:vitest watch -c vitest.config.browser.mts",
+    "test:e2e": "yarn g:vitest run -c vitest.config.e2e.mts --mode development",
+    "test:e2e:watch": "yarn g:vitest watch -c vitest.config.e2e.mts"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "url": "https://aws.amazon.com/javascript/"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@aws-sdk/config": "workspace:3.1062.0",
+    "@aws-sdk/lib-storage": "workspace:3.1062.0",
+    "@smithy/core": "^3.24.6",
+    "@smithy/node-http-handler": "^4.7.6",
+    "@smithy/types": "^4.14.3",
+    "tslib": "^2.6.2"
+  },
+  "peerDependencies": {
+    "@aws-sdk/client-s3": "^3.0.0"
+  },
+  "devDependencies": {
+    "@aws-sdk/client-s3": "workspace:3.1062.0",
+    "@tsconfig/recommended": "1.0.1",
+    "@types/node": "^20.14.8",
+    "concurrently": "7.0.0",
+    "downlevel-dts": "0.10.1",
+    "premove": "4.0.0",
+    "typescript": "~5.8.3"
+  },
+  "typesVersions": {
+    "<4.0": {
+      "dist-types/*": [
+        "dist-types/ts3.4/*"
+      ]
+    }
+  },
+  "browser": {
+    "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.browser",
+    "./dist-es/s3-transfer-manager/join-streams": "./dist-es/s3-transfer-manager/join-streams.browser",
+    "./dist-es/s3-transfer-manager/worker-http-handler": "./dist-es/s3-transfer-manager/worker-http-handler.browser",
+    "fs": false,
+    "stream": "stream-browserify"
+  },
+  "standaloneFiles": [
+    "s3-transfer-manager/http-request-worker.js"
+  ],
+  "react-native": {
+    "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.native"
+  },
+  "files": [
+    "dist-*/**"
+  ],
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/lib/lib-transfer-manager",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aws/aws-sdk-js-v3.git",
+    "directory": "lib/lib-transfer-manager"
+  }
+}

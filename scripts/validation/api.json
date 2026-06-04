@@ -533,12 +533,18 @@
   },
   "@aws-sdk/lib-storage": {
     "BodyDataTypes": "type(union)",
+    "byteLength": "function",
     "Configuration": "type(interface)",
+    "getChunk": "function",
     "Options": "type(interface)",
     "Progress": "type(interface)",
     "RawDataPart": "type(interface)",
     "ServiceClients": "type(object)",
     "Upload": "function"
+  },
+  "@aws-sdk/lib-transfer-manager": {
+    "IS3TransferManager": "type(interface)",
+    "S3TransferManager": "function"
   },
   "@aws-sdk/middleware-api-key": {
     "ApiKeyInputConfig": "type(interface)",
