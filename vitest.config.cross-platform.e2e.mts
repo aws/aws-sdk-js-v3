@@ -15,6 +15,8 @@ export default defineConfig({
       "node_modules",
       // doesn't support OPTIONS preflight.
       "clients/client-data-pipeline/**/*.e2e.spec.ts",
+      // blocked by CORS policy.
+      "clients/client-s3-control/test/s3-control-features.e2e.spec.ts",
       // is specifically a Node.js HTTP2 test.
       "clients/client-kinesis/test/Kinesis.e2e.spec.ts",
       // S3 has a different browser testing setup.

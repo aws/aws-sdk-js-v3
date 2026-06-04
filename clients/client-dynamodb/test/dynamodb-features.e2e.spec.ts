@@ -1,4 +1,4 @@
-import { DynamoDB } from "@aws-sdk/client-dynamodb";
+import { DynamoDB, DynamoDBServiceException, ResourceNotFoundException } from "@aws-sdk/client-dynamodb";
 import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
 
 describe(DynamoDB.name, () => {
@@ -110,34 +110,6 @@ describe(DynamoDB.name, () => {
     });
   });
 
-  describe("UTF-8 support", () => {
-    it("should handle UTF-8 characters and return ResourceNotFoundException for non-existent table", async () => {
-      await expect(
-        client.deleteItem({
-          TableName: "table",
-          Key: { id: { S: "føø" } },
-        })
-      ).rejects.toThrow(
-        expect.objectContaining({
-          name: "ResourceNotFoundException",
-        })
-      );
-    });
-  });
-
-  describe("Improper table deletion", () => {
-    it("should return ValidationException for empty table parameter", async () => {
-      await expect(client.deleteTable({ TableName: "" })).rejects.toThrow(
-        expect.objectContaining({
-          name: "ValidationException",
-          $metadata: expect.objectContaining({
-            httpStatusCode: 400,
-          }),
-        })
-      );
-    });
-  });
-
   describe("Recursive Attributes", () => {
     it("should handle complex nested attributes", async () => {
       // Put recursive item
@@ -174,6 +146,37 @@ describe(DynamoDB.name, () => {
       // Verify deeply nested attribute: data.M.attr1.L[1].L[0].M.attr12.S
       const nestedValue = getResult.Item?.data?.M?.attr1?.L?.[1]?.L?.[0]?.M?.attr12?.S;
       expect(nestedValue).toBe("value2");
+    });
+  });
+
+  describe("Error types", () => {
+    it("should throw a modeled ResourceNotFoundException for non-existent table", async () => {
+      try {
+        await client.deleteItem({
+          TableName: "nonexistent-table-sdk-e2e-test",
+          Key: { id: { S: "føø" } },
+        });
+        expect.fail("expected error");
+      } catch (e: any) {
+        expect(e).toBeInstanceOf(ResourceNotFoundException);
+        expect(e).toBeInstanceOf(DynamoDBServiceException);
+        expect(e.name).toBe("ResourceNotFoundException");
+        expect(e.$metadata.httpStatusCode).toBe(400);
+        expect(e.__type).toBe("com.amazonaws.dynamodb.v20120810#ResourceNotFoundException");
+      }
+    });
+
+    it("should throw a base DynamoDBServiceException for validation error", async () => {
+      try {
+        await client.deleteTable({ TableName: "" });
+        expect.fail("expected error");
+      } catch (e: any) {
+        expect(e).toBeInstanceOf(DynamoDBServiceException);
+        expect(Object.getPrototypeOf(e)).toBe(DynamoDBServiceException.prototype);
+        expect(e.name).toBe("ValidationException");
+        expect(e.$metadata.httpStatusCode).toBe(400);
+        expect(e.__type).toBe("com.amazon.coral.validate#ValidationException");
+      }
     });
   });
 });

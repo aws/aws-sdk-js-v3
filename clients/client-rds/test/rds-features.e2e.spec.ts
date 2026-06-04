@@ -1,4 +1,9 @@
-import { paginateDescribeReservedDBInstancesOfferings, RDS } from "@aws-sdk/client-rds";
+import {
+  DBInstanceNotFoundFault,
+  paginateDescribeReservedDBInstancesOfferings,
+  RDS,
+  RDSServiceException,
+} from "@aws-sdk/client-rds";
 import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
 
 describe(RDS.name, () => {
@@ -54,20 +59,6 @@ describe(RDS.name, () => {
     });
   });
 
-  describe("Error handling", () => {
-    it("should get InvalidParameterValue with 400 status for empty security group name", async () => {
-      try {
-        await client.createDBSecurityGroup({
-          DBSecurityGroupName: "", // Empty name should cause InvalidParameterValue
-          DBSecurityGroupDescription: "Test security group",
-        });
-      } catch (error: any) {
-        expect(error.name).toBe("InvalidParameterValue");
-        expect(error.$metadata?.httpStatusCode).toBe(400);
-      }
-    });
-  });
-
   describe("Paginating responses", () => {
     it("should paginate describeReservedDBInstancesOfferings with more than one page", async () => {
       const maxPages = 3;
@@ -98,6 +89,35 @@ describe(RDS.name, () => {
       // Should get more than one page
       expect(numPages).toBeGreaterThan(1);
       expect(numMarkers).toBeGreaterThan(0);
+    });
+  });
+
+  describe("Error types", () => {
+    it("should throw a modeled DBInstanceNotFoundFault", async () => {
+      try {
+        await client.describeDBInstances({ DBInstanceIdentifier: "nonexistent-instance-sdk-e2e-test" });
+        expect.fail("expected error");
+      } catch (e: any) {
+        expect(e).toBeInstanceOf(DBInstanceNotFoundFault);
+        expect(e).toBeInstanceOf(RDSServiceException);
+        expect(e.name).toBe("DBInstanceNotFoundFault");
+        expect(e.$metadata.httpStatusCode).toBe(404);
+      }
+    });
+
+    it("should throw a base RDSServiceException for invalid parameter", async () => {
+      try {
+        await client.createDBSecurityGroup({
+          DBSecurityGroupName: "",
+          DBSecurityGroupDescription: "test",
+        });
+        expect.fail("expected error");
+      } catch (e: any) {
+        expect(e).toBeInstanceOf(RDSServiceException);
+        expect(Object.getPrototypeOf(e)).toBe(RDSServiceException.prototype);
+        expect(e.name).toBe("InvalidParameterValue");
+        expect(e.$metadata.httpStatusCode).toBe(400);
+      }
     });
   });
 });
