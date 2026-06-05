@@ -129,6 +129,7 @@ const _a = "arn";
 const _aC = "applicationConfiguration";
 const _aCA = "attemptCreatedAt";
 const _aI = "applicationId";
+const _aLDR = "applicationLevelDigestResolution";
 const _aSC = "autoStartConfiguration";
 const _aSCu = "autoStopConfiguration";
 const _aSPL = "accessSystemProfileLogs";
@@ -475,13 +476,13 @@ export var IdentityCenterConfigurationInput$: StaticStructureSchema = [3, n0, _I
 ];
 export var ImageConfiguration$: StaticStructureSchema = [3, n0, _IC,
   0,
-  [_iU, _rID],
-  [0, 0], 1
+  [_iU, _rID, _aLDR],
+  [0, 0, 2], 1
 ];
 export var ImageConfigurationInput$: StaticStructureSchema = [3, n0, _ICI,
   0,
-  [_iU],
-  [0]
+  [_iU, _aLDR],
+  [0, 2]
 ];
 export var InitialCapacityConfig$: StaticStructureSchema = [3, n0, _ICCn,
   0,
@@ -500,8 +501,8 @@ export var JobLevelCostAllocationConfiguration$: StaticStructureSchema = [3, n0,
 ];
 export var JobRun$: StaticStructureSchema = [3, n0, _JR,
   0,
-  [_aI, _jRI, _a, _cB, _cA, _uA, _eR, _st, _sD, _rL, _jD, _n, _eIP, _cO, _ta, _tRU, _nC, _tEDS, _eTM, _bRU, _mo, _rP, _at, _aCA, _aUA, _sA, _eA, _qDM],
-  [0, 0, 0, 0, 4, 4, 0, 0, 0, 0, [() => JobDriver$, 0], 0, () => JobRunExecutionIamPolicy$, [() => ConfigurationOverrides$, 0], 128 | 0, () => TotalResourceUtilization$, () => NetworkConfiguration$, 1, 1, () => ResourceUtilization$, 0, () => RetryPolicy$, 1, 4, 4, 4, 4, 1], 11
+  [_aI, _jRI, _a, _cB, _cA, _uA, _eR, _st, _sD, _rL, _jD, _n, _eIP, _cO, _ta, _tRU, _nC, _tEDS, _eTM, _bRU, _mo, _rP, _at, _aCA, _aUA, _sA, _eA, _qDM, _iCm, _wTS],
+  [0, 0, 0, 0, 4, 4, 0, 0, 0, 0, [() => JobDriver$, 0], 0, () => JobRunExecutionIamPolicy$, [() => ConfigurationOverrides$, 0], 128 | 0, () => TotalResourceUtilization$, () => NetworkConfiguration$, 1, 1, () => ResourceUtilization$, 0, () => RetryPolicy$, 1, 4, 4, 4, 4, 1, () => ImageConfiguration$, () => WorkerTypeSpecificationMap], 11
 ];
 export var JobRunAttemptSummary$: StaticStructureSchema = [3, n0, _JRAS,
   0,

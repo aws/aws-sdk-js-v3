@@ -159,6 +159,20 @@ export interface GetJobRunCommandOutput extends GetJobRunResponse, __MetadataBea
  * //     startedAt: new Date("TIMESTAMP"),
  * //     endedAt: new Date("TIMESTAMP"),
  * //     queuedDurationMilliseconds: Number("long"),
+ * //     imageConfiguration: { // ImageConfiguration
+ * //       imageUri: "STRING_VALUE", // required
+ * //       resolvedImageDigest: "STRING_VALUE",
+ * //       applicationLevelDigestResolution: true || false,
+ * //     },
+ * //     workerTypeSpecifications: { // WorkerTypeSpecificationMap
+ * //       "<keys>": { // WorkerTypeSpecification
+ * //         imageConfiguration: {
+ * //           imageUri: "STRING_VALUE", // required
+ * //           resolvedImageDigest: "STRING_VALUE",
+ * //           applicationLevelDigestResolution: true || false,
+ * //         },
+ * //       },
+ * //     },
  * //   },
  * // };
  *

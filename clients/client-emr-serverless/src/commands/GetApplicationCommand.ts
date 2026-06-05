@@ -90,12 +90,14 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * //     imageConfiguration: { // ImageConfiguration
  * //       imageUri: "STRING_VALUE", // required
  * //       resolvedImageDigest: "STRING_VALUE",
+ * //       applicationLevelDigestResolution: true || false,
  * //     },
  * //     workerTypeSpecifications: { // WorkerTypeSpecificationMap
  * //       "<keys>": { // WorkerTypeSpecification
  * //         imageConfiguration: {
  * //           imageUri: "STRING_VALUE", // required
  * //           resolvedImageDigest: "STRING_VALUE",
+ * //           applicationLevelDigestResolution: true || false,
  * //         },
  * //       },
  * //     },

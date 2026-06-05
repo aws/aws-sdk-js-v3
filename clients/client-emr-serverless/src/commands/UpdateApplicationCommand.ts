@@ -73,11 +73,13 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  *   architecture: "STRING_VALUE",
  *   imageConfiguration: { // ImageConfigurationInput
  *     imageUri: "STRING_VALUE",
+ *     applicationLevelDigestResolution: true || false,
  *   },
  *   workerTypeSpecifications: { // WorkerTypeSpecificationInputMap
  *     "<keys>": { // WorkerTypeSpecificationInput
  *       imageConfiguration: {
  *         imageUri: "STRING_VALUE",
+ *         applicationLevelDigestResolution: true || false,
  *       },
  *     },
  *   },
@@ -197,12 +199,14 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * //     imageConfiguration: { // ImageConfiguration
  * //       imageUri: "STRING_VALUE", // required
  * //       resolvedImageDigest: "STRING_VALUE",
+ * //       applicationLevelDigestResolution: true || false,
  * //     },
  * //     workerTypeSpecifications: { // WorkerTypeSpecificationMap
  * //       "<keys>": { // WorkerTypeSpecification
  * //         imageConfiguration: {
  * //           imageUri: "STRING_VALUE", // required
  * //           resolvedImageDigest: "STRING_VALUE",
+ * //           applicationLevelDigestResolution: true || false,
  * //         },
  * //       },
  * //     },

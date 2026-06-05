@@ -89,6 +89,12 @@ export interface ImageConfiguration {
    * @public
    */
   resolvedImageDigest?: string | undefined;
+
+  /**
+   * <p>Boolean value indicating if the digest resolution is application level or workload level. If true, a custom image URI is resolved at application start time and all workloads submitted will use that image digest. If false, the custom image URI is resolved at the workload submission time.</p>
+   * @public
+   */
+  applicationLevelDigestResolution?: boolean | undefined;
 }
 
 /**
@@ -455,6 +461,12 @@ export interface ImageConfigurationInput {
    * @public
    */
   imageUri?: string | undefined;
+
+  /**
+   * <p>Boolean value indicating if the digest resolution is application level or workload level. If true, a custom image URI is resolved at application start time and all workloads submitted will use that image digest. If false, the custom image URI is resolved at the workload submission time.</p>
+   * @public
+   */
+  applicationLevelDigestResolution?: boolean | undefined;
 }
 
 /**
@@ -1317,19 +1329,19 @@ export interface GetSessionEndpointResponse {
   sessionId: string | undefined;
 
   /**
-   * The endpoint URL for connecting to the session.
+   * <p>The endpoint URL for connecting to the session.</p>
    * @public
    */
   endpoint: string | undefined;
 
   /**
-   * Authentication token for accessing the session endpoint.
+   * <p>The authentication token for connecting to the session endpoint. Call <code>GetSessionEndpoint</code> again to obtain a new token before it expires.</p>
    * @public
    */
   authToken: string | undefined;
 
   /**
-   * The expiration time of the authentication token.
+   * <p>The expiration time of the authentication token.</p>
    * @public
    */
   authTokenExpiresAt: Date | undefined;
@@ -2203,6 +2215,18 @@ export interface JobRun {
    * @public
    */
   queuedDurationMilliseconds?: number | undefined;
+
+  /**
+   * <p>The applied image configuration.</p>
+   * @public
+   */
+  imageConfiguration?: ImageConfiguration | undefined;
+
+  /**
+   * <p>The specification applied to each worker type. Includes the JobRun-level ImageConfiguration when the applicationLevelDigestResolution is false for the application.</p>
+   * @public
+   */
+  workerTypeSpecifications?: Record<string, WorkerTypeSpecification> | undefined;
 }
 
 /**

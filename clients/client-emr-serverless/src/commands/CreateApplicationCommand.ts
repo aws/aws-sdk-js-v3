@@ -78,11 +78,13 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *   architecture: "STRING_VALUE",
  *   imageConfiguration: { // ImageConfigurationInput
  *     imageUri: "STRING_VALUE",
+ *     applicationLevelDigestResolution: true || false,
  *   },
  *   workerTypeSpecifications: { // WorkerTypeSpecificationInputMap
  *     "<keys>": { // WorkerTypeSpecificationInput
  *       imageConfiguration: {
  *         imageUri: "STRING_VALUE",
+ *         applicationLevelDigestResolution: true || false,
  *       },
  *     },
  *   },
