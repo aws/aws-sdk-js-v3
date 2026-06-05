@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1063.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1062.0...v3.1063.0) (2026-06-05)
+
+
+### Features
+
+* **client-emr-serverless:** Adds support for updating max capacity and custom fields while application is started ([6c9cce0](https://github.com/aws/aws-sdk-js-v3/commit/6c9cce08f51a2b91ca5c7fc9dca2bfd293980546))
+
+
+
+
+
 # [3.1062.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1061.0...v3.1062.0) (2026-06-04)
 
 **Note:** Version bump only for package @aws-sdk/client-emr-serverless

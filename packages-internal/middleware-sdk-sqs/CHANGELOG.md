@@ -31,6 +31,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.29 (2026-06-05)
+### Chores
+* update author URL in package.json ([#8080](https://github.com/aws/aws-sdk-js-v3/issues/8080)) ([9bd1a86](https://github.com/aws/aws-sdk-js-v3/commit/9bd1a86b9bec0f69c58dcfdda481c9e1797dd73f))
+
+
+
 # 3.972.28 (2026-06-02)
 ### Bug Fixes
 * **client-dynamodb:** dynamodb special retry config fixed to be merge-compatible with user-supplied retry config ([#8068](https://github.com/aws/aws-sdk-js-v3/issues/8068)) ([a569d9c](https://github.com/aws/aws-sdk-js-v3/commit/a569d9c425edae68ceb45331fffdff18f8710628))

@@ -41,6 +41,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.997.17 (2026-06-05)
+### Chores
+* update author URL in package.json ([#8080](https://github.com/aws/aws-sdk-js-v3/issues/8080)) ([9bd1a86](https://github.com/aws/aws-sdk-js-v3/commit/9bd1a86b9bec0f69c58dcfdda481c9e1797dd73f))
+
+
+
 # 3.997.16 (2026-06-03)
 ### Chores
 * **scripts:** include generated packages when validating declared imports 1-1 with used imports ([#8072](https://github.com/aws/aws-sdk-js-v3/issues/8072)) ([291ad36](https://github.com/aws/aws-sdk-js-v3/commit/291ad3664d63b413e6c9631ac0a833e5819ceeaa))

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/crc64-nvme",
-  "version": "3.972.11",
+  "version": "3.972.12",
   "description": "A pure JS implementation of CRC64-NVME checksum",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -20,7 +20,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/checksums": "workspace:^3.1000.1",
+    "@aws-sdk/checksums": "workspace:^3.1000.2",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

@@ -19,6 +19,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.17 (2026-06-05)
+### Chores
+* update author URL in package.json ([#8080](https://github.com/aws/aws-sdk-js-v3/issues/8080)) ([9bd1a86](https://github.com/aws/aws-sdk-js-v3/commit/9bd1a86b9bec0f69c58dcfdda481c9e1797dd73f))
+### Tests
+* **middleware-endpoint-discovery:** remove integration tests ([#8077](https://github.com/aws/aws-sdk-js-v3/issues/8077)) ([0236383](https://github.com/aws/aws-sdk-js-v3/commit/02363831ab1c4cae1b254efe92ab49fa71f20700))
+
+
+
 # 3.972.16 (2026-06-01)
 ### Chores
 * **codegen:** sync for adaptive retry fix, EAI_AGAIN transient error ([#8067](https://github.com/aws/aws-sdk-js-v3/issues/8067)) ([6b082a6](https://github.com/aws/aws-sdk-js-v3/commit/6b082a6526a0bb0ba213bb16b4c97a0b1134bc45))

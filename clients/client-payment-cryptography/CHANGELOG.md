@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1063.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1062.0...v3.1063.0) (2026-06-05)
+
+
+### Features
+
+* **client-payment-cryptography:** Adds CloudFormation support for resource-based policies on AWS Payment Cryptography keys. ([c32019a](https://github.com/aws/aws-sdk-js-v3/commit/c32019a8ffa7be444993d1ee8288d2c43c8a3f89))
+
+
+
+
+
 # [3.1062.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1061.0...v3.1062.0) (2026-06-04)
 
 **Note:** Version bump only for package @aws-sdk/client-payment-cryptography

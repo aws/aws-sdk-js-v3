@@ -29,6 +29,13 @@
 
 
 
+
+# 3.0.30 (2026-06-05)
+### Chores
+* update author URL in package.json ([#8080](https://github.com/aws/aws-sdk-js-v3/issues/8080)) ([9bd1a86](https://github.com/aws/aws-sdk-js-v3/commit/9bd1a86b9bec0f69c58dcfdda481c9e1797dd73f))
+
+
+
 # 3.0.29 (2026-06-03)
 ### Chores
 * **snapshot-testing:** update dependencies.

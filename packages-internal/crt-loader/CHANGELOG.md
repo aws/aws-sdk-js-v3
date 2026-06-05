@@ -50,6 +50,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.48 (2026-06-05)
+### Chores
+* update author URL in package.json ([#8080](https://github.com/aws/aws-sdk-js-v3/issues/8080)) ([9bd1a86](https://github.com/aws/aws-sdk-js-v3/commit/9bd1a86b9bec0f69c58dcfdda481c9e1797dd73f))
+* **crt-loader:** update to latest aws-crt ([#8079](https://github.com/aws/aws-sdk-js-v3/issues/8079)) ([8c2bdab](https://github.com/aws/aws-sdk-js-v3/commit/8c2bdabd5826c8914eb1904880eade3c81ca6be4))
+
+
+
 # 3.972.47 (2026-06-03)
 ### Chores
 * **crt-loader:** update dependencies.

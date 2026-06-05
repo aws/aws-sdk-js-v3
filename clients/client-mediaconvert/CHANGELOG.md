@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1063.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1062.0...v3.1063.0) (2026-06-05)
+
+
+### Features
+
+* **client-mediaconvert:** Adds support for configurable number of Clear Lead segments at the beginning of encrypted output. Adds support for multiple trickplay variants. ([40eb4c6](https://github.com/aws/aws-sdk-js-v3/commit/40eb4c6b527bb508bc7bdb2402528cff5ed49198))
+
+
+
+
+
 # [3.1062.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1061.0...v3.1062.0) (2026-06-04)
 
 **Note:** Version bump only for package @aws-sdk/client-mediaconvert

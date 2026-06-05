@@ -8,6 +8,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.6 (2026-06-05)
+### Chores
+* update author URL in package.json ([#8080](https://github.com/aws/aws-sdk-js-v3/issues/8080)) ([9bd1a86](https://github.com/aws/aws-sdk-js-v3/commit/9bd1a86b9bec0f69c58dcfdda481c9e1797dd73f))
+
+
+
 # 3.972.5 (2026-03-25)
 ### Docs
 * **packages-internal:** readme updates for internal packages ([#7885](https://github.com/aws/aws-sdk-js-v3/issues/7885)) ([2da8b4c](https://github.com/aws/aws-sdk-js-v3/commit/2da8b4cd3ee660dcb14ca79d77cf942bd3405349))

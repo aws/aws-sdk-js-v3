@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1063.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1062.0...v3.1063.0) (2026-06-05)
+
+
+### Bug Fixes
+
+* **core/httpAuthSchemes:** fix concurrent skew correction ([#8078](https://github.com/aws/aws-sdk-js-v3/issues/8078)) ([83e4892](https://github.com/aws/aws-sdk-js-v3/commit/83e48928b9f31c78c6c10adc2127d663837ddd2a))
+
+
+### Features
+
+* **client-dynamodb:** Adding new BDD representation of endpoint ruleset ([416005d](https://github.com/aws/aws-sdk-js-v3/commit/416005d46847152ba1a24e4ce3297f47469f685c))
+* **client-emr-serverless:** Adds support for updating max capacity and custom fields while application is started ([6c9cce0](https://github.com/aws/aws-sdk-js-v3/commit/6c9cce08f51a2b91ca5c7fc9dca2bfd293980546))
+* **client-mediaconvert:** Adds support for configurable number of Clear Lead segments at the beginning of encrypted output. Adds support for multiple trickplay variants. ([40eb4c6](https://github.com/aws/aws-sdk-js-v3/commit/40eb4c6b527bb508bc7bdb2402528cff5ed49198))
+* **client-payment-cryptography:** Adds CloudFormation support for resource-based policies on AWS Payment Cryptography keys. ([c32019a](https://github.com/aws/aws-sdk-js-v3/commit/c32019a8ffa7be444993d1ee8288d2c43c8a3f89))
+* **client-quicksight:** Adds support for Knowledge Base APIs and Index Capacity API ([8205152](https://github.com/aws/aws-sdk-js-v3/commit/8205152f535d2a38e0f0ea5e2d516ab8b484650d))
+* **client-sagemaker:** This release adds support for MLflow experiment tracking in SageMaker inference optimization. CreateAIRecommendationJob and CreateAIBenchmarkJob now accept an optional OutputConfig.MlflowConfig (MLflow App ARN, experiment, run name) to stream benchmark metrics and artifacts to your own MLflow App. ([3943044](https://github.com/aws/aws-sdk-js-v3/commit/394304420ef42ed5c8918990273788bfd69d5f5a))
+* **clients:** update client endpoints as of 2026-06-05 ([fe9a398](https://github.com/aws/aws-sdk-js-v3/commit/fe9a398fbfb3d324e4b67c7677fc63f62933f283))
+
+
+
+
+
 # [3.1062.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1061.0...v3.1062.0) (2026-06-04)
 
 
