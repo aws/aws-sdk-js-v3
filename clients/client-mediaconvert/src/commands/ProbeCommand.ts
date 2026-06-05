@@ -50,7 +50,7 @@ export interface ProbeCommandOutput extends ProbeResponse, __MetadataBearer {}
  * //     { // ProbeResult
  * //       Container: { // Container
  * //         Duration: Number("double"),
- * //         Format: "mp4" || "quicktime" || "matroska" || "webm" || "mxf" || "wave" || "avi" || "mpegts",
+ * //         Format: "mp4" || "quicktime" || "matroska" || "webm" || "mxf" || "wave" || "avi" || "mpegts" || "mpegps",
  * //         StartTimecode: "STRING_VALUE",
  * //         Tracks: [ // __listOfTrack
  * //           { // Track
@@ -63,9 +63,10 @@ export interface ProbeCommandOutput extends ProbeResponse, __MetadataBearer {}
  * //                 Numerator: Number("int"),
  * //               },
  * //               LanguageCode: "STRING_VALUE",
+ * //               ObjectCount: Number("int"),
  * //               SampleRate: Number("int"),
  * //             },
- * //             Codec: "UNKNOWN" || "AAC" || "AC3" || "EAC3" || "FLAC" || "MP3" || "OPUS" || "PCM" || "VORBIS" || "AV1" || "AVC" || "HEVC" || "JPEG2000" || "MJPEG" || "MPEG1" || "MP4V" || "MPEG2" || "PRORES" || "QTRLE" || "THEORA" || "UNCOMPRESSED" || "VFW" || "VP8" || "VP9" || "C608" || "C708" || "WEBVTT",
+ * //             Codec: "UNKNOWN" || "AAC" || "AC3" || "EAC3" || "FLAC" || "MP2" || "MP3" || "OPUS" || "PCM" || "VORBIS" || "AV1" || "AVC" || "HEVC" || "JPEG2000" || "MJPEG" || "MPEG1" || "MP4V" || "MPEG2" || "PRORES" || "QTRLE" || "THEORA" || "UNCOMPRESSED" || "VFW" || "VP8" || "VP9" || "C608" || "C708" || "WEBVTT",
  * //             DataProperties: { // DataProperties
  * //               LanguageCode: "STRING_VALUE",
  * //             },
@@ -83,10 +84,15 @@ export interface ProbeCommandOutput extends ProbeResponse, __MetadataBearer {}
  * //                   Numerator: Number("int"),
  * //                 },
  * //                 ColorPrimaries: "ITU_709" || "UNSPECIFIED" || "RESERVED" || "ITU_470M" || "ITU_470BG" || "SMPTE_170M" || "SMPTE_240M" || "GENERIC_FILM" || "ITU_2020" || "SMPTE_428_1" || "SMPTE_431_2" || "SMPTE_EG_432_1" || "IPT" || "SMPTE_2067XYZ" || "EBU_3213_E" || "LAST",
+ * //                 ContentLightLevel: { // ContentLightLevel
+ * //                   MaxContentLightLevel: Number("int"),
+ * //                   MaxFrameAverageLightLevel: Number("int"),
+ * //                 },
  * //                 Height: Number("int"),
  * //                 Level: "STRING_VALUE",
  * //                 MatrixCoefficients: "RGB" || "ITU_709" || "UNSPECIFIED" || "RESERVED" || "FCC" || "ITU_470BG" || "SMPTE_170M" || "SMPTE_240M" || "YCgCo" || "ITU_2020_NCL" || "ITU_2020_CL" || "SMPTE_2085" || "CD_NCL" || "CD_CL" || "ITU_2100ICtCp" || "IPT" || "EBU3213" || "LAST",
  * //                 Profile: "STRING_VALUE",
+ * //                 Rotation: Number("int"),
  * //                 ScanType: "STRING_VALUE",
  * //                 TransferCharacteristics: "ITU_709" || "UNSPECIFIED" || "RESERVED" || "ITU_470M" || "ITU_470BG" || "SMPTE_170M" || "SMPTE_240M" || "LINEAR" || "LOG10_2" || "LOC10_2_5" || "IEC_61966_2_4" || "ITU_1361" || "IEC_61966_2_1" || "ITU_2020_10bit" || "ITU_2020_12bit" || "SMPTE_2084" || "SMPTE_428_1" || "ARIB_B67" || "LAST",
  * //                 Width: Number("int"),
@@ -96,8 +102,27 @@ export interface ProbeCommandOutput extends ProbeResponse, __MetadataBearer {}
  * //                 Denominator: Number("int"),
  * //                 Numerator: Number("int"),
  * //               },
+ * //               HdrMetadata: { // HdrMetadata
+ * //                 ContentLightLevel: {
+ * //                   MaxContentLightLevel: Number("int"),
+ * //                   MaxFrameAverageLightLevel: Number("int"),
+ * //                 },
+ * //                 MasteringDisplayColorVolume: { // MasteringDisplayColorVolume
+ * //                   BluePrimaryX: Number("int"),
+ * //                   BluePrimaryY: Number("int"),
+ * //                   GreenPrimaryX: Number("int"),
+ * //                   GreenPrimaryY: Number("int"),
+ * //                   MaxLuminance: Number("long"),
+ * //                   MinLuminance: Number("long"),
+ * //                   RedPrimaryX: Number("int"),
+ * //                   RedPrimaryY: Number("int"),
+ * //                   WhitePointX: Number("int"),
+ * //                   WhitePointY: Number("int"),
+ * //                 },
+ * //               },
  * //               Height: Number("int"),
  * //               MatrixCoefficients: "RGB" || "ITU_709" || "UNSPECIFIED" || "RESERVED" || "FCC" || "ITU_470BG" || "SMPTE_170M" || "SMPTE_240M" || "YCgCo" || "ITU_2020_NCL" || "ITU_2020_CL" || "SMPTE_2085" || "CD_NCL" || "CD_CL" || "ITU_2100ICtCp" || "IPT" || "EBU3213" || "LAST",
+ * //               Rotation: Number("int"),
  * //               TransferCharacteristics: "ITU_709" || "UNSPECIFIED" || "RESERVED" || "ITU_470M" || "ITU_470BG" || "SMPTE_170M" || "SMPTE_240M" || "LINEAR" || "LOG10_2" || "LOC10_2_5" || "IEC_61966_2_4" || "ITU_1361" || "IEC_61966_2_1" || "ITU_2020_10bit" || "ITU_2020_12bit" || "SMPTE_2084" || "SMPTE_428_1" || "ARIB_B67" || "LAST",
  * //               Width: Number("int"),
  * //             },

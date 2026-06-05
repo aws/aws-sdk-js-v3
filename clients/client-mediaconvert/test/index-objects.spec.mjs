@@ -124,6 +124,7 @@ import {
   CmafGroupSettings$,
   CmafImageBasedTrickPlay,
   CmafImageBasedTrickPlaySettings$,
+  CmafImageBasedTrickPlayVariant$,
   CmafInitializationVectorInManifest,
   CmafIntervalCadence,
   CmafKeyProviderType,
@@ -167,6 +168,7 @@ import {
   Container$,
   ContainerSettings$,
   ContainerType,
+  ContentLightLevel$,
   CopyProtectionAction,
   CreateJob$,
   CreateJobCommand,
@@ -195,6 +197,7 @@ import {
   DashIsoHbbtvCompliance,
   DashIsoImageBasedTrickPlay,
   DashIsoImageBasedTrickPlaySettings$,
+  DashIsoImageBasedTrickPlayVariant$,
   DashIsoIntervalCadence,
   DashIsoMpdManifestBandwidthType,
   DashIsoMpdProfile,
@@ -410,6 +413,7 @@ import {
   H265WriteMp4PackagingType,
   Hdr10Metadata$,
   Hdr10Plus$,
+  HdrMetadata$,
   HDRToSDRToneMapper,
   HlsAdditionalManifest$,
   HlsAdMarkers,
@@ -419,7 +423,6 @@ import {
   HlsCaptionLanguageMapping$,
   HlsCaptionLanguageSetting,
   HlsCaptionSegmentLengthControl,
-  HlsClearLead,
   HlsClientCache,
   HlsCodecSpecification,
   HlsDescriptiveVideoServiceFlag,
@@ -430,6 +433,7 @@ import {
   HlsIFrameOnlyManifest,
   HlsImageBasedTrickPlay,
   HlsImageBasedTrickPlaySettings$,
+  HlsImageBasedTrickPlayVariant$,
   HlsInitializationVectorInManifest,
   HlsIntervalCadence,
   HlsKeyProviderType,
@@ -532,6 +536,7 @@ import {
   M3u8PcrControl,
   M3u8Scte35Source,
   M3u8Settings$,
+  MasteringDisplayColorVolume$,
   MatrixCoefficients,
   MediaConvert,
   MediaConvertClient,
@@ -954,12 +959,14 @@ assert(typeof CmafAdditionalManifest$ === "object");
 assert(typeof CmafEncryptionSettings$ === "object");
 assert(typeof CmafGroupSettings$ === "object");
 assert(typeof CmafImageBasedTrickPlaySettings$ === "object");
+assert(typeof CmafImageBasedTrickPlayVariant$ === "object");
 assert(typeof CmfcSettings$ === "object");
 assert(typeof CodecMetadata$ === "object");
 assert(typeof ColorConversion3DLUTSetting$ === "object");
 assert(typeof ColorCorrector$ === "object");
 assert(typeof Container$ === "object");
 assert(typeof ContainerSettings$ === "object");
+assert(typeof ContentLightLevel$ === "object");
 assert(typeof CreateJobRequest$ === "object");
 assert(typeof CreateJobResponse$ === "object");
 assert(typeof CreateJobTemplateRequest$ === "object");
@@ -974,6 +981,7 @@ assert(typeof DashAdditionalManifest$ === "object");
 assert(typeof DashIsoEncryptionSettings$ === "object");
 assert(typeof DashIsoGroupSettings$ === "object");
 assert(typeof DashIsoImageBasedTrickPlaySettings$ === "object");
+assert(typeof DashIsoImageBasedTrickPlayVariant$ === "object");
 assert(typeof DataProperties$ === "object");
 assert(typeof Deinterlacer$ === "object");
 assert(typeof DeleteJobTemplateRequest$ === "object");
@@ -1035,11 +1043,13 @@ assert(typeof H265QvbrSettings$ === "object");
 assert(typeof H265Settings$ === "object");
 assert(typeof Hdr10Metadata$ === "object");
 assert(typeof Hdr10Plus$ === "object");
+assert(typeof HdrMetadata$ === "object");
 assert(typeof HlsAdditionalManifest$ === "object");
 assert(typeof HlsCaptionLanguageMapping$ === "object");
 assert(typeof HlsEncryptionSettings$ === "object");
 assert(typeof HlsGroupSettings$ === "object");
 assert(typeof HlsImageBasedTrickPlaySettings$ === "object");
+assert(typeof HlsImageBasedTrickPlayVariant$ === "object");
 assert(typeof HlsRenditionGroupSettings$ === "object");
 assert(typeof HlsSettings$ === "object");
 assert(typeof HopDestination$ === "object");
@@ -1076,6 +1086,7 @@ assert(typeof ListVersionsResponse$ === "object");
 assert(typeof M2tsScte35Esam$ === "object");
 assert(typeof M2tsSettings$ === "object");
 assert(typeof M3u8Settings$ === "object");
+assert(typeof MasteringDisplayColorVolume$ === "object");
 assert(typeof Metadata$ === "object");
 assert(typeof MinBottomRenditionSize$ === "object");
 assert(typeof MinTopRenditionSize$ === "object");
@@ -1441,7 +1452,6 @@ assert(typeof HlsAudioOnlyHeader === "object");
 assert(typeof HlsAudioTrackType === "object");
 assert(typeof HlsCaptionLanguageSetting === "object");
 assert(typeof HlsCaptionSegmentLengthControl === "object");
-assert(typeof HlsClearLead === "object");
 assert(typeof HlsClientCache === "object");
 assert(typeof HlsCodecSpecification === "object");
 assert(typeof HlsDescriptiveVideoServiceFlag === "object");

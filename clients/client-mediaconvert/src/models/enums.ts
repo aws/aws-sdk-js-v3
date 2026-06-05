@@ -1538,6 +1538,20 @@ export type WebvttStylePassthrough = (typeof WebvttStylePassthrough)[keyof typeo
  * @public
  * @enum
  */
+export const CmafIntervalCadence = {
+  FOLLOW_CUSTOM: "FOLLOW_CUSTOM",
+  FOLLOW_IFRAME: "FOLLOW_IFRAME",
+  FOLLOW_SEGMENTATION: "FOLLOW_SEGMENTATION",
+} as const;
+/**
+ * @public
+ */
+export type CmafIntervalCadence = (typeof CmafIntervalCadence)[keyof typeof CmafIntervalCadence];
+
+/**
+ * @public
+ * @enum
+ */
 export const ColorSpace = {
   FOLLOW: "FOLLOW",
   HDR10: "HDR10",
@@ -1552,6 +1566,20 @@ export const ColorSpace = {
  * @public
  */
 export type ColorSpace = (typeof ColorSpace)[keyof typeof ColorSpace];
+
+/**
+ * @public
+ * @enum
+ */
+export const DashIsoIntervalCadence = {
+  FOLLOW_CUSTOM: "FOLLOW_CUSTOM",
+  FOLLOW_IFRAME: "FOLLOW_IFRAME",
+  FOLLOW_SEGMENTATION: "FOLLOW_SEGMENTATION",
+} as const;
+/**
+ * @public
+ */
+export type DashIsoIntervalCadence = (typeof DashIsoIntervalCadence)[keyof typeof DashIsoIntervalCadence];
 
 /**
  * @public
@@ -1611,6 +1639,20 @@ export const HlsAdMarkers = {
  * @public
  */
 export type HlsAdMarkers = (typeof HlsAdMarkers)[keyof typeof HlsAdMarkers];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsIntervalCadence = {
+  FOLLOW_CUSTOM: "FOLLOW_CUSTOM",
+  FOLLOW_IFRAME: "FOLLOW_IFRAME",
+  FOLLOW_SEGMENTATION: "FOLLOW_SEGMENTATION",
+} as const;
+/**
+ * @public
+ */
+export type HlsIntervalCadence = (typeof HlsIntervalCadence)[keyof typeof HlsIntervalCadence];
 
 /**
  * @public
@@ -2330,19 +2372,6 @@ export type S3StorageClass = (typeof S3StorageClass)[keyof typeof S3StorageClass
  * @public
  * @enum
  */
-export const HlsClearLead = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-/**
- * @public
- */
-export type HlsClearLead = (typeof HlsClearLead)[keyof typeof HlsClearLead];
-
-/**
- * @public
- * @enum
- */
 export const CmafEncryptionType = {
   AES_CTR: "AES_CTR",
   SAMPLE_AES: "SAMPLE_AES",
@@ -2425,25 +2454,12 @@ export const CmafImageBasedTrickPlay = {
   NONE: "NONE",
   THUMBNAIL: "THUMBNAIL",
   THUMBNAIL_AND_FULLFRAME: "THUMBNAIL_AND_FULLFRAME",
+  VARIANTS: "VARIANTS",
 } as const;
 /**
  * @public
  */
 export type CmafImageBasedTrickPlay = (typeof CmafImageBasedTrickPlay)[keyof typeof CmafImageBasedTrickPlay];
-
-/**
- * @public
- * @enum
- */
-export const CmafIntervalCadence = {
-  FOLLOW_CUSTOM: "FOLLOW_CUSTOM",
-  FOLLOW_IFRAME: "FOLLOW_IFRAME",
-  FOLLOW_SEGMENTATION: "FOLLOW_SEGMENTATION",
-} as const;
-/**
- * @public
- */
-export type CmafIntervalCadence = (typeof CmafIntervalCadence)[keyof typeof CmafIntervalCadence];
 
 /**
  * @public
@@ -2670,25 +2686,12 @@ export const DashIsoImageBasedTrickPlay = {
   NONE: "NONE",
   THUMBNAIL: "THUMBNAIL",
   THUMBNAIL_AND_FULLFRAME: "THUMBNAIL_AND_FULLFRAME",
+  VARIANTS: "VARIANTS",
 } as const;
 /**
  * @public
  */
 export type DashIsoImageBasedTrickPlay = (typeof DashIsoImageBasedTrickPlay)[keyof typeof DashIsoImageBasedTrickPlay];
-
-/**
- * @public
- * @enum
- */
-export const DashIsoIntervalCadence = {
-  FOLLOW_CUSTOM: "FOLLOW_CUSTOM",
-  FOLLOW_IFRAME: "FOLLOW_IFRAME",
-  FOLLOW_SEGMENTATION: "FOLLOW_SEGMENTATION",
-} as const;
-/**
- * @public
- */
-export type DashIsoIntervalCadence = (typeof DashIsoIntervalCadence)[keyof typeof DashIsoIntervalCadence];
 
 /**
  * @public
@@ -2929,25 +2932,12 @@ export const HlsImageBasedTrickPlay = {
   NONE: "NONE",
   THUMBNAIL: "THUMBNAIL",
   THUMBNAIL_AND_FULLFRAME: "THUMBNAIL_AND_FULLFRAME",
+  VARIANTS: "VARIANTS",
 } as const;
 /**
  * @public
  */
 export type HlsImageBasedTrickPlay = (typeof HlsImageBasedTrickPlay)[keyof typeof HlsImageBasedTrickPlay];
-
-/**
- * @public
- * @enum
- */
-export const HlsIntervalCadence = {
-  FOLLOW_CUSTOM: "FOLLOW_CUSTOM",
-  FOLLOW_IFRAME: "FOLLOW_IFRAME",
-  FOLLOW_SEGMENTATION: "FOLLOW_SEGMENTATION",
-} as const;
-/**
- * @public
- */
-export type HlsIntervalCadence = (typeof HlsIntervalCadence)[keyof typeof HlsIntervalCadence];
 
 /**
  * @public
@@ -6643,6 +6633,7 @@ export const Format = {
   avi: "avi",
   matroska: "matroska",
   mp4: "mp4",
+  mpegps: "mpegps",
   mpegts: "mpegts",
   mxf: "mxf",
   quicktime: "quicktime",
@@ -6670,6 +6661,7 @@ export const Codec = {
   HEVC: "HEVC",
   JPEG2000: "JPEG2000",
   MJPEG: "MJPEG",
+  MP2: "MP2",
   MP3: "MP3",
   MP4V: "MP4V",
   MPEG1: "MPEG1",

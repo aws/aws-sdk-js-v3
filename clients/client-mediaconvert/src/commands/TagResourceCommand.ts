@@ -27,7 +27,7 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * Add tags to a MediaConvert queue, preset, or job template. For information about tagging, see the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/tagging-resources.html
+ * Add tags to a MediaConvert queue, preset, job, or job template. For information about tagging, see the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/tagging-mediaconvert-resources.html.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -481,7 +481,7 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  *               },
  *             },
  *             Encryption: { // CmafEncryptionSettings
- *               ClearLead: "ENABLED" || "DISABLED",
+ *               ClearLeadSegments: Number("int"),
  *               ConstantInitializationVector: "STRING_VALUE",
  *               EncryptionMethod: "SAMPLE_AES" || "AES_CTR",
  *               InitializationVectorInManifest: "INCLUDE" || "EXCLUDE",
@@ -509,7 +509,7 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  *               Type: "SPEKE" || "STATIC_KEY",
  *             },
  *             FragmentLength: Number("int"),
- *             ImageBasedTrickPlay: "NONE" || "THUMBNAIL" || "THUMBNAIL_AND_FULLFRAME" || "ADVANCED",
+ *             ImageBasedTrickPlay: "NONE" || "THUMBNAIL" || "THUMBNAIL_AND_FULLFRAME" || "ADVANCED" || "VARIANTS",
  *             ImageBasedTrickPlaySettings: { // CmafImageBasedTrickPlaySettings
  *               IntervalCadence: "FOLLOW_IFRAME" || "FOLLOW_CUSTOM" || "FOLLOW_SEGMENTATION",
  *               ThumbnailHeight: Number("int"),
@@ -518,6 +518,16 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  *               TileHeight: Number("int"),
  *               TileWidth: Number("int"),
  *             },
+ *             ImageBasedTrickPlayVariants: [ // __listOfCmafImageBasedTrickPlayVariant
+ *               { // CmafImageBasedTrickPlayVariant
+ *                 IntervalCadence: "FOLLOW_IFRAME" || "FOLLOW_CUSTOM" || "FOLLOW_SEGMENTATION",
+ *                 ThumbnailHeight: Number("int"),
+ *                 ThumbnailInterval: Number("double"),
+ *                 ThumbnailWidth: Number("int"),
+ *                 TileHeight: Number("int"),
+ *                 TileWidth: Number("int"),
+ *               },
+ *             ],
  *             ManifestCompression: "GZIP" || "NONE",
  *             ManifestDurationFormat: "FLOATING_POINT" || "INTEGER",
  *             MinBufferTime: Number("int"),
@@ -579,7 +589,7 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  *             },
  *             FragmentLength: Number("int"),
  *             HbbtvCompliance: "HBBTV_1_5" || "NONE",
- *             ImageBasedTrickPlay: "NONE" || "THUMBNAIL" || "THUMBNAIL_AND_FULLFRAME" || "ADVANCED",
+ *             ImageBasedTrickPlay: "NONE" || "THUMBNAIL" || "THUMBNAIL_AND_FULLFRAME" || "ADVANCED" || "VARIANTS",
  *             ImageBasedTrickPlaySettings: { // DashIsoImageBasedTrickPlaySettings
  *               IntervalCadence: "FOLLOW_IFRAME" || "FOLLOW_CUSTOM" || "FOLLOW_SEGMENTATION",
  *               ThumbnailHeight: Number("int"),
@@ -588,6 +598,16 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  *               TileHeight: Number("int"),
  *               TileWidth: Number("int"),
  *             },
+ *             ImageBasedTrickPlayVariants: [ // __listOfDashIsoImageBasedTrickPlayVariant
+ *               { // DashIsoImageBasedTrickPlayVariant
+ *                 IntervalCadence: "FOLLOW_IFRAME" || "FOLLOW_CUSTOM" || "FOLLOW_SEGMENTATION",
+ *                 ThumbnailHeight: Number("int"),
+ *                 ThumbnailInterval: Number("double"),
+ *                 ThumbnailWidth: Number("int"),
+ *                 TileHeight: Number("int"),
+ *                 TileWidth: Number("int"),
+ *               },
+ *             ],
  *             MinBufferTime: Number("int"),
  *             MinFinalSegmentLength: Number("double"),
  *             MpdManifestBandwidthType: "AVERAGE" || "MAX",
@@ -681,7 +701,7 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  *               },
  *               Type: "SPEKE" || "STATIC_KEY",
  *             },
- *             ImageBasedTrickPlay: "NONE" || "THUMBNAIL" || "THUMBNAIL_AND_FULLFRAME" || "ADVANCED",
+ *             ImageBasedTrickPlay: "NONE" || "THUMBNAIL" || "THUMBNAIL_AND_FULLFRAME" || "ADVANCED" || "VARIANTS",
  *             ImageBasedTrickPlaySettings: { // HlsImageBasedTrickPlaySettings
  *               IntervalCadence: "FOLLOW_IFRAME" || "FOLLOW_CUSTOM" || "FOLLOW_SEGMENTATION",
  *               ThumbnailHeight: Number("int"),
@@ -690,6 +710,16 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  *               TileHeight: Number("int"),
  *               TileWidth: Number("int"),
  *             },
+ *             ImageBasedTrickPlayVariants: [ // __listOfHlsImageBasedTrickPlayVariant
+ *               { // HlsImageBasedTrickPlayVariant
+ *                 IntervalCadence: "FOLLOW_IFRAME" || "FOLLOW_CUSTOM" || "FOLLOW_SEGMENTATION",
+ *                 ThumbnailHeight: Number("int"),
+ *                 ThumbnailInterval: Number("double"),
+ *                 ThumbnailWidth: Number("int"),
+ *                 TileHeight: Number("int"),
+ *                 TileWidth: Number("int"),
+ *               },
+ *             ],
  *             ManifestCompression: "GZIP" || "NONE",
  *             ManifestDurationFormat: "FLOATING_POINT" || "INTEGER",
  *             MinFinalSegmentLength: Number("double"),
@@ -2109,7 +2139,7 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * //                 },
  * //               },
  * //               Encryption: { // CmafEncryptionSettings
- * //                 ClearLead: "ENABLED" || "DISABLED",
+ * //                 ClearLeadSegments: Number("int"),
  * //                 ConstantInitializationVector: "STRING_VALUE",
  * //                 EncryptionMethod: "SAMPLE_AES" || "AES_CTR",
  * //                 InitializationVectorInManifest: "INCLUDE" || "EXCLUDE",
@@ -2137,7 +2167,7 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * //                 Type: "SPEKE" || "STATIC_KEY",
  * //               },
  * //               FragmentLength: Number("int"),
- * //               ImageBasedTrickPlay: "NONE" || "THUMBNAIL" || "THUMBNAIL_AND_FULLFRAME" || "ADVANCED",
+ * //               ImageBasedTrickPlay: "NONE" || "THUMBNAIL" || "THUMBNAIL_AND_FULLFRAME" || "ADVANCED" || "VARIANTS",
  * //               ImageBasedTrickPlaySettings: { // CmafImageBasedTrickPlaySettings
  * //                 IntervalCadence: "FOLLOW_IFRAME" || "FOLLOW_CUSTOM" || "FOLLOW_SEGMENTATION",
  * //                 ThumbnailHeight: Number("int"),
@@ -2146,6 +2176,16 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * //                 TileHeight: Number("int"),
  * //                 TileWidth: Number("int"),
  * //               },
+ * //               ImageBasedTrickPlayVariants: [ // __listOfCmafImageBasedTrickPlayVariant
+ * //                 { // CmafImageBasedTrickPlayVariant
+ * //                   IntervalCadence: "FOLLOW_IFRAME" || "FOLLOW_CUSTOM" || "FOLLOW_SEGMENTATION",
+ * //                   ThumbnailHeight: Number("int"),
+ * //                   ThumbnailInterval: Number("double"),
+ * //                   ThumbnailWidth: Number("int"),
+ * //                   TileHeight: Number("int"),
+ * //                   TileWidth: Number("int"),
+ * //                 },
+ * //               ],
  * //               ManifestCompression: "GZIP" || "NONE",
  * //               ManifestDurationFormat: "FLOATING_POINT" || "INTEGER",
  * //               MinBufferTime: Number("int"),
@@ -2207,7 +2247,7 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * //               },
  * //               FragmentLength: Number("int"),
  * //               HbbtvCompliance: "HBBTV_1_5" || "NONE",
- * //               ImageBasedTrickPlay: "NONE" || "THUMBNAIL" || "THUMBNAIL_AND_FULLFRAME" || "ADVANCED",
+ * //               ImageBasedTrickPlay: "NONE" || "THUMBNAIL" || "THUMBNAIL_AND_FULLFRAME" || "ADVANCED" || "VARIANTS",
  * //               ImageBasedTrickPlaySettings: { // DashIsoImageBasedTrickPlaySettings
  * //                 IntervalCadence: "FOLLOW_IFRAME" || "FOLLOW_CUSTOM" || "FOLLOW_SEGMENTATION",
  * //                 ThumbnailHeight: Number("int"),
@@ -2216,6 +2256,16 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * //                 TileHeight: Number("int"),
  * //                 TileWidth: Number("int"),
  * //               },
+ * //               ImageBasedTrickPlayVariants: [ // __listOfDashIsoImageBasedTrickPlayVariant
+ * //                 { // DashIsoImageBasedTrickPlayVariant
+ * //                   IntervalCadence: "FOLLOW_IFRAME" || "FOLLOW_CUSTOM" || "FOLLOW_SEGMENTATION",
+ * //                   ThumbnailHeight: Number("int"),
+ * //                   ThumbnailInterval: Number("double"),
+ * //                   ThumbnailWidth: Number("int"),
+ * //                   TileHeight: Number("int"),
+ * //                   TileWidth: Number("int"),
+ * //                 },
+ * //               ],
  * //               MinBufferTime: Number("int"),
  * //               MinFinalSegmentLength: Number("double"),
  * //               MpdManifestBandwidthType: "AVERAGE" || "MAX",
@@ -2309,7 +2359,7 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * //                 },
  * //                 Type: "SPEKE" || "STATIC_KEY",
  * //               },
- * //               ImageBasedTrickPlay: "NONE" || "THUMBNAIL" || "THUMBNAIL_AND_FULLFRAME" || "ADVANCED",
+ * //               ImageBasedTrickPlay: "NONE" || "THUMBNAIL" || "THUMBNAIL_AND_FULLFRAME" || "ADVANCED" || "VARIANTS",
  * //               ImageBasedTrickPlaySettings: { // HlsImageBasedTrickPlaySettings
  * //                 IntervalCadence: "FOLLOW_IFRAME" || "FOLLOW_CUSTOM" || "FOLLOW_SEGMENTATION",
  * //                 ThumbnailHeight: Number("int"),
@@ -2318,6 +2368,16 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * //                 TileHeight: Number("int"),
  * //                 TileWidth: Number("int"),
  * //               },
+ * //               ImageBasedTrickPlayVariants: [ // __listOfHlsImageBasedTrickPlayVariant
+ * //                 { // HlsImageBasedTrickPlayVariant
+ * //                   IntervalCadence: "FOLLOW_IFRAME" || "FOLLOW_CUSTOM" || "FOLLOW_SEGMENTATION",
+ * //                   ThumbnailHeight: Number("int"),
+ * //                   ThumbnailInterval: Number("double"),
+ * //                   ThumbnailWidth: Number("int"),
+ * //                   TileHeight: Number("int"),
+ * //                   TileWidth: Number("int"),
+ * //                 },
+ * //               ],
  * //               ManifestCompression: "GZIP" || "NONE",
  * //               ManifestDurationFormat: "FLOATING_POINT" || "INTEGER",
  * //               MinFinalSegmentLength: Number("double"),
