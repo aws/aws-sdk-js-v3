@@ -24,7 +24,7 @@
   "sideEffects": false,
   "author": {
     "name": "AWS SDK for JavaScript Team",
-    "url": "https://docs.aws.amazon.com/sdk-for-javascript/"
+    "url": "https://aws.amazon.com/sdk-for-javascript/"
   },
   "license": "Apache-2.0",
   "dependencies": {
