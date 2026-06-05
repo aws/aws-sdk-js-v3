@@ -35,6 +35,7 @@ import {
   AICapacityReservationPreference,
   AICloudWatchLogs$,
   AIDatasetConfig$,
+  AIMlflowConfig$,
   AIModelSource$,
   AIModelSourceS3$,
   AIRecommendation$,
@@ -3665,6 +3666,7 @@ assert(typeof AIBenchmarkTarget$ === "object");
 assert(typeof AICapacityReservationConfig$ === "object");
 assert(typeof AICloudWatchLogs$ === "object");
 assert(typeof AIDatasetConfig$ === "object");
+assert(typeof AIMlflowConfig$ === "object");
 assert(typeof AIModelSource$ === "object");
 assert(typeof AIModelSourceS3$ === "object");
 assert(typeof AIRecommendation$ === "object");

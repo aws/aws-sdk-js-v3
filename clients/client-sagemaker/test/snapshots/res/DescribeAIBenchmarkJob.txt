@@ -16,7 +16,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       {},
       {},
       {}
-    ]
+    ],
+    "MlflowConfig": {
+      "MlflowResourceArn": "__MlflowResourceArn__",
+      "MlflowExperimentName": "__MlflowExperimentName__",
+      "MlflowRunName": "__MlflowRunName__"
+    }
   },
   "AIWorkloadConfigIdentifier": "__AIWorkloadConfigIdentifier__",
   "RoleArn": "__RoleArn__",
@@ -54,7 +59,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       {},
       {},
       {}
-    ]
+    ],
+    MlflowConfig: {
+      MlflowResourceArn: "__MlflowResourceArn__",
+      MlflowExperimentName: "__MlflowExperimentName__",
+      MlflowRunName: "__MlflowRunName__"
+    }
   },
   AIWorkloadConfigIdentifier: "__AIWorkloadConfigIdentifier__",
   RoleArn: "__RoleArn__",
@@ -130,7 +140,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "LogGroupArn": "__LogGroupArn__",
         "LogStreamName": "__LogStreamName__"
       }
-    ]
+    ],
+    "MlflowConfig": {
+      "MlflowResourceArn": "__MlflowResourceArn__",
+      "MlflowExperimentName": "__MlflowExperimentName__",
+      "MlflowRunName": "__MlflowRunName__"
+    }
   },
   "AIWorkloadConfigIdentifier": "__AIWorkloadConfigIdentifier__",
   "RoleArn": "__RoleArn__",
@@ -206,7 +221,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         LogGroupArn: "__LogGroupArn__",
         LogStreamName: "__LogStreamName__"
       }
-    ]
+    ],
+    MlflowConfig: {
+      MlflowResourceArn: "__MlflowResourceArn__",
+      MlflowExperimentName: "__MlflowExperimentName__",
+      MlflowRunName: "__MlflowRunName__"
+    }
   },
   AIWorkloadConfigIdentifier: "__AIWorkloadConfigIdentifier__",
   RoleArn: "__RoleArn__",

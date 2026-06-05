@@ -159,7 +159,6 @@ import type {
   CodeRepository,
   CollectionConfig,
   ComputeQuotaConfig,
-  ComputeQuotaTarget,
   CustomImage,
   GitConfig,
   InferenceSpecification,
@@ -176,6 +175,24 @@ import type {
   TransformJobDefinition,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * <p>The target entity to allocate compute resources to.</p>
+ * @public
+ */
+export interface ComputeQuotaTarget {
+  /**
+   * <p>Name of the team to allocate compute resources to.</p>
+   * @public
+   */
+  TeamName: string | undefined;
+
+  /**
+   * <p>Assigned entity fair-share weight. Idle compute will be shared across entities based on these assigned weights. This weight is only used when <code>FairShare</code> is enabled.</p> <p>A weight of 0 is the lowest priority and 100 is the highest. Weight 0 is the default.</p>
+   * @public
+   */
+  FairShareWeight?: number | undefined;
+}
 
 /**
  * <p>Summary of the compute allocation definition.</p>
@@ -8420,24 +8437,6 @@ export interface ModelCompilationConfig {
  * @public
  */
 export interface ModelQuantizationConfig {
-  /**
-   * <p>The URI of an LMI DLC in Amazon ECR. SageMaker uses this image to run the optimization.</p>
-   * @public
-   */
-  Image?: string | undefined;
-
-  /**
-   * <p>Environment variables that override the default ones in the model container.</p>
-   * @public
-   */
-  OverrideEnvironment?: Record<string, string> | undefined;
-}
-
-/**
- * <p>Settings for the model sharding technique that's applied by a model optimization job.</p>
- * @public
- */
-export interface ModelShardingConfig {
   /**
    * <p>The URI of an LMI DLC in Amazon ECR. SageMaker uses this image to run the optimization.</p>
    * @public

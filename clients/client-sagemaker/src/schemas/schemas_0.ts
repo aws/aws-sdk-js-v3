@@ -66,6 +66,7 @@ const _AICp = "AppImageConfigs";
 const _AICv = "AvailableInstanceCount";
 const _AIDC = "AIDatasetConfig";
 const _AIL = "AssociationInfoList";
+const _AIMC = "AIMlflowConfig";
 const _AIMS = "AIModelSource";
 const _AIMSS = "AIModelSourceS3";
 const _AINC = "AsyncInferenceNotificationConfig";
@@ -2263,7 +2264,7 @@ const _MBC = "MonitoringBaselineConfig";
 const _MBJI = "ModelBiasJobInput";
 const _MBJOC = "ModelBiasJobOutputConfig";
 const _MBS = "MaximumBatchSize";
-const _MC = "MaxCandidates";
+const _MC = "MlflowConfig";
 const _MCA = "ModelCardArn";
 const _MCC = "ModelCardContent";
 const _MCCo = "ModelClientConfig";
@@ -2293,14 +2294,14 @@ const _MCTC = "MaxConcurrentTaskCount";
 const _MCV = "ModelCardVersion";
 const _MCVS = "ModelCardVersionSummary";
 const _MCVSL = "ModelCardVersionSummaryList";
-const _MCa = "ManagedConfiguration";
+const _MCa = "MaxCandidates";
 const _MCai = "MaintenanceConfig";
+const _MCan = "ManagedConfiguration";
 const _MCax = "MaxCapacity";
 const _MCaxo = "MaxConcurrency";
 const _MCe = "MetricsConfig";
 const _MCi = "MinCount";
 const _MCin = "MinCapacity";
-const _MCl = "MlflowConfig";
 const _MCo = "ModelConfigs";
 const _MCod = "ModelCard";
 const _MCode = "ModelConfiguration";
@@ -3839,13 +3840,13 @@ export var AIBenchmarkNetworkConfig$: StaticStructureSchema = [3, n0, _AIBNC,
 ];
 export var AIBenchmarkOutputConfig$: StaticStructureSchema = [3, n0, _AIBOC,
   0,
-  [_SOL],
-  [0], 1
+  [_SOL, _MC],
+  [0, () => AIMlflowConfig$], 1
 ];
 export var AIBenchmarkOutputResult$: StaticStructureSchema = [3, n0, _AIBOR,
   0,
-  [_SOL, _CWL],
-  [0, () => AICloudWatchLogsList], 1
+  [_SOL, _CWL, _MC],
+  [0, () => AICloudWatchLogsList, () => AIMlflowConfig$], 1
 ];
 export var AICapacityReservationConfig$: StaticStructureSchema = [3, n0, _AICRC,
   0,
@@ -3856,6 +3857,11 @@ export var AICloudWatchLogs$: StaticStructureSchema = [3, n0, _AICWL,
   0,
   [_LGA, _LSN],
   [0, 0]
+];
+export var AIMlflowConfig$: StaticStructureSchema = [3, n0, _AIMC,
+  0,
+  [_MRAl, _MEN, _MRN],
+  [0, 0, 0], 1
 ];
 export var AIModelSourceS3$: StaticStructureSchema = [3, n0, _AIMSS,
   0,
@@ -3914,13 +3920,13 @@ export var AIRecommendationOptimizationDetail$: StaticStructureSchema = [3, n0, 
 ];
 export var AIRecommendationOutputConfig$: StaticStructureSchema = [3, n0, _AIROC,
   0,
-  [_SOL, _MPGI],
-  [0, 0]
+  [_SOL, _MPGI, _MC],
+  [0, 0, () => AIMlflowConfig$]
 ];
 export var AIRecommendationOutputResult$: StaticStructureSchema = [3, n0, _AIROR,
   0,
-  [_SOL, _MPGI],
-  [0, 0], 1
+  [_SOL, _MPGI, _MC],
+  [0, 0, () => AIMlflowConfig$], 1
 ];
 export var AIRecommendationPerformanceMetric$: StaticStructureSchema = [3, n0, _AIRPM,
   0,
@@ -4159,7 +4165,7 @@ export var AutoMLJobChannel$: StaticStructureSchema = [3, n0, _AMLJC,
 ];
 export var AutoMLJobCompletionCriteria$: StaticStructureSchema = [3, n0, _AMLJCC,
   0,
-  [_MC, _MRPTJIS, _MAMLJRIS],
+  [_MCa, _MRPTJIS, _MAMLJRIS],
   [1, 1, 1]
 ];
 export var AutoMLJobConfig$: StaticStructureSchema = [3, n0, _AMLJCu,
@@ -5274,7 +5280,7 @@ export var CreateModelOutput$: StaticStructureSchema = [3, n0, _CMO,
 ];
 export var CreateModelPackageGroupInput$: StaticStructureSchema = [3, n0, _CMPGI,
   0,
-  [_MPGN, _MPGD, _Ta, _MCa],
+  [_MPGN, _MPGD, _Ta, _MCan],
   [0, 0, () => TagList, () => ManagedConfiguration$], 1
 ];
 export var CreateModelPackageGroupOutput$: StaticStructureSchema = [3, n0, _CMPGO,
@@ -5459,7 +5465,7 @@ export var CreateTemplateProvider$: StaticStructureSchema = [3, n0, _CTP,
 ];
 export var CreateTrainingJobRequest$: StaticStructureSchema = [3, n0, _CTJR,
   0,
-  [_TJN, _RAo, _ODC, _HP, _ASl, _IDC, _RCe, _VC, _SCt, _Ta, _ENI, _EICTE, _EMST, _CCh, _DHC, _DRC, _TBOC, _ECxp, _PCr, _PRC, _E, _RSe, _RDC, _ICC, _SCC, _SJC, _MCl, _MPC],
+  [_TJN, _RAo, _ODC, _HP, _ASl, _IDC, _RCe, _VC, _SCt, _Ta, _ENI, _EICTE, _EMST, _CCh, _DHC, _DRC, _TBOC, _ECxp, _PCr, _PRC, _E, _RSe, _RDC, _ICC, _SCC, _SJC, _MC, _MPC],
   [0, 0, () => OutputDataConfig$, 128 | 0, () => AlgorithmSpecification$, () => InputDataConfig, () => ResourceConfig$, () => VpcConfig$, () => StoppingCondition$, () => TagList, 2, 2, 2, () => CheckpointConfig$, () => DebugHookConfig$, () => DebugRuleConfigurations, () => TensorBoardOutputConfig$, () => ExperimentConfig$, () => ProfilerConfig$, () => ProfilerRuleConfigurations, 128 | 0, () => RetryStrategy$, () => RemoteDebugConfig$, () => InfraCheckConfig$, () => SessionChainingConfig$, () => ServerlessJobConfig$, () => MlflowConfig$, () => ModelPackageConfig$], 3
 ];
 export var CreateTrainingJobResponse$: StaticStructureSchema = [3, n0, _CTJRr,
@@ -6609,7 +6615,7 @@ export var DescribeModelPackageGroupInput$: StaticStructureSchema = [3, n0, _DMP
 ];
 export var DescribeModelPackageGroupOutput$: StaticStructureSchema = [3, n0, _DMPGO,
   0,
-  [_MPGN, _MPGA, _CT, _CB, _MPGS, _MPGD, _MCa],
+  [_MPGN, _MPGA, _CT, _CB, _MPGS, _MPGD, _MCan],
   [0, 0, 4, () => UserContext$, 0, 0, () => ManagedConfiguration$], 5
 ];
 export var DescribeModelPackageInput$: StaticStructureSchema = [3, n0, _DMPIe,
@@ -6779,7 +6785,7 @@ export var DescribeTrainingJobRequest$: StaticStructureSchema = [3, n0, _DTJRe,
 ];
 export var DescribeTrainingJobResponse$: StaticStructureSchema = [3, n0, _DTJRes,
   0,
-  [_TJN, _TJA, _MAo, _TJS, _SSe, _SCt, _CT, _TJAu, _LJA, _AMLJAu, _FR, _HP, _ASl, _RAo, _IDC, _ODC, _RCe, _WPS, _VC, _TST, _TET, _LMT, _SST, _FMDL, _ENI, _EICTE, _EMST, _CCh, _TTIS, _BTIS, _BTC, _DHC, _ECxp, _DRC, _TBOC, _DRESe, _PCr, _PRC, _PRES, _PSro, _E, _RSe, _RDC, _ICC, _SJC, _MCl, _MPC, _MDl, _PIrog, _OMPA],
+  [_TJN, _TJA, _MAo, _TJS, _SSe, _SCt, _CT, _TJAu, _LJA, _AMLJAu, _FR, _HP, _ASl, _RAo, _IDC, _ODC, _RCe, _WPS, _VC, _TST, _TET, _LMT, _SST, _FMDL, _ENI, _EICTE, _EMST, _CCh, _TTIS, _BTIS, _BTC, _DHC, _ECxp, _DRC, _TBOC, _DRESe, _PCr, _PRC, _PRES, _PSro, _E, _RSe, _RDC, _ICC, _SJC, _MC, _MPC, _MDl, _PIrog, _OMPA],
   [0, 0, () => ModelArtifacts$, 0, 0, () => StoppingCondition$, 4, 0, 0, 0, 0, 128 | 0, () => AlgorithmSpecification$, 0, () => InputDataConfig, () => OutputDataConfig$, () => ResourceConfig$, () => WarmPoolStatus$, () => VpcConfig$, 4, 4, 4, () => SecondaryStatusTransitions, () => FinalMetricDataList, 2, 2, 2, () => CheckpointConfig$, 1, 1, 1, () => DebugHookConfig$, () => ExperimentConfig$, () => DebugRuleConfigurations, () => TensorBoardOutputConfig$, () => DebugRuleEvaluationStatuses, () => ProfilerConfig$, () => ProfilerRuleConfigurations, () => ProfilerRuleEvaluationStatuses, 0, 128 | 0, () => RetryStrategy$, () => RemoteDebugConfig$, () => InfraCheckConfig$, () => ServerlessJobConfig$, () => MlflowConfig$, () => ModelPackageConfig$, () => MlflowDetails$, () => TrainingProgressInfo$, 0], 7
 ];
 export var DescribeTrainingPlanExtensionHistoryRequest$: StaticStructureSchema = [3, n0, _DTPEHR,
@@ -8822,7 +8828,7 @@ export var ListWorkteamsResponse$: StaticStructureSchema = [3, n0, _LWRist,
   [_Work, _NTe],
   [() => Workteams, 0], 1
 ];
-export var ManagedConfiguration$: StaticStructureSchema = [3, n0, _MCa,
+export var ManagedConfiguration$: StaticStructureSchema = [3, n0, _MCan,
   0,
   [_MST],
   [0]
@@ -8867,7 +8873,7 @@ export var MlflowAppSummary$: StaticStructureSchema = [3, n0, _MASl,
   [_Ar, _N, _St, _CT, _LMT, _MVl],
   [0, 0, 0, 4, 4, 0]
 ];
-export var MlflowConfig$: StaticStructureSchema = [3, n0, _MCl,
+export var MlflowConfig$: StaticStructureSchema = [3, n0, _MC,
   0,
   [_MRAl, _MEN, _MRN],
   [0, 0, 0], 1
@@ -9089,7 +9095,7 @@ export var ModelPackageGroup$: StaticStructureSchema = [3, n0, _MPG,
 ];
 export var ModelPackageGroupSummary$: StaticStructureSchema = [3, n0, _MPGSo,
   0,
-  [_MPGN, _MPGA, _CT, _MPGS, _MPGD, _MCa],
+  [_MPGN, _MPGA, _CT, _MPGS, _MPGD, _MCan],
   [0, 0, 4, 0, 0, () => ManagedConfiguration$], 4
 ];
 export var ModelPackageModelCard$: StaticStructureSchema = [3, n0, _MPMC,

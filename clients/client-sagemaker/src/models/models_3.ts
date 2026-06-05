@@ -300,6 +300,17 @@ import type {
 } from "./models_2";
 
 /**
+ * @public
+ */
+export interface DescribeInferenceComponentInput {
+  /**
+   * <p>The name of the inference component.</p>
+   * @public
+   */
+  InferenceComponentName: string | undefined;
+}
+
+/**
  * <p>Specifies the type and size of the endpoint capacity to activate for a rolling deployment or a rollback strategy. You can specify your batches as either of the following:</p> <ul> <li> <p>A count of inference component copies </p> </li> <li> <p>The overall percentage or your fleet </p> </li> </ul> <p>For a rollback strategy, if you don't specify the fields in this object, or if you set the <code>Value</code> parameter to 100%, then SageMaker AI uses a blue/green rollback strategy and rolls all traffic back to the blue fleet.</p>
  * @public
  */
@@ -11758,41 +11769,6 @@ export interface ListInferenceRecommendationsJobsResponse {
 
   /**
    * <p>A token for getting the next set of recommendations, if there are any.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListInferenceRecommendationsJobStepsRequest {
-  /**
-   * <p>The name for the Inference Recommender job.</p>
-   * @public
-   */
-  JobName: string | undefined;
-
-  /**
-   * <p>A filter to return benchmarks of a specified status. If this field is left empty, then all benchmarks are returned.</p>
-   * @public
-   */
-  Status?: RecommendationJobStatus | undefined;
-
-  /**
-   * <p>A filter to return details about the specified type of subtask.</p> <p> <code>BENCHMARK</code>: Evaluate the performance of your model on different instance types.</p>
-   * @public
-   */
-  StepType?: RecommendationStepType | undefined;
-
-  /**
-   * <p>The maximum number of results to return.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>A token that you can specify to return more results from the list. Specify this field if you have a token that was returned from a previous request.</p>
    * @public
    */
   NextToken?: string | undefined;

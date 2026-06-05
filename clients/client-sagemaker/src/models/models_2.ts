@@ -140,7 +140,6 @@ import type {
   CognitoMemberDefinition,
   CollectionConfiguration,
   ComputeQuotaConfig,
-  ComputeQuotaTarget,
   GitConfig,
   InferenceSpecification,
   JupyterLabAppImageConfig,
@@ -157,6 +156,7 @@ import type {
   VpcConfig,
 } from "./models_0";
 import type {
+  ComputeQuotaTarget,
   ContextSource,
   DataCaptureConfig,
   DataQualityAppSpecification,
@@ -187,7 +187,6 @@ import type {
   ModelCompilationConfig,
   ModelDeployConfig,
   ModelQuantizationConfig,
-  ModelShardingConfig,
   MonitoringNetworkConfig,
   MonitoringOutputConfig,
   MonitoringResources,
@@ -208,6 +207,24 @@ import type {
   TrainingSpecification,
   UserSettings,
 } from "./models_1";
+
+/**
+ * <p>Settings for the model sharding technique that's applied by a model optimization job.</p>
+ * @public
+ */
+export interface ModelShardingConfig {
+  /**
+   * <p>The URI of an LMI DLC in Amazon ECR. SageMaker uses this image to run the optimization.</p>
+   * @public
+   */
+  Image?: string | undefined;
+
+  /**
+   * <p>Environment variables that override the default ones in the model container.</p>
+   * @public
+   */
+  OverrideEnvironment?: Record<string, string> | undefined;
+}
 
 /**
  * <p>Contains information about the training data source for speculative decoding.</p>
@@ -8511,15 +8528,4 @@ export interface DescribeImageVersionResponse {
    * @public
    */
   ReleaseNotes?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeInferenceComponentInput {
-  /**
-   * <p>The name of the inference component.</p>
-   * @public
-   */
-  InferenceComponentName: string | undefined;
 }

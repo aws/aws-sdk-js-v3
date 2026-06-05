@@ -51,6 +51,11 @@ export interface CreateAIBenchmarkJobCommandOutput extends CreateAIBenchmarkJobR
  *   },
  *   OutputConfig: { // AIBenchmarkOutputConfig
  *     S3OutputLocation: "STRING_VALUE", // required
+ *     MlflowConfig: { // AIMlflowConfig
+ *       MlflowResourceArn: "STRING_VALUE", // required
+ *       MlflowExperimentName: "STRING_VALUE",
+ *       MlflowRunName: "STRING_VALUE",
+ *     },
  *   },
  *   AIWorkloadConfigIdentifier: "STRING_VALUE", // required
  *   RoleArn: "STRING_VALUE", // required

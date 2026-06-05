@@ -46,6 +46,11 @@ export interface CreateAIRecommendationJobCommandOutput extends CreateAIRecommen
  *   OutputConfig: { // AIRecommendationOutputConfig
  *     S3OutputLocation: "STRING_VALUE",
  *     ModelPackageGroupIdentifier: "STRING_VALUE",
+ *     MlflowConfig: { // AIMlflowConfig
+ *       MlflowResourceArn: "STRING_VALUE", // required
+ *       MlflowExperimentName: "STRING_VALUE",
+ *       MlflowRunName: "STRING_VALUE",
+ *     },
  *   },
  *   AIWorkloadConfigIdentifier: "STRING_VALUE", // required
  *   PerformanceTarget: { // AIRecommendationPerformanceTarget

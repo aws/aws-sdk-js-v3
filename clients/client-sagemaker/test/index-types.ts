@@ -1600,6 +1600,7 @@ export type {
   AICapacityReservationConfig,
   AICloudWatchLogs,
   AIDatasetConfig,
+  AIMlflowConfig,
   AIModelSource,
   AIModelSourceS3,
   AIRecommendation,

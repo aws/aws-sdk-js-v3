@@ -817,6 +817,30 @@ export interface AIBenchmarkNetworkConfig {
 }
 
 /**
+ * <p>The MLflow tracking configuration for logging metrics and parameters to a SageMaker managed MLflow tracking server.</p>
+ * @public
+ */
+export interface AIMlflowConfig {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the SageMaker managed MLflow resource.</p>
+   * @public
+   */
+  MlflowResourceArn: string | undefined;
+
+  /**
+   * <p>The MLflow experiment name used for tracking.</p>
+   * @public
+   */
+  MlflowExperimentName?: string | undefined;
+
+  /**
+   * <p>The MLflow run name used for tracking.</p>
+   * @public
+   */
+  MlflowRunName?: string | undefined;
+}
+
+/**
  * <p>The output configuration for an AI benchmark job.</p>
  * @public
  */
@@ -826,6 +850,12 @@ export interface AIBenchmarkOutputConfig {
    * @public
    */
   S3OutputLocation: string | undefined;
+
+  /**
+   * <p>The MLflow tracking configuration for the job. If you don't specify this parameter, MLflow tracking is disabled.</p>
+   * @public
+   */
+  MlflowConfig?: AIMlflowConfig | undefined;
 }
 
 /**
@@ -862,6 +892,12 @@ export interface AIBenchmarkOutputResult {
    * @public
    */
   CloudWatchLogs?: AICloudWatchLogs[] | undefined;
+
+  /**
+   * <p>The MLflow tracking configuration for the job.</p>
+   * @public
+   */
+  MlflowConfig?: AIMlflowConfig | undefined;
 }
 
 /**
@@ -1345,6 +1381,12 @@ export interface AIRecommendationOutputConfig {
    * @public
    */
   ModelPackageGroupIdentifier?: string | undefined;
+
+  /**
+   * <p>The MLflow tracking configuration for the job. If you don't specify this parameter, MLflow tracking is disabled.</p>
+   * @public
+   */
+  MlflowConfig?: AIMlflowConfig | undefined;
 }
 
 /**
@@ -1363,6 +1405,12 @@ export interface AIRecommendationOutputResult {
    * @public
    */
   ModelPackageGroupIdentifier?: string | undefined;
+
+  /**
+   * <p>The MLflow tracking configuration for the job.</p>
+   * @public
+   */
+  MlflowConfig?: AIMlflowConfig | undefined;
 }
 
 /**
@@ -8157,22 +8205,4 @@ export interface ComputeQuotaConfig {
    * @public
    */
   PreemptTeamTasks?: PreemptTeamTasks | undefined;
-}
-
-/**
- * <p>The target entity to allocate compute resources to.</p>
- * @public
- */
-export interface ComputeQuotaTarget {
-  /**
-   * <p>Name of the team to allocate compute resources to.</p>
-   * @public
-   */
-  TeamName: string | undefined;
-
-  /**
-   * <p>Assigned entity fair-share weight. Idle compute will be shared across entities based on these assigned weights. This weight is only used when <code>FairShare</code> is enabled.</p> <p>A weight of 0 is the lowest priority and 100 is the highest. Weight 0 is the default.</p>
-   * @public
-   */
-  FairShareWeight?: number | undefined;
 }

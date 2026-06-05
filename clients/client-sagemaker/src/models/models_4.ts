@@ -73,6 +73,8 @@ import type {
   ProjectSortBy,
   ProjectSortOrder,
   ProjectStatus,
+  RecommendationJobStatus,
+  RecommendationStepType,
   Relation,
   ReservedCapacityInstanceType,
   ReservedCapacityType,
@@ -140,7 +142,6 @@ import type {
   ClusterTieredStorageConfig,
   CodeEditorAppImageConfig,
   ComputeQuotaConfig,
-  ComputeQuotaTarget,
   DeploymentConfiguration,
   InferenceSpecification,
   JupyterLabAppImageConfig,
@@ -157,6 +158,7 @@ import type {
   VpcConfig,
 } from "./models_0";
 import type {
+  ComputeQuotaTarget,
   ConditionStepMetadata,
   ContainerDefinition,
   DefaultSpaceSettings,
@@ -262,6 +264,41 @@ import type {
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface ListInferenceRecommendationsJobStepsRequest {
+  /**
+   * <p>The name for the Inference Recommender job.</p>
+   * @public
+   */
+  JobName: string | undefined;
+
+  /**
+   * <p>A filter to return benchmarks of a specified status. If this field is left empty, then all benchmarks are returned.</p>
+   * @public
+   */
+  Status?: RecommendationJobStatus | undefined;
+
+  /**
+   * <p>A filter to return details about the specified type of subtask.</p> <p> <code>BENCHMARK</code>: Evaluate the performance of your model on different instance types.</p>
+   * @public
+   */
+  StepType?: RecommendationStepType | undefined;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A token that you can specify to return more results from the list. Specify this field if you have a token that was returned from a previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -10324,8 +10361,3 @@ export interface UpdateNotebookInstanceInput {
    */
   InstanceMetadataServiceConfiguration?: InstanceMetadataServiceConfiguration | undefined;
 }
-
-/**
- * @public
- */
-export interface UpdateNotebookInstanceOutput {}

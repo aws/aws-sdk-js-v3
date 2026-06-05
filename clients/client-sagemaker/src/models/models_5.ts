@@ -38,6 +38,11 @@ import type {
 /**
  * @public
  */
+export interface UpdateNotebookInstanceOutput {}
+
+/**
+ * @public
+ */
 export interface UpdateNotebookInstanceLifecycleConfigInput {
   /**
    * <p>The name of the lifecycle configuration.</p>

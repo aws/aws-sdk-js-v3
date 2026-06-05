@@ -54,6 +54,11 @@ export interface DescribeAIRecommendationJobCommandOutput extends DescribeAIReco
  * //   OutputConfig: { // AIRecommendationOutputResult
  * //     S3OutputLocation: "STRING_VALUE", // required
  * //     ModelPackageGroupIdentifier: "STRING_VALUE",
+ * //     MlflowConfig: { // AIMlflowConfig
+ * //       MlflowResourceArn: "STRING_VALUE", // required
+ * //       MlflowExperimentName: "STRING_VALUE",
+ * //       MlflowRunName: "STRING_VALUE",
+ * //     },
  * //   },
  * //   InferenceSpecification: { // AIRecommendationInferenceSpecification
  * //     Framework: "LMI" || "VLLM",

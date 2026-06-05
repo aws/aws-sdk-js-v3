@@ -12,7 +12,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   "ModelSource": {},
   "OutputConfig": {
     "S3OutputLocation": "__S3OutputLocation__",
-    "ModelPackageGroupIdentifier": "__ModelPackageGroupIdentifier__"
+    "ModelPackageGroupIdentifier": "__ModelPackageGroupIdentifier__",
+    "MlflowConfig": {
+      "MlflowResourceArn": "__MlflowResourceArn__",
+      "MlflowExperimentName": "__MlflowExperimentName__",
+      "MlflowRunName": "__MlflowRunName__"
+    }
   },
   "AIWorkloadConfigIdentifier": "__AIWorkloadConfigIdentifier__",
   "RoleArn": "__RoleArn__",
@@ -66,7 +71,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   ModelSource: {},
   OutputConfig: {
     S3OutputLocation: "__S3OutputLocation__",
-    ModelPackageGroupIdentifier: "__ModelPackageGroupIdentifier__"
+    ModelPackageGroupIdentifier: "__ModelPackageGroupIdentifier__",
+    MlflowConfig: {
+      MlflowResourceArn: "__MlflowResourceArn__",
+      MlflowExperimentName: "__MlflowExperimentName__",
+      MlflowRunName: "__MlflowRunName__"
+    }
   },
   AIWorkloadConfigIdentifier: "__AIWorkloadConfigIdentifier__",
   RoleArn: "__RoleArn__",
@@ -137,7 +147,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   },
   "OutputConfig": {
     "S3OutputLocation": "__S3OutputLocation__",
-    "ModelPackageGroupIdentifier": "__ModelPackageGroupIdentifier__"
+    "ModelPackageGroupIdentifier": "__ModelPackageGroupIdentifier__",
+    "MlflowConfig": {
+      "MlflowResourceArn": "__MlflowResourceArn__",
+      "MlflowExperimentName": "__MlflowExperimentName__",
+      "MlflowRunName": "__MlflowRunName__"
+    }
   },
   "AIWorkloadConfigIdentifier": "__AIWorkloadConfigIdentifier__",
   "RoleArn": "__RoleArn__",
@@ -496,7 +511,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   },
   OutputConfig: {
     S3OutputLocation: "__S3OutputLocation__",
-    ModelPackageGroupIdentifier: "__ModelPackageGroupIdentifier__"
+    ModelPackageGroupIdentifier: "__ModelPackageGroupIdentifier__",
+    MlflowConfig: {
+      MlflowResourceArn: "__MlflowResourceArn__",
+      MlflowExperimentName: "__MlflowExperimentName__",
+      MlflowRunName: "__MlflowRunName__"
+    }
   },
   AIWorkloadConfigIdentifier: "__AIWorkloadConfigIdentifier__",
   RoleArn: "__RoleArn__",

@@ -178,6 +178,12 @@
             "smithy.api#documentation": "<p>The Amazon S3 URI where benchmark results are stored.</p>",
             "smithy.api#required": {}
           }
+        },
+        "MlflowConfig": {
+          "target": "com.amazonaws.sagemaker#AIMlflowConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The MLflow tracking configuration for the job. If you don't specify this parameter, MLflow tracking is disabled.</p>"
+          }
         }
       },
       "traits": {
@@ -199,6 +205,12 @@
           "target": "com.amazonaws.sagemaker#AICloudWatchLogsList",
           "traits": {
             "smithy.api#documentation": "<p>The CloudWatch log information for the benchmark job.</p>"
+          }
+        },
+        "MlflowConfig": {
+          "target": "com.amazonaws.sagemaker#AIMlflowConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The MLflow tracking configuration for the job.</p>"
           }
         }
       },
@@ -334,6 +346,64 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.sagemaker#AIMlReservationArn"
+      }
+    },
+    "com.amazonaws.sagemaker#AIMlflowConfig": {
+      "type": "structure",
+      "members": {
+        "MlflowResourceArn": {
+          "target": "com.amazonaws.sagemaker#AIMlflowResourceArn",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the SageMaker managed MLflow resource.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "MlflowExperimentName": {
+          "target": "com.amazonaws.sagemaker#AIMlflowExperimentName",
+          "traits": {
+            "smithy.api#documentation": "<p>The MLflow experiment name used for tracking.</p>"
+          }
+        },
+        "MlflowRunName": {
+          "target": "com.amazonaws.sagemaker#AIMlflowRunName",
+          "traits": {
+            "smithy.api#documentation": "<p>The MLflow run name used for tracking.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The MLflow tracking configuration for logging metrics and parameters to a SageMaker managed MLflow tracking server.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#AIMlflowExperimentName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 256
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9\\-_./]+$"
+      }
+    },
+    "com.amazonaws.sagemaker#AIMlflowResourceArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 20,
+          "max": 2048
+        },
+        "smithy.api#pattern": "^arn:aws[a-z\\-]*:sagemaker:[a-z0-9\\-]*:[0-9]{12}:mlflow-(app|tracking-server)/.*$"
+      }
+    },
+    "com.amazonaws.sagemaker#AIMlflowRunName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 256
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9\\-_./]+$"
       }
     },
     "com.amazonaws.sagemaker#AIModelSource": {
@@ -1068,6 +1138,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The name or Amazon Resource Name (ARN) of the model package group where the optimized model is registered as a new model package version.</p>"
           }
+        },
+        "MlflowConfig": {
+          "target": "com.amazonaws.sagemaker#AIMlflowConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The MLflow tracking configuration for the job. If you don't specify this parameter, MLflow tracking is disabled.</p>"
+          }
         }
       },
       "traits": {
@@ -1089,6 +1165,12 @@
           "target": "com.amazonaws.sagemaker#AIResourceIdentifier",
           "traits": {
             "smithy.api#documentation": "<p>The name or Amazon Resource Name (ARN) of the model package group where deployment-ready model packages are registered.</p>"
+          }
+        },
+        "MlflowConfig": {
+          "target": "com.amazonaws.sagemaker#AIMlflowConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The MLflow tracking configuration for the job.</p>"
           }
         }
       },
