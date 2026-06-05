@@ -23,7 +23,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/core": "workspace:^3.974.17",
-    "aws-crt": "^1.24.0",
+    "aws-crt": "^1.31.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
