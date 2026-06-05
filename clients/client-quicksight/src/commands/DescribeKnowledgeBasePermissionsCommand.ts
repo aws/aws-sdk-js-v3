@@ -4,9 +4,12 @@ import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { DescribeDataSourcePermissionsRequest, DescribeDataSourcePermissionsResponse } from "../models/models_4";
+import type {
+  DescribeKnowledgeBasePermissionsRequest,
+  DescribeKnowledgeBasePermissionsResponse,
+} from "../models/models_4";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { DescribeDataSourcePermissions$ } from "../schemas/schemas_0";
+import { DescribeKnowledgeBasePermissions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,35 +19,35 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DescribeDataSourcePermissionsCommand}.
+ * The input for {@link DescribeKnowledgeBasePermissionsCommand}.
  */
-export interface DescribeDataSourcePermissionsCommandInput extends DescribeDataSourcePermissionsRequest {}
+export interface DescribeKnowledgeBasePermissionsCommandInput extends DescribeKnowledgeBasePermissionsRequest {}
 /**
  * @public
  *
- * The output of {@link DescribeDataSourcePermissionsCommand}.
+ * The output of {@link DescribeKnowledgeBasePermissionsCommand}.
  */
-export interface DescribeDataSourcePermissionsCommandOutput extends DescribeDataSourcePermissionsResponse, __MetadataBearer {}
+export interface DescribeKnowledgeBasePermissionsCommandOutput extends DescribeKnowledgeBasePermissionsResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the resource permissions for a data source.</p>
+ * <p>Describes the resource permissions for a knowledge base.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, DescribeDataSourcePermissionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, DescribeDataSourcePermissionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, DescribeKnowledgeBasePermissionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
+ * // const { QuickSightClient, DescribeKnowledgeBasePermissionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
  * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
- * const input = { // DescribeDataSourcePermissionsRequest
+ * const input = { // DescribeKnowledgeBasePermissionsRequest
  *   AwsAccountId: "STRING_VALUE", // required
- *   DataSourceId: "STRING_VALUE", // required
+ *   KnowledgeBaseId: "STRING_VALUE", // required
  * };
- * const command = new DescribeDataSourcePermissionsCommand(input);
+ * const command = new DescribeKnowledgeBasePermissionsCommand(input);
  * const response = await client.send(command);
- * // { // DescribeDataSourcePermissionsResponse
- * //   DataSourceArn: "STRING_VALUE",
- * //   DataSourceId: "STRING_VALUE",
+ * // { // DescribeKnowledgeBasePermissionsResponse
+ * //   KnowledgeBaseArn: "STRING_VALUE", // required
+ * //   KnowledgeBaseId: "STRING_VALUE", // required
  * //   Permissions: [ // ResourcePermissionList
  * //     { // ResourcePermission
  * //       Principal: "STRING_VALUE", // required
@@ -59,10 +62,10 @@ export interface DescribeDataSourcePermissionsCommandOutput extends DescribeData
  *
  * ```
  *
- * @param DescribeDataSourcePermissionsCommandInput - {@link DescribeDataSourcePermissionsCommandInput}
- * @returns {@link DescribeDataSourcePermissionsCommandOutput}
- * @see {@link DescribeDataSourcePermissionsCommandInput} for command's `input` shape.
- * @see {@link DescribeDataSourcePermissionsCommandOutput} for command's `response` shape.
+ * @param DescribeKnowledgeBasePermissionsCommandInput - {@link DescribeKnowledgeBasePermissionsCommandInput}
+ * @returns {@link DescribeKnowledgeBasePermissionsCommandOutput}
+ * @see {@link DescribeKnowledgeBasePermissionsCommandInput} for command's `input` shape.
+ * @see {@link DescribeKnowledgeBasePermissionsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -77,6 +80,15 @@ export interface DescribeDataSourcePermissionsCommandOutput extends DescribeData
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>One or more parameters has a value that isn't valid.</p>
  *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>You don't have this feature activated for your account. To fix this issue, contact Amazon Web Services support.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A limit is exceeded.</p>
+ *
+ * @throws {@link PreconditionNotMetException} (client fault)
+ *  <p>One or more preconditions aren't met.</p>
+ *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>One or more resources can't be found.</p>
  *
@@ -89,10 +101,10 @@ export interface DescribeDataSourcePermissionsCommandOutput extends DescribeData
  *
  * @public
  */
-export class DescribeDataSourcePermissionsCommand extends $Command
+export class DescribeKnowledgeBasePermissionsCommand extends $Command
   .classBuilder<
-    DescribeDataSourcePermissionsCommandInput,
-    DescribeDataSourcePermissionsCommandOutput,
+    DescribeKnowledgeBasePermissionsCommandInput,
+    DescribeKnowledgeBasePermissionsCommandOutput,
     QuickSightClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -101,19 +113,19 @@ export class DescribeDataSourcePermissionsCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("QuickSight_20180401", "DescribeDataSourcePermissions", {})
-  .n("QuickSightClient", "DescribeDataSourcePermissionsCommand")
-  .sc(DescribeDataSourcePermissions$)
+  .s("QuickSight_20180401", "DescribeKnowledgeBasePermissions", {})
+  .n("QuickSightClient", "DescribeKnowledgeBasePermissionsCommand")
+  .sc(DescribeKnowledgeBasePermissions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DescribeDataSourcePermissionsRequest;
-      output: DescribeDataSourcePermissionsResponse;
+      input: DescribeKnowledgeBasePermissionsRequest;
+      output: DescribeKnowledgeBasePermissionsResponse;
     };
     sdk: {
-      input: DescribeDataSourcePermissionsCommandInput;
-      output: DescribeDataSourcePermissionsCommandOutput;
+      input: DescribeKnowledgeBasePermissionsCommandInput;
+      output: DescribeKnowledgeBasePermissionsCommandOutput;
     };
   };
 }

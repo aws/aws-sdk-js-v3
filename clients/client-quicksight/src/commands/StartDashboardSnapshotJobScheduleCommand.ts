@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type {
   StartDashboardSnapshotJobScheduleRequest,
   StartDashboardSnapshotJobScheduleResponse,
-} from "../models/models_4";
+} from "../models/models_5";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { StartDashboardSnapshotJobSchedule$ } from "../schemas/schemas_0";
 

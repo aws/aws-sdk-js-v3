@@ -4,9 +4,9 @@ import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { UntagResourceRequest, UntagResourceResponse } from "../models/models_5";
+import type { DeleteKnowledgeBaseRequest, DeleteKnowledgeBaseResponse } from "../models/models_3";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { UntagResource$ } from "../schemas/schemas_0";
+import { DeleteKnowledgeBase$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,45 +16,45 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link UntagResourceCommand}.
+ * The input for {@link DeleteKnowledgeBaseCommand}.
  */
-export interface UntagResourceCommandInput extends UntagResourceRequest {}
+export interface DeleteKnowledgeBaseCommandInput extends DeleteKnowledgeBaseRequest {}
 /**
  * @public
  *
- * The output of {@link UntagResourceCommand}.
+ * The output of {@link DeleteKnowledgeBaseCommand}.
  */
-export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
+export interface DeleteKnowledgeBaseCommandOutput extends DeleteKnowledgeBaseResponse, __MetadataBearer {}
 
 /**
- * <p>Removes a tag or tags from a resource.</p>
+ * <p>Deletes a knowledge base.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, UntagResourceCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, UntagResourceCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, DeleteKnowledgeBaseCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
+ * // const { QuickSightClient, DeleteKnowledgeBaseCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
  * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
- * const input = { // UntagResourceRequest
- *   ResourceArn: "STRING_VALUE", // required
- *   TagKeys: [ // TagKeyList // required
- *     "STRING_VALUE",
- *   ],
+ * const input = { // DeleteKnowledgeBaseRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   KnowledgeBaseId: "STRING_VALUE", // required
  * };
- * const command = new UntagResourceCommand(input);
+ * const command = new DeleteKnowledgeBaseCommand(input);
  * const response = await client.send(command);
- * // { // UntagResourceResponse
+ * // { // DeleteKnowledgeBaseResponse
+ * //   KnowledgeBaseArn: "STRING_VALUE", // required
+ * //   KnowledgeBaseId: "STRING_VALUE", // required
  * //   RequestId: "STRING_VALUE",
  * //   Status: Number("int"),
  * // };
  *
  * ```
  *
- * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
- * @returns {@link UntagResourceCommandOutput}
- * @see {@link UntagResourceCommandInput} for command's `input` shape.
- * @see {@link UntagResourceCommandOutput} for command's `response` shape.
+ * @param DeleteKnowledgeBaseCommandInput - {@link DeleteKnowledgeBaseCommandInput}
+ * @returns {@link DeleteKnowledgeBaseCommandOutput}
+ * @see {@link DeleteKnowledgeBaseCommandInput} for command's `input` shape.
+ * @see {@link DeleteKnowledgeBaseCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -63,11 +63,23 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * 			account is authorized to use the Amazon Quick Sight service, that your policies have the
  * 			correct permissions, and that you are using the correct credentials.</p>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ *
  * @throws {@link InternalFailureException} (server fault)
  *  <p>An internal failure occurred.</p>
  *
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>One or more parameters has a value that isn't valid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>You don't have this feature activated for your account. To fix this issue, contact Amazon Web Services support.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A limit is exceeded.</p>
+ *
+ * @throws {@link PreconditionNotMetException} (client fault)
+ *  <p>One or more preconditions aren't met.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>One or more resources can't be found.</p>
@@ -81,10 +93,10 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  *
  * @public
  */
-export class UntagResourceCommand extends $Command
+export class DeleteKnowledgeBaseCommand extends $Command
   .classBuilder<
-    UntagResourceCommandInput,
-    UntagResourceCommandOutput,
+    DeleteKnowledgeBaseCommandInput,
+    DeleteKnowledgeBaseCommandOutput,
     QuickSightClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -93,19 +105,19 @@ export class UntagResourceCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("QuickSight_20180401", "UntagResource", {})
-  .n("QuickSightClient", "UntagResourceCommand")
-  .sc(UntagResource$)
+  .s("QuickSight_20180401", "DeleteKnowledgeBase", {})
+  .n("QuickSightClient", "DeleteKnowledgeBaseCommand")
+  .sc(DeleteKnowledgeBase$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: UntagResourceRequest;
-      output: UntagResourceResponse;
+      input: DeleteKnowledgeBaseRequest;
+      output: DeleteKnowledgeBaseResponse;
     };
     sdk: {
-      input: UntagResourceCommandInput;
-      output: UntagResourceCommandOutput;
+      input: DeleteKnowledgeBaseCommandInput;
+      output: DeleteKnowledgeBaseCommandOutput;
     };
   };
 }

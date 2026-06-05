@@ -2592,6 +2592,19 @@ export type AssignmentStatus = (typeof AssignmentStatus)[keyof typeof Assignment
  * @public
  * @enum
  */
+export const AudioExtractionStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type AudioExtractionStatus = (typeof AudioExtractionStatus)[keyof typeof AudioExtractionStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const AuthenticationMethodOption = {
   ACTIVE_DIRECTORY: "ACTIVE_DIRECTORY",
   IAM_AND_QUICKSIGHT: "IAM_AND_QUICKSIGHT",
@@ -3826,6 +3839,22 @@ export type DataSetFilterAttribute = (typeof DataSetFilterAttribute)[keyof typeo
  * @public
  * @enum
  */
+export const DataSetStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  UPDATING: "UPDATING",
+} as const;
+/**
+ * @public
+ */
+export type DataSetStatus = (typeof DataSetStatus)[keyof typeof DataSetStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const DataSourceErrorInfoType = {
   ACCESS_DENIED: "ACCESS_DENIED",
   CONFLICT: "CONFLICT",
@@ -3995,6 +4024,64 @@ export const QDataKeyType = {
  * @public
  */
 export type QDataKeyType = (typeof QDataKeyType)[keyof typeof QDataKeyType];
+
+/**
+ * @public
+ * @enum
+ */
+export const KbIngestionStatus = {
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  INCOMPLETE: "INCOMPLETE",
+  QUEUED: "QUEUED",
+  RUNNING: "RUNNING",
+  TIMEOUT: "TIMEOUT",
+} as const;
+/**
+ * @public
+ */
+export type KbIngestionStatus = (typeof KbIngestionStatus)[keyof typeof KbIngestionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ImageExtractionStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type ImageExtractionStatus = (typeof ImageExtractionStatus)[keyof typeof ImageExtractionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const VideoExtractionStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type VideoExtractionStatus = (typeof VideoExtractionStatus)[keyof typeof VideoExtractionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const VideoExtractionType = {
+  AUDIO_TRANSCRIPTION_ONLY: "AUDIO_TRANSCRIPTION_ONLY",
+  VISUAL_CONTENT_AND_AUDIO_TRANSCRIPTION: "VISUAL_CONTENT_AND_AUDIO_TRANSCRIPTION",
+} as const;
+/**
+ * @public
+ */
+export type VideoExtractionType = (typeof VideoExtractionType)[keyof typeof VideoExtractionType];
 
 /**
  * @public
@@ -4294,6 +4381,67 @@ export type IncludeQuickSightQIndex = (typeof IncludeQuickSightQIndex)[keyof typ
  * @public
  * @enum
  */
+export const KnowledgeBaseSearchFilterName = {
+  DIRECT_QUICKSIGHT_OWNER: "DIRECT_QUICKSIGHT_OWNER",
+  DIRECT_QUICKSIGHT_SOLE_OWNER: "DIRECT_QUICKSIGHT_SOLE_OWNER",
+  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER: "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
+  KNOWLEDGE_BASE_ID: "KNOWLEDGE_BASE_ID",
+  KNOWLEDGE_BASE_NAME: "KNOWLEDGE_BASE_NAME",
+  KNOWLEDGE_BASE_SIZE_BYTES: "KNOWLEDGE_BASE_SIZE_BYTES",
+  PRIMARY_OWNER: "PRIMARY_OWNER",
+} as const;
+/**
+ * @public
+ */
+export type KnowledgeBaseSearchFilterName =
+  (typeof KnowledgeBaseSearchFilterName)[keyof typeof KnowledgeBaseSearchFilterName];
+
+/**
+ * @public
+ * @enum
+ */
+export const KnowledgeBaseSearchOperator = {
+  GREATER_THAN_OR_EQUALS: "GREATER_THAN_OR_EQUALS",
+  LESS_THAN_OR_EQUALS: "LESS_THAN_OR_EQUALS",
+  STRING_EQUALS: "STRING_EQUALS",
+  STRING_LIKE: "STRING_LIKE",
+} as const;
+/**
+ * @public
+ */
+export type KnowledgeBaseSearchOperator =
+  (typeof KnowledgeBaseSearchOperator)[keyof typeof KnowledgeBaseSearchOperator];
+
+/**
+ * @public
+ * @enum
+ */
+export const KnowledgeBaseSortByField = {
+  CREATED_AT: "CREATED_AT",
+  KNOWLEDGE_BASE_SIZE_BYTES: "KNOWLEDGE_BASE_SIZE_BYTES",
+} as const;
+/**
+ * @public
+ */
+export type KnowledgeBaseSortByField = (typeof KnowledgeBaseSortByField)[keyof typeof KnowledgeBaseSortByField];
+
+/**
+ * @public
+ * @enum
+ */
+export const SortOrder = {
+  ASC: "ASC",
+  DESC: "DESC",
+} as const;
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
+
+/**
+ * @public
+ * @enum
+ */
 export const SelfUpgradeRequestStatus = {
   APPROVED: "APPROVED",
   DENIED: "DENIED",
@@ -4305,6 +4453,31 @@ export const SelfUpgradeRequestStatus = {
  * @public
  */
 export type SelfUpgradeRequestStatus = (typeof SelfUpgradeRequestStatus)[keyof typeof SelfUpgradeRequestStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const UserIndexCapacitySortBy = {
+  TOTAL_CAPACITY_BYTES: "TOTAL_CAPACITY_BYTES",
+} as const;
+/**
+ * @public
+ */
+export type UserIndexCapacitySortBy = (typeof UserIndexCapacitySortBy)[keyof typeof UserIndexCapacitySortBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const UserIndexCapacitySortOrder = {
+  ASC: "ASC",
+  DESC: "DESC",
+} as const;
+/**
+ * @public
+ */
+export type UserIndexCapacitySortOrder = (typeof UserIndexCapacitySortOrder)[keyof typeof UserIndexCapacitySortOrder];
 
 /**
  * @public

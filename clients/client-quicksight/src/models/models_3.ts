@@ -80,12 +80,14 @@ import type {
   AssetOptions,
   CalculatedField,
   ColumnConfiguration,
+  DataPrepAggregationFunction,
   Entity,
   FilterGroup,
   FontConfiguration,
   ParameterDeclaration,
   QueryExecutionOptions,
   Sheet,
+  TransformOperationSource,
 } from "./models_0";
 import type {
   _Parameters,
@@ -117,13 +119,13 @@ import type {
   ColumnSchema,
   ColumnSemanticProperty,
   ColumnTag,
+  ColumnToUnpivot,
   ComparativeOrder,
   ControlTitleFontConfiguration,
   CreateColumnsOperation,
   DashboardPublishOptions,
   DashboardVersionDefinition,
   DataSetReference,
-  DataSetRefreshProperties,
   DataSourceParameters,
   DestinationTable,
   DisplayFormatOptions,
@@ -133,10 +135,7 @@ import type {
   InputColumn,
   JoinOperation,
   LinkSharingConfiguration,
-  PivotOperation,
-  ProjectOperation,
-  RenameColumnOperation,
-  RenameColumnsOperation,
+  PivotConfiguration,
   ResourcePermission,
   SheetDefinition,
   SnapshotFile,
@@ -147,10 +146,172 @@ import type {
   StaticFile,
   Tag,
   TooltipSheetDefinition,
-  UnpivotOperation,
   ValidationStrategy,
   VpcConnectionProperties,
 } from "./models_2";
+
+/**
+ * <p>Configuration for how to handle value columns in pivot operations, including aggregation settings.</p>
+ * @public
+ */
+export interface ValueColumnConfiguration {
+  /**
+   * <p>The aggregation function to apply when multiple values map to the same pivoted cell.</p>
+   * @public
+   */
+  AggregationFunction?: DataPrepAggregationFunction | undefined;
+}
+
+/**
+ * <p>A transform operation that pivots data by converting row values into columns.</p>
+ * @public
+ */
+export interface PivotOperation {
+  /**
+   * <p>Alias for this operation.</p>
+   * @public
+   */
+  Alias: string | undefined;
+
+  /**
+   * <p>The source transform operation that provides input data for pivoting.</p>
+   * @public
+   */
+  Source: TransformOperationSource | undefined;
+
+  /**
+   * <p>The list of column names to group by when performing the pivot operation.</p>
+   * @public
+   */
+  GroupByColumnNames?: string[] | undefined;
+
+  /**
+   * <p>Configuration for how to aggregate values when multiple rows map to the same pivoted column.</p>
+   * @public
+   */
+  ValueColumnConfiguration: ValueColumnConfiguration | undefined;
+
+  /**
+   * <p>Configuration that specifies which labels to pivot and how to structure the resulting columns.</p>
+   * @public
+   */
+  PivotConfiguration: PivotConfiguration | undefined;
+}
+
+/**
+ * <p>A transform operation that projects columns. Operations that come after a projection
+ *             can only refer to projected columns.</p>
+ * @public
+ */
+export interface ProjectOperation {
+  /**
+   * <p>Alias for this operation.</p>
+   * @public
+   */
+  Alias?: string | undefined;
+
+  /**
+   * <p>The source transform operation that provides input data for column projection.</p>
+   * @public
+   */
+  Source?: TransformOperationSource | undefined;
+
+  /**
+   * <p>Projected columns.</p>
+   * @public
+   */
+  ProjectedColumns: string[] | undefined;
+}
+
+/**
+ * <p>A transform operation that renames a column.</p>
+ * @public
+ */
+export interface RenameColumnOperation {
+  /**
+   * <p>The name of the column to be renamed.</p>
+   * @public
+   */
+  ColumnName: string | undefined;
+
+  /**
+   * <p>The new name for the column.</p>
+   * @public
+   */
+  NewColumnName: string | undefined;
+}
+
+/**
+ * <p>A transform operation that renames one or more columns in the dataset.</p>
+ * @public
+ */
+export interface RenameColumnsOperation {
+  /**
+   * <p>Alias for this operation.</p>
+   * @public
+   */
+  Alias: string | undefined;
+
+  /**
+   * <p>The source transform operation that provides input data for column renaming.</p>
+   * @public
+   */
+  Source: TransformOperationSource | undefined;
+
+  /**
+   * <p>The list of column rename operations to perform, specifying old and new column names.</p>
+   * @public
+   */
+  RenameColumnOperations: RenameColumnOperation[] | undefined;
+}
+
+/**
+ * <p>A transform operation that converts columns into rows, normalizing the data structure.</p>
+ * @public
+ */
+export interface UnpivotOperation {
+  /**
+   * <p>Alias for this operation.</p>
+   * @public
+   */
+  Alias: string | undefined;
+
+  /**
+   * <p>The source transform operation that provides input data for unpivoting.</p>
+   * @public
+   */
+  Source: TransformOperationSource | undefined;
+
+  /**
+   * <p>The list of columns to unpivot from the source data.</p>
+   * @public
+   */
+  ColumnsToUnpivot: ColumnToUnpivot[] | undefined;
+
+  /**
+   * <p>The name for the new column that will contain the unpivoted column names.</p>
+   * @public
+   */
+  UnpivotedLabelColumnName: string | undefined;
+
+  /**
+   * <p>A unique identifier for the new column that will contain the unpivoted column names.</p>
+   * @public
+   */
+  UnpivotedLabelColumnId: string | undefined;
+
+  /**
+   * <p>The name for the new column that will contain the unpivoted values.</p>
+   * @public
+   */
+  UnpivotedValueColumnName: string | undefined;
+
+  /**
+   * <p>A unique identifier for the new column that will contain the unpivoted values.</p>
+   * @public
+   */
+  UnpivotedValueColumnId: string | undefined;
+}
 
 /**
  * <p>A step in data preparation that performs a specific operation on the data.</p>
@@ -6889,6 +7050,52 @@ export interface DeleteIdentityPropagationConfigResponse {
 /**
  * @public
  */
+export interface DeleteKnowledgeBaseRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the knowledge base.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the knowledge base.</p>
+   * @public
+   */
+  KnowledgeBaseId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteKnowledgeBaseResponse {
+  /**
+   * <p>The ARN of the deleted knowledge base.</p>
+   * @public
+   */
+  KnowledgeBaseArn: string | undefined;
+
+  /**
+   * <p>The ID of the deleted knowledge base.</p>
+   * @public
+   */
+  KnowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteNamespaceRequest {
   /**
    * <p>The ID for the Amazon Web Services account that you want to delete the Quick Sight namespace from.</p>
@@ -9463,178 +9670,4 @@ export interface DescribeDataSetRequest {
    * @public
    */
   DataSetId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeDataSetResponse {
-  /**
-   * <p>Information on the dataset.</p>
-   * @public
-   */
-  DataSet?: DataSet | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeDataSetPermissionsRequest {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the dataset that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  DataSetId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeDataSetPermissionsResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
-   * @public
-   */
-  DataSetArn?: string | undefined;
-
-  /**
-   * <p>The ID for the dataset that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  DataSetId?: string | undefined;
-
-  /**
-   * <p>A list of resource permissions on the dataset.</p>
-   * @public
-   */
-  Permissions?: ResourcePermission[] | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeDataSetRefreshPropertiesRequest {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the dataset.</p>
-   * @public
-   */
-  DataSetId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeDataSetRefreshPropertiesResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The dataset refresh properties.</p>
-   * @public
-   */
-  DataSetRefreshProperties?: DataSetRefreshProperties | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeDataSourceRequest {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each
-   * 				Amazon Web Services account.</p>
-   * @public
-   */
-  DataSourceId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeDataSourceResponse {
-  /**
-   * <p>The information on the data source.</p>
-   * @public
-   */
-  DataSource?: DataSource | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeDataSourcePermissionsRequest {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each
-   * 				Amazon Web Services account.</p>
-   * @public
-   */
-  DataSourceId: string | undefined;
 }

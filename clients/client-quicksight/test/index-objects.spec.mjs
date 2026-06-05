@@ -131,6 +131,8 @@ import {
   AssignmentStatus,
   AthenaParameters$,
   AttributeAggregationFunction$,
+  AudioExtractionConfiguration$,
+  AudioExtractionStatus,
   AuroraParameters$,
   AuroraPostgreSqlParameters$,
   AuthConfig$,
@@ -173,6 +175,12 @@ import {
   BatchCreateTopicReviewedAnswerCommand,
   BatchCreateTopicReviewedAnswerRequest$,
   BatchCreateTopicReviewedAnswerResponse$,
+  BatchDeleteKnowledgeBase$,
+  BatchDeleteKnowledgeBaseCommand,
+  BatchDeleteKnowledgeBaseFailure$,
+  BatchDeleteKnowledgeBaseRequest$,
+  BatchDeleteKnowledgeBaseResponse$,
+  BatchDeleteKnowledgeBaseSuccess$,
   BatchDeleteTopicReviewedAnswer$,
   BatchDeleteTopicReviewedAnswerCommand,
   BatchDeleteTopicReviewedAnswerRequest$,
@@ -214,6 +222,7 @@ import {
   CancelIngestionResponse$,
   Capabilities$,
   CapabilityState,
+  CapacityBytesRangeFilter$,
   CascadingControlConfiguration$,
   CascadingControlSource$,
   CastColumnTypeOperation$,
@@ -528,6 +537,7 @@ import {
   DataSetSearchFilter$,
   DataSetSemanticDescription$,
   DataSetSemanticMetadata$,
+  DataSetStatus,
   DataSetStringComparisonFilterCondition$,
   DataSetStringComparisonFilterOperator,
   DataSetStringFilterCondition$,
@@ -676,6 +686,10 @@ import {
   DeleteIdentityPropagationConfigCommand,
   DeleteIdentityPropagationConfigRequest$,
   DeleteIdentityPropagationConfigResponse$,
+  DeleteKnowledgeBase$,
+  DeleteKnowledgeBaseCommand,
+  DeleteKnowledgeBaseRequest$,
+  DeleteKnowledgeBaseResponse$,
   DeleteNamespace$,
   DeleteNamespaceCommand,
   DeleteNamespaceRequest$,
@@ -900,6 +914,14 @@ import {
   DescribeKeyRegistrationCommand,
   DescribeKeyRegistrationRequest$,
   DescribeKeyRegistrationResponse$,
+  DescribeKnowledgeBase$,
+  DescribeKnowledgeBaseCommand,
+  DescribeKnowledgeBasePermissions$,
+  DescribeKnowledgeBasePermissionsCommand,
+  DescribeKnowledgeBasePermissionsRequest$,
+  DescribeKnowledgeBasePermissionsResponse$,
+  DescribeKnowledgeBaseRequest$,
+  DescribeKnowledgeBaseResponse$,
   DescribeNamespace$,
   DescribeNamespaceCommand,
   DescribeNamespaceRequest$,
@@ -1233,6 +1255,8 @@ import {
   ImageCustomAction$,
   ImageCustomActionOperation$,
   ImageCustomActionTrigger,
+  ImageExtractionConfiguration$,
+  ImageExtractionStatus,
   ImageInteractionOptions$,
   ImageMenuOption$,
   ImageSet$,
@@ -1287,7 +1311,18 @@ import {
   JoinOperation$,
   JoinOperationType,
   JoinType,
+  KbIngestionStatus,
+  KbTemplateConfiguration$,
   KeyPairCredentials$,
+  KnowledgeBase$,
+  KnowledgeBaseConfiguration$,
+  KnowledgeBaseIngestionSummary$,
+  KnowledgeBaseSearchFilter$,
+  KnowledgeBaseSearchFilterName,
+  KnowledgeBaseSearchOperator,
+  KnowledgeBaseSortBy$,
+  KnowledgeBaseSortByField,
+  KnowledgeBaseSummary$,
   KPIActualValueConditionalFormatting$,
   KPIComparisonValueConditionalFormatting$,
   KPIConditionalFormatting$,
@@ -1418,6 +1453,10 @@ import {
   ListIngestionsCommand,
   ListIngestionsRequest$,
   ListIngestionsResponse$,
+  ListKnowledgeBases$,
+  ListKnowledgeBasesCommand,
+  ListKnowledgeBasesRequest$,
+  ListKnowledgeBasesResponse$,
   ListNamespaces$,
   ListNamespacesCommand,
   ListNamespacesRequest$,
@@ -1492,6 +1531,10 @@ import {
   ListUserGroupsResponse$,
   ListUsers$,
   ListUsersCommand,
+  ListUsersIndexCapacity$,
+  ListUsersIndexCapacityCommand,
+  ListUsersIndexCapacityRequest$,
+  ListUsersIndexCapacityResponse$,
   ListUsersRequest$,
   ListUsersResponse$,
   ListVPCConnections$,
@@ -1518,6 +1561,7 @@ import {
   MaximumMinimumComputation$,
   MaximumMinimumComputationType,
   MeasureField$,
+  MediaExtractionConfiguration$,
   MemberIdArnPair$,
   MemberType,
   MetricComparisonComputation$,
@@ -1594,6 +1638,7 @@ import {
   paginateListIAMPolicyAssignments,
   paginateListIAMPolicyAssignmentsForUser,
   paginateListIngestions,
+  paginateListKnowledgeBases,
   paginateListNamespaces,
   paginateListOAuthClientApplications,
   paginateListRoleMemberships,
@@ -1614,6 +1659,7 @@ import {
   paginateSearchFlows,
   paginateSearchFolders,
   paginateSearchGroups,
+  paginateSearchKnowledgeBases,
   paginateSearchTopics,
   PaginationConfiguration$,
   Palette$,
@@ -1874,6 +1920,10 @@ import {
   SearchGroupsCommand,
   SearchGroupsRequest$,
   SearchGroupsResponse$,
+  SearchKnowledgeBases$,
+  SearchKnowledgeBasesCommand,
+  SearchKnowledgeBasesRequest$,
+  SearchKnowledgeBasesResponse$,
   SearchSpaces$,
   SearchSpacesCommand,
   SearchSpacesRequest$,
@@ -1978,6 +2028,7 @@ import {
   SnapshotUserConfigurationRedacted$,
   SnowflakeParameters$,
   SortDirection,
+  SortOrder,
   SourceTable$,
   SpaceContributor$,
   SpaceDetails$,
@@ -2340,6 +2391,10 @@ import {
   UpdateKeyRegistrationCommand,
   UpdateKeyRegistrationRequest$,
   UpdateKeyRegistrationResponse$,
+  UpdateKnowledgeBasePermissions$,
+  UpdateKnowledgeBasePermissionsCommand,
+  UpdateKnowledgeBasePermissionsRequest$,
+  UpdateKnowledgeBasePermissionsResponse$,
   UpdateOAuthClientApplication$,
   UpdateOAuthClientApplicationCommand,
   UpdateOAuthClientApplicationRequest$,
@@ -2441,12 +2496,20 @@ import {
   URLTargetConfiguration,
   User$,
   UserIdentifier$,
+  UserIndexCapacity$,
+  UserIndexCapacityFilter$,
+  UserIndexCapacitySortBy,
+  UserIndexCapacitySortOrder,
+  UserNameOrEmailFilter$,
   UserRole,
   ValidationStrategy$,
   ValidationStrategyMode,
   ValueColumnConfiguration$,
   ValueWhenUnsetOption,
   VerticalTextAlignment,
+  VideoExtractionConfiguration$,
+  VideoExtractionStatus,
+  VideoExtractionType,
   Visibility,
   VisibleRangeOptions$,
   Visual$,
@@ -2506,6 +2569,8 @@ assert(typeof QuickSight === "function");
 // commands
 assert(typeof BatchCreateTopicReviewedAnswerCommand === "function");
 assert(typeof BatchCreateTopicReviewedAnswer$ === "object");
+assert(typeof BatchDeleteKnowledgeBaseCommand === "function");
+assert(typeof BatchDeleteKnowledgeBase$ === "object");
 assert(typeof BatchDeleteTopicReviewedAnswerCommand === "function");
 assert(typeof BatchDeleteTopicReviewedAnswer$ === "object");
 assert(typeof CancelIngestionCommand === "function");
@@ -2610,6 +2675,8 @@ assert(typeof DeleteIAMPolicyAssignmentCommand === "function");
 assert(typeof DeleteIAMPolicyAssignment$ === "object");
 assert(typeof DeleteIdentityPropagationConfigCommand === "function");
 assert(typeof DeleteIdentityPropagationConfig$ === "object");
+assert(typeof DeleteKnowledgeBaseCommand === "function");
+assert(typeof DeleteKnowledgeBase$ === "object");
 assert(typeof DeleteNamespaceCommand === "function");
 assert(typeof DeleteNamespace$ === "object");
 assert(typeof DeleteOAuthClientApplicationCommand === "function");
@@ -2722,6 +2789,10 @@ assert(typeof DescribeIpRestrictionCommand === "function");
 assert(typeof DescribeIpRestriction$ === "object");
 assert(typeof DescribeKeyRegistrationCommand === "function");
 assert(typeof DescribeKeyRegistration$ === "object");
+assert(typeof DescribeKnowledgeBaseCommand === "function");
+assert(typeof DescribeKnowledgeBase$ === "object");
+assert(typeof DescribeKnowledgeBasePermissionsCommand === "function");
+assert(typeof DescribeKnowledgeBasePermissions$ === "object");
 assert(typeof DescribeNamespaceCommand === "function");
 assert(typeof DescribeNamespace$ === "object");
 assert(typeof DescribeOAuthClientApplicationCommand === "function");
@@ -2824,6 +2895,8 @@ assert(typeof ListIdentityPropagationConfigsCommand === "function");
 assert(typeof ListIdentityPropagationConfigs$ === "object");
 assert(typeof ListIngestionsCommand === "function");
 assert(typeof ListIngestions$ === "object");
+assert(typeof ListKnowledgeBasesCommand === "function");
+assert(typeof ListKnowledgeBases$ === "object");
 assert(typeof ListNamespacesCommand === "function");
 assert(typeof ListNamespaces$ === "object");
 assert(typeof ListOAuthClientApplicationsCommand === "function");
@@ -2862,6 +2935,8 @@ assert(typeof ListUserGroupsCommand === "function");
 assert(typeof ListUserGroups$ === "object");
 assert(typeof ListUsersCommand === "function");
 assert(typeof ListUsers$ === "object");
+assert(typeof ListUsersIndexCapacityCommand === "function");
+assert(typeof ListUsersIndexCapacity$ === "object");
 assert(typeof ListVPCConnectionsCommand === "function");
 assert(typeof ListVPCConnections$ === "object");
 assert(typeof PredictQAResultsCommand === "function");
@@ -2890,6 +2965,8 @@ assert(typeof SearchFoldersCommand === "function");
 assert(typeof SearchFolders$ === "object");
 assert(typeof SearchGroupsCommand === "function");
 assert(typeof SearchGroups$ === "object");
+assert(typeof SearchKnowledgeBasesCommand === "function");
+assert(typeof SearchKnowledgeBases$ === "object");
 assert(typeof SearchSpacesCommand === "function");
 assert(typeof SearchSpaces$ === "object");
 assert(typeof SearchTopicsCommand === "function");
@@ -2974,6 +3051,8 @@ assert(typeof UpdateIpRestrictionCommand === "function");
 assert(typeof UpdateIpRestriction$ === "object");
 assert(typeof UpdateKeyRegistrationCommand === "function");
 assert(typeof UpdateKeyRegistration$ === "object");
+assert(typeof UpdateKnowledgeBasePermissionsCommand === "function");
+assert(typeof UpdateKnowledgeBasePermissions$ === "object");
 assert(typeof UpdateOAuthClientApplicationCommand === "function");
 assert(typeof UpdateOAuthClientApplication$ === "object");
 assert(typeof UpdatePublicSharingSettingsCommand === "function");
@@ -3124,6 +3203,7 @@ assert(typeof AssetBundleResourcePermissions$ === "object");
 assert(typeof AssetOptions$ === "object");
 assert(typeof AthenaParameters$ === "object");
 assert(typeof AttributeAggregationFunction$ === "object");
+assert(typeof AudioExtractionConfiguration$ === "object");
 assert(typeof AuroraParameters$ === "object");
 assert(typeof AuroraPostgreSqlParameters$ === "object");
 assert(typeof AuthConfig$ === "object");
@@ -3155,6 +3235,10 @@ assert(typeof BarSeriesItem$ === "object");
 assert(typeof BasicAuthConnectionMetadata$ === "object");
 assert(typeof BatchCreateTopicReviewedAnswerRequest$ === "object");
 assert(typeof BatchCreateTopicReviewedAnswerResponse$ === "object");
+assert(typeof BatchDeleteKnowledgeBaseFailure$ === "object");
+assert(typeof BatchDeleteKnowledgeBaseRequest$ === "object");
+assert(typeof BatchDeleteKnowledgeBaseResponse$ === "object");
+assert(typeof BatchDeleteKnowledgeBaseSuccess$ === "object");
 assert(typeof BatchDeleteTopicReviewedAnswerRequest$ === "object");
 assert(typeof BatchDeleteTopicReviewedAnswerResponse$ === "object");
 assert(typeof BigQueryParameters$ === "object");
@@ -3188,6 +3272,7 @@ assert(typeof CalculatedMeasureField$ === "object");
 assert(typeof CancelIngestionRequest$ === "object");
 assert(typeof CancelIngestionResponse$ === "object");
 assert(typeof Capabilities$ === "object");
+assert(typeof CapacityBytesRangeFilter$ === "object");
 assert(typeof CascadingControlConfiguration$ === "object");
 assert(typeof CascadingControlSource$ === "object");
 assert(typeof CastColumnTypeOperation$ === "object");
@@ -3490,6 +3575,8 @@ assert(typeof DeleteIAMPolicyAssignmentRequest$ === "object");
 assert(typeof DeleteIAMPolicyAssignmentResponse$ === "object");
 assert(typeof DeleteIdentityPropagationConfigRequest$ === "object");
 assert(typeof DeleteIdentityPropagationConfigResponse$ === "object");
+assert(typeof DeleteKnowledgeBaseRequest$ === "object");
+assert(typeof DeleteKnowledgeBaseResponse$ === "object");
 assert(typeof DeleteNamespaceRequest$ === "object");
 assert(typeof DeleteNamespaceResponse$ === "object");
 assert(typeof DeleteOAuthClientApplicationRequest$ === "object");
@@ -3602,6 +3689,10 @@ assert(typeof DescribeIpRestrictionRequest$ === "object");
 assert(typeof DescribeIpRestrictionResponse$ === "object");
 assert(typeof DescribeKeyRegistrationRequest$ === "object");
 assert(typeof DescribeKeyRegistrationResponse$ === "object");
+assert(typeof DescribeKnowledgeBasePermissionsRequest$ === "object");
+assert(typeof DescribeKnowledgeBasePermissionsResponse$ === "object");
+assert(typeof DescribeKnowledgeBaseRequest$ === "object");
+assert(typeof DescribeKnowledgeBaseResponse$ === "object");
 assert(typeof DescribeNamespaceRequest$ === "object");
 assert(typeof DescribeNamespaceResponse$ === "object");
 assert(typeof DescribeOAuthClientApplicationRequest$ === "object");
@@ -3837,6 +3928,7 @@ assert(typeof Image$ === "object");
 assert(typeof ImageConfiguration$ === "object");
 assert(typeof ImageCustomAction$ === "object");
 assert(typeof ImageCustomActionOperation$ === "object");
+assert(typeof ImageExtractionConfiguration$ === "object");
 assert(typeof ImageInteractionOptions$ === "object");
 assert(typeof ImageMenuOption$ === "object");
 assert(typeof ImageSet$ === "object");
@@ -3866,7 +3958,14 @@ assert(typeof JoinInstruction$ === "object");
 assert(typeof JoinKeyProperties$ === "object");
 assert(typeof JoinOperandProperties$ === "object");
 assert(typeof JoinOperation$ === "object");
+assert(typeof KbTemplateConfiguration$ === "object");
 assert(typeof KeyPairCredentials$ === "object");
+assert(typeof KnowledgeBase$ === "object");
+assert(typeof KnowledgeBaseConfiguration$ === "object");
+assert(typeof KnowledgeBaseIngestionSummary$ === "object");
+assert(typeof KnowledgeBaseSearchFilter$ === "object");
+assert(typeof KnowledgeBaseSortBy$ === "object");
+assert(typeof KnowledgeBaseSummary$ === "object");
 assert(typeof KPIActualValueConditionalFormatting$ === "object");
 assert(typeof KPIComparisonValueConditionalFormatting$ === "object");
 assert(typeof KPIConditionalFormatting$ === "object");
@@ -3944,6 +4043,8 @@ assert(typeof ListIdentityPropagationConfigsRequest$ === "object");
 assert(typeof ListIdentityPropagationConfigsResponse$ === "object");
 assert(typeof ListIngestionsRequest$ === "object");
 assert(typeof ListIngestionsResponse$ === "object");
+assert(typeof ListKnowledgeBasesRequest$ === "object");
+assert(typeof ListKnowledgeBasesResponse$ === "object");
 assert(typeof ListNamespacesRequest$ === "object");
 assert(typeof ListNamespacesResponse$ === "object");
 assert(typeof ListOAuthClientApplicationsRequest$ === "object");
@@ -3980,6 +4081,8 @@ assert(typeof ListTopicsRequest$ === "object");
 assert(typeof ListTopicsResponse$ === "object");
 assert(typeof ListUserGroupsRequest$ === "object");
 assert(typeof ListUserGroupsResponse$ === "object");
+assert(typeof ListUsersIndexCapacityRequest$ === "object");
+assert(typeof ListUsersIndexCapacityResponse$ === "object");
 assert(typeof ListUsersRequest$ === "object");
 assert(typeof ListUsersResponse$ === "object");
 assert(typeof ListVPCConnectionsRequest$ === "object");
@@ -4001,6 +4104,7 @@ assert(typeof MariaDbParameters$ === "object");
 assert(typeof MaximumLabelType$ === "object");
 assert(typeof MaximumMinimumComputation$ === "object");
 assert(typeof MeasureField$ === "object");
+assert(typeof MediaExtractionConfiguration$ === "object");
 assert(typeof MemberIdArnPair$ === "object");
 assert(typeof MetricComparisonComputation$ === "object");
 assert(typeof MinimumLabelType$ === "object");
@@ -4221,6 +4325,8 @@ assert(typeof SearchFoldersRequest$ === "object");
 assert(typeof SearchFoldersResponse$ === "object");
 assert(typeof SearchGroupsRequest$ === "object");
 assert(typeof SearchGroupsResponse$ === "object");
+assert(typeof SearchKnowledgeBasesRequest$ === "object");
+assert(typeof SearchKnowledgeBasesResponse$ === "object");
 assert(typeof SearchSpacesRequest$ === "object");
 assert(typeof SearchSpacesResponse$ === "object");
 assert(typeof SearchTopicsRequest$ === "object");
@@ -4530,6 +4636,8 @@ assert(typeof UpdateIpRestrictionRequest$ === "object");
 assert(typeof UpdateIpRestrictionResponse$ === "object");
 assert(typeof UpdateKeyRegistrationRequest$ === "object");
 assert(typeof UpdateKeyRegistrationResponse$ === "object");
+assert(typeof UpdateKnowledgeBasePermissionsRequest$ === "object");
+assert(typeof UpdateKnowledgeBasePermissionsResponse$ === "object");
 assert(typeof UpdateOAuthClientApplicationRequest$ === "object");
 assert(typeof UpdateOAuthClientApplicationResponse$ === "object");
 assert(typeof UpdatePublicSharingSettingsRequest$ === "object");
@@ -4582,8 +4690,12 @@ assert(typeof UploadedDocumentMetadata$ === "object");
 assert(typeof UploadSettings$ === "object");
 assert(typeof User$ === "object");
 assert(typeof UserIdentifier$ === "object");
+assert(typeof UserIndexCapacity$ === "object");
+assert(typeof UserIndexCapacityFilter$ === "object");
+assert(typeof UserNameOrEmailFilter$ === "object");
 assert(typeof ValidationStrategy$ === "object");
 assert(typeof ValueColumnConfiguration$ === "object");
+assert(typeof VideoExtractionConfiguration$ === "object");
 assert(typeof VisibleRangeOptions$ === "object");
 assert(typeof Visual$ === "object");
 assert(typeof VisualAxisSortOption$ === "object");
@@ -4651,6 +4763,7 @@ assert(typeof AssetBundleExportJobVPCConnectionPropertyToOverride === "object");
 assert(typeof AssetBundleImportFailureAction === "object");
 assert(typeof AssetBundleImportJobStatus === "object");
 assert(typeof AssignmentStatus === "object");
+assert(typeof AudioExtractionStatus === "object");
 assert(typeof AuthenticationMethodOption === "object");
 assert(typeof AuthenticationType === "object");
 assert(typeof AuthorizationCodeGrantCredentialsSource === "object");
@@ -4706,6 +4819,7 @@ assert(typeof DataSetFilterAttribute === "object");
 assert(typeof DataSetImportMode === "object");
 assert(typeof DataSetNumericComparisonFilterOperator === "object");
 assert(typeof DatasetParameterValueType === "object");
+assert(typeof DataSetStatus === "object");
 assert(typeof DataSetStringComparisonFilterOperator === "object");
 assert(typeof DataSetStringListFilterOperator === "object");
 assert(typeof DataSetUseAs === "object");
@@ -4752,6 +4866,7 @@ assert(typeof Icon === "object");
 assert(typeof IdentityStore === "object");
 assert(typeof IdentityType === "object");
 assert(typeof ImageCustomActionTrigger === "object");
+assert(typeof ImageExtractionStatus === "object");
 assert(typeof IncludeFolderMembers === "object");
 assert(typeof IncludeGeneratedAnswer === "object");
 assert(typeof IncludeQuickSightQIndex === "object");
@@ -4763,6 +4878,10 @@ assert(typeof IngestionType === "object");
 assert(typeof InputColumnDataType === "object");
 assert(typeof JoinOperationType === "object");
 assert(typeof JoinType === "object");
+assert(typeof KbIngestionStatus === "object");
+assert(typeof KnowledgeBaseSearchFilterName === "object");
+assert(typeof KnowledgeBaseSearchOperator === "object");
+assert(typeof KnowledgeBaseSortByField === "object");
 assert(typeof KPISparklineType === "object");
 assert(typeof KPIVisualStandardLayoutType === "object");
 assert(typeof LayerCustomActionTrigger === "object");
@@ -4856,6 +4975,7 @@ assert(typeof SnapshotFileFormatType === "object");
 assert(typeof SnapshotFileSheetSelectionScope === "object");
 assert(typeof SnapshotJobStatus === "object");
 assert(typeof SortDirection === "object");
+assert(typeof SortOrder === "object");
 assert(typeof SpaceQuickSightResourceType === "object");
 assert(typeof SpaceQuickSightSearchFilterName === "object");
 assert(typeof SpaceSearchOperator === "object");
@@ -4897,10 +5017,14 @@ assert(typeof TopicUserExperienceVersion === "object");
 assert(typeof TransposedColumnType === "object");
 assert(typeof UndefinedSpecifiedValueType === "object");
 assert(typeof URLTargetConfiguration === "object");
+assert(typeof UserIndexCapacitySortBy === "object");
+assert(typeof UserIndexCapacitySortOrder === "object");
 assert(typeof UserRole === "object");
 assert(typeof ValidationStrategyMode === "object");
 assert(typeof ValueWhenUnsetOption === "object");
 assert(typeof VerticalTextAlignment === "object");
+assert(typeof VideoExtractionStatus === "object");
+assert(typeof VideoExtractionType === "object");
 assert(typeof Visibility === "object");
 assert(typeof VisualCustomActionTrigger === "object");
 assert(typeof VisualHighlightTrigger === "object");
@@ -4984,6 +5108,7 @@ assert(typeof paginateListGroups === "function");
 assert(typeof paginateListIAMPolicyAssignments === "function");
 assert(typeof paginateListIAMPolicyAssignmentsForUser === "function");
 assert(typeof paginateListIngestions === "function");
+assert(typeof paginateListKnowledgeBases === "function");
 assert(typeof paginateListNamespaces === "function");
 assert(typeof paginateListOAuthClientApplications === "function");
 assert(typeof paginateListRoleMemberships === "function");
@@ -5004,5 +5129,6 @@ assert(typeof paginateSearchDataSources === "function");
 assert(typeof paginateSearchFlows === "function");
 assert(typeof paginateSearchFolders === "function");
 assert(typeof paginateSearchGroups === "function");
+assert(typeof paginateSearchKnowledgeBases === "function");
 assert(typeof paginateSearchTopics === "function");
 console.log(`QuickSight index test passed.`);

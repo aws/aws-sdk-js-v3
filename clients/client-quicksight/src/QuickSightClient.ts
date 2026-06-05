@@ -59,6 +59,10 @@ import type {
   BatchCreateTopicReviewedAnswerCommandOutput,
 } from "./commands/BatchCreateTopicReviewedAnswerCommand";
 import type {
+  BatchDeleteKnowledgeBaseCommandInput,
+  BatchDeleteKnowledgeBaseCommandOutput,
+} from "./commands/BatchDeleteKnowledgeBaseCommand";
+import type {
   BatchDeleteTopicReviewedAnswerCommandInput,
   BatchDeleteTopicReviewedAnswerCommandOutput,
 } from "./commands/BatchDeleteTopicReviewedAnswerCommand";
@@ -188,6 +192,10 @@ import type {
   DeleteIdentityPropagationConfigCommandInput,
   DeleteIdentityPropagationConfigCommandOutput,
 } from "./commands/DeleteIdentityPropagationConfigCommand";
+import type {
+  DeleteKnowledgeBaseCommandInput,
+  DeleteKnowledgeBaseCommandOutput,
+} from "./commands/DeleteKnowledgeBaseCommand";
 import type { DeleteNamespaceCommandInput, DeleteNamespaceCommandOutput } from "./commands/DeleteNamespaceCommand";
 import type {
   DeleteOAuthClientApplicationCommandInput,
@@ -371,6 +379,14 @@ import type {
   DescribeKeyRegistrationCommandOutput,
 } from "./commands/DescribeKeyRegistrationCommand";
 import type {
+  DescribeKnowledgeBaseCommandInput,
+  DescribeKnowledgeBaseCommandOutput,
+} from "./commands/DescribeKnowledgeBaseCommand";
+import type {
+  DescribeKnowledgeBasePermissionsCommandInput,
+  DescribeKnowledgeBasePermissionsCommandOutput,
+} from "./commands/DescribeKnowledgeBasePermissionsCommand";
+import type {
   DescribeNamespaceCommandInput,
   DescribeNamespaceCommandOutput,
 } from "./commands/DescribeNamespaceCommand";
@@ -526,6 +542,10 @@ import type {
   ListIdentityPropagationConfigsCommandOutput,
 } from "./commands/ListIdentityPropagationConfigsCommand";
 import type { ListIngestionsCommandInput, ListIngestionsCommandOutput } from "./commands/ListIngestionsCommand";
+import type {
+  ListKnowledgeBasesCommandInput,
+  ListKnowledgeBasesCommandOutput,
+} from "./commands/ListKnowledgeBasesCommand";
 import type { ListNamespacesCommandInput, ListNamespacesCommandOutput } from "./commands/ListNamespacesCommand";
 import type {
   ListOAuthClientApplicationsCommandInput,
@@ -576,6 +596,10 @@ import type { ListTopicsCommandInput, ListTopicsCommandOutput } from "./commands
 import type { ListUserGroupsCommandInput, ListUserGroupsCommandOutput } from "./commands/ListUserGroupsCommand";
 import type { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
 import type {
+  ListUsersIndexCapacityCommandInput,
+  ListUsersIndexCapacityCommandOutput,
+} from "./commands/ListUsersIndexCapacityCommand";
+import type {
   ListVPCConnectionsCommandInput,
   ListVPCConnectionsCommandOutput,
 } from "./commands/ListVPCConnectionsCommand";
@@ -601,6 +625,10 @@ import type {
 import type { SearchFlowsCommandInput, SearchFlowsCommandOutput } from "./commands/SearchFlowsCommand";
 import type { SearchFoldersCommandInput, SearchFoldersCommandOutput } from "./commands/SearchFoldersCommand";
 import type { SearchGroupsCommandInput, SearchGroupsCommandOutput } from "./commands/SearchGroupsCommand";
+import type {
+  SearchKnowledgeBasesCommandInput,
+  SearchKnowledgeBasesCommandOutput,
+} from "./commands/SearchKnowledgeBasesCommand";
 import type { SearchSpacesCommandInput, SearchSpacesCommandOutput } from "./commands/SearchSpacesCommand";
 import type { SearchTopicsCommandInput, SearchTopicsCommandOutput } from "./commands/SearchTopicsCommand";
 import type {
@@ -731,6 +759,10 @@ import type {
   UpdateKeyRegistrationCommandOutput,
 } from "./commands/UpdateKeyRegistrationCommand";
 import type {
+  UpdateKnowledgeBasePermissionsCommandInput,
+  UpdateKnowledgeBasePermissionsCommandOutput,
+} from "./commands/UpdateKnowledgeBasePermissionsCommand";
+import type {
   UpdateOAuthClientApplicationCommandInput,
   UpdateOAuthClientApplicationCommandOutput,
 } from "./commands/UpdateOAuthClientApplicationCommand";
@@ -824,6 +856,7 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | BatchCreateTopicReviewedAnswerCommandInput
+  | BatchDeleteKnowledgeBaseCommandInput
   | BatchDeleteTopicReviewedAnswerCommandInput
   | CancelIngestionCommandInput
   | CreateAccountCustomizationCommandInput
@@ -876,6 +909,7 @@ export type ServiceInputTypes =
   | DeleteGroupMembershipCommandInput
   | DeleteIAMPolicyAssignmentCommandInput
   | DeleteIdentityPropagationConfigCommandInput
+  | DeleteKnowledgeBaseCommandInput
   | DeleteNamespaceCommandInput
   | DeleteOAuthClientApplicationCommandInput
   | DeleteRefreshScheduleCommandInput
@@ -932,6 +966,8 @@ export type ServiceInputTypes =
   | DescribeIngestionCommandInput
   | DescribeIpRestrictionCommandInput
   | DescribeKeyRegistrationCommandInput
+  | DescribeKnowledgeBaseCommandInput
+  | DescribeKnowledgeBasePermissionsCommandInput
   | DescribeNamespaceCommandInput
   | DescribeOAuthClientApplicationCommandInput
   | DescribeQPersonalizationConfigurationCommandInput
@@ -983,6 +1019,7 @@ export type ServiceInputTypes =
   | ListIAMPolicyAssignmentsForUserCommandInput
   | ListIdentityPropagationConfigsCommandInput
   | ListIngestionsCommandInput
+  | ListKnowledgeBasesCommandInput
   | ListNamespacesCommandInput
   | ListOAuthClientApplicationsCommandInput
   | ListRefreshSchedulesCommandInput
@@ -1002,6 +1039,7 @@ export type ServiceInputTypes =
   | ListTopicsCommandInput
   | ListUserGroupsCommandInput
   | ListUsersCommandInput
+  | ListUsersIndexCapacityCommandInput
   | ListVPCConnectionsCommandInput
   | PredictQAResultsCommandInput
   | PutDataSetRefreshPropertiesCommandInput
@@ -1016,6 +1054,7 @@ export type ServiceInputTypes =
   | SearchFlowsCommandInput
   | SearchFoldersCommandInput
   | SearchGroupsCommandInput
+  | SearchKnowledgeBasesCommandInput
   | SearchSpacesCommandInput
   | SearchTopicsCommandInput
   | StartAssetBundleExportJobCommandInput
@@ -1058,6 +1097,7 @@ export type ServiceInputTypes =
   | UpdateIdentityPropagationConfigCommandInput
   | UpdateIpRestrictionCommandInput
   | UpdateKeyRegistrationCommandInput
+  | UpdateKnowledgeBasePermissionsCommandInput
   | UpdateOAuthClientApplicationCommandInput
   | UpdatePublicSharingSettingsCommandInput
   | UpdateQPersonalizationConfigurationCommandInput
@@ -1088,6 +1128,7 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | BatchCreateTopicReviewedAnswerCommandOutput
+  | BatchDeleteKnowledgeBaseCommandOutput
   | BatchDeleteTopicReviewedAnswerCommandOutput
   | CancelIngestionCommandOutput
   | CreateAccountCustomizationCommandOutput
@@ -1140,6 +1181,7 @@ export type ServiceOutputTypes =
   | DeleteGroupMembershipCommandOutput
   | DeleteIAMPolicyAssignmentCommandOutput
   | DeleteIdentityPropagationConfigCommandOutput
+  | DeleteKnowledgeBaseCommandOutput
   | DeleteNamespaceCommandOutput
   | DeleteOAuthClientApplicationCommandOutput
   | DeleteRefreshScheduleCommandOutput
@@ -1196,6 +1238,8 @@ export type ServiceOutputTypes =
   | DescribeIngestionCommandOutput
   | DescribeIpRestrictionCommandOutput
   | DescribeKeyRegistrationCommandOutput
+  | DescribeKnowledgeBaseCommandOutput
+  | DescribeKnowledgeBasePermissionsCommandOutput
   | DescribeNamespaceCommandOutput
   | DescribeOAuthClientApplicationCommandOutput
   | DescribeQPersonalizationConfigurationCommandOutput
@@ -1247,6 +1291,7 @@ export type ServiceOutputTypes =
   | ListIAMPolicyAssignmentsForUserCommandOutput
   | ListIdentityPropagationConfigsCommandOutput
   | ListIngestionsCommandOutput
+  | ListKnowledgeBasesCommandOutput
   | ListNamespacesCommandOutput
   | ListOAuthClientApplicationsCommandOutput
   | ListRefreshSchedulesCommandOutput
@@ -1266,6 +1311,7 @@ export type ServiceOutputTypes =
   | ListTopicsCommandOutput
   | ListUserGroupsCommandOutput
   | ListUsersCommandOutput
+  | ListUsersIndexCapacityCommandOutput
   | ListVPCConnectionsCommandOutput
   | PredictQAResultsCommandOutput
   | PutDataSetRefreshPropertiesCommandOutput
@@ -1280,6 +1326,7 @@ export type ServiceOutputTypes =
   | SearchFlowsCommandOutput
   | SearchFoldersCommandOutput
   | SearchGroupsCommandOutput
+  | SearchKnowledgeBasesCommandOutput
   | SearchSpacesCommandOutput
   | SearchTopicsCommandOutput
   | StartAssetBundleExportJobCommandOutput
@@ -1322,6 +1369,7 @@ export type ServiceOutputTypes =
   | UpdateIdentityPropagationConfigCommandOutput
   | UpdateIpRestrictionCommandOutput
   | UpdateKeyRegistrationCommandOutput
+  | UpdateKnowledgeBasePermissionsCommandOutput
   | UpdateOAuthClientApplicationCommandOutput
   | UpdatePublicSharingSettingsCommandOutput
   | UpdateQPersonalizationConfigurationCommandOutput

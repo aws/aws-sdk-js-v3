@@ -20,6 +20,7 @@ import type {
   AssetBundleExportJobVPCConnectionPropertyToOverride,
   AssetBundleImportFailureAction,
   AssetBundleImportJobStatus,
+  AudioExtractionStatus,
   AuthenticationMethodOption,
   AuthenticationType,
   AuthorizationCodeGrantCredentialsSource,
@@ -91,7 +92,6 @@ import type {
   ChartAxisLabelOptions,
   ColumnConfiguration,
   DataLabelOptions,
-  DataPrepAggregationFunction,
   DataSetColumnIdMapping,
   DataSetIdentifierDeclaration,
   DimensionField,
@@ -5540,6 +5540,18 @@ export interface AssetBundleImportSourceDescription {
 }
 
 /**
+ * <p>The configuration for audio extraction from knowledge base documents.</p>
+ * @public
+ */
+export interface AudioExtractionConfiguration {
+  /**
+   * <p>The status of audio extraction. Valid values are ENABLED and DISABLED.</p>
+   * @public
+   */
+  audioExtractionStatus: AudioExtractionStatus | undefined;
+}
+
+/**
  * <p>Configuration details for OAuth 2.0 authorization code grant flow.</p>
  * @public
  */
@@ -6617,6 +6629,94 @@ export interface BatchCreateTopicReviewedAnswerResponse {
    * @public
    */
   RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchDeleteKnowledgeBaseRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the knowledge base.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>A list of knowledge base identifiers to delete.</p>
+   * @public
+   */
+  KnowledgeBaseIds: string[] | undefined;
+}
+
+/**
+ * <p>Information about a knowledge base that was successfully deleted in a batch operation.</p>
+ * @public
+ */
+export interface BatchDeleteKnowledgeBaseSuccess {
+  /**
+   * <p>The unique identifier of the successfully deleted knowledge base.</p>
+   * @public
+   */
+  KnowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The ARN of the successfully deleted knowledge base.</p>
+   * @public
+   */
+  KnowledgeBaseArn: string | undefined;
+}
+
+/**
+ * <p>Information about a knowledge base that failed to be deleted in a batch operation.</p>
+ * @public
+ */
+export interface BatchDeleteKnowledgeBaseFailure {
+  /**
+   * <p>The unique identifier of the knowledge base that failed to be deleted.</p>
+   * @public
+   */
+  KnowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The error code for the deletion failure.</p>
+   * @public
+   */
+  ErrorCode: string | undefined;
+
+  /**
+   * <p>The error message for the deletion failure.</p>
+   * @public
+   */
+  ErrorMessage: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchDeleteKnowledgeBaseResponse {
+  /**
+   * <p>A list of knowledge bases that were successfully deleted.</p>
+   * @public
+   */
+  Deleted: BatchDeleteKnowledgeBaseSuccess[] | undefined;
+
+  /**
+   * <p>A list of knowledge bases that failed to be deleted.</p>
+   * @public
+   */
+  Errors: BatchDeleteKnowledgeBaseFailure[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
 }
 
 /**
@@ -8502,6 +8602,24 @@ export interface Capabilities {
    * @public
    */
   Scenario?: CapabilityState | undefined;
+}
+
+/**
+ * <p>A filter that matches users by total capacity range in bytes.</p>
+ * @public
+ */
+export interface CapacityBytesRangeFilter {
+  /**
+   * <p>The minimum capacity in bytes (inclusive). At least one of minBytes or maxBytes is required.</p>
+   * @public
+   */
+  minBytes?: number | undefined;
+
+  /**
+   * <p>The maximum capacity in bytes (inclusive). At least one of minBytes or maxBytes is required.</p>
+   * @public
+   */
+  maxBytes?: number | undefined;
 }
 
 /**
@@ -11005,167 +11123,4 @@ export interface PivotConfiguration {
    * @public
    */
   PivotedLabels: PivotedLabel[] | undefined;
-}
-
-/**
- * <p>Configuration for how to handle value columns in pivot operations, including aggregation settings.</p>
- * @public
- */
-export interface ValueColumnConfiguration {
-  /**
-   * <p>The aggregation function to apply when multiple values map to the same pivoted cell.</p>
-   * @public
-   */
-  AggregationFunction?: DataPrepAggregationFunction | undefined;
-}
-
-/**
- * <p>A transform operation that pivots data by converting row values into columns.</p>
- * @public
- */
-export interface PivotOperation {
-  /**
-   * <p>Alias for this operation.</p>
-   * @public
-   */
-  Alias: string | undefined;
-
-  /**
-   * <p>The source transform operation that provides input data for pivoting.</p>
-   * @public
-   */
-  Source: TransformOperationSource | undefined;
-
-  /**
-   * <p>The list of column names to group by when performing the pivot operation.</p>
-   * @public
-   */
-  GroupByColumnNames?: string[] | undefined;
-
-  /**
-   * <p>Configuration for how to aggregate values when multiple rows map to the same pivoted column.</p>
-   * @public
-   */
-  ValueColumnConfiguration: ValueColumnConfiguration | undefined;
-
-  /**
-   * <p>Configuration that specifies which labels to pivot and how to structure the resulting columns.</p>
-   * @public
-   */
-  PivotConfiguration: PivotConfiguration | undefined;
-}
-
-/**
- * <p>A transform operation that projects columns. Operations that come after a projection
- *             can only refer to projected columns.</p>
- * @public
- */
-export interface ProjectOperation {
-  /**
-   * <p>Alias for this operation.</p>
-   * @public
-   */
-  Alias?: string | undefined;
-
-  /**
-   * <p>The source transform operation that provides input data for column projection.</p>
-   * @public
-   */
-  Source?: TransformOperationSource | undefined;
-
-  /**
-   * <p>Projected columns.</p>
-   * @public
-   */
-  ProjectedColumns: string[] | undefined;
-}
-
-/**
- * <p>A transform operation that renames a column.</p>
- * @public
- */
-export interface RenameColumnOperation {
-  /**
-   * <p>The name of the column to be renamed.</p>
-   * @public
-   */
-  ColumnName: string | undefined;
-
-  /**
-   * <p>The new name for the column.</p>
-   * @public
-   */
-  NewColumnName: string | undefined;
-}
-
-/**
- * <p>A transform operation that renames one or more columns in the dataset.</p>
- * @public
- */
-export interface RenameColumnsOperation {
-  /**
-   * <p>Alias for this operation.</p>
-   * @public
-   */
-  Alias: string | undefined;
-
-  /**
-   * <p>The source transform operation that provides input data for column renaming.</p>
-   * @public
-   */
-  Source: TransformOperationSource | undefined;
-
-  /**
-   * <p>The list of column rename operations to perform, specifying old and new column names.</p>
-   * @public
-   */
-  RenameColumnOperations: RenameColumnOperation[] | undefined;
-}
-
-/**
- * <p>A transform operation that converts columns into rows, normalizing the data structure.</p>
- * @public
- */
-export interface UnpivotOperation {
-  /**
-   * <p>Alias for this operation.</p>
-   * @public
-   */
-  Alias: string | undefined;
-
-  /**
-   * <p>The source transform operation that provides input data for unpivoting.</p>
-   * @public
-   */
-  Source: TransformOperationSource | undefined;
-
-  /**
-   * <p>The list of columns to unpivot from the source data.</p>
-   * @public
-   */
-  ColumnsToUnpivot: ColumnToUnpivot[] | undefined;
-
-  /**
-   * <p>The name for the new column that will contain the unpivoted column names.</p>
-   * @public
-   */
-  UnpivotedLabelColumnName: string | undefined;
-
-  /**
-   * <p>A unique identifier for the new column that will contain the unpivoted column names.</p>
-   * @public
-   */
-  UnpivotedLabelColumnId: string | undefined;
-
-  /**
-   * <p>The name for the new column that will contain the unpivoted values.</p>
-   * @public
-   */
-  UnpivotedValueColumnName: string | undefined;
-
-  /**
-   * <p>A unique identifier for the new column that will contain the unpivoted values.</p>
-   * @public
-   */
-  UnpivotedValueColumnId: string | undefined;
 }

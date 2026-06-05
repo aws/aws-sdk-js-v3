@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type {
   DescribeDataSetRefreshPropertiesRequest,
   DescribeDataSetRefreshPropertiesResponse,
-} from "../models/models_3";
+} from "../models/models_4";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { DescribeDataSetRefreshProperties$ } from "../schemas/schemas_0";
 

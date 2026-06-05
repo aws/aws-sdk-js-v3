@@ -155,6 +155,97 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * <p>You don't have this feature activated for your account. To fix this issue, contact Amazon Web Services support.</p>
+ * @public
+ */
+export class InvalidRequestException extends __BaseException {
+  readonly name = "InvalidRequestException" as const;
+  readonly $fault = "client" as const;
+  Message?: string | undefined;
+  /**
+   * <p>The Amazon Web Services request ID for this request.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
+    super({
+      name: "InvalidRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequestException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
+}
+
+/**
+ * <p>A limit is exceeded.</p>
+ * @public
+ */
+export class LimitExceededException extends __BaseException {
+  readonly name = "LimitExceededException" as const;
+  readonly $fault = "client" as const;
+  Message?: string | undefined;
+  /**
+   * <p>Limit exceeded.</p>
+   * @public
+   */
+  ResourceType?: ExceptionResourceType | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this request.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+    this.Message = opts.Message;
+    this.ResourceType = opts.ResourceType;
+    this.RequestId = opts.RequestId;
+  }
+}
+
+/**
+ * <p>One or more preconditions aren't met.</p>
+ * @public
+ */
+export class PreconditionNotMetException extends __BaseException {
+  readonly name = "PreconditionNotMetException" as const;
+  readonly $fault = "client" as const;
+  Message?: string | undefined;
+  /**
+   * <p>The Amazon Web Services request ID for this request.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PreconditionNotMetException, __BaseException>) {
+    super({
+      name: "PreconditionNotMetException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PreconditionNotMetException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
+}
+
+/**
  * <p>Updating or deleting a resource can cause an inconsistent state.</p>
  * @public
  */
@@ -278,69 +369,6 @@ export class ResourceUnavailableException extends __BaseException {
 }
 
 /**
- * <p>One or more preconditions aren't met.</p>
- * @public
- */
-export class PreconditionNotMetException extends __BaseException {
-  readonly name = "PreconditionNotMetException" as const;
-  readonly $fault = "client" as const;
-  Message?: string | undefined;
-  /**
-   * <p>The Amazon Web Services request ID for this request.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PreconditionNotMetException, __BaseException>) {
-    super({
-      name: "PreconditionNotMetException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PreconditionNotMetException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * <p>A limit is exceeded.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name = "LimitExceededException" as const;
-  readonly $fault = "client" as const;
-  Message?: string | undefined;
-  /**
-   * <p>Limit exceeded.</p>
-   * @public
-   */
-  ResourceType?: ExceptionResourceType | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this request.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-    this.Message = opts.Message;
-    this.ResourceType = opts.ResourceType;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
  * <p>This error indicates that you are calling an operation on an Amazon Quick Suite
  * 			subscription where the edition doesn't include support for that operation. Amazon
  * 			Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and
@@ -390,34 +418,6 @@ export class InternalServerException extends __BaseException {
     });
     Object.setPrototypeOf(this, InternalServerException.prototype);
     this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>You don't have this feature activated for your account. To fix this issue, contact Amazon Web Services support.</p>
- * @public
- */
-export class InvalidRequestException extends __BaseException {
-  readonly name = "InvalidRequestException" as const;
-  readonly $fault = "client" as const;
-  Message?: string | undefined;
-  /**
-   * <p>The Amazon Web Services request ID for this request.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
-    super({
-      name: "InvalidRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRequestException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
   }
 }
 

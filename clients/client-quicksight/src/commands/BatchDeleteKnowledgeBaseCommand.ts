@@ -4,12 +4,9 @@ import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  UpdateApplicationWithTokenExchangeGrantRequest,
-  UpdateApplicationWithTokenExchangeGrantResponse,
-} from "../models/models_5";
+import type { BatchDeleteKnowledgeBaseRequest, BatchDeleteKnowledgeBaseResponse } from "../models/models_2";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { UpdateApplicationWithTokenExchangeGrant$ } from "../schemas/schemas_0";
+import { BatchDeleteKnowledgeBase$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -19,43 +16,58 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link UpdateApplicationWithTokenExchangeGrantCommand}.
+ * The input for {@link BatchDeleteKnowledgeBaseCommand}.
  */
-export interface UpdateApplicationWithTokenExchangeGrantCommandInput extends UpdateApplicationWithTokenExchangeGrantRequest {}
+export interface BatchDeleteKnowledgeBaseCommandInput extends BatchDeleteKnowledgeBaseRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateApplicationWithTokenExchangeGrantCommand}.
+ * The output of {@link BatchDeleteKnowledgeBaseCommand}.
  */
-export interface UpdateApplicationWithTokenExchangeGrantCommandOutput extends UpdateApplicationWithTokenExchangeGrantResponse, __MetadataBearer {}
+export interface BatchDeleteKnowledgeBaseCommandOutput extends BatchDeleteKnowledgeBaseResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an Quick application with a token exchange grant. This operation only supports Quick applications that are registered with IAM Identity Center.</p>
+ * <p>Deletes one or more knowledge bases.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, UpdateApplicationWithTokenExchangeGrantCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, UpdateApplicationWithTokenExchangeGrantCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, BatchDeleteKnowledgeBaseCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
+ * // const { QuickSightClient, BatchDeleteKnowledgeBaseCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
  * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
- * const input = { // UpdateApplicationWithTokenExchangeGrantRequest
+ * const input = { // BatchDeleteKnowledgeBaseRequest
  *   AwsAccountId: "STRING_VALUE", // required
- *   Namespace: "STRING_VALUE", // required
+ *   KnowledgeBaseIds: [ // BatchDeleteKnowledgeBaseRequestKnowledgeBaseIdsList // required
+ *     "STRING_VALUE",
+ *   ],
  * };
- * const command = new UpdateApplicationWithTokenExchangeGrantCommand(input);
+ * const command = new BatchDeleteKnowledgeBaseCommand(input);
  * const response = await client.send(command);
- * // { // UpdateApplicationWithTokenExchangeGrantResponse
- * //   Status: Number("int"),
+ * // { // BatchDeleteKnowledgeBaseResponse
+ * //   Deleted: [ // BatchDeleteKnowledgeBaseSuccessList // required
+ * //     { // BatchDeleteKnowledgeBaseSuccess
+ * //       KnowledgeBaseId: "STRING_VALUE", // required
+ * //       KnowledgeBaseArn: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   Errors: [ // BatchDeleteKnowledgeBaseFailureList // required
+ * //     { // BatchDeleteKnowledgeBaseFailure
+ * //       KnowledgeBaseId: "STRING_VALUE", // required
+ * //       ErrorCode: "STRING_VALUE", // required
+ * //       ErrorMessage: "STRING_VALUE", // required
+ * //     },
+ * //   ],
  * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
  * // };
  *
  * ```
  *
- * @param UpdateApplicationWithTokenExchangeGrantCommandInput - {@link UpdateApplicationWithTokenExchangeGrantCommandInput}
- * @returns {@link UpdateApplicationWithTokenExchangeGrantCommandOutput}
- * @see {@link UpdateApplicationWithTokenExchangeGrantCommandInput} for command's `input` shape.
- * @see {@link UpdateApplicationWithTokenExchangeGrantCommandOutput} for command's `response` shape.
+ * @param BatchDeleteKnowledgeBaseCommandInput - {@link BatchDeleteKnowledgeBaseCommandInput}
+ * @returns {@link BatchDeleteKnowledgeBaseCommandOutput}
+ * @see {@link BatchDeleteKnowledgeBaseCommandInput} for command's `input` shape.
+ * @see {@link BatchDeleteKnowledgeBaseCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -76,8 +88,8 @@ export interface UpdateApplicationWithTokenExchangeGrantCommandOutput extends Up
  * @throws {@link LimitExceededException} (client fault)
  *  <p>A limit is exceeded.</p>
  *
- * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>One or more resources can't be found.</p>
+ * @throws {@link PreconditionNotMetException} (client fault)
+ *  <p>One or more preconditions aren't met.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
@@ -88,10 +100,10 @@ export interface UpdateApplicationWithTokenExchangeGrantCommandOutput extends Up
  *
  * @public
  */
-export class UpdateApplicationWithTokenExchangeGrantCommand extends $Command
+export class BatchDeleteKnowledgeBaseCommand extends $Command
   .classBuilder<
-    UpdateApplicationWithTokenExchangeGrantCommandInput,
-    UpdateApplicationWithTokenExchangeGrantCommandOutput,
+    BatchDeleteKnowledgeBaseCommandInput,
+    BatchDeleteKnowledgeBaseCommandOutput,
     QuickSightClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -100,19 +112,19 @@ export class UpdateApplicationWithTokenExchangeGrantCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("QuickSight_20180401", "UpdateApplicationWithTokenExchangeGrant", {})
-  .n("QuickSightClient", "UpdateApplicationWithTokenExchangeGrantCommand")
-  .sc(UpdateApplicationWithTokenExchangeGrant$)
+  .s("QuickSight_20180401", "BatchDeleteKnowledgeBase", {})
+  .n("QuickSightClient", "BatchDeleteKnowledgeBaseCommand")
+  .sc(BatchDeleteKnowledgeBase$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: UpdateApplicationWithTokenExchangeGrantRequest;
-      output: UpdateApplicationWithTokenExchangeGrantResponse;
+      input: BatchDeleteKnowledgeBaseRequest;
+      output: BatchDeleteKnowledgeBaseResponse;
     };
     sdk: {
-      input: UpdateApplicationWithTokenExchangeGrantCommandInput;
-      output: UpdateApplicationWithTokenExchangeGrantCommandOutput;
+      input: BatchDeleteKnowledgeBaseCommandInput;
+      output: BatchDeleteKnowledgeBaseCommandOutput;
     };
   };
 }

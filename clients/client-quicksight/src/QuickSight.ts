@@ -8,6 +8,11 @@ import {
   BatchCreateTopicReviewedAnswerCommand,
 } from "./commands/BatchCreateTopicReviewedAnswerCommand";
 import {
+  type BatchDeleteKnowledgeBaseCommandInput,
+  type BatchDeleteKnowledgeBaseCommandOutput,
+  BatchDeleteKnowledgeBaseCommand,
+} from "./commands/BatchDeleteKnowledgeBaseCommand";
+import {
   type BatchDeleteTopicReviewedAnswerCommandInput,
   type BatchDeleteTopicReviewedAnswerCommandOutput,
   BatchDeleteTopicReviewedAnswerCommand,
@@ -267,6 +272,11 @@ import {
   type DeleteIdentityPropagationConfigCommandOutput,
   DeleteIdentityPropagationConfigCommand,
 } from "./commands/DeleteIdentityPropagationConfigCommand";
+import {
+  type DeleteKnowledgeBaseCommandInput,
+  type DeleteKnowledgeBaseCommandOutput,
+  DeleteKnowledgeBaseCommand,
+} from "./commands/DeleteKnowledgeBaseCommand";
 import {
   type DeleteNamespaceCommandInput,
   type DeleteNamespaceCommandOutput,
@@ -548,6 +558,16 @@ import {
   DescribeKeyRegistrationCommand,
 } from "./commands/DescribeKeyRegistrationCommand";
 import {
+  type DescribeKnowledgeBaseCommandInput,
+  type DescribeKnowledgeBaseCommandOutput,
+  DescribeKnowledgeBaseCommand,
+} from "./commands/DescribeKnowledgeBaseCommand";
+import {
+  type DescribeKnowledgeBasePermissionsCommandInput,
+  type DescribeKnowledgeBasePermissionsCommandOutput,
+  DescribeKnowledgeBasePermissionsCommand,
+} from "./commands/DescribeKnowledgeBasePermissionsCommand";
+import {
   type DescribeNamespaceCommandInput,
   type DescribeNamespaceCommandOutput,
   DescribeNamespaceCommand,
@@ -799,6 +819,11 @@ import {
   ListIngestionsCommand,
 } from "./commands/ListIngestionsCommand";
 import {
+  type ListKnowledgeBasesCommandInput,
+  type ListKnowledgeBasesCommandOutput,
+  ListKnowledgeBasesCommand,
+} from "./commands/ListKnowledgeBasesCommand";
+import {
   type ListNamespacesCommandInput,
   type ListNamespacesCommandOutput,
   ListNamespacesCommand,
@@ -890,6 +915,11 @@ import {
 } from "./commands/ListUserGroupsCommand";
 import { type ListUsersCommandInput, type ListUsersCommandOutput, ListUsersCommand } from "./commands/ListUsersCommand";
 import {
+  type ListUsersIndexCapacityCommandInput,
+  type ListUsersIndexCapacityCommandOutput,
+  ListUsersIndexCapacityCommand,
+} from "./commands/ListUsersIndexCapacityCommand";
+import {
   type ListVPCConnectionsCommandInput,
   type ListVPCConnectionsCommandOutput,
   ListVPCConnectionsCommand,
@@ -959,6 +989,11 @@ import {
   type SearchGroupsCommandOutput,
   SearchGroupsCommand,
 } from "./commands/SearchGroupsCommand";
+import {
+  type SearchKnowledgeBasesCommandInput,
+  type SearchKnowledgeBasesCommandOutput,
+  SearchKnowledgeBasesCommand,
+} from "./commands/SearchKnowledgeBasesCommand";
 import {
   type SearchSpacesCommandInput,
   type SearchSpacesCommandOutput,
@@ -1170,6 +1205,11 @@ import {
   UpdateKeyRegistrationCommand,
 } from "./commands/UpdateKeyRegistrationCommand";
 import {
+  type UpdateKnowledgeBasePermissionsCommandInput,
+  type UpdateKnowledgeBasePermissionsCommandOutput,
+  UpdateKnowledgeBasePermissionsCommand,
+} from "./commands/UpdateKnowledgeBasePermissionsCommand";
+import {
   type UpdateOAuthClientApplicationCommandInput,
   type UpdateOAuthClientApplicationCommandOutput,
   UpdateOAuthClientApplicationCommand,
@@ -1310,6 +1350,7 @@ import { paginateListGroups } from "./pagination/ListGroupsPaginator";
 import { paginateListIAMPolicyAssignmentsForUser } from "./pagination/ListIAMPolicyAssignmentsForUserPaginator";
 import { paginateListIAMPolicyAssignments } from "./pagination/ListIAMPolicyAssignmentsPaginator";
 import { paginateListIngestions } from "./pagination/ListIngestionsPaginator";
+import { paginateListKnowledgeBases } from "./pagination/ListKnowledgeBasesPaginator";
 import { paginateListNamespaces } from "./pagination/ListNamespacesPaginator";
 import { paginateListOAuthClientApplications } from "./pagination/ListOAuthClientApplicationsPaginator";
 import { paginateListRoleMemberships } from "./pagination/ListRoleMembershipsPaginator";
@@ -1330,11 +1371,13 @@ import { paginateSearchDataSources } from "./pagination/SearchDataSourcesPaginat
 import { paginateSearchFlows } from "./pagination/SearchFlowsPaginator";
 import { paginateSearchFolders } from "./pagination/SearchFoldersPaginator";
 import { paginateSearchGroups } from "./pagination/SearchGroupsPaginator";
+import { paginateSearchKnowledgeBases } from "./pagination/SearchKnowledgeBasesPaginator";
 import { paginateSearchTopics } from "./pagination/SearchTopicsPaginator";
 import { QuickSightClient } from "./QuickSightClient";
 
 const commands = {
   BatchCreateTopicReviewedAnswerCommand,
+  BatchDeleteKnowledgeBaseCommand,
   BatchDeleteTopicReviewedAnswerCommand,
   CancelIngestionCommand,
   CreateAccountCustomizationCommand,
@@ -1387,6 +1430,7 @@ const commands = {
   DeleteGroupMembershipCommand,
   DeleteIAMPolicyAssignmentCommand,
   DeleteIdentityPropagationConfigCommand,
+  DeleteKnowledgeBaseCommand,
   DeleteNamespaceCommand,
   DeleteOAuthClientApplicationCommand,
   DeleteRefreshScheduleCommand,
@@ -1443,6 +1487,8 @@ const commands = {
   DescribeIngestionCommand,
   DescribeIpRestrictionCommand,
   DescribeKeyRegistrationCommand,
+  DescribeKnowledgeBaseCommand,
+  DescribeKnowledgeBasePermissionsCommand,
   DescribeNamespaceCommand,
   DescribeOAuthClientApplicationCommand,
   DescribeQPersonalizationConfigurationCommand,
@@ -1494,6 +1540,7 @@ const commands = {
   ListIAMPolicyAssignmentsForUserCommand,
   ListIdentityPropagationConfigsCommand,
   ListIngestionsCommand,
+  ListKnowledgeBasesCommand,
   ListNamespacesCommand,
   ListOAuthClientApplicationsCommand,
   ListRefreshSchedulesCommand,
@@ -1513,6 +1560,7 @@ const commands = {
   ListTopicsCommand,
   ListUserGroupsCommand,
   ListUsersCommand,
+  ListUsersIndexCapacityCommand,
   ListVPCConnectionsCommand,
   PredictQAResultsCommand,
   PutDataSetRefreshPropertiesCommand,
@@ -1527,6 +1575,7 @@ const commands = {
   SearchFlowsCommand,
   SearchFoldersCommand,
   SearchGroupsCommand,
+  SearchKnowledgeBasesCommand,
   SearchSpacesCommand,
   SearchTopicsCommand,
   StartAssetBundleExportJobCommand,
@@ -1569,6 +1618,7 @@ const commands = {
   UpdateIdentityPropagationConfigCommand,
   UpdateIpRestrictionCommand,
   UpdateKeyRegistrationCommand,
+  UpdateKnowledgeBasePermissionsCommand,
   UpdateOAuthClientApplicationCommand,
   UpdatePublicSharingSettingsCommand,
   UpdateQPersonalizationConfigurationCommand,
@@ -1616,6 +1666,7 @@ const paginators = {
   paginateListIAMPolicyAssignments,
   paginateListIAMPolicyAssignmentsForUser,
   paginateListIngestions,
+  paginateListKnowledgeBases,
   paginateListNamespaces,
   paginateListOAuthClientApplications,
   paginateListRoleMemberships,
@@ -1636,6 +1687,7 @@ const paginators = {
   paginateSearchFlows,
   paginateSearchFolders,
   paginateSearchGroups,
+  paginateSearchKnowledgeBases,
   paginateSearchTopics,
 };
 
@@ -1655,6 +1707,23 @@ export interface QuickSight {
     args: BatchCreateTopicReviewedAnswerCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchCreateTopicReviewedAnswerCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchDeleteKnowledgeBaseCommand}
+   */
+  batchDeleteKnowledgeBase(
+    args: BatchDeleteKnowledgeBaseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchDeleteKnowledgeBaseCommandOutput>;
+  batchDeleteKnowledgeBase(
+    args: BatchDeleteKnowledgeBaseCommandInput,
+    cb: (err: any, data?: BatchDeleteKnowledgeBaseCommandOutput) => void
+  ): void;
+  batchDeleteKnowledgeBase(
+    args: BatchDeleteKnowledgeBaseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchDeleteKnowledgeBaseCommandOutput) => void
   ): void;
 
   /**
@@ -2539,6 +2608,23 @@ export interface QuickSight {
     args: DeleteIdentityPropagationConfigCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteIdentityPropagationConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteKnowledgeBaseCommand}
+   */
+  deleteKnowledgeBase(
+    args: DeleteKnowledgeBaseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteKnowledgeBaseCommandOutput>;
+  deleteKnowledgeBase(
+    args: DeleteKnowledgeBaseCommandInput,
+    cb: (err: any, data?: DeleteKnowledgeBaseCommandOutput) => void
+  ): void;
+  deleteKnowledgeBase(
+    args: DeleteKnowledgeBaseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteKnowledgeBaseCommandOutput) => void
   ): void;
 
   /**
@@ -3494,6 +3580,40 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link DescribeKnowledgeBaseCommand}
+   */
+  describeKnowledgeBase(
+    args: DescribeKnowledgeBaseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeKnowledgeBaseCommandOutput>;
+  describeKnowledgeBase(
+    args: DescribeKnowledgeBaseCommandInput,
+    cb: (err: any, data?: DescribeKnowledgeBaseCommandOutput) => void
+  ): void;
+  describeKnowledgeBase(
+    args: DescribeKnowledgeBaseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeKnowledgeBaseCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeKnowledgeBasePermissionsCommand}
+   */
+  describeKnowledgeBasePermissions(
+    args: DescribeKnowledgeBasePermissionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeKnowledgeBasePermissionsCommandOutput>;
+  describeKnowledgeBasePermissions(
+    args: DescribeKnowledgeBasePermissionsCommandInput,
+    cb: (err: any, data?: DescribeKnowledgeBasePermissionsCommandOutput) => void
+  ): void;
+  describeKnowledgeBasePermissions(
+    args: DescribeKnowledgeBasePermissionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeKnowledgeBasePermissionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeNamespaceCommand}
    */
   describeNamespace(
@@ -4361,6 +4481,23 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link ListKnowledgeBasesCommand}
+   */
+  listKnowledgeBases(
+    args: ListKnowledgeBasesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListKnowledgeBasesCommandOutput>;
+  listKnowledgeBases(
+    args: ListKnowledgeBasesCommandInput,
+    cb: (err: any, data?: ListKnowledgeBasesCommandOutput) => void
+  ): void;
+  listKnowledgeBases(
+    args: ListKnowledgeBasesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListKnowledgeBasesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListNamespacesCommand}
    */
   listNamespaces(
@@ -4684,6 +4821,23 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link ListUsersIndexCapacityCommand}
+   */
+  listUsersIndexCapacity(
+    args: ListUsersIndexCapacityCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListUsersIndexCapacityCommandOutput>;
+  listUsersIndexCapacity(
+    args: ListUsersIndexCapacityCommandInput,
+    cb: (err: any, data?: ListUsersIndexCapacityCommandOutput) => void
+  ): void;
+  listUsersIndexCapacity(
+    args: ListUsersIndexCapacityCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListUsersIndexCapacityCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListVPCConnectionsCommand}
    */
   listVPCConnections(
@@ -4919,6 +5073,23 @@ export interface QuickSight {
     args: SearchGroupsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SearchGroupsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SearchKnowledgeBasesCommand}
+   */
+  searchKnowledgeBases(
+    args: SearchKnowledgeBasesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchKnowledgeBasesCommandOutput>;
+  searchKnowledgeBases(
+    args: SearchKnowledgeBasesCommandInput,
+    cb: (err: any, data?: SearchKnowledgeBasesCommandOutput) => void
+  ): void;
+  searchKnowledgeBases(
+    args: SearchKnowledgeBasesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchKnowledgeBasesCommandOutput) => void
   ): void;
 
   /**
@@ -5636,6 +5807,23 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link UpdateKnowledgeBasePermissionsCommand}
+   */
+  updateKnowledgeBasePermissions(
+    args: UpdateKnowledgeBasePermissionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateKnowledgeBasePermissionsCommandOutput>;
+  updateKnowledgeBasePermissions(
+    args: UpdateKnowledgeBasePermissionsCommandInput,
+    cb: (err: any, data?: UpdateKnowledgeBasePermissionsCommandOutput) => void
+  ): void;
+  updateKnowledgeBasePermissions(
+    args: UpdateKnowledgeBasePermissionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateKnowledgeBasePermissionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateOAuthClientApplicationCommand}
    */
   updateOAuthClientApplication(
@@ -6275,6 +6463,17 @@ export interface QuickSight {
   ): Paginator<ListIngestionsCommandOutput>;
 
   /**
+   * @see {@link ListKnowledgeBasesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListKnowledgeBasesCommandOutput}.
+   */
+  paginateListKnowledgeBases(
+    args: ListKnowledgeBasesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListKnowledgeBasesCommandOutput>;
+
+  /**
    * @see {@link ListNamespacesCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -6493,6 +6692,17 @@ export interface QuickSight {
     args: SearchGroupsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<SearchGroupsCommandOutput>;
+
+  /**
+   * @see {@link SearchKnowledgeBasesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchKnowledgeBasesCommandOutput}.
+   */
+  paginateSearchKnowledgeBases(
+    args: SearchKnowledgeBasesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchKnowledgeBasesCommandOutput>;
 
   /**
    * @see {@link SearchTopicsCommand}

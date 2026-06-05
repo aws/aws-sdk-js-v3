@@ -4,7 +4,8 @@ import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { DescribeDataSetRequest, DescribeDataSetResponse } from "../models/models_3";
+import type { DescribeDataSetRequest } from "../models/models_3";
+import type { DescribeDataSetResponse } from "../models/models_4";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { DescribeDataSet$ } from "../schemas/schemas_0";
 

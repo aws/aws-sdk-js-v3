@@ -2,6 +2,7 @@
 import type { DocumentType as __DocumentType } from "@smithy/types";
 
 import type {
+  AgentStatus,
   AssignmentStatus,
   DashboardsQAStatus,
   DataSetImportMode,
@@ -20,11 +21,18 @@ import type {
   VPCConnectionAvailabilityStatus,
   VPCConnectionResourceStatus,
 } from "./enums";
+import type { AccountCustomization } from "./models_0";
 import type {
   _Parameters,
+  AnalysisDefinition,
+  AnalysisSourceEntity,
+  AuthConfig,
+  BrandDefinition,
+  BrandDetail,
   Capabilities,
   ColumnGroup,
   ColumnLevelPermissionRule,
+  CustomPromptInput,
   DashboardPublishOptions,
   DashboardSourceEntity,
   DashboardVersionDefinition,
@@ -32,6 +40,7 @@ import type {
   LinkSharingConfiguration,
   ResourcePermission,
   SslProperties,
+  Tag,
   TopicIR,
   TopicTemplate,
   ValidationStrategy,
@@ -53,6 +62,7 @@ import type {
   RowLevelPermissionDataSet,
   RowLevelPermissionTagConfiguration,
   SemanticModelConfiguration,
+  SnapshotConfiguration,
   TemplateAlias,
   TemplateSourceEntity,
   TemplateVersionDefinition,
@@ -64,11 +74,935 @@ import type {
 import type {
   FailedKeyRegistrationEntry,
   FailedSpaceResourceOperation,
+  FailedToUpdateAssociation,
   RegisteredCustomerManagedKey,
   SelfUpgradeRequestDetail,
+  SnapshotAnonymousUser,
   SpaceQuickSightResourceDetails,
   User,
 } from "./models_4";
+
+/**
+ * <p>A structure that contains information about the users that the dashboard snapshot is generated for.</p>
+ *          <important>
+ *             <p>When using identity-enhanced session credentials, set the UserConfiguration request attribute to null. Otherwise, the request will be invalid.</p>
+ *          </important>
+ * @public
+ */
+export interface SnapshotUserConfiguration {
+  /**
+   * <p>An array of records that describe the anonymous users that the dashboard snapshot is generated for.</p>
+   * @public
+   */
+  AnonymousUsers?: SnapshotAnonymousUser[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartDashboardSnapshotJobRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that the dashboard snapshot job is executed in.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the dashboard that you want to start a snapshot job for.
+   *         </p>
+   * @public
+   */
+  DashboardId: string | undefined;
+
+  /**
+   * <p>An ID for the dashboard snapshot job. This ID is unique to the dashboard while the job is running. This ID can be used to poll the status of a job with a <code>DescribeDashboardSnapshotJob</code> while the job runs. You can reuse this ID for another job 24 hours after the current job is completed.</p>
+   * @public
+   */
+  SnapshotJobId: string | undefined;
+
+  /**
+   * <p>A structure that contains information about the users that the dashboard snapshot is generated for. The users can be either anonymous users or registered users. Anonymous users cannot be used together with registered users.</p>
+   *          <important>
+   *             <p>When using identity-enhanced session credentials, set the UserConfiguration request attribute to null. Otherwise, the request will be invalid.</p>
+   *          </important>
+   * @public
+   */
+  UserConfiguration?: SnapshotUserConfiguration | undefined;
+
+  /**
+   * <p>A structure that describes the configuration of the dashboard snapshot.</p>
+   * @public
+   */
+  SnapshotConfiguration: SnapshotConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartDashboardSnapshotJobResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the dashboard snapshot job.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The ID of the job. The job ID is set when you start a new job with a <code>StartDashboardSnapshotJob</code> API call.</p>
+   * @public
+   */
+  SnapshotJobId?: string | undefined;
+
+  /**
+   * <p>
+   *             The Amazon Web Services request ID for this operation.
+   *         </p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartDashboardSnapshotJobScheduleRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that the dashboard snapshot job is executed in.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the dashboard that you want to start a snapshot job schedule for.
+   *         </p>
+   * @public
+   */
+  DashboardId: string | undefined;
+
+  /**
+   * <p>The ID of the schedule that you want to start a snapshot job schedule for. The schedule ID can be found in the Amazon Quick Sight console in the <b>Schedules</b> pane of the dashboard that the schedule is configured for.</p>
+   * @public
+   */
+  ScheduleId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartDashboardSnapshotJobScheduleResponse {
+  /**
+   * <p>
+   *             The Amazon Web Services request ID for this operation.
+   *         </p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource that you want to tag.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
+   * 			resource.</p>
+   * @public
+   */
+  Tags: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource that you want to untag.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The keys of the key-value pairs for the resource tag or tags assigned to the
+   * 			resource.</p>
+   * @public
+   */
+  TagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagResourceResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAccountCustomizationRequest {
+  /**
+   * <p>The ID for the Amazon Web Services account that you want to update Quick Sight customizations
+   *             for.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The namespace that you want to update Quick Sight customizations for.</p>
+   * @public
+   */
+  Namespace?: string | undefined;
+
+  /**
+   * <p>The Quick Sight customizations you're updating. </p>
+   * @public
+   */
+  AccountCustomization: AccountCustomization | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAccountCustomizationResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the updated customization for this Amazon Web Services account.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The ID for the Amazon Web Services account that you want to update Quick Sight customizations
+   *             for.</p>
+   * @public
+   */
+  AwsAccountId?: string | undefined;
+
+  /**
+   * <p>The namespace associated with the customization that you're updating.</p>
+   * @public
+   */
+  Namespace?: string | undefined;
+
+  /**
+   * <p>The Quick Sight customizations you're updating. </p>
+   * @public
+   */
+  AccountCustomization?: AccountCustomization | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAccountCustomPermissionRequest {
+  /**
+   * <p>The name of the custom permissions profile that you want to apply to an account.</p>
+   * @public
+   */
+  CustomPermissionsName: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account for which you want to apply a custom permissions profile.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAccountCustomPermissionResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAccountSettingsRequest {
+  /**
+   * <p>The ID for the Amazon Web Services account that contains the Quick Sight settings that you want to
+   *             list.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The default namespace for this Amazon Web Services account. Currently, the default is
+   *                 <code>default</code>. IAM users that
+   *             register for the first time with Amazon Quick Sight provide an email address that becomes
+   *             associated with the default namespace.
+   *         </p>
+   * @public
+   */
+  DefaultNamespace: string | undefined;
+
+  /**
+   * <p>The email address that you want Quick Sight to send notifications to regarding your
+   *             Amazon Web Services account or Quick Sight subscription.</p>
+   * @public
+   */
+  NotificationEmail?: string | undefined;
+
+  /**
+   * <p>A boolean value that determines whether or not an Quick Sight account can be deleted. A <code>True</code> value doesn't allow the account to be deleted and results in an error message if a user tries to make a <code>DeleteAccountSubscription</code> request. A <code>False</code> value will allow the account to be deleted.</p>
+   * @public
+   */
+  TerminationProtectionEnabled?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAccountSettingsResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateActionConnectorRequest {
+  /**
+   * <p>The Amazon Web Services account ID that contains the action connector to update.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the action connector to update.</p>
+   * @public
+   */
+  ActionConnectorId: string | undefined;
+
+  /**
+   * <p>The new name for the action connector.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The updated authentication configuration for connecting to the external service.</p>
+   * @public
+   */
+  AuthenticationConfig: AuthConfig | undefined;
+
+  /**
+   * <p>The updated description of the action connector.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The updated ARN of the VPC connection to use for secure connectivity.</p>
+   * @public
+   */
+  VpcConnectionArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateActionConnectorResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the updated action connector.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the updated action connector.</p>
+   * @public
+   */
+  ActionConnectorId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The status of the update operation.</p>
+   * @public
+   */
+  UpdateStatus?: ResourceStatus | undefined;
+
+  /**
+   * <p>The HTTP status code of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateActionConnectorPermissionsRequest {
+  /**
+   * <p>The Amazon Web Services account ID that contains the action connector.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the action connector whose permissions you want to update.</p>
+   * @public
+   */
+  ActionConnectorId: string | undefined;
+
+  /**
+   * <p>The permissions to grant to users and groups for this action connector.</p>
+   * @public
+   */
+  GrantPermissions?: ResourcePermission[] | undefined;
+
+  /**
+   * <p>The permissions to revoke from users and groups for this action connector.</p>
+   * @public
+   */
+  RevokePermissions?: ResourcePermission[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateActionConnectorPermissionsResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the action connector.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the action connector.</p>
+   * @public
+   */
+  ActionConnectorId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status code of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The updated permissions configuration for the action connector.</p>
+   * @public
+   */
+  Permissions?: ResourcePermission[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAgentRequest {
+  /**
+   * <p>The unique identifier for the agent to update.</p>
+   * @public
+   */
+  AgentId: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the agent.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The name of the agent.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A description of the agent.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The icon identifier for the agent.</p>
+   * @public
+   */
+  IconId?: string | undefined;
+
+  /**
+   * <p>A list of starter prompts that are displayed to users when they begin interacting with the agent.</p>
+   * @public
+   */
+  StarterPrompts?: string[] | undefined;
+
+  /**
+   * <p>The welcome message that is displayed when a user starts a conversation with the agent.</p>
+   * @public
+   */
+  WelcomeMessage?: string | undefined;
+
+  /**
+   * <p>The custom prompt configuration for the agent.</p>
+   * @public
+   */
+  CustomPromptInput?: CustomPromptInput | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the spaces to attach to the agent.</p>
+   * @public
+   */
+  SpacesToAdd?: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the spaces to detach from the agent.</p>
+   * @public
+   */
+  SpacesToRemove?: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the action connectors to attach to the agent.</p>
+   * @public
+   */
+  ActionConnectorsToAdd?: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the action connectors to detach from the agent.</p>
+   * @public
+   */
+  ActionConnectorsToRemove?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAgentResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the agent.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the agent.</p>
+   * @public
+   */
+  AgentId: string | undefined;
+
+  /**
+   * <p>The status of the agent.</p>
+   * @public
+   */
+  AgentStatus: AgentStatus | undefined;
+
+  /**
+   * <p>A list of per-ARN failures from the spaces that were requested to be added.</p>
+   * @public
+   */
+  FailedToAddSpaces?: FailedToUpdateAssociation[] | undefined;
+
+  /**
+   * <p>A list of per-ARN failures from the spaces that were requested to be removed.</p>
+   * @public
+   */
+  FailedToRemoveSpaces?: FailedToUpdateAssociation[] | undefined;
+
+  /**
+   * <p>A list of per-ARN failures from the action connectors that were requested to be added.</p>
+   * @public
+   */
+  FailedToAddActionConnectors?: FailedToUpdateAssociation[] | undefined;
+
+  /**
+   * <p>A list of per-ARN failures from the action connectors that were requested to be removed.</p>
+   * @public
+   */
+  FailedToRemoveActionConnectors?: FailedToUpdateAssociation[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAgentPermissionsRequest {
+  /**
+   * <p>The unique identifier for the agent.</p>
+   * @public
+   */
+  AgentId: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the agent.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The resource permissions that you want to grant on the agent.</p>
+   * @public
+   */
+  GrantPermissions?: ResourcePermission[] | undefined;
+
+  /**
+   * <p>The resource permissions that you want to revoke from the agent.</p>
+   * @public
+   */
+  RevokePermissions?: ResourcePermission[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAgentPermissionsResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the agent.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the agent.</p>
+   * @public
+   */
+  AgentId: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The resource permissions for the agent.</p>
+   * @public
+   */
+  Permissions?: ResourcePermission[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAnalysisRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the analysis that you're updating.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the analysis that you're updating. This ID displays in the URL of the
+   *             analysis.</p>
+   * @public
+   */
+  AnalysisId: string | undefined;
+
+  /**
+   * <p>A descriptive name for the analysis that you're updating. This name displays for the
+   *             analysis in the Amazon Quick Sight console.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The parameter names and override values that you want to use. An analysis can have
+   *             any parameter type, and some parameters might accept multiple values. </p>
+   * @public
+   */
+  Parameters?: _Parameters | undefined;
+
+  /**
+   * <p>A source entity to use for the analysis that you're updating. This metadata structure
+   *             contains details that describe a source template and one or more datasets.</p>
+   * @public
+   */
+  SourceEntity?: AnalysisSourceEntity | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the theme to apply to the analysis that you're
+   *             creating. To see the theme in the Amazon Quick Sight console, make sure that you have access to
+   *             it.</p>
+   * @public
+   */
+  ThemeArn?: string | undefined;
+
+  /**
+   * <p>The definition of an analysis.</p>
+   *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
+   * @public
+   */
+  Definition?: AnalysisDefinition | undefined;
+
+  /**
+   * <p>The option to relax the validation needed to update an analysis with definition objects. This skips the validation step for specific errors.</p>
+   * @public
+   */
+  ValidationStrategy?: ValidationStrategy | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAnalysisResponse {
+  /**
+   * <p>The ARN of the analysis that you're updating.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The ID of the analysis.</p>
+   * @public
+   */
+  AnalysisId?: string | undefined;
+
+  /**
+   * <p>The update status of the last update that was made to the analysis.</p>
+   * @public
+   */
+  UpdateStatus?: ResourceStatus | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAnalysisPermissionsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the analysis whose permissions you're
+   *             updating. You must be using the Amazon Web Services account that the analysis is in.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the analysis whose permissions you're updating. The ID is part of the
+   *             analysis URL.</p>
+   * @public
+   */
+  AnalysisId: string | undefined;
+
+  /**
+   * <p>A structure that describes the permissions to add and the principal to add them
+   *             to.</p>
+   * @public
+   */
+  GrantPermissions?: ResourcePermission[] | undefined;
+
+  /**
+   * <p>A structure that describes the permissions to remove and the principal to remove them
+   *             from.</p>
+   * @public
+   */
+  RevokePermissions?: ResourcePermission[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAnalysisPermissionsResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the analysis that you updated.</p>
+   * @public
+   */
+  AnalysisArn?: string | undefined;
+
+  /**
+   * <p>The ID of the analysis that you updated permissions for.</p>
+   * @public
+   */
+  AnalysisId?: string | undefined;
+
+  /**
+   * <p>A structure that describes the principals and the resource-level permissions on an
+   *             analysis.</p>
+   * @public
+   */
+  Permissions?: ResourcePermission[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateApplicationWithTokenExchangeGrantRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account to be updated with a token exchange grant.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The namespace of the Quick application.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateApplicationWithTokenExchangeGrantResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateBrandRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the brand.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the Quick brand.</p>
+   * @public
+   */
+  BrandId: string | undefined;
+
+  /**
+   * <p>The definition of the brand.</p>
+   * @public
+   */
+  BrandDefinition?: BrandDefinition | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateBrandResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The details of the brand.</p>
+   * @public
+   */
+  BrandDetail?: BrandDetail | undefined;
+
+  /**
+   * <p>The definition of the brand.</p>
+   * @public
+   */
+  BrandDefinition?: BrandDefinition | undefined;
+}
 
 /**
  * @public
@@ -1593,6 +2527,70 @@ export interface UpdateKeyRegistrationResponse {
    * @public
    */
   RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateKnowledgeBasePermissionsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the knowledge base.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the knowledge base.</p>
+   * @public
+   */
+  KnowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The resource permissions that you want to grant on the knowledge base.</p>
+   * @public
+   */
+  GrantPermissions?: ResourcePermission[] | undefined;
+
+  /**
+   * <p>The resource permissions that you want to revoke from the knowledge base.</p>
+   * @public
+   */
+  RevokePermissions?: ResourcePermission[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateKnowledgeBasePermissionsResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * @public
+   */
+  KnowledgeBaseArn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the knowledge base.</p>
+   * @public
+   */
+  KnowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The resource permissions for the knowledge base.</p>
+   * @public
+   */
+  Permissions?: ResourcePermission[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
 }
 
 /**
