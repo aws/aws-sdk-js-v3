@@ -30,6 +30,7 @@ export class AwsSdkSigV4ASigner extends AwsSdkSigV4Signer {
       signingRegionSet ?? [signingRegion]
     ).join(",");
 
+    signingProperties._preRequestSystemClockOffset = config.systemClockOffset;
     const signedRequest = await signer.sign(httpRequest, {
       signingDate: getSkewCorrectedDate(config.systemClockOffset),
       signingRegion: multiRegionOverride,

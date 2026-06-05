@@ -116,6 +116,8 @@ export class AwsSdkSigV4Signer implements HttpSigner {
       }
     }
 
+    // Capture the clock offset before signing so errorHandler can detect concurrent corrections.
+    signingProperties._preRequestSystemClockOffset = config.systemClockOffset;
     const signedRequest = await signer.sign(httpRequest, {
       signingDate: getSkewCorrectedDate(config.systemClockOffset),
       signingRegion: signingRegion,
@@ -126,15 +128,20 @@ export class AwsSdkSigV4Signer implements HttpSigner {
 
   errorHandler(signingProperties: Record<string, unknown>): (error: Error) => never {
     return (error: Error) => {
-      const serverTime: string | undefined =
-        (error as AwsSdkSigV4Exception).ServerTime ?? getDateHeader((error as AwsSdkSigV4Exception).$response);
+      const errorException = error as AwsSdkSigV4Exception;
+      const serverTime: string | undefined = errorException.ServerTime ?? getDateHeader(errorException.$response);
       if (serverTime) {
         const config = throwSigningPropertyError("config", signingProperties.config as AwsSdkSigV4Config | undefined);
-        const initialSystemClockOffset = config.systemClockOffset;
-        config.systemClockOffset = getUpdatedSystemClockOffset(serverTime, config.systemClockOffset);
-        const clockSkewCorrected = config.systemClockOffset !== initialSystemClockOffset;
-        if (clockSkewCorrected && (error as AwsSdkSigV4Exception).$metadata) {
-          (error as AwsSdkSigV4Exception).$metadata.clockSkewCorrected = true;
+        const preRequestOffset = signingProperties._preRequestSystemClockOffset as number | undefined;
+        const newOffset = getUpdatedSystemClockOffset(serverTime, config.systemClockOffset);
+
+        const isLocalCorrection = newOffset !== config.systemClockOffset;
+        const isConcurrentCorrection = preRequestOffset !== undefined && preRequestOffset !== newOffset;
+
+        const clockSkewCorrected = isLocalCorrection || isConcurrentCorrection;
+        if (clockSkewCorrected && errorException.$metadata) {
+          config.systemClockOffset = newOffset;
+          errorException.$metadata.clockSkewCorrected = true;
         }
       }
       throw error;
