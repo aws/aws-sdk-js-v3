@@ -63,7 +63,7 @@
   ],
   "author": {
     "name": "AWS SDK for JavaScript Team",
-    "url": "https://aws.amazon.com/javascript/"
+    "url": "https://docs.aws.amazon.com/sdk-for-javascript/"
   },
   "license": "Apache-2.0",
   "browser": {
