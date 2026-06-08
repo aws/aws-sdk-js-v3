@@ -3,6 +3,7 @@ const _ADE = "AccessDeniedException";
 const _AMD = "AdMarkerDash";
 const _AMH = "AdMarkerHls";
 const _ASTC = "AvailabilityStartTimeConfiguration";
+const _ATP = "AudioTimelinePattern";
 const _BN = "BucketName";
 const _BU = "BaseUrls";
 const _C = "Compactness";
@@ -427,8 +428,8 @@ export var CreateChannelResponse$: StaticStructureSchema = [3, n0, _CCRr,
 ];
 export var CreateDashManifestConfiguration$: StaticStructureSchema = [3, n0, _CDMC,
   0,
-  [_MN, _MWS, _FC, _MUPS, _MBTS, _SPDS, _STF, _PT, _SD, _DS, _UT, _P, _BU, _PI, _DSv, _C, _SC, _UPT, _ASTC],
-  [0, 1, () => FilterConfiguration$, 1, 1, 1, 0, 64 | 0, () => ScteDash$, 0, () => DashUtcTiming$, 64 | 0, () => DashBaseUrls, () => DashProgramInformation$, () => DashDvbSettings$, 0, () => DashSubtitleConfiguration$, 0, () => DashAvailabilityStartTimeConfiguration$], 1
+  [_MN, _MWS, _FC, _MUPS, _MBTS, _SPDS, _STF, _PT, _SD, _DS, _UT, _P, _BU, _PI, _DSv, _C, _ATP, _SC, _UPT, _ASTC],
+  [0, 1, () => FilterConfiguration$, 1, 1, 1, 0, 64 | 0, () => ScteDash$, 0, () => DashUtcTiming$, 64 | 0, () => DashBaseUrls, () => DashProgramInformation$, () => DashDvbSettings$, 0, 0, () => DashSubtitleConfiguration$, 0, () => DashAvailabilityStartTimeConfiguration$], 1
 ];
 export var CreateHarvestJobRequest$: StaticStructureSchema = [3, n0, _CHJRr,
   0,
@@ -617,8 +618,8 @@ export var GetChannelResponse$: StaticStructureSchema = [3, n0, _GCRe,
 ];
 export var GetDashManifestConfiguration$: StaticStructureSchema = [3, n0, _GDMC,
   0,
-  [_MN, _U, _MWS, _FC, _MUPS, _MBTS, _SPDS, _STF, _PT, _SD, _DS, _UT, _P, _BU, _PI, _DSv, _C, _SC, _UPT, _ASTC],
-  [0, 0, 1, () => FilterConfiguration$, 1, 1, 1, 0, 64 | 0, () => ScteDash$, 0, () => DashUtcTiming$, 64 | 0, () => DashBaseUrls, () => DashProgramInformation$, () => DashDvbSettings$, 0, () => DashSubtitleConfiguration$, 0, () => DashAvailabilityStartTimeConfiguration$], 2
+  [_MN, _U, _MWS, _FC, _MUPS, _MBTS, _SPDS, _STF, _PT, _SD, _DS, _UT, _P, _BU, _PI, _DSv, _C, _ATP, _SC, _UPT, _ASTC],
+  [0, 0, 1, () => FilterConfiguration$, 1, 1, 1, 0, 64 | 0, () => ScteDash$, 0, () => DashUtcTiming$, 64 | 0, () => DashBaseUrls, () => DashProgramInformation$, () => DashDvbSettings$, 0, 0, () => DashSubtitleConfiguration$, 0, () => DashAvailabilityStartTimeConfiguration$], 2
 ];
 export var GetHarvestJobRequest$: StaticStructureSchema = [3, n0, _GHJR,
   0,

@@ -197,6 +197,19 @@ export type ContainerType = (typeof ContainerType)[keyof typeof ContainerType];
  * @public
  * @enum
  */
+export const DashAudioTimelinePattern = {
+  NONE: "NONE",
+  PATTERNED: "PATTERNED",
+} as const;
+/**
+ * @public
+ */
+export type DashAudioTimelinePattern = (typeof DashAudioTimelinePattern)[keyof typeof DashAudioTimelinePattern];
+
+/**
+ * @public
+ * @enum
+ */
 export const DashCompactness = {
   NONE: "NONE",
   STANDARD: "STANDARD",
@@ -455,7 +468,9 @@ export type CustomAdType = (typeof CustomAdType)[keyof typeof CustomAdType];
 export const ScteFilter = {
   ALTERNATE_CONTENT_OPPORTUNITY: "ALTERNATE_CONTENT_OPPORTUNITY",
   BREAK: "BREAK",
+  CALL_AD_SERVER: "CALL_AD_SERVER",
   CHAPTER: "CHAPTER",
+  CONTENT_IDENTIFICATION: "CONTENT_IDENTIFICATION",
   DISTRIBUTOR_ADVERTISEMENT: "DISTRIBUTOR_ADVERTISEMENT",
   DISTRIBUTOR_AD_BLOCK: "DISTRIBUTOR_AD_BLOCK",
   DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY: "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY",

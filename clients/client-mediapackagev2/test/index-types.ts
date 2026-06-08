@@ -98,6 +98,7 @@ export type {
   ConflictExceptionType,
   ContainerType,
   CustomAdType,
+  DashAudioTimelinePattern,
   DashCompactness,
   DashDrmSignaling,
   DashPeriodTrigger,

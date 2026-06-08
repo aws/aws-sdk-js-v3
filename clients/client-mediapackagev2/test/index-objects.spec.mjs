@@ -36,6 +36,7 @@ import {
   CreateOriginEndpointRequest$,
   CreateOriginEndpointResponse$,
   CustomAdType,
+  DashAudioTimelinePattern,
   DashAvailabilityStartTimeConfiguration$,
   DashBaseUrl$,
   DashCompactness,
@@ -395,6 +396,7 @@ assert(typeof CmafEncryptionMethod === "object");
 assert(typeof ConflictExceptionType === "object");
 assert(typeof ContainerType === "object");
 assert(typeof CustomAdType === "object");
+assert(typeof DashAudioTimelinePattern === "object");
 assert(typeof DashCompactness === "object");
 assert(typeof DashDrmSignaling === "object");
 assert(typeof DashPeriodTrigger === "object");

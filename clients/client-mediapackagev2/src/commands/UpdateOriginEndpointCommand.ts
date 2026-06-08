@@ -53,7 +53,7 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *     TsIncludeDvbSubtitles: true || false,
  *     Scte: { // Scte
  *       ScteFilter: [ // ScteFilterList
- *         "SPLICE_INSERT" || "BREAK" || "PROVIDER_ADVERTISEMENT" || "DISTRIBUTOR_ADVERTISEMENT" || "PROVIDER_PLACEMENT_OPPORTUNITY" || "DISTRIBUTOR_PLACEMENT_OPPORTUNITY" || "PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY" || "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY" || "PROGRAM" || "CHAPTER" || "UNSCHEDULED_EVENT" || "ALTERNATE_CONTENT_OPPORTUNITY" || "NETWORK" || "PROVIDER_PROMO" || "DISTRIBUTOR_PROMO" || "PROVIDER_AD_BLOCK" || "DISTRIBUTOR_AD_BLOCK",
+ *         "SPLICE_INSERT" || "BREAK" || "PROVIDER_ADVERTISEMENT" || "DISTRIBUTOR_ADVERTISEMENT" || "PROVIDER_PLACEMENT_OPPORTUNITY" || "DISTRIBUTOR_PLACEMENT_OPPORTUNITY" || "PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY" || "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY" || "PROGRAM" || "CHAPTER" || "UNSCHEDULED_EVENT" || "ALTERNATE_CONTENT_OPPORTUNITY" || "NETWORK" || "PROVIDER_PROMO" || "DISTRIBUTOR_PROMO" || "PROVIDER_AD_BLOCK" || "DISTRIBUTOR_AD_BLOCK" || "CONTENT_IDENTIFICATION" || "CALL_AD_SERVER",
  *       ],
  *       ScteInSegments: "NONE" || "ALL" || "MATCHES_FILTER",
  *       CustomAdTypes: [ // CustomAdTypeList
@@ -198,6 +198,7 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *         ],
  *       },
  *       Compactness: "STANDARD" || "NONE",
+ *       AudioTimelinePattern: "NONE" || "PATTERNED",
  *       SubtitleConfiguration: { // DashSubtitleConfiguration
  *         TtmlConfiguration: { // DashTtmlConfiguration
  *           TtmlProfile: "IMSC_1" || "EBU_TT_D_101", // required
@@ -248,7 +249,7 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  * //     TsIncludeDvbSubtitles: true || false,
  * //     Scte: { // Scte
  * //       ScteFilter: [ // ScteFilterList
- * //         "SPLICE_INSERT" || "BREAK" || "PROVIDER_ADVERTISEMENT" || "DISTRIBUTOR_ADVERTISEMENT" || "PROVIDER_PLACEMENT_OPPORTUNITY" || "DISTRIBUTOR_PLACEMENT_OPPORTUNITY" || "PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY" || "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY" || "PROGRAM" || "CHAPTER" || "UNSCHEDULED_EVENT" || "ALTERNATE_CONTENT_OPPORTUNITY" || "NETWORK" || "PROVIDER_PROMO" || "DISTRIBUTOR_PROMO" || "PROVIDER_AD_BLOCK" || "DISTRIBUTOR_AD_BLOCK",
+ * //         "SPLICE_INSERT" || "BREAK" || "PROVIDER_ADVERTISEMENT" || "DISTRIBUTOR_ADVERTISEMENT" || "PROVIDER_PLACEMENT_OPPORTUNITY" || "DISTRIBUTOR_PLACEMENT_OPPORTUNITY" || "PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY" || "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY" || "PROGRAM" || "CHAPTER" || "UNSCHEDULED_EVENT" || "ALTERNATE_CONTENT_OPPORTUNITY" || "NETWORK" || "PROVIDER_PROMO" || "DISTRIBUTOR_PROMO" || "PROVIDER_AD_BLOCK" || "DISTRIBUTOR_AD_BLOCK" || "CONTENT_IDENTIFICATION" || "CALL_AD_SERVER",
  * //       ],
  * //       ScteInSegments: "NONE" || "ALL" || "MATCHES_FILTER",
  * //       CustomAdTypes: [ // CustomAdTypeList
@@ -424,6 +425,7 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  * //         ],
  * //       },
  * //       Compactness: "STANDARD" || "NONE",
+ * //       AudioTimelinePattern: "NONE" || "PATTERNED",
  * //       SubtitleConfiguration: { // DashSubtitleConfiguration
  * //         TtmlConfiguration: { // DashTtmlConfiguration
  * //           TtmlProfile: "IMSC_1" || "EBU_TT_D_101", // required
