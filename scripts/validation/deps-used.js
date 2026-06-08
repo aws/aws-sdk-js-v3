@@ -10,7 +10,7 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const walk = require("../utils/walk");
-const { getPackageName, extractImports, getPackageDirs } = require("./validation-shared");
+const { getPackageName, extractImports, getPackageDirs, summarizePackages } = require("./validation-shared");
 
 const IMPLICIT_DEPS = new Set(["tslib", "@aws-sdk/types", "@smithy/types", "vitest"]);
 const DTS_IMPORT_RE = /from\s+["']([^"']+)["']/g;
@@ -92,16 +92,18 @@ async function validate(packageDir) {
 
 async function main() {
   const packages = getPackageDirs();
+  const validated = [];
   const errors = [];
   for (const { dir } of packages) {
     if (dir.includes("/private/")) continue;
+    validated.push({ dir });
     errors.push(...(await validate(dir)));
   }
   if (errors.length) {
     console.error(`❌ ${errors.length} unused dependency declaration(s):\n  ${errors.join("\n  ")}`);
     process.exit(1);
   }
-  console.log("✅ All declared dependencies are imported.");
+  console.log(`✅ All declared dependencies are imported. (${summarizePackages(validated)})`);
 }
 
 main();

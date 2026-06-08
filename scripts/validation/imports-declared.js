@@ -10,7 +10,13 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const walk = require("../utils/walk");
-const { NODE_BUILTINS, getPackageName, extractImports, getPackageDirs } = require("./validation-shared");
+const {
+  NODE_BUILTINS,
+  getPackageName,
+  extractImports,
+  getPackageDirs,
+  summarizePackages,
+} = require("./validation-shared");
 
 /**
  * @param packageDir - package root.
@@ -90,7 +96,7 @@ async function main() {
     console.error(`❌ ${errors.length} undeclared import(s):\n  ${[...new Set(errors)].join("\n  ")}`);
     process.exit(1);
   }
-  console.log("✅ All absolute imports are declared in package.json.");
+  console.log(`✅ All absolute imports are declared in package.json. (${summarizePackages(packages)})`);
 }
 
 main();

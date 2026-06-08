@@ -7,7 +7,7 @@
   "types": "./dist-types/index.d.ts",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
-    "build:cjs": "node ../../scripts/compilation/inline signature-v4a",
+    "build:cjs": "node ../../scripts/compilation/inline",
     "build:es": "tsc -p tsconfig.es.json",
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",

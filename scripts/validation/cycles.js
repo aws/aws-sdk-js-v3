@@ -11,7 +11,13 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const walk = require("../utils/walk");
-const { extractImports, getPackageName, resolveRelative, getPackageDirs } = require("./validation-shared");
+const {
+  extractImports,
+  getPackageName,
+  resolveRelative,
+  getPackageDirs,
+  summarizePackages,
+} = require("./validation-shared");
 
 /**
  * Finds all cycles in a directed graph using Tarjan's algorithm.
@@ -277,7 +283,7 @@ async function main() {
     console.error(`❌ ${errors.length} cycle(s) detected:\n  ${errors.join("\n  ")}`);
     process.exit(1);
   }
-  console.log("✅ No cyclical file or package dependencies.");
+  console.log(`✅ No cyclical file or package dependencies. (${summarizePackages(packages)})`);
 }
 
 main();

@@ -10,7 +10,7 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const walk = require("../utils/walk");
-const { extractImports, resolveRelative, getPackageDirs } = require("./validation-shared");
+const { extractImports, resolveRelative, getPackageDirs, summarizePackages } = require("./validation-shared");
 
 /**
  * @param packageDir - package root.
@@ -69,7 +69,7 @@ async function main() {
     console.error(`❌ ${errors.length} broken relative import(s):\n  ${errors.join("\n  ")}`);
     process.exit(1);
   }
-  console.log("✅ All relative imports resolve to existing files.");
+  console.log(`✅ All relative imports resolve to existing files. (${summarizePackages(packages)})`);
 }
 
 main();

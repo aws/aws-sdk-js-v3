@@ -10,13 +10,14 @@
 const { execFileSync } = require("node:child_process");
 const fs = require("node:fs");
 const path = require("node:path");
-const { getPackageDirs } = require("./validation-shared");
+const { getPackageDirs, summarizePackages } = require("./validation-shared");
 
 const root = path.join(__dirname, "..", "..");
 const eslintConfig = path.join(root, ".eslintrc.js");
 
 function main() {
   const packages = getPackageDirs();
+  const validated = [];
 
   const globs = [];
   for (const { dir, generated } of packages) {
@@ -25,6 +26,7 @@ function main() {
     }
     const srcDir = path.join(dir, "src");
     if (fs.existsSync(srcDir)) {
+      validated.push({ dir });
       globs.push(`${srcDir}/**/*.ts`);
     }
   }
@@ -40,7 +42,7 @@ function main() {
       stdio: "pipe",
       encoding: "utf-8",
     });
-    console.log(`✅ ESLint passed.`);
+    console.log(`✅ ESLint passed. (${summarizePackages(validated)})`);
   } catch (e) {
     console.error(`❌ ESLint failed:\n${e.stdout || e.stderr || e.message}`);
     process.exit(1);

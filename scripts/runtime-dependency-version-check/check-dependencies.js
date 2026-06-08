@@ -61,7 +61,7 @@ const shouldIgnore = (dep) => ignored.includes(dep) || (dep.startsWith("node:") 
 
     const pkgJsonPath = path.join(containingFolder, packageFolder, "package.json");
 
-    if (containingFolder === packages || containingFolder === packagesInternal) {
+    if (containingFolder === packages || containingFolder === packagesInternal || containingFolder === lib) {
       errors.push(...pkgJsonEnforcement(pkgJsonPath, true));
     }
 

@@ -2,11 +2,11 @@ const fs = require("node:fs");
 const path = require("node:path");
 const walk = require("../utils/walk");
 
-const singlePkg = process.argv.indexOf("--pkg") !== -1 ? process.argv[process.argv.indexOf("--pkg") + 1] : null;
+const singlePkg =
+  process.argv.indexOf("--pkg") !== -1 ? process.argv[process.argv.indexOf("--pkg") + 1] : path.basename(process.cwd());
 
-const submodulePackages = singlePkg
-  ? [singlePkg]
-  : [
+const submodulePackages = process.argv.includes("--all")
+  ? [
       ...fs.readdirSync(path.join(__dirname, "..", "..", "packages")),
       ...fs.readdirSync(path.join(__dirname, "..", "..", "packages-internal")),
     ].filter((pkg) => {
@@ -24,7 +24,8 @@ const submodulePackages = singlePkg
         fs.existsSync(path.join(dir, "src", "submodules")) &&
         "exports" in JSON.parse(fs.readFileSync(path.join(dir, "package.json"), "utf-8"))
       );
-    });
+    })
+  : [singlePkg];
 
 (async () => {
   const errors = [];

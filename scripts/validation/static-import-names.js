@@ -10,7 +10,7 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const walk = require("../utils/walk");
-const { analyzeImports, getPackageDirs } = require("./validation-shared");
+const { analyzeImports, getPackageDirs, summarizePackages } = require("./validation-shared");
 
 /**
  * @param packageDir - package root.
@@ -65,7 +65,7 @@ async function main() {
     console.error(`❌ ${errors.length} dynamic import(s) with non-literal specifier:\n  ${errors.join("\n  ")}`);
     process.exit(1);
   }
-  console.log("✅ No dynamic imports with non-literal specifiers.");
+  console.log(`✅ No dynamic imports with non-literal specifiers. (${summarizePackages(packages)})`);
 }
 
 main();
