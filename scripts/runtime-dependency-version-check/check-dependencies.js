@@ -45,6 +45,7 @@ const node_libraries = [
   "tls",
   "url",
   "util",
+  "worker_threads",
   "zlib",
 ];
 

@@ -9,15 +9,19 @@ const submodulePackages = process.argv.includes("--all")
   ? [
       ...fs.readdirSync(path.join(__dirname, "..", "..", "packages")),
       ...fs.readdirSync(path.join(__dirname, "..", "..", "packages-internal")),
+      ...fs.readdirSync(path.join(__dirname, "..", "..", "lib")),
     ].filter((pkg) => {
-      const [a, b] = [
+      const [a, b, c] = [
         path.join(__dirname, "..", "..", "packages", pkg),
         path.join(__dirname, "..", "..", "packages-internal", pkg),
+        path.join(__dirname, "..", "..", "lib", pkg),
       ];
       const dir = fs.existsSync(path.join(a, "package.json"))
         ? a
         : fs.existsSync(path.join(b, "package.json"))
         ? b
+        : fs.existsSync(path.join(c, "package.json"))
+        ? c
         : null;
       if (!dir) return false;
       return (
@@ -30,11 +34,12 @@ const submodulePackages = process.argv.includes("--all")
 (async () => {
   const errors = [];
   for (const submodulePackage of submodulePackages) {
-    const [a, b] = [
+    const [a, b, c] = [
       path.join(__dirname, "..", "..", "packages", submodulePackage),
       path.join(__dirname, "..", "..", "packages-internal", submodulePackage),
+      path.join(__dirname, "..", "..", "lib", submodulePackage),
     ];
-    const root = fs.existsSync(a) ? a : b;
+    const root = fs.existsSync(a) ? a : fs.existsSync(b) ? b : c;
 
     const pkgJson = require(path.join(root, "package.json"));
     if (!pkgJson.exports) {
@@ -198,7 +203,7 @@ const submodulePackages = process.argv.includes("--all")
         if (relativeImportDepth >= depth && i !== "../../../package.json") {
           errors.push(
             `relative import ${i} in ${item
-              .split("packages/")
+              .split(/(?:packages|packages-internal|lib)\//)
               .pop()} crosses submodule boundaries. Use @scope/package/submodule import instead.`
           );
         }
