@@ -32,20 +32,20 @@
     }
   },
   "scripts": {
-    "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
-    "lint": "node ../../scripts/validation/submodules-linter.js --pkg lib-transfer-manager",
+    "build": "yarn lint && concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline lib-transfer-manager",
     "build:es": "tsc -p tsconfig.es.json",
     "build:include:deps": "yarn g:turbo run build -F=\"$npm_package_name\"",
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "premove dist-cjs dist-es dist-types tsconfig.cjs.tsbuildinfo tsconfig.es.tsbuildinfo tsconfig.types.tsbuildinfo",
+    "lint": "node ../../scripts/validation/submodules-linter.js --pkg lib-transfer-manager",
     "test": "yarn g:vitest run",
     "test:watch": "yarn g:vitest watch",
-    "test:browser": "yarn g:vitest run -c vitest.config.browser.mts",
-    "test:browser:watch": "yarn g:vitest watch -c vitest.config.browser.mts",
     "test:e2e": "yarn g:vitest run -c vitest.config.e2e.mts --mode development",
-    "test:e2e:watch": "yarn g:vitest watch -c vitest.config.e2e.mts"
+    "test:e2e:watch": "yarn g:vitest watch -c vitest.config.e2e.mts",
+    "test:browser": "yarn g:vitest run -c vitest.config.browser.mts",
+    "test:browser:watch": "yarn g:vitest watch -c vitest.config.browser.mts"
   },
   "engines": {
     "node": ">=20.0.0"
