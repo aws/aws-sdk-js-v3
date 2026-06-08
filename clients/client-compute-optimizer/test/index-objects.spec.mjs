@@ -185,6 +185,7 @@ import {
   Gpu$,
   GpuInfo$,
   Idle,
+  IdleDimension$,
   IdleEstimatedMonthlySavings$,
   IdleFinding,
   IdleMetricName,
@@ -483,6 +484,7 @@ assert(typeof GetRecommendationSummariesRequest$ === "object");
 assert(typeof GetRecommendationSummariesResponse$ === "object");
 assert(typeof Gpu$ === "object");
 assert(typeof GpuInfo$ === "object");
+assert(typeof IdleDimension$ === "object");
 assert(typeof IdleEstimatedMonthlySavings$ === "object");
 assert(typeof IdleRecommendation$ === "object");
 assert(typeof IdleRecommendationError$ === "object");

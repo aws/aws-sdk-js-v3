@@ -265,6 +265,7 @@ export type {
   GetRecommendationSummariesResponse,
   Gpu,
   GpuInfo,
+  IdleDimension,
   IdleEstimatedMonthlySavings,
   IdleRecommendation,
   IdleRecommendationError,

@@ -135,6 +135,8 @@ const _GRS = "GetRecommendationSummaries";
 const _GRSR = "GetRecommendationSummariesRequest";
 const _GRSRe = "GetRecommendationSummariesResponse";
 const _Gp = "Gpus";
+const _ID = "IdleDimension";
+const _IDd = "IdleDimensions";
 const _IEMS = "IdleEstimatedMonthlySavings";
 const _IEMSn = "InstanceEstimatedMonthlySavings";
 const _IPVE = "InvalidParameterValueException";
@@ -289,11 +291,12 @@ const _co = "configuration";
 const _cod = "code";
 const _cp = "cpu";
 const _cu = "currency";
-const _d = "dimension";
+const _d = "dimensions";
 const _dC = "desiredCapacity";
 const _dCI = "dbClusterIdentifier";
 const _dIC = "dbInstanceClass";
 const _de = "destination";
+const _di = "dimension";
 const _e = "error";
 const _eIHRP = "estimatedInstanceHourReductionPercentage";
 const _eIL = "effectiveIncludeList";
@@ -1014,6 +1017,11 @@ export var GpuInfo$: StaticStructureSchema = [3, n0, _GI,
   [_g],
   [() => Gpus]
 ];
+export var IdleDimension$: StaticStructureSchema = [3, n0, _ID,
+  0,
+  [_k, _va],
+  [0, 64 | 0]
+];
 export var IdleEstimatedMonthlySavings$: StaticStructureSchema = [3, n0, _IEMS,
   0,
   [_cu, _v],
@@ -1051,8 +1059,8 @@ export var IdleSummary$: StaticStructureSchema = [3, n0, _IS,
 ];
 export var IdleUtilizationMetric$: StaticStructureSchema = [3, n0, _IUM,
   0,
-  [_n, _sta, _v],
-  [0, 0, 1]
+  [_n, _sta, _v, _d],
+  [0, 0, 1, () => IdleDimensions]
 ];
 export var InferredWorkloadSaving$: StaticStructureSchema = [3, n0, _IWS,
   0,
@@ -1166,7 +1174,7 @@ export var MetricSource$: StaticStructureSchema = [3, n0, _MS,
 ];
 export var OrderBy$: StaticStructureSchema = [3, n0, _OB,
   0,
-  [_d, _o],
+  [_di, _o],
   [0, 0]
 ];
 export var PreferredResource$: StaticStructureSchema = [3, n0, _PR,
@@ -1430,6 +1438,10 @@ var GetRecommendationErrors: StaticListSchema = [1, n0, _GREe,
 var Gpus: StaticListSchema = [1, n0, _Gp,
   0, () => Gpu$
 ];
+var IdleDimensions: StaticListSchema = [1, n0, _IDd,
+  0, () => IdleDimension$
+];
+var IdleDimensionValues = 64 | 0;
 var IdleRecommendationErrors: StaticListSchema = [1, n0, _IREd,
   0, () => IdleRecommendationError$
 ];

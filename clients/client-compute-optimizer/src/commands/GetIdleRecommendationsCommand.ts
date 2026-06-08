@@ -74,7 +74,7 @@ export interface GetIdleRecommendationsCommandOutput extends GetIdleRecommendati
  * //     { // IdleRecommendation
  * //       resourceArn: "STRING_VALUE",
  * //       resourceId: "STRING_VALUE",
- * //       resourceType: "EC2Instance" || "AutoScalingGroup" || "EBSVolume" || "ECSService" || "RDSDBInstance" || "NatGateway",
+ * //       resourceType: "EC2Instance" || "AutoScalingGroup" || "EBSVolume" || "ECSService" || "RDSDBInstance" || "NatGateway" || "DynamoDBTable" || "ElastiCacheCluster" || "MemoryDBCluster" || "DocumentDBCluster" || "WorkSpaces" || "SageMakerEndpoint",
  * //       accountId: "STRING_VALUE",
  * //       finding: "Idle" || "Unattached" || "Unused",
  * //       findingDescription: "STRING_VALUE",
@@ -94,9 +94,17 @@ export interface GetIdleRecommendationsCommandOutput extends GetIdleRecommendati
  * //       },
  * //       utilizationMetrics: [ // IdleUtilizationMetrics
  * //         { // IdleUtilizationMetric
- * //           name: "CPU" || "Memory" || "NetworkOutBytesPerSecond" || "NetworkInBytesPerSecond" || "DatabaseConnections" || "EBSVolumeReadIOPS" || "EBSVolumeWriteIOPS" || "VolumeReadOpsPerSecond" || "VolumeWriteOpsPerSecond" || "ActiveConnectionCount" || "PacketsInFromSource" || "PacketsInFromDestination",
+ * //           name: "CPU" || "Memory" || "NetworkOutBytesPerSecond" || "NetworkInBytesPerSecond" || "DatabaseConnections" || "EBSVolumeReadIOPS" || "EBSVolumeWriteIOPS" || "VolumeReadOpsPerSecond" || "VolumeWriteOpsPerSecond" || "ActiveConnectionCount" || "PacketsInFromSource" || "PacketsInFromDestination" || "ConsumedReadCapacityUnits" || "ConsumedWriteCapacityUnits" || "ConsumedChangeDataCaptureUnits" || "NewConnections" || "EngineCPUUtilization" || "CacheHits" || "CacheMisses" || "KeyspaceHits" || "KeyspaceMisses" || "IsIdle" || "UserConnected" || "Invocations" || "GetTypeCmds" || "SetTypeCmds" || "ElastiCacheProcessingUnits" || "CurrConnections",
  * //           statistic: "Maximum" || "Average",
  * //           value: Number("double"),
+ * //           dimensions: [ // IdleDimensions
+ * //             { // IdleDimension
+ * //               key: "STRING_VALUE",
+ * //               values: [ // IdleDimensionValues
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //           ],
  * //         },
  * //       ],
  * //       lookBackPeriodInDays: Number("double"),
@@ -114,7 +122,7 @@ export interface GetIdleRecommendationsCommandOutput extends GetIdleRecommendati
  * //       identifier: "STRING_VALUE",
  * //       code: "STRING_VALUE",
  * //       message: "STRING_VALUE",
- * //       resourceType: "EC2Instance" || "AutoScalingGroup" || "EBSVolume" || "ECSService" || "RDSDBInstance" || "NatGateway",
+ * //       resourceType: "EC2Instance" || "AutoScalingGroup" || "EBSVolume" || "ECSService" || "RDSDBInstance" || "NatGateway" || "DynamoDBTable" || "ElastiCacheCluster" || "MemoryDBCluster" || "DocumentDBCluster" || "WorkSpaces" || "SageMakerEndpoint",
  * //     },
  * //   ],
  * // };

@@ -132,7 +132,7 @@ export interface GetEC2InstanceRecommendationsCommandOutput extends GetEC2Instan
  * //       recommendationSources: [ // RecommendationSources
  * //         { // RecommendationSource
  * //           recommendationSourceArn: "STRING_VALUE",
- * //           recommendationSourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "EcsService" || "License" || "RdsDBInstance" || "RdsDBInstanceStorage" || "AuroraDBClusterStorage" || "NatGateway",
+ * //           recommendationSourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "EcsService" || "License" || "RdsDBInstance" || "RdsDBInstanceStorage" || "AuroraDBClusterStorage" || "NatGateway" || "DynamoDBTable" || "ElastiCacheCluster" || "MemoryDBCluster" || "DocumentDBCluster" || "WorkSpaces" || "SageMakerEndpoint",
  * //         },
  * //       ],
  * //       lastRefreshTimestamp: new Date("TIMESTAMP"),

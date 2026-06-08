@@ -103,7 +103,7 @@ export interface GetRecommendationSummariesCommandOutput extends GetRecommendati
  * //           value: Number("double"),
  * //         },
  * //       ],
- * //       recommendationResourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "EcsService" || "License" || "RdsDBInstance" || "RdsDBInstanceStorage" || "AuroraDBClusterStorage" || "NatGateway",
+ * //       recommendationResourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "EcsService" || "License" || "RdsDBInstance" || "RdsDBInstanceStorage" || "AuroraDBClusterStorage" || "NatGateway" || "DynamoDBTable" || "ElastiCacheCluster" || "MemoryDBCluster" || "DocumentDBCluster" || "WorkSpaces" || "SageMakerEndpoint",
  * //       accountId: "STRING_VALUE",
  * //       savingsOpportunity: { // SavingsOpportunity
  * //         savingsOpportunityPercentage: Number("double"),

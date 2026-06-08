@@ -5336,6 +5336,24 @@ export interface IdleSavingsOpportunityAfterDiscounts {
 }
 
 /**
+ * <p>Describes the dimension of an idle resource utilization metric.</p>
+ * @public
+ */
+export interface IdleDimension {
+  /**
+   * <p>The name of the dimension key.</p>
+   * @public
+   */
+  key?: string | undefined;
+
+  /**
+   * <p>The value of the dimension.</p>
+   * @public
+   */
+  values?: string[] | undefined;
+}
+
+/**
  * <p>Describes the utilization metric of an idle resource.</p>
  * @public
  */
@@ -5370,6 +5388,12 @@ export interface IdleUtilizationMetric {
    * @public
    */
   value?: number | undefined;
+
+  /**
+   * <p>The dimensions of the utilization metric.</p>
+   * @public
+   */
+  dimensions?: IdleDimension[] | undefined;
 }
 
 /**
