@@ -1116,8 +1116,8 @@ export var CreateWorkflowVersionResponse$: StaticStructureSchema = [3, n0, _CWVR
 ];
 export var DefaultRunSetting$: StaticStructureSchema = [3, n0, _DRS,
   0,
-  [_wI, _rA, _wT, _n, _cI, _cBa, _rGI, _pr, _pa, _sCt, _oU, _lL, _rT, _rMet, _sT, _wOI, _oBOI, _wVN, _nM, _cN],
-  [0, 0, 0, 0, 0, 0, 0, 1, 15, 1, 0, 0, 128 | 0, 0, 0, 0, 0, 0, 0, 0], 2
+  [_wI, _rA, _wT, _n, _cI, _cBa, _rGI, _pr, _pa, _sCt, _oU, _lL, _rT, _rMet, _sT, _wOI, _oBOI, _wVN, _nM, _cN, _eS],
+  [0, 0, 0, 0, 0, 0, 0, 1, 15, 1, 0, 0, 128 | 0, 0, 0, 0, 0, 0, 0, 0, 15], 2
 ];
 export var DefinitionRepository$: StaticStructureSchema = [3, n0, _DR,
   0,
@@ -1581,8 +1581,8 @@ export var ImportReferenceSourceItem$: StaticStructureSchema = [3, n0, _IRSI,
 ];
 export var InlineSetting$: StaticStructureSchema = [3, n0, _IS,
   0,
-  [_rSIu, _n, _oU, _pr, _pa, _oBOI, _rT],
-  [0, 0, 0, 1, 15, 0, 128 | 0], 1
+  [_rSIu, _n, _oU, _pr, _pa, _oBOI, _rT, _eS],
+  [0, 0, 0, 1, 15, 0, 128 | 0, 15], 1
 ];
 export var ListAnnotationImportJobsFilter$: StaticStructureSchema = [3, n0, _LAIJF,
   0,

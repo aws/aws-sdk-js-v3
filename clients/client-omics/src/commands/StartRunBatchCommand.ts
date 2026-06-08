@@ -65,6 +65,7 @@ export interface StartRunBatchCommandOutput extends StartRunBatchResponse, __Met
  *     workflowVersionName: "STRING_VALUE",
  *     networkingMode: "STRING_VALUE",
  *     configurationName: "STRING_VALUE",
+ *     engineSettings: "DOCUMENT_VALUE",
  *   },
  *   batchRunSettings: { // BatchRunSettings Union: only one key present
  *     inlineSettings: [ // InlineSettings
@@ -76,6 +77,7 @@ export interface StartRunBatchCommandOutput extends StartRunBatchResponse, __Met
  *         parameters: "DOCUMENT_VALUE",
  *         outputBucketOwnerId: "STRING_VALUE",
  *         runTags: "<TagMap>",
+ *         engineSettings: "DOCUMENT_VALUE",
  *       },
  *     ],
  *     s3UriSettings: "STRING_VALUE",

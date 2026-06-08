@@ -1868,6 +1868,12 @@ export interface InlineSetting {
    * @public
    */
   runTags?: Record<string, string> | undefined;
+
+  /**
+   * <p>Per-run engine-specific settings. Use this field to specify configuration options that are specific to the workflow engine (for example, Nextflow profiles). Overrides <code>defaultRunSetting.engineSettings</code> for this run.</p>
+   * @public
+   */
+  engineSettings?: __DocumentType | undefined;
 }
 
 /**
@@ -3581,6 +3587,12 @@ export interface DefaultRunSetting {
    * @public
    */
   configurationName?: string | undefined;
+
+  /**
+   * <p>Engine-specific settings for the workflow run. Use this field to specify configuration options that are specific to the workflow engine (for example, Nextflow profiles).</p>
+   * @public
+   */
+  engineSettings?: __DocumentType | undefined;
 }
 
 /**
