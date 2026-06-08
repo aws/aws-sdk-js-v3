@@ -353,6 +353,7 @@ export type ImportFileEnrichmentStatus = (typeof ImportFileEnrichmentStatus)[key
  * @enum
  */
 export const SourceEnvironment = {
+  AWS_DISCOVERY_COLLECTOR: "AWS_DISCOVERY_COLLECTOR",
   CISCO_ACI: "CISCO_ACI",
   FORTIGATE_FIREWALL: "FORTIGATE_FIREWALL",
   LOGICAL_MODEL: "LOGICAL_MODEL",
