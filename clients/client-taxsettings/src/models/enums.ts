@@ -17,6 +17,19 @@ export type AddressRoleType = (typeof AddressRoleType)[keyof typeof AddressRoleT
  * @public
  * @enum
  */
+export const ChileDocumentType = {
+  INVOICE: "Invoice",
+  RECEIPT: "Receipt",
+} as const;
+/**
+ * @public
+ */
+export type ChileDocumentType = (typeof ChileDocumentType)[keyof typeof ChileDocumentType];
+
+/**
+ * @public
+ * @enum
+ */
 export const PersonType = {
   BUSINESS: "Business",
   LEGAL_PERSON: "Legal Person",
@@ -73,6 +86,19 @@ export type IsraelDealerType = (typeof IsraelDealerType)[keyof typeof IsraelDeal
  * @public
  * @enum
  */
+export const CustomerType = {
+  BUSINESS: "Business",
+  INDIVIDUAL: "Individual",
+} as const;
+/**
+ * @public
+ */
+export type CustomerType = (typeof CustomerType)[keyof typeof CustomerType];
+
+/**
+ * @public
+ * @enum
+ */
 export const MalaysiaServiceTaxCode = {
   CONSULTANCY: "Consultancy",
   DIGITAL_SVC_ELECTRONIC_MEDIUM: "Digital Service And Electronic Medium",
@@ -83,6 +109,21 @@ export const MalaysiaServiceTaxCode = {
  * @public
  */
 export type MalaysiaServiceTaxCode = (typeof MalaysiaServiceTaxCode)[keyof typeof MalaysiaServiceTaxCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const PolandTaxRegistrationNumberType = {
+  EU_TAX_REGISTRATION_NUMBER: "EUTaxRegistrationNumber",
+  LOCAL_REGISTRATION_NUMBER: "LocalRegistrationNumber",
+  LOCAL_TAX_REGISTRATION_NUMBER: "LocalTaxRegistrationNumber",
+} as const;
+/**
+ * @public
+ */
+export type PolandTaxRegistrationNumberType =
+  (typeof PolandTaxRegistrationNumberType)[keyof typeof PolandTaxRegistrationNumberType];
 
 /**
  * @public
@@ -177,7 +218,9 @@ export const TaxRegistrationType = {
   CNPJ: "CNPJ",
   CPF: "CPF",
   GST: "GST",
+  NIP: "NIP",
   NRIC: "NRIC",
+  PAN: "PAN",
   SST: "SST",
   TIN: "TIN",
   VAT: "VAT",
@@ -223,9 +266,11 @@ export type TaxRegistrationStatus = (typeof TaxRegistrationStatus)[keyof typeof 
 export const ValidationExceptionErrorCode = {
   EXPIRED_TOKEN: "ExpiredToken",
   FIELD_VALIDATION_FAILED: "FieldValidationFailed",
+  GST_EXISTENCE_BLOCK_SET_PAN: "GSTExistenceBlockSetPAN",
   INVALID_TOKEN: "InvalidToken",
   MALFORMED_TOKEN: "MalformedToken",
   MISSING_INPUT: "MissingInput",
+  NON_INDIA_CUSTOMER_CAN_NOT_SET_PAN: "NonIndiaCustomerCanNotSetPAN",
 } as const;
 /**
  * @public

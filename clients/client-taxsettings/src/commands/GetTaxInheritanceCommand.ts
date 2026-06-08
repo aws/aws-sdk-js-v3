@@ -27,8 +27,7 @@ export interface GetTaxInheritanceCommandInput extends GetTaxInheritanceRequest 
 export interface GetTaxInheritanceCommandOutput extends GetTaxInheritanceResponse, __MetadataBearer {}
 
 /**
- * <p>The get account tax inheritance status.
- *     </p>
+ * <p>The get account tax inheritance status. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,8 +58,7 @@ export interface GetTaxInheritanceCommandOutput extends GetTaxInheritanceRespons
  *  <p>The exception thrown when the input doesn't have a resource associated to it.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The exception when the input doesn't pass validation for at least one of the input
- *       parameters. </p>
+ *  <p>The exception when the input doesn't pass validation for at least one of the input parameters. </p>
  *
  * @throws {@link TaxSettingsServiceException}
  * <p>Base exception class for all service exceptions from TaxSettings service.</p>

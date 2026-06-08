@@ -27,10 +27,7 @@ export interface DeleteTaxRegistrationCommandInput extends DeleteTaxRegistration
 export interface DeleteTaxRegistrationCommandOutput extends DeleteTaxRegistrationResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes tax registration for a single account. </p>
- *          <note>
- *             <p>This API operation can't be used to delete your tax registration in Brazil. Use the <a href="https://console.aws.amazon.com/billing/home#/paymentpreferences/paymentmethods">Payment preferences</a> page in the Billing and Cost Management console instead.</p>
- *          </note>
+ * <p>Deletes tax registration for a single account. </p> <note> <p>This API operation can't be used to delete your tax registration in Brazil. Use the <a href="https://console.aws.amazon.com/billing/home#/paymentpreferences/paymentmethods">Payment preferences</a> page in the Billing and Cost Management console instead.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,8 +61,7 @@ export interface DeleteTaxRegistrationCommandOutput extends DeleteTaxRegistratio
  *  <p>The exception thrown when the input doesn't have a resource associated to it.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The exception when the input doesn't pass validation for at least one of the input
- *       parameters. </p>
+ *  <p>The exception when the input doesn't pass validation for at least one of the input parameters. </p>
  *
  * @throws {@link TaxSettingsServiceException}
  * <p>Base exception class for all service exceptions from TaxSettings service.</p>

@@ -6,8 +6,7 @@ import type { ValidationExceptionField } from "./models_0";
 import { TaxSettingsServiceException as __BaseException } from "./TaxSettingsServiceException";
 
 /**
- * <p>The access is denied for the Amazon Web ServicesSupport API.
- *     </p>
+ * <p>The access is denied for the Amazon Web Services Support API. </p>
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,8 +26,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Failed to upload the tax exemption document to Amazon Web ServicesSupport case.
- *     </p>
+ * <p>Failed to upload the tax exemption document to Amazon Web Services Support case. </p>
  * @public
  */
 export class AttachmentUploadException extends __BaseException {
@@ -102,8 +100,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The exception when the input doesn't pass validation for at least one of the input
- *       parameters. </p>
+ * <p>The exception when the input doesn't pass validation for at least one of the input parameters. </p>
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -164,8 +161,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>You've exceeded the Amazon Web ServicesSupport case creation limit for your account.
- *     </p>
+ * <p>You've exceeded the Amazon Web Services Support case creation limit for your account. </p>
  * @public
  */
 export class CaseCreationLimitExceededException extends __BaseException {

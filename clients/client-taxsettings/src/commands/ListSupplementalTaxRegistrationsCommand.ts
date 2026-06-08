@@ -30,9 +30,7 @@ export interface ListSupplementalTaxRegistrationsCommandInput extends ListSupple
 export interface ListSupplementalTaxRegistrationsCommandOutput extends ListSupplementalTaxRegistrationsResponse, __MetadataBearer {}
 
 /**
- * <p>
- *       Retrieves supplemental tax registrations for a single account.
- *     </p>
+ * <p> Retrieves supplemental tax registrations for a single account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,11 +52,11 @@ export interface ListSupplementalTaxRegistrationsCommandOutput extends ListSuppl
  * //       registrationType: "VAT", // required
  * //       legalName: "STRING_VALUE", // required
  * //       address: { // Address
- * //         addressLine1: "STRING_VALUE", // required
+ * //         addressLine1: "STRING_VALUE",
  * //         addressLine2: "STRING_VALUE",
  * //         addressLine3: "STRING_VALUE",
  * //         districtOrCounty: "STRING_VALUE",
- * //         city: "STRING_VALUE", // required
+ * //         city: "STRING_VALUE",
  * //         stateOrRegion: "STRING_VALUE",
  * //         postalCode: "STRING_VALUE", // required
  * //         countryCode: "STRING_VALUE", // required
@@ -85,8 +83,7 @@ export interface ListSupplementalTaxRegistrationsCommandOutput extends ListSuppl
  *  <p>The exception thrown when the input doesn't have a resource associated to it.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The exception when the input doesn't pass validation for at least one of the input
- *       parameters. </p>
+ *  <p>The exception when the input doesn't pass validation for at least one of the input parameters. </p>
  *
  * @throws {@link TaxSettingsServiceException}
  * <p>Base exception class for all service exceptions from TaxSettings service.</p>

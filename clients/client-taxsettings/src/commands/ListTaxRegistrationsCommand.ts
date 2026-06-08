@@ -27,9 +27,7 @@ export interface ListTaxRegistrationsCommandInput extends ListTaxRegistrationsRe
 export interface ListTaxRegistrationsCommandOutput extends ListTaxRegistrationsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the tax registration of accounts listed in a consolidated billing family. This
- *       can be used to retrieve up to 100 accounts' tax registrations in one call (default 50).
- *     </p>
+ * <p>Retrieves the tax registration of accounts listed in a consolidated billing family. This can be used to retrieve up to 100 accounts' tax registrations in one call (default 50). </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,7 +48,7 @@ export interface ListTaxRegistrationsCommandOutput extends ListTaxRegistrationsR
  * //       accountId: "STRING_VALUE",
  * //       taxRegistration: { // TaxRegistrationWithJurisdiction
  * //         registrationId: "STRING_VALUE", // required
- * //         registrationType: "VAT" || "GST" || "CPF" || "CNPJ" || "SST" || "TIN" || "NRIC", // required
+ * //         registrationType: "VAT" || "GST" || "CPF" || "CNPJ" || "SST" || "TIN" || "NRIC" || "PAN" || "NIP", // required
  * //         legalName: "STRING_VALUE", // required
  * //         status: "Verified" || "Pending" || "Deleted" || "Rejected", // required
  * //         sector: "Business" || "Individual" || "Government",
@@ -111,6 +109,7 @@ export interface ListTaxRegistrationsCommandOutput extends ListTaxRegistrationsR
  * //             cigNumber: "STRING_VALUE",
  * //             cupNumber: "STRING_VALUE",
  * //             taxCode: "STRING_VALUE",
+ * //             customerType: "Business" || "Individual",
  * //           },
  * //           romaniaAdditionalInfo: { // RomaniaAdditionalInfo
  * //             taxRegistrationNumberType: "TaxRegistrationNumber" || "LocalRegistrationNumber", // required
@@ -121,6 +120,7 @@ export interface ListTaxRegistrationsCommandOutput extends ListTaxRegistrationsR
  * //           polandAdditionalInfo: { // PolandAdditionalInfo
  * //             individualRegistrationNumber: "STRING_VALUE",
  * //             isGroupVatEnabled: true || false,
+ * //             taxRegistrationNumberType: "EUTaxRegistrationNumber" || "LocalTaxRegistrationNumber" || "LocalRegistrationNumber",
  * //           },
  * //           saudiArabiaAdditionalInfo: { // SaudiArabiaAdditionalInfo
  * //             taxRegistrationNumberType: "TaxRegistrationNumber" || "TaxIdentificationNumber" || "CommercialRegistrationNumber",
@@ -150,6 +150,20 @@ export interface ListTaxRegistrationsCommandOutput extends ListTaxRegistrationsR
  * //             taxRegistrationNumberType: "Business" || "Individual",
  * //             vatRegistrationNumber: "STRING_VALUE",
  * //           },
+ * //           philippinesAdditionalInfo: { // PhilippinesAdditionalInfo
+ * //             isVatRegistered: true || false,
+ * //           },
+ * //           belgiumAdditionalInfo: { // BelgiumAdditionalInfo
+ * //             peppolId: "STRING_VALUE",
+ * //             isMercuriusBoxEnabled: true || false,
+ * //           },
+ * //           chileAdditionalInfo: { // ChileAdditionalInfo
+ * //             documentType: "Invoice" || "Receipt",
+ * //             businessActivity: "STRING_VALUE",
+ * //           },
+ * //           franceAdditionalInfo: { // FranceAdditionalInfo
+ * //             sirenNumber: "STRING_VALUE", // required
+ * //           },
  * //         },
  * //         jurisdiction: { // Jurisdiction
  * //           stateOrRegion: "STRING_VALUE",
@@ -164,11 +178,11 @@ export interface ListTaxRegistrationsCommandOutput extends ListTaxRegistrationsR
  * //         accountName: "STRING_VALUE",
  * //         seller: "STRING_VALUE",
  * //         address: { // Address
- * //           addressLine1: "STRING_VALUE", // required
+ * //           addressLine1: "STRING_VALUE",
  * //           addressLine2: "STRING_VALUE",
  * //           addressLine3: "STRING_VALUE",
  * //           districtOrCounty: "STRING_VALUE",
- * //           city: "STRING_VALUE", // required
+ * //           city: "STRING_VALUE",
  * //           stateOrRegion: "STRING_VALUE",
  * //           postalCode: "STRING_VALUE", // required
  * //           countryCode: "STRING_VALUE", // required
@@ -201,8 +215,7 @@ export interface ListTaxRegistrationsCommandOutput extends ListTaxRegistrationsR
  *  <p>The exception thrown when the input doesn't have a resource associated to it.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The exception when the input doesn't pass validation for at least one of the input
- *       parameters. </p>
+ *  <p>The exception when the input doesn't pass validation for at least one of the input parameters. </p>
  *
  * @throws {@link TaxSettingsServiceException}
  * <p>Base exception class for all service exceptions from TaxSettings service.</p>

@@ -44,7 +44,7 @@ export interface GetTaxRegistrationCommandOutput extends GetTaxRegistrationRespo
  * // { // GetTaxRegistrationResponse
  * //   taxRegistration: { // TaxRegistration
  * //     registrationId: "STRING_VALUE", // required
- * //     registrationType: "VAT" || "GST" || "CPF" || "CNPJ" || "SST" || "TIN" || "NRIC", // required
+ * //     registrationType: "VAT" || "GST" || "CPF" || "CNPJ" || "SST" || "TIN" || "NRIC" || "PAN" || "NIP", // required
  * //     legalName: "STRING_VALUE", // required
  * //     status: "Verified" || "Pending" || "Deleted" || "Rejected", // required
  * //     sector: "Business" || "Individual" || "Government",
@@ -105,6 +105,7 @@ export interface GetTaxRegistrationCommandOutput extends GetTaxRegistrationRespo
  * //         cigNumber: "STRING_VALUE",
  * //         cupNumber: "STRING_VALUE",
  * //         taxCode: "STRING_VALUE",
+ * //         customerType: "Business" || "Individual",
  * //       },
  * //       romaniaAdditionalInfo: { // RomaniaAdditionalInfo
  * //         taxRegistrationNumberType: "TaxRegistrationNumber" || "LocalRegistrationNumber", // required
@@ -115,6 +116,7 @@ export interface GetTaxRegistrationCommandOutput extends GetTaxRegistrationRespo
  * //       polandAdditionalInfo: { // PolandAdditionalInfo
  * //         individualRegistrationNumber: "STRING_VALUE",
  * //         isGroupVatEnabled: true || false,
+ * //         taxRegistrationNumberType: "EUTaxRegistrationNumber" || "LocalTaxRegistrationNumber" || "LocalRegistrationNumber",
  * //       },
  * //       saudiArabiaAdditionalInfo: { // SaudiArabiaAdditionalInfo
  * //         taxRegistrationNumberType: "TaxRegistrationNumber" || "TaxIdentificationNumber" || "CommercialRegistrationNumber",
@@ -144,13 +146,27 @@ export interface GetTaxRegistrationCommandOutput extends GetTaxRegistrationRespo
  * //         taxRegistrationNumberType: "Business" || "Individual",
  * //         vatRegistrationNumber: "STRING_VALUE",
  * //       },
+ * //       philippinesAdditionalInfo: { // PhilippinesAdditionalInfo
+ * //         isVatRegistered: true || false,
+ * //       },
+ * //       belgiumAdditionalInfo: { // BelgiumAdditionalInfo
+ * //         peppolId: "STRING_VALUE",
+ * //         isMercuriusBoxEnabled: true || false,
+ * //       },
+ * //       chileAdditionalInfo: { // ChileAdditionalInfo
+ * //         documentType: "Invoice" || "Receipt",
+ * //         businessActivity: "STRING_VALUE",
+ * //       },
+ * //       franceAdditionalInfo: { // FranceAdditionalInfo
+ * //         sirenNumber: "STRING_VALUE", // required
+ * //       },
  * //     },
  * //     legalAddress: { // Address
- * //       addressLine1: "STRING_VALUE", // required
+ * //       addressLine1: "STRING_VALUE",
  * //       addressLine2: "STRING_VALUE",
  * //       addressLine3: "STRING_VALUE",
  * //       districtOrCounty: "STRING_VALUE",
- * //       city: "STRING_VALUE", // required
+ * //       city: "STRING_VALUE",
  * //       stateOrRegion: "STRING_VALUE",
  * //       postalCode: "STRING_VALUE", // required
  * //       countryCode: "STRING_VALUE", // required
@@ -173,8 +189,7 @@ export interface GetTaxRegistrationCommandOutput extends GetTaxRegistrationRespo
  *  <p>The exception thrown when the input doesn't have a resource associated to it.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The exception when the input doesn't pass validation for at least one of the input
- *       parameters. </p>
+ *  <p>The exception when the input doesn't pass validation for at least one of the input parameters. </p>
  *
  * @throws {@link TaxSettingsServiceException}
  * <p>Base exception class for all service exceptions from TaxSettings service.</p>

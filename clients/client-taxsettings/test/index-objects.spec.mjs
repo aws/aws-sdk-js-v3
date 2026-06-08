@@ -24,12 +24,16 @@ import {
   BatchPutTaxRegistrationError$,
   BatchPutTaxRegistrationRequest$,
   BatchPutTaxRegistrationResponse$,
+  BelgiumAdditionalInfo$,
   BrazilAdditionalInfo$,
   CanadaAdditionalInfo$,
   CaseCreationLimitExceededException,
   CaseCreationLimitExceededException$,
+  ChileAdditionalInfo$,
+  ChileDocumentType,
   ConflictException,
   ConflictException$,
+  CustomerType,
   DeleteSupplementalTaxRegistration$,
   DeleteSupplementalTaxRegistrationCommand,
   DeleteSupplementalTaxRegistrationRequest$,
@@ -43,6 +47,7 @@ import {
   EntityExemptionAccountStatus,
   EstoniaAdditionalInfo$,
   ExemptionCertificate$,
+  FranceAdditionalInfo$,
   GeorgiaAdditionalInfo$,
   GetTaxExemptionTypes$,
   GetTaxExemptionTypesCommand,
@@ -92,7 +97,9 @@ import {
   paginateListTaxExemptions,
   paginateListTaxRegistrations,
   PersonType,
+  PhilippinesAdditionalInfo$,
   PolandAdditionalInfo$,
+  PolandTaxRegistrationNumberType,
   PutSupplementalTaxRegistration$,
   PutSupplementalTaxRegistrationCommand,
   PutSupplementalTaxRegistrationRequest$,
@@ -202,8 +209,10 @@ assert(typeof BatchGetTaxExemptionsResponse$ === "object");
 assert(typeof BatchPutTaxRegistrationError$ === "object");
 assert(typeof BatchPutTaxRegistrationRequest$ === "object");
 assert(typeof BatchPutTaxRegistrationResponse$ === "object");
+assert(typeof BelgiumAdditionalInfo$ === "object");
 assert(typeof BrazilAdditionalInfo$ === "object");
 assert(typeof CanadaAdditionalInfo$ === "object");
+assert(typeof ChileAdditionalInfo$ === "object");
 assert(typeof DeleteSupplementalTaxRegistrationRequest$ === "object");
 assert(typeof DeleteSupplementalTaxRegistrationResponse$ === "object");
 assert(typeof DeleteTaxRegistrationRequest$ === "object");
@@ -212,6 +221,7 @@ assert(typeof DestinationS3Location$ === "object");
 assert(typeof EgyptAdditionalInfo$ === "object");
 assert(typeof EstoniaAdditionalInfo$ === "object");
 assert(typeof ExemptionCertificate$ === "object");
+assert(typeof FranceAdditionalInfo$ === "object");
 assert(typeof GeorgiaAdditionalInfo$ === "object");
 assert(typeof GetTaxExemptionTypesRequest$ === "object");
 assert(typeof GetTaxExemptionTypesResponse$ === "object");
@@ -235,6 +245,7 @@ assert(typeof ListTaxExemptionsResponse$ === "object");
 assert(typeof ListTaxRegistrationsRequest$ === "object");
 assert(typeof ListTaxRegistrationsResponse$ === "object");
 assert(typeof MalaysiaAdditionalInfo$ === "object");
+assert(typeof PhilippinesAdditionalInfo$ === "object");
 assert(typeof PolandAdditionalInfo$ === "object");
 assert(typeof PutSupplementalTaxRegistrationRequest$ === "object");
 assert(typeof PutSupplementalTaxRegistrationResponse$ === "object");
@@ -269,6 +280,8 @@ assert(typeof VerificationDetails$ === "object");
 assert(typeof VietnamAdditionalInfo$ === "object");
 // enums
 assert(typeof AddressRoleType === "object");
+assert(typeof ChileDocumentType === "object");
+assert(typeof CustomerType === "object");
 assert(typeof EntityExemptionAccountStatus === "object");
 assert(typeof HeritageStatus === "object");
 assert(typeof IndonesiaTaxRegistrationNumberType === "object");
@@ -277,6 +290,7 @@ assert(typeof IsraelCustomerType === "object");
 assert(typeof IsraelDealerType === "object");
 assert(typeof MalaysiaServiceTaxCode === "object");
 assert(typeof PersonType === "object");
+assert(typeof PolandTaxRegistrationNumberType === "object");
 assert(typeof RegistrationType === "object");
 assert(typeof SaudiArabiaTaxRegistrationNumberType === "object");
 assert(typeof Sector === "object");

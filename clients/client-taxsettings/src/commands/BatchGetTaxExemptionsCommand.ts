@@ -27,8 +27,7 @@ export interface BatchGetTaxExemptionsCommandInput extends BatchGetTaxExemptions
 export interface BatchGetTaxExemptionsCommandOutput extends BatchGetTaxExemptionsResponse, __MetadataBearer {}
 
 /**
- * <p>Get the active tax exemptions for a given list of accounts. The IAM action is <code>tax:GetExemptions</code>.
- *     </p>
+ * <p>Get the active tax exemptions for a given list of accounts. The IAM action is <code>tax:GetExemptions</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,8 +93,7 @@ export interface BatchGetTaxExemptionsCommandOutput extends BatchGetTaxExemption
  *  <p>The exception thrown when the input doesn't have a resource associated to it.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The exception when the input doesn't pass validation for at least one of the input
- *       parameters. </p>
+ *  <p>The exception when the input doesn't pass validation for at least one of the input parameters. </p>
  *
  * @throws {@link TaxSettingsServiceException}
  * <p>Base exception class for all service exceptions from TaxSettings service.</p>
