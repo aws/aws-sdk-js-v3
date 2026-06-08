@@ -54,6 +54,7 @@ export interface CreatePrivateConnectionCommandOutput extends CreatePrivateConne
  *         "STRING_VALUE",
  *       ],
  *       certificate: "STRING_VALUE",
+ *       dnsResolution: "PUBLIC" || "IN_VPC",
  *     },
  *     selfManaged: { // SelfManagedInput
  *       resourceConfigurationId: "STRING_VALUE", // required
@@ -75,6 +76,8 @@ export interface CreatePrivateConnectionCommandOutput extends CreatePrivateConne
  * //   resourceConfigurationId: "STRING_VALUE",
  * //   status: "ACTIVE" || "CREATE_IN_PROGRESS" || "CREATE_FAILED" || "DELETE_IN_PROGRESS" || "DELETE_FAILED", // required
  * //   certificateExpiryTime: new Date("TIMESTAMP"),
+ * //   dnsResolution: "PUBLIC" || "IN_VPC",
+ * //   failureMessage: "STRING_VALUE",
  * //   tags: { // Tags
  * //     "<keys>": "STRING_VALUE",
  * //   },

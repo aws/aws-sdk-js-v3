@@ -269,6 +269,10 @@ export const TaskStatus = {
    */
   PENDING_TRIAGE: "PENDING_TRIAGE",
   /**
+   * <p>Task has been skipped by triage</p>
+   */
+  SKIPPED: "SKIPPED",
+  /**
    * <p>Task has exceeded its time limit</p>
    */
   TIMED_OUT: "TIMED_OUT",
@@ -300,6 +304,26 @@ export const UserType = {
  * @public
  */
 export type UserType = (typeof UserType)[keyof typeof UserType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceConfigDnsResolution = {
+  /**
+   * <p>Enable private DNS resolution within VPC for resources behind this resource gateway.</p>
+   */
+  IN_VPC: "IN_VPC",
+  /**
+   * <p>Use public DNS resolution for resources behind this resource gateway.</p>
+   */
+  PUBLIC: "PUBLIC",
+} as const;
+/**
+ * @public
+ */
+export type ResourceConfigDnsResolution =
+  (typeof ResourceConfigDnsResolution)[keyof typeof ResourceConfigDnsResolution];
 
 /**
  * @public

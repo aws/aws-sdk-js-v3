@@ -62,6 +62,8 @@ import {
 } from "./auth/httpAuthSchemeProvider";
 import type { AssociateServiceCommandInput, AssociateServiceCommandOutput } from "./commands/AssociateServiceCommand";
 import type { CreateAgentSpaceCommandInput, CreateAgentSpaceCommandOutput } from "./commands/CreateAgentSpaceCommand";
+import type { CreateAssetCommandInput, CreateAssetCommandOutput } from "./commands/CreateAssetCommand";
+import type { CreateAssetFileCommandInput, CreateAssetFileCommandOutput } from "./commands/CreateAssetFileCommand";
 import type {
   CreateBacklogTaskCommandInput,
   CreateBacklogTaskCommandOutput,
@@ -72,6 +74,8 @@ import type {
   CreatePrivateConnectionCommandOutput,
 } from "./commands/CreatePrivateConnectionCommand";
 import type { DeleteAgentSpaceCommandInput, DeleteAgentSpaceCommandOutput } from "./commands/DeleteAgentSpaceCommand";
+import type { DeleteAssetCommandInput, DeleteAssetCommandOutput } from "./commands/DeleteAssetCommand";
+import type { DeleteAssetFileCommandInput, DeleteAssetFileCommandOutput } from "./commands/DeleteAssetFileCommand";
 import type {
   DeletePrivateConnectionCommandInput,
   DeletePrivateConnectionCommandOutput,
@@ -98,6 +102,9 @@ import type {
 } from "./commands/EnableOperatorAppCommand";
 import type { GetAccountUsageCommandInput, GetAccountUsageCommandOutput } from "./commands/GetAccountUsageCommand";
 import type { GetAgentSpaceCommandInput, GetAgentSpaceCommandOutput } from "./commands/GetAgentSpaceCommand";
+import type { GetAssetCommandInput, GetAssetCommandOutput } from "./commands/GetAssetCommand";
+import type { GetAssetContentCommandInput, GetAssetContentCommandOutput } from "./commands/GetAssetContentCommand";
+import type { GetAssetFileCommandInput, GetAssetFileCommandOutput } from "./commands/GetAssetFileCommand";
 import type { GetAssociationCommandInput, GetAssociationCommandOutput } from "./commands/GetAssociationCommand";
 import type { GetBacklogTaskCommandInput, GetBacklogTaskCommandOutput } from "./commands/GetBacklogTaskCommand";
 import type { GetOperatorAppCommandInput, GetOperatorAppCommandOutput } from "./commands/GetOperatorAppCommand";
@@ -107,6 +114,13 @@ import type {
 } from "./commands/GetRecommendationCommand";
 import type { GetServiceCommandInput, GetServiceCommandOutput } from "./commands/GetServiceCommand";
 import type { ListAgentSpacesCommandInput, ListAgentSpacesCommandOutput } from "./commands/ListAgentSpacesCommand";
+import type { ListAssetFilesCommandInput, ListAssetFilesCommandOutput } from "./commands/ListAssetFilesCommand";
+import type { ListAssetsCommandInput, ListAssetsCommandOutput } from "./commands/ListAssetsCommand";
+import type { ListAssetTypesCommandInput, ListAssetTypesCommandOutput } from "./commands/ListAssetTypesCommand";
+import type {
+  ListAssetVersionsCommandInput,
+  ListAssetVersionsCommandOutput,
+} from "./commands/ListAssetVersionsCommand";
 import type { ListAssociationsCommandInput, ListAssociationsCommandOutput } from "./commands/ListAssociationsCommand";
 import type { ListBacklogTasksCommandInput, ListBacklogTasksCommandOutput } from "./commands/ListBacklogTasksCommand";
 import type { ListChatsCommandInput, ListChatsCommandOutput } from "./commands/ListChatsCommand";
@@ -139,6 +153,8 @@ import type { SendMessageCommandInput, SendMessageCommandOutput } from "./comman
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import type { UpdateAgentSpaceCommandInput, UpdateAgentSpaceCommandOutput } from "./commands/UpdateAgentSpaceCommand";
+import type { UpdateAssetCommandInput, UpdateAssetCommandOutput } from "./commands/UpdateAssetCommand";
+import type { UpdateAssetFileCommandInput, UpdateAssetFileCommandOutput } from "./commands/UpdateAssetFileCommand";
 import type {
   UpdateAssociationCommandInput,
   UpdateAssociationCommandOutput,
@@ -181,10 +197,14 @@ export { __Client };
 export type ServiceInputTypes =
   | AssociateServiceCommandInput
   | CreateAgentSpaceCommandInput
+  | CreateAssetCommandInput
+  | CreateAssetFileCommandInput
   | CreateBacklogTaskCommandInput
   | CreateChatCommandInput
   | CreatePrivateConnectionCommandInput
   | DeleteAgentSpaceCommandInput
+  | DeleteAssetCommandInput
+  | DeleteAssetFileCommandInput
   | DeletePrivateConnectionCommandInput
   | DeregisterServiceCommandInput
   | DescribePrivateConnectionCommandInput
@@ -193,12 +213,19 @@ export type ServiceInputTypes =
   | EnableOperatorAppCommandInput
   | GetAccountUsageCommandInput
   | GetAgentSpaceCommandInput
+  | GetAssetCommandInput
+  | GetAssetContentCommandInput
+  | GetAssetFileCommandInput
   | GetAssociationCommandInput
   | GetBacklogTaskCommandInput
   | GetOperatorAppCommandInput
   | GetRecommendationCommandInput
   | GetServiceCommandInput
   | ListAgentSpacesCommandInput
+  | ListAssetFilesCommandInput
+  | ListAssetTypesCommandInput
+  | ListAssetVersionsCommandInput
+  | ListAssetsCommandInput
   | ListAssociationsCommandInput
   | ListBacklogTasksCommandInput
   | ListChatsCommandInput
@@ -216,6 +243,8 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAgentSpaceCommandInput
+  | UpdateAssetCommandInput
+  | UpdateAssetFileCommandInput
   | UpdateAssociationCommandInput
   | UpdateBacklogTaskCommandInput
   | UpdateGoalCommandInput
@@ -230,10 +259,14 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | AssociateServiceCommandOutput
   | CreateAgentSpaceCommandOutput
+  | CreateAssetCommandOutput
+  | CreateAssetFileCommandOutput
   | CreateBacklogTaskCommandOutput
   | CreateChatCommandOutput
   | CreatePrivateConnectionCommandOutput
   | DeleteAgentSpaceCommandOutput
+  | DeleteAssetCommandOutput
+  | DeleteAssetFileCommandOutput
   | DeletePrivateConnectionCommandOutput
   | DeregisterServiceCommandOutput
   | DescribePrivateConnectionCommandOutput
@@ -242,12 +275,19 @@ export type ServiceOutputTypes =
   | EnableOperatorAppCommandOutput
   | GetAccountUsageCommandOutput
   | GetAgentSpaceCommandOutput
+  | GetAssetCommandOutput
+  | GetAssetContentCommandOutput
+  | GetAssetFileCommandOutput
   | GetAssociationCommandOutput
   | GetBacklogTaskCommandOutput
   | GetOperatorAppCommandOutput
   | GetRecommendationCommandOutput
   | GetServiceCommandOutput
   | ListAgentSpacesCommandOutput
+  | ListAssetFilesCommandOutput
+  | ListAssetTypesCommandOutput
+  | ListAssetVersionsCommandOutput
+  | ListAssetsCommandOutput
   | ListAssociationsCommandOutput
   | ListBacklogTasksCommandOutput
   | ListChatsCommandOutput
@@ -265,6 +305,8 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAgentSpaceCommandOutput
+  | UpdateAssetCommandOutput
+  | UpdateAssetFileCommandOutput
   | UpdateAssociationCommandOutput
   | UpdateBacklogTaskCommandOutput
   | UpdateGoalCommandOutput
@@ -471,7 +513,7 @@ export type DevOpsAgentClientResolvedConfigType = __SmithyResolvedConfiguration<
 export interface DevOpsAgentClientResolvedConfig extends DevOpsAgentClientResolvedConfigType {}
 
 /**
- * <p>AWS DevOps Agent is your always-available operations teammate. It resolves and proactively prevents incidents, optimizes application reliability and performance, and handles on-demand SRE tasks across AWS, multicloud, and on-premises environments. AWS DevOps Agent investigates incidents as an experienced DevOps engineer would. It learns your applications and their relationships. It works with your observability tools, runbooks, code repositories, and CI/CD pipelines. The agent correlates telemetry, code, and deployment data across all of them. </p>
+ * <p>AWS DevOps Agent is your always-available operations teammate. It resolves and proactively prevents incidents, optimizes application reliability and performance, and handles on-demand SRE tasks across AWS, multicloud, and on-premises environments. AWS DevOps Agent investigates incidents as an experienced DevOps engineer would. It learns your applications and their relationships. It works with your observability tools, runbooks, code repositories, and CI/CD pipelines. The agent correlates telemetry, code, and deployment data across all of them.</p>
  * @public
  */
 export class DevOpsAgentClient extends __Client<

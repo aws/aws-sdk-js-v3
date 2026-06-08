@@ -263,7 +263,8 @@ export interface RegisterServiceCommandOutput extends RegisterServiceOutput, __M
  *       authorizationConfig: { // MCPServerSigV4AuthorizationConfig
  *         region: "STRING_VALUE", // required
  *         service: "STRING_VALUE", // required
- *         roleArn: "STRING_VALUE", // required
+ *         roleArn: "STRING_VALUE",
+ *         mcpRoleArn: "STRING_VALUE",
  *         customHeaders: { // CustomHeaders
  *           "<keys>": "STRING_VALUE",
  *         },
@@ -272,6 +273,8 @@ export interface RegisterServiceCommandOutput extends RegisterServiceOutput, __M
  *   },
  *   kmsKeyArn: "STRING_VALUE",
  *   privateConnectionName: "STRING_VALUE",
+ *   targetUrlPrivateConnectionName: "STRING_VALUE",
+ *   exchangeUrlPrivateConnectionName: "STRING_VALUE",
  *   name: "STRING_VALUE",
  *   tags: { // Tags
  *     "<keys>": "STRING_VALUE",

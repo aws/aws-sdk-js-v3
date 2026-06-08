@@ -20,6 +20,7 @@ import type {
   PrivateConnectionType,
   RecommendationPriority,
   RecommendationStatus,
+  ResourceConfigDnsResolution,
   SchedulerState,
   Service,
   SourceAccountType,
@@ -237,9 +238,17 @@ export interface RegisteredMCPServerSigV4Details {
 
   /**
    * <p>IAM role ARN to assume for SigV4 signing.</p>
+   *
+   * @deprecated (since 2026-05-27) Use mcpRoleArn instead.
    * @public
    */
   roleArn: string | undefined;
+
+  /**
+   * <p>AWS IAM role ARN.</p>
+   * @public
+   */
+  mcpRoleArn?: string | undefined;
 
   /**
    * <p>Custom headers for the SigV4 MCP server.</p>
@@ -2203,6 +2212,12 @@ export interface EnableOperatorAppOutput {
   agentSpaceId: string | undefined;
 
   /**
+   * <p>The URL for operators to access the Operator App</p>
+   * @public
+   */
+  operatorAppUrl?: string | undefined;
+
+  /**
    * <p>Configuration for IAM-based authentication flow for the Operator App.</p>
    * @public
    */
@@ -2268,6 +2283,12 @@ export interface GetOperatorAppInput {
  * @public
  */
 export interface GetOperatorAppOutput {
+  /**
+   * <p>The URL for operators to access the Operator App</p>
+   * @public
+   */
+  operatorAppUrl?: string | undefined;
+
   /**
    * <p>Configuration for IAM-based authentication flow for the Operator App.</p>
    * @public
@@ -2402,6 +2423,310 @@ export interface UpdateOperatorAppIdpConfigOutput {
 }
 
 /**
+ * <p>Represents an asset in an agent space, including its identifier, type, metadata, version, and timestamps.</p>
+ * @public
+ */
+export interface Asset {
+  /**
+   * <p>The unique identifier for this asset</p>
+   * @public
+   */
+  assetId: string | undefined;
+
+  /**
+   * <p>The type of this asset</p>
+   * @public
+   */
+  assetType: string | undefined;
+
+  /**
+   * <p>The metadata for this asset</p>
+   * @public
+   */
+  metadata: __DocumentType | undefined;
+
+  /**
+   * <p>The version number of this asset</p>
+   * @public
+   */
+  version: number | undefined;
+
+  /**
+   * <p>Timestamp when this asset was created</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>Timestamp when this asset was last updated</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * <p>Content of an individual asset file</p>
+ * @public
+ */
+export type AssetFileBody =
+  | AssetFileBody.BytesMember
+  | AssetFileBody.TextMember
+  | AssetFileBody.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AssetFileBody {
+  /**
+   * <p>Binary file content</p>
+   * @public
+   */
+  export interface BytesMember {
+    bytes: Uint8Array;
+    text?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Text file content</p>
+   * @public
+   */
+  export interface TextMember {
+    bytes?: never;
+    text: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    bytes?: never;
+    text?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    bytes: (value: Uint8Array) => T;
+    text: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A single file with path and content</p>
+ * @public
+ */
+export interface AssetFileContent {
+  /**
+   * <p>The path of the file within the asset</p>
+   * @public
+   */
+  path: string | undefined;
+
+  /**
+   * <p>The file content</p>
+   * @public
+   */
+  body: AssetFileBody | undefined;
+
+  /**
+   * <p>Optional metadata for this file</p>
+   * @public
+   */
+  metadata?: __DocumentType | undefined;
+}
+
+/**
+ * <p>A zip file containing asset files</p>
+ * @public
+ */
+export interface AssetZipContent {
+  /**
+   * <p>The zip file bytes</p>
+   * @public
+   */
+  zipFile: Uint8Array | undefined;
+}
+
+/**
+ * <p>Content for an asset, either a single file or a zip bundle</p>
+ * @public
+ */
+export type AssetContent =
+  | AssetContent.FileMember
+  | AssetContent.ZipMember
+  | AssetContent.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AssetContent {
+  /**
+   * <p>A single file with path and content</p>
+   * @public
+   */
+  export interface FileMember {
+    file: AssetFileContent;
+    zip?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A zip file containing multiple files</p>
+   * @public
+   */
+  export interface ZipMember {
+    file?: never;
+    zip: AssetZipContent;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    file?: never;
+    zip?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    file: (value: AssetFileContent) => T;
+    zip: (value: AssetZipContent) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Represents a single file within an asset, including its path, content, version, and timestamps.</p>
+ * @public
+ */
+export interface AssetFile {
+  /**
+   * <p>The path of this file within the asset</p>
+   * @public
+   */
+  path: string | undefined;
+
+  /**
+   * <p>The content of this file</p>
+   * @public
+   */
+  content: AssetFileBody | undefined;
+
+  /**
+   * <p>The metadata for this file</p>
+   * @public
+   */
+  metadata?: __DocumentType | undefined;
+
+  /**
+   * <p>The asset version this file belongs to</p>
+   * @public
+   */
+  version: number | undefined;
+
+  /**
+   * <p>Timestamp when this file was created</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>Timestamp when this file was last updated</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * <p>Summary of a file within an asset, including its path, version, and timestamps.</p>
+ * @public
+ */
+export interface AssetFileSummary {
+  /**
+   * <p>The path of this file within the asset</p>
+   * @public
+   */
+  path: string | undefined;
+
+  /**
+   * <p>The metadata for this file</p>
+   * @public
+   */
+  metadata?: __DocumentType | undefined;
+
+  /**
+   * <p>The asset version this file belongs to</p>
+   * @public
+   */
+  version: number | undefined;
+
+  /**
+   * <p>Timestamp when this file was created</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>Timestamp when this file was last updated</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * <p>Summary of an asset type, including its identifier and description.</p>
+ * @public
+ */
+export interface AssetTypeSummary {
+  /**
+   * <p>The asset type identifier</p>
+   * @public
+   */
+  assetType: string | undefined;
+
+  /**
+   * <p>A description of the asset type</p>
+   * @public
+   */
+  description: string | undefined;
+}
+
+/**
+ * <p>Metadata for a single version of an asset, including the version number and timestamps.</p>
+ * @public
+ */
+export interface AssetVersionMetadata {
+  /**
+   * <p>The version number of this asset</p>
+   * @public
+   */
+  version: number | undefined;
+
+  /**
+   * <p>Timestamp when this asset version was created</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>Timestamp when this asset version was last updated</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
  * <p>A block of content in an assistant message.</p>
  * @public
  */
@@ -2482,6 +2807,108 @@ export interface ChatExecution {
    * @public
    */
   summary?: string | undefined;
+}
+
+/**
+ * <p>Request structure for creating a new asset</p>
+ * @public
+ */
+export interface CreateAssetRequest {
+  /**
+   * <p>The unique identifier for the agent space where the asset will be created</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>The type of asset to create</p>
+   * @public
+   */
+  assetType: string | undefined;
+
+  /**
+   * <p>The metadata describing this asset</p>
+   * @public
+   */
+  metadata?: __DocumentType | undefined;
+
+  /**
+   * <p>The content for the asset. Provide a single file or a zip bundle.</p>
+   * @public
+   */
+  content: AssetContent | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier used for idempotent asset creation</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * <p>Response structure for creating a new asset</p>
+ * @public
+ */
+export interface CreateAssetResponse {
+  /**
+   * <p>The asset object</p>
+   * @public
+   */
+  asset: Asset | undefined;
+}
+
+/**
+ * <p>Request structure for creating an asset file</p>
+ * @public
+ */
+export interface CreateAssetFileRequest {
+  /**
+   * <p>The unique identifier for the agent space containing the asset</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the asset to create the file in</p>
+   * @public
+   */
+  assetId: string | undefined;
+
+  /**
+   * <p>The path of the file within the asset</p>
+   * @public
+   */
+  path: string | undefined;
+
+  /**
+   * <p>The content of the file to create</p>
+   * @public
+   */
+  content: AssetFileBody | undefined;
+
+  /**
+   * <p>Optional metadata describing this file</p>
+   * @public
+   */
+  metadata?: __DocumentType | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier used for idempotent asset file creation</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * <p>Response structure for creating an asset file</p>
+ * @public
+ */
+export interface CreateAssetFileResponse {
+  /**
+   * <p>The asset file object</p>
+   * @public
+   */
+  file: AssetFile | undefined;
 }
 
 /**
@@ -2838,6 +3265,12 @@ export interface ServiceManagedInput {
    * @public
    */
   certificate?: string | undefined;
+
+  /**
+   * <p>DNS resolution mode for the resource gateway. Defaults to PUBLIC when not set.</p>
+   * @public
+   */
+  dnsResolution?: ResourceConfigDnsResolution | undefined;
 }
 
 /**
@@ -2971,6 +3404,18 @@ export interface CreatePrivateConnectionOutput {
   certificateExpiryTime?: Date | undefined;
 
   /**
+   * <p>DNS resolution mode for the Private Connection's resource gateway.</p>
+   * @public
+   */
+  dnsResolution?: ResourceConfigDnsResolution | undefined;
+
+  /**
+   * <p>Message describing the reason for a failed Private Connection creation, if applicable.</p>
+   * @public
+   */
+  failureMessage?: string | undefined;
+
+  /**
    * <p>Tags associated with the created Private Connection.</p>
    * @public
    */
@@ -3057,6 +3502,60 @@ export interface DatadogServiceDetails {
    */
   authorizationConfig: DatadogAuthorizationConfig | undefined;
 }
+
+/**
+ * <p>Request structure for deleting an asset</p>
+ * @public
+ */
+export interface DeleteAssetRequest {
+  /**
+   * <p>The unique identifier for the agent space containing the asset</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the asset to delete</p>
+   * @public
+   */
+  assetId: string | undefined;
+}
+
+/**
+ * <p>Response structure for deleting an asset</p>
+ * @public
+ */
+export interface DeleteAssetResponse {}
+
+/**
+ * <p>Request structure for deleting an asset file</p>
+ * @public
+ */
+export interface DeleteAssetFileRequest {
+  /**
+   * <p>The unique identifier for the agent space containing the asset</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the asset containing the file</p>
+   * @public
+   */
+  assetId: string | undefined;
+
+  /**
+   * <p>The path of the file within the asset to delete</p>
+   * @public
+   */
+  path: string | undefined;
+}
+
+/**
+ * <p>Response structure for deleting an asset file</p>
+ * @public
+ */
+export interface DeleteAssetFileResponse {}
 
 /**
  * <p>Input for deleting an existing Private Connection.</p>
@@ -3172,6 +3671,18 @@ export interface DescribePrivateConnectionOutput {
   certificateExpiryTime?: Date | undefined;
 
   /**
+   * <p>DNS resolution mode for the Private Connection's resource gateway.</p>
+   * @public
+   */
+  dnsResolution?: ResourceConfigDnsResolution | undefined;
+
+  /**
+   * <p>Message describing the reason for a failed Private Connection, if applicable.</p>
+   * @public
+   */
+  failureMessage?: string | undefined;
+
+  /**
    * <p>Tags associated with the Private Connection.</p>
    * @public
    */
@@ -3189,7 +3700,7 @@ export interface GetAccountUsageInput {}
  */
 export interface UsageMetric {
   /**
-   * <p>Configured limit for this metric.</p>
+   * <p>Configured limit for this metric. A value of -1 indicates no limit is enforced.</p>
    * @public
    */
   limit: number | undefined;
@@ -3240,6 +3751,126 @@ export interface GetAccountUsageOutput {
    * @public
    */
   usagePeriodEndTime: Date | undefined;
+}
+
+/**
+ * <p>Request structure for getting an asset</p>
+ * @public
+ */
+export interface GetAssetRequest {
+  /**
+   * <p>The unique identifier for the agent space containing the asset</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the asset to retrieve</p>
+   * @public
+   */
+  assetId: string | undefined;
+
+  /**
+   * <p>The specific version of the asset to retrieve. If omitted, the latest version is returned.</p>
+   * @public
+   */
+  assetVersion?: number | undefined;
+}
+
+/**
+ * <p>Response structure for getting an asset</p>
+ * @public
+ */
+export interface GetAssetResponse {
+  /**
+   * <p>The asset object</p>
+   * @public
+   */
+  asset: Asset | undefined;
+}
+
+/**
+ * <p>Request structure for getting an asset's content as a zip bundle</p>
+ * @public
+ */
+export interface GetAssetContentRequest {
+  /**
+   * <p>The unique identifier for the agent space containing the asset</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the asset</p>
+   * @public
+   */
+  assetId: string | undefined;
+
+  /**
+   * <p>The specific asset version to export. If omitted, the latest version is returned.</p>
+   * @public
+   */
+  assetVersion?: number | undefined;
+}
+
+/**
+ * <p>Response structure for getting an asset's content as a zip bundle</p>
+ * @public
+ */
+export interface GetAssetContentResponse {
+  /**
+   * <p>The asset content as a zip file</p>
+   * @public
+   */
+  content: AssetZipContent | undefined;
+
+  /**
+   * <p>The asset version this content belongs to</p>
+   * @public
+   */
+  version: number | undefined;
+}
+
+/**
+ * <p>Request structure for getting an asset file</p>
+ * @public
+ */
+export interface GetAssetFileRequest {
+  /**
+   * <p>The unique identifier for the agent space containing the asset</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the asset containing the file</p>
+   * @public
+   */
+  assetId: string | undefined;
+
+  /**
+   * <p>The path of the file within the asset to retrieve</p>
+   * @public
+   */
+  path: string | undefined;
+
+  /**
+   * <p>The specific asset version to retrieve the file from. If omitted, the latest version is returned.</p>
+   * @public
+   */
+  assetVersion?: number | undefined;
+}
+
+/**
+ * <p>Response structure for getting an asset file</p>
+ * @public
+ */
+export interface GetAssetFileResponse {
+  /**
+   * <p>The asset file object</p>
+   * @public
+   */
+  file: AssetFile | undefined;
 }
 
 /**
@@ -3420,6 +4051,204 @@ export interface GetRecommendationResponse {
    * @public
    */
   recommendation: Recommendation | undefined;
+}
+
+/**
+ * <p>Request structure for listing asset files</p>
+ * @public
+ */
+export interface ListAssetFilesRequest {
+  /**
+   * <p>The unique identifier for the agent space containing the asset</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the asset whose files to list</p>
+   * @public
+   */
+  assetId: string | undefined;
+
+  /**
+   * <p>The specific asset version to list files from. If omitted, files from the latest version are returned.</p>
+   * @public
+   */
+  assetVersion?: number | undefined;
+
+  /**
+   * <p>Pagination token from a previous response to retrieve the next page of results</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single response</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Response structure for listing asset files</p>
+ * @public
+ */
+export interface ListAssetFilesResponse {
+  /**
+   * <p>The list of asset file summaries</p>
+   * @public
+   */
+  items: AssetFileSummary[] | undefined;
+
+  /**
+   * <p>Pagination token to retrieve the next page of results. Absent when there are no more results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Request structure for listing assets</p>
+ * @public
+ */
+export interface ListAssetsRequest {
+  /**
+   * <p>The unique identifier for the agent space to list assets from</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>Filter results to only assets of this type</p>
+   * @public
+   */
+  assetType?: string | undefined;
+
+  /**
+   * <p>Filter results to only assets updated after this timestamp</p>
+   * @public
+   */
+  updatedAfter?: Date | undefined;
+
+  /**
+   * <p>Filter results to only assets updated before this timestamp</p>
+   * @public
+   */
+  updatedBefore?: Date | undefined;
+
+  /**
+   * <p>Pagination token from a previous response to retrieve the next page of results</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single response</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Response structure for listing assets</p>
+ * @public
+ */
+export interface ListAssetsResponse {
+  /**
+   * <p>The list of assets for the agent space</p>
+   * @public
+   */
+  items: Asset[] | undefined;
+
+  /**
+   * <p>Pagination token to retrieve the next page of results. Absent when there are no more results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Request structure for listing asset types</p>
+ * @public
+ */
+export interface ListAssetTypesRequest {
+  /**
+   * <p>Pagination token from a previous response to retrieve the next page of results</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single response</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Response structure for listing asset types</p>
+ * @public
+ */
+export interface ListAssetTypesResponse {
+  /**
+   * <p>The list of supported asset types</p>
+   * @public
+   */
+  items: AssetTypeSummary[] | undefined;
+
+  /**
+   * <p>Pagination token to retrieve the next page of results. Absent when there are no more results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Request structure for listing asset versions</p>
+ * @public
+ */
+export interface ListAssetVersionsRequest {
+  /**
+   * <p>The unique identifier for the agent space containing the asset</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the asset whose versions to list</p>
+   * @public
+   */
+  assetId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single response</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>Pagination token from a previous response to retrieve the next page of results</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Response structure for listing asset versions</p>
+ * @public
+ */
+export interface ListAssetVersionsResponse {
+  /**
+   * <p>The list of version metadata for the asset</p>
+   * @public
+   */
+  items: AssetVersionMetadata[] | undefined;
+
+  /**
+   * <p>Pagination token to retrieve the next page of results. Absent when there are no more results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4300,6 +5129,18 @@ export interface PrivateConnectionSummary {
    * @public
    */
   certificateExpiryTime?: Date | undefined;
+
+  /**
+   * <p>DNS resolution mode for the Private Connection's resource gateway.</p>
+   * @public
+   */
+  dnsResolution?: ResourceConfigDnsResolution | undefined;
+
+  /**
+   * <p>Message describing the reason for a failed Private Connection, if applicable.</p>
+   * @public
+   */
+  failureMessage?: string | undefined;
 }
 
 /**
@@ -4384,6 +5225,18 @@ export interface UpdatePrivateConnectionCertificateOutput {
    * @public
    */
   certificateExpiryTime?: Date | undefined;
+
+  /**
+   * <p>DNS resolution mode for the Private Connection's resource gateway.</p>
+   * @public
+   */
+  dnsResolution?: ResourceConfigDnsResolution | undefined;
+
+  /**
+   * <p>Message describing the reason for a failed Private Connection update, if applicable.</p>
+   * @public
+   */
+  failureMessage?: string | undefined;
 }
 
 /**
@@ -4446,6 +5299,12 @@ export interface SendMessageRequest {
    * @public
    */
   userId?: string | undefined;
+
+  /**
+   * <p>Optional list of asset identifiers to attach to the message</p>
+   * @public
+   */
+  assetIds?: string[] | undefined;
 }
 
 /**
@@ -5655,10 +6514,18 @@ export interface MCPServerSigV4AuthorizationConfig {
   service: string | undefined;
 
   /**
-   * <p>IAM role ARN to assume for SigV4 signing.</p>
+   * <p>Deprecated — use mcpRoleArn instead. IAM role ARN to assume for SigV4 signing.</p>
+   *
+   * @deprecated (since 2026-05-27) Use mcpRoleArn instead.
    * @public
    */
-  roleArn: string | undefined;
+  roleArn?: string | undefined;
+
+  /**
+   * <p>IAM role ARN to assume for SigV4 signing. Optional — when omitted, credentials are resolved at runtime via a monitor account association.</p>
+   * @public
+   */
+  mcpRoleArn?: string | undefined;
 
   /**
    * <p>Custom headers for the SigV4 MCP server.</p>
@@ -6204,6 +7071,18 @@ export interface RegisterServiceInput {
   privateConnectionName?: string | undefined;
 
   /**
+   * <p>The name of the private connection to use for API calls (target URL) only. Cannot be specified when privateConnectionName is provided.</p>
+   * @public
+   */
+  targetUrlPrivateConnectionName?: string | undefined;
+
+  /**
+   * <p>The name of the private connection to use for OAuth token exchange requests only. Cannot be specified when privateConnectionName is provided.</p>
+   * @public
+   */
+  exchangeUrlPrivateConnectionName?: string | undefined;
+
+  /**
    * <p>The display name for the service registration.</p>
    * @public
    */
@@ -6289,6 +7168,108 @@ export interface UntagResourceRequest {
  * @public
  */
 export interface UntagResourceResponse {}
+
+/**
+ * <p>Request structure for updating an asset</p>
+ * @public
+ */
+export interface UpdateAssetRequest {
+  /**
+   * <p>The unique identifier for the agent space containing the asset</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the asset to update</p>
+   * @public
+   */
+  assetId: string | undefined;
+
+  /**
+   * <p>Metadata fields to update. Only the fields present in this document are updated. Omitted fields retain their current values.</p>
+   * @public
+   */
+  metadata?: __DocumentType | undefined;
+
+  /**
+   * <p>Optional content to set or replace. A single file adds or replaces one file; a zip replaces all files.</p>
+   * @public
+   */
+  content?: AssetContent | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier used for idempotent asset update</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * <p>Response structure for updating an asset</p>
+ * @public
+ */
+export interface UpdateAssetResponse {
+  /**
+   * <p>The asset object</p>
+   * @public
+   */
+  asset: Asset | undefined;
+}
+
+/**
+ * <p>Request structure for updating an asset file</p>
+ * @public
+ */
+export interface UpdateAssetFileRequest {
+  /**
+   * <p>The unique identifier for the agent space containing the asset</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the asset containing the file</p>
+   * @public
+   */
+  assetId: string | undefined;
+
+  /**
+   * <p>The path of the file within the asset to update</p>
+   * @public
+   */
+  path: string | undefined;
+
+  /**
+   * <p>Updated file content. If omitted, the existing content is unchanged.</p>
+   * @public
+   */
+  content?: AssetFileBody | undefined;
+
+  /**
+   * <p>Metadata fields to update. Only the fields present in this document are updated. Omitted fields retain their current values.</p>
+   * @public
+   */
+  metadata?: __DocumentType | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier used for idempotent asset file update</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * <p>Response structure for updating an asset file</p>
+ * @public
+ */
+export interface UpdateAssetFileResponse {
+  /**
+   * <p>The asset file object</p>
+   * @public
+   */
+  file: AssetFile | undefined;
+}
 
 /**
  * <p>Request structure for updating a task</p>

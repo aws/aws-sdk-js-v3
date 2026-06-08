@@ -5,8 +5,8 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { DevOpsAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsAgentClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { GetOperatorAppInput, GetOperatorAppOutput } from "../models/models_0";
-import { GetOperatorApp$ } from "../schemas/schemas_0";
+import type { ListAssetTypesRequest, ListAssetTypesResponse } from "../models/models_0";
+import { ListAssetTypes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,62 +16,52 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetOperatorAppCommand}.
+ * The input for {@link ListAssetTypesCommand}.
  */
-export interface GetOperatorAppCommandInput extends GetOperatorAppInput {}
+export interface ListAssetTypesCommandInput extends ListAssetTypesRequest {}
 /**
  * @public
  *
- * The output of {@link GetOperatorAppCommand}.
+ * The output of {@link ListAssetTypesCommand}.
  */
-export interface GetOperatorAppCommandOutput extends GetOperatorAppOutput, __MetadataBearer {}
+export interface ListAssetTypesCommandOutput extends ListAssetTypesResponse, __MetadataBearer {}
 
 /**
- * <p>Get the full auth configuration of operator including any enabled auth flow</p>
+ * <p>Lists the supported asset types</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DevOpsAgentClient, GetOperatorAppCommand } from "@aws-sdk/client-devops-agent"; // ES Modules import
- * // const { DevOpsAgentClient, GetOperatorAppCommand } = require("@aws-sdk/client-devops-agent"); // CommonJS import
+ * import { DevOpsAgentClient, ListAssetTypesCommand } from "@aws-sdk/client-devops-agent"; // ES Modules import
+ * // const { DevOpsAgentClient, ListAssetTypesCommand } = require("@aws-sdk/client-devops-agent"); // CommonJS import
  * // import type { DevOpsAgentClientConfig } from "@aws-sdk/client-devops-agent";
  * const config = {}; // type is DevOpsAgentClientConfig
  * const client = new DevOpsAgentClient(config);
- * const input = { // GetOperatorAppInput
- *   agentSpaceId: "STRING_VALUE", // required
+ * const input = { // ListAssetTypesRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
  * };
- * const command = new GetOperatorAppCommand(input);
+ * const command = new ListAssetTypesCommand(input);
  * const response = await client.send(command);
- * // { // GetOperatorAppOutput
- * //   operatorAppUrl: "STRING_VALUE",
- * //   iam: { // IamAuthConfiguration
- * //     operatorAppRoleArn: "STRING_VALUE", // required
- * //     createdAt: new Date("TIMESTAMP"), // required
- * //     updatedAt: new Date("TIMESTAMP"),
- * //   },
- * //   idc: { // IdcAuthConfiguration
- * //     operatorAppRoleArn: "STRING_VALUE", // required
- * //     idcInstanceArn: "STRING_VALUE", // required
- * //     idcApplicationArn: "STRING_VALUE",
- * //     createdAt: new Date("TIMESTAMP"), // required
- * //     updatedAt: new Date("TIMESTAMP"),
- * //   },
- * //   idp: { // IdpAuthConfiguration
- * //     issuerUrl: "STRING_VALUE", // required
- * //     clientId: "STRING_VALUE", // required
- * //     operatorAppRoleArn: "STRING_VALUE", // required
- * //     provider: "STRING_VALUE", // required
- * //     createdAt: new Date("TIMESTAMP"), // required
- * //     updatedAt: new Date("TIMESTAMP"),
- * //   },
+ * // { // ListAssetTypesResponse
+ * //   items: [ // AssetTypeList // required
+ * //     { // AssetTypeSummary
+ * //       assetType: "STRING_VALUE", // required
+ * //       description: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param GetOperatorAppCommandInput - {@link GetOperatorAppCommandInput}
- * @returns {@link GetOperatorAppCommandOutput}
- * @see {@link GetOperatorAppCommandInput} for command's `input` shape.
- * @see {@link GetOperatorAppCommandOutput} for command's `response` shape.
+ * @param ListAssetTypesCommandInput - {@link ListAssetTypesCommandInput}
+ * @returns {@link ListAssetTypesCommandOutput}
+ * @see {@link ListAssetTypesCommandInput} for command's `input` shape.
+ * @see {@link ListAssetTypesCommandOutput} for command's `response` shape.
  * @see {@link DevOpsAgentClientResolvedConfig | config} for DevOpsAgentClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to the requested resource is denied due to insufficient permissions.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>This exception is thrown when an unexpected error occurs in the processing of a request.</p>
@@ -81,9 +71,6 @@ export interface GetOperatorAppCommandOutput extends GetOperatorAppOutput, __Met
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by the service.</p>
- *
- * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to the requested resource is denied due to insufficient permissions.</p>
  *
  * @throws {@link ConflictException} (client fault)
  *  <p>The request conflicts with the current state of the resource.</p>
@@ -106,10 +93,10 @@ export interface GetOperatorAppCommandOutput extends GetOperatorAppOutput, __Met
  *
  * @public
  */
-export class GetOperatorAppCommand extends $Command
+export class ListAssetTypesCommand extends $Command
   .classBuilder<
-    GetOperatorAppCommandInput,
-    GetOperatorAppCommandOutput,
+    ListAssetTypesCommandInput,
+    ListAssetTypesCommandOutput,
     DevOpsAgentClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -118,19 +105,19 @@ export class GetOperatorAppCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: DevOpsAgentClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("DevOpsAgent", "GetOperatorApp", {})
-  .n("DevOpsAgentClient", "GetOperatorAppCommand")
-  .sc(GetOperatorApp$)
+  .s("DevOpsAgent", "ListAssetTypes", {})
+  .n("DevOpsAgentClient", "ListAssetTypesCommand")
+  .sc(ListAssetTypes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: GetOperatorAppInput;
-      output: GetOperatorAppOutput;
+      input: ListAssetTypesRequest;
+      output: ListAssetTypesResponse;
     };
     sdk: {
-      input: GetOperatorAppCommandInput;
-      output: GetOperatorAppCommandOutput;
+      input: ListAssetTypesCommandInput;
+      output: ListAssetTypesCommandOutput;
     };
   };
 }

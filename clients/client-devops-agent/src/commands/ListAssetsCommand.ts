@@ -5,8 +5,8 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { DevOpsAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsAgentClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { GetOperatorAppInput, GetOperatorAppOutput } from "../models/models_0";
-import { GetOperatorApp$ } from "../schemas/schemas_0";
+import type { ListAssetsRequest, ListAssetsResponse } from "../models/models_0";
+import { ListAssets$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,62 +16,60 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetOperatorAppCommand}.
+ * The input for {@link ListAssetsCommand}.
  */
-export interface GetOperatorAppCommandInput extends GetOperatorAppInput {}
+export interface ListAssetsCommandInput extends ListAssetsRequest {}
 /**
  * @public
  *
- * The output of {@link GetOperatorAppCommand}.
+ * The output of {@link ListAssetsCommand}.
  */
-export interface GetOperatorAppCommandOutput extends GetOperatorAppOutput, __MetadataBearer {}
+export interface ListAssetsCommandOutput extends ListAssetsResponse, __MetadataBearer {}
 
 /**
- * <p>Get the full auth configuration of operator including any enabled auth flow</p>
+ * <p>Lists assets in the specified agent space</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DevOpsAgentClient, GetOperatorAppCommand } from "@aws-sdk/client-devops-agent"; // ES Modules import
- * // const { DevOpsAgentClient, GetOperatorAppCommand } = require("@aws-sdk/client-devops-agent"); // CommonJS import
+ * import { DevOpsAgentClient, ListAssetsCommand } from "@aws-sdk/client-devops-agent"; // ES Modules import
+ * // const { DevOpsAgentClient, ListAssetsCommand } = require("@aws-sdk/client-devops-agent"); // CommonJS import
  * // import type { DevOpsAgentClientConfig } from "@aws-sdk/client-devops-agent";
  * const config = {}; // type is DevOpsAgentClientConfig
  * const client = new DevOpsAgentClient(config);
- * const input = { // GetOperatorAppInput
+ * const input = { // ListAssetsRequest
  *   agentSpaceId: "STRING_VALUE", // required
+ *   assetType: "STRING_VALUE",
+ *   updatedAfter: new Date("TIMESTAMP"),
+ *   updatedBefore: new Date("TIMESTAMP"),
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
  * };
- * const command = new GetOperatorAppCommand(input);
+ * const command = new ListAssetsCommand(input);
  * const response = await client.send(command);
- * // { // GetOperatorAppOutput
- * //   operatorAppUrl: "STRING_VALUE",
- * //   iam: { // IamAuthConfiguration
- * //     operatorAppRoleArn: "STRING_VALUE", // required
- * //     createdAt: new Date("TIMESTAMP"), // required
- * //     updatedAt: new Date("TIMESTAMP"),
- * //   },
- * //   idc: { // IdcAuthConfiguration
- * //     operatorAppRoleArn: "STRING_VALUE", // required
- * //     idcInstanceArn: "STRING_VALUE", // required
- * //     idcApplicationArn: "STRING_VALUE",
- * //     createdAt: new Date("TIMESTAMP"), // required
- * //     updatedAt: new Date("TIMESTAMP"),
- * //   },
- * //   idp: { // IdpAuthConfiguration
- * //     issuerUrl: "STRING_VALUE", // required
- * //     clientId: "STRING_VALUE", // required
- * //     operatorAppRoleArn: "STRING_VALUE", // required
- * //     provider: "STRING_VALUE", // required
- * //     createdAt: new Date("TIMESTAMP"), // required
- * //     updatedAt: new Date("TIMESTAMP"),
- * //   },
+ * // { // ListAssetsResponse
+ * //   items: [ // AssetList // required
+ * //     { // Asset
+ * //       assetId: "STRING_VALUE", // required
+ * //       assetType: "STRING_VALUE", // required
+ * //       metadata: "DOCUMENT_VALUE", // required
+ * //       version: Number("int"), // required
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       updatedAt: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param GetOperatorAppCommandInput - {@link GetOperatorAppCommandInput}
- * @returns {@link GetOperatorAppCommandOutput}
- * @see {@link GetOperatorAppCommandInput} for command's `input` shape.
- * @see {@link GetOperatorAppCommandOutput} for command's `response` shape.
+ * @param ListAssetsCommandInput - {@link ListAssetsCommandInput}
+ * @returns {@link ListAssetsCommandOutput}
+ * @see {@link ListAssetsCommandInput} for command's `input` shape.
+ * @see {@link ListAssetsCommandOutput} for command's `response` shape.
  * @see {@link DevOpsAgentClientResolvedConfig | config} for DevOpsAgentClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to the requested resource is denied due to insufficient permissions.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>This exception is thrown when an unexpected error occurs in the processing of a request.</p>
@@ -81,9 +79,6 @@ export interface GetOperatorAppCommandOutput extends GetOperatorAppOutput, __Met
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by the service.</p>
- *
- * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to the requested resource is denied due to insufficient permissions.</p>
  *
  * @throws {@link ConflictException} (client fault)
  *  <p>The request conflicts with the current state of the resource.</p>
@@ -106,10 +101,10 @@ export interface GetOperatorAppCommandOutput extends GetOperatorAppOutput, __Met
  *
  * @public
  */
-export class GetOperatorAppCommand extends $Command
+export class ListAssetsCommand extends $Command
   .classBuilder<
-    GetOperatorAppCommandInput,
-    GetOperatorAppCommandOutput,
+    ListAssetsCommandInput,
+    ListAssetsCommandOutput,
     DevOpsAgentClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -118,19 +113,19 @@ export class GetOperatorAppCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: DevOpsAgentClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("DevOpsAgent", "GetOperatorApp", {})
-  .n("DevOpsAgentClient", "GetOperatorAppCommand")
-  .sc(GetOperatorApp$)
+  .s("DevOpsAgent", "ListAssets", {})
+  .n("DevOpsAgentClient", "ListAssetsCommand")
+  .sc(ListAssets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: GetOperatorAppInput;
-      output: GetOperatorAppOutput;
+      input: ListAssetsRequest;
+      output: ListAssetsResponse;
     };
     sdk: {
-      input: GetOperatorAppCommandInput;
-      output: GetOperatorAppCommandOutput;
+      input: ListAssetsCommandInput;
+      output: ListAssetsCommandOutput;
     };
   };
 }

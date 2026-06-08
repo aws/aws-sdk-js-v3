@@ -13,6 +13,16 @@ import {
   CreateAgentSpaceCommand,
 } from "./commands/CreateAgentSpaceCommand";
 import {
+  type CreateAssetCommandInput,
+  type CreateAssetCommandOutput,
+  CreateAssetCommand,
+} from "./commands/CreateAssetCommand";
+import {
+  type CreateAssetFileCommandInput,
+  type CreateAssetFileCommandOutput,
+  CreateAssetFileCommand,
+} from "./commands/CreateAssetFileCommand";
+import {
   type CreateBacklogTaskCommandInput,
   type CreateBacklogTaskCommandOutput,
   CreateBacklogTaskCommand,
@@ -32,6 +42,16 @@ import {
   type DeleteAgentSpaceCommandOutput,
   DeleteAgentSpaceCommand,
 } from "./commands/DeleteAgentSpaceCommand";
+import {
+  type DeleteAssetCommandInput,
+  type DeleteAssetCommandOutput,
+  DeleteAssetCommand,
+} from "./commands/DeleteAssetCommand";
+import {
+  type DeleteAssetFileCommandInput,
+  type DeleteAssetFileCommandOutput,
+  DeleteAssetFileCommand,
+} from "./commands/DeleteAssetFileCommand";
 import {
   type DeletePrivateConnectionCommandInput,
   type DeletePrivateConnectionCommandOutput,
@@ -72,6 +92,17 @@ import {
   type GetAgentSpaceCommandOutput,
   GetAgentSpaceCommand,
 } from "./commands/GetAgentSpaceCommand";
+import { type GetAssetCommandInput, type GetAssetCommandOutput, GetAssetCommand } from "./commands/GetAssetCommand";
+import {
+  type GetAssetContentCommandInput,
+  type GetAssetContentCommandOutput,
+  GetAssetContentCommand,
+} from "./commands/GetAssetContentCommand";
+import {
+  type GetAssetFileCommandInput,
+  type GetAssetFileCommandOutput,
+  GetAssetFileCommand,
+} from "./commands/GetAssetFileCommand";
 import {
   type GetAssociationCommandInput,
   type GetAssociationCommandOutput,
@@ -102,6 +133,26 @@ import {
   type ListAgentSpacesCommandOutput,
   ListAgentSpacesCommand,
 } from "./commands/ListAgentSpacesCommand";
+import {
+  type ListAssetFilesCommandInput,
+  type ListAssetFilesCommandOutput,
+  ListAssetFilesCommand,
+} from "./commands/ListAssetFilesCommand";
+import {
+  type ListAssetsCommandInput,
+  type ListAssetsCommandOutput,
+  ListAssetsCommand,
+} from "./commands/ListAssetsCommand";
+import {
+  type ListAssetTypesCommandInput,
+  type ListAssetTypesCommandOutput,
+  ListAssetTypesCommand,
+} from "./commands/ListAssetTypesCommand";
+import {
+  type ListAssetVersionsCommandInput,
+  type ListAssetVersionsCommandOutput,
+  ListAssetVersionsCommand,
+} from "./commands/ListAssetVersionsCommand";
 import {
   type ListAssociationsCommandInput,
   type ListAssociationsCommandOutput,
@@ -180,6 +231,16 @@ import {
   UpdateAgentSpaceCommand,
 } from "./commands/UpdateAgentSpaceCommand";
 import {
+  type UpdateAssetCommandInput,
+  type UpdateAssetCommandOutput,
+  UpdateAssetCommand,
+} from "./commands/UpdateAssetCommand";
+import {
+  type UpdateAssetFileCommandInput,
+  type UpdateAssetFileCommandOutput,
+  UpdateAssetFileCommand,
+} from "./commands/UpdateAssetFileCommand";
+import {
   type UpdateAssociationCommandInput,
   type UpdateAssociationCommandOutput,
   UpdateAssociationCommand,
@@ -216,6 +277,10 @@ import {
 } from "./commands/ValidateAwsAssociationsCommand";
 import { DevOpsAgentClient } from "./DevOpsAgentClient";
 import { paginateListAgentSpaces } from "./pagination/ListAgentSpacesPaginator";
+import { paginateListAssetFiles } from "./pagination/ListAssetFilesPaginator";
+import { paginateListAssets } from "./pagination/ListAssetsPaginator";
+import { paginateListAssetTypes } from "./pagination/ListAssetTypesPaginator";
+import { paginateListAssetVersions } from "./pagination/ListAssetVersionsPaginator";
 import { paginateListAssociations } from "./pagination/ListAssociationsPaginator";
 import { paginateListBacklogTasks } from "./pagination/ListBacklogTasksPaginator";
 import { paginateListExecutions } from "./pagination/ListExecutionsPaginator";
@@ -226,10 +291,14 @@ import { paginateListServices } from "./pagination/ListServicesPaginator";
 const commands = {
   AssociateServiceCommand,
   CreateAgentSpaceCommand,
+  CreateAssetCommand,
+  CreateAssetFileCommand,
   CreateBacklogTaskCommand,
   CreateChatCommand,
   CreatePrivateConnectionCommand,
   DeleteAgentSpaceCommand,
+  DeleteAssetCommand,
+  DeleteAssetFileCommand,
   DeletePrivateConnectionCommand,
   DeregisterServiceCommand,
   DescribePrivateConnectionCommand,
@@ -238,12 +307,19 @@ const commands = {
   EnableOperatorAppCommand,
   GetAccountUsageCommand,
   GetAgentSpaceCommand,
+  GetAssetCommand,
+  GetAssetContentCommand,
+  GetAssetFileCommand,
   GetAssociationCommand,
   GetBacklogTaskCommand,
   GetOperatorAppCommand,
   GetRecommendationCommand,
   GetServiceCommand,
   ListAgentSpacesCommand,
+  ListAssetFilesCommand,
+  ListAssetsCommand,
+  ListAssetTypesCommand,
+  ListAssetVersionsCommand,
   ListAssociationsCommand,
   ListBacklogTasksCommand,
   ListChatsCommand,
@@ -261,6 +337,8 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateAgentSpaceCommand,
+  UpdateAssetCommand,
+  UpdateAssetFileCommand,
   UpdateAssociationCommand,
   UpdateBacklogTaskCommand,
   UpdateGoalCommand,
@@ -271,6 +349,10 @@ const commands = {
 };
 const paginators = {
   paginateListAgentSpaces,
+  paginateListAssetFiles,
+  paginateListAssets,
+  paginateListAssetTypes,
+  paginateListAssetVersions,
   paginateListAssociations,
   paginateListBacklogTasks,
   paginateListExecutions,
@@ -312,6 +394,40 @@ export interface DevOpsAgent {
     args: CreateAgentSpaceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateAgentSpaceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAssetCommand}
+   */
+  createAsset(
+    args: CreateAssetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAssetCommandOutput>;
+  createAsset(
+    args: CreateAssetCommandInput,
+    cb: (err: any, data?: CreateAssetCommandOutput) => void
+  ): void;
+  createAsset(
+    args: CreateAssetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAssetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAssetFileCommand}
+   */
+  createAssetFile(
+    args: CreateAssetFileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAssetFileCommandOutput>;
+  createAssetFile(
+    args: CreateAssetFileCommandInput,
+    cb: (err: any, data?: CreateAssetFileCommandOutput) => void
+  ): void;
+  createAssetFile(
+    args: CreateAssetFileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAssetFileCommandOutput) => void
   ): void;
 
   /**
@@ -380,6 +496,40 @@ export interface DevOpsAgent {
     args: DeleteAgentSpaceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteAgentSpaceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAssetCommand}
+   */
+  deleteAsset(
+    args: DeleteAssetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAssetCommandOutput>;
+  deleteAsset(
+    args: DeleteAssetCommandInput,
+    cb: (err: any, data?: DeleteAssetCommandOutput) => void
+  ): void;
+  deleteAsset(
+    args: DeleteAssetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAssetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAssetFileCommand}
+   */
+  deleteAssetFile(
+    args: DeleteAssetFileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAssetFileCommandOutput>;
+  deleteAssetFile(
+    args: DeleteAssetFileCommandInput,
+    cb: (err: any, data?: DeleteAssetFileCommandOutput) => void
+  ): void;
+  deleteAssetFile(
+    args: DeleteAssetFileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAssetFileCommandOutput) => void
   ): void;
 
   /**
@@ -520,6 +670,57 @@ export interface DevOpsAgent {
   ): void;
 
   /**
+   * @see {@link GetAssetCommand}
+   */
+  getAsset(
+    args: GetAssetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAssetCommandOutput>;
+  getAsset(
+    args: GetAssetCommandInput,
+    cb: (err: any, data?: GetAssetCommandOutput) => void
+  ): void;
+  getAsset(
+    args: GetAssetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAssetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAssetContentCommand}
+   */
+  getAssetContent(
+    args: GetAssetContentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAssetContentCommandOutput>;
+  getAssetContent(
+    args: GetAssetContentCommandInput,
+    cb: (err: any, data?: GetAssetContentCommandOutput) => void
+  ): void;
+  getAssetContent(
+    args: GetAssetContentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAssetContentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAssetFileCommand}
+   */
+  getAssetFile(
+    args: GetAssetFileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAssetFileCommandOutput>;
+  getAssetFile(
+    args: GetAssetFileCommandInput,
+    cb: (err: any, data?: GetAssetFileCommandOutput) => void
+  ): void;
+  getAssetFile(
+    args: GetAssetFileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAssetFileCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetAssociationCommand}
    */
   getAssociation(
@@ -620,6 +821,75 @@ export interface DevOpsAgent {
     args: ListAgentSpacesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListAgentSpacesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAssetFilesCommand}
+   */
+  listAssetFiles(
+    args: ListAssetFilesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAssetFilesCommandOutput>;
+  listAssetFiles(
+    args: ListAssetFilesCommandInput,
+    cb: (err: any, data?: ListAssetFilesCommandOutput) => void
+  ): void;
+  listAssetFiles(
+    args: ListAssetFilesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAssetFilesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAssetsCommand}
+   */
+  listAssets(
+    args: ListAssetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAssetsCommandOutput>;
+  listAssets(
+    args: ListAssetsCommandInput,
+    cb: (err: any, data?: ListAssetsCommandOutput) => void
+  ): void;
+  listAssets(
+    args: ListAssetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAssetsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAssetTypesCommand}
+   */
+  listAssetTypes(): Promise<ListAssetTypesCommandOutput>;
+  listAssetTypes(
+    args: ListAssetTypesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAssetTypesCommandOutput>;
+  listAssetTypes(
+    args: ListAssetTypesCommandInput,
+    cb: (err: any, data?: ListAssetTypesCommandOutput) => void
+  ): void;
+  listAssetTypes(
+    args: ListAssetTypesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAssetTypesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAssetVersionsCommand}
+   */
+  listAssetVersions(
+    args: ListAssetVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAssetVersionsCommandOutput>;
+  listAssetVersions(
+    args: ListAssetVersionsCommandInput,
+    cb: (err: any, data?: ListAssetVersionsCommandOutput) => void
+  ): void;
+  listAssetVersions(
+    args: ListAssetVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAssetVersionsCommandOutput) => void
   ): void;
 
   /**
@@ -914,6 +1184,40 @@ export interface DevOpsAgent {
   ): void;
 
   /**
+   * @see {@link UpdateAssetCommand}
+   */
+  updateAsset(
+    args: UpdateAssetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAssetCommandOutput>;
+  updateAsset(
+    args: UpdateAssetCommandInput,
+    cb: (err: any, data?: UpdateAssetCommandOutput) => void
+  ): void;
+  updateAsset(
+    args: UpdateAssetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAssetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAssetFileCommand}
+   */
+  updateAssetFile(
+    args: UpdateAssetFileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAssetFileCommandOutput>;
+  updateAssetFile(
+    args: UpdateAssetFileCommandInput,
+    cb: (err: any, data?: UpdateAssetFileCommandOutput) => void
+  ): void;
+  updateAssetFile(
+    args: UpdateAssetFileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAssetFileCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateAssociationCommand}
    */
   updateAssociation(
@@ -1044,6 +1348,50 @@ export interface DevOpsAgent {
   ): Paginator<ListAgentSpacesCommandOutput>;
 
   /**
+   * @see {@link ListAssetFilesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAssetFilesCommandOutput}.
+   */
+  paginateListAssetFiles(
+    args: ListAssetFilesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAssetFilesCommandOutput>;
+
+  /**
+   * @see {@link ListAssetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAssetsCommandOutput}.
+   */
+  paginateListAssets(
+    args: ListAssetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAssetsCommandOutput>;
+
+  /**
+   * @see {@link ListAssetTypesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAssetTypesCommandOutput}.
+   */
+  paginateListAssetTypes(
+    args?: ListAssetTypesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAssetTypesCommandOutput>;
+
+  /**
+   * @see {@link ListAssetVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAssetVersionsCommandOutput}.
+   */
+  paginateListAssetVersions(
+    args: ListAssetVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAssetVersionsCommandOutput>;
+
+  /**
    * @see {@link ListAssociationsCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -1111,7 +1459,7 @@ export interface DevOpsAgent {
 }
 
 /**
- * <p>AWS DevOps Agent is your always-available operations teammate. It resolves and proactively prevents incidents, optimizes application reliability and performance, and handles on-demand SRE tasks across AWS, multicloud, and on-premises environments. AWS DevOps Agent investigates incidents as an experienced DevOps engineer would. It learns your applications and their relationships. It works with your observability tools, runbooks, code repositories, and CI/CD pipelines. The agent correlates telemetry, code, and deployment data across all of them. </p>
+ * <p>AWS DevOps Agent is your always-available operations teammate. It resolves and proactively prevents incidents, optimizes application reliability and performance, and handles on-demand SRE tasks across AWS, multicloud, and on-premises environments. AWS DevOps Agent investigates incidents as an experienced DevOps engineer would. It learns your applications and their relationships. It works with your observability tools, runbooks, code repositories, and CI/CD pipelines. The agent correlates telemetry, code, and deployment data across all of them.</p>
  * @public
  */
 export class DevOpsAgent extends DevOpsAgentClient implements DevOpsAgent {}

@@ -54,6 +54,8 @@ export interface UpdatePrivateConnectionCertificateCommandOutput extends UpdateP
  * //   resourceConfigurationId: "STRING_VALUE",
  * //   status: "ACTIVE" || "CREATE_IN_PROGRESS" || "CREATE_FAILED" || "DELETE_IN_PROGRESS" || "DELETE_FAILED", // required
  * //   certificateExpiryTime: new Date("TIMESTAMP"),
+ * //   dnsResolution: "PUBLIC" || "IN_VPC",
+ * //   failureMessage: "STRING_VALUE",
  * // };
  *
  * ```

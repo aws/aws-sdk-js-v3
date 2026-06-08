@@ -124,6 +124,7 @@ export interface ListServicesCommandOutput extends ListServicesOutput, __Metadat
  * //           region: "STRING_VALUE", // required
  * //           service: "STRING_VALUE", // required
  * //           roleArn: "STRING_VALUE", // required
+ * //           mcpRoleArn: "STRING_VALUE",
  * //           customHeaders: { // CustomHeaders
  * //             "<keys>": "STRING_VALUE",
  * //           },

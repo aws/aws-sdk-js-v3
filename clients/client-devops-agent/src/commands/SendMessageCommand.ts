@@ -46,6 +46,9 @@ export interface SendMessageCommandOutput extends SendMessageResponse, __Metadat
  *     userActionResponse: "STRING_VALUE",
  *   },
  *   userId: "STRING_VALUE",
+ *   assetIds: [ // AssetIdList
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new SendMessageCommand(input);
  * const response = await client.send(command);

@@ -1,9 +1,16 @@
-const _A = "Association";
+const _A = "Asset";
 const _AC = "AzureConfiguration";
+const _ACs = "AssetContent";
 const _ADE = "AccessDeniedException";
 const _ADOC = "AzureDevOpsConfiguration";
+const _AF = "AssetFile";
+const _AFB = "AssetFileBody";
+const _AFC = "AssetFileContent";
+const _AFS = "AssetFileSummary";
+const _AFSL = "AssetFileSummaryList";
 const _AKV = "ApiKeyValue";
-const _AL = "AssociationsList";
+const _AL = "AssetList";
+const _ALs = "AssociationsList";
 const _AM = "AssistantMessage";
 const _AMB = "AssistantMessageBlock";
 const _AS = "AgentSpace";
@@ -13,7 +20,19 @@ const _ASL = "AgentSpaceList";
 const _ASO = "AssociateServiceOutput";
 const _ASRS = "AdditionalServiceRegistrationStep";
 const _ASs = "AssociateService";
+const _ATL = "AssetTypeList";
+const _ATS = "AssetTypeSummary";
+const _AVM = "AssetVersionMetadata";
+const _AVML = "AssetVersionMetadataList";
 const _AWSC = "AWSConfiguration";
+const _AZC = "AssetZipContent";
+const _As = "Association";
+const _CA = "CreateAsset";
+const _CAF = "CreateAssetFile";
+const _CAFR = "CreateAssetFileRequest";
+const _CAFRr = "CreateAssetFileResponse";
+const _CAR = "CreateAssetRequest";
+const _CARr = "CreateAssetResponse";
 const _CAS = "CreateAgentSpace";
 const _CASI = "CreateAgentSpaceInput";
 const _CASO = "CreateAgentSpaceOutput";
@@ -35,7 +54,13 @@ const _CPCO = "CreatePrivateConnectionOutput";
 const _CS = "ClientSecret";
 const _CSEE = "ContentSizeExceededException";
 const _D = "Description";
+const _DA = "DeleteAsset";
 const _DAC = "DatadogAuthorizationConfig";
+const _DAF = "DeleteAssetFile";
+const _DAFR = "DeleteAssetFileRequest";
+const _DAFRe = "DeleteAssetFileResponse";
+const _DAR = "DeleteAssetRequest";
+const _DARe = "DeleteAssetResponse";
 const _DAS = "DeleteAgentSpace";
 const _DASI = "DeleteAgentSpaceInput";
 const _DASO = "DeleteAgentSpaceOutput";
@@ -69,15 +94,24 @@ const _EOAO = "EnableOperatorAppOutput";
 const _EP = "ExchangeParameters";
 const _EPV = "ExchangeParameterValue";
 const _G = "Goal";
-const _GA = "GetAssociation";
+const _GA = "GetAsset";
+const _GAC = "GetAssetContent";
+const _GACR = "GetAssetContentRequest";
+const _GACRe = "GetAssetContentResponse";
+const _GAF = "GetAssetFile";
+const _GAFR = "GetAssetFileRequest";
+const _GAFRe = "GetAssetFileResponse";
 const _GAI = "GetAssociationInput";
 const _GAO = "GetAssociationOutput";
+const _GAR = "GetAssetRequest";
+const _GARe = "GetAssetResponse";
 const _GAS = "GetAgentSpace";
 const _GASI = "GetAgentSpaceInput";
 const _GASO = "GetAgentSpaceOutput";
 const _GAU = "GetAccountUsage";
 const _GAUI = "GetAccountUsageInput";
 const _GAUO = "GetAccountUsageOutput";
+const _GAe = "GetAssociation";
 const _GBT = "GetBacklogTask";
 const _GBTR = "GetBacklogTaskRequest";
 const _GBTRe = "GetBacklogTaskResponse";
@@ -108,12 +142,24 @@ const _IPE = "InvalidParameterException";
 const _ISE = "InternalServerException";
 const _JR = "JournalRecord";
 const _JRL = "JournalRecordList";
-const _LA = "ListAssociations";
+const _LA = "ListAssets";
+const _LAF = "ListAssetFiles";
+const _LAFR = "ListAssetFilesRequest";
+const _LAFRi = "ListAssetFilesResponse";
 const _LAI = "ListAssociationsInput";
 const _LAO = "ListAssociationsOutput";
+const _LAR = "ListAssetsRequest";
+const _LARi = "ListAssetsResponse";
 const _LAS = "ListAgentSpaces";
 const _LASI = "ListAgentSpacesInput";
 const _LASO = "ListAgentSpacesOutput";
+const _LAT = "ListAssetTypes";
+const _LATR = "ListAssetTypesRequest";
+const _LATRi = "ListAssetTypesResponse";
+const _LAV = "ListAssetVersions";
+const _LAVR = "ListAssetVersionsRequest";
+const _LAVRi = "ListAssetVersionsResponse";
+const _LAi = "ListAssociations";
 const _LBT = "ListBacklogTasks";
 const _LBTR = "ListBacklogTasksRequest";
 const _LBTRi = "ListBacklogTasksResponse";
@@ -237,12 +283,18 @@ const _TR = "TagResource";
 const _TRR = "TagResourceRequest";
 const _TRRa = "TagResourceResponse";
 const _TV = "TokenValue";
-const _UA = "UpdateAssociation";
+const _UA = "UpdateAsset";
+const _UAF = "UpdateAssetFile";
+const _UAFR = "UpdateAssetFileRequest";
+const _UAFRp = "UpdateAssetFileResponse";
 const _UAI = "UpdateAssociationInput";
 const _UAO = "UpdateAssociationOutput";
+const _UAR = "UpdateAssetRequest";
+const _UARp = "UpdateAssetResponse";
 const _UAS = "UpdateAgentSpace";
 const _UASI = "UpdateAgentSpaceInput";
 const _UASO = "UpdateAgentSpaceOutput";
+const _UAp = "UpdateAssociation";
 const _UBT = "UpdateBacklogTask";
 const _UBTR = "UpdateBacklogTaskRequest";
 const _UBTRp = "UpdateBacklogTaskResponse";
@@ -280,9 +332,11 @@ const _aCd = "additionalContext";
 const _aD = "authorizationDiscovery";
 const _aF = "authFlow";
 const _aH = "authorizationHeader";
-const _aI = "associationId";
+const _aI = "assetId";
 const _aIc = "accountId";
 const _aIp = "applicationIds";
+const _aIs = "associationId";
+const _aIss = "assetIds";
 const _aK = "apiKey";
 const _aKH = "apiKeyHeader";
 const _aKN = "apiKeyName";
@@ -300,16 +354,21 @@ const _aST = "agentSubTask";
 const _aSd = "additionalStep";
 const _aSg = "agentSpaces";
 const _aSu = "authScopes";
-const _aT = "accountType";
+const _aT = "assetType";
+const _aTc = "accountType";
 const _aTg = "agentType";
 const _aU = "accountUrn";
 const _aUu = "authorizationUrl";
-const _as = "associations";
+const _aV = "assetVersion";
+const _as = "asset";
+const _ass = "associations";
 const _aw = "aws";
 const _az = "azuredevops";
 const _azu = "azureidentity";
 const _azur = "azure";
+const _b = "body";
 const _bT = "bearerToken";
+const _by = "bytes";
 const _c = "client";
 const _cA = "createdAt";
 const _cAr = "createdAfter";
@@ -328,10 +387,11 @@ const _cP = "currentPage";
 const _cS = "clientSecret";
 const _cT = "clientToken";
 const _ce = "certificate";
-const _co = "configuration";
-const _con = "content";
+const _co = "content";
+const _con = "configuration";
 const _cont = "context";
 const _d = "description";
+const _dR = "dnsResolution";
 const _de = "delta";
 const _dy = "dynatrace";
 const _e = "error";
@@ -346,14 +406,17 @@ const _eP = "exchangeParameters";
 const _eS = "executionStatus";
 const _eSv = "evaluationSchedule";
 const _eU = "exchangeUrl";
+const _eUPCN = "exchangeUrlPrivateConnectionName";
 const _en = "endpoint";
 const _ev = "events";
 const _ex = "expression";
 const _exe = "executions";
-const _f = "filter";
+const _f = "file";
 const _fL = "fieldList";
+const _fM = "failureMessage";
 const _fST = "filterServiceTypes";
 const _fSTi = "filterServiceType";
+const _fi = "filter";
 const _g = "goals";
 const _gI = "groupId";
 const _gIo = "goalId";
@@ -385,6 +448,7 @@ const _id = "idc";
 const _id_ = "id";
 const _idp = "idp";
 const _in = "index";
+const _it = "items";
 const _jD = "jsonDelta";
 const _kKA = "kmsKeyArn";
 const _l = "locale";
@@ -401,14 +465,15 @@ const _mAODH = "monthlyAccountOnDemandHours";
 const _mASLH = "monthlyAccountSystemLearningHours";
 const _mI = "messageId";
 const _mR = "maxResults";
+const _mRA = "mcpRoleArn";
 const _mc = "mcpserverdatadog";
 const _mcp = "mcpserver";
 const _mcps = "mcpserversplunk";
 const _mcpse = "mcpservernewrelic";
 const _mcpser = "mcpservergrafana";
 const _mcpserv = "mcpserversigv4";
-const _me = "messages";
-const _met = "metadata";
+const _me = "metadata";
+const _mes = "messages";
 const _mo = "mode";
 const _n = "name";
 const _nT = "nextToken";
@@ -416,6 +481,7 @@ const _o = "owner";
 const _oACC = "oAuthClientCredentials";
 const _oALO = "oAuth3LO";
 const _oARA = "operatorAppRoleArn";
+const _oAU = "operatorAppUrl";
 const _oI = "organizationId";
 const _oN = "organizationName";
 const _oOT = "opsOncallTarget";
@@ -425,7 +491,7 @@ const _oTu = "outputTokens";
 const _oa = "oauth";
 const _ob = "objectives";
 const _or = "order";
-const _p = "priority";
+const _p = "path";
 const _pC = "privateConnections";
 const _pCN = "privateConnectionName";
 const _pEI = "parentExecutionId";
@@ -436,9 +502,9 @@ const _pN = "projectName";
 const _pP = "projectPath";
 const _pR = "portRanges";
 const _pTI = "primaryTaskId";
-const _pa = "path";
-const _pag = "pagerduty";
-const _pr = "provider";
+const _pa = "pagerduty";
+const _pr = "priority";
+const _pro = "provider";
 const _r = "reference";
 const _rA = "resourceArn";
 const _rAa = "rankedAt";
@@ -507,6 +573,7 @@ const _tTo = "tokenType";
 const _tTot = "totalTokens";
 const _tTr = "transmissionTarget";
 const _tU = "targetUrl";
+const _tUPCN = "targetUrlPrivateConnectionName";
 const _tUo = "toolUse";
 const _tV = "tokenValue";
 const _ta = "task";
@@ -518,6 +585,8 @@ const _ty = "type";
 const _u = "uid";
 const _uA = "updatedAt";
 const _uAR = "userActionResponse";
+const _uAp = "updatedAfter";
+const _uB = "updatedBefore";
 const _uEC = "underlyingErrorCode";
 const _uI = "userId";
 const _uM = "userMessage";
@@ -539,6 +608,8 @@ const _wT = "webhookType";
 const _wU = "webhookUrl";
 const _we = "webhooks";
 const _xaaaf = "x-amzn-app-auth-flow";
+const _z = "zip";
+const _zF = "zipFile";
 const n0 = "com.amazonaws.devopsagent";
 
 // smithy-typescript generated code
@@ -656,9 +727,44 @@ export var AgentSpace$: StaticStructureSchema = [3, n0, _AS,
   [_n, _cA, _uA, _aSI, _d, _l, _kKA],
   [0, 5, 5, 0, [() => Description, 0], 0, 0], 4
 ];
+export var Asset$: StaticStructureSchema = [3, n0, _A,
+  0,
+  [_aI, _aT, _me, _v, _cA, _uA],
+  [0, 0, 15, 1, 4, 4], 6
+];
+export var AssetFile$: StaticStructureSchema = [3, n0, _AF,
+  0,
+  [_p, _co, _v, _cA, _uA, _me],
+  [0, () => AssetFileBody$, 1, 4, 4, 15], 5
+];
+export var AssetFileContent$: StaticStructureSchema = [3, n0, _AFC,
+  0,
+  [_p, _b, _me],
+  [0, () => AssetFileBody$, 15], 2
+];
+export var AssetFileSummary$: StaticStructureSchema = [3, n0, _AFS,
+  0,
+  [_p, _v, _cA, _uA, _me],
+  [0, 1, 4, 4, 15], 4
+];
+export var AssetTypeSummary$: StaticStructureSchema = [3, n0, _ATS,
+  0,
+  [_aT, _d],
+  [0, 0], 2
+];
+export var AssetVersionMetadata$: StaticStructureSchema = [3, n0, _AVM,
+  0,
+  [_v, _cA, _uA],
+  [1, 4, 4], 3
+];
+export var AssetZipContent$: StaticStructureSchema = [3, n0, _AZC,
+  0,
+  [_zF],
+  [21], 1
+];
 export var AssociateServiceInput$: StaticStructureSchema = [3, n0, _ASI,
   0,
-  [_aSI, _sI, _co],
+  [_aSI, _sI, _con],
   [[0, 1], 0, [() => ServiceConfiguration$, 0]], 3
 ];
 export var AssociateServiceOutput$: StaticStructureSchema = [3, n0, _ASO,
@@ -666,14 +772,14 @@ export var AssociateServiceOutput$: StaticStructureSchema = [3, n0, _ASO,
   [_a, _w],
   [[() => Association$, 0], [() => GenericWebhook$, 0]], 1
 ];
-export var Association$: StaticStructureSchema = [3, n0, _A,
+export var Association$: StaticStructureSchema = [3, n0, _As,
   0,
-  [_aSI, _cA, _uA, _aI, _sI, _co, _st],
+  [_aSI, _cA, _uA, _aIs, _sI, _con, _st],
   [0, 5, 5, 0, 0, [() => ServiceConfiguration$, 0], 0], 6
 ];
 export var AWSConfiguration$: StaticStructureSchema = [3, n0, _AWSC,
   0,
-  [_aRA, _aIc, _aT],
+  [_aRA, _aIc, _aTc],
   [0, 0, 0], 3
 ];
 export var AzureConfiguration$: StaticStructureSchema = [3, n0, _AC,
@@ -701,9 +807,29 @@ export var CreateAgentSpaceOutput$: StaticStructureSchema = [3, n0, _CASO,
   [_aS, _t],
   [[() => AgentSpace$, 0], 128 | 0], 1
 ];
+export var CreateAssetFileRequest$: StaticStructureSchema = [3, n0, _CAFR,
+  0,
+  [_aSI, _aI, _p, _co, _me, _cT],
+  [[0, 1], [0, 1], [0, 1], () => AssetFileBody$, 15, [0, 4]], 4
+];
+export var CreateAssetFileResponse$: StaticStructureSchema = [3, n0, _CAFRr,
+  0,
+  [_f],
+  [() => AssetFile$], 1
+];
+export var CreateAssetRequest$: StaticStructureSchema = [3, n0, _CAR,
+  0,
+  [_aSI, _aT, _co, _me, _cT],
+  [[0, 1], 0, () => AssetContent$, 15, [0, 4]], 3
+];
+export var CreateAssetResponse$: StaticStructureSchema = [3, n0, _CARr,
+  0,
+  [_as],
+  [() => Asset$], 1
+];
 export var CreateBacklogTaskRequest$: StaticStructureSchema = [3, n0, _CBTR,
   0,
-  [_aSI, _tT, _ti, _p, _r, _d, _cT],
+  [_aSI, _tT, _ti, _pr, _r, _d, _cT],
   [[0, 1], 0, 0, 0, () => ReferenceInput$, 0, [0, 4]], 4
 ];
 export var CreateBacklogTaskResponse$: StaticStructureSchema = [3, n0, _CBTRr,
@@ -728,8 +854,8 @@ export var CreatePrivateConnectionInput$: StaticStructureSchema = [3, n0, _CPCI,
 ];
 export var CreatePrivateConnectionOutput$: StaticStructureSchema = [3, n0, _CPCO,
   0,
-  [_n, _ty, _st, _rGI, _hA, _vI, _rCI, _cET, _t],
-  [0, 0, 0, 0, 0, 0, 0, 5, 128 | 0], 3
+  [_n, _ty, _st, _rGI, _hA, _vI, _rCI, _cET, _dR, _fM, _t],
+  [0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 128 | 0], 3
 ];
 export var DatadogServiceDetails$: StaticStructureSchema = [3, n0, _DSD,
   0,
@@ -742,6 +868,26 @@ export var DeleteAgentSpaceInput$: StaticStructureSchema = [3, n0, _DASI,
   [[0, 1]], 1
 ];
 export var DeleteAgentSpaceOutput$: StaticStructureSchema = [3, n0, _DASO,
+  0,
+  [],
+  []
+];
+export var DeleteAssetFileRequest$: StaticStructureSchema = [3, n0, _DAFR,
+  0,
+  [_aSI, _aI, _p],
+  [[0, 1], [0, 1], [0, 1]], 3
+];
+export var DeleteAssetFileResponse$: StaticStructureSchema = [3, n0, _DAFRe,
+  0,
+  [],
+  []
+];
+export var DeleteAssetRequest$: StaticStructureSchema = [3, n0, _DAR,
+  0,
+  [_aSI, _aI],
+  [[0, 1], [0, 1]], 2
+];
+export var DeleteAssetResponse$: StaticStructureSchema = [3, n0, _DARe,
   0,
   [],
   []
@@ -773,8 +919,8 @@ export var DescribePrivateConnectionInput$: StaticStructureSchema = [3, n0, _DPC
 ];
 export var DescribePrivateConnectionOutput$: StaticStructureSchema = [3, n0, _DPCOe,
   0,
-  [_n, _ty, _st, _rGI, _hA, _vI, _rCI, _cET, _t],
-  [0, 0, 0, 0, 0, 0, 0, 5, 128 | 0], 3
+  [_n, _ty, _st, _rGI, _hA, _vI, _rCI, _cET, _dR, _fM, _t],
+  [0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 128 | 0], 3
 ];
 export var DisableOperatorAppInput$: StaticStructureSchema = [3, n0, _DOAI,
   0,
@@ -783,7 +929,7 @@ export var DisableOperatorAppInput$: StaticStructureSchema = [3, n0, _DOAI,
 ];
 export var DisassociateServiceInput$: StaticStructureSchema = [3, n0, _DSIi,
   0,
-  [_aSI, _aI],
+  [_aSI, _aIs],
   [[0, 1], [0, 1]], 2
 ];
 export var DisassociateServiceOutput$: StaticStructureSchema = [3, n0, _DSOi,
@@ -808,13 +954,13 @@ export var DynatraceServiceDetails$: StaticStructureSchema = [3, n0, _DSDy,
 ];
 export var EnableOperatorAppInput$: StaticStructureSchema = [3, n0, _EOAI,
   0,
-  [_aSI, _aF, _oARA, _iIA, _iU, _iCI, _iCS, _pr],
+  [_aSI, _aF, _oARA, _iIA, _iU, _iCI, _iCS, _pro],
   [[0, 1], 0, 0, 0, 0, 0, [() => IdpClientSecret, 0], 0], 3
 ];
 export var EnableOperatorAppOutput$: StaticStructureSchema = [3, n0, _EOAO,
   0,
-  [_aSI, _i, _id, _idp],
-  [0, () => IamAuthConfiguration$, () => IdcAuthConfiguration$, () => IdpAuthConfiguration$], 1
+  [_aSI, _oAU, _i, _id, _idp],
+  [0, 0, () => IamAuthConfiguration$, () => IdcAuthConfiguration$, () => IdpAuthConfiguration$], 1
 ];
 export var EventChannelConfiguration$: StaticStructureSchema = [3, n0, _ECC,
   0,
@@ -856,9 +1002,39 @@ export var GetAgentSpaceOutput$: StaticStructureSchema = [3, n0, _GASO,
   [_aS, _t],
   [[() => AgentSpace$, 0], 128 | 0], 1
 ];
+export var GetAssetContentRequest$: StaticStructureSchema = [3, n0, _GACR,
+  0,
+  [_aSI, _aI, _aV],
+  [[0, 1], [0, 1], [1, { [_hQ]: _aV }]], 2
+];
+export var GetAssetContentResponse$: StaticStructureSchema = [3, n0, _GACRe,
+  0,
+  [_co, _v],
+  [() => AssetZipContent$, 1], 2
+];
+export var GetAssetFileRequest$: StaticStructureSchema = [3, n0, _GAFR,
+  0,
+  [_aSI, _aI, _p, _aV],
+  [[0, 1], [0, 1], [0, 1], [1, { [_hQ]: _aV }]], 3
+];
+export var GetAssetFileResponse$: StaticStructureSchema = [3, n0, _GAFRe,
+  0,
+  [_f],
+  [() => AssetFile$], 1
+];
+export var GetAssetRequest$: StaticStructureSchema = [3, n0, _GAR,
+  0,
+  [_aSI, _aI, _aV],
+  [[0, 1], [0, 1], [1, { [_hQ]: _aV }]], 2
+];
+export var GetAssetResponse$: StaticStructureSchema = [3, n0, _GARe,
+  0,
+  [_as],
+  [() => Asset$], 1
+];
 export var GetAssociationInput$: StaticStructureSchema = [3, n0, _GAI,
   0,
-  [_aSI, _aI],
+  [_aSI, _aIs],
   [[0, 1], [0, 1]], 2
 ];
 export var GetAssociationOutput$: StaticStructureSchema = [3, n0, _GAO,
@@ -883,8 +1059,8 @@ export var GetOperatorAppInput$: StaticStructureSchema = [3, n0, _GOAI,
 ];
 export var GetOperatorAppOutput$: StaticStructureSchema = [3, n0, _GOAO,
   0,
-  [_i, _id, _idp],
-  [() => IamAuthConfiguration$, () => IdcAuthConfiguration$, () => IdpAuthConfiguration$]
+  [_oAU, _i, _id, _idp],
+  [0, () => IamAuthConfiguration$, () => IdcAuthConfiguration$, () => IdpAuthConfiguration$]
 ];
 export var GetRecommendationRequest$: StaticStructureSchema = [3, n0, _GRR,
   0,
@@ -923,7 +1099,7 @@ export var GitLabDetails$: StaticStructureSchema = [3, n0, _GLD,
 ];
 export var Goal$: StaticStructureSchema = [3, n0, _G,
   0,
-  [_aSA, _gIo, _ti, _con, _st, _gT, _cA, _uA, _v, _lEA, _lTI, _lSTI, _eSv],
+  [_aSA, _gIo, _ti, _co, _st, _gT, _cA, _uA, _v, _lEA, _lTI, _lSTI, _eSv],
   [0, 0, 0, () => GoalContent$, 0, 0, 5, 5, 1, 5, 0, 0, () => GoalSchedule$], 9
 ];
 export var GoalContent$: StaticStructureSchema = [3, n0, _GC,
@@ -958,12 +1134,12 @@ export var IdcAuthConfiguration$: StaticStructureSchema = [3, n0, _IACd,
 ];
 export var IdpAuthConfiguration$: StaticStructureSchema = [3, n0, _IACdp,
   0,
-  [_iU, _cI, _oARA, _pr, _cA, _uA],
+  [_iU, _cI, _oARA, _pro, _cA, _uA],
   [0, 0, 0, 0, 5, 5], 5
 ];
 export var JournalRecord$: StaticStructureSchema = [3, n0, _JR,
   0,
-  [_aSI, _eI, _rIec, _con, _cA, _rT, _uR],
+  [_aSI, _eI, _rIec, _co, _cA, _rT, _uR],
   [0, 0, 0, 15, 4, 0, () => UserReference$], 6
 ];
 export var ListAgentSpacesInput$: StaticStructureSchema = [3, n0, _LASI,
@@ -976,6 +1152,46 @@ export var ListAgentSpacesOutput$: StaticStructureSchema = [3, n0, _LASO,
   [_aSg, _nT],
   [[() => AgentSpaceList, 0], 0], 1
 ];
+export var ListAssetFilesRequest$: StaticStructureSchema = [3, n0, _LAFR,
+  0,
+  [_aSI, _aI, _aV, _nT, _mR],
+  [[0, 1], [0, 1], [1, { [_hQ]: _aV }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 2
+];
+export var ListAssetFilesResponse$: StaticStructureSchema = [3, n0, _LAFRi,
+  0,
+  [_it, _nT],
+  [() => AssetFileSummaryList, 0], 1
+];
+export var ListAssetsRequest$: StaticStructureSchema = [3, n0, _LAR,
+  0,
+  [_aSI, _aT, _uAp, _uB, _nT, _mR],
+  [[0, 1], [0, { [_hQ]: _aT }], [4, { [_hQ]: _uAp }], [4, { [_hQ]: _uB }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
+];
+export var ListAssetsResponse$: StaticStructureSchema = [3, n0, _LARi,
+  0,
+  [_it, _nT],
+  [() => AssetList, 0], 1
+];
+export var ListAssetTypesRequest$: StaticStructureSchema = [3, n0, _LATR,
+  0,
+  [_nT, _mR],
+  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+];
+export var ListAssetTypesResponse$: StaticStructureSchema = [3, n0, _LATRi,
+  0,
+  [_it, _nT],
+  [() => AssetTypeList, 0], 1
+];
+export var ListAssetVersionsRequest$: StaticStructureSchema = [3, n0, _LAVR,
+  0,
+  [_aSI, _aI, _mR, _nT],
+  [[0, 1], [0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 2
+];
+export var ListAssetVersionsResponse$: StaticStructureSchema = [3, n0, _LAVRi,
+  0,
+  [_it, _nT],
+  [() => AssetVersionMetadataList, 0], 1
+];
 export var ListAssociationsInput$: StaticStructureSchema = [3, n0, _LAI,
   0,
   [_aSI, _mR, _nT, _fST],
@@ -983,12 +1199,12 @@ export var ListAssociationsInput$: StaticStructureSchema = [3, n0, _LAI,
 ];
 export var ListAssociationsOutput$: StaticStructureSchema = [3, n0, _LAO,
   0,
-  [_as, _nT],
+  [_ass, _nT],
   [[() => AssociationsList, 0], 0], 1
 ];
 export var ListBacklogTasksRequest$: StaticStructureSchema = [3, n0, _LBTR,
   0,
-  [_aSI, _f, _li, _nT, _sF, _or],
+  [_aSI, _fi, _li, _nT, _sF, _or],
   [[0, 1], () => TaskFilter$, 1, 0, 0, 0], 1
 ];
 export var ListBacklogTasksResponse$: StaticStructureSchema = [3, n0, _LBTRi,
@@ -1043,7 +1259,7 @@ export var ListPendingMessagesRequest$: StaticStructureSchema = [3, n0, _LPMR,
 ];
 export var ListPendingMessagesResponse$: StaticStructureSchema = [3, n0, _LPMRi,
   0,
-  [_aSI, _eI, _me, _cA],
+  [_aSI, _eI, _mes, _cA],
   [0, 0, () => PendingMessages, 4], 4
 ];
 export var ListPrivateConnectionsInput$: StaticStructureSchema = [3, n0, _LPCI,
@@ -1058,7 +1274,7 @@ export var ListPrivateConnectionsOutput$: StaticStructureSchema = [3, n0, _LPCO,
 ];
 export var ListRecommendationsRequest$: StaticStructureSchema = [3, n0, _LRR,
   0,
-  [_aSI, _tI, _gIo, _st, _p, _li, _nT],
+  [_aSI, _tI, _gIo, _st, _pr, _li, _nT],
   [[0, 1], 0, 0, 0, 0, 1, 0], 1
 ];
 export var ListRecommendationsResponse$: StaticStructureSchema = [3, n0, _LRRi,
@@ -1088,7 +1304,7 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 ];
 export var ListWebhooksInput$: StaticStructureSchema = [3, n0, _LWI,
   0,
-  [_aSI, _aI],
+  [_aSI, _aIs],
   [[0, 1], [0, 1]], 2
 ];
 export var ListWebhooksOutput$: StaticStructureSchema = [3, n0, _LWO,
@@ -1148,8 +1364,8 @@ export var MCPServerOAuthClientCredentialsConfig$: StaticStructureSchema = [3, n
 ];
 export var MCPServerSigV4AuthorizationConfig$: StaticStructureSchema = [3, n0, _MCPSSVAC,
   0,
-  [_reg, _ser, _rAo, _cH],
-  [0, 0, 0, [() => CustomHeaders, 0]], 3
+  [_reg, _ser, _rAo, _mRA, _cH],
+  [0, 0, 0, 0, [() => CustomHeaders, 0]], 2
 ];
 export var MCPServerSigV4Configuration$: StaticStructureSchema = [3, n0, _MCPSSVC,
   0,
@@ -1203,12 +1419,12 @@ export var PendingMessage$: StaticStructureSchema = [3, n0, _PM,
 ];
 export var PrivateConnectionSummary$: StaticStructureSchema = [3, n0, _PCS,
   0,
-  [_n, _ty, _st, _rGI, _hA, _vI, _rCI, _cET],
-  [0, 0, 0, 0, 0, 0, 0, 5], 3
+  [_n, _ty, _st, _rGI, _hA, _vI, _rCI, _cET, _dR, _fM],
+  [0, 0, 0, 0, 0, 0, 0, 5, 0, 0], 3
 ];
 export var Recommendation$: StaticStructureSchema = [3, n0, _R,
   0,
-  [_aSA, _rI, _tI, _ti, _con, _st, _p, _cA, _uA, _v, _gIo, _gV, _aCd, _rP, _rAa],
+  [_aSA, _rI, _tI, _ti, _co, _st, _pr, _cA, _uA, _v, _gIo, _gV, _aCd, _rP, _rAa],
   [0, 0, 0, 0, () => RecommendationContent$, 0, 0, 5, 5, 1, 0, 1, 0, 1, 5], 10
 ];
 export var RecommendationContent$: StaticStructureSchema = [3, n0, _RC,
@@ -1218,12 +1434,12 @@ export var RecommendationContent$: StaticStructureSchema = [3, n0, _RC,
 ];
 export var ReferenceInput$: StaticStructureSchema = [3, n0, _RI,
   0,
-  [_sy, _rIef, _rU, _aI, _ti],
+  [_sy, _rIef, _rU, _aIs, _ti],
   [0, 0, 0, 0, 0], 4
 ];
 export var ReferenceOutput$: StaticStructureSchema = [3, n0, _RO,
   0,
-  [_sy, _rIef, _rU, _aI, _ti],
+  [_sy, _rIef, _rU, _aIs, _ti],
   [0, 0, 0, 0, 0], 4
 ];
 export var RegisteredAzureDevOpsServiceDetails$: StaticStructureSchema = [3, n0, _RADOSD,
@@ -1258,8 +1474,8 @@ export var RegisteredMCPServerDetails$: StaticStructureSchema = [3, n0, _RMCPSD,
 ];
 export var RegisteredMCPServerSigV4Details$: StaticStructureSchema = [3, n0, _RMCPSSVD,
   0,
-  [_n, _en, _reg, _ser, _rAo, _d, _cH],
-  [0, 0, 0, 0, 0, [() => Description, 0], [() => CustomHeaders, 0]], 5
+  [_n, _en, _reg, _ser, _rAo, _d, _mRA, _cH],
+  [0, 0, 0, 0, 0, [() => Description, 0], 0, [() => CustomHeaders, 0]], 5
 ];
 export var RegisteredNewRelicDetails$: StaticStructureSchema = [3, n0, _RNRD,
   0,
@@ -1288,8 +1504,8 @@ export var RegisteredSlackServiceDetails$: StaticStructureSchema = [3, n0, _RSSD
 ];
 export var RegisterServiceInput$: StaticStructureSchema = [3, n0, _RSI,
   0,
-  [_ser, _sD, _kKA, _pCN, _n, _t],
-  [[0, 1], [() => ServiceDetails$, 0], 0, 0, 0, 128 | 0], 2
+  [_ser, _sD, _kKA, _pCN, _tUPCN, _eUPCN, _n, _t],
+  [[0, 1], [() => ServiceDetails$, 0], 0, 0, 0, 0, 0, 128 | 0], 2
 ];
 export var RegisterServiceOutput$: StaticStructureSchema = [3, n0, _RSO,
   0,
@@ -1333,8 +1549,8 @@ export var SendMessageJsonDelta$: StaticStructureSchema = [3, n0, _SMJD,
 ];
 export var SendMessageRequest$: StaticStructureSchema = [3, n0, _SMR,
   0,
-  [_aSI, _eI, _con, _cont, _uI],
-  [[0, 1], 0, 0, () => SendMessageContext$, 0], 3
+  [_aSI, _eI, _co, _cont, _uI, _aIss],
+  [[0, 1], 0, 0, () => SendMessageContext$, 0, 64 | 0], 3
 ];
 export var SendMessageResponse$: StaticStructureSchema = [3, n0, _SMRe,
   0,
@@ -1363,7 +1579,7 @@ export var SendMessageResponseInProgressEvent$: StaticStructureSchema = [3, n0, 
 ];
 export var SendMessageSummaryEvent$: StaticStructureSchema = [3, n0, _SMSE,
   0,
-  [_con, _sN],
+  [_co, _sN],
   [0, 1]
 ];
 export var SendMessageTextDelta$: StaticStructureSchema = [3, n0, _SMTD,
@@ -1378,8 +1594,8 @@ export var SendMessageUsageInfo$: StaticStructureSchema = [3, n0, _SMUI,
 ];
 export var ServiceManagedInput$: StaticStructureSchema = [3, n0, _SMIe,
   0,
-  [_hA, _vI, _sIub, _sGI, _iAT, _iAPE, _pR, _ce],
-  [0, 0, 64 | 0, 64 | 0, 0, 1, 64 | 0, 0], 3
+  [_hA, _vI, _sIub, _sGI, _iAT, _iAPE, _pR, _ce, _dR],
+  [0, 0, 64 | 0, 64 | 0, 0, 1, 64 | 0, 0, 0], 3
 ];
 export var ServiceNowConfiguration$: StaticStructureSchema = [3, n0, _SNC,
   0,
@@ -1413,7 +1629,7 @@ export var SlackTransmissionTarget$: StaticStructureSchema = [3, n0, _STT,
 ];
 export var SourceAwsConfiguration$: StaticStructureSchema = [3, n0, _SAC,
   0,
-  [_aIc, _aT, _aRA, _eIx],
+  [_aIc, _aTc, _aRA, _eIx],
   [0, 0, 0, 0], 3
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
@@ -1428,12 +1644,12 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 ];
 export var Task$: StaticStructureSchema = [3, n0, _T,
   0,
-  [_aSI, _tI, _ti, _tT, _p, _st, _cA, _uA, _v, _eI, _d, _r, _sM, _met, _pTI, _sR, _hLT],
+  [_aSI, _tI, _ti, _tT, _pr, _st, _cA, _uA, _v, _eI, _d, _r, _sM, _me, _pTI, _sR, _hLT],
   [0, 0, 0, 0, 0, 0, 5, 5, 1, 0, 0, () => ReferenceOutput$, 15, 15, 0, 0, 2], 9
 ];
 export var TaskFilter$: StaticStructureSchema = [3, n0, _TF,
   0,
-  [_cAr, _cB, _p, _st, _tT, _pTI],
+  [_cAr, _cB, _pr, _st, _tT, _pTI],
   [5, 5, 64 | 0, 64 | 0, 64 | 0, 0]
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
@@ -1456,9 +1672,29 @@ export var UpdateAgentSpaceOutput$: StaticStructureSchema = [3, n0, _UASO,
   [_aS],
   [[() => AgentSpace$, 0]], 1
 ];
+export var UpdateAssetFileRequest$: StaticStructureSchema = [3, n0, _UAFR,
+  0,
+  [_aSI, _aI, _p, _co, _me, _cT],
+  [[0, 1], [0, 1], [0, 1], () => AssetFileBody$, 15, [0, 4]], 3
+];
+export var UpdateAssetFileResponse$: StaticStructureSchema = [3, n0, _UAFRp,
+  0,
+  [_f],
+  [() => AssetFile$], 1
+];
+export var UpdateAssetRequest$: StaticStructureSchema = [3, n0, _UAR,
+  0,
+  [_aSI, _aI, _me, _co, _cT],
+  [[0, 1], [0, 1], 15, () => AssetContent$, [0, 4]], 2
+];
+export var UpdateAssetResponse$: StaticStructureSchema = [3, n0, _UARp,
+  0,
+  [_as],
+  [() => Asset$], 1
+];
 export var UpdateAssociationInput$: StaticStructureSchema = [3, n0, _UAI,
   0,
-  [_aSI, _aI, _co],
+  [_aSI, _aIs, _con],
   [[0, 1], [0, 1], [() => ServiceConfiguration$, 0]], 3
 ];
 export var UpdateAssociationOutput$: StaticStructureSchema = [3, n0, _UAO,
@@ -1503,8 +1739,8 @@ export var UpdatePrivateConnectionCertificateInput$: StaticStructureSchema = [3,
 ];
 export var UpdatePrivateConnectionCertificateOutput$: StaticStructureSchema = [3, n0, _UPCCO,
   0,
-  [_n, _ty, _st, _rGI, _hA, _vI, _rCI, _cET],
-  [0, 0, 0, 0, 0, 0, 0, 5], 3
+  [_n, _ty, _st, _rGI, _hA, _vI, _rCI, _cET, _dR, _fM],
+  [0, 0, 0, 0, 0, 0, 0, 5, 0, 0], 3
 ];
 export var UpdateRecommendationRequest$: StaticStructureSchema = [3, n0, _URRp,
   0,
@@ -1538,7 +1774,7 @@ export var ValidateAwsAssociationsOutput$: StaticStructureSchema = [3, n0, _VAAO
 ];
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
-  [_pa, _m],
+  [_p, _m],
   [0, 0], 2
 ];
 export var Webhook$: StaticStructureSchema = [3, n0, _W,
@@ -1551,10 +1787,23 @@ var AgentSpaceList: StaticListSchema = [1, n0, _ASL,
   0, [() => AgentSpace$,
     0]
 ];
+var AssetFileSummaryList: StaticListSchema = [1, n0, _AFSL,
+  0, () => AssetFileSummary$
+];
+var AssetIdList = 64 | 0;
+var AssetList: StaticListSchema = [1, n0, _AL,
+  0, () => Asset$
+];
+var AssetTypeList: StaticListSchema = [1, n0, _ATL,
+  0, () => AssetTypeSummary$
+];
+var AssetVersionMetadataList: StaticListSchema = [1, n0, _AVML,
+  0, () => AssetVersionMetadata$
+];
 var AssistantMessage: StaticListSchema = [1, n0, _AM,
   0, () => AssistantMessageBlock$
 ];
-var AssociationsList: StaticListSchema = [1, n0, _AL,
+var AssociationsList: StaticListSchema = [1, n0, _ALs,
   0, [() => Association$,
     0]
 ];
@@ -1629,13 +1878,23 @@ var ExchangeParameters: StaticMapSchema = [2, n0, _EP,
 var Tags = 128 | 0;
 export var AdditionalServiceDetails$: StaticUnionSchema = [4, n0, _ASD,
   0,
-  [_gi, _sl, _mc, _mcp, _servi, _git, _mcps, _mcpse, _az, _azu, _mcpser, _pag, _mcpserv],
+  [_gi, _sl, _mc, _mcp, _servi, _git, _mcps, _mcpse, _az, _azu, _mcpser, _pa, _mcpserv],
   [() => RegisteredGithubServiceDetails$, () => RegisteredSlackServiceDetails$, [() => RegisteredMCPServerDetails$, 0], [() => RegisteredMCPServerDetails$, 0], () => RegisteredServiceNowDetails$, () => RegisteredGitLabServiceDetails$, [() => RegisteredMCPServerDetails$, 0], [() => RegisteredNewRelicDetails$, 0], () => RegisteredAzureDevOpsServiceDetails$, () => RegisteredAzureIdentityDetails$, () => RegisteredGrafanaServerDetails$, () => RegisteredPagerDutyDetails$, [() => RegisteredMCPServerSigV4Details$, 0]]
 ];
 export var AdditionalServiceRegistrationStep$: StaticUnionSchema = [4, n0, _ASRS,
   0,
   [_oa],
   [() => OAuthAdditionalStepDetails$]
+];
+export var AssetContent$: StaticUnionSchema = [4, n0, _ACs,
+  0,
+  [_f, _z],
+  [() => AssetFileContent$, () => AssetZipContent$]
+];
+export var AssetFileBody$: StaticUnionSchema = [4, n0, _AFB,
+  0,
+  [_by, _te],
+  [21, 0]
 ];
 export var AssistantMessageBlock$: StaticUnionSchema = [4, n0, _AMB,
   0,
@@ -1689,12 +1948,12 @@ export var SendMessageEvents$: StaticUnionSchema = [4, n0, _SME,
 ];
 export var ServiceConfiguration$: StaticUnionSchema = [4, n0, _SCe,
   0,
-  [_sA, _aw, _gi, _sl, _dy, _servi, _mcpse, _mc, _mcp, _git, _mcps, _eCv, _azur, _az, _mcpser, _pag, _mcpserv],
+  [_sA, _aw, _gi, _sl, _dy, _servi, _mcpse, _mc, _mcp, _git, _mcps, _eCv, _azur, _az, _mcpser, _pa, _mcpserv],
   [() => SourceAwsConfiguration$, () => AWSConfiguration$, () => GitHubConfiguration$, () => SlackConfiguration$, () => DynatraceConfiguration$, () => ServiceNowConfiguration$, () => MCPServerNewRelicConfiguration$, () => MCPServerDatadogConfiguration$, () => MCPServerConfiguration$, () => GitLabConfiguration$, () => MCPServerSplunkConfiguration$, () => EventChannelConfiguration$, () => AzureConfiguration$, () => AzureDevOpsConfiguration$, () => MCPServerGrafanaConfiguration$, [() => PagerDutyConfiguration$, 0], () => MCPServerSigV4Configuration$]
 ];
 export var ServiceDetails$: StaticUnionSchema = [4, n0, _SD,
   0,
-  [_dy, _servi, _mc, _mcp, _git, _mcps, _mcpse, _eCv, _mcpser, _pag, _azu, _mcpserv],
+  [_dy, _servi, _mc, _mcp, _git, _mcps, _mcpse, _eCv, _mcpser, _pa, _azu, _mcpserv],
   [[() => DynatraceServiceDetails$, 0], [() => ServiceNowServiceDetails$, 0], [() => DatadogServiceDetails$, 0], [() => MCPServerDetails$, 0], [() => GitLabDetails$, 0], [() => MCPServerDetails$, 0], [() => NewRelicServiceDetails$, 0], () => EventChannelDetails$, [() => GrafanaServiceDetails$, 0], [() => PagerDutyDetails$, 0], () => RegisteredAzureIdentityDetails$, [() => MCPServerSigV4ServiceDetails$, 0]]
 ];
 export var ServiceNowServiceAuthorizationConfig$: StaticUnionSchema = [4, n0, _SNSAC,
@@ -1713,6 +1972,12 @@ export var AssociateService$: StaticOperationSchema = [9, n0, _ASs,
 export var CreateAgentSpace$: StaticOperationSchema = [9, n0, _CAS,
   { [_en]: ["cp."], [_ht]: ["POST", "/v1/agentspaces", 201] }, () => CreateAgentSpaceInput$, () => CreateAgentSpaceOutput$
 ];
+export var CreateAsset$: StaticOperationSchema = [9, n0, _CA,
+  { [_en]: ["dp."], [_ht]: ["POST", "/asset/agent-space/{agentSpaceId}/assets", 201] }, () => CreateAssetRequest$, () => CreateAssetResponse$
+];
+export var CreateAssetFile$: StaticOperationSchema = [9, n0, _CAF,
+  { [_en]: ["dp."], [_ht]: ["POST", "/asset/agent-space/{agentSpaceId}/assets/{assetId}/files/{path+}", 201] }, () => CreateAssetFileRequest$, () => CreateAssetFileResponse$
+];
 export var CreateBacklogTask$: StaticOperationSchema = [9, n0, _CBT,
   { [_en]: ["dp."], [_ht]: ["POST", "/backlog/agent-space/{agentSpaceId}/tasks", 201] }, () => CreateBacklogTaskRequest$, () => CreateBacklogTaskResponse$
 ];
@@ -1724,6 +1989,12 @@ export var CreatePrivateConnection$: StaticOperationSchema = [9, n0, _CPC,
 ];
 export var DeleteAgentSpace$: StaticOperationSchema = [9, n0, _DAS,
   { [_en]: ["cp."], [_ht]: ["DELETE", "/v1/agentspaces/{agentSpaceId}", 204] }, () => DeleteAgentSpaceInput$, () => DeleteAgentSpaceOutput$
+];
+export var DeleteAsset$: StaticOperationSchema = [9, n0, _DA,
+  { [_en]: ["dp."], [_ht]: ["DELETE", "/asset/agent-space/{agentSpaceId}/assets/{assetId}", 200] }, () => DeleteAssetRequest$, () => DeleteAssetResponse$
+];
+export var DeleteAssetFile$: StaticOperationSchema = [9, n0, _DAF,
+  { [_en]: ["dp."], [_ht]: ["DELETE", "/asset/agent-space/{agentSpaceId}/assets/{assetId}/files/{path+}", 200] }, () => DeleteAssetFileRequest$, () => DeleteAssetFileResponse$
 ];
 export var DeletePrivateConnection$: StaticOperationSchema = [9, n0, _DPC,
   { [_en]: ["cp."], [_ht]: ["DELETE", "/v1/private-connections/{name}", 200] }, () => DeletePrivateConnectionInput$, () => DeletePrivateConnectionOutput$
@@ -1749,7 +2020,16 @@ export var GetAccountUsage$: StaticOperationSchema = [9, n0, _GAU,
 export var GetAgentSpace$: StaticOperationSchema = [9, n0, _GAS,
   { [_en]: ["cp."], [_ht]: ["GET", "/v1/agentspaces/{agentSpaceId}", 200] }, () => GetAgentSpaceInput$, () => GetAgentSpaceOutput$
 ];
-export var GetAssociation$: StaticOperationSchema = [9, n0, _GA,
+export var GetAsset$: StaticOperationSchema = [9, n0, _GA,
+  { [_en]: ["dp."], [_ht]: ["GET", "/asset/agent-space/{agentSpaceId}/assets/{assetId}", 200] }, () => GetAssetRequest$, () => GetAssetResponse$
+];
+export var GetAssetContent$: StaticOperationSchema = [9, n0, _GAC,
+  { [_en]: ["dp."], [_ht]: ["GET", "/asset/agent-space/{agentSpaceId}/assets/{assetId}/content", 200] }, () => GetAssetContentRequest$, () => GetAssetContentResponse$
+];
+export var GetAssetFile$: StaticOperationSchema = [9, n0, _GAF,
+  { [_en]: ["dp."], [_ht]: ["GET", "/asset/agent-space/{agentSpaceId}/assets/{assetId}/files/{path+}", 200] }, () => GetAssetFileRequest$, () => GetAssetFileResponse$
+];
+export var GetAssociation$: StaticOperationSchema = [9, n0, _GAe,
   { [_en]: ["cp."], [_ht]: ["GET", "/v1/agentspaces/{agentSpaceId}/associations/{associationId}", 200] }, () => GetAssociationInput$, () => GetAssociationOutput$
 ];
 export var GetBacklogTask$: StaticOperationSchema = [9, n0, _GBT,
@@ -1767,7 +2047,19 @@ export var GetService$: StaticOperationSchema = [9, n0, _GSe,
 export var ListAgentSpaces$: StaticOperationSchema = [9, n0, _LAS,
   { [_en]: ["cp."], [_ht]: ["POST", "/v1/agentspaces/list", 200] }, () => ListAgentSpacesInput$, () => ListAgentSpacesOutput$
 ];
-export var ListAssociations$: StaticOperationSchema = [9, n0, _LA,
+export var ListAssetFiles$: StaticOperationSchema = [9, n0, _LAF,
+  { [_en]: ["dp."], [_ht]: ["GET", "/asset/agent-space/{agentSpaceId}/assets/{assetId}/files", 200] }, () => ListAssetFilesRequest$, () => ListAssetFilesResponse$
+];
+export var ListAssets$: StaticOperationSchema = [9, n0, _LA,
+  { [_en]: ["dp."], [_ht]: ["GET", "/asset/agent-space/{agentSpaceId}/assets", 200] }, () => ListAssetsRequest$, () => ListAssetsResponse$
+];
+export var ListAssetTypes$: StaticOperationSchema = [9, n0, _LAT,
+  { [_en]: ["dp."], [_ht]: ["GET", "/asset/types", 200] }, () => ListAssetTypesRequest$, () => ListAssetTypesResponse$
+];
+export var ListAssetVersions$: StaticOperationSchema = [9, n0, _LAV,
+  { [_en]: ["dp."], [_ht]: ["GET", "/asset/agent-space/{agentSpaceId}/assets/{assetId}/versions", 200] }, () => ListAssetVersionsRequest$, () => ListAssetVersionsResponse$
+];
+export var ListAssociations$: StaticOperationSchema = [9, n0, _LAi,
   { [_en]: ["cp."], [_ht]: ["POST", "/v1/agentspaces/{agentSpaceId}/associations/list", 200] }, () => ListAssociationsInput$, () => ListAssociationsOutput$
 ];
 export var ListBacklogTasks$: StaticOperationSchema = [9, n0, _LBT,
@@ -1818,7 +2110,13 @@ export var UntagResource$: StaticOperationSchema = [9, n0, _URn,
 export var UpdateAgentSpace$: StaticOperationSchema = [9, n0, _UAS,
   { [_en]: ["cp."], [_ht]: ["PATCH", "/v1/agentspaces/{agentSpaceId}", 200] }, () => UpdateAgentSpaceInput$, () => UpdateAgentSpaceOutput$
 ];
-export var UpdateAssociation$: StaticOperationSchema = [9, n0, _UA,
+export var UpdateAsset$: StaticOperationSchema = [9, n0, _UA,
+  { [_en]: ["dp."], [_ht]: ["PATCH", "/asset/agent-space/{agentSpaceId}/assets/{assetId}", 200] }, () => UpdateAssetRequest$, () => UpdateAssetResponse$
+];
+export var UpdateAssetFile$: StaticOperationSchema = [9, n0, _UAF,
+  { [_en]: ["dp."], [_ht]: ["PATCH", "/asset/agent-space/{agentSpaceId}/assets/{assetId}/files/{path+}", 200] }, () => UpdateAssetFileRequest$, () => UpdateAssetFileResponse$
+];
+export var UpdateAssociation$: StaticOperationSchema = [9, n0, _UAp,
   { [_en]: ["cp."], [_ht]: ["PATCH", "/v1/agentspaces/{agentSpaceId}/associations/{associationId}", 200] }, () => UpdateAssociationInput$, () => UpdateAssociationOutput$
 ];
 export var UpdateBacklogTask$: StaticOperationSchema = [9, n0, _UBT,

@@ -4,6 +4,15 @@ import {
   AdditionalServiceDetails$,
   AdditionalServiceRegistrationStep$,
   AgentSpace$,
+  Asset$,
+  AssetContent$,
+  AssetFile$,
+  AssetFileBody$,
+  AssetFileContent$,
+  AssetFileSummary$,
+  AssetTypeSummary$,
+  AssetVersionMetadata$,
+  AssetZipContent$,
   AssistantMessageBlock$,
   AssociateService$,
   AssociateServiceCommand,
@@ -23,6 +32,14 @@ import {
   CreateAgentSpaceCommand,
   CreateAgentSpaceInput$,
   CreateAgentSpaceOutput$,
+  CreateAsset$,
+  CreateAssetCommand,
+  CreateAssetFile$,
+  CreateAssetFileCommand,
+  CreateAssetFileRequest$,
+  CreateAssetFileResponse$,
+  CreateAssetRequest$,
+  CreateAssetResponse$,
   CreateBacklogTask$,
   CreateBacklogTaskCommand,
   CreateBacklogTaskRequest$,
@@ -41,6 +58,14 @@ import {
   DeleteAgentSpaceCommand,
   DeleteAgentSpaceInput$,
   DeleteAgentSpaceOutput$,
+  DeleteAsset$,
+  DeleteAssetCommand,
+  DeleteAssetFile$,
+  DeleteAssetFileCommand,
+  DeleteAssetFileRequest$,
+  DeleteAssetFileResponse$,
+  DeleteAssetRequest$,
+  DeleteAssetResponse$,
   DeletePrivateConnection$,
   DeletePrivateConnectionCommand,
   DeletePrivateConnectionInput$,
@@ -85,6 +110,18 @@ import {
   GetAgentSpaceCommand,
   GetAgentSpaceInput$,
   GetAgentSpaceOutput$,
+  GetAsset$,
+  GetAssetCommand,
+  GetAssetContent$,
+  GetAssetContentCommand,
+  GetAssetContentRequest$,
+  GetAssetContentResponse$,
+  GetAssetFile$,
+  GetAssetFileCommand,
+  GetAssetFileRequest$,
+  GetAssetFileResponse$,
+  GetAssetRequest$,
+  GetAssetResponse$,
   GetAssociation$,
   GetAssociationCommand,
   GetAssociationInput$,
@@ -132,6 +169,22 @@ import {
   ListAgentSpacesCommand,
   ListAgentSpacesInput$,
   ListAgentSpacesOutput$,
+  ListAssetFiles$,
+  ListAssetFilesCommand,
+  ListAssetFilesRequest$,
+  ListAssetFilesResponse$,
+  ListAssets$,
+  ListAssetsCommand,
+  ListAssetsRequest$,
+  ListAssetsResponse$,
+  ListAssetTypes$,
+  ListAssetTypesCommand,
+  ListAssetTypesRequest$,
+  ListAssetTypesResponse$,
+  ListAssetVersions$,
+  ListAssetVersionsCommand,
+  ListAssetVersionsRequest$,
+  ListAssetVersionsResponse$,
   ListAssociations$,
   ListAssociationsCommand,
   ListAssociationsInput$,
@@ -209,6 +262,10 @@ import {
   PagerDutyDetails$,
   PagerDutyOAuthClientCredentialsConfig$,
   paginateListAgentSpaces,
+  paginateListAssetFiles,
+  paginateListAssets,
+  paginateListAssetTypes,
+  paginateListAssetVersions,
   paginateListAssociations,
   paginateListBacklogTasks,
   paginateListExecutions,
@@ -244,6 +301,7 @@ import {
   RegisterServiceCommand,
   RegisterServiceInput$,
   RegisterServiceOutput$,
+  ResourceConfigDnsResolution,
   ResourceNotFoundException,
   ResourceNotFoundException$,
   SchedulerState,
@@ -302,6 +360,14 @@ import {
   UpdateAgentSpaceCommand,
   UpdateAgentSpaceInput$,
   UpdateAgentSpaceOutput$,
+  UpdateAsset$,
+  UpdateAssetCommand,
+  UpdateAssetFile$,
+  UpdateAssetFileCommand,
+  UpdateAssetFileRequest$,
+  UpdateAssetFileResponse$,
+  UpdateAssetRequest$,
+  UpdateAssetResponse$,
   UpdateAssociation$,
   UpdateAssociationCommand,
   UpdateAssociationInput$,
@@ -350,6 +416,10 @@ assert(typeof AssociateServiceCommand === "function");
 assert(typeof AssociateService$ === "object");
 assert(typeof CreateAgentSpaceCommand === "function");
 assert(typeof CreateAgentSpace$ === "object");
+assert(typeof CreateAssetCommand === "function");
+assert(typeof CreateAsset$ === "object");
+assert(typeof CreateAssetFileCommand === "function");
+assert(typeof CreateAssetFile$ === "object");
 assert(typeof CreateBacklogTaskCommand === "function");
 assert(typeof CreateBacklogTask$ === "object");
 assert(typeof CreateChatCommand === "function");
@@ -358,6 +428,10 @@ assert(typeof CreatePrivateConnectionCommand === "function");
 assert(typeof CreatePrivateConnection$ === "object");
 assert(typeof DeleteAgentSpaceCommand === "function");
 assert(typeof DeleteAgentSpace$ === "object");
+assert(typeof DeleteAssetCommand === "function");
+assert(typeof DeleteAsset$ === "object");
+assert(typeof DeleteAssetFileCommand === "function");
+assert(typeof DeleteAssetFile$ === "object");
 assert(typeof DeletePrivateConnectionCommand === "function");
 assert(typeof DeletePrivateConnection$ === "object");
 assert(typeof DeregisterServiceCommand === "function");
@@ -374,6 +448,12 @@ assert(typeof GetAccountUsageCommand === "function");
 assert(typeof GetAccountUsage$ === "object");
 assert(typeof GetAgentSpaceCommand === "function");
 assert(typeof GetAgentSpace$ === "object");
+assert(typeof GetAssetCommand === "function");
+assert(typeof GetAsset$ === "object");
+assert(typeof GetAssetContentCommand === "function");
+assert(typeof GetAssetContent$ === "object");
+assert(typeof GetAssetFileCommand === "function");
+assert(typeof GetAssetFile$ === "object");
 assert(typeof GetAssociationCommand === "function");
 assert(typeof GetAssociation$ === "object");
 assert(typeof GetBacklogTaskCommand === "function");
@@ -386,6 +466,14 @@ assert(typeof GetServiceCommand === "function");
 assert(typeof GetService$ === "object");
 assert(typeof ListAgentSpacesCommand === "function");
 assert(typeof ListAgentSpaces$ === "object");
+assert(typeof ListAssetFilesCommand === "function");
+assert(typeof ListAssetFiles$ === "object");
+assert(typeof ListAssetsCommand === "function");
+assert(typeof ListAssets$ === "object");
+assert(typeof ListAssetTypesCommand === "function");
+assert(typeof ListAssetTypes$ === "object");
+assert(typeof ListAssetVersionsCommand === "function");
+assert(typeof ListAssetVersions$ === "object");
 assert(typeof ListAssociationsCommand === "function");
 assert(typeof ListAssociations$ === "object");
 assert(typeof ListBacklogTasksCommand === "function");
@@ -420,6 +508,10 @@ assert(typeof UntagResourceCommand === "function");
 assert(typeof UntagResource$ === "object");
 assert(typeof UpdateAgentSpaceCommand === "function");
 assert(typeof UpdateAgentSpace$ === "object");
+assert(typeof UpdateAssetCommand === "function");
+assert(typeof UpdateAsset$ === "object");
+assert(typeof UpdateAssetFileCommand === "function");
+assert(typeof UpdateAssetFile$ === "object");
 assert(typeof UpdateAssociationCommand === "function");
 assert(typeof UpdateAssociation$ === "object");
 assert(typeof UpdateBacklogTaskCommand === "function");
@@ -438,6 +530,15 @@ assert(typeof ValidateAwsAssociations$ === "object");
 assert(typeof AdditionalServiceDetails$ === "object");
 assert(typeof AdditionalServiceRegistrationStep$ === "object");
 assert(typeof AgentSpace$ === "object");
+assert(typeof Asset$ === "object");
+assert(typeof AssetContent$ === "object");
+assert(typeof AssetFile$ === "object");
+assert(typeof AssetFileBody$ === "object");
+assert(typeof AssetFileContent$ === "object");
+assert(typeof AssetFileSummary$ === "object");
+assert(typeof AssetTypeSummary$ === "object");
+assert(typeof AssetVersionMetadata$ === "object");
+assert(typeof AssetZipContent$ === "object");
 assert(typeof AssistantMessageBlock$ === "object");
 assert(typeof AssociateServiceInput$ === "object");
 assert(typeof AssociateServiceOutput$ === "object");
@@ -448,6 +549,10 @@ assert(typeof AzureDevOpsConfiguration$ === "object");
 assert(typeof ChatExecution$ === "object");
 assert(typeof CreateAgentSpaceInput$ === "object");
 assert(typeof CreateAgentSpaceOutput$ === "object");
+assert(typeof CreateAssetFileRequest$ === "object");
+assert(typeof CreateAssetFileResponse$ === "object");
+assert(typeof CreateAssetRequest$ === "object");
+assert(typeof CreateAssetResponse$ === "object");
 assert(typeof CreateBacklogTaskRequest$ === "object");
 assert(typeof CreateBacklogTaskResponse$ === "object");
 assert(typeof CreateChatRequest$ === "object");
@@ -458,6 +563,10 @@ assert(typeof DatadogAuthorizationConfig$ === "object");
 assert(typeof DatadogServiceDetails$ === "object");
 assert(typeof DeleteAgentSpaceInput$ === "object");
 assert(typeof DeleteAgentSpaceOutput$ === "object");
+assert(typeof DeleteAssetFileRequest$ === "object");
+assert(typeof DeleteAssetFileResponse$ === "object");
+assert(typeof DeleteAssetRequest$ === "object");
+assert(typeof DeleteAssetResponse$ === "object");
 assert(typeof DeletePrivateConnectionInput$ === "object");
 assert(typeof DeletePrivateConnectionOutput$ === "object");
 assert(typeof DeregisterServiceInput$ === "object");
@@ -481,6 +590,12 @@ assert(typeof GetAccountUsageInput$ === "object");
 assert(typeof GetAccountUsageOutput$ === "object");
 assert(typeof GetAgentSpaceInput$ === "object");
 assert(typeof GetAgentSpaceOutput$ === "object");
+assert(typeof GetAssetContentRequest$ === "object");
+assert(typeof GetAssetContentResponse$ === "object");
+assert(typeof GetAssetFileRequest$ === "object");
+assert(typeof GetAssetFileResponse$ === "object");
+assert(typeof GetAssetRequest$ === "object");
+assert(typeof GetAssetResponse$ === "object");
 assert(typeof GetAssociationInput$ === "object");
 assert(typeof GetAssociationOutput$ === "object");
 assert(typeof GetBacklogTaskRequest$ === "object");
@@ -505,6 +620,14 @@ assert(typeof IdpAuthConfiguration$ === "object");
 assert(typeof JournalRecord$ === "object");
 assert(typeof ListAgentSpacesInput$ === "object");
 assert(typeof ListAgentSpacesOutput$ === "object");
+assert(typeof ListAssetFilesRequest$ === "object");
+assert(typeof ListAssetFilesResponse$ === "object");
+assert(typeof ListAssetsRequest$ === "object");
+assert(typeof ListAssetsResponse$ === "object");
+assert(typeof ListAssetTypesRequest$ === "object");
+assert(typeof ListAssetTypesResponse$ === "object");
+assert(typeof ListAssetVersionsRequest$ === "object");
+assert(typeof ListAssetVersionsResponse$ === "object");
 assert(typeof ListAssociationsInput$ === "object");
 assert(typeof ListAssociationsOutput$ === "object");
 assert(typeof ListBacklogTasksRequest$ === "object");
@@ -611,6 +734,10 @@ assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UntagResourceResponse$ === "object");
 assert(typeof UpdateAgentSpaceInput$ === "object");
 assert(typeof UpdateAgentSpaceOutput$ === "object");
+assert(typeof UpdateAssetFileRequest$ === "object");
+assert(typeof UpdateAssetFileResponse$ === "object");
+assert(typeof UpdateAssetRequest$ === "object");
+assert(typeof UpdateAssetResponse$ === "object");
 assert(typeof UpdateAssociationInput$ === "object");
 assert(typeof UpdateAssociationOutput$ === "object");
 assert(typeof UpdateBacklogTaskRequest$ === "object");
@@ -649,6 +776,7 @@ assert(typeof PrivateConnectionStatus === "object");
 assert(typeof PrivateConnectionType === "object");
 assert(typeof RecommendationPriority === "object");
 assert(typeof RecommendationStatus === "object");
+assert(typeof ResourceConfigDnsResolution === "object");
 assert(typeof SchedulerState === "object");
 assert(typeof Service === "object");
 assert(typeof SourceAccountType === "object");
@@ -683,6 +811,10 @@ assert(typeof ValidationException$ === "object");
 assert(DevOpsAgentServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListAgentSpaces === "function");
+assert(typeof paginateListAssetFiles === "function");
+assert(typeof paginateListAssetTypes === "function");
+assert(typeof paginateListAssetVersions === "function");
+assert(typeof paginateListAssets === "function");
 assert(typeof paginateListAssociations === "function");
 assert(typeof paginateListBacklogTasks === "function");
 assert(typeof paginateListExecutions === "function");

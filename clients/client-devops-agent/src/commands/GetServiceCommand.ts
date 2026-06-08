@@ -120,6 +120,7 @@ export interface GetServiceCommandOutput extends GetServiceOutput, __MetadataBea
  * //         region: "STRING_VALUE", // required
  * //         service: "STRING_VALUE", // required
  * //         roleArn: "STRING_VALUE", // required
+ * //         mcpRoleArn: "STRING_VALUE",
  * //         customHeaders: { // CustomHeaders
  * //           "<keys>": "STRING_VALUE",
  * //         },

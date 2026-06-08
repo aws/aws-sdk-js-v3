@@ -5,8 +5,8 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { DevOpsAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsAgentClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { ListPrivateConnectionsInput, ListPrivateConnectionsOutput } from "../models/models_0";
-import { ListPrivateConnections$ } from "../schemas/schemas_0";
+import type { ListAssetFilesRequest, ListAssetFilesResponse } from "../models/models_0";
+import { ListAssetFiles$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,52 +16,54 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListPrivateConnectionsCommand}.
+ * The input for {@link ListAssetFilesCommand}.
  */
-export interface ListPrivateConnectionsCommandInput extends ListPrivateConnectionsInput {}
+export interface ListAssetFilesCommandInput extends ListAssetFilesRequest {}
 /**
  * @public
  *
- * The output of {@link ListPrivateConnectionsCommand}.
+ * The output of {@link ListAssetFilesCommand}.
  */
-export interface ListPrivateConnectionsCommandOutput extends ListPrivateConnectionsOutput, __MetadataBearer {}
+export interface ListAssetFilesCommandOutput extends ListAssetFilesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all Private Connections in the caller's account.</p>
+ * <p>Lists files in an asset</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DevOpsAgentClient, ListPrivateConnectionsCommand } from "@aws-sdk/client-devops-agent"; // ES Modules import
- * // const { DevOpsAgentClient, ListPrivateConnectionsCommand } = require("@aws-sdk/client-devops-agent"); // CommonJS import
+ * import { DevOpsAgentClient, ListAssetFilesCommand } from "@aws-sdk/client-devops-agent"; // ES Modules import
+ * // const { DevOpsAgentClient, ListAssetFilesCommand } = require("@aws-sdk/client-devops-agent"); // CommonJS import
  * // import type { DevOpsAgentClientConfig } from "@aws-sdk/client-devops-agent";
  * const config = {}; // type is DevOpsAgentClientConfig
  * const client = new DevOpsAgentClient(config);
- * const input = {};
- * const command = new ListPrivateConnectionsCommand(input);
+ * const input = { // ListAssetFilesRequest
+ *   agentSpaceId: "STRING_VALUE", // required
+ *   assetId: "STRING_VALUE", // required
+ *   assetVersion: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
+ * const command = new ListAssetFilesCommand(input);
  * const response = await client.send(command);
- * // { // ListPrivateConnectionsOutput
- * //   privateConnections: [ // PrivateConnectionSummaryList // required
- * //     { // PrivateConnectionSummary
- * //       name: "STRING_VALUE", // required
- * //       type: "SELF_MANAGED" || "SERVICE_MANAGED", // required
- * //       resourceGatewayId: "STRING_VALUE",
- * //       hostAddress: "STRING_VALUE",
- * //       vpcId: "STRING_VALUE",
- * //       resourceConfigurationId: "STRING_VALUE",
- * //       status: "ACTIVE" || "CREATE_IN_PROGRESS" || "CREATE_FAILED" || "DELETE_IN_PROGRESS" || "DELETE_FAILED", // required
- * //       certificateExpiryTime: new Date("TIMESTAMP"),
- * //       dnsResolution: "PUBLIC" || "IN_VPC",
- * //       failureMessage: "STRING_VALUE",
+ * // { // ListAssetFilesResponse
+ * //   items: [ // AssetFileSummaryList // required
+ * //     { // AssetFileSummary
+ * //       path: "STRING_VALUE", // required
+ * //       metadata: "DOCUMENT_VALUE",
+ * //       version: Number("int"), // required
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       updatedAt: new Date("TIMESTAMP"), // required
  * //     },
  * //   ],
+ * //   nextToken: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param ListPrivateConnectionsCommandInput - {@link ListPrivateConnectionsCommandInput}
- * @returns {@link ListPrivateConnectionsCommandOutput}
- * @see {@link ListPrivateConnectionsCommandInput} for command's `input` shape.
- * @see {@link ListPrivateConnectionsCommandOutput} for command's `response` shape.
+ * @param ListAssetFilesCommandInput - {@link ListAssetFilesCommandInput}
+ * @returns {@link ListAssetFilesCommandOutput}
+ * @see {@link ListAssetFilesCommandInput} for command's `input` shape.
+ * @see {@link ListAssetFilesCommandOutput} for command's `response` shape.
  * @see {@link DevOpsAgentClientResolvedConfig | config} for DevOpsAgentClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -69,6 +71,9 @@ export interface ListPrivateConnectionsCommandOutput extends ListPrivateConnecti
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>This exception is thrown when an unexpected error occurs in the processing of a request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource could not be found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was throttled due to too many requests. Please slow down and try again.</p>
@@ -85,9 +90,6 @@ export interface ListPrivateConnectionsCommandOutput extends ListPrivateConnecti
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>One or more parameters provided in the request are invalid.</p>
  *
- * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource could not be found.</p>
- *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>The request would exceed the service quota limit.</p>
  *
@@ -97,10 +99,10 @@ export interface ListPrivateConnectionsCommandOutput extends ListPrivateConnecti
  *
  * @public
  */
-export class ListPrivateConnectionsCommand extends $Command
+export class ListAssetFilesCommand extends $Command
   .classBuilder<
-    ListPrivateConnectionsCommandInput,
-    ListPrivateConnectionsCommandOutput,
+    ListAssetFilesCommandInput,
+    ListAssetFilesCommandOutput,
     DevOpsAgentClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -109,19 +111,19 @@ export class ListPrivateConnectionsCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: DevOpsAgentClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("DevOpsAgent", "ListPrivateConnections", {})
-  .n("DevOpsAgentClient", "ListPrivateConnectionsCommand")
-  .sc(ListPrivateConnections$)
+  .s("DevOpsAgent", "ListAssetFiles", {})
+  .n("DevOpsAgentClient", "ListAssetFilesCommand")
+  .sc(ListAssetFiles$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: {};
-      output: ListPrivateConnectionsOutput;
+      input: ListAssetFilesRequest;
+      output: ListAssetFilesResponse;
     };
     sdk: {
-      input: ListPrivateConnectionsCommandInput;
-      output: ListPrivateConnectionsCommandOutput;
+      input: ListAssetFilesCommandInput;
+      output: ListAssetFilesCommandOutput;
     };
   };
 }

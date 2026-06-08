@@ -5,8 +5,8 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { DevOpsAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsAgentClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { UpdateBacklogTaskRequest, UpdateBacklogTaskResponse } from "../models/models_0";
-import { UpdateBacklogTask$ } from "../schemas/schemas_0";
+import type { UpdateAssetRequest, UpdateAssetResponse } from "../models/models_0";
+import { UpdateAsset$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,68 +16,64 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link UpdateBacklogTaskCommand}.
+ * The input for {@link UpdateAssetCommand}.
  */
-export interface UpdateBacklogTaskCommandInput extends UpdateBacklogTaskRequest {}
+export interface UpdateAssetCommandInput extends UpdateAssetRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateBacklogTaskCommand}.
+ * The output of {@link UpdateAssetCommand}.
  */
-export interface UpdateBacklogTaskCommandOutput extends UpdateBacklogTaskResponse, __MetadataBearer {}
+export interface UpdateAssetCommandOutput extends UpdateAssetResponse, __MetadataBearer {}
 
 /**
- * <p>Update an existing backlog task.</p>
+ * <p>Updates an asset in the specified agent space</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DevOpsAgentClient, UpdateBacklogTaskCommand } from "@aws-sdk/client-devops-agent"; // ES Modules import
- * // const { DevOpsAgentClient, UpdateBacklogTaskCommand } = require("@aws-sdk/client-devops-agent"); // CommonJS import
+ * import { DevOpsAgentClient, UpdateAssetCommand } from "@aws-sdk/client-devops-agent"; // ES Modules import
+ * // const { DevOpsAgentClient, UpdateAssetCommand } = require("@aws-sdk/client-devops-agent"); // CommonJS import
  * // import type { DevOpsAgentClientConfig } from "@aws-sdk/client-devops-agent";
  * const config = {}; // type is DevOpsAgentClientConfig
  * const client = new DevOpsAgentClient(config);
- * const input = { // UpdateBacklogTaskRequest
+ * const input = { // UpdateAssetRequest
  *   agentSpaceId: "STRING_VALUE", // required
- *   taskId: "STRING_VALUE", // required
- *   taskStatus: "PENDING_TRIAGE" || "LINKED" || "PENDING_START" || "IN_PROGRESS" || "PENDING_CUSTOMER_APPROVAL" || "COMPLETED" || "FAILED" || "TIMED_OUT" || "CANCELED" || "SKIPPED",
+ *   assetId: "STRING_VALUE", // required
+ *   metadata: "DOCUMENT_VALUE",
+ *   content: { // AssetContent Union: only one key present
+ *     file: { // AssetFileContent
+ *       path: "STRING_VALUE", // required
+ *       body: { // AssetFileBody Union: only one key present
+ *         bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *         text: "STRING_VALUE",
+ *       },
+ *       metadata: "DOCUMENT_VALUE",
+ *     },
+ *     zip: { // AssetZipContent
+ *       zipFile: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")       // required
+ *     },
+ *   },
  *   clientToken: "STRING_VALUE",
  * };
- * const command = new UpdateBacklogTaskCommand(input);
+ * const command = new UpdateAssetCommand(input);
  * const response = await client.send(command);
- * // { // UpdateBacklogTaskResponse
- * //   task: { // Task
- * //     agentSpaceId: "STRING_VALUE", // required
- * //     taskId: "STRING_VALUE", // required
- * //     executionId: "STRING_VALUE",
- * //     title: "STRING_VALUE", // required
- * //     description: "STRING_VALUE",
- * //     reference: { // ReferenceOutput
- * //       system: "STRING_VALUE", // required
- * //       title: "STRING_VALUE",
- * //       referenceId: "STRING_VALUE", // required
- * //       referenceUrl: "STRING_VALUE", // required
- * //       associationId: "STRING_VALUE", // required
- * //     },
- * //     taskType: "INVESTIGATION" || "EVALUATION", // required
- * //     priority: "CRITICAL" || "HIGH" || "MEDIUM" || "LOW" || "MINIMAL", // required
- * //     status: "PENDING_TRIAGE" || "LINKED" || "PENDING_START" || "IN_PROGRESS" || "PENDING_CUSTOMER_APPROVAL" || "COMPLETED" || "FAILED" || "TIMED_OUT" || "CANCELED" || "SKIPPED", // required
+ * // { // UpdateAssetResponse
+ * //   asset: { // Asset
+ * //     assetId: "STRING_VALUE", // required
+ * //     assetType: "STRING_VALUE", // required
+ * //     metadata: "DOCUMENT_VALUE", // required
+ * //     version: Number("int"), // required
  * //     createdAt: new Date("TIMESTAMP"), // required
  * //     updatedAt: new Date("TIMESTAMP"), // required
- * //     version: Number("int"), // required
- * //     supportMetadata: "DOCUMENT_VALUE",
- * //     metadata: "DOCUMENT_VALUE",
- * //     primaryTaskId: "STRING_VALUE",
- * //     statusReason: "STRING_VALUE",
- * //     hasLinkedTasks: true || false,
  * //   },
  * // };
  *
  * ```
  *
- * @param UpdateBacklogTaskCommandInput - {@link UpdateBacklogTaskCommandInput}
- * @returns {@link UpdateBacklogTaskCommandOutput}
- * @see {@link UpdateBacklogTaskCommandInput} for command's `input` shape.
- * @see {@link UpdateBacklogTaskCommandOutput} for command's `response` shape.
+ * @param UpdateAssetCommandInput - {@link UpdateAssetCommandInput}
+ * @returns {@link UpdateAssetCommandOutput}
+ * @see {@link UpdateAssetCommandInput} for command's `input` shape.
+ * @see {@link UpdateAssetCommandOutput} for command's `response` shape.
  * @see {@link DevOpsAgentClientResolvedConfig | config} for DevOpsAgentClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -113,10 +109,10 @@ export interface UpdateBacklogTaskCommandOutput extends UpdateBacklogTaskRespons
  *
  * @public
  */
-export class UpdateBacklogTaskCommand extends $Command
+export class UpdateAssetCommand extends $Command
   .classBuilder<
-    UpdateBacklogTaskCommandInput,
-    UpdateBacklogTaskCommandOutput,
+    UpdateAssetCommandInput,
+    UpdateAssetCommandOutput,
     DevOpsAgentClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -125,19 +121,19 @@ export class UpdateBacklogTaskCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: DevOpsAgentClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("DevOpsAgent", "UpdateBacklogTask", {})
-  .n("DevOpsAgentClient", "UpdateBacklogTaskCommand")
-  .sc(UpdateBacklogTask$)
+  .s("DevOpsAgent", "UpdateAsset", {})
+  .n("DevOpsAgentClient", "UpdateAssetCommand")
+  .sc(UpdateAsset$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: UpdateBacklogTaskRequest;
-      output: UpdateBacklogTaskResponse;
+      input: UpdateAssetRequest;
+      output: UpdateAssetResponse;
     };
     sdk: {
-      input: UpdateBacklogTaskCommandInput;
-      output: UpdateBacklogTaskCommandOutput;
+      input: UpdateAssetCommandInput;
+      output: UpdateAssetCommandOutput;
     };
   };
 }

@@ -50,6 +50,7 @@ export interface EnableOperatorAppCommandOutput extends EnableOperatorAppOutput,
  * const response = await client.send(command);
  * // { // EnableOperatorAppOutput
  * //   agentSpaceId: "STRING_VALUE", // required
+ * //   operatorAppUrl: "STRING_VALUE",
  * //   iam: { // IamAuthConfiguration
  * //     operatorAppRoleArn: "STRING_VALUE", // required
  * //     createdAt: new Date("TIMESTAMP"), // required
