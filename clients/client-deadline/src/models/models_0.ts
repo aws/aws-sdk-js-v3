@@ -515,6 +515,12 @@ export interface AssociateMemberToFarmRequest {
    * @public
    */
   principalId: string | undefined;
+
+  /**
+   * <p>The Region of the IAM Identity Center instance. If not provided, the service defaults to the Region of the farm.</p>
+   * @public
+   */
+  identityCenterRegion?: string | undefined;
 }
 
 /**
@@ -581,6 +587,12 @@ export interface AssociateMemberToFleetRequest {
    * @public
    */
   principalId: string | undefined;
+
+  /**
+   * <p>The Region of the IAM Identity Center instance. If not provided, the service defaults to the Region of the farm.</p>
+   * @public
+   */
+  identityCenterRegion?: string | undefined;
 }
 
 /**
@@ -635,6 +647,12 @@ export interface AssociateMemberToJobRequest {
    * @public
    */
   principalId: string | undefined;
+
+  /**
+   * <p>The Region of the IAM Identity Center instance. If not provided, the service defaults to the Region of the farm.</p>
+   * @public
+   */
+  identityCenterRegion?: string | undefined;
 }
 
 /**
@@ -683,6 +701,12 @@ export interface AssociateMemberToQueueRequest {
    * @public
    */
   principalId: string | undefined;
+
+  /**
+   * <p>The Region of the IAM Identity Center instance. If not provided, the service defaults to the Region of the farm.</p>
+   * @public
+   */
+  identityCenterRegion?: string | undefined;
 }
 
 /**

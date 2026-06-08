@@ -44,6 +44,7 @@ export interface AssociateMemberToJobCommandOutput extends AssociateMemberToJobR
  *   identityStoreId: "STRING_VALUE", // required
  *   membershipLevel: "VIEWER" || "CONTRIBUTOR" || "OWNER" || "MANAGER", // required
  *   principalId: "STRING_VALUE", // required
+ *   identityCenterRegion: "STRING_VALUE",
  * };
  * const command = new AssociateMemberToJobCommand(input);
  * const response = await client.send(command);

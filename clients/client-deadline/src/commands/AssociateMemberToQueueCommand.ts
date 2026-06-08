@@ -43,6 +43,7 @@ export interface AssociateMemberToQueueCommandOutput extends AssociateMemberToQu
  *   identityStoreId: "STRING_VALUE", // required
  *   membershipLevel: "VIEWER" || "CONTRIBUTOR" || "OWNER" || "MANAGER", // required
  *   principalId: "STRING_VALUE", // required
+ *   identityCenterRegion: "STRING_VALUE",
  * };
  * const command = new AssociateMemberToQueueCommand(input);
  * const response = await client.send(command);

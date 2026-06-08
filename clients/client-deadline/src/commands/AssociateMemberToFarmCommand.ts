@@ -42,6 +42,7 @@ export interface AssociateMemberToFarmCommandOutput extends AssociateMemberToFar
  *   identityStoreId: "STRING_VALUE", // required
  *   membershipLevel: "VIEWER" || "CONTRIBUTOR" || "OWNER" || "MANAGER", // required
  *   principalId: "STRING_VALUE", // required
+ *   identityCenterRegion: "STRING_VALUE",
  * };
  * const command = new AssociateMemberToFarmCommand(input);
  * const response = await client.send(command);

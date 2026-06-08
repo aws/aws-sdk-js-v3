@@ -1145,8 +1145,8 @@ export var AssignedTaskRunSessionActionDefinition$: StaticStructureSchema = [3, 
 ];
 export var AssociateMemberToFarmRequest$: StaticStructureSchema = [3, n0, _AMTFR,
   0,
-  [_fI, _pT, _iSI, _mL, _pI],
-  [[0, 1], 0, 0, 0, [0, 1]], 5
+  [_fI, _pT, _iSI, _mL, _pI, _iCR],
+  [[0, 1], 0, 0, 0, [0, 1], 0], 5
 ];
 export var AssociateMemberToFarmResponse$: StaticStructureSchema = [3, n0, _AMTFRs,
   0,
@@ -1155,8 +1155,8 @@ export var AssociateMemberToFarmResponse$: StaticStructureSchema = [3, n0, _AMTF
 ];
 export var AssociateMemberToFleetRequest$: StaticStructureSchema = [3, n0, _AMTFRss,
   0,
-  [_fI, _fIl, _pT, _iSI, _mL, _pI],
-  [[0, 1], [0, 1], 0, 0, 0, [0, 1]], 6
+  [_fI, _fIl, _pT, _iSI, _mL, _pI, _iCR],
+  [[0, 1], [0, 1], 0, 0, 0, [0, 1], 0], 6
 ];
 export var AssociateMemberToFleetResponse$: StaticStructureSchema = [3, n0, _AMTFRsso,
   0,
@@ -1165,8 +1165,8 @@ export var AssociateMemberToFleetResponse$: StaticStructureSchema = [3, n0, _AMT
 ];
 export var AssociateMemberToJobRequest$: StaticStructureSchema = [3, n0, _AMTJR,
   0,
-  [_fI, _qI, _jI, _pT, _iSI, _mL, _pI],
-  [[0, 1], [0, 1], [0, 1], 0, 0, 0, [0, 1]], 7
+  [_fI, _qI, _jI, _pT, _iSI, _mL, _pI, _iCR],
+  [[0, 1], [0, 1], [0, 1], 0, 0, 0, [0, 1], 0], 7
 ];
 export var AssociateMemberToJobResponse$: StaticStructureSchema = [3, n0, _AMTJRs,
   0,
@@ -1175,8 +1175,8 @@ export var AssociateMemberToJobResponse$: StaticStructureSchema = [3, n0, _AMTJR
 ];
 export var AssociateMemberToQueueRequest$: StaticStructureSchema = [3, n0, _AMTQR,
   0,
-  [_fI, _qI, _pT, _iSI, _mL, _pI],
-  [[0, 1], [0, 1], 0, 0, 0, [0, 1]], 6
+  [_fI, _qI, _pT, _iSI, _mL, _pI, _iCR],
+  [[0, 1], [0, 1], 0, 0, 0, [0, 1], 0], 6
 ];
 export var AssociateMemberToQueueResponse$: StaticStructureSchema = [3, n0, _AMTQRs,
   0,

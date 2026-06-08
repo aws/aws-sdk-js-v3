@@ -531,6 +531,12 @@
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
+        },
+        "identityCenterRegion": {
+          "target": "com.amazonaws.deadline#Region",
+          "traits": {
+            "smithy.api#documentation": "<p>The Region of the IAM Identity Center instance. If not provided, the service defaults to the Region of the farm.</p>"
+          }
         }
       },
       "traits": {
@@ -648,6 +654,12 @@
             "smithy.api#documentation": "<p>The member's principal ID to associate with a fleet.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "identityCenterRegion": {
+          "target": "com.amazonaws.deadline#Region",
+          "traits": {
+            "smithy.api#documentation": "<p>The Region of the IAM Identity Center instance. If not provided, the service defaults to the Region of the farm.</p>"
           }
         }
       },
@@ -775,6 +787,12 @@
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
+        },
+        "identityCenterRegion": {
+          "target": "com.amazonaws.deadline#Region",
+          "traits": {
+            "smithy.api#documentation": "<p>The Region of the IAM Identity Center instance. If not provided, the service defaults to the Region of the farm.</p>"
+          }
         }
       },
       "traits": {
@@ -892,6 +910,12 @@
             "smithy.api#documentation": "<p>The member's principal ID to associate with the queue.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "identityCenterRegion": {
+          "target": "com.amazonaws.deadline#Region",
+          "traits": {
+            "smithy.api#documentation": "<p>The Region of the IAM Identity Center instance. If not provided, the service defaults to the Region of the farm.</p>"
           }
         }
       },
