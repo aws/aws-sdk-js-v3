@@ -32,7 +32,7 @@
     }
   },
   "scripts": {
-    "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
+    "build": "yarn lint && concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "lint": "node ../../scripts/validation/submodules-linter.js --pkg lib-transfer-manager",
     "build:cjs": "node ../../scripts/compilation/inline lib-transfer-manager",
     "build:es": "tsc -p tsconfig.es.json",
