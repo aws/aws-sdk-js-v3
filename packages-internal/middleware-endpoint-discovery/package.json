@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-endpoint-discovery",
-  "version": "3.972.17",
+  "version": "3.972.18",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline",
@@ -30,8 +30,8 @@
     "typescript": "~5.8.3"
   },
   "dependencies": {
-    "@aws-sdk/endpoint-cache": "workspace:^3.972.6",
-    "@aws-sdk/types": "workspace:^3.973.11",
+    "@aws-sdk/endpoint-cache": "workspace:^3.972.7",
+    "@aws-sdk/types": "workspace:^3.973.12",
     "@smithy/core": "^3.24.6",
     "@smithy/types": "^4.14.3",
     "tslib": "^2.6.2"

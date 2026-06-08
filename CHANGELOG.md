@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1064.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1063.0...v3.1064.0) (2026-06-08)
+
+
+### Features
+
+* **client-compute-optimizer:** Adds new Idle Recommendation Resource types in the AWS Compute Optimizer API ([503a9b0](https://github.com/aws/aws-sdk-js-v3/commit/503a9b0aa1ff60b0395ca356605e15eb692df56e))
+* **client-cost-optimization-hub:** Adds new Idle Recommendation types in the Cost Optimization Hub API ([872710e](https://github.com/aws/aws-sdk-js-v3/commit/872710e9a6c5d5ad7fa808fe46748c90e179f4b7))
+* **client-deadline:** Added optional identityCenterRegion parameter to AssociateMember APIs to allow managing memberships for users and groups in other regions. ([5f03ea0](https://github.com/aws/aws-sdk-js-v3/commit/5f03ea0e77154cb43a3f6cce30d32f87f8fb47fb))
+* **client-devops-agent:** Add Asset APIs for managing versioned assets and asset files in AWS DevOps Agent agent spaces. ([bcef961](https://github.com/aws/aws-sdk-js-v3/commit/bcef96141a9661948e0336835e2548ab007827f6))
+* **client-mediapackagev2:** Adds support for DASH Audio Timeline Patternization. This enables your DASH manifests to templatize the repeating patterns that emerge in audio segment timelines. This compacts the total timeline length, utilizing the repeat notation, such that manifests don't grow indefinitely long. ([5aad023](https://github.com/aws/aws-sdk-js-v3/commit/5aad0234fa646eda7b921b07d6b3472f124771a4))
+* **client-mgn:** AWS Transform discovery tool now supported as network migration input source. You can now use the AWS Transform Discovery tool as a source for network migration alongside modelizeIT, enabling hybrid network migrations for environments running both VMware and non-VMware workloads. ([2cff08e](https://github.com/aws/aws-sdk-js-v3/commit/2cff08e654ea5a3b2d9f16800f25e83e596e1b5b))
+* **client-observabilityadmin:** CloudWatch Observability Admin extends CentralizationRuleForOrganization APIs to support metrics, enabling centralization of metrics across accounts and Regions alongside logs. ([823cc1d](https://github.com/aws/aws-sdk-js-v3/commit/823cc1d66014ffe4cc28e11dcea145155f62eff3))
+* **client-omics:** StartRunBatch API - Add EngineSettings ([0df4009](https://github.com/aws/aws-sdk-js-v3/commit/0df4009f5ea4f1a8ecc3197197170e35a20c478b))
+* **client-taxsettings:** Adds support for additional tax information fields for Philippines, Belgium, Chile, France, Poland, and Italy in the Tax Settings API. ([f4ab1b2](https://github.com/aws/aws-sdk-js-v3/commit/f4ab1b2b4f043013675b8135261ea6910a252cb7))
+* **lib-transfer-manager:** add @aws-sdk/lib-transfer-manager as private package ([#8074](https://github.com/aws/aws-sdk-js-v3/issues/8074)) ([3d051b5](https://github.com/aws/aws-sdk-js-v3/commit/3d051b5d26a22924ab36d77eb2f9a361b8136789))
+
+
+
+
+
 # [3.1063.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1062.0...v3.1063.0) (2026-06-05)
 
 

@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/aws-protocoltests-query",
   "description": "@aws-sdk/aws-protocoltests-query client",
-  "version": "3.1063.0",
+  "version": "3.1064.0",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -22,9 +22,9 @@
   "dependencies": {
     "@aws-crypto/sha256-browser": "5.2.0",
     "@aws-crypto/sha256-js": "5.2.0",
-    "@aws-sdk/core": "workspace:^3.974.18",
-    "@aws-sdk/credential-provider-node": "workspace:^3.972.52",
-    "@aws-sdk/types": "workspace:^3.973.11",
+    "@aws-sdk/core": "workspace:^3.974.19",
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.53",
+    "@aws-sdk/types": "workspace:^3.973.12",
     "@smithy/core": "^3.24.6",
     "@smithy/fetch-http-handler": "^5.4.6",
     "@smithy/middleware-compression": "^4.4.6",

@@ -50,6 +50,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.974.19 (2026-06-08)
+### Chores
+* **scripts:** update pkg json linting ([#8082](https://github.com/aws/aws-sdk-js-v3/issues/8082)) ([86792c5](https://github.com/aws/aws-sdk-js-v3/commit/86792c5e3b9c0b697161a5a14ef119153d1c17f5))
+
+
+
 # 3.974.18 (2026-06-05)
 ### Bug Fixes
 * **core/httpAuthSchemes:** fix concurrent skew correction ([#8078](https://github.com/aws/aws-sdk-js-v3/issues/8078)) ([83e4892](https://github.com/aws/aws-sdk-js-v3/commit/83e48928b9f31c78c6c10adc2127d663837ddd2a))

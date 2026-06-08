@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1064.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1063.0...v3.1064.0) (2026-06-08)
+
+
+### Features
+
+* **client-deadline:** Added optional identityCenterRegion parameter to AssociateMember APIs to allow managing memberships for users and groups in other regions. ([5f03ea0](https://github.com/aws/aws-sdk-js-v3/commit/5f03ea0e77154cb43a3f6cce30d32f87f8fb47fb))
+
+
+
+
+
 # [3.1063.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1062.0...v3.1063.0) (2026-06-05)
 
 **Note:** Version bump only for package @aws-sdk/client-deadline

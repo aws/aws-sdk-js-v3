@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1064.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1063.0...v3.1064.0) (2026-06-08)
+
+
+### Features
+
+* **client-taxsettings:** Adds support for additional tax information fields for Philippines, Belgium, Chile, France, Poland, and Italy in the Tax Settings API. ([f4ab1b2](https://github.com/aws/aws-sdk-js-v3/commit/f4ab1b2b4f043013675b8135261ea6910a252cb7))
+
+
+
+
+
 # [3.1063.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1062.0...v3.1063.0) (2026-06-05)
 
 **Note:** Version bump only for package @aws-sdk/client-taxsettings

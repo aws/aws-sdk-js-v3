@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1064.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1063.0...v3.1064.0) (2026-06-08)
+
+
+### Features
+
+* **client-mediapackagev2:** Adds support for DASH Audio Timeline Patternization. This enables your DASH manifests to templatize the repeating patterns that emerge in audio segment timelines. This compacts the total timeline length, utilizing the repeat notation, such that manifests don't grow indefinitely long. ([5aad023](https://github.com/aws/aws-sdk-js-v3/commit/5aad0234fa646eda7b921b07d6b3472f124771a4))
+
+
+
+
+
 # [3.1063.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1062.0...v3.1063.0) (2026-06-05)
 
 **Note:** Version bump only for package @aws-sdk/client-mediapackagev2
