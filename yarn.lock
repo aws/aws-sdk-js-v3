@@ -10792,7 +10792,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/config@workspace:3.1062.0, @aws-sdk/config@workspace:packages/config":
+"@aws-sdk/config@workspace:packages/config":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/config@workspace:packages/config"
   dependencies:
@@ -11212,7 +11212,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/lib-storage@workspace:3.1062.0, @aws-sdk/lib-storage@workspace:lib/lib-storage":
+"@aws-sdk/lib-storage@workspace:lib/lib-storage":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/lib-storage@workspace:lib/lib-storage"
   dependencies:
@@ -11239,9 +11239,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/lib-transfer-manager@workspace:lib/lib-transfer-manager"
   dependencies:
-    "@aws-sdk/client-s3": "workspace:3.1062.0"
-    "@aws-sdk/config": "workspace:3.1062.0"
-    "@aws-sdk/lib-storage": "workspace:3.1062.0"
+    "@aws-sdk/client-s3": "workspace:3.1063.0"
     "@smithy/core": "npm:^3.24.6"
     "@smithy/node-http-handler": "npm:^4.7.6"
     "@smithy/types": "npm:^4.14.3"
@@ -11253,7 +11251,7 @@ __metadata:
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   peerDependencies:
-    "@aws-sdk/client-s3": ^3.0.0
+    "@aws-sdk/client-s3": "workspace:^3.1063.0"
   languageName: unknown
   linkType: soft
 

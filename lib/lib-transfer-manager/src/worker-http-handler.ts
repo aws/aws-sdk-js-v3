@@ -170,20 +170,16 @@ export class WorkerHttpHandler {
    * Returns the worker script file path.
    */
   private resolveWorkerConfig(): { workerPath: string; workerOptions?: { execArgv: string[] } } {
-    const jsPath = path.join(__dirname, "http-request-worker.js");
-    if (existsSync(jsPath)) {
-      return { workerPath: jsPath };
+    // Submodule path (dist-cjs/submodules/worker/index.js).
+    const submodulePath = path.join(__dirname, "submodules", "worker", "index.js");
+    if (existsSync(submodulePath)) {
+      return { workerPath: submodulePath };
     }
-    // Subdirectory path (inlined CJS bundle: __dirname = dist-cjs/).
-    const subDirJsPath = path.join(__dirname, "s3-transfer-manager", "http-request-worker.js");
-    if (existsSync(subDirJsPath)) {
-      return { workerPath: subDirJsPath };
-    }
-    const tsPath = path.join(__dirname, "http-request-worker.ts");
+    const tsPath = path.join(__dirname, "submodules", "worker", "index.ts");
     if (existsSync(tsPath)) {
       return { workerPath: tsPath, workerOptions: { execArgv: ["--require", "tsx/cjs"] } };
     }
-    return { workerPath: jsPath };
+    return { workerPath: submodulePath };
   }
 
   private ensureInitialized(): Promise<void> {

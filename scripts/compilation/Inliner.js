@@ -22,7 +22,6 @@ module.exports = class Inliner {
     this.isPackage = !this.isInternalPackage && fs.existsSync(path.join(root, "packages", pkg));
     this.isLib = fs.existsSync(path.join(root, "lib", pkg));
     this.reExportStubs = false;
-    this.standaloneFiles = [];
     this.subfolder = (() => {
       if (this.isInternalPackage) {
         return "packages-internal";
@@ -49,10 +48,6 @@ module.exports = class Inliner {
      * If the react entrypoint is another file entirely, then bail out of inlining.
      */
     this.bailout = typeof this.pkgJson["react-native"] === "string";
-    /**
-     * Files that must remain as separate output files in dist-cjs and not bundled.
-     */
-    this.standaloneFiles = (this.pkgJson.standaloneFiles || []).map((f) => (f.endsWith(".js") ? f : f + ".js"));
   }
 
   /**
@@ -260,8 +255,7 @@ module.exports = class Inliner {
     });
 
     // Bundle main index.js (no variants externalized for submodule packages).
-    const standaloneExternals = this.standaloneFiles.map((f) => f.replace(/.js$/, ""));
-    const mainExternals = this.hasSubmodules ? [] : [...variantExternalsForRollup, ...standaloneExternals];
+    const mainExternals = this.hasSubmodules ? [] : variantExternalsForRollup;
     const bundle = await rollup.rollup(makeInputOptions(entryPoint, mainExternals));
     await bundle.write(outputOptions(path.dirname(this.outfile)));
     await bundle.close();
@@ -360,13 +354,6 @@ module.exports = class Inliner {
       if (this.variantExternals.find((external) => relativePath.endsWith(external))) {
         if (this.verbose) {
           console.log("Not rewriting.", relativePath, "is variant.");
-        }
-        continue;
-      }
-
-      if (this.standaloneFiles.find((standalone) => relativePath === standalone)) {
-        if (this.verbose) {
-          console.log("Not rewriting.", relativePath, "is standalone file.");
         }
         continue;
       }

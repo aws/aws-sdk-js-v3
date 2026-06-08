@@ -12,14 +12,74 @@ import { Agent as httpsAgent } from "node:https";
 import { parentPort } from "node:worker_threads";
 import { crc32 } from "node:zlib";
 
-import type {
-  HttpWorkerConfigMessage,
-  HttpWorkerErrorMessage,
-  HttpWorkerInboundMessage,
-  HttpWorkerReadyMessage,
-  HttpWorkerRequestMessage,
-  HttpWorkerResponseMessage,
-} from "./worker-http-handler";
+/**
+ * Types duplicated from worker-http-handler to avoid cross-submodule imports.
+ * @internal
+ */
+interface WorkerHttpRequest {
+  method: string;
+  protocol: string;
+  hostname: string;
+  port?: number;
+  path: string;
+  query?: Record<string, string | string[]>;
+  headers: Record<string, string>;
+  body?: Uint8Array;
+}
+
+interface BaseHttpWorkerRequestMessage {
+  id: number;
+  request: WorkerHttpRequest;
+}
+
+interface HttpWorkerFileRequestMessage extends BaseHttpWorkerRequestMessage {
+  type: "httpRequestFromFile";
+  filePath: string;
+  offset: number;
+  length: number;
+  checksumAlgorithm?: string;
+  checksumHeader?: string;
+}
+
+interface HttpWorkerRAMRequestMessage extends BaseHttpWorkerRequestMessage {
+  type: "httpRequestFromRAM";
+  sharedBuffer: SharedArrayBuffer;
+  offset: number;
+  length: number;
+  checksumAlgorithm?: string;
+  checksumHeader?: string;
+}
+
+type HttpWorkerRequestMessage = HttpWorkerFileRequestMessage | HttpWorkerRAMRequestMessage;
+
+interface HttpWorkerConfigMessage {
+  type: "config";
+  maxSockets: number;
+}
+
+interface HttpWorkerDoneMessage {
+  type: "done";
+}
+
+type HttpWorkerInboundMessage = HttpWorkerRequestMessage | HttpWorkerConfigMessage | HttpWorkerDoneMessage;
+
+interface HttpWorkerResponseMessage {
+  type: "httpResponse";
+  id: number;
+  response: { statusCode: number; headers: Record<string, string>; body?: Uint8Array };
+}
+
+interface HttpWorkerErrorMessage {
+  type: "httpError";
+  id: number;
+  error: string;
+  code?: string;
+  name?: string;
+}
+
+interface HttpWorkerReadyMessage {
+  type: "ready";
+}
 
 function toBase64(n: number): string {
   const buf = Buffer.allocUnsafe(4);
@@ -72,12 +132,10 @@ if (parentPort) {
         const fileData = await readFileSlice(msg.filePath, msg.offset, msg.length);
 
         if (msg.checksumAlgorithm && msg.checksumHeader) {
-          // Compute checksum and wrap in aws-chunked framing with trailing checksum.
           const crcValue = crc32(fileData);
           const checksumValue = toBase64(crcValue);
           body = buildAwsChunkedBody(fileData, msg.checksumHeader, checksumValue);
         } else {
-          // No checksum requested — send raw data.
           body = fileData;
         }
       }

@@ -20,13 +20,13 @@ import {
   S3Client,
   UploadPartCommand,
 } from "@aws-sdk/client-s3";
-import { type Logger, LogLevel } from "@aws-sdk/config/logger";
-import type { RawDataPart } from "@aws-sdk/lib-storage";
-import { byteLength, getChunk } from "@aws-sdk/lib-storage";
+import type { Logger } from "@smithy/types";
 import { type StreamingBlobPayloadOutputTypes } from "@smithy/types";
 
+import { type RawDataPart, byteLength, getChunk } from "./chunker";
 import type { AddEventListenerOptions, EventListener, RemoveEventListenerOptions } from "./event-listener-types";
 import { joinStreams } from "./join-streams";
+import { LogLevel } from "./log-level";
 import type {
   DownloadRequest,
   DownloadResponse,

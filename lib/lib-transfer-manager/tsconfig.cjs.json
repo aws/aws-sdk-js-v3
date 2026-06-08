@@ -1,11 +1,22 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "lib": ["es5", "es2015.collection", "dom"],
+    "lib": [
+      "es5",
+      "es2015.collection",
+      "dom"
+    ],
     "outDir": "dist-cjs",
     "rootDir": "src",
-    "noCheck": true
+    "noCheck": true,
+    "paths": {
+      "@aws-sdk/lib-transfer-manager/worker": [
+        "./src/submodules/worker/index.ts"
+      ]
+    }
   },
   "extends": "../../tsconfig.cjs.json",
-  "include": ["src/"]
+  "include": [
+    "src/"
+  ]
 }
