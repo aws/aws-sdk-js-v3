@@ -14,8 +14,10 @@ import {
   CostOptimizationHubClient,
   CostOptimizationHubServiceException,
   DbInstanceConfiguration$,
+  DocumentDbCluster$,
   DynamoDbReservedCapacity$,
   DynamoDbReservedCapacityConfiguration$,
+  DynamoDbTable$,
   EbsVolume$,
   EbsVolumeConfiguration$,
   Ec2AutoScalingGroup$,
@@ -30,6 +32,7 @@ import {
   EcsService$,
   EcsServiceConfiguration$,
   EfficiencyMetricsByGroup$,
+  ElastiCacheCluster$,
   ElastiCacheReservedInstances$,
   ElastiCacheReservedInstancesConfiguration$,
   EnrollmentStatus,
@@ -67,6 +70,7 @@ import {
   ListRecommendationSummariesRequest$,
   ListRecommendationSummariesResponse$,
   MemberAccountDiscountVisibility,
+  MemoryDbCluster$,
   MemoryDbReservedInstances$,
   MemoryDbReservedInstancesConfiguration$,
   MetricsByTime$,
@@ -101,6 +105,7 @@ import {
   ResourceNotFoundException$,
   ResourcePricing$,
   ResourceType,
+  SageMakerEndpoint$,
   SageMakerSavingsPlans$,
   SageMakerSavingsPlansConfiguration$,
   SavingsEstimationMode,
@@ -128,6 +133,7 @@ import {
   ValidationException$,
   ValidationExceptionDetail$,
   ValidationExceptionReason,
+  WorkSpaces$,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
@@ -159,8 +165,10 @@ assert(typeof ComputeConfiguration$ === "object");
 assert(typeof ComputeSavingsPlans$ === "object");
 assert(typeof ComputeSavingsPlansConfiguration$ === "object");
 assert(typeof DbInstanceConfiguration$ === "object");
+assert(typeof DocumentDbCluster$ === "object");
 assert(typeof DynamoDbReservedCapacity$ === "object");
 assert(typeof DynamoDbReservedCapacityConfiguration$ === "object");
+assert(typeof DynamoDbTable$ === "object");
 assert(typeof EbsVolume$ === "object");
 assert(typeof EbsVolumeConfiguration$ === "object");
 assert(typeof Ec2AutoScalingGroup$ === "object");
@@ -174,6 +182,7 @@ assert(typeof Ec2ReservedInstancesConfiguration$ === "object");
 assert(typeof EcsService$ === "object");
 assert(typeof EcsServiceConfiguration$ === "object");
 assert(typeof EfficiencyMetricsByGroup$ === "object");
+assert(typeof ElastiCacheCluster$ === "object");
 assert(typeof ElastiCacheReservedInstances$ === "object");
 assert(typeof ElastiCacheReservedInstancesConfiguration$ === "object");
 assert(typeof EstimatedDiscounts$ === "object");
@@ -193,6 +202,7 @@ assert(typeof ListRecommendationsRequest$ === "object");
 assert(typeof ListRecommendationsResponse$ === "object");
 assert(typeof ListRecommendationSummariesRequest$ === "object");
 assert(typeof ListRecommendationSummariesResponse$ === "object");
+assert(typeof MemoryDbCluster$ === "object");
 assert(typeof MemoryDbReservedInstances$ === "object");
 assert(typeof MemoryDbReservedInstancesConfiguration$ === "object");
 assert(typeof MetricsByTime$ === "object");
@@ -218,6 +228,7 @@ assert(typeof ReservedInstancesPricing$ === "object");
 assert(typeof ResourceCostCalculation$ === "object");
 assert(typeof ResourceDetails$ === "object");
 assert(typeof ResourcePricing$ === "object");
+assert(typeof SageMakerEndpoint$ === "object");
 assert(typeof SageMakerSavingsPlans$ === "object");
 assert(typeof SageMakerSavingsPlansConfiguration$ === "object");
 assert(typeof SavingsPlansCostCalculation$ === "object");
@@ -232,6 +243,7 @@ assert(typeof UpdatePreferencesRequest$ === "object");
 assert(typeof UpdatePreferencesResponse$ === "object");
 assert(typeof Usage$ === "object");
 assert(typeof ValidationExceptionDetail$ === "object");
+assert(typeof WorkSpaces$ === "object");
 // enums
 assert(typeof ActionType === "object");
 assert(typeof AllocationStrategy === "object");

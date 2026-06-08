@@ -398,6 +398,18 @@ export interface GetRecommendationRequest {
 }
 
 /**
+ * <p>The Amazon DocumentDB cluster recommendation details.</p>
+ * @public
+ */
+export interface DocumentDbCluster {
+  /**
+   * <p>Cost impact of the resource recommendation.</p>
+   * @public
+   */
+  costCalculation?: ResourceCostCalculation | undefined;
+}
+
+/**
  * <p>The DynamoDB reserved capacity configuration used for recommendations.</p>
  * @public
  */
@@ -515,6 +527,18 @@ export interface DynamoDbReservedCapacity {
    * @public
    */
   costCalculation?: ReservedInstancesCostCalculation | undefined;
+}
+
+/**
+ * <p>The DynamoDB table recommendation details.</p>
+ * @public
+ */
+export interface DynamoDbTable {
+  /**
+   * <p>Cost impact of the resource recommendation.</p>
+   * @public
+   */
+  costCalculation?: ResourceCostCalculation | undefined;
 }
 
 /**
@@ -890,6 +914,18 @@ export interface EcsService {
 }
 
 /**
+ * <p>The ElastiCache cluster recommendation details.</p>
+ * @public
+ */
+export interface ElastiCacheCluster {
+  /**
+   * <p>Cost impact of the resource recommendation.</p>
+   * @public
+   */
+  costCalculation?: ResourceCostCalculation | undefined;
+}
+
+/**
  * <p>The ElastiCache reserved instances configuration used for recommendations.</p>
  * @public
  */
@@ -1016,6 +1052,18 @@ export interface LambdaFunction {
 
   /**
    * <p>Cost impact of the recommendation.</p>
+   * @public
+   */
+  costCalculation?: ResourceCostCalculation | undefined;
+}
+
+/**
+ * <p>The MemoryDB cluster recommendation details.</p>
+ * @public
+ */
+export interface MemoryDbCluster {
+  /**
+   * <p>Cost impact of the resource recommendation.</p>
    * @public
    */
   costCalculation?: ResourceCostCalculation | undefined;
@@ -1580,6 +1628,18 @@ export interface RedshiftReservedInstances {
 }
 
 /**
+ * <p>The SageMaker endpoint recommendation details.</p>
+ * @public
+ */
+export interface SageMakerEndpoint {
+  /**
+   * <p>Cost impact of the resource recommendation.</p>
+   * @public
+   */
+  costCalculation?: ResourceCostCalculation | undefined;
+}
+
+/**
  * <p>The SageMaker Savings Plans configuration used for recommendations.</p>
  * @public
  */
@@ -1628,21 +1688,37 @@ export interface SageMakerSavingsPlans {
 }
 
 /**
+ * <p>The WorkSpaces recommendation details.</p>
+ * @public
+ */
+export interface WorkSpaces {
+  /**
+   * <p>Cost impact of the resource recommendation.</p>
+   * @public
+   */
+  costCalculation?: ResourceCostCalculation | undefined;
+}
+
+/**
  * <p>Contains detailed information about the specified resource.</p>
  * @public
  */
 export type ResourceDetails =
   | ResourceDetails.AuroraDbClusterStorageMember
   | ResourceDetails.ComputeSavingsPlansMember
+  | ResourceDetails.DocumentDbClusterMember
   | ResourceDetails.DynamoDbReservedCapacityMember
+  | ResourceDetails.DynamoDbTableMember
   | ResourceDetails.EbsVolumeMember
   | ResourceDetails.Ec2AutoScalingGroupMember
   | ResourceDetails.Ec2InstanceMember
   | ResourceDetails.Ec2InstanceSavingsPlansMember
   | ResourceDetails.Ec2ReservedInstancesMember
   | ResourceDetails.EcsServiceMember
+  | ResourceDetails.ElastiCacheClusterMember
   | ResourceDetails.ElastiCacheReservedInstancesMember
   | ResourceDetails.LambdaFunctionMember
+  | ResourceDetails.MemoryDbClusterMember
   | ResourceDetails.MemoryDbReservedInstancesMember
   | ResourceDetails.NatGatewayMember
   | ResourceDetails.OpenSearchReservedInstancesMember
@@ -1650,7 +1726,9 @@ export type ResourceDetails =
   | ResourceDetails.RdsDbInstanceStorageMember
   | ResourceDetails.RdsReservedInstancesMember
   | ResourceDetails.RedshiftReservedInstancesMember
+  | ResourceDetails.SageMakerEndpointMember
   | ResourceDetails.SageMakerSavingsPlansMember
+  | ResourceDetails.WorkSpacesMember
   | ResourceDetails.$UnknownMember;
 
 /**
@@ -1681,6 +1759,12 @@ export namespace ResourceDetails {
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
     natGateway?: never;
+    dynamoDbTable?: never;
+    elastiCacheCluster?: never;
+    memoryDbCluster?: never;
+    documentDbCluster?: never;
+    workSpaces?: never;
+    sageMakerEndpoint?: never;
     $unknown?: never;
   }
 
@@ -1708,6 +1792,12 @@ export namespace ResourceDetails {
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
     natGateway?: never;
+    dynamoDbTable?: never;
+    elastiCacheCluster?: never;
+    memoryDbCluster?: never;
+    documentDbCluster?: never;
+    workSpaces?: never;
+    sageMakerEndpoint?: never;
     $unknown?: never;
   }
 
@@ -1735,6 +1825,12 @@ export namespace ResourceDetails {
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
     natGateway?: never;
+    dynamoDbTable?: never;
+    elastiCacheCluster?: never;
+    memoryDbCluster?: never;
+    documentDbCluster?: never;
+    workSpaces?: never;
+    sageMakerEndpoint?: never;
     $unknown?: never;
   }
 
@@ -1762,6 +1858,12 @@ export namespace ResourceDetails {
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
     natGateway?: never;
+    dynamoDbTable?: never;
+    elastiCacheCluster?: never;
+    memoryDbCluster?: never;
+    documentDbCluster?: never;
+    workSpaces?: never;
+    sageMakerEndpoint?: never;
     $unknown?: never;
   }
 
@@ -1789,6 +1891,12 @@ export namespace ResourceDetails {
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
     natGateway?: never;
+    dynamoDbTable?: never;
+    elastiCacheCluster?: never;
+    memoryDbCluster?: never;
+    documentDbCluster?: never;
+    workSpaces?: never;
+    sageMakerEndpoint?: never;
     $unknown?: never;
   }
 
@@ -1816,6 +1924,12 @@ export namespace ResourceDetails {
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
     natGateway?: never;
+    dynamoDbTable?: never;
+    elastiCacheCluster?: never;
+    memoryDbCluster?: never;
+    documentDbCluster?: never;
+    workSpaces?: never;
+    sageMakerEndpoint?: never;
     $unknown?: never;
   }
 
@@ -1843,6 +1957,12 @@ export namespace ResourceDetails {
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
     natGateway?: never;
+    dynamoDbTable?: never;
+    elastiCacheCluster?: never;
+    memoryDbCluster?: never;
+    documentDbCluster?: never;
+    workSpaces?: never;
+    sageMakerEndpoint?: never;
     $unknown?: never;
   }
 
@@ -1870,6 +1990,12 @@ export namespace ResourceDetails {
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
     natGateway?: never;
+    dynamoDbTable?: never;
+    elastiCacheCluster?: never;
+    memoryDbCluster?: never;
+    documentDbCluster?: never;
+    workSpaces?: never;
+    sageMakerEndpoint?: never;
     $unknown?: never;
   }
 
@@ -1897,6 +2023,12 @@ export namespace ResourceDetails {
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
     natGateway?: never;
+    dynamoDbTable?: never;
+    elastiCacheCluster?: never;
+    memoryDbCluster?: never;
+    documentDbCluster?: never;
+    workSpaces?: never;
+    sageMakerEndpoint?: never;
     $unknown?: never;
   }
 
@@ -1924,6 +2056,12 @@ export namespace ResourceDetails {
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
     natGateway?: never;
+    dynamoDbTable?: never;
+    elastiCacheCluster?: never;
+    memoryDbCluster?: never;
+    documentDbCluster?: never;
+    workSpaces?: never;
+    sageMakerEndpoint?: never;
     $unknown?: never;
   }
 
@@ -1951,6 +2089,12 @@ export namespace ResourceDetails {
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
     natGateway?: never;
+    dynamoDbTable?: never;
+    elastiCacheCluster?: never;
+    memoryDbCluster?: never;
+    documentDbCluster?: never;
+    workSpaces?: never;
+    sageMakerEndpoint?: never;
     $unknown?: never;
   }
 
@@ -1978,6 +2122,12 @@ export namespace ResourceDetails {
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
     natGateway?: never;
+    dynamoDbTable?: never;
+    elastiCacheCluster?: never;
+    memoryDbCluster?: never;
+    documentDbCluster?: never;
+    workSpaces?: never;
+    sageMakerEndpoint?: never;
     $unknown?: never;
   }
 
@@ -2005,6 +2155,12 @@ export namespace ResourceDetails {
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
     natGateway?: never;
+    dynamoDbTable?: never;
+    elastiCacheCluster?: never;
+    memoryDbCluster?: never;
+    documentDbCluster?: never;
+    workSpaces?: never;
+    sageMakerEndpoint?: never;
     $unknown?: never;
   }
 
@@ -2032,6 +2188,12 @@ export namespace ResourceDetails {
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
     natGateway?: never;
+    dynamoDbTable?: never;
+    elastiCacheCluster?: never;
+    memoryDbCluster?: never;
+    documentDbCluster?: never;
+    workSpaces?: never;
+    sageMakerEndpoint?: never;
     $unknown?: never;
   }
 
@@ -2059,6 +2221,12 @@ export namespace ResourceDetails {
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
     natGateway?: never;
+    dynamoDbTable?: never;
+    elastiCacheCluster?: never;
+    memoryDbCluster?: never;
+    documentDbCluster?: never;
+    workSpaces?: never;
+    sageMakerEndpoint?: never;
     $unknown?: never;
   }
 
@@ -2086,6 +2254,12 @@ export namespace ResourceDetails {
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
     natGateway?: never;
+    dynamoDbTable?: never;
+    elastiCacheCluster?: never;
+    memoryDbCluster?: never;
+    documentDbCluster?: never;
+    workSpaces?: never;
+    sageMakerEndpoint?: never;
     $unknown?: never;
   }
 
@@ -2113,6 +2287,12 @@ export namespace ResourceDetails {
     dynamoDbReservedCapacity: DynamoDbReservedCapacity;
     memoryDbReservedInstances?: never;
     natGateway?: never;
+    dynamoDbTable?: never;
+    elastiCacheCluster?: never;
+    memoryDbCluster?: never;
+    documentDbCluster?: never;
+    workSpaces?: never;
+    sageMakerEndpoint?: never;
     $unknown?: never;
   }
 
@@ -2140,6 +2320,12 @@ export namespace ResourceDetails {
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances: MemoryDbReservedInstances;
     natGateway?: never;
+    dynamoDbTable?: never;
+    elastiCacheCluster?: never;
+    memoryDbCluster?: never;
+    documentDbCluster?: never;
+    workSpaces?: never;
+    sageMakerEndpoint?: never;
     $unknown?: never;
   }
 
@@ -2167,6 +2353,210 @@ export namespace ResourceDetails {
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
     natGateway: NatGateway;
+    dynamoDbTable?: never;
+    elastiCacheCluster?: never;
+    memoryDbCluster?: never;
+    documentDbCluster?: never;
+    workSpaces?: never;
+    sageMakerEndpoint?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The DynamoDB table recommendation details.</p>
+   * @public
+   */
+  export interface DynamoDbTableMember {
+    lambdaFunction?: never;
+    ecsService?: never;
+    ec2Instance?: never;
+    ebsVolume?: never;
+    ec2AutoScalingGroup?: never;
+    ec2ReservedInstances?: never;
+    rdsReservedInstances?: never;
+    elastiCacheReservedInstances?: never;
+    openSearchReservedInstances?: never;
+    redshiftReservedInstances?: never;
+    ec2InstanceSavingsPlans?: never;
+    computeSavingsPlans?: never;
+    sageMakerSavingsPlans?: never;
+    rdsDbInstance?: never;
+    rdsDbInstanceStorage?: never;
+    auroraDbClusterStorage?: never;
+    dynamoDbReservedCapacity?: never;
+    memoryDbReservedInstances?: never;
+    natGateway?: never;
+    dynamoDbTable: DynamoDbTable;
+    elastiCacheCluster?: never;
+    memoryDbCluster?: never;
+    documentDbCluster?: never;
+    workSpaces?: never;
+    sageMakerEndpoint?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The ElastiCache cluster recommendation details.</p>
+   * @public
+   */
+  export interface ElastiCacheClusterMember {
+    lambdaFunction?: never;
+    ecsService?: never;
+    ec2Instance?: never;
+    ebsVolume?: never;
+    ec2AutoScalingGroup?: never;
+    ec2ReservedInstances?: never;
+    rdsReservedInstances?: never;
+    elastiCacheReservedInstances?: never;
+    openSearchReservedInstances?: never;
+    redshiftReservedInstances?: never;
+    ec2InstanceSavingsPlans?: never;
+    computeSavingsPlans?: never;
+    sageMakerSavingsPlans?: never;
+    rdsDbInstance?: never;
+    rdsDbInstanceStorage?: never;
+    auroraDbClusterStorage?: never;
+    dynamoDbReservedCapacity?: never;
+    memoryDbReservedInstances?: never;
+    natGateway?: never;
+    dynamoDbTable?: never;
+    elastiCacheCluster: ElastiCacheCluster;
+    memoryDbCluster?: never;
+    documentDbCluster?: never;
+    workSpaces?: never;
+    sageMakerEndpoint?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The MemoryDB cluster recommendation details.</p>
+   * @public
+   */
+  export interface MemoryDbClusterMember {
+    lambdaFunction?: never;
+    ecsService?: never;
+    ec2Instance?: never;
+    ebsVolume?: never;
+    ec2AutoScalingGroup?: never;
+    ec2ReservedInstances?: never;
+    rdsReservedInstances?: never;
+    elastiCacheReservedInstances?: never;
+    openSearchReservedInstances?: never;
+    redshiftReservedInstances?: never;
+    ec2InstanceSavingsPlans?: never;
+    computeSavingsPlans?: never;
+    sageMakerSavingsPlans?: never;
+    rdsDbInstance?: never;
+    rdsDbInstanceStorage?: never;
+    auroraDbClusterStorage?: never;
+    dynamoDbReservedCapacity?: never;
+    memoryDbReservedInstances?: never;
+    natGateway?: never;
+    dynamoDbTable?: never;
+    elastiCacheCluster?: never;
+    memoryDbCluster: MemoryDbCluster;
+    documentDbCluster?: never;
+    workSpaces?: never;
+    sageMakerEndpoint?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The Amazon DocumentDB cluster recommendation details.</p>
+   * @public
+   */
+  export interface DocumentDbClusterMember {
+    lambdaFunction?: never;
+    ecsService?: never;
+    ec2Instance?: never;
+    ebsVolume?: never;
+    ec2AutoScalingGroup?: never;
+    ec2ReservedInstances?: never;
+    rdsReservedInstances?: never;
+    elastiCacheReservedInstances?: never;
+    openSearchReservedInstances?: never;
+    redshiftReservedInstances?: never;
+    ec2InstanceSavingsPlans?: never;
+    computeSavingsPlans?: never;
+    sageMakerSavingsPlans?: never;
+    rdsDbInstance?: never;
+    rdsDbInstanceStorage?: never;
+    auroraDbClusterStorage?: never;
+    dynamoDbReservedCapacity?: never;
+    memoryDbReservedInstances?: never;
+    natGateway?: never;
+    dynamoDbTable?: never;
+    elastiCacheCluster?: never;
+    memoryDbCluster?: never;
+    documentDbCluster: DocumentDbCluster;
+    workSpaces?: never;
+    sageMakerEndpoint?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The WorkSpaces recommendation details.</p>
+   * @public
+   */
+  export interface WorkSpacesMember {
+    lambdaFunction?: never;
+    ecsService?: never;
+    ec2Instance?: never;
+    ebsVolume?: never;
+    ec2AutoScalingGroup?: never;
+    ec2ReservedInstances?: never;
+    rdsReservedInstances?: never;
+    elastiCacheReservedInstances?: never;
+    openSearchReservedInstances?: never;
+    redshiftReservedInstances?: never;
+    ec2InstanceSavingsPlans?: never;
+    computeSavingsPlans?: never;
+    sageMakerSavingsPlans?: never;
+    rdsDbInstance?: never;
+    rdsDbInstanceStorage?: never;
+    auroraDbClusterStorage?: never;
+    dynamoDbReservedCapacity?: never;
+    memoryDbReservedInstances?: never;
+    natGateway?: never;
+    dynamoDbTable?: never;
+    elastiCacheCluster?: never;
+    memoryDbCluster?: never;
+    documentDbCluster?: never;
+    workSpaces: WorkSpaces;
+    sageMakerEndpoint?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The SageMaker endpoint recommendation details.</p>
+   * @public
+   */
+  export interface SageMakerEndpointMember {
+    lambdaFunction?: never;
+    ecsService?: never;
+    ec2Instance?: never;
+    ebsVolume?: never;
+    ec2AutoScalingGroup?: never;
+    ec2ReservedInstances?: never;
+    rdsReservedInstances?: never;
+    elastiCacheReservedInstances?: never;
+    openSearchReservedInstances?: never;
+    redshiftReservedInstances?: never;
+    ec2InstanceSavingsPlans?: never;
+    computeSavingsPlans?: never;
+    sageMakerSavingsPlans?: never;
+    rdsDbInstance?: never;
+    rdsDbInstanceStorage?: never;
+    auroraDbClusterStorage?: never;
+    dynamoDbReservedCapacity?: never;
+    memoryDbReservedInstances?: never;
+    natGateway?: never;
+    dynamoDbTable?: never;
+    elastiCacheCluster?: never;
+    memoryDbCluster?: never;
+    documentDbCluster?: never;
+    workSpaces?: never;
+    sageMakerEndpoint: SageMakerEndpoint;
     $unknown?: never;
   }
 
@@ -2193,6 +2583,12 @@ export namespace ResourceDetails {
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
     natGateway?: never;
+    dynamoDbTable?: never;
+    elastiCacheCluster?: never;
+    memoryDbCluster?: never;
+    documentDbCluster?: never;
+    workSpaces?: never;
+    sageMakerEndpoint?: never;
     $unknown: [string, any];
   }
 
@@ -2220,6 +2616,12 @@ export namespace ResourceDetails {
     dynamoDbReservedCapacity: (value: DynamoDbReservedCapacity) => T;
     memoryDbReservedInstances: (value: MemoryDbReservedInstances) => T;
     natGateway: (value: NatGateway) => T;
+    dynamoDbTable: (value: DynamoDbTable) => T;
+    elastiCacheCluster: (value: ElastiCacheCluster) => T;
+    memoryDbCluster: (value: MemoryDbCluster) => T;
+    documentDbCluster: (value: DocumentDbCluster) => T;
+    workSpaces: (value: WorkSpaces) => T;
+    sageMakerEndpoint: (value: SageMakerEndpoint) => T;
     _: (name: string, value: any) => T;
   }
 }

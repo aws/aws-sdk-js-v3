@@ -7,11 +7,14 @@ const _BSPC = "BlockStoragePerformanceConfiguration";
 const _CC = "ComputeConfiguration";
 const _CSP = "ComputeSavingsPlans";
 const _CSPC = "ComputeSavingsPlansConfiguration";
+const _DDC = "DocumentDbCluster";
 const _DDRC = "DynamoDbReservedCapacity";
 const _DDRCC = "DynamoDbReservedCapacityConfiguration";
+const _DDT = "DynamoDbTable";
 const _DIC = "DbInstanceConfiguration";
 const _EASG = "Ec2AutoScalingGroup";
 const _EASGC = "Ec2AutoScalingGroupConfiguration";
+const _ECC = "ElastiCacheCluster";
 const _ECRI = "ElastiCacheReservedInstances";
 const _ECRIC = "ElastiCacheReservedInstancesConfiguration";
 const _ED = "EstimatedDiscounts";
@@ -52,6 +55,7 @@ const _LRSR = "ListRecommendationSummariesRequest";
 const _LRSRi = "ListRecommendationSummariesResponse";
 const _MBT = "MetricsByTime";
 const _MBTL = "MetricsByTimeList";
+const _MDC = "MemoryDbCluster";
 const _MDRI = "MemoryDbReservedInstances";
 const _MDRIC = "MemoryDbReservedInstancesConfiguration";
 const _MIC = "MixedInstanceConfiguration";
@@ -81,6 +85,7 @@ const _RRIe = "RedshiftReservedInstances";
 const _RS = "RecommendationSummary";
 const _RSL = "RecommendationSummariesList";
 const _SC = "StorageConfiguration";
+const _SME = "SageMakerEndpoint";
 const _SMR = "SummaryMetricsResult";
 const _SMSP = "SageMakerSavingsPlans";
 const _SMSPC = "SageMakerSavingsPlansConfiguration";
@@ -101,6 +106,7 @@ const _UPRp = "UpdatePreferencesResponse";
 const _VE = "ValidationException";
 const _VED = "ValidationExceptionDetail";
 const _VEDa = "ValidationExceptionDetails";
+const _WS = "WorkSpaces";
 const _a = "architecture";
 const _aCC = "activeConnectionCount";
 const _aDCS = "auroraDbClusterStorage";
@@ -126,7 +132,9 @@ const _cU = "capacityUnits";
 const _co = "configuration";
 const _com = "compute";
 const _d = "dimension";
+const _dDC = "documentDbCluster";
 const _dDRC = "dynamoDbReservedCapacity";
+const _dDT = "dynamoDbTable";
 const _dE = "databaseEdition";
 const _dEa = "databaseEngine";
 const _dIC = "dbInstanceClass";
@@ -135,6 +143,7 @@ const _e = "error";
 const _eASG = "ec2AutoScalingGroup";
 const _eCAD = "estimatedCostAfterDiscounts";
 const _eCBD = "estimatedCostBeforeDiscounts";
+const _eCC = "elastiCacheCluster";
 const _eCRI = "elastiCacheReservedInstances";
 const _eD = "estimatedDiscounts";
 const _eI = "ec2Instance";
@@ -179,6 +188,7 @@ const _lUT = "lastUpdatedTimestamp";
 const _m = "message";
 const _mADV = "memberAccountDiscountVisibility";
 const _mBT = "metricsByTime";
+const _mDC = "memoryDbCluster";
 const _mDRI = "memoryDbReservedInstances";
 const _mI = "mixedInstances";
 const _mR = "maxResults";
@@ -233,6 +243,7 @@ const _s = "smithy.ts.sdk.synthetic.com.amazonaws.costoptimizationhub";
 const _sEM = "savingsEstimationMode";
 const _sFE = "sizeFlexEligible";
 const _sIG = "sizeInGb";
+const _sME = "sageMakerEndpoint";
 const _sMSP = "sageMakerSavingsPlans";
 const _sP = "savingsPercentage";
 const _sPD = "savingsPlansDiscount";
@@ -262,6 +273,7 @@ const _uT = "usageType";
 const _un = "unit";
 const _v = "value";
 const _vC = "vCpu";
+const _wS = "workSpaces";
 const n0 = "com.amazonaws.costoptimizationhub";
 
 // smithy-typescript generated code
@@ -367,6 +379,11 @@ export var DbInstanceConfiguration$: StaticStructureSchema = [3, n0, _DIC,
   [_dIC],
   [0]
 ];
+export var DocumentDbCluster$: StaticStructureSchema = [3, n0, _DDC,
+  0,
+  [_cC],
+  [() => ResourceCostCalculation$]
+];
 export var DynamoDbReservedCapacity$: StaticStructureSchema = [3, n0, _DDRC,
   0,
   [_co, _cC],
@@ -376,6 +393,11 @@ export var DynamoDbReservedCapacityConfiguration$: StaticStructureSchema = [3, n
   0,
   [_aS, _ser, _te, _pO, _rIR, _uC, _mRC, _nOCUTP, _cU],
   [0, 0, 0, 0, 0, 0, 0, 0, 0]
+];
+export var DynamoDbTable$: StaticStructureSchema = [3, n0, _DDT,
+  0,
+  [_cC],
+  [() => ResourceCostCalculation$]
 ];
 export var EbsVolume$: StaticStructureSchema = [3, n0, _EV,
   0,
@@ -441,6 +463,11 @@ export var EfficiencyMetricsByGroup$: StaticStructureSchema = [3, n0, _EMBG,
   0,
   [_mBT, _g, _m],
   [() => MetricsByTimeList, 0, 0]
+];
+export var ElastiCacheCluster$: StaticStructureSchema = [3, n0, _ECC,
+  0,
+  [_cC],
+  [() => ResourceCostCalculation$]
 ];
 export var ElastiCacheReservedInstances$: StaticStructureSchema = [3, n0, _ECRI,
   0,
@@ -536,6 +563,11 @@ export var ListRecommendationSummariesResponse$: StaticStructureSchema = [3, n0,
   0,
   [_eTDS, _it, _gB, _cCu, _me, _nT],
   [1, () => RecommendationSummariesList, 0, 0, () => SummaryMetricsResult$, 0]
+];
+export var MemoryDbCluster$: StaticStructureSchema = [3, n0, _MDC,
+  0,
+  [_cC],
+  [() => ResourceCostCalculation$]
 ];
 export var MemoryDbReservedInstances$: StaticStructureSchema = [3, n0, _MDRI,
   0,
@@ -657,6 +689,11 @@ export var ResourcePricing$: StaticStructureSchema = [3, n0, _RP,
   [_eCBD, _eNUAC, _eD, _eCAD],
   [1, 1, () => EstimatedDiscounts$, 1]
 ];
+export var SageMakerEndpoint$: StaticStructureSchema = [3, n0, _SME,
+  0,
+  [_cC],
+  [() => ResourceCostCalculation$]
+];
 export var SageMakerSavingsPlans$: StaticStructureSchema = [3, n0, _SMSP,
   0,
   [_co, _cC],
@@ -727,6 +764,11 @@ export var ValidationExceptionDetail$: StaticStructureSchema = [3, n0, _VED,
   [_fN, _m],
   [0, 0], 2
 ];
+export var WorkSpaces$: StaticStructureSchema = [3, n0, _WS,
+  0,
+  [_cC],
+  [() => ResourceCostCalculation$]
+];
 var AccountEnrollmentStatuses: StaticListSchema = [1, n0, _AESc,
   0, () => AccountEnrollmentStatus$
 ];
@@ -765,8 +807,8 @@ var ValidationExceptionDetails: StaticListSchema = [1, n0, _VEDa,
 ];
 export var ResourceDetails$: StaticUnionSchema = [4, n0, _RD,
   0,
-  [_lF, _eS, _eI, _eV, _eASG, _eRI, _rRI, _eCRI, _oSRI, _rRIe, _eISP, _cSP, _sMSP, _rDI, _rDIS, _aDCS, _dDRC, _mDRI, _nG],
-  [() => LambdaFunction$, () => EcsService$, () => Ec2Instance$, () => EbsVolume$, () => Ec2AutoScalingGroup$, () => Ec2ReservedInstances$, () => RdsReservedInstances$, () => ElastiCacheReservedInstances$, () => OpenSearchReservedInstances$, () => RedshiftReservedInstances$, () => Ec2InstanceSavingsPlans$, () => ComputeSavingsPlans$, () => SageMakerSavingsPlans$, () => RdsDbInstance$, () => RdsDbInstanceStorage$, () => AuroraDbClusterStorage$, () => DynamoDbReservedCapacity$, () => MemoryDbReservedInstances$, () => NatGateway$]
+  [_lF, _eS, _eI, _eV, _eASG, _eRI, _rRI, _eCRI, _oSRI, _rRIe, _eISP, _cSP, _sMSP, _rDI, _rDIS, _aDCS, _dDRC, _mDRI, _nG, _dDT, _eCC, _mDC, _dDC, _wS, _sME],
+  [() => LambdaFunction$, () => EcsService$, () => Ec2Instance$, () => EbsVolume$, () => Ec2AutoScalingGroup$, () => Ec2ReservedInstances$, () => RdsReservedInstances$, () => ElastiCacheReservedInstances$, () => OpenSearchReservedInstances$, () => RedshiftReservedInstances$, () => Ec2InstanceSavingsPlans$, () => ComputeSavingsPlans$, () => SageMakerSavingsPlans$, () => RdsDbInstance$, () => RdsDbInstanceStorage$, () => AuroraDbClusterStorage$, () => DynamoDbReservedCapacity$, () => MemoryDbReservedInstances$, () => NatGateway$, () => DynamoDbTable$, () => ElastiCacheCluster$, () => MemoryDbCluster$, () => DocumentDbCluster$, () => WorkSpaces$, () => SageMakerEndpoint$]
 ];
 export var GetPreferences$: StaticOperationSchema = [9, n0, _GP,
   0, () => GetPreferencesRequest$, () => GetPreferencesResponse$

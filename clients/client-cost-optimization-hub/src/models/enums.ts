@@ -131,15 +131,19 @@ export type Ec2AutoScalingGroupType = (typeof Ec2AutoScalingGroupType)[keyof typ
 export const ResourceType = {
   AURORA_DB_CLUSTER_STORAGE: "AuroraDbClusterStorage",
   COMPUTE_SAVINGS_PLANS: "ComputeSavingsPlans",
+  DOCUMENT_DB_CLUSTER: "DocumentDBCluster",
   DYNAMO_DB_RESERVED_CAPACITY: "DynamoDbReservedCapacity",
+  DYNAMO_DB_TABLE: "DynamoDBTable",
   EBS_VOLUME: "EbsVolume",
   EC2_AUTO_SCALING_GROUP: "Ec2AutoScalingGroup",
   EC2_INSTANCE: "Ec2Instance",
   EC2_INSTANCE_SAVINGS_PLANS: "Ec2InstanceSavingsPlans",
   EC2_RESERVED_INSTANCES: "Ec2ReservedInstances",
   ECS_SERVICE: "EcsService",
+  ELASTI_CACHE_CLUSTER: "ElastiCacheCluster",
   ELASTI_CACHE_RESERVED_INSTANCES: "ElastiCacheReservedInstances",
   LAMBDA_FUNCTION: "LambdaFunction",
+  MEMORY_DB_CLUSTER: "MemoryDBCluster",
   MEMORY_DB_RESERVED_INSTANCES: "MemoryDbReservedInstances",
   NAT_GATEWAY: "NatGateway",
   OPEN_SEARCH_RESERVED_INSTANCES: "OpenSearchReservedInstances",
@@ -147,7 +151,9 @@ export const ResourceType = {
   RDS_DB_INSTANCE_STORAGE: "RdsDbInstanceStorage",
   RDS_RESERVED_INSTANCES: "RdsReservedInstances",
   REDSHIFT_RESERVED_INSTANCES: "RedshiftReservedInstances",
+  SAGE_MAKER_ENDPOINT: "SageMakerEndpoint",
   SAGE_MAKER_SAVINGS_PLANS: "SageMakerSavingsPlans",
+  WORK_SPACES: "WorkSpaces",
 } as const;
 /**
  * @public

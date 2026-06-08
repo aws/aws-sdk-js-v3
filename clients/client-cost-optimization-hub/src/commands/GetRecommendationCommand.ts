@@ -55,8 +55,8 @@ export interface GetRecommendationCommandOutput extends GetRecommendationRespons
  * //   costCalculationLookbackPeriodInDays: Number("int"),
  * //   estimatedSavingsPercentage: Number("double"),
  * //   estimatedSavingsOverCostCalculationLookbackPeriod: Number("double"),
- * //   currentResourceType: "Ec2Instance" || "LambdaFunction" || "EbsVolume" || "EcsService" || "Ec2AutoScalingGroup" || "Ec2InstanceSavingsPlans" || "ComputeSavingsPlans" || "SageMakerSavingsPlans" || "Ec2ReservedInstances" || "RdsReservedInstances" || "OpenSearchReservedInstances" || "RedshiftReservedInstances" || "ElastiCacheReservedInstances" || "RdsDbInstanceStorage" || "RdsDbInstance" || "AuroraDbClusterStorage" || "DynamoDbReservedCapacity" || "MemoryDbReservedInstances" || "NatGateway",
- * //   recommendedResourceType: "Ec2Instance" || "LambdaFunction" || "EbsVolume" || "EcsService" || "Ec2AutoScalingGroup" || "Ec2InstanceSavingsPlans" || "ComputeSavingsPlans" || "SageMakerSavingsPlans" || "Ec2ReservedInstances" || "RdsReservedInstances" || "OpenSearchReservedInstances" || "RedshiftReservedInstances" || "ElastiCacheReservedInstances" || "RdsDbInstanceStorage" || "RdsDbInstance" || "AuroraDbClusterStorage" || "DynamoDbReservedCapacity" || "MemoryDbReservedInstances" || "NatGateway",
+ * //   currentResourceType: "Ec2Instance" || "LambdaFunction" || "EbsVolume" || "EcsService" || "Ec2AutoScalingGroup" || "Ec2InstanceSavingsPlans" || "ComputeSavingsPlans" || "SageMakerSavingsPlans" || "Ec2ReservedInstances" || "RdsReservedInstances" || "OpenSearchReservedInstances" || "RedshiftReservedInstances" || "ElastiCacheReservedInstances" || "RdsDbInstanceStorage" || "RdsDbInstance" || "AuroraDbClusterStorage" || "DynamoDbReservedCapacity" || "MemoryDbReservedInstances" || "NatGateway" || "DynamoDBTable" || "ElastiCacheCluster" || "MemoryDBCluster" || "DocumentDBCluster" || "WorkSpaces" || "SageMakerEndpoint",
+ * //   recommendedResourceType: "Ec2Instance" || "LambdaFunction" || "EbsVolume" || "EcsService" || "Ec2AutoScalingGroup" || "Ec2InstanceSavingsPlans" || "ComputeSavingsPlans" || "SageMakerSavingsPlans" || "Ec2ReservedInstances" || "RdsReservedInstances" || "OpenSearchReservedInstances" || "RedshiftReservedInstances" || "ElastiCacheReservedInstances" || "RdsDbInstanceStorage" || "RdsDbInstance" || "AuroraDbClusterStorage" || "DynamoDbReservedCapacity" || "MemoryDbReservedInstances" || "NatGateway" || "DynamoDBTable" || "ElastiCacheCluster" || "MemoryDBCluster" || "DocumentDBCluster" || "WorkSpaces" || "SageMakerEndpoint",
  * //   region: "STRING_VALUE",
  * //   source: "ComputeOptimizer" || "CostExplorer",
  * //   lastRefreshTimestamp: new Date("TIMESTAMP"),
@@ -470,6 +470,24 @@ export interface GetRecommendationCommandOutput extends GetRecommendationRespons
  * //       },
  * //       costCalculation: "<ResourceCostCalculation>",
  * //     },
+ * //     dynamoDbTable: { // DynamoDbTable
+ * //       costCalculation: "<ResourceCostCalculation>",
+ * //     },
+ * //     elastiCacheCluster: { // ElastiCacheCluster
+ * //       costCalculation: "<ResourceCostCalculation>",
+ * //     },
+ * //     memoryDbCluster: { // MemoryDbCluster
+ * //       costCalculation: "<ResourceCostCalculation>",
+ * //     },
+ * //     documentDbCluster: { // DocumentDbCluster
+ * //       costCalculation: "<ResourceCostCalculation>",
+ * //     },
+ * //     workSpaces: { // WorkSpaces
+ * //       costCalculation: "<ResourceCostCalculation>",
+ * //     },
+ * //     sageMakerEndpoint: { // SageMakerEndpoint
+ * //       costCalculation: "<ResourceCostCalculation>",
+ * //     },
  * //   },
  * //   recommendedResourceDetails: {//  Union: only one key present
  * //     lambdaFunction: {
@@ -731,6 +749,24 @@ export interface GetRecommendationCommandOutput extends GetRecommendationRespons
  * //         packetsInFromSource: Number("long"),
  * //         packetsInFromDestination: Number("long"),
  * //       },
+ * //       costCalculation: "<ResourceCostCalculation>",
+ * //     },
+ * //     dynamoDbTable: {
+ * //       costCalculation: "<ResourceCostCalculation>",
+ * //     },
+ * //     elastiCacheCluster: {
+ * //       costCalculation: "<ResourceCostCalculation>",
+ * //     },
+ * //     memoryDbCluster: {
+ * //       costCalculation: "<ResourceCostCalculation>",
+ * //     },
+ * //     documentDbCluster: {
+ * //       costCalculation: "<ResourceCostCalculation>",
+ * //     },
+ * //     workSpaces: {
+ * //       costCalculation: "<ResourceCostCalculation>",
+ * //     },
+ * //     sageMakerEndpoint: {
  * //       costCalculation: "<ResourceCostCalculation>",
  * //     },
  * //   },
