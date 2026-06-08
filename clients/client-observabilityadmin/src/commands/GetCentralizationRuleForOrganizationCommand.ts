@@ -68,6 +68,9 @@ export interface GetCentralizationRuleForOrganizationCommandOutput extends GetCe
  * //         DataSourceSelectionCriteria: "STRING_VALUE",
  * //         EncryptedLogGroupStrategy: "ALLOW" || "SKIP", // required
  * //       },
+ * //       SourceMetricsConfiguration: { // SourceMetricsConfiguration
+ * //         MetricsSelectionCriteria: "STRING_VALUE",
+ * //       },
  * //     },
  * //     Destination: { // CentralizationRuleDestination
  * //       Region: "STRING_VALUE", // required
@@ -84,6 +87,11 @@ export interface GetCentralizationRuleForOrganizationCommandOutput extends GetCe
  * //         },
  * //         LogGroupNameConfiguration: { // LogGroupNameConfiguration
  * //           LogGroupNamePattern: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //       DestinationMetricsConfiguration: { // DestinationMetricsConfiguration
+ * //         BackupConfiguration: { // MetricsBackupConfiguration
+ * //           Region: "STRING_VALUE", // required
  * //         },
  * //       },
  * //     },

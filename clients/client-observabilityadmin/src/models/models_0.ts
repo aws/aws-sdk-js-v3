@@ -182,6 +182,30 @@ export interface DestinationLogsConfiguration {
 }
 
 /**
+ * <p>Configuration for backing up centralized metrics data to a secondary region.</p>
+ * @public
+ */
+export interface MetricsBackupConfiguration {
+  /**
+   * <p>Metrics specific backup destination region within the primary destination account to which metrics data should be centralized.</p>
+   * @public
+   */
+  Region: string | undefined;
+}
+
+/**
+ * <p>Configuration for centralization destination metrics, including backup settings.</p>
+ * @public
+ */
+export interface DestinationMetricsConfiguration {
+  /**
+   * <p>Configuration defining the backup region for the metrics backup destination.</p>
+   * @public
+   */
+  BackupConfiguration?: MetricsBackupConfiguration | undefined;
+}
+
+/**
  * <p>Configuration specifying the primary destination for centralized telemetry data.</p>
  * @public
  */
@@ -203,6 +227,12 @@ export interface CentralizationRuleDestination {
    * @public
    */
   DestinationLogsConfiguration?: DestinationLogsConfiguration | undefined;
+
+  /**
+   * <p>Metric specific configuration for centralization destination metrics.</p>
+   * @public
+   */
+  DestinationMetricsConfiguration?: DestinationMetricsConfiguration | undefined;
 }
 
 /**
@@ -230,6 +260,18 @@ export interface SourceLogsConfiguration {
 }
 
 /**
+ * <p>Configuration for selecting source metrics for centralization.</p>
+ * @public
+ */
+export interface SourceMetricsConfiguration {
+  /**
+   * <p>The filter expression that selects which source metrics to centralize. Currently, only <code>*</code> (all metrics) is supported. Other values return a validation error.</p>
+   * @public
+   */
+  MetricsSelectionCriteria?: string | undefined;
+}
+
+/**
  * <p>Configuration specifying the source of telemetry data to be centralized.</p>
  * @public
  */
@@ -251,6 +293,12 @@ export interface CentralizationRuleSource {
    * @public
    */
   SourceLogsConfiguration?: SourceLogsConfiguration | undefined;
+
+  /**
+   * <p>Metric specific configuration for centralization source metrics.</p>
+   * @public
+   */
+  SourceMetricsConfiguration?: SourceMetricsConfiguration | undefined;
 }
 
 /**

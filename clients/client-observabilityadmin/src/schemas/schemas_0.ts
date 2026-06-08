@@ -50,6 +50,7 @@ const _DC = "DestinationConfiguration";
 const _DCRFO = "DeleteCentralizationRuleForOrganization";
 const _DCRFOI = "DeleteCentralizationRuleForOrganizationInput";
 const _DLC = "DestinationLogsConfiguration";
+const _DMC = "DestinationMetricsConfiguration";
 const _DP = "DestinationPattern";
 const _DR = "DestinationRegion";
 const _DS = "DataSources";
@@ -153,8 +154,10 @@ const _LTo = "LogType";
 const _LUTS = "LastUpdateTimeStamp";
 const _M = "Message";
 const _MAI = "MaxAggregationInterval";
+const _MBC = "MetricsBackupConfiguration";
 const _MMP = "MskMonitoringParameters";
 const _MR = "MaxResults";
+const _MSC = "MetricsSelectionCriteria";
 const _Me = "Method";
 const _N = "Name";
 const _NE = "NotEquals";
@@ -206,6 +209,7 @@ const _SC = "ServiceCode";
 const _SCe = "SelectionCriteria";
 const _SH = "SingleHeader";
 const _SLC = "SourceLogsConfiguration";
+const _SMC = "SourceMetricsConfiguration";
 const _SOUI = "SourceOrganizationUnitIds";
 const _SQEE = "ServiceQuotaExceededException";
 const _SR = "StatusReason";
@@ -390,13 +394,13 @@ export var CentralizationRule$: StaticStructureSchema = [3, n0, _CR,
 ];
 export var CentralizationRuleDestination$: StaticStructureSchema = [3, n0, _CRD,
   0,
-  [_R, _Ac, _DLC],
-  [0, 0, () => DestinationLogsConfiguration$], 1
+  [_R, _Ac, _DLC, _DMC],
+  [0, 0, () => DestinationLogsConfiguration$, () => DestinationMetricsConfiguration$], 1
 ];
 export var CentralizationRuleSource$: StaticStructureSchema = [3, n0, _CRS,
   0,
-  [_Re, _Sc, _SLC],
-  [64 | 0, 0, () => SourceLogsConfiguration$], 1
+  [_Re, _Sc, _SLC, _SMC],
+  [64 | 0, 0, () => SourceLogsConfiguration$, () => SourceMetricsConfiguration$], 1
 ];
 export var CentralizationRuleSummary$: StaticStructureSchema = [3, n0, _CRSe,
   0,
@@ -507,6 +511,11 @@ export var DestinationLogsConfiguration$: StaticStructureSchema = [3, n0, _DLC,
   0,
   [_LEC, _BC, _LGNC],
   [() => LogsEncryptionConfiguration$, () => LogsBackupConfiguration$, () => LogGroupNameConfiguration$]
+];
+export var DestinationMetricsConfiguration$: StaticStructureSchema = [3, n0, _DMC,
+  0,
+  [_BC],
+  [() => MetricsBackupConfiguration$]
 ];
 export var ELBLoadBalancerLoggingParameters$: StaticStructureSchema = [3, n0, _ELBLBLP,
   0,
@@ -708,6 +717,11 @@ export var LogsEncryptionConfiguration$: StaticStructureSchema = [3, n0, _LEC,
   [_ES, _KKA, _ECRS],
   [0, 0, 0], 1
 ];
+export var MetricsBackupConfiguration$: StaticStructureSchema = [3, n0, _MBC,
+  0,
+  [_R],
+  [0], 1
+];
 export var MskMonitoringParameters$: StaticStructureSchema = [3, n0, _MMP,
   0,
   [_EM],
@@ -747,6 +761,11 @@ export var SourceLogsConfiguration$: StaticStructureSchema = [3, n0, _SLC,
   0,
   [_ELGS, _LGSC, _DSSC],
   [0, 0, 0], 1
+];
+export var SourceMetricsConfiguration$: StaticStructureSchema = [3, n0, _SMC,
+  0,
+  [_MSC],
+  [0]
 ];
 export var StartTelemetryEnrichmentOutput$: StaticStructureSchema = [3, n0, _STEO,
   0,

@@ -54,6 +54,7 @@ import {
   DeleteTelemetryRuleForOrganizationInput$,
   DeleteTelemetryRuleInput$,
   DestinationLogsConfiguration$,
+  DestinationMetricsConfiguration$,
   DestinationType,
   ELBLoadBalancerLoggingParameters$,
   EncryptedLogGroupStrategy,
@@ -138,6 +139,7 @@ import {
   LogsBackupConfiguration$,
   LogsEncryptionConfiguration$,
   LogType,
+  MetricsBackupConfiguration$,
   MskEnhancedMonitoringLevel,
   MskMonitoringParameters$,
   ObservabilityAdmin,
@@ -164,6 +166,7 @@ import {
   SingleHeader$,
   Source$,
   SourceLogsConfiguration$,
+  SourceMetricsConfiguration$,
   SSEAlgorithm,
   StartTelemetryEnrichment$,
   StartTelemetryEnrichmentCommand,
@@ -348,6 +351,7 @@ assert(typeof DeleteTelemetryPipelineOutput$ === "object");
 assert(typeof DeleteTelemetryRuleForOrganizationInput$ === "object");
 assert(typeof DeleteTelemetryRuleInput$ === "object");
 assert(typeof DestinationLogsConfiguration$ === "object");
+assert(typeof DestinationMetricsConfiguration$ === "object");
 assert(typeof ELBLoadBalancerLoggingParameters$ === "object");
 assert(typeof Encryption$ === "object");
 assert(typeof FieldToMatch$ === "object");
@@ -388,6 +392,7 @@ assert(typeof LoggingFilter$ === "object");
 assert(typeof LogGroupNameConfiguration$ === "object");
 assert(typeof LogsBackupConfiguration$ === "object");
 assert(typeof LogsEncryptionConfiguration$ === "object");
+assert(typeof MetricsBackupConfiguration$ === "object");
 assert(typeof MskMonitoringParameters$ === "object");
 assert(typeof PipelineOutput$ === "object");
 assert(typeof PipelineOutputError$ === "object");
@@ -396,6 +401,7 @@ assert(typeof RegionStatus$ === "object");
 assert(typeof SingleHeader$ === "object");
 assert(typeof Source$ === "object");
 assert(typeof SourceLogsConfiguration$ === "object");
+assert(typeof SourceMetricsConfiguration$ === "object");
 assert(typeof StartTelemetryEnrichmentOutput$ === "object");
 assert(typeof StartTelemetryEvaluationForOrganizationInput$ === "object");
 assert(typeof StartTelemetryEvaluationInput$ === "object");

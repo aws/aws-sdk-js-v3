@@ -56,6 +56,9 @@ export interface CreateCentralizationRuleForOrganizationCommandOutput extends Cr
  *         DataSourceSelectionCriteria: "STRING_VALUE",
  *         EncryptedLogGroupStrategy: "ALLOW" || "SKIP", // required
  *       },
+ *       SourceMetricsConfiguration: { // SourceMetricsConfiguration
+ *         MetricsSelectionCriteria: "STRING_VALUE",
+ *       },
  *     },
  *     Destination: { // CentralizationRuleDestination
  *       Region: "STRING_VALUE", // required
@@ -72,6 +75,11 @@ export interface CreateCentralizationRuleForOrganizationCommandOutput extends Cr
  *         },
  *         LogGroupNameConfiguration: { // LogGroupNameConfiguration
  *           LogGroupNamePattern: "STRING_VALUE", // required
+ *         },
+ *       },
+ *       DestinationMetricsConfiguration: { // DestinationMetricsConfiguration
+ *         BackupConfiguration: { // MetricsBackupConfiguration
+ *           Region: "STRING_VALUE", // required
  *         },
  *       },
  *     },
