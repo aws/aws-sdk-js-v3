@@ -4,6 +4,7 @@ const { copySync, removeSync } = require("fs-extra");
 const prettier = require("prettier");
 const semver = require("semver");
 const { readdirSync, lstatSync, readFileSync, existsSync, writeFileSync } = require("node:fs");
+const { sortScripts } = require("../utils/sort-scripts");
 
 const getOverwritableDirectories = (subDirectories, packageName) => {
   const additionalOverwritablePaths = {
@@ -70,6 +71,8 @@ const mergeManifest = async (fromContent = {}, toContent = {}, parentKey = "root
         // build CJS after types and ES because of rollup inliner.
         fromContent[name]["build"] = `concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs`;
         fromContent[name]["build:include:deps"] = `yarn g:turbo run build -F="$npm_package_name"`;
+        fromContent[name]["clean"] =
+          "premove dist-cjs dist-es dist-types tsconfig.cjs.tsbuildinfo tsconfig.es.tsbuildinfo tsconfig.types.tsbuildinfo";
 
         for (const [k, v] of Object.entries(fromContent[name])) {
           if (k === "test" || k.startsWith("test:")) {
@@ -88,7 +91,8 @@ const mergeManifest = async (fromContent = {}, toContent = {}, parentKey = "root
 
       if (name === "scripts" || name === "dependencies" || name === "devDependencies") {
         // Sort by keys to make sure the order is stable
-        merged[name] = Object.fromEntries(Object.entries(merged[name]).sort());
+        const sorter = name === "scripts" ? sortScripts : (a, b) => (a < b ? -1 : a > b ? 1 : 0);
+        merged[name] = Object.fromEntries(Object.entries(merged[name]).sort(([a], [b]) => sorter(a, b)));
       }
     } else if (name.indexOf("@aws-sdk/") === 0) {
       // If it's internal dependency, use current version in the repo if not
@@ -200,7 +204,7 @@ const copyToClients = async (sourceDir, destinationDir, solo) => {
           mergedManifest.scripts[
             "generate:client"
           ] = `node ../../scripts/generate-clients/single-service --solo ${serviceName}`;
-          mergedManifest.scripts["build:cjs"] = `node ../../scripts/compilation/inline client-${serviceName}`;
+          mergedManifest.scripts["build:cjs"] = `node ../../scripts/compilation/inline`;
         }
 
         writeFileSync(destSubPath, prettier.format(JSON.stringify(mergedManifest), { parser: "json-stringify" }));

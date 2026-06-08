@@ -7,13 +7,13 @@
   "types": "./dist-types/index.d.ts",
   "scripts": {
     "build": "yarn lint && concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
-    "build:cjs": "node ../../scripts/compilation/inline nested-clients",
+    "build:cjs": "node ../../scripts/compilation/inline",
     "build:es": "tsc -p tsconfig.es.json",
     "build:include:deps": "yarn g:turbo run build -F=\"$npm_package_name\"",
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "premove dist-cjs dist-es dist-types tsconfig.cjs.tsbuildinfo tsconfig.es.tsbuildinfo tsconfig.types.tsbuildinfo",
-    "lint": "node ../../scripts/validation/submodules-linter.js --pkg nested-clients",
+    "lint": "node ../../scripts/validation/submodules-linter.js",
     "test": "yarn g:vitest run",
     "test:watch": "yarn g:vitest watch"
   },

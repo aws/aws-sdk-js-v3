@@ -16,7 +16,7 @@
   },
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
-    "build:cjs": "node ../../scripts/compilation/inline credential-providers",
+    "build:cjs": "node ../../scripts/compilation/inline",
     "build:es": "tsc -p tsconfig.es.json",
     "build:include:deps": "yarn g:turbo run build -F=\"$npm_package_name\"",
     "build:types": "tsc -p tsconfig.types.json",

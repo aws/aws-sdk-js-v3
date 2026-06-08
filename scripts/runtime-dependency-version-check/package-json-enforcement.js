@@ -1,6 +1,6 @@
-const { error } = require("node:console");
 const fs = require("node:fs");
 const path = require("node:path");
+const { sortScripts } = require("../utils/sort-scripts");
 
 /**
  * This enforcement is not here to prevent adoption of newer
@@ -27,13 +27,10 @@ module.exports = function (pkgJsonFilePath, overwrite = false) {
   const errors = [];
 
   const pkgJson = require(pkgJsonFilePath);
-  const submoduleCarriers = [
-    "@aws-sdk/core",
-    "@aws-sdk/config",
-    "@aws-sdk/nested-clients",
-    "@aws-sdk/middleware-sdk-s3",
-  ];
-  if (!submoduleCarriers.includes(pkgJson.name)) {
+  const pkgDirRoot = path.dirname(pkgJsonFilePath);
+  const isSubmoduleCarrier = fs.existsSync(path.join(pkgDirRoot, "src", "submodules")) && "exports" in pkgJson;
+
+  if (!isSubmoduleCarrier) {
     if ("exports" in pkgJson) {
       errors.push(`${pkgJson.name} must not have an 'exports' field.`);
       if (overwrite) {
@@ -68,31 +65,27 @@ module.exports = function (pkgJsonFilePath, overwrite = false) {
 
   // For submodule carriers, ensure browser and react-native fields exist as objects
   // so that variant enforcement can populate them.
-  if (submoduleCarriers.includes(pkgJson.name)) {
-    const pkgDirCheck = path.dirname(pkgJsonFilePath);
-    const submodulesDirCheck = path.join(pkgDirCheck, "src", "submodules");
-    if (fs.existsSync(submodulesDirCheck)) {
-      const hasAnyVariant = fs.readdirSync(submodulesDirCheck).some((sub) => {
-        const subPath = path.join(submodulesDirCheck, sub);
-        return (
-          fs.lstatSync(subPath).isDirectory() &&
-          (fs.existsSync(path.join(subPath, "index.browser.ts")) ||
-            fs.existsSync(path.join(subPath, "index.native.ts")))
-        );
-      });
-      if (hasAnyVariant) {
-        if (typeof pkgJson.browser !== "object") {
-          if (overwrite) {
-            pkgJson.browser = {};
-          }
-          errors.push(`${pkgJson.name} browser field should be an object (has submodule variants)`);
+  if (isSubmoduleCarrier) {
+    const submodulesDirCheck = path.join(pkgDirRoot, "src", "submodules");
+    const hasAnyVariant = fs.readdirSync(submodulesDirCheck).some((sub) => {
+      const subPath = path.join(submodulesDirCheck, sub);
+      return (
+        fs.lstatSync(subPath).isDirectory() &&
+        (fs.existsSync(path.join(subPath, "index.browser.ts")) || fs.existsSync(path.join(subPath, "index.native.ts")))
+      );
+    });
+    if (hasAnyVariant) {
+      if (typeof pkgJson.browser !== "object") {
+        if (overwrite) {
+          pkgJson.browser = {};
         }
-        if (typeof pkgJson["react-native"] !== "object") {
-          if (overwrite) {
-            pkgJson["react-native"] = {};
-          }
-          errors.push(`${pkgJson.name} react-native field should be an object (has submodule variants)`);
+        errors.push(`${pkgJson.name} browser field should be an object (has submodule variants)`);
+      }
+      if (typeof pkgJson["react-native"] !== "object") {
+        if (overwrite) {
+          pkgJson["react-native"] = {};
         }
+        errors.push(`${pkgJson.name} react-native field should be an object (has submodule variants)`);
       }
     }
   }
@@ -384,6 +377,89 @@ module.exports = function (pkgJsonFilePath, overwrite = false) {
             `${pkgJson.name} ${field}["${canonical}"] -> "${variant}" has no corresponding source file (expected ${variantSrcFile})`
           );
         }
+      }
+    }
+  }
+
+  // Enforce lint script and build integration for submodule carriers.
+  if (isSubmoduleCarrier) {
+    const relScripts = path.relative(pkgDirRoot, path.join(__dirname, "..", "validation"));
+    const expectedLint = `node ${relScripts}/submodules-linter.js`;
+
+    if (!pkgJson.scripts?.lint || !pkgJson.scripts.lint.includes("submodules-linter")) {
+      errors.push(`${pkgJson.name} must have a "lint" script that calls the submodules-linter`);
+      if (overwrite) {
+        pkgJson.scripts = pkgJson.scripts || {};
+        pkgJson.scripts.lint = expectedLint;
+      }
+    }
+
+    if (!pkgJson.scripts?.build || !pkgJson.scripts.build.includes("yarn lint")) {
+      errors.push(`${pkgJson.name} build script must include "yarn lint"`);
+      if (overwrite && pkgJson.scripts?.build) {
+        pkgJson.scripts.build = `yarn lint && ${pkgJson.scripts.build}`;
+      }
+    }
+  }
+
+  // Enforce clean script.
+  const expectedClean =
+    "premove dist-cjs dist-es dist-types tsconfig.cjs.tsbuildinfo tsconfig.es.tsbuildinfo tsconfig.types.tsbuildinfo";
+  if (pkgJson.scripts?.clean !== expectedClean) {
+    errors.push(`${pkgJson.name} scripts["clean"] must be "${expectedClean}"`);
+    if (overwrite) {
+      pkgJson.scripts = pkgJson.scripts || {};
+      pkgJson.scripts.clean = expectedClean;
+    }
+  }
+
+  // Ensure :watch variants exist for vitest-based test scripts.
+  if (pkgJson.scripts) {
+    const watchPairs = [
+      ["test", "test:watch"],
+      ["test:integration", "test:integration:watch"],
+      ["test:e2e", "test:e2e:watch"],
+    ];
+    for (const [base, watch] of watchPairs) {
+      const cmd = pkgJson.scripts[base];
+      if (cmd && cmd.includes("vitest") && cmd.includes("run")) {
+        const isCompounded = cmd.includes("&&");
+        const expected = cmd.split("&&")[0].trim().replace("vitest run", "vitest watch");
+        if (!pkgJson.scripts[watch]) {
+          if (isCompounded) {
+            errors.push(
+              `${pkgJson.name} scripts["${watch}"] is missing and base command is compounded — resolve manually`
+            );
+          } else {
+            errors.push(`${pkgJson.name} ${watch} script was missing. Added automatically. Commit changes.`);
+            if (overwrite) {
+              pkgJson.scripts[watch] = expected;
+            }
+          }
+        } else if (pkgJson.scripts[watch].includes("vitest watch")) {
+          const afterWatch = pkgJson.scripts[watch].split("vitest watch")[1];
+          if (afterWatch.includes("&&")) {
+            errors.push(
+              `${pkgJson.name} scripts["${watch}"] has unreachable commands after vitest watch — resolve manually`
+            );
+          }
+        }
+      }
+    }
+  }
+
+  // Alphabetize scripts when running locally (not in CodeBuild).
+  // Exception: "foo:watch" always immediately follows "foo".
+  if (!process.env.CODEBUILD_BUILD_ID && pkgJson.scripts) {
+    const sorted = Object.keys(pkgJson.scripts).sort(sortScripts);
+    if (JSON.stringify(Object.keys(pkgJson.scripts)) !== JSON.stringify(sorted)) {
+      const reordered = {};
+      for (const k of sorted) {
+        reordered[k] = pkgJson.scripts[k];
+      }
+      pkgJson.scripts = reordered;
+      if (overwrite) {
+        fs.writeFileSync(pkgJsonFilePath, JSON.stringify(pkgJson, null, 2) + "\n");
       }
     }
   }

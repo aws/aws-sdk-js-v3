@@ -200,6 +200,21 @@ function getPackageDirs() {
   return results;
 }
 
+/**
+ * Returns a summary string of package counts by containing folder.
+ * e.g. "427 clients, 12 packages, 30 packages-internal, 2 lib, 29 private"
+ */
+function summarizePackages(packages) {
+  const counts = {};
+  for (const { dir } of packages) {
+    const folder = path.basename(path.dirname(dir));
+    counts[folder] = (counts[folder] || 0) + 1;
+  }
+  return Object.entries(counts)
+    .map(([folder, count]) => `${count} ${folder}`)
+    .join(", ");
+}
+
 module.exports = {
   NODE_BUILTINS,
   getPackageName,
@@ -207,4 +222,5 @@ module.exports = {
   extractImports,
   resolveRelative,
   getPackageDirs,
+  summarizePackages,
 };

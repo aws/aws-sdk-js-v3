@@ -11,9 +11,9 @@ const { listFolders } = require("../utils/list-folders");
 
 const root = path.join(__dirname, "..", "..");
 
-const _package = process.argv[2];
+const _package = process.argv[2] && !process.argv[2].startsWith("-") ? process.argv[2] : path.basename(process.cwd());
 
-if (!_package) {
+if (process.argv.includes("--setup")) {
   /**
    * If no package is selected, this script sets build:cjs scripts to
    * use this inliner script instead of only tsc.
@@ -46,7 +46,7 @@ if (!_package) {
 
   for (const { pkg, pkgJsonFilePath } of packages) {
     const pkgJson = require(pkgJsonFilePath);
-    pkgJson.scripts["build:cjs"] = `node ../../scripts/compilation/inline ${pkg}`;
+    pkgJson.scripts["build:cjs"] = `node ../../scripts/compilation/inline`;
     fs.writeFileSync(pkgJsonFilePath, JSON.stringify(pkgJson, null, 2));
   }
 } else {

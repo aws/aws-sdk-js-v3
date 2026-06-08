@@ -10,7 +10,7 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const walk = require("../utils/walk");
-const { extractImports, getPackageDirs } = require("./validation-shared");
+const { extractImports, getPackageDirs, summarizePackages } = require("./validation-shared");
 
 const root = path.join(__dirname, "..", "..");
 
@@ -152,7 +152,7 @@ async function main() {
     console.error(`❌ ${errors.length} banned import(s):\n  ${[...new Set(errors)].join("\n  ")}`);
     process.exit(1);
   }
-  console.log("✅ No banned imports.");
+  console.log(`✅ No banned imports. (${summarizePackages(packages)})`);
 }
 
 main();

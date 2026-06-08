@@ -2,21 +2,22 @@
   "name": "@aws-sdk/middleware-sdk-s3",
   "version": "3.972.48",
   "scripts": {
-    "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
-    "build:cjs": "node ../../scripts/compilation/inline middleware-sdk-s3",
+    "build": "yarn lint && concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
+    "build:cjs": "node ../../scripts/compilation/inline",
     "build:es": "tsc -p tsconfig.es.json",
     "build:include:deps": "yarn g:turbo run build -F=\"$npm_package_name\"",
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "premove dist-cjs dist-es dist-types tsconfig.cjs.tsbuildinfo tsconfig.es.tsbuildinfo tsconfig.types.tsbuildinfo",
-    "test:types": "tsc -p tsconfig.test.json",
     "extract:docs": "api-extractor run --local",
+    "lint": "node ../../scripts/validation/submodules-linter.js",
     "test": "yarn g:vitest run",
     "test:watch": "yarn g:vitest watch",
     "test:integration": "yarn g:vitest run -c vitest.config.integ.mts && yarn test:types",
-    "test:integration:watch": "yarn g:vitest watch -c vitest.config.integ.mts",
+    "test:integration:watch": "yarn test:types && yarn g:vitest watch -c vitest.config.integ.mts",
     "test:e2e": "yarn g:vitest run -c vitest.config.e2e.mts --mode development",
-    "test:e2e:watch": "yarn g:vitest watch -c vitest.config.e2e.mts"
+    "test:e2e:watch": "yarn g:vitest watch -c vitest.config.e2e.mts --mode development",
+    "test:types": "tsc -p tsconfig.test.json"
   },
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -90,6 +91,10 @@
     }
   },
   "files": [
+    "./s3-control.d.ts",
+    "./s3-control.js",
+    "./s3.d.ts",
+    "./s3.js",
     "dist-*/**"
   ],
   "browser": {

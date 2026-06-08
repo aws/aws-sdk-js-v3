@@ -18,6 +18,7 @@ const validationDir = __dirname;
 const PACKAGE_ROOTS = ["clients", "packages", "packages-internal", "lib", "private"];
 
 const VALIDATIONS = [
+  { name: "built", label: "all packages have build artifacts", script: "built.js" },
   { name: "imports-declared", label: "all imports are declared in package.json", script: "imports-declared.js" },
   { name: "relative-imports", label: "all relative imports resolve to existing files", script: "relative-imports.js" },
   { name: "deps-used", label: "all declared dependencies are actually imported", script: "deps-used.js" },
@@ -77,7 +78,8 @@ function main() {
         console.log(`⚠️  ${label}`);
         warnings.push({ name, output });
       } else {
-        console.log(`✅ ${label}`);
+        const counts = output.match(/\(([^)]+)\)/)?.[1] || "";
+        console.log(`✅ ${label}${counts ? ` (${counts})` : ""}`);
       }
     } catch (e) {
       console.log(`❌ ${label}`);

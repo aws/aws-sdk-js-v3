@@ -10,7 +10,7 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const walk = require("../utils/walk");
-const { extractImports, resolveRelative, getPackageDirs } = require("./validation-shared");
+const { extractImports, resolveRelative, getPackageDirs, summarizePackages } = require("./validation-shared");
 
 /**
  * @param code - JS file contents.
@@ -171,7 +171,7 @@ async function main() {
   if (errors.length) {
     console.log(`⚠️  ${errors.length} unreachable file(s):\n  ${errors.join("\n  ")}`);
   } else {
-    console.log("✅ All dist files are reachable from entry points.");
+    console.log(`✅ All dist files are reachable from entry points. (${summarizePackages(packages)})`);
   }
 }
 
