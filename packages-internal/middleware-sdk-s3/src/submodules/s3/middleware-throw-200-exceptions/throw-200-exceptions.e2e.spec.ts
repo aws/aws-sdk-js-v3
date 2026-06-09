@@ -1,5 +1,4 @@
 import { S3 } from "@aws-sdk/client-s3";
-import { type GetCallerIdentityCommandOutput, STS } from "@aws-sdk/client-sts";
 import { NodeHttpHandler } from "@aws-sdk/config/requestHandler";
 import { HttpResponse } from "@smithy/core/protocols";
 import { Readable } from "node:stream";
@@ -10,15 +9,12 @@ describe("S3 throw 200 exceptions", () => {
     region: "us-west-2",
   };
   const s3 = new S3(config);
-  const stsClient = new STS(config);
 
   const randId = crypto.randomUUID();
   let Bucket: string;
-  let callerID: GetCallerIdentityCommandOutput;
 
   beforeAll(async () => {
-    callerID = await stsClient.getCallerIdentity({});
-    Bucket = `${callerID.Account}-${randId}-js-sdk-e2e-${config.region}`;
+    Bucket = `js-sdk-e2e-${config.region}-${randId}`;
 
     await s3.createBucket({
       Bucket,
