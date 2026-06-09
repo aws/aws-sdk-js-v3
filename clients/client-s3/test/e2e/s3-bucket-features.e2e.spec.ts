@@ -1,25 +1,19 @@
 import { S3, waitUntilBucketExists, waitUntilBucketNotExists } from "@aws-sdk/client-s3";
-import { type GetCallerIdentityCommandOutput, STS } from "@aws-sdk/client-sts";
-import { HttpRequest } from "@smithy/types";
+import type { HttpRequest } from "@smithy/types";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 
 describe("@aws-sdk/client-s3 - Working with Buckets", () => {
   const s3 = new S3({ region: "us-west-2", credentials: aws?.testCredentials });
   const s3East = new S3({ region: "us-east-1", followRegionRedirects: true, credentials: aws?.testCredentials });
   const s3PathStyle = new S3({ region: "us-west-2", forcePathStyle: true, credentials: aws?.testCredentials });
-  const stsClient = new STS({ region: "us-west-2", credentials: aws?.testCredentials });
 
   function getBucketName(id: string, region = "us-west-2") {
-    const alphabet = "abcdefghijklmnopqrstuvwxyz0123456789";
-    const randId = Array.from({ length: 19 }, () => alphabet[(Math.random() * alphabet.length) | 0]).join("");
-    return `${callerID.Account}-${randId}-${id}-${region}`;
+    return `${id}-${region}-${crypto.randomUUID()}`;
   }
 
   let Bucket: string;
-  let callerID: GetCallerIdentityCommandOutput;
 
   beforeAll(async () => {
-    callerID = await stsClient.getCallerIdentity({});
     Bucket = getBucketName(`js-sdk-e2e`);
   });
 

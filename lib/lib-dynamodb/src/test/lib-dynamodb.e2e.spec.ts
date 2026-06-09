@@ -125,9 +125,8 @@ describe(
       }
     }
 
-    const randId = (Math.random() + 1).toString(36).substring(2, 6);
-    const timestamp = (Date.now() / 1000) | 0;
-    const TableName = `js-sdk-lib-dynamodb-test-${timestamp}-${randId}`;
+    const randId = crypto.randomUUID();
+    const TableName = `js-sdk-lib-dynamodb-test-${randId}`;
     const start = Date.now();
     const mark = () => `DDB-E2E: ` + ((Date.now() - start) / 1000).toFixed(3) + "s elapsed.";
 

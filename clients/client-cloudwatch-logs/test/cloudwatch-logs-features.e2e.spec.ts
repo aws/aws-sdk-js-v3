@@ -10,9 +10,7 @@ describe(CloudWatchLogs.name, () => {
   });
 
   const generateLogGroupName = (prefix: string) => {
-    const timestamp = Date.now();
-    const random = Math.random().toString(36).substring(7);
-    return prefix ? `${prefix}-${timestamp}-${random}` : "";
+    return prefix ? `${prefix}-${crypto.randomUUID()}` : "";
   };
 
   afterAll(async () => {

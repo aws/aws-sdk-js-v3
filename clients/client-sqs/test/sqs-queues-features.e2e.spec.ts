@@ -49,7 +49,7 @@ describe("SQS Queues", () => {
   });
 
   describe("Creating and deleting queues", () => {
-    const prefix = `aws-sdk-${Date.now()}-`;
+    const prefix = `aws-sdk-${crypto.randomUUID()}-`;
 
     it("should create queues and eventually list them", async () => {
       // Create first queue

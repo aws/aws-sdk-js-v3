@@ -23,7 +23,7 @@ describe(CognitoIdentity.name, () => {
     it("should create and describe a Cognito identity pool", async () => {
       // Create identity pool
       const createResult = await client.createIdentityPool({
-        IdentityPoolName: `awssdkjs-test-${Date.now()}`,
+        IdentityPoolName: `awssdkjs-test-${crypto.randomUUID()}`,
         AllowUnauthenticatedIdentities: true,
       });
 

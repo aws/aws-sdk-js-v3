@@ -8,9 +8,7 @@ describe(DynamoDB.name, () => {
   beforeAll(async () => {
     client = new DynamoDB({ region: "us-west-2", maxAttempts: 10, credentials: aws?.testCredentials });
 
-    const randId = (Math.random() + 1).toString(36).substring(2, 6);
-    const timestamp = (Date.now() / 1000) | 0;
-    TableName = `js-sdk-client-dynamodb-test-${timestamp}-${randId}`;
+    TableName = `js-sdk-client-dynamodb-test-${crypto.randomUUID()}`;
     const start = Date.now();
     const mark = () => `DDB-E2E: ` + ((Date.now() - start) / 1000).toFixed(3) + "s elapsed.";
 
