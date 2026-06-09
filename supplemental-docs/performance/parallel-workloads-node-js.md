@@ -237,3 +237,11 @@ In this example we've adhered to the best practices mentioned in this section:
 
 - use one client instance for repeated requests
 - set a `maxSockets` value that is a factor of the batch size
+
+## Alternative: UndiciHttpHandler
+
+If you need even higher throughput, consider trying [`@smithy/undici-http-handler`][] - a compatible request handler
+backed by modern, high performance Node.js [undici][] client instead of `node:https`.
+
+[`@smithy/undici-http-handler`]: https://www.npmjs.com/package/@smithy/undici-http-handler
+[undici]: https://undici.nodejs.org/
