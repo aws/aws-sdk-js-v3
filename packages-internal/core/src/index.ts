@@ -11,7 +11,6 @@
  * No additional exports are allowed.
  */
 
-// --- @aws-sdk/core/client (legacy subset) ---
 export {
   emitWarningIfUnsupportedVersion,
   getLongPollPlugin,
@@ -19,9 +18,8 @@ export {
   setFeature,
   setTokenFeature,
   state,
-} from "./submodules/client/index";
+} from "@aws-sdk/core/client";
 
-// --- @aws-sdk/core/httpAuthSchemes ---
 export {
   AwsSdkSigV4ASigner,
   AwsSdkSigV4Signer,
@@ -33,7 +31,7 @@ export {
   resolveAwsSdkSigV4Config,
   resolveAwsSdkSigV4Config as resolveAWSSDKSigV4Config,
   validateSigningProperties,
-} from "./submodules/httpAuthSchemes/index";
+} from "@aws-sdk/core/httpAuthSchemes";
 export type {
   AwsSdkSigV4AAuthInputConfig,
   AwsSdkSigV4AAuthResolvedConfig,
@@ -45,9 +43,8 @@ export type {
   AwsSdkSigV4Memoized,
   AwsSdkSigV4AuthResolvedConfig as AwsSdkSigV4PreviouslyResolved,
   AwsSdkSigV4AuthResolvedConfig as AWSSDKSigV4PreviouslyResolved,
-} from "./submodules/httpAuthSchemes/index";
+} from "@aws-sdk/core/httpAuthSchemes";
 
-// --- @aws-sdk/core/protocols ---
 export {
   _toBool,
   _toNum,
@@ -75,8 +72,8 @@ export {
   XmlCodec,
   XmlShapeDeserializer,
   XmlShapeSerializer,
-} from "./submodules/protocols/index";
-export type { JsonSettings, QuerySerializerSettings, XmlSettings } from "./submodules/protocols/index";
+} from "@aws-sdk/core/protocols";
+export type { JsonSettings, QuerySerializerSettings, XmlSettings } from "@aws-sdk/core/protocols";
 
 /**
  * WARNING: do not export any additional submodules from the root of this package. See readme.md for
