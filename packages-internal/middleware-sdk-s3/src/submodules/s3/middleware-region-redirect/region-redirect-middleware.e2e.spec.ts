@@ -1,7 +1,5 @@
 import type { S3ClientConfig } from "@aws-sdk/client-s3";
-import { S3, waitUntilBucketExists, waitUntilBucketNotExists } from "@aws-sdk/client-s3";
-import type { GetCallerIdentityCommandOutput } from "@aws-sdk/client-sts";
-import { STS } from "@aws-sdk/client-sts";
+import { S3, waitUntilBucketExists } from "@aws-sdk/client-s3";
 import { afterAll, beforeAll, describe, expect, onTestFailed, test as it } from "vitest";
 
 const testValue = "Hello S3 global client!";
@@ -30,32 +28,18 @@ describe("S3 Global Client Test", () => {
     return config;
   });
   const s3Clients = regionConfigs.map((config) => new S3(config));
-  const stsClient = new STS({});
 
-  let callerID = null as unknown as GetCallerIdentityCommandOutput;
   let bucketNames = [] as string[];
 
-  // random element limited to 2 letters to avoid concurrent IO, and
-  // to limit bucket count to 676 if there is failure to delete them.
-  const alphabet = "abcdefghijklmnopqrstuvwxyz";
-  const randId = alphabet[(Math.random() * alphabet.length) | 0] + alphabet[(Math.random() * alphabet.length) | 0];
-
   beforeAll(async () => {
-    callerID = await stsClient.getCallerIdentity({});
-    bucketNames = regionConfigs.map((config) => `${callerID.Account}-${randId}-redirect-${config.region}`);
-    await Promise.all(
-      bucketNames.map(async (bucketName, index) => {
-        await deleteBucket(s3Clients[index], bucketName);
-        return waitUntilBucketNotExists({ client: s3Clients[index], maxWaitTime: 60 }, { Bucket: bucketName });
-      })
-    );
+    const uniqueId = crypto.randomUUID();
+    bucketNames = regionConfigs.map((config) => `redirect-${config.region}-${uniqueId}`);
     await Promise.all(
       bucketNames.map(async (bucketName, index) => {
         await s3Clients[index].createBucket({ Bucket: bucketName });
         return waitUntilBucketExists({ client: s3Clients[index], maxWaitTime: 60 }, { Bucket: bucketName });
       })
     );
-    await Promise.all(bucketNames.map((bucketName, index) => s3Clients[index].headBucket({ Bucket: bucketName })));
   }, 60_000);
 
   afterAll(async () => {
