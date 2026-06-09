@@ -10,9 +10,7 @@ describe("@aws-sdk/client-s3 - Working with Buckets", () => {
   const stsClient = new STS({ region: "us-west-2", credentials: aws?.testCredentials });
 
   function getBucketName(id: string, region = "us-west-2") {
-    const alphabet = "abcdefghijklmnopqrstuvwxyz0123456789";
-    const randId = Array.from({ length: 19 }, () => alphabet[(Math.random() * alphabet.length) | 0]).join("");
-    return `${callerID.Account}-${randId}-${id}-${region}`;
+    return `${callerID.Account}-${crypto.randomUUID()}-${id}-${region}`;
   }
 
   let Bucket: string;

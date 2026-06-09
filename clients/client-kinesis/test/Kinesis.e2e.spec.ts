@@ -4,9 +4,7 @@ import { type MetadataBearer } from "@smithy/types";
 import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
 
 describe("@aws-sdk/client-kinesis", () => {
-  const STREAM_NAME = `aws-sdk-js-v3-e2e-test-${Date.now()}-${Array.from({ length: 6 }, () =>
-    String.fromCharCode(97 + Math.floor(Math.random() * 26))
-  ).join("")}`;
+  const STREAM_NAME = `aws-sdk-js-v3-e2e-test-${crypto.randomUUID()}`;
   const SHARD_COUNT = 1;
   const SESSION_CONCURRENCY = 7;
 

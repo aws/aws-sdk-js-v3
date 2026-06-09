@@ -12,14 +12,13 @@ describe("S3 throw 200 exceptions", () => {
   const s3 = new S3(config);
   const stsClient = new STS(config);
 
-  const alphabet = "abcdefghijklmnopqrstuvwxyz";
-  const randId = Array.from({ length: 8 }, () => alphabet[(Math.random() * alphabet.length) | 0]).join("");
+  const randId = crypto.randomUUID();
   let Bucket: string;
   let callerID: GetCallerIdentityCommandOutput;
 
   beforeAll(async () => {
     callerID = await stsClient.getCallerIdentity({});
-    Bucket = `${callerID.Account}-${randId}-js-sdk-e2e-${config.region}-${(Date.now() / 1000) | 0}`;
+    Bucket = `${callerID.Account}-${randId}-js-sdk-e2e-${config.region}`;
 
     await s3.createBucket({
       Bucket,
