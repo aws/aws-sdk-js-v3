@@ -55,6 +55,7 @@ export interface GetOutpostBillingInformationCommandOutput extends GetOutpostBil
  * //       ],
  * //       BeginDate: new Date("TIMESTAMP"),
  * //       EndDate: new Date("TIMESTAMP"),
+ * //       Currency: "USD",
  * //       MonthlyRecurringPrice: Number("double"),
  * //       UpfrontPrice: Number("double"),
  * //     },

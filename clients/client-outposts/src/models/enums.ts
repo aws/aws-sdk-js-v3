@@ -110,6 +110,20 @@ export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
  * @public
  * @enum
  */
+export const QuoteCapacityType = {
+  EBS: "EBS",
+  EC2: "EC2",
+  S3: "S3",
+} as const;
+/**
+ * @public
+ */
+export type QuoteCapacityType = (typeof QuoteCapacityType)[keyof typeof QuoteCapacityType];
+
+/**
+ * @public
+ * @enum
+ */
 export const CapacityTaskFailureType = {
   BLOCKING_INSTANCES_NOT_EVACUATED: "BLOCKING_INSTANCES_NOT_EVACUATED",
   INTERNAL_SERVER_ERROR: "INTERNAL_SERVER_ERROR",
@@ -295,6 +309,142 @@ export type SupportedHardwareType = (typeof SupportedHardwareType)[keyof typeof 
  * @public
  * @enum
  */
+export const QuoteConstraintType = {
+  RACK_MAXIMUM: "RACK_MAXIMUM",
+  RACK_MAX_POWER_KVA: "RACK_MAX_POWER_KVA",
+  RACK_MAX_WEIGHT_LBS: "RACK_MAX_WEIGHT_LBS",
+} as const;
+/**
+ * @public
+ */
+export type QuoteConstraintType = (typeof QuoteConstraintType)[keyof typeof QuoteConstraintType];
+
+/**
+ * @public
+ * @enum
+ */
+export const OrderingRequirementType = {
+  COUNTRY_CODE_MISMATCH_CHECK_ERROR: "COUNTRY_CODE_MISMATCH_CHECK_ERROR",
+  ENTERPRISE_SUPPORT_ERROR: "ENTERPRISE_SUPPORT_ERROR",
+  MAXIMUM_ALLOWED_ORDERS_CHECK_ERROR: "MAXIMUM_ALLOWED_ORDERS_CHECK_ERROR",
+  OPERATING_ADDRESS_EXISTENCE_CHECK_ERROR: "OPERATING_ADDRESS_EXISTENCE_CHECK_ERROR",
+  OUTPOST_ACTIVE_CHECK_ERROR: "OUTPOST_ACTIVE_CHECK_ERROR",
+  OUTPOST_GENERATION_MISMATCH_ERROR: "OUTPOST_GENERATION_MISMATCH_ERROR",
+  OUTPOST_ID_MISSING_ON_QUOTE_ERROR: "OUTPOST_ID_MISSING_ON_QUOTE_ERROR",
+  OUTPOST_NOT_FOUND_ERROR: "OUTPOST_NOT_FOUND_ERROR",
+  OUTPOST_RENEWAL_REQUIRED_ERROR: "OUTPOST_RENEWAL_REQUIRED_ERROR",
+  OUTPOST_STATE_CHANGED_ERROR: "OUTPOST_STATE_CHANGED_ERROR",
+  RACK_PHYSICAL_PROPERTIES_CHECK_ERROR: "RACK_PHYSICAL_PROPERTIES_CHECK_ERROR",
+  SHIPPING_ADDRESS_EXISTENCE_CHECK_ERROR: "SHIPPING_ADDRESS_EXISTENCE_CHECK_ERROR",
+  SHIPPING_ADDRESS_MISSING_CONTACT_INFO_ERROR: "SHIPPING_ADDRESS_MISSING_CONTACT_INFO_ERROR",
+  SHIPPING_ADDRESS_MISSING_CONTACT_NAME_ERROR: "SHIPPING_ADDRESS_MISSING_CONTACT_NAME_ERROR",
+  SHIPPING_ADDRESS_MISSING_CONTACT_NUMBER_ERROR: "SHIPPING_ADDRESS_MISSING_CONTACT_NUMBER_ERROR",
+  UNSUPPORTED: "UNSUPPORTED",
+  VALID_ZIP_CODE_CHECK_ERROR: "VALID_ZIP_CODE_CHECK_ERROR",
+} as const;
+/**
+ * @public
+ */
+export type OrderingRequirementType = (typeof OrderingRequirementType)[keyof typeof OrderingRequirementType];
+
+/**
+ * @public
+ * @enum
+ */
+export const OrderingRequirementStatus = {
+  EXEMPT: "EXEMPT",
+  FAIL: "FAIL",
+  PASS: "PASS",
+} as const;
+/**
+ * @public
+ */
+export type OrderingRequirementStatus = (typeof OrderingRequirementStatus)[keyof typeof OrderingRequirementStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const QuotePricingType = {
+  SUBSCRIPTION: "SUBSCRIPTION",
+} as const;
+/**
+ * @public
+ */
+export type QuotePricingType = (typeof QuotePricingType)[keyof typeof QuotePricingType];
+
+/**
+ * @public
+ * @enum
+ */
+export const CurrencyCode = {
+  USD: "USD",
+} as const;
+/**
+ * @public
+ */
+export type CurrencyCode = (typeof CurrencyCode)[keyof typeof CurrencyCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const RackUnitHeight = {
+  HEIGHT_1U: "HEIGHT_1U",
+  HEIGHT_2U: "HEIGHT_2U",
+  HEIGHT_42U: "HEIGHT_42U",
+} as const;
+/**
+ * @public
+ */
+export type RackUnitHeight = (typeof RackUnitHeight)[keyof typeof RackUnitHeight];
+
+/**
+ * @public
+ * @enum
+ */
+export const QuoteRackUseType = {
+  COMPUTE: "COMPUTE",
+  NETWORKING: "NETWORKING",
+} as const;
+/**
+ * @public
+ */
+export type QuoteRackUseType = (typeof QuoteRackUseType)[keyof typeof QuoteRackUseType];
+
+/**
+ * @public
+ * @enum
+ */
+export const QuoteSpecificationType = {
+  EXISTING_RACK: "EXISTING_RACK",
+  NEW_RACK: "NEW_RACK",
+  SERVER: "SERVER",
+  UPDATED_RACK: "UPDATED_RACK",
+} as const;
+/**
+ * @public
+ */
+export type QuoteSpecificationType = (typeof QuoteSpecificationType)[keyof typeof QuoteSpecificationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const QuoteStatus = {
+  CREATED: "CREATED",
+  EXPIRED: "EXPIRED",
+  ORDER_SUBMITTED: "ORDER_SUBMITTED",
+} as const;
+/**
+ * @public
+ */
+export type QuoteStatus = (typeof QuoteStatus)[keyof typeof QuoteStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const FiberOpticCableType = {
   MULTI_MODE: "MULTI_MODE",
   SINGLE_MODE: "SINGLE_MODE",
@@ -455,6 +605,32 @@ export type DecommissionRequestStatus = (typeof DecommissionRequestStatus)[keyof
  * @public
  * @enum
  */
+export const FormFactor = {
+  RACK: "RACK",
+  SERVER: "SERVER",
+} as const;
+/**
+ * @public
+ */
+export type FormFactor = (typeof FormFactor)[keyof typeof FormFactor];
+
+/**
+ * @public
+ * @enum
+ */
+export const OutpostGeneration = {
+  GENERATION_1: "GENERATION_1",
+  GENERATION_2: "GENERATION_2",
+} as const;
+/**
+ * @public
+ */
+export type OutpostGeneration = (typeof OutpostGeneration)[keyof typeof OutpostGeneration];
+
+/**
+ * @public
+ * @enum
+ */
 export const TaskActionOnBlockingInstances = {
   FAIL_TASK: "FAIL_TASK",
   WAIT_FOR_EVACUATION: "WAIT_FOR_EVACUATION",
@@ -493,18 +669,6 @@ export const SubscriptionType = {
  * @public
  */
 export type SubscriptionType = (typeof SubscriptionType)[keyof typeof SubscriptionType];
-
-/**
- * @public
- * @enum
- */
-export const QuotePricingType = {
-  SUBSCRIPTION: "SUBSCRIPTION",
-} as const;
-/**
- * @public
- */
-export type QuotePricingType = (typeof QuotePricingType)[keyof typeof QuotePricingType];
 
 /**
  * @public

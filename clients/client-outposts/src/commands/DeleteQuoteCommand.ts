@@ -4,9 +4,9 @@ import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { CreateRenewalInput, CreateRenewalOutput } from "../models/models_0";
+import type { DeleteQuoteInput, DeleteQuoteOutput } from "../models/models_0";
 import type { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import { CreateRenewal$ } from "../schemas/schemas_0";
+import { DeleteQuote$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,49 +16,39 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link CreateRenewalCommand}.
+ * The input for {@link DeleteQuoteCommand}.
  */
-export interface CreateRenewalCommandInput extends CreateRenewalInput {}
+export interface DeleteQuoteCommandInput extends DeleteQuoteInput {}
 /**
  * @public
  *
- * The output of {@link CreateRenewalCommand}.
+ * The output of {@link DeleteQuoteCommand}.
  */
-export interface CreateRenewalCommandOutput extends CreateRenewalOutput, __MetadataBearer {}
+export interface DeleteQuoteCommandOutput extends DeleteQuoteOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a renewal contract for the specified Outpost.</p>
+ * <p>Deletes the specified quote.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OutpostsClient, CreateRenewalCommand } from "@aws-sdk/client-outposts"; // ES Modules import
- * // const { OutpostsClient, CreateRenewalCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
+ * import { OutpostsClient, DeleteQuoteCommand } from "@aws-sdk/client-outposts"; // ES Modules import
+ * // const { OutpostsClient, DeleteQuoteCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * // import type { OutpostsClientConfig } from "@aws-sdk/client-outposts";
  * const config = {}; // type is OutpostsClientConfig
  * const client = new OutpostsClient(config);
- * const input = { // CreateRenewalInput
- *   PaymentOption: "ALL_UPFRONT" || "NO_UPFRONT" || "PARTIAL_UPFRONT", // required
- *   PaymentTerm: "THREE_YEARS" || "ONE_YEAR" || "FIVE_YEARS", // required
- *   OutpostIdentifier: "STRING_VALUE", // required
- *   ClientToken: "STRING_VALUE",
+ * const input = { // DeleteQuoteInput
+ *   QuoteIdentifier: "STRING_VALUE", // required
  * };
- * const command = new CreateRenewalCommand(input);
+ * const command = new DeleteQuoteCommand(input);
  * const response = await client.send(command);
- * // { // CreateRenewalOutput
- * //   PaymentOption: "ALL_UPFRONT" || "NO_UPFRONT" || "PARTIAL_UPFRONT",
- * //   PaymentTerm: "THREE_YEARS" || "ONE_YEAR" || "FIVE_YEARS",
- * //   OutpostId: "STRING_VALUE",
- * //   UpfrontPrice: Number("float"),
- * //   MonthlyRecurringPrice: Number("float"),
- * //   Currency: "USD",
- * // };
+ * // {};
  *
  * ```
  *
- * @param CreateRenewalCommandInput - {@link CreateRenewalCommandInput}
- * @returns {@link CreateRenewalCommandOutput}
- * @see {@link CreateRenewalCommandInput} for command's `input` shape.
- * @see {@link CreateRenewalCommandOutput} for command's `response` shape.
+ * @param DeleteQuoteCommandInput - {@link DeleteQuoteCommandInput}
+ * @returns {@link DeleteQuoteCommandOutput}
+ * @see {@link DeleteQuoteCommandInput} for command's `input` shape.
+ * @see {@link DeleteQuoteCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -79,10 +69,10 @@ export interface CreateRenewalCommandOutput extends CreateRenewalOutput, __Metad
  *
  * @public
  */
-export class CreateRenewalCommand extends $Command
+export class DeleteQuoteCommand extends $Command
   .classBuilder<
-    CreateRenewalCommandInput,
-    CreateRenewalCommandOutput,
+    DeleteQuoteCommandInput,
+    DeleteQuoteCommandOutput,
     OutpostsClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -91,19 +81,19 @@ export class CreateRenewalCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: OutpostsClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("OutpostsOlafService", "CreateRenewal", {})
-  .n("OutpostsClient", "CreateRenewalCommand")
-  .sc(CreateRenewal$)
+  .s("OutpostsOlafService", "DeleteQuote", {})
+  .n("OutpostsClient", "DeleteQuoteCommand")
+  .sc(DeleteQuote$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: CreateRenewalInput;
-      output: CreateRenewalOutput;
+      input: DeleteQuoteInput;
+      output: {};
     };
     sdk: {
-      input: CreateRenewalCommandInput;
-      output: CreateRenewalCommandOutput;
+      input: DeleteQuoteCommandInput;
+      output: DeleteQuoteCommandOutput;
     };
   };
 }

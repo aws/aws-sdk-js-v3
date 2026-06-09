@@ -23,6 +23,11 @@ import {
   CreateOutpostCommand,
 } from "./commands/CreateOutpostCommand";
 import {
+  type CreateQuoteCommandInput,
+  type CreateQuoteCommandOutput,
+  CreateQuoteCommand,
+} from "./commands/CreateQuoteCommand";
+import {
   type CreateRenewalCommandInput,
   type CreateRenewalCommandOutput,
   CreateRenewalCommand,
@@ -37,6 +42,11 @@ import {
   type DeleteOutpostCommandOutput,
   DeleteOutpostCommand,
 } from "./commands/DeleteOutpostCommand";
+import {
+  type DeleteQuoteCommandInput,
+  type DeleteQuoteCommandOutput,
+  DeleteQuoteCommand,
+} from "./commands/DeleteQuoteCommand";
 import {
   type DeleteSiteCommandInput,
   type DeleteSiteCommandOutput,
@@ -78,6 +88,7 @@ import {
   type GetOutpostSupportedInstanceTypesCommandOutput,
   GetOutpostSupportedInstanceTypesCommand,
 } from "./commands/GetOutpostSupportedInstanceTypesCommand";
+import { type GetQuoteCommandInput, type GetQuoteCommandOutput, GetQuoteCommand } from "./commands/GetQuoteCommand";
 import {
   type GetRenewalPricingCommandInput,
   type GetRenewalPricingCommandOutput,
@@ -115,6 +126,11 @@ import {
   ListCatalogItemsCommand,
 } from "./commands/ListCatalogItemsCommand";
 import {
+  type ListOrderableInstanceTypesCommandInput,
+  type ListOrderableInstanceTypesCommandOutput,
+  ListOrderableInstanceTypesCommand,
+} from "./commands/ListOrderableInstanceTypesCommand";
+import {
   type ListOrdersCommandInput,
   type ListOrdersCommandOutput,
   ListOrdersCommand,
@@ -124,6 +140,11 @@ import {
   type ListOutpostsCommandOutput,
   ListOutpostsCommand,
 } from "./commands/ListOutpostsCommand";
+import {
+  type ListQuotesCommandInput,
+  type ListQuotesCommandOutput,
+  ListQuotesCommand,
+} from "./commands/ListQuotesCommand";
 import { type ListSitesCommandInput, type ListSitesCommandOutput, ListSitesCommand } from "./commands/ListSitesCommand";
 import {
   type ListTagsForResourceCommandInput,
@@ -161,6 +182,11 @@ import {
   UpdateOutpostCommand,
 } from "./commands/UpdateOutpostCommand";
 import {
+  type UpdateQuoteCommandInput,
+  type UpdateQuoteCommandOutput,
+  UpdateQuoteCommand,
+} from "./commands/UpdateQuoteCommand";
+import {
   type UpdateSiteAddressCommandInput,
   type UpdateSiteAddressCommandOutput,
   UpdateSiteAddressCommand,
@@ -186,8 +212,10 @@ import {
 } from "./pagination/ListBlockingInstancesForCapacityTaskPaginator";
 import { paginateListCapacityTasks } from "./pagination/ListCapacityTasksPaginator";
 import { paginateListCatalogItems } from "./pagination/ListCatalogItemsPaginator";
+import { paginateListOrderableInstanceTypes } from "./pagination/ListOrderableInstanceTypesPaginator";
 import { paginateListOrders } from "./pagination/ListOrdersPaginator";
 import { paginateListOutposts } from "./pagination/ListOutpostsPaginator";
+import { paginateListQuotes } from "./pagination/ListQuotesPaginator";
 import { paginateListSites } from "./pagination/ListSitesPaginator";
 
 const commands = {
@@ -195,9 +223,11 @@ const commands = {
   CancelOrderCommand,
   CreateOrderCommand,
   CreateOutpostCommand,
+  CreateQuoteCommand,
   CreateRenewalCommand,
   CreateSiteCommand,
   DeleteOutpostCommand,
+  DeleteQuoteCommand,
   DeleteSiteCommand,
   GetCapacityTaskCommand,
   GetCatalogItemCommand,
@@ -207,6 +237,7 @@ const commands = {
   GetOutpostBillingInformationCommand,
   GetOutpostInstanceTypesCommand,
   GetOutpostSupportedInstanceTypesCommand,
+  GetQuoteCommand,
   GetRenewalPricingCommand,
   GetSiteCommand,
   GetSiteAddressCommand,
@@ -215,8 +246,10 @@ const commands = {
   ListBlockingInstancesForCapacityTaskCommand,
   ListCapacityTasksCommand,
   ListCatalogItemsCommand,
+  ListOrderableInstanceTypesCommand,
   ListOrdersCommand,
   ListOutpostsCommand,
+  ListQuotesCommand,
   ListSitesCommand,
   ListTagsForResourceCommand,
   StartCapacityTaskCommand,
@@ -225,6 +258,7 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateOutpostCommand,
+  UpdateQuoteCommand,
   UpdateSiteCommand,
   UpdateSiteAddressCommand,
   UpdateSiteRackPhysicalPropertiesCommand,
@@ -238,8 +272,10 @@ const paginators = {
   paginateListBlockingInstancesForCapacityTask,
   paginateListCapacityTasks,
   paginateListCatalogItems,
+  paginateListOrderableInstanceTypes,
   paginateListOrders,
   paginateListOutposts,
+  paginateListQuotes,
   paginateListSites,
 };
 
@@ -313,6 +349,23 @@ export interface Outposts {
   ): void;
 
   /**
+   * @see {@link CreateQuoteCommand}
+   */
+  createQuote(
+    args: CreateQuoteCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateQuoteCommandOutput>;
+  createQuote(
+    args: CreateQuoteCommandInput,
+    cb: (err: any, data?: CreateQuoteCommandOutput) => void
+  ): void;
+  createQuote(
+    args: CreateQuoteCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateQuoteCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateRenewalCommand}
    */
   createRenewal(
@@ -361,6 +414,23 @@ export interface Outposts {
     args: DeleteOutpostCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteOutpostCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteQuoteCommand}
+   */
+  deleteQuote(
+    args: DeleteQuoteCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteQuoteCommandOutput>;
+  deleteQuote(
+    args: DeleteQuoteCommandInput,
+    cb: (err: any, data?: DeleteQuoteCommandOutput) => void
+  ): void;
+  deleteQuote(
+    args: DeleteQuoteCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteQuoteCommandOutput) => void
   ): void;
 
   /**
@@ -517,6 +587,23 @@ export interface Outposts {
   ): void;
 
   /**
+   * @see {@link GetQuoteCommand}
+   */
+  getQuote(
+    args: GetQuoteCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetQuoteCommandOutput>;
+  getQuote(
+    args: GetQuoteCommandInput,
+    cb: (err: any, data?: GetQuoteCommandOutput) => void
+  ): void;
+  getQuote(
+    args: GetQuoteCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetQuoteCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetRenewalPricingCommand}
    */
   getRenewalPricing(
@@ -655,6 +742,24 @@ export interface Outposts {
   ): void;
 
   /**
+   * @see {@link ListOrderableInstanceTypesCommand}
+   */
+  listOrderableInstanceTypes(): Promise<ListOrderableInstanceTypesCommandOutput>;
+  listOrderableInstanceTypes(
+    args: ListOrderableInstanceTypesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListOrderableInstanceTypesCommandOutput>;
+  listOrderableInstanceTypes(
+    args: ListOrderableInstanceTypesCommandInput,
+    cb: (err: any, data?: ListOrderableInstanceTypesCommandOutput) => void
+  ): void;
+  listOrderableInstanceTypes(
+    args: ListOrderableInstanceTypesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListOrderableInstanceTypesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListOrdersCommand}
    */
   listOrders(): Promise<ListOrdersCommandOutput>;
@@ -688,6 +793,24 @@ export interface Outposts {
     args: ListOutpostsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListOutpostsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListQuotesCommand}
+   */
+  listQuotes(): Promise<ListQuotesCommandOutput>;
+  listQuotes(
+    args: ListQuotesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListQuotesCommandOutput>;
+  listQuotes(
+    args: ListQuotesCommandInput,
+    cb: (err: any, data?: ListQuotesCommandOutput) => void
+  ): void;
+  listQuotes(
+    args: ListQuotesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListQuotesCommandOutput) => void
   ): void;
 
   /**
@@ -825,6 +948,23 @@ export interface Outposts {
     args: UpdateOutpostCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateOutpostCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateQuoteCommand}
+   */
+  updateQuote(
+    args: UpdateQuoteCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateQuoteCommandOutput>;
+  updateQuote(
+    args: UpdateQuoteCommandInput,
+    cb: (err: any, data?: UpdateQuoteCommandOutput) => void
+  ): void;
+  updateQuote(
+    args: UpdateQuoteCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateQuoteCommandOutput) => void
   ): void;
 
   /**
@@ -967,6 +1107,17 @@ export interface Outposts {
   ): Paginator<ListCatalogItemsCommandOutput>;
 
   /**
+   * @see {@link ListOrderableInstanceTypesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOrderableInstanceTypesCommandOutput}.
+   */
+  paginateListOrderableInstanceTypes(
+    args?: ListOrderableInstanceTypesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOrderableInstanceTypesCommandOutput>;
+
+  /**
    * @see {@link ListOrdersCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -987,6 +1138,17 @@ export interface Outposts {
     args?: ListOutpostsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListOutpostsCommandOutput>;
+
+  /**
+   * @see {@link ListQuotesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListQuotesCommandOutput}.
+   */
+  paginateListQuotes(
+    args?: ListQuotesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListQuotesCommandOutput>;
 
   /**
    * @see {@link ListSitesCommand}

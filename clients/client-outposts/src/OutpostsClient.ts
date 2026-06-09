@@ -61,9 +61,11 @@ import type {
 import type { CancelOrderCommandInput, CancelOrderCommandOutput } from "./commands/CancelOrderCommand";
 import type { CreateOrderCommandInput, CreateOrderCommandOutput } from "./commands/CreateOrderCommand";
 import type { CreateOutpostCommandInput, CreateOutpostCommandOutput } from "./commands/CreateOutpostCommand";
+import type { CreateQuoteCommandInput, CreateQuoteCommandOutput } from "./commands/CreateQuoteCommand";
 import type { CreateRenewalCommandInput, CreateRenewalCommandOutput } from "./commands/CreateRenewalCommand";
 import type { CreateSiteCommandInput, CreateSiteCommandOutput } from "./commands/CreateSiteCommand";
 import type { DeleteOutpostCommandInput, DeleteOutpostCommandOutput } from "./commands/DeleteOutpostCommand";
+import type { DeleteQuoteCommandInput, DeleteQuoteCommandOutput } from "./commands/DeleteQuoteCommand";
 import type { DeleteSiteCommandInput, DeleteSiteCommandOutput } from "./commands/DeleteSiteCommand";
 import type { GetCapacityTaskCommandInput, GetCapacityTaskCommandOutput } from "./commands/GetCapacityTaskCommand";
 import type { GetCatalogItemCommandInput, GetCatalogItemCommandOutput } from "./commands/GetCatalogItemCommand";
@@ -82,6 +84,7 @@ import type {
   GetOutpostSupportedInstanceTypesCommandInput,
   GetOutpostSupportedInstanceTypesCommandOutput,
 } from "./commands/GetOutpostSupportedInstanceTypesCommand";
+import type { GetQuoteCommandInput, GetQuoteCommandOutput } from "./commands/GetQuoteCommand";
 import type {
   GetRenewalPricingCommandInput,
   GetRenewalPricingCommandOutput,
@@ -102,8 +105,13 @@ import type {
   ListCapacityTasksCommandOutput,
 } from "./commands/ListCapacityTasksCommand";
 import type { ListCatalogItemsCommandInput, ListCatalogItemsCommandOutput } from "./commands/ListCatalogItemsCommand";
+import type {
+  ListOrderableInstanceTypesCommandInput,
+  ListOrderableInstanceTypesCommandOutput,
+} from "./commands/ListOrderableInstanceTypesCommand";
 import type { ListOrdersCommandInput, ListOrdersCommandOutput } from "./commands/ListOrdersCommand";
 import type { ListOutpostsCommandInput, ListOutpostsCommandOutput } from "./commands/ListOutpostsCommand";
+import type { ListQuotesCommandInput, ListQuotesCommandOutput } from "./commands/ListQuotesCommand";
 import type { ListSitesCommandInput, ListSitesCommandOutput } from "./commands/ListSitesCommand";
 import type {
   ListTagsForResourceCommandInput,
@@ -121,6 +129,7 @@ import type {
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import type { UpdateOutpostCommandInput, UpdateOutpostCommandOutput } from "./commands/UpdateOutpostCommand";
+import type { UpdateQuoteCommandInput, UpdateQuoteCommandOutput } from "./commands/UpdateQuoteCommand";
 import type {
   UpdateSiteAddressCommandInput,
   UpdateSiteAddressCommandOutput,
@@ -149,9 +158,11 @@ export type ServiceInputTypes =
   | CancelOrderCommandInput
   | CreateOrderCommandInput
   | CreateOutpostCommandInput
+  | CreateQuoteCommandInput
   | CreateRenewalCommandInput
   | CreateSiteCommandInput
   | DeleteOutpostCommandInput
+  | DeleteQuoteCommandInput
   | DeleteSiteCommandInput
   | GetCapacityTaskCommandInput
   | GetCatalogItemCommandInput
@@ -161,6 +172,7 @@ export type ServiceInputTypes =
   | GetOutpostCommandInput
   | GetOutpostInstanceTypesCommandInput
   | GetOutpostSupportedInstanceTypesCommandInput
+  | GetQuoteCommandInput
   | GetRenewalPricingCommandInput
   | GetSiteAddressCommandInput
   | GetSiteCommandInput
@@ -169,8 +181,10 @@ export type ServiceInputTypes =
   | ListBlockingInstancesForCapacityTaskCommandInput
   | ListCapacityTasksCommandInput
   | ListCatalogItemsCommandInput
+  | ListOrderableInstanceTypesCommandInput
   | ListOrdersCommandInput
   | ListOutpostsCommandInput
+  | ListQuotesCommandInput
   | ListSitesCommandInput
   | ListTagsForResourceCommandInput
   | StartCapacityTaskCommandInput
@@ -179,6 +193,7 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateOutpostCommandInput
+  | UpdateQuoteCommandInput
   | UpdateSiteAddressCommandInput
   | UpdateSiteCommandInput
   | UpdateSiteRackPhysicalPropertiesCommandInput;
@@ -191,9 +206,11 @@ export type ServiceOutputTypes =
   | CancelOrderCommandOutput
   | CreateOrderCommandOutput
   | CreateOutpostCommandOutput
+  | CreateQuoteCommandOutput
   | CreateRenewalCommandOutput
   | CreateSiteCommandOutput
   | DeleteOutpostCommandOutput
+  | DeleteQuoteCommandOutput
   | DeleteSiteCommandOutput
   | GetCapacityTaskCommandOutput
   | GetCatalogItemCommandOutput
@@ -203,6 +220,7 @@ export type ServiceOutputTypes =
   | GetOutpostCommandOutput
   | GetOutpostInstanceTypesCommandOutput
   | GetOutpostSupportedInstanceTypesCommandOutput
+  | GetQuoteCommandOutput
   | GetRenewalPricingCommandOutput
   | GetSiteAddressCommandOutput
   | GetSiteCommandOutput
@@ -211,8 +229,10 @@ export type ServiceOutputTypes =
   | ListBlockingInstancesForCapacityTaskCommandOutput
   | ListCapacityTasksCommandOutput
   | ListCatalogItemsCommandOutput
+  | ListOrderableInstanceTypesCommandOutput
   | ListOrdersCommandOutput
   | ListOutpostsCommandOutput
+  | ListQuotesCommandOutput
   | ListSitesCommandOutput
   | ListTagsForResourceCommandOutput
   | StartCapacityTaskCommandOutput
@@ -221,6 +241,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateOutpostCommandOutput
+  | UpdateQuoteCommandOutput
   | UpdateSiteAddressCommandOutput
   | UpdateSiteCommandOutput
   | UpdateSiteRackPhysicalPropertiesCommandOutput;

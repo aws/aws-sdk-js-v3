@@ -39,9 +39,11 @@ const _CC = "CountryCode";
 const _CCT = "CancelCapacityTask";
 const _CCTI = "CancelCapacityTaskInput";
 const _CCTO = "CancelCapacityTaskOutput";
+const _CCa = "CapacityChange";
 const _CD = "CreationDate";
 const _CDo = "CompletionDate";
 const _CDon = "ConnectionDetails";
+const _CDr = "CreatedDate";
 const _CE = "ConflictException";
 const _CED = "ContractEndDate";
 const _CI = "CatalogItem";
@@ -61,12 +63,16 @@ const _COr = "CreateOrder";
 const _COre = "CreateOutpost";
 const _CPK = "ClientPublicKey";
 const _CPN = "ContactPhoneNumber";
+const _CQ = "CreateQuote";
+const _CQI = "CreateQuoteInput";
+const _CQO = "CreateQuoteOutput";
 const _CR = "CreateRenewal";
 const _CRI = "CreateRenewalInput";
 const _CRO = "CreateRenewalOutput";
-const _CS = "CreateSite";
+const _CS = "CapacitySummary";
 const _CSI = "CreateSiteInput";
 const _CSO = "CreateSiteOutput";
+const _CSr = "CreateSite";
 const _CT = "ClientToken";
 const _CTA = "ClientTunnelAddress";
 const _CTF = "CapacityTaskFailure";
@@ -76,24 +82,40 @@ const _CTS = "CapacityTaskSummary";
 const _CTSF = "CapacityTaskStatusFilter";
 const _CTSa = "CapacityTaskStatus";
 const _CTa = "CapacityTasks";
+const _Ca = "Capacities";
 const _Co = "Count";
+const _Cu = "Currency";
 const _D = "Description";
+const _DITI = "DetailedInstanceTypeItem";
+const _DITLD = "DetailedInstanceTypeListDefinition";
 const _DO = "DeleteOutpost";
 const _DOC = "DistrictOrCounty";
 const _DOI = "DeleteOutpostInput";
 const _DOO = "DeleteOutpostOutput";
+const _DQ = "DeleteQuote";
+const _DQI = "DeleteQuoteInput";
+const _DQO = "DeleteQuoteOutput";
 const _DR = "DryRun";
 const _DS = "DeleteSite";
 const _DSI = "DeleteSiteInput";
 const _DSN = "DeviceSerialNumber";
 const _DSO = "DeleteSiteOutput";
+const _EC = "ExistingCapacities";
 const _ECC = "EC2Capacities";
 const _ECCLD = "EC2CapacityListDefinition";
 const _ECCa = "EC2Capacity";
 const _ECFF = "EC2FamilyFilter";
-const _ED = "EndDate";
+const _ED = "ExpirationDate";
+const _EDn = "EndDate";
+const _ERSD = "ExistingRackSpecificationDetails";
 const _F = "Family";
+const _FC = "FinalCapacities";
+const _FF = "FormFactor";
+const _FFC = "FormFactorConfigs";
+const _FFCL = "FormFactorConfigList";
+const _FFCo = "FormFactorConfig";
 const _FOCT = "FiberOpticCableType";
+const _FRSD = "FinalRackSpecificationDetails";
 const _Fa = "Failed";
 const _GC = "GetConnection";
 const _GCI = "GetCatalogItem";
@@ -119,6 +141,9 @@ const _GOSIT = "GetOutpostSupportedInstanceTypes";
 const _GOSITI = "GetOutpostSupportedInstanceTypesInput";
 const _GOSITO = "GetOutpostSupportedInstanceTypesOutput";
 const _GOe = "GetOutpost";
+const _GQ = "GetQuote";
+const _GQI = "GetQuoteInput";
+const _GQO = "GetQuoteOutput";
 const _GRP = "GetRenewalPricing";
 const _GRPI = "GetRenewalPricingInput";
 const _GRPO = "GetRenewalPricingOutput";
@@ -174,10 +199,16 @@ const _LIi = "LineItem";
 const _LMD = "LastModifiedDate";
 const _LO = "ListOrders";
 const _LOI = "ListOrdersInput";
+const _LOIT = "ListOrderableInstanceTypes";
+const _LOITI = "ListOrderableInstanceTypesInput";
+const _LOITO = "ListOrderableInstanceTypesOutput";
 const _LOIi = "ListOutpostsInput";
 const _LOO = "ListOrdersOutput";
 const _LOOi = "ListOutpostsOutput";
 const _LOi = "ListOutposts";
+const _LQ = "ListQuotes";
+const _LQI = "ListQuotesInput";
+const _LQO = "ListQuotesOutput";
 const _LS = "ListSites";
 const _LSI = "ListSitesInput";
 const _LSO = "ListSitesOutput";
@@ -186,6 +217,7 @@ const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
 const _M = "Message";
 const _MAL = "MacAddressList";
+const _MIM = "MemoryInMib";
 const _MR = "MaxResults";
 const _MRP = "MonthlyRecurringPrice";
 const _MS = "MaxSize";
@@ -195,6 +227,7 @@ const _Mu = "Municipality";
 const _N = "Name";
 const _NFE = "NotFoundException";
 const _NIDI = "NetworkInterfaceDeviceIndex";
+const _NP = "NetworkPerformance";
 const _NT = "NextToken";
 const _No = "Notes";
 const _O = "Order";
@@ -207,12 +240,18 @@ const _OASOR = "OperatingAddressStateOrRegion";
 const _OASORF = "OperatingAddressStateOrRegionFilter";
 const _OAu = "OutpostArn";
 const _OFD = "OrderFulfilledDate";
+const _OG = "OutpostGeneration";
+const _OGF = "OutpostGenerationFilter";
 const _OI = "OutpostIdentifier";
 const _OIF = "OutpostIdentifierFilter";
 const _OIr = "OrderId";
 const _OIrd = "OrderIds";
 const _OIu = "OutpostId";
 const _OIw = "OwnerId";
+const _OR = "OrderingRequirement";
+const _ORL = "OrderingRequirementList";
+const _ORT = "OrderingRequirementType";
+const _ORr = "OrderingRequirements";
 const _OS = "OrderSummary";
 const _OSD = "OrderSubmissionDate";
 const _OSLD = "OrderSummaryListDefinition";
@@ -236,15 +275,48 @@ const _PP = "PowerPhase";
 const _PR = "PricingResult";
 const _PT = "PaymentTerm";
 const _PTr = "PricingType";
-const _Q = "Quantity";
+const _Q = "Quote";
+const _QC = "QuoteCapacity";
+const _QCL = "QuoteCapacityList";
+const _QCLu = "QuoteConstraintList";
+const _QCT = "QuoteCapacityType";
+const _QCTu = "QuoteConstraintType";
+const _QCu = "QuoteConstraint";
+const _QD = "QuoteDescription";
+const _QI = "QuoteIdentifier";
+const _QIu = "QuoteId";
+const _QO = "QuoteOptions";
+const _QOI = "QuoteOptionIdentifier";
+const _QOL = "QuoteOptionList";
+const _QOu = "QuoteOption";
+const _QS = "QuoteStatus";
+const _QSL = "QuoteSpecificationList";
+const _QSLD = "QuoteSummaryListDefinition";
+const _QST = "QuoteSpecificationType";
+const _QSu = "QuoteSpecification";
+const _QSuo = "QuoteSummary";
+const _Qu = "Quantity";
+const _Quo = "Quotes";
 const _R = "Reason";
 const _RA = "ResourceArn";
+const _RC = "RequestedCapacities";
+const _RCe = "RequestedConstraints";
+const _RDI = "RackDepthInches";
 const _RE = "RackElevation";
+const _RHI = "RackHeightInches";
 const _RI = "ResourceId";
 const _RIP = "RequestedInstancePools";
 const _RIa = "RackId";
+const _RPDK = "RackPowerDrawKva";
+const _RPO = "RequestedPaymentOptions";
 const _RPP = "RackPhysicalProperties";
+const _RPT = "RequestedPaymentTerms";
+const _RSD = "RackSpecificationDetails";
 const _RT = "ResourceType";
+const _RU = "RackUse";
+const _RUH = "RackUnitHeight";
+const _RWI = "RackWidthInches";
+const _RWL = "RackWeightLbs";
 const _S = "State";
 const _SA = "ShippingAddress";
 const _SAi = "SiteArn";
@@ -255,30 +327,39 @@ const _SCT = "StartCapacityTask";
 const _SCTI = "StartCapacityTaskInput";
 const _SCTO = "StartCapacityTaskOutput";
 const _SCt = "StartConnection";
+const _SDI = "ServerDepthInches";
 const _SE = "ServerEndpoint";
 const _SF = "StatusFilter";
+const _SHI = "ServerHeightInches";
 const _SHT = "SupportedHardwareType";
 const _SI = "SiteId";
 const _SIh = "ShipmentInformation";
 const _SIu = "SubscriptionId";
 const _SL = "SubscriptionList";
+const _SM = "StatusMessage";
 const _SOD = "StartOutpostDecommission";
 const _SODI = "StartOutpostDecommissionInput";
 const _SODO = "StartOutpostDecommissionOutput";
+const _SOI = "SubmittedOrderId";
 const _SOR = "StateOrRegion";
 const _SPD = "SubscriptionPricingDetails";
+const _SPDK = "ServerPowerDrawKva";
 const _SPK = "ServerPublicKey";
 const _SQEE = "ServiceQuotaExceededException";
 const _SS = "SupportedStorage";
+const _SSD = "ServerSpecificationDetails";
 const _SSF = "SupportedStorageFilter";
 const _SSu = "SubscriptionStatus";
 const _ST = "SubscriptionType";
 const _STA = "ServerTunnelAddress";
 const _STN = "ShipmentTrackingNumber";
 const _SUG = "SupportedUplinkGbps";
+const _SWI = "ServerWidthInches";
+const _SWL = "ServerWeightLbs";
 const _Se = "Services";
 const _Si = "Site";
 const _Sit = "Sites";
+const _Sp = "Specifications";
 const _St = "Status";
 const _Su = "Subscriptions";
 const _Sub = "Subscription";
@@ -289,6 +370,7 @@ const _TR = "TagResource";
 const _TRR = "TagResourceRequest";
 const _TRRa = "TagResourceResponse";
 const _Ta = "Tags";
+const _U = "Unit";
 const _UC = "UplinkCount";
 const _UG = "UplinkGbps";
 const _UIA = "UnderlayIpAddress";
@@ -296,6 +378,9 @@ const _UO = "UpdateOutpost";
 const _UOI = "UpdateOutpostInput";
 const _UOO = "UpdateOutpostOutput";
 const _UP = "UpfrontPrice";
+const _UQ = "UpdateQuote";
+const _UQI = "UpdateQuoteInput";
+const _UQO = "UpdateQuoteOutput";
 const _UR = "UntagResource";
 const _URR = "UntagResourceRequest";
 const _URRn = "UntagResourceResponse";
@@ -308,6 +393,7 @@ const _USO = "UpdateSiteOutput";
 const _USRPP = "UpdateSiteRackPhysicalProperties";
 const _USRPPI = "UpdateSiteRackPhysicalPropertiesInput";
 const _USRPPO = "UpdateSiteRackPhysicalPropertiesOutput";
+const _V = "Value";
 const _VCPU = "VCPUs";
 const _VE = "ValidationException";
 const _VO = "ValidateOnly";
@@ -331,6 +417,7 @@ import type {
   StaticListSchema,
   StaticMapSchema,
   StaticOperationSchema,
+  StaticSimpleSchema,
   StaticStructureSchema,
 } from "@smithy/types";
 
@@ -394,6 +481,7 @@ export const errorTypeRegistries = [
   _s_registry,
   n0_registry,
 ]
+var QuoteDescription: StaticSimpleSchema = [0, n0, _QD, 8, 0];
 export var Address$: StaticStructureSchema = [3, n0, _A,
   0,
   [_CN, _CPN, _AL, _C, _SOR, _PC, _CC, _ALd, _ALdd, _DOC, _Mu],
@@ -444,6 +532,11 @@ export var CancelOrderOutput$: StaticStructureSchema = [3, n0, _COO,
   [],
   []
 ];
+export var CapacitySummary$: StaticStructureSchema = [3, n0, _CS,
+  0,
+  [_EC, _FC, _CCa],
+  [() => QuoteCapacityList, () => QuoteCapacityList, () => QuoteCapacityList]
+];
 export var CapacityTaskFailure$: StaticStructureSchema = [3, n0, _CTF,
   0,
   [_R, _T],
@@ -489,6 +582,16 @@ export var CreateOutpostOutput$: StaticStructureSchema = [3, n0, _COOre,
   [_Ou],
   [() => Outpost$]
 ];
+export var CreateQuoteInput$: StaticStructureSchema = [3, n0, _CQI,
+  0,
+  [_CC, _RC, _OI, _RCe, _RPO, _RPT, _D],
+  [0, () => QuoteCapacityList, 0, () => QuoteConstraintList, 64 | 0, 64 | 0, [() => QuoteDescription, 0]], 2
+];
+export var CreateQuoteOutput$: StaticStructureSchema = [3, n0, _CQO,
+  0,
+  [_Q],
+  [[() => Quote$, 0]]
+];
 export var CreateRenewalInput$: StaticStructureSchema = [3, n0, _CRI,
   0,
   [_PO, _PT, _OI, _CT],
@@ -496,8 +599,8 @@ export var CreateRenewalInput$: StaticStructureSchema = [3, n0, _CRI,
 ];
 export var CreateRenewalOutput$: StaticStructureSchema = [3, n0, _CRO,
   0,
-  [_PO, _PT, _OIu, _UP, _MRP],
-  [0, 0, 0, 1, 1]
+  [_PO, _PT, _OIu, _UP, _MRP, _Cu],
+  [0, 0, 0, 1, 1, 0]
 ];
 export var CreateSiteInput$: StaticStructureSchema = [3, n0, _CSI,
   0,
@@ -519,6 +622,16 @@ export var DeleteOutpostOutput$: StaticStructureSchema = [3, n0, _DOO,
   [],
   []
 ];
+export var DeleteQuoteInput$: StaticStructureSchema = [3, n0, _DQI,
+  0,
+  [_QI],
+  [[0, 1]], 1
+];
+export var DeleteQuoteOutput$: StaticStructureSchema = [3, n0, _DQO,
+  0,
+  [],
+  []
+];
 export var DeleteSiteInput$: StaticStructureSchema = [3, n0, _DSI,
   0,
   [_SI],
@@ -529,10 +642,20 @@ export var DeleteSiteOutput$: StaticStructureSchema = [3, n0, _DSO,
   [],
   []
 ];
+export var DetailedInstanceTypeItem$: StaticStructureSchema = [3, n0, _DITI,
+  0,
+  [_IT, _VCPU, _MIM, _NP, _FFC],
+  [0, 1, 1, 0, () => FormFactorConfigList]
+];
 export var EC2Capacity$: StaticStructureSchema = [3, n0, _ECCa,
   0,
-  [_F, _MS, _Q],
+  [_F, _MS, _Qu],
   [0, 0, 0]
+];
+export var FormFactorConfig$: StaticStructureSchema = [3, n0, _FFCo,
+  0,
+  [_FF, _OG],
+  [0, 0]
 ];
 export var GetCapacityTaskInput$: StaticStructureSchema = [3, n0, _GCTI,
   0,
@@ -614,6 +737,16 @@ export var GetOutpostSupportedInstanceTypesOutput$: StaticStructureSchema = [3, 
   [_ITn, _NT],
   [() => InstanceTypeListDefinition, 0]
 ];
+export var GetQuoteInput$: StaticStructureSchema = [3, n0, _GQI,
+  0,
+  [_QI],
+  [[0, 1]], 1
+];
+export var GetQuoteOutput$: StaticStructureSchema = [3, n0, _GQO,
+  0,
+  [_Q],
+  [[() => Quote$, 0]]
+];
 export var GetRenewalPricingInput$: StaticStructureSchema = [3, n0, _GRPI,
   0,
   [_OI],
@@ -661,7 +794,7 @@ export var InstanceTypeItem$: StaticStructureSchema = [3, n0, _ITI,
 ];
 export var LineItem$: StaticStructureSchema = [3, n0, _LIi,
   0,
-  [_CII, _LII, _Q, _St, _SIh, _AIL, _PLII, _POI],
+  [_CII, _LII, _Qu, _St, _SIh, _AIL, _PLII, _POI],
   [0, 0, 1, 0, () => ShipmentInformation$, () => LineItemAssetInformationList, 0, 0]
 ];
 export var LineItemAssetInformation$: StaticStructureSchema = [3, n0, _LIAI,
@@ -671,7 +804,7 @@ export var LineItemAssetInformation$: StaticStructureSchema = [3, n0, _LIAI,
 ];
 export var LineItemRequest$: StaticStructureSchema = [3, n0, _LIR,
   0,
-  [_CII, _Q],
+  [_CII, _Qu],
   [0, 1]
 ];
 export var ListAssetInstancesInput$: StaticStructureSchema = [3, n0, _LAII,
@@ -724,6 +857,16 @@ export var ListCatalogItemsOutput$: StaticStructureSchema = [3, n0, _LCIO,
   [_CIa, _NT],
   [() => CatalogItemListDefinition, 0]
 ];
+export var ListOrderableInstanceTypesInput$: StaticStructureSchema = [3, n0, _LOITI,
+  0,
+  [_OGF, _MR, _NT],
+  [[0, { [_hQ]: _OGF }], [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]]
+];
+export var ListOrderableInstanceTypesOutput$: StaticStructureSchema = [3, n0, _LOITO,
+  0,
+  [_ITn, _NT],
+  [() => DetailedInstanceTypeListDefinition, 0]
+];
 export var ListOrdersInput$: StaticStructureSchema = [3, n0, _LOI,
   0,
   [_OIF, _NT, _MR],
@@ -743,6 +886,16 @@ export var ListOutpostsOutput$: StaticStructureSchema = [3, n0, _LOOi,
   0,
   [_Out, _NT],
   [() => outpostListDefinition, 0]
+];
+export var ListQuotesInput$: StaticStructureSchema = [3, n0, _LQI,
+  0,
+  [_NT, _MR],
+  [[0, { [_hQ]: _NT }], [1, { [_hQ]: _MR }]]
+];
+export var ListQuotesOutput$: StaticStructureSchema = [3, n0, _LQO,
+  0,
+  [_Quo, _NT],
+  [[() => QuoteSummaryListDefinition, 0], 0]
 ];
 export var ListSitesInput$: StaticStructureSchema = [3, n0, _LSI,
   0,
@@ -769,6 +922,11 @@ export var Order$: StaticStructureSchema = [3, n0, _O,
   [_OIu, _OIr, _St, _LI, _PO, _OSD, _OFD, _PT, _OT],
   [0, 0, 0, () => LineItemListDefinition, 0, 4, 4, 0, 0]
 ];
+export var OrderingRequirement$: StaticStructureSchema = [3, n0, _OR,
+  0,
+  [_SM, _ORT, _St],
+  [0, 0, 0]
+];
 export var OrderSummary$: StaticStructureSchema = [3, n0, _OS,
   0,
   [_OIu, _OIr, _OT, _St, _LICBS, _OSD, _OFD],
@@ -784,10 +942,50 @@ export var PricingOption$: StaticStructureSchema = [3, n0, _POri,
   [_PTr, _SPD],
   [0, () => SubscriptionPricingDetails$]
 ];
+export var Quote$: StaticStructureSchema = [3, n0, _Q,
+  0,
+  [_QIu, _AIc, _QS, _SM, _OAu, _CC, _RC, _RCe, _RPO, _RPT, _QO, _ORr, _SOI, _CDr, _ED, _D],
+  [0, 0, 0, 0, 0, 0, () => QuoteCapacityList, () => QuoteConstraintList, 64 | 0, 64 | 0, () => QuoteOptionList, () => OrderingRequirementList, 0, 4, 4, [() => QuoteDescription, 0]]
+];
+export var QuoteCapacity$: StaticStructureSchema = [3, n0, _QC,
+  0,
+  [_QCT, _U, _Qu],
+  [0, 0, 1]
+];
+export var QuoteConstraint$: StaticStructureSchema = [3, n0, _QCu,
+  0,
+  [_QCTu, _V],
+  [0, 0]
+];
+export var QuoteOption$: StaticStructureSchema = [3, n0, _QOu,
+  0,
+  [_QOI, _Ca, _CS, _Sp, _POr],
+  [0, () => QuoteCapacityList, () => CapacitySummary$, () => QuoteSpecificationList, () => PricingOptionList]
+];
+export var QuoteSpecification$: StaticStructureSchema = [3, n0, _QSu,
+  0,
+  [_QST, _ERSD, _FRSD, _SSD],
+  [0, () => RackSpecificationDetails$, () => RackSpecificationDetails$, () => ServerSpecificationDetails$]
+];
+export var QuoteSummary$: StaticStructureSchema = [3, n0, _QSuo,
+  0,
+  [_QIu, _AIc, _QS, _SM, _OAu, _CC, _RC, _RCe, _RPO, _RPT, _QO, _SOI, _CDr, _ED, _D],
+  [0, 0, 0, 0, 0, 0, () => QuoteCapacityList, () => QuoteConstraintList, 64 | 0, 64 | 0, () => QuoteOptionList, 0, 4, 4, [() => QuoteDescription, 0]]
+];
 export var RackPhysicalProperties$: StaticStructureSchema = [3, n0, _RPP,
   0,
   [_PDK, _PP, _PCo, _PFD, _UG, _UC, _FOCT, _OSp, _MSWL],
   [0, 0, 0, 0, 0, 0, 0, 0, 0]
+];
+export var RackSpecificationDetails$: StaticStructureSchema = [3, n0, _RSD,
+  0,
+  [_RIa, _RU, _RPDK, _RWL, _RHI, _RWI, _RDI, _RUH, _ECC],
+  [0, 0, 1, 1, 1, 1, 1, 0, () => EC2CapacityListDefinition]
+];
+export var ServerSpecificationDetails$: StaticStructureSchema = [3, n0, _SSD,
+  0,
+  [_SPDK, _SWL, _SHI, _SWI, _SDI, _RUH, _ECC],
+  [1, 1, 1, 1, 1, 0, () => EC2CapacityListDefinition]
 ];
 export var ShipmentInformation$: StaticStructureSchema = [3, n0, _SIh,
   0,
@@ -831,13 +1029,13 @@ export var StartOutpostDecommissionOutput$: StaticStructureSchema = [3, n0, _SOD
 ];
 export var Subscription$: StaticStructureSchema = [3, n0, _Sub,
   0,
-  [_SIu, _ST, _SSu, _OIrd, _BD, _ED, _MRP, _UP],
-  [0, 0, 0, 64 | 0, 4, 4, 1, 1]
+  [_SIu, _ST, _SSu, _OIrd, _BD, _EDn, _Cu, _MRP, _UP],
+  [0, 0, 0, 64 | 0, 4, 4, 0, 1, 1]
 ];
 export var SubscriptionPricingDetails$: StaticStructureSchema = [3, n0, _SPD,
   0,
-  [_PO, _PT, _UP, _MRP],
-  [0, 0, 1, 1]
+  [_PO, _PT, _UP, _MRP, _Cu],
+  [0, 0, 1, 1, 0]
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
@@ -868,6 +1066,16 @@ export var UpdateOutpostOutput$: StaticStructureSchema = [3, n0, _UOO,
   0,
   [_Ou],
   [() => Outpost$]
+];
+export var UpdateQuoteInput$: StaticStructureSchema = [3, n0, _UQI,
+  0,
+  [_QI, _OI, _CC, _RC, _RCe, _RPO, _RPT, _D],
+  [[0, 1], 0, 0, () => QuoteCapacityList, () => QuoteConstraintList, 64 | 0, 64 | 0, [() => QuoteDescription, 0]], 1
+];
+export var UpdateQuoteOutput$: StaticStructureSchema = [3, n0, _UQO,
+  0,
+  [_Q],
+  [[() => Quote$, 0]]
 ];
 export var UpdateSiteAddressInput$: StaticStructureSchema = [3, n0, _USAI,
   0,
@@ -929,10 +1137,16 @@ var CatalogItemListDefinition: StaticListSchema = [1, n0, _CILD,
 var CIDRList = 64 | 0;
 var CityList = 64 | 0;
 var CountryCodeList = 64 | 0;
+var DetailedInstanceTypeListDefinition: StaticListSchema = [1, n0, _DITLD,
+  0, () => DetailedInstanceTypeItem$
+];
 var EC2CapacityListDefinition: StaticListSchema = [1, n0, _ECCLD,
   0, () => EC2Capacity$
 ];
 var EC2FamilyList = 64 | 0;
+var FormFactorConfigList: StaticListSchema = [1, n0, _FFCL,
+  0, () => FormFactorConfig$
+];
 var HostIdList = 64 | 0;
 var InstanceFamilies = 64 | 0;
 var InstanceIdList = 64 | 0;
@@ -951,6 +1165,9 @@ var LineItemRequestListDefinition: StaticListSchema = [1, n0, _LIRLD,
 ];
 var MacAddressList = 64 | 0;
 var OrderIdList = 64 | 0;
+var OrderingRequirementList: StaticListSchema = [1, n0, _ORL,
+  0, () => OrderingRequirement$
+];
 var OrderSummaryListDefinition: StaticListSchema = [1, n0, _OSLD,
   0, () => OrderSummary$
 ];
@@ -958,8 +1175,26 @@ var OutpostInstanceTypeList = 64 | 0;
 var outpostListDefinition: StaticListSchema = [1, n0, _oLD,
   0, () => Outpost$
 ];
+var PaymentOptionList = 64 | 0;
+var PaymentTermList = 64 | 0;
 var PricingOptionList: StaticListSchema = [1, n0, _POL,
   0, () => PricingOption$
+];
+var QuoteCapacityList: StaticListSchema = [1, n0, _QCL,
+  0, () => QuoteCapacity$
+];
+var QuoteConstraintList: StaticListSchema = [1, n0, _QCLu,
+  0, () => QuoteConstraint$
+];
+var QuoteOptionList: StaticListSchema = [1, n0, _QOL,
+  0, () => QuoteOption$
+];
+var QuoteSpecificationList: StaticListSchema = [1, n0, _QSL,
+  0, () => QuoteSpecification$
+];
+var QuoteSummaryListDefinition: StaticListSchema = [1, n0, _QSLD,
+  0, [() => QuoteSummary$,
+    0]
 ];
 var RequestedInstancePools: StaticListSchema = [1, n0, _RIP,
   0, () => InstanceTypeCapacity$
@@ -989,14 +1224,20 @@ export var CreateOrder$: StaticOperationSchema = [9, n0, _COr,
 export var CreateOutpost$: StaticOperationSchema = [9, n0, _COre,
   { [_h]: ["POST", "/outposts", 200] }, () => CreateOutpostInput$, () => CreateOutpostOutput$
 ];
+export var CreateQuote$: StaticOperationSchema = [9, n0, _CQ,
+  { [_h]: ["POST", "/quotes", 200] }, () => CreateQuoteInput$, () => CreateQuoteOutput$
+];
 export var CreateRenewal$: StaticOperationSchema = [9, n0, _CR,
   { [_h]: ["POST", "/renewals", 200] }, () => CreateRenewalInput$, () => CreateRenewalOutput$
 ];
-export var CreateSite$: StaticOperationSchema = [9, n0, _CS,
+export var CreateSite$: StaticOperationSchema = [9, n0, _CSr,
   { [_h]: ["POST", "/sites", 200] }, () => CreateSiteInput$, () => CreateSiteOutput$
 ];
 export var DeleteOutpost$: StaticOperationSchema = [9, n0, _DO,
   { [_h]: ["DELETE", "/outposts/{OutpostId}", 200] }, () => DeleteOutpostInput$, () => DeleteOutpostOutput$
+];
+export var DeleteQuote$: StaticOperationSchema = [9, n0, _DQ,
+  { [_h]: ["DELETE", "/quotes/{QuoteIdentifier}", 200] }, () => DeleteQuoteInput$, () => DeleteQuoteOutput$
 ];
 export var DeleteSite$: StaticOperationSchema = [9, n0, _DS,
   { [_h]: ["DELETE", "/sites/{SiteId}", 200] }, () => DeleteSiteInput$, () => DeleteSiteOutput$
@@ -1025,6 +1266,9 @@ export var GetOutpostInstanceTypes$: StaticOperationSchema = [9, n0, _GOIT,
 export var GetOutpostSupportedInstanceTypes$: StaticOperationSchema = [9, n0, _GOSIT,
   { [_h]: ["GET", "/outposts/{OutpostIdentifier}/supportedInstanceTypes", 200] }, () => GetOutpostSupportedInstanceTypesInput$, () => GetOutpostSupportedInstanceTypesOutput$
 ];
+export var GetQuote$: StaticOperationSchema = [9, n0, _GQ,
+  { [_h]: ["GET", "/quotes/{QuoteIdentifier}", 200] }, () => GetQuoteInput$, () => GetQuoteOutput$
+];
 export var GetRenewalPricing$: StaticOperationSchema = [9, n0, _GRP,
   { [_h]: ["GET", "/outpost/{OutpostIdentifier}/renewal-pricing", 200] }, () => GetRenewalPricingInput$, () => GetRenewalPricingOutput$
 ];
@@ -1049,11 +1293,17 @@ export var ListCapacityTasks$: StaticOperationSchema = [9, n0, _LCT,
 export var ListCatalogItems$: StaticOperationSchema = [9, n0, _LCI,
   { [_h]: ["GET", "/catalog/items", 200] }, () => ListCatalogItemsInput$, () => ListCatalogItemsOutput$
 ];
+export var ListOrderableInstanceTypes$: StaticOperationSchema = [9, n0, _LOIT,
+  { [_h]: ["GET", "/instanceTypes", 200] }, () => ListOrderableInstanceTypesInput$, () => ListOrderableInstanceTypesOutput$
+];
 export var ListOrders$: StaticOperationSchema = [9, n0, _LO,
   { [_h]: ["GET", "/list-orders", 200] }, () => ListOrdersInput$, () => ListOrdersOutput$
 ];
 export var ListOutposts$: StaticOperationSchema = [9, n0, _LOi,
   { [_h]: ["GET", "/outposts", 200] }, () => ListOutpostsInput$, () => ListOutpostsOutput$
+];
+export var ListQuotes$: StaticOperationSchema = [9, n0, _LQ,
+  { [_h]: ["GET", "/quotes", 200] }, () => ListQuotesInput$, () => ListQuotesOutput$
 ];
 export var ListSites$: StaticOperationSchema = [9, n0, _LS,
   { [_h]: ["GET", "/sites", 200] }, () => ListSitesInput$, () => ListSitesOutput$
@@ -1078,6 +1328,9 @@ export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
 ];
 export var UpdateOutpost$: StaticOperationSchema = [9, n0, _UO,
   { [_h]: ["PATCH", "/outposts/{OutpostId}", 200] }, () => UpdateOutpostInput$, () => UpdateOutpostOutput$
+];
+export var UpdateQuote$: StaticOperationSchema = [9, n0, _UQ,
+  { [_h]: ["PATCH", "/quotes/{QuoteIdentifier}", 200] }, () => UpdateQuoteInput$, () => UpdateQuoteOutput$
 ];
 export var UpdateSite$: StaticOperationSchema = [9, n0, _US,
   { [_h]: ["PATCH", "/sites/{SiteId}", 200] }, () => UpdateSiteInput$, () => UpdateSiteOutput$

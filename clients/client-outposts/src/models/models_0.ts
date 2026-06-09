@@ -10,13 +10,18 @@ import type {
   CatalogItemClass,
   CatalogItemStatus,
   ComputeAssetState,
+  CurrencyCode,
   DecommissionRequestStatus,
   FiberOpticCableType,
+  FormFactor,
   LineItemStatus,
   MaximumSupportedWeightLbs,
   OpticalStandard,
+  OrderingRequirementStatus,
+  OrderingRequirementType,
   OrderStatus,
   OrderType,
+  OutpostGeneration,
   PaymentOption,
   PaymentTerm,
   PowerConnector,
@@ -24,7 +29,13 @@ import type {
   PowerFeedDrop,
   PowerPhase,
   PricingResult,
+  QuoteCapacityType,
+  QuoteConstraintType,
   QuotePricingType,
+  QuoteRackUseType,
+  QuoteSpecificationType,
+  QuoteStatus,
+  RackUnitHeight,
   ShipmentCarrier,
   SubscriptionStatus,
   SubscriptionType,
@@ -330,6 +341,60 @@ export interface CancelOrderInput {
  * @public
  */
 export interface CancelOrderOutput {}
+
+/**
+ * <p>A capacity requirement for a quote. Specifies the type of capacity, the unit, and the
+ *       quantity.</p>
+ * @public
+ */
+export interface QuoteCapacity {
+  /**
+   * <p>The type of capacity. Valid values are <code>EC2</code>, <code>EBS</code>, and
+   *       <code>S3</code>.</p>
+   * @public
+   */
+  QuoteCapacityType?: QuoteCapacityType | undefined;
+
+  /**
+   * <p>The unit of measurement for the capacity. For Amazon EC2, this is the instance type (for
+   *       example, <code>c5.24xlarge</code>). For Amazon EBS and Amazon S3, this is the storage unit (for
+   *       example, <code>TiB</code> for tebibytes).</p>
+   * @public
+   */
+  Unit?: string | undefined;
+
+  /**
+   * <p>The quantity of the specified capacity unit. For Amazon EC2, this is the number of
+   *       additional instances to add to the Outpost. For Amazon EBS and Amazon S3, this is the total
+   *       desired end-state capacity of the Outpost.</p>
+   * @public
+   */
+  Quantity?: number | undefined;
+}
+
+/**
+ * <p>A summary of the capacity changes for a quote option.</p>
+ * @public
+ */
+export interface CapacitySummary {
+  /**
+   * <p>The existing capacities on the Outpost before the quote is fulfilled.</p>
+   * @public
+   */
+  ExistingCapacities?: QuoteCapacity[] | undefined;
+
+  /**
+   * <p>The final capacities on the Outpost after the quote is fulfilled.</p>
+   * @public
+   */
+  FinalCapacities?: QuoteCapacity[] | undefined;
+
+  /**
+   * <p>The change in capacity between the existing and final state.</p>
+   * @public
+   */
+  CapacityChange?: QuoteCapacity[] | undefined;
+}
 
 /**
  * <p>The capacity tasks that failed.</p>
@@ -895,6 +960,581 @@ export interface CreateOutpostOutput {
 }
 
 /**
+ * <p>A physical constraint for a quote.</p>
+ * @public
+ */
+export interface QuoteConstraint {
+  /**
+   * <p>The type of constraint. Valid values are <code>RACK_MAXIMUM</code>,
+   *       <code>RACK_MAX_POWER_KVA</code>, and <code>RACK_MAX_WEIGHT_LBS</code>.</p>
+   * @public
+   */
+  QuoteConstraintType?: QuoteConstraintType | undefined;
+
+  /**
+   * <p>The value of the constraint.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateQuoteInput {
+  /**
+   * <p>The ID or ARN of the Outpost to associate with the quote. If not specified, the quote is
+   *       created without an Outpost association.</p>
+   * @public
+   */
+  OutpostIdentifier?: string | undefined;
+
+  /**
+   * <p>The country code for the Outpost site location.</p>
+   * @public
+   */
+  CountryCode: string | undefined;
+
+  /**
+   * <p>The capacity requirements for the quote. Each entry specifies a capacity type (such as
+   *       Amazon EC2), the unit, and the quantity. For Amazon EC2, the quantity is the number of additional
+   *       instances to add to the Outpost. For Amazon EBS and Amazon S3, the quantity is the total desired
+   *       end-state capacity of the Outpost.</p>
+   * @public
+   */
+  RequestedCapacities: QuoteCapacity[] | undefined;
+
+  /**
+   * <p>The physical constraints for the quote, such as maximum number of racks, maximum power
+   *       draw per rack, or maximum weight per rack.</p>
+   * @public
+   */
+  RequestedConstraints?: QuoteConstraint[] | undefined;
+
+  /**
+   * <p>The payment options to include in the quote pricing. If not specified, all available
+   *       payment options are returned.</p>
+   * @public
+   */
+  RequestedPaymentOptions?: PaymentOption[] | undefined;
+
+  /**
+   * <p>The payment terms to include in the quote pricing. If not specified, all available
+   *       payment terms are returned.</p>
+   * @public
+   */
+  RequestedPaymentTerms?: PaymentTerm[] | undefined;
+
+  /**
+   * <p>A description for the quote.</p>
+   * @public
+   */
+  Description?: string | undefined;
+}
+
+/**
+ * <p>A requirement that must be met before an order can be submitted for a quote.</p>
+ * @public
+ */
+export interface OrderingRequirement {
+  /**
+   * <p>A message about the ordering requirement.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+
+  /**
+   * <p>The type of ordering requirement. Indicates which check failed or passed.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>OUTPOST_ACTIVE_CHECK_ERROR</code> - The Outpost must be in
+   *           an active state.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MAXIMUM_ALLOWED_ORDERS_CHECK_ERROR</code> - The maximum
+   *           number of allowed orders has been reached.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VALID_ZIP_CODE_CHECK_ERROR</code> - The site address must
+   *           have a valid zip code.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RACK_PHYSICAL_PROPERTIES_CHECK_ERROR</code> - The rack
+   *           physical properties do not meet requirements.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OPERATING_ADDRESS_EXISTENCE_CHECK_ERROR</code> - The site
+   *           must have an operating address.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SHIPPING_ADDRESS_EXISTENCE_CHECK_ERROR</code> - The site
+   *           must have a shipping address.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>COUNTRY_CODE_MISMATCH_CHECK_ERROR</code> - The country
+   *           code on the quote does not match the Outpost site country.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OUTPOST_GENERATION_MISMATCH_ERROR</code> - The Outpost generation
+   *           does not match the requested configuration.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OUTPOST_ID_MISSING_ON_QUOTE_ERROR</code> - The quote must
+   *           be associated with an Outpost before submitting an order.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ENTERPRISE_SUPPORT_ERROR</code> - Enterprise Support is
+   *           required.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SHIPPING_ADDRESS_MISSING_CONTACT_NAME_ERROR</code> - The
+   *           shipping address must have a contact name.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SHIPPING_ADDRESS_MISSING_CONTACT_NUMBER_ERROR</code> - The
+   *           shipping address must have a contact phone number.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SHIPPING_ADDRESS_MISSING_CONTACT_INFO_ERROR</code> - The
+   *           shipping address must have contact information.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OUTPOST_STATE_CHANGED_ERROR</code> - The Outpost state has
+   *           changed since the quote was created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OUTPOST_NOT_FOUND_ERROR</code> - The Outpost associated
+   *           with the quote was not found.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OUTPOST_RENEWAL_REQUIRED_ERROR</code> - The Outpost
+   *           requires a renewal before a new order can be submitted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UNSUPPORTED</code> - The requirement type is not
+   *           recognized.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  OrderingRequirementType?: OrderingRequirementType | undefined;
+
+  /**
+   * <p>The status of the ordering requirement. Valid values are <code>PASS</code>,
+   *       <code>FAIL</code>, and <code>EXEMPT</code>.</p>
+   * @public
+   */
+  Status?: OrderingRequirementStatus | undefined;
+}
+
+/**
+ * <p>The pricing details for a subscription.</p>
+ * @public
+ */
+export interface SubscriptionPricingDetails {
+  /**
+   * <p>The payment option.</p>
+   * @public
+   */
+  PaymentOption?: PaymentOption | undefined;
+
+  /**
+   * <p>The payment term.</p>
+   * @public
+   */
+  PaymentTerm?: PaymentTerm | undefined;
+
+  /**
+   * <p>The upfront price.</p>
+   * @public
+   */
+  UpfrontPrice?: number | undefined;
+
+  /**
+   * <p>The monthly recurring price.</p>
+   * @public
+   */
+  MonthlyRecurringPrice?: number | undefined;
+
+  /**
+   * <p>The currency of the price. Currently only <code>USD</code> is supported.</p>
+   * @public
+   */
+  Currency?: CurrencyCode | undefined;
+}
+
+/**
+ * <p>A pricing option for the specified Outpost.</p>
+ * @public
+ */
+export interface PricingOption {
+  /**
+   * <p>The type of pricing model.</p>
+   * @public
+   */
+  PricingType?: QuotePricingType | undefined;
+
+  /**
+   * <p>The subscription pricing details for this pricing option.</p>
+   * @public
+   */
+  SubscriptionPricingDetails?: SubscriptionPricingDetails | undefined;
+}
+
+/**
+ * <p>The physical specification details for a rack in a quote option.</p>
+ * @public
+ */
+export interface RackSpecificationDetails {
+  /**
+   * <p>The ID of the rack.</p>
+   * @public
+   */
+  RackId?: string | undefined;
+
+  /**
+   * <p>The use of the rack. Valid values are <code>COMPUTE</code> and
+   *       <code>NETWORKING</code>.</p>
+   * @public
+   */
+  RackUse?: QuoteRackUseType | undefined;
+
+  /**
+   * <p>The maximum power draw of the rack in kVA.</p>
+   * @public
+   */
+  RackPowerDrawKva?: number | undefined;
+
+  /**
+   * <p>The weight of the rack in pounds.</p>
+   * @public
+   */
+  RackWeightLbs?: number | undefined;
+
+  /**
+   * <p>The height of the rack in inches.</p>
+   * @public
+   */
+  RackHeightInches?: number | undefined;
+
+  /**
+   * <p>The width of the rack in inches.</p>
+   * @public
+   */
+  RackWidthInches?: number | undefined;
+
+  /**
+   * <p>The depth of the rack in inches.</p>
+   * @public
+   */
+  RackDepthInches?: number | undefined;
+
+  /**
+   * <p>The rack unit height.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>HEIGHT_42U</code> - 42 rack units.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HEIGHT_2U</code> - 2 rack units.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HEIGHT_1U</code> - 1 rack unit.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  RackUnitHeight?: RackUnitHeight | undefined;
+
+  /**
+   * <p>The Amazon EC2 capacities for the rack.</p>
+   * @public
+   */
+  EC2Capacities?: EC2Capacity[] | undefined;
+}
+
+/**
+ * <p>The physical specification details for a server in a quote option.</p>
+ * @public
+ */
+export interface ServerSpecificationDetails {
+  /**
+   * <p>The maximum power draw of the server in kVA.</p>
+   * @public
+   */
+  ServerPowerDrawKva?: number | undefined;
+
+  /**
+   * <p>The weight of the server in pounds.</p>
+   * @public
+   */
+  ServerWeightLbs?: number | undefined;
+
+  /**
+   * <p>The height of the server in inches.</p>
+   * @public
+   */
+  ServerHeightInches?: number | undefined;
+
+  /**
+   * <p>The width of the server in inches.</p>
+   * @public
+   */
+  ServerWidthInches?: number | undefined;
+
+  /**
+   * <p>The depth of the server in inches.</p>
+   * @public
+   */
+  ServerDepthInches?: number | undefined;
+
+  /**
+   * <p>The rack unit height of the server.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>HEIGHT_2U</code> - 2 rack units.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HEIGHT_1U</code> - 1 rack unit.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  RackUnitHeight?: RackUnitHeight | undefined;
+
+  /**
+   * <p>The Amazon EC2 capacities for the server.</p>
+   * @public
+   */
+  EC2Capacities?: EC2Capacity[] | undefined;
+}
+
+/**
+ * <p>A physical specification for a quote option. Describes the rack or server configuration
+ *       that would be deployed.</p>
+ * @public
+ */
+export interface QuoteSpecification {
+  /**
+   * <p>The type of specification. Valid values are <code>NEW_RACK</code>,
+   *       <code>UPDATED_RACK</code>, <code>EXISTING_RACK</code>, and <code>SERVER</code>.</p>
+   * @public
+   */
+  QuoteSpecificationType?: QuoteSpecificationType | undefined;
+
+  /**
+   * <p>The existing rack specification details, if the specification type is
+   *       <code>UPDATED_RACK</code> or <code>EXISTING_RACK</code>.</p>
+   * @public
+   */
+  ExistingRackSpecificationDetails?: RackSpecificationDetails | undefined;
+
+  /**
+   * <p>The final rack specification details after the quote is fulfilled.</p>
+   * @public
+   */
+  FinalRackSpecificationDetails?: RackSpecificationDetails | undefined;
+
+  /**
+   * <p>The server specification details, if the specification type is
+   *       <code>SERVER</code>.</p>
+   * @public
+   */
+  ServerSpecificationDetails?: ServerSpecificationDetails | undefined;
+}
+
+/**
+ * <p>A configuration and pricing option for a quote. Each option includes the capacity
+ *       breakdown, physical specifications for the racks or servers, and pricing details.</p>
+ * @public
+ */
+export interface QuoteOption {
+  /**
+   * <p>The ID of the quote option.</p>
+   * @public
+   */
+  QuoteOptionIdentifier?: string | undefined;
+
+  /**
+   * <p>The capacities included in this quote option.</p>
+   * @public
+   */
+  Capacities?: QuoteCapacity[] | undefined;
+
+  /**
+   * <p>A summary of the existing, final, and changed capacity for this quote option.</p>
+   * @public
+   */
+  CapacitySummary?: CapacitySummary | undefined;
+
+  /**
+   * <p>The physical specifications for the racks or servers in this quote option.</p>
+   * @public
+   */
+  Specifications?: QuoteSpecification[] | undefined;
+
+  /**
+   * <p>The pricing options for this quote option.</p>
+   * @public
+   */
+  PricingOptions?: PricingOption[] | undefined;
+}
+
+/**
+ * <p>Information about a quote for an Outpost. A quote provides pricing and configuration
+ *       options based on the requested capacity.</p>
+ * @public
+ */
+export interface Quote {
+  /**
+   * <p>The ID of the quote.</p>
+   * @public
+   */
+  QuoteId?: string | undefined;
+
+  /**
+   * <p>The ID of the account that owns the quote.</p>
+   * @public
+   */
+  AccountId?: string | undefined;
+
+  /**
+   * <p>The status of the quote.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATED</code> - The quote has been created and is
+   *           available for review.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ORDER_SUBMITTED</code> - An order has been submitted for
+   *           the quote.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EXPIRED</code> - The quote has expired and can no longer
+   *           be used to submit an order.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  QuoteStatus?: QuoteStatus | undefined;
+
+  /**
+   * <p>A message about the status of the quote.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+
+  /**
+   * <p>The ARN of the Outpost associated with the quote.</p>
+   * @public
+   */
+  OutpostArn?: string | undefined;
+
+  /**
+   * <p>The country code for the Outpost site location.</p>
+   * @public
+   */
+  CountryCode?: string | undefined;
+
+  /**
+   * <p>The capacity requirements specified in the quote request.</p>
+   * @public
+   */
+  RequestedCapacities?: QuoteCapacity[] | undefined;
+
+  /**
+   * <p>The physical constraints specified in the quote request.</p>
+   * @public
+   */
+  RequestedConstraints?: QuoteConstraint[] | undefined;
+
+  /**
+   * <p>The payment options specified in the quote request.</p>
+   * @public
+   */
+  RequestedPaymentOptions?: PaymentOption[] | undefined;
+
+  /**
+   * <p>The payment terms specified in the quote request.</p>
+   * @public
+   */
+  RequestedPaymentTerms?: PaymentTerm[] | undefined;
+
+  /**
+   * <p>The configuration and pricing options for the quote. Each option includes capacity
+   *       details, physical specifications, and pricing information.</p>
+   * @public
+   */
+  QuoteOptions?: QuoteOption[] | undefined;
+
+  /**
+   * <p>The requirements that must be met before an order can be submitted for the quote.</p>
+   * @public
+   */
+  OrderingRequirements?: OrderingRequirement[] | undefined;
+
+  /**
+   * <p>The ID of the order submitted for the quote.</p>
+   * @public
+   */
+  SubmittedOrderId?: string | undefined;
+
+  /**
+   * <p>The date the quote was created.</p>
+   * @public
+   */
+  CreatedDate?: Date | undefined;
+
+  /**
+   * <p>The date the quote expires.</p>
+   * @public
+   */
+  ExpirationDate?: Date | undefined;
+
+  /**
+   * <p>The description of the quote.</p>
+   * @public
+   */
+  Description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateQuoteOutput {
+  /**
+   * <p>Information about the quote.</p>
+   * @public
+   */
+  Quote?: Quote | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateRenewalInput {
@@ -957,6 +1597,12 @@ export interface CreateRenewalOutput {
    * @public
    */
   MonthlyRecurringPrice?: number | undefined;
+
+  /**
+   * <p>The currency of the renewal price.</p>
+   * @public
+   */
+  Currency?: CurrencyCode | undefined;
 }
 
 /**
@@ -1187,6 +1833,22 @@ export interface DeleteOutpostOutput {}
 /**
  * @public
  */
+export interface DeleteQuoteInput {
+  /**
+   * <p>The ID or ARN of the quote.</p>
+   * @public
+   */
+  QuoteIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteQuoteOutput {}
+
+/**
+ * @public
+ */
 export interface DeleteSiteInput {
   /**
    * <p> The ID or the Amazon Resource Name (ARN) of the site. </p>
@@ -1199,6 +1861,65 @@ export interface DeleteSiteInput {
  * @public
  */
 export interface DeleteSiteOutput {}
+
+/**
+ * <p>A supported form factor and Outpost generation configuration for an instance type.</p>
+ * @public
+ */
+export interface FormFactorConfig {
+  /**
+   * <p>The form factor. Valid values are <code>RACK</code> for rack-based Outposts and
+   *       <code>SERVER</code> for server-based Outposts.</p>
+   * @public
+   */
+  FormFactor?: FormFactor | undefined;
+
+  /**
+   * <p>The Outpost generation. Valid values are <code>GENERATION_1</code> for first-generation
+   *       rack deployments and <code>GENERATION_2</code> for second-generation rack deployments. This
+   *       value is not set for server form factors.</p>
+   * @public
+   */
+  OutpostGeneration?: OutpostGeneration | undefined;
+}
+
+/**
+ * <p>Information about an instance type that can be ordered for an Outpost, including
+ *       hardware specifications and supported form factors.</p>
+ * @public
+ */
+export interface DetailedInstanceTypeItem {
+  /**
+   * <p>The instance type.</p>
+   * @public
+   */
+  InstanceType?: string | undefined;
+
+  /**
+   * <p>The number of default VCPUs in the instance type.</p>
+   * @public
+   */
+  VCPUs?: number | undefined;
+
+  /**
+   * <p>The memory size of the instance type, in MiB.</p>
+   * @public
+   */
+  MemoryInMib?: number | undefined;
+
+  /**
+   * <p>The network performance of the instance type.</p>
+   * @public
+   */
+  NetworkPerformance?: string | undefined;
+
+  /**
+   * <p>The supported form factor and Outpost generation configurations for the instance
+   *       type.</p>
+   * @public
+   */
+  FormFactorConfigs?: FormFactorConfig[] | undefined;
+}
 
 /**
  * @public
@@ -1591,6 +2312,13 @@ export interface Subscription {
   EndDate?: Date | undefined;
 
   /**
+   * <p>The currency of the subscription price. Currently only <code>USD</code> is
+   *       supported.</p>
+   * @public
+   */
+  Currency?: CurrencyCode | undefined;
+
+  /**
    * <p>The amount you are billed each month in the subscription period.</p>
    * @public
    */
@@ -1767,60 +2495,34 @@ export interface GetOutpostSupportedInstanceTypesOutput {
 /**
  * @public
  */
+export interface GetQuoteInput {
+  /**
+   * <p>The ID or ARN of the quote.</p>
+   * @public
+   */
+  QuoteIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetQuoteOutput {
+  /**
+   * <p>Information about the quote.</p>
+   * @public
+   */
+  Quote?: Quote | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetRenewalPricingInput {
   /**
    * <p>The ID or ARN of the Outpost.</p>
    * @public
    */
   OutpostIdentifier: string | undefined;
-}
-
-/**
- * <p>The pricing details for a subscription.</p>
- * @public
- */
-export interface SubscriptionPricingDetails {
-  /**
-   * <p>The payment option.</p>
-   * @public
-   */
-  PaymentOption?: PaymentOption | undefined;
-
-  /**
-   * <p>The payment term.</p>
-   * @public
-   */
-  PaymentTerm?: PaymentTerm | undefined;
-
-  /**
-   * <p>The upfront price.</p>
-   * @public
-   */
-  UpfrontPrice?: number | undefined;
-
-  /**
-   * <p>The monthly recurring price.</p>
-   * @public
-   */
-  MonthlyRecurringPrice?: number | undefined;
-}
-
-/**
- * <p>A pricing option for the specified Outpost.</p>
- * @public
- */
-export interface PricingOption {
-  /**
-   * <p>The type of pricing model.</p>
-   * @public
-   */
-  PricingType?: QuotePricingType | undefined;
-
-  /**
-   * <p>The subscription pricing details for this pricing option.</p>
-   * @public
-   */
-  SubscriptionPricingDetails?: SubscriptionPricingDetails | undefined;
 }
 
 /**
@@ -2191,6 +2893,48 @@ export interface ListCatalogItemsOutput {
 /**
  * @public
  */
+export interface ListOrderableInstanceTypesInput {
+  /**
+   * <p>Filters the results by Outpost generation. Specify <code>GENERATION_1</code> for
+   *       first-generation rack deployments or <code>GENERATION_2</code> for second-generation rack
+   *       deployments.</p>
+   * @public
+   */
+  OutpostGenerationFilter?: OutpostGeneration | undefined;
+
+  /**
+   * <p>The maximum page size.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The pagination token.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListOrderableInstanceTypesOutput {
+  /**
+   * <p>Information about the instance types that can be ordered for the Outpost.</p>
+   * @public
+   */
+  InstanceTypes?: DetailedInstanceTypeItem[] | undefined;
+
+  /**
+   * <p>The pagination token.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListOrdersInput {
   /**
    * <p> The ID or the Amazon Resource Name (ARN) of the Outpost. </p>
@@ -2347,6 +3091,136 @@ export interface ListOutpostsOutput {
    * @public
    */
   Outposts?: Outpost[] | undefined;
+
+  /**
+   * <p>The pagination token.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListQuotesInput {
+  /**
+   * <p>The pagination token.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum page size.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>Summary information about a quote.</p>
+ * @public
+ */
+export interface QuoteSummary {
+  /**
+   * <p>The ID of the quote.</p>
+   * @public
+   */
+  QuoteId?: string | undefined;
+
+  /**
+   * <p>The ID of the account that owns the quote.</p>
+   * @public
+   */
+  AccountId?: string | undefined;
+
+  /**
+   * <p>The status of the quote.</p>
+   * @public
+   */
+  QuoteStatus?: QuoteStatus | undefined;
+
+  /**
+   * <p>A message about the status of the quote.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+
+  /**
+   * <p>The ARN of the Outpost associated with the quote.</p>
+   * @public
+   */
+  OutpostArn?: string | undefined;
+
+  /**
+   * <p>The country code for the Outpost site location.</p>
+   * @public
+   */
+  CountryCode?: string | undefined;
+
+  /**
+   * <p>The capacity requirements specified in the quote request.</p>
+   * @public
+   */
+  RequestedCapacities?: QuoteCapacity[] | undefined;
+
+  /**
+   * <p>The physical constraints specified in the quote request.</p>
+   * @public
+   */
+  RequestedConstraints?: QuoteConstraint[] | undefined;
+
+  /**
+   * <p>The payment options specified in the quote request.</p>
+   * @public
+   */
+  RequestedPaymentOptions?: PaymentOption[] | undefined;
+
+  /**
+   * <p>The payment terms specified in the quote request.</p>
+   * @public
+   */
+  RequestedPaymentTerms?: PaymentTerm[] | undefined;
+
+  /**
+   * <p>The configuration and pricing options for the quote.</p>
+   * @public
+   */
+  QuoteOptions?: QuoteOption[] | undefined;
+
+  /**
+   * <p>The ID of the order submitted for the quote.</p>
+   * @public
+   */
+  SubmittedOrderId?: string | undefined;
+
+  /**
+   * <p>The date the quote was created.</p>
+   * @public
+   */
+  CreatedDate?: Date | undefined;
+
+  /**
+   * <p>The date the quote expires.</p>
+   * @public
+   */
+  ExpirationDate?: Date | undefined;
+
+  /**
+   * <p>The description of the quote.</p>
+   * @public
+   */
+  Description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListQuotesOutput {
+  /**
+   * <p>Information about the quotes.</p>
+   * @public
+   */
+  Quotes?: QuoteSummary[] | undefined;
 
   /**
    * <p>The pagination token.</p>
@@ -2752,6 +3626,71 @@ export interface UpdateOutpostOutput {
    * @public
    */
   Outpost?: Outpost | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateQuoteInput {
+  /**
+   * <p>The ID or ARN of the quote.</p>
+   * @public
+   */
+  QuoteIdentifier: string | undefined;
+
+  /**
+   * <p>The ID or ARN of the Outpost to associate with the quote. Specify an empty string to
+   *       remove the Outpost association.</p>
+   * @public
+   */
+  OutpostIdentifier?: string | undefined;
+
+  /**
+   * <p>The country code for the Outpost site location.</p>
+   * @public
+   */
+  CountryCode?: string | undefined;
+
+  /**
+   * <p>The updated capacity requirements for the quote.</p>
+   * @public
+   */
+  RequestedCapacities?: QuoteCapacity[] | undefined;
+
+  /**
+   * <p>The updated physical constraints for the quote.</p>
+   * @public
+   */
+  RequestedConstraints?: QuoteConstraint[] | undefined;
+
+  /**
+   * <p>The updated payment options to include in the quote pricing.</p>
+   * @public
+   */
+  RequestedPaymentOptions?: PaymentOption[] | undefined;
+
+  /**
+   * <p>The updated payment terms to include in the quote pricing.</p>
+   * @public
+   */
+  RequestedPaymentTerms?: PaymentTerm[] | undefined;
+
+  /**
+   * <p>A description for the quote.</p>
+   * @public
+   */
+  Description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateQuoteOutput {
+  /**
+   * <p>Information about the updated quote.</p>
+   * @public
+   */
+  Quote?: Quote | undefined;
 }
 
 /**

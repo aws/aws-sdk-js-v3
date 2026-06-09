@@ -20,6 +20,7 @@ import {
   CancelOrderCommand,
   CancelOrderInput$,
   CancelOrderOutput$,
+  CapacitySummary$,
   CapacityTaskFailure$,
   CapacityTaskFailureType,
   CapacityTaskStatus,
@@ -40,6 +41,10 @@ import {
   CreateOutpostCommand,
   CreateOutpostInput$,
   CreateOutpostOutput$,
+  CreateQuote$,
+  CreateQuoteCommand,
+  CreateQuoteInput$,
+  CreateQuoteOutput$,
   CreateRenewal$,
   CreateRenewalCommand,
   CreateRenewalInput$,
@@ -48,17 +53,25 @@ import {
   CreateSiteCommand,
   CreateSiteInput$,
   CreateSiteOutput$,
+  CurrencyCode,
   DecommissionRequestStatus,
   DeleteOutpost$,
   DeleteOutpostCommand,
   DeleteOutpostInput$,
   DeleteOutpostOutput$,
+  DeleteQuote$,
+  DeleteQuoteCommand,
+  DeleteQuoteInput$,
+  DeleteQuoteOutput$,
   DeleteSite$,
   DeleteSiteCommand,
   DeleteSiteInput$,
   DeleteSiteOutput$,
+  DetailedInstanceTypeItem$,
   EC2Capacity$,
   FiberOpticCableType,
+  FormFactor,
+  FormFactorConfig$,
   GetCapacityTask$,
   GetCapacityTaskCommand,
   GetCapacityTaskInput$,
@@ -91,6 +104,10 @@ import {
   GetOutpostSupportedInstanceTypesCommand,
   GetOutpostSupportedInstanceTypesInput$,
   GetOutpostSupportedInstanceTypesOutput$,
+  GetQuote$,
+  GetQuoteCommand,
+  GetQuoteInput$,
+  GetQuoteOutput$,
   GetRenewalPricing$,
   GetRenewalPricingCommand,
   GetRenewalPricingInput$,
@@ -132,6 +149,10 @@ import {
   ListCatalogItemsCommand,
   ListCatalogItemsInput$,
   ListCatalogItemsOutput$,
+  ListOrderableInstanceTypes$,
+  ListOrderableInstanceTypesCommand,
+  ListOrderableInstanceTypesInput$,
+  ListOrderableInstanceTypesOutput$,
   ListOrders$,
   ListOrdersCommand,
   ListOrdersInput$,
@@ -140,6 +161,10 @@ import {
   ListOutpostsCommand,
   ListOutpostsInput$,
   ListOutpostsOutput$,
+  ListQuotes$,
+  ListQuotesCommand,
+  ListQuotesInput$,
+  ListQuotesOutput$,
   ListSites$,
   ListSitesCommand,
   ListSitesInput$,
@@ -153,10 +178,14 @@ import {
   NotFoundException$,
   OpticalStandard,
   Order$,
+  OrderingRequirement$,
+  OrderingRequirementStatus,
+  OrderingRequirementType,
   OrderStatus,
   OrderSummary$,
   OrderType,
   Outpost$,
+  OutpostGeneration,
   Outposts,
   OutpostsClient,
   OutpostsServiceException,
@@ -168,8 +197,10 @@ import {
   paginateListBlockingInstancesForCapacityTask,
   paginateListCapacityTasks,
   paginateListCatalogItems,
+  paginateListOrderableInstanceTypes,
   paginateListOrders,
   paginateListOutposts,
+  paginateListQuotes,
   paginateListSites,
   PaymentOption,
   PaymentTerm,
@@ -179,9 +210,23 @@ import {
   PowerPhase,
   PricingOption$,
   PricingResult,
+  Quote$,
+  QuoteCapacity$,
+  QuoteCapacityType,
+  QuoteConstraint$,
+  QuoteConstraintType,
+  QuoteOption$,
   QuotePricingType,
+  QuoteRackUseType,
+  QuoteSpecification$,
+  QuoteSpecificationType,
+  QuoteStatus,
+  QuoteSummary$,
   RackPhysicalProperties$,
+  RackSpecificationDetails$,
+  RackUnitHeight,
   ResourceType,
+  ServerSpecificationDetails$,
   ServiceQuotaExceededException,
   ServiceQuotaExceededException$,
   ShipmentCarrier,
@@ -218,6 +263,10 @@ import {
   UpdateOutpostCommand,
   UpdateOutpostInput$,
   UpdateOutpostOutput$,
+  UpdateQuote$,
+  UpdateQuoteCommand,
+  UpdateQuoteInput$,
+  UpdateQuoteOutput$,
   UpdateSite$,
   UpdateSiteAddress$,
   UpdateSiteAddressCommand,
@@ -248,12 +297,16 @@ assert(typeof CreateOrderCommand === "function");
 assert(typeof CreateOrder$ === "object");
 assert(typeof CreateOutpostCommand === "function");
 assert(typeof CreateOutpost$ === "object");
+assert(typeof CreateQuoteCommand === "function");
+assert(typeof CreateQuote$ === "object");
 assert(typeof CreateRenewalCommand === "function");
 assert(typeof CreateRenewal$ === "object");
 assert(typeof CreateSiteCommand === "function");
 assert(typeof CreateSite$ === "object");
 assert(typeof DeleteOutpostCommand === "function");
 assert(typeof DeleteOutpost$ === "object");
+assert(typeof DeleteQuoteCommand === "function");
+assert(typeof DeleteQuote$ === "object");
 assert(typeof DeleteSiteCommand === "function");
 assert(typeof DeleteSite$ === "object");
 assert(typeof GetCapacityTaskCommand === "function");
@@ -272,6 +325,8 @@ assert(typeof GetOutpostInstanceTypesCommand === "function");
 assert(typeof GetOutpostInstanceTypes$ === "object");
 assert(typeof GetOutpostSupportedInstanceTypesCommand === "function");
 assert(typeof GetOutpostSupportedInstanceTypes$ === "object");
+assert(typeof GetQuoteCommand === "function");
+assert(typeof GetQuote$ === "object");
 assert(typeof GetRenewalPricingCommand === "function");
 assert(typeof GetRenewalPricing$ === "object");
 assert(typeof GetSiteCommand === "function");
@@ -288,10 +343,14 @@ assert(typeof ListCapacityTasksCommand === "function");
 assert(typeof ListCapacityTasks$ === "object");
 assert(typeof ListCatalogItemsCommand === "function");
 assert(typeof ListCatalogItems$ === "object");
+assert(typeof ListOrderableInstanceTypesCommand === "function");
+assert(typeof ListOrderableInstanceTypes$ === "object");
 assert(typeof ListOrdersCommand === "function");
 assert(typeof ListOrders$ === "object");
 assert(typeof ListOutpostsCommand === "function");
 assert(typeof ListOutposts$ === "object");
+assert(typeof ListQuotesCommand === "function");
+assert(typeof ListQuotes$ === "object");
 assert(typeof ListSitesCommand === "function");
 assert(typeof ListSites$ === "object");
 assert(typeof ListTagsForResourceCommand === "function");
@@ -308,6 +367,8 @@ assert(typeof UntagResourceCommand === "function");
 assert(typeof UntagResource$ === "object");
 assert(typeof UpdateOutpostCommand === "function");
 assert(typeof UpdateOutpost$ === "object");
+assert(typeof UpdateQuoteCommand === "function");
+assert(typeof UpdateQuote$ === "object");
 assert(typeof UpdateSiteCommand === "function");
 assert(typeof UpdateSite$ === "object");
 assert(typeof UpdateSiteAddressCommand === "function");
@@ -325,6 +386,7 @@ assert(typeof CancelCapacityTaskInput$ === "object");
 assert(typeof CancelCapacityTaskOutput$ === "object");
 assert(typeof CancelOrderInput$ === "object");
 assert(typeof CancelOrderOutput$ === "object");
+assert(typeof CapacitySummary$ === "object");
 assert(typeof CapacityTaskFailure$ === "object");
 assert(typeof CapacityTaskSummary$ === "object");
 assert(typeof CatalogItem$ === "object");
@@ -334,15 +396,21 @@ assert(typeof CreateOrderInput$ === "object");
 assert(typeof CreateOrderOutput$ === "object");
 assert(typeof CreateOutpostInput$ === "object");
 assert(typeof CreateOutpostOutput$ === "object");
+assert(typeof CreateQuoteInput$ === "object");
+assert(typeof CreateQuoteOutput$ === "object");
 assert(typeof CreateRenewalInput$ === "object");
 assert(typeof CreateRenewalOutput$ === "object");
 assert(typeof CreateSiteInput$ === "object");
 assert(typeof CreateSiteOutput$ === "object");
 assert(typeof DeleteOutpostInput$ === "object");
 assert(typeof DeleteOutpostOutput$ === "object");
+assert(typeof DeleteQuoteInput$ === "object");
+assert(typeof DeleteQuoteOutput$ === "object");
 assert(typeof DeleteSiteInput$ === "object");
 assert(typeof DeleteSiteOutput$ === "object");
+assert(typeof DetailedInstanceTypeItem$ === "object");
 assert(typeof EC2Capacity$ === "object");
+assert(typeof FormFactorConfig$ === "object");
 assert(typeof GetCapacityTaskInput$ === "object");
 assert(typeof GetCapacityTaskOutput$ === "object");
 assert(typeof GetCatalogItemInput$ === "object");
@@ -359,6 +427,8 @@ assert(typeof GetOutpostInstanceTypesOutput$ === "object");
 assert(typeof GetOutpostOutput$ === "object");
 assert(typeof GetOutpostSupportedInstanceTypesInput$ === "object");
 assert(typeof GetOutpostSupportedInstanceTypesOutput$ === "object");
+assert(typeof GetQuoteInput$ === "object");
+assert(typeof GetQuoteOutput$ === "object");
 assert(typeof GetRenewalPricingInput$ === "object");
 assert(typeof GetRenewalPricingOutput$ === "object");
 assert(typeof GetSiteAddressInput$ === "object");
@@ -381,19 +451,32 @@ assert(typeof ListCapacityTasksInput$ === "object");
 assert(typeof ListCapacityTasksOutput$ === "object");
 assert(typeof ListCatalogItemsInput$ === "object");
 assert(typeof ListCatalogItemsOutput$ === "object");
+assert(typeof ListOrderableInstanceTypesInput$ === "object");
+assert(typeof ListOrderableInstanceTypesOutput$ === "object");
 assert(typeof ListOrdersInput$ === "object");
 assert(typeof ListOrdersOutput$ === "object");
 assert(typeof ListOutpostsInput$ === "object");
 assert(typeof ListOutpostsOutput$ === "object");
+assert(typeof ListQuotesInput$ === "object");
+assert(typeof ListQuotesOutput$ === "object");
 assert(typeof ListSitesInput$ === "object");
 assert(typeof ListSitesOutput$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof Order$ === "object");
+assert(typeof OrderingRequirement$ === "object");
 assert(typeof OrderSummary$ === "object");
 assert(typeof Outpost$ === "object");
 assert(typeof PricingOption$ === "object");
+assert(typeof Quote$ === "object");
+assert(typeof QuoteCapacity$ === "object");
+assert(typeof QuoteConstraint$ === "object");
+assert(typeof QuoteOption$ === "object");
+assert(typeof QuoteSpecification$ === "object");
+assert(typeof QuoteSummary$ === "object");
 assert(typeof RackPhysicalProperties$ === "object");
+assert(typeof RackSpecificationDetails$ === "object");
+assert(typeof ServerSpecificationDetails$ === "object");
 assert(typeof ShipmentInformation$ === "object");
 assert(typeof Site$ === "object");
 assert(typeof StartCapacityTaskInput$ === "object");
@@ -410,6 +493,8 @@ assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UntagResourceResponse$ === "object");
 assert(typeof UpdateOutpostInput$ === "object");
 assert(typeof UpdateOutpostOutput$ === "object");
+assert(typeof UpdateQuoteInput$ === "object");
+assert(typeof UpdateQuoteOutput$ === "object");
 assert(typeof UpdateSiteAddressInput$ === "object");
 assert(typeof UpdateSiteAddressOutput$ === "object");
 assert(typeof UpdateSiteInput$ === "object");
@@ -427,13 +512,18 @@ assert(typeof CapacityTaskStatus === "object");
 assert(typeof CatalogItemClass === "object");
 assert(typeof CatalogItemStatus === "object");
 assert(typeof ComputeAssetState === "object");
+assert(typeof CurrencyCode === "object");
 assert(typeof DecommissionRequestStatus === "object");
 assert(typeof FiberOpticCableType === "object");
+assert(typeof FormFactor === "object");
 assert(typeof LineItemStatus === "object");
 assert(typeof MaximumSupportedWeightLbs === "object");
 assert(typeof OpticalStandard === "object");
+assert(typeof OrderingRequirementStatus === "object");
+assert(typeof OrderingRequirementType === "object");
 assert(typeof OrderStatus === "object");
 assert(typeof OrderType === "object");
+assert(typeof OutpostGeneration === "object");
 assert(typeof PaymentOption === "object");
 assert(typeof PaymentTerm === "object");
 assert(typeof PowerConnector === "object");
@@ -441,7 +531,13 @@ assert(typeof PowerDrawKva === "object");
 assert(typeof PowerFeedDrop === "object");
 assert(typeof PowerPhase === "object");
 assert(typeof PricingResult === "object");
+assert(typeof QuoteCapacityType === "object");
+assert(typeof QuoteConstraintType === "object");
 assert(typeof QuotePricingType === "object");
+assert(typeof QuoteRackUseType === "object");
+assert(typeof QuoteSpecificationType === "object");
+assert(typeof QuoteStatus === "object");
+assert(typeof RackUnitHeight === "object");
 assert(typeof ResourceType === "object");
 assert(typeof ShipmentCarrier === "object");
 assert(typeof SubscriptionStatus === "object");
@@ -474,7 +570,9 @@ assert(typeof paginateListAssets === "function");
 assert(typeof paginateListBlockingInstancesForCapacityTask === "function");
 assert(typeof paginateListCapacityTasks === "function");
 assert(typeof paginateListCatalogItems === "function");
+assert(typeof paginateListOrderableInstanceTypes === "function");
 assert(typeof paginateListOrders === "function");
 assert(typeof paginateListOutposts === "function");
+assert(typeof paginateListQuotes === "function");
 assert(typeof paginateListSites === "function");
 console.log(`Outposts index test passed.`);

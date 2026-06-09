@@ -213,6 +213,13 @@ CreateOutpost
 </details>
 <details>
 <summary>
+CreateQuote
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/outposts/command/CreateQuoteCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-outposts/Interface/CreateQuoteCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-outposts/Interface/CreateQuoteCommandOutput/)
+</details>
+<details>
+<summary>
 CreateRenewal
 </summary>
 
@@ -231,6 +238,13 @@ DeleteOutpost
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/outposts/command/DeleteOutpostCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-outposts/Interface/DeleteOutpostCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-outposts/Interface/DeleteOutpostCommandOutput/)
+</details>
+<details>
+<summary>
+DeleteQuote
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/outposts/command/DeleteQuoteCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-outposts/Interface/DeleteQuoteCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-outposts/Interface/DeleteQuoteCommandOutput/)
 </details>
 <details>
 <summary>
@@ -297,6 +311,13 @@ GetOutpostSupportedInstanceTypes
 </details>
 <details>
 <summary>
+GetQuote
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/outposts/command/GetQuoteCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-outposts/Interface/GetQuoteCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-outposts/Interface/GetQuoteCommandOutput/)
+</details>
+<details>
+<summary>
 GetRenewalPricing
 </summary>
 
@@ -353,6 +374,13 @@ ListCatalogItems
 </details>
 <details>
 <summary>
+ListOrderableInstanceTypes
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/outposts/command/ListOrderableInstanceTypesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-outposts/Interface/ListOrderableInstanceTypesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-outposts/Interface/ListOrderableInstanceTypesCommandOutput/)
+</details>
+<details>
+<summary>
 ListOrders
 </summary>
 
@@ -364,6 +392,13 @@ ListOutposts
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/outposts/command/ListOutpostsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-outposts/Interface/ListOutpostsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-outposts/Interface/ListOutpostsCommandOutput/)
+</details>
+<details>
+<summary>
+ListQuotes
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/outposts/command/ListQuotesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-outposts/Interface/ListQuotesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-outposts/Interface/ListQuotesCommandOutput/)
 </details>
 <details>
 <summary>
@@ -420,6 +455,13 @@ UpdateOutpost
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/outposts/command/UpdateOutpostCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-outposts/Interface/UpdateOutpostCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-outposts/Interface/UpdateOutpostCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateQuote
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/outposts/command/UpdateQuoteCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-outposts/Interface/UpdateQuoteCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-outposts/Interface/UpdateQuoteCommandOutput/)
 </details>
 <details>
 <summary>
