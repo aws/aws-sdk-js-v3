@@ -8,17 +8,17 @@
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline",
-    "build:es": "tsc -p tsconfig.es.json",
-    "build:types": "tsc -p tsconfig.types.json",
+    "build:es": "premove dist-es && tsc -p tsconfig.es.json",
+    "build:types": "premove dist-types && tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
-    "clean": "premove dist-cjs dist-es dist-types tsconfig.cjs.tsbuildinfo tsconfig.es.tsbuildinfo tsconfig.types.tsbuildinfo",
+    "clean": "premove dist-cjs dist-es dist-types",
     "test": "yarn g:vitest run",
     "test:watch": "yarn g:vitest watch",
     "test:e2e": "yarn g:vitest run -c vitest.config.e2e.mts",
     "test:e2e:watch": "yarn g:vitest watch -c vitest.config.e2e.mts"
   },
   "dependencies": {
-    "@smithy/undici-http-handler": "^2.0.0",
+    "@smithy/undici-http-handler": "^2.0.1",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

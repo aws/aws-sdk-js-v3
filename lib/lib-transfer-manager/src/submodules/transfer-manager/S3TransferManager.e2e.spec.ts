@@ -1,9 +1,9 @@
+import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import type { GetObjectCommandOutput } from "@aws-sdk/client-s3";
 import { S3 } from "@aws-sdk/client-s3";
 import { Upload } from "@aws-sdk/lib-storage";
 import { afterEach, beforeAll, describe, expect, test as it } from "vitest";
 
-import { getIntegTestResources } from "../../../tests/e2e/get-integ-test-resources";
 import { internalEventHandler, S3TransferManager } from "./S3TransferManager";
 import type { S3TransferManagerConfig } from "./types";
 
@@ -32,12 +32,11 @@ describe(S3TransferManager.name, () => {
   let region: string;
 
   beforeAll(async () => {
-    const integTestResourcesEnv = await getIntegTestResources();
-    Object.assign(process.env, integTestResourcesEnv);
+    const e2eEnv = await getE2eTestResources();
+    Object.assign(process.env, e2eEnv);
 
     region = process?.env?.AWS_SMOKE_TEST_REGION as string;
     Bucket = process?.env?.AWS_SMOKE_TEST_BUCKET as string;
-    void getIntegTestResources;
 
     client = new S3({
       region,

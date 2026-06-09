@@ -29,7 +29,7 @@ export {
   validateBucketNameMiddlewareOptions,
   getValidateBucketNamePlugin,
   S3RestXmlProtocol,
-} from "./submodules/s3/index";
+} from "@aws-sdk/middleware-sdk-s3/s3";
 
 export type {
   PreviouslyResolved,
@@ -37,4 +37,4 @@ export type {
   S3ResolvedConfig,
   S3ExpressIdentity,
   S3ExpressIdentityProvider,
-} from "./submodules/s3/index";
+} from "@aws-sdk/middleware-sdk-s3/s3";

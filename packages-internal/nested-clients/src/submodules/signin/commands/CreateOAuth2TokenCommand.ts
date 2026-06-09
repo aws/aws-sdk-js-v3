@@ -150,7 +150,10 @@ export class CreateOAuth2TokenCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep(commonParams)
+  .ep({
+    ...commonParams,
+    IsControlPlane: { type: "staticContextParams", value: false },
+  })
   .m(function (this: any, Command: any, cs: any, config: SigninClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })

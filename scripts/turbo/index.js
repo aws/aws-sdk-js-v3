@@ -13,7 +13,7 @@ const runTurbo = async (task, args, { apiSecret, apiEndpoint, apiSignatureKey } 
   const execArguments = [
     "turbo",
     "run",
-    task,
+    ...task.split(" "),
     `--concurrency=${devConfig.concurrency ?? "100%"}`,
     `--output-logs=${devConfig.outputLogs ?? "errors-only"}`,
   ];
@@ -67,11 +67,12 @@ const main = async () => {
   const apiSignatureKey = process.env.AWS_JSV3_TURBO_CACHE_API_SIGNATURE_KEY;
 
   const args = process.argv.slice(2);
+  const task = args[0] === "build" ? "build:types build:es build:cjs" : args[0];
 
   if (!apiSecret || !apiEndpoint || !apiSignatureKey) {
-    await runTurbo(args[0], args.slice(1));
+    await runTurbo(task, args.slice(1));
   } else {
-    await runTurbo(args[0], args.slice(1), { apiSecret, apiEndpoint, apiSignatureKey });
+    await runTurbo(task, args.slice(1), { apiSecret, apiEndpoint, apiSignatureKey });
   }
 };
 

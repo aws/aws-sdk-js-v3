@@ -35,6 +35,7 @@ function setup() {
         dependencies: {
           tslib: "^2",
           "@aws-sdk/util-arn-parser": "^3.0.0",
+          "@aws-sdk/util-endpoints": "^3.0.0",
         },
       },
       null,
@@ -55,6 +56,7 @@ module.exports = { blorp };
   // 2. imports-declared: imports @aws-sdk/client-s3 (not in deps)
   // 3. static-import-names: dynamic require(variable) and import(variable)
   // 4. relative-imports: imports ./nonexistent (broken relative)
+  // 5. imports-declared (require.resolve): imports @aws-sdk/util-arn-parser/nonexistent-subpath (declared but unresolvable)
   const blorpCode = `"use strict";
 const { toHex } = require("@smithy/util-hex-encoding");
 const { S3 } = require("@aws-sdk/client-s3");
@@ -63,6 +65,7 @@ const dyn = require(name);
 const dynImport = import(name);
 const missing = require("./nonexistent");
 import("./also-missing");
+const subpath = require("@aws-sdk/util-arn-parser/nonexistent-subpath");
 module.exports = { blorp: toHex };
 `;
   fs.writeFileSync(path.join(distCjs, "blorp.js"), blorpCode);
@@ -122,6 +125,10 @@ function runTests() {
   const declared = runValidator("imports-declared.js", [pkg]);
   check(declared.exitCode !== 0, "imports-declared detects undeclared @aws-sdk/client-s3");
   check(declared.output.includes("@aws-sdk/client-s3"), "imports-declared names the undeclared package");
+  check(
+    declared.output.includes("nonexistent-subpath"),
+    "imports-declared detects unresolvable subpath via require.resolve"
+  );
 
   // 3. static-import-names
   const dynamic = runValidator("static-import-names.js", [pkg]);
@@ -139,10 +146,10 @@ function runTests() {
   const unreachable = runValidator("unreachable-files.js", [pkg]);
   check(unreachable.output.includes("orphan.js"), "unreachable-files detects orphan.js");
 
-  // 6. deps-used (@aws-sdk/util-arn-parser is declared but never imported)
+  // 6. deps-used (@aws-sdk/util-endpoints is declared but never imported)
   const deps = runValidator("deps-used.js", [pkg]);
-  check(deps.exitCode !== 0, "deps-used detects unused @aws-sdk/util-arn-parser");
-  check(deps.output.includes("@aws-sdk/util-arn-parser"), "deps-used names the unused dependency");
+  check(deps.exitCode !== 0, "deps-used detects unused @aws-sdk/util-endpoints");
+  check(deps.output.includes("@aws-sdk/util-endpoints"), "deps-used names the unused dependency");
 
   console.log(`\n${passed + failed} tests: ${passed} passed, ${failed} failed`);
   return failed === 0;

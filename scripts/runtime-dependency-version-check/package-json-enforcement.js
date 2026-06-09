@@ -394,22 +394,64 @@ module.exports = function (pkgJsonFilePath, overwrite = false) {
       }
     }
 
-    if (!pkgJson.scripts?.build || !pkgJson.scripts.build.includes("yarn lint")) {
-      errors.push(`${pkgJson.name} build script must include "yarn lint"`);
-      if (overwrite && pkgJson.scripts?.build) {
-        pkgJson.scripts.build = `yarn lint && ${pkgJson.scripts.build}`;
+    if (!pkgJson.scripts?.prebuild || !pkgJson.scripts.prebuild.includes("yarn lint")) {
+      errors.push(`${pkgJson.name} prebuild script must include "yarn lint"`);
+      if (overwrite) {
+        pkgJson.scripts = pkgJson.scripts || {};
+        pkgJson.scripts.prebuild = pkgJson.scripts.prebuild ? `${pkgJson.scripts.prebuild} && yarn lint` : "yarn lint";
       }
     }
   }
 
+  // Enforce build script value.
+  const allowedBuildScripts = ["concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs", "exit 0"];
+  if (pkgJson.scripts?.build && !allowedBuildScripts.includes(pkgJson.scripts.build)) {
+    errors.push(
+      `${pkgJson.name} scripts["build"] must be one of: ${allowedBuildScripts.map((s) => `"${s}"`).join(", ")}`
+    );
+    if (overwrite) {
+      pkgJson.scripts.build = allowedBuildScripts[0];
+    }
+  }
+
   // Enforce clean script.
-  const expectedClean =
-    "premove dist-cjs dist-es dist-types tsconfig.cjs.tsbuildinfo tsconfig.es.tsbuildinfo tsconfig.types.tsbuildinfo";
+  const expectedClean = "premove dist-cjs dist-es dist-types";
   if (pkgJson.scripts?.clean !== expectedClean) {
     errors.push(`${pkgJson.name} scripts["clean"] must be "${expectedClean}"`);
     if (overwrite) {
       pkgJson.scripts = pkgJson.scripts || {};
       pkgJson.scripts.clean = expectedClean;
+    }
+  }
+
+  if (pkgJson.scripts?.["generate:client"]) {
+    const expectedGenerateClient = `node ../../scripts/generate-clients/single-service`;
+    if (pkgJson.scripts?.["generate:client"] !== expectedGenerateClient) {
+      errors.push(`${pkgJson.name} scripts["generate:client"] must be "${expectedGenerateClient}"`);
+      if (overwrite) {
+        pkgJson.scripts = pkgJson.scripts || {};
+        pkgJson.scripts["generate:client"] = expectedGenerateClient;
+      }
+    }
+  }
+
+  // Enforce build:es cleans dist-es before compiling.
+  if (pkgJson.scripts?.["build:es"] && pkgJson.scripts["build:es"] !== "exit 0") {
+    if (!pkgJson.scripts["build:es"].startsWith("premove dist-es")) {
+      errors.push(`${pkgJson.name} scripts["build:es"] must start with "premove dist-es"`);
+      if (overwrite) {
+        pkgJson.scripts["build:es"] = "premove dist-es && " + pkgJson.scripts["build:es"];
+      }
+    }
+  }
+
+  // Enforce build:types cleans dist-types before compiling.
+  if (pkgJson.scripts?.["build:types"] && pkgJson.scripts["build:types"] !== "exit 0") {
+    if (!pkgJson.scripts["build:types"].startsWith("premove dist-types")) {
+      errors.push(`${pkgJson.name} scripts["build:types"] must start with "premove dist-types"`);
+      if (overwrite) {
+        pkgJson.scripts["build:types"] = "premove dist-types && " + pkgJson.scripts["build:types"];
+      }
     }
   }
 

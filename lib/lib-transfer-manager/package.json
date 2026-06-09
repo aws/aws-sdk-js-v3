@@ -6,13 +6,11 @@
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "browser": {
-    "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.browser",
-    "./dist-es/s3-transfer-manager/join-streams": "./dist-es/s3-transfer-manager/join-streams.browser",
-    "./dist-es/s3-transfer-manager/worker-http-handler": "./dist-es/s3-transfer-manager/worker-http-handler.browser",
-    "fs": false
+    "./dist-es/submodules/transfer-manager/index.js": "./dist-es/submodules/transfer-manager/index.browser.js"
   },
   "react-native": {
-    "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.native"
+    "./dist-es/submodules/transfer-manager/index.js": "./dist-es/submodules/transfer-manager/index.browser.js",
+    "./dist-cjs/submodules/transfer-manager/index.js": "./dist-cjs/submodules/transfer-manager/index.browser.js"
   },
   "types": "./dist-types/index.d.ts",
   "exports": {
@@ -29,17 +27,33 @@
       "node": "./dist-cjs/submodules/worker/index.js",
       "import": "./dist-es/submodules/worker/index.js",
       "require": "./dist-cjs/submodules/worker/index.js"
+    },
+    "./transfer-manager": {
+      "types": "./dist-types/submodules/transfer-manager/index.d.ts",
+      "react-native": {
+        "import": "./dist-es/submodules/transfer-manager/index.browser.js",
+        "require": "./dist-cjs/submodules/transfer-manager/index.browser.js"
+      },
+      "browser": {
+        "import": "./dist-es/submodules/transfer-manager/index.browser.js",
+        "require": "./dist-cjs/submodules/transfer-manager/index.browser.js"
+      },
+      "module": "./dist-es/submodules/transfer-manager/index.js",
+      "node": "./dist-cjs/submodules/transfer-manager/index.js",
+      "import": "./dist-es/submodules/transfer-manager/index.js",
+      "require": "./dist-cjs/submodules/transfer-manager/index.js"
     }
   },
   "scripts": {
-    "build": "yarn lint && concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
+    "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline lib-transfer-manager",
-    "build:es": "tsc -p tsconfig.es.json",
+    "build:es": "premove dist-es && tsc -p tsconfig.es.json",
     "build:include:deps": "yarn g:turbo run build -F=\"$npm_package_name\"",
-    "build:types": "tsc -p tsconfig.types.json",
+    "build:types": "premove dist-types && tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
-    "clean": "premove dist-cjs dist-es dist-types tsconfig.cjs.tsbuildinfo tsconfig.es.tsbuildinfo tsconfig.types.tsbuildinfo",
+    "clean": "premove dist-cjs dist-es dist-types",
     "lint": "node ../../scripts/validation/submodules-linter",
+    "prebuild": "yarn lint",
     "test": "yarn g:vitest run",
     "test:watch": "yarn g:vitest watch",
     "test:e2e": "yarn g:vitest run -c vitest.config.e2e.mts --mode development",
@@ -81,9 +95,11 @@
     }
   },
   "files": [
-    "dist-*/**",
+    "./transfer-manager.d.ts",
+    "./transfer-manager.js",
+    "./worker.d.ts",
     "./worker.js",
-    "./worker.d.ts"
+    "dist-*/**"
   ],
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/lib/lib-transfer-manager",
   "repository": {

@@ -8,7 +8,7 @@ import type { EndpointParameters } from "./EndpointParameters";
 
 const cache = new EndpointCache({
   size: 50,
-  params: ["Endpoint", "Region", "UseDualStack", "UseFIPS"],
+  params: ["Endpoint", "IsControlPlane", "Region", "UseDualStack", "UseFIPS"],
 });
 
 /**

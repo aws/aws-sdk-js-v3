@@ -544,6 +544,10 @@
     "IS3TransferManager": "type(interface)",
     "S3TransferManager": "function"
   },
+  "@aws-sdk/lib-transfer-manager/transfer-manager": {
+    "IS3TransferManager": "type(interface)",
+    "S3TransferManager": "function"
+  },
   "@aws-sdk/lib-transfer-manager/worker": {},
   "@aws-sdk/middleware-api-key": {
     "ApiKeyInputConfig": "type(interface)",

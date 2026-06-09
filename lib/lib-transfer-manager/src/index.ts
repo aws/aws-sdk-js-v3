@@ -1,3 +1,2 @@
-export { S3TransferManager } from "./S3TransferManager";
-export type { IS3TransferManager } from "./types";
-export type {} from "./event-listener-types";
+export { S3TransferManager } from "@aws-sdk/lib-transfer-manager/transfer-manager";
+export type { IS3TransferManager } from "@aws-sdk/lib-transfer-manager/transfer-manager";

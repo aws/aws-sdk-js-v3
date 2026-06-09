@@ -171,11 +171,11 @@ export class WorkerHttpHandler {
    */
   private resolveWorkerConfig(): { workerPath: string; workerOptions?: { execArgv: string[] } } {
     // Submodule path (dist-cjs/submodules/worker/index.js).
-    const submodulePath = path.join(__dirname, "submodules", "worker", "index.js");
+    const submodulePath = path.join(__dirname, "..", "worker", "index.js");
     if (existsSync(submodulePath)) {
       return { workerPath: submodulePath };
     }
-    const tsPath = path.join(__dirname, "submodules", "worker", "index.ts");
+    const tsPath = path.join(__dirname, "..", "worker", "index.ts");
     if (existsSync(tsPath)) {
       return { workerPath: tsPath, workerOptions: { execArgv: ["--require", "tsx/cjs"] } };
     }
