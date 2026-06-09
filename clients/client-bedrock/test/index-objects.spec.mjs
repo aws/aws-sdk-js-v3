@@ -222,6 +222,7 @@ import {
   CustomModelSummary$,
   CustomModelUnits$,
   DataProcessingDetails$,
+  DataRetentionMode,
   DeleteAutomatedReasoningPolicy$,
   DeleteAutomatedReasoningPolicyBuildWorkflow$,
   DeleteAutomatedReasoningPolicyBuildWorkflowCommand,
@@ -326,6 +327,10 @@ import {
   FoundationModelLifecycleStatus,
   FoundationModelSummary$,
   GenerationConfiguration$,
+  GetAccountDataRetention$,
+  GetAccountDataRetentionCommand,
+  GetAccountDataRetentionRequest$,
+  GetAccountDataRetentionResponse$,
   GetAdvancedPromptOptimizationJob$,
   GetAdvancedPromptOptimizationJobCommand,
   GetAdvancedPromptOptimizationJobRequest$,
@@ -651,6 +656,10 @@ import {
   PromptTemplate$,
   ProvisionedModelStatus,
   ProvisionedModelSummary$,
+  PutAccountDataRetention$,
+  PutAccountDataRetentionCommand,
+  PutAccountDataRetentionRequest$,
+  PutAccountDataRetentionResponse$,
   PutEnforcedGuardrailConfiguration$,
   PutEnforcedGuardrailConfigurationCommand,
   PutEnforcedGuardrailConfigurationRequest$,
@@ -877,6 +886,8 @@ assert(typeof DeregisterMarketplaceModelEndpointCommand === "function");
 assert(typeof DeregisterMarketplaceModelEndpoint$ === "object");
 assert(typeof ExportAutomatedReasoningPolicyVersionCommand === "function");
 assert(typeof ExportAutomatedReasoningPolicyVersion$ === "object");
+assert(typeof GetAccountDataRetentionCommand === "function");
+assert(typeof GetAccountDataRetention$ === "object");
 assert(typeof GetAdvancedPromptOptimizationJobCommand === "function");
 assert(typeof GetAdvancedPromptOptimizationJob$ === "object");
 assert(typeof GetAutomatedReasoningPolicyCommand === "function");
@@ -973,6 +984,8 @@ assert(typeof ListProvisionedModelThroughputsCommand === "function");
 assert(typeof ListProvisionedModelThroughputs$ === "object");
 assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
+assert(typeof PutAccountDataRetentionCommand === "function");
+assert(typeof PutAccountDataRetention$ === "object");
 assert(typeof PutEnforcedGuardrailConfigurationCommand === "function");
 assert(typeof PutEnforcedGuardrailConfiguration$ === "object");
 assert(typeof PutModelInvocationLoggingConfigurationCommand === "function");
@@ -1231,6 +1244,8 @@ assert(typeof FoundationModelDetails$ === "object");
 assert(typeof FoundationModelLifecycle$ === "object");
 assert(typeof FoundationModelSummary$ === "object");
 assert(typeof GenerationConfiguration$ === "object");
+assert(typeof GetAccountDataRetentionRequest$ === "object");
+assert(typeof GetAccountDataRetentionResponse$ === "object");
 assert(typeof GetAdvancedPromptOptimizationJobRequest$ === "object");
 assert(typeof GetAdvancedPromptOptimizationJobResponse$ === "object");
 assert(typeof GetAutomatedReasoningPolicyAnnotationsRequest$ === "object");
@@ -1406,6 +1421,8 @@ assert(typeof PromptRouterSummary$ === "object");
 assert(typeof PromptRouterTargetModel$ === "object");
 assert(typeof PromptTemplate$ === "object");
 assert(typeof ProvisionedModelSummary$ === "object");
+assert(typeof PutAccountDataRetentionRequest$ === "object");
+assert(typeof PutAccountDataRetentionResponse$ === "object");
 assert(typeof PutEnforcedGuardrailConfigurationRequest$ === "object");
 assert(typeof PutEnforcedGuardrailConfigurationResponse$ === "object");
 assert(typeof PutModelInvocationLoggingConfigurationRequest$ === "object");
@@ -1503,6 +1520,7 @@ assert(typeof ConfigurationOwner === "object");
 assert(typeof CustomizationType === "object");
 assert(typeof CustomModelDeploymentStatus === "object");
 assert(typeof CustomModelDeploymentUpdateStatus === "object");
+assert(typeof DataRetentionMode === "object");
 assert(typeof EntitlementAvailability === "object");
 assert(typeof EvaluationJobStatus === "object");
 assert(typeof EvaluationJobType === "object");

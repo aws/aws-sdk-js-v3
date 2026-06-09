@@ -201,6 +201,10 @@ import type {
   ExportAutomatedReasoningPolicyVersionCommandOutput,
 } from "./commands/ExportAutomatedReasoningPolicyVersionCommand";
 import type {
+  GetAccountDataRetentionCommandInput,
+  GetAccountDataRetentionCommandOutput,
+} from "./commands/GetAccountDataRetentionCommand";
+import type {
   GetAdvancedPromptOptimizationJobCommandInput,
   GetAdvancedPromptOptimizationJobCommandOutput,
 } from "./commands/GetAdvancedPromptOptimizationJobCommand";
@@ -369,6 +373,10 @@ import type {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import type {
+  PutAccountDataRetentionCommandInput,
+  PutAccountDataRetentionCommandOutput,
+} from "./commands/PutAccountDataRetentionCommand";
+import type {
   PutEnforcedGuardrailConfigurationCommandInput,
   PutEnforcedGuardrailConfigurationCommandOutput,
 } from "./commands/PutEnforcedGuardrailConfigurationCommand";
@@ -492,6 +500,7 @@ export type ServiceInputTypes =
   | DeleteResourcePolicyCommandInput
   | DeregisterMarketplaceModelEndpointCommandInput
   | ExportAutomatedReasoningPolicyVersionCommandInput
+  | GetAccountDataRetentionCommandInput
   | GetAdvancedPromptOptimizationJobCommandInput
   | GetAutomatedReasoningPolicyAnnotationsCommandInput
   | GetAutomatedReasoningPolicyBuildWorkflowCommandInput
@@ -540,6 +549,7 @@ export type ServiceInputTypes =
   | ListPromptRoutersCommandInput
   | ListProvisionedModelThroughputsCommandInput
   | ListTagsForResourceCommandInput
+  | PutAccountDataRetentionCommandInput
   | PutEnforcedGuardrailConfigurationCommandInput
   | PutModelInvocationLoggingConfigurationCommandInput
   | PutResourcePolicyCommandInput
@@ -603,6 +613,7 @@ export type ServiceOutputTypes =
   | DeleteResourcePolicyCommandOutput
   | DeregisterMarketplaceModelEndpointCommandOutput
   | ExportAutomatedReasoningPolicyVersionCommandOutput
+  | GetAccountDataRetentionCommandOutput
   | GetAdvancedPromptOptimizationJobCommandOutput
   | GetAutomatedReasoningPolicyAnnotationsCommandOutput
   | GetAutomatedReasoningPolicyBuildWorkflowCommandOutput
@@ -651,6 +662,7 @@ export type ServiceOutputTypes =
   | ListPromptRoutersCommandOutput
   | ListProvisionedModelThroughputsCommandOutput
   | ListTagsForResourceCommandOutput
+  | PutAccountDataRetentionCommandOutput
   | PutEnforcedGuardrailConfigurationCommandOutput
   | PutModelInvocationLoggingConfigurationCommandOutput
   | PutResourcePolicyCommandOutput

@@ -194,6 +194,11 @@ import {
   ExportAutomatedReasoningPolicyVersionCommand,
 } from "./commands/ExportAutomatedReasoningPolicyVersionCommand";
 import {
+  type GetAccountDataRetentionCommandInput,
+  type GetAccountDataRetentionCommandOutput,
+  GetAccountDataRetentionCommand,
+} from "./commands/GetAccountDataRetentionCommand";
+import {
   type GetAdvancedPromptOptimizationJobCommandInput,
   type GetAdvancedPromptOptimizationJobCommandOutput,
   GetAdvancedPromptOptimizationJobCommand,
@@ -434,6 +439,11 @@ import {
   ListTagsForResourceCommand,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PutAccountDataRetentionCommandInput,
+  type PutAccountDataRetentionCommandOutput,
+  PutAccountDataRetentionCommand,
+} from "./commands/PutAccountDataRetentionCommand";
+import {
   type PutEnforcedGuardrailConfigurationCommandInput,
   type PutEnforcedGuardrailConfigurationCommandOutput,
   PutEnforcedGuardrailConfigurationCommand,
@@ -598,6 +608,7 @@ const commands = {
   DeleteResourcePolicyCommand,
   DeregisterMarketplaceModelEndpointCommand,
   ExportAutomatedReasoningPolicyVersionCommand,
+  GetAccountDataRetentionCommand,
   GetAdvancedPromptOptimizationJobCommand,
   GetAutomatedReasoningPolicyCommand,
   GetAutomatedReasoningPolicyAnnotationsCommand,
@@ -646,6 +657,7 @@ const commands = {
   ListPromptRoutersCommand,
   ListProvisionedModelThroughputsCommand,
   ListTagsForResourceCommand,
+  PutAccountDataRetentionCommand,
   PutEnforcedGuardrailConfigurationCommand,
   PutModelInvocationLoggingConfigurationCommand,
   PutResourcePolicyCommand,
@@ -1335,6 +1347,24 @@ export interface Bedrock {
     args: ExportAutomatedReasoningPolicyVersionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ExportAutomatedReasoningPolicyVersionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAccountDataRetentionCommand}
+   */
+  getAccountDataRetention(): Promise<GetAccountDataRetentionCommandOutput>;
+  getAccountDataRetention(
+    args: GetAccountDataRetentionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAccountDataRetentionCommandOutput>;
+  getAccountDataRetention(
+    args: GetAccountDataRetentionCommandInput,
+    cb: (err: any, data?: GetAccountDataRetentionCommandOutput) => void
+  ): void;
+  getAccountDataRetention(
+    args: GetAccountDataRetentionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAccountDataRetentionCommandOutput) => void
   ): void;
 
   /**
@@ -2170,6 +2200,23 @@ export interface Bedrock {
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutAccountDataRetentionCommand}
+   */
+  putAccountDataRetention(
+    args: PutAccountDataRetentionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutAccountDataRetentionCommandOutput>;
+  putAccountDataRetention(
+    args: PutAccountDataRetentionCommandInput,
+    cb: (err: any, data?: PutAccountDataRetentionCommandOutput) => void
+  ): void;
+  putAccountDataRetention(
+    args: PutAccountDataRetentionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutAccountDataRetentionCommandOutput) => void
   ): void;
 
   /**

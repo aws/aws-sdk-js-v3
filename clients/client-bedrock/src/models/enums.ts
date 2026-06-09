@@ -368,6 +368,21 @@ export type ModelStatus = (typeof ModelStatus)[keyof typeof ModelStatus];
  * @public
  * @enum
  */
+export const DataRetentionMode = {
+  DEFAULT: "default",
+  INHERIT: "inherit",
+  NONE: "none",
+  PROVIDER_DATA_SHARE: "provider_data_share",
+} as const;
+/**
+ * @public
+ */
+export type DataRetentionMode = (typeof DataRetentionMode)[keyof typeof DataRetentionMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const EvaluationJobStatus = {
   COMPLETED: "Completed",
   DELETING: "Deleting",

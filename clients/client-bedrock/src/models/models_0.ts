@@ -20,6 +20,7 @@ import type {
   CustomizationType,
   CustomModelDeploymentStatus,
   CustomModelDeploymentUpdateStatus,
+  DataRetentionMode,
   EvaluationJobStatus,
   EvaluationJobType,
   EvaluationTaskType,
@@ -33,9 +34,6 @@ import type {
   GuardrailModality,
   GuardrailPiiEntityType,
   GuardrailSensitiveInformationAction,
-  GuardrailTopicAction,
-  GuardrailTopicsTierName,
-  GuardrailTopicType,
   InputTags,
   ModelStatus,
   PerformanceConfigLatency,
@@ -6238,6 +6236,56 @@ export interface ListCustomModelsResponse {
 /**
  * @public
  */
+export interface GetAccountDataRetentionRequest {}
+
+/**
+ * @public
+ */
+export interface GetAccountDataRetentionResponse {
+  /**
+   * <p>The data retention mode configured for the account.</p>
+   * @public
+   */
+  mode: DataRetentionMode | undefined;
+
+  /**
+   * <p>The time at which the data retention mode was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutAccountDataRetentionRequest {
+  /**
+   * <p>The data retention mode to set for the account.</p>
+   * @public
+   */
+  mode: DataRetentionMode | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutAccountDataRetentionResponse {
+  /**
+   * <p>The data retention mode set for the account.</p>
+   * @public
+   */
+  mode: DataRetentionMode | undefined;
+
+  /**
+   * <p>The time at which the data retention mode was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteEnforcedGuardrailConfigurationRequest {
   /**
    * <p>Unique ID for the account enforced configuration.</p>
@@ -7913,144 +7961,6 @@ export interface GuardrailPiiEntityConfig {
    * @public
    */
   outputAction?: GuardrailSensitiveInformationAction | undefined;
-
-  /**
-   * <p>Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
-   * @public
-   */
-  inputEnabled?: boolean | undefined;
-
-  /**
-   * <p>Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
-   * @public
-   */
-  outputEnabled?: boolean | undefined;
-}
-
-/**
- * <p>The regular expression to configure for the guardrail.</p>
- * @public
- */
-export interface GuardrailRegexConfig {
-  /**
-   * <p>The name of the regular expression to configure for the guardrail.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The description of the regular expression to configure for the guardrail.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The regular expression pattern to configure for the guardrail.</p>
-   * @public
-   */
-  pattern: string | undefined;
-
-  /**
-   * <p>The guardrail action to configure when matching regular expression is detected.</p>
-   * @public
-   */
-  action: GuardrailSensitiveInformationAction | undefined;
-
-  /**
-   * <p>Specifies the action to take when harmful content is detected in the input. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
-   * @public
-   */
-  inputAction?: GuardrailSensitiveInformationAction | undefined;
-
-  /**
-   * <p>Specifies the action to take when harmful content is detected in the output. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
-   * @public
-   */
-  outputAction?: GuardrailSensitiveInformationAction | undefined;
-
-  /**
-   * <p>Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
-   * @public
-   */
-  inputEnabled?: boolean | undefined;
-
-  /**
-   * <p>Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
-   * @public
-   */
-  outputEnabled?: boolean | undefined;
-}
-
-/**
- * <p>Contains details about PII entities and regular expressions to configure for the guardrail.</p>
- * @public
- */
-export interface GuardrailSensitiveInformationPolicyConfig {
-  /**
-   * <p>A list of PII entities to configure to the guardrail.</p>
-   * @public
-   */
-  piiEntitiesConfig?: GuardrailPiiEntityConfig[] | undefined;
-
-  /**
-   * <p>A list of regular expressions to configure to the guardrail.</p>
-   * @public
-   */
-  regexesConfig?: GuardrailRegexConfig[] | undefined;
-}
-
-/**
- * <p>The tier that your guardrail uses for denied topic filters. Consider using a tier that balances performance, accuracy, and compatibility with your existing generative AI workflows.</p>
- * @public
- */
-export interface GuardrailTopicsTierConfig {
-  /**
-   * <p>The tier that your guardrail uses for denied topic filters. Valid values include:</p> <ul> <li> <p> <code>CLASSIC</code> tier – Provides established guardrails functionality supporting English, French, and Spanish languages.</p> </li> <li> <p> <code>STANDARD</code> tier – Provides a more robust solution than the <code>CLASSIC</code> tier and has more comprehensive language support. This tier requires that your guardrail use <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html">cross-Region inference</a>.</p> </li> </ul>
-   * @public
-   */
-  tierName: GuardrailTopicsTierName | undefined;
-}
-
-/**
- * <p>Details about topics for the guardrail to identify and deny.</p>
- * @public
- */
-export interface GuardrailTopicConfig {
-  /**
-   * <p>The name of the topic to deny.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>A definition of the topic to deny.</p>
-   * @public
-   */
-  definition: string | undefined;
-
-  /**
-   * <p>A list of prompts, each of which is an example of a prompt that can be categorized as belonging to the topic.</p>
-   * @public
-   */
-  examples?: string[] | undefined;
-
-  /**
-   * <p>Specifies to deny the topic.</p>
-   * @public
-   */
-  type: GuardrailTopicType | undefined;
-
-  /**
-   * <p>Specifies the action to take when harmful content is detected in the input. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
-   * @public
-   */
-  inputAction?: GuardrailTopicAction | undefined;
-
-  /**
-   * <p>Specifies the action to take when harmful content is detected in the output. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
-   * @public
-   */
-  outputAction?: GuardrailTopicAction | undefined;
 
   /**
    * <p>Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>

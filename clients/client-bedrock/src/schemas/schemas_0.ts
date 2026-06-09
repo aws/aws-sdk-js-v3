@@ -344,6 +344,9 @@ const _FMD = "FoundationModelDetails";
 const _FML = "FoundationModelLifecycle";
 const _FMS = "FoundationModelSummary";
 const _FMSL = "FoundationModelSummaryList";
+const _GADR = "GetAccountDataRetention";
+const _GADRR = "GetAccountDataRetentionRequest";
+const _GADRRe = "GetAccountDataRetentionResponse";
 const _GAPOJ = "GetAdvancedPromptOptimizationJob";
 const _GAPOJR = "GetAdvancedPromptOptimizationJobRequest";
 const _GAPOJRe = "GetAdvancedPromptOptimizationJobResponse";
@@ -614,6 +617,9 @@ const _O = "Offer";
 const _OC = "OrchestrationConfiguration";
 const _ODC = "OutputDataConfig";
 const _Of = "Offers";
+const _PADR = "PutAccountDataRetention";
+const _PADRR = "PutAccountDataRetentionRequest";
+const _PADRRu = "PutAccountDataRetentionResponse";
 const _PC = "PerformanceConfiguration";
 const _PEGC = "PutEnforcedGuardrailConfiguration";
 const _PEGCR = "PutEnforcedGuardrailConfigurationRequest";
@@ -1084,6 +1090,7 @@ const _mWL = "managedWordLists";
 const _mWLC = "managedWordListsConfig";
 const _me = "messages";
 const _mo = "models";
+const _mod = "mode";
 const _mu = "mutation";
 const _n = "name";
 const _nC = "nameContains";
@@ -2476,6 +2483,16 @@ export var GenerationConfiguration$: StaticStructureSchema = [3, n0, _GC,
   [_pT, _gCu, _kIC, _aMRF],
   [[() => PromptTemplate$, 0], () => GuardrailConfiguration$, () => KbInferenceConfig$, 128 | 15]
 ];
+export var GetAccountDataRetentionRequest$: StaticStructureSchema = [3, n0, _GADRR,
+  0,
+  [],
+  []
+];
+export var GetAccountDataRetentionResponse$: StaticStructureSchema = [3, n0, _GADRRe,
+  0,
+  [_mod, _uA],
+  [0, 5], 1
+];
 export var GetAdvancedPromptOptimizationJobRequest$: StaticStructureSchema = [3, n0, _GAPOJR,
   0,
   [_jI],
@@ -3315,6 +3332,16 @@ export var ProvisionedModelSummary$: StaticStructureSchema = [3, n0, _PMS,
   0,
   [_pMN, _pMA, _mA, _dMA, _fMA, _mU, _dMU, _st, _cT, _lMT, _cD, _cET],
   [0, 0, 0, 0, 0, 1, 1, 0, 5, 5, 0, 5], 10
+];
+export var PutAccountDataRetentionRequest$: StaticStructureSchema = [3, n0, _PADRR,
+  0,
+  [_mod],
+  [0], 1
+];
+export var PutAccountDataRetentionResponse$: StaticStructureSchema = [3, n0, _PADRRu,
+  0,
+  [_mod, _uA],
+  [0, 5], 1
 ];
 export var PutEnforcedGuardrailConfigurationRequest$: StaticStructureSchema = [3, n0, _PEGCR,
   0,
@@ -4340,6 +4367,9 @@ export var DeregisterMarketplaceModelEndpoint$: StaticOperationSchema = [9, n0, 
 export var ExportAutomatedReasoningPolicyVersion$: StaticOperationSchema = [9, n0, _EARPV,
   { [_ht]: ["GET", "/automated-reasoning-policies/{policyArn}/export", 200] }, () => ExportAutomatedReasoningPolicyVersionRequest$, () => ExportAutomatedReasoningPolicyVersionResponse$
 ];
+export var GetAccountDataRetention$: StaticOperationSchema = [9, n0, _GADR,
+  { [_ht]: ["GET", "/data-retention", 200] }, () => GetAccountDataRetentionRequest$, () => GetAccountDataRetentionResponse$
+];
 export var GetAdvancedPromptOptimizationJob$: StaticOperationSchema = [9, n0, _GAPOJ,
   { [_ht]: ["GET", "/advanced-prompt-optimization-jobs/{jobIdentifier}", 200] }, () => GetAdvancedPromptOptimizationJobRequest$, () => GetAdvancedPromptOptimizationJobResponse$
 ];
@@ -4483,6 +4513,9 @@ export var ListProvisionedModelThroughputs$: StaticOperationSchema = [9, n0, _LP
 ];
 export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
   { [_ht]: ["POST", "/listTagsForResource", 200] }, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
+];
+export var PutAccountDataRetention$: StaticOperationSchema = [9, n0, _PADR,
+  { [_ht]: ["PUT", "/data-retention", 200] }, () => PutAccountDataRetentionRequest$, () => PutAccountDataRetentionResponse$
 ];
 export var PutEnforcedGuardrailConfiguration$: StaticOperationSchema = [9, n0, _PEGC,
   { [_ht]: ["PUT", "/enforcedGuardrailsConfiguration", 200] }, () => PutEnforcedGuardrailConfigurationRequest$, () => PutEnforcedGuardrailConfigurationResponse$
