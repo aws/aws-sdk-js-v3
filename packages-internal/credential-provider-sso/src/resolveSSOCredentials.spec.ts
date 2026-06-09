@@ -79,7 +79,52 @@ describe(resolveSSOCredentials.name, () => {
     });
     expect(tokenProviders.fromSso).toHaveBeenCalledWith({
       profile: undefined,
+      filepath: undefined,
+      configFilepath: undefined,
+      ignoreCache: undefined,
+      clientConfig: undefined,
+      parentClientConfig: undefined,
+      logger: undefined,
     });
+  });
+
+  it("forwards clientConfig, parentClientConfig, and logger to the token provider", async () => {
+    const mockClientConfig = {
+      requestHandler: { handle: vi.fn() }, 
+      region: "us-west-2" 
+    };
+    const mockParentClientConfig = { logger: console };
+    const mockCallerClientConfig = { region: async () => "us-east-1" };
+    const mockLogger = { 
+      debug: vi.fn(), 
+      info: vi.fn(), 
+      warn: vi.fn(), 
+      error: vi.fn() 
+    };
+
+    const mockTokenProviderFn = vi.fn().mockResolvedValue({
+      token: "mockAccessToken",
+      expiration: new Date(Date.now() + 6_000_000),
+    });
+    vi.mocked(tokenProviders.fromSso).mockReturnValue(mockTokenProviderFn);
+
+    await resolveSSOCredentials({
+      ...mockOptions,
+      ssoSession: "test-sso-session",
+      clientConfig: mockClientConfig,
+      parentClientConfig: mockParentClientConfig,
+      callerClientConfig: mockCallerClientConfig,
+      logger: mockLogger,
+    });
+
+    expect(tokenProviders.fromSso).toHaveBeenCalledWith(
+      expect.objectContaining({
+        clientConfig: mockClientConfig,
+        parentClientConfig: mockParentClientConfig,
+        logger: mockLogger,
+      })
+    );
+    expect(mockTokenProviderFn).toHaveBeenCalledWith({ callerClientConfig: mockCallerClientConfig });
   });
 
   describe("throws error on expiration", () => {
