@@ -521,6 +521,7 @@ import {
   paginateGetAssetPropertyValueHistory,
   paginateGetInterpolatedAssetPropertyValues,
   paginateListAccessPolicies,
+  paginateListActions,
   paginateListAssetModelCompositeModels,
   paginateListAssetModelProperties,
   paginateListAssetModels,
@@ -1373,6 +1374,7 @@ assert(typeof paginateGetAssetPropertyAggregates === "function");
 assert(typeof paginateGetAssetPropertyValueHistory === "function");
 assert(typeof paginateGetInterpolatedAssetPropertyValues === "function");
 assert(typeof paginateListAccessPolicies === "function");
+assert(typeof paginateListActions === "function");
 assert(typeof paginateListAssetModelCompositeModels === "function");
 assert(typeof paginateListAssetModelProperties === "function");
 assert(typeof paginateListAssetModels === "function");

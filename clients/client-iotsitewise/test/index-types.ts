@@ -762,6 +762,7 @@ export type {
   paginateGetAssetPropertyValueHistory,
   paginateGetInterpolatedAssetPropertyValues,
   paginateListAccessPolicies,
+  paginateListActions,
   paginateListAssetModelCompositeModels,
   paginateListAssetModelProperties,
   paginateListAssetModels,

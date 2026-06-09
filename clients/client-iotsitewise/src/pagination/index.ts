@@ -8,6 +8,7 @@ export * from "./GetAssetPropertyAggregatesPaginator";
 export * from "./GetAssetPropertyValueHistoryPaginator";
 export * from "./GetInterpolatedAssetPropertyValuesPaginator";
 export * from "./ListAccessPoliciesPaginator";
+export * from "./ListActionsPaginator";
 export * from "./ListAssetModelCompositeModelsPaginator";
 export * from "./ListAssetModelPropertiesPaginator";
 export * from "./ListAssetModelsPaginator";

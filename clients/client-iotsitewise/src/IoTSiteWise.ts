@@ -538,6 +538,7 @@ import { paginateGetAssetPropertyAggregates } from "./pagination/GetAssetPropert
 import { paginateGetAssetPropertyValueHistory } from "./pagination/GetAssetPropertyValueHistoryPaginator";
 import { paginateGetInterpolatedAssetPropertyValues } from "./pagination/GetInterpolatedAssetPropertyValuesPaginator";
 import { paginateListAccessPolicies } from "./pagination/ListAccessPoliciesPaginator";
+import { paginateListActions } from "./pagination/ListActionsPaginator";
 import { paginateListAssetModelCompositeModels } from "./pagination/ListAssetModelCompositeModelsPaginator";
 import { paginateListAssetModelProperties } from "./pagination/ListAssetModelPropertiesPaginator";
 import { paginateListAssetModels } from "./pagination/ListAssetModelsPaginator";
@@ -685,6 +686,7 @@ const paginators = {
   paginateGetAssetPropertyValueHistory,
   paginateGetInterpolatedAssetPropertyValues,
   paginateListAccessPolicies,
+  paginateListActions,
   paginateListAssetModelCompositeModels,
   paginateListAssetModelProperties,
   paginateListAssetModels,
@@ -2587,6 +2589,17 @@ export interface IoTSiteWise {
     args?: ListAccessPoliciesCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListAccessPoliciesCommandOutput>;
+
+  /**
+   * @see {@link ListActionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListActionsCommandOutput}.
+   */
+  paginateListActions(
+    args: ListActionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListActionsCommandOutput>;
 
   /**
    * @see {@link ListAssetModelCompositeModelsCommand}
