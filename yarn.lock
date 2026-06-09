@@ -11935,6 +11935,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@aws-sdk/undici-http-handler@workspace:packages-internal/undici-http-handler":
+  version: 0.0.0-use.local
+  resolution: "@aws-sdk/undici-http-handler@workspace:packages-internal/undici-http-handler"
+  dependencies:
+    "@smithy/undici-http-handler": "npm:^2.0.0"
+    "@tsconfig/recommended": "npm:1.0.1"
+    concurrently: "npm:7.0.0"
+    downlevel-dts: "npm:0.10.1"
+    premove: "npm:4.0.0"
+    tslib: "npm:^2.6.2"
+    typescript: "npm:~5.8.3"
+  languageName: unknown
+  linkType: soft
+
 "@aws-sdk/util-arn-parser@workspace:packages-internal/util-arn-parser":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/util-arn-parser@workspace:packages-internal/util-arn-parser"
@@ -16158,6 +16172,20 @@ __metadata:
   dependencies:
     tslib: "npm:^2.6.2"
   checksum: 10c0/c80244d5ca88992e5609e372eaf2441497d36063688af44e9f0e81ab0ee8d5a4cbdb644822243e4cdfad2dd6484c6274e618dc2a9e91b3b9befe7c7b55e09ddc
+  languageName: node
+  linkType: hard
+
+"@smithy/undici-http-handler@npm:^2.0.0":
+  version: 2.0.2
+  resolution: "@smithy/undici-http-handler@npm:2.0.2"
+  dependencies:
+    "@smithy/core": "npm:^3.24.6"
+    "@smithy/types": "npm:^4.14.3"
+    tslib: "npm:^2.6.2"
+    undici: "npm:^7.0.0"
+  peerDependencies:
+    undici: ">=7.0.0"
+  checksum: 10c0/740792abcfb888c421c84b6f577c937fa092da75c958acd505d9375d32e8d27fa4df2a0ea315ff329b272c6155c4d6000f58d13b307716970fa4524bc897e56c
   languageName: node
   linkType: hard
 
@@ -28218,6 +28246,13 @@ __metadata:
   version: 7.18.2
   resolution: "undici-types@npm:7.18.2"
   checksum: 10c0/85a79189113a238959d7a647368e4f7c5559c3a404ebdb8fc4488145ce9426fcd82252a844a302798dfc0e37e6fb178ff481ed03bc4caf634c5757d9ef43521d
+  languageName: node
+  linkType: hard
+
+"undici@npm:^7.0.0":
+  version: 7.27.2
+  resolution: "undici@npm:7.27.2"
+  checksum: 10c0/714632147c80eb8eda8a52df51b481d346df5e035ccc1d87eb3bbcb8f92ec25d7cbbe81abdeae5db4e37a93e490c8d2fa2359ecdca4b2c5c6c513dcd2626ad47
   languageName: node
   linkType: hard
 
