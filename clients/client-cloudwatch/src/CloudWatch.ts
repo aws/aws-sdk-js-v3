@@ -9,6 +9,11 @@ import type {
 
 import { CloudWatchClient } from "./CloudWatchClient";
 import {
+  type AssociateDatasetKmsKeyCommandInput,
+  type AssociateDatasetKmsKeyCommandOutput,
+  AssociateDatasetKmsKeyCommand,
+} from "./commands/AssociateDatasetKmsKeyCommand";
+import {
   type DeleteAlarmMuteRuleCommandInput,
   type DeleteAlarmMuteRuleCommandOutput,
   DeleteAlarmMuteRuleCommand,
@@ -79,6 +84,11 @@ import {
   DisableInsightRulesCommand,
 } from "./commands/DisableInsightRulesCommand";
 import {
+  type DisassociateDatasetKmsKeyCommandInput,
+  type DisassociateDatasetKmsKeyCommandOutput,
+  DisassociateDatasetKmsKeyCommand,
+} from "./commands/DisassociateDatasetKmsKeyCommand";
+import {
   type EnableAlarmActionsCommandInput,
   type EnableAlarmActionsCommandOutput,
   EnableAlarmActionsCommand,
@@ -98,6 +108,11 @@ import {
   type GetDashboardCommandOutput,
   GetDashboardCommand,
 } from "./commands/GetDashboardCommand";
+import {
+  type GetDatasetCommandInput,
+  type GetDatasetCommandOutput,
+  GetDatasetCommand,
+} from "./commands/GetDatasetCommand";
 import {
   type GetInsightRuleReportCommandInput,
   type GetInsightRuleReportCommandOutput,
@@ -254,6 +269,7 @@ import { waitUntilAlarmMuteRuleExists } from "./waiters/waitForAlarmMuteRuleExis
 import { waitUntilCompositeAlarmExists } from "./waiters/waitForCompositeAlarmExists";
 
 const commands = {
+  AssociateDatasetKmsKeyCommand,
   DeleteAlarmMuteRuleCommand,
   DeleteAlarmsCommand,
   DeleteAnomalyDetectorCommand,
@@ -268,10 +284,12 @@ const commands = {
   DescribeInsightRulesCommand,
   DisableAlarmActionsCommand,
   DisableInsightRulesCommand,
+  DisassociateDatasetKmsKeyCommand,
   EnableAlarmActionsCommand,
   EnableInsightRulesCommand,
   GetAlarmMuteRuleCommand,
   GetDashboardCommand,
+  GetDatasetCommand,
   GetInsightRuleReportCommand,
   GetMetricDataCommand,
   GetMetricStatisticsCommand,
@@ -320,6 +338,23 @@ const waiters = {
 };
 
 export interface CloudWatch {
+  /**
+   * @see {@link AssociateDatasetKmsKeyCommand}
+   */
+  associateDatasetKmsKey(
+    args: AssociateDatasetKmsKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateDatasetKmsKeyCommandOutput>;
+  associateDatasetKmsKey(
+    args: AssociateDatasetKmsKeyCommandInput,
+    cb: (err: any, data?: AssociateDatasetKmsKeyCommandOutput) => void
+  ): void;
+  associateDatasetKmsKey(
+    args: AssociateDatasetKmsKeyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateDatasetKmsKeyCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link DeleteAlarmMuteRuleCommand}
    */
@@ -564,6 +599,23 @@ export interface CloudWatch {
   ): void;
 
   /**
+   * @see {@link DisassociateDatasetKmsKeyCommand}
+   */
+  disassociateDatasetKmsKey(
+    args: DisassociateDatasetKmsKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateDatasetKmsKeyCommandOutput>;
+  disassociateDatasetKmsKey(
+    args: DisassociateDatasetKmsKeyCommandInput,
+    cb: (err: any, data?: DisassociateDatasetKmsKeyCommandOutput) => void
+  ): void;
+  disassociateDatasetKmsKey(
+    args: DisassociateDatasetKmsKeyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateDatasetKmsKeyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link EnableAlarmActionsCommand}
    */
   enableAlarmActions(
@@ -629,6 +681,23 @@ export interface CloudWatch {
     args: GetDashboardCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetDashboardCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDatasetCommand}
+   */
+  getDataset(
+    args: GetDatasetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDatasetCommandOutput>;
+  getDataset(
+    args: GetDatasetCommandInput,
+    cb: (err: any, data?: GetDatasetCommandOutput) => void
+  ): void;
+  getDataset(
+    args: GetDatasetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDatasetCommandOutput) => void
   ): void;
 
   /**

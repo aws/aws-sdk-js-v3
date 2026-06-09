@@ -10,6 +10,10 @@ import {
   AnomalyDetectorConfiguration$,
   AnomalyDetectorStateValue,
   AnomalyDetectorType,
+  AssociateDatasetKmsKey$,
+  AssociateDatasetKmsKeyCommand,
+  AssociateDatasetKmsKeyInput$,
+  AssociateDatasetKmsKeyOutput$,
   CloudWatch,
   CloudWatchClient,
   CloudWatchServiceException,
@@ -81,6 +85,10 @@ import {
   DisableInsightRulesCommand,
   DisableInsightRulesInput$,
   DisableInsightRulesOutput$,
+  DisassociateDatasetKmsKey$,
+  DisassociateDatasetKmsKeyCommand,
+  DisassociateDatasetKmsKeyInput$,
+  DisassociateDatasetKmsKeyOutput$,
   EnableAlarmActions$,
   EnableAlarmActionsCommand,
   EnableAlarmActionsInput$,
@@ -100,6 +108,10 @@ import {
   GetDashboardCommand,
   GetDashboardInput$,
   GetDashboardOutput$,
+  GetDataset$,
+  GetDatasetCommand,
+  GetDatasetInput$,
+  GetDatasetOutput$,
   GetInsightRuleReport$,
   GetInsightRuleReportCommand,
   GetInsightRuleReportInput$,
@@ -139,6 +151,12 @@ import {
   InvalidParameterCombinationException$,
   InvalidParameterValueException,
   InvalidParameterValueException$,
+  KmsAccessDeniedException,
+  KmsAccessDeniedException$,
+  KmsKeyDisabledException,
+  KmsKeyDisabledException$,
+  KmsKeyNotFoundException,
+  KmsKeyNotFoundException$,
   LabelOptions$,
   LimitExceededException,
   LimitExceededException$,
@@ -287,6 +305,8 @@ import assert from "node:assert";
 assert(typeof CloudWatchClient === "function");
 assert(typeof CloudWatch === "function");
 // commands
+assert(typeof AssociateDatasetKmsKeyCommand === "function");
+assert(typeof AssociateDatasetKmsKey$ === "object");
 assert(typeof DeleteAlarmMuteRuleCommand === "function");
 assert(typeof DeleteAlarmMuteRule$ === "object");
 assert(typeof DeleteAlarmsCommand === "function");
@@ -315,6 +335,8 @@ assert(typeof DisableAlarmActionsCommand === "function");
 assert(typeof DisableAlarmActions$ === "object");
 assert(typeof DisableInsightRulesCommand === "function");
 assert(typeof DisableInsightRules$ === "object");
+assert(typeof DisassociateDatasetKmsKeyCommand === "function");
+assert(typeof DisassociateDatasetKmsKey$ === "object");
 assert(typeof EnableAlarmActionsCommand === "function");
 assert(typeof EnableAlarmActions$ === "object");
 assert(typeof EnableInsightRulesCommand === "function");
@@ -323,6 +345,8 @@ assert(typeof GetAlarmMuteRuleCommand === "function");
 assert(typeof GetAlarmMuteRule$ === "object");
 assert(typeof GetDashboardCommand === "function");
 assert(typeof GetDashboard$ === "object");
+assert(typeof GetDatasetCommand === "function");
+assert(typeof GetDataset$ === "object");
 assert(typeof GetInsightRuleReportCommand === "function");
 assert(typeof GetInsightRuleReport$ === "object");
 assert(typeof GetMetricDataCommand === "function");
@@ -386,6 +410,8 @@ assert(typeof AlarmMuteRuleSummary$ === "object");
 assert(typeof AlarmPromQLCriteria$ === "object");
 assert(typeof AnomalyDetector$ === "object");
 assert(typeof AnomalyDetectorConfiguration$ === "object");
+assert(typeof AssociateDatasetKmsKeyInput$ === "object");
+assert(typeof AssociateDatasetKmsKeyOutput$ === "object");
 assert(typeof CompositeAlarm$ === "object");
 assert(typeof DashboardEntry$ === "object");
 assert(typeof DashboardValidationMessage$ === "object");
@@ -417,6 +443,8 @@ assert(typeof DimensionFilter$ === "object");
 assert(typeof DisableAlarmActionsInput$ === "object");
 assert(typeof DisableInsightRulesInput$ === "object");
 assert(typeof DisableInsightRulesOutput$ === "object");
+assert(typeof DisassociateDatasetKmsKeyInput$ === "object");
+assert(typeof DisassociateDatasetKmsKeyOutput$ === "object");
 assert(typeof EnableAlarmActionsInput$ === "object");
 assert(typeof EnableInsightRulesInput$ === "object");
 assert(typeof EnableInsightRulesOutput$ === "object");
@@ -427,6 +455,8 @@ assert(typeof GetAlarmMuteRuleInput$ === "object");
 assert(typeof GetAlarmMuteRuleOutput$ === "object");
 assert(typeof GetDashboardInput$ === "object");
 assert(typeof GetDashboardOutput$ === "object");
+assert(typeof GetDatasetInput$ === "object");
+assert(typeof GetDatasetOutput$ === "object");
 assert(typeof GetInsightRuleReportInput$ === "object");
 assert(typeof GetInsightRuleReportOutput$ === "object");
 assert(typeof GetMetricDataInput$ === "object");
@@ -543,6 +573,12 @@ assert(InvalidParameterCombinationException.prototype instanceof CloudWatchServi
 assert(typeof InvalidParameterCombinationException$ === "object");
 assert(InvalidParameterValueException.prototype instanceof CloudWatchServiceException);
 assert(typeof InvalidParameterValueException$ === "object");
+assert(KmsAccessDeniedException.prototype instanceof CloudWatchServiceException);
+assert(typeof KmsAccessDeniedException$ === "object");
+assert(KmsKeyDisabledException.prototype instanceof CloudWatchServiceException);
+assert(typeof KmsKeyDisabledException$ === "object");
+assert(KmsKeyNotFoundException.prototype instanceof CloudWatchServiceException);
+assert(typeof KmsKeyNotFoundException$ === "object");
 assert(LimitExceededException.prototype instanceof CloudWatchServiceException);
 assert(typeof LimitExceededException$ === "object");
 assert(LimitExceededFault.prototype instanceof CloudWatchServiceException);

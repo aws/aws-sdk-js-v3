@@ -10,6 +10,9 @@ const _ACl = "AlarmContributors";
 const _AD = "AnomalyDetector";
 const _ADC = "AnomalyDetectorConfiguration";
 const _ADETR = "AnomalyDetectorExcludedTimeRanges";
+const _ADKK = "AssociateDatasetKmsKey";
+const _ADKKI = "AssociateDatasetKmsKeyInput";
+const _ADKKO = "AssociateDatasetKmsKeyOutput";
 const _ADT = "AnomalyDetectorTypes";
 const _ADl = "AlarmDescription";
 const _ADn = "AnomalyDetectors";
@@ -85,11 +88,15 @@ const _DAes = "DescribeAlarms";
 const _DB = "DashboardBody";
 const _DD = "DeleteDashboards";
 const _DDI = "DeleteDashboardsInput";
+const _DDKK = "DisassociateDatasetKmsKey";
+const _DDKKI = "DisassociateDatasetKmsKeyInput";
+const _DDKKO = "DisassociateDatasetKmsKeyOutput";
 const _DDO = "DeleteDashboardsOutput";
 const _DE = "DashboardEntry";
 const _DEa = "DashboardEntries";
 const _DF = "DimensionFilter";
 const _DFi = "DimensionFilters";
+const _DI = "DatasetIdentifier";
 const _DIIE = "DashboardInvalidInputError";
 const _DIR = "DeleteInsightRules";
 const _DIRI = "DeleteInsightRulesInput";
@@ -100,6 +107,7 @@ const _DIROe = "DescribeInsightRulesOutput";
 const _DIROi = "DisableInsightRulesOutput";
 const _DIRe = "DescribeInsightRules";
 const _DIRi = "DisableInsightRules";
+const _DIa = "DatasetId";
 const _DMS = "DeleteMetricStream";
 const _DMSI = "DeleteMetricStreamInput";
 const _DMSO = "DeleteMetricStreamOutput";
@@ -150,7 +158,10 @@ const _GAMRI = "GetAlarmMuteRuleInput";
 const _GAMRO = "GetAlarmMuteRuleOutput";
 const _GD = "GetDashboard";
 const _GDI = "GetDashboardInput";
+const _GDIe = "GetDatasetInput";
 const _GDO = "GetDashboardOutput";
+const _GDOe = "GetDatasetOutput";
+const _GDe = "GetDataset";
 const _GIRR = "GetInsightRuleReport";
 const _GIRRI = "GetInsightRuleReportInput";
 const _GIRRO = "GetInsightRuleReportOutput";
@@ -193,6 +204,10 @@ const _IRn = "InsightRule";
 const _ISF = "InternalServiceFault";
 const _K = "Keys";
 const _KA = "KeyAttributes";
+const _KADE = "KmsAccessDeniedException";
+const _KKA = "KmsKeyArn";
+const _KKDE = "KmsKeyDisabledException";
+const _KKNFE = "KmsKeyNotFoundException";
 const _KL = "KeyLabels";
 const _Ke = "Key";
 const _L = "Label";
@@ -413,6 +428,9 @@ import {
   InvalidNextToken,
   InvalidParameterCombinationException,
   InvalidParameterValueException,
+  KmsAccessDeniedException,
+  KmsKeyDisabledException,
+  KmsKeyNotFoundException,
   LimitExceededException,
   LimitExceededFault,
   MissingRequiredParameterException,
@@ -479,6 +497,24 @@ export var InvalidParameterValueException$: StaticErrorSchema = [-3, n0, _IPVE,
   [0]
 ];
 n0_registry.registerError(InvalidParameterValueException$, InvalidParameterValueException);
+export var KmsAccessDeniedException$: StaticErrorSchema = [-3, n0, _KADE,
+  { [_e]: _c },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(KmsAccessDeniedException$, KmsAccessDeniedException);
+export var KmsKeyDisabledException$: StaticErrorSchema = [-3, n0, _KKDE,
+  { [_e]: _c },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(KmsKeyDisabledException$, KmsKeyDisabledException);
+export var KmsKeyNotFoundException$: StaticErrorSchema = [-3, n0, _KKNFE,
+  { [_e]: _c },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(KmsKeyNotFoundException$, KmsKeyNotFoundException);
 export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
   { [_aQE]: [`LimitExceededException`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
@@ -547,6 +583,16 @@ export var AnomalyDetectorConfiguration$: StaticStructureSchema = [3, n0, _ADC,
   0,
   [_ETR, _MTe],
   [() => AnomalyDetectorExcludedTimeRanges, 0]
+];
+export var AssociateDatasetKmsKeyInput$: StaticStructureSchema = [3, n0, _ADKKI,
+  0,
+  [_DI, _KKA],
+  [0, 0], 2
+];
+export var AssociateDatasetKmsKeyOutput$: StaticStructureSchema = [3, n0, _ADKKO,
+  0,
+  [],
+  []
 ];
 export var CompositeAlarm$: StaticStructureSchema = [3, n0, _CAo,
   0,
@@ -703,6 +749,16 @@ export var DisableInsightRulesOutput$: StaticStructureSchema = [3, n0, _DIROi,
   [_F],
   [() => BatchFailures]
 ];
+export var DisassociateDatasetKmsKeyInput$: StaticStructureSchema = [3, n0, _DDKKI,
+  0,
+  [_DI],
+  [0], 1
+];
+export var DisassociateDatasetKmsKeyOutput$: StaticStructureSchema = [3, n0, _DDKKO,
+  0,
+  [],
+  []
+];
 export var EnableAlarmActionsInput$: StaticStructureSchema = [3, n0, _EAAI,
   0,
   [_ANl],
@@ -747,6 +803,16 @@ export var GetDashboardOutput$: StaticStructureSchema = [3, n0, _GDO,
   0,
   [_DA, _DB, _DN],
   [0, 0, 0]
+];
+export var GetDatasetInput$: StaticStructureSchema = [3, n0, _GDIe,
+  0,
+  [_DI],
+  [0], 1
+];
+export var GetDatasetOutput$: StaticStructureSchema = [3, n0, _GDOe,
+  0,
+  [_DIa, _Ar, _KKA],
+  [0, 0, 0], 2
 ];
 export var GetInsightRuleReportInput$: StaticStructureSchema = [3, n0, _GIRRI,
   0,
@@ -1270,6 +1336,9 @@ export var EvaluationCriteria$: StaticUnionSchema = [4, n0, _EC,
   [_PQLC],
   [() => AlarmPromQLCriteria$]
 ];
+export var AssociateDatasetKmsKey$: StaticOperationSchema = [9, n0, _ADKK,
+  0, () => AssociateDatasetKmsKeyInput$, () => AssociateDatasetKmsKeyOutput$
+];
 export var DeleteAlarmMuteRule$: StaticOperationSchema = [9, n0, _DAMR,
   0, () => DeleteAlarmMuteRuleInput$, () => __Unit
 ];
@@ -1312,6 +1381,9 @@ export var DisableAlarmActions$: StaticOperationSchema = [9, n0, _DAA,
 export var DisableInsightRules$: StaticOperationSchema = [9, n0, _DIRi,
   0, () => DisableInsightRulesInput$, () => DisableInsightRulesOutput$
 ];
+export var DisassociateDatasetKmsKey$: StaticOperationSchema = [9, n0, _DDKK,
+  2, () => DisassociateDatasetKmsKeyInput$, () => DisassociateDatasetKmsKeyOutput$
+];
 export var EnableAlarmActions$: StaticOperationSchema = [9, n0, _EAA,
   0, () => EnableAlarmActionsInput$, () => __Unit
 ];
@@ -1323,6 +1395,9 @@ export var GetAlarmMuteRule$: StaticOperationSchema = [9, n0, _GAMR,
 ];
 export var GetDashboard$: StaticOperationSchema = [9, n0, _GD,
   0, () => GetDashboardInput$, () => GetDashboardOutput$
+];
+export var GetDataset$: StaticOperationSchema = [9, n0, _GDe,
+  0, () => GetDatasetInput$, () => GetDatasetOutput$
 ];
 export var GetInsightRuleReport$: StaticOperationSchema = [9, n0, _GIRR,
   0, () => GetInsightRuleReportInput$, () => GetInsightRuleReportOutput$

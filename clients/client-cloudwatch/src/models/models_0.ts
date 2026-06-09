@@ -597,6 +597,41 @@ export interface AnomalyDetector {
 }
 
 /**
+ * @public
+ */
+export interface AssociateDatasetKmsKeyInput {
+  /**
+   * <p>Specifies the identifier of the dataset that you want to associate the KMS key
+   *             with. For the <code>default</code> dataset, you can specify either
+   *             <code>default</code> or the full dataset Amazon Resource Name (ARN) in the format
+   *             <code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:dataset/default</code>.</p>
+   * @public
+   */
+  DatasetIdentifier: string | undefined;
+
+  /**
+   * <p>Specifies the Amazon Resource Name (ARN) of the customer managed KMS key to
+   *             associate with the dataset. The key must be a symmetric encryption KMS key
+   *             (<code>SYMMETRIC_DEFAULT</code>) in the same Amazon Web Services Region as the
+   *             dataset.</p>
+   *          <p>The ARN must be in the format
+   *             <code>arn:aws:kms:<i>Region</i>:<i>account-id</i>:key/<i>key-id</i>
+   *             </code>.
+   *             Key IDs, aliases, and alias ARNs are not accepted.</p>
+   *          <p>For more information about KMS key ARNs, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">Key ARN</a> in
+   *             the <i>Amazon Web Services Key Management Service Developer
+   *                 Guide</i>.</p>
+   * @public
+   */
+  KmsKeyArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateDatasetKmsKeyOutput {}
+
+/**
  * <p>This array is empty if the API operation was successful for all the rules specified in
  *             the request. If the operation could not process one of the rules, the following data is
  *             returned for each of those rules.</p>
@@ -1854,6 +1889,25 @@ export interface DisableInsightRulesOutput {
 /**
  * @public
  */
+export interface DisassociateDatasetKmsKeyInput {
+  /**
+   * <p>Specifies the identifier of the dataset from which to remove the KMS key
+   *             association. For the <code>default</code> dataset, you can specify either
+   *             <code>default</code> or the full dataset Amazon Resource Name (ARN) in the format
+   *             <code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:dataset/default</code>.</p>
+   * @public
+   */
+  DatasetIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateDatasetKmsKeyOutput {}
+
+/**
+ * @public
+ */
 export interface EnableAlarmActionsInput {
   /**
    * <p>The names of the alarms.</p>
@@ -2321,6 +2375,49 @@ export interface GetDashboardOutput {
    * @public
    */
   DashboardName?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDatasetInput {
+  /**
+   * <p>Specifies the identifier of the dataset to retrieve. For the <code>default</code>
+   *             dataset, you can specify either <code>default</code> or the full dataset Amazon
+   *             Resource Name (ARN) in the format
+   *             <code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:dataset/default</code>.</p>
+   * @public
+   */
+  DatasetIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDatasetOutput {
+  /**
+   * <p>Returns the identifier of the dataset.</p>
+   * @public
+   */
+  DatasetId: string | undefined;
+
+  /**
+   * <p>Returns the Amazon Resource Name (ARN) of the dataset, in the format
+   *             <code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:dataset/<i>dataset-id</i>
+   *             </code>.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>Returns the Amazon Resource Name (ARN) of the customer managed Amazon Web Services
+   *             KMS key that is currently associated with the dataset, if any. If the dataset is not
+   *             associated with a customer managed KMS key, this field is not included in the
+   *             response and the dataset is encrypted at rest using an Amazon Web Services owned
+   *             key.</p>
+   * @public
+   */
+  KmsKeyArn?: string | undefined;
 }
 
 /**

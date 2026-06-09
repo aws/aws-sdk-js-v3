@@ -5,28 +5,6 @@ import { CloudWatchServiceException as __BaseException } from "./CloudWatchServi
 import type { DashboardValidationMessage } from "./models_0";
 
 /**
- * <p>More than one process tried to modify a resource at the same time.</p>
- * @public
- */
-export class ConcurrentModificationException extends __BaseException {
-  readonly name = "ConcurrentModificationException" as const;
-  readonly $fault = "client" as const;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
-    super({
-      name: "ConcurrentModificationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>This operation attempted to create a resource that already exists.</p>
  * @public
  */
@@ -44,6 +22,132 @@ export class ConflictException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The operation was denied because either the calling principal lacks the required
+ *             Amazon Web Services Key Management Service (Amazon Web Services KMS) permission on the
+ *             key, or the key policy does not grant Amazon CloudWatch the permissions it needs
+ *             to use the key. Verify that the caller has <code>kms:Decrypt</code> permission on the
+ *             key, and that the key policy grants the CloudWatch service principal the
+ *             <code>kms:DescribeKey</code>, <code>kms:GenerateDataKey</code>,
+ *             <code>kms:Encrypt</code>, <code>kms:Decrypt</code>, and <code>kms:ReEncrypt*</code>
+ *             permissions described in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_AssociateDatasetKmsKey.html">AssociateDatasetKmsKey</a>.</p>
+ * @public
+ */
+export class KmsAccessDeniedException extends __BaseException {
+  readonly name = "KmsAccessDeniedException" as const;
+  readonly $fault = "client" as const;
+  Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KmsAccessDeniedException, __BaseException>) {
+    super({
+      name: "KmsAccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KmsAccessDeniedException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The specified Amazon Web Services Key Management Service (Amazon Web Services KMS) key
+ *             is disabled or pending deletion. Re-enable the key (or restore it, if it is pending
+ *             deletion) and retry the operation.</p>
+ * @public
+ */
+export class KmsKeyDisabledException extends __BaseException {
+  readonly name = "KmsKeyDisabledException" as const;
+  readonly $fault = "client" as const;
+  Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KmsKeyDisabledException, __BaseException>) {
+    super({
+      name: "KmsKeyDisabledException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KmsKeyDisabledException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The specified Amazon Web Services Key Management Service (Amazon Web Services KMS) key
+ *             could not be found. Verify that the key Amazon Resource Name (ARN) is correct, that
+ *             the key exists, and that it is in the same Amazon Web Services Region as the
+ *             resource.</p>
+ * @public
+ */
+export class KmsKeyNotFoundException extends __BaseException {
+  readonly name = "KmsKeyNotFoundException" as const;
+  readonly $fault = "client" as const;
+  Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KmsKeyNotFoundException, __BaseException>) {
+    super({
+      name: "KmsKeyNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KmsKeyNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The named resource does not exist.</p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name = "ResourceNotFoundException" as const;
+  readonly $fault = "client" as const;
+  ResourceType?: string | undefined;
+  ResourceId?: string | undefined;
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.ResourceType = opts.ResourceType;
+    this.ResourceId = opts.ResourceId;
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>More than one process tried to modify a resource at the same time.</p>
+ * @public
+ */
+export class ConcurrentModificationException extends __BaseException {
+  readonly name = "ConcurrentModificationException" as const;
+  readonly $fault = "client" as const;
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
+    super({
+      name: "ConcurrentModificationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
     this.Message = opts.Message;
   }
 }
@@ -194,32 +298,6 @@ export class MissingRequiredParameterException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, MissingRequiredParameterException.prototype);
-  }
-}
-
-/**
- * <p>The named resource does not exist.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name = "ResourceNotFoundException" as const;
-  readonly $fault = "client" as const;
-  ResourceType?: string | undefined;
-  ResourceId?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.ResourceType = opts.ResourceType;
-    this.ResourceId = opts.ResourceId;
-    this.Message = opts.Message;
   }
 }
 

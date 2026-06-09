@@ -60,6 +60,10 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import type {
+  AssociateDatasetKmsKeyCommandInput,
+  AssociateDatasetKmsKeyCommandOutput,
+} from "./commands/AssociateDatasetKmsKeyCommand";
+import type {
   DeleteAlarmMuteRuleCommandInput,
   DeleteAlarmMuteRuleCommandOutput,
 } from "./commands/DeleteAlarmMuteRuleCommand";
@@ -107,6 +111,10 @@ import type {
   DisableInsightRulesCommandOutput,
 } from "./commands/DisableInsightRulesCommand";
 import type {
+  DisassociateDatasetKmsKeyCommandInput,
+  DisassociateDatasetKmsKeyCommandOutput,
+} from "./commands/DisassociateDatasetKmsKeyCommand";
+import type {
   EnableAlarmActionsCommandInput,
   EnableAlarmActionsCommandOutput,
 } from "./commands/EnableAlarmActionsCommand";
@@ -116,6 +124,7 @@ import type {
 } from "./commands/EnableInsightRulesCommand";
 import type { GetAlarmMuteRuleCommandInput, GetAlarmMuteRuleCommandOutput } from "./commands/GetAlarmMuteRuleCommand";
 import type { GetDashboardCommandInput, GetDashboardCommandOutput } from "./commands/GetDashboardCommand";
+import type { GetDatasetCommandInput, GetDatasetCommandOutput } from "./commands/GetDatasetCommand";
 import type {
   GetInsightRuleReportCommandInput,
   GetInsightRuleReportCommandOutput,
@@ -204,6 +213,7 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | AssociateDatasetKmsKeyCommandInput
   | DeleteAlarmMuteRuleCommandInput
   | DeleteAlarmsCommandInput
   | DeleteAnomalyDetectorCommandInput
@@ -218,10 +228,12 @@ export type ServiceInputTypes =
   | DescribeInsightRulesCommandInput
   | DisableAlarmActionsCommandInput
   | DisableInsightRulesCommandInput
+  | DisassociateDatasetKmsKeyCommandInput
   | EnableAlarmActionsCommandInput
   | EnableInsightRulesCommandInput
   | GetAlarmMuteRuleCommandInput
   | GetDashboardCommandInput
+  | GetDatasetCommandInput
   | GetInsightRuleReportCommandInput
   | GetMetricDataCommandInput
   | GetMetricStatisticsCommandInput
@@ -255,6 +267,7 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | AssociateDatasetKmsKeyCommandOutput
   | DeleteAlarmMuteRuleCommandOutput
   | DeleteAlarmsCommandOutput
   | DeleteAnomalyDetectorCommandOutput
@@ -269,10 +282,12 @@ export type ServiceOutputTypes =
   | DescribeInsightRulesCommandOutput
   | DisableAlarmActionsCommandOutput
   | DisableInsightRulesCommandOutput
+  | DisassociateDatasetKmsKeyCommandOutput
   | EnableAlarmActionsCommandOutput
   | EnableInsightRulesCommandOutput
   | GetAlarmMuteRuleCommandOutput
   | GetDashboardCommandOutput
+  | GetDatasetCommandOutput
   | GetInsightRuleReportCommandOutput
   | GetMetricDataCommandOutput
   | GetMetricStatisticsCommandOutput
