@@ -66,6 +66,27 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * <p>The exception that occurs when there is a retryable conflict performing an operation. This is a temporary condition that may resolve itself with retries. We recommend implementing exponential backoff retry logic in your application.</p>
+ * @public
+ */
+export class RetryableConflictException extends __BaseException {
+  readonly name = "RetryableConflictException" as const;
+  readonly $fault = "client" as const;
+  $retryable = {};
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RetryableConflictException, __BaseException>) {
+    super({
+      name: "RetryableConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RetryableConflictException.prototype);
+  }
+}
+
+/**
  * <p>The exception that occurs when there is an error in the runtime client. This can happen due to network issues, invalid configuration, or other client-side problems. Check the error message for specific details about the error.</p>
  * @public
  */
@@ -146,27 +167,6 @@ export class ValidationException extends __BaseException {
     Object.setPrototypeOf(this, ValidationException.prototype);
     this.reason = opts.reason;
     this.fieldList = opts.fieldList;
-  }
-}
-
-/**
- * <p>The exception that occurs when there is a retryable conflict performing an operation. This is a temporary condition that may resolve itself with retries. We recommend implementing exponential backoff retry logic in your application.</p>
- * @public
- */
-export class RetryableConflictException extends __BaseException {
-  readonly name = "RetryableConflictException" as const;
-  readonly $fault = "client" as const;
-  $retryable = {};
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RetryableConflictException, __BaseException>) {
-    super({
-      name: "RetryableConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RetryableConflictException.prototype);
   }
 }
 
