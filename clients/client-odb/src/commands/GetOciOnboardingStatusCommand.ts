@@ -51,6 +51,19 @@ export interface GetOciOnboardingStatusCommandOutput extends GetOciOnboardingSta
  * //     statusReason: "STRING_VALUE",
  * //     accountSetupCloudFormationUrl: "STRING_VALUE",
  * //   },
+ * //   autonomousDatabaseOciIntegrationIamRoles: [ // OciIamRoleList
+ * //     { // OciIamRole
+ * //       iamRoleArn: "STRING_VALUE",
+ * //       awsIntegration: "KmsTde",
+ * //     },
+ * //   ],
+ * //   linkedOciTenancyId: "STRING_VALUE",
+ * //   linkedOciCompartmentId: "STRING_VALUE",
+ * //   subscriptionErrors: [ // SubscriptionErrors
+ * //     { // SubscriptionError
+ * //       errorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
  * // };
  *
  * ```

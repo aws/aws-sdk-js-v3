@@ -1,25 +1,53 @@
 // smithy-typescript generated code
 import type {
   Access,
+  AutonomousDatabaseBackupStatus,
+  AutonomousDatabaseBackupType,
+  AutonomousDatabaseResourceStatus,
+  AutonomousDatabaseWalletStatus,
+  AutonomousMaintenanceScheduleType,
+  CharacterSetType,
+  CloneType,
   ComputeModel,
+  DatabaseEdition,
+  DatabaseManagementStatus,
+  DatabaseType,
+  DataGuardRole,
+  DataSafeStatus,
   DayOfWeekName,
   DbNodeMaintenanceType,
   DbNodeResourceStatus,
   DbServerPatchingStatus,
+  DbWorkload,
+  DisasterRecoveryType,
   DiskRedundancy,
+  EncryptionKeyProvider,
+  EncryptionKeyProviderInput,
+  ExternalIdType,
   IamRoleStatus,
   IormLifecycleState,
   LicenseModel,
   ManagedResourceStatus,
   MonthName,
+  NetServicesArchitecture,
   Objective,
+  OciAwsIntegration,
   OciOnboardingStatus,
+  OpenMode,
+  OperationsInsightsStatus,
   PatchingModeType,
+  PermissionLevel,
   PreferenceType,
+  RefreshableMode,
+  RefreshableStatus,
+  RepeatCadence,
   ResourceStatus,
   ShapeType,
+  SourceType,
+  StandbyAllowlistedIpsSource,
   SupportedAwsIntegration,
   VpcEndpointType,
+  WalletType,
 } from "./enums";
 
 /**
@@ -83,6 +111,3759 @@ export interface AssociateIamRoleToResourceInput {
  * @public
  */
 export interface AssociateIamRoleToResourceOutput {}
+
+/**
+ * <p>The Oracle Application Express (APEX) details for an Autonomous Database.</p>
+ * @public
+ */
+export interface AutonomousDatabaseApex {
+  /**
+   * <p>The Oracle Application Express (APEX) version of the Autonomous Database.</p>
+   * @public
+   */
+  apexVersion?: string | undefined;
+
+  /**
+   * <p>The Oracle REST Data Services (ORDS) version of the Autonomous Database.</p>
+   * @public
+   */
+  ordsVersion?: string | undefined;
+}
+
+/**
+ * <p>A connection string profile for an Autonomous Database.</p>
+ * @public
+ */
+export interface DatabaseConnectionStringProfile {
+  /**
+   * <p>The consumer group associated with the connection string profile.</p>
+   * @public
+   */
+  consumerGroup?: string | undefined;
+
+  /**
+   * <p>The user-friendly name of the connection string profile.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The host name format used in the connection string.</p>
+   * @public
+   */
+  hostFormat?: string | undefined;
+
+  /**
+   * <p>Indicates whether the connection string profile is regional.</p>
+   * @public
+   */
+  isRegional?: boolean | undefined;
+
+  /**
+   * <p>The protocol used by the connection string profile.</p>
+   * @public
+   */
+  protocol?: string | undefined;
+
+  /**
+   * <p>The session mode of the connection string profile.</p>
+   * @public
+   */
+  sessionMode?: string | undefined;
+
+  /**
+   * <p>The syntax format of the connection string profile.</p>
+   * @public
+   */
+  syntaxFormat?: string | undefined;
+
+  /**
+   * <p>The TLS authentication method used by the connection string profile.</p>
+   * @public
+   */
+  tlsAuthentication?: string | undefined;
+
+  /**
+   * <p>The connection string value of the profile.</p>
+   * @public
+   */
+  value?: string | undefined;
+}
+
+/**
+ * <p>The connection strings used to connect to an Autonomous Database.</p>
+ * @public
+ */
+export interface AutonomousDatabaseConnectionStrings {
+  /**
+   * <p>The list of all connection strings that you can use to connect to the Autonomous Database.</p>
+   * @public
+   */
+  allConnectionStrings?: Record<string, string> | undefined;
+
+  /**
+   * <p>The connection string for connecting to the Autonomous Database with a dedicated service.</p>
+   * @public
+   */
+  dedicated?: string | undefined;
+
+  /**
+   * <p>The connection string for the high-priority database service.</p>
+   * @public
+   */
+  high?: string | undefined;
+
+  /**
+   * <p>The connection string for the medium-priority database service.</p>
+   * @public
+   */
+  medium?: string | undefined;
+
+  /**
+   * <p>The connection string for the low-priority database service.</p>
+   * @public
+   */
+  low?: string | undefined;
+
+  /**
+   * <p>The list of connection string profiles for the Autonomous Database.</p>
+   * @public
+   */
+  profiles?: DatabaseConnectionStringProfile[] | undefined;
+}
+
+/**
+ * <p>The connection URLs for accessing tools and services for an Autonomous Database.</p>
+ * @public
+ */
+export interface AutonomousDatabaseConnectionUrls {
+  /**
+   * <p>The URL for accessing Oracle Application Express (APEX) for the Autonomous Database.</p>
+   * @public
+   */
+  apexUrl?: string | undefined;
+
+  /**
+   * <p>The URL for accessing Oracle Database Transforms for the Autonomous Database.</p>
+   * @public
+   */
+  databaseTransformsUrl?: string | undefined;
+
+  /**
+   * <p>The URL for accessing Oracle Graph Studio for the Autonomous Database.</p>
+   * @public
+   */
+  graphStudioUrl?: string | undefined;
+
+  /**
+   * <p>The URL for accessing the Oracle Machine Learning notebook for the Autonomous Database.</p>
+   * @public
+   */
+  machineLearningNotebookUrl?: string | undefined;
+
+  /**
+   * <p>The URL for accessing Oracle Machine Learning user management for the Autonomous Database.</p>
+   * @public
+   */
+  machineLearningUserManagementUrl?: string | undefined;
+
+  /**
+   * <p>The URL for accessing the MongoDB API for the Autonomous Database.</p>
+   * @public
+   */
+  mongoDbUrl?: string | undefined;
+
+  /**
+   * <p>The URL for accessing Oracle REST Data Services (ORDS) for the Autonomous Database.</p>
+   * @public
+   */
+  ordsUrl?: string | undefined;
+
+  /**
+   * <p>The URL for accessing Oracle Spatial Studio for the Autonomous Database.</p>
+   * @public
+   */
+  spatialStudioUrl?: string | undefined;
+
+  /**
+   * <p>The URL for accessing Oracle SQL Developer Web for the Autonomous Database.</p>
+   * @public
+   */
+  sqlDevWebUrl?: string | undefined;
+}
+
+/**
+ * <p>A contact to receive notification from Oracle about maintenance updates for a specific Exadata infrastructure.</p>
+ * @public
+ */
+export interface CustomerContact {
+  /**
+   * <p>The email address of the contact.</p>
+   * @public
+   */
+  email?: string | undefined;
+}
+
+/**
+ * <p>Information about a database management tool for an Autonomous Database.</p>
+ * @public
+ */
+export interface DatabaseTool {
+  /**
+   * <p>Indicates whether the database management tool is enabled.</p>
+   * @public
+   */
+  isEnabled?: boolean | undefined;
+
+  /**
+   * <p>The name of the database management tool.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The compute capacity allocated to the database management tool.</p>
+   * @public
+   */
+  computeCount?: number | undefined;
+
+  /**
+   * <p>The maximum amount of time, in minutes, that the database management tool can be idle before it is shut down.</p>
+   * @public
+   */
+  maxIdleTimeInMinutes?: number | undefined;
+}
+
+/**
+ * <p>The configuration of the Amazon Web Services Key Management Service (KMS) encryption key used for an Autonomous Database.</p>
+ * @public
+ */
+export interface AwsEncryptionKeyConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management (IAM) role that grants access to the KMS key.</p>
+   * @public
+   */
+  iamRoleArn?: string | undefined;
+
+  /**
+   * <p>The type of external identifier associated with the encryption key.</p>
+   * @public
+   */
+  externalIdType?: ExternalIdType | undefined;
+
+  /**
+   * <p>The identifier or ARN of the Amazon Web Services KMS key used for encryption.</p>
+   * @public
+   */
+  kmsKeyId?: string | undefined;
+}
+
+/**
+ * <p>The configuration of the Oracle Cloud Infrastructure (OCI) Vault encryption key used for an Autonomous Database.</p>
+ * @public
+ */
+export interface OciEncryptionKeyConfiguration {
+  /**
+   * <p>The Oracle Cloud Identifier (OCID) of the OCI Vault key to use for encryption.</p>
+   * @public
+   */
+  kmsKeyId: string | undefined;
+
+  /**
+   * <p>The Oracle Cloud Identifier (OCID) of the OCI Vault that contains the encryption key.</p>
+   * @public
+   */
+  vaultId: string | undefined;
+}
+
+/**
+ * <p>The configuration of the Oracle Key Vault (OKV) encryption key used for an Autonomous Database.</p>
+ * @public
+ */
+export interface OkvEncryptionKeyConfiguration {
+  /**
+   * <p>The name of the directory that contains the Oracle Key Vault (OKV) certificate.</p>
+   * @public
+   */
+  certificateDirectoryName: string | undefined;
+
+  /**
+   * <p>The identifier of the Oracle Key Vault (OKV) certificate.</p>
+   * @public
+   */
+  certificateId?: string | undefined;
+
+  /**
+   * <p>The name of the directory where the Oracle Key Vault (OKV) configuration is stored.</p>
+   * @public
+   */
+  directoryName: string | undefined;
+
+  /**
+   * <p>The identifier of the Oracle Key Vault (OKV) key to use for encryption.</p>
+   * @public
+   */
+  okvKmsKey: string | undefined;
+
+  /**
+   * <p>The URI of the Oracle Key Vault (OKV) server.</p>
+   * @public
+   */
+  okvUri: string | undefined;
+}
+
+/**
+ * <p>The configuration of the encryption key used for an Autonomous Database. This is a union, so only one of the following members can be specified.</p>
+ * @public
+ */
+export type EncryptionKeyConfiguration =
+  | EncryptionKeyConfiguration.AwsEncryptionKeyMember
+  | EncryptionKeyConfiguration.OciEncryptionKeyMember
+  | EncryptionKeyConfiguration.OkvEncryptionKeyMember
+  | EncryptionKeyConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace EncryptionKeyConfiguration {
+  /**
+   * <p>The configuration of the Amazon Web Services Key Management Service (KMS) encryption key.</p>
+   * @public
+   */
+  export interface AwsEncryptionKeyMember {
+    awsEncryptionKey: AwsEncryptionKeyConfiguration;
+    ociEncryptionKey?: never;
+    okvEncryptionKey?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration of the Oracle Cloud Infrastructure (OCI) Vault encryption key.</p>
+   * @public
+   */
+  export interface OciEncryptionKeyMember {
+    awsEncryptionKey?: never;
+    ociEncryptionKey: OciEncryptionKeyConfiguration;
+    okvEncryptionKey?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration of the Oracle Key Vault (OKV) encryption key.</p>
+   * @public
+   */
+  export interface OkvEncryptionKeyMember {
+    awsEncryptionKey?: never;
+    ociEncryptionKey?: never;
+    okvEncryptionKey: OkvEncryptionKeyConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    awsEncryptionKey?: never;
+    ociEncryptionKey?: never;
+    okvEncryptionKey?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    awsEncryptionKey: (value: AwsEncryptionKeyConfiguration) => T;
+    ociEncryptionKey: (value: OciEncryptionKeyConfiguration) => T;
+    okvEncryptionKey: (value: OkvEncryptionKeyConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The encryption configuration for an Autonomous Database.</p>
+ * @public
+ */
+export interface EncryptionSummary {
+  /**
+   * <p>The provider of the encryption key used for the Autonomous Database.</p>
+   * @public
+   */
+  encryptionKeyProvider?: EncryptionKeyProvider | undefined;
+
+  /**
+   * <p>The configuration of the encryption key used for the Autonomous Database.</p>
+   * @public
+   */
+  encryptionKeyConfiguration?: EncryptionKeyConfiguration | undefined;
+}
+
+/**
+ * <p>A summary of a standby Autonomous Database in an Oracle Data Guard configuration.</p>
+ * @public
+ */
+export interface DatabaseStandbySummary {
+  /**
+   * <p>The availability domain of the standby Autonomous Database.</p>
+   * @public
+   */
+  availabilityDomain?: string | undefined;
+
+  /**
+   * <p>The time lag, in seconds, between the standby database and the primary database.</p>
+   * @public
+   */
+  lagTimeInSeconds?: number | undefined;
+
+  /**
+   * <p>The current status of the standby Autonomous Database.</p>
+   * @public
+   */
+  status?: AutonomousDatabaseResourceStatus | undefined;
+
+  /**
+   * <p>Additional information about the current status of the standby Autonomous Database, if applicable.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The component on the standby Autonomous Database that the current maintenance is being applied to.</p>
+   * @public
+   */
+  maintenanceTargetComponent?: string | undefined;
+
+  /**
+   * <p>The date and time when the Oracle Data Guard role of the standby database last changed.</p>
+   * @public
+   */
+  timeDataGuardRoleChanged?: Date | undefined;
+
+  /**
+   * <p>The date and time when the disaster recovery role of the standby database last changed.</p>
+   * @public
+   */
+  timeDisasterRecoveryRoleChanged?: Date | undefined;
+
+  /**
+   * <p>The date and time when the next maintenance of the standby database begins.</p>
+   * @public
+   */
+  timeMaintenanceBegin?: Date | undefined;
+
+  /**
+   * <p>The date and time when the next maintenance of the standby database ends.</p>
+   * @public
+   */
+  timeMaintenanceEnd?: Date | undefined;
+}
+
+/**
+ * <p>The long-term backup schedule for an Autonomous Database.</p>
+ * @public
+ */
+export interface LongTermBackupSchedule {
+  /**
+   * <p>Indicates whether the long-term backup schedule is disabled.</p>
+   * @public
+   */
+  isDisabled?: boolean | undefined;
+
+  /**
+   * <p>The cadence at which long-term backups are taken.</p>
+   * @public
+   */
+  repeatCadence?: RepeatCadence | undefined;
+
+  /**
+   * <p>The retention period, in days, for long-term backups.</p>
+   * @public
+   */
+  retentionPeriodInDays?: number | undefined;
+
+  /**
+   * <p>The date and time at which the long-term backup is taken.</p>
+   * @public
+   */
+  timeOfBackup?: Date | undefined;
+}
+
+/**
+ * <p>The disaster recovery configuration for an Autonomous Database.</p>
+ * @public
+ */
+export interface DisasterRecoveryConfiguration {
+  /**
+   * <p>The type of disaster recovery configured for the Autonomous Database.</p>
+   * @public
+   */
+  disasterRecoveryType?: DisasterRecoveryType | undefined;
+
+  /**
+   * <p>Indicates whether automatic backups are replicated to the disaster recovery database.</p>
+   * @public
+   */
+  isReplicateAutomaticBackups?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether the standby database is a snapshot standby.</p>
+   * @public
+   */
+  isSnapshotStandby?: boolean | undefined;
+
+  /**
+   * <p>The date and time until which the snapshot standby database remains enabled.</p>
+   * @public
+   */
+  timeSnapshotStandbyEnabledTill?: Date | undefined;
+}
+
+/**
+ * <p>The configuration of a resource pool for an Autonomous Database.</p>
+ * @public
+ */
+export interface ResourcePoolSummary {
+  /**
+   * <p>Indicates whether the resource pool is disabled.</p>
+   * @public
+   */
+  isDisabled?: boolean | undefined;
+
+  /**
+   * <p>The number of Autonomous Databases that the resource pool can contain.</p>
+   * @public
+   */
+  poolSize?: number | undefined;
+
+  /**
+   * <p>The total storage size of the resource pool, in terabytes (TB).</p>
+   * @public
+   */
+  poolStorageSizeInTBs?: number | undefined;
+
+  /**
+   * <p>The available storage capacity in the resource pool, in TB.</p>
+   * @public
+   */
+  availableStorageCapacityInTBs?: number | undefined;
+
+  /**
+   * <p>The total compute capacity of the resource pool.</p>
+   * @public
+   */
+  totalComputeCapacity?: number | undefined;
+
+  /**
+   * <p>The available compute capacity in the resource pool.</p>
+   * @public
+   */
+  availableComputeCapacity?: number | undefined;
+}
+
+/**
+ * <p>An enumeration of days of the week used for scheduling maintenance windows.</p>
+ * @public
+ */
+export interface DayOfWeek {
+  /**
+   * <p>The name of the day of the week.</p>
+   * @public
+   */
+  name?: DayOfWeekName | undefined;
+}
+
+/**
+ * <p>The scheduled start and stop times for an Autonomous Database on a specific day of the week.</p>
+ * @public
+ */
+export interface ScheduledOperationDetails {
+  /**
+   * <p>The day of the week on which the scheduled operation occurs.</p>
+   * @public
+   */
+  dayOfWeek: DayOfWeek | undefined;
+
+  /**
+   * <p>The scheduled start time for the Autonomous Database, in UTC.</p>
+   * @public
+   */
+  scheduledStartTime?: string | undefined;
+
+  /**
+   * <p>The scheduled stop time for the Autonomous Database, in UTC.</p>
+   * @public
+   */
+  scheduledStopTime?: string | undefined;
+}
+
+/**
+ * <p>Information about an Autonomous Database.</p>
+ * @public
+ */
+export interface AutonomousDatabase {
+  /**
+   * <p>The unique identifier of the Autonomous Database.</p>
+   * @public
+   */
+  autonomousDatabaseId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Autonomous Database.</p>
+   * @public
+   */
+  autonomousDatabaseArn?: string | undefined;
+
+  /**
+   * <p>The name of the Oracle Cloud Infrastructure (OCI) resource anchor associated with the Autonomous Database.</p>
+   * @public
+   */
+  ociResourceAnchorName?: string | undefined;
+
+  /**
+   * <p>The progress of the current operation on the Autonomous Database, as a percentage.</p>
+   * @public
+   */
+  percentProgress?: number | undefined;
+
+  /**
+   * <p>The Oracle Cloud Identifier (OCID) of the Autonomous Database.</p>
+   * @public
+   */
+  ocid?: string | undefined;
+
+  /**
+   * <p>The URL for accessing the OCI console page for the Autonomous Database.</p>
+   * @public
+   */
+  ociUrl?: string | undefined;
+
+  /**
+   * <p>The user-friendly name of the Autonomous Database.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The name of the Autonomous Database.</p>
+   * @public
+   */
+  dbName?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the source from which the Autonomous Database was created.</p>
+   * @public
+   */
+  sourceId?: string | undefined;
+
+  /**
+   * <p>The current status of the Autonomous Database.</p>
+   * @public
+   */
+  status?: AutonomousDatabaseResourceStatus | undefined;
+
+  /**
+   * <p>Additional information about the current status of the Autonomous Database, if applicable.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The type of the Autonomous Database, either a regular database or a clone.</p>
+   * @public
+   */
+  databaseType?: DatabaseType | undefined;
+
+  /**
+   * <p>The Oracle Database software version of the Autonomous Database.</p>
+   * @public
+   */
+  dbVersion?: string | undefined;
+
+  /**
+   * <p>The intended use of the Autonomous Database, such as transaction processing, data warehouse, JSON database, or APEX.</p>
+   * @public
+   */
+  dbWorkload?: DbWorkload | undefined;
+
+  /**
+   * <p>The character set of the Autonomous Database.</p>
+   * @public
+   */
+  characterSet?: string | undefined;
+
+  /**
+   * <p>The national character set of the Autonomous Database.</p>
+   * @public
+   */
+  ncharacterSet?: string | undefined;
+
+  /**
+   * <p>The Oracle Database edition of the Autonomous Database.</p>
+   * @public
+   */
+  databaseEdition?: DatabaseEdition | undefined;
+
+  /**
+   * <p>The Oracle license model that applies to the Autonomous Database.</p>
+   * @public
+   */
+  licenseModel?: LicenseModel | undefined;
+
+  /**
+   * <p>The mode in which the Autonomous Database is open, either read-only or read/write.</p>
+   * @public
+   */
+  openMode?: OpenMode | undefined;
+
+  /**
+   * <p>The permission level of the Autonomous Database.</p>
+   * @public
+   */
+  permissionLevel?: PermissionLevel | undefined;
+
+  /**
+   * <p>Indicates whether mutual TLS (mTLS) authentication is required to connect to the Autonomous Database.</p>
+   * @public
+   */
+  isMtlsConnectionRequired?: boolean | undefined;
+
+  /**
+   * <p>The maintenance schedule type for the Autonomous Database.</p>
+   * @public
+   */
+  autonomousMaintenanceScheduleType?: AutonomousMaintenanceScheduleType | undefined;
+
+  /**
+   * <p>The Oracle Net Services architecture of the Autonomous Database, either dedicated or shared.</p>
+   * @public
+   */
+  netServicesArchitecture?: NetServicesArchitecture | undefined;
+
+  /**
+   * <p>The list of Oracle Database software versions to which the Autonomous Database can be upgraded.</p>
+   * @public
+   */
+  availableUpgradeVersions?: string[] | undefined;
+
+  /**
+   * <p>The maximum number of compute resources that you can allocate to the Autonomous Database under the bring-your-own-license (BYOL) model.</p>
+   * @public
+   */
+  byolComputeCountLimit?: number | undefined;
+
+  /**
+   * <p>The connection string details for the Autonomous Database.</p>
+   * @public
+   */
+  connectionStringDetails?: AutonomousDatabaseConnectionStrings | undefined;
+
+  /**
+   * <p>The URL for accessing the Oracle service console for the Autonomous Database.</p>
+   * @public
+   */
+  serviceConsoleUrl?: string | undefined;
+
+  /**
+   * <p>The URL for accessing Oracle SQL Developer Web for the Autonomous Database.</p>
+   * @public
+   */
+  sqlWebDeveloperUrl?: string | undefined;
+
+  /**
+   * <p>The list of customer contacts that receive operational notifications from Oracle for the Autonomous Database.</p>
+   * @public
+   */
+  customerContacts?: CustomerContact[] | undefined;
+
+  /**
+   * <p>The Oracle Application Express (APEX) details for the Autonomous Database.</p>
+   * @public
+   */
+  apexDetails?: AutonomousDatabaseApex | undefined;
+
+  /**
+   * <p>The details of the standby Autonomous Database in a cross-Region Oracle Data Guard configuration.</p>
+   * @public
+   */
+  standbyDb?: DatabaseStandbySummary | undefined;
+
+  /**
+   * <p>The details of the local standby Autonomous Database in an Oracle Data Guard configuration.</p>
+   * @public
+   */
+  localStandbyDb?: DatabaseStandbySummary | undefined;
+
+  /**
+   * <p>The status of the Oracle Data Safe registration for the Autonomous Database.</p>
+   * @public
+   */
+  dataSafeStatus?: DataSafeStatus | undefined;
+
+  /**
+   * <p>The status of Oracle Database Management for the Autonomous Database.</p>
+   * @public
+   */
+  databaseManagementStatus?: DatabaseManagementStatus | undefined;
+
+  /**
+   * <p>The status of Oracle Operations Insights for the Autonomous Database.</p>
+   * @public
+   */
+  operationsInsightsStatus?: OperationsInsightsStatus | undefined;
+
+  /**
+   * <p>The Availability Zone where the Autonomous Database is located.</p>
+   * @public
+   */
+  availabilityZone?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Availability Zone where the Autonomous Database is located.</p>
+   * @public
+   */
+  availabilityZoneId?: string | undefined;
+
+  /**
+   * <p>The component on the Autonomous Database that the current maintenance is being applied to.</p>
+   * @public
+   */
+  maintenanceTargetComponent?: string | undefined;
+
+  /**
+   * <p>The connection URLs for accessing tools and services for the Autonomous Database.</p>
+   * @public
+   */
+  connectionUrls?: AutonomousDatabaseConnectionUrls | undefined;
+
+  /**
+   * <p>The list of database management tools enabled for the Autonomous Database.</p>
+   * @public
+   */
+  dbToolsDetails?: DatabaseTool[] | undefined;
+
+  /**
+   * <p>The list of scheduled start and stop times for the Autonomous Database.</p>
+   * @public
+   */
+  scheduledOperations?: ScheduledOperationDetails[] | undefined;
+
+  /**
+   * <p>The unique identifier of the resource pool leader Autonomous Database.</p>
+   * @public
+   */
+  resourcePoolLeaderId?: string | undefined;
+
+  /**
+   * <p>The compute capacity, in number of Elastic CPUs (ECPUs) or Oracle CPUs (OCPUs), assigned to the Autonomous Database.</p>
+   * @public
+   */
+  computeCount?: number | undefined;
+
+  /**
+   * <p>The compute model of the Autonomous Database, either ECPU or OCPU.</p>
+   * @public
+   */
+  computeModel?: ComputeModel | undefined;
+
+  /**
+   * <p>The number of CPU cores allocated to the Autonomous Database.</p>
+   * @public
+   */
+  cpuCoreCount?: number | undefined;
+
+  /**
+   * <p>The amount of memory allocated per Oracle Compute Unit, in GB.</p>
+   * @public
+   */
+  memoryPerOracleComputeUnitInGBs?: number | undefined;
+
+  /**
+   * <p>The list of CPU core counts that you can provision for the Autonomous Database.</p>
+   * @public
+   */
+  provisionableCpus?: number[] | undefined;
+
+  /**
+   * <p>Indicates whether automatic scaling of the compute resources is enabled for the Autonomous Database.</p>
+   * @public
+   */
+  isAutoScalingEnabled?: boolean | undefined;
+
+  /**
+   * <p>The size, in terabytes (TB), of the data volume allocated for the Autonomous Database.</p>
+   * @public
+   */
+  dataStorageSizeInTBs?: number | undefined;
+
+  /**
+   * <p>The size, in gigabytes (GB), of the data volume allocated for the Autonomous Database.</p>
+   * @public
+   */
+  dataStorageSizeInGBs?: number | undefined;
+
+  /**
+   * <p>The amount of data storage currently in use by the Autonomous Database, in TB.</p>
+   * @public
+   */
+  usedDataStorageSizeInTBs?: number | undefined;
+
+  /**
+   * <p>The amount of data storage currently in use by the Autonomous Database, in GB.</p>
+   * @public
+   */
+  usedDataStorageSizeInGBs?: number | undefined;
+
+  /**
+   * <p>The actual amount of data storage currently in use by the Autonomous Database, in TB.</p>
+   * @public
+   */
+  actualUsedDataStorageSizeInTBs?: number | undefined;
+
+  /**
+   * <p>The amount of storage currently allocated to the Autonomous Database, in TB.</p>
+   * @public
+   */
+  allocatedStorageSizeInTBs?: number | undefined;
+
+  /**
+   * <p>The size of the in-memory area of the Autonomous Database, in GB.</p>
+   * @public
+   */
+  inMemoryAreaInGBs?: number | undefined;
+
+  /**
+   * <p>Indicates whether automatic scaling of the storage is enabled for the Autonomous Database.</p>
+   * @public
+   */
+  isAutoScalingForStorageEnabled?: boolean | undefined;
+
+  /**
+   * <p>The unique identifier of the ODB network associated with the Autonomous Database.</p>
+   * @public
+   */
+  odbNetworkId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the ODB network associated with the Autonomous Database.</p>
+   * @public
+   */
+  odbNetworkArn?: string | undefined;
+
+  /**
+   * <p>The private endpoint for the Autonomous Database.</p>
+   * @public
+   */
+  privateEndpoint?: string | undefined;
+
+  /**
+   * <p>The private endpoint IP address for the Autonomous Database.</p>
+   * @public
+   */
+  privateEndpointIp?: string | undefined;
+
+  /**
+   * <p>The private endpoint label for the Autonomous Database.</p>
+   * @public
+   */
+  privateEndpointLabel?: string | undefined;
+
+  /**
+   * <p>The list of IP addresses that are allowed to access the Autonomous Database.</p>
+   * @public
+   */
+  allowlistedIps?: string[] | undefined;
+
+  /**
+   * <p>The list of IP addresses that are allowed to access the standby Autonomous Database.</p>
+   * @public
+   */
+  standbyAllowlistedIps?: string[] | undefined;
+
+  /**
+   * <p>The source of the allowlisted IP addresses for the standby Autonomous Database.</p>
+   * @public
+   */
+  standbyAllowlistedIpsSource?: StandbyAllowlistedIpsSource | undefined;
+
+  /**
+   * <p>Indicates whether local Oracle Data Guard is enabled for the Autonomous Database.</p>
+   * @public
+   */
+  isLocalDataGuardEnabled?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether remote Oracle Data Guard is enabled for the Autonomous Database.</p>
+   * @public
+   */
+  isRemoteDataGuardEnabled?: boolean | undefined;
+
+  /**
+   * <p>The type of local disaster recovery configured for the Autonomous Database.</p>
+   * @public
+   */
+  localDisasterRecoveryType?: DisasterRecoveryType | undefined;
+
+  /**
+   * <p>The Oracle Data Guard role of the Autonomous Database.</p>
+   * @public
+   */
+  role?: DataGuardRole | undefined;
+
+  /**
+   * <p>The list of unique identifiers of the peer Autonomous Databases.</p>
+   * @public
+   */
+  peerDbIds?: string[] | undefined;
+
+  /**
+   * <p>The amount of time, in seconds, that the data in the Autonomous Database is behind the data in the primary database.</p>
+   * @public
+   */
+  failedDataRecoveryInSeconds?: number | undefined;
+
+  /**
+   * <p>The maximum data loss limit, in seconds, for automatic failover to the local Oracle Data Guard standby database.</p>
+   * @public
+   */
+  localAdgAutoFailoverMaxDataLossLimit?: number | undefined;
+
+  /**
+   * <p>The configuration of the remote disaster recovery for the Autonomous Database.</p>
+   * @public
+   */
+  remoteDisasterRecoveryConfiguration?: DisasterRecoveryConfiguration | undefined;
+
+  /**
+   * <p>Indicates whether the Autonomous Database is a refreshable clone.</p>
+   * @public
+   */
+  isRefreshableClone?: boolean | undefined;
+
+  /**
+   * <p>The refresh mode of the refreshable clone Autonomous Database.</p>
+   * @public
+   */
+  refreshableMode?: RefreshableMode | undefined;
+
+  /**
+   * <p>The refresh status of the refreshable clone Autonomous Database.</p>
+   * @public
+   */
+  refreshableStatus?: RefreshableStatus | undefined;
+
+  /**
+   * <p>The frequency, in seconds, at which the refreshable clone Autonomous Database is automatically refreshed.</p>
+   * @public
+   */
+  autoRefreshFrequencyInSeconds?: number | undefined;
+
+  /**
+   * <p>The time lag, in seconds, between the refreshable clone and its source Autonomous Database.</p>
+   * @public
+   */
+  autoRefreshPointLagInSeconds?: number | undefined;
+
+  /**
+   * <p>Indicates whether reconnecting the refreshable clone to its source Autonomous Database is enabled.</p>
+   * @public
+   */
+  isReconnectCloneEnabled?: boolean | undefined;
+
+  /**
+   * <p>The list of tablespace identifiers to clone for the Autonomous Database.</p>
+   * @public
+   */
+  cloneTableSpaceList?: number[] | undefined;
+
+  /**
+   * <p>The retention period, in days, for automatic backups of the Autonomous Database.</p>
+   * @public
+   */
+  backupRetentionPeriodInDays?: number | undefined;
+
+  /**
+   * <p>The long-term backup schedule for the Autonomous Database.</p>
+   * @public
+   */
+  longTermBackupSchedule?: LongTermBackupSchedule | undefined;
+
+  /**
+   * <p>Indicates whether the backup retention period of the Autonomous Database is locked.</p>
+   * @public
+   */
+  isBackupRetentionLocked?: boolean | undefined;
+
+  /**
+   * <p>The total amount of backup storage used by the Autonomous Database, in GB.</p>
+   * @public
+   */
+  totalBackupStorageSizeInGBs?: number | undefined;
+
+  /**
+   * <p>The configuration of the resource pool for the Autonomous Database.</p>
+   * @public
+   */
+  resourcePoolSummary?: ResourcePoolSummary | undefined;
+
+  /**
+   * <p>The encryption configuration for the Autonomous Database.</p>
+   * @public
+   */
+  encryptionSummary?: EncryptionSummary | undefined;
+
+  /**
+   * <p>The date and time when the Autonomous Database was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time of the last backup of the Autonomous Database.</p>
+   * @public
+   */
+  timeOfLastBackup?: Date | undefined;
+
+  /**
+   * <p>The date and time when the next maintenance of the Autonomous Database begins.</p>
+   * @public
+   */
+  timeMaintenanceBegin?: Date | undefined;
+
+  /**
+   * <p>The date and time when the next maintenance of the Autonomous Database ends.</p>
+   * @public
+   */
+  timeMaintenanceEnd?: Date | undefined;
+
+  /**
+   * <p>The date and time when local Oracle Data Guard was enabled for the Autonomous Database.</p>
+   * @public
+   */
+  timeLocalDataGuardEnabled?: Date | undefined;
+
+  /**
+   * <p>The date and time when the Oracle Data Guard role of the Autonomous Database last changed.</p>
+   * @public
+   */
+  timeDataGuardRoleChanged?: Date | undefined;
+
+  /**
+   * <p>The date and time of the last switchover operation for the Autonomous Database.</p>
+   * @public
+   */
+  timeOfLastSwitchover?: Date | undefined;
+
+  /**
+   * <p>The date and time of the last failover operation for the Autonomous Database.</p>
+   * @public
+   */
+  timeOfLastFailover?: Date | undefined;
+
+  /**
+   * <p>The date and time of the last refresh of the refreshable clone Autonomous Database.</p>
+   * @public
+   */
+  timeOfLastRefresh?: Date | undefined;
+
+  /**
+   * <p>The date and time as of which the data in the refreshable clone Autonomous Database is current.</p>
+   * @public
+   */
+  timeOfLastRefreshPoint?: Date | undefined;
+
+  /**
+   * <p>The date and time of the next scheduled refresh of the refreshable clone Autonomous Database.</p>
+   * @public
+   */
+  timeOfNextRefresh?: Date | undefined;
+
+  /**
+   * <p>The date and time at which the automatic refresh of the refreshable clone Autonomous Database starts.</p>
+   * @public
+   */
+  timeOfAutoRefreshStart?: Date | undefined;
+
+  /**
+   * <p>The date and time when the inactive Always Free Autonomous Database is scheduled to be automatically deleted.</p>
+   * @public
+   */
+  timeDeletionOfFreeAutonomousDatabase?: Date | undefined;
+
+  /**
+   * <p>The date and time when the Always Free Autonomous Database is scheduled to be stopped because of inactivity.</p>
+   * @public
+   */
+  timeReclamationOfFreeAutonomousDatabase?: Date | undefined;
+
+  /**
+   * <p>The date and time when the disaster recovery role of the Autonomous Database last changed.</p>
+   * @public
+   */
+  timeDisasterRecoveryRoleChanged?: Date | undefined;
+
+  /**
+   * <p>The date and time until which reconnecting the refreshable clone to its source Autonomous Database is allowed.</p>
+   * @public
+   */
+  timeUntilReconnectCloneEnabled?: Date | undefined;
+
+  /**
+   * <p>The date and time of the next scheduled long-term backup of the Autonomous Database.</p>
+   * @public
+   */
+  nextLongTermBackupTimeStamp?: Date | undefined;
+
+  /**
+   * <p>The date and time when the Autonomous Database was restored after deletion.</p>
+   * @public
+   */
+  timeUndeleted?: Date | undefined;
+}
+
+/**
+ * <p>Information about an Autonomous Database backup.</p>
+ * @public
+ */
+export interface AutonomousDatabaseBackup {
+  /**
+   * <p>The unique identifier of the Autonomous Database backup.</p>
+   * @public
+   */
+  autonomousDatabaseBackupId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Autonomous Database backup.</p>
+   * @public
+   */
+  autonomousDatabaseBackupArn?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Autonomous Database that the backup was created from.</p>
+   * @public
+   */
+  autonomousDatabaseId?: string | undefined;
+
+  /**
+   * <p>The Oracle Cloud Identifier (OCID) of the Autonomous Database backup.</p>
+   * @public
+   */
+  ocid?: string | undefined;
+
+  /**
+   * <p>The user-friendly name of the Autonomous Database backup.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The Oracle Database software version of the Autonomous Database backup.</p>
+   * @public
+   */
+  dbVersion?: string | undefined;
+
+  /**
+   * <p>The current status of the Autonomous Database backup.</p>
+   * @public
+   */
+  status?: AutonomousDatabaseBackupStatus | undefined;
+
+  /**
+   * <p>Additional information about the current status of the Autonomous Database backup, if applicable.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>Indicates whether the backup was created automatically.</p>
+   * @public
+   */
+  isAutomatic?: boolean | undefined;
+
+  /**
+   * <p>The retention period, in days, for the Autonomous Database backup.</p>
+   * @public
+   */
+  retentionPeriodInDays?: number | undefined;
+
+  /**
+   * <p>The size of the Autonomous Database backup, in terabytes (TB).</p>
+   * @public
+   */
+  sizeInTBs?: number | undefined;
+
+  /**
+   * <p>The date and time until which the Autonomous Database backup is available for restore.</p>
+   * @public
+   */
+  timeAvailableTill?: Date | undefined;
+
+  /**
+   * <p>The date and time when the Autonomous Database backup started.</p>
+   * @public
+   */
+  timeStarted?: Date | undefined;
+
+  /**
+   * <p>The date and time when the Autonomous Database backup ended.</p>
+   * @public
+   */
+  timeEnded?: Date | undefined;
+
+  /**
+   * <p>The type of the Autonomous Database backup.</p>
+   * @public
+   */
+  type?: AutonomousDatabaseBackupType | undefined;
+}
+
+/**
+ * <p>A summary of an Autonomous Database backup.</p>
+ * @public
+ */
+export interface AutonomousDatabaseBackupSummary {
+  /**
+   * <p>The unique identifier of the Autonomous Database backup.</p>
+   * @public
+   */
+  autonomousDatabaseBackupId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Autonomous Database backup.</p>
+   * @public
+   */
+  autonomousDatabaseBackupArn?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Autonomous Database that the backup was created from.</p>
+   * @public
+   */
+  autonomousDatabaseId?: string | undefined;
+
+  /**
+   * <p>The Oracle Cloud Identifier (OCID) of the Autonomous Database backup.</p>
+   * @public
+   */
+  ocid?: string | undefined;
+
+  /**
+   * <p>The user-friendly name of the Autonomous Database backup.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The Oracle Database software version of the Autonomous Database backup.</p>
+   * @public
+   */
+  dbVersion?: string | undefined;
+
+  /**
+   * <p>The current status of the Autonomous Database backup.</p>
+   * @public
+   */
+  status?: AutonomousDatabaseBackupStatus | undefined;
+
+  /**
+   * <p>Additional information about the current status of the Autonomous Database backup, if applicable.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>Indicates whether the backup was created automatically.</p>
+   * @public
+   */
+  isAutomatic?: boolean | undefined;
+
+  /**
+   * <p>The retention period, in days, for the Autonomous Database backup.</p>
+   * @public
+   */
+  retentionPeriodInDays?: number | undefined;
+
+  /**
+   * <p>The size of the Autonomous Database backup, in terabytes (TB).</p>
+   * @public
+   */
+  sizeInTBs?: number | undefined;
+
+  /**
+   * <p>The date and time until which the Autonomous Database backup is available for restore.</p>
+   * @public
+   */
+  timeAvailableTill?: Date | undefined;
+
+  /**
+   * <p>The date and time when the Autonomous Database backup started.</p>
+   * @public
+   */
+  timeStarted?: Date | undefined;
+
+  /**
+   * <p>The date and time when the Autonomous Database backup ended.</p>
+   * @public
+   */
+  timeEnded?: Date | undefined;
+
+  /**
+   * <p>The type of the Autonomous Database backup.</p>
+   * @public
+   */
+  type?: AutonomousDatabaseBackupType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAutonomousDatabaseBackupInput {
+  /**
+   * <p>The unique identifier of the Autonomous Database to back up.</p>
+   * @public
+   */
+  autonomousDatabaseId: string | undefined;
+
+  /**
+   * <p>The user-friendly name for the Autonomous Database backup.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The retention period, in days, for the Autonomous Database backup.</p>
+   * @public
+   */
+  retentionPeriodInDays?: number | undefined;
+
+  /**
+   * <p>A client-provided token to ensure the idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The list of resource tags to apply to the Autonomous Database backup. Each tag is a key-value pair with no predefined name, type, or namespace.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAutonomousDatabaseBackupOutput {
+  /**
+   * <p>The user-friendly name of the Autonomous Database backup that was created.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The current status of the Autonomous Database backup.</p>
+   * @public
+   */
+  status?: ResourceStatus | undefined;
+
+  /**
+   * <p>Additional information about the current status of the Autonomous Database backup, if applicable.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Autonomous Database backup that was created.</p>
+   * @public
+   */
+  autonomousDatabaseBackupId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAutonomousDatabaseBackupInput {
+  /**
+   * <p>The unique identifier of the Autonomous Database backup to delete.</p>
+   * @public
+   */
+  autonomousDatabaseBackupId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAutonomousDatabaseBackupOutput {}
+
+/**
+ * @public
+ */
+export interface GetAutonomousDatabaseBackupInput {
+  /**
+   * <p>The unique identifier of the Autonomous Database backup to retrieve information about.</p>
+   * @public
+   */
+  autonomousDatabaseBackupId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAutonomousDatabaseBackupOutput {
+  /**
+   * <p>The details of the requested Autonomous Database backup.</p>
+   * @public
+   */
+  autonomousDatabaseBackup?: AutonomousDatabaseBackup | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAutonomousDatabaseBackupsInput {
+  /**
+   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Autonomous Database whose backups you want to list.</p>
+   * @public
+   */
+  autonomousDatabaseId: string | undefined;
+
+  /**
+   * <p>The status of the Autonomous Database backups to return results for.</p>
+   * @public
+   */
+  status?: AutonomousDatabaseBackupStatus | undefined;
+
+  /**
+   * <p>The type of the Autonomous Database backups to return results for.</p>
+   * @public
+   */
+  type?: AutonomousDatabaseBackupType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAutonomousDatabaseBackupsOutput {
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The list of Autonomous Database backups along with their properties.</p>
+   * @public
+   */
+  autonomousDatabaseBackups: AutonomousDatabaseBackupSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAutonomousDatabaseBackupInput {
+  /**
+   * <p>The unique identifier of the Autonomous Database backup to update.</p>
+   * @public
+   */
+  autonomousDatabaseBackupId: string | undefined;
+
+  /**
+   * <p>The retention period, in days, for the Autonomous Database backup.</p>
+   * @public
+   */
+  retentionPeriodInDays?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAutonomousDatabaseBackupOutput {
+  /**
+   * <p>The user-friendly name of the Autonomous Database backup.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The current status of the Autonomous Database backup.</p>
+   * @public
+   */
+  status?: ResourceStatus | undefined;
+
+  /**
+   * <p>Additional information about the current status of the Autonomous Database backup, if applicable.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Autonomous Database backup that was updated.</p>
+   * @public
+   */
+  autonomousDatabaseBackupId: string | undefined;
+}
+
+/**
+ * <p>A summary of an available character set for Autonomous Databases.</p>
+ * @public
+ */
+export interface AutonomousDatabaseCharacterSetSummary {
+  /**
+   * <p>The name of the character set.</p>
+   * @public
+   */
+  characterSet?: string | undefined;
+}
+
+/**
+ * <p>A summary of an Autonomous Database.</p>
+ * @public
+ */
+export interface AutonomousDatabaseSummary {
+  /**
+   * <p>The unique identifier of the Autonomous Database.</p>
+   * @public
+   */
+  autonomousDatabaseId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Autonomous Database.</p>
+   * @public
+   */
+  autonomousDatabaseArn?: string | undefined;
+
+  /**
+   * <p>The name of the Oracle Cloud Infrastructure (OCI) resource anchor associated with the Autonomous Database.</p>
+   * @public
+   */
+  ociResourceAnchorName?: string | undefined;
+
+  /**
+   * <p>The progress of the current operation on the Autonomous Database, as a percentage.</p>
+   * @public
+   */
+  percentProgress?: number | undefined;
+
+  /**
+   * <p>The Oracle Cloud Identifier (OCID) of the Autonomous Database.</p>
+   * @public
+   */
+  ocid?: string | undefined;
+
+  /**
+   * <p>The URL for accessing the OCI console page for the Autonomous Database.</p>
+   * @public
+   */
+  ociUrl?: string | undefined;
+
+  /**
+   * <p>The user-friendly name of the Autonomous Database.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The name of the Autonomous Database.</p>
+   * @public
+   */
+  dbName?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the source from which the Autonomous Database was created.</p>
+   * @public
+   */
+  sourceId?: string | undefined;
+
+  /**
+   * <p>The current status of the Autonomous Database.</p>
+   * @public
+   */
+  status?: AutonomousDatabaseResourceStatus | undefined;
+
+  /**
+   * <p>Additional information about the current status of the Autonomous Database, if applicable.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The type of the Autonomous Database, either a regular database or a clone.</p>
+   * @public
+   */
+  databaseType?: DatabaseType | undefined;
+
+  /**
+   * <p>The Oracle Database software version of the Autonomous Database.</p>
+   * @public
+   */
+  dbVersion?: string | undefined;
+
+  /**
+   * <p>The intended use of the Autonomous Database, such as transaction processing, data warehouse, JSON database, or APEX.</p>
+   * @public
+   */
+  dbWorkload?: DbWorkload | undefined;
+
+  /**
+   * <p>The character set of the Autonomous Database.</p>
+   * @public
+   */
+  characterSet?: string | undefined;
+
+  /**
+   * <p>The national character set of the Autonomous Database.</p>
+   * @public
+   */
+  ncharacterSet?: string | undefined;
+
+  /**
+   * <p>The Oracle Database edition of the Autonomous Database.</p>
+   * @public
+   */
+  databaseEdition?: DatabaseEdition | undefined;
+
+  /**
+   * <p>The Oracle license model that applies to the Autonomous Database.</p>
+   * @public
+   */
+  licenseModel?: LicenseModel | undefined;
+
+  /**
+   * <p>The mode in which the Autonomous Database is open, either read-only or read/write.</p>
+   * @public
+   */
+  openMode?: OpenMode | undefined;
+
+  /**
+   * <p>The permission level of the Autonomous Database.</p>
+   * @public
+   */
+  permissionLevel?: PermissionLevel | undefined;
+
+  /**
+   * <p>Indicates whether mutual TLS (mTLS) authentication is required to connect to the Autonomous Database.</p>
+   * @public
+   */
+  isMtlsConnectionRequired?: boolean | undefined;
+
+  /**
+   * <p>The maintenance schedule type for the Autonomous Database.</p>
+   * @public
+   */
+  autonomousMaintenanceScheduleType?: AutonomousMaintenanceScheduleType | undefined;
+
+  /**
+   * <p>The Oracle Net Services architecture of the Autonomous Database, either dedicated or shared.</p>
+   * @public
+   */
+  netServicesArchitecture?: NetServicesArchitecture | undefined;
+
+  /**
+   * <p>The list of Oracle Database software versions to which the Autonomous Database can be upgraded.</p>
+   * @public
+   */
+  availableUpgradeVersions?: string[] | undefined;
+
+  /**
+   * <p>The maximum number of compute resources that you can allocate to the Autonomous Database under the bring-your-own-license (BYOL) model.</p>
+   * @public
+   */
+  byolComputeCountLimit?: number | undefined;
+
+  /**
+   * <p>The connection string details for the Autonomous Database.</p>
+   * @public
+   */
+  connectionStringDetails?: AutonomousDatabaseConnectionStrings | undefined;
+
+  /**
+   * <p>The URL for accessing the Oracle service console for the Autonomous Database.</p>
+   * @public
+   */
+  serviceConsoleUrl?: string | undefined;
+
+  /**
+   * <p>The URL for accessing Oracle SQL Developer Web for the Autonomous Database.</p>
+   * @public
+   */
+  sqlWebDeveloperUrl?: string | undefined;
+
+  /**
+   * <p>The list of customer contacts that receive operational notifications from Oracle for the Autonomous Database.</p>
+   * @public
+   */
+  customerContacts?: CustomerContact[] | undefined;
+
+  /**
+   * <p>The Oracle Application Express (APEX) details for the Autonomous Database.</p>
+   * @public
+   */
+  apexDetails?: AutonomousDatabaseApex | undefined;
+
+  /**
+   * <p>The details of the standby Autonomous Database in a cross-Region Oracle Data Guard configuration.</p>
+   * @public
+   */
+  standbyDb?: DatabaseStandbySummary | undefined;
+
+  /**
+   * <p>The details of the local standby Autonomous Database in an Oracle Data Guard configuration.</p>
+   * @public
+   */
+  localStandbyDb?: DatabaseStandbySummary | undefined;
+
+  /**
+   * <p>The status of the Oracle Data Safe registration for the Autonomous Database.</p>
+   * @public
+   */
+  dataSafeStatus?: DataSafeStatus | undefined;
+
+  /**
+   * <p>The status of Oracle Database Management for the Autonomous Database.</p>
+   * @public
+   */
+  databaseManagementStatus?: DatabaseManagementStatus | undefined;
+
+  /**
+   * <p>The status of Oracle Operations Insights for the Autonomous Database.</p>
+   * @public
+   */
+  operationsInsightsStatus?: OperationsInsightsStatus | undefined;
+
+  /**
+   * <p>The Availability Zone where the Autonomous Database is located.</p>
+   * @public
+   */
+  availabilityZone?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Availability Zone where the Autonomous Database is located.</p>
+   * @public
+   */
+  availabilityZoneId?: string | undefined;
+
+  /**
+   * <p>The component on the Autonomous Database that the current maintenance is being applied to.</p>
+   * @public
+   */
+  maintenanceTargetComponent?: string | undefined;
+
+  /**
+   * <p>The connection URLs for accessing tools and services for the Autonomous Database.</p>
+   * @public
+   */
+  connectionUrls?: AutonomousDatabaseConnectionUrls | undefined;
+
+  /**
+   * <p>The list of database management tools enabled for the Autonomous Database.</p>
+   * @public
+   */
+  dbToolsDetails?: DatabaseTool[] | undefined;
+
+  /**
+   * <p>The list of scheduled start and stop times for the Autonomous Database.</p>
+   * @public
+   */
+  scheduledOperations?: ScheduledOperationDetails[] | undefined;
+
+  /**
+   * <p>The unique identifier of the resource pool leader Autonomous Database.</p>
+   * @public
+   */
+  resourcePoolLeaderId?: string | undefined;
+
+  /**
+   * <p>The compute capacity, in number of Elastic CPUs (ECPUs) or Oracle CPUs (OCPUs), assigned to the Autonomous Database.</p>
+   * @public
+   */
+  computeCount?: number | undefined;
+
+  /**
+   * <p>The compute model of the Autonomous Database, either ECPU or OCPU.</p>
+   * @public
+   */
+  computeModel?: ComputeModel | undefined;
+
+  /**
+   * <p>The number of CPU cores allocated to the Autonomous Database.</p>
+   * @public
+   */
+  cpuCoreCount?: number | undefined;
+
+  /**
+   * <p>The amount of memory allocated per Oracle Compute Unit, in GB.</p>
+   * @public
+   */
+  memoryPerOracleComputeUnitInGBs?: number | undefined;
+
+  /**
+   * <p>The list of CPU core counts that you can provision for the Autonomous Database.</p>
+   * @public
+   */
+  provisionableCpus?: number[] | undefined;
+
+  /**
+   * <p>Indicates whether automatic scaling of the compute resources is enabled for the Autonomous Database.</p>
+   * @public
+   */
+  isAutoScalingEnabled?: boolean | undefined;
+
+  /**
+   * <p>The size, in terabytes (TB), of the data volume allocated for the Autonomous Database.</p>
+   * @public
+   */
+  dataStorageSizeInTBs?: number | undefined;
+
+  /**
+   * <p>The size, in gigabytes (GB), of the data volume allocated for the Autonomous Database.</p>
+   * @public
+   */
+  dataStorageSizeInGBs?: number | undefined;
+
+  /**
+   * <p>The amount of data storage currently in use by the Autonomous Database, in TB.</p>
+   * @public
+   */
+  usedDataStorageSizeInTBs?: number | undefined;
+
+  /**
+   * <p>The amount of data storage currently in use by the Autonomous Database, in GB.</p>
+   * @public
+   */
+  usedDataStorageSizeInGBs?: number | undefined;
+
+  /**
+   * <p>The actual amount of data storage currently in use by the Autonomous Database, in TB.</p>
+   * @public
+   */
+  actualUsedDataStorageSizeInTBs?: number | undefined;
+
+  /**
+   * <p>The amount of storage currently allocated to the Autonomous Database, in TB.</p>
+   * @public
+   */
+  allocatedStorageSizeInTBs?: number | undefined;
+
+  /**
+   * <p>The size of the in-memory area of the Autonomous Database, in GB.</p>
+   * @public
+   */
+  inMemoryAreaInGBs?: number | undefined;
+
+  /**
+   * <p>Indicates whether automatic scaling of the storage is enabled for the Autonomous Database.</p>
+   * @public
+   */
+  isAutoScalingForStorageEnabled?: boolean | undefined;
+
+  /**
+   * <p>The unique identifier of the ODB network associated with the Autonomous Database.</p>
+   * @public
+   */
+  odbNetworkId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the ODB network associated with the Autonomous Database.</p>
+   * @public
+   */
+  odbNetworkArn?: string | undefined;
+
+  /**
+   * <p>The private endpoint for the Autonomous Database.</p>
+   * @public
+   */
+  privateEndpoint?: string | undefined;
+
+  /**
+   * <p>The private endpoint IP address for the Autonomous Database.</p>
+   * @public
+   */
+  privateEndpointIp?: string | undefined;
+
+  /**
+   * <p>The private endpoint label for the Autonomous Database.</p>
+   * @public
+   */
+  privateEndpointLabel?: string | undefined;
+
+  /**
+   * <p>The list of IP addresses that are allowed to access the Autonomous Database.</p>
+   * @public
+   */
+  allowlistedIps?: string[] | undefined;
+
+  /**
+   * <p>The list of IP addresses that are allowed to access the standby Autonomous Database.</p>
+   * @public
+   */
+  standbyAllowlistedIps?: string[] | undefined;
+
+  /**
+   * <p>The source of the allowlisted IP addresses for the standby Autonomous Database.</p>
+   * @public
+   */
+  standbyAllowlistedIpsSource?: StandbyAllowlistedIpsSource | undefined;
+
+  /**
+   * <p>Indicates whether local Oracle Data Guard is enabled for the Autonomous Database.</p>
+   * @public
+   */
+  isLocalDataGuardEnabled?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether remote Oracle Data Guard is enabled for the Autonomous Database.</p>
+   * @public
+   */
+  isRemoteDataGuardEnabled?: boolean | undefined;
+
+  /**
+   * <p>The type of local disaster recovery configured for the Autonomous Database.</p>
+   * @public
+   */
+  localDisasterRecoveryType?: DisasterRecoveryType | undefined;
+
+  /**
+   * <p>The Oracle Data Guard role of the Autonomous Database.</p>
+   * @public
+   */
+  role?: DataGuardRole | undefined;
+
+  /**
+   * <p>The list of unique identifiers of the peer Autonomous Databases.</p>
+   * @public
+   */
+  peerDbIds?: string[] | undefined;
+
+  /**
+   * <p>The amount of time, in seconds, that the data in the Autonomous Database is behind the data in the primary database.</p>
+   * @public
+   */
+  failedDataRecoveryInSeconds?: number | undefined;
+
+  /**
+   * <p>The maximum data loss limit, in seconds, for automatic failover to the local Oracle Data Guard standby database.</p>
+   * @public
+   */
+  localAdgAutoFailoverMaxDataLossLimit?: number | undefined;
+
+  /**
+   * <p>The configuration of the remote disaster recovery for the Autonomous Database.</p>
+   * @public
+   */
+  remoteDisasterRecoveryConfiguration?: DisasterRecoveryConfiguration | undefined;
+
+  /**
+   * <p>Indicates whether the Autonomous Database is a refreshable clone.</p>
+   * @public
+   */
+  isRefreshableClone?: boolean | undefined;
+
+  /**
+   * <p>The refresh mode of the refreshable clone Autonomous Database.</p>
+   * @public
+   */
+  refreshableMode?: RefreshableMode | undefined;
+
+  /**
+   * <p>The refresh status of the refreshable clone Autonomous Database.</p>
+   * @public
+   */
+  refreshableStatus?: RefreshableStatus | undefined;
+
+  /**
+   * <p>The frequency, in seconds, at which the refreshable clone Autonomous Database is automatically refreshed.</p>
+   * @public
+   */
+  autoRefreshFrequencyInSeconds?: number | undefined;
+
+  /**
+   * <p>The time lag, in seconds, between the refreshable clone and its source Autonomous Database.</p>
+   * @public
+   */
+  autoRefreshPointLagInSeconds?: number | undefined;
+
+  /**
+   * <p>Indicates whether reconnecting the refreshable clone to its source Autonomous Database is enabled.</p>
+   * @public
+   */
+  isReconnectCloneEnabled?: boolean | undefined;
+
+  /**
+   * <p>The list of tablespace identifiers to clone for the Autonomous Database.</p>
+   * @public
+   */
+  cloneTableSpaceList?: number[] | undefined;
+
+  /**
+   * <p>The retention period, in days, for automatic backups of the Autonomous Database.</p>
+   * @public
+   */
+  backupRetentionPeriodInDays?: number | undefined;
+
+  /**
+   * <p>The long-term backup schedule for the Autonomous Database.</p>
+   * @public
+   */
+  longTermBackupSchedule?: LongTermBackupSchedule | undefined;
+
+  /**
+   * <p>Indicates whether the backup retention period of the Autonomous Database is locked.</p>
+   * @public
+   */
+  isBackupRetentionLocked?: boolean | undefined;
+
+  /**
+   * <p>The total amount of backup storage used by the Autonomous Database, in GB.</p>
+   * @public
+   */
+  totalBackupStorageSizeInGBs?: number | undefined;
+
+  /**
+   * <p>The configuration of the resource pool for the Autonomous Database.</p>
+   * @public
+   */
+  resourcePoolSummary?: ResourcePoolSummary | undefined;
+
+  /**
+   * <p>The encryption configuration for the Autonomous Database.</p>
+   * @public
+   */
+  encryptionSummary?: EncryptionSummary | undefined;
+
+  /**
+   * <p>The date and time when the Autonomous Database was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time of the last backup of the Autonomous Database.</p>
+   * @public
+   */
+  timeOfLastBackup?: Date | undefined;
+
+  /**
+   * <p>The date and time when the next maintenance of the Autonomous Database begins.</p>
+   * @public
+   */
+  timeMaintenanceBegin?: Date | undefined;
+
+  /**
+   * <p>The date and time when the next maintenance of the Autonomous Database ends.</p>
+   * @public
+   */
+  timeMaintenanceEnd?: Date | undefined;
+
+  /**
+   * <p>The date and time when local Oracle Data Guard was enabled for the Autonomous Database.</p>
+   * @public
+   */
+  timeLocalDataGuardEnabled?: Date | undefined;
+
+  /**
+   * <p>The date and time when the Oracle Data Guard role of the Autonomous Database last changed.</p>
+   * @public
+   */
+  timeDataGuardRoleChanged?: Date | undefined;
+
+  /**
+   * <p>The date and time of the last switchover operation for the Autonomous Database.</p>
+   * @public
+   */
+  timeOfLastSwitchover?: Date | undefined;
+
+  /**
+   * <p>The date and time of the last failover operation for the Autonomous Database.</p>
+   * @public
+   */
+  timeOfLastFailover?: Date | undefined;
+
+  /**
+   * <p>The date and time of the last refresh of the refreshable clone Autonomous Database.</p>
+   * @public
+   */
+  timeOfLastRefresh?: Date | undefined;
+
+  /**
+   * <p>The date and time as of which the data in the refreshable clone Autonomous Database is current.</p>
+   * @public
+   */
+  timeOfLastRefreshPoint?: Date | undefined;
+
+  /**
+   * <p>The date and time of the next scheduled refresh of the refreshable clone Autonomous Database.</p>
+   * @public
+   */
+  timeOfNextRefresh?: Date | undefined;
+
+  /**
+   * <p>The date and time at which the automatic refresh of the refreshable clone Autonomous Database starts.</p>
+   * @public
+   */
+  timeOfAutoRefreshStart?: Date | undefined;
+
+  /**
+   * <p>The date and time when the inactive Always Free Autonomous Database is scheduled to be automatically deleted.</p>
+   * @public
+   */
+  timeDeletionOfFreeAutonomousDatabase?: Date | undefined;
+
+  /**
+   * <p>The date and time when the Always Free Autonomous Database is scheduled to be stopped because of inactivity.</p>
+   * @public
+   */
+  timeReclamationOfFreeAutonomousDatabase?: Date | undefined;
+
+  /**
+   * <p>The date and time when the disaster recovery role of the Autonomous Database last changed.</p>
+   * @public
+   */
+  timeDisasterRecoveryRoleChanged?: Date | undefined;
+
+  /**
+   * <p>The date and time until which reconnecting the refreshable clone to its source Autonomous Database is allowed.</p>
+   * @public
+   */
+  timeUntilReconnectCloneEnabled?: Date | undefined;
+
+  /**
+   * <p>The date and time of the next scheduled long-term backup of the Autonomous Database.</p>
+   * @public
+   */
+  nextLongTermBackupTimeStamp?: Date | undefined;
+
+  /**
+   * <p>The date and time when the Autonomous Database was restored after deletion.</p>
+   * @public
+   */
+  timeUndeleted?: Date | undefined;
+}
+
+/**
+ * <p>A summary of a peer database of an Autonomous Database.</p>
+ * @public
+ */
+export interface AutonomousDatabasePeerSummary {
+  /**
+   * <p>The unique identifier of the peer Autonomous Database.</p>
+   * @public
+   */
+  autonomousDatabaseId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the peer Autonomous Database.</p>
+   * @public
+   */
+  autonomousDatabaseArn?: string | undefined;
+
+  /**
+   * <p>The Oracle Cloud Identifier (OCID) of the peer Autonomous Database.</p>
+   * @public
+   */
+  ocid?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where the peer Autonomous Database is located.</p>
+   * @public
+   */
+  region?: string | undefined;
+}
+
+/**
+ * <p>The configuration of the Amazon Web Services Key Management Service (KMS) encryption key to use for an Autonomous Database.</p>
+ * @public
+ */
+export interface AwsEncryptionKeyConfigurationInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management (IAM) role that grants access to the KMS key.</p>
+   * @public
+   */
+  iamRoleArn?: string | undefined;
+
+  /**
+   * <p>The type of external identifier associated with the encryption key.</p>
+   * @public
+   */
+  externalIdType?: ExternalIdType | undefined;
+
+  /**
+   * <p>The identifier or ARN of the Amazon Web Services KMS key to use for encryption.</p>
+   * @public
+   */
+  kmsKeyId?: string | undefined;
+}
+
+/**
+ * <p>The configuration of the encryption key to use for an Autonomous Database. This is a union, so only one of the following members can be specified.</p>
+ * @public
+ */
+export type EncryptionKeyConfigurationInput =
+  | EncryptionKeyConfigurationInput.AwsEncryptionKeyMember
+  | EncryptionKeyConfigurationInput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace EncryptionKeyConfigurationInput {
+  /**
+   * <p>The configuration of the Amazon Web Services Key Management Service (KMS) encryption key to use.</p>
+   * @public
+   */
+  export interface AwsEncryptionKeyMember {
+    awsEncryptionKey: AwsEncryptionKeyConfigurationInput;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    awsEncryptionKey?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    awsEncryptionKey: (value: AwsEncryptionKeyConfigurationInput) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The configuration for creating an Autonomous Database as a refreshable clone.</p>
+ * @public
+ */
+export interface CloneToRefreshableConfiguration {
+  /**
+   * <p>The unique identifier of the source Autonomous Database to create the refreshable clone from.</p>
+   * @public
+   */
+  sourceAutonomousDatabaseId: string | undefined;
+
+  /**
+   * <p>The refresh mode of the refreshable clone, either automatic or manual.</p>
+   * @public
+   */
+  refreshableMode?: RefreshableMode | undefined;
+
+  /**
+   * <p>The frequency, in seconds, at which the refreshable clone is automatically refreshed.</p>
+   * @public
+   */
+  autoRefreshFrequencyInSeconds?: number | undefined;
+
+  /**
+   * <p>The time lag, in seconds, between the refreshable clone and its source database.</p>
+   * @public
+   */
+  autoRefreshPointLagInSeconds?: number | undefined;
+
+  /**
+   * <p>The date and time at which the automatic refresh of the refreshable clone starts.</p>
+   * @public
+   */
+  timeOfAutoRefreshStart?: Date | undefined;
+
+  /**
+   * <p>The mode in which to open the refreshable clone, either read-only or read/write.</p>
+   * @public
+   */
+  openMode?: OpenMode | undefined;
+
+  /**
+   * <p>The type of clone to create.</p>
+   * @public
+   */
+  cloneType?: CloneType | undefined;
+}
+
+/**
+ * <p>The configuration for creating an Autonomous Database as a cross-Region Oracle Data Guard peer.</p>
+ * @public
+ */
+export interface CrossRegionDataGuardConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source Autonomous Database for the cross-Region Oracle Data Guard configuration.</p>
+   * @public
+   */
+  sourceAutonomousDatabaseArn: string | undefined;
+}
+
+/**
+ * <p>The configuration for creating an Autonomous Database as a cross-Region disaster recovery peer.</p>
+ * @public
+ */
+export interface CrossRegionDisasterRecoveryConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source Autonomous Database for the cross-Region disaster recovery configuration.</p>
+   * @public
+   */
+  sourceAutonomousDatabaseArn: string | undefined;
+
+  /**
+   * <p>The type of remote disaster recovery to configure, either Autonomous Data Guard or backup-based.</p>
+   * @public
+   */
+  remoteDisasterRecoveryType: DisasterRecoveryType | undefined;
+
+  /**
+   * <p>Indicates whether automatic backups are replicated to the disaster recovery database.</p>
+   * @public
+   */
+  isReplicateAutomaticBackups?: boolean | undefined;
+}
+
+/**
+ * <p>The configuration for creating an Autonomous Database as a clone of an existing database.</p>
+ * @public
+ */
+export interface DatabaseCloneConfiguration {
+  /**
+   * <p>The unique identifier of the source Autonomous Database to clone.</p>
+   * @public
+   */
+  sourceAutonomousDatabaseId: string | undefined;
+
+  /**
+   * <p>The type of clone to create, either a full clone, a metadata clone, or a partial clone.</p>
+   * @public
+   */
+  cloneType: CloneType | undefined;
+}
+
+/**
+ * <p>The configuration for creating an Autonomous Database by restoring to a point in time.</p>
+ * @public
+ */
+export interface PointInTimeRestoreConfiguration {
+  /**
+   * <p>The unique identifier of the source Autonomous Database to restore from.</p>
+   * @public
+   */
+  sourceAutonomousDatabaseId: string | undefined;
+
+  /**
+   * <p>The type of clone to create from the point-in-time restore.</p>
+   * @public
+   */
+  cloneType: CloneType | undefined;
+
+  /**
+   * <p>The date and time to which to restore the Autonomous Database.</p>
+   * @public
+   */
+  timestamp?: Date | undefined;
+
+  /**
+   * <p>Indicates whether to use the latest available backup timestamp for the restore.</p>
+   * @public
+   */
+  useLatestAvailableBackupTimestamp?: boolean | undefined;
+
+  /**
+   * <p>The list of tablespace identifiers to clone from the point-in-time restore.</p>
+   * @public
+   */
+  cloneTableSpaceList?: number[] | undefined;
+}
+
+/**
+ * <p>The configuration for creating an Autonomous Database by restoring from a backup.</p>
+ * @public
+ */
+export interface RestoreFromBackupConfiguration {
+  /**
+   * <p>The unique identifier of the Autonomous Database backup to restore from.</p>
+   * @public
+   */
+  autonomousDatabaseBackupId: string | undefined;
+
+  /**
+   * <p>The type of clone to create from the backup.</p>
+   * @public
+   */
+  cloneType: CloneType | undefined;
+
+  /**
+   * <p>The list of tablespace identifiers to clone from the backup.</p>
+   * @public
+   */
+  cloneTableSpaceList?: number[] | undefined;
+}
+
+/**
+ * <p>The configuration details for the source used to create an Autonomous Database. This is a union, so only one of the following members can be specified.</p>
+ * @public
+ */
+export type SourceConfiguration =
+  | SourceConfiguration.CloneToRefreshableMember
+  | SourceConfiguration.CrossRegionDataGuardMember
+  | SourceConfiguration.CrossRegionDisasterRecoveryMember
+  | SourceConfiguration.DatabaseCloneMember
+  | SourceConfiguration.PointInTimeRestoreMember
+  | SourceConfiguration.RestoreFromBackupMember
+  | SourceConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace SourceConfiguration {
+  /**
+   * <p>The configuration for creating the Autonomous Database as a clone of an existing database.</p>
+   * @public
+   */
+  export interface DatabaseCloneMember {
+    databaseClone: DatabaseCloneConfiguration;
+    restoreFromBackup?: never;
+    pointInTimeRestore?: never;
+    crossRegionDataGuard?: never;
+    crossRegionDisasterRecovery?: never;
+    cloneToRefreshable?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration for creating the Autonomous Database by restoring from a backup.</p>
+   * @public
+   */
+  export interface RestoreFromBackupMember {
+    databaseClone?: never;
+    restoreFromBackup: RestoreFromBackupConfiguration;
+    pointInTimeRestore?: never;
+    crossRegionDataGuard?: never;
+    crossRegionDisasterRecovery?: never;
+    cloneToRefreshable?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration for creating the Autonomous Database by restoring to a point in time.</p>
+   * @public
+   */
+  export interface PointInTimeRestoreMember {
+    databaseClone?: never;
+    restoreFromBackup?: never;
+    pointInTimeRestore: PointInTimeRestoreConfiguration;
+    crossRegionDataGuard?: never;
+    crossRegionDisasterRecovery?: never;
+    cloneToRefreshable?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration for creating the Autonomous Database as a cross-Region Oracle Data Guard peer.</p>
+   * @public
+   */
+  export interface CrossRegionDataGuardMember {
+    databaseClone?: never;
+    restoreFromBackup?: never;
+    pointInTimeRestore?: never;
+    crossRegionDataGuard: CrossRegionDataGuardConfiguration;
+    crossRegionDisasterRecovery?: never;
+    cloneToRefreshable?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration for creating the Autonomous Database as a cross-Region disaster recovery peer.</p>
+   * @public
+   */
+  export interface CrossRegionDisasterRecoveryMember {
+    databaseClone?: never;
+    restoreFromBackup?: never;
+    pointInTimeRestore?: never;
+    crossRegionDataGuard?: never;
+    crossRegionDisasterRecovery: CrossRegionDisasterRecoveryConfiguration;
+    cloneToRefreshable?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration for creating the Autonomous Database as a refreshable clone.</p>
+   * @public
+   */
+  export interface CloneToRefreshableMember {
+    databaseClone?: never;
+    restoreFromBackup?: never;
+    pointInTimeRestore?: never;
+    crossRegionDataGuard?: never;
+    crossRegionDisasterRecovery?: never;
+    cloneToRefreshable: CloneToRefreshableConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    databaseClone?: never;
+    restoreFromBackup?: never;
+    pointInTimeRestore?: never;
+    crossRegionDataGuard?: never;
+    crossRegionDisasterRecovery?: never;
+    cloneToRefreshable?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    databaseClone: (value: DatabaseCloneConfiguration) => T;
+    restoreFromBackup: (value: RestoreFromBackupConfiguration) => T;
+    pointInTimeRestore: (value: PointInTimeRestoreConfiguration) => T;
+    crossRegionDataGuard: (value: CrossRegionDataGuardConfiguration) => T;
+    crossRegionDisasterRecovery: (value: CrossRegionDisasterRecoveryConfiguration) => T;
+    cloneToRefreshable: (value: CloneToRefreshableConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The transportable tablespace configuration used when creating an Autonomous Database.</p>
+ * @public
+ */
+export interface TransportableTablespace {
+  /**
+   * <p>The URL of the transportable tablespace bundle to use when creating the Autonomous Database.</p>
+   * @public
+   */
+  ttsBundleUrl?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAutonomousDatabaseInput {
+  /**
+   * <p>The unique identifier of the ODB network to be used for the Autonomous Database.</p>
+   * @public
+   */
+  odbNetworkId?: string | undefined;
+
+  /**
+   * <p>The user-friendly name for the Autonomous Database. The name does not have to be unique.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The name of the Autonomous Database. The name must begin with an alphabetic character and can contain a maximum of 30 alphanumeric characters. Special characters are not permitted. The name must be unique in the Amazon Web Services account.</p>
+   * @public
+   */
+  dbName?: string | undefined;
+
+  /**
+   * <p>The password for the <code>ADMIN</code> user of the Autonomous Database.</p>
+   * @public
+   */
+  adminPassword?: string | undefined;
+
+  /**
+   * <p>The compute capacity, in number of Elastic CPUs (ECPUs) or Oracle CPUs (OCPUs), to assign to the Autonomous Database.</p>
+   * @public
+   */
+  computeCount?: number | undefined;
+
+  /**
+   * <p>The size, in terabytes (TB), of the data volume to allocate for the Autonomous Database.</p>
+   * @public
+   */
+  dataStorageSizeInTBs?: number | undefined;
+
+  /**
+   * <p>The size, in gigabytes (GB), of the data volume to allocate for the Autonomous Database.</p>
+   * @public
+   */
+  dataStorageSizeInGBs?: number | undefined;
+
+  /**
+   * <p>The intended use of the Autonomous Database, such as transaction processing, data warehouse, JSON database, or APEX.</p>
+   * @public
+   */
+  dbWorkload?: DbWorkload | undefined;
+
+  /**
+   * <p>Specifies whether to enable automatic scaling of the compute resources for the Autonomous Database.</p>
+   * @public
+   */
+  isAutoScalingEnabled?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether to enable automatic scaling of the storage for the Autonomous Database.</p>
+   * @public
+   */
+  isAutoScalingForStorageEnabled?: boolean | undefined;
+
+  /**
+   * <p>The Oracle license model to apply to the Autonomous Database.</p>
+   * @public
+   */
+  licenseModel?: LicenseModel | undefined;
+
+  /**
+   * <p>The character set to use for the Autonomous Database.</p>
+   * @public
+   */
+  characterSet?: string | undefined;
+
+  /**
+   * <p>The national character set to use for the Autonomous Database.</p>
+   * @public
+   */
+  ncharacterSet?: string | undefined;
+
+  /**
+   * <p>The Oracle Database software version to use for the Autonomous Database.</p>
+   * @public
+   */
+  dbVersion?: string | undefined;
+
+  /**
+   * <p>The Oracle Database edition to apply to the Autonomous Database.</p>
+   * @public
+   */
+  databaseEdition?: DatabaseEdition | undefined;
+
+  /**
+   * <p>The source of the allowlisted IP addresses for the standby Autonomous Database.</p>
+   * @public
+   */
+  standbyAllowlistedIpsSource?: StandbyAllowlistedIpsSource | undefined;
+
+  /**
+   * <p>The maintenance schedule type for the Autonomous Database.</p>
+   * @public
+   */
+  autonomousMaintenanceScheduleType?: AutonomousMaintenanceScheduleType | undefined;
+
+  /**
+   * <p>The retention period, in days, for automatic backups of the Autonomous Database.</p>
+   * @public
+   */
+  backupRetentionPeriodInDays?: number | undefined;
+
+  /**
+   * <p>The maximum number of compute resources that you can allocate to the Autonomous Database under the bring-your-own-license (BYOL) model.</p>
+   * @public
+   */
+  byolComputeCountLimit?: number | undefined;
+
+  /**
+   * <p>The number of CPU cores to allocate to the Autonomous Database.</p>
+   * @public
+   */
+  cpuCoreCount?: number | undefined;
+
+  /**
+   * <p>The list of customer contacts to receive operational notifications from Oracle Cloud Infrastructure (OCI) for the Autonomous Database.</p>
+   * @public
+   */
+  customerContactsToSendToOCI?: CustomerContact[] | undefined;
+
+  /**
+   * <p>The private endpoint IP address for the Autonomous Database.</p>
+   * @public
+   */
+  privateEndpointIp?: string | undefined;
+
+  /**
+   * <p>The private endpoint label for the Autonomous Database.</p>
+   * @public
+   */
+  privateEndpointLabel?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the resource pool leader Autonomous Database.</p>
+   * @public
+   */
+  resourcePoolLeaderId?: string | undefined;
+
+  /**
+   * <p>The configuration of the resource pool for the Autonomous Database.</p>
+   * @public
+   */
+  resourcePoolSummary?: ResourcePoolSummary | undefined;
+
+  /**
+   * <p>The list of scheduled start and stop times for the Autonomous Database.</p>
+   * @public
+   */
+  scheduledOperations?: ScheduledOperationDetails[] | undefined;
+
+  /**
+   * <p>The list of IP addresses that are allowed to access the standby Autonomous Database.</p>
+   * @public
+   */
+  standbyAllowlistedIps?: string[] | undefined;
+
+  /**
+   * <p>The list of IP addresses that are allowed to access the Autonomous Database.</p>
+   * @public
+   */
+  allowlistedIps?: string[] | undefined;
+
+  /**
+   * <p>The transportable tablespace configuration to use when creating the Autonomous Database.</p>
+   * @public
+   */
+  transportableTablespace?: TransportableTablespace | undefined;
+
+  /**
+   * <p>Specifies whether to lock the backup retention period of the Autonomous Database to prevent it from being shortened.</p>
+   * @public
+   */
+  isBackupRetentionLocked?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether to enable local Oracle Data Guard for the Autonomous Database.</p>
+   * @public
+   */
+  isLocalDataGuardEnabled?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether mutual TLS (mTLS) authentication is required to connect to the Autonomous Database.</p>
+   * @public
+   */
+  isMtlsConnectionRequired?: boolean | undefined;
+
+  /**
+   * <p>The list of database management tools to enable for the Autonomous Database.</p>
+   * @public
+   */
+  dbToolsDetails?: DatabaseTool[] | undefined;
+
+  /**
+   * <p>The source from which to create the Autonomous Database, such as a clone, backup, or cross-Region copy.</p>
+   * @public
+   */
+  source?: SourceType | undefined;
+
+  /**
+   * <p>The configuration details for the source used to create the Autonomous Database.</p>
+   * @public
+   */
+  sourceConfiguration?: SourceConfiguration | undefined;
+
+  /**
+   * <p>The provider of the encryption key to use for the Autonomous Database.</p>
+   * @public
+   */
+  encryptionKeyProvider?: EncryptionKeyProviderInput | undefined;
+
+  /**
+   * <p>The configuration of the encryption key to use for the Autonomous Database.</p>
+   * @public
+   */
+  encryptionKeyConfiguration?: EncryptionKeyConfigurationInput | undefined;
+
+  /**
+   * <p>A client-provided token to ensure the idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The list of resource tags to apply to the Autonomous Database. Each tag is a key-value pair with no predefined name, type, or namespace.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAutonomousDatabaseOutput {
+  /**
+   * <p>The unique identifier of the Autonomous Database that was created.</p>
+   * @public
+   */
+  autonomousDatabaseId: string | undefined;
+
+  /**
+   * <p>The user-friendly name of the Autonomous Database that was created.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The current status of the Autonomous Database.</p>
+   * @public
+   */
+  status?: AutonomousDatabaseResourceStatus | undefined;
+
+  /**
+   * <p>Additional information about the current status of the Autonomous Database, if applicable.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAutonomousDatabaseWalletInput {
+  /**
+   * <p>The unique identifier of the Autonomous Database to create a wallet for.</p>
+   * @public
+   */
+  autonomousDatabaseId: string | undefined;
+
+  /**
+   * <p>The type of wallet to create, either a regional wallet or an instance wallet.</p>
+   * @public
+   */
+  walletType?: WalletType | undefined;
+
+  /**
+   * <p>The password to encrypt the keys inside the wallet.</p>
+   * @public
+   */
+  password: string | undefined;
+
+  /**
+   * <p>A client-provided token to ensure the idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAutonomousDatabaseWalletOutput {
+  /**
+   * <p>The generated wallet file for the Autonomous Database, returned as a compressed archive.</p>
+   * @public
+   */
+  autonomousDatabaseWalletFile: Uint8Array | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAutonomousDatabaseInput {
+  /**
+   * <p>The unique identifier of the Autonomous Database to delete.</p>
+   * @public
+   */
+  autonomousDatabaseId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAutonomousDatabaseOutput {}
+
+/**
+ * @public
+ */
+export interface FailoverAutonomousDatabaseInput {
+  /**
+   * <p>The unique identifier of the Autonomous Database to fail over.</p>
+   * @public
+   */
+  autonomousDatabaseId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the peer Autonomous Database to fail over to.</p>
+   * @public
+   */
+  peerDbArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface FailoverAutonomousDatabaseOutput {
+  /**
+   * <p>The unique identifier of the Autonomous Database that was failed over.</p>
+   * @public
+   */
+  autonomousDatabaseId: string | undefined;
+
+  /**
+   * <p>The user-friendly name of the Autonomous Database.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The current status of the Autonomous Database after the failover operation.</p>
+   * @public
+   */
+  status?: AutonomousDatabaseResourceStatus | undefined;
+
+  /**
+   * <p>Additional information about the status of the Autonomous Database after the failover operation.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAutonomousDatabaseInput {
+  /**
+   * <p>The unique identifier of the Autonomous Database to retrieve information about.</p>
+   * @public
+   */
+  autonomousDatabaseId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAutonomousDatabaseOutput {
+  /**
+   * <p>The details of the requested Autonomous Database.</p>
+   * @public
+   */
+  autonomousDatabase: AutonomousDatabase | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAutonomousDatabaseWalletDetailsInput {
+  /**
+   * <p>The unique identifier of the Autonomous Database to retrieve wallet details for.</p>
+   * @public
+   */
+  autonomousDatabaseId: string | undefined;
+}
+
+/**
+ * <p>The wallet details for an Autonomous Database.</p>
+ * @public
+ */
+export interface AutonomousDatabaseWalletDetails {
+  /**
+   * <p>The current status of the Autonomous Database wallet.</p>
+   * @public
+   */
+  status?: AutonomousDatabaseWalletStatus | undefined;
+
+  /**
+   * <p>The date and time when the Autonomous Database wallet was last rotated.</p>
+   * @public
+   */
+  timeRotated?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAutonomousDatabaseWalletDetailsOutput {
+  /**
+   * <p>The wallet details for the Autonomous Database.</p>
+   * @public
+   */
+  autonomousDatabaseWalletDetails: AutonomousDatabaseWalletDetails | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAutonomousDatabaseClonesInput {
+  /**
+   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the source Autonomous Database whose clones you want to list.</p>
+   * @public
+   */
+  autonomousDatabaseId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAutonomousDatabaseClonesOutput {
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The list of Autonomous Database clones along with their properties.</p>
+   * @public
+   */
+  autonomousDatabaseClones: AutonomousDatabaseSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAutonomousDatabasePeersInput {
+  /**
+   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Autonomous Database whose peer databases you want to list.</p>
+   * @public
+   */
+  autonomousDatabaseId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAutonomousDatabasePeersOutput {
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The list of peer databases for the Autonomous Database.</p>
+   * @public
+   */
+  autonomousDatabasePeers: AutonomousDatabasePeerSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAutonomousDatabasesInput {
+  /**
+   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAutonomousDatabasesOutput {
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The list of Autonomous Databases along with their properties.</p>
+   * @public
+   */
+  autonomousDatabases: AutonomousDatabaseSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RebootAutonomousDatabaseInput {
+  /**
+   * <p>The unique identifier of the Autonomous Database to reboot.</p>
+   * @public
+   */
+  autonomousDatabaseId: string | undefined;
+
+  /**
+   * <p>Specifies whether to perform an online reboot of the Autonomous Database without interrupting active connections.</p>
+   * @public
+   */
+  isOnlineReboot?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RebootAutonomousDatabaseOutput {
+  /**
+   * <p>The unique identifier of the Autonomous Database that was rebooted.</p>
+   * @public
+   */
+  autonomousDatabaseId: string | undefined;
+
+  /**
+   * <p>The user-friendly name of the Autonomous Database.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The current status of the Autonomous Database after the reboot operation.</p>
+   * @public
+   */
+  status?: AutonomousDatabaseResourceStatus | undefined;
+
+  /**
+   * <p>Additional information about the status of the Autonomous Database after the reboot operation.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RestoreAutonomousDatabaseInput {
+  /**
+   * <p>The unique identifier of the Autonomous Database to restore.</p>
+   * @public
+   */
+  autonomousDatabaseId: string | undefined;
+
+  /**
+   * <p>The date and time to which to restore the Autonomous Database.</p>
+   * @public
+   */
+  timestamp: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RestoreAutonomousDatabaseOutput {
+  /**
+   * <p>The unique identifier of the Autonomous Database that was restored.</p>
+   * @public
+   */
+  autonomousDatabaseId: string | undefined;
+
+  /**
+   * <p>The user-friendly name of the Autonomous Database.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The current status of the Autonomous Database after the restore operation.</p>
+   * @public
+   */
+  status?: AutonomousDatabaseResourceStatus | undefined;
+
+  /**
+   * <p>Additional information about the status of the Autonomous Database after the restore operation.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ShrinkAutonomousDatabaseInput {
+  /**
+   * <p>The unique identifier of the Autonomous Database to shrink.</p>
+   * @public
+   */
+  autonomousDatabaseId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ShrinkAutonomousDatabaseOutput {
+  /**
+   * <p>The unique identifier of the Autonomous Database that was shrunk.</p>
+   * @public
+   */
+  autonomousDatabaseId: string | undefined;
+
+  /**
+   * <p>The user-friendly name of the Autonomous Database.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The current status of the Autonomous Database after the shrink operation.</p>
+   * @public
+   */
+  status?: AutonomousDatabaseResourceStatus | undefined;
+
+  /**
+   * <p>Additional information about the status of the Autonomous Database after the shrink operation.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartAutonomousDatabaseInput {
+  /**
+   * <p>The unique identifier of the Autonomous Database to start.</p>
+   * @public
+   */
+  autonomousDatabaseId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartAutonomousDatabaseOutput {
+  /**
+   * <p>The unique identifier of the Autonomous Database that was started.</p>
+   * @public
+   */
+  autonomousDatabaseId: string | undefined;
+
+  /**
+   * <p>The user-friendly name of the Autonomous Database.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The current status of the Autonomous Database after the start operation.</p>
+   * @public
+   */
+  status?: AutonomousDatabaseResourceStatus | undefined;
+
+  /**
+   * <p>Additional information about the status of the Autonomous Database after the start operation.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopAutonomousDatabaseInput {
+  /**
+   * <p>The unique identifier of the Autonomous Database to stop.</p>
+   * @public
+   */
+  autonomousDatabaseId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopAutonomousDatabaseOutput {
+  /**
+   * <p>The unique identifier of the Autonomous Database that was stopped.</p>
+   * @public
+   */
+  autonomousDatabaseId: string | undefined;
+
+  /**
+   * <p>The user-friendly name of the Autonomous Database.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The current status of the Autonomous Database after the stop operation.</p>
+   * @public
+   */
+  status?: AutonomousDatabaseResourceStatus | undefined;
+
+  /**
+   * <p>Additional information about the status of the Autonomous Database after the stop operation.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SwitchoverAutonomousDatabaseInput {
+  /**
+   * <p>The unique identifier of the Autonomous Database to switch over.</p>
+   * @public
+   */
+  autonomousDatabaseId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the peer Autonomous Database to switch over to.</p>
+   * @public
+   */
+  peerDbArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SwitchoverAutonomousDatabaseOutput {
+  /**
+   * <p>The unique identifier of the Autonomous Database that was switched over.</p>
+   * @public
+   */
+  autonomousDatabaseId: string | undefined;
+
+  /**
+   * <p>The user-friendly name of the Autonomous Database.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The current status of the Autonomous Database after the switchover operation.</p>
+   * @public
+   */
+  status?: AutonomousDatabaseResourceStatus | undefined;
+
+  /**
+   * <p>Additional information about the status of the Autonomous Database after the switchover operation.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAutonomousDatabaseInput {
+  /**
+   * <p>The unique identifier of the Autonomous Database to update.</p>
+   * @public
+   */
+  autonomousDatabaseId: string | undefined;
+
+  /**
+   * <p>The new password for the <code>ADMIN</code> user of the Autonomous Database.</p>
+   * @public
+   */
+  adminPassword?: string | undefined;
+
+  /**
+   * <p>The compute capacity, in number of ECPUs or OCPUs, to assign to the Autonomous Database.</p>
+   * @public
+   */
+  computeCount?: number | undefined;
+
+  /**
+   * <p>The number of CPU cores to allocate to the Autonomous Database.</p>
+   * @public
+   */
+  cpuCoreCount?: number | undefined;
+
+  /**
+   * <p>The size, in terabytes (TB), of the data volume to allocate for the Autonomous Database.</p>
+   * @public
+   */
+  dataStorageSizeInTBs?: number | undefined;
+
+  /**
+   * <p>The size, in gigabytes (GB), of the data volume to allocate for the Autonomous Database.</p>
+   * @public
+   */
+  dataStorageSizeInGBs?: number | undefined;
+
+  /**
+   * <p>The new user-friendly name for the Autonomous Database.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The new name of the Autonomous Database.</p>
+   * @public
+   */
+  dbName?: string | undefined;
+
+  /**
+   * <p>The Oracle Database software version to use for the Autonomous Database.</p>
+   * @public
+   */
+  dbVersion?: string | undefined;
+
+  /**
+   * <p>The intended use of the Autonomous Database, such as transaction processing, data warehouse, JSON database, or APEX.</p>
+   * @public
+   */
+  dbWorkload?: DbWorkload | undefined;
+
+  /**
+   * <p>The list of database management tools to enable for the Autonomous Database.</p>
+   * @public
+   */
+  dbToolsDetails?: DatabaseTool[] | undefined;
+
+  /**
+   * <p>The Oracle Database edition to apply to the Autonomous Database.</p>
+   * @public
+   */
+  databaseEdition?: DatabaseEdition | undefined;
+
+  /**
+   * <p>The Oracle license model to apply to the Autonomous Database.</p>
+   * @public
+   */
+  licenseModel?: LicenseModel | undefined;
+
+  /**
+   * <p>Specifies whether to enable automatic scaling of the compute resources for the Autonomous Database.</p>
+   * @public
+   */
+  isAutoScalingEnabled?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether to enable automatic scaling of the storage for the Autonomous Database.</p>
+   * @public
+   */
+  isAutoScalingForStorageEnabled?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether to lock the backup retention period of the Autonomous Database to prevent it from being shortened.</p>
+   * @public
+   */
+  isBackupRetentionLocked?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether to enable local Oracle Data Guard for the Autonomous Database.</p>
+   * @public
+   */
+  isLocalDataGuardEnabled?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether mutual TLS (mTLS) authentication is required to connect to the Autonomous Database.</p>
+   * @public
+   */
+  isMtlsConnectionRequired?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether the Autonomous Database is a refreshable clone.</p>
+   * @public
+   */
+  isRefreshableClone?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether to disconnect the Autonomous Database from its peer database.</p>
+   * @public
+   */
+  isDisconnectPeer?: boolean | undefined;
+
+  /**
+   * <p>The retention period, in days, for automatic backups of the Autonomous Database.</p>
+   * @public
+   */
+  backupRetentionPeriodInDays?: number | undefined;
+
+  /**
+   * <p>The maximum number of compute resources that you can allocate to the Autonomous Database under the bring-your-own-license (BYOL) model.</p>
+   * @public
+   */
+  byolComputeCountLimit?: number | undefined;
+
+  /**
+   * <p>The maximum data loss limit, in seconds, for automatic failover to the local Oracle Data Guard standby database.</p>
+   * @public
+   */
+  localAdgAutoFailoverMaxDataLossLimit?: number | undefined;
+
+  /**
+   * <p>The maintenance schedule type for the Autonomous Database.</p>
+   * @public
+   */
+  autonomousMaintenanceScheduleType?: AutonomousMaintenanceScheduleType | undefined;
+
+  /**
+   * <p>The list of customer contacts to receive operational notifications from OCI for the Autonomous Database.</p>
+   * @public
+   */
+  customerContactsToSendToOCI?: CustomerContact[] | undefined;
+
+  /**
+   * <p>The list of scheduled start and stop times for the Autonomous Database.</p>
+   * @public
+   */
+  scheduledOperations?: ScheduledOperationDetails[] | undefined;
+
+  /**
+   * <p>The long-term backup schedule for the Autonomous Database.</p>
+   * @public
+   */
+  longTermBackupSchedule?: LongTermBackupSchedule | undefined;
+
+  /**
+   * <p>The mode in which to open the Autonomous Database, either read-only or read/write.</p>
+   * @public
+   */
+  openMode?: OpenMode | undefined;
+
+  /**
+   * <p>The permission level of the Autonomous Database.</p>
+   * @public
+   */
+  permissionLevel?: PermissionLevel | undefined;
+
+  /**
+   * <p>The refresh mode of the refreshable clone Autonomous Database.</p>
+   * @public
+   */
+  refreshableMode?: RefreshableMode | undefined;
+
+  /**
+   * <p>The private endpoint IP address for the Autonomous Database.</p>
+   * @public
+   */
+  privateEndpointIp?: string | undefined;
+
+  /**
+   * <p>The private endpoint label for the Autonomous Database.</p>
+   * @public
+   */
+  privateEndpointLabel?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the peer Autonomous Database.</p>
+   * @public
+   */
+  peerDbId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the resource pool leader Autonomous Database.</p>
+   * @public
+   */
+  resourcePoolLeaderId?: string | undefined;
+
+  /**
+   * <p>The configuration of the resource pool for the Autonomous Database.</p>
+   * @public
+   */
+  resourcePoolSummary?: ResourcePoolSummary | undefined;
+
+  /**
+   * <p>The source of the allowlisted IP addresses for the standby Autonomous Database.</p>
+   * @public
+   */
+  standbyAllowlistedIpsSource?: StandbyAllowlistedIpsSource | undefined;
+
+  /**
+   * <p>The list of IP addresses that are allowed to access the standby Autonomous Database.</p>
+   * @public
+   */
+  standbyAllowlistedIps?: string[] | undefined;
+
+  /**
+   * <p>The list of IP addresses that are allowed to access the Autonomous Database.</p>
+   * @public
+   */
+  allowlistedIps?: string[] | undefined;
+
+  /**
+   * <p>The frequency, in seconds, at which the refreshable clone Autonomous Database is automatically refreshed.</p>
+   * @public
+   */
+  autoRefreshFrequencyInSeconds?: number | undefined;
+
+  /**
+   * <p>The time lag, in seconds, between the refreshable clone and its source Autonomous Database.</p>
+   * @public
+   */
+  autoRefreshPointLagInSeconds?: number | undefined;
+
+  /**
+   * <p>The date and time at which the automatic refresh of the refreshable clone Autonomous Database starts.</p>
+   * @public
+   */
+  timeOfAutoRefreshStart?: Date | undefined;
+
+  /**
+   * <p>The provider of the encryption key to use for the Autonomous Database.</p>
+   * @public
+   */
+  encryptionKeyProvider?: EncryptionKeyProviderInput | undefined;
+
+  /**
+   * <p>The configuration of the encryption key to use for the Autonomous Database.</p>
+   * @public
+   */
+  encryptionKeyConfiguration?: EncryptionKeyConfigurationInput | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAutonomousDatabaseOutput {
+  /**
+   * <p>The unique identifier of the Autonomous Database that was updated.</p>
+   * @public
+   */
+  autonomousDatabaseId: string | undefined;
+
+  /**
+   * <p>The user-friendly name of the Autonomous Database that was updated.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The current status of the Autonomous Database.</p>
+   * @public
+   */
+  status?: AutonomousDatabaseResourceStatus | undefined;
+
+  /**
+   * <p>Additional information about the current status of the Autonomous Database, if applicable.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+}
+
+/**
+ * <p>A summary of an available Oracle Database software version for Autonomous Databases.</p>
+ * @public
+ */
+export interface AutonomousDatabaseVersionSummary {
+  /**
+   * <p>The intended use of the Autonomous Database that the version supports, such as transaction processing, data warehouse, JSON database, or APEX.</p>
+   * @public
+   */
+  dbWorkload?: DbWorkload | undefined;
+
+  /**
+   * <p>Additional details about the Autonomous Database software version.</p>
+   * @public
+   */
+  details?: string | undefined;
+
+  /**
+   * <p>The Oracle Database software version.</p>
+   * @public
+   */
+  version?: string | undefined;
+}
 
 /**
  * <p>A summary of an Autonomous Virtual Machine (VM) within an Autonomous VM cluster.</p>
@@ -196,18 +3977,6 @@ export interface IamRole {
    * @public
    */
   awsIntegration?: SupportedAwsIntegration | undefined;
-}
-
-/**
- * <p>An enumeration of days of the week used for scheduling maintenance windows.</p>
- * @public
- */
-export interface DayOfWeek {
-  /**
-   * <p>The name of the day of the week.</p>
-   * @public
-   */
-  name?: DayOfWeekName | undefined;
 }
 
 /**
@@ -1194,18 +4963,6 @@ export interface CloudAutonomousVmClusterResourceDetails {
    * @public
    */
   unallocatedAdbStorageInTBs?: number | undefined;
-}
-
-/**
- * <p>A contact to receive notification from Oracle about maintenance updates for a specific Exadata infrastructure.</p>
- * @public
- */
-export interface CustomerContact {
-  /**
-   * <p>The email address of the contact.</p>
-   * @public
-   */
-  email?: string | undefined;
 }
 
 /**
@@ -4152,6 +7909,24 @@ export interface DisassociateIamRoleFromResourceOutput {}
 export interface GetOciOnboardingStatusInput {}
 
 /**
+ * <p>Information about an Amazon Web Services Identity and Access Management (IAM) service role used for Autonomous Database integration with Oracle Cloud Infrastructure (OCI).</p>
+ * @public
+ */
+export interface OciIamRole {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management (IAM) service role.</p>
+   * @public
+   */
+  iamRoleArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services integration configuration settings for the Amazon Web Services Identity and Access Management (IAM) service role.</p>
+   * @public
+   */
+  awsIntegration?: OciAwsIntegration | undefined;
+}
+
+/**
  * <p>Information about an Oracle Cloud Infrastructure (OCI) identity domain configuration.</p>
  * @public
  */
@@ -4194,6 +7969,18 @@ export interface OciIdentityDomain {
 }
 
 /**
+ * <p>Information about an error that occurred during the subscription process.</p>
+ * @public
+ */
+export interface SubscriptionError {
+  /**
+   * <p>A human-readable message that describes the subscription error.</p>
+   * @public
+   */
+  errorMessage?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface GetOciOnboardingStatusOutput {
@@ -4220,6 +8007,30 @@ export interface GetOciOnboardingStatusOutput {
    * @public
    */
   ociIdentityDomain?: OciIdentityDomain | undefined;
+
+  /**
+   * <p>The list of Amazon Web Services Identity and Access Management (IAM) service roles used for Autonomous Database integration with Oracle Cloud Infrastructure (OCI).</p>
+   * @public
+   */
+  autonomousDatabaseOciIntegrationIamRoles?: OciIamRole[] | undefined;
+
+  /**
+   * <p>The unique identifier of the Oracle Cloud Infrastructure (OCI) tenancy that is linked to your Amazon Web Services account.</p>
+   * @public
+   */
+  linkedOciTenancyId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Oracle Cloud Infrastructure (OCI) compartment that is linked to your Amazon Web Services account.</p>
+   * @public
+   */
+  linkedOciCompartmentId?: string | undefined;
+
+  /**
+   * <p>The list of errors that occurred during the subscription process for your Amazon Web Services account, if any.</p>
+   * @public
+   */
+  subscriptionErrors?: SubscriptionError[] | undefined;
 }
 
 /**
@@ -4731,6 +8542,86 @@ export interface InitializeServiceInput {
  * @public
  */
 export interface InitializeServiceOutput {}
+
+/**
+ * @public
+ */
+export interface ListAutonomousDatabaseCharacterSetsInput {
+  /**
+   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The type of character set to return results for, either the database character set or the national character set.</p>
+   * @public
+   */
+  characterSetType?: CharacterSetType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAutonomousDatabaseCharacterSetsOutput {
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The list of available Autonomous Database character sets.</p>
+   * @public
+   */
+  autonomousDatabaseCharacterSets: AutonomousDatabaseCharacterSetSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAutonomousDatabaseVersionsInput {
+  /**
+   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The intended use of the Autonomous Database to return versions for, such as transaction processing, data warehouse, JSON database, or APEX.</p>
+   * @public
+   */
+  dbWorkload?: DbWorkload | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAutonomousDatabaseVersionsOutput {
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The list of available Autonomous Database software versions.</p>
+   * @public
+   */
+  autonomousDatabaseVersions: AutonomousDatabaseVersionSummary[] | undefined;
+}
 
 /**
  * @public

@@ -13,6 +13,21 @@ import {
   AssociateIamRoleToResourceCommand,
 } from "./commands/AssociateIamRoleToResourceCommand";
 import {
+  type CreateAutonomousDatabaseBackupCommandInput,
+  type CreateAutonomousDatabaseBackupCommandOutput,
+  CreateAutonomousDatabaseBackupCommand,
+} from "./commands/CreateAutonomousDatabaseBackupCommand";
+import {
+  type CreateAutonomousDatabaseCommandInput,
+  type CreateAutonomousDatabaseCommandOutput,
+  CreateAutonomousDatabaseCommand,
+} from "./commands/CreateAutonomousDatabaseCommand";
+import {
+  type CreateAutonomousDatabaseWalletCommandInput,
+  type CreateAutonomousDatabaseWalletCommandOutput,
+  CreateAutonomousDatabaseWalletCommand,
+} from "./commands/CreateAutonomousDatabaseWalletCommand";
+import {
   type CreateCloudAutonomousVmClusterCommandInput,
   type CreateCloudAutonomousVmClusterCommandOutput,
   CreateCloudAutonomousVmClusterCommand,
@@ -37,6 +52,16 @@ import {
   type CreateOdbPeeringConnectionCommandOutput,
   CreateOdbPeeringConnectionCommand,
 } from "./commands/CreateOdbPeeringConnectionCommand";
+import {
+  type DeleteAutonomousDatabaseBackupCommandInput,
+  type DeleteAutonomousDatabaseBackupCommandOutput,
+  DeleteAutonomousDatabaseBackupCommand,
+} from "./commands/DeleteAutonomousDatabaseBackupCommand";
+import {
+  type DeleteAutonomousDatabaseCommandInput,
+  type DeleteAutonomousDatabaseCommandOutput,
+  DeleteAutonomousDatabaseCommand,
+} from "./commands/DeleteAutonomousDatabaseCommand";
 import {
   type DeleteCloudAutonomousVmClusterCommandInput,
   type DeleteCloudAutonomousVmClusterCommandOutput,
@@ -67,6 +92,26 @@ import {
   type DisassociateIamRoleFromResourceCommandOutput,
   DisassociateIamRoleFromResourceCommand,
 } from "./commands/DisassociateIamRoleFromResourceCommand";
+import {
+  type FailoverAutonomousDatabaseCommandInput,
+  type FailoverAutonomousDatabaseCommandOutput,
+  FailoverAutonomousDatabaseCommand,
+} from "./commands/FailoverAutonomousDatabaseCommand";
+import {
+  type GetAutonomousDatabaseBackupCommandInput,
+  type GetAutonomousDatabaseBackupCommandOutput,
+  GetAutonomousDatabaseBackupCommand,
+} from "./commands/GetAutonomousDatabaseBackupCommand";
+import {
+  type GetAutonomousDatabaseCommandInput,
+  type GetAutonomousDatabaseCommandOutput,
+  GetAutonomousDatabaseCommand,
+} from "./commands/GetAutonomousDatabaseCommand";
+import {
+  type GetAutonomousDatabaseWalletDetailsCommandInput,
+  type GetAutonomousDatabaseWalletDetailsCommandOutput,
+  GetAutonomousDatabaseWalletDetailsCommand,
+} from "./commands/GetAutonomousDatabaseWalletDetailsCommand";
 import {
   type GetCloudAutonomousVmClusterCommandInput,
   type GetCloudAutonomousVmClusterCommandOutput,
@@ -113,6 +158,36 @@ import {
   type InitializeServiceCommandOutput,
   InitializeServiceCommand,
 } from "./commands/InitializeServiceCommand";
+import {
+  type ListAutonomousDatabaseBackupsCommandInput,
+  type ListAutonomousDatabaseBackupsCommandOutput,
+  ListAutonomousDatabaseBackupsCommand,
+} from "./commands/ListAutonomousDatabaseBackupsCommand";
+import {
+  type ListAutonomousDatabaseCharacterSetsCommandInput,
+  type ListAutonomousDatabaseCharacterSetsCommandOutput,
+  ListAutonomousDatabaseCharacterSetsCommand,
+} from "./commands/ListAutonomousDatabaseCharacterSetsCommand";
+import {
+  type ListAutonomousDatabaseClonesCommandInput,
+  type ListAutonomousDatabaseClonesCommandOutput,
+  ListAutonomousDatabaseClonesCommand,
+} from "./commands/ListAutonomousDatabaseClonesCommand";
+import {
+  type ListAutonomousDatabasePeersCommandInput,
+  type ListAutonomousDatabasePeersCommandOutput,
+  ListAutonomousDatabasePeersCommand,
+} from "./commands/ListAutonomousDatabasePeersCommand";
+import {
+  type ListAutonomousDatabasesCommandInput,
+  type ListAutonomousDatabasesCommandOutput,
+  ListAutonomousDatabasesCommand,
+} from "./commands/ListAutonomousDatabasesCommand";
+import {
+  type ListAutonomousDatabaseVersionsCommandInput,
+  type ListAutonomousDatabaseVersionsCommandOutput,
+  ListAutonomousDatabaseVersionsCommand,
+} from "./commands/ListAutonomousDatabaseVersionsCommand";
 import {
   type ListAutonomousVirtualMachinesCommandInput,
   type ListAutonomousVirtualMachinesCommandOutput,
@@ -174,20 +249,50 @@ import {
   ListTagsForResourceCommand,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type RebootAutonomousDatabaseCommandInput,
+  type RebootAutonomousDatabaseCommandOutput,
+  RebootAutonomousDatabaseCommand,
+} from "./commands/RebootAutonomousDatabaseCommand";
+import {
   type RebootDbNodeCommandInput,
   type RebootDbNodeCommandOutput,
   RebootDbNodeCommand,
 } from "./commands/RebootDbNodeCommand";
+import {
+  type RestoreAutonomousDatabaseCommandInput,
+  type RestoreAutonomousDatabaseCommandOutput,
+  RestoreAutonomousDatabaseCommand,
+} from "./commands/RestoreAutonomousDatabaseCommand";
+import {
+  type ShrinkAutonomousDatabaseCommandInput,
+  type ShrinkAutonomousDatabaseCommandOutput,
+  ShrinkAutonomousDatabaseCommand,
+} from "./commands/ShrinkAutonomousDatabaseCommand";
+import {
+  type StartAutonomousDatabaseCommandInput,
+  type StartAutonomousDatabaseCommandOutput,
+  StartAutonomousDatabaseCommand,
+} from "./commands/StartAutonomousDatabaseCommand";
 import {
   type StartDbNodeCommandInput,
   type StartDbNodeCommandOutput,
   StartDbNodeCommand,
 } from "./commands/StartDbNodeCommand";
 import {
+  type StopAutonomousDatabaseCommandInput,
+  type StopAutonomousDatabaseCommandOutput,
+  StopAutonomousDatabaseCommand,
+} from "./commands/StopAutonomousDatabaseCommand";
+import {
   type StopDbNodeCommandInput,
   type StopDbNodeCommandOutput,
   StopDbNodeCommand,
 } from "./commands/StopDbNodeCommand";
+import {
+  type SwitchoverAutonomousDatabaseCommandInput,
+  type SwitchoverAutonomousDatabaseCommandOutput,
+  SwitchoverAutonomousDatabaseCommand,
+} from "./commands/SwitchoverAutonomousDatabaseCommand";
 import {
   type TagResourceCommandInput,
   type TagResourceCommandOutput,
@@ -198,6 +303,16 @@ import {
   type UntagResourceCommandOutput,
   UntagResourceCommand,
 } from "./commands/UntagResourceCommand";
+import {
+  type UpdateAutonomousDatabaseBackupCommandInput,
+  type UpdateAutonomousDatabaseBackupCommandOutput,
+  UpdateAutonomousDatabaseBackupCommand,
+} from "./commands/UpdateAutonomousDatabaseBackupCommand";
+import {
+  type UpdateAutonomousDatabaseCommandInput,
+  type UpdateAutonomousDatabaseCommandOutput,
+  UpdateAutonomousDatabaseCommand,
+} from "./commands/UpdateAutonomousDatabaseCommand";
 import {
   type UpdateCloudExadataInfrastructureCommandInput,
   type UpdateCloudExadataInfrastructureCommandOutput,
@@ -214,6 +329,12 @@ import {
   UpdateOdbPeeringConnectionCommand,
 } from "./commands/UpdateOdbPeeringConnectionCommand";
 import { OdbClient } from "./OdbClient";
+import { paginateListAutonomousDatabaseBackups } from "./pagination/ListAutonomousDatabaseBackupsPaginator";
+import { paginateListAutonomousDatabaseCharacterSets } from "./pagination/ListAutonomousDatabaseCharacterSetsPaginator";
+import { paginateListAutonomousDatabaseClones } from "./pagination/ListAutonomousDatabaseClonesPaginator";
+import { paginateListAutonomousDatabasePeers } from "./pagination/ListAutonomousDatabasePeersPaginator";
+import { paginateListAutonomousDatabases } from "./pagination/ListAutonomousDatabasesPaginator";
+import { paginateListAutonomousDatabaseVersions } from "./pagination/ListAutonomousDatabaseVersionsPaginator";
 import { paginateListAutonomousVirtualMachines } from "./pagination/ListAutonomousVirtualMachinesPaginator";
 import { paginateListCloudAutonomousVmClusters } from "./pagination/ListCloudAutonomousVmClustersPaginator";
 import { paginateListCloudExadataInfrastructures } from "./pagination/ListCloudExadataInfrastructuresPaginator";
@@ -229,17 +350,26 @@ import { paginateListSystemVersions } from "./pagination/ListSystemVersionsPagin
 const commands = {
   AcceptMarketplaceRegistrationCommand,
   AssociateIamRoleToResourceCommand,
+  CreateAutonomousDatabaseCommand,
+  CreateAutonomousDatabaseBackupCommand,
+  CreateAutonomousDatabaseWalletCommand,
   CreateCloudAutonomousVmClusterCommand,
   CreateCloudExadataInfrastructureCommand,
   CreateCloudVmClusterCommand,
   CreateOdbNetworkCommand,
   CreateOdbPeeringConnectionCommand,
+  DeleteAutonomousDatabaseCommand,
+  DeleteAutonomousDatabaseBackupCommand,
   DeleteCloudAutonomousVmClusterCommand,
   DeleteCloudExadataInfrastructureCommand,
   DeleteCloudVmClusterCommand,
   DeleteOdbNetworkCommand,
   DeleteOdbPeeringConnectionCommand,
   DisassociateIamRoleFromResourceCommand,
+  FailoverAutonomousDatabaseCommand,
+  GetAutonomousDatabaseCommand,
+  GetAutonomousDatabaseBackupCommand,
+  GetAutonomousDatabaseWalletDetailsCommand,
   GetCloudAutonomousVmClusterCommand,
   GetCloudExadataInfrastructureCommand,
   GetCloudExadataInfrastructureUnallocatedResourcesCommand,
@@ -250,6 +380,12 @@ const commands = {
   GetOdbNetworkCommand,
   GetOdbPeeringConnectionCommand,
   InitializeServiceCommand,
+  ListAutonomousDatabaseBackupsCommand,
+  ListAutonomousDatabaseCharacterSetsCommand,
+  ListAutonomousDatabaseClonesCommand,
+  ListAutonomousDatabasePeersCommand,
+  ListAutonomousDatabasesCommand,
+  ListAutonomousDatabaseVersionsCommand,
   ListAutonomousVirtualMachinesCommand,
   ListCloudAutonomousVmClustersCommand,
   ListCloudExadataInfrastructuresCommand,
@@ -262,16 +398,30 @@ const commands = {
   ListOdbPeeringConnectionsCommand,
   ListSystemVersionsCommand,
   ListTagsForResourceCommand,
+  RebootAutonomousDatabaseCommand,
   RebootDbNodeCommand,
+  RestoreAutonomousDatabaseCommand,
+  ShrinkAutonomousDatabaseCommand,
+  StartAutonomousDatabaseCommand,
   StartDbNodeCommand,
+  StopAutonomousDatabaseCommand,
   StopDbNodeCommand,
+  SwitchoverAutonomousDatabaseCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateAutonomousDatabaseCommand,
+  UpdateAutonomousDatabaseBackupCommand,
   UpdateCloudExadataInfrastructureCommand,
   UpdateOdbNetworkCommand,
   UpdateOdbPeeringConnectionCommand,
 };
 const paginators = {
+  paginateListAutonomousDatabaseBackups,
+  paginateListAutonomousDatabaseCharacterSets,
+  paginateListAutonomousDatabaseClones,
+  paginateListAutonomousDatabasePeers,
+  paginateListAutonomousDatabases,
+  paginateListAutonomousDatabaseVersions,
   paginateListAutonomousVirtualMachines,
   paginateListCloudAutonomousVmClusters,
   paginateListCloudExadataInfrastructures,
@@ -318,6 +468,58 @@ export interface Odb {
     args: AssociateIamRoleToResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociateIamRoleToResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAutonomousDatabaseCommand}
+   */
+  createAutonomousDatabase(): Promise<CreateAutonomousDatabaseCommandOutput>;
+  createAutonomousDatabase(
+    args: CreateAutonomousDatabaseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAutonomousDatabaseCommandOutput>;
+  createAutonomousDatabase(
+    args: CreateAutonomousDatabaseCommandInput,
+    cb: (err: any, data?: CreateAutonomousDatabaseCommandOutput) => void
+  ): void;
+  createAutonomousDatabase(
+    args: CreateAutonomousDatabaseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAutonomousDatabaseCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAutonomousDatabaseBackupCommand}
+   */
+  createAutonomousDatabaseBackup(
+    args: CreateAutonomousDatabaseBackupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAutonomousDatabaseBackupCommandOutput>;
+  createAutonomousDatabaseBackup(
+    args: CreateAutonomousDatabaseBackupCommandInput,
+    cb: (err: any, data?: CreateAutonomousDatabaseBackupCommandOutput) => void
+  ): void;
+  createAutonomousDatabaseBackup(
+    args: CreateAutonomousDatabaseBackupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAutonomousDatabaseBackupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAutonomousDatabaseWalletCommand}
+   */
+  createAutonomousDatabaseWallet(
+    args: CreateAutonomousDatabaseWalletCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAutonomousDatabaseWalletCommandOutput>;
+  createAutonomousDatabaseWallet(
+    args: CreateAutonomousDatabaseWalletCommandInput,
+    cb: (err: any, data?: CreateAutonomousDatabaseWalletCommandOutput) => void
+  ): void;
+  createAutonomousDatabaseWallet(
+    args: CreateAutonomousDatabaseWalletCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAutonomousDatabaseWalletCommandOutput) => void
   ): void;
 
   /**
@@ -403,6 +605,40 @@ export interface Odb {
     args: CreateOdbPeeringConnectionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateOdbPeeringConnectionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAutonomousDatabaseCommand}
+   */
+  deleteAutonomousDatabase(
+    args: DeleteAutonomousDatabaseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAutonomousDatabaseCommandOutput>;
+  deleteAutonomousDatabase(
+    args: DeleteAutonomousDatabaseCommandInput,
+    cb: (err: any, data?: DeleteAutonomousDatabaseCommandOutput) => void
+  ): void;
+  deleteAutonomousDatabase(
+    args: DeleteAutonomousDatabaseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAutonomousDatabaseCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAutonomousDatabaseBackupCommand}
+   */
+  deleteAutonomousDatabaseBackup(
+    args: DeleteAutonomousDatabaseBackupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAutonomousDatabaseBackupCommandOutput>;
+  deleteAutonomousDatabaseBackup(
+    args: DeleteAutonomousDatabaseBackupCommandInput,
+    cb: (err: any, data?: DeleteAutonomousDatabaseBackupCommandOutput) => void
+  ): void;
+  deleteAutonomousDatabaseBackup(
+    args: DeleteAutonomousDatabaseBackupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAutonomousDatabaseBackupCommandOutput) => void
   ): void;
 
   /**
@@ -505,6 +741,74 @@ export interface Odb {
     args: DisassociateIamRoleFromResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DisassociateIamRoleFromResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link FailoverAutonomousDatabaseCommand}
+   */
+  failoverAutonomousDatabase(
+    args: FailoverAutonomousDatabaseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<FailoverAutonomousDatabaseCommandOutput>;
+  failoverAutonomousDatabase(
+    args: FailoverAutonomousDatabaseCommandInput,
+    cb: (err: any, data?: FailoverAutonomousDatabaseCommandOutput) => void
+  ): void;
+  failoverAutonomousDatabase(
+    args: FailoverAutonomousDatabaseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: FailoverAutonomousDatabaseCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAutonomousDatabaseCommand}
+   */
+  getAutonomousDatabase(
+    args: GetAutonomousDatabaseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAutonomousDatabaseCommandOutput>;
+  getAutonomousDatabase(
+    args: GetAutonomousDatabaseCommandInput,
+    cb: (err: any, data?: GetAutonomousDatabaseCommandOutput) => void
+  ): void;
+  getAutonomousDatabase(
+    args: GetAutonomousDatabaseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAutonomousDatabaseCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAutonomousDatabaseBackupCommand}
+   */
+  getAutonomousDatabaseBackup(
+    args: GetAutonomousDatabaseBackupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAutonomousDatabaseBackupCommandOutput>;
+  getAutonomousDatabaseBackup(
+    args: GetAutonomousDatabaseBackupCommandInput,
+    cb: (err: any, data?: GetAutonomousDatabaseBackupCommandOutput) => void
+  ): void;
+  getAutonomousDatabaseBackup(
+    args: GetAutonomousDatabaseBackupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAutonomousDatabaseBackupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAutonomousDatabaseWalletDetailsCommand}
+   */
+  getAutonomousDatabaseWalletDetails(
+    args: GetAutonomousDatabaseWalletDetailsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAutonomousDatabaseWalletDetailsCommandOutput>;
+  getAutonomousDatabaseWalletDetails(
+    args: GetAutonomousDatabaseWalletDetailsCommandInput,
+    cb: (err: any, data?: GetAutonomousDatabaseWalletDetailsCommandOutput) => void
+  ): void;
+  getAutonomousDatabaseWalletDetails(
+    args: GetAutonomousDatabaseWalletDetailsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAutonomousDatabaseWalletDetailsCommandOutput) => void
   ): void;
 
   /**
@@ -677,6 +981,111 @@ export interface Odb {
     args: InitializeServiceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: InitializeServiceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAutonomousDatabaseBackupsCommand}
+   */
+  listAutonomousDatabaseBackups(
+    args: ListAutonomousDatabaseBackupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAutonomousDatabaseBackupsCommandOutput>;
+  listAutonomousDatabaseBackups(
+    args: ListAutonomousDatabaseBackupsCommandInput,
+    cb: (err: any, data?: ListAutonomousDatabaseBackupsCommandOutput) => void
+  ): void;
+  listAutonomousDatabaseBackups(
+    args: ListAutonomousDatabaseBackupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAutonomousDatabaseBackupsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAutonomousDatabaseCharacterSetsCommand}
+   */
+  listAutonomousDatabaseCharacterSets(): Promise<ListAutonomousDatabaseCharacterSetsCommandOutput>;
+  listAutonomousDatabaseCharacterSets(
+    args: ListAutonomousDatabaseCharacterSetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAutonomousDatabaseCharacterSetsCommandOutput>;
+  listAutonomousDatabaseCharacterSets(
+    args: ListAutonomousDatabaseCharacterSetsCommandInput,
+    cb: (err: any, data?: ListAutonomousDatabaseCharacterSetsCommandOutput) => void
+  ): void;
+  listAutonomousDatabaseCharacterSets(
+    args: ListAutonomousDatabaseCharacterSetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAutonomousDatabaseCharacterSetsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAutonomousDatabaseClonesCommand}
+   */
+  listAutonomousDatabaseClones(
+    args: ListAutonomousDatabaseClonesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAutonomousDatabaseClonesCommandOutput>;
+  listAutonomousDatabaseClones(
+    args: ListAutonomousDatabaseClonesCommandInput,
+    cb: (err: any, data?: ListAutonomousDatabaseClonesCommandOutput) => void
+  ): void;
+  listAutonomousDatabaseClones(
+    args: ListAutonomousDatabaseClonesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAutonomousDatabaseClonesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAutonomousDatabasePeersCommand}
+   */
+  listAutonomousDatabasePeers(
+    args: ListAutonomousDatabasePeersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAutonomousDatabasePeersCommandOutput>;
+  listAutonomousDatabasePeers(
+    args: ListAutonomousDatabasePeersCommandInput,
+    cb: (err: any, data?: ListAutonomousDatabasePeersCommandOutput) => void
+  ): void;
+  listAutonomousDatabasePeers(
+    args: ListAutonomousDatabasePeersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAutonomousDatabasePeersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAutonomousDatabasesCommand}
+   */
+  listAutonomousDatabases(): Promise<ListAutonomousDatabasesCommandOutput>;
+  listAutonomousDatabases(
+    args: ListAutonomousDatabasesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAutonomousDatabasesCommandOutput>;
+  listAutonomousDatabases(
+    args: ListAutonomousDatabasesCommandInput,
+    cb: (err: any, data?: ListAutonomousDatabasesCommandOutput) => void
+  ): void;
+  listAutonomousDatabases(
+    args: ListAutonomousDatabasesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAutonomousDatabasesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAutonomousDatabaseVersionsCommand}
+   */
+  listAutonomousDatabaseVersions(): Promise<ListAutonomousDatabaseVersionsCommandOutput>;
+  listAutonomousDatabaseVersions(
+    args: ListAutonomousDatabaseVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAutonomousDatabaseVersionsCommandOutput>;
+  listAutonomousDatabaseVersions(
+    args: ListAutonomousDatabaseVersionsCommandInput,
+    cb: (err: any, data?: ListAutonomousDatabaseVersionsCommandOutput) => void
+  ): void;
+  listAutonomousDatabaseVersions(
+    args: ListAutonomousDatabaseVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAutonomousDatabaseVersionsCommandOutput) => void
   ): void;
 
   /**
@@ -891,6 +1300,23 @@ export interface Odb {
   ): void;
 
   /**
+   * @see {@link RebootAutonomousDatabaseCommand}
+   */
+  rebootAutonomousDatabase(
+    args: RebootAutonomousDatabaseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RebootAutonomousDatabaseCommandOutput>;
+  rebootAutonomousDatabase(
+    args: RebootAutonomousDatabaseCommandInput,
+    cb: (err: any, data?: RebootAutonomousDatabaseCommandOutput) => void
+  ): void;
+  rebootAutonomousDatabase(
+    args: RebootAutonomousDatabaseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RebootAutonomousDatabaseCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link RebootDbNodeCommand}
    */
   rebootDbNode(
@@ -905,6 +1331,57 @@ export interface Odb {
     args: RebootDbNodeCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RebootDbNodeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RestoreAutonomousDatabaseCommand}
+   */
+  restoreAutonomousDatabase(
+    args: RestoreAutonomousDatabaseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RestoreAutonomousDatabaseCommandOutput>;
+  restoreAutonomousDatabase(
+    args: RestoreAutonomousDatabaseCommandInput,
+    cb: (err: any, data?: RestoreAutonomousDatabaseCommandOutput) => void
+  ): void;
+  restoreAutonomousDatabase(
+    args: RestoreAutonomousDatabaseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RestoreAutonomousDatabaseCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ShrinkAutonomousDatabaseCommand}
+   */
+  shrinkAutonomousDatabase(
+    args: ShrinkAutonomousDatabaseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ShrinkAutonomousDatabaseCommandOutput>;
+  shrinkAutonomousDatabase(
+    args: ShrinkAutonomousDatabaseCommandInput,
+    cb: (err: any, data?: ShrinkAutonomousDatabaseCommandOutput) => void
+  ): void;
+  shrinkAutonomousDatabase(
+    args: ShrinkAutonomousDatabaseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ShrinkAutonomousDatabaseCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartAutonomousDatabaseCommand}
+   */
+  startAutonomousDatabase(
+    args: StartAutonomousDatabaseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartAutonomousDatabaseCommandOutput>;
+  startAutonomousDatabase(
+    args: StartAutonomousDatabaseCommandInput,
+    cb: (err: any, data?: StartAutonomousDatabaseCommandOutput) => void
+  ): void;
+  startAutonomousDatabase(
+    args: StartAutonomousDatabaseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartAutonomousDatabaseCommandOutput) => void
   ): void;
 
   /**
@@ -925,6 +1402,23 @@ export interface Odb {
   ): void;
 
   /**
+   * @see {@link StopAutonomousDatabaseCommand}
+   */
+  stopAutonomousDatabase(
+    args: StopAutonomousDatabaseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopAutonomousDatabaseCommandOutput>;
+  stopAutonomousDatabase(
+    args: StopAutonomousDatabaseCommandInput,
+    cb: (err: any, data?: StopAutonomousDatabaseCommandOutput) => void
+  ): void;
+  stopAutonomousDatabase(
+    args: StopAutonomousDatabaseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopAutonomousDatabaseCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StopDbNodeCommand}
    */
   stopDbNode(
@@ -939,6 +1433,23 @@ export interface Odb {
     args: StopDbNodeCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StopDbNodeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SwitchoverAutonomousDatabaseCommand}
+   */
+  switchoverAutonomousDatabase(
+    args: SwitchoverAutonomousDatabaseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SwitchoverAutonomousDatabaseCommandOutput>;
+  switchoverAutonomousDatabase(
+    args: SwitchoverAutonomousDatabaseCommandInput,
+    cb: (err: any, data?: SwitchoverAutonomousDatabaseCommandOutput) => void
+  ): void;
+  switchoverAutonomousDatabase(
+    args: SwitchoverAutonomousDatabaseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SwitchoverAutonomousDatabaseCommandOutput) => void
   ): void;
 
   /**
@@ -973,6 +1484,40 @@ export interface Odb {
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAutonomousDatabaseCommand}
+   */
+  updateAutonomousDatabase(
+    args: UpdateAutonomousDatabaseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAutonomousDatabaseCommandOutput>;
+  updateAutonomousDatabase(
+    args: UpdateAutonomousDatabaseCommandInput,
+    cb: (err: any, data?: UpdateAutonomousDatabaseCommandOutput) => void
+  ): void;
+  updateAutonomousDatabase(
+    args: UpdateAutonomousDatabaseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAutonomousDatabaseCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAutonomousDatabaseBackupCommand}
+   */
+  updateAutonomousDatabaseBackup(
+    args: UpdateAutonomousDatabaseBackupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAutonomousDatabaseBackupCommandOutput>;
+  updateAutonomousDatabaseBackup(
+    args: UpdateAutonomousDatabaseBackupCommandInput,
+    cb: (err: any, data?: UpdateAutonomousDatabaseBackupCommandOutput) => void
+  ): void;
+  updateAutonomousDatabaseBackup(
+    args: UpdateAutonomousDatabaseBackupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAutonomousDatabaseBackupCommandOutput) => void
   ): void;
 
   /**
@@ -1025,6 +1570,72 @@ export interface Odb {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateOdbPeeringConnectionCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAutonomousDatabaseBackupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAutonomousDatabaseBackupsCommandOutput}.
+   */
+  paginateListAutonomousDatabaseBackups(
+    args: ListAutonomousDatabaseBackupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAutonomousDatabaseBackupsCommandOutput>;
+
+  /**
+   * @see {@link ListAutonomousDatabaseCharacterSetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAutonomousDatabaseCharacterSetsCommandOutput}.
+   */
+  paginateListAutonomousDatabaseCharacterSets(
+    args?: ListAutonomousDatabaseCharacterSetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAutonomousDatabaseCharacterSetsCommandOutput>;
+
+  /**
+   * @see {@link ListAutonomousDatabaseClonesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAutonomousDatabaseClonesCommandOutput}.
+   */
+  paginateListAutonomousDatabaseClones(
+    args: ListAutonomousDatabaseClonesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAutonomousDatabaseClonesCommandOutput>;
+
+  /**
+   * @see {@link ListAutonomousDatabasePeersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAutonomousDatabasePeersCommandOutput}.
+   */
+  paginateListAutonomousDatabasePeers(
+    args: ListAutonomousDatabasePeersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAutonomousDatabasePeersCommandOutput>;
+
+  /**
+   * @see {@link ListAutonomousDatabasesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAutonomousDatabasesCommandOutput}.
+   */
+  paginateListAutonomousDatabases(
+    args?: ListAutonomousDatabasesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAutonomousDatabasesCommandOutput>;
+
+  /**
+   * @see {@link ListAutonomousDatabaseVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAutonomousDatabaseVersionsCommandOutput}.
+   */
+  paginateListAutonomousDatabaseVersions(
+    args?: ListAutonomousDatabaseVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAutonomousDatabaseVersionsCommandOutput>;
 
   /**
    * @see {@link ListAutonomousVirtualMachinesCommand}

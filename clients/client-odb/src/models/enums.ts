@@ -43,19 +43,15 @@ export type SupportedAwsIntegration = (typeof SupportedAwsIntegration)[keyof typ
  * @public
  * @enum
  */
-export const ResourceStatus = {
-  AVAILABLE: "AVAILABLE",
-  FAILED: "FAILED",
-  MAINTENANCE_IN_PROGRESS: "MAINTENANCE_IN_PROGRESS",
-  PROVISIONING: "PROVISIONING",
-  TERMINATED: "TERMINATED",
-  TERMINATING: "TERMINATING",
-  UPDATING: "UPDATING",
+export const AutonomousMaintenanceScheduleType = {
+  EARLY: "EARLY",
+  REGULAR: "REGULAR",
 } as const;
 /**
  * @public
  */
-export type ResourceStatus = (typeof ResourceStatus)[keyof typeof ResourceStatus];
+export type AutonomousMaintenanceScheduleType =
+  (typeof AutonomousMaintenanceScheduleType)[keyof typeof AutonomousMaintenanceScheduleType];
 
 /**
  * @public
@@ -74,19 +70,104 @@ export type ComputeModel = (typeof ComputeModel)[keyof typeof ComputeModel];
  * @public
  * @enum
  */
-export const IamRoleStatus = {
-  ASSOCIATING: "ASSOCIATING",
-  CONNECTED: "CONNECTED",
-  DISASSOCIATING: "DISASSOCIATING",
-  DISCONNECTED: "DISCONNECTED",
-  FAILED: "FAILED",
-  PARTIALLY_CONNECTED: "PARTIALLY_CONNECTED",
-  UNKNOWN: "UNKNOWN",
+export const DatabaseEdition = {
+  ENTERPRISE_EDITION: "ENTERPRISE_EDITION",
+  STANDARD_EDITION: "STANDARD_EDITION",
 } as const;
 /**
  * @public
  */
-export type IamRoleStatus = (typeof IamRoleStatus)[keyof typeof IamRoleStatus];
+export type DatabaseEdition = (typeof DatabaseEdition)[keyof typeof DatabaseEdition];
+
+/**
+ * @public
+ * @enum
+ */
+export const DatabaseManagementStatus = {
+  DISABLING: "DISABLING",
+  ENABLED: "ENABLED",
+  ENABLING: "ENABLING",
+  FAILED_DISABLING: "FAILED_DISABLING",
+  FAILED_ENABLING: "FAILED_ENABLING",
+  NOT_ENABLED: "NOT_ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type DatabaseManagementStatus = (typeof DatabaseManagementStatus)[keyof typeof DatabaseManagementStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const DatabaseType = {
+  CLONE: "CLONE",
+  REGULAR: "REGULAR",
+} as const;
+/**
+ * @public
+ */
+export type DatabaseType = (typeof DatabaseType)[keyof typeof DatabaseType];
+
+/**
+ * @public
+ * @enum
+ */
+export const DataSafeStatus = {
+  DEREGISTERING: "DEREGISTERING",
+  FAILED: "FAILED",
+  NOT_REGISTERED: "NOT_REGISTERED",
+  REGISTERED: "REGISTERED",
+  REGISTERING: "REGISTERING",
+} as const;
+/**
+ * @public
+ */
+export type DataSafeStatus = (typeof DataSafeStatus)[keyof typeof DataSafeStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const DbWorkload = {
+  AJD: "AJD",
+  APEX: "APEX",
+  LH: "LH",
+  OLTP: "OLTP",
+} as const;
+/**
+ * @public
+ */
+export type DbWorkload = (typeof DbWorkload)[keyof typeof DbWorkload];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExternalIdType = {
+  COMPARTMENT_OCID: "compartment_ocid",
+  DATABASE_OCID: "database_ocid",
+  TENANT_OCID: "tenant_ocid",
+} as const;
+/**
+ * @public
+ */
+export type ExternalIdType = (typeof ExternalIdType)[keyof typeof ExternalIdType];
+
+/**
+ * @public
+ * @enum
+ */
+export const EncryptionKeyProvider = {
+  AWS_KMS: "AWS_KMS",
+  OCI: "OCI",
+  OKV: "OKV",
+  ORACLE_MANAGED: "ORACLE_MANAGED",
+} as const;
+/**
+ * @public
+ */
+export type EncryptionKeyProvider = (typeof EncryptionKeyProvider)[keyof typeof EncryptionKeyProvider];
 
 /**
  * @public
@@ -105,6 +186,166 @@ export type LicenseModel = (typeof LicenseModel)[keyof typeof LicenseModel];
  * @public
  * @enum
  */
+export const DisasterRecoveryType = {
+  ADG: "ADG",
+  BACKUP_BASED: "BACKUP_BASED",
+} as const;
+/**
+ * @public
+ */
+export type DisasterRecoveryType = (typeof DisasterRecoveryType)[keyof typeof DisasterRecoveryType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AutonomousDatabaseResourceStatus = {
+  AVAILABLE: "AVAILABLE",
+  AVAILABLE_NEEDS_ATTENTION: "AVAILABLE_NEEDS_ATTENTION",
+  BACKUP_IN_PROGRESS: "BACKUP_IN_PROGRESS",
+  FAILED: "FAILED",
+  INACCESSIBLE: "INACCESSIBLE",
+  MAINTENANCE_IN_PROGRESS: "MAINTENANCE_IN_PROGRESS",
+  PROVISIONING: "PROVISIONING",
+  RECREATING: "RECREATING",
+  RESTARTING: "RESTARTING",
+  RESTORE_FAILED: "RESTORE_FAILED",
+  RESTORE_IN_PROGRESS: "RESTORE_IN_PROGRESS",
+  ROLE_CHANGE_IN_PROGRESS: "ROLE_CHANGE_IN_PROGRESS",
+  SCALE_IN_PROGRESS: "SCALE_IN_PROGRESS",
+  STANDBY: "STANDBY",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  TERMINATED: "TERMINATED",
+  TERMINATING: "TERMINATING",
+  UNAVAILABLE: "UNAVAILABLE",
+  UPDATING: "UPDATING",
+  UPGRADING: "UPGRADING",
+} as const;
+/**
+ * @public
+ */
+export type AutonomousDatabaseResourceStatus =
+  (typeof AutonomousDatabaseResourceStatus)[keyof typeof AutonomousDatabaseResourceStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const RepeatCadence = {
+  MONTHLY: "MONTHLY",
+  ONE_TIME: "ONE_TIME",
+  WEEKLY: "WEEKLY",
+  YEARLY: "YEARLY",
+} as const;
+/**
+ * @public
+ */
+export type RepeatCadence = (typeof RepeatCadence)[keyof typeof RepeatCadence];
+
+/**
+ * @public
+ * @enum
+ */
+export const NetServicesArchitecture = {
+  DEDICATED: "DEDICATED",
+  SHARED: "SHARED",
+} as const;
+/**
+ * @public
+ */
+export type NetServicesArchitecture = (typeof NetServicesArchitecture)[keyof typeof NetServicesArchitecture];
+
+/**
+ * @public
+ * @enum
+ */
+export const OpenMode = {
+  READ_ONLY: "READ_ONLY",
+  READ_WRITE: "READ_WRITE",
+} as const;
+/**
+ * @public
+ */
+export type OpenMode = (typeof OpenMode)[keyof typeof OpenMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const OperationsInsightsStatus = {
+  DISABLING: "DISABLING",
+  ENABLED: "ENABLED",
+  ENABLING: "ENABLING",
+  FAILED_DISABLING: "FAILED_DISABLING",
+  FAILED_ENABLING: "FAILED_ENABLING",
+  NOT_ENABLED: "NOT_ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type OperationsInsightsStatus = (typeof OperationsInsightsStatus)[keyof typeof OperationsInsightsStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const PermissionLevel = {
+  RESTRICTED: "RESTRICTED",
+  UNRESTRICTED: "UNRESTRICTED",
+} as const;
+/**
+ * @public
+ */
+export type PermissionLevel = (typeof PermissionLevel)[keyof typeof PermissionLevel];
+
+/**
+ * @public
+ * @enum
+ */
+export const RefreshableMode = {
+  AUTOMATIC: "AUTOMATIC",
+  MANUAL: "MANUAL",
+} as const;
+/**
+ * @public
+ */
+export type RefreshableMode = (typeof RefreshableMode)[keyof typeof RefreshableMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const RefreshableStatus = {
+  NOT_REFRESHING: "NOT_REFRESHING",
+  REFRESHING: "REFRESHING",
+} as const;
+/**
+ * @public
+ */
+export type RefreshableStatus = (typeof RefreshableStatus)[keyof typeof RefreshableStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const DataGuardRole = {
+  BACKUP_COPY: "BACKUP_COPY",
+  DISABLED_STANDBY: "DISABLED_STANDBY",
+  PRIMARY: "PRIMARY",
+  SNAPSHOT_STANDBY: "SNAPSHOT_STANDBY",
+  STANDBY: "STANDBY",
+} as const;
+/**
+ * @public
+ */
+export type DataGuardRole = (typeof DataGuardRole)[keyof typeof DataGuardRole];
+
+/**
+ * @public
+ * @enum
+ */
 export const DayOfWeekName = {
   FRIDAY: "FRIDAY",
   MONDAY: "MONDAY",
@@ -118,6 +359,177 @@ export const DayOfWeekName = {
  * @public
  */
 export type DayOfWeekName = (typeof DayOfWeekName)[keyof typeof DayOfWeekName];
+
+/**
+ * @public
+ * @enum
+ */
+export const StandbyAllowlistedIpsSource = {
+  NOT_APPLICABLE: "NOT_APPLICABLE",
+  PRIMARY: "PRIMARY",
+  SEPARATE: "SEPARATE",
+} as const;
+/**
+ * @public
+ */
+export type StandbyAllowlistedIpsSource =
+  (typeof StandbyAllowlistedIpsSource)[keyof typeof StandbyAllowlistedIpsSource];
+
+/**
+ * @public
+ * @enum
+ */
+export const AutonomousDatabaseBackupStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  UPDATING: "UPDATING",
+} as const;
+/**
+ * @public
+ */
+export type AutonomousDatabaseBackupStatus =
+  (typeof AutonomousDatabaseBackupStatus)[keyof typeof AutonomousDatabaseBackupStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const AutonomousDatabaseBackupType = {
+  CUMULATIVE_INCREMENTAL: "CUMULATIVE_INCREMENTAL",
+  FULL: "FULL",
+  INCREMENTAL: "INCREMENTAL",
+  LONGTERM: "LONGTERM",
+  ROLL_FORWARD_IMAGE_COPY: "ROLL_FORWARD_IMAGE_COPY",
+  VIRTUAL_FULL: "VIRTUAL_FULL",
+} as const;
+/**
+ * @public
+ */
+export type AutonomousDatabaseBackupType =
+  (typeof AutonomousDatabaseBackupType)[keyof typeof AutonomousDatabaseBackupType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceStatus = {
+  AVAILABLE: "AVAILABLE",
+  FAILED: "FAILED",
+  MAINTENANCE_IN_PROGRESS: "MAINTENANCE_IN_PROGRESS",
+  PROVISIONING: "PROVISIONING",
+  TERMINATED: "TERMINATED",
+  TERMINATING: "TERMINATING",
+  UPDATING: "UPDATING",
+} as const;
+/**
+ * @public
+ */
+export type ResourceStatus = (typeof ResourceStatus)[keyof typeof ResourceStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const EncryptionKeyProviderInput = {
+  AWS_KMS: "AWS_KMS",
+  ORACLE_MANAGED: "ORACLE_MANAGED",
+} as const;
+/**
+ * @public
+ */
+export type EncryptionKeyProviderInput = (typeof EncryptionKeyProviderInput)[keyof typeof EncryptionKeyProviderInput];
+
+/**
+ * @public
+ * @enum
+ */
+export const SourceType = {
+  BACKUP_FROM_ID: "BACKUP_FROM_ID",
+  BACKUP_FROM_TIMESTAMP: "BACKUP_FROM_TIMESTAMP",
+  CLONE_TO_REFRESHABLE: "CLONE_TO_REFRESHABLE",
+  CROSS_REGION_DATAGUARD: "CROSS_REGION_DATAGUARD",
+  CROSS_REGION_DISASTER_RECOVERY: "CROSS_REGION_DISASTER_RECOVERY",
+  DATABASE: "DATABASE",
+  NONE: "NONE",
+} as const;
+/**
+ * @public
+ */
+export type SourceType = (typeof SourceType)[keyof typeof SourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const CloneType = {
+  FULL: "FULL",
+  METADATA: "METADATA",
+  PARTIAL: "PARTIAL",
+} as const;
+/**
+ * @public
+ */
+export type CloneType = (typeof CloneType)[keyof typeof CloneType];
+
+/**
+ * @public
+ * @enum
+ */
+export const WalletType = {
+  INSTANCE: "INSTANCE",
+  REGIONAL: "REGIONAL",
+} as const;
+/**
+ * @public
+ */
+export type WalletType = (typeof WalletType)[keyof typeof WalletType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AutonomousDatabaseWalletStatus = {
+  ACTIVE: "ACTIVE",
+  UPDATING: "UPDATING",
+} as const;
+/**
+ * @public
+ */
+export type AutonomousDatabaseWalletStatus =
+  (typeof AutonomousDatabaseWalletStatus)[keyof typeof AutonomousDatabaseWalletStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const CharacterSetType = {
+  DATABASE: "DATABASE",
+  NATIONAL: "NATIONAL",
+} as const;
+/**
+ * @public
+ */
+export type CharacterSetType = (typeof CharacterSetType)[keyof typeof CharacterSetType];
+
+/**
+ * @public
+ * @enum
+ */
+export const IamRoleStatus = {
+  ASSOCIATING: "ASSOCIATING",
+  CONNECTED: "CONNECTED",
+  DISASSOCIATING: "DISASSOCIATING",
+  DISCONNECTED: "DISCONNECTED",
+  FAILED: "FAILED",
+  PARTIALLY_CONNECTED: "PARTIALLY_CONNECTED",
+  UNKNOWN: "UNKNOWN",
+} as const;
+/**
+ * @public
+ */
+export type IamRoleStatus = (typeof IamRoleStatus)[keyof typeof IamRoleStatus];
 
 /**
  * @public
@@ -289,6 +701,18 @@ export const ShapeType = {
  * @public
  */
 export type ShapeType = (typeof ShapeType)[keyof typeof ShapeType];
+
+/**
+ * @public
+ * @enum
+ */
+export const OciAwsIntegration = {
+  KmsTde: "KmsTde",
+} as const;
+/**
+ * @public
+ */
+export type OciAwsIntegration = (typeof OciAwsIntegration)[keyof typeof OciAwsIntegration];
 
 /**
  * @public

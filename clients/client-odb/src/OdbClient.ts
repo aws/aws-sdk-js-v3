@@ -63,6 +63,18 @@ import type {
   AssociateIamRoleToResourceCommandOutput,
 } from "./commands/AssociateIamRoleToResourceCommand";
 import type {
+  CreateAutonomousDatabaseBackupCommandInput,
+  CreateAutonomousDatabaseBackupCommandOutput,
+} from "./commands/CreateAutonomousDatabaseBackupCommand";
+import type {
+  CreateAutonomousDatabaseCommandInput,
+  CreateAutonomousDatabaseCommandOutput,
+} from "./commands/CreateAutonomousDatabaseCommand";
+import type {
+  CreateAutonomousDatabaseWalletCommandInput,
+  CreateAutonomousDatabaseWalletCommandOutput,
+} from "./commands/CreateAutonomousDatabaseWalletCommand";
+import type {
   CreateCloudAutonomousVmClusterCommandInput,
   CreateCloudAutonomousVmClusterCommandOutput,
 } from "./commands/CreateCloudAutonomousVmClusterCommand";
@@ -79,6 +91,14 @@ import type {
   CreateOdbPeeringConnectionCommandInput,
   CreateOdbPeeringConnectionCommandOutput,
 } from "./commands/CreateOdbPeeringConnectionCommand";
+import type {
+  DeleteAutonomousDatabaseBackupCommandInput,
+  DeleteAutonomousDatabaseBackupCommandOutput,
+} from "./commands/DeleteAutonomousDatabaseBackupCommand";
+import type {
+  DeleteAutonomousDatabaseCommandInput,
+  DeleteAutonomousDatabaseCommandOutput,
+} from "./commands/DeleteAutonomousDatabaseCommand";
 import type {
   DeleteCloudAutonomousVmClusterCommandInput,
   DeleteCloudAutonomousVmClusterCommandOutput,
@@ -100,6 +120,22 @@ import type {
   DisassociateIamRoleFromResourceCommandInput,
   DisassociateIamRoleFromResourceCommandOutput,
 } from "./commands/DisassociateIamRoleFromResourceCommand";
+import type {
+  FailoverAutonomousDatabaseCommandInput,
+  FailoverAutonomousDatabaseCommandOutput,
+} from "./commands/FailoverAutonomousDatabaseCommand";
+import type {
+  GetAutonomousDatabaseBackupCommandInput,
+  GetAutonomousDatabaseBackupCommandOutput,
+} from "./commands/GetAutonomousDatabaseBackupCommand";
+import type {
+  GetAutonomousDatabaseCommandInput,
+  GetAutonomousDatabaseCommandOutput,
+} from "./commands/GetAutonomousDatabaseCommand";
+import type {
+  GetAutonomousDatabaseWalletDetailsCommandInput,
+  GetAutonomousDatabaseWalletDetailsCommandOutput,
+} from "./commands/GetAutonomousDatabaseWalletDetailsCommand";
 import type {
   GetCloudAutonomousVmClusterCommandInput,
   GetCloudAutonomousVmClusterCommandOutput,
@@ -131,6 +167,30 @@ import type {
   InitializeServiceCommandInput,
   InitializeServiceCommandOutput,
 } from "./commands/InitializeServiceCommand";
+import type {
+  ListAutonomousDatabaseBackupsCommandInput,
+  ListAutonomousDatabaseBackupsCommandOutput,
+} from "./commands/ListAutonomousDatabaseBackupsCommand";
+import type {
+  ListAutonomousDatabaseCharacterSetsCommandInput,
+  ListAutonomousDatabaseCharacterSetsCommandOutput,
+} from "./commands/ListAutonomousDatabaseCharacterSetsCommand";
+import type {
+  ListAutonomousDatabaseClonesCommandInput,
+  ListAutonomousDatabaseClonesCommandOutput,
+} from "./commands/ListAutonomousDatabaseClonesCommand";
+import type {
+  ListAutonomousDatabasePeersCommandInput,
+  ListAutonomousDatabasePeersCommandOutput,
+} from "./commands/ListAutonomousDatabasePeersCommand";
+import type {
+  ListAutonomousDatabasesCommandInput,
+  ListAutonomousDatabasesCommandOutput,
+} from "./commands/ListAutonomousDatabasesCommand";
+import type {
+  ListAutonomousDatabaseVersionsCommandInput,
+  ListAutonomousDatabaseVersionsCommandOutput,
+} from "./commands/ListAutonomousDatabaseVersionsCommand";
 import type {
   ListAutonomousVirtualMachinesCommandInput,
   ListAutonomousVirtualMachinesCommandOutput,
@@ -167,11 +227,43 @@ import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import type {
+  RebootAutonomousDatabaseCommandInput,
+  RebootAutonomousDatabaseCommandOutput,
+} from "./commands/RebootAutonomousDatabaseCommand";
 import type { RebootDbNodeCommandInput, RebootDbNodeCommandOutput } from "./commands/RebootDbNodeCommand";
+import type {
+  RestoreAutonomousDatabaseCommandInput,
+  RestoreAutonomousDatabaseCommandOutput,
+} from "./commands/RestoreAutonomousDatabaseCommand";
+import type {
+  ShrinkAutonomousDatabaseCommandInput,
+  ShrinkAutonomousDatabaseCommandOutput,
+} from "./commands/ShrinkAutonomousDatabaseCommand";
+import type {
+  StartAutonomousDatabaseCommandInput,
+  StartAutonomousDatabaseCommandOutput,
+} from "./commands/StartAutonomousDatabaseCommand";
 import type { StartDbNodeCommandInput, StartDbNodeCommandOutput } from "./commands/StartDbNodeCommand";
+import type {
+  StopAutonomousDatabaseCommandInput,
+  StopAutonomousDatabaseCommandOutput,
+} from "./commands/StopAutonomousDatabaseCommand";
 import type { StopDbNodeCommandInput, StopDbNodeCommandOutput } from "./commands/StopDbNodeCommand";
+import type {
+  SwitchoverAutonomousDatabaseCommandInput,
+  SwitchoverAutonomousDatabaseCommandOutput,
+} from "./commands/SwitchoverAutonomousDatabaseCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
+  UpdateAutonomousDatabaseBackupCommandInput,
+  UpdateAutonomousDatabaseBackupCommandOutput,
+} from "./commands/UpdateAutonomousDatabaseBackupCommand";
+import type {
+  UpdateAutonomousDatabaseCommandInput,
+  UpdateAutonomousDatabaseCommandOutput,
+} from "./commands/UpdateAutonomousDatabaseCommand";
 import type {
   UpdateCloudExadataInfrastructureCommandInput,
   UpdateCloudExadataInfrastructureCommandOutput,
@@ -198,17 +290,26 @@ export { __Client };
 export type ServiceInputTypes =
   | AcceptMarketplaceRegistrationCommandInput
   | AssociateIamRoleToResourceCommandInput
+  | CreateAutonomousDatabaseBackupCommandInput
+  | CreateAutonomousDatabaseCommandInput
+  | CreateAutonomousDatabaseWalletCommandInput
   | CreateCloudAutonomousVmClusterCommandInput
   | CreateCloudExadataInfrastructureCommandInput
   | CreateCloudVmClusterCommandInput
   | CreateOdbNetworkCommandInput
   | CreateOdbPeeringConnectionCommandInput
+  | DeleteAutonomousDatabaseBackupCommandInput
+  | DeleteAutonomousDatabaseCommandInput
   | DeleteCloudAutonomousVmClusterCommandInput
   | DeleteCloudExadataInfrastructureCommandInput
   | DeleteCloudVmClusterCommandInput
   | DeleteOdbNetworkCommandInput
   | DeleteOdbPeeringConnectionCommandInput
   | DisassociateIamRoleFromResourceCommandInput
+  | FailoverAutonomousDatabaseCommandInput
+  | GetAutonomousDatabaseBackupCommandInput
+  | GetAutonomousDatabaseCommandInput
+  | GetAutonomousDatabaseWalletDetailsCommandInput
   | GetCloudAutonomousVmClusterCommandInput
   | GetCloudExadataInfrastructureCommandInput
   | GetCloudExadataInfrastructureUnallocatedResourcesCommandInput
@@ -219,6 +320,12 @@ export type ServiceInputTypes =
   | GetOdbNetworkCommandInput
   | GetOdbPeeringConnectionCommandInput
   | InitializeServiceCommandInput
+  | ListAutonomousDatabaseBackupsCommandInput
+  | ListAutonomousDatabaseCharacterSetsCommandInput
+  | ListAutonomousDatabaseClonesCommandInput
+  | ListAutonomousDatabasePeersCommandInput
+  | ListAutonomousDatabaseVersionsCommandInput
+  | ListAutonomousDatabasesCommandInput
   | ListAutonomousVirtualMachinesCommandInput
   | ListCloudAutonomousVmClustersCommandInput
   | ListCloudExadataInfrastructuresCommandInput
@@ -231,11 +338,19 @@ export type ServiceInputTypes =
   | ListOdbPeeringConnectionsCommandInput
   | ListSystemVersionsCommandInput
   | ListTagsForResourceCommandInput
+  | RebootAutonomousDatabaseCommandInput
   | RebootDbNodeCommandInput
+  | RestoreAutonomousDatabaseCommandInput
+  | ShrinkAutonomousDatabaseCommandInput
+  | StartAutonomousDatabaseCommandInput
   | StartDbNodeCommandInput
+  | StopAutonomousDatabaseCommandInput
   | StopDbNodeCommandInput
+  | SwitchoverAutonomousDatabaseCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateAutonomousDatabaseBackupCommandInput
+  | UpdateAutonomousDatabaseCommandInput
   | UpdateCloudExadataInfrastructureCommandInput
   | UpdateOdbNetworkCommandInput
   | UpdateOdbPeeringConnectionCommandInput;
@@ -246,17 +361,26 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | AcceptMarketplaceRegistrationCommandOutput
   | AssociateIamRoleToResourceCommandOutput
+  | CreateAutonomousDatabaseBackupCommandOutput
+  | CreateAutonomousDatabaseCommandOutput
+  | CreateAutonomousDatabaseWalletCommandOutput
   | CreateCloudAutonomousVmClusterCommandOutput
   | CreateCloudExadataInfrastructureCommandOutput
   | CreateCloudVmClusterCommandOutput
   | CreateOdbNetworkCommandOutput
   | CreateOdbPeeringConnectionCommandOutput
+  | DeleteAutonomousDatabaseBackupCommandOutput
+  | DeleteAutonomousDatabaseCommandOutput
   | DeleteCloudAutonomousVmClusterCommandOutput
   | DeleteCloudExadataInfrastructureCommandOutput
   | DeleteCloudVmClusterCommandOutput
   | DeleteOdbNetworkCommandOutput
   | DeleteOdbPeeringConnectionCommandOutput
   | DisassociateIamRoleFromResourceCommandOutput
+  | FailoverAutonomousDatabaseCommandOutput
+  | GetAutonomousDatabaseBackupCommandOutput
+  | GetAutonomousDatabaseCommandOutput
+  | GetAutonomousDatabaseWalletDetailsCommandOutput
   | GetCloudAutonomousVmClusterCommandOutput
   | GetCloudExadataInfrastructureCommandOutput
   | GetCloudExadataInfrastructureUnallocatedResourcesCommandOutput
@@ -267,6 +391,12 @@ export type ServiceOutputTypes =
   | GetOdbNetworkCommandOutput
   | GetOdbPeeringConnectionCommandOutput
   | InitializeServiceCommandOutput
+  | ListAutonomousDatabaseBackupsCommandOutput
+  | ListAutonomousDatabaseCharacterSetsCommandOutput
+  | ListAutonomousDatabaseClonesCommandOutput
+  | ListAutonomousDatabasePeersCommandOutput
+  | ListAutonomousDatabaseVersionsCommandOutput
+  | ListAutonomousDatabasesCommandOutput
   | ListAutonomousVirtualMachinesCommandOutput
   | ListCloudAutonomousVmClustersCommandOutput
   | ListCloudExadataInfrastructuresCommandOutput
@@ -279,11 +409,19 @@ export type ServiceOutputTypes =
   | ListOdbPeeringConnectionsCommandOutput
   | ListSystemVersionsCommandOutput
   | ListTagsForResourceCommandOutput
+  | RebootAutonomousDatabaseCommandOutput
   | RebootDbNodeCommandOutput
+  | RestoreAutonomousDatabaseCommandOutput
+  | ShrinkAutonomousDatabaseCommandOutput
+  | StartAutonomousDatabaseCommandOutput
   | StartDbNodeCommandOutput
+  | StopAutonomousDatabaseCommandOutput
   | StopDbNodeCommandOutput
+  | SwitchoverAutonomousDatabaseCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateAutonomousDatabaseBackupCommandOutput
+  | UpdateAutonomousDatabaseCommandOutput
   | UpdateCloudExadataInfrastructureCommandOutput
   | UpdateOdbNetworkCommandOutput
   | UpdateOdbPeeringConnectionCommandOutput;

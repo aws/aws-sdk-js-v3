@@ -195,6 +195,27 @@ AssociateIamRoleToResource
 </details>
 <details>
 <summary>
+CreateAutonomousDatabase
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/odb/command/CreateAutonomousDatabaseCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/CreateAutonomousDatabaseCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/CreateAutonomousDatabaseCommandOutput/)
+</details>
+<details>
+<summary>
+CreateAutonomousDatabaseBackup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/odb/command/CreateAutonomousDatabaseBackupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/CreateAutonomousDatabaseBackupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/CreateAutonomousDatabaseBackupCommandOutput/)
+</details>
+<details>
+<summary>
+CreateAutonomousDatabaseWallet
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/odb/command/CreateAutonomousDatabaseWalletCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/CreateAutonomousDatabaseWalletCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/CreateAutonomousDatabaseWalletCommandOutput/)
+</details>
+<details>
+<summary>
 CreateCloudAutonomousVmCluster
 </summary>
 
@@ -227,6 +248,20 @@ CreateOdbPeeringConnection
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/odb/command/CreateOdbPeeringConnectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/CreateOdbPeeringConnectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/CreateOdbPeeringConnectionCommandOutput/)
+</details>
+<details>
+<summary>
+DeleteAutonomousDatabase
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/odb/command/DeleteAutonomousDatabaseCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/DeleteAutonomousDatabaseCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/DeleteAutonomousDatabaseCommandOutput/)
+</details>
+<details>
+<summary>
+DeleteAutonomousDatabaseBackup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/odb/command/DeleteAutonomousDatabaseBackupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/DeleteAutonomousDatabaseBackupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/DeleteAutonomousDatabaseBackupCommandOutput/)
 </details>
 <details>
 <summary>
@@ -269,6 +304,34 @@ DisassociateIamRoleFromResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/odb/command/DisassociateIamRoleFromResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/DisassociateIamRoleFromResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/DisassociateIamRoleFromResourceCommandOutput/)
+</details>
+<details>
+<summary>
+FailoverAutonomousDatabase
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/odb/command/FailoverAutonomousDatabaseCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/FailoverAutonomousDatabaseCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/FailoverAutonomousDatabaseCommandOutput/)
+</details>
+<details>
+<summary>
+GetAutonomousDatabase
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/odb/command/GetAutonomousDatabaseCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/GetAutonomousDatabaseCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/GetAutonomousDatabaseCommandOutput/)
+</details>
+<details>
+<summary>
+GetAutonomousDatabaseBackup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/odb/command/GetAutonomousDatabaseBackupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/GetAutonomousDatabaseBackupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/GetAutonomousDatabaseBackupCommandOutput/)
+</details>
+<details>
+<summary>
+GetAutonomousDatabaseWalletDetails
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/odb/command/GetAutonomousDatabaseWalletDetailsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/GetAutonomousDatabaseWalletDetailsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/GetAutonomousDatabaseWalletDetailsCommandOutput/)
 </details>
 <details>
 <summary>
@@ -339,6 +402,48 @@ InitializeService
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/odb/command/InitializeServiceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/InitializeServiceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/InitializeServiceCommandOutput/)
+</details>
+<details>
+<summary>
+ListAutonomousDatabaseBackups
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/odb/command/ListAutonomousDatabaseBackupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/ListAutonomousDatabaseBackupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/ListAutonomousDatabaseBackupsCommandOutput/)
+</details>
+<details>
+<summary>
+ListAutonomousDatabaseCharacterSets
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/odb/command/ListAutonomousDatabaseCharacterSetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/ListAutonomousDatabaseCharacterSetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/ListAutonomousDatabaseCharacterSetsCommandOutput/)
+</details>
+<details>
+<summary>
+ListAutonomousDatabaseClones
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/odb/command/ListAutonomousDatabaseClonesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/ListAutonomousDatabaseClonesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/ListAutonomousDatabaseClonesCommandOutput/)
+</details>
+<details>
+<summary>
+ListAutonomousDatabasePeers
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/odb/command/ListAutonomousDatabasePeersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/ListAutonomousDatabasePeersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/ListAutonomousDatabasePeersCommandOutput/)
+</details>
+<details>
+<summary>
+ListAutonomousDatabases
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/odb/command/ListAutonomousDatabasesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/ListAutonomousDatabasesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/ListAutonomousDatabasesCommandOutput/)
+</details>
+<details>
+<summary>
+ListAutonomousDatabaseVersions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/odb/command/ListAutonomousDatabaseVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/ListAutonomousDatabaseVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/ListAutonomousDatabaseVersionsCommandOutput/)
 </details>
 <details>
 <summary>
@@ -426,10 +531,38 @@ ListTagsForResource
 </details>
 <details>
 <summary>
+RebootAutonomousDatabase
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/odb/command/RebootAutonomousDatabaseCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/RebootAutonomousDatabaseCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/RebootAutonomousDatabaseCommandOutput/)
+</details>
+<details>
+<summary>
 RebootDbNode
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/odb/command/RebootDbNodeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/RebootDbNodeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/RebootDbNodeCommandOutput/)
+</details>
+<details>
+<summary>
+RestoreAutonomousDatabase
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/odb/command/RestoreAutonomousDatabaseCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/RestoreAutonomousDatabaseCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/RestoreAutonomousDatabaseCommandOutput/)
+</details>
+<details>
+<summary>
+ShrinkAutonomousDatabase
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/odb/command/ShrinkAutonomousDatabaseCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/ShrinkAutonomousDatabaseCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/ShrinkAutonomousDatabaseCommandOutput/)
+</details>
+<details>
+<summary>
+StartAutonomousDatabase
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/odb/command/StartAutonomousDatabaseCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/StartAutonomousDatabaseCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/StartAutonomousDatabaseCommandOutput/)
 </details>
 <details>
 <summary>
@@ -440,10 +573,24 @@ StartDbNode
 </details>
 <details>
 <summary>
+StopAutonomousDatabase
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/odb/command/StopAutonomousDatabaseCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/StopAutonomousDatabaseCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/StopAutonomousDatabaseCommandOutput/)
+</details>
+<details>
+<summary>
 StopDbNode
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/odb/command/StopDbNodeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/StopDbNodeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/StopDbNodeCommandOutput/)
+</details>
+<details>
+<summary>
+SwitchoverAutonomousDatabase
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/odb/command/SwitchoverAutonomousDatabaseCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/SwitchoverAutonomousDatabaseCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/SwitchoverAutonomousDatabaseCommandOutput/)
 </details>
 <details>
 <summary>
@@ -458,6 +605,20 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/odb/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/UntagResourceCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateAutonomousDatabase
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/odb/command/UpdateAutonomousDatabaseCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/UpdateAutonomousDatabaseCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/UpdateAutonomousDatabaseCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateAutonomousDatabaseBackup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/odb/command/UpdateAutonomousDatabaseBackupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/UpdateAutonomousDatabaseBackupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/UpdateAutonomousDatabaseBackupCommandOutput/)
 </details>
 <details>
 <summary>
