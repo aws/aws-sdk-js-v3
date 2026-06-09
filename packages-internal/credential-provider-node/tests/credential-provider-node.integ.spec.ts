@@ -9,6 +9,7 @@ import {
 } from "@aws-sdk/credential-providers";
 import { assumeRoleArns, MockNodeHttpHandler } from "@aws-sdk/credential-providers/tests/_test-lib";
 import { NodeHttpHandler } from "@smithy/node-http-handler";
+import { HttpResponse } from "@smithy/core/protocols";
 import { externalDataInterceptor } from "@smithy/core/config";
 import type { HttpRequest, MiddlewareStack, ParsedIniData } from "@smithy/types";
 import { AdaptiveRetryStrategy, StandardRetryStrategy } from "@smithy/core/retry";
@@ -16,6 +17,7 @@ import child_process from "node:child_process";
 import { createHash } from "node:crypto";
 import { homedir } from "node:os";
 import { join } from "node:path";
+import { PassThrough } from "node:stream";
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { defaultProvider } from "../src/defaultProvider";
@@ -223,7 +225,7 @@ describe("credential-provider-node integration test", () => {
         region: "us-sso-region-2",
         credentials: defaultProvider({
           ssoStartUrl: "SSO_START_URL",
-          ssoAccountId: "1234",
+          ssoAccountId: "123456789012",
           ssoRegion: "us-sso-region-1",
           ssoRoleName: "sso-role",
         }),
@@ -239,6 +241,119 @@ describe("credential-provider-node integration test", () => {
           CREDENTIALS_SSO_LEGACY: "u",
         },
       });
+    });
+
+    it("should use clientConfig.requestHandler for SSO OIDC token refresh", async () => {
+      const seen: string[] = [];
+      const spyHandler = {
+        metadata: { handlerProtocol: "http/1.1" },
+        updateHttpClientConfig() {},
+        httpHandlerConfigs() {
+          return {};
+        },
+        handle: async (request: HttpRequest) => {
+          seen.push(`${request.hostname}${request.path || ""}`);
+          const body = new PassThrough({});
+
+          if (request.path?.includes("/token")) {
+            body.write(
+              JSON.stringify({
+                accessToken: "refreshed_token",
+                expiresIn: 3600,
+                refreshToken: "new_refresh_token",
+              })
+            );
+          } else if (request.path?.includes("/federation/credentials")) {
+            body.write(
+              JSON.stringify({
+                roleCredentials: {
+                  accessKeyId: "SSO_ACCESS_KEY_ID",
+                  secretAccessKey: "SSO_SECRET_ACCESS_KEY",
+                  sessionToken: "SSO_SESSION_TOKEN_us-sso-region-1",
+                  expiration: "3000-01-01T00:00:00.000Z",
+                  accountId: "123456789012",
+                },
+              })
+            );
+          } else if (request.body?.includes("Action=GetCallerIdentity")) {
+            body.write(`
+<GetCallerIdentityResponse xmlns="https://sts.amazonaws.com/doc/2011-06-15/">
+<GetCallerIdentityResult>
+  <Arn>arn:aws:iam::123456789012:user/Alice</Arn>
+  <UserId>AIDACKCEVSQ6C2EXAMPLE</UserId>
+  <Account>123456789012</Account>
+</GetCallerIdentityResult>
+<ResponseMetadata>
+  <RequestId>01234567-89ab-cdef-0123-456789abcdef</RequestId>
+</ResponseMetadata>
+</GetCallerIdentityResponse>`);
+          }
+
+          body.end();
+          return {
+            response: new HttpResponse({
+              statusCode: 200,
+              body,
+              headers: {},
+            }),
+          };
+        },
+      };
+
+      // Set up an expired token to force OIDC CreateToken refresh
+      const expiredToken = {
+        accessToken: "expired_token",
+        expiresAt: new Date(Date.now() - 60_000).toISOString(),
+        clientId: "mock_client_id",
+        clientSecret: "mock_client_secret",
+        refreshToken: "mock_refresh_token",
+      };
+      externalDataInterceptor.interceptToken("ssoNew", expiredToken);
+
+      setIniProfileData({
+        "sso-session.ssoNew": {
+          sso_region: "us-sso-region-1",
+          sso_start_url: "SSO_START_URL",
+          sso_registration_scopes: "sso:account:access",
+        },
+        default: {
+          sso_session: "ssoNew",
+          sso_account_id: "1234",
+          sso_region: "us-sso-region-1",
+          sso_role_name: "sso-role",
+        },
+      });
+
+      sts = new STS({
+        region: "us-sso-region-2",
+        credentials: defaultProvider({
+          clientConfig: {
+            requestHandler: spyHandler,
+          },
+        }),
+      });
+
+      await sts.getCallerIdentity({});
+      const credentials = await sts.config.credentials();
+
+      expect(credentials).toEqual({
+        accessKeyId: "SSO_ACCESS_KEY_ID",
+        secretAccessKey: "SSO_SECRET_ACCESS_KEY",
+        sessionToken: "SSO_SESSION_TOKEN_us-sso-region-1",
+        expiration: new Date("3000-01-01T00:00:00.000Z"),
+        $source: {
+          CREDENTIALS_PROFILE_SSO: "r",
+          CREDENTIALS_SSO: "s",
+        },
+      });
+
+      // Verify the custom requestHandler was used for OIDC token refresh
+      expect(seen).toEqual(
+        expect.arrayContaining([
+          expect.stringContaining("oidc.us-sso-region-1.amazonaws.com/token"),
+          expect.stringContaining("portal.sso.us-sso-region-1.amazonaws.com/federation/credentials"),
+        ])
+      );
     });
   });
 
