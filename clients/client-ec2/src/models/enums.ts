@@ -3260,6 +3260,20 @@ export type FlowLogsResourceType = (typeof FlowLogsResourceType)[keyof typeof Fl
  * @public
  * @enum
  */
+export const TaggableResourceType = {
+  auto_scaling_group: "auto-scaling-group",
+  instance: "instance",
+  network_interface: "network-interface",
+} as const;
+/**
+ * @public
+ */
+export type TaggableResourceType = (typeof TaggableResourceType)[keyof typeof TaggableResourceType];
+
+/**
+ * @public
+ * @enum
+ */
 export const TrafficType = {
   ACCEPT: "ACCEPT",
   ALL: "ALL",

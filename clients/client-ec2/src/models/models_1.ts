@@ -110,6 +110,7 @@ import type {
   SpotInstanceInterruptionBehavior,
   SpotInstanceType,
   SpreadLevel,
+  TaggableResourceType,
   TargetCapacityUnitType,
   Tenancy,
   TokenState,
@@ -3753,6 +3754,24 @@ export interface DestinationOptionsRequest {
 }
 
 /**
+ * <p>A single resource's tag configuration associated with the Flow Logs Amazon EC2 Tags feature fields in your custom log format.</p>
+ * @public
+ */
+export interface TagFieldSpecificationRequest {
+  /**
+   * <p>The resource type for the tag keys associated with the Flow Logs Amazon EC2 Tags feature fields in your custom log format.</p>
+   * @public
+   */
+  ResourceType?: TaggableResourceType | undefined;
+
+  /**
+   * <p>The tag keys on your tagged resources to be displayed by the Flow Logs Amazon EC2 Tags feature fields in your custom log format.</p>
+   * @public
+   */
+  TagKeys?: string[] | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateFlowLogsRequest {
@@ -3884,6 +3903,12 @@ export interface CreateFlowLogsRequest {
    * @public
    */
   DestinationOptions?: DestinationOptionsRequest | undefined;
+
+  /**
+   * <p>The tag configuration associated with the Flow Logs Amazon EC2 Tags feature fields in your custom log format.</p>
+   * @public
+   */
+  TagFieldSpecifications?: TagFieldSpecificationRequest[] | undefined;
 }
 
 /**
@@ -14145,36 +14170,4 @@ export interface CreateRouteServerPeerResult {
    * @public
    */
   RouteServerPeer?: RouteServerPeer | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateRouteTableRequest {
-  /**
-   * <p>The tags to assign to the route table.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the VPC.</p>
-   * @public
-   */
-  VpcId: string | undefined;
 }

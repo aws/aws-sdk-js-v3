@@ -80,11 +80,6 @@ export interface ModifyVolumeCommandOutput extends ModifyVolumeResult, __Metadat
  * //     Progress: Number("long"),
  * //     StartTime: new Date("TIMESTAMP"),
  * //     EndTime: new Date("TIMESTAMP"),
- * //     Operator: { // OperatorResponse
- * //       Managed: true || false,
- * //       Principal: "STRING_VALUE",
- * //       HiddenByDefault: true || false,
- * //     },
  * //   },
  * // };
  *

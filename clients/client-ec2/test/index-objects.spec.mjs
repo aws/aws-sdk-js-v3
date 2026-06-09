@@ -4263,6 +4263,9 @@ import {
   SupportedRegionDetail$,
   Tag$,
   TagDescription$,
+  TagFieldSpecificationRequest$,
+  TagFieldSpecificationResponse$,
+  TaggableResourceType,
   TagSpecification$,
   TargetCapacitySpecification$,
   TargetCapacitySpecificationRequest$,
@@ -8382,6 +8385,8 @@ assert(typeof SuccessfulQueuedPurchaseDeletion$ === "object");
 assert(typeof SupportedRegionDetail$ === "object");
 assert(typeof Tag$ === "object");
 assert(typeof TagDescription$ === "object");
+assert(typeof TagFieldSpecificationRequest$ === "object");
+assert(typeof TagFieldSpecificationResponse$ === "object");
 assert(typeof TagSpecification$ === "object");
 assert(typeof TargetCapacitySpecification$ === "object");
 assert(typeof TargetCapacitySpecificationRequest$ === "object");
@@ -8932,6 +8937,7 @@ assert(typeof SubnetCidrReservationType === "object");
 assert(typeof SubnetState === "object");
 assert(typeof SummaryStatus === "object");
 assert(typeof SupportedAdditionalProcessorFeature === "object");
+assert(typeof TaggableResourceType === "object");
 assert(typeof TargetCapacityUnitType === "object");
 assert(typeof TargetStorageTier === "object");
 assert(typeof TelemetryStatus === "object");

@@ -3,7 +3,6 @@ import type {
   AllowedImagesSettingsDisabledState,
   AllowedImagesSettingsEnabledState,
   CapacityManagerStatus,
-  CapacityTenancy,
   ClientCertificateRevocationListStatusCode,
   Comparison,
   DeviceTrustProviderType,
@@ -25,9 +24,6 @@ import type {
   MetricType,
   PayerResponsibility,
   PeriodType,
-  ReservationEndDateType,
-  ReservationState,
-  ReservationType,
   ResourceType,
   RouteServerPropagationState,
   SecurityGroupVpcAssociationState,
@@ -113,7 +109,59 @@ import type {
   Filter,
   ProductCode,
 } from "./models_3";
-import type { AttributeBooleanValue, RegisteredInstance } from "./models_4";
+import type { AttributeBooleanValue, RegisteredInstance, SpotPrice } from "./models_4";
+
+/**
+ * <p>Contains the output of DescribeSpotPriceHistory.</p>
+ * @public
+ */
+export interface DescribeSpotPriceHistoryResult {
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is
+   *             an empty string (<code>""</code>) or <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The historical Spot prices.</p>
+   * @public
+   */
+  SpotPriceHistory?: SpotPrice[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeStaleSecurityGroupsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request. To get the next page of items,
+   *           make another request with the token returned in the output. For more information,
+   *           see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The ID of the VPC.</p>
+   * @public
+   */
+  VpcId: string | undefined;
+}
 
 /**
  * <p>Describes a stale rule in a security group.</p>
@@ -2805,13 +2853,6 @@ export interface VolumeModification {
    * @public
    */
   EndTime?: Date | undefined;
-
-  /**
-   * <p>Describes whether the resource is managed by a service provider and, if so, describes
-   *             the service provider that manages it.</p>
-   * @public
-   */
-  Operator?: OperatorResponse | undefined;
 }
 
 /**
@@ -9127,189 +9168,4 @@ export interface GetCapacityManagerMetricDataRequest {
    * @public
    */
   DryRun?: boolean | undefined;
-}
-
-/**
- * <p>
- * A key-value pair representing a tag associated with a capacity resource in Capacity Manager.
- * </p>
- * @public
- */
-export interface CapacityManagerTagDimension {
-  /**
-   * <p>
-   * The tag key.
-   * </p>
-   * @public
-   */
-  Key?: string | undefined;
-
-  /**
-   * <p>
-   * The tag value.
-   * </p>
-   * @public
-   */
-  Value?: string | undefined;
-}
-
-/**
- * <p>
- * Represents dimension values for capacity metrics, including resource identifiers, geographic information, and reservation details used for grouping and filtering capacity data.
- * </p>
- * @public
- */
-export interface CapacityManagerDimension {
-  /**
-   * <p>
-   *     The Amazon Web Services Region where the capacity resource is located.
-   * </p>
-   * @public
-   */
-  ResourceRegion?: string | undefined;
-
-  /**
-   * <p>
-   * The unique identifier of the Availability Zone where the capacity resource is located.
-   * </p>
-   * @public
-   */
-  AvailabilityZoneId?: string | undefined;
-
-  /**
-   * <p>
-   *     The Amazon Web Services account ID that owns the capacity resource.
-   * </p>
-   * @public
-   */
-  AccountId?: string | undefined;
-
-  /**
-   * <p>
-   *     The name of the Amazon Web Services account that owns the capacity resource. This dimension is only available when Organizations access is enabled for Capacity Manager.
-   * </p>
-   * @public
-   */
-  AccountName?: string | undefined;
-
-  /**
-   * <p>
-   * The EC2 instance family of the capacity resource.
-   * </p>
-   * @public
-   */
-  InstanceFamily?: string | undefined;
-
-  /**
-   * <p>
-   * The specific EC2 instance type of the capacity resource.
-   * </p>
-   * @public
-   */
-  InstanceType?: string | undefined;
-
-  /**
-   * <p>
-   * The platform or operating system of the instance.
-   * </p>
-   * @public
-   */
-  InstancePlatform?: string | undefined;
-
-  /**
-   * <p>
-   *     The Amazon Resource Name (ARN) of the capacity reservation. This provides a unique identifier that can be used across Amazon Web Services services to reference the specific reservation.
-   * </p>
-   * @public
-   */
-  ReservationArn?: string | undefined;
-
-  /**
-   * <p>
-   * The unique identifier of the capacity reservation.
-   * </p>
-   * @public
-   */
-  ReservationId?: string | undefined;
-
-  /**
-   * <p>
-   * The type of capacity reservation.
-   * </p>
-   * @public
-   */
-  ReservationType?: ReservationType | undefined;
-
-  /**
-   * <p>
-   * The timestamp when the capacity reservation was originally created, in milliseconds since epoch. This differs from the start timestamp as
-   * reservations can be created before they become active.
-   * </p>
-   * @public
-   */
-  ReservationCreateTimestamp?: Date | undefined;
-
-  /**
-   * <p>
-   * The timestamp when the capacity reservation becomes active and available for use, in milliseconds since epoch. This is when the reservation begins providing capacity.
-   * </p>
-   * @public
-   */
-  ReservationStartTimestamp?: Date | undefined;
-
-  /**
-   * <p>
-   * The timestamp when the capacity reservation expires and is no longer available, in milliseconds since epoch. After this time, the reservation will not provide any capacity.
-   * </p>
-   * @public
-   */
-  ReservationEndTimestamp?: Date | undefined;
-
-  /**
-   * <p>
-   * The type of end date for the capacity reservation. This indicates whether the reservation has a fixed end date, is open-ended, or follows a specific termination pattern.
-   * </p>
-   * @public
-   */
-  ReservationEndDateType?: ReservationEndDateType | undefined;
-
-  /**
-   * <p>
-   * The tenancy of the EC2 instances associated with this capacity dimension. Valid values are 'default' for shared tenancy, 'dedicated' for dedicated instances, or 'host' for dedicated hosts.
-   * </p>
-   * @public
-   */
-  Tenancy?: CapacityTenancy | undefined;
-
-  /**
-   * <p>
-   * The current state of the capacity reservation.
-   * </p>
-   * @public
-   */
-  ReservationState?: ReservationState | undefined;
-
-  /**
-   * <p>
-   * The instance matching criteria for the capacity reservation, determining how instances are matched to the reservation.
-   * </p>
-   * @public
-   */
-  ReservationInstanceMatchCriteria?: string | undefined;
-
-  /**
-   * <p>
-   *         The Amazon Web Services account ID that is financially responsible for unused capacity reservation costs.
-   *     </p>
-   * @public
-   */
-  ReservationUnusedFinancialOwner?: string | undefined;
-
-  /**
-   * <p>
-   * The tags associated with the capacity resource, represented as key-value pairs. Only tags that have been activated for monitoring via <code>UpdateCapacityManagerMonitoredTagKeys</code> are included.
-   * </p>
-   * @public
-   */
-  Tags?: CapacityManagerTagDimension[] | undefined;
 }

@@ -71,6 +71,7 @@ import type {
 } from "./enums";
 import type {
   AddedPrincipal,
+  AddPrefixListEntry,
   AddressAttribute,
   ByoipCidr,
   CapacityReservation,
@@ -170,6 +171,77 @@ import type {
   ManagedResourceVisibilitySettings,
   Purchase,
 } from "./models_6";
+
+/**
+ * <p>An entry for a prefix list.</p>
+ * @public
+ */
+export interface RemovePrefixListEntry {
+  /**
+   * <p>The CIDR block.</p>
+   * @public
+   */
+  Cidr: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyManagedPrefixListRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the prefix list.</p>
+   * @public
+   */
+  PrefixListId: string | undefined;
+
+  /**
+   * <p>The current version of the prefix list.</p>
+   * @public
+   */
+  CurrentVersion?: number | undefined;
+
+  /**
+   * <p>A name for the prefix list.</p>
+   * @public
+   */
+  PrefixListName?: string | undefined;
+
+  /**
+   * <p>One or more entries to add to the prefix list.</p>
+   * @public
+   */
+  AddEntries?: AddPrefixListEntry[] | undefined;
+
+  /**
+   * <p>One or more entries to remove from the prefix list.</p>
+   * @public
+   */
+  RemoveEntries?: RemovePrefixListEntry[] | undefined;
+
+  /**
+   * <p>The maximum number of entries for the prefix list. You cannot modify the entries
+   *             of a prefix list and modify the size of a prefix list at the same time.</p>
+   *          <p>If any of the resources that reference the prefix list cannot support the new
+   *             maximum size, the modify operation fails. Check the state message for the IDs of
+   *             the first ten resources that do not support the new maximum size.</p>
+   * @public
+   */
+  MaxEntries?: number | undefined;
+
+  /**
+   * <p>Indicates whether synchronization with an IPAM prefix list resolver should be enabled for this managed prefix list. When enabled, the prefix list CIDRs are automatically updated based on the associated resolver's CIDR selection rules.</p>
+   * @public
+   */
+  IpamPrefixListResolverSyncEnabled?: boolean | undefined;
+}
 
 /**
  * @public

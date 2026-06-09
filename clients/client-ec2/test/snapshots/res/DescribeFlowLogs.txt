@@ -109,6 +109,56 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     false
                 </perHourPartition>
             </destinationOptions>
+            <tagFieldSpecificationSet>
+                <item>
+                    <resourceType>
+                        __ResourceType__
+                    </resourceType>
+                    <tagKeySet>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </tagKeySet>
+                </item>
+                <item>
+                    <resourceType>
+                        __ResourceType__
+                    </resourceType>
+                    <tagKeySet>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </tagKeySet>
+                </item>
+                <item>
+                    <resourceType>
+                        __ResourceType__
+                    </resourceType>
+                    <tagKeySet>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </tagKeySet>
+                </item>
+            </tagFieldSpecificationSet>
         </item>
         <item>
             <creationTime>
@@ -190,6 +240,56 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     false
                 </perHourPartition>
             </destinationOptions>
+            <tagFieldSpecificationSet>
+                <item>
+                    <resourceType>
+                        __ResourceType__
+                    </resourceType>
+                    <tagKeySet>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </tagKeySet>
+                </item>
+                <item>
+                    <resourceType>
+                        __ResourceType__
+                    </resourceType>
+                    <tagKeySet>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </tagKeySet>
+                </item>
+                <item>
+                    <resourceType>
+                        __ResourceType__
+                    </resourceType>
+                    <tagKeySet>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </tagKeySet>
+                </item>
+            </tagFieldSpecificationSet>
         </item>
         <item>
             <creationTime>
@@ -271,6 +371,56 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     false
                 </perHourPartition>
             </destinationOptions>
+            <tagFieldSpecificationSet>
+                <item>
+                    <resourceType>
+                        __ResourceType__
+                    </resourceType>
+                    <tagKeySet>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </tagKeySet>
+                </item>
+                <item>
+                    <resourceType>
+                        __ResourceType__
+                    </resourceType>
+                    <tagKeySet>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </tagKeySet>
+                </item>
+                <item>
+                    <resourceType>
+                        __ResourceType__
+                    </resourceType>
+                    <tagKeySet>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </tagKeySet>
+                </item>
+            </tagFieldSpecificationSet>
         </item>
     </flowLogSet>
     <nextToken>
@@ -315,7 +465,33 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         FileFormat: "__FileFormat__",
         HiveCompatiblePartitions: (boolean) false,
         PerHourPartition: (boolean) false
-      }
+      },
+      TagFieldSpecifications: [
+        {
+          ResourceType: "__ResourceType__",
+          TagKeys: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          ResourceType: "__ResourceType__",
+          TagKeys: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          ResourceType: "__ResourceType__",
+          TagKeys: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      ]
     },
     {
       CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
@@ -350,7 +526,33 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         FileFormat: "__FileFormat__",
         HiveCompatiblePartitions: (boolean) false,
         PerHourPartition: (boolean) false
-      }
+      },
+      TagFieldSpecifications: [
+        {
+          ResourceType: "__ResourceType__",
+          TagKeys: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          ResourceType: "__ResourceType__",
+          TagKeys: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          ResourceType: "__ResourceType__",
+          TagKeys: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      ]
     },
     {
       CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
@@ -385,7 +587,33 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         FileFormat: "__FileFormat__",
         HiveCompatiblePartitions: (boolean) false,
         PerHourPartition: (boolean) false
-      }
+      },
+      TagFieldSpecifications: [
+        {
+          ResourceType: "__ResourceType__",
+          TagKeys: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          ResourceType: "__ResourceType__",
+          TagKeys: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          ResourceType: "__ResourceType__",
+          TagKeys: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      ]
     }
   ],
   NextToken: "__NextToken__",

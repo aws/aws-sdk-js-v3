@@ -84,6 +84,14 @@ export interface DescribeFlowLogsCommandOutput extends DescribeFlowLogsResult, _
  * //         HiveCompatiblePartitions: true || false,
  * //         PerHourPartition: true || false,
  * //       },
+ * //       TagFieldSpecifications: [ // TagFieldSpecificationListResponse
+ * //         { // TagFieldSpecificationResponse
+ * //           ResourceType: "network-interface" || "instance" || "auto-scaling-group",
+ * //           TagKeys: [ // TagKeyList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

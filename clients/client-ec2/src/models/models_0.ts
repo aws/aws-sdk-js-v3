@@ -9288,7 +9288,7 @@ export interface CreateCapacityReservationFleetRequest {
    * <p>Information about the instance types for which to reserve the capacity.</p>
    * @public
    */
-  InstanceTypeSpecifications: ReservationFleetInstanceSpecification[] | undefined;
+  InstanceTypeSpecifications?: ReservationFleetInstanceSpecification[] | undefined;
 
   /**
    * <p>Indicates the tenancy of the Capacity Reservation Fleet. All Capacity Reservations in

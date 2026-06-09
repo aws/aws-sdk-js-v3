@@ -57,7 +57,6 @@ import type {
   ImageState,
   ImageTypeValues,
   ImdsSupportValues,
-  InstanceAttributeName,
   InstanceLifecycle,
   IpamPoolCidrFailureCode,
   IpamPoolCidrState,
@@ -76,6 +75,7 @@ import type {
   SpotAllocationStrategy,
   SpotInstanceInterruptionBehavior,
   StatisticType,
+  TaggableResourceType,
   TargetCapacityUnitType,
   TpmSupportValues,
   TrafficIpAddressType,
@@ -141,6 +141,21 @@ import type {
   VerifiedAccessGroup,
   VpcBlockPublicAccessExclusion,
 } from "./models_2";
+
+/**
+ * <p>Contains the parameters for DeleteSpotDatafeedSubscription.</p>
+ * @public
+ */
+export interface DeleteSpotDatafeedSubscriptionRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *             <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
 
 /**
  * @public
@@ -8031,6 +8046,24 @@ export interface DestinationOptionsResponse {
 }
 
 /**
+ * <p>A single resource's tag configuration associated with the Flow Logs Amazon EC2 Tags feature fields in your custom log format.</p>
+ * @public
+ */
+export interface TagFieldSpecificationResponse {
+  /**
+   * <p>The resource type for the tag keys associated with the Flow Logs Amazon EC2 Tags feature fields in your custom log format.</p>
+   * @public
+   */
+  ResourceType?: TaggableResourceType | undefined;
+
+  /**
+   * <p>The tag keys on your tagged resources to be displayed by the Flow Logs Amazon EC2 Tags feature fields in your custom log format.</p>
+   * @public
+   */
+  TagKeys?: string[] | undefined;
+}
+
+/**
  * <p>Describes a flow log.</p>
  * @public
  */
@@ -8140,6 +8173,12 @@ export interface FlowLog {
    * @public
    */
   DestinationOptions?: DestinationOptionsResponse | undefined;
+
+  /**
+   * <p>The tag configuration associated with the Flow Logs Amazon EC2 Tags feature fields in your custom log format.</p>
+   * @public
+   */
+  TagFieldSpecifications?: TagFieldSpecificationResponse[] | undefined;
 }
 
 /**
@@ -10947,49 +10986,4 @@ export interface ImportSnapshotTask {
    * @public
    */
   Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeImportSnapshotTasksResult {
-  /**
-   * <p>A list of zero or more import snapshot tasks that are currently active or were completed or canceled in the
-   *    previous 7 days.</p>
-   * @public
-   */
-  ImportSnapshotTasks?: ImportSnapshotTask[] | undefined;
-
-  /**
-   * <p>The token to use to get the next page of results. This value is <code>null</code> when there are no more results
-   *    to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeInstanceAttributeRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the operation, without actually making the
-   *   request, and provides an error response. If you have the required permissions, the error response is
-   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The instance attribute.</p>
-   *          <p>Note that the <code>enaSupport</code> attribute is not supported.</p>
-   * @public
-   */
-  Attribute: InstanceAttributeName | undefined;
 }

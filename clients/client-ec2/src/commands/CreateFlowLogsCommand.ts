@@ -78,6 +78,14 @@ export interface CreateFlowLogsCommandOutput extends CreateFlowLogsResult, __Met
  *     HiveCompatiblePartitions: true || false,
  *     PerHourPartition: true || false,
  *   },
+ *   TagFieldSpecifications: [ // TagFieldSpecificationListRequest
+ *     { // TagFieldSpecificationRequest
+ *       ResourceType: "network-interface" || "instance" || "auto-scaling-group",
+ *       TagKeys: [ // TagKeyList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
  * };
  * const command = new CreateFlowLogsCommand(input);
  * const response = await client.send(command);

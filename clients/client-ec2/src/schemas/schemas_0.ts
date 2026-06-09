@@ -5531,6 +5531,12 @@ const _TET = "TcpEstablishedTimeout";
 const _TEo = "TokenEndpoint";
 const _TFC = "TotalFulfilledCapacity";
 const _TFMIMB = "TotalFpgaMemoryInMiB";
+const _TFS = "TagFieldSpecifications";
+const _TFSLR = "TagFieldSpecificationListRequest";
+const _TFSLRa = "TagFieldSpecificationListResponse";
+const _TFSR = "TagFieldSpecificationRequest";
+const _TFSRa = "TagFieldSpecificationResponse";
+const _TFSa = "TagFieldSpecification";
 const _TG = "TransitGateway";
 const _TGA = "TransitGatewayAddress";
 const _TGAA = "TransitGatewayAttachmentAssociation";
@@ -5675,6 +5681,8 @@ const _TIar = "TargetIops";
 const _TIe = "TenantId";
 const _TIer = "TerminatingInstances";
 const _TK = "TagKey";
+const _TKL = "TagKeyList";
+const _TKa = "TagKeys";
 const _TL = "TagList";
 const _TLSGB = "TotalLocalStorageGB";
 const _TLSGBR = "TotalLocalStorageGBRequest";
@@ -7932,6 +7940,7 @@ const _tET = "tcpEstablishedTimeout";
 const _tEo = "tokenEndpoint";
 const _tFC = "totalFulfilledCapacity";
 const _tFMIMB = "totalFpgaMemoryInMiB";
+const _tFSS = "tagFieldSpecificationSet";
 const _tG = "transitGateway";
 const _tGA = "transitGatewayAttachments";
 const _tGAI = "transitGatewayAttachmentId";
@@ -7996,6 +8005,7 @@ const _tIa = "targetId";
 const _tIar = "targetIops";
 const _tIe = "tenantId";
 const _tK = "tagKey";
+const _tKS = "tagKeySet";
 const _tLSGB = "totalLocalStorageGB";
 const _tLV = "trackLatestVersion";
 const _tMAE = "targetMultiAttachEnabled";
@@ -10251,8 +10261,8 @@ export var CreateCapacityReservationCancellationQuoteResult$: StaticStructureSch
 ];
 export var CreateCapacityReservationFleetRequest$: StaticStructureSchema = [3, n0, _CCRFRr,
   0,
-  [_ITS, _TTC, _ASl, _CT, _Te, _ED, _IMC, _TS, _DR],
-  [[() => ReservationFleetInstanceSpecificationList, { [_xN]: _ITSn }], 1, 0, [0, 4], 0, 4, 0, [() => TagSpecificationList, { [_xN]: _TSa }], 2], 2
+  [_TTC, _ASl, _CT, _ITS, _Te, _ED, _IMC, _TS, _DR],
+  [1, 0, [0, 4], [() => ReservationFleetInstanceSpecificationList, { [_xN]: _ITSn }], 0, 4, 0, [() => TagSpecificationList, { [_xN]: _TSa }], 2], 1
 ];
 export var CreateCapacityReservationFleetResult$: StaticStructureSchema = [3, n0, _CCRFRre,
   0,
@@ -10442,8 +10452,8 @@ export var CreateFleetResult$: StaticStructureSchema = [3, n0, _CFRr,
 ];
 export var CreateFlowLogsRequest$: StaticStructureSchema = [3, n0, _CFLR,
   0,
-  [_RIes, _RTe, _DR, _CT, _DLPA, _DCAR, _LGN, _TT, _LDTo, _LD, _LF, _TS, _MAI, _DOe],
-  [[() => FlowLogResourceIds, { [_xN]: _RIeso }], 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, [() => TagSpecificationList, { [_xN]: _TSa }], 1, () => DestinationOptionsRequest$], 2
+  [_RIes, _RTe, _DR, _CT, _DLPA, _DCAR, _LGN, _TT, _LDTo, _LD, _LF, _TS, _MAI, _DOe, _TFS],
+  [[() => FlowLogResourceIds, { [_xN]: _RIeso }], 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, [() => TagSpecificationList, { [_xN]: _TSa }], 1, () => DestinationOptionsRequest$, [() => TagFieldSpecificationListRequest, { [_xN]: _TFSa }]], 2
 ];
 export var CreateFlowLogsResult$: StaticStructureSchema = [3, n0, _CFLRr,
   0,
@@ -16674,7 +16684,7 @@ export var FleetSpotMaintenanceStrategiesRequest$: StaticStructureSchema = [3, n
 ];
 export var FlowLog$: StaticStructureSchema = [3, n0, _FLl,
   0,
-  [_CTre, _DLEM, _DLPA, _DCAR, _DLS, _FLIl, _FLS, _LGN, _RIeso, _TT, _LDTo, _LD, _LF, _T, _MAI, _DOe],
+  [_CTre, _DLEM, _DLPA, _DCAR, _DLS, _FLIl, _FLS, _LGN, _RIeso, _TT, _LDTo, _LD, _LF, _T, _MAI, _DOe, _TFS],
   [[4, { [_eQN]: `CreationTime`
   , [_xN]: _cTre }], [0, { [_eQN]: `DeliverLogsErrorMessage`
   , [_xN]: _dLEM }], [0, { [_eQN]: `DeliverLogsPermissionArn`
@@ -16691,7 +16701,8 @@ export var FlowLog$: StaticStructureSchema = [3, n0, _FLl,
   , [_xN]: _lF }], [() => TagList, { [_eQN]: `TagSet`
   , [_xN]: _tS }], [1, { [_eQN]: `MaxAggregationInterval`
   , [_xN]: _mAI }], [() => DestinationOptionsResponse$, { [_eQN]: `DestinationOptions`
-  , [_xN]: _dOe }]]
+  , [_xN]: _dOe }], [() => TagFieldSpecificationListResponse, { [_eQN]: `TagFieldSpecificationSet`
+  , [_xN]: _tFSS }]]
 ];
 export var FpgaDeviceInfo$: StaticStructureSchema = [3, n0, _FDI,
   0,
@@ -24119,6 +24130,18 @@ export var TagDescription$: StaticStructureSchema = [3, n0, _TDa,
   , [_xN]: _rTe }], [0, { [_eQN]: `Value`
   , [_xN]: _v }]]
 ];
+export var TagFieldSpecificationRequest$: StaticStructureSchema = [3, n0, _TFSR,
+  0,
+  [_RTe, _TKa],
+  [0, [() => TagKeyList, { [_xN]: _TK }]]
+];
+export var TagFieldSpecificationResponse$: StaticStructureSchema = [3, n0, _TFSRa,
+  0,
+  [_RTe, _TKa],
+  [[0, { [_eQN]: `ResourceType`
+  , [_xN]: _rTe }], [() => TagKeyList, { [_eQN]: `TagKeySet`
+  , [_xN]: _tKS }]]
+];
 export var TagSpecification$: StaticStructureSchema = [3, n0, _TSa,
   0,
   [_RTe, _T],
@@ -25353,7 +25376,7 @@ export var VolumeDetail$: StaticStructureSchema = [3, n0, _VDo,
 ];
 export var VolumeModification$: StaticStructureSchema = [3, n0, _VMo,
   0,
-  [_VIo, _MSod, _SMt, _TSarg, _TIar, _TVT, _TTar, _TMAE, _OSr, _OIr, _OVT, _OTri, _OMAE, _Pro, _ST, _ETnd, _Op],
+  [_VIo, _MSod, _SMt, _TSarg, _TIar, _TVT, _TTar, _TMAE, _OSr, _OIr, _OVT, _OTri, _OMAE, _Pro, _ST, _ETnd],
   [[0, { [_eQN]: `VolumeId`
   , [_xN]: _vIo }], [0, { [_eQN]: `ModificationState`
   , [_xN]: _mSod }], [0, { [_eQN]: `StatusMessage`
@@ -25370,8 +25393,7 @@ export var VolumeModification$: StaticStructureSchema = [3, n0, _VMo,
   , [_xN]: _oMAE }], [1, { [_eQN]: `Progress`
   , [_xN]: _pro }], [4, { [_eQN]: `StartTime`
   , [_xN]: _sT }], [4, { [_eQN]: `EndTime`
-  , [_xN]: _eTn }], [() => OperatorResponse$, { [_eQN]: `Operator`
-  , [_xN]: _ope }]]
+  , [_xN]: _eTn }]]
 ];
 export var VolumeRecycleBinInfo$: StaticStructureSchema = [3, n0, _VRBI,
   0,
@@ -28153,6 +28175,18 @@ var SupportedRegionSet: StaticListSchema = [1, n0, _SRS,
 ];
 var TagDescriptionList: StaticListSchema = [1, n0, _TDL,
   0, [() => TagDescription$,
+    { [_xN]: _it }]
+];
+var TagFieldSpecificationListRequest: StaticListSchema = [1, n0, _TFSLR,
+  0, [() => TagFieldSpecificationRequest$,
+    { [_xN]: _it }]
+];
+var TagFieldSpecificationListResponse: StaticListSchema = [1, n0, _TFSLRa,
+  0, [() => TagFieldSpecificationResponse$,
+    { [_xN]: _it }]
+];
+var TagKeyList: StaticListSchema = [1, n0, _TKL,
+  0, [0,
     { [_xN]: _it }]
 ];
 var TagList: StaticListSchema = [1, n0, _TL,

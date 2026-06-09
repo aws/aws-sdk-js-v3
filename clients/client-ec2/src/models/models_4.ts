@@ -33,6 +33,7 @@ import type {
   HttpTokensState,
   HypervisorType,
   ImageState,
+  InstanceAttributeName,
   InstanceAutoRecoveryState,
   InstanceBandwidthWeighting,
   InstanceBootModeValues,
@@ -169,9 +170,55 @@ import type {
   EventInformation,
   Filter,
   IdFormat,
+  ImportSnapshotTask,
   InstanceTagNotificationAttribute,
   ProductCode,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface DescribeImportSnapshotTasksResult {
+  /**
+   * <p>A list of zero or more import snapshot tasks that are currently active or were completed or canceled in the
+   *    previous 7 days.</p>
+   * @public
+   */
+  ImportSnapshotTasks?: ImportSnapshotTask[] | undefined;
+
+  /**
+   * <p>The token to use to get the next page of results. This value is <code>null</code> when there are no more results
+   *    to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeInstanceAttributeRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the operation, without actually making the
+   *   request, and provides an error response. If you have the required permissions, the error response is
+   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The instance attribute.</p>
+   *          <p>Note that the <code>enaSupport</code> attribute is not supported.</p>
+   * @public
+   */
+  Attribute: InstanceAttributeName | undefined;
+}
 
 /**
  * <p>Describes a parameter used to set up an EBS volume in a block device mapping.</p>
@@ -14712,56 +14759,4 @@ export interface SpotPrice {
    * @public
    */
   Timestamp?: Date | undefined;
-}
-
-/**
- * <p>Contains the output of DescribeSpotPriceHistory.</p>
- * @public
- */
-export interface DescribeSpotPriceHistoryResult {
-  /**
-   * <p>The token to include in another request to get the next page of items. This value is
-   *             an empty string (<code>""</code>) or <code>null</code> when there are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The historical Spot prices.</p>
-   * @public
-   */
-  SpotPriceHistory?: SpotPrice[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeStaleSecurityGroupsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request. To get the next page of items,
-   *           make another request with the token returned in the output. For more information,
-   *           see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The ID of the VPC.</p>
-   * @public
-   */
-  VpcId: string | undefined;
 }
