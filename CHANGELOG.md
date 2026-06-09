@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1065.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1064.0...v3.1065.0) (2026-06-09)
+
+
+### Bug Fixes
+
+* **core:** export legacy root symbols from submodules instead of relative paths ([#8086](https://github.com/aws/aws-sdk-js-v3/issues/8086)) ([abea090](https://github.com/aws/aws-sdk-js-v3/commit/abea090cb45feecf626d4abeffde999b774350a2))
+* **credential-provider-sso:** forward clientConfig to SSO token provider ([#8089](https://github.com/aws/aws-sdk-js-v3/issues/8089)) ([4bacac3](https://github.com/aws/aws-sdk-js-v3/commit/4bacac32fc593bd47a48501504575cf15eaffaba))
+
+
+### Features
+
+* **client-bedrock-agentcore:** Add RetryableConflictException (HTTP 409) to InvokeAgentRuntimeCommand and GetAgentCard to prevent orphaned VMs during concurrent session access. The SDK automatically retries this exception with backoff. Enforcement is not yet active and will be enabled in a future service update. ([a9c4a0d](https://github.com/aws/aws-sdk-js-v3/commit/a9c4a0dac49fd624896af7d0c38950f39328df63))
+* **client-bedrock:** Adds support for the Amazon Bedrock account-level data retention APIs PutAccountDataRetention and GetAccountDataRetention. ([9acf4f7](https://github.com/aws/aws-sdk-js-v3/commit/9acf4f7fb1df00c72c671a372e8712de0c98c0c5))
+* **client-cloudwatch:** This release adds the APIs (AssociateDatasetKmsKey, DisassociateDatasetKmsKey, GetDataset) to manage encryption at rest for OpenTelemetry metrics in CloudWatch using AWS KMS customer managed keys. ([67566cd](https://github.com/aws/aws-sdk-js-v3/commit/67566cd62dec418034287e32dea4e2e88fc803e5))
+* **client-dynamodb-streams:** Adding new BDD representation of endpoint ruleset ([eeaa782](https://github.com/aws/aws-sdk-js-v3/commit/eeaa78277d41ca386013742e00281928b97b26ae))
+* **client-ec2:** Added TagFieldSpecifications to CreateFlowLogs and DescribeFlowLogs APIs. Customers can now specify tag keys in their Flow Logs subscriptions to capture associated EC2 resource tag values in their logs, enabling tag-based visibility. ([6a382a8](https://github.com/aws/aws-sdk-js-v3/commit/6a382a8a858c47a3304b80ac242882d2f1073f26))
+* **client-iotsitewise:** Adding new BDD representation of endpoint ruleset ([b9314d4](https://github.com/aws/aws-sdk-js-v3/commit/b9314d4a457e338d7975076f1b7923fea4febbdd))
+* **client-marketplace-commerce-analytics:** Adding new BDD representation of endpoint ruleset ([0adb8bd](https://github.com/aws/aws-sdk-js-v3/commit/0adb8bd9484bbf97b40554fa13dc26fa1a5b2001))
+* **client-odb:** Releases Autonomous Database Serverless APIs, autonomousDatabaseOciIntegrationIamRoles, linkedOciTenancyId, linkedOciCompartmentId, and subscriptionErrors fields in GetOciOnboardingStatus API response. ([fad7009](https://github.com/aws/aws-sdk-js-v3/commit/fad7009ced5a19c5953633ad1530c58c8d874046))
+* **client-outposts:** Added AWS Outposts APIs for self-service Outposts quoting and ordering. New operations include CreateQuote, GetQuote, UpdateQuote, DeleteQuote, ListQuotes, and ListOrderableInstanceTypes. ([bb1279e](https://github.com/aws/aws-sdk-js-v3/commit/bb1279eff5d814bc9795836dfc2b9d47f75bf6b5))
+* **client-timestream-query:** Adding new BDD representation of endpoint ruleset ([878fc72](https://github.com/aws/aws-sdk-js-v3/commit/878fc723bc8d77161255f8b3c12aa5cb14e9382f))
+* **client-timestream-write:** Adding new BDD representation of endpoint ruleset ([4514868](https://github.com/aws/aws-sdk-js-v3/commit/45148681a66afe8e7bbf6a3845eb86c1bf3c2d1a))
+* **clients:** update client endpoints as of 2026-06-09 ([935d71b](https://github.com/aws/aws-sdk-js-v3/commit/935d71be412b58187acbaa20fbc3f8e1003f9a73))
+
+
+
+
+
 # [3.1064.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1063.0...v3.1064.0) (2026-06-08)
 
 

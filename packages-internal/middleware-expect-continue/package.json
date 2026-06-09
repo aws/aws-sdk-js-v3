@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-expect-continue",
-  "version": "3.972.18",
+  "version": "3.972.19",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline",
@@ -19,7 +19,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/middleware-sdk-s3": "workspace:^3.972.49",
+    "@aws-sdk/middleware-sdk-s3": "workspace:^3.972.50",
     "tslib": "^2.6.2"
   },
   "engines": {

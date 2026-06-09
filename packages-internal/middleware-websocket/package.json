@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-websocket",
-  "version": "3.972.27",
+  "version": "3.972.28",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
@@ -24,7 +24,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.974.19",
+    "@aws-sdk/core": "workspace:^3.974.20",
     "@aws-sdk/types": "workspace:^3.973.12",
     "@smithy/core": "^3.24.6",
     "@smithy/fetch-http-handler": "^5.4.6",

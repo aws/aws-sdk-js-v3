@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1065.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1064.0...v3.1065.0) (2026-06-09)
+
+
+### Features
+
+* **client-cloudwatch:** This release adds the APIs (AssociateDatasetKmsKey, DisassociateDatasetKmsKey, GetDataset) to manage encryption at rest for OpenTelemetry metrics in CloudWatch using AWS KMS customer managed keys. ([67566cd](https://github.com/aws/aws-sdk-js-v3/commit/67566cd62dec418034287e32dea4e2e88fc803e5))
+
+
+
+
+
 # [3.1064.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1063.0...v3.1064.0) (2026-06-08)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudwatch

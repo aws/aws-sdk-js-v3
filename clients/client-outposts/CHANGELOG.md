@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1065.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1064.0...v3.1065.0) (2026-06-09)
+
+
+### Features
+
+* **client-outposts:** Added AWS Outposts APIs for self-service Outposts quoting and ordering. New operations include CreateQuote, GetQuote, UpdateQuote, DeleteQuote, ListQuotes, and ListOrderableInstanceTypes. ([bb1279e](https://github.com/aws/aws-sdk-js-v3/commit/bb1279eff5d814bc9795836dfc2b9d47f75bf6b5))
+
+
+
+
+
 # [3.1064.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1063.0...v3.1064.0) (2026-06-08)
 
 **Note:** Version bump only for package @aws-sdk/client-outposts

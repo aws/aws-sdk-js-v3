@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/crt-loader",
-  "version": "3.972.49",
+  "version": "3.972.50",
   "description": "Loader for AWS Common Runtime https://github.com/awslabs/aws-crt-nodejs",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -22,7 +22,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.974.19",
+    "@aws-sdk/core": "workspace:^3.974.20",
     "aws-crt": "^1.31.0",
     "tslib": "^2.6.2"
   },

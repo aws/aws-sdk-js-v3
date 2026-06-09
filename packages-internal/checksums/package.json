@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/checksums",
-  "version": "3.1000.3",
+  "version": "3.1000.4",
   "description": "Checksum algorithms and flexible checksums middleware for the AWS SDK",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
@@ -31,7 +31,7 @@
     "@aws-crypto/crc32": "5.2.0",
     "@aws-crypto/crc32c": "5.2.0",
     "@aws-crypto/util": "5.2.0",
-    "@aws-sdk/core": "workspace:^3.974.19",
+    "@aws-sdk/core": "workspace:^3.974.20",
     "@aws-sdk/types": "workspace:^3.973.12",
     "@smithy/core": "^3.24.6",
     "@smithy/types": "^4.14.3",

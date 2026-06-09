@@ -51,6 +51,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.974.20 (2026-06-09)
+### Bug Fixes
+* **core:** export legacy root symbols from submodules instead of relative paths ([#8086](https://github.com/aws/aws-sdk-js-v3/issues/8086)) ([abea090](https://github.com/aws/aws-sdk-js-v3/commit/abea090cb45feecf626d4abeffde999b774350a2))
+
+
+
 # 3.974.19 (2026-06-08)
 ### Chores
 * **scripts:** update pkg json linting ([#8082](https://github.com/aws/aws-sdk-js-v3/issues/8082)) ([86792c5](https://github.com/aws/aws-sdk-js-v3/commit/86792c5e3b9c0b697161a5a14ef119153d1c17f5))

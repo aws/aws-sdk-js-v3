@@ -52,6 +52,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.50 (2026-06-09)
+### Tests
+* **middleware-sdk-s3:** use crypto.randomUUID for E2E test bucket names ([#8088](https://github.com/aws/aws-sdk-js-v3/issues/8088)) ([ba4d194](https://github.com/aws/aws-sdk-js-v3/commit/ba4d1941fc941533bae5121efd5237d28dda012d))
+
+
+
 # 3.972.49 (2026-06-08)
 ### Chores
 * **scripts:** update pkg json linting ([#8082](https://github.com/aws/aws-sdk-js-v3/issues/8082)) ([86792c5](https://github.com/aws/aws-sdk-js-v3/commit/86792c5e3b9c0b697161a5a14ef119153d1c17f5))

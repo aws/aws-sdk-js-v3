@@ -53,6 +53,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.51 (2026-06-09)
+### Bug Fixes
+* **credential-provider-sso:** forward clientConfig to SSO token provider ([#8089](https://github.com/aws/aws-sdk-js-v3/issues/8089)) ([4bacac3](https://github.com/aws/aws-sdk-js-v3/commit/4bacac32fc593bd47a48501504575cf15eaffaba))
+
+
+
 # 3.972.50 (2026-06-08)
 ### Chores
 * **scripts:** update pkg json linting ([#8082](https://github.com/aws/aws-sdk-js-v3/issues/8082)) ([86792c5](https://github.com/aws/aws-sdk-js-v3/commit/86792c5e3b9c0b697161a5a14ef119153d1c17f5))
