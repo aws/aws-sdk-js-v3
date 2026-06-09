@@ -38,7 +38,9 @@ export const resolveSSOCredentials = async ({
         filepath,
         configFilepath,
         ignoreCache,
-      })();
+        clientConfig,
+        parentClientConfig,
+      })({ callerClientConfig });
       token = {
         accessToken: _token.token,
         expiresAt: new Date(_token.expiration!).toISOString(),

@@ -82,6 +82,44 @@ describe(resolveSSOCredentials.name, () => {
     });
   });
 
+  it("passes client configuration to the SSOTokenProvider if SSO Session name is present", async () => {
+    const mockTokenProvider = vi.fn().mockResolvedValue({
+      token: "mockAccessToken",
+      expiration: new Date(Date.now() + 6_000_000),
+    });
+    vi.mocked(tokenProviders.fromSso).mockReturnValue(mockTokenProvider);
+
+    const requestHandler = vi.fn();
+    const parentLogger = vi.fn();
+    const callerLogger = vi.fn();
+    const clientConfig = { requestHandler };
+    const parentClientConfig = { logger: parentLogger };
+    const callerClientConfig = {
+      logger: callerLogger,
+      region: vi.fn().mockResolvedValue("mock-region"),
+    };
+
+    await resolveSSOCredentials({
+      ...mockOptions,
+      ssoSession: "test-sso-session",
+      clientConfig,
+      parentClientConfig,
+      callerClientConfig,
+    });
+
+    expect(tokenProviders.fromSso).toHaveBeenCalledWith({
+      profile: undefined,
+      filepath: undefined,
+      configFilepath: undefined,
+      ignoreCache: undefined,
+      clientConfig,
+      parentClientConfig,
+    });
+    expect(mockTokenProvider).toHaveBeenCalledWith({
+      callerClientConfig,
+    });
+  });
+
   describe("throws error on expiration", () => {
     afterEach(async () => {
       const expectedError = new CredentialsProviderError(
