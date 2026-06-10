@@ -261,6 +261,8 @@ export type {
   CpuManufacturer,
   DaemonDeploymentRollbackMonitorsStatus,
   DaemonDeploymentStatus,
+  DaemonIpcMode,
+  DaemonPidMode,
   DaemonPropagateTags,
   DaemonStatus,
   DaemonTaskDefinitionRevisionFilter,

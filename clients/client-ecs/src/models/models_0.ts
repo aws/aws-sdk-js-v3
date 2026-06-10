@@ -29,6 +29,8 @@ import type {
   CpuManufacturer,
   DaemonDeploymentRollbackMonitorsStatus,
   DaemonDeploymentStatus,
+  DaemonIpcMode,
+  DaemonPidMode,
   DaemonPropagateTags,
   DaemonStatus,
   DaemonTaskDefinitionRevisionFilter,
@@ -4506,6 +4508,18 @@ export interface DaemonTaskDefinition {
    * @public
    */
   registeredBy?: string | undefined;
+
+  /**
+   * <p>The process namespace mode for the daemon. A value of <code>shared</code> means the daemon shares the PID namespace with co-located tasks, giving it visibility into application processes. A value of <code>none</code> means the daemon has its own isolated PID namespace.</p>
+   * @public
+   */
+  pidMode?: DaemonPidMode | undefined;
+
+  /**
+   * <p>The IPC namespace mode for the daemon. A value of <code>shared</code> means the daemon shares the IPC namespace with co-located tasks, allowing communication through POSIX shared memory, semaphores, and message queues. A value of <code>none</code> means the daemon has its own isolated IPC namespace.</p>
+   * @public
+   */
+  ipcMode?: DaemonIpcMode | undefined;
 }
 
 /**
@@ -4670,6 +4684,18 @@ export interface RegisterDaemonTaskDefinitionRequest {
    * @public
    */
   tags?: Tag[] | undefined;
+
+  /**
+   * <p>The process namespace mode for the daemon. When set to <code>shared</code>, the daemon shares the PID namespace with co-located tasks on the same container instance, giving the daemon visibility into application processes. When set to <code>none</code>, the daemon gets its own isolated PID namespace. The default is <code>none</code>.</p>
+   * @public
+   */
+  pidMode?: DaemonPidMode | undefined;
+
+  /**
+   * <p>The IPC namespace mode for the daemon. When set to <code>shared</code>, the daemon shares the IPC namespace with co-located tasks on the same container instance, allowing communication through POSIX shared memory, semaphores, and message queues. When set to <code>none</code>, the daemon gets its own isolated IPC namespace. The default is <code>none</code>.</p>
+   * @public
+   */
+  ipcMode?: DaemonIpcMode | undefined;
 }
 
 /**

@@ -693,6 +693,44 @@ export type UlimitName = (typeof UlimitName)[keyof typeof UlimitName];
  * @public
  * @enum
  */
+export const DaemonIpcMode = {
+  /**
+   * <p>The daemon gets its own isolated IPC namespace.</p>
+   */
+  NONE: "none",
+  /**
+   * <p>The daemon shares the IPC namespace with co-located tasks on the same container instance.</p>
+   */
+  SHARED: "shared",
+} as const;
+/**
+ * @public
+ */
+export type DaemonIpcMode = (typeof DaemonIpcMode)[keyof typeof DaemonIpcMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const DaemonPidMode = {
+  /**
+   * <p>The daemon gets its own isolated PID namespace.</p>
+   */
+  NONE: "none",
+  /**
+   * <p>The daemon shares the PID namespace with co-located tasks on the same container instance.</p>
+   */
+  SHARED: "shared",
+} as const;
+/**
+ * @public
+ */
+export type DaemonPidMode = (typeof DaemonPidMode)[keyof typeof DaemonPidMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const DaemonTaskDefinitionStatus = {
   ACTIVE: "ACTIVE",
   DELETED: "DELETED",

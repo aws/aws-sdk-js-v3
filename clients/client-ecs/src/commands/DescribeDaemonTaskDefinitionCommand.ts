@@ -190,6 +190,8 @@ export interface DescribeDaemonTaskDefinitionCommandOutput extends DescribeDaemo
  * //     registeredAt: new Date("TIMESTAMP"),
  * //     deleteRequestedAt: new Date("TIMESTAMP"),
  * //     registeredBy: "STRING_VALUE",
+ * //     pidMode: "none" || "shared",
+ * //     ipcMode: "none" || "shared",
  * //   },
  * // };
  *

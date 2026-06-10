@@ -118,11 +118,13 @@ import {
   DaemonDeploymentStatus,
   DaemonDeploymentSummary$,
   DaemonDetail$,
+  DaemonIpcMode,
   DaemonLinuxParameters$,
   DaemonNotActiveException,
   DaemonNotActiveException$,
   DaemonNotFoundException,
   DaemonNotFoundException$,
+  DaemonPidMode,
   DaemonPropagateTags,
   DaemonRevision$,
   DaemonRevisionDetail$,
@@ -1222,6 +1224,8 @@ assert(typeof CPUArchitecture === "object");
 assert(typeof CpuManufacturer === "object");
 assert(typeof DaemonDeploymentRollbackMonitorsStatus === "object");
 assert(typeof DaemonDeploymentStatus === "object");
+assert(typeof DaemonIpcMode === "object");
+assert(typeof DaemonPidMode === "object");
 assert(typeof DaemonPropagateTags === "object");
 assert(typeof DaemonStatus === "object");
 assert(typeof DaemonTaskDefinitionRevisionFilter === "object");

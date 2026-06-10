@@ -1672,8 +1672,8 @@ export var DaemonSummary$: StaticStructureSchema = [3, n0, _DS,
 ];
 export var DaemonTaskDefinition$: StaticStructureSchema = [3, n0, _DTD,
   0,
-  [_dTDA, _f, _re, _tRA, _eRA, _cD, _vo, _cp, _me, _st, _rAe, _dRAe, _rB],
-  [0, 0, 1, 0, 0, [() => DaemonContainerDefinitionList, 0], () => DaemonVolumeList, 0, 0, 0, 4, 4, 0]
+  [_dTDA, _f, _re, _tRA, _eRA, _cD, _vo, _cp, _me, _st, _rAe, _dRAe, _rB, _pMi, _iM],
+  [0, 0, 1, 0, 0, [() => DaemonContainerDefinitionList, 0], () => DaemonVolumeList, 0, 0, 0, 4, 4, 0, 0, 0]
 ];
 export var DaemonTaskDefinitionSummary$: StaticStructureSchema = [3, n0, _DTDS,
   0,
@@ -2577,8 +2577,8 @@ export var RegisterContainerInstanceResponse$: StaticStructureSchema = [3, n0, _
 ];
 export var RegisterDaemonTaskDefinitionRequest$: StaticStructureSchema = [3, n0, _RDTDR,
   0,
-  [_f, _cD, _tRA, _eRA, _cp, _me, _vo, _ta],
-  [0, [() => DaemonContainerDefinitionList, 0], 0, 0, 0, 0, () => DaemonVolumeList, () => Tags], 2
+  [_f, _cD, _tRA, _eRA, _cp, _me, _vo, _ta, _pMi, _iM],
+  [0, [() => DaemonContainerDefinitionList, 0], 0, 0, 0, 0, () => DaemonVolumeList, () => Tags, 0, 0], 2
 ];
 export var RegisterDaemonTaskDefinitionResponse$: StaticStructureSchema = [3, n0, _RDTDRe,
   0,

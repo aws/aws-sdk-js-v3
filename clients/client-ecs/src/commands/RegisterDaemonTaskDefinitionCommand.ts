@@ -184,6 +184,8 @@ export interface RegisterDaemonTaskDefinitionCommandOutput extends RegisterDaemo
  *       value: "STRING_VALUE",
  *     },
  *   ],
+ *   pidMode: "none" || "shared",
+ *   ipcMode: "none" || "shared",
  * };
  * const command = new RegisterDaemonTaskDefinitionCommand(input);
  * const response = await client.send(command);
