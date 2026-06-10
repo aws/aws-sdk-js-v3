@@ -389,6 +389,31 @@ const bodyAsString = await bodyStream.transformToString();
 const __error__ = await bodyStream.transformToString();
 ```
 
+#### Alternative: `UndiciHttpHandler`
+
+We also provide [`@aws-sdk/undici-http-handler`][] - a compatible request handler backed by
+modern, high performance Node.js [undici][] client.
+
+```bash
+npm i @aws-sdk/undici-http-handler
+```
+
+```ts
+// Example: using UndiciHttpHandler.
+import { S3 } from "@aws-sdk/client-s3";
+import { UndiciHttpHandler } from "@aws-sdk/undici-http-handler";
+
+const s3 = new S3({
+  requestHandler: new UndiciHttpHandler({
+    dispatcher: {
+      connections: 50, // analogous to maxSockets
+      headersTimeout: 3_000,
+      connect: { timeout: 3_000 },
+    },
+  }),
+});
+```
+
 #### Browsers' `requestHandler`
 
 The default browser requestHandler is `@aws-sdk/fetch-http-handler` and uses
@@ -986,3 +1011,6 @@ try {
   console.log("SendMessage Failure", error);
 }
 ```
+
+[`@aws-sdk/undici-http-handler`]: https://www.npmjs.com/package/@aws-sdk/undici-http-handler
+[undici]: https://undici.nodejs.org/
