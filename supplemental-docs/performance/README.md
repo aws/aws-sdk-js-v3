@@ -15,4 +15,4 @@ Topics:
 - [Dynamic Imports](./dynamic-imports.md)
 - [Dependency File Count Reduction](./dependency-file-count-reduction.md)
 - [Parallel workloads in Node.js](./parallel-workloads-node-js.md)
-- [Request Handler backed by high-performance undici client](https://www.npmjs.com/package/@smithy/undici-http-handler)
+- [Request Handler backed by high-performance undici client](https://www.npmjs.com/package/@aws-sdk/undici-http-handler)

@@ -391,17 +391,17 @@ const __error__ = await bodyStream.transformToString();
 
 #### Alternative: `UndiciHttpHandler`
 
-We also provide [`@smithy/undici-http-handler`][] - a compatible request handler backed by
+We also provide [`@aws-sdk/undici-http-handler`][] - a compatible request handler backed by
 modern, high performance Node.js [undici][] client.
 
 ```bash
-npm i @smithy/undici-http-handler
+npm i @aws-sdk/undici-http-handler
 ```
 
 ```ts
 // Example: using UndiciHttpHandler.
 import { S3 } from "@aws-sdk/client-s3";
-import { UndiciHttpHandler } from "@smithy/undici-http-handler";
+import { UndiciHttpHandler } from "@aws-sdk/undici-http-handler";
 
 const s3 = new S3({
   requestHandler: new UndiciHttpHandler({
@@ -1012,5 +1012,5 @@ try {
 }
 ```
 
-[`@smithy/undici-http-handler`]: https://www.npmjs.com/package/@smithy/undici-http-handler
+[`@aws-sdk/undici-http-handler`]: https://www.npmjs.com/package/@aws-sdk/undici-http-handler
 [undici]: https://undici.nodejs.org/
