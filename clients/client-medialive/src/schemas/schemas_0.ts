@@ -51,9 +51,11 @@ const _AOHS = "AudioOnlyHlsSettings";
 const _AOI = "AudioOnlyImage";
 const _AOS = "ArchiveOutputSettings";
 const _AOTC = "AudioOnlyTimecodeControl";
-const _AP = "AudioPids";
+const _AP = "AudioPid";
 const _API = "AcquisitionPointId";
+const _APMS = "AudioPreMixerSettings";
 const _APS = "AudioPidSelection";
+const _APu = "AudioPids";
 const _AQ = "AdaptiveQuantization";
 const _AR = "AutomaticRenewal";
 const _ARS = "AudioRenditionSets";
@@ -137,7 +139,7 @@ const _BUSR = "BatchUpdateScheduleRequest";
 const _BUSRa = "BatchUpdateScheduleResponse";
 const _Ba = "Bandwidth";
 const _Bo = "Body";
-const _C = "Code";
+const _C = "Channels";
 const _CA = "CannedAcl";
 const _CAh = "ChannelAlert";
 const _CAl = "ClusterAlert";
@@ -294,11 +296,11 @@ const _CWATGIlo = "CloudWatchAlarmTemplateGroupIdentifier";
 const _CWATGS = "CloudWatchAlarmTemplateGroupSummary";
 const _CWATS = "CloudWatchAlarmTemplateSummary";
 const _Ch = "Channel";
-const _Cha = "Channels";
 const _Ci = "Cidr";
 const _Cl = "Clusters";
-const _Co = "Count";
+const _Co = "Code";
 const _Cod = "Codec";
+const _Cou = "Count";
 const _Cr = "Creates";
 const _Cs = "Csid";
 const _D = "Dialnorm";
@@ -557,6 +559,7 @@ const _GCWATGR = "GetCloudWatchAlarmTemplateGroupRequest";
 const _GCWATGRe = "GetCloudWatchAlarmTemplateGroupResponse";
 const _GCWATR = "GetCloudWatchAlarmTemplateRequest";
 const _GCWATRe = "GetCloudWatchAlarmTemplateResponse";
+const _GD = "GainDb";
 const _GEBRT = "GetEventBridgeRuleTemplate";
 const _GEBRTG = "GetEventBridgeRuleTemplateGroup";
 const _GEBRTGR = "GetEventBridgeRuleTemplateGroupRequest";
@@ -995,7 +998,7 @@ const _Ou = "Output";
 const _Out = "Outputs";
 const _P = "Profile";
 const _PAAI = "PublicAddressAllocationIds";
-const _PC = "ProgramCount";
+const _PC = "PeakCalculation";
 const _PCA = "PrimaryChannelArn";
 const _PCP = "PreferredChannelPipeline";
 const _PCS = "PrimaryChannelSettings";
@@ -1003,6 +1006,7 @@ const _PCa = "PassthroughControl";
 const _PCar = "ParControl";
 const _PCc = "PcrControl";
 const _PCh = "PhaseControl";
+const _PCr = "ProgramCount";
 const _PD = "ParDenominator";
 const _PDT = "ProgramDateTime";
 const _PDTC = "ProgramDateTimeClock";
@@ -1022,6 +1026,7 @@ const _PIm = "PmtInterval";
 const _PIr = "ProgramId";
 const _PLM = "PipelineLockingMethod";
 const _PLS = "PipelineLockingSettings";
+const _PLT = "PeakLimiterThreshold";
 const _PMP = "PrivateMetadataPid";
 const _PN = "ParNumerator";
 const _PNa = "PageNumber";
@@ -1042,9 +1047,11 @@ const _PS = "ProgramSelection";
 const _PSA = "PassphraseSecretArn";
 const _PSS = "PauseStateSettings";
 const _PSSAS = "PauseStateScheduleActionSettings";
+const _PSr = "PremixSettings";
 const _PTS = "PassThroughSettings";
 const _Pe = "Period";
 const _Pi = "Pid";
+const _Pid = "Pids";
 const _Pip = "Pipeline0";
 const _Pipe = "Pipeline1";
 const _Pipel = "Pipelines";
@@ -1795,6 +1802,7 @@ const _gBR = "gopBReference";
 const _gC = "globalConfiguration";
 const _gCC = "globalColorCorrections";
 const _gCCo = "gopClosedCadence";
+const _gD = "gainDb";
 const _gI = "groupId";
 const _gIr = "groupIdentifier";
 const _gNBF = "gopNumBFrames";
@@ -1927,6 +1935,7 @@ const _lOACM = "__listOfAudioChannelMapping";
 const _lOAD = "__listOfAdditionalDestinations";
 const _lOADi = "__listOfAudioDescription";
 const _lOAFI = "__listOfAudioFeedInput";
+const _lOAP = "__listOfAudioPid";
 const _lOAS = "__listOfAudioSelector";
 const _lOAT = "__listOfAudioTrack";
 const _lOBFRM = "__listOfBatchFailedResultModel";
@@ -2157,7 +2166,7 @@ const _op = "opacity";
 const _ou = "outputs";
 const _p = "profile";
 const _pAAI = "publicAddressAllocationIds";
-const _pC = "programCount";
+const _pC = "peakCalculation";
 const _pCA = "primaryChannelArn";
 const _pCP = "preferredChannelPipeline";
 const _pCS = "primaryChannelSettings";
@@ -2165,6 +2174,7 @@ const _pCa = "passthroughControl";
 const _pCar = "parControl";
 const _pCc = "pcrControl";
 const _pCh = "phaseControl";
+const _pCr = "programCount";
 const _pD = "parDenominator";
 const _pDT = "programDateTime";
 const _pDTC = "programDateTimeClock";
@@ -2183,6 +2193,7 @@ const _pIm = "pmtInterval";
 const _pIr = "programId";
 const _pLM = "pipelineLockingMethod";
 const _pLS = "pipelineLockingSettings";
+const _pLT = "peakLimiterThreshold";
 const _pMP = "privateMetadataPid";
 const _pN = "parNumerator";
 const _pNa = "pageNumber";
@@ -2198,9 +2209,11 @@ const _pRC = "pipelinesRunningCount";
 const _pS = "programSelection";
 const _pSA = "passphraseSecretArn";
 const _pSS = "pauseStateSettings";
+const _pSr = "premixSettings";
 const _pTS = "passThroughSettings";
 const _pe = "period";
 const _pi = "pid";
+const _pid = "pids";
 const _pip = "pipeline0";
 const _pipe = "pipeline1";
 const _pipel = "pipelines";
@@ -2685,18 +2698,28 @@ export var AudioLanguageSelection$: StaticStructureSchema = [3, n0, _ALS,
 ];
 export var AudioNormalizationSettings$: StaticStructureSchema = [3, n0, _ANS,
   0,
-  [_A, _ACl, _TL],
-  [[0, { [_jN]: _a }], [0, { [_jN]: _aCl }], [1, { [_jN]: _tL }]]
+  [_A, _ACl, _TL, _PC, _PLT],
+  [[0, { [_jN]: _a }], [0, { [_jN]: _aCl }], [1, { [_jN]: _tL }], [0, { [_jN]: _pC }], [1, { [_jN]: _pLT }]]
 ];
 export var AudioOnlyHlsSettings$: StaticStructureSchema = [3, n0, _AOHS,
   0,
   [_AGI, _AOI, _ATT, _ST],
   [[0, { [_jN]: _aGI }], [() => InputLocation$, { [_jN]: _aOI }], [0, { [_jN]: _aTT }], [0, { [_jN]: _sT }]]
 ];
+export var AudioPid$: StaticStructureSchema = [3, n0, _AP,
+  0,
+  [_Pi, _DED, _PSr],
+  [[1, { [_jN]: _pi }], [() => AudioDolbyEDecode$, { [_jN]: _dED }], [() => AudioPreMixerSettings$, { [_jN]: _pSr }]], 1
+];
 export var AudioPidSelection$: StaticStructureSchema = [3, n0, _APS,
   0,
-  [_Pi],
-  [[1, { [_jN]: _pi }]], 1
+  [_Pi, _Pid],
+  [[1, { [_jN]: _pi }], [() => __listOfAudioPid, { [_jN]: _pid }]], 1
+];
+export var AudioPreMixerSettings$: StaticStructureSchema = [3, n0, _APMS,
+  0,
+  [_ANS, _C, _GD, _RSe],
+  [[() => AudioNormalizationSettings$, { [_jN]: _aNS }], [1, { [_jN]: _ch }], [1, { [_jN]: _gD }], [() => RemixSettings$, { [_jN]: _rSe }]]
 ];
 export var AudioSelector$: StaticStructureSchema = [3, n0, _ASu,
   0,
@@ -2715,8 +2738,8 @@ export var AudioSilenceFailoverSettings$: StaticStructureSchema = [3, n0, _ASFS,
 ];
 export var AudioTrack$: StaticStructureSchema = [3, n0, _ATu,
   0,
-  [_T],
-  [[1, { [_jN]: _t }]], 1
+  [_T, _PSr],
+  [[1, { [_jN]: _t }], [() => AudioPreMixerSettings$, { [_jN]: _pSr }]], 1
 ];
 export var AudioTrackSelection$: StaticStructureSchema = [3, n0, _ATS,
   0,
@@ -2775,7 +2798,7 @@ export var BatchDeleteResponse$: StaticStructureSchema = [3, n0, _BDRa,
 ];
 export var BatchFailedResultModel$: StaticStructureSchema = [3, n0, _BFRM,
   0,
-  [_Ar, _C, _I, _M],
+  [_Ar, _Co, _I, _M],
   [[0, { [_jN]: _ar }], [0, { [_jN]: _co }], [0, { [_jN]: _i }], [0, { [_jN]: _m }]]
 ];
 export var BatchScheduleActionCreateRequest$: StaticStructureSchema = [3, n0, _BSACR,
@@ -2995,7 +3018,7 @@ export var CreateChannelPlacementGroupRequest$: StaticStructureSchema = [3, n0, 
 ];
 export var CreateChannelPlacementGroupResponse$: StaticStructureSchema = [3, n0, _CCPGRr,
   0,
-  [_Ar, _Cha, _CI, _I, _N, _No, _St],
+  [_Ar, _C, _CI, _I, _N, _No, _St],
   [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _ch }], [0, { [_jN]: _cI }], [0, { [_jN]: _i }], [0, { [_jN]: _n }], [64 | 0, { [_jN]: _no }], [0, { [_jN]: _sta }]]
 ];
 export var CreateChannelRequest$: StaticStructureSchema = [3, n0, _CCR,
@@ -3170,7 +3193,7 @@ export var DeleteChannelPlacementGroupRequest$: StaticStructureSchema = [3, n0, 
 ];
 export var DeleteChannelPlacementGroupResponse$: StaticStructureSchema = [3, n0, _DCPGRe,
   0,
-  [_Ar, _Cha, _CI, _I, _N, _No, _St],
+  [_Ar, _C, _CI, _I, _N, _No, _St],
   [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _ch }], [0, { [_jN]: _cI }], [0, { [_jN]: _i }], [0, { [_jN]: _n }], [64 | 0, { [_jN]: _no }], [0, { [_jN]: _sta }]]
 ];
 export var DeleteChannelRequest$: StaticStructureSchema = [3, n0, _DCR,
@@ -3250,8 +3273,8 @@ export var DeleteMultiplexRequest$: StaticStructureSchema = [3, n0, _DMR,
 ];
 export var DeleteMultiplexResponse$: StaticStructureSchema = [3, n0, _DMRe,
   0,
-  [_Ar, _AZ, _Des, _I, _MSul, _N, _PRC, _PC, _St, _Ta],
-  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _aZ }], [() => __listOfMultiplexOutputDestination, { [_jN]: _des }], [0, { [_jN]: _i }], [() => MultiplexSettings$, { [_jN]: _mSul }], [0, { [_jN]: _n }], [1, { [_jN]: _pRC }], [1, { [_jN]: _pC }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }]]
+  [_Ar, _AZ, _Des, _I, _MSul, _N, _PRC, _PCr, _St, _Ta],
+  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _aZ }], [() => __listOfMultiplexOutputDestination, { [_jN]: _des }], [0, { [_jN]: _i }], [() => MultiplexSettings$, { [_jN]: _mSul }], [0, { [_jN]: _n }], [1, { [_jN]: _pRC }], [1, { [_jN]: _pCr }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }]]
 ];
 export var DeleteNetworkRequest$: StaticStructureSchema = [3, n0, _DNR,
   0,
@@ -3280,7 +3303,7 @@ export var DeleteReservationRequest$: StaticStructureSchema = [3, n0, _DRR,
 ];
 export var DeleteReservationResponse$: StaticStructureSchema = [3, n0, _DRRe,
   0,
-  [_Ar, _Co, _CCu, _Du, _DU, _En, _FP, _N, _OD, _OI, _OT, _Reg, _RSen, _RIes, _RSes, _Star, _St, _Ta, _UP],
+  [_Ar, _Cou, _CCu, _Du, _DU, _En, _FP, _N, _OD, _OI, _OT, _Reg, _RSen, _RIes, _RSes, _Star, _St, _Ta, _UP],
   [[0, { [_jN]: _ar }], [1, { [_jN]: _cou }], [0, { [_jN]: _cCu }], [1, { [_jN]: _du }], [0, { [_jN]: _dU }], [0, { [_jN]: _en }], [1, { [_jN]: _fP }], [0, { [_jN]: _n }], [0, { [_jN]: _oD }], [0, { [_jN]: _oI }], [0, { [_jN]: _oT }], [0, { [_jN]: _reg }], [() => RenewalSettings$, { [_jN]: _rSen }], [0, { [_jN]: _rIes }], [() => ReservationResourceSpecification$, { [_jN]: _rSes }], [0, { [_jN]: _star }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }], [1, { [_jN]: _uP }]]
 ];
 export var DeleteScheduleRequest$: StaticStructureSchema = [3, n0, _DSR,
@@ -3335,12 +3358,12 @@ export var DescribeChannelPlacementGroupRequest$: StaticStructureSchema = [3, n0
 ];
 export var DescribeChannelPlacementGroupResponse$: StaticStructureSchema = [3, n0, _DCPGResc,
   0,
-  [_Ar, _Cha, _CI, _I, _N, _No, _St],
+  [_Ar, _C, _CI, _I, _N, _No, _St],
   [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _ch }], [0, { [_jN]: _cI }], [0, { [_jN]: _i }], [0, { [_jN]: _n }], [64 | 0, { [_jN]: _no }], [0, { [_jN]: _sta }]]
 ];
 export var DescribeChannelPlacementGroupSummary$: StaticStructureSchema = [3, n0, _DCPGS,
   0,
-  [_Ar, _Cha, _CI, _I, _N, _No, _St],
+  [_Ar, _C, _CI, _I, _N, _No, _St],
   [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _ch }], [0, { [_jN]: _cI }], [0, { [_jN]: _i }], [0, { [_jN]: _n }], [64 | 0, { [_jN]: _no }], [0, { [_jN]: _sta }]]
 ];
 export var DescribeChannelRequest$: StaticStructureSchema = [3, n0, _DCRes,
@@ -3415,7 +3438,7 @@ export var DescribeInputSecurityGroupRequest$: StaticStructureSchema = [3, n0, _
 ];
 export var DescribeInputSecurityGroupResponse$: StaticStructureSchema = [3, n0, _DISGResc,
   0,
-  [_Ar, _I, _Inp, _St, _Ta, _WR, _Cha],
+  [_Ar, _I, _Inp, _St, _Ta, _WR, _C],
   [[0, { [_jN]: _ar }], [0, { [_jN]: _i }], [64 | 0, { [_jN]: _inp }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }], [() => __listOfInputWhitelistRule, { [_jN]: _wR }], [64 | 0, { [_jN]: _ch }]]
 ];
 export var DescribeLinkedChannelSettings$: StaticStructureSchema = [3, n0, _DLCS,
@@ -3440,8 +3463,8 @@ export var DescribeMultiplexRequest$: StaticStructureSchema = [3, n0, _DMRes,
 ];
 export var DescribeMultiplexResponse$: StaticStructureSchema = [3, n0, _DMResc,
   0,
-  [_Ar, _AZ, _Des, _I, _MSul, _N, _PRC, _PC, _St, _Ta],
-  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _aZ }], [() => __listOfMultiplexOutputDestination, { [_jN]: _des }], [0, { [_jN]: _i }], [() => MultiplexSettings$, { [_jN]: _mSul }], [0, { [_jN]: _n }], [1, { [_jN]: _pRC }], [1, { [_jN]: _pC }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }]]
+  [_Ar, _AZ, _Des, _I, _MSul, _N, _PRC, _PCr, _St, _Ta],
+  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _aZ }], [() => __listOfMultiplexOutputDestination, { [_jN]: _des }], [0, { [_jN]: _i }], [() => MultiplexSettings$, { [_jN]: _mSul }], [0, { [_jN]: _n }], [1, { [_jN]: _pRC }], [1, { [_jN]: _pCr }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }]]
 ];
 export var DescribeNetworkRequest$: StaticStructureSchema = [3, n0, _DNRes,
   0,
@@ -3495,7 +3518,7 @@ export var DescribeReservationRequest$: StaticStructureSchema = [3, n0, _DRRes,
 ];
 export var DescribeReservationResponse$: StaticStructureSchema = [3, n0, _DRResc,
   0,
-  [_Ar, _Co, _CCu, _Du, _DU, _En, _FP, _N, _OD, _OI, _OT, _Reg, _RSen, _RIes, _RSes, _Star, _St, _Ta, _UP],
+  [_Ar, _Cou, _CCu, _Du, _DU, _En, _FP, _N, _OD, _OI, _OT, _Reg, _RSen, _RIes, _RSes, _Star, _St, _Ta, _UP],
   [[0, { [_jN]: _ar }], [1, { [_jN]: _cou }], [0, { [_jN]: _cCu }], [1, { [_jN]: _du }], [0, { [_jN]: _dU }], [0, { [_jN]: _en }], [1, { [_jN]: _fP }], [0, { [_jN]: _n }], [0, { [_jN]: _oD }], [0, { [_jN]: _oI }], [0, { [_jN]: _oT }], [0, { [_jN]: _reg }], [() => RenewalSettings$, { [_jN]: _rSen }], [0, { [_jN]: _rIes }], [() => ReservationResourceSpecification$, { [_jN]: _rSes }], [0, { [_jN]: _star }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }], [1, { [_jN]: _uP }]]
 ];
 export var DescribeScheduleRequest$: StaticStructureSchema = [3, n0, _DSRes,
@@ -3995,7 +4018,7 @@ export var InputSdpLocation$: StaticStructureSchema = [3, n0, _ISL,
 ];
 export var InputSecurityGroup$: StaticStructureSchema = [3, n0, _ISGn,
   0,
-  [_Ar, _I, _Inp, _St, _Ta, _WR, _Cha],
+  [_Ar, _I, _Inp, _St, _Ta, _WR, _C],
   [[0, { [_jN]: _ar }], [0, { [_jN]: _i }], [64 | 0, { [_jN]: _inp }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }], [() => __listOfInputWhitelistRule, { [_jN]: _wR }], [64 | 0, { [_jN]: _ch }]]
 ];
 export var InputSettings$: StaticStructureSchema = [3, n0, _ISnp,
@@ -4105,7 +4128,7 @@ export var ListChannelsRequest$: StaticStructureSchema = [3, n0, _LCR,
 ];
 export var ListChannelsResponse$: StaticStructureSchema = [3, n0, _LCRi,
   0,
-  [_Cha, _NT],
+  [_C, _NT],
   [[() => __listOfChannelSummary, { [_jN]: _ch }], [0, { [_jN]: _nT }]]
 ];
 export var ListCloudWatchAlarmTemplateGroupsRequest$: StaticStructureSchema = [3, n0, _LCWATGR,
@@ -4320,12 +4343,12 @@ export var ListVersionsResponse$: StaticStructureSchema = [3, n0, _LVRi,
 ];
 export var M2tsSettings$: StaticStructureSchema = [3, n0, _MS,
   0,
-  [_AIAB, _Ari, _ACPr, _ACPC, _ABM, _AFPP, _AP, _AST, _B, _BMu, _CDc, _DNSv, _DSS, _DSP, _DTS, _DTP, _Eb, _EAI, _ELM, _EPb, _EPc, _ERIP, _EPP, _ESP, _FT, _K, _KDP, _NIB, _NPB, _PIa, _PCc, _PPc, _PPcr, _PIm, _PPm, _PNro, _RMa, _SPc, _SCc, _SP, _SMegm, _SSe, _STeg, _TMB, _TMPi, _TSI, _VP, _SPPM],
+  [_AIAB, _Ari, _ACPr, _ACPC, _ABM, _AFPP, _APu, _AST, _B, _BMu, _CDc, _DNSv, _DSS, _DSP, _DTS, _DTP, _Eb, _EAI, _ELM, _EPb, _EPc, _ERIP, _EPP, _ESP, _FT, _K, _KDP, _NIB, _NPB, _PIa, _PCc, _PPc, _PPcr, _PIm, _PPm, _PNro, _RMa, _SPc, _SCc, _SP, _SMegm, _SSe, _STeg, _TMB, _TMPi, _TSI, _VP, _SPPM],
   [[0, { [_jN]: _aIAB }], [0, { [_jN]: _ari }], [0, { [_jN]: _aCPr }], [0, { [_jN]: _aCPC }], [0, { [_jN]: _aBM }], [1, { [_jN]: _aFPP }], [0, { [_jN]: _aP }], [0, { [_jN]: _aST }], [1, { [_jN]: _b }], [0, { [_jN]: _bMu }], [0, { [_jN]: _cDc }], [() => DvbNitSettings$, { [_jN]: _dNS }], [() => DvbSdtSettings$, { [_jN]: _dSS }], [0, { [_jN]: _dSP }], [() => DvbTdtSettings$, { [_jN]: _dTS }], [0, { [_jN]: _dTP }], [0, { [_jN]: _eb }], [0, { [_jN]: _eAI }], [1, { [_jN]: _eLM }], [0, { [_jN]: _ePb }], [0, { [_jN]: _ePc }], [0, { [_jN]: _eRIP }], [0, { [_jN]: _ePP }], [0, { [_jN]: _eSP }], [1, { [_jN]: _fT }], [0, { [_jN]: _k }], [0, { [_jN]: _kDP }], [0, { [_jN]: _nIB }], [1, { [_jN]: _nPB }], [1, { [_jN]: _pIa }], [0, { [_jN]: _pCc }], [1, { [_jN]: _pPc }], [0, { [_jN]: _pPcr }], [1, { [_jN]: _pIm }], [0, { [_jN]: _pPm }], [1, { [_jN]: _pNro }], [0, { [_jN]: _rMa }], [0, { [_jN]: _sPc }], [0, { [_jN]: _sCc }], [0, { [_jN]: _sP }], [0, { [_jN]: _sMegm }], [0, { [_jN]: _sSe }], [1, { [_jN]: _sTeg }], [0, { [_jN]: _tMB }], [0, { [_jN]: _tMPi }], [1, { [_jN]: _tSI }], [0, { [_jN]: _vP }], [1, { [_jN]: _sPPM }]]
 ];
 export var M3u8Settings$: StaticStructureSchema = [3, n0, _MSue,
   0,
-  [_AFPP, _AP, _EPc, _NIB, _PIa, _PCc, _PPc, _PPcr, _PIm, _PPm, _PNro, _SB, _SP, _TMB, _TMPi, _TSI, _VP, _KB, _KDP],
+  [_AFPP, _APu, _EPc, _NIB, _PIa, _PCc, _PPc, _PPcr, _PIm, _PPm, _PNro, _SB, _SP, _TMB, _TMPi, _TSI, _VP, _KB, _KDP],
   [[1, { [_jN]: _aFPP }], [0, { [_jN]: _aP }], [0, { [_jN]: _ePc }], [0, { [_jN]: _nIB }], [1, { [_jN]: _pIa }], [0, { [_jN]: _pCc }], [1, { [_jN]: _pPc }], [0, { [_jN]: _pPcr }], [1, { [_jN]: _pIm }], [0, { [_jN]: _pPm }], [1, { [_jN]: _pNro }], [0, { [_jN]: _sB }], [0, { [_jN]: _sP }], [0, { [_jN]: _tMB }], [0, { [_jN]: _tMPi }], [1, { [_jN]: _tSI }], [0, { [_jN]: _vP }], [0, { [_jN]: _kB }], [0, { [_jN]: _kDP }]]
 ];
 export var MaintenanceCreateSettings$: StaticStructureSchema = [3, n0, _MCS,
@@ -4510,8 +4533,8 @@ export var MulticastSourceUpdateRequest$: StaticStructureSchema = [3, n0, _MSURu
 ];
 export var Multiplex$: StaticStructureSchema = [3, n0, _Mu,
   0,
-  [_Ar, _AZ, _Des, _I, _MSul, _N, _PRC, _PC, _St, _Ta],
-  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _aZ }], [() => __listOfMultiplexOutputDestination, { [_jN]: _des }], [0, { [_jN]: _i }], [() => MultiplexSettings$, { [_jN]: _mSul }], [0, { [_jN]: _n }], [1, { [_jN]: _pRC }], [1, { [_jN]: _pC }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }]]
+  [_Ar, _AZ, _Des, _I, _MSul, _N, _PRC, _PCr, _St, _Ta],
+  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _aZ }], [() => __listOfMultiplexOutputDestination, { [_jN]: _des }], [0, { [_jN]: _i }], [() => MultiplexSettings$, { [_jN]: _mSul }], [0, { [_jN]: _n }], [1, { [_jN]: _pRC }], [1, { [_jN]: _pCr }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }]]
 ];
 export var MultiplexAlert$: StaticStructureSchema = [3, n0, _MAu,
   0,
@@ -4560,7 +4583,7 @@ export var MultiplexProgramChannelDestinationSettings$: StaticStructureSchema = 
 ];
 export var MultiplexProgramPacketIdentifiersMap$: StaticStructureSchema = [3, n0, _MPPIM,
   0,
-  [_AP, _DSP, _DTP, _EPP, _ESP, _KDP, _PPcr, _PPm, _PMP, _SPc, _SP, _TMPi, _VP, _ACPr, _DTPv, _EPc, _SPm],
+  [_APu, _DSP, _DTP, _EPP, _ESP, _KDP, _PPcr, _PPm, _PMP, _SPc, _SP, _TMPi, _VP, _ACPr, _DTPv, _EPc, _SPm],
   [[64 | 1, { [_jN]: _aP }], [64 | 1, { [_jN]: _dSP }], [1, { [_jN]: _dTP }], [1, { [_jN]: _ePP }], [1, { [_jN]: _eSP }], [64 | 1, { [_jN]: _kDP }], [1, { [_jN]: _pPcr }], [1, { [_jN]: _pPm }], [1, { [_jN]: _pMP }], [64 | 1, { [_jN]: _sPc }], [1, { [_jN]: _sP }], [1, { [_jN]: _tMPi }], [1, { [_jN]: _vP }], [1, { [_jN]: _aCPr }], [64 | 1, { [_jN]: _dTPv }], [1, { [_jN]: _ePc }], [1, { [_jN]: _sPm }]]
 ];
 export var MultiplexProgramPipelineDetail$: StaticStructureSchema = [3, n0, _MPPD,
@@ -4600,8 +4623,8 @@ export var MultiplexStatmuxVideoSettings$: StaticStructureSchema = [3, n0, _MSVS
 ];
 export var MultiplexSummary$: StaticStructureSchema = [3, n0, _MSulti,
   0,
-  [_Ar, _AZ, _I, _MSul, _N, _PRC, _PC, _St, _Ta],
-  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _aZ }], [0, { [_jN]: _i }], [() => MultiplexSettingsSummary$, { [_jN]: _mSul }], [0, { [_jN]: _n }], [1, { [_jN]: _pRC }], [1, { [_jN]: _pC }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }]]
+  [_Ar, _AZ, _I, _MSul, _N, _PRC, _PCr, _St, _Ta],
+  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _aZ }], [0, { [_jN]: _i }], [() => MultiplexSettingsSummary$, { [_jN]: _mSul }], [0, { [_jN]: _n }], [1, { [_jN]: _pRC }], [1, { [_jN]: _pCr }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }]]
 ];
 export var MultiplexVideoSettings$: StaticStructureSchema = [3, n0, _MVS,
   0,
@@ -4720,7 +4743,7 @@ export var PrimaryChannelSettings$: StaticStructureSchema = [3, n0, _PCS,
 ];
 export var PurchaseOfferingRequest$: StaticStructureSchema = [3, n0, _POR,
   0,
-  [_Co, _OI, _N, _RSen, _RIe, _Star, _Ta],
+  [_Cou, _OI, _N, _RSen, _RIe, _Star, _Ta],
   [[1, { [_jN]: _cou }], [0, 1], [0, { [_jN]: _n }], [() => RenewalSettings$, { [_jN]: _rSen }], [0, { [_iTd]: 1, [_jN]: _rIe }], [0, { [_jN]: _star }], [128 | 0, { [_jN]: _ta }]], 2
 ];
 export var PurchaseOfferingResponse$: StaticStructureSchema = [3, n0, _PORu,
@@ -4775,7 +4798,7 @@ export var RenewalSettings$: StaticStructureSchema = [3, n0, _RSen,
 ];
 export var Reservation$: StaticStructureSchema = [3, n0, _Rese,
   0,
-  [_Ar, _Co, _CCu, _Du, _DU, _En, _FP, _N, _OD, _OI, _OT, _Reg, _RSen, _RIes, _RSes, _Star, _St, _Ta, _UP],
+  [_Ar, _Cou, _CCu, _Du, _DU, _En, _FP, _N, _OD, _OI, _OT, _Reg, _RSen, _RIes, _RSes, _Star, _St, _Ta, _UP],
   [[0, { [_jN]: _ar }], [1, { [_jN]: _cou }], [0, { [_jN]: _cCu }], [1, { [_jN]: _du }], [0, { [_jN]: _dU }], [0, { [_jN]: _en }], [1, { [_jN]: _fP }], [0, { [_jN]: _n }], [0, { [_jN]: _oD }], [0, { [_jN]: _oI }], [0, { [_jN]: _oT }], [0, { [_jN]: _reg }], [() => RenewalSettings$, { [_jN]: _rSen }], [0, { [_jN]: _rIes }], [() => ReservationResourceSpecification$, { [_jN]: _rSes }], [0, { [_jN]: _star }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }], [1, { [_jN]: _uP }]]
 ];
 export var ReservationResourceSpecification$: StaticStructureSchema = [3, n0, _RRS,
@@ -5110,8 +5133,8 @@ export var StartMultiplexRequest$: StaticStructureSchema = [3, n0, _SMR,
 ];
 export var StartMultiplexResponse$: StaticStructureSchema = [3, n0, _SMRt,
   0,
-  [_Ar, _AZ, _Des, _I, _MSul, _N, _PRC, _PC, _St, _Ta],
-  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _aZ }], [() => __listOfMultiplexOutputDestination, { [_jN]: _des }], [0, { [_jN]: _i }], [() => MultiplexSettings$, { [_jN]: _mSul }], [0, { [_jN]: _n }], [1, { [_jN]: _pRC }], [1, { [_jN]: _pC }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }]]
+  [_Ar, _AZ, _Des, _I, _MSul, _N, _PRC, _PCr, _St, _Ta],
+  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _aZ }], [() => __listOfMultiplexOutputDestination, { [_jN]: _des }], [0, { [_jN]: _i }], [() => MultiplexSettings$, { [_jN]: _mSul }], [0, { [_jN]: _n }], [1, { [_jN]: _pRC }], [1, { [_jN]: _pCr }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }]]
 ];
 export var StartTimecode$: StaticStructureSchema = [3, n0, _STt,
   0,
@@ -5180,8 +5203,8 @@ export var StopMultiplexRequest$: StaticStructureSchema = [3, n0, _SMRto,
 ];
 export var StopMultiplexResponse$: StaticStructureSchema = [3, n0, _SMRtop,
   0,
-  [_Ar, _AZ, _Des, _I, _MSul, _N, _PRC, _PC, _St, _Ta],
-  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _aZ }], [() => __listOfMultiplexOutputDestination, { [_jN]: _des }], [0, { [_jN]: _i }], [() => MultiplexSettings$, { [_jN]: _mSul }], [0, { [_jN]: _n }], [1, { [_jN]: _pRC }], [1, { [_jN]: _pC }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }]]
+  [_Ar, _AZ, _Des, _I, _MSul, _N, _PRC, _PCr, _St, _Ta],
+  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _aZ }], [() => __listOfMultiplexOutputDestination, { [_jN]: _des }], [0, { [_jN]: _i }], [() => MultiplexSettings$, { [_jN]: _mSul }], [0, { [_jN]: _n }], [1, { [_jN]: _pRC }], [1, { [_jN]: _pCr }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }]]
 ];
 export var StopTimecode$: StaticStructureSchema = [3, n0, _STto,
   0,
@@ -5300,7 +5323,7 @@ export var UpdateChannelPlacementGroupRequest$: StaticStructureSchema = [3, n0, 
 ];
 export var UpdateChannelPlacementGroupResponse$: StaticStructureSchema = [3, n0, _UCPGRp,
   0,
-  [_Ar, _Cha, _CI, _I, _N, _No, _St],
+  [_Ar, _C, _CI, _I, _N, _No, _St],
   [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _ch }], [0, { [_jN]: _cI }], [0, { [_jN]: _i }], [0, { [_jN]: _n }], [64 | 0, { [_jN]: _no }], [0, { [_jN]: _sta }]]
 ];
 export var UpdateChannelRequest$: StaticStructureSchema = [3, n0, _UCR,
@@ -5547,6 +5570,10 @@ var __listOfAudioDescription: StaticListSchema = [1, n0, _lOADi,
 ];
 var __listOfAudioFeedInput: StaticListSchema = [1, n0, _lOAFI,
   0, [() => AudioFeedInput$,
+    0]
+];
+var __listOfAudioPid: StaticListSchema = [1, n0, _lOAP,
+  0, [() => AudioPid$,
     0]
 ];
 var __listOfAudioSelector: StaticListSchema = [1, n0, _lOAS,

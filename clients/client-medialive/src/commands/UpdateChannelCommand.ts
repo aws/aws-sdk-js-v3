@@ -89,9 +89,11 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  *     AudioDescriptions: [ // __listOfAudioDescription // required
  *       { // AudioDescription
  *         AudioNormalizationSettings: { // AudioNormalizationSettings
- *           Algorithm: "ITU_1770_1" || "ITU_1770_2",
+ *           Algorithm: "ITU_1770_1" || "ITU_1770_2" || "ITU_1770_3" || "ITU_1770_4",
  *           AlgorithmControl: "CORRECT_AUDIO",
  *           TargetLkfs: Number("double"),
+ *           PeakCalculation: "NONE" || "TRUE_PEAK",
+ *           PeakLimiterThreshold: Number("double"),
  *         },
  *         AudioSelectorName: "STRING_VALUE", // required
  *         AudioType: "CLEAN_EFFECTS" || "HEARING_IMPAIRED" || "UNDEFINED" || "VISUAL_IMPAIRED_COMMENTARY",
@@ -1256,14 +1258,74 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  *               },
  *               AudioPidSelection: { // AudioPidSelection
  *                 Pid: Number("int"), // required
+ *                 Pids: [ // __listOfAudioPid
+ *                   { // AudioPid
+ *                     DolbyEDecode: { // AudioDolbyEDecode
+ *                       ProgramSelection: "ALL_CHANNELS" || "PROGRAM_1" || "PROGRAM_2" || "PROGRAM_3" || "PROGRAM_4" || "PROGRAM_5" || "PROGRAM_6" || "PROGRAM_7" || "PROGRAM_8", // required
+ *                     },
+ *                     Pid: Number("int"), // required
+ *                     PremixSettings: { // AudioPreMixerSettings
+ *                       AudioNormalizationSettings: {
+ *                         Algorithm: "ITU_1770_1" || "ITU_1770_2" || "ITU_1770_3" || "ITU_1770_4",
+ *                         AlgorithmControl: "CORRECT_AUDIO",
+ *                         TargetLkfs: Number("double"),
+ *                         PeakCalculation: "NONE" || "TRUE_PEAK",
+ *                         PeakLimiterThreshold: Number("double"),
+ *                       },
+ *                       Channels: Number("int"),
+ *                       GainDb: Number("double"),
+ *                       RemixSettings: {
+ *                         ChannelMappings: [ // required
+ *                           {
+ *                             InputChannelLevels: [ // required
+ *                               {
+ *                                 Gain: Number("int"), // required
+ *                                 InputChannel: Number("int"), // required
+ *                               },
+ *                             ],
+ *                             OutputChannel: Number("int"), // required
+ *                           },
+ *                         ],
+ *                         ChannelsIn: Number("int"),
+ *                         ChannelsOut: Number("int"),
+ *                       },
+ *                     },
+ *                   },
+ *                 ],
  *               },
  *               AudioTrackSelection: { // AudioTrackSelection
  *                 Tracks: [ // __listOfAudioTrack // required
  *                   { // AudioTrack
  *                     Track: Number("int"), // required
+ *                     PremixSettings: {
+ *                       AudioNormalizationSettings: {
+ *                         Algorithm: "ITU_1770_1" || "ITU_1770_2" || "ITU_1770_3" || "ITU_1770_4",
+ *                         AlgorithmControl: "CORRECT_AUDIO",
+ *                         TargetLkfs: Number("double"),
+ *                         PeakCalculation: "NONE" || "TRUE_PEAK",
+ *                         PeakLimiterThreshold: Number("double"),
+ *                       },
+ *                       Channels: Number("int"),
+ *                       GainDb: Number("double"),
+ *                       RemixSettings: {
+ *                         ChannelMappings: [ // required
+ *                           {
+ *                             InputChannelLevels: [ // required
+ *                               {
+ *                                 Gain: Number("int"), // required
+ *                                 InputChannel: Number("int"), // required
+ *                               },
+ *                             ],
+ *                             OutputChannel: Number("int"), // required
+ *                           },
+ *                         ],
+ *                         ChannelsIn: Number("int"),
+ *                         ChannelsOut: Number("int"),
+ *                       },
+ *                     },
  *                   },
  *                 ],
- *                 DolbyEDecode: { // AudioDolbyEDecode
+ *                 DolbyEDecode: {
  *                   ProgramSelection: "ALL_CHANNELS" || "PROGRAM_1" || "PROGRAM_2" || "PROGRAM_3" || "PROGRAM_4" || "PROGRAM_5" || "PROGRAM_6" || "PROGRAM_7" || "PROGRAM_8", // required
  *                 },
  *               },
@@ -1463,9 +1525,11 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * //       AudioDescriptions: [ // __listOfAudioDescription // required
  * //         { // AudioDescription
  * //           AudioNormalizationSettings: { // AudioNormalizationSettings
- * //             Algorithm: "ITU_1770_1" || "ITU_1770_2",
+ * //             Algorithm: "ITU_1770_1" || "ITU_1770_2" || "ITU_1770_3" || "ITU_1770_4",
  * //             AlgorithmControl: "CORRECT_AUDIO",
  * //             TargetLkfs: Number("double"),
+ * //             PeakCalculation: "NONE" || "TRUE_PEAK",
+ * //             PeakLimiterThreshold: Number("double"),
  * //           },
  * //           AudioSelectorName: "STRING_VALUE", // required
  * //           AudioType: "CLEAN_EFFECTS" || "HEARING_IMPAIRED" || "UNDEFINED" || "VISUAL_IMPAIRED_COMMENTARY",
@@ -2631,14 +2695,74 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * //                 },
  * //                 AudioPidSelection: { // AudioPidSelection
  * //                   Pid: Number("int"), // required
+ * //                   Pids: [ // __listOfAudioPid
+ * //                     { // AudioPid
+ * //                       DolbyEDecode: { // AudioDolbyEDecode
+ * //                         ProgramSelection: "ALL_CHANNELS" || "PROGRAM_1" || "PROGRAM_2" || "PROGRAM_3" || "PROGRAM_4" || "PROGRAM_5" || "PROGRAM_6" || "PROGRAM_7" || "PROGRAM_8", // required
+ * //                       },
+ * //                       Pid: Number("int"), // required
+ * //                       PremixSettings: { // AudioPreMixerSettings
+ * //                         AudioNormalizationSettings: {
+ * //                           Algorithm: "ITU_1770_1" || "ITU_1770_2" || "ITU_1770_3" || "ITU_1770_4",
+ * //                           AlgorithmControl: "CORRECT_AUDIO",
+ * //                           TargetLkfs: Number("double"),
+ * //                           PeakCalculation: "NONE" || "TRUE_PEAK",
+ * //                           PeakLimiterThreshold: Number("double"),
+ * //                         },
+ * //                         Channels: Number("int"),
+ * //                         GainDb: Number("double"),
+ * //                         RemixSettings: {
+ * //                           ChannelMappings: [ // required
+ * //                             {
+ * //                               InputChannelLevels: [ // required
+ * //                                 {
+ * //                                   Gain: Number("int"), // required
+ * //                                   InputChannel: Number("int"), // required
+ * //                                 },
+ * //                               ],
+ * //                               OutputChannel: Number("int"), // required
+ * //                             },
+ * //                           ],
+ * //                           ChannelsIn: Number("int"),
+ * //                           ChannelsOut: Number("int"),
+ * //                         },
+ * //                       },
+ * //                     },
+ * //                   ],
  * //                 },
  * //                 AudioTrackSelection: { // AudioTrackSelection
  * //                   Tracks: [ // __listOfAudioTrack // required
  * //                     { // AudioTrack
  * //                       Track: Number("int"), // required
+ * //                       PremixSettings: {
+ * //                         AudioNormalizationSettings: {
+ * //                           Algorithm: "ITU_1770_1" || "ITU_1770_2" || "ITU_1770_3" || "ITU_1770_4",
+ * //                           AlgorithmControl: "CORRECT_AUDIO",
+ * //                           TargetLkfs: Number("double"),
+ * //                           PeakCalculation: "NONE" || "TRUE_PEAK",
+ * //                           PeakLimiterThreshold: Number("double"),
+ * //                         },
+ * //                         Channels: Number("int"),
+ * //                         GainDb: Number("double"),
+ * //                         RemixSettings: {
+ * //                           ChannelMappings: [ // required
+ * //                             {
+ * //                               InputChannelLevels: [ // required
+ * //                                 {
+ * //                                   Gain: Number("int"), // required
+ * //                                   InputChannel: Number("int"), // required
+ * //                                 },
+ * //                               ],
+ * //                               OutputChannel: Number("int"), // required
+ * //                             },
+ * //                           ],
+ * //                           ChannelsIn: Number("int"),
+ * //                           ChannelsOut: Number("int"),
+ * //                         },
+ * //                       },
  * //                     },
  * //                   ],
- * //                   DolbyEDecode: { // AudioDolbyEDecode
+ * //                   DolbyEDecode: {
  * //                     ProgramSelection: "ALL_CHANNELS" || "PROGRAM_1" || "PROGRAM_2" || "PROGRAM_3" || "PROGRAM_4" || "PROGRAM_5" || "PROGRAM_6" || "PROGRAM_7" || "PROGRAM_8", // required
  * //                   },
  * //                 },

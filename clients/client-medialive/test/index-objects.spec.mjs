@@ -45,11 +45,14 @@ import {
   AudioLanguageSelectionPolicy,
   AudioNormalizationAlgorithm,
   AudioNormalizationAlgorithmControl,
+  AudioNormalizationPeakCalculation,
   AudioNormalizationSettings$,
   AudioOnlyHlsSegmentType,
   AudioOnlyHlsSettings$,
   AudioOnlyHlsTrackType,
+  AudioPid$,
   AudioPidSelection$,
+  AudioPreMixerSettings$,
   AudioSelector$,
   AudioSelectorSettings$,
   AudioSilenceFailoverSettings$,
@@ -1542,7 +1545,9 @@ assert(typeof AudioHlsRenditionSelection$ === "object");
 assert(typeof AudioLanguageSelection$ === "object");
 assert(typeof AudioNormalizationSettings$ === "object");
 assert(typeof AudioOnlyHlsSettings$ === "object");
+assert(typeof AudioPid$ === "object");
 assert(typeof AudioPidSelection$ === "object");
+assert(typeof AudioPreMixerSettings$ === "object");
 assert(typeof AudioSelector$ === "object");
 assert(typeof AudioSelectorSettings$ === "object");
 assert(typeof AudioSilenceFailoverSettings$ === "object");
@@ -2132,6 +2137,7 @@ assert(typeof AudioDescriptionLanguageCodeControl === "object");
 assert(typeof AudioLanguageSelectionPolicy === "object");
 assert(typeof AudioNormalizationAlgorithm === "object");
 assert(typeof AudioNormalizationAlgorithmControl === "object");
+assert(typeof AudioNormalizationPeakCalculation === "object");
 assert(typeof AudioOnlyHlsSegmentType === "object");
 assert(typeof AudioOnlyHlsTrackType === "object");
 assert(typeof AudioType === "object");

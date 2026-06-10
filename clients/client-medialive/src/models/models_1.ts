@@ -55,6 +55,7 @@ import type {
   RebootInputDeviceForce,
   ReservationState,
   RouterEncryptionType,
+  Scte35SegmentationScope,
   SdiSourceMode,
   SdiSourceState,
   SdiSourceType,
@@ -70,7 +71,6 @@ import type {
   AudioDescription,
   AudioFeedInput,
   AvailBlanking,
-  AvailConfiguration,
   BatchFailedResultModel,
   BatchSuccessfulResultModel,
   CaptionDescription,
@@ -91,6 +91,7 @@ import type {
   DescribeLinkedChannelSettings,
   DescribeNetworkSummary,
   DescribeNodeSummary,
+  Esam,
   EventBridgeRuleTemplateGroupSummary,
   EventBridgeRuleTemplateSummary,
   EventBridgeRuleTemplateTarget,
@@ -144,6 +145,8 @@ import type {
   RouterInputSettings,
   RouteUpdateRequest,
   ScheduleAction,
+  Scte35SpliceInsert,
+  Scte35TimeSignalApos,
   SdiSourceMapping,
   SdiSourceSummary,
   SignalMapSummary,
@@ -155,6 +158,51 @@ import type {
   VideoDescription,
   VpcOutputSettingsDescription,
 } from "./models_0";
+
+/**
+ * Avail Settings
+ * @public
+ */
+export interface AvailSettings {
+  /**
+   * Esam
+   * @public
+   */
+  Esam?: Esam | undefined;
+
+  /**
+   * Typical configuration that applies breaks on splice inserts in addition to time signal placement opportunities, breaks, and advertisements.
+   * @public
+   */
+  Scte35SpliceInsert?: Scte35SpliceInsert | undefined;
+
+  /**
+   * Atypical configuration that applies segment breaks only on SCTE-35 time signal placement opportunities and breaks.
+   * @public
+   */
+  Scte35TimeSignalApos?: Scte35TimeSignalApos | undefined;
+}
+
+/**
+ * Avail Configuration
+ * @public
+ */
+export interface AvailConfiguration {
+  /**
+   * Controls how SCTE-35 messages create cues. Splice Insert mode treats all segmentation signals traditionally. With Time Signal APOS mode only Time Signal Placement Opportunity and Break messages create segment breaks. With ESAM mode, signals are forwarded to an ESAM server for possible update.
+   * @public
+   */
+  AvailSettings?: AvailSettings | undefined;
+
+  /**
+   * Configures whether SCTE 35 passthrough triggers segment breaks in all output groups that use segmented outputs. Insertion of a SCTE 35 message typically results in a segment break, in addition to the regular cadence of breaks. The segment breaks appear in video outputs, audio outputs, and captions outputs (if any).
+   *
+   * ALL_OUTPUT_GROUPS: Default. Insert the segment break in in all output groups that have segmented outputs. This is the legacy behavior.
+   * SCTE35_ENABLED_OUTPUT_GROUPS: Insert the segment break only in output groups that have SCTE 35 passthrough enabled. This is the recommended value, because it reduces unnecessary segment breaks.
+   * @public
+   */
+  Scte35SegmentationScope?: Scte35SegmentationScope | undefined;
+}
 
 /**
  * A request to delete resources

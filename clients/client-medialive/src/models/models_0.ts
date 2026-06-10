@@ -21,6 +21,7 @@ import type {
   AudioLanguageSelectionPolicy,
   AudioNormalizationAlgorithm,
   AudioNormalizationAlgorithmControl,
+  AudioNormalizationPeakCalculation,
   AudioOnlyHlsSegmentType,
   AudioOnlyHlsTrackType,
   AudioType,
@@ -288,7 +289,6 @@ import type {
   Scte35InputMode,
   Scte35NoRegionalBlackoutFlag,
   Scte35SegmentationCancelIndicator,
-  Scte35SegmentationScope,
   Scte35SpliceInsertNoRegionalBlackoutBehavior,
   Scte35SpliceInsertWebDeliveryAllowedBehavior,
   Scte35Type,
@@ -389,7 +389,19 @@ export interface AudioChannelMapping {
  */
 export interface AudioNormalizationSettings {
   /**
-   * Audio normalization algorithm to use. itu17701 conforms to the CALM Act specification, itu17702 conforms to the EBU R-128 specification.
+   * Choose one of the following audio normalization algorithms:
+   *
+   * ITU-R BS.1770-1: Ungated loudness. A measurement of ungated average loudness for an entire piece of content,
+   * suitable for measurement of short-form content under ATSC recommendation A/85. Supports up to 5.1 audio channels.
+   *
+   * ITU-R BS.1770-2: Gated loudness. A measurement of gated average loudness compliant with the requirements of
+   * EBU-R128. Supports up to 5.1 audio channels.
+   *
+   * ITU-R BS.1770-3: Modified peak. The same loudness measurement algorithm as 1770-2, with an updated true peak
+   * measurement.
+   *
+   * ITU-R BS.1770-4: Higher channel count. Allows for more audio channels than the other algorithms, including
+   * configurations such as 7.1.
    * @public
    */
   Algorithm?: AudioNormalizationAlgorithm | undefined;
@@ -405,6 +417,21 @@ export interface AudioNormalizationSettings {
    * @public
    */
   TargetLkfs?: number | undefined;
+
+  /**
+   * If set to TRUE_PEAK, calculate the TruePeak for each output's audio track loudness.
+   * @public
+   */
+  PeakCalculation?: AudioNormalizationPeakCalculation | undefined;
+
+  /**
+   * Peak limiter threshold in decibels relative to true peak (dBTP) if TRUE_PEAK is enabled.
+   * If TRUE_PEAK is not enabled a full scale (dbFS) value is used.
+   * The peak inter-audio sample loudness in your output will be limited to the value that you specify,
+   * without affecting the overall target LKFS. Leave blank to use the default value 0.
+   * @public
+   */
+  PeakLimiterThreshold?: number | undefined;
 }
 
 /**
@@ -1017,6 +1044,84 @@ export interface AudioFeedInput {
 }
 
 /**
+ * Audio Dolby EDecode
+ * @public
+ */
+export interface AudioDolbyEDecode {
+  /**
+   * Applies only to Dolby E. Enter the program ID (according to the metadata in the audio) of the Dolby E program to extract from the specified track. One program extracted per audio selector. To select multiple programs, create multiple selectors with the same Track and different Program numbers. “All channels” means to ignore the program IDs and include all the channels in this selector; useful if metadata is known to be incorrect.
+   * @public
+   */
+  ProgramSelection: DolbyEProgramSelection | undefined;
+}
+
+/**
+ * Audio pre-mixer settings for normalizing audio before interleaving.
+ * These settings can be applied to individual PIDs or tracks before they are combined.
+ * @public
+ */
+export interface AudioPreMixerSettings {
+  /**
+   * Audio normalization settings for loudness control.
+   * When specified, audio loudness will be normalized according to the chosen algorithm.
+   * @public
+   */
+  AudioNormalizationSettings?: AudioNormalizationSettings | undefined;
+
+  /**
+   * Number of audio channels.
+   * If specified, the audio will be remixed to match this channel count.
+   * Ignored if remixSettings is specified.
+   * @public
+   */
+  Channels?: number | undefined;
+
+  /**
+   * Gain adjustment in dB to apply.
+   * Range: -60 to +60 dB
+   * @public
+   */
+  GainDb?: number | undefined;
+
+  /**
+   * Settings that control how input audio channels are remixed.
+   * When specified, allows fine-grained control over channel mapping and gain levels.
+   * Takes precedence over the 'channels' setting.
+   * @public
+   */
+  RemixSettings?: RemixSettings | undefined;
+}
+
+/**
+ * Represents a single PID value for audio selection with optional pre-mixer settings
+ * @public
+ */
+export interface AudioPid {
+  /**
+   * Configure decoding options for Dolby E streams - these should be Dolby E frames carried in PCM streams tagged with SMPTE-337.
+   * When using the 'pids' array, if this field is not specified and Dolby E content is present,
+   * the decoder will extract the specified program. To maintain legacy behavior (allPrograms),
+   * explicitly set programSelection to "allChannels".
+   * @public
+   */
+  DolbyEDecode?: AudioDolbyEDecode | undefined;
+
+  /**
+   * PID value from within a source.
+   * @public
+   */
+  Pid: number | undefined;
+
+  /**
+   * Optional audio pre-mixer settings for this PID.
+   * When specified, allows per-PID audio processing including channel remixing,
+   * gain adjustment, and loudness normalization before interleaving.
+   * @public
+   */
+  PremixSettings?: AudioPreMixerSettings | undefined;
+}
+
+/**
  * Audio Hls Rendition Selection
  * @public
  */
@@ -1062,22 +1167,17 @@ export interface AudioPidSelection {
    * @public
    */
   Pid: number | undefined;
-}
 
-/**
- * Audio Dolby EDecode
- * @public
- */
-export interface AudioDolbyEDecode {
   /**
-   * Applies only to Dolby E. Enter the program ID (according to the metadata in the audio) of the Dolby E program to extract from the specified track. One program extracted per audio selector. To select multiple programs, create multiple selectors with the same Track and different Program numbers. “All channels” means to ignore the program IDs and include all the channels in this selector; useful if metadata is known to be incorrect.
+   * Selects one or more unique PIDs from within a source.
+   * When using 'pids', you can specify per-PID audio pre-mixer settings.
    * @public
    */
-  ProgramSelection: DolbyEProgramSelection | undefined;
+  Pids?: AudioPid[] | undefined;
 }
 
 /**
- * Audio Track
+ * Represents a single audio track for selection with optional pre-mixer settings
  * @public
  */
 export interface AudioTrack {
@@ -1086,6 +1186,14 @@ export interface AudioTrack {
    * @public
    */
   Track: number | undefined;
+
+  /**
+   * Optional audio pre-mixer settings for this track.
+   * When specified, allows per-track audio processing including channel remixing,
+   * gain adjustment, and loudness normalization before interleaving.
+   * @public
+   */
+  PremixSettings?: AudioPreMixerSettings | undefined;
 }
 
 /**
@@ -10283,49 +10391,4 @@ export interface Scte35TimeSignalApos {
    * @public
    */
   WebDeliveryAllowedFlag?: Scte35AposWebDeliveryAllowedBehavior | undefined;
-}
-
-/**
- * Avail Settings
- * @public
- */
-export interface AvailSettings {
-  /**
-   * Esam
-   * @public
-   */
-  Esam?: Esam | undefined;
-
-  /**
-   * Typical configuration that applies breaks on splice inserts in addition to time signal placement opportunities, breaks, and advertisements.
-   * @public
-   */
-  Scte35SpliceInsert?: Scte35SpliceInsert | undefined;
-
-  /**
-   * Atypical configuration that applies segment breaks only on SCTE-35 time signal placement opportunities and breaks.
-   * @public
-   */
-  Scte35TimeSignalApos?: Scte35TimeSignalApos | undefined;
-}
-
-/**
- * Avail Configuration
- * @public
- */
-export interface AvailConfiguration {
-  /**
-   * Controls how SCTE-35 messages create cues. Splice Insert mode treats all segmentation signals traditionally. With Time Signal APOS mode only Time Signal Placement Opportunity and Break messages create segment breaks. With ESAM mode, signals are forwarded to an ESAM server for possible update.
-   * @public
-   */
-  AvailSettings?: AvailSettings | undefined;
-
-  /**
-   * Configures whether SCTE 35 passthrough triggers segment breaks in all output groups that use segmented outputs. Insertion of a SCTE 35 message typically results in a segment break, in addition to the regular cadence of breaks. The segment breaks appear in video outputs, audio outputs, and captions outputs (if any).
-   *
-   * ALL_OUTPUT_GROUPS: Default. Insert the segment break in in all output groups that have segmented outputs. This is the legacy behavior.
-   * SCTE35_ENABLED_OUTPUT_GROUPS: Insert the segment break only in output groups that have SCTE 35 passthrough enabled. This is the recommended value, because it reduces unnecessary segment breaks.
-   * @public
-   */
-  Scte35SegmentationScope?: Scte35SegmentationScope | undefined;
 }

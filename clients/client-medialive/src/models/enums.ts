@@ -26,6 +26,8 @@ export type DashRoleAudio = (typeof DashRoleAudio)[keyof typeof DashRoleAudio];
 export const AudioNormalizationAlgorithm = {
   ITU_1770_1: "ITU_1770_1",
   ITU_1770_2: "ITU_1770_2",
+  ITU_1770_3: "ITU_1770_3",
+  ITU_1770_4: "ITU_1770_4",
 } as const;
 /**
  * @public
@@ -45,6 +47,20 @@ export const AudioNormalizationAlgorithmControl = {
  */
 export type AudioNormalizationAlgorithmControl =
   (typeof AudioNormalizationAlgorithmControl)[keyof typeof AudioNormalizationAlgorithmControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const AudioNormalizationPeakCalculation = {
+  NONE: "NONE",
+  TRUE_PEAK: "TRUE_PEAK",
+} as const;
+/**
+ * @public
+ */
+export type AudioNormalizationPeakCalculation =
+  (typeof AudioNormalizationPeakCalculation)[keyof typeof AudioNormalizationPeakCalculation];
 
 /**
  * @public
@@ -617,20 +633,6 @@ export type AudioDescriptionLanguageCodeControl =
  * @public
  * @enum
  */
-export const AudioLanguageSelectionPolicy = {
-  LOOSE: "LOOSE",
-  STRICT: "STRICT",
-} as const;
-/**
- * @public
- */
-export type AudioLanguageSelectionPolicy =
-  (typeof AudioLanguageSelectionPolicy)[keyof typeof AudioLanguageSelectionPolicy];
-
-/**
- * @public
- * @enum
- */
 export const DolbyEProgramSelection = {
   ALL_CHANNELS: "ALL_CHANNELS",
   PROGRAM_1: "PROGRAM_1",
@@ -646,6 +648,20 @@ export const DolbyEProgramSelection = {
  * @public
  */
 export type DolbyEProgramSelection = (typeof DolbyEProgramSelection)[keyof typeof DolbyEProgramSelection];
+
+/**
+ * @public
+ * @enum
+ */
+export const AudioLanguageSelectionPolicy = {
+  LOOSE: "LOOSE",
+  STRICT: "STRICT",
+} as const;
+/**
+ * @public
+ */
+export type AudioLanguageSelectionPolicy =
+  (typeof AudioLanguageSelectionPolicy)[keyof typeof AudioLanguageSelectionPolicy];
 
 /**
  * @public
