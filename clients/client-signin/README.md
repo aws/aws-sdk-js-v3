@@ -23,16 +23,16 @@ To install this package, use the CLI of your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SigninClient` and
-the commands you need, for example `CreateOAuth2TokenCommand`:
+the commands you need, for example `ListResourcePermissionStatementsCommand`:
 
 ```js
 // ES5 example
-const { SigninClient, CreateOAuth2TokenCommand } = require("@aws-sdk/client-signin");
+const { SigninClient, ListResourcePermissionStatementsCommand } = require("@aws-sdk/client-signin");
 ```
 
 ```ts
 // ES6+ example
-import { SigninClient, CreateOAuth2TokenCommand } from "@aws-sdk/client-signin";
+import { SigninClient, ListResourcePermissionStatementsCommand } from "@aws-sdk/client-signin";
 ```
 
 ### Usage
@@ -49,7 +49,7 @@ To send a request:
 const client = new SigninClient({ region: "REGION" });
 
 const params = { /** input parameters */ };
-const command = new CreateOAuth2TokenCommand(params);
+const command = new ListResourcePermissionStatementsCommand(params);
 ```
 
 #### Async/await
@@ -105,7 +105,7 @@ const client = new Signin({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createOAuth2Token(params);
+  const data = await client.listResourcePermissionStatements(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -113,7 +113,7 @@ try {
 
 // Promises.
 client
-  .createOAuth2Token(params)
+  .listResourcePermissionStatements(params)
   .then((data) => {
     // process data.
   })
@@ -122,7 +122,7 @@ client
   });
 
 // callbacks (not recommended).
-client.createOAuth2Token(params, (err, data) => {
+client.listResourcePermissionStatements(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -186,4 +186,53 @@ CreateOAuth2Token
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/signin/command/CreateOAuth2TokenCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signin/Interface/CreateOAuth2TokenCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signin/Interface/CreateOAuth2TokenCommandOutput/)
+</details>
+<details>
+<summary>
+DeleteConsoleAuthorizationConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/signin/command/DeleteConsoleAuthorizationConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signin/Interface/DeleteConsoleAuthorizationConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signin/Interface/DeleteConsoleAuthorizationConfigurationCommandOutput/)
+</details>
+<details>
+<summary>
+DeleteResourcePermissionStatement
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/signin/command/DeleteResourcePermissionStatementCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signin/Interface/DeleteResourcePermissionStatementCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signin/Interface/DeleteResourcePermissionStatementCommandOutput/)
+</details>
+<details>
+<summary>
+GetConsoleAuthorizationConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/signin/command/GetConsoleAuthorizationConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signin/Interface/GetConsoleAuthorizationConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signin/Interface/GetConsoleAuthorizationConfigurationCommandOutput/)
+</details>
+<details>
+<summary>
+GetResourcePolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/signin/command/GetResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signin/Interface/GetResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signin/Interface/GetResourcePolicyCommandOutput/)
+</details>
+<details>
+<summary>
+ListResourcePermissionStatements
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/signin/command/ListResourcePermissionStatementsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signin/Interface/ListResourcePermissionStatementsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signin/Interface/ListResourcePermissionStatementsCommandOutput/)
+</details>
+<details>
+<summary>
+PutConsoleAuthorizationConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/signin/command/PutConsoleAuthorizationConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signin/Interface/PutConsoleAuthorizationConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signin/Interface/PutConsoleAuthorizationConfigurationCommandOutput/)
+</details>
+<details>
+<summary>
+PutResourcePermissionStatement
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/signin/command/PutResourcePermissionStatementCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signin/Interface/PutResourcePermissionStatementCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signin/Interface/PutResourcePermissionStatementCommandOutput/)
 </details>

@@ -40,6 +40,38 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * Error thrown when request conflicts with current state
+ *
+ * HTTP Status Code: 409 Conflict
+ *
+ * Used when the request conflicts with the current state of the resource
+ * @public
+ */
+export class ConflictException extends __BaseException {
+  readonly name = "ConflictException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * OAuth 2.0 error code indicating conflict
+   * Will be CONFLICT
+   * @public
+   */
+  error: OAuth2ErrorCode | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.error = opts.error;
+  }
+}
+
+/**
  * Error thrown when an internal server error occurs
  *
  * HTTP Status Code: 500 Internal Server Error
@@ -139,6 +171,70 @@ export class ValidationException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ValidationException.prototype);
+    this.error = opts.error;
+  }
+}
+
+/**
+ * Error thrown when requested resource is not found
+ *
+ * HTTP Status Code: 404 Not Found
+ *
+ * Used when the specified resource does not exist
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name = "ResourceNotFoundException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * OAuth 2.0 error code indicating resource not found
+   * Will be RESOURCE_NOT_FOUND
+   * @public
+   */
+  error: OAuth2ErrorCode | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.error = opts.error;
+  }
+}
+
+/**
+ * Error thrown when service quota is exceeded
+ *
+ * HTTP Status Code: 402 Payment Required (used as quota exceeded indicator)
+ *
+ * Used when the request would cause a service quota to be exceeded
+ * @public
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name = "ServiceQuotaExceededException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * OAuth 2.0 error code indicating service quota exceeded
+   * Will be SERVICE_QUOTA_EXCEEDED
+   * @public
+   */
+  error: OAuth2ErrorCode | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
     this.error = opts.error;
   }
 }

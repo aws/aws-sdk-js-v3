@@ -58,6 +58,34 @@ import type {
   CreateOAuth2TokenCommandInput,
   CreateOAuth2TokenCommandOutput,
 } from "./commands/CreateOAuth2TokenCommand";
+import type {
+  DeleteConsoleAuthorizationConfigurationCommandInput,
+  DeleteConsoleAuthorizationConfigurationCommandOutput,
+} from "./commands/DeleteConsoleAuthorizationConfigurationCommand";
+import type {
+  DeleteResourcePermissionStatementCommandInput,
+  DeleteResourcePermissionStatementCommandOutput,
+} from "./commands/DeleteResourcePermissionStatementCommand";
+import type {
+  GetConsoleAuthorizationConfigurationCommandInput,
+  GetConsoleAuthorizationConfigurationCommandOutput,
+} from "./commands/GetConsoleAuthorizationConfigurationCommand";
+import type {
+  GetResourcePolicyCommandInput,
+  GetResourcePolicyCommandOutput,
+} from "./commands/GetResourcePolicyCommand";
+import type {
+  ListResourcePermissionStatementsCommandInput,
+  ListResourcePermissionStatementsCommandOutput,
+} from "./commands/ListResourcePermissionStatementsCommand";
+import type {
+  PutConsoleAuthorizationConfigurationCommandInput,
+  PutConsoleAuthorizationConfigurationCommandOutput,
+} from "./commands/PutConsoleAuthorizationConfigurationCommand";
+import type {
+  PutResourcePermissionStatementCommandInput,
+  PutResourcePermissionStatementCommandOutput,
+} from "./commands/PutResourcePermissionStatementCommand";
 import {
   type ClientInputEndpointParameters,
   type ClientResolvedEndpointParameters,
@@ -73,13 +101,27 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
-  | CreateOAuth2TokenCommandInput;
+  | CreateOAuth2TokenCommandInput
+  | DeleteConsoleAuthorizationConfigurationCommandInput
+  | DeleteResourcePermissionStatementCommandInput
+  | GetConsoleAuthorizationConfigurationCommandInput
+  | GetResourcePolicyCommandInput
+  | ListResourcePermissionStatementsCommandInput
+  | PutConsoleAuthorizationConfigurationCommandInput
+  | PutResourcePermissionStatementCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
-  | CreateOAuth2TokenCommandOutput;
+  | CreateOAuth2TokenCommandOutput
+  | DeleteConsoleAuthorizationConfigurationCommandOutput
+  | DeleteResourcePermissionStatementCommandOutput
+  | GetConsoleAuthorizationConfigurationCommandOutput
+  | GetResourcePolicyCommandOutput
+  | ListResourcePermissionStatementsCommandOutput
+  | PutConsoleAuthorizationConfigurationCommandOutput
+  | PutResourcePermissionStatementCommandOutput;
 
 /**
  * @public

@@ -49,4 +49,5 @@ export interface EndpointParameters extends __EndpointParameters {
   UseFIPS?: boolean | undefined;
   Endpoint?: string | undefined;
   Region?: string | undefined;
+  IsControlPlane?: boolean | undefined;
 }
