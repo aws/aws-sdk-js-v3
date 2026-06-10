@@ -1539,6 +1539,10 @@
     "WaiterConfiguration": "type(interface)",
     "WithSdkStreamMixin": "type(object)"
   },
+  "@aws-sdk/undici-http-handler": {
+    "UndiciHttpHandler": "function",
+    "UndiciHttpHandlerOptions": "type(interface)"
+  },
   "@aws-sdk/util-arn-parser": {
     "ARN": "type(interface)",
     "build": "function",
