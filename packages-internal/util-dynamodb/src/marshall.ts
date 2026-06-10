@@ -96,7 +96,7 @@ export function marshall(data: any, options?: marshallOptions): any;
  */
 export function marshall(data: unknown, options?: marshallOptions): AttributeValue.$UnknownMember;
 export function marshall(data: unknown, options?: marshallOptions) {
-  const attributeValue: AttributeValue = convertToAttr(data, options);
+  const attributeValue: AttributeValue = convertToAttr(data as NativeAttributeValue, options);
   const [key, value] = Object.entries(attributeValue)[0];
 
   switch (key) {
