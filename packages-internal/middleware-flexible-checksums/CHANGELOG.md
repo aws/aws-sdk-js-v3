@@ -51,6 +51,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.974.30 (2026-06-10)
+### Chores
+* **middleware-flexible-checksums:** update dependencies.
+
+
+
 # 3.974.29 (2026-06-09)
 ### Chores
 * **middleware-flexible-checksums:** update dependencies.

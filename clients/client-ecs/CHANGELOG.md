@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1066.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1065.0...v3.1066.0) (2026-06-10)
+
+
+### Features
+
+* **client-ecs:** Amazon ECS Managed Daemon task definitions now support pidMode and ipcMode parameters. Set shared to allow daemons to share PID or IPC namespaces with co-located tasks on Managed Instances, enabling process tracing and shared memory communication. ([4a88904](https://github.com/aws/aws-sdk-js-v3/commit/4a88904d67e2b9293a9352218615cd7566338757))
+
+
+
+
+
 # [3.1065.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1064.0...v3.1065.0) (2026-06-09)
 
 **Note:** Version bump only for package @aws-sdk/client-ecs

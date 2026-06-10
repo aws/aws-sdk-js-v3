@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1066.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1065.0...v3.1066.0) (2026-06-10)
+
+
+### Features
+
+* **client-sagemaker:** Add support for G6e instances (ml.g6e.xlarge through ml.g6e.48xlarge) on Amazon SageMaker Notebook Instances. ([1f9aaa5](https://github.com/aws/aws-sdk-js-v3/commit/1f9aaa5b6b507edf9e2838414d588f539395ffde))
+
+
+
+
+
 # [3.1065.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1064.0...v3.1065.0) (2026-06-09)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker

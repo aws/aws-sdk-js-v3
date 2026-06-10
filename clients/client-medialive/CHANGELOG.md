@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1066.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1065.0...v3.1066.0) (2026-06-10)
+
+
+### Features
+
+* **client-medialive:** Adding premixer settings to pid and track audio inputs in MediaLIve to allow greater control over mixing audio from multiple source streams including support for AudioPidSelectors made up of multiple audio PIDs. ([82f4fa6](https://github.com/aws/aws-sdk-js-v3/commit/82f4fa6a5d267d9078c2b90ef4fe589ff3db241a))
+
+
+
+
+
 # [3.1065.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1064.0...v3.1065.0) (2026-06-09)
 
 **Note:** Version bump only for package @aws-sdk/client-medialive

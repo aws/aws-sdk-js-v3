@@ -54,6 +54,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.52 (2026-06-10)
+### Chores
+* **credential-provider-sso:** update dependencies.
+
+
+
 # 3.972.51 (2026-06-09)
 ### Bug Fixes
 * **credential-provider-sso:** forward clientConfig to SSO token provider ([#8089](https://github.com/aws/aws-sdk-js-v3/issues/8089)) ([4bacac3](https://github.com/aws/aws-sdk-js-v3/commit/4bacac32fc593bd47a48501504575cf15eaffaba))

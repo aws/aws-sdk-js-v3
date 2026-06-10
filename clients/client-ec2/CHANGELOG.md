@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1066.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1065.0...v3.1066.0) (2026-06-10)
+
+
+### Features
+
+* **client-ec2:** This release adds support for AMI Watermark which a structured identifier that helps in tracking AMI provenance ([e4a7c0b](https://github.com/aws/aws-sdk-js-v3/commit/e4a7c0b84264e82677ed15f2e9267118cf16b0c5))
+
+
+
+
+
 # [3.1065.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1064.0...v3.1065.0) (2026-06-09)
 
 

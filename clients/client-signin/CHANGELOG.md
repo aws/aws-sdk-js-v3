@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1066.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1065.0...v3.1066.0) (2026-06-10)
+
+
+### Features
+
+* **client-signin:** AWS Sign-In now allows customers to control access to the AWS Management Console using resource-based policies. With this release customers can restrict console access based on network perimeters such as VPC IDs, VPC endpoints, and IP addresses. ([7ac0cf5](https://github.com/aws/aws-sdk-js-v3/commit/7ac0cf5ffcd6864f67affa5471fc2af16874df4e))
+
+
+
+
+
 # [3.1065.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1064.0...v3.1065.0) (2026-06-09)
 
 **Note:** Version bump only for package @aws-sdk/client-signin

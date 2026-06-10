@@ -22,6 +22,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.20 (2026-06-10)
+### Chores
+* **middleware-expect-continue:** update dependencies.
+
+
+
 # 3.972.19 (2026-06-09)
 ### Chores
 * **middleware-expect-continue:** update dependencies.

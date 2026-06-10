@@ -36,6 +36,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.996.34 (2026-06-09)
+### Tests
+* use crypto.randomUUID for resource names in e2e tests ([#8091](https://github.com/aws/aws-sdk-js-v3/issues/8091)) ([e4ef6c5](https://github.com/aws/aws-sdk-js-v3/commit/e4ef6c57d8fd97d15e0a7a27a24396990d704307))
+
+
+
 # 3.996.33 (2026-06-08)
 ### Chores
 * **scripts:** update pkg json linting ([#8082](https://github.com/aws/aws-sdk-js-v3/issues/8082)) ([86792c5](https://github.com/aws/aws-sdk-js-v3/commit/86792c5e3b9c0b697161a5a14ef119153d1c17f5))

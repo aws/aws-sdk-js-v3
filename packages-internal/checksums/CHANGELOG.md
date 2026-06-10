@@ -5,6 +5,13 @@
 
 
 
+
+# 3.1000.5 (2026-06-09)
+### Tests
+* use crypto.randomUUID for resource names in e2e tests ([#8091](https://github.com/aws/aws-sdk-js-v3/issues/8091)) ([e4ef6c5](https://github.com/aws/aws-sdk-js-v3/commit/e4ef6c57d8fd97d15e0a7a27a24396990d704307))
+
+
+
 # 3.1000.4 (2026-06-09)
 ### Chores
 * **checksums:** update dependencies.

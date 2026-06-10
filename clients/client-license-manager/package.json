@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-license-manager",
   "description": "AWS SDK for JavaScript License Manager Client for Node.js, Browser and React Native",
-  "version": "3.1065.0",
+  "version": "3.1066.0",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline",
@@ -22,7 +22,7 @@
     "@aws-crypto/sha256-browser": "5.2.0",
     "@aws-crypto/sha256-js": "5.2.0",
     "@aws-sdk/core": "workspace:^3.974.20",
-    "@aws-sdk/credential-provider-node": "workspace:^3.972.54",
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.55",
     "@aws-sdk/types": "workspace:^3.973.12",
     "@smithy/core": "^3.24.6",
     "@smithy/fetch-http-handler": "^5.4.6",

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/signature-v4-multi-region",
-  "version": "3.996.33",
+  "version": "3.996.34",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:browser": "node ./test-browser/browser-build/esbuild",

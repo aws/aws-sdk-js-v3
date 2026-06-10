@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1066.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1065.0...v3.1066.0) (2026-06-10)
+
+
+### Features
+
+* **client-amp:** Adds supports for out-of-order sample ingestion (default 1-minute window) and a configurable rule query offset to reduce data loss and improve alerting accuracy. ([7c5a641](https://github.com/aws/aws-sdk-js-v3/commit/7c5a6413fe3786fc2f31d20c8a2d54783514e4fd))
+* **client-connecthealth:** Add support for MedicalScribeBinaryAudioEvent in the Medical Scribe streaming input. This new event type lets you send audio as a raw binary payload instead of a base64-encoded value ([b53e627](https://github.com/aws/aws-sdk-js-v3/commit/b53e62719c52a2231a3d00a3db77012048e2e189))
+* **client-ec2:** This release adds support for AMI Watermark which a structured identifier that helps in tracking AMI provenance ([e4a7c0b](https://github.com/aws/aws-sdk-js-v3/commit/e4a7c0b84264e82677ed15f2e9267118cf16b0c5))
+* **client-ecs:** Amazon ECS Managed Daemon task definitions now support pidMode and ipcMode parameters. Set shared to allow daemons to share PID or IPC namespaces with co-located tasks on Managed Instances, enabling process tracing and shared memory communication. ([4a88904](https://github.com/aws/aws-sdk-js-v3/commit/4a88904d67e2b9293a9352218615cd7566338757))
+* **client-lightsail:** This release adds support for Asia Pacific (Hong Kong) (ap-east-1), Europe (Spain) (eu-south-2) and South America (Sao Paulo) (sa-east-1) Regions. ([2d21213](https://github.com/aws/aws-sdk-js-v3/commit/2d21213a040099efb4265d25f3c881fdcd2a51f4))
+* **client-medialive:** Adding premixer settings to pid and track audio inputs in MediaLIve to allow greater control over mixing audio from multiple source streams including support for AudioPidSelectors made up of multiple audio PIDs. ([82f4fa6](https://github.com/aws/aws-sdk-js-v3/commit/82f4fa6a5d267d9078c2b90ef4fe589ff3db241a))
+* **client-sagemaker:** Add support for G6e instances (ml.g6e.xlarge through ml.g6e.48xlarge) on Amazon SageMaker Notebook Instances. ([1f9aaa5](https://github.com/aws/aws-sdk-js-v3/commit/1f9aaa5b6b507edf9e2838414d588f539395ffde))
+* **client-signin:** AWS Sign-In now allows customers to control access to the AWS Management Console using resource-based policies. With this release customers can restrict console access based on network perimeters such as VPC IDs, VPC endpoints, and IP addresses. ([7ac0cf5](https://github.com/aws/aws-sdk-js-v3/commit/7ac0cf5ffcd6864f67affa5471fc2af16874df4e))
+* **undici-http-handler:** re-export '@smithy/undici-http-handler' ([#8093](https://github.com/aws/aws-sdk-js-v3/issues/8093)) ([7a1992b](https://github.com/aws/aws-sdk-js-v3/commit/7a1992b089765dbe035fbcd15822af7f6a898523))
+
+
+
+
+
 # [3.1065.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1064.0...v3.1065.0) (2026-06-09)
 
 

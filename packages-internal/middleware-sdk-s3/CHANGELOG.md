@@ -53,6 +53,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.51 (2026-06-09)
+### Tests
+* use crypto.randomUUID for resource names in e2e tests ([#8091](https://github.com/aws/aws-sdk-js-v3/issues/8091)) ([e4ef6c5](https://github.com/aws/aws-sdk-js-v3/commit/e4ef6c57d8fd97d15e0a7a27a24396990d704307))
+
+
+
 # 3.972.50 (2026-06-09)
 ### Tests
 * **middleware-sdk-s3:** use crypto.randomUUID for E2E test bucket names ([#8088](https://github.com/aws/aws-sdk-js-v3/issues/8088)) ([ba4d194](https://github.com/aws/aws-sdk-js-v3/commit/ba4d1941fc941533bae5121efd5237d28dda012d))
