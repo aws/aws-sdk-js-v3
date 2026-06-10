@@ -107,6 +107,7 @@ export type {
   ManagedTemplate,
   ManagedTemplateResponse,
   MedicalScribeAudioEvent,
+  MedicalScribeBinaryAudioEvent,
   MedicalScribeChannelDefinition,
   MedicalScribeConfigurationEvent,
   MedicalScribeInputStream,

@@ -1296,6 +1296,18 @@ export interface MedicalScribeAudioEvent {
 }
 
 /**
+ * <p>An event containing raw binary audio data for the Medical Scribe stream. The audio is sent as a raw binary payload rather than as a base64-encoded value.</p>
+ * @public
+ */
+export interface MedicalScribeBinaryAudioEvent {
+  /**
+   * <p>The raw binary audio data chunk</p>
+   * @public
+   */
+  audioChunk: Uint8Array | undefined;
+}
+
+/**
  * <p>Context information about the clinical encounter</p>
  * @public
  */
@@ -1367,6 +1379,7 @@ export interface MedicalScribeSessionControlEvent {
  */
 export type MedicalScribeInputStream =
   | MedicalScribeInputStream.AudioEventMember
+  | MedicalScribeInputStream.BinaryAudioEventMember
   | MedicalScribeInputStream.ConfigurationEventMember
   | MedicalScribeInputStream.SessionControlEventMember
   | MedicalScribeInputStream.$UnknownMember;
@@ -1381,6 +1394,19 @@ export namespace MedicalScribeInputStream {
    */
   export interface AudioEventMember {
     audioEvent: MedicalScribeAudioEvent;
+    binaryAudioEvent?: never;
+    sessionControlEvent?: never;
+    configurationEvent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An event containing raw binary audio data for the Medical Scribe stream. The audio is sent as a raw binary payload rather than as a base64-encoded value.</p>
+   * @public
+   */
+  export interface BinaryAudioEventMember {
+    audioEvent?: never;
+    binaryAudioEvent: MedicalScribeBinaryAudioEvent;
     sessionControlEvent?: never;
     configurationEvent?: never;
     $unknown?: never;
@@ -1392,6 +1418,7 @@ export namespace MedicalScribeInputStream {
    */
   export interface SessionControlEventMember {
     audioEvent?: never;
+    binaryAudioEvent?: never;
     sessionControlEvent: MedicalScribeSessionControlEvent;
     configurationEvent?: never;
     $unknown?: never;
@@ -1403,6 +1430,7 @@ export namespace MedicalScribeInputStream {
    */
   export interface ConfigurationEventMember {
     audioEvent?: never;
+    binaryAudioEvent?: never;
     sessionControlEvent?: never;
     configurationEvent: MedicalScribeConfigurationEvent;
     $unknown?: never;
@@ -1413,6 +1441,7 @@ export namespace MedicalScribeInputStream {
    */
   export interface $UnknownMember {
     audioEvent?: never;
+    binaryAudioEvent?: never;
     sessionControlEvent?: never;
     configurationEvent?: never;
     $unknown: [string, any];
@@ -1424,6 +1453,7 @@ export namespace MedicalScribeInputStream {
    */
   export interface Visitor<T> {
     audioEvent: (value: MedicalScribeAudioEvent) => T;
+    binaryAudioEvent: (value: MedicalScribeBinaryAudioEvent) => T;
     sessionControlEvent: (value: MedicalScribeSessionControlEvent) => T;
     configurationEvent: (value: MedicalScribeConfigurationEvent) => T;
     _: (name: string, value: any) => T;

@@ -53,6 +53,7 @@ const _LTFR = "ListTagsForResource";
 const _LTFRI = "ListTagsForResourceInput";
 const _LTFRO = "ListTagsForResourceOutput";
 const _MSAE = "MedicalScribeAudioEvent";
+const _MSBAE = "MedicalScribeBinaryAudioEvent";
 const _MSCD = "MedicalScribeChannelDefinition";
 const _MSCDe = "MedicalScribeChannelDefinitions";
 const _MSCE = "MedicalScribeConfigurationEvent";
@@ -106,6 +107,7 @@ const _aC = "audioChunk";
 const _aE = "audioEvent";
 const _aEO = "audioEndOffset";
 const _aVSR = "afterVisitSummaryResult";
+const _bAE = "binaryAudioEvent";
 const _c = "client";
 const _cA = "createdAt";
 const _cD = "channelDefinitions";
@@ -125,6 +127,7 @@ const _e = "error";
 const _eC = "encryptionContext";
 const _eCP = "encounterContextProvided";
 const _eCn = "encounterContext";
+const _eP = "eventPayload";
 const _eR = "ehrRole";
 const _eRn = "encounterReason";
 const _eT = "encryptionType";
@@ -510,6 +513,11 @@ export var MedicalScribeAudioEvent$: StaticStructureSchema = [3, n0, _MSAE,
   [_aC],
   [21], 1
 ];
+export var MedicalScribeBinaryAudioEvent$: StaticStructureSchema = [3, n0, _MSBAE,
+  0,
+  [_aC],
+  [[21, { [_eP]: 1 }]], 1
+];
 export var MedicalScribeChannelDefinition$: StaticStructureSchema = [3, n0, _MSCD,
   0,
   [_cI, _pR],
@@ -646,8 +654,8 @@ var TemplateInstructions: StaticListSchema = [1, n0, _TI,
 var TagMap = 128 | 0;
 export var MedicalScribeInputStream$: StaticUnionSchema = [4, n0, _MSIS,
   { [_str]: 1 },
-  [_aE, _sCE, _cE],
-  [() => MedicalScribeAudioEvent$, () => MedicalScribeSessionControlEvent$, [() => MedicalScribeConfigurationEvent$, 0]]
+  [_aE, _bAE, _sCE, _cE],
+  [() => MedicalScribeAudioEvent$, [() => MedicalScribeBinaryAudioEvent$, 0], () => MedicalScribeSessionControlEvent$, [() => MedicalScribeConfigurationEvent$, 0]]
 ];
 export var MedicalScribeOutputStream$: StaticUnionSchema = [4, n0, _MSOS,
   { [_str]: 1 },

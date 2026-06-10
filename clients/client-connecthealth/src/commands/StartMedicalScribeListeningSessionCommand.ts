@@ -51,6 +51,9 @@ export interface StartMedicalScribeListeningSessionCommandOutput extends StartMe
  *     audioEvent: { // MedicalScribeAudioEvent
  *       audioChunk: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")       // required
  *     },
+ *     binaryAudioEvent: { // MedicalScribeBinaryAudioEvent
+ *       audioChunk: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")       // required
+ *     },
  *     sessionControlEvent: { // MedicalScribeSessionControlEvent
  *       type: "END_OF_SESSION",
  *     },

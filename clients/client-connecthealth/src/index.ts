@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>Health Agent for healthcare providers and patient engagement</p>
+ * <p>Amazon Connect Health is an AI-powered healthcare service built on Amazon Connect. It provides pre-built agents that automate patient engagement workflows and support clinical documentation at the point of care.</p> <p>You can use the Amazon Connect Health API to programmatically manage domains, configure patient engagement agents, run patient insights jobs, and stream ambient documentation sessions. This API reference describes the available API operations and data types for Amazon Connect Health.</p> <p>We recommend that you use the AWS SDKs to make programmatic API calls to Amazon Connect Health.</p>
  *
  * @packageDocumentation
  */

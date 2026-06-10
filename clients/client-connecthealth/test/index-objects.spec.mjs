@@ -79,6 +79,7 @@ import {
   ManagedTemplate$,
   ManagedTemplateResponse$,
   MedicalScribeAudioEvent$,
+  MedicalScribeBinaryAudioEvent$,
   MedicalScribeChannelDefinition$,
   MedicalScribeConfigurationEvent$,
   MedicalScribeInputStream$,
@@ -214,6 +215,7 @@ assert(typeof ListTagsForResourceOutput$ === "object");
 assert(typeof ManagedTemplate$ === "object");
 assert(typeof ManagedTemplateResponse$ === "object");
 assert(typeof MedicalScribeAudioEvent$ === "object");
+assert(typeof MedicalScribeBinaryAudioEvent$ === "object");
 assert(typeof MedicalScribeChannelDefinition$ === "object");
 assert(typeof MedicalScribeConfigurationEvent$ === "object");
 assert(typeof MedicalScribeInputStream$ === "object");
