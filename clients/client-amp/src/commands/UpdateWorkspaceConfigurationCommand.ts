@@ -50,6 +50,8 @@ export interface UpdateWorkspaceConfigurationCommandOutput extends UpdateWorkspa
  *     },
  *   ],
  *   retentionPeriodInDays: Number("int"),
+ *   outOfOrderTimeWindowInSeconds: Number("int"),
+ *   ruleQueryOffsetInSeconds: Number("int"),
  * };
  * const command = new UpdateWorkspaceConfigurationCommand(input);
  * const response = await client.send(command);

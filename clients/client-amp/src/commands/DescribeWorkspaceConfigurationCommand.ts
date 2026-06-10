@@ -58,6 +58,8 @@ export interface DescribeWorkspaceConfigurationCommandOutput extends DescribeWor
  * //       },
  * //     ],
  * //     retentionPeriodInDays: Number("int"),
+ * //     outOfOrderTimeWindowInSeconds: Number("int"),
+ * //     ruleQueryOffsetInSeconds: Number("int"),
  * //   },
  * // };
  *

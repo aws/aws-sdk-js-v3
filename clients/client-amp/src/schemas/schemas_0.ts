@@ -228,6 +228,7 @@ const _mS = "maxSeries";
 const _n = "name";
 const _nT = "nextToken";
 const _o = "options";
+const _oOOTWIS = "outOfOrderTimeWindowInSeconds";
 const _pD = "policyDocument";
 const _pE = "prometheusEndpoint";
 const _pS = "policyStatus";
@@ -246,6 +247,7 @@ const _rGNu = "ruleGroupsNamespaces";
 const _rI = "resourceId";
 const _rIe = "revisionId";
 const _rPID = "retentionPeriodInDays";
+const _rQOIS = "ruleQueryOffsetInSeconds";
 const _rT = "resourceType";
 const _ra = "ratio";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.amp";
@@ -878,8 +880,8 @@ export var UpdateWorkspaceAliasRequest$: StaticStructureSchema = [3, n0, _UWAR,
 ];
 export var UpdateWorkspaceConfigurationRequest$: StaticStructureSchema = [3, n0, _UWCR,
   0,
-  [_wI, _cT, _lPLS, _rPID],
-  [[0, 1], [0, 4], () => LimitsPerLabelSetList, 1], 1
+  [_wI, _cT, _lPLS, _rPID, _oOOTWIS, _rQOIS],
+  [[0, 1], [0, 4], () => LimitsPerLabelSetList, 1, 1, 1], 1
 ];
 export var UpdateWorkspaceConfigurationResponse$: StaticStructureSchema = [3, n0, _UWCRp,
   0,
@@ -898,8 +900,8 @@ export var VpcConfiguration$: StaticStructureSchema = [3, n0, _VC,
 ];
 export var WorkspaceConfigurationDescription$: StaticStructureSchema = [3, n0, _WCD,
   0,
-  [_st, _lPLS, _rPID],
-  [() => WorkspaceConfigurationStatus$, () => LimitsPerLabelSetList, 1], 1
+  [_st, _lPLS, _rPID, _oOOTWIS, _rQOIS],
+  [() => WorkspaceConfigurationStatus$, () => LimitsPerLabelSetList, 1, 1, 1], 1
 ];
 export var WorkspaceConfigurationStatus$: StaticStructureSchema = [3, n0, _WCS,
   0,

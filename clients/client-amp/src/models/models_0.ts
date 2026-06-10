@@ -2738,6 +2738,18 @@ export interface WorkspaceConfigurationDescription {
    * @public
    */
   retentionPeriodInDays?: number | undefined;
+
+  /**
+   * <p>This field displays the out of order time window in seconds for accepting out of order samples.</p>
+   * @public
+   */
+  outOfOrderTimeWindowInSeconds?: number | undefined;
+
+  /**
+   * <p>This field displays the duration in seconds that rule evaluation queries are offset into the past.</p>
+   * @public
+   */
+  ruleQueryOffsetInSeconds?: number | undefined;
 }
 
 /**
@@ -2778,6 +2790,18 @@ export interface UpdateWorkspaceConfigurationRequest {
    * @public
    */
   retentionPeriodInDays?: number | undefined;
+
+  /**
+   * <p>Specifies the time window in seconds for accepting out of order samples. Out of order samples older than this window are rejected.</p>
+   * @public
+   */
+  outOfOrderTimeWindowInSeconds?: number | undefined;
+
+  /**
+   * <p>Specifies the duration in seconds to offset rule evaluation queries into the past. This allows ingested samples to be available before rule evaluation.</p>
+   * @public
+   */
+  ruleQueryOffsetInSeconds?: number | undefined;
 }
 
 /**
