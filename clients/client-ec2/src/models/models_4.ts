@@ -154,10 +154,10 @@ import type {
   ReplaceRootVolumeTask,
   RouteServer,
   RouteServerEndpoint,
-  RouteServerPeer,
   StateReason,
 } from "./models_1";
 import type {
+  RouteServerPeer,
   RouteTable,
   SecondaryNetwork,
   SecondarySubnet,
@@ -170,10 +170,151 @@ import type {
   EventInformation,
   Filter,
   IdFormat,
-  ImportSnapshotTask,
+  ImageWatermark,
   InstanceTagNotificationAttribute,
   ProductCode,
+  UserBucketDetails,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface DescribeImportSnapshotTasksRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The filters.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>A list of import snapshot task IDs.</p>
+   * @public
+   */
+  ImportTaskIds?: string[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call
+   *    with the returned <code>NextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A token that indicates the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Details about the import snapshot task.</p>
+ * @public
+ */
+export interface SnapshotTaskDetail {
+  /**
+   * <p>The description of the disk image being imported.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The size of the disk in the snapshot, in GiB.</p>
+   * @public
+   */
+  DiskImageSize?: number | undefined;
+
+  /**
+   * <p>Indicates whether the snapshot is encrypted.</p>
+   * @public
+   */
+  Encrypted?: boolean | undefined;
+
+  /**
+   * <p>The format of the disk image from which the snapshot is created.</p>
+   * @public
+   */
+  Format?: string | undefined;
+
+  /**
+   * <p>The identifier for the KMS key that was used to create the encrypted snapshot.</p>
+   * @public
+   */
+  KmsKeyId?: string | undefined;
+
+  /**
+   * <p>The percentage of completion for the import snapshot task.</p>
+   * @public
+   */
+  Progress?: string | undefined;
+
+  /**
+   * <p>The snapshot ID of the disk being imported.</p>
+   * @public
+   */
+  SnapshotId?: string | undefined;
+
+  /**
+   * <p>A brief status for the import snapshot task.</p>
+   * @public
+   */
+  Status?: string | undefined;
+
+  /**
+   * <p>A detailed status message for the import snapshot task.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+
+  /**
+   * <p>The URL of the disk image from which the snapshot is created.</p>
+   * @public
+   */
+  Url?: string | undefined;
+
+  /**
+   * <p>The Amazon S3 bucket for the disk image.</p>
+   * @public
+   */
+  UserBucket?: UserBucketDetails | undefined;
+}
+
+/**
+ * <p>Describes an import snapshot task.</p>
+ * @public
+ */
+export interface ImportSnapshotTask {
+  /**
+   * <p>A description of the import snapshot task.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The ID of the import snapshot task.</p>
+   * @public
+   */
+  ImportTaskId?: string | undefined;
+
+  /**
+   * <p>Describes an import snapshot task.</p>
+   * @public
+   */
+  SnapshotTaskDetail?: SnapshotTaskDetail | undefined;
+
+  /**
+   * <p>The tags for the import snapshot task.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
 
 /**
  * @public
@@ -923,6 +1064,12 @@ export interface ImageMetadata {
    * @public
    */
   IsPublic?: boolean | undefined;
+
+  /**
+   * <p>The watermarks attached to the AMI.</p>
+   * @public
+   */
+  ImageWatermarks?: ImageWatermark[] | undefined;
 }
 
 /**
@@ -14572,191 +14719,4 @@ export interface SpotInstanceRequest {
    * @public
    */
   InstanceInterruptionBehavior?: InstanceInterruptionBehavior | undefined;
-}
-
-/**
- * <p>Contains the output of DescribeSpotInstanceRequests.</p>
- * @public
- */
-export interface DescribeSpotInstanceRequestsResult {
-  /**
-   * <p>The Spot Instance requests.</p>
-   * @public
-   */
-  SpotInstanceRequests?: SpotInstanceRequest[] | undefined;
-
-  /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
-   *          are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>Contains the parameters for DescribeSpotPriceHistory.</p>
- * @public
- */
-export interface DescribeSpotPriceHistoryRequest {
-  /**
-   * <p>Filters the results by the specified ID of the Availability Zone.</p>
-   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> can be specified, but not both</p>
-   * @public
-   */
-  AvailabilityZoneId?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *             <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The date and time, up to the past 90 days, from which to start retrieving the price
-   *             history data, in UTC format (for example,
-   *             <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
-   * @public
-   */
-  StartTime?: Date | undefined;
-
-  /**
-   * <p>The date and time, up to the current date, from which to stop retrieving the price
-   *             history data, in UTC format (for example,
-   *             <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
-   * @public
-   */
-  EndTime?: Date | undefined;
-
-  /**
-   * <p>Filters the results by the specified instance types.</p>
-   * @public
-   */
-  InstanceTypes?: _InstanceType[] | undefined;
-
-  /**
-   * <p>Filters the results by the specified basic product descriptions.</p>
-   * @public
-   */
-  ProductDescriptions?: string[] | undefined;
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>availability-zone</code> - The Availability Zone for which prices should
-   *                     be returned.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>availability-zone-id</code> - The ID of the Availability Zone for which
-   *                     prices should be returned.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-type</code> - The type of instance (for example,
-   *                     <code>m3.medium</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>product-description</code> - The product description for the Spot price
-   *                     (<code>Linux/UNIX</code> | <code>Red Hat Enterprise Linux</code> |
-   *                     <code>SUSE Linux</code> | <code>Windows</code> | <code>Linux/UNIX (Amazon
-   *                         VPC)</code> | <code>Red Hat Enterprise Linux (Amazon VPC)</code> |
-   *                     <code>SUSE Linux (Amazon VPC)</code> | <code>Windows (Amazon
-   *                         VPC)</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>spot-price</code> - The Spot price. The value must match exactly (or use
-   *                     wildcards; greater than or less than comparison is not supported).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>timestamp</code> - The time stamp of the Spot price history, in UTC format
-   *                     (for example, <i>ddd MMM dd
-   *                         HH</i>:<i>mm</i>:<i>ss</i> UTC
-   *                         <i>YYYY</i>). You can use wildcards (<code>*</code> and
-   *                         <code>?</code>). Greater than or less than comparison is not
-   *                     supported.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>Filters the results by the specified Availability Zone.</p>
-   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> can be specified, but not both</p>
-   * @public
-   */
-  AvailabilityZone?: string | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   *          To get the next page of items, make another request with the token returned in the output.
-   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend
- *             using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p>
- *          <important>
- *             <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p>
- *          </important>
- * @public
- */
-export interface SpotPrice {
-  /**
-   * <p>The Availability Zone.</p>
-   * @public
-   */
-  AvailabilityZone?: string | undefined;
-
-  /**
-   * <p>The ID of the Availability Zone.</p>
-   * @public
-   */
-  AvailabilityZoneId?: string | undefined;
-
-  /**
-   * <p>The instance type.</p>
-   * @public
-   */
-  InstanceType?: _InstanceType | undefined;
-
-  /**
-   * <p>A general description of the AMI.</p>
-   * @public
-   */
-  ProductDescription?: RIProductDescription | undefined;
-
-  /**
-   * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend
-   *             using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p>
-   *          <important>
-   *             <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p>
-   *          </important>
-   * @public
-   */
-  SpotPrice?: string | undefined;
-
-  /**
-   * <p>The date and time the request was created, in UTC format (for example,
-   *                 <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
-   * @public
-   */
-  Timestamp?: Date | undefined;
 }

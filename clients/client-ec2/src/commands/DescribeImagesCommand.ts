@@ -146,6 +146,15 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResult, __Met
  * //       SourceImageId: "STRING_VALUE",
  * //       SourceImageRegion: "STRING_VALUE",
  * //       FreeTierEligible: true || false,
+ * //       ImageWatermarks: [ // ImageWatermarkList
+ * //         { // ImageWatermark
+ * //           WatermarkKey: "STRING_VALUE",
+ * //           SourceImageRegion: "STRING_VALUE",
+ * //           SourceImageId: "STRING_VALUE",
+ * //           SourceImageCreationTime: new Date("TIMESTAMP"),
+ * //           WatermarkCreationTime: new Date("TIMESTAMP"),
+ * //         },
+ * //       ],
  * //       ImageId: "STRING_VALUE",
  * //       ImageLocation: "STRING_VALUE",
  * //       State: "pending" || "available" || "invalid" || "deregistered" || "transient" || "failed" || "error" || "disabled",

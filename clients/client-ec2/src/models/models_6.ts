@@ -8,9 +8,11 @@ import type {
   AutoPlacement,
   BootModeValues,
   CapacityManagerMonitoredTagKeyStatus,
+  CapacityManagerStatus,
   CapacityReservationPreference,
   CapacityReservationState,
   CapacityTenancy,
+  Comparison,
   CurrencyCodeValues,
   DefaultHttpTokensEnforcedState,
   DefaultInstanceMetadataEndpointState,
@@ -19,6 +21,7 @@ import type {
   EkPubKeyFormat,
   EkPubKeyType,
   EndDateType,
+  FilterByDimension,
   FleetExcessCapacityTerminationPolicy,
   FpgaImageAttributeName,
   GroupBy,
@@ -27,6 +30,7 @@ import type {
   HostTenancy,
   HttpTokensEnforcedState,
   HttpTokensState,
+  IngestionStatus,
   InstanceAttributeName,
   InstanceAutoRecoveryState,
   InstanceBandwidthWeighting,
@@ -122,9 +126,6 @@ import type {
   IpamPrefixListResolverTarget,
   IpamResourceDiscovery,
   IpamResourceTag,
-  IpamScope,
-  LaunchTemplate,
-  LocalGatewayRoute,
   NetworkInsightsAccessScopeContent,
   Placement,
   RequestIpamResourceTag,
@@ -144,10 +145,216 @@ import type {
   IpamPoolCidr,
   LaunchPermission,
   SnapshotDetail,
-  SnapshotTaskDetail,
 } from "./models_3";
-import type { AttributeBooleanValue, InstanceMetadataOptionsResponse, InstanceStatusEvent } from "./models_4";
-import type { CapacityManagerCondition, RouteServerPropagation } from "./models_5";
+import type {
+  AttributeBooleanValue,
+  InstanceMetadataOptionsResponse,
+  InstanceStatusEvent,
+  SnapshotTaskDetail,
+} from "./models_4";
+import type { RouteServerPropagation } from "./models_5";
+
+/**
+ * @public
+ */
+export interface GetCapacityManagerAttributesRequest {
+  /**
+   * <p>
+   * Checks whether you have the required permissions for the action, without actually making the request, and provides an error response.
+   * If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.
+   * </p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCapacityManagerAttributesResult {
+  /**
+   * <p>
+   * The current status of Capacity Manager.
+   * </p>
+   * @public
+   */
+  CapacityManagerStatus?: CapacityManagerStatus | undefined;
+
+  /**
+   * <p>
+   * Indicates whether Organizations access is enabled for cross-account data aggregation.
+   * </p>
+   * @public
+   */
+  OrganizationsAccess?: boolean | undefined;
+
+  /**
+   * <p>
+   * The number of active data export configurations for this account. This count includes all data exports regardless of their current delivery status.
+   * </p>
+   * @public
+   */
+  DataExportCount?: number | undefined;
+
+  /**
+   * <p>
+   * The current data ingestion status. Initial ingestion may take several hours after enabling Capacity Manager.
+   * </p>
+   * @public
+   */
+  IngestionStatus?: IngestionStatus | undefined;
+
+  /**
+   * <p>
+   * A descriptive message providing additional details about the current ingestion status. This may include error information if ingestion has
+   * failed or progress details during initial setup.
+   * </p>
+   * @public
+   */
+  IngestionStatusMessage?: string | undefined;
+
+  /**
+   * <p>
+   * The timestamp of the earliest data point available in Capacity Manager, in milliseconds since epoch. This indicates how far back historical data is available for queries.
+   * </p>
+   * @public
+   */
+  EarliestDatapointTimestamp?: Date | undefined;
+
+  /**
+   * <p>
+   * The timestamp of the most recent data point ingested by Capacity Manager, in milliseconds since epoch. This indicates how current your capacity data is.
+   * </p>
+   * @public
+   */
+  LatestDatapointTimestamp?: Date | undefined;
+}
+
+/**
+ * <p>
+ * Specifies a condition for filtering capacity data based on dimension values. Used to create precise filters for metric queries and dimension lookups.
+ * </p>
+ * @public
+ */
+export interface DimensionCondition {
+  /**
+   * <p>
+   * The name of the dimension to filter by.
+   * </p>
+   * @public
+   */
+  Dimension?: FilterByDimension | undefined;
+
+  /**
+   * <p>
+   * The comparison operator to use for the filter.
+   * </p>
+   * @public
+   */
+  Comparison?: Comparison | undefined;
+
+  /**
+   * <p>
+   * The list of values to match against the specified dimension. For 'equals' comparison, only the first value is used. For 'in' comparison, any matching value will satisfy the condition.
+   * </p>
+   * @public
+   */
+  Values?: string[] | undefined;
+}
+
+/**
+ * <p>
+ * Represents a filter condition for Capacity Manager queries. Contains dimension-based filtering criteria used to narrow down metric data and dimension results.
+ * </p>
+ * @public
+ */
+export interface CapacityManagerCondition {
+  /**
+   * <p>
+   * The dimension-based condition that specifies how to filter the data based on dimension values.
+   * </p>
+   * @public
+   */
+  DimensionCondition?: DimensionCondition | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCapacityManagerMetricDataRequest {
+  /**
+   * <p>
+   * The names of the metrics to retrieve. Maximum of 10 metrics per request.
+   * </p>
+   * @public
+   */
+  MetricNames: Metric[] | undefined;
+
+  /**
+   * <p>
+   * The start time for the metric data query, in ISO 8601 format. The time range (end time - start time) must be a multiple of the specified period.
+   * </p>
+   * @public
+   */
+  StartTime: Date | undefined;
+
+  /**
+   * <p>
+   * The end time for the metric data query, in ISO 8601 format. If the end time is beyond the latest ingested data, it will be automatically adjusted to the latest available data point.
+   * </p>
+   * @public
+   */
+  EndTime: Date | undefined;
+
+  /**
+   * <p>
+   * The granularity, in seconds, of the returned data points.
+   * </p>
+   * @public
+   */
+  Period: number | undefined;
+
+  /**
+   * <p>
+   * The dimensions by which to group the metric data. This determines how the data is aggregated and returned.
+   * </p>
+   * @public
+   */
+  GroupBy?: GroupBy[] | undefined;
+
+  /**
+   * <p>
+   * Conditions to filter the metric data. Each filter specifies a dimension, comparison operator ('equals', 'in'), and values to match against.
+   * </p>
+   * @public
+   */
+  FilterBy?: CapacityManagerCondition[] | undefined;
+
+  /**
+   * <p>
+   * The maximum number of data points to return. Valid range is 1 to 100,000. Use with NextToken for pagination of large result sets.
+   * </p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>
+   * The token for the next page of results. Use this value in a subsequent call to retrieve additional data points.
+   * </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>
+   * Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have
+   * the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.
+   * </p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
 
 /**
  * <p>
@@ -9944,132 +10151,4 @@ export interface ModifyIpamScopeRequest {
    * @public
    */
   RemoveExternalAuthorityConfiguration?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyIpamScopeResult {
-  /**
-   * <p>The results of the modification.</p>
-   * @public
-   */
-  IpamScope?: IpamScope | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyLaunchTemplateRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the
-   *             request. If a client token isn't specified, a randomly generated token is used in the
-   *             request to ensure idempotency.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
-   *                 idempotency</a>.</p>
-   *          <p>Constraint: Maximum 128 ASCII characters.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>The ID of the launch template.</p>
-   *          <p>You must specify either the launch template ID or the launch template name, but not
-   *             both.</p>
-   * @public
-   */
-  LaunchTemplateId?: string | undefined;
-
-  /**
-   * <p>The name of the launch template.</p>
-   *          <p>You must specify either the launch template ID or the launch template name, but not
-   *             both.</p>
-   * @public
-   */
-  LaunchTemplateName?: string | undefined;
-
-  /**
-   * <p>The version number of the launch template to set as the default version.</p>
-   * @public
-   */
-  DefaultVersion?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyLaunchTemplateResult {
-  /**
-   * <p>Information about the launch template.</p>
-   * @public
-   */
-  LaunchTemplate?: LaunchTemplate | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyLocalGatewayRouteRequest {
-  /**
-   * <p>The CIDR block used for destination matches. The value that you provide must match the CIDR of an existing route in the table.</p>
-   * @public
-   */
-  DestinationCidrBlock?: string | undefined;
-
-  /**
-   * <p>The ID of the local gateway route table.</p>
-   * @public
-   */
-  LocalGatewayRouteTableId: string | undefined;
-
-  /**
-   * <p>
-   *          The ID of the virtual interface group.
-   *       </p>
-   * @public
-   */
-  LocalGatewayVirtualInterfaceGroupId?: string | undefined;
-
-  /**
-   * <p>The ID of the network interface.</p>
-   * @public
-   */
-  NetworkInterfaceId?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>
-   *          The ID of the prefix list. Use a prefix list in place of <code>DestinationCidrBlock</code>. You
-   *          cannot use <code>DestinationPrefixListId</code> and <code>DestinationCidrBlock</code> in the same request.
-   *       </p>
-   * @public
-   */
-  DestinationPrefixListId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyLocalGatewayRouteResult {
-  /**
-   * <p>Information about the local gateway route table.</p>
-   * @public
-   */
-  Route?: LocalGatewayRoute | undefined;
 }

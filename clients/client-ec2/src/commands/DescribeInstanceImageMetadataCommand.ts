@@ -102,6 +102,15 @@ export interface DescribeInstanceImageMetadataCommandOutput extends DescribeInst
  * //         DeprecationTime: "STRING_VALUE",
  * //         ImageAllowed: true || false,
  * //         IsPublic: true || false,
+ * //         ImageWatermarks: [ // ImageWatermarkList
+ * //           { // ImageWatermark
+ * //             WatermarkKey: "STRING_VALUE",
+ * //             SourceImageRegion: "STRING_VALUE",
+ * //             SourceImageId: "STRING_VALUE",
+ * //             SourceImageCreationTime: new Date("TIMESTAMP"),
+ * //             WatermarkCreationTime: new Date("TIMESTAMP"),
+ * //           },
+ * //         ],
  * //       },
  * //       Operator: { // OperatorResponse
  * //         Managed: true || false,

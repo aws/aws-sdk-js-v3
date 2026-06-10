@@ -492,6 +492,13 @@ AttachClassicLinkVpc
 </details>
 <details>
 <summary>
+AttachImageWatermark
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/AttachImageWatermarkCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/AttachImageWatermarkCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/AttachImageWatermarkCommandOutput/)
+</details>
+<details>
+<summary>
 AttachInternetGateway
 </summary>
 
@@ -3422,6 +3429,13 @@ DetachClassicLinkVpc
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DetachClassicLinkVpcCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DetachClassicLinkVpcCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DetachClassicLinkVpcCommandOutput/)
+</details>
+<details>
+<summary>
+DetachImageWatermark
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DetachImageWatermarkCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DetachImageWatermarkCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DetachImageWatermarkCommandOutput/)
 </details>
 <details>
 <summary>

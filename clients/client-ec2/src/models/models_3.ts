@@ -143,6 +143,42 @@ import type {
 } from "./models_2";
 
 /**
+ * @public
+ */
+export interface DeleteSecurityGroupResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
+   * @public
+   */
+  Return?: boolean | undefined;
+
+  /**
+   * <p>The ID of the deleted security group.</p>
+   * @public
+   */
+  GroupId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSnapshotRequest {
+  /**
+   * <p>The ID of the EBS snapshot.</p>
+   * @public
+   */
+  SnapshotId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
  * <p>Contains the parameters for DeleteSpotDatafeedSubscription.</p>
  * @public
  */
@@ -9965,6 +10001,47 @@ export interface DescribeImagesRequest {
 }
 
 /**
+ * <p>Describes a watermark attached to an AMI.</p>
+ * @public
+ */
+export interface ImageWatermark {
+  /**
+   * <p>The watermark identifier, in <code>accountId:watermarkName</code> format (for example,
+   *         <code>123456789012:approvedAmi</code>). The <code>accountId</code> portion is the Amazon Web Services account
+   *       ID of the watermark creator. The <code>watermarkName</code> portion is customer-provided.</p>
+   * @public
+   */
+  WatermarkKey?: string | undefined;
+
+  /**
+   * <p>The Region where the watermark was originally attached.</p>
+   * @public
+   */
+  SourceImageRegion?: string | undefined;
+
+  /**
+   * <p>The ID of the AMI to which the watermark was originally attached.</p>
+   * @public
+   */
+  SourceImageId?: string | undefined;
+
+  /**
+   * <p>The creation date of the source AMI, in the
+   *       following format:
+   *         <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>.<i>ssssss</i>+<i>HH</i>:<i>MM</i>.</p>
+   * @public
+   */
+  SourceImageCreationTime?: Date | undefined;
+
+  /**
+   * <p>The date and time the watermark was attached to the AMI, in the following format:
+   *         <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>.<i>ssssss</i>+<i>HH</i>:<i>MM</i>.</p>
+   * @public
+   */
+  WatermarkCreationTime?: Date | undefined;
+}
+
+/**
  * <p>Describes an image.</p>
  * @public
  */
@@ -10160,6 +10237,12 @@ export interface Image {
    * @public
    */
   FreeTierEligible?: boolean | undefined;
+
+  /**
+   * <p>The watermarks attached to the AMI.</p>
+   * @public
+   */
+  ImageWatermarks?: ImageWatermark[] | undefined;
 
   /**
    * <p>The ID of the AMI.</p>
@@ -10846,144 +10929,4 @@ export interface DescribeImportImageTasksResult {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeImportSnapshotTasksRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The filters.</p>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>A list of import snapshot task IDs.</p>
-   * @public
-   */
-  ImportTaskIds?: string[] | undefined;
-
-  /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call
-   *    with the returned <code>NextToken</code> value.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>A token that indicates the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>Details about the import snapshot task.</p>
- * @public
- */
-export interface SnapshotTaskDetail {
-  /**
-   * <p>The description of the disk image being imported.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The size of the disk in the snapshot, in GiB.</p>
-   * @public
-   */
-  DiskImageSize?: number | undefined;
-
-  /**
-   * <p>Indicates whether the snapshot is encrypted.</p>
-   * @public
-   */
-  Encrypted?: boolean | undefined;
-
-  /**
-   * <p>The format of the disk image from which the snapshot is created.</p>
-   * @public
-   */
-  Format?: string | undefined;
-
-  /**
-   * <p>The identifier for the KMS key that was used to create the encrypted snapshot.</p>
-   * @public
-   */
-  KmsKeyId?: string | undefined;
-
-  /**
-   * <p>The percentage of completion for the import snapshot task.</p>
-   * @public
-   */
-  Progress?: string | undefined;
-
-  /**
-   * <p>The snapshot ID of the disk being imported.</p>
-   * @public
-   */
-  SnapshotId?: string | undefined;
-
-  /**
-   * <p>A brief status for the import snapshot task.</p>
-   * @public
-   */
-  Status?: string | undefined;
-
-  /**
-   * <p>A detailed status message for the import snapshot task.</p>
-   * @public
-   */
-  StatusMessage?: string | undefined;
-
-  /**
-   * <p>The URL of the disk image from which the snapshot is created.</p>
-   * @public
-   */
-  Url?: string | undefined;
-
-  /**
-   * <p>The Amazon S3 bucket for the disk image.</p>
-   * @public
-   */
-  UserBucket?: UserBucketDetails | undefined;
-}
-
-/**
- * <p>Describes an import snapshot task.</p>
- * @public
- */
-export interface ImportSnapshotTask {
-  /**
-   * <p>A description of the import snapshot task.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The ID of the import snapshot task.</p>
-   * @public
-   */
-  ImportTaskId?: string | undefined;
-
-  /**
-   * <p>Describes an import snapshot task.</p>
-   * @public
-   */
-  SnapshotTaskDetail?: SnapshotTaskDetail | undefined;
-
-  /**
-   * <p>The tags for the import snapshot task.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
 }

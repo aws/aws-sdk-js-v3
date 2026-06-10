@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { ModifyLaunchTemplateRequest, ModifyLaunchTemplateResult } from "../models/models_6";
+import type { ModifyLaunchTemplateRequest, ModifyLaunchTemplateResult } from "../models/models_7";
 import { ModifyLaunchTemplate$ } from "../schemas/schemas_0";
 
 /**

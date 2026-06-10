@@ -194,6 +194,10 @@ import type {
   AttachClassicLinkVpcCommandOutput,
 } from "./commands/AttachClassicLinkVpcCommand";
 import type {
+  AttachImageWatermarkCommandInput,
+  AttachImageWatermarkCommandOutput,
+} from "./commands/AttachImageWatermarkCommand";
+import type {
   AttachInternetGatewayCommandInput,
   AttachInternetGatewayCommandOutput,
 } from "./commands/AttachInternetGatewayCommand";
@@ -1669,6 +1673,10 @@ import type {
   DetachClassicLinkVpcCommandOutput,
 } from "./commands/DetachClassicLinkVpcCommand";
 import type {
+  DetachImageWatermarkCommandInput,
+  DetachImageWatermarkCommandOutput,
+} from "./commands/DetachImageWatermarkCommand";
+import type {
   DetachInternetGatewayCommandInput,
   DetachInternetGatewayCommandOutput,
 } from "./commands/DetachInternetGatewayCommand";
@@ -2844,6 +2852,7 @@ export type ServiceInputTypes =
   | AssociateTrunkInterfaceCommandInput
   | AssociateVpcCidrBlockCommandInput
   | AttachClassicLinkVpcCommandInput
+  | AttachImageWatermarkCommandInput
   | AttachInternetGatewayCommandInput
   | AttachNetworkInterfaceCommandInput
   | AttachVerifiedAccessTrustProviderCommandInput
@@ -3263,6 +3272,7 @@ export type ServiceInputTypes =
   | DescribeVpnConnectionsCommandInput
   | DescribeVpnGatewaysCommandInput
   | DetachClassicLinkVpcCommandInput
+  | DetachImageWatermarkCommandInput
   | DetachInternetGatewayCommandInput
   | DetachNetworkInterfaceCommandInput
   | DetachVerifiedAccessTrustProviderCommandInput
@@ -3616,6 +3626,7 @@ export type ServiceOutputTypes =
   | AssociateTrunkInterfaceCommandOutput
   | AssociateVpcCidrBlockCommandOutput
   | AttachClassicLinkVpcCommandOutput
+  | AttachImageWatermarkCommandOutput
   | AttachInternetGatewayCommandOutput
   | AttachNetworkInterfaceCommandOutput
   | AttachVerifiedAccessTrustProviderCommandOutput
@@ -4035,6 +4046,7 @@ export type ServiceOutputTypes =
   | DescribeVpnConnectionsCommandOutput
   | DescribeVpnGatewaysCommandOutput
   | DetachClassicLinkVpcCommandOutput
+  | DetachImageWatermarkCommandOutput
   | DetachInternetGatewayCommandOutput
   | DetachNetworkInterfaceCommandOutput
   | DetachVerifiedAccessTrustProviderCommandOutput

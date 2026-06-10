@@ -207,6 +207,10 @@ import {
   AttachClassicLinkVpcCommand,
   AttachClassicLinkVpcRequest$,
   AttachClassicLinkVpcResult$,
+  AttachImageWatermark$,
+  AttachImageWatermarkCommand,
+  AttachImageWatermarkRequest$,
+  AttachImageWatermarkResult$,
   AttachInternetGateway$,
   AttachInternetGatewayCommand,
   AttachInternetGatewayRequest$,
@@ -2063,6 +2067,10 @@ import {
   DetachClassicLinkVpcCommand,
   DetachClassicLinkVpcRequest$,
   DetachClassicLinkVpcResult$,
+  DetachImageWatermark$,
+  DetachImageWatermarkCommand,
+  DetachImageWatermarkRequest$,
+  DetachImageWatermarkResult$,
   DetachInternetGateway$,
   DetachInternetGatewayCommand,
   DetachInternetGatewayRequest$,
@@ -2819,6 +2827,7 @@ import {
   ImageUsageResourceTypeOption$,
   ImageUsageResourceTypeOptionRequest$,
   ImageUsageResourceTypeRequest$,
+  ImageWatermark$,
   ImdsSupportValues,
   ImportClientVpnClientCertificateRevocationList$,
   ImportClientVpnClientCertificateRevocationListCommand,
@@ -4712,6 +4721,8 @@ assert(typeof AssociateVpcCidrBlockCommand === "function");
 assert(typeof AssociateVpcCidrBlock$ === "object");
 assert(typeof AttachClassicLinkVpcCommand === "function");
 assert(typeof AttachClassicLinkVpc$ === "object");
+assert(typeof AttachImageWatermarkCommand === "function");
+assert(typeof AttachImageWatermark$ === "object");
 assert(typeof AttachInternetGatewayCommand === "function");
 assert(typeof AttachInternetGateway$ === "object");
 assert(typeof AttachNetworkInterfaceCommand === "function");
@@ -5550,6 +5561,8 @@ assert(typeof DescribeVpnGatewaysCommand === "function");
 assert(typeof DescribeVpnGateways$ === "object");
 assert(typeof DetachClassicLinkVpcCommand === "function");
 assert(typeof DetachClassicLinkVpc$ === "object");
+assert(typeof DetachImageWatermarkCommand === "function");
+assert(typeof DetachImageWatermark$ === "object");
 assert(typeof DetachInternetGatewayCommand === "function");
 assert(typeof DetachInternetGateway$ === "object");
 assert(typeof DetachNetworkInterfaceCommand === "function");
@@ -6281,6 +6294,8 @@ assert(typeof AssociationStatus$ === "object");
 assert(typeof AthenaIntegration$ === "object");
 assert(typeof AttachClassicLinkVpcRequest$ === "object");
 assert(typeof AttachClassicLinkVpcResult$ === "object");
+assert(typeof AttachImageWatermarkRequest$ === "object");
+assert(typeof AttachImageWatermarkResult$ === "object");
 assert(typeof AttachInternetGatewayRequest$ === "object");
 assert(typeof AttachmentEnaSrdSpecification$ === "object");
 assert(typeof AttachmentEnaSrdUdpSpecification$ === "object");
@@ -7233,6 +7248,8 @@ assert(typeof DestinationOptionsRequest$ === "object");
 assert(typeof DestinationOptionsResponse$ === "object");
 assert(typeof DetachClassicLinkVpcRequest$ === "object");
 assert(typeof DetachClassicLinkVpcResult$ === "object");
+assert(typeof DetachImageWatermarkRequest$ === "object");
+assert(typeof DetachImageWatermarkResult$ === "object");
 assert(typeof DetachInternetGatewayRequest$ === "object");
 assert(typeof DetachNetworkInterfaceRequest$ === "object");
 assert(typeof DetachVerifiedAccessTrustProviderRequest$ === "object");
@@ -7634,6 +7651,7 @@ assert(typeof ImageUsageResourceType$ === "object");
 assert(typeof ImageUsageResourceTypeOption$ === "object");
 assert(typeof ImageUsageResourceTypeOptionRequest$ === "object");
 assert(typeof ImageUsageResourceTypeRequest$ === "object");
+assert(typeof ImageWatermark$ === "object");
 assert(typeof ImportClientVpnClientCertificateRevocationListRequest$ === "object");
 assert(typeof ImportClientVpnClientCertificateRevocationListResult$ === "object");
 assert(typeof ImportImageLicenseConfigurationRequest$ === "object");

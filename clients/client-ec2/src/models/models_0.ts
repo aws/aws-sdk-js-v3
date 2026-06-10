@@ -5382,6 +5382,47 @@ export interface AttachClassicLinkVpcResult {
 /**
  * @public
  */
+export interface AttachImageWatermarkRequest {
+  /**
+   * <p>The ID of the AMI.</p>
+   * @public
+   */
+  ImageId: string | undefined;
+
+  /**
+   * <p>The name for the watermark. Combined with the caller's account ID to form the
+   *         <code>WatermarkKey</code> (<code>accountId:watermarkName</code>).</p>
+   *          <p>Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces
+   *       ( ), periods (.), slashes (/), dashes (-), single quotes ('), at-signs (@), or
+   *       underscores(_)</p>
+   * @public
+   */
+  WatermarkName: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AttachImageWatermarkResult {
+  /**
+   * <p>The watermark identifier, in <code>accountId:watermarkName</code> format (for example,
+   *         <code>123456789012:approvedAmi</code>).</p>
+   * @public
+   */
+  WatermarkKey?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface AttachInternetGatewayRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -10694,28 +10735,4 @@ export interface Subnet {
    * @public
    */
   MapPublicIpOnLaunch?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateDefaultSubnetResult {
-  /**
-   * <p>Information about the subnet.</p>
-   * @public
-   */
-  Subnet?: Subnet | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateDefaultVpcRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
 }

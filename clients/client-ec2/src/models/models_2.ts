@@ -31,6 +31,7 @@ import type {
   PayerResponsibility,
   ProtocolValue,
   RouteOrigin,
+  RouteServerPeerState,
   RouteState,
   SecondaryNetworkCidrBlockAssociationState,
   SecondaryNetworkState,
@@ -127,11 +128,126 @@ import type {
   ManagedPrefixList,
   OperatorRequest,
   RouteServer,
+  RouteServerBfdStatus,
+  RouteServerBgpOptions,
+  RouteServerBgpStatus,
   RouteServerEndpoint,
-  RouteServerPeer,
   Vpc,
   VpcEncryptionControl,
 } from "./models_1";
+
+/**
+ * <p>Describes a BGP peer configuration for a route server endpoint.</p>
+ *          <p>A route server peer is a session between a route server endpoint and the device deployed in Amazon Web Services (such as a firewall appliance or other network security function running on an EC2 instance). The device must meet these requirements:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Have an elastic network interface in the VPC</p>
+ *             </li>
+ *             <li>
+ *                <p>Support BGP (Border Gateway Protocol)</p>
+ *             </li>
+ *             <li>
+ *                <p>Can initiate BGP sessions</p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export interface RouteServerPeer {
+  /**
+   * <p>The unique identifier of the route server peer.</p>
+   * @public
+   */
+  RouteServerPeerId?: string | undefined;
+
+  /**
+   * <p>The ID of the route server endpoint associated with this peer.</p>
+   * @public
+   */
+  RouteServerEndpointId?: string | undefined;
+
+  /**
+   * <p>The ID of the route server associated with this peer.</p>
+   * @public
+   */
+  RouteServerId?: string | undefined;
+
+  /**
+   * <p>The ID of the VPC containing the route server peer.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+
+  /**
+   * <p>The ID of the subnet containing the route server peer.</p>
+   * @public
+   */
+  SubnetId?: string | undefined;
+
+  /**
+   * <p>The current state of the route server peer.</p>
+   * @public
+   */
+  State?: RouteServerPeerState | undefined;
+
+  /**
+   * <p>The reason for any failure in peer creation or operation.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+
+  /**
+   * <p>The ID of the Elastic network interface for the route server endpoint.</p>
+   * @public
+   */
+  EndpointEniId?: string | undefined;
+
+  /**
+   * <p>The IP address of the Elastic network interface for the route server endpoint.</p>
+   * @public
+   */
+  EndpointEniAddress?: string | undefined;
+
+  /**
+   * <p>The IPv4 address of the peer device.</p>
+   * @public
+   */
+  PeerAddress?: string | undefined;
+
+  /**
+   * <p>The BGP configuration options for this peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings.</p>
+   * @public
+   */
+  BgpOptions?: RouteServerBgpOptions | undefined;
+
+  /**
+   * <p>The current status of the BGP session with this peer.</p>
+   * @public
+   */
+  BgpStatus?: RouteServerBgpStatus | undefined;
+
+  /**
+   * <p>The current status of the BFD session with this peer.</p>
+   * @public
+   */
+  BfdStatus?: RouteServerBfdStatus | undefined;
+
+  /**
+   * <p>Any tags assigned to the route server peer.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRouteServerPeerResult {
+  /**
+   * <p>Information about the created route server peer.</p>
+   * @public
+   */
+  RouteServerPeer?: RouteServerPeer | undefined;
+}
 
 /**
  * @public
@@ -9739,42 +9855,6 @@ export interface DeleteSecurityGroupRequest {
    * @public
    */
   GroupName?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteSecurityGroupResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
-   * @public
-   */
-  Return?: boolean | undefined;
-
-  /**
-   * <p>The ID of the deleted security group.</p>
-   * @public
-   */
-  GroupId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteSnapshotRequest {
-  /**
-   * <p>The ID of the EBS snapshot.</p>
-   * @public
-   */
-  SnapshotId: string | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,

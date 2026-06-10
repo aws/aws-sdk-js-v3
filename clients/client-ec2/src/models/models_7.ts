@@ -101,6 +101,8 @@ import type {
   ElasticGpuSpecification,
   IcmpTypeCode,
   InstanceIpv6Address,
+  IpamScope,
+  LaunchTemplate,
   LocalGatewayRoute,
   ManagedPrefixList,
   OperatorRequest,
@@ -171,6 +173,134 @@ import type {
   ManagedResourceVisibilitySettings,
   Purchase,
 } from "./models_6";
+
+/**
+ * @public
+ */
+export interface ModifyIpamScopeResult {
+  /**
+   * <p>The results of the modification.</p>
+   * @public
+   */
+  IpamScope?: IpamScope | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyLaunchTemplateRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the
+   *             request. If a client token isn't specified, a randomly generated token is used in the
+   *             request to ensure idempotency.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+   *                 idempotency</a>.</p>
+   *          <p>Constraint: Maximum 128 ASCII characters.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The ID of the launch template.</p>
+   *          <p>You must specify either the launch template ID or the launch template name, but not
+   *             both.</p>
+   * @public
+   */
+  LaunchTemplateId?: string | undefined;
+
+  /**
+   * <p>The name of the launch template.</p>
+   *          <p>You must specify either the launch template ID or the launch template name, but not
+   *             both.</p>
+   * @public
+   */
+  LaunchTemplateName?: string | undefined;
+
+  /**
+   * <p>The version number of the launch template to set as the default version.</p>
+   * @public
+   */
+  DefaultVersion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyLaunchTemplateResult {
+  /**
+   * <p>Information about the launch template.</p>
+   * @public
+   */
+  LaunchTemplate?: LaunchTemplate | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyLocalGatewayRouteRequest {
+  /**
+   * <p>The CIDR block used for destination matches. The value that you provide must match the CIDR of an existing route in the table.</p>
+   * @public
+   */
+  DestinationCidrBlock?: string | undefined;
+
+  /**
+   * <p>The ID of the local gateway route table.</p>
+   * @public
+   */
+  LocalGatewayRouteTableId: string | undefined;
+
+  /**
+   * <p>
+   *          The ID of the virtual interface group.
+   *       </p>
+   * @public
+   */
+  LocalGatewayVirtualInterfaceGroupId?: string | undefined;
+
+  /**
+   * <p>The ID of the network interface.</p>
+   * @public
+   */
+  NetworkInterfaceId?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>
+   *          The ID of the prefix list. Use a prefix list in place of <code>DestinationCidrBlock</code>. You
+   *          cannot use <code>DestinationPrefixListId</code> and <code>DestinationCidrBlock</code> in the same request.
+   *       </p>
+   * @public
+   */
+  DestinationPrefixListId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyLocalGatewayRouteResult {
+  /**
+   * <p>Information about the local gateway route table.</p>
+   * @public
+   */
+  Route?: LocalGatewayRoute | undefined;
+}
 
 /**
  * <p>An entry for a prefix list.</p>

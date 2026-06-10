@@ -1,30 +1,27 @@
 // smithy-typescript generated code
 import type {
+  _InstanceType,
   AllowedImagesSettingsDisabledState,
   AllowedImagesSettingsEnabledState,
   CapacityManagerStatus,
   ClientCertificateRevocationListStatusCode,
-  Comparison,
   DeviceTrustProviderType,
   DiskImageFormat,
   DnsNameState,
   FastLaunchResourceType,
   FastLaunchStateCode,
   FastSnapshotRestoreStateCode,
-  FilterByDimension,
-  GroupBy,
   ImageBlockPublicAccessDisabledState,
   ImageBlockPublicAccessEnabledState,
-  IngestionStatus,
   InitializationType,
   InternetGatewayBlockMode,
   IpAddressType,
   ManagedBy,
-  Metric,
   MetricType,
   PayerResponsibility,
   PeriodType,
   ResourceType,
+  RIProductDescription,
   RouteServerPropagationState,
   SecurityGroupVpcAssociationState,
   ServiceConnectivityType,
@@ -109,7 +106,194 @@ import type {
   Filter,
   ProductCode,
 } from "./models_3";
-import type { AttributeBooleanValue, RegisteredInstance, SpotPrice } from "./models_4";
+import type { AttributeBooleanValue, RegisteredInstance, SpotInstanceRequest } from "./models_4";
+
+/**
+ * <p>Contains the output of DescribeSpotInstanceRequests.</p>
+ * @public
+ */
+export interface DescribeSpotInstanceRequestsResult {
+  /**
+   * <p>The Spot Instance requests.</p>
+   * @public
+   */
+  SpotInstanceRequests?: SpotInstanceRequest[] | undefined;
+
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Contains the parameters for DescribeSpotPriceHistory.</p>
+ * @public
+ */
+export interface DescribeSpotPriceHistoryRequest {
+  /**
+   * <p>Filters the results by the specified ID of the Availability Zone.</p>
+   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> can be specified, but not both</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *             <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The date and time, up to the past 90 days, from which to start retrieving the price
+   *             history data, in UTC format (for example,
+   *             <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The date and time, up to the current date, from which to stop retrieving the price
+   *             history data, in UTC format (for example,
+   *             <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>Filters the results by the specified instance types.</p>
+   * @public
+   */
+  InstanceTypes?: _InstanceType[] | undefined;
+
+  /**
+   * <p>Filters the results by the specified basic product descriptions.</p>
+   * @public
+   */
+  ProductDescriptions?: string[] | undefined;
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone</code> - The Availability Zone for which prices should
+   *                     be returned.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone-id</code> - The ID of the Availability Zone for which
+   *                     prices should be returned.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-type</code> - The type of instance (for example,
+   *                     <code>m3.medium</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>product-description</code> - The product description for the Spot price
+   *                     (<code>Linux/UNIX</code> | <code>Red Hat Enterprise Linux</code> |
+   *                     <code>SUSE Linux</code> | <code>Windows</code> | <code>Linux/UNIX (Amazon
+   *                         VPC)</code> | <code>Red Hat Enterprise Linux (Amazon VPC)</code> |
+   *                     <code>SUSE Linux (Amazon VPC)</code> | <code>Windows (Amazon
+   *                         VPC)</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>spot-price</code> - The Spot price. The value must match exactly (or use
+   *                     wildcards; greater than or less than comparison is not supported).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>timestamp</code> - The time stamp of the Spot price history, in UTC format
+   *                     (for example, <i>ddd MMM dd
+   *                         HH</i>:<i>mm</i>:<i>ss</i> UTC
+   *                         <i>YYYY</i>). You can use wildcards (<code>*</code> and
+   *                         <code>?</code>). Greater than or less than comparison is not
+   *                     supported.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>Filters the results by the specified Availability Zone.</p>
+   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> can be specified, but not both</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend
+ *             using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p>
+ *          <important>
+ *             <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p>
+ *          </important>
+ * @public
+ */
+export interface SpotPrice {
+  /**
+   * <p>The Availability Zone.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
+   * <p>The instance type.</p>
+   * @public
+   */
+  InstanceType?: _InstanceType | undefined;
+
+  /**
+   * <p>A general description of the AMI.</p>
+   * @public
+   */
+  ProductDescription?: RIProductDescription | undefined;
+
+  /**
+   * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend
+   *             using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p>
+   *          <important>
+   *             <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p>
+   *          </important>
+   * @public
+   */
+  SpotPrice?: string | undefined;
+
+  /**
+   * <p>The date and time the request was created, in UTC format (for example,
+   *                 <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
+   * @public
+   */
+  Timestamp?: Date | undefined;
+}
 
 /**
  * <p>Contains the output of DescribeSpotPriceHistory.</p>
@@ -5130,6 +5314,43 @@ export interface DetachClassicLinkVpcResult {
 /**
  * @public
  */
+export interface DetachImageWatermarkRequest {
+  /**
+   * <p>The ID of the AMI.</p>
+   * @public
+   */
+  ImageId: string | undefined;
+
+  /**
+   * <p>The watermark key to remove, in <code>accountId:watermarkName</code> format (for example,
+   *         <code>123456789012:approvedAmi</code>).</p>
+   * @public
+   */
+  WatermarkKey: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DetachImageWatermarkResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
+   */
+  Return?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DetachInternetGatewayRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -8966,206 +9187,4 @@ export interface GetAwsNetworkPerformanceDataResult {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCapacityManagerAttributesRequest {
-  /**
-   * <p>
-   * Checks whether you have the required permissions for the action, without actually making the request, and provides an error response.
-   * If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.
-   * </p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCapacityManagerAttributesResult {
-  /**
-   * <p>
-   * The current status of Capacity Manager.
-   * </p>
-   * @public
-   */
-  CapacityManagerStatus?: CapacityManagerStatus | undefined;
-
-  /**
-   * <p>
-   * Indicates whether Organizations access is enabled for cross-account data aggregation.
-   * </p>
-   * @public
-   */
-  OrganizationsAccess?: boolean | undefined;
-
-  /**
-   * <p>
-   * The number of active data export configurations for this account. This count includes all data exports regardless of their current delivery status.
-   * </p>
-   * @public
-   */
-  DataExportCount?: number | undefined;
-
-  /**
-   * <p>
-   * The current data ingestion status. Initial ingestion may take several hours after enabling Capacity Manager.
-   * </p>
-   * @public
-   */
-  IngestionStatus?: IngestionStatus | undefined;
-
-  /**
-   * <p>
-   * A descriptive message providing additional details about the current ingestion status. This may include error information if ingestion has
-   * failed or progress details during initial setup.
-   * </p>
-   * @public
-   */
-  IngestionStatusMessage?: string | undefined;
-
-  /**
-   * <p>
-   * The timestamp of the earliest data point available in Capacity Manager, in milliseconds since epoch. This indicates how far back historical data is available for queries.
-   * </p>
-   * @public
-   */
-  EarliestDatapointTimestamp?: Date | undefined;
-
-  /**
-   * <p>
-   * The timestamp of the most recent data point ingested by Capacity Manager, in milliseconds since epoch. This indicates how current your capacity data is.
-   * </p>
-   * @public
-   */
-  LatestDatapointTimestamp?: Date | undefined;
-}
-
-/**
- * <p>
- * Specifies a condition for filtering capacity data based on dimension values. Used to create precise filters for metric queries and dimension lookups.
- * </p>
- * @public
- */
-export interface DimensionCondition {
-  /**
-   * <p>
-   * The name of the dimension to filter by.
-   * </p>
-   * @public
-   */
-  Dimension?: FilterByDimension | undefined;
-
-  /**
-   * <p>
-   * The comparison operator to use for the filter.
-   * </p>
-   * @public
-   */
-  Comparison?: Comparison | undefined;
-
-  /**
-   * <p>
-   * The list of values to match against the specified dimension. For 'equals' comparison, only the first value is used. For 'in' comparison, any matching value will satisfy the condition.
-   * </p>
-   * @public
-   */
-  Values?: string[] | undefined;
-}
-
-/**
- * <p>
- * Represents a filter condition for Capacity Manager queries. Contains dimension-based filtering criteria used to narrow down metric data and dimension results.
- * </p>
- * @public
- */
-export interface CapacityManagerCondition {
-  /**
-   * <p>
-   * The dimension-based condition that specifies how to filter the data based on dimension values.
-   * </p>
-   * @public
-   */
-  DimensionCondition?: DimensionCondition | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCapacityManagerMetricDataRequest {
-  /**
-   * <p>
-   * The names of the metrics to retrieve. Maximum of 10 metrics per request.
-   * </p>
-   * @public
-   */
-  MetricNames: Metric[] | undefined;
-
-  /**
-   * <p>
-   * The start time for the metric data query, in ISO 8601 format. The time range (end time - start time) must be a multiple of the specified period.
-   * </p>
-   * @public
-   */
-  StartTime: Date | undefined;
-
-  /**
-   * <p>
-   * The end time for the metric data query, in ISO 8601 format. If the end time is beyond the latest ingested data, it will be automatically adjusted to the latest available data point.
-   * </p>
-   * @public
-   */
-  EndTime: Date | undefined;
-
-  /**
-   * <p>
-   * The granularity, in seconds, of the returned data points.
-   * </p>
-   * @public
-   */
-  Period: number | undefined;
-
-  /**
-   * <p>
-   * The dimensions by which to group the metric data. This determines how the data is aggregated and returned.
-   * </p>
-   * @public
-   */
-  GroupBy?: GroupBy[] | undefined;
-
-  /**
-   * <p>
-   * Conditions to filter the metric data. Each filter specifies a dimension, comparison operator ('equals', 'in'), and values to match against.
-   * </p>
-   * @public
-   */
-  FilterBy?: CapacityManagerCondition[] | undefined;
-
-  /**
-   * <p>
-   * The maximum number of data points to return. Valid range is 1 to 100,000. Use with NextToken for pagination of large result sets.
-   * </p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>
-   * The token for the next page of results. Use this value in a subsequent call to retrieve additional data points.
-   * </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>
-   * Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have
-   * the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.
-   * </p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
 }

@@ -193,6 +193,11 @@ import {
   AttachClassicLinkVpcCommand,
 } from "./commands/AttachClassicLinkVpcCommand";
 import {
+  type AttachImageWatermarkCommandInput,
+  type AttachImageWatermarkCommandOutput,
+  AttachImageWatermarkCommand,
+} from "./commands/AttachImageWatermarkCommand";
+import {
   type AttachInternetGatewayCommandInput,
   type AttachInternetGatewayCommandOutput,
   AttachInternetGatewayCommand,
@@ -2276,6 +2281,11 @@ import {
   DetachClassicLinkVpcCommand,
 } from "./commands/DetachClassicLinkVpcCommand";
 import {
+  type DetachImageWatermarkCommandInput,
+  type DetachImageWatermarkCommandOutput,
+  DetachImageWatermarkCommand,
+} from "./commands/DetachImageWatermarkCommand";
+import {
   type DetachInternetGatewayCommandInput,
   type DetachInternetGatewayCommandOutput,
   DetachInternetGatewayCommand,
@@ -4153,6 +4163,7 @@ const commands = {
   AssociateTrunkInterfaceCommand,
   AssociateVpcCidrBlockCommand,
   AttachClassicLinkVpcCommand,
+  AttachImageWatermarkCommand,
   AttachInternetGatewayCommand,
   AttachNetworkInterfaceCommand,
   AttachVerifiedAccessTrustProviderCommand,
@@ -4572,6 +4583,7 @@ const commands = {
   DescribeVpnConnectionsCommand,
   DescribeVpnGatewaysCommand,
   DetachClassicLinkVpcCommand,
+  DetachImageWatermarkCommand,
   DetachInternetGatewayCommand,
   DetachNetworkInterfaceCommand,
   DetachVerifiedAccessTrustProviderCommand,
@@ -5733,6 +5745,23 @@ export interface EC2 {
     args: AttachClassicLinkVpcCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AttachClassicLinkVpcCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AttachImageWatermarkCommand}
+   */
+  attachImageWatermark(
+    args: AttachImageWatermarkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AttachImageWatermarkCommandOutput>;
+  attachImageWatermark(
+    args: AttachImageWatermarkCommandInput,
+    cb: (err: any, data?: AttachImageWatermarkCommandOutput) => void
+  ): void;
+  attachImageWatermark(
+    args: AttachImageWatermarkCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AttachImageWatermarkCommandOutput) => void
   ): void;
 
   /**
@@ -13042,6 +13071,23 @@ export interface EC2 {
     args: DetachClassicLinkVpcCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DetachClassicLinkVpcCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DetachImageWatermarkCommand}
+   */
+  detachImageWatermark(
+    args: DetachImageWatermarkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DetachImageWatermarkCommandOutput>;
+  detachImageWatermark(
+    args: DetachImageWatermarkCommandInput,
+    cb: (err: any, data?: DetachImageWatermarkCommandOutput) => void
+  ): void;
+  detachImageWatermark(
+    args: DetachImageWatermarkCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DetachImageWatermarkCommandOutput) => void
   ): void;
 
   /**

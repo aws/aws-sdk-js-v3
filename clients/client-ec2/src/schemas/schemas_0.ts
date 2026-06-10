@@ -142,6 +142,9 @@ const _AISt = "AthenaIntegrationsSet";
 const _AIT = "AllowedInstanceTypes";
 const _AITS = "AllowedInstanceTypeSet";
 const _AITl = "AllowedInstanceType";
+const _AIW = "AttachImageWatermark";
+const _AIWR = "AttachImageWatermarkRequest";
+const _AIWRt = "AttachImageWatermarkResult";
 const _AIc = "AccountId";
 const _AIcc = "AccountIds";
 const _AIct = "ActiveInstances";
@@ -1652,6 +1655,9 @@ const _DIURRes = "DescribeImageUsageReportsRequest";
 const _DIURResc = "DescribeImageUsageReportsResult";
 const _DIURe = "DescribeImageUsageReports";
 const _DIVD = "DiskImageVolumeDescription";
+const _DIW = "DetachImageWatermark";
+const _DIWR = "DetachImageWatermarkRequest";
+const _DIWRe = "DetachImageWatermarkResult";
 const _DIe = "DestinationIp";
 const _DIel = "DeleteIpam";
 const _DIer = "DeregisterImage";
@@ -3513,6 +3519,9 @@ const _IVRm = "ImportVolumeResult";
 const _IVTD = "ImportVolumeTaskDetails";
 const _IVk = "IkeVersions";
 const _IVm = "ImportVolume";
+const _IW = "ImageWatermarks";
+const _IWL = "ImageWatermarkList";
+const _IWm = "ImageWatermark";
 const _Ic = "Icmp";
 const _Im = "Images";
 const _Ima = "Image";
@@ -5226,6 +5235,7 @@ const _SICRu = "SubnetIpv6CidrReservations";
 const _SICS = "SuccessfulInstanceCreditSpecifications";
 const _SICSI = "SuccessfulInstanceCreditSpecificationItem";
 const _SICSS = "SuccessfulInstanceCreditSpecificationSet";
+const _SICT = "SourceImageCreationTime";
 const _SIE = "ScheduledInstancesEbs";
 const _SIGB = "SizeInGB";
 const _SII = "SourceImageId";
@@ -6105,9 +6115,12 @@ const _WBC = "WithdrawByoipCidr";
 const _WBCR = "WithdrawByoipCidrRequest";
 const _WBCRi = "WithdrawByoipCidrResult";
 const _WC = "WithCooldown";
+const _WCT = "WatermarkCreationTime";
 const _WCe = "WeightedCapacity";
+const _WK = "WatermarkKey";
 const _WL = "WorkloadsList";
 const _WM = "WarningMessage";
+const _WN = "WatermarkName";
 const _WU = "WakeUp";
 const _We = "Weight";
 const _Wo = "Workloads";
@@ -7042,6 +7055,7 @@ const _iV = "ikeVersion";
 const _iVE = "isValidExchange";
 const _iVS = "ikeVersionSet";
 const _iVm = "importVolume";
+const _iWS = "imageWatermarkSet";
 const _im = "image";
 const _in = "instance";
 const _ins = "instances";
@@ -7778,6 +7792,7 @@ const _sIATS = "supportedIpAddressTypeSet";
 const _sICRS = "subnetIpv4CidrReservationSet";
 const _sICRSu = "subnetIpv6CidrReservationSet";
 const _sICSS = "successfulInstanceCreditSpecificationSet";
+const _sICT = "sourceImageCreationTime";
 const _sIGB = "sizeInGB";
 const _sII = "sourceInstanceId";
 const _sIIc = "scheduledInstanceId";
@@ -8200,6 +8215,8 @@ const _vp = "vpc";
 const _vpc = "vpcs";
 const _w = "warning";
 const _wC = "weightedCapacity";
+const _wCT = "watermarkCreationTime";
+const _wK = "watermarkKey";
 const _wM = "warningMessage";
 const _wS = "workloadSet";
 const _we = "weight";
@@ -9001,6 +9018,17 @@ export var AttachClassicLinkVpcResult$: StaticStructureSchema = [3, n0, _ACLVRt,
   [_R],
   [[2, { [_eQN]: `Return`
   , [_xN]: _r }]]
+];
+export var AttachImageWatermarkRequest$: StaticStructureSchema = [3, n0, _AIWR,
+  0,
+  [_IIm, _WN, _DR],
+  [0, 0, 2], 2
+];
+export var AttachImageWatermarkResult$: StaticStructureSchema = [3, n0, _AIWRt,
+  0,
+  [_WK],
+  [[0, { [_eQN]: `WatermarkKey`
+  , [_xN]: _wK }]]
 ];
 export var AttachInternetGatewayRequest$: StaticStructureSchema = [3, n0, _AIGR,
   0,
@@ -15140,6 +15168,17 @@ export var DetachClassicLinkVpcResult$: StaticStructureSchema = [3, n0, _DCLVRe,
   [[2, { [_eQN]: `Return`
   , [_xN]: _r }]]
 ];
+export var DetachImageWatermarkRequest$: StaticStructureSchema = [3, n0, _DIWR,
+  0,
+  [_IIm, _WK, _DR],
+  [0, 0, 2], 2
+];
+export var DetachImageWatermarkResult$: StaticStructureSchema = [3, n0, _DIWRe,
+  0,
+  [_R],
+  [[2, { [_eQN]: `Return`
+  , [_xN]: _r }]]
+];
 export var DetachInternetGatewayRequest$: StaticStructureSchema = [3, n0, _DIGRet,
   0,
   [_IGI, _VI, _DR],
@@ -17823,7 +17862,7 @@ export var IKEVersionsRequestListValue$: StaticStructureSchema = [3, n0, _IKEVRL
 ];
 export var Image$: StaticStructureSchema = [3, n0, _Ima,
   0,
-  [_PDl, _UO, _BDMl, _De, _ESna, _Hy, _IOA, _N, _RDN, _RDT, _SNS, _SRt, _T, _VTir, _BM, _TSp, _DTe, _ISmd, _SIIo, _DPer, _LLT, _IAm, _SII, _SIRo, _FTE, _IIm, _IL, _St, _OI, _CDr, _Pu, _PCro, _Arc, _ITm, _KI, _RIa, _Pl],
+  [_PDl, _UO, _BDMl, _De, _ESna, _Hy, _IOA, _N, _RDN, _RDT, _SNS, _SRt, _T, _VTir, _BM, _TSp, _DTe, _ISmd, _SIIo, _DPer, _LLT, _IAm, _SII, _SIRo, _FTE, _IW, _IIm, _IL, _St, _OI, _CDr, _Pu, _PCro, _Arc, _ITm, _KI, _RIa, _Pl],
   [[0, { [_eQN]: `PlatformDetails`
   , [_xN]: _pDl }], [0, { [_eQN]: `UsageOperation`
   , [_xN]: _uO }], [() => BlockDeviceMappingList, { [_eQN]: `BlockDeviceMapping`
@@ -17849,7 +17888,8 @@ export var Image$: StaticStructureSchema = [3, n0, _Ima,
   , [_xN]: _iAm }], [0, { [_eQN]: `SourceImageId`
   , [_xN]: _sIIo }], [0, { [_eQN]: `SourceImageRegion`
   , [_xN]: _sIR }], [2, { [_eQN]: `FreeTierEligible`
-  , [_xN]: _fTE }], [0, { [_eQN]: `ImageId`
+  , [_xN]: _fTE }], [() => ImageWatermarkList, { [_eQN]: `ImageWatermarkSet`
+  , [_xN]: _iWS }], [0, { [_eQN]: `ImageId`
   , [_xN]: _iIma }], [0, { [_eQN]: `ImageLocation`
   , [_xN]: _iL }], [0, { [_eQN]: `ImageState`
   , [_xN]: _iSma }], [0, { [_eQN]: `ImageOwnerId`
@@ -17914,7 +17954,7 @@ export var ImageDiskContainer$: StaticStructureSchema = [3, n0, _IDC,
 ];
 export var ImageMetadata$: StaticStructureSchema = [3, n0, _IMm,
   0,
-  [_IIm, _N, _OI, _St, _IOA, _CDr, _DTe, _IAm, _IPs],
+  [_IIm, _N, _OI, _St, _IOA, _CDr, _DTe, _IAm, _IPs, _IW],
   [[0, { [_eQN]: `ImageId`
   , [_xN]: _iIma }], [0, { [_eQN]: `Name`
   , [_xN]: _n }], [0, { [_eQN]: `ImageOwnerId`
@@ -17924,7 +17964,8 @@ export var ImageMetadata$: StaticStructureSchema = [3, n0, _IMm,
   , [_xN]: _cDr }], [0, { [_eQN]: `DeprecationTime`
   , [_xN]: _dTe }], [2, { [_eQN]: `ImageAllowed`
   , [_xN]: _iAm }], [2, { [_eQN]: `IsPublic`
-  , [_xN]: _iPs }]]
+  , [_xN]: _iPs }], [() => ImageWatermarkList, { [_eQN]: `ImageWatermarkSet`
+  , [_xN]: _iWS }]]
 ];
 export var ImageRecycleBinInfo$: StaticStructureSchema = [3, n0, _IRBI,
   0,
@@ -17992,6 +18033,16 @@ export var ImageUsageResourceTypeRequest$: StaticStructureSchema = [3, n0, _IURT
   0,
   [_RTe, _RTO],
   [0, [() => ImageUsageResourceTypeOptionRequestList, { [_xN]: _RTOe }]]
+];
+export var ImageWatermark$: StaticStructureSchema = [3, n0, _IWm,
+  0,
+  [_WK, _SIRo, _SII, _SICT, _WCT],
+  [[0, { [_eQN]: `WatermarkKey`
+  , [_xN]: _wK }], [0, { [_eQN]: `SourceImageRegion`
+  , [_xN]: _sIR }], [0, { [_eQN]: `SourceImageId`
+  , [_xN]: _sIIo }], [4, { [_eQN]: `SourceImageCreationTime`
+  , [_xN]: _sICT }], [4, { [_eQN]: `WatermarkCreationTime`
+  , [_xN]: _wCT }]]
 ];
 export var ImportClientVpnClientCertificateRevocationListRequest$: StaticStructureSchema = [3, n0, _ICVCCRLR,
   0,
@@ -26700,6 +26751,10 @@ var ImageUsageResourceTypeRequestList: StaticListSchema = [1, n0, _IURTRL,
   0, [() => ImageUsageResourceTypeRequest$,
     0]
 ];
+var ImageWatermarkList: StaticListSchema = [1, n0, _IWL,
+  0, [() => ImageWatermark$,
+    { [_xN]: _it }]
+];
 var ImportImageLicenseSpecificationListRequest: StaticListSchema = [1, n0, _IILSLR,
   0, [() => ImportImageLicenseConfigurationRequest$,
     { [_xN]: _it }]
@@ -28819,6 +28874,9 @@ export var AssociateVpcCidrBlock$: StaticOperationSchema = [9, n0, _AVCB,
 export var AttachClassicLinkVpc$: StaticOperationSchema = [9, n0, _ACLV,
   0, () => AttachClassicLinkVpcRequest$, () => AttachClassicLinkVpcResult$
 ];
+export var AttachImageWatermark$: StaticOperationSchema = [9, n0, _AIW,
+  0, () => AttachImageWatermarkRequest$, () => AttachImageWatermarkResult$
+];
 export var AttachInternetGateway$: StaticOperationSchema = [9, n0, _AIG,
   0, () => AttachInternetGatewayRequest$, () => __Unit
 ];
@@ -30075,6 +30133,9 @@ export var DescribeVpnGateways$: StaticOperationSchema = [9, n0, _DVGe,
 ];
 export var DetachClassicLinkVpc$: StaticOperationSchema = [9, n0, _DCLV,
   0, () => DetachClassicLinkVpcRequest$, () => DetachClassicLinkVpcResult$
+];
+export var DetachImageWatermark$: StaticOperationSchema = [9, n0, _DIW,
+  0, () => DetachImageWatermarkRequest$, () => DetachImageWatermarkResult$
 ];
 export var DetachInternetGateway$: StaticOperationSchema = [9, n0, _DIGet,
   0, () => DetachInternetGatewayRequest$, () => __Unit
