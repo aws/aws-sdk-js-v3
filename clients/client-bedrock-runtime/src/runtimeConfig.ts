@@ -85,10 +85,7 @@ export const getRuntimeConfig = (config: BedrockRuntimeClientConfig) => {
         NODE_REGION_CONFIG_OPTIONS,
         {...NODE_REGION_CONFIG_FILE_OPTIONS, ...loaderConfig}
     ),
-    requestHandler: RequestHandler.create(config?.requestHandler ?? (async () => ({
-      ...await defaultConfigProvider(),
-      disableConcurrentStreams: true
-    }))),
+    requestHandler: RequestHandler.create(config?.requestHandler ?? defaultConfigProvider),
     retryMode:
       config?.retryMode ??
       loadNodeConfig(
