@@ -743,6 +743,7 @@ const _vSB = "versionSizeBytes";
 const _va = "value";
 const _wBOI = "workflowBucketOwnerId";
 const _wI = "workflowId";
+const _wN = "workflowName";
 const _wOI = "workflowOwnerId";
 const _wT = "workflowType";
 const _wU = "workflowUuid";
@@ -1981,8 +1982,8 @@ export var RunGroupListItem$: StaticStructureSchema = [3, n0, _RGLI,
 ];
 export var RunListItem$: StaticStructureSchema = [3, n0, _RLIu,
   0,
-  [_ar, _i, _sta, _wI, _bI, _n, _pr, _sCt, _cT, _sTt, _sTto, _sT, _wVN],
-  [0, 0, 0, 0, 0, 0, 1, 1, 5, 5, 5, 0, 0]
+  [_ar, _i, _sta, _wI, _bI, _n, _pr, _sCt, _cT, _sTt, _sTto, _sT, _wVN, _wN],
+  [0, 0, 0, 0, 0, 0, 1, 1, 5, 5, 5, 0, 0, 0]
 ];
 export var RunLogLocation$: StaticStructureSchema = [3, n0, _RLL,
   0,

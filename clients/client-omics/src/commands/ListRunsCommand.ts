@@ -62,6 +62,7 @@ export interface ListRunsCommandOutput extends ListRunsResponse, __MetadataBeare
  * //       stopTime: new Date("TIMESTAMP"),
  * //       storageType: "STRING_VALUE",
  * //       workflowVersionName: "STRING_VALUE",
+ * //       workflowName: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

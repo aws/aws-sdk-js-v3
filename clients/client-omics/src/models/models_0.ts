@@ -7802,6 +7802,12 @@ export interface RunListItem {
    * @public
    */
   workflowVersionName?: string | undefined;
+
+  /**
+   * <p>The name of the workflow.</p>
+   * @public
+   */
+  workflowName?: string | undefined;
 }
 
 /**
