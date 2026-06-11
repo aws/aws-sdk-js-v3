@@ -141,6 +141,9 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  * //         },
  * //       ],
  * //       DBSubnetGroupArn: "STRING_VALUE",
+ * //       SupportedNetworkTypes: [ // StringList
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //     PreferredMaintenanceWindow: "STRING_VALUE",
  * //     PendingModifiedValues: { // PendingModifiedValues
@@ -226,6 +229,7 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  * //       "STRING_VALUE",
  * //     ],
  * //     DeletionProtection: true || false,
+ * //     NetworkType: "STRING_VALUE",
  * //   },
  * // };
  *

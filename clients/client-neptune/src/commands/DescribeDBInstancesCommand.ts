@@ -108,6 +108,9 @@ export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __M
  * //           },
  * //         ],
  * //         DBSubnetGroupArn: "STRING_VALUE",
+ * //         SupportedNetworkTypes: [ // StringList
+ * //           "STRING_VALUE",
+ * //         ],
  * //       },
  * //       PreferredMaintenanceWindow: "STRING_VALUE",
  * //       PendingModifiedValues: { // PendingModifiedValues
@@ -193,6 +196,7 @@ export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __M
  * //         "STRING_VALUE",
  * //       ],
  * //       DeletionProtection: true || false,
+ * //       NetworkType: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

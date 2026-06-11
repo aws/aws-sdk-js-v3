@@ -97,6 +97,9 @@ export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, _
  * //         },
  * //       ],
  * //       DBSubnetGroupArn: "STRING_VALUE",
+ * //       SupportedNetworkTypes: [ // StringList
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //     PreferredMaintenanceWindow: "STRING_VALUE",
  * //     PendingModifiedValues: { // PendingModifiedValues
@@ -182,6 +185,7 @@ export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, _
  * //       "STRING_VALUE",
  * //     ],
  * //     DeletionProtection: true || false,
+ * //     NetworkType: "STRING_VALUE",
  * //   },
  * // };
  *

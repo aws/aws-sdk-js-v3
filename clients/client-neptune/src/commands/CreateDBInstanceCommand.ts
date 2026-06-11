@@ -145,6 +145,9 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  * //         },
  * //       ],
  * //       DBSubnetGroupArn: "STRING_VALUE",
+ * //       SupportedNetworkTypes: [ // StringList
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //     PreferredMaintenanceWindow: "STRING_VALUE",
  * //     PendingModifiedValues: { // PendingModifiedValues
@@ -230,6 +233,7 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  * //       "STRING_VALUE",
  * //     ],
  * //     DeletionProtection: true || false,
+ * //     NetworkType: "STRING_VALUE",
  * //   },
  * // };
  *

@@ -86,6 +86,7 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *   },
  *   GlobalClusterIdentifier: "STRING_VALUE",
  *   StorageType: "STRING_VALUE",
+ *   NetworkType: "STRING_VALUE",
  * };
  * const command = new CreateDBClusterCommand(input);
  * const response = await client.send(command);
@@ -173,6 +174,7 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * //       StorageType: "STRING_VALUE",
  * //       AllocatedStorage: Number("int"),
  * //       Iops: Number("int"),
+ * //       NetworkType: "STRING_VALUE",
  * //     },
  * //     DeletionProtection: true || false,
  * //     CrossAccountClone: true || false,
@@ -184,6 +186,7 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * //     GlobalClusterIdentifier: "STRING_VALUE",
  * //     IOOptimizedNextAllowedModificationTime: new Date("TIMESTAMP"),
  * //     StorageType: "STRING_VALUE",
+ * //     NetworkType: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -253,6 +256,9 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *
  * @throws {@link KMSKeyNotAccessibleFault} (client fault)
  *  <p>Error accessing KMS key.</p>
+ *
+ * @throws {@link NetworkTypeNotSupportedFault} (client fault)
+ *  <p>The specified <i>NetworkType</i> is not supported for the DB cluster, DB subnet group, or orderable DB instance option.</p>
  *
  * @throws {@link StorageQuotaExceededFault} (client fault)
  *  <p>Request would result in user exceeding the allowed amount of storage available across all DB instances.</p>

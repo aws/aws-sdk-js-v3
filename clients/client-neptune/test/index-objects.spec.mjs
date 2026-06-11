@@ -359,6 +359,8 @@ import {
   Neptune,
   NeptuneClient,
   NeptuneServiceException,
+  NetworkTypeNotSupportedFault,
+  NetworkTypeNotSupportedFault$,
   OptionGroupMembership$,
   OptionGroupNotFoundFault,
   OptionGroupNotFoundFault$,
@@ -913,6 +915,8 @@ assert(InvalidVPCNetworkStateFault.prototype instanceof NeptuneServiceException)
 assert(typeof InvalidVPCNetworkStateFault$ === "object");
 assert(KMSKeyNotAccessibleFault.prototype instanceof NeptuneServiceException);
 assert(typeof KMSKeyNotAccessibleFault$ === "object");
+assert(NetworkTypeNotSupportedFault.prototype instanceof NeptuneServiceException);
+assert(typeof NetworkTypeNotSupportedFault$ === "object");
 assert(OptionGroupNotFoundFault.prototype instanceof NeptuneServiceException);
 assert(typeof OptionGroupNotFoundFault$ === "object");
 assert(ProvisionedIopsNotAvailableInAZFault.prototype instanceof NeptuneServiceException);

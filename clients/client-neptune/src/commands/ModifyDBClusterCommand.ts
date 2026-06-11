@@ -70,6 +70,7 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  *     MaxCapacity: Number("double"),
  *   },
  *   StorageType: "STRING_VALUE",
+ *   NetworkType: "STRING_VALUE",
  * };
  * const command = new ModifyDBClusterCommand(input);
  * const response = await client.send(command);
@@ -157,6 +158,7 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  * //       StorageType: "STRING_VALUE",
  * //       AllocatedStorage: Number("int"),
  * //       Iops: Number("int"),
+ * //       NetworkType: "STRING_VALUE",
  * //     },
  * //     DeletionProtection: true || false,
  * //     CrossAccountClone: true || false,
@@ -168,6 +170,7 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  * //     GlobalClusterIdentifier: "STRING_VALUE",
  * //     IOOptimizedNextAllowedModificationTime: new Date("TIMESTAMP"),
  * //     StorageType: "STRING_VALUE",
+ * //     NetworkType: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -215,6 +218,9 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  * @throws {@link InvalidVPCNetworkStateFault} (client fault)
  *  <p>DB subnet group does not cover all Availability Zones after it is created
  *       because users' change.</p>
+ *
+ * @throws {@link NetworkTypeNotSupportedFault} (client fault)
+ *  <p>The specified <i>NetworkType</i> is not supported for the DB cluster, DB subnet group, or orderable DB instance option.</p>
  *
  * @throws {@link StorageQuotaExceededFault} (client fault)
  *  <p>Request would result in user exceeding the allowed amount of storage available across all DB instances.</p>

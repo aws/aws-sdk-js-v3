@@ -446,6 +446,7 @@ export type {
   InvalidSubnet,
   InvalidVPCNetworkStateFault,
   KMSKeyNotAccessibleFault,
+  NetworkTypeNotSupportedFault,
   OptionGroupNotFoundFault,
   ProvisionedIopsNotAvailableInAZFault,
   ResourceNotFoundFault,

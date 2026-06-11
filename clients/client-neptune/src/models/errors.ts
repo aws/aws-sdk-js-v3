@@ -600,6 +600,26 @@ export class InvalidVPCNetworkStateFault extends __BaseException {
 }
 
 /**
+ * <p>The specified <i>NetworkType</i> is not supported for the DB cluster, DB subnet group, or orderable DB instance option.</p>
+ * @public
+ */
+export class NetworkTypeNotSupportedFault extends __BaseException {
+  readonly name = "NetworkTypeNotSupportedFault" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NetworkTypeNotSupportedFault, __BaseException>) {
+    super({
+      name: "NetworkTypeNotSupportedFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NetworkTypeNotSupportedFault.prototype);
+  }
+}
+
+/**
  * <p>Request would result in user exceeding the allowed amount of storage available across all DB instances.</p>
  * @public
  */

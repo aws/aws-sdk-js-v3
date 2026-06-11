@@ -329,14 +329,13 @@ export interface CopyDBClusterParameterGroupMessage {
    *                <p>Must specify a valid DB cluster parameter group.</p>
    *             </li>
    *             <li>
-   *                <p>If the source DB cluster parameter group is in the same Amazon Region as the copy,
-   *           specify a valid DB parameter group identifier, for example
+   *                <p>Must specify a valid DB cluster parameter group identifier, for example
    *           <code>my-db-cluster-param-group</code>, or a valid ARN.</p>
    *             </li>
    *             <li>
-   *                <p>If the source DB parameter group is in a different Amazon Region than the copy, specify a
-   *           valid DB cluster parameter group ARN, for example
-   *           <code>arn:aws:rds:us-east-1:123456789012:cluster-pg:custom-cluster-group1</code>.</p>
+   *                <p>The source DB cluster parameter group must be in the same Amazon Region as the
+   *           copy. Neptune does not support cross-Region copying of parameter
+   *           groups.</p>
    *             </li>
    *          </ul>
    * @public
@@ -685,6 +684,11 @@ export interface CopyDBParameterGroupMessage {
    *                <p>Must specify a valid DB parameter group identifier, for example
    *         <code>my-db-param-group</code>, or a valid ARN.</p>
    *             </li>
+   *             <li>
+   *                <p>The source DB parameter group must be in the same Amazon Region as the
+   *         copy. Neptune does not support cross-Region copying of parameter
+   *         groups.</p>
+   *             </li>
    *          </ul>
    * @public
    */
@@ -835,8 +839,7 @@ export interface CreateDBClusterMessage {
   CopyTagsToSnapshot?: boolean | undefined;
 
   /**
-   * <p>The name for your database of up to 64 alpha-numeric characters. If you do not provide a
-   *       name, Amazon Neptune will not create a database in the DB cluster you are creating.</p>
+   * <p>Not supported by Neptune.</p>
    * @public
    */
   DatabaseName?: string | undefined;
@@ -1095,6 +1098,30 @@ export interface CreateDBClusterMessage {
    * @public
    */
   StorageType?: string | undefined;
+
+  /**
+   * <p>The network type of the DB cluster.</p>
+   *          <p>Valid Values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>IPV4</code>
+   *                   </b>   –  
+   *         ( <i>the default</i> ) The DB cluster uses only IPv4 addresses for communication.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>DUAL</code>
+   *                   </b>   –  
+   *           The DB cluster uses both IPv4 and IPv6 addresses for communication. The DB subnet group
+   *           associated with the cluster must support IPv6.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  NetworkType?: string | undefined;
 }
 
 /**
@@ -1295,6 +1322,14 @@ export interface ClusterPendingModifiedValues {
    * @public
    */
   Iops?: number | undefined;
+
+  /**
+   * <p>The pending change in network type for the DB cluster.</p>
+   *          <p>Valid Values: <code>IPV4</code>, <code>DUAL</code>
+   *          </p>
+   * @public
+   */
+  NetworkType?: string | undefined;
 }
 
 /**
@@ -1670,6 +1705,29 @@ export interface DBCluster {
    * @public
    */
   StorageType?: string | undefined;
+
+  /**
+   * <p>The network type of the DB cluster.</p>
+   *          <p>Valid Values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>IPV4</code>
+   *                   </b>   –  
+   *         The DB cluster uses only IPv4 addresses for communication.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>DUAL</code>
+   *                   </b>   –  
+   *           The DB cluster uses both IPv4 and IPv6 addresses for communication.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  NetworkType?: string | undefined;
 }
 
 /**
@@ -2463,6 +2521,14 @@ export interface DBSubnetGroup {
    * @public
    */
   DBSubnetGroupArn?: string | undefined;
+
+  /**
+   * <p>The network types supported by the DB subnet group.</p>
+   *          <p>Valid network types include <code>IPV4</code> and <code>DUAL</code>. A DB subnet group
+   *       supports <code>DUAL</code> if all subnets in the group have both IPv4 and IPv6 CIDRs.</p>
+   * @public
+   */
+  SupportedNetworkTypes?: string[] | undefined;
 }
 
 /**
@@ -3032,6 +3098,14 @@ export interface DBInstance {
    * @public
    */
   DeletionProtection?: boolean | undefined;
+
+  /**
+   * <p>The network type of the DB instance. Inherited from the DB cluster.</p>
+   *          <p>Valid Values: <code>IPV4</code>, <code>DUAL</code>
+   *          </p>
+   * @public
+   */
+  NetworkType?: string | undefined;
 }
 
 /**
@@ -5721,6 +5795,12 @@ export interface OrderableDBInstanceOption {
    * @public
    */
   SupportsGlobalDatabases?: boolean | undefined;
+
+  /**
+   * <p>The network types supported by the orderable DB instance option.</p>
+   * @public
+   */
+  SupportedNetworkTypes?: string[] | undefined;
 }
 
 /**
@@ -6332,6 +6412,30 @@ export interface ModifyDBClusterMessage {
    * @public
    */
   StorageType?: string | undefined;
+
+  /**
+   * <p>The network type of the DB cluster.</p>
+   *          <p>Valid Values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>IPV4</code>
+   *                   </b>   –  
+   *         The DB cluster uses only IPv4 addresses for communication.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>DUAL</code>
+   *                   </b>   –  
+   *           The DB cluster uses both IPv4 and IPv6 addresses for communication. The DB subnet group
+   *           associated with the cluster must support IPv6.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  NetworkType?: string | undefined;
 }
 
 /**
@@ -7608,6 +7712,30 @@ export interface RestoreDBClusterFromSnapshotMessage {
    * @public
    */
   StorageType?: string | undefined;
+
+  /**
+   * <p>The network type of the DB cluster.</p>
+   *          <p>Valid Values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>IPV4</code>
+   *                   </b>   –  
+   *         ( <i>the default</i> ) The DB cluster uses only IPv4 addresses for communication.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>DUAL</code>
+   *                   </b>   –  
+   *           The DB cluster uses both IPv4 and IPv6 addresses for communication. The DB subnet group
+   *           associated with the cluster must support IPv6.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  NetworkType?: string | undefined;
 }
 
 /**
@@ -7833,6 +7961,30 @@ export interface RestoreDBClusterToPointInTimeMessage {
    * @public
    */
   StorageType?: string | undefined;
+
+  /**
+   * <p>The network type of the DB cluster.</p>
+   *          <p>Valid Values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>IPV4</code>
+   *                   </b>   –  
+   *         ( <i>the default</i> ) The DB cluster uses only IPv4 addresses for communication.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>DUAL</code>
+   *                   </b>   –  
+   *           The DB cluster uses both IPv4 and IPv6 addresses for communication. The DB subnet group
+   *           associated with the cluster must support IPv6.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  NetworkType?: string | undefined;
 }
 
 /**

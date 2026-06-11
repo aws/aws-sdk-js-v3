@@ -75,6 +75,7 @@ export interface RestoreDBClusterFromSnapshotCommandOutput extends RestoreDBClus
  *     MaxCapacity: Number("double"),
  *   },
  *   StorageType: "STRING_VALUE",
+ *   NetworkType: "STRING_VALUE",
  * };
  * const command = new RestoreDBClusterFromSnapshotCommand(input);
  * const response = await client.send(command);
@@ -162,6 +163,7 @@ export interface RestoreDBClusterFromSnapshotCommandOutput extends RestoreDBClus
  * //       StorageType: "STRING_VALUE",
  * //       AllocatedStorage: Number("int"),
  * //       Iops: Number("int"),
+ * //       NetworkType: "STRING_VALUE",
  * //     },
  * //     DeletionProtection: true || false,
  * //     CrossAccountClone: true || false,
@@ -173,6 +175,7 @@ export interface RestoreDBClusterFromSnapshotCommandOutput extends RestoreDBClus
  * //     GlobalClusterIdentifier: "STRING_VALUE",
  * //     IOOptimizedNextAllowedModificationTime: new Date("TIMESTAMP"),
  * //     StorageType: "STRING_VALUE",
+ * //     NetworkType: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -236,6 +239,9 @@ export interface RestoreDBClusterFromSnapshotCommandOutput extends RestoreDBClus
  *
  * @throws {@link KMSKeyNotAccessibleFault} (client fault)
  *  <p>Error accessing KMS key.</p>
+ *
+ * @throws {@link NetworkTypeNotSupportedFault} (client fault)
+ *  <p>The specified <i>NetworkType</i> is not supported for the DB cluster, DB subnet group, or orderable DB instance option.</p>
  *
  * @throws {@link OptionGroupNotFoundFault} (client fault)
  *  <p>The designated option group could not be found.</p>

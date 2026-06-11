@@ -142,6 +142,7 @@ export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __Met
  * //         StorageType: "STRING_VALUE",
  * //         AllocatedStorage: Number("int"),
  * //         Iops: Number("int"),
+ * //         NetworkType: "STRING_VALUE",
  * //       },
  * //       DeletionProtection: true || false,
  * //       CrossAccountClone: true || false,
@@ -153,6 +154,7 @@ export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __Met
  * //       GlobalClusterIdentifier: "STRING_VALUE",
  * //       IOOptimizedNextAllowedModificationTime: new Date("TIMESTAMP"),
  * //       StorageType: "STRING_VALUE",
+ * //       NetworkType: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

@@ -83,6 +83,9 @@ export interface DescribeOrderableDBInstanceOptionsCommandOutput extends Orderab
  * //       MinIopsPerGib: Number("double"),
  * //       MaxIopsPerGib: Number("double"),
  * //       SupportsGlobalDatabases: true || false,
+ * //       SupportedNetworkTypes: [ // StringList
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   ],
  * //   Marker: "STRING_VALUE",
