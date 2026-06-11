@@ -44,7 +44,7 @@ export interface DeleteFHIRDatastoreCommandOutput extends DeleteFHIRDatastoreRes
  * // { // DeleteFHIRDatastoreResponse
  * //   DatastoreId: "STRING_VALUE", // required
  * //   DatastoreArn: "STRING_VALUE", // required
- * //   DatastoreStatus: "CREATING" || "ACTIVE" || "DELETING" || "DELETED" || "CREATE_FAILED", // required
+ * //   DatastoreStatus: "CREATING" || "ACTIVE" || "DELETING" || "DELETED" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED", // required
  * //   DatastoreEndpoint: "STRING_VALUE", // required
  * // };
  *

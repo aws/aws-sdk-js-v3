@@ -1,6 +1,8 @@
 import {
   AccessDeniedException,
   AccessDeniedException$,
+  AnalyticsConfiguration$,
+  AnalyticsStatus,
   AuthorizationStrategy,
   CmkType,
   ConflictException,
@@ -59,12 +61,15 @@ import {
   ListTagsForResourceCommand,
   ListTagsForResourceRequest$,
   ListTagsForResourceResponse$,
+  NlpConfiguration$,
+  NlpStatus,
   OutputDataConfig$,
   paginateListFHIRDatastores,
   paginateListFHIRExportJobs,
   paginateListFHIRImportJobs,
   PreloadDataConfig$,
   PreloadDataType,
+  ProfileConfiguration$,
   ResourceNotFoundException,
   ResourceNotFoundException$,
   S3Configuration$,
@@ -88,6 +93,10 @@ import {
   UntagResourceCommand,
   UntagResourceRequest$,
   UntagResourceResponse$,
+  UpdateFHIRDatastore$,
+  UpdateFHIRDatastoreCommand,
+  UpdateFHIRDatastoreRequest$,
+  UpdateFHIRDatastoreResponse$,
   ValidationException,
   ValidationException$,
   ValidationLevel,
@@ -131,7 +140,10 @@ assert(typeof TagResourceCommand === "function");
 assert(typeof TagResource$ === "object");
 assert(typeof UntagResourceCommand === "function");
 assert(typeof UntagResource$ === "object");
+assert(typeof UpdateFHIRDatastoreCommand === "function");
+assert(typeof UpdateFHIRDatastore$ === "object");
 // structural schemas
+assert(typeof AnalyticsConfiguration$ === "object");
 assert(typeof CreateFHIRDatastoreRequest$ === "object");
 assert(typeof CreateFHIRDatastoreResponse$ === "object");
 assert(typeof DatastoreFilter$ === "object");
@@ -159,8 +171,10 @@ assert(typeof ListFHIRImportJobsRequest$ === "object");
 assert(typeof ListFHIRImportJobsResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
+assert(typeof NlpConfiguration$ === "object");
 assert(typeof OutputDataConfig$ === "object");
 assert(typeof PreloadDataConfig$ === "object");
+assert(typeof ProfileConfiguration$ === "object");
 assert(typeof S3Configuration$ === "object");
 assert(typeof SseConfiguration$ === "object");
 assert(typeof StartFHIRExportJobRequest$ === "object");
@@ -172,13 +186,17 @@ assert(typeof TagResourceRequest$ === "object");
 assert(typeof TagResourceResponse$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UntagResourceResponse$ === "object");
+assert(typeof UpdateFHIRDatastoreRequest$ === "object");
+assert(typeof UpdateFHIRDatastoreResponse$ === "object");
 // enums
+assert(typeof AnalyticsStatus === "object");
 assert(typeof AuthorizationStrategy === "object");
 assert(typeof CmkType === "object");
 assert(typeof DatastoreStatus === "object");
 assert(typeof ErrorCategory === "object");
 assert(typeof FHIRVersion === "object");
 assert(typeof JobStatus === "object");
+assert(typeof NlpStatus === "object");
 assert(typeof PreloadDataType === "object");
 assert(typeof ValidationLevel === "object");
 // errors

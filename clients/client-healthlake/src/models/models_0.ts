@@ -1,14 +1,28 @@
 // smithy-typescript generated code
 import type {
+  AnalyticsStatus,
   AuthorizationStrategy,
   CmkType,
   DatastoreStatus,
   ErrorCategory,
   FHIRVersion,
   JobStatus,
+  NlpStatus,
   PreloadDataType,
   ValidationLevel,
 } from "./enums";
+
+/**
+ * <para>The analytics configuration for a data store.</para>
+ * @public
+ */
+export interface AnalyticsConfiguration {
+  /**
+   * <para>The status of the analytics configuration.</para>
+   * @public
+   */
+  Status?: AnalyticsStatus | undefined;
+}
 
 /**
  * <p>The identity provider configuration selected when the data store was created.</p>
@@ -278,6 +292,30 @@ export interface ErrorCause {
 }
 
 /**
+ * <para>The natural language processing (NLP) configuration for a data store.</para>
+ * @public
+ */
+export interface NlpConfiguration {
+  /**
+   * <para>The status of the NLP configuration.</para>
+   * @public
+   */
+  Status?: NlpStatus | undefined;
+}
+
+/**
+ * <para>The profile configuration for a data store.</para>
+ * @public
+ */
+export interface ProfileConfiguration {
+  /**
+   * <para>The list of default profiles for the data store.</para>
+   * @public
+   */
+  DefaultProfiles?: string[] | undefined;
+}
+
+/**
  * <p>The data store properties.</p>
  * @public
  */
@@ -349,6 +387,24 @@ export interface DatastoreProperties {
    * @public
    */
   ErrorCause?: ErrorCause | undefined;
+
+  /**
+   * <para>The natural language processing (NLP) configuration for the data store.</para>
+   * @public
+   */
+  NlpConfiguration?: NlpConfiguration | undefined;
+
+  /**
+   * <para>The analytics configuration for the data store.</para>
+   * @public
+   */
+  AnalyticsConfiguration?: AnalyticsConfiguration | undefined;
+
+  /**
+   * <para>The profile configuration for the data store.</para>
+   * @public
+   */
+  ProfileConfiguration?: ProfileConfiguration | undefined;
 }
 
 /**
@@ -1126,3 +1182,55 @@ export interface UntagResourceRequest {
  * @public
  */
 export interface UntagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateFHIRDatastoreRequest {
+  /**
+   * <para>The data store identifier.</para>
+   * @public
+   */
+  DatastoreId: string | undefined;
+
+  /**
+   * <para>The data store name.</para>
+   * @public
+   */
+  DatastoreName?: string | undefined;
+
+  /**
+   * <para>The analytics configuration for the data store.</para>
+   * @public
+   */
+  AnalyticsConfiguration?: AnalyticsConfiguration | undefined;
+
+  /**
+   * <para>The NLP configuration for the data store.</para>
+   * @public
+   */
+  NlpConfiguration?: NlpConfiguration | undefined;
+
+  /**
+   * <para>The profile configuration for the data store.</para>
+   * @public
+   */
+  ProfileConfiguration?: ProfileConfiguration | undefined;
+
+  /**
+   * <para>The identity provider configuration for the data store.</para>
+   * @public
+   */
+  IdentityProviderConfiguration?: IdentityProviderConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateFHIRDatastoreResponse {
+  /**
+   * <para>The data store properties.</para>
+   * @public
+   */
+  DatastoreProperties: DatastoreProperties | undefined;
+}

@@ -12,3 +12,4 @@ export * from "./StartFHIRExportJobCommand";
 export * from "./StartFHIRImportJobCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
+export * from "./UpdateFHIRDatastoreCommand";

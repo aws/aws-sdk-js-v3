@@ -5,8 +5,8 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { HealthLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthLakeClient";
-import type { DescribeFHIRDatastoreRequest, DescribeFHIRDatastoreResponse } from "../models/models_0";
-import { DescribeFHIRDatastore$ } from "../schemas/schemas_0";
+import type { UpdateFHIRDatastoreRequest, UpdateFHIRDatastoreResponse } from "../models/models_0";
+import { UpdateFHIRDatastore$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,32 +16,50 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DescribeFHIRDatastoreCommand}.
+ * The input for {@link UpdateFHIRDatastoreCommand}.
  */
-export interface DescribeFHIRDatastoreCommandInput extends DescribeFHIRDatastoreRequest {}
+export interface UpdateFHIRDatastoreCommandInput extends UpdateFHIRDatastoreRequest {}
 /**
  * @public
  *
- * The output of {@link DescribeFHIRDatastoreCommand}.
+ * The output of {@link UpdateFHIRDatastoreCommand}.
  */
-export interface DescribeFHIRDatastoreCommandOutput extends DescribeFHIRDatastoreResponse, __MetadataBearer {}
+export interface UpdateFHIRDatastoreCommandOutput extends UpdateFHIRDatastoreResponse, __MetadataBearer {}
 
 /**
- * <p>Get properties for a FHIR-enabled data store.</p>
+ * <para>Update the properties of a FHIR-enabled data store.</para>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { HealthLakeClient, DescribeFHIRDatastoreCommand } from "@aws-sdk/client-healthlake"; // ES Modules import
- * // const { HealthLakeClient, DescribeFHIRDatastoreCommand } = require("@aws-sdk/client-healthlake"); // CommonJS import
+ * import { HealthLakeClient, UpdateFHIRDatastoreCommand } from "@aws-sdk/client-healthlake"; // ES Modules import
+ * // const { HealthLakeClient, UpdateFHIRDatastoreCommand } = require("@aws-sdk/client-healthlake"); // CommonJS import
  * // import type { HealthLakeClientConfig } from "@aws-sdk/client-healthlake";
  * const config = {}; // type is HealthLakeClientConfig
  * const client = new HealthLakeClient(config);
- * const input = { // DescribeFHIRDatastoreRequest
+ * const input = { // UpdateFHIRDatastoreRequest
  *   DatastoreId: "STRING_VALUE", // required
+ *   DatastoreName: "STRING_VALUE",
+ *   AnalyticsConfiguration: { // AnalyticsConfiguration
+ *     Status: "ENABLED" || "ENABLING" || "DISABLED" || "DISABLING" || "PAUSING" || "PAUSED",
+ *   },
+ *   NlpConfiguration: { // NlpConfiguration
+ *     Status: "ENABLED" || "DISABLED" || "ENABLING" || "DISABLING",
+ *   },
+ *   ProfileConfiguration: { // ProfileConfiguration
+ *     DefaultProfiles: [ // DefaultProfiles
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   IdentityProviderConfiguration: { // IdentityProviderConfiguration
+ *     AuthorizationStrategy: "SMART_ON_FHIR_V1" || "SMART_ON_FHIR" || "AWS_AUTH", // required
+ *     FineGrainedAuthorizationEnabled: true || false,
+ *     Metadata: "STRING_VALUE",
+ *     IdpLambdaArn: "STRING_VALUE",
+ *   },
  * };
- * const command = new DescribeFHIRDatastoreCommand(input);
+ * const command = new UpdateFHIRDatastoreCommand(input);
  * const response = await client.send(command);
- * // { // DescribeFHIRDatastoreResponse
+ * // { // UpdateFHIRDatastoreResponse
  * //   DatastoreProperties: { // DatastoreProperties
  * //     DatastoreId: "STRING_VALUE", // required
  * //     DatastoreArn: "STRING_VALUE", // required
@@ -85,11 +103,18 @@ export interface DescribeFHIRDatastoreCommandOutput extends DescribeFHIRDatastor
  *
  * ```
  *
- * @param DescribeFHIRDatastoreCommandInput - {@link DescribeFHIRDatastoreCommandInput}
- * @returns {@link DescribeFHIRDatastoreCommandOutput}
- * @see {@link DescribeFHIRDatastoreCommandInput} for command's `input` shape.
- * @see {@link DescribeFHIRDatastoreCommandOutput} for command's `response` shape.
+ * @param UpdateFHIRDatastoreCommandInput - {@link UpdateFHIRDatastoreCommandInput}
+ * @returns {@link UpdateFHIRDatastoreCommandOutput}
+ * @see {@link UpdateFHIRDatastoreCommandInput} for command's `input` shape.
+ * @see {@link UpdateFHIRDatastoreCommandOutput} for command's `response` shape.
  * @see {@link HealthLakeClientResolvedConfig | config} for HealthLakeClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access is denied. Your account is not authorized to perform this operation.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The data store is in a transition state and the user requested action cannot be
+ *          performed.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An unknown internal error occurred in the service.</p>
@@ -109,10 +134,10 @@ export interface DescribeFHIRDatastoreCommandOutput extends DescribeFHIRDatastor
  *
  * @public
  */
-export class DescribeFHIRDatastoreCommand extends $Command
+export class UpdateFHIRDatastoreCommand extends $Command
   .classBuilder<
-    DescribeFHIRDatastoreCommandInput,
-    DescribeFHIRDatastoreCommandOutput,
+    UpdateFHIRDatastoreCommandInput,
+    UpdateFHIRDatastoreCommandOutput,
     HealthLakeClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -121,19 +146,19 @@ export class DescribeFHIRDatastoreCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: HealthLakeClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("HealthLake", "DescribeFHIRDatastore", {})
-  .n("HealthLakeClient", "DescribeFHIRDatastoreCommand")
-  .sc(DescribeFHIRDatastore$)
+  .s("HealthLake", "UpdateFHIRDatastore", {})
+  .n("HealthLakeClient", "UpdateFHIRDatastoreCommand")
+  .sc(UpdateFHIRDatastore$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DescribeFHIRDatastoreRequest;
-      output: DescribeFHIRDatastoreResponse;
+      input: UpdateFHIRDatastoreRequest;
+      output: UpdateFHIRDatastoreResponse;
     };
     sdk: {
-      input: DescribeFHIRDatastoreCommandInput;
-      output: DescribeFHIRDatastoreCommandOutput;
+      input: UpdateFHIRDatastoreCommandInput;
+      output: UpdateFHIRDatastoreCommandOutput;
     };
   };
 }

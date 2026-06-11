@@ -100,6 +100,10 @@ import type {
 } from "./commands/StartFHIRImportJobCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
+  UpdateFHIRDatastoreCommandInput,
+  UpdateFHIRDatastoreCommandOutput,
+} from "./commands/UpdateFHIRDatastoreCommand";
 import {
   type ClientInputEndpointParameters,
   type ClientResolvedEndpointParameters,
@@ -127,7 +131,8 @@ export type ServiceInputTypes =
   | StartFHIRExportJobCommandInput
   | StartFHIRImportJobCommandInput
   | TagResourceCommandInput
-  | UntagResourceCommandInput;
+  | UntagResourceCommandInput
+  | UpdateFHIRDatastoreCommandInput;
 
 /**
  * @public
@@ -145,7 +150,8 @@ export type ServiceOutputTypes =
   | StartFHIRExportJobCommandOutput
   | StartFHIRImportJobCommandOutput
   | TagResourceCommandOutput
-  | UntagResourceCommandOutput;
+  | UntagResourceCommandOutput
+  | UpdateFHIRDatastoreCommandOutput;
 
 /**
  * @public

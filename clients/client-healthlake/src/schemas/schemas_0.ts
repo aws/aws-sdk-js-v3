@@ -1,3 +1,4 @@
+const _AC = "AnalyticsConfiguration";
 const _ADE = "AccessDeniedException";
 const _AS = "AuthorizationStrategy";
 const _CA = "CreatedAfter";
@@ -29,6 +30,7 @@ const _DI = "DatastoreId";
 const _DN = "DatastoreName";
 const _DP = "DatastoreProperties";
 const _DPL = "DatastorePropertiesList";
+const _DPe = "DefaultProfiles";
 const _DS = "DatastoreStatus";
 const _DTV = "DatastoreTypeVersion";
 const _EC = "ErrorCause";
@@ -68,12 +70,15 @@ const _LTFRRi = "ListTagsForResourceResponse";
 const _M = "Message";
 const _MR = "MaxResults";
 const _Me = "Metadata";
+const _NC = "NlpConfiguration";
 const _NT = "NextToken";
 const _ODC = "OutputDataConfig";
+const _PC = "ProfileConfiguration";
 const _PDC = "PreloadDataConfig";
 const _PDT = "PreloadDataType";
 const _RARN = "ResourceARN";
 const _RNFE = "ResourceNotFoundException";
+const _S = "Status";
 const _SA = "SubmittedAfter";
 const _SB = "SubmittedBefore";
 const _SC = "SseConfiguration";
@@ -102,6 +107,9 @@ const _TRRa = "TagResourceResponse";
 const _TSOSFIMB = "TotalSizeOfScannedFilesInMB";
 const _Ta = "Tag";
 const _Th = "Throughput";
+const _UFHIRD = "UpdateFHIRDatastore";
+const _UFHIRDR = "UpdateFHIRDatastoreRequest";
+const _UFHIRDRp = "UpdateFHIRDatastoreResponse";
 const _UR = "UntagResource";
 const _URR = "UntagResourceRequest";
 const _URRn = "UntagResourceResponse";
@@ -185,6 +193,11 @@ export const errorTypeRegistries = [
   _s_registry,
   n0_registry,
 ]
+export var AnalyticsConfiguration$: StaticStructureSchema = [3, n0, _AC,
+  0,
+  [_S],
+  [0]
+];
 export var CreateFHIRDatastoreRequest$: StaticStructureSchema = [3, n0, _CFHIRDR,
   0,
   [_DTV, _DN, _SC, _PDC, _CT, _T, _IPC],
@@ -202,8 +215,8 @@ export var DatastoreFilter$: StaticStructureSchema = [3, n0, _DF,
 ];
 export var DatastoreProperties$: StaticStructureSchema = [3, n0, _DP,
   0,
-  [_DI, _DA, _DS, _DTV, _DE, _DN, _CAr, _SC, _PDC, _IPC, _EC],
-  [0, 0, 0, 0, 0, 0, 4, () => SseConfiguration$, () => PreloadDataConfig$, () => IdentityProviderConfiguration$, () => ErrorCause$], 5
+  [_DI, _DA, _DS, _DTV, _DE, _DN, _CAr, _SC, _PDC, _IPC, _EC, _NC, _AC, _PC],
+  [0, 0, 0, 0, 0, 0, 4, () => SseConfiguration$, () => PreloadDataConfig$, () => IdentityProviderConfiguration$, () => ErrorCause$, () => NlpConfiguration$, () => AnalyticsConfiguration$, () => ProfileConfiguration$], 5
 ];
 export var DeleteFHIRDatastoreRequest$: StaticStructureSchema = [3, n0, _DFHIRDR,
   0,
@@ -315,10 +328,20 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
   [_T],
   [() => TagList]
 ];
+export var NlpConfiguration$: StaticStructureSchema = [3, n0, _NC,
+  0,
+  [_S],
+  [0]
+];
 export var PreloadDataConfig$: StaticStructureSchema = [3, n0, _PDC,
   0,
   [_PDT],
   [0], 1
+];
+export var ProfileConfiguration$: StaticStructureSchema = [3, n0, _PC,
+  0,
+  [_DPe],
+  [64 | 0]
 ];
 export var S3Configuration$: StaticStructureSchema = [3, n0, _SCo,
   0,
@@ -375,9 +398,20 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   [],
   []
 ];
+export var UpdateFHIRDatastoreRequest$: StaticStructureSchema = [3, n0, _UFHIRDR,
+  0,
+  [_DI, _DN, _AC, _NC, _PC, _IPC],
+  [0, 0, () => AnalyticsConfiguration$, () => NlpConfiguration$, () => ProfileConfiguration$, () => IdentityProviderConfiguration$], 1
+];
+export var UpdateFHIRDatastoreResponse$: StaticStructureSchema = [3, n0, _UFHIRDRp,
+  0,
+  [_DP],
+  [() => DatastoreProperties$], 1
+];
 var DatastorePropertiesList: StaticListSchema = [1, n0, _DPL,
   0, () => DatastoreProperties$
 ];
+var DefaultProfiles = 64 | 0;
 var ExportJobPropertiesList: StaticListSchema = [1, n0, _EJPL,
   0, () => ExportJobProperties$
 ];
@@ -436,4 +470,7 @@ export var TagResource$: StaticOperationSchema = [9, n0, _TR,
 ];
 export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
   0, () => UntagResourceRequest$, () => UntagResourceResponse$
+];
+export var UpdateFHIRDatastore$: StaticOperationSchema = [9, n0, _UFHIRD,
+  0, () => UpdateFHIRDatastoreRequest$, () => UpdateFHIRDatastoreResponse$
 ];

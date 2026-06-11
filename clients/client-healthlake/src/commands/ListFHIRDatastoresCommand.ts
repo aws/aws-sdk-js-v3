@@ -40,7 +40,7 @@ export interface ListFHIRDatastoresCommandOutput extends ListFHIRDatastoresRespo
  * const input = { // ListFHIRDatastoresRequest
  *   Filter: { // DatastoreFilter
  *     DatastoreName: "STRING_VALUE",
- *     DatastoreStatus: "CREATING" || "ACTIVE" || "DELETING" || "DELETED" || "CREATE_FAILED",
+ *     DatastoreStatus: "CREATING" || "ACTIVE" || "DELETING" || "DELETED" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED",
  *     CreatedBefore: new Date("TIMESTAMP"),
  *     CreatedAfter: new Date("TIMESTAMP"),
  *   },
@@ -55,7 +55,7 @@ export interface ListFHIRDatastoresCommandOutput extends ListFHIRDatastoresRespo
  * //       DatastoreId: "STRING_VALUE", // required
  * //       DatastoreArn: "STRING_VALUE", // required
  * //       DatastoreName: "STRING_VALUE",
- * //       DatastoreStatus: "CREATING" || "ACTIVE" || "DELETING" || "DELETED" || "CREATE_FAILED", // required
+ * //       DatastoreStatus: "CREATING" || "ACTIVE" || "DELETING" || "DELETED" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED", // required
  * //       CreatedAt: new Date("TIMESTAMP"),
  * //       DatastoreTypeVersion: "R4", // required
  * //       DatastoreEndpoint: "STRING_VALUE", // required
@@ -77,6 +77,17 @@ export interface ListFHIRDatastoresCommandOutput extends ListFHIRDatastoresRespo
  * //       ErrorCause: { // ErrorCause
  * //         ErrorMessage: "STRING_VALUE",
  * //         ErrorCategory: "RETRYABLE_ERROR" || "NON_RETRYABLE_ERROR",
+ * //       },
+ * //       NlpConfiguration: { // NlpConfiguration
+ * //         Status: "ENABLED" || "DISABLED" || "ENABLING" || "DISABLING",
+ * //       },
+ * //       AnalyticsConfiguration: { // AnalyticsConfiguration
+ * //         Status: "ENABLED" || "ENABLING" || "DISABLED" || "DISABLING" || "PAUSING" || "PAUSED",
+ * //       },
+ * //       ProfileConfiguration: { // ProfileConfiguration
+ * //         DefaultProfiles: [ // DefaultProfiles
+ * //           "STRING_VALUE",
+ * //         ],
  * //       },
  * //     },
  * //   ],

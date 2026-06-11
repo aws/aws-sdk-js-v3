@@ -3,6 +3,23 @@
  * @public
  * @enum
  */
+export const AnalyticsStatus = {
+  DISABLED: "DISABLED",
+  DISABLING: "DISABLING",
+  ENABLED: "ENABLED",
+  ENABLING: "ENABLING",
+  PAUSED: "PAUSED",
+  PAUSING: "PAUSING",
+} as const;
+/**
+ * @public
+ */
+export type AnalyticsStatus = (typeof AnalyticsStatus)[keyof typeof AnalyticsStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const AuthorizationStrategy = {
   AWS_AUTH: "AWS_AUTH",
   SMARTV1: "SMART_ON_FHIR_V1",
@@ -60,6 +77,8 @@ export const DatastoreStatus = {
   CREATING: "CREATING",
   DELETED: "DELETED",
   DELETING: "DELETING",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
 } as const;
 /**
  * @public
@@ -78,6 +97,21 @@ export const ErrorCategory = {
  * @public
  */
 export type ErrorCategory = (typeof ErrorCategory)[keyof typeof ErrorCategory];
+
+/**
+ * @public
+ * @enum
+ */
+export const NlpStatus = {
+  DISABLED: "DISABLED",
+  DISABLING: "DISABLING",
+  ENABLED: "ENABLED",
+  ENABLING: "ENABLING",
+} as const;
+/**
+ * @public
+ */
+export type NlpStatus = (typeof NlpStatus)[keyof typeof NlpStatus];
 
 /**
  * @public

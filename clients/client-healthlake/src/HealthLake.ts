@@ -72,6 +72,11 @@ import {
   type UntagResourceCommandOutput,
   UntagResourceCommand,
 } from "./commands/UntagResourceCommand";
+import {
+  type UpdateFHIRDatastoreCommandInput,
+  type UpdateFHIRDatastoreCommandOutput,
+  UpdateFHIRDatastoreCommand,
+} from "./commands/UpdateFHIRDatastoreCommand";
 import { HealthLakeClient } from "./HealthLakeClient";
 import type { HealthLakeServiceException } from "./models/HealthLakeServiceException";
 import { paginateListFHIRDatastores } from "./pagination/ListFHIRDatastoresPaginator";
@@ -96,6 +101,7 @@ const commands = {
   StartFHIRImportJobCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateFHIRDatastoreCommand,
 };
 const paginators = {
   paginateListFHIRDatastores,
@@ -330,6 +336,23 @@ export interface HealthLake {
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateFHIRDatastoreCommand}
+   */
+  updateFHIRDatastore(
+    args: UpdateFHIRDatastoreCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateFHIRDatastoreCommandOutput>;
+  updateFHIRDatastore(
+    args: UpdateFHIRDatastoreCommandInput,
+    cb: (err: any, data?: UpdateFHIRDatastoreCommandOutput) => void
+  ): void;
+  updateFHIRDatastore(
+    args: UpdateFHIRDatastoreCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateFHIRDatastoreCommandOutput) => void
   ): void;
 
   /**
