@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1067.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1066.0...v3.1067.0) (2026-06-11)
+
+
+### Features
+
+* **client-neptune:** Amazon Neptune now supports IPv6 dual-stack networking. You can create and manage Neptune DB clusters accessible over both IPv4 and IPv6 by specifying NetworkType as DUAL in CreateDBCluster, ModifyDBCluster, RestoreDBClusterFromSnapshot, and RestoreDBClusterToPointInTime API operations ([ae089f9](https://github.com/aws/aws-sdk-js-v3/commit/ae089f94ad19eaebd056378561636647aa944053))
+
+
+
+
+
 # [3.1066.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1065.0...v3.1066.0) (2026-06-10)
 
 **Note:** Version bump only for package @aws-sdk/client-neptune

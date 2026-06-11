@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1067.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1066.0...v3.1067.0) (2026-06-11)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Supports deterministic metadata for AgentCore Memory ([af7a995](https://github.com/aws/aws-sdk-js-v3/commit/af7a995a2fa892857f852231715edb0845102315))
+* **client-bedrock-agentcore:** Adds support to perform cross account data plane actions on an AgentCore Memory resource ([8d92e48](https://github.com/aws/aws-sdk-js-v3/commit/8d92e480ebd75d7aba85a8e759c252363c005d63))
+* **client-eks:** Introduce new CreateCluster parameters for Amazon EKS local clusters on AWS Outposts. Added etcdInstanceType for configuring the EC2 instance type for dedicated etcd instances, and spreadLevel for configuring the placement group spread level for Kubernetes control plane and etcd instances. ([383363d](https://github.com/aws/aws-sdk-js-v3/commit/383363d5724d0212f22891283d3b606669a00862))
+* **client-healthlake:** Adds the UpdateFHIRDatastore API and adds analytics, NLP, and profile configuration support to CreateFHIRDatastore and DescribeFHIRDatastore. ([c74ab00](https://github.com/aws/aws-sdk-js-v3/commit/c74ab0051493446397950ebe16fb42c162a3afc8))
+* **client-neptune:** Amazon Neptune now supports IPv6 dual-stack networking. You can create and manage Neptune DB clusters accessible over both IPv4 and IPv6 by specifying NetworkType as DUAL in CreateDBCluster, ModifyDBCluster, RestoreDBClusterFromSnapshot, and RestoreDBClusterToPointInTime API operations ([ae089f9](https://github.com/aws/aws-sdk-js-v3/commit/ae089f94ad19eaebd056378561636647aa944053))
+* **client-omics:** Adds support for workflowName in the ListRuns API response. ([fa2f460](https://github.com/aws/aws-sdk-js-v3/commit/fa2f460474a394301d86a980325c2f5c09dd15b2))
+* **client-support:** Adding new BDD representation of endpoint ruleset ([cd9dac2](https://github.com/aws/aws-sdk-js-v3/commit/cd9dac213e3d7ece5cfc0f84e70631fc367606f7))
+
+
+
+
+
 # [3.1066.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1065.0...v3.1066.0) (2026-06-10)
 
 

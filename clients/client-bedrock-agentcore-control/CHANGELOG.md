@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1067.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1066.0...v3.1067.0) (2026-06-11)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Supports deterministic metadata for AgentCore Memory ([af7a995](https://github.com/aws/aws-sdk-js-v3/commit/af7a995a2fa892857f852231715edb0845102315))
+
+
+
+
+
 # [3.1066.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1065.0...v3.1066.0) (2026-06-10)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agentcore-control

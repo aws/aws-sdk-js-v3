@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1067.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1066.0...v3.1067.0) (2026-06-11)
+
+
+### Features
+
+* **client-eks:** Introduce new CreateCluster parameters for Amazon EKS local clusters on AWS Outposts. Added etcdInstanceType for configuring the EC2 instance type for dedicated etcd instances, and spreadLevel for configuring the placement group spread level for Kubernetes control plane and etcd instances. ([383363d](https://github.com/aws/aws-sdk-js-v3/commit/383363d5724d0212f22891283d3b606669a00862))
+
+
+
+
+
 # [3.1066.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1065.0...v3.1066.0) (2026-06-10)
 
 **Note:** Version bump only for package @aws-sdk/client-eks
