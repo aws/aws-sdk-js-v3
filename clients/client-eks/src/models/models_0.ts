@@ -33,6 +33,7 @@ import type {
   ProvisionedControlPlaneTier,
   RepairAction,
   ResolveConflicts,
+  SpreadLevel,
   SsoIdentityType,
   SupportType,
   TaintEffect,
@@ -1894,6 +1895,26 @@ export interface ControlPlanePlacementRequest {
    * @public
    */
   groupName?: string | undefined;
+
+  /**
+   * <p>Optional parameter to specify the placement group spread level for control plane instances. If not provided, Amazon EKS will deploy control plane instances without a placement group.</p>
+   * @public
+   */
+  spreadLevel?: SpreadLevel | undefined;
+}
+
+/**
+ * <p>The placement configuration for the etcd instances of your local Amazon EKS
+ *             cluster on an Amazon Web Services Outpost. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-capacity-considerations.html">Capacity
+ *                 considerations</a> in the <i>Amazon EKS User Guide</i>.</p>
+ * @public
+ */
+export interface EtcdPlacementRequest {
+  /**
+   * <p>Optional parameter to specify the placement group spread level for etcd instances. If not provided, Amazon EKS will deploy etcd instances without a placement group.</p>
+   * @public
+   */
+  spreadLevel?: SpreadLevel | undefined;
 }
 
 /**
@@ -1912,13 +1933,9 @@ export interface OutpostConfigRequest {
   outpostArns: string[] | undefined;
 
   /**
-   * <p>The Amazon EC2 instance type that you want to use for your local Amazon EKS cluster on Outposts.
-   *             Choose an instance type based on the number of nodes that your cluster will have. For
-   *             more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-capacity-considerations.html">Capacity
+   * <p>The Amazon EC2 instance type for the Kubernetes control plane instances of your local Amazon EKS cluster on Amazon Web Services Outposts. This instance type applies to all control plane instances and cannot be changed after cluster creation.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-capacity-considerations.html">Capacity
    *                 considerations</a> in the <i>Amazon EKS User Guide</i>.</p>
-   *          <p>The instance type that you specify is used for all Kubernetes control plane instances. The
-   *             instance type can't be changed after cluster creation. The control plane is not
-   *             automatically scaled by Amazon EKS.</p>
    *          <p> </p>
    * @public
    */
@@ -1930,6 +1947,19 @@ export interface OutpostConfigRequest {
    * @public
    */
   controlPlanePlacement?: ControlPlanePlacementRequest | undefined;
+
+  /**
+   * <p>The Amazon EC2 instance type for etcd instances of your local Amazon EKS cluster on Amazon Web Services Outposts. This instance type applies to all etcd instances and cannot be changed after cluster creation.</p>
+   * @public
+   */
+  etcdInstanceType?: string | undefined;
+
+  /**
+   * <p>An object representing the placement configuration for the etcd instances of your local
+   *             Amazon EKS cluster on an Amazon Web Services Outpost. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-capacity-considerations.html">Capacity considerations</a> in the <i>Amazon EKS User Guide</i>.</p>
+   * @public
+   */
+  etcdPlacement?: EtcdPlacementRequest | undefined;
 }
 
 /**
@@ -2651,6 +2681,26 @@ export interface ControlPlanePlacementResponse {
    * @public
    */
   groupName?: string | undefined;
+
+  /**
+   * <p>The spread level used with the placement group for control plane instances on your local Amazon EKS cluster on Amazon Web Services Outposts.</p>
+   * @public
+   */
+  spreadLevel?: SpreadLevel | undefined;
+}
+
+/**
+ * <p>The placement configuration for the etcd instances of your local Amazon EKS
+ *             cluster on an Amazon Web Services Outpost. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-capacity-considerations.html">Capacity
+ *                 considerations</a> in the <i>Amazon EKS User Guide</i>.</p>
+ * @public
+ */
+export interface EtcdPlacementResponse {
+  /**
+   * <p>The spread level used with the placement group for etcd instances on your local Amazon EKS cluster on Amazon Web Services Outposts.</p>
+   * @public
+   */
+  spreadLevel?: SpreadLevel | undefined;
 }
 
 /**
@@ -2667,7 +2717,7 @@ export interface OutpostConfigResponse {
   outpostArns: string[] | undefined;
 
   /**
-   * <p>The Amazon EC2 instance type used for the control plane. The instance type is the same for
+   * <p>The Amazon EC2 instance type for the Kubernetes control plane instances of your local Amazon EKS cluster on Amazon Web Services Outposts. The instance type is the same for
    *             all control plane instances.</p>
    * @public
    */
@@ -2680,6 +2730,21 @@ export interface OutpostConfigResponse {
    * @public
    */
   controlPlanePlacement?: ControlPlanePlacementResponse | undefined;
+
+  /**
+   * <p>The Amazon EC2 instance type for etcd instances of your local Amazon EKS cluster on Amazon Web Services Outposts. The instance type is the same for
+   *             all etcd instances.</p>
+   * @public
+   */
+  etcdInstanceType?: string | undefined;
+
+  /**
+   * <p>An object representing the placement configuration for the etcd instances of your local
+   *             Amazon EKS cluster on an Amazon Web Services Outpost. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-capacity-considerations.html">Capacity
+   *                 considerations</a> in the <i>Amazon EKS User Guide</i>.</p>
+   * @public
+   */
+  etcdPlacement?: EtcdPlacementResponse | undefined;
 }
 
 /**

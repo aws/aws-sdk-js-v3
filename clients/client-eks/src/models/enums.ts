@@ -377,6 +377,19 @@ export type LogType = (typeof LogType)[keyof typeof LogType];
  * @public
  * @enum
  */
+export const SpreadLevel = {
+  HOST: "host",
+  RACK: "rack",
+} as const;
+/**
+ * @public
+ */
+export type SpreadLevel = (typeof SpreadLevel)[keyof typeof SpreadLevel];
+
+/**
+ * @public
+ * @enum
+ */
 export const SupportType = {
   EXTENDED: "EXTENDED",
   STANDARD: "STANDARD",

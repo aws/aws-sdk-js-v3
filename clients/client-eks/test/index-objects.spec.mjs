@@ -228,6 +228,8 @@ import {
   EncryptionConfig$,
   ErrorCode,
   ErrorDetail$,
+  EtcdPlacementRequest$,
+  EtcdPlacementResponse$,
   FargateProfile$,
   FargateProfileHealth$,
   FargateProfileIssue$,
@@ -376,6 +378,7 @@ import {
   ServerException$,
   ServiceUnavailableException,
   ServiceUnavailableException$,
+  SpreadLevel,
   SsoIdentity$,
   SsoIdentityType,
   StartInsightsRefresh$,
@@ -731,6 +734,8 @@ assert(typeof EksAnywhereSubscriptionTerm$ === "object");
 assert(typeof ElasticLoadBalancing$ === "object");
 assert(typeof EncryptionConfig$ === "object");
 assert(typeof ErrorDetail$ === "object");
+assert(typeof EtcdPlacementRequest$ === "object");
+assert(typeof EtcdPlacementResponse$ === "object");
 assert(typeof FargateProfile$ === "object");
 assert(typeof FargateProfileHealth$ === "object");
 assert(typeof FargateProfileIssue$ === "object");
@@ -879,6 +884,7 @@ assert(typeof NodegroupUpdateStrategies === "object");
 assert(typeof ProvisionedControlPlaneTier === "object");
 assert(typeof RepairAction === "object");
 assert(typeof ResolveConflicts === "object");
+assert(typeof SpreadLevel === "object");
 assert(typeof SsoIdentityType === "object");
 assert(typeof SupportType === "object");
 assert(typeof TaintEffect === "object");

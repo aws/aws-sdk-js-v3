@@ -183,6 +183,8 @@ const _ECL = "EncryptionConfigList";
 const _ED = "ErrorDetail";
 const _EDr = "ErrorDetails";
 const _ELB = "ElasticLoadBalancing";
+const _EPR = "EtcdPlacementRequest";
+const _EPRt = "EtcdPlacementResponse";
 const _FP = "FargateProfile";
 const _FPH = "FargateProfileHealth";
 const _FPI = "FargateProfileIssue";
@@ -443,10 +445,12 @@ const _eCr = "errorCode";
 const _eD = "effectiveDate";
 const _eDx = "expirationDate";
 const _eI = "externalId";
+const _eIT = "etcdInstanceType";
 const _eLB = "elasticLoadBalancing";
 const _eM = "errorMessage";
 const _eOESD = "endOfExtendedSupportDate";
 const _eOSSD = "endOfStandardSupportDate";
+const _eP = "etcdPlacement";
 const _ePA = "endpointPublicAccess";
 const _ePAn = "endpointPrivateAccess";
 const _eSK = "ec2SshKey";
@@ -599,6 +603,7 @@ const _sI = "subscriptionId";
 const _sIC = "serviceIpv4Cidr";
 const _sICe = "serviceIpv6Cidr";
 const _sIu = "subnetIds";
+const _sL = "spreadLevel";
 const _sSG = "sourceSecurityGroups";
 const _sSRV = "startServingReplacementVersion";
 const _sSV = "stopServingVersion";
@@ -1013,13 +1018,13 @@ export var ConnectorConfigResponse$: StaticStructureSchema = [3, n0, _CCRonn,
 ];
 export var ControlPlanePlacementRequest$: StaticStructureSchema = [3, n0, _CPPR,
   0,
-  [_gN],
-  [0]
+  [_gN, _sL],
+  [0, 0]
 ];
 export var ControlPlanePlacementResponse$: StaticStructureSchema = [3, n0, _CPPRo,
   0,
-  [_gN],
-  [0]
+  [_gN, _sL],
+  [0, 0]
 ];
 export var ControlPlaneScalingConfig$: StaticStructureSchema = [3, n0, _CPSC,
   0,
@@ -1401,6 +1406,16 @@ export var ErrorDetail$: StaticStructureSchema = [3, n0, _ED,
   [_eCr, _eM, _rI],
   [0, 0, 64 | 0]
 ];
+export var EtcdPlacementRequest$: StaticStructureSchema = [3, n0, _EPR,
+  0,
+  [_sL],
+  [0]
+];
+export var EtcdPlacementResponse$: StaticStructureSchema = [3, n0, _EPRt,
+  0,
+  [_sL],
+  [0]
+];
 export var FargateProfile$: StaticStructureSchema = [3, n0, _FP,
   0,
   [_fPN, _fPA, _cN, _cA, _pERA, _sub, _sel, _st, _t, _h],
@@ -1698,13 +1713,13 @@ export var OidcIdentityProviderConfigRequest$: StaticStructureSchema = [3, n0, _
 ];
 export var OutpostConfigRequest$: StaticStructureSchema = [3, n0, _OCR,
   0,
-  [_oA, _cPIT, _cPP],
-  [64 | 0, 0, () => ControlPlanePlacementRequest$], 2
+  [_oA, _cPIT, _cPP, _eIT, _eP],
+  [64 | 0, 0, () => ControlPlanePlacementRequest$, 0, () => EtcdPlacementRequest$], 2
 ];
 export var OutpostConfigResponse$: StaticStructureSchema = [3, n0, _OCRu,
   0,
-  [_oA, _cPIT, _cPP],
-  [64 | 0, 0, () => ControlPlanePlacementResponse$], 2
+  [_oA, _cPIT, _cPP, _eIT, _eP],
+  [64 | 0, 0, () => ControlPlanePlacementResponse$, 0, () => EtcdPlacementResponse$], 2
 ];
 export var PodIdentityAssociation$: StaticStructureSchema = [3, n0, _PIA,
   0,

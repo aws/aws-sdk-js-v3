@@ -136,6 +136,11 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * //       controlPlaneInstanceType: "STRING_VALUE", // required
  * //       controlPlanePlacement: { // ControlPlanePlacementResponse
  * //         groupName: "STRING_VALUE",
+ * //         spreadLevel: "host" || "rack",
+ * //       },
+ * //       etcdInstanceType: "STRING_VALUE",
+ * //       etcdPlacement: { // EtcdPlacementResponse
+ * //         spreadLevel: "host" || "rack",
  * //       },
  * //     },
  * //     accessConfig: { // AccessConfigResponse

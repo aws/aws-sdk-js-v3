@@ -129,6 +129,11 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *     controlPlaneInstanceType: "STRING_VALUE", // required
  *     controlPlanePlacement: { // ControlPlanePlacementRequest
  *       groupName: "STRING_VALUE",
+ *       spreadLevel: "host" || "rack",
+ *     },
+ *     etcdInstanceType: "STRING_VALUE",
+ *     etcdPlacement: { // EtcdPlacementRequest
+ *       spreadLevel: "host" || "rack",
  *     },
  *   },
  *   accessConfig: { // CreateAccessConfigRequest
@@ -258,6 +263,11 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * //       controlPlaneInstanceType: "STRING_VALUE", // required
  * //       controlPlanePlacement: { // ControlPlanePlacementResponse
  * //         groupName: "STRING_VALUE",
+ * //         spreadLevel: "host" || "rack",
+ * //       },
+ * //       etcdInstanceType: "STRING_VALUE",
+ * //       etcdPlacement: { // EtcdPlacementResponse
+ * //         spreadLevel: "host" || "rack",
  * //       },
  * //     },
  * //     accessConfig: { // AccessConfigResponse
