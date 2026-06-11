@@ -48,7 +48,7 @@ export interface DeleteMemoryCommandOutput extends DeleteMemoryOutput, __Metadat
  * const response = await client.send(command);
  * // { // DeleteMemoryOutput
  * //   memoryId: "STRING_VALUE", // required
- * //   status: "CREATING" || "ACTIVE" || "FAILED" || "DELETING",
+ * //   status: "CREATING" || "ACTIVE" || "FAILED" || "DELETING" || "UPDATING",
  * // };
  *
  * ```

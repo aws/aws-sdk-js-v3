@@ -31,18 +31,7 @@ export interface CreateDatasetVersionCommandInput extends CreateDatasetVersionRe
 export interface CreateDatasetVersionCommandOutput extends CreateDatasetVersionResponse, __MetadataBearer {}
 
 /**
- * Publishes the current DRAFT as a new numbered version.
- *
- * Snapshots the DRAFT examples as the next version (1, 2, 3, ...).
- * The DRAFT is preserved and remains editable after publishing.
- * Returns immediately with status UPDATING. Poll GetDataset until
- * status transitions to ACTIVE (draftStatus=UNMODIFIED) or UPDATE_FAILED.
- *
- * **State guard:** Returns ConflictException (DATASET_NOT_READY) if status is in
- * \{CREATING, UPDATING, DELETING\}, or DATASET_IN_FAILED_STATE if status is in
- * \{CREATE_FAILED, DELETE_FAILED\}.
- *
- * **Quota:** MAX_VERSIONS_PER_DATASET applies to published versions only (not DRAFT).
+ * <p> Publishes the current DRAFT as a new numbered version. The DRAFT is preserved and remains editable after publishing. Returns immediately with status UPDATING. Poll <code>GetDataset</code> until status transitions to ACTIVE or UPDATE_FAILED. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

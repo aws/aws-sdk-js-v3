@@ -6,6 +6,7 @@ import type {
   ContentType,
   CredentialProviderVendorType,
   DescriptorType,
+  ExtractionType,
   FilterOperator,
   FindingType,
   MemoryStatus,
@@ -302,7 +303,13 @@ export interface MetadataSchemaEntry {
   type?: MetadataValueType | undefined;
 
   /**
-   * <p>Configuration for extracting this metadata value from conversational content.</p>
+   * <p>Specifies whether the metadata value is extracted by the LLM or passed through deterministically from the event.</p>
+   * @public
+   */
+  extractionType?: ExtractionType | undefined;
+
+  /**
+   * <p>Configuration for extracting this metadata value from conversational content. Applicable only if extractionType is LLM inferred.</p>
    * @public
    */
   extractionConfig?: ExtractionConfig | undefined;

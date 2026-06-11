@@ -31,10 +31,7 @@ export interface ListDatasetVersionsCommandInput extends ListDatasetVersionsRequ
 export interface ListDatasetVersionsCommandOutput extends ListDatasetVersionsResponse, __MetadataBearer {}
 
 /**
- * Lists all published versions of a dataset, sorted by version number descending
- * (newest first). Does not include the DRAFT working copy.
- *
- * **State guard:** Allowed for all statuses including DELETING.
+ * <p> Lists all published versions of a dataset, sorted by version number descending (newest first). Does not include the DRAFT working copy. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

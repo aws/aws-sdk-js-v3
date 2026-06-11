@@ -471,6 +471,7 @@ export type {
   EvaluatorStatus,
   EvaluatorType,
   ExceptionLevel,
+  ExtractionType,
   FilterOperator,
   FindingType,
   GatewayInterceptionPoint,

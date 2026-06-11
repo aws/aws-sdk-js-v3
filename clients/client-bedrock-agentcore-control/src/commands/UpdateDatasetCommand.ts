@@ -31,13 +31,7 @@ export interface UpdateDatasetCommandInput extends UpdateDatasetRequest {}
 export interface UpdateDatasetCommandOutput extends UpdateDatasetResponse, __MetadataBearer {}
 
 /**
- * Updates a dataset's metadata. Synchronous operation.
- * Only provided fields are updated; omitted fields remain unchanged.
- *
- * To modify dataset content, use AddDatasetExamples, UpdateDatasetExamples,
- * or DeleteDatasetExamples.
- *
- * Cannot update: name, schemaType, kmsKeyArn (immutable after creation).
+ * <p> Updates a dataset's metadata. Synchronous operation. Only provided fields are updated; omitted fields remain unchanged. To modify dataset content, use <code>AddDatasetExamples</code>, <code>UpdateDatasetExamples</code>, or <code>DeleteDatasetExamples</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -31,31 +31,7 @@ export interface DeleteDatasetCommandInput extends DeleteDatasetRequest {}
 export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __MetadataBearer {}
 
 /**
- * Deletes a dataset version or an entire dataset (all versions + name claim). Asynchronous 202.
- *
- * **State transitions:**
- * - If `datasetVersion` is absent (full delete): status transitions to DELETING immediately.
- * - If `datasetVersion` is provided (version-specific delete): status transitions to UPDATING.
- *
- * **State guard (full delete):** Returns ConflictException (DATASET_NOT_READY) if the
- * dataset status is in \{CREATING, UPDATING\}. Deletion is allowed from ACTIVE, CREATE_FAILED,
- * UPDATE_FAILED, and DELETE_FAILED states.
- *
- * **State guard (version-specific delete):** Returns ConflictException (DATASET_NOT_READY) if
- * the dataset status is not in \{ACTIVE, CREATE_FAILED, UPDATE_FAILED\}.
- *
- * Fails with ConflictException (REFERENCED_BY_EVAL_JOB) if referenced by an active
- * evaluation job (full delete only).
- *
- * If the delete workflow fails after retries, status is set to DELETE_FAILED (full delete)
- * or UPDATE_FAILED (version-specific delete).
- * Calling DeleteDataset on a DELETE_FAILED dataset re-triggers the delete workflow
- * (idempotent retry path).
- *
- * **Version parameter:**
- * - If `datasetVersion` is absent: deletes ALL versions and the Dataset record itself.
- * - If `datasetVersion` is provided: deletes only that specific DatasetVersion.
- *   Returns ResourceNotFoundException if the specified version does not exist.
+ * <p> Deletes a dataset version or an entire dataset asynchronously. If <code>datasetVersion</code> is absent, deletes all versions and the dataset record itself. If provided, deletes only that specific version. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -31,7 +31,7 @@ export interface ListDatasetsCommandInput extends ListDatasetsRequest {}
 export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __MetadataBearer {}
 
 /**
- * Lists all datasets in the caller's account, paginated. No presigned URLs in list results.
+ * <p> Lists all datasets in the caller's account, paginated. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

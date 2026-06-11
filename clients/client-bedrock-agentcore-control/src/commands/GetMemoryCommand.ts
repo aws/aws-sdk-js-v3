@@ -55,7 +55,7 @@ export interface GetMemoryCommandOutput extends GetMemoryOutput, __MetadataBeare
  * //     encryptionKeyArn: "STRING_VALUE",
  * //     memoryExecutionRoleArn: "STRING_VALUE",
  * //     eventExpiryDuration: Number("int"), // required
- * //     status: "CREATING" || "ACTIVE" || "FAILED" || "DELETING", // required
+ * //     status: "CREATING" || "ACTIVE" || "FAILED" || "DELETING" || "UPDATING", // required
  * //     failureReason: "STRING_VALUE",
  * //     createdAt: new Date("TIMESTAMP"), // required
  * //     updatedAt: new Date("TIMESTAMP"), // required
@@ -118,6 +118,7 @@ export interface GetMemoryCommandOutput extends GetMemoryOutput, __MetadataBeare
  * //                     { // MetadataSchemaEntry
  * //                       key: "STRING_VALUE", // required
  * //                       type: "STRING" || "STRINGLIST" || "NUMBER",
+ * //                       extractionType: "LLM_INFERRED" || "STRICTLY_CONSISTENT",
  * //                       extractionConfig: { // ExtractionConfig Union: only one key present
  * //                         llmExtractionConfig: { // LlmExtractionConfig
  * //                           llmExtractionInstruction: "STRING_VALUE",
@@ -158,6 +159,7 @@ export interface GetMemoryCommandOutput extends GetMemoryOutput, __MetadataBeare
  * //                   {
  * //                     key: "STRING_VALUE", // required
  * //                     type: "STRING" || "STRINGLIST" || "NUMBER",
+ * //                     extractionType: "LLM_INFERRED" || "STRICTLY_CONSISTENT",
  * //                     extractionConfig: {//  Union: only one key present
  * //                       llmExtractionConfig: {
  * //                         llmExtractionInstruction: "STRING_VALUE",

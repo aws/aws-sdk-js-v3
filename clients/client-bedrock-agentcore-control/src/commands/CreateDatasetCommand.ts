@@ -31,10 +31,7 @@ export interface CreateDatasetCommandInput extends CreateDatasetRequest {}
 export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __MetadataBearer {}
 
 /**
- * Creates a new Dataset resource asynchronously.
- *
- * Returns immediately with status CREATING. Poll GetDataset until
- * status transitions to ACTIVE or CREATE_FAILED (with failureReason).
+ * <p> Creates a new dataset resource asynchronously. Returns immediately with status CREATING. Poll <code>GetDataset</code> until status transitions to ACTIVE or CREATE_FAILED. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

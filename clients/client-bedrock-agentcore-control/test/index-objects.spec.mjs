@@ -337,6 +337,7 @@ import {
   ExceptionLevel,
   ExtractionConfig$,
   ExtractionConfiguration$,
+  ExtractionType,
   FilesystemConfiguration$,
   Filter$,
   FilterOperator,
@@ -2024,6 +2025,7 @@ assert(typeof EvaluatorLevel === "object");
 assert(typeof EvaluatorStatus === "object");
 assert(typeof EvaluatorType === "object");
 assert(typeof ExceptionLevel === "object");
+assert(typeof ExtractionType === "object");
 assert(typeof FilterOperator === "object");
 assert(typeof FindingType === "object");
 assert(typeof GatewayInterceptionPoint === "object");

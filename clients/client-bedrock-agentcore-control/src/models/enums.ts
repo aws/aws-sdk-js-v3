@@ -19,40 +19,31 @@ export type ActorTokenContentType = (typeof ActorTokenContentType)[keyof typeof 
  */
 export const DatasetStatus = {
   /**
-   * Dataset is stable. All operations are allowed per per-operation guards.
-   * failureReason is cleared.
+   * <p> Dataset is stable. All operations are allowed per operation-specific guards. </p>
    */
   ACTIVE: "ACTIVE",
   /**
-   * Initial ingestion failed. DRAFT record exists but contains no examples.
-   * failureReason is populated. AddDatasetExamples and DeleteDatasetExamples allowed.
-   * UpdateDatasetExamples and CreateDatasetVersion blocked (no examples exist).
+   * <p> Initial ingestion failed. DRAFT record exists but contains no examples. </p>
    */
   CREATE_FAILED: "CREATE_FAILED",
   /**
-   * CreateDataset async ingestion in progress.
-   * All writes are blocked. Poll GetDataset until status resolves to ACTIVE or CREATE_FAILED.
+   * <p> CreateDataset async ingestion in progress. All writes are blocked. </p>
    */
   CREATING: "CREATING",
   /**
-   * Delete failed after retries. Dataset record/S3 may be in inconsistent state.
-   * failureReason is populated. Only DeleteDataset (retry) is allowed.
+   * <p> Delete failed after retries. Dataset record may be in an inconsistent state. </p>
    */
   DELETE_FAILED: "DELETE_FAILED",
   /**
-   * Full or version-specific delete is in progress.
-   * Read operations (GetDataset, ListDatasetExamples) are still allowed.
+   * <p> Full or version-specific delete is in progress. Read operations are still allowed. </p>
    */
   DELETING: "DELETING",
   /**
-   * Last example mutation or CreateDatasetVersion failed.
-   * DRAFT may be partially modified. failureReason is populated.
-   * All example mutations and CreateDatasetVersion allowed for retry.
+   * <p> Last example mutation or CreateDatasetVersion failed. DRAFT may be partially modified. </p>
    */
   UPDATE_FAILED: "UPDATE_FAILED",
   /**
-   * An async example mutation or CreateDatasetVersion is in progress.
-   * All writes are blocked. Poll GetDataset until status resolves.
+   * <p> An async example mutation or CreateDatasetVersion is in progress. All writes are blocked. </p>
    */
   UPDATING: "UPDATING",
 } as const;
@@ -336,14 +327,11 @@ export type ConfigurationBundleStatus = (typeof ConfigurationBundleStatus)[keyof
  */
 export const DatasetSchemaType = {
   /**
-   * AgentCore predefined evaluation schema, version 1. Dataset with pre-written inputs per conversation turn.
-   * Required: input. Optional: expectedResponse, assertions, expectedTrajectory.
+   * <p> AgentCore predefined evaluation schema, version 1. Dataset with pre-written inputs per conversation turn. </p>
    */
   AGENTCORE_EVALUATION_PREDEFINED_V1: "AGENTCORE_EVALUATION_PREDEFINED_V1",
   /**
-   * AgentCore simulated evaluation schema, version 1. Dataset for synthetic data generation.
-   * Each example is a Scenario that a simulator uses to generate full conversations.
-   * Required: input. Optional: name (→exampleId), actor_profile, max_turns, assertions.
+   * <p> AgentCore simulated evaluation schema, version 1. Dataset for synthetic data generation where each example is a scenario used to generate full conversations. </p>
    */
   AGENTCORE_EVALUATION_SIMULATED_V1: "AGENTCORE_EVALUATION_SIMULATED_V1",
 } as const;
@@ -358,13 +346,11 @@ export type DatasetSchemaType = (typeof DatasetSchemaType)[keyof typeof DatasetS
  */
 export const DraftStatus = {
   /**
-   * DRAFT has changes not yet reflected in any published version, or no versions
-   * have been published yet.
+   * <p> DRAFT has changes not yet reflected in any published version, or no versions have been published yet. </p>
    */
   MODIFIED: "MODIFIED",
   /**
-   * DRAFT content matches the latest published version exactly.
-   * Any example mutation transitions draftStatus back to MODIFIED.
+   * <p> DRAFT content matches the latest published version exactly. </p>
    */
   UNMODIFIED: "UNMODIFIED",
 } as const;
@@ -800,6 +786,19 @@ export type MetadataValueType = (typeof MetadataValueType)[keyof typeof Metadata
  * @public
  * @enum
  */
+export const ExtractionType = {
+  LLM_INFERRED: "LLM_INFERRED",
+  STRICTLY_CONSISTENT: "STRICTLY_CONSISTENT",
+} as const;
+/**
+ * @public
+ */
+export type ExtractionType = (typeof ExtractionType)[keyof typeof ExtractionType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ContentLevel = {
   FULL_CONTENT: "FULL_CONTENT",
   METADATA_ONLY: "METADATA_ONLY",
@@ -830,6 +829,7 @@ export const MemoryStatus = {
   CREATING: "CREATING",
   DELETING: "DELETING",
   FAILED: "FAILED",
+  UPDATING: "UPDATING",
 } as const;
 /**
  * @public

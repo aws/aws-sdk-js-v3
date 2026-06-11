@@ -31,15 +31,7 @@ export interface ListDatasetExamplesCommandInput extends ListDatasetExamplesRequ
 export interface ListDatasetExamplesCommandOutput extends ListDatasetExamplesResponse, __MetadataBearer {}
 
 /**
- * Returns paginated examples from the dataset.
- *
- * **Version-pinned pagination:** The server embeds the resolved version in the `nextToken`.
- * Once pagination begins, all subsequent pages are pinned to that version regardless of
- * concurrent mutations or whether `datasetVersion` is passed on subsequent requests. The `datasetVersion`
- * query parameter is only used for the first request (when `nextToken` is absent); if omitted,
- * defaults to DRAFT.
- *
- * **State guard:** Allowed for all statuses including DELETING.
+ * <p> Returns paginated examples from the dataset. The server embeds the resolved version in the pagination token. Once pagination begins, all subsequent pages are pinned to that version regardless of concurrent mutations. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

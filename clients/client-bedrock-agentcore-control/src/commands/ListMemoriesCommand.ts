@@ -51,7 +51,7 @@ export interface ListMemoriesCommandOutput extends ListMemoriesOutput, __Metadat
  * //     { // MemorySummary
  * //       arn: "STRING_VALUE",
  * //       id: "STRING_VALUE",
- * //       status: "CREATING" || "ACTIVE" || "FAILED" || "DELETING",
+ * //       status: "CREATING" || "ACTIVE" || "FAILED" || "DELETING" || "UPDATING",
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       updatedAt: new Date("TIMESTAMP"), // required
  * //     },

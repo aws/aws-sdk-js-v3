@@ -383,31 +383,31 @@ export namespace Action {
 }
 
 /**
- * Inline examples provided directly in the request body.
+ * <p> Inline examples provided directly in the request body. </p>
  * @public
  */
 export interface InlineExamplesSource {
   /**
-   * Examples to add. Each example is assigned an auto-generated UUID.
+   * <p> Examples to add. Each example is assigned an auto-generated UUID. </p>
    * @public
    */
   examples: __DocumentType[] | undefined;
 }
 
 /**
- * S3 location of a JSONL file containing dataset examples.
+ * <p> Amazon S3 location of a JSONL file containing dataset examples. </p>
  * @public
  */
 export interface S3Source {
   /**
-   * S3 URI of the JSONL file (e.g. s3://my-bucket/path/to/examples.jsonl).
+   * <p> Amazon S3 URI of the JSONL file (for example, <code>s3://my-bucket/path/to/examples.jsonl</code>). </p>
    * @public
    */
   s3Uri: string | undefined;
 }
 
 /**
- * Source of examples to add to the dataset.
+ * <p> Source of examples to add to the dataset. </p>
  * @public
  */
 export type DataSourceType =
@@ -420,7 +420,7 @@ export type DataSourceType =
  */
 export namespace DataSourceType {
   /**
-   * Inline examples provided directly in the request body.
+   * <p> Inline examples provided directly in the request body. </p>
    * @public
    */
   export interface InlineExamplesMember {
@@ -430,8 +430,7 @@ export namespace DataSourceType {
   }
 
   /**
-   * S3 URI pointing to a JSONL file in the customer's bucket.
-   * The service reads this file using the caller's FAS credentials.
+   * <p> Amazon S3 URI pointing to a JSONL file in the customer's bucket. </p>
    * @public
    */
   export interface S3SourceMember {
@@ -477,8 +476,7 @@ export interface AddDatasetExamplesRequest {
   clientToken?: string | undefined;
 
   /**
-   * Source of examples to add. Provide either inline examples or an S3 URI
-   * pointing to a JSONL file.
+   * <p> Source of examples to add. Provide either inline examples or an S3 URI pointing to a JSONL file. </p>
    * @public
    */
   source: DataSourceType | undefined;
@@ -519,7 +517,7 @@ export interface AddDatasetExamplesResponse {
   updatedAt: Date | undefined;
 
   /**
-   * IDs of all added examples (auto-generated UUIDs).
+   * <p> IDs of all added examples (auto-generated UUIDs). </p>
    * @public
    */
   exampleIds: string[] | undefined;
@@ -4294,14 +4292,13 @@ export interface UpdateConfigurationBundleResponse {
  */
 export interface CreateDatasetRequest {
   /**
-   * Optional idempotency token.
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * Human-readable name for the dataset. Unique within the account (case-insensitive).
-   * Immutable after creation.
+   * <p> Human-readable name for the dataset. Must be unique within the account. Immutable after creation. </p>
    * @public
    */
   datasetName: string | undefined;
@@ -4313,20 +4310,19 @@ export interface CreateDatasetRequest {
   description?: string | undefined;
 
   /**
-   * Source of initial examples. Provide either inline examples or an S3 URI
-   * pointing to a JSONL file.
+   * <p> Source of initial examples. Provide either inline examples or an S3 URI pointing to a JSONL file. </p>
    * @public
    */
   source: DataSourceType | undefined;
 
   /**
-   * Versioned schema type governing the structure of examples. Immutable after creation.
+   * <p> Versioned schema type governing the structure of examples. Immutable after creation. </p>
    * @public
    */
   schemaType: DatasetSchemaType | undefined;
 
   /**
-   * Optional AWS KMS key ARN for SSE-KMS on service S3 writes.
+   * <p> Optional KMS key ARN for server-side encryption on service Amazon S3 writes. </p>
    * @public
    */
   kmsKeyArn?: string | undefined;
@@ -4355,8 +4351,7 @@ export interface CreateDatasetResponse {
   datasetId: string | undefined;
 
   /**
-   * Always CREATING immediately after this call.
-   * Poll GetDataset until status == ACTIVE (draftStatus=MODIFIED) or CREATE_FAILED.
+   * <p> Always CREATING immediately after this call. Poll <code>GetDataset</code> until status transitions to ACTIVE or CREATE_FAILED. </p>
    * @public
    */
   status: DatasetStatus | undefined;
@@ -4402,14 +4397,13 @@ export interface CreateDatasetVersionResponse {
   datasetId: string | undefined;
 
   /**
-   * Always UPDATING immediately after this call.
-   * Poll GetDataset until status == ACTIVE (draftStatus=UNMODIFIED) or UPDATE_FAILED.
+   * <p> Always UPDATING immediately after this call. Poll <code>GetDataset</code> until status transitions to ACTIVE or UPDATE_FAILED. </p>
    * @public
    */
   status: DatasetStatus | undefined;
 
   /**
-   * The version being created.
+   * <p> The version number being created. </p>
    * @public
    */
   datasetVersion: string | undefined;
@@ -4432,8 +4426,7 @@ export interface DeleteDatasetRequest {
   datasetId: string | undefined;
 
   /**
-   * Optional version to delete. Use "DRAFT" or omit to delete the draft.
-   * Returns ResourceNotFoundException if the specified version does not exist.
+   * <p> Optional version to delete. If absent, deletes the entire dataset. If provided, deletes only that specific version. </p>
    * @public
    */
   datasetVersion?: string | undefined;
@@ -4462,7 +4455,7 @@ export interface DeleteDatasetResponse {
   status: DatasetStatus | undefined;
 
   /**
-   * The version deleted.
+   * <p> The version that was deleted. </p>
    * @public
    */
   datasetVersion: string | undefined;
@@ -4543,7 +4536,7 @@ export interface GetDatasetRequest {
   datasetId: string | undefined;
 
   /**
-   * Version to retrieve: "DRAFT" or a version number. Defaults to DRAFT if absent.
+   * <p> Version to retrieve: "DRAFT" or a version number. Defaults to DRAFT if absent. </p>
    * @public
    */
   datasetVersion?: string | undefined;
@@ -4566,7 +4559,7 @@ export interface GetDatasetResponse {
   datasetId: string | undefined;
 
   /**
-   * The resolved version: "DRAFT" (default) or the requested version number.
+   * <p> The resolved version: "DRAFT" (default) or the requested version number. </p>
    * @public
    */
   datasetVersion: string | undefined;
@@ -4590,47 +4583,43 @@ export interface GetDatasetResponse {
   status: DatasetStatus | undefined;
 
   /**
-   * Publish synchronization state. Only authoritative when status == ACTIVE.
-   * MODIFIED — DRAFT has unpublished changes (or no published versions yet).
-   * UNMODIFIED — DRAFT matches the latest published version exactly.
+   * <p> Publish synchronization state. Only authoritative when status is ACTIVE. MODIFIED indicates DRAFT has unpublished changes. UNMODIFIED indicates DRAFT matches the latest published version. </p>
    * @public
    */
   draftStatus?: DraftStatus | undefined;
 
   /**
-   * Populated when status is CREATE_FAILED, UPDATE_FAILED, or DELETE_FAILED.
+   * <p> Populated when status is CREATE_FAILED, UPDATE_FAILED, or DELETE_FAILED. Describes the reason for the failure. </p>
    * @public
    */
   failureReason?: string | undefined;
 
   /**
-   * The schema type declared at create time. Immutable after creation.
+   * <p> The schema type declared at create time. Immutable after creation. </p>
    * @public
    */
   schemaType: DatasetSchemaType | undefined;
 
   /**
-   * AWS KMS key ARN used for SSE-KMS on service S3 writes, if configured.
+   * <p> KMS key ARN used for server-side encryption on service Amazon S3 writes, if configured. </p>
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * Example count for DRAFT.
+   * <p> The number of examples in the DRAFT. </p>
    * @public
    */
   exampleCount: number | undefined;
 
   /**
-   * Presigned S3 URL to download the consolidated dataset.jsonl file for the resolved
-   * version (DRAFT or published). TTL: 5 minutes. Omitted if the file does not yet exist
-   * (e.g. during CREATING) or on presign failure.
+   * <p> Presigned Amazon S3 URL to download the consolidated dataset file for the resolved version. Expires after 5 minutes. Omitted if the file does not yet exist. </p>
    * @public
    */
   downloadUrl?: string | undefined;
 
   /**
-   * Expiry timestamp for downloadUrl.
+   * <p> Expiry timestamp for the download URL. </p>
    * @public
    */
   downloadUrlExpiresAt?: Date | undefined;
@@ -4665,17 +4654,13 @@ export interface ListDatasetExamplesRequest {
   datasetId: string | undefined;
 
   /**
-   * Version to paginate: "DRAFT" or a version number. Defaults to DRAFT if absent.
-   * Only used on the first request (when nextToken is absent). For subsequent pages,
-   * the version is extracted from the nextToken and this parameter is ignored.
+   * <p> Version to paginate: "DRAFT" or a version number. Defaults to DRAFT if absent. Only used on the first request; for subsequent pages, the version is extracted from the pagination token. </p>
    * @public
    */
   datasetVersion?: string | undefined;
 
   /**
-   * Maximum number of examples to return per page. Default: 1000. Min: 1, max: 1000.
-   * Response size is validated against 5 MB limit after reading.
-   * For bulk access to all examples, use the `downloadUrl` field from GetDataset.
+   * <p> Maximum number of examples to return per page. </p>
    * @public
    */
   maxResults?: number | undefined;
@@ -4704,14 +4689,13 @@ export interface ListDatasetExamplesResponse {
   datasetId: string | undefined;
 
   /**
-   * The version returned.
+   * <p> The version returned. </p>
    * @public
    */
   datasetVersion: string | undefined;
 
   /**
-   * Paginated example content. Each element is a JSON object containing at least
-   * an `exampleId` field plus the schema-specific content fields.
+   * <p> Paginated example content. Each element is a JSON object containing at least an <code>exampleId</code> field plus the schema-specific content fields. </p>
    * @public
    */
   examples: __DocumentType[] | undefined;
@@ -4776,7 +4760,7 @@ export interface DatasetSummary {
   status: DatasetStatus | undefined;
 
   /**
-   * Publish synchronization state. Only authoritative when status == ACTIVE.
+   * <p> Publish synchronization state. Only authoritative when status is ACTIVE. </p>
    * @public
    */
   draftStatus?: DraftStatus | undefined;
@@ -4852,18 +4836,7 @@ export interface ListDatasetVersionsRequest {
  */
 export interface DatasetVersionSummary {
   /**
-   * Dataset version identifier. Accepts "DRAFT" or a non-negative integer string.
-   *
-   * "DRAFT" refers to the single mutable working copy of the dataset.
-   * - Always present after CreateDataset ingestion completes.
-   * - Content changes in-place when examples are added, updated, or deleted.
-   * - NOT tracked as a DDB DatasetVersionItem — state lives in S3 (draft/manifest.json,
-   *   draft/dataset.jsonl) and the DatasetItem.exampleCount field.
-   * - Default for read operations when ?datasetVersion is absent.
-   *
-   * An integer string (e.g. "1", "2", "3") refers to a published, immutable snapshot
-   * created by CreateDatasetVersion. Once created, a published version's content never
-   * changes. Stored as a DDB DatasetVersionItem (SK=VERSION#\{zero-padded-N\}).
+   * <p> The version number of this published snapshot. </p>
    * @public
    */
   datasetVersion: string | undefined;
@@ -4961,11 +4934,7 @@ export interface UpdateDatasetExamplesRequest {
   clientToken?: string | undefined;
 
   /**
-   * Examples to update. Each element is a JSON object containing a required `exampleId`
-   * string field identifying the existing example, plus the replacement fields. The
-   * `exampleId` is extracted and removed before persistence; the remaining document is
-   * validated against the dataset's schemaType.
-   * Max 1000 examples per call. Total request body must not exceed 5 MB.
+   * <p> Examples to update. Each element is a JSON object containing a required <code>exampleId</code> field identifying the existing example, plus the replacement fields. Maximum 1000 examples per call. </p>
    * @public
    */
   examples: __DocumentType[] | undefined;

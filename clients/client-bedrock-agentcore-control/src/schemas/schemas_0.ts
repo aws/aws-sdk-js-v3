@@ -1082,6 +1082,7 @@ const _eRO = "episodicReflectionOverride";
 const _eRS = "enableResponseStreaming";
 const _eS = "executionStatus";
 const _eT = "evaluatorType";
+const _eTx = "extractionType";
 const _eV = "environmentVariables";
 const _en = "enabled";
 const _end = "endpoint";
@@ -3428,8 +3429,8 @@ export var MetadataConfiguration$: StaticStructureSchema = [3, n0, _MC,
 ];
 export var MetadataSchemaEntry$: StaticStructureSchema = [3, n0, _MSE,
   0,
-  [_k, _t, _eCxt],
-  [0, 0, [() => ExtractionConfig$, 0]], 1
+  [_k, _t, _eTx, _eCxt],
+  [0, 0, 0, [() => ExtractionConfig$, 0]], 1
 ];
 export var MicrosoftOauth2ProviderConfigInput$: StaticStructureSchema = [3, n0, _MOPCI,
   0,

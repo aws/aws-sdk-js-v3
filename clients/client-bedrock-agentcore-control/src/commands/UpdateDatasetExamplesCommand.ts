@@ -31,22 +31,7 @@ export interface UpdateDatasetExamplesCommandInput extends UpdateDatasetExamples
 export interface UpdateDatasetExamplesCommandOutput extends UpdateDatasetExamplesResponse, __MetadataBearer {}
 
 /**
- * Updates multiple existing examples in-place on DRAFT.
- *
- * **Validation:** All examples are validated against the dataset's schemaType before any
- * writes occur. If any example fails validation, the entire batch is rejected with
- * ValidationException — no examples are updated (all-or-nothing semantics).
- *
- * **Asynchronous:** Operates in-place on DRAFT. No version bump occurs.
- * Use CreateDatasetVersion to publish DRAFT as a new numbered version.
- *
- * Fails with ResourceNotFoundException if any exampleId does not exist in DRAFT.
- * To add new examples, use AddDatasetExamples instead.
- *
- * **State guard:** Returns ConflictException (DATASET_NOT_READY) if the dataset
- * status is not in \{DRAFT, ACTIVE\}.
- *
- * **Request size limit:** Max 5 MB total request body. Max 1000 examples per call.
+ * <p> Updates multiple existing examples in-place on DRAFT. All examples are validated against the dataset's schema type before any writes occur. If any example fails validation, the entire batch is rejected (all-or-nothing semantics). </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
