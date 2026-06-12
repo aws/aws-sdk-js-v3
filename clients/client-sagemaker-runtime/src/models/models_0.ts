@@ -238,7 +238,7 @@ export interface InvokeEndpointAsyncInput {
    * <p>The Amazon S3 URI where the inference request payload is stored.</p>
    * @public
    */
-  InputLocation: string | undefined;
+  InputLocation?: string | undefined;
 
   /**
    * <p>The path extension that is appended to the Amazon S3 output path where the inference
@@ -267,6 +267,21 @@ export interface InvokeEndpointAsyncInput {
    * @public
    */
   InvocationTimeoutSeconds?: number | undefined;
+
+  /**
+   * <p>Provides inline input data for the inference request, in the format specified in the
+   *                 <code>ContentType</code> request header. Use this parameter to send the request
+   *             payload directly in the API call instead of uploading it to Amazon S3 and
+   *             referencing it with <code>InputLocation</code>. The inline payload can be up to 128,000
+   *             bytes.</p>
+   *          <p>
+   *             <code>Body</code> and <code>InputLocation</code> are mutually exclusive. Provide
+   *             exactly one of them.</p>
+   *          <p>For information about the format of the request body, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html">Common Data
+   *             Formats-Inference</a>.</p>
+   * @public
+   */
+  Body?: Uint8Array | undefined;
 }
 
 /**

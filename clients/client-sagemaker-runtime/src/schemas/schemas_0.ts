@@ -1,4 +1,5 @@
 const _A = "Accept";
+const _ABB = "AsyncBodyBlob";
 const _B = "Body";
 const _BB = "BodyBlob";
 const _By = "Bytes";
@@ -165,13 +166,14 @@ export const errorTypeRegistries = [
   _s_registry,
   n0_registry,
 ]
+var AsyncBodyBlob: StaticSimpleSchema = [0, n0, _ABB, 8, 21];
 var BodyBlob: StaticSimpleSchema = [0, n0, _BB, 8, 21];
 var CustomAttributesHeader: StaticSimpleSchema = [0, n0, _CAH, 8, 0];
 var PartBlob: StaticSimpleSchema = [0, n0, _PB, 8, 21];
 export var InvokeEndpointAsyncInput$: StaticStructureSchema = [3, n0, _IEAI,
   0,
-  [_EN, _IL, _CT, _A, _CA, _II, _SOPE, _F, _RTTLS, _ITS],
-  [[0, 1], [0, { [_hH]: _XASI }], [0, { [_hH]: _XASCT }], [0, { [_hH]: _XASA }], [() => CustomAttributesHeader, { [_hH]: _XASCA }], [0, { [_hH]: _XASII }], [0, { [_hH]: _XASS }], [0, { [_hH]: _XASF }], [1, { [_hH]: _XASR }], [1, { [_hH]: _XASI_ }]], 2
+  [_EN, _CT, _A, _CA, _II, _IL, _SOPE, _F, _RTTLS, _ITS, _B],
+  [[0, 1], [0, { [_hH]: _XASCT }], [0, { [_hH]: _XASA }], [() => CustomAttributesHeader, { [_hH]: _XASCA }], [0, { [_hH]: _XASII }], [0, { [_hH]: _XASI }], [0, { [_hH]: _XASS }], [0, { [_hH]: _XASF }], [1, { [_hH]: _XASR }], [1, { [_hH]: _XASI_ }], [() => AsyncBodyBlob, 16]], 1
 ];
 export var InvokeEndpointAsyncOutput$: StaticStructureSchema = [3, n0, _IEAO,
   0,

@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Command as $Command } from "@smithy/core/client";
 import { getEndpointPlugin } from "@smithy/core/endpoints";
-import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { InvokeEndpointAsyncInput, InvokeEndpointAsyncOutput } from "../models/models_0";
@@ -19,10 +19,17 @@ export type { __MetadataBearer };
 export { $Command };
 /**
  * @public
+ */
+export type InvokeEndpointAsyncCommandInputType = Omit<InvokeEndpointAsyncInput, "Body"> & {
+  Body?: BlobPayloadInputTypes;
+};
+
+/**
+ * @public
  *
  * The input for {@link InvokeEndpointAsyncCommand}.
  */
-export interface InvokeEndpointAsyncCommandInput extends InvokeEndpointAsyncInput {}
+export interface InvokeEndpointAsyncCommandInput extends InvokeEndpointAsyncCommandInputType {}
 /**
  * @public
  *
@@ -57,11 +64,12 @@ export interface InvokeEndpointAsyncCommandOutput extends InvokeEndpointAsyncOut
  *   Accept: "STRING_VALUE",
  *   CustomAttributes: "STRING_VALUE",
  *   InferenceId: "STRING_VALUE",
- *   InputLocation: "STRING_VALUE", // required
+ *   InputLocation: "STRING_VALUE",
  *   S3OutputPathExtension: "STRING_VALUE",
  *   Filename: "STRING_VALUE",
  *   RequestTTLSeconds: Number("int"),
  *   InvocationTimeoutSeconds: Number("int"),
+ *   Body: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  * };
  * const command = new InvokeEndpointAsyncCommand(input);
  * const response = await client.send(command);
