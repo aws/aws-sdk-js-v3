@@ -35,10 +35,25 @@ export interface CreateServiceSpecificCredentialCommandOutput extends CreateServ
  *             IAM, and can be used only for the specified service. </p>
  *          <p>You can have a maximum of two sets of service-specific credentials for each supported
  *             service per user.</p>
- *          <p>You can create service-specific credentials for Amazon Bedrock, Amazon CloudWatch Logs, CodeCommit and Amazon Keyspaces (for Apache Cassandra).</p>
  *          <p>You can reset the password to a new service-generated value by calling <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ResetServiceSpecificCredential.html">ResetServiceSpecificCredential</a>.</p>
- *          <p>For more information about service-specific credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_bedrock.html">Service-specific credentials for IAM users</a> in the
- *                 <i>IAM User Guide</i>.</p>
+ *          <p>For more information about using service-specific credentials to authenticate to an
+ *             Amazon Web Services service, refer to the following docs:</p>
+ *          <ul>
+ *             <li>
+ *                <p>For service-specific credentials with CodeCommit, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_ssh-keys.html">IAM credentials for CodeCommit: Git credentials, SSH keys, and Amazon Web Services access
+ *                         keys</a> in the <i>IAM User Guide</i>.</p>
+ *             </li>
+ *             <li>
+ *                <p>For service-specific credentials with Amazon Keyspaces (for Apache Cassandra), refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_keyspaces.html">Use IAM with
+ *                         Amazon Keyspaces (for Apache Cassandra)</a> in the
+ *                         <i>IAM User Guide</i>.</p>
+ *             </li>
+ *             <li>
+ *                <p>For services that support long-term API keys, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_api_keys_for_aws_services.html">API
+ *                         keys for Amazon Web Services services</a> in the
+ *                         <i>IAM User Guide</i>.</p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
