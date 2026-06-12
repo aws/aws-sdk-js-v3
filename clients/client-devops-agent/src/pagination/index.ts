@@ -11,3 +11,4 @@ export * from "./ListExecutionsPaginator";
 export * from "./ListGoalsPaginator";
 export * from "./ListJournalRecordsPaginator";
 export * from "./ListServicesPaginator";
+export * from "./ListTriggersPaginator";

@@ -230,6 +230,13 @@ CreatePrivateConnection
 </details>
 <details>
 <summary>
+CreateTrigger
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/devops-agent/command/CreateTriggerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-devops-agent/Interface/CreateTriggerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-devops-agent/Interface/CreateTriggerCommandOutput/)
+</details>
+<details>
+<summary>
 DeleteAgentSpace
 </summary>
 
@@ -255,6 +262,13 @@ DeletePrivateConnection
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/devops-agent/command/DeletePrivateConnectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-devops-agent/Interface/DeletePrivateConnectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-devops-agent/Interface/DeletePrivateConnectionCommandOutput/)
+</details>
+<details>
+<summary>
+DeleteTrigger
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/devops-agent/command/DeleteTriggerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-devops-agent/Interface/DeleteTriggerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-devops-agent/Interface/DeleteTriggerCommandOutput/)
 </details>
 <details>
 <summary>
@@ -360,6 +374,13 @@ GetService
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/devops-agent/command/GetServiceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-devops-agent/Interface/GetServiceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-devops-agent/Interface/GetServiceCommandOutput/)
+</details>
+<details>
+<summary>
+GetTrigger
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/devops-agent/command/GetTriggerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-devops-agent/Interface/GetTriggerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-devops-agent/Interface/GetTriggerCommandOutput/)
 </details>
 <details>
 <summary>
@@ -475,6 +496,13 @@ ListTagsForResource
 </details>
 <details>
 <summary>
+ListTriggers
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/devops-agent/command/ListTriggersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-devops-agent/Interface/ListTriggersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-devops-agent/Interface/ListTriggersCommandOutput/)
+</details>
+<details>
+<summary>
 ListWebhooks
 </summary>
 
@@ -570,6 +598,13 @@ UpdateRecommendation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/devops-agent/command/UpdateRecommendationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-devops-agent/Interface/UpdateRecommendationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-devops-agent/Interface/UpdateRecommendationCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateTrigger
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/devops-agent/command/UpdateTriggerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-devops-agent/Interface/UpdateTriggerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-devops-agent/Interface/UpdateTriggerCommandOutput/)
 </details>
 <details>
 <summary>

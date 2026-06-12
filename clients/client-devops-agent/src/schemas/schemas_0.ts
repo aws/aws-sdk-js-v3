@@ -53,6 +53,9 @@ const _CPCI = "CreatePrivateConnectionInput";
 const _CPCO = "CreatePrivateConnectionOutput";
 const _CS = "ClientSecret";
 const _CSEE = "ContentSizeExceededException";
+const _CT = "CreateTrigger";
+const _CTR = "CreateTriggerRequest";
+const _CTRr = "CreateTriggerResponse";
 const _D = "Description";
 const _DA = "DeleteAsset";
 const _DAC = "DatadogAuthorizationConfig";
@@ -83,6 +86,9 @@ const _DSIi = "DisassociateServiceInput";
 const _DSO = "DeregisterServiceOutput";
 const _DSOi = "DisassociateServiceOutput";
 const _DSi = "DisassociateService";
+const _DT = "DeleteTrigger";
+const _DTR = "DeleteTriggerRequest";
+const _DTRe = "DeleteTriggerResponse";
 const _E = "Execution";
 const _EA = "EmailAddress";
 const _ECC = "EventChannelConfiguration";
@@ -132,6 +138,9 @@ const _GSI = "GetServiceInput";
 const _GSIo = "GoalScheduleInput";
 const _GSO = "GetServiceOutput";
 const _GSe = "GetService";
+const _GT = "GetTrigger";
+const _GTR = "GetTriggerRequest";
+const _GTRe = "GetTriggerResponse";
 const _GW = "GenericWebhook";
 const _IAC = "IamAuthConfiguration";
 const _IACd = "IdcAuthConfiguration";
@@ -187,9 +196,12 @@ const _LRRi = "ListRecommendationsResponse";
 const _LS = "ListServices";
 const _LSI = "ListServicesInput";
 const _LSO = "ListServicesOutput";
+const _LT = "ListTriggers";
 const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
+const _LTR = "ListTriggersRequest";
+const _LTRi = "ListTriggersResponse";
 const _LW = "ListWebhooks";
 const _LWI = "ListWebhooksInput";
 const _LWO = "ListWebhooksOutput";
@@ -245,9 +257,10 @@ const _RSO = "RegisterServiceOutput";
 const _RSSD = "RegisteredSlackServiceDetails";
 const _RSe = "RegisterService";
 const _SAC = "SourceAwsConfiguration";
-const _SC = "SlackChannel";
+const _SC = "ScheduleCondition";
 const _SCe = "ServiceConfiguration";
-const _SCl = "SlackConfiguration";
+const _SCl = "SlackChannel";
+const _SCla = "SlackConfiguration";
 const _SD = "ServiceDetails";
 const _SM = "SendMessage";
 const _SMC = "SendMessageContext";
@@ -276,13 +289,16 @@ const _SNSD = "ServiceNowServiceDetails";
 const _SQEE = "ServiceQuotaExceededException";
 const _STT = "SlackTransmissionTarget";
 const _T = "Task";
+const _TC = "TriggerCondition";
 const _TE = "ThrottlingException";
 const _TF = "TaskFilter";
 const _TL = "TaskList";
+const _TLr = "TriggerList";
 const _TR = "TagResource";
 const _TRR = "TagResourceRequest";
 const _TRRa = "TagResourceResponse";
 const _TV = "TokenValue";
+const _Tr = "Trigger";
 const _UA = "UpdateAsset";
 const _UAF = "UpdateAssetFile";
 const _UAFR = "UpdateAssetFileRequest";
@@ -317,6 +333,9 @@ const _URRp = "UpdateRecommendationRequest";
 const _URRpd = "UpdateRecommendationResponse";
 const _URn = "UntagResource";
 const _URp = "UpdateRecommendation";
+const _UT = "UpdateTrigger";
+const _UTR = "UpdateTriggerRequest";
+const _UTRp = "UpdateTriggerResponse";
 const _VAA = "ValidateAwsAssociations";
 const _VAAI = "ValidateAwsAssociationsInput";
 const _VAAO = "ValidateAwsAssociationsOutput";
@@ -360,6 +379,7 @@ const _aTg = "agentType";
 const _aU = "accountUrn";
 const _aUu = "authorizationUrl";
 const _aV = "assetVersion";
+const _ac = "action";
 const _as = "asset";
 const _ass = "associations";
 const _aw = "aws";
@@ -389,6 +409,7 @@ const _cT = "clientToken";
 const _ce = "certificate";
 const _co = "content";
 const _con = "configuration";
+const _cond = "condition";
 const _cont = "context";
 const _d = "description";
 const _dR = "dnsResolution";
@@ -547,6 +568,7 @@ const _sN = "sequenceNumber";
 const _sR = "statusReason";
 const _sT = "serviceType";
 const _sc = "scopes";
+const _sch = "schedule";
 const _se = "server";
 const _ser = "service";
 const _serv = "services";
@@ -560,7 +582,8 @@ const _su = "summary";
 const _sy = "system";
 const _t = "tags";
 const _tD = "textDelta";
-const _tI = "taskId";
+const _tI = "triggerId";
+const _tIa = "taskId";
 const _tIe = "tenantId";
 const _tIea = "teamId";
 const _tK = "tagKeys";
@@ -581,6 +604,7 @@ const _tas = "tasks";
 const _te = "text";
 const _ti = "title";
 const _to = "tools";
+const _tr = "trigger";
 const _ty = "type";
 const _u = "uid";
 const _uA = "updatedAt";
@@ -857,6 +881,16 @@ export var CreatePrivateConnectionOutput$: StaticStructureSchema = [3, n0, _CPCO
   [_n, _ty, _st, _rGI, _hA, _vI, _rCI, _cET, _dR, _fM, _t],
   [0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 128 | 0], 3
 ];
+export var CreateTriggerRequest$: StaticStructureSchema = [3, n0, _CTR,
+  0,
+  [_aSI, _ty, _cond, _ac, _st, _cT],
+  [[0, 1], 0, () => TriggerCondition$, 15, 0, [0, 4]], 4
+];
+export var CreateTriggerResponse$: StaticStructureSchema = [3, n0, _CTRr,
+  0,
+  [_tr],
+  [() => Trigger$], 1
+];
 export var DatadogServiceDetails$: StaticStructureSchema = [3, n0, _DSD,
   0,
   [_n, _en, _aC, _d],
@@ -901,6 +935,16 @@ export var DeletePrivateConnectionOutput$: StaticStructureSchema = [3, n0, _DPCO
   0,
   [_n, _st],
   [0, 0], 2
+];
+export var DeleteTriggerRequest$: StaticStructureSchema = [3, n0, _DTR,
+  0,
+  [_aSI, _tI],
+  [[0, 1], [0, 1]], 2
+];
+export var DeleteTriggerResponse$: StaticStructureSchema = [3, n0, _DTRe,
+  0,
+  [],
+  []
 ];
 export var DeregisterServiceInput$: StaticStructureSchema = [3, n0, _DSI,
   0,
@@ -1044,7 +1088,7 @@ export var GetAssociationOutput$: StaticStructureSchema = [3, n0, _GAO,
 ];
 export var GetBacklogTaskRequest$: StaticStructureSchema = [3, n0, _GBTR,
   0,
-  [_aSI, _tI],
+  [_aSI, _tIa],
   [[0, 1], [0, 1]], 2
 ];
 export var GetBacklogTaskResponse$: StaticStructureSchema = [3, n0, _GBTRe,
@@ -1081,6 +1125,16 @@ export var GetServiceOutput$: StaticStructureSchema = [3, n0, _GSO,
   0,
   [_ser, _t],
   [[() => RegisteredService$, 0], 128 | 0], 1
+];
+export var GetTriggerRequest$: StaticStructureSchema = [3, n0, _GTR,
+  0,
+  [_aSI, _tI],
+  [[0, 1], [0, 1]], 2
+];
+export var GetTriggerResponse$: StaticStructureSchema = [3, n0, _GTRe,
+  0,
+  [_tr],
+  [() => Trigger$], 1
 ];
 export var GitHubConfiguration$: StaticStructureSchema = [3, n0, _GHC,
   0,
@@ -1224,7 +1278,7 @@ export var ListChatsResponse$: StaticStructureSchema = [3, n0, _LCRi,
 ];
 export var ListExecutionsRequest$: StaticStructureSchema = [3, n0, _LER,
   0,
-  [_aSI, _tI, _li, _nT],
+  [_aSI, _tIa, _li, _nT],
   [[0, 1], 0, 1, 0], 2
 ];
 export var ListExecutionsResponse$: StaticStructureSchema = [3, n0, _LERi,
@@ -1274,7 +1328,7 @@ export var ListPrivateConnectionsOutput$: StaticStructureSchema = [3, n0, _LPCO,
 ];
 export var ListRecommendationsRequest$: StaticStructureSchema = [3, n0, _LRR,
   0,
-  [_aSI, _tI, _gIo, _st, _pr, _li, _nT],
+  [_aSI, _tIa, _gIo, _st, _pr, _li, _nT],
   [[0, 1], 0, 0, 0, 0, 1, 0], 1
 ];
 export var ListRecommendationsResponse$: StaticStructureSchema = [3, n0, _LRRi,
@@ -1301,6 +1355,16 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
   0,
   [_t],
   [128 | 0], 1
+];
+export var ListTriggersRequest$: StaticStructureSchema = [3, n0, _LTR,
+  0,
+  [_aSI, _st, _nT, _mR],
+  [[0, 1], [0, { [_hQ]: _st }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
+];
+export var ListTriggersResponse$: StaticStructureSchema = [3, n0, _LTRi,
+  0,
+  [_it, _nT],
+  [() => TriggerList, 0], 1
 ];
 export var ListWebhooksInput$: StaticStructureSchema = [3, n0, _LWI,
   0,
@@ -1424,7 +1488,7 @@ export var PrivateConnectionSummary$: StaticStructureSchema = [3, n0, _PCS,
 ];
 export var Recommendation$: StaticStructureSchema = [3, n0, _R,
   0,
-  [_aSA, _rI, _tI, _ti, _co, _st, _pr, _cA, _uA, _v, _gIo, _gV, _aCd, _rP, _rAa],
+  [_aSA, _rI, _tIa, _ti, _co, _st, _pr, _cA, _uA, _v, _gIo, _gV, _aCd, _rP, _rAa],
   [0, 0, 0, 0, () => RecommendationContent$, 0, 0, 5, 5, 1, 0, 1, 0, 1, 5], 10
 ];
 export var RecommendationContent$: StaticStructureSchema = [3, n0, _RC,
@@ -1511,6 +1575,11 @@ export var RegisterServiceOutput$: StaticStructureSchema = [3, n0, _RSO,
   0,
   [_sI, _aSd, _kKA, _t],
   [0, () => AdditionalServiceRegistrationStep$, 0, 128 | 0]
+];
+export var ScheduleCondition$: StaticStructureSchema = [3, n0, _SC,
+  0,
+  [_ex],
+  [0], 1
 ];
 export var SelfManagedInput$: StaticStructureSchema = [3, n0, _SMI,
   0,
@@ -1612,12 +1681,12 @@ export var ServiceNowServiceDetails$: StaticStructureSchema = [3, n0, _SNSD,
   [_iUn, _aC],
   [0, [() => ServiceNowServiceAuthorizationConfig$, 0]], 1
 ];
-export var SlackChannel$: StaticStructureSchema = [3, n0, _SC,
+export var SlackChannel$: StaticStructureSchema = [3, n0, _SCl,
   0,
   [_cIh, _cNh],
   [0, 0], 1
 ];
-export var SlackConfiguration$: StaticStructureSchema = [3, n0, _SCl,
+export var SlackConfiguration$: StaticStructureSchema = [3, n0, _SCla,
   0,
   [_wIo, _wN, _tTr],
   [0, 0, () => SlackTransmissionTarget$], 3
@@ -1644,13 +1713,18 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 ];
 export var Task$: StaticStructureSchema = [3, n0, _T,
   0,
-  [_aSI, _tI, _ti, _tT, _pr, _st, _cA, _uA, _v, _eI, _d, _r, _sM, _me, _pTI, _sR, _hLT],
+  [_aSI, _tIa, _ti, _tT, _pr, _st, _cA, _uA, _v, _eI, _d, _r, _sM, _me, _pTI, _sR, _hLT],
   [0, 0, 0, 0, 0, 0, 5, 5, 1, 0, 0, () => ReferenceOutput$, 15, 15, 0, 0, 2], 9
 ];
 export var TaskFilter$: StaticStructureSchema = [3, n0, _TF,
   0,
   [_cAr, _cB, _pr, _st, _tT, _pTI],
   [5, 5, 64 | 0, 64 | 0, 64 | 0, 0]
+];
+export var Trigger$: StaticStructureSchema = [3, n0, _Tr,
+  0,
+  [_tI, _aSI, _ty, _cond, _ac, _st, _cA, _uA],
+  [0, 0, 0, () => TriggerCondition$, 15, 0, 4, 4], 8
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
@@ -1704,7 +1778,7 @@ export var UpdateAssociationOutput$: StaticStructureSchema = [3, n0, _UAO,
 ];
 export var UpdateBacklogTaskRequest$: StaticStructureSchema = [3, n0, _UBTR,
   0,
-  [_aSI, _tI, _tS, _cT],
+  [_aSI, _tIa, _tS, _cT],
   [[0, 1], [0, 1], 0, [0, 4]], 2
 ];
 export var UpdateBacklogTaskResponse$: StaticStructureSchema = [3, n0, _UBTRp,
@@ -1751,6 +1825,16 @@ export var UpdateRecommendationResponse$: StaticStructureSchema = [3, n0, _URRpd
   0,
   [_rec],
   [() => Recommendation$], 1
+];
+export var UpdateTriggerRequest$: StaticStructureSchema = [3, n0, _UTR,
+  0,
+  [_aSI, _tI, _st, _cT],
+  [[0, 1], [0, 1], 0, [0, 4]], 2
+];
+export var UpdateTriggerResponse$: StaticStructureSchema = [3, n0, _UTRp,
+  0,
+  [_tr],
+  [() => Trigger$], 1
 ];
 export var UsageMetric$: StaticStructureSchema = [3, n0, _UM,
   0,
@@ -1853,6 +1937,9 @@ var TaskList: StaticListSchema = [1, n0, _TL,
 ];
 var TaskStatusList = 64 | 0;
 var TaskTypeList = 64 | 0;
+var TriggerList: StaticListSchema = [1, n0, _TLr,
+  0, () => Trigger$
+];
 var UserMessage: StaticListSchema = [1, n0, _UMs,
   0, () => UserMessageBlock$
 ];
@@ -1961,6 +2048,11 @@ export var ServiceNowServiceAuthorizationConfig$: StaticUnionSchema = [4, n0, _S
   [_oACC],
   [[() => ServiceNowOAuthClientCredentialsConfig$, 0]]
 ];
+export var TriggerCondition$: StaticUnionSchema = [4, n0, _TC,
+  0,
+  [_sch],
+  [() => ScheduleCondition$]
+];
 export var UserMessageBlock$: StaticUnionSchema = [4, n0, _UMB,
   0,
   [_te, _tR],
@@ -1987,6 +2079,9 @@ export var CreateChat$: StaticOperationSchema = [9, n0, _CC,
 export var CreatePrivateConnection$: StaticOperationSchema = [9, n0, _CPC,
   { [_en]: ["cp."], [_ht]: ["POST", "/v1/private-connections", 200] }, () => CreatePrivateConnectionInput$, () => CreatePrivateConnectionOutput$
 ];
+export var CreateTrigger$: StaticOperationSchema = [9, n0, _CT,
+  { [_en]: ["dp."], [_ht]: ["POST", "/trigger/agent-space/{agentSpaceId}/triggers", 201] }, () => CreateTriggerRequest$, () => CreateTriggerResponse$
+];
 export var DeleteAgentSpace$: StaticOperationSchema = [9, n0, _DAS,
   { [_en]: ["cp."], [_ht]: ["DELETE", "/v1/agentspaces/{agentSpaceId}", 204] }, () => DeleteAgentSpaceInput$, () => DeleteAgentSpaceOutput$
 ];
@@ -1998,6 +2093,9 @@ export var DeleteAssetFile$: StaticOperationSchema = [9, n0, _DAF,
 ];
 export var DeletePrivateConnection$: StaticOperationSchema = [9, n0, _DPC,
   { [_en]: ["cp."], [_ht]: ["DELETE", "/v1/private-connections/{name}", 200] }, () => DeletePrivateConnectionInput$, () => DeletePrivateConnectionOutput$
+];
+export var DeleteTrigger$: StaticOperationSchema = [9, n0, _DT,
+  { [_en]: ["dp."], [_ht]: ["DELETE", "/trigger/agent-space/{agentSpaceId}/triggers/{triggerId}", 200] }, () => DeleteTriggerRequest$, () => DeleteTriggerResponse$
 ];
 export var DeregisterService$: StaticOperationSchema = [9, n0, _DS,
   { [_en]: ["cp."], [_ht]: ["DELETE", "/v1/services/{serviceId}", 200] }, () => DeregisterServiceInput$, () => DeregisterServiceOutput$
@@ -2043,6 +2141,9 @@ export var GetRecommendation$: StaticOperationSchema = [9, n0, _GR,
 ];
 export var GetService$: StaticOperationSchema = [9, n0, _GSe,
   { [_en]: ["cp."], [_ht]: ["GET", "/v1/services/{serviceId}", 200] }, () => GetServiceInput$, () => GetServiceOutput$
+];
+export var GetTrigger$: StaticOperationSchema = [9, n0, _GT,
+  { [_en]: ["dp."], [_ht]: ["GET", "/trigger/agent-space/{agentSpaceId}/triggers/{triggerId}", 200] }, () => GetTriggerRequest$, () => GetTriggerResponse$
 ];
 export var ListAgentSpaces$: StaticOperationSchema = [9, n0, _LAS,
   { [_en]: ["cp."], [_ht]: ["POST", "/v1/agentspaces/list", 200] }, () => ListAgentSpacesInput$, () => ListAgentSpacesOutput$
@@ -2092,6 +2193,9 @@ export var ListServices$: StaticOperationSchema = [9, n0, _LS,
 export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
   { [_en]: ["cp."], [_ht]: ["GET", "/tags/{resourceArn}", 200] }, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
 ];
+export var ListTriggers$: StaticOperationSchema = [9, n0, _LT,
+  { [_en]: ["dp."], [_ht]: ["GET", "/trigger/agent-space/{agentSpaceId}/triggers", 200] }, () => ListTriggersRequest$, () => ListTriggersResponse$
+];
 export var ListWebhooks$: StaticOperationSchema = [9, n0, _LW,
   { [_en]: ["cp."], [_ht]: ["POST", "/v1/agentspaces/{agentSpaceId}/associations/{associationId}/webhooks/list", 200] }, () => ListWebhooksInput$, () => ListWebhooksOutput$
 ];
@@ -2133,6 +2237,9 @@ export var UpdatePrivateConnectionCertificate$: StaticOperationSchema = [9, n0, 
 ];
 export var UpdateRecommendation$: StaticOperationSchema = [9, n0, _URp,
   { [_en]: ["dp."], [_ht]: ["PATCH", "/backlog/agent-space/{agentSpaceId}/recommendations/{recommendationId}", 200] }, () => UpdateRecommendationRequest$, () => UpdateRecommendationResponse$
+];
+export var UpdateTrigger$: StaticOperationSchema = [9, n0, _UT,
+  { [_en]: ["dp."], [_ht]: ["PATCH", "/trigger/agent-space/{agentSpaceId}/triggers/{triggerId}", 200] }, () => UpdateTriggerRequest$, () => UpdateTriggerResponse$
 ];
 export var ValidateAwsAssociations$: StaticOperationSchema = [9, n0, _VAA,
   { [_en]: ["cp."], [_ht]: ["POST", "/v1/agentspaces/{agentSpaceId}/associations/validate", 204] }, () => ValidateAwsAssociationsInput$, () => ValidateAwsAssociationsOutput$

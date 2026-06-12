@@ -38,6 +38,11 @@ import {
   CreatePrivateConnectionCommand,
 } from "./commands/CreatePrivateConnectionCommand";
 import {
+  type CreateTriggerCommandInput,
+  type CreateTriggerCommandOutput,
+  CreateTriggerCommand,
+} from "./commands/CreateTriggerCommand";
+import {
   type DeleteAgentSpaceCommandInput,
   type DeleteAgentSpaceCommandOutput,
   DeleteAgentSpaceCommand,
@@ -57,6 +62,11 @@ import {
   type DeletePrivateConnectionCommandOutput,
   DeletePrivateConnectionCommand,
 } from "./commands/DeletePrivateConnectionCommand";
+import {
+  type DeleteTriggerCommandInput,
+  type DeleteTriggerCommandOutput,
+  DeleteTriggerCommand,
+} from "./commands/DeleteTriggerCommand";
 import {
   type DeregisterServiceCommandInput,
   type DeregisterServiceCommandOutput,
@@ -128,6 +138,11 @@ import {
   type GetServiceCommandOutput,
   GetServiceCommand,
 } from "./commands/GetServiceCommand";
+import {
+  type GetTriggerCommandInput,
+  type GetTriggerCommandOutput,
+  GetTriggerCommand,
+} from "./commands/GetTriggerCommand";
 import {
   type ListAgentSpacesCommandInput,
   type ListAgentSpacesCommandOutput,
@@ -201,6 +216,11 @@ import {
   ListTagsForResourceCommand,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListTriggersCommandInput,
+  type ListTriggersCommandOutput,
+  ListTriggersCommand,
+} from "./commands/ListTriggersCommand";
+import {
   type ListWebhooksCommandInput,
   type ListWebhooksCommandOutput,
   ListWebhooksCommand,
@@ -271,6 +291,11 @@ import {
   UpdateRecommendationCommand,
 } from "./commands/UpdateRecommendationCommand";
 import {
+  type UpdateTriggerCommandInput,
+  type UpdateTriggerCommandOutput,
+  UpdateTriggerCommand,
+} from "./commands/UpdateTriggerCommand";
+import {
   type ValidateAwsAssociationsCommandInput,
   type ValidateAwsAssociationsCommandOutput,
   ValidateAwsAssociationsCommand,
@@ -287,6 +312,7 @@ import { paginateListExecutions } from "./pagination/ListExecutionsPaginator";
 import { paginateListGoals } from "./pagination/ListGoalsPaginator";
 import { paginateListJournalRecords } from "./pagination/ListJournalRecordsPaginator";
 import { paginateListServices } from "./pagination/ListServicesPaginator";
+import { paginateListTriggers } from "./pagination/ListTriggersPaginator";
 
 const commands = {
   AssociateServiceCommand,
@@ -296,10 +322,12 @@ const commands = {
   CreateBacklogTaskCommand,
   CreateChatCommand,
   CreatePrivateConnectionCommand,
+  CreateTriggerCommand,
   DeleteAgentSpaceCommand,
   DeleteAssetCommand,
   DeleteAssetFileCommand,
   DeletePrivateConnectionCommand,
+  DeleteTriggerCommand,
   DeregisterServiceCommand,
   DescribePrivateConnectionCommand,
   DisableOperatorAppCommand,
@@ -315,6 +343,7 @@ const commands = {
   GetOperatorAppCommand,
   GetRecommendationCommand,
   GetServiceCommand,
+  GetTriggerCommand,
   ListAgentSpacesCommand,
   ListAssetFilesCommand,
   ListAssetsCommand,
@@ -331,6 +360,7 @@ const commands = {
   ListRecommendationsCommand,
   ListServicesCommand,
   ListTagsForResourceCommand,
+  ListTriggersCommand,
   ListWebhooksCommand,
   RegisterServiceCommand,
   SendMessageCommand,
@@ -345,6 +375,7 @@ const commands = {
   UpdateOperatorAppIdpConfigCommand,
   UpdatePrivateConnectionCertificateCommand,
   UpdateRecommendationCommand,
+  UpdateTriggerCommand,
   ValidateAwsAssociationsCommand,
 };
 const paginators = {
@@ -359,6 +390,7 @@ const paginators = {
   paginateListGoals,
   paginateListJournalRecords,
   paginateListServices,
+  paginateListTriggers,
 };
 
 export interface DevOpsAgent {
@@ -482,6 +514,23 @@ export interface DevOpsAgent {
   ): void;
 
   /**
+   * @see {@link CreateTriggerCommand}
+   */
+  createTrigger(
+    args: CreateTriggerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTriggerCommandOutput>;
+  createTrigger(
+    args: CreateTriggerCommandInput,
+    cb: (err: any, data?: CreateTriggerCommandOutput) => void
+  ): void;
+  createTrigger(
+    args: CreateTriggerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTriggerCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteAgentSpaceCommand}
    */
   deleteAgentSpace(
@@ -547,6 +596,23 @@ export interface DevOpsAgent {
     args: DeletePrivateConnectionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeletePrivateConnectionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteTriggerCommand}
+   */
+  deleteTrigger(
+    args: DeleteTriggerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTriggerCommandOutput>;
+  deleteTrigger(
+    args: DeleteTriggerCommandInput,
+    cb: (err: any, data?: DeleteTriggerCommandOutput) => void
+  ): void;
+  deleteTrigger(
+    args: DeleteTriggerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTriggerCommandOutput) => void
   ): void;
 
   /**
@@ -803,6 +869,23 @@ export interface DevOpsAgent {
     args: GetServiceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetServiceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetTriggerCommand}
+   */
+  getTrigger(
+    args: GetTriggerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTriggerCommandOutput>;
+  getTrigger(
+    args: GetTriggerCommandInput,
+    cb: (err: any, data?: GetTriggerCommandOutput) => void
+  ): void;
+  getTrigger(
+    args: GetTriggerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTriggerCommandOutput) => void
   ): void;
 
   /**
@@ -1082,6 +1165,23 @@ export interface DevOpsAgent {
   ): void;
 
   /**
+   * @see {@link ListTriggersCommand}
+   */
+  listTriggers(
+    args: ListTriggersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTriggersCommandOutput>;
+  listTriggers(
+    args: ListTriggersCommandInput,
+    cb: (err: any, data?: ListTriggersCommandOutput) => void
+  ): void;
+  listTriggers(
+    args: ListTriggersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTriggersCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListWebhooksCommand}
    */
   listWebhooks(
@@ -1320,6 +1420,23 @@ export interface DevOpsAgent {
   ): void;
 
   /**
+   * @see {@link UpdateTriggerCommand}
+   */
+  updateTrigger(
+    args: UpdateTriggerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateTriggerCommandOutput>;
+  updateTrigger(
+    args: UpdateTriggerCommandInput,
+    cb: (err: any, data?: UpdateTriggerCommandOutput) => void
+  ): void;
+  updateTrigger(
+    args: UpdateTriggerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateTriggerCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ValidateAwsAssociationsCommand}
    */
   validateAwsAssociations(
@@ -1456,6 +1573,17 @@ export interface DevOpsAgent {
     args?: ListServicesCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListServicesCommandOutput>;
+
+  /**
+   * @see {@link ListTriggersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTriggersCommandOutput}.
+   */
+  paginateListTriggers(
+    args: ListTriggersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTriggersCommandOutput>;
 }
 
 /**

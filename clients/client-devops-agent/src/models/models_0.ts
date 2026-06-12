@@ -3423,6 +3423,163 @@ export interface CreatePrivateConnectionOutput {
 }
 
 /**
+ * <p>Schedule-based condition that fires the Trigger</p>
+ * @public
+ */
+export interface ScheduleCondition {
+  /**
+   * <p>The schedule expression</p>
+   * @public
+   */
+  expression: string | undefined;
+}
+
+/**
+ * <p>Defines the firing condition for a Trigger</p>
+ * @public
+ */
+export type TriggerCondition =
+  | TriggerCondition.ScheduleMember
+  | TriggerCondition.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace TriggerCondition {
+  /**
+   * <p>Time-based firing condition</p>
+   * @public
+   */
+  export interface ScheduleMember {
+    schedule: ScheduleCondition;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    schedule?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    schedule: (value: ScheduleCondition) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateTriggerRequest {
+  /**
+   * <p>Unique identifier for an agent space (allows alphanumeric characters and hyphens; 1-64 characters)</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>How the new Trigger fires</p>
+   * @public
+   */
+  type: string | undefined;
+
+  /**
+   * <p>The condition that fires the new Trigger</p>
+   * @public
+   */
+  condition: TriggerCondition | undefined;
+
+  /**
+   * <p>The action the new Trigger performs when it fires</p>
+   * @public
+   */
+  action: __DocumentType | undefined;
+
+  /**
+   * <p>The initial status of the Trigger</p>
+   * @public
+   */
+  status?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier used for idempotent Trigger creation</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * <p>A Trigger fires on a schedule and invokes an agent</p>
+ * @public
+ */
+export interface Trigger {
+  /**
+   * <p>Generic resource identifier (allows alphanumeric characters, hyphens, and underscores; 1-128 characters)</p>
+   * @public
+   */
+  triggerId: string | undefined;
+
+  /**
+   * <p>Unique identifier for an agent space (allows alphanumeric characters and hyphens; 1-64 characters)</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>How this Trigger fires</p>
+   * @public
+   */
+  type: string | undefined;
+
+  /**
+   * <p>The condition that fires this Trigger</p>
+   * @public
+   */
+  condition: TriggerCondition | undefined;
+
+  /**
+   * <p>The action this Trigger performs when it fires</p>
+   * @public
+   */
+  action: __DocumentType | undefined;
+
+  /**
+   * <p>The status of this Trigger</p>
+   * @public
+   */
+  status: string | undefined;
+
+  /**
+   * <p>Timestamp when this Trigger was created</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>Timestamp when this Trigger was last updated</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTriggerResponse {
+  /**
+   * <p>The Trigger object</p>
+   * @public
+   */
+  trigger: Trigger | undefined;
+}
+
+/**
  * <p>Authorization discovery configuration for MCP server.</p>
  * @public
  */
@@ -3586,6 +3743,28 @@ export interface DeletePrivateConnectionOutput {
    */
   status: PrivateConnectionStatus | undefined;
 }
+
+/**
+ * @public
+ */
+export interface DeleteTriggerRequest {
+  /**
+   * <p>Unique identifier for an agent space (allows alphanumeric characters and hyphens; 1-64 characters)</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>Generic resource identifier (allows alphanumeric characters, hyphens, and underscores; 1-128 characters)</p>
+   * @public
+   */
+  triggerId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTriggerResponse {}
 
 /**
  * <p>Input for deregistering a service.</p>
@@ -4051,6 +4230,34 @@ export interface GetRecommendationResponse {
    * @public
    */
   recommendation: Recommendation | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTriggerRequest {
+  /**
+   * <p>Unique identifier for an agent space (allows alphanumeric characters and hyphens; 1-64 characters)</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>Generic resource identifier (allows alphanumeric characters, hyphens, and underscores; 1-128 characters)</p>
+   * @public
+   */
+  triggerId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTriggerResponse {
+  /**
+   * <p>The Trigger object</p>
+   * @public
+   */
+  trigger: Trigger | undefined;
 }
 
 /**
@@ -5069,6 +5276,52 @@ export interface ListTagsForResourceResponse {
    * @public
    */
   tags: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTriggersRequest {
+  /**
+   * <p>Unique identifier for an agent space (allows alphanumeric characters and hyphens; 1-64 characters)</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>Filter results to Triggers in this status</p>
+   * @public
+   */
+  status?: string | undefined;
+
+  /**
+   * <p>Pagination token from a previous response to retrieve the next page of results</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single response</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTriggersResponse {
+  /**
+   * <p>The list of Triggers</p>
+   * @public
+   */
+  items: Trigger[] | undefined;
+
+  /**
+   * <p>Pagination token for list operations (1-2048 characters)</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**
@@ -7413,4 +7666,44 @@ export interface UpdateRecommendationResponse {
    * @public
    */
   recommendation: Recommendation | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTriggerRequest {
+  /**
+   * <p>Unique identifier for an agent space (allows alphanumeric characters and hyphens; 1-64 characters)</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>Generic resource identifier (allows alphanumeric characters, hyphens, and underscores; 1-128 characters)</p>
+   * @public
+   */
+  triggerId: string | undefined;
+
+  /**
+   * <p>The new status for the Trigger</p>
+   * @public
+   */
+  status?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier used for idempotent Trigger update</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTriggerResponse {
+  /**
+   * <p>The Trigger object</p>
+   * @public
+   */
+  trigger: Trigger | undefined;
 }

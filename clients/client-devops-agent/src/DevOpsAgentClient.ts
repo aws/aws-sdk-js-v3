@@ -73,6 +73,7 @@ import type {
   CreatePrivateConnectionCommandInput,
   CreatePrivateConnectionCommandOutput,
 } from "./commands/CreatePrivateConnectionCommand";
+import type { CreateTriggerCommandInput, CreateTriggerCommandOutput } from "./commands/CreateTriggerCommand";
 import type { DeleteAgentSpaceCommandInput, DeleteAgentSpaceCommandOutput } from "./commands/DeleteAgentSpaceCommand";
 import type { DeleteAssetCommandInput, DeleteAssetCommandOutput } from "./commands/DeleteAssetCommand";
 import type { DeleteAssetFileCommandInput, DeleteAssetFileCommandOutput } from "./commands/DeleteAssetFileCommand";
@@ -80,6 +81,7 @@ import type {
   DeletePrivateConnectionCommandInput,
   DeletePrivateConnectionCommandOutput,
 } from "./commands/DeletePrivateConnectionCommand";
+import type { DeleteTriggerCommandInput, DeleteTriggerCommandOutput } from "./commands/DeleteTriggerCommand";
 import type {
   DeregisterServiceCommandInput,
   DeregisterServiceCommandOutput,
@@ -113,6 +115,7 @@ import type {
   GetRecommendationCommandOutput,
 } from "./commands/GetRecommendationCommand";
 import type { GetServiceCommandInput, GetServiceCommandOutput } from "./commands/GetServiceCommand";
+import type { GetTriggerCommandInput, GetTriggerCommandOutput } from "./commands/GetTriggerCommand";
 import type { ListAgentSpacesCommandInput, ListAgentSpacesCommandOutput } from "./commands/ListAgentSpacesCommand";
 import type { ListAssetFilesCommandInput, ListAssetFilesCommandOutput } from "./commands/ListAssetFilesCommand";
 import type { ListAssetsCommandInput, ListAssetsCommandOutput } from "./commands/ListAssetsCommand";
@@ -147,6 +150,7 @@ import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import type { ListTriggersCommandInput, ListTriggersCommandOutput } from "./commands/ListTriggersCommand";
 import type { ListWebhooksCommandInput, ListWebhooksCommandOutput } from "./commands/ListWebhooksCommand";
 import type { RegisterServiceCommandInput, RegisterServiceCommandOutput } from "./commands/RegisterServiceCommand";
 import type { SendMessageCommandInput, SendMessageCommandOutput } from "./commands/SendMessageCommand";
@@ -176,6 +180,7 @@ import type {
   UpdateRecommendationCommandInput,
   UpdateRecommendationCommandOutput,
 } from "./commands/UpdateRecommendationCommand";
+import type { UpdateTriggerCommandInput, UpdateTriggerCommandOutput } from "./commands/UpdateTriggerCommand";
 import type {
   ValidateAwsAssociationsCommandInput,
   ValidateAwsAssociationsCommandOutput,
@@ -202,10 +207,12 @@ export type ServiceInputTypes =
   | CreateBacklogTaskCommandInput
   | CreateChatCommandInput
   | CreatePrivateConnectionCommandInput
+  | CreateTriggerCommandInput
   | DeleteAgentSpaceCommandInput
   | DeleteAssetCommandInput
   | DeleteAssetFileCommandInput
   | DeletePrivateConnectionCommandInput
+  | DeleteTriggerCommandInput
   | DeregisterServiceCommandInput
   | DescribePrivateConnectionCommandInput
   | DisableOperatorAppCommandInput
@@ -221,6 +228,7 @@ export type ServiceInputTypes =
   | GetOperatorAppCommandInput
   | GetRecommendationCommandInput
   | GetServiceCommandInput
+  | GetTriggerCommandInput
   | ListAgentSpacesCommandInput
   | ListAssetFilesCommandInput
   | ListAssetTypesCommandInput
@@ -237,6 +245,7 @@ export type ServiceInputTypes =
   | ListRecommendationsCommandInput
   | ListServicesCommandInput
   | ListTagsForResourceCommandInput
+  | ListTriggersCommandInput
   | ListWebhooksCommandInput
   | RegisterServiceCommandInput
   | SendMessageCommandInput
@@ -251,6 +260,7 @@ export type ServiceInputTypes =
   | UpdateOperatorAppIdpConfigCommandInput
   | UpdatePrivateConnectionCertificateCommandInput
   | UpdateRecommendationCommandInput
+  | UpdateTriggerCommandInput
   | ValidateAwsAssociationsCommandInput;
 
 /**
@@ -264,10 +274,12 @@ export type ServiceOutputTypes =
   | CreateBacklogTaskCommandOutput
   | CreateChatCommandOutput
   | CreatePrivateConnectionCommandOutput
+  | CreateTriggerCommandOutput
   | DeleteAgentSpaceCommandOutput
   | DeleteAssetCommandOutput
   | DeleteAssetFileCommandOutput
   | DeletePrivateConnectionCommandOutput
+  | DeleteTriggerCommandOutput
   | DeregisterServiceCommandOutput
   | DescribePrivateConnectionCommandOutput
   | DisableOperatorAppCommandOutput
@@ -283,6 +295,7 @@ export type ServiceOutputTypes =
   | GetOperatorAppCommandOutput
   | GetRecommendationCommandOutput
   | GetServiceCommandOutput
+  | GetTriggerCommandOutput
   | ListAgentSpacesCommandOutput
   | ListAssetFilesCommandOutput
   | ListAssetTypesCommandOutput
@@ -299,6 +312,7 @@ export type ServiceOutputTypes =
   | ListRecommendationsCommandOutput
   | ListServicesCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListTriggersCommandOutput
   | ListWebhooksCommandOutput
   | RegisterServiceCommandOutput
   | SendMessageCommandOutput
@@ -313,6 +327,7 @@ export type ServiceOutputTypes =
   | UpdateOperatorAppIdpConfigCommandOutput
   | UpdatePrivateConnectionCertificateCommandOutput
   | UpdateRecommendationCommandOutput
+  | UpdateTriggerCommandOutput
   | ValidateAwsAssociationsCommandOutput;
 
 /**

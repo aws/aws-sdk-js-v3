@@ -52,6 +52,10 @@ import {
   CreatePrivateConnectionCommand,
   CreatePrivateConnectionInput$,
   CreatePrivateConnectionOutput$,
+  CreateTrigger$,
+  CreateTriggerCommand,
+  CreateTriggerRequest$,
+  CreateTriggerResponse$,
   DatadogAuthorizationConfig$,
   DatadogServiceDetails$,
   DeleteAgentSpace$,
@@ -70,6 +74,10 @@ import {
   DeletePrivateConnectionCommand,
   DeletePrivateConnectionInput$,
   DeletePrivateConnectionOutput$,
+  DeleteTrigger$,
+  DeleteTriggerCommand,
+  DeleteTriggerRequest$,
+  DeleteTriggerResponse$,
   DeregisterService$,
   DeregisterServiceCommand,
   DeregisterServiceInput$,
@@ -142,6 +150,10 @@ import {
   GetServiceCommand,
   GetServiceInput$,
   GetServiceOutput$,
+  GetTrigger$,
+  GetTriggerCommand,
+  GetTriggerRequest$,
+  GetTriggerResponse$,
   GitHubConfiguration$,
   GithubRepoOwnerType,
   GitLabConfiguration$,
@@ -229,6 +241,10 @@ import {
   ListTagsForResourceCommand,
   ListTagsForResourceRequest$,
   ListTagsForResourceResponse$,
+  ListTriggers$,
+  ListTriggersCommand,
+  ListTriggersRequest$,
+  ListTriggersResponse$,
   ListWebhooks$,
   ListWebhooksCommand,
   ListWebhooksInput$,
@@ -272,6 +288,7 @@ import {
   paginateListGoals,
   paginateListJournalRecords,
   paginateListServices,
+  paginateListTriggers,
   PendingMessage$,
   PostRegisterServiceSupportedService,
   Priority,
@@ -304,6 +321,7 @@ import {
   ResourceConfigDnsResolution,
   ResourceNotFoundException,
   ResourceNotFoundException$,
+  ScheduleCondition$,
   SchedulerState,
   SelfManagedInput$,
   SendMessage$,
@@ -352,6 +370,8 @@ import {
   TaskType,
   ThrottlingException,
   ThrottlingException$,
+  Trigger$,
+  TriggerCondition$,
   UntagResource$,
   UntagResourceCommand,
   UntagResourceRequest$,
@@ -392,6 +412,10 @@ import {
   UpdateRecommendationCommand,
   UpdateRecommendationRequest$,
   UpdateRecommendationResponse$,
+  UpdateTrigger$,
+  UpdateTriggerCommand,
+  UpdateTriggerRequest$,
+  UpdateTriggerResponse$,
   UsageMetric$,
   UserMessageBlock$,
   UserReference$,
@@ -426,6 +450,8 @@ assert(typeof CreateChatCommand === "function");
 assert(typeof CreateChat$ === "object");
 assert(typeof CreatePrivateConnectionCommand === "function");
 assert(typeof CreatePrivateConnection$ === "object");
+assert(typeof CreateTriggerCommand === "function");
+assert(typeof CreateTrigger$ === "object");
 assert(typeof DeleteAgentSpaceCommand === "function");
 assert(typeof DeleteAgentSpace$ === "object");
 assert(typeof DeleteAssetCommand === "function");
@@ -434,6 +460,8 @@ assert(typeof DeleteAssetFileCommand === "function");
 assert(typeof DeleteAssetFile$ === "object");
 assert(typeof DeletePrivateConnectionCommand === "function");
 assert(typeof DeletePrivateConnection$ === "object");
+assert(typeof DeleteTriggerCommand === "function");
+assert(typeof DeleteTrigger$ === "object");
 assert(typeof DeregisterServiceCommand === "function");
 assert(typeof DeregisterService$ === "object");
 assert(typeof DescribePrivateConnectionCommand === "function");
@@ -464,6 +492,8 @@ assert(typeof GetRecommendationCommand === "function");
 assert(typeof GetRecommendation$ === "object");
 assert(typeof GetServiceCommand === "function");
 assert(typeof GetService$ === "object");
+assert(typeof GetTriggerCommand === "function");
+assert(typeof GetTrigger$ === "object");
 assert(typeof ListAgentSpacesCommand === "function");
 assert(typeof ListAgentSpaces$ === "object");
 assert(typeof ListAssetFilesCommand === "function");
@@ -496,6 +526,8 @@ assert(typeof ListServicesCommand === "function");
 assert(typeof ListServices$ === "object");
 assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
+assert(typeof ListTriggersCommand === "function");
+assert(typeof ListTriggers$ === "object");
 assert(typeof ListWebhooksCommand === "function");
 assert(typeof ListWebhooks$ === "object");
 assert(typeof RegisterServiceCommand === "function");
@@ -524,6 +556,8 @@ assert(typeof UpdatePrivateConnectionCertificateCommand === "function");
 assert(typeof UpdatePrivateConnectionCertificate$ === "object");
 assert(typeof UpdateRecommendationCommand === "function");
 assert(typeof UpdateRecommendation$ === "object");
+assert(typeof UpdateTriggerCommand === "function");
+assert(typeof UpdateTrigger$ === "object");
 assert(typeof ValidateAwsAssociationsCommand === "function");
 assert(typeof ValidateAwsAssociations$ === "object");
 // structural schemas
@@ -559,6 +593,8 @@ assert(typeof CreateChatRequest$ === "object");
 assert(typeof CreateChatResponse$ === "object");
 assert(typeof CreatePrivateConnectionInput$ === "object");
 assert(typeof CreatePrivateConnectionOutput$ === "object");
+assert(typeof CreateTriggerRequest$ === "object");
+assert(typeof CreateTriggerResponse$ === "object");
 assert(typeof DatadogAuthorizationConfig$ === "object");
 assert(typeof DatadogServiceDetails$ === "object");
 assert(typeof DeleteAgentSpaceInput$ === "object");
@@ -569,6 +605,8 @@ assert(typeof DeleteAssetRequest$ === "object");
 assert(typeof DeleteAssetResponse$ === "object");
 assert(typeof DeletePrivateConnectionInput$ === "object");
 assert(typeof DeletePrivateConnectionOutput$ === "object");
+assert(typeof DeleteTriggerRequest$ === "object");
+assert(typeof DeleteTriggerResponse$ === "object");
 assert(typeof DeregisterServiceInput$ === "object");
 assert(typeof DeregisterServiceOutput$ === "object");
 assert(typeof DescribePrivateConnectionInput$ === "object");
@@ -606,6 +644,8 @@ assert(typeof GetRecommendationRequest$ === "object");
 assert(typeof GetRecommendationResponse$ === "object");
 assert(typeof GetServiceInput$ === "object");
 assert(typeof GetServiceOutput$ === "object");
+assert(typeof GetTriggerRequest$ === "object");
+assert(typeof GetTriggerResponse$ === "object");
 assert(typeof GitHubConfiguration$ === "object");
 assert(typeof GitLabConfiguration$ === "object");
 assert(typeof GitLabDetails$ === "object");
@@ -650,6 +690,8 @@ assert(typeof ListServicesInput$ === "object");
 assert(typeof ListServicesOutput$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
+assert(typeof ListTriggersRequest$ === "object");
+assert(typeof ListTriggersResponse$ === "object");
 assert(typeof ListWebhooksInput$ === "object");
 assert(typeof ListWebhooksOutput$ === "object");
 assert(typeof MCPServerAPIKeyConfig$ === "object");
@@ -697,6 +739,7 @@ assert(typeof RegisteredServiceNowDetails$ === "object");
 assert(typeof RegisteredSlackServiceDetails$ === "object");
 assert(typeof RegisterServiceInput$ === "object");
 assert(typeof RegisterServiceOutput$ === "object");
+assert(typeof ScheduleCondition$ === "object");
 assert(typeof SelfManagedInput$ === "object");
 assert(typeof SendMessageContentBlockDelta$ === "object");
 assert(typeof SendMessageContentBlockDeltaEvent$ === "object");
@@ -730,6 +773,8 @@ assert(typeof TagResourceRequest$ === "object");
 assert(typeof TagResourceResponse$ === "object");
 assert(typeof Task$ === "object");
 assert(typeof TaskFilter$ === "object");
+assert(typeof Trigger$ === "object");
+assert(typeof TriggerCondition$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UntagResourceResponse$ === "object");
 assert(typeof UpdateAgentSpaceInput$ === "object");
@@ -750,6 +795,8 @@ assert(typeof UpdatePrivateConnectionCertificateInput$ === "object");
 assert(typeof UpdatePrivateConnectionCertificateOutput$ === "object");
 assert(typeof UpdateRecommendationRequest$ === "object");
 assert(typeof UpdateRecommendationResponse$ === "object");
+assert(typeof UpdateTriggerRequest$ === "object");
+assert(typeof UpdateTriggerResponse$ === "object");
 assert(typeof UsageMetric$ === "object");
 assert(typeof UserMessageBlock$ === "object");
 assert(typeof UserReference$ === "object");
@@ -821,4 +868,5 @@ assert(typeof paginateListExecutions === "function");
 assert(typeof paginateListGoals === "function");
 assert(typeof paginateListJournalRecords === "function");
 assert(typeof paginateListServices === "function");
+assert(typeof paginateListTriggers === "function");
 console.log(`DevOpsAgent index test passed.`);
