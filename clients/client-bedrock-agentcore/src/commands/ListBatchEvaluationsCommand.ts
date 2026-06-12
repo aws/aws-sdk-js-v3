@@ -60,6 +60,11 @@ export interface ListBatchEvaluationsCommandOutput extends ListBatchEvaluationsR
  * //           evaluatorId: "STRING_VALUE", // required
  * //         },
  * //       ],
+ * //       insights: [ // InsightList
+ * //         { // Insight
+ * //           insightId: "STRING_VALUE", // required
+ * //         },
+ * //       ],
  * //       evaluationResults: { // EvaluationJobResults
  * //         numberOfSessionsCompleted: Number("int"),
  * //         numberOfSessionsInProgress: Number("int"),
@@ -80,6 +85,7 @@ export interface ListBatchEvaluationsCommandOutput extends ListBatchEvaluationsR
  * //       errorDetails: [ // ErrorDetailsList
  * //         "STRING_VALUE",
  * //       ],
+ * //       kmsKeyArn: "STRING_VALUE",
  * //       updatedAt: new Date("TIMESTAMP"),
  * //     },
  * //   ],

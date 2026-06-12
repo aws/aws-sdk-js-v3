@@ -56,6 +56,11 @@ export interface GetBatchEvaluationCommandOutput extends GetBatchEvaluationRespo
  * //       evaluatorId: "STRING_VALUE", // required
  * //     },
  * //   ],
+ * //   insights: [ // InsightList
+ * //     { // Insight
+ * //       insightId: "STRING_VALUE", // required
+ * //     },
+ * //   ],
  * //   dataSourceConfig: { // DataSourceConfig Union: only one key present
  * //     cloudWatchLogs: { // CloudWatchLogsSource
  * //       serviceNames: [ // EvaluationStringList // required
@@ -72,6 +77,13 @@ export interface GetBatchEvaluationCommandOutput extends GetBatchEvaluationRespo
  * //           startTime: new Date("TIMESTAMP"),
  * //           endTime: new Date("TIMESTAMP"),
  * //         },
+ * //       },
+ * //     },
+ * //     onlineEvaluationConfigSource: { // OnlineEvaluationConfigSource
+ * //       onlineEvaluationConfigArn: "STRING_VALUE", // required
+ * //       sessionFilterConfig: {
+ * //         startTime: new Date("TIMESTAMP"),
+ * //         endTime: new Date("TIMESTAMP"),
  * //       },
  * //     },
  * //   },
@@ -98,11 +110,95 @@ export interface GetBatchEvaluationCommandOutput extends GetBatchEvaluationRespo
  * //       },
  * //     ],
  * //   },
+ * //   failureAnalysisResult: { // FailureAnalysisResultContent
+ * //     failures: [ // FailureCategoryClusterList // required
+ * //       { // FailureCategoryCluster
+ * //         clusterId: Number("int"), // required
+ * //         name: "STRING_VALUE", // required
+ * //         description: "STRING_VALUE", // required
+ * //         affectedSessionCount: Number("int"), // required
+ * //         subCategories: [ // FailureSubCategoryClusterList // required
+ * //           { // FailureSubCategoryCluster
+ * //             clusterId: Number("int"), // required
+ * //             name: "STRING_VALUE", // required
+ * //             description: "STRING_VALUE", // required
+ * //             affectedSessionCount: Number("int"), // required
+ * //             rootCauses: [ // RootCauseClusterList // required
+ * //               { // RootCauseCluster
+ * //                 clusterId: Number("int"), // required
+ * //                 name: "STRING_VALUE", // required
+ * //                 rootCause: "STRING_VALUE", // required
+ * //                 recommendation: "STRING_VALUE", // required
+ * //                 affectedSessionCount: Number("int"), // required
+ * //                 affectedSessions: [ // AffectedSessionList // required
+ * //                   { // AffectedSession
+ * //                     sessionId: "STRING_VALUE", // required
+ * //                     explanation: "STRING_VALUE", // required
+ * //                     fixType: "STRING_VALUE", // required
+ * //                     recommendation: "STRING_VALUE", // required
+ * //                     failureSpans: [ // FailureSpanDetailList // required
+ * //                       { // FailureSpanDetail
+ * //                         spanId: "STRING_VALUE", // required
+ * //                         traceId: "STRING_VALUE", // required
+ * //                         signals: [ // InsightsFailureSignalList // required
+ * //                           { // InsightsFailureSignal
+ * //                             category: "execution-error-category-authentication" || "execution-error-category-resource-not-found" || "execution-error-category-service-errors" || "execution-error-category-rate-limiting" || "execution-error-category-formatting" || "execution-error-category-timeout" || "execution-error-category-resource-exhaustion" || "execution-error-category-environment" || "execution-error-category-tool-schema" || "task-instruction-category-non-compliance" || "task-instruction-category-problem-id" || "incorrect-actions-category-tool-selection" || "incorrect-actions-category-poor-information-retrieval" || "incorrect-actions-category-clarification" || "incorrect-actions-category-inappropriate-info-request" || "context-handling-error-category-context-handling-failures" || "hallucination-category-hall-capabilities" || "hallucination-category-hall-misunderstand" || "hallucination-category-hall-usage" || "hallucination-category-hall-history" || "hallucination-category-hall-params" || "hallucination-category-fabricate-tool-outputs" || "repetitive-behavior-category-repetition-tool" || "repetitive-behavior-category-repetition-info" || "repetitive-behavior-category-step-repetition" || "orchestration-related-errors-category-reasoning-mismatch" || "orchestration-related-errors-category-goal-deviation" || "orchestration-related-errors-category-premature-termination" || "orchestration-related-errors-category-unaware-termination" || "llm-output-category-nonsensical" || "configuration-mismatch-category-tool-definition" || "coding-use-case-specific-failure-types-category-edge-case-oversights" || "coding-use-case-specific-failure-types-category-dependency-issues", // required
+ * //                             evidence: "STRING_VALUE", // required
+ * //                             confidence: Number("double"), // required
+ * //                           },
+ * //                         ],
+ * //                       },
+ * //                     ],
+ * //                   },
+ * //                 ],
+ * //               },
+ * //             ],
+ * //           },
+ * //         ],
+ * //       },
+ * //     ],
+ * //   },
+ * //   userIntentResult: { // UserIntentClusteringResultContent
+ * //     userIntents: [ // UserIntentClusterList // required
+ * //       { // UserIntentCluster
+ * //         clusterId: Number("int"), // required
+ * //         name: "STRING_VALUE", // required
+ * //         description: "STRING_VALUE", // required
+ * //         affectedSessionCount: Number("int"), // required
+ * //         affectedSessions: [ // UserIntentAffectedSessionList // required
+ * //           { // UserIntentAffectedSession
+ * //             sessionId: "STRING_VALUE", // required
+ * //             userMessages: [ // UserIntentList // required
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         ],
+ * //       },
+ * //     ],
+ * //   },
+ * //   executionSummaryResult: { // ExecutionSummaryClusteringResultContent
+ * //     executionSummaries: [ // ExecutionSummaryClusterList // required
+ * //       { // ExecutionSummaryCluster
+ * //         clusterId: Number("int"), // required
+ * //         name: "STRING_VALUE", // required
+ * //         description: "STRING_VALUE", // required
+ * //         affectedSessionCount: Number("int"), // required
+ * //         affectedSessions: [ // ExecutionSummaryAffectedSessionList // required
+ * //           { // ExecutionSummaryAffectedSession
+ * //             sessionId: "STRING_VALUE", // required
+ * //             approachTaken: "STRING_VALUE", // required
+ * //             finalOutcome: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //       },
+ * //     ],
+ * //   },
  * //   errorDetails: [ // ErrorDetailsList
  * //     "STRING_VALUE",
  * //   ],
  * //   description: "STRING_VALUE",
  * //   updatedAt: new Date("TIMESTAMP"),
+ * //   kmsKeyArn: "STRING_VALUE",
  * // };
  *
  * ```

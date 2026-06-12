@@ -88,6 +88,9 @@ export interface GetRecommendationCommandOutput extends GetRecommendationRespons
  * //             ],
  * //           },
  * //         },
+ * //         batchEvaluation: { // BatchEvaluationTraceConfig
+ * //           batchEvaluationArn: "STRING_VALUE", // required
+ * //         },
  * //       },
  * //       evaluationConfig: { // RecommendationEvaluationConfig
  * //         evaluators: [ // RecommendationEvaluatorList // required
@@ -147,6 +150,9 @@ export interface GetRecommendationCommandOutput extends GetRecommendationRespons
  * //             ],
  * //           },
  * //         },
+ * //         batchEvaluation: {
+ * //           batchEvaluationArn: "STRING_VALUE", // required
+ * //         },
  * //       },
  * //     },
  * //   },
@@ -160,6 +166,7 @@ export interface GetRecommendationCommandOutput extends GetRecommendationRespons
  * //         bundleArn: "STRING_VALUE", // required
  * //         versionId: "STRING_VALUE", // required
  * //       },
+ * //       explanation: "STRING_VALUE",
  * //       errorCode: "STRING_VALUE",
  * //       errorMessage: "STRING_VALUE",
  * //     },
@@ -168,6 +175,7 @@ export interface GetRecommendationCommandOutput extends GetRecommendationRespons
  * //         { // ToolDescriptionOutput
  * //           toolName: "STRING_VALUE", // required
  * //           recommendedToolDescription: "STRING_VALUE",
+ * //           explanation: "STRING_VALUE",
  * //         },
  * //       ],
  * //       configurationBundle: {
@@ -178,6 +186,7 @@ export interface GetRecommendationCommandOutput extends GetRecommendationRespons
  * //       errorMessage: "STRING_VALUE",
  * //     },
  * //   },
+ * //   kmsKeyArn: "STRING_VALUE",
  * // };
  *
  * ```

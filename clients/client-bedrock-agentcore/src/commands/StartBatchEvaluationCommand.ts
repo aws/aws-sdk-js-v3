@@ -47,6 +47,11 @@ export interface StartBatchEvaluationCommandOutput extends StartBatchEvaluationR
  *       evaluatorId: "STRING_VALUE", // required
  *     },
  *   ],
+ *   insights: [ // InsightList
+ *     { // Insight
+ *       insightId: "STRING_VALUE", // required
+ *     },
+ *   ],
  *   dataSourceConfig: { // DataSourceConfig Union: only one key present
  *     cloudWatchLogs: { // CloudWatchLogsSource
  *       serviceNames: [ // EvaluationStringList // required
@@ -63,6 +68,13 @@ export interface StartBatchEvaluationCommandOutput extends StartBatchEvaluationR
  *           startTime: new Date("TIMESTAMP"),
  *           endTime: new Date("TIMESTAMP"),
  *         },
+ *       },
+ *     },
+ *     onlineEvaluationConfigSource: { // OnlineEvaluationConfigSource
+ *       onlineEvaluationConfigArn: "STRING_VALUE", // required
+ *       sessionFilterConfig: {
+ *         startTime: new Date("TIMESTAMP"),
+ *         endTime: new Date("TIMESTAMP"),
  *       },
  *     },
  *   },
@@ -102,6 +114,10 @@ export interface StartBatchEvaluationCommandOutput extends StartBatchEvaluationR
  *       },
  *     ],
  *   },
+ *   tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   kmsKeyArn: "STRING_VALUE",
  *   description: "STRING_VALUE",
  * };
  * const command = new StartBatchEvaluationCommand(input);
@@ -115,6 +131,11 @@ export interface StartBatchEvaluationCommandOutput extends StartBatchEvaluationR
  * //       evaluatorId: "STRING_VALUE", // required
  * //     },
  * //   ],
+ * //   insights: [ // InsightList
+ * //     { // Insight
+ * //       insightId: "STRING_VALUE", // required
+ * //     },
+ * //   ],
  * //   status: "PENDING" || "IN_PROGRESS" || "COMPLETED" || "COMPLETED_WITH_ERRORS" || "FAILED" || "STOPPING" || "STOPPED" || "DELETING", // required
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   outputConfig: { // OutputConfig Union: only one key present
@@ -123,6 +144,10 @@ export interface StartBatchEvaluationCommandOutput extends StartBatchEvaluationR
  * //       logStreamName: "STRING_VALUE", // required
  * //     },
  * //   },
+ * //   tags: { // TagsMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   kmsKeyArn: "STRING_VALUE",
  * //   description: "STRING_VALUE",
  * // };
  *

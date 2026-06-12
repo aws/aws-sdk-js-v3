@@ -37,6 +37,50 @@ export type ABTestStatus = (typeof ABTestStatus)[keyof typeof ABTestStatus];
  * @public
  * @enum
  */
+export const InsightsFailureCategory = {
+  CODING_DEPENDENCY_ISSUES: "coding-use-case-specific-failure-types-category-dependency-issues",
+  CODING_EDGE_CASE_OVERSIGHTS: "coding-use-case-specific-failure-types-category-edge-case-oversights",
+  CONFIGURATION_MISMATCH_TOOL_DEFINITION: "configuration-mismatch-category-tool-definition",
+  CONTEXT_HANDLING_FAILURES: "context-handling-error-category-context-handling-failures",
+  EXECUTION_ERROR_AUTHENTICATION: "execution-error-category-authentication",
+  EXECUTION_ERROR_ENVIRONMENT: "execution-error-category-environment",
+  EXECUTION_ERROR_FORMATTING: "execution-error-category-formatting",
+  EXECUTION_ERROR_RATE_LIMITING: "execution-error-category-rate-limiting",
+  EXECUTION_ERROR_RESOURCE_EXHAUSTION: "execution-error-category-resource-exhaustion",
+  EXECUTION_ERROR_RESOURCE_NOT_FOUND: "execution-error-category-resource-not-found",
+  EXECUTION_ERROR_SERVICE_ERRORS: "execution-error-category-service-errors",
+  EXECUTION_ERROR_TIMEOUT: "execution-error-category-timeout",
+  EXECUTION_ERROR_TOOL_SCHEMA: "execution-error-category-tool-schema",
+  HALLUCINATION_CAPABILITIES: "hallucination-category-hall-capabilities",
+  HALLUCINATION_FABRICATE_TOOL_OUTPUTS: "hallucination-category-fabricate-tool-outputs",
+  HALLUCINATION_HISTORY: "hallucination-category-hall-history",
+  HALLUCINATION_MISUNDERSTAND: "hallucination-category-hall-misunderstand",
+  HALLUCINATION_PARAMS: "hallucination-category-hall-params",
+  HALLUCINATION_USAGE: "hallucination-category-hall-usage",
+  INCORRECT_ACTIONS_CLARIFICATION: "incorrect-actions-category-clarification",
+  INCORRECT_ACTIONS_INAPPROPRIATE_INFO_REQUEST: "incorrect-actions-category-inappropriate-info-request",
+  INCORRECT_ACTIONS_POOR_INFORMATION_RETRIEVAL: "incorrect-actions-category-poor-information-retrieval",
+  INCORRECT_ACTIONS_TOOL_SELECTION: "incorrect-actions-category-tool-selection",
+  LLM_OUTPUT_NONSENSICAL: "llm-output-category-nonsensical",
+  ORCHESTRATION_GOAL_DEVIATION: "orchestration-related-errors-category-goal-deviation",
+  ORCHESTRATION_PREMATURE_TERMINATION: "orchestration-related-errors-category-premature-termination",
+  ORCHESTRATION_REASONING_MISMATCH: "orchestration-related-errors-category-reasoning-mismatch",
+  ORCHESTRATION_UNAWARE_TERMINATION: "orchestration-related-errors-category-unaware-termination",
+  REPETITIVE_BEHAVIOR_INFO: "repetitive-behavior-category-repetition-info",
+  REPETITIVE_BEHAVIOR_STEP: "repetitive-behavior-category-step-repetition",
+  REPETITIVE_BEHAVIOR_TOOL: "repetitive-behavior-category-repetition-tool",
+  TASK_INSTRUCTION_NON_COMPLIANCE: "task-instruction-category-non-compliance",
+  TASK_INSTRUCTION_PROBLEM_ID: "task-instruction-category-problem-id",
+} as const;
+/**
+ * @public
+ */
+export type InsightsFailureCategory = (typeof InsightsFailureCategory)[keyof typeof InsightsFailureCategory];
+
+/**
+ * @public
+ * @enum
+ */
 export const ValidationExceptionReason = {
   CANNOT_PARSE: "CannotParse",
   FIELD_VALIDATION_FAILED: "FieldValidationFailed",

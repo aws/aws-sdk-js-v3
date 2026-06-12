@@ -8,6 +8,7 @@ import {
   AccessDeniedException,
   AccessDeniedException$,
   ActorSummary$,
+  AffectedSession$,
   AgentCardDefinition$,
   AgentSkillsDescriptor$,
   AgentTracesConfig$,
@@ -27,6 +28,7 @@ import {
   BatchDeleteMemoryRecordsOutput$,
   BatchEvaluationStatus,
   BatchEvaluationSummary$,
+  BatchEvaluationTraceConfig$,
   BatchUpdateMemoryRecords$,
   BatchUpdateMemoryRecordsCommand,
   BatchUpdateMemoryRecordsInput$,
@@ -155,12 +157,19 @@ import {
   Event$,
   EventFilterCondition,
   EventMetadataFilterExpression$,
+  ExecutionSummaryAffectedSession$,
+  ExecutionSummaryCluster$,
+  ExecutionSummaryClusteringResultContent$,
   ExternalProxy$,
   ExtractionJob$,
   ExtractionJobFilterInput$,
   ExtractionJobMessages$,
   ExtractionJobMetadata$,
   ExtractionJobStatus,
+  FailureAnalysisResultContent$,
+  FailureCategoryCluster$,
+  FailureSpanDetail$,
+  FailureSubCategoryCluster$,
   FilterInput$,
   FilterValue$,
   GatewayFilter$,
@@ -284,6 +293,9 @@ import {
   HarnessToolUseType,
   InlineGroundTruth$,
   InputContentBlock$,
+  Insight$,
+  InsightsFailureCategory,
+  InsightsFailureSignal$,
   InstrumentBalanceToken,
   InternalServerException,
   InternalServerException$,
@@ -403,6 +415,7 @@ import {
   Oauth2FlowType,
   OAuthCredentialProvider$,
   OAuthGrantType,
+  OnlineEvaluationConfigSource$,
   OperatorType,
   OutputConfig$,
   paginateListABTests,
@@ -466,6 +479,7 @@ import {
   RetryableConflictException$,
   RightExpression$,
   Role,
+  RootCauseCluster$,
   RuntimeClientError,
   RuntimeClientError$,
   S3Location$,
@@ -570,6 +584,9 @@ import {
   UpdateBrowserStreamRequest$,
   UpdateBrowserStreamResponse$,
   UserIdentifier$,
+  UserIntentAffectedSession$,
+  UserIntentCluster$,
+  UserIntentClusteringResultContent$,
   ValidationException,
   ValidationException$,
   ValidationExceptionField$,
@@ -720,6 +737,7 @@ assert(typeof ABTestEvaluationConfig$ === "object");
 assert(typeof ABTestResults$ === "object");
 assert(typeof ABTestSummary$ === "object");
 assert(typeof ActorSummary$ === "object");
+assert(typeof AffectedSession$ === "object");
 assert(typeof AgentCardDefinition$ === "object");
 assert(typeof AgentSkillsDescriptor$ === "object");
 assert(typeof AgentTracesConfig$ === "object");
@@ -733,6 +751,7 @@ assert(typeof BatchCreateMemoryRecordsOutput$ === "object");
 assert(typeof BatchDeleteMemoryRecordsInput$ === "object");
 assert(typeof BatchDeleteMemoryRecordsOutput$ === "object");
 assert(typeof BatchEvaluationSummary$ === "object");
+assert(typeof BatchEvaluationTraceConfig$ === "object");
 assert(typeof BatchUpdateMemoryRecordsInput$ === "object");
 assert(typeof BatchUpdateMemoryRecordsOutput$ === "object");
 assert(typeof Branch$ === "object");
@@ -814,11 +833,18 @@ assert(typeof EvaluatorStatistics$ === "object");
 assert(typeof EvaluatorSummary$ === "object");
 assert(typeof Event$ === "object");
 assert(typeof EventMetadataFilterExpression$ === "object");
+assert(typeof ExecutionSummaryAffectedSession$ === "object");
+assert(typeof ExecutionSummaryCluster$ === "object");
+assert(typeof ExecutionSummaryClusteringResultContent$ === "object");
 assert(typeof ExternalProxy$ === "object");
 assert(typeof ExtractionJob$ === "object");
 assert(typeof ExtractionJobFilterInput$ === "object");
 assert(typeof ExtractionJobMessages$ === "object");
 assert(typeof ExtractionJobMetadata$ === "object");
+assert(typeof FailureAnalysisResultContent$ === "object");
+assert(typeof FailureCategoryCluster$ === "object");
+assert(typeof FailureSpanDetail$ === "object");
+assert(typeof FailureSubCategoryCluster$ === "object");
 assert(typeof FilterInput$ === "object");
 assert(typeof FilterValue$ === "object");
 assert(typeof GatewayFilter$ === "object");
@@ -901,6 +927,8 @@ assert(typeof HarnessToolUseBlockDelta$ === "object");
 assert(typeof HarnessToolUseBlockStart$ === "object");
 assert(typeof InlineGroundTruth$ === "object");
 assert(typeof InputContentBlock$ === "object");
+assert(typeof Insight$ === "object");
+assert(typeof InsightsFailureSignal$ === "object");
 assert(typeof InvokeAgentRuntimeCommandRequest$ === "object");
 assert(typeof InvokeAgentRuntimeCommandRequestBody$ === "object");
 assert(typeof InvokeAgentRuntimeCommandResponse$ === "object");
@@ -975,6 +1003,7 @@ assert(typeof MouseScrollArguments$ === "object");
 assert(typeof MouseScrollResult$ === "object");
 assert(typeof OAuth2Authentication$ === "object");
 assert(typeof OAuthCredentialProvider$ === "object");
+assert(typeof OnlineEvaluationConfigSource$ === "object");
 assert(typeof OutputConfig$ === "object");
 assert(typeof PayloadType$ === "object");
 assert(typeof PaymentInput$ === "object");
@@ -1006,6 +1035,7 @@ assert(typeof ResponseChunk$ === "object");
 assert(typeof RetrieveMemoryRecordsInput$ === "object");
 assert(typeof RetrieveMemoryRecordsOutput$ === "object");
 assert(typeof RightExpression$ === "object");
+assert(typeof RootCauseCluster$ === "object");
 assert(typeof S3Location$ === "object");
 assert(typeof SaveBrowserSessionProfileRequest$ === "object");
 assert(typeof SaveBrowserSessionProfileResponse$ === "object");
@@ -1068,6 +1098,9 @@ assert(typeof UpdateABTestResponse$ === "object");
 assert(typeof UpdateBrowserStreamRequest$ === "object");
 assert(typeof UpdateBrowserStreamResponse$ === "object");
 assert(typeof UserIdentifier$ === "object");
+assert(typeof UserIntentAffectedSession$ === "object");
+assert(typeof UserIntentCluster$ === "object");
+assert(typeof UserIntentClusteringResultContent$ === "object");
 assert(typeof ValidationExceptionField$ === "object");
 assert(typeof Variant$ === "object");
 assert(typeof VariantConfiguration$ === "object");
@@ -1098,6 +1131,7 @@ assert(typeof HarnessStopReason === "object");
 assert(typeof HarnessToolType === "object");
 assert(typeof HarnessToolUseStatus === "object");
 assert(typeof HarnessToolUseType === "object");
+assert(typeof InsightsFailureCategory === "object");
 assert(typeof InstrumentBalanceToken === "object");
 assert(typeof LanguageRuntime === "object");
 assert(typeof MemoryRecordOperatorType === "object");

@@ -13,7 +13,6 @@ import type {
   CodeInterpreterSessionStatus,
   CommandExecutionStatus,
   ContentBlockType,
-  ExtractionJobStatus,
   HarnessBedrockApiFormat,
   HarnessConversationRole,
   HarnessOpenAiApiFormat,
@@ -21,13 +20,12 @@ import type {
   HarnessToolType,
   HarnessToolUseStatus,
   HarnessToolUseType,
+  InsightsFailureCategory,
   LanguageRuntime,
-  MemoryRecordOperatorType,
   MemoryRecordStatus,
   MouseButton,
   Oauth2FlowType,
   OAuthGrantType,
-  OperatorType,
   PaymentHttpMethodType,
   ProgrammingLanguage,
   RecommendationStatus,
@@ -359,6 +357,92 @@ export interface ActorSummary {
    * @public
    */
   actorId: string | undefined;
+}
+
+/**
+ * <p>A signal indicating a detected failure within a span.</p>
+ * @public
+ */
+export interface InsightsFailureSignal {
+  /**
+   * Failure category taxonomy for agent session insights.
+   * Values must stay in sync with the category registry in AgentCoreLens
+   * (amzn_agentcore_lens.config.failure_detection.FAILURE_CATEGORIES).
+   * @public
+   */
+  category: InsightsFailureCategory | undefined;
+
+  /**
+   * <p>The evidence supporting the failure detection.</p>
+   * @public
+   */
+  evidence: string | undefined;
+
+  /**
+   * <p>The confidence score of the failure detection.</p>
+   * @public
+   */
+  confidence: number | undefined;
+}
+
+/**
+ * <p>Details about a specific span where a failure was detected.</p>
+ * @public
+ */
+export interface FailureSpanDetail {
+  /**
+   * <p>The unique identifier of the span where the failure occurred.</p>
+   * @public
+   */
+  spanId: string | undefined;
+
+  /**
+   * <p>The trace identifier associated with the failure span.</p>
+   * @public
+   */
+  traceId: string | undefined;
+
+  /**
+   * <p>The failure signals detected in this span.</p>
+   * @public
+   */
+  signals: InsightsFailureSignal[] | undefined;
+}
+
+/**
+ * <p>A session affected by a detected failure pattern, including root cause details.</p>
+ * @public
+ */
+export interface AffectedSession {
+  /**
+   * <p>The unique identifier of the affected session.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>An explanation of how the failure manifested in this session.</p>
+   * @public
+   */
+  explanation: string | undefined;
+
+  /**
+   * <p>The type of fix recommended for this failure.</p>
+   * @public
+   */
+  fixType: string | undefined;
+
+  /**
+   * <p>The specific fix recommendation for this session.</p>
+   * @public
+   */
+  recommendation: string | undefined;
+
+  /**
+   * <p>The list of spans where failures were detected in this session.</p>
+   * @public
+   */
+  failureSpans: FailureSpanDetail[] | undefined;
 }
 
 /**
@@ -1063,6 +1147,18 @@ export interface AgentSkillsDescriptor {
 }
 
 /**
+ * <p>Configuration for using a batch evaluation as the source of agent traces for recommendations.</p>
+ * @public
+ */
+export interface BatchEvaluationTraceConfig {
+  /**
+   * <p>The ARN of the completed batch evaluation to use as the trace source.</p>
+   * @public
+   */
+  batchEvaluationArn: string | undefined;
+}
+
+/**
  * <p>A value used in filter comparisons, supporting different data types.</p>
  * @public
  */
@@ -1208,6 +1304,7 @@ export interface CloudWatchLogsTraceConfig {
  * @public
  */
 export type AgentTracesConfig =
+  | AgentTracesConfig.BatchEvaluationMember
   | AgentTracesConfig.CloudwatchLogsMember
   | AgentTracesConfig.SessionSpansMember
   | AgentTracesConfig.$UnknownMember;
@@ -1223,6 +1320,7 @@ export namespace AgentTracesConfig {
   export interface SessionSpansMember {
     sessionSpans: __DocumentType[];
     cloudwatchLogs?: never;
+    batchEvaluation?: never;
     $unknown?: never;
   }
 
@@ -1233,6 +1331,18 @@ export namespace AgentTracesConfig {
   export interface CloudwatchLogsMember {
     sessionSpans?: never;
     cloudwatchLogs: CloudWatchLogsTraceConfig;
+    batchEvaluation?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Use a completed batch evaluation as the source of agent traces.</p>
+   * @public
+   */
+  export interface BatchEvaluationMember {
+    sessionSpans?: never;
+    cloudwatchLogs?: never;
+    batchEvaluation: BatchEvaluationTraceConfig;
     $unknown?: never;
   }
 
@@ -1242,6 +1352,7 @@ export namespace AgentTracesConfig {
   export interface $UnknownMember {
     sessionSpans?: never;
     cloudwatchLogs?: never;
+    batchEvaluation?: never;
     $unknown: [string, any];
   }
 
@@ -1252,6 +1363,7 @@ export namespace AgentTracesConfig {
   export interface Visitor<T> {
     sessionSpans: (value: __DocumentType[]) => T;
     cloudwatchLogs: (value: CloudWatchLogsTraceConfig) => T;
+    batchEvaluation: (value: BatchEvaluationTraceConfig) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -3397,6 +3509,12 @@ export interface CreateABTestRequest {
    * @public
    */
   clientToken?: string | undefined;
+
+  /**
+   * <p>A map of tag keys and values to associate with the A/B test.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -4110,11 +4228,30 @@ export interface CloudWatchLogsSource {
 }
 
 /**
+ * <p>A reference to an existing online evaluation configuration to use as the data source for batch evaluation.</p>
+ * @public
+ */
+export interface OnlineEvaluationConfigSource {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the online evaluation configuration to use as the session source.</p>
+   * @public
+   */
+  onlineEvaluationConfigArn: string | undefined;
+
+  /**
+   * <p>Optional session filter configuration to narrow down which sessions from the online evaluation configuration to include.</p>
+   * @public
+   */
+  sessionFilterConfig?: SessionFilterConfig | undefined;
+}
+
+/**
  * <p>Configuration for the data source used in evaluation.</p>
  * @public
  */
 export type DataSourceConfig =
   | DataSourceConfig.CloudWatchLogsMember
+  | DataSourceConfig.OnlineEvaluationConfigSourceMember
   | DataSourceConfig.$UnknownMember;
 
 /**
@@ -4127,6 +4264,17 @@ export namespace DataSourceConfig {
    */
   export interface CloudWatchLogsMember {
     cloudWatchLogs: CloudWatchLogsSource;
+    onlineEvaluationConfigSource?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * Reference an existing OnlineEvaluationConfig as session source
+   * @public
+   */
+  export interface OnlineEvaluationConfigSourceMember {
+    cloudWatchLogs?: never;
+    onlineEvaluationConfigSource: OnlineEvaluationConfigSource;
     $unknown?: never;
   }
 
@@ -4135,6 +4283,7 @@ export namespace DataSourceConfig {
    */
   export interface $UnknownMember {
     cloudWatchLogs?: never;
+    onlineEvaluationConfigSource?: never;
     $unknown: [string, any];
   }
 
@@ -4144,6 +4293,7 @@ export namespace DataSourceConfig {
    */
   export interface Visitor<T> {
     cloudWatchLogs: (value: CloudWatchLogsSource) => T;
+    onlineEvaluationConfigSource: (value: OnlineEvaluationConfigSource) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -4233,7 +4383,7 @@ export interface EvaluationJobResults {
 }
 
 /**
- * <p>An evaluator to run against sessions.</p>
+ * An evaluator to run against sessions
  * @public
  */
 export interface Evaluator {
@@ -4242,6 +4392,217 @@ export interface Evaluator {
    * @public
    */
   evaluatorId: string | undefined;
+}
+
+/**
+ * <p>A session associated with an execution summary cluster.</p>
+ * @public
+ */
+export interface ExecutionSummaryAffectedSession {
+  /**
+   * <p>The unique identifier of the session.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>The approach taken by the agent during this session.</p>
+   * @public
+   */
+  approachTaken: string | undefined;
+
+  /**
+   * <p>The final outcome of the session.</p>
+   * @public
+   */
+  finalOutcome: string | undefined;
+}
+
+/**
+ * <p>A cluster of similar execution patterns identified across sessions.</p>
+ * @public
+ */
+export interface ExecutionSummaryCluster {
+  /**
+   * <p>The unique identifier of the execution summary cluster.</p>
+   * @public
+   */
+  clusterId: number | undefined;
+
+  /**
+   * <p>The name of the execution pattern cluster.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A description of the execution pattern.</p>
+   * @public
+   */
+  description: string | undefined;
+
+  /**
+   * <p>The number of sessions with this execution pattern.</p>
+   * @public
+   */
+  affectedSessionCount: number | undefined;
+
+  /**
+   * <p>The list of sessions with this execution pattern.</p>
+   * @public
+   */
+  affectedSessions: ExecutionSummaryAffectedSession[] | undefined;
+}
+
+/**
+ * Customer-facing execution summary clustering result written to S3.
+ * @public
+ */
+export interface ExecutionSummaryClusteringResultContent {
+  /**
+   * <p>The list of execution summary clusters identified across analyzed sessions.</p>
+   * @public
+   */
+  executionSummaries: ExecutionSummaryCluster[] | undefined;
+}
+
+/**
+ * <p>A cluster of similar root causes identified within a failure subcategory.</p>
+ * @public
+ */
+export interface RootCauseCluster {
+  /**
+   * <p>The unique identifier of the root cause cluster.</p>
+   * @public
+   */
+  clusterId: number | undefined;
+
+  /**
+   * <p>The name of the root cause cluster.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The root cause explanation for this cluster of failures.</p>
+   * @public
+   */
+  rootCause: string | undefined;
+
+  /**
+   * <p>The recommended fix for this root cause.</p>
+   * @public
+   */
+  recommendation: string | undefined;
+
+  /**
+   * <p>The number of sessions affected by this root cause.</p>
+   * @public
+   */
+  affectedSessionCount: number | undefined;
+
+  /**
+   * <p>The list of sessions affected by this root cause.</p>
+   * @public
+   */
+  affectedSessions: AffectedSession[] | undefined;
+}
+
+/**
+ * <p>A subcategory of failures within a top-level failure category.</p>
+ * @public
+ */
+export interface FailureSubCategoryCluster {
+  /**
+   * <p>The unique identifier of the failure subcategory cluster.</p>
+   * @public
+   */
+  clusterId: number | undefined;
+
+  /**
+   * <p>The name of the failure subcategory.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A description of the failure subcategory pattern.</p>
+   * @public
+   */
+  description: string | undefined;
+
+  /**
+   * <p>The number of sessions affected by this failure subcategory.</p>
+   * @public
+   */
+  affectedSessionCount: number | undefined;
+
+  /**
+   * <p>The list of root cause clusters identified within this subcategory.</p>
+   * @public
+   */
+  rootCauses: RootCauseCluster[] | undefined;
+}
+
+/**
+ * <p>A top-level failure category identified by clustering similar failure patterns across sessions.</p>
+ * @public
+ */
+export interface FailureCategoryCluster {
+  /**
+   * <p>The unique identifier of the failure category cluster.</p>
+   * @public
+   */
+  clusterId: number | undefined;
+
+  /**
+   * <p>The name of the failure category.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A description of the failure category pattern.</p>
+   * @public
+   */
+  description: string | undefined;
+
+  /**
+   * <p>The number of sessions affected by this failure category.</p>
+   * @public
+   */
+  affectedSessionCount: number | undefined;
+
+  /**
+   * <p>The list of failure subcategories within this category.</p>
+   * @public
+   */
+  subCategories: FailureSubCategoryCluster[] | undefined;
+}
+
+/**
+ * Unified customer-facing clustering result written to S3.
+ * @public
+ */
+export interface FailureAnalysisResultContent {
+  /**
+   * <p>The list of failure category clusters identified across analyzed sessions.</p>
+   * @public
+   */
+  failures: FailureCategoryCluster[] | undefined;
+}
+
+/**
+ * A reference to an insight analysis to run against sessions.
+ * @public
+ */
+export interface Insight {
+  /**
+   * Canonical insight identifiers using the Builtin.Insight.* naming convention.
+   * Used by BatchEvaluate, InternalEvaluate, and ServiceEngineEvaluate flows.
+   * @public
+   */
+  insightId: string | undefined;
 }
 
 /**
@@ -4302,6 +4663,72 @@ export namespace OutputConfig {
 }
 
 /**
+ * <p>A session associated with a user intent cluster.</p>
+ * @public
+ */
+export interface UserIntentAffectedSession {
+  /**
+   * <p>The unique identifier of the session.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>The user messages from this session that contributed to the intent cluster.</p>
+   * @public
+   */
+  userMessages: string[] | undefined;
+}
+
+/**
+ * <p>A cluster of similar user intents identified across sessions.</p>
+ * @public
+ */
+export interface UserIntentCluster {
+  /**
+   * <p>The unique identifier of the user intent cluster.</p>
+   * @public
+   */
+  clusterId: number | undefined;
+
+  /**
+   * <p>The name of the user intent cluster.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A description of the user intent pattern.</p>
+   * @public
+   */
+  description: string | undefined;
+
+  /**
+   * <p>The number of sessions with this user intent.</p>
+   * @public
+   */
+  affectedSessionCount: number | undefined;
+
+  /**
+   * <p>The list of sessions with this user intent.</p>
+   * @public
+   */
+  affectedSessions: UserIntentAffectedSession[] | undefined;
+}
+
+/**
+ * Customer-facing user intent clustering result written to S3.
+ * @public
+ */
+export interface UserIntentClusteringResultContent {
+  /**
+   * <p>The list of user intent clusters identified across analyzed sessions.</p>
+   * @public
+   */
+  userIntents: UserIntentCluster[] | undefined;
+}
+
+/**
  * @public
  */
 export interface GetBatchEvaluationResponse {
@@ -4342,6 +4769,12 @@ export interface GetBatchEvaluationResponse {
   evaluators?: Evaluator[] | undefined;
 
   /**
+   * <p>The list of insight analyses applied during the batch evaluation.</p>
+   * @public
+   */
+  insights?: Insight[] | undefined;
+
+  /**
    * <p>The data source configuration specifying where agent traces are pulled from.</p>
    * @public
    */
@@ -4360,6 +4793,24 @@ export interface GetBatchEvaluationResponse {
   evaluationResults?: EvaluationJobResults | undefined;
 
   /**
+   * Unified customer-facing clustering result written to S3.
+   * @public
+   */
+  failureAnalysisResult?: FailureAnalysisResultContent | undefined;
+
+  /**
+   * Customer-facing user intent clustering result written to S3.
+   * @public
+   */
+  userIntentResult?: UserIntentClusteringResultContent | undefined;
+
+  /**
+   * Customer-facing execution summary clustering result written to S3.
+   * @public
+   */
+  executionSummaryResult?: ExecutionSummaryClusteringResultContent | undefined;
+
+  /**
    * <p>The error details if the batch evaluation encountered failures.</p>
    * @public
    */
@@ -4376,6 +4827,12 @@ export interface GetBatchEvaluationResponse {
    * @public
    */
   updatedAt?: Date | undefined;
+
+  /**
+   * <p>The ARN of the KMS key used to encrypt evaluation data.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
 }
 
 /**
@@ -4511,7 +4968,7 @@ export interface SystemPromptRecommendationConfig {
    * <p>The evaluation configuration specifying which evaluator to use for assessing recommendation quality.</p>
    * @public
    */
-  evaluationConfig: RecommendationEvaluationConfig | undefined;
+  evaluationConfig?: RecommendationEvaluationConfig | undefined;
 }
 
 /**
@@ -4785,6 +5242,12 @@ export interface SystemPromptRecommendationResult {
   configurationBundle?: RecommendationResultConfigurationBundle | undefined;
 
   /**
+   * <p>An explanation of why the recommendation was generated and what patterns were identified in the agent traces.</p>
+   * @public
+   */
+  explanation?: string | undefined;
+
+  /**
    * <p>The error code if the recommendation failed.</p>
    * @public
    */
@@ -4813,6 +5276,12 @@ export interface ToolDescriptionOutput {
    * @public
    */
   recommendedToolDescription?: string | undefined;
+
+  /**
+   * <p>An explanation of why the recommendation was generated for this tool and what patterns were identified in the agent traces.</p>
+   * @public
+   */
+  explanation?: string | undefined;
 }
 
 /**
@@ -4961,6 +5430,12 @@ export interface GetRecommendationResponse {
    * @public
    */
   recommendationResult?: RecommendationResult | undefined;
+
+  /**
+   * <p>The ARN of the KMS key used to encrypt recommendation data.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
 }
 
 /**
@@ -5062,6 +5537,12 @@ export interface BatchEvaluationSummary {
   evaluators?: Evaluator[] | undefined;
 
   /**
+   * <p>The list of insight analyses applied during the batch evaluation.</p>
+   * @public
+   */
+  insights?: Insight[] | undefined;
+
+  /**
    * <p>The aggregated evaluation results.</p>
    * @public
    */
@@ -5072,6 +5553,12 @@ export interface BatchEvaluationSummary {
    * @public
    */
   errorDetails?: string[] | undefined;
+
+  /**
+   * <p>The ARN of the KMS key used to encrypt evaluation data.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
 
   /**
    * <p>The timestamp when the batch evaluation was last updated.</p>
@@ -5397,6 +5884,12 @@ export interface StartBatchEvaluationRequest {
   evaluators?: Evaluator[] | undefined;
 
   /**
+   * <p>The list of insight analyses to run against sessions during the batch evaluation. Maximum of 10 insights.</p>
+   * @public
+   */
+  insights?: Insight[] | undefined;
+
+  /**
    * <p>The data source configuration that specifies where to pull agent session traces from for evaluation.</p>
    * @public
    */
@@ -5413,6 +5906,18 @@ export interface StartBatchEvaluationRequest {
    * @public
    */
   evaluationMetadata?: EvaluationMetadata | undefined;
+
+  /**
+   * <p>A map of tag keys and values to associate with the batch evaluation.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The ARN of the KMS key used to encrypt evaluation data. If provided, customer data is encrypted at rest with the specified key.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
 
   /**
    * <p>The description of the batch evaluation.</p>
@@ -5450,6 +5955,12 @@ export interface StartBatchEvaluationResponse {
   evaluators?: Evaluator[] | undefined;
 
   /**
+   * <p>The list of insight analyses applied during the batch evaluation.</p>
+   * @public
+   */
+  insights?: Insight[] | undefined;
+
+  /**
    * <p>The status of the batch evaluation.</p>
    * @public
    */
@@ -5466,6 +5977,18 @@ export interface StartBatchEvaluationResponse {
    * @public
    */
   outputConfig?: OutputConfig | undefined;
+
+  /**
+   * <p>The tags associated with the batch evaluation.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The ARN of the KMS key used to encrypt evaluation data.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
 
   /**
    * <p>The description of the batch evaluation.</p>
@@ -5503,10 +6026,22 @@ export interface StartRecommendationRequest {
   recommendationConfig: RecommendationConfig | undefined;
 
   /**
+   * <p>The ARN of the KMS key used to encrypt recommendation data. If provided, customer data is encrypted at rest with the specified key.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
+
+  /**
    * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, the service ignores the request, but does not return an error.</p>
    * @public
    */
   clientToken?: string | undefined;
+
+  /**
+   * <p>A map of tag keys and values to associate with the recommendation.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -9418,505 +9953,4 @@ export namespace RightExpression {
     metadataValue: (value: MetadataValue) => T;
     _: (name: string, value: any) => T;
   }
-}
-
-/**
- * <p>Filter expression for retrieving events based on metadata associated with an event.</p>
- * @public
- */
-export interface EventMetadataFilterExpression {
-  /**
-   * <p>Left operand of the event metadata filter expression.</p>
-   * @public
-   */
-  left: LeftExpression | undefined;
-
-  /**
-   * <p>Operator applied to the event metadata filter expression.</p>
-   * @public
-   */
-  operator: OperatorType | undefined;
-
-  /**
-   * <p>Right operand of the event metadata filter expression.</p>
-   * @public
-   */
-  right?: RightExpression | undefined;
-}
-
-/**
- * <p>Contains filter criteria for listing events.</p>
- * @public
- */
-export interface FilterInput {
-  /**
-   * <p>The branch filter criteria to apply when listing events.</p>
-   * @public
-   */
-  branch?: BranchFilter | undefined;
-
-  /**
-   * <p>Event metadata filter criteria to apply when retrieving events.</p>
-   * @public
-   */
-  eventMetadata?: EventMetadataFilterExpression[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListEventsInput {
-  /**
-   * <p>The identifier of the AgentCore Memory resource for which to list events.</p>
-   * @public
-   */
-  memoryId: string | undefined;
-
-  /**
-   * <p>The identifier of the session for which to list events.</p>
-   * @public
-   */
-  sessionId: string | undefined;
-
-  /**
-   * <p>The identifier of the actor for which to list events.</p>
-   * @public
-   */
-  actorId: string | undefined;
-
-  /**
-   * <p>Specifies whether to include event payloads in the response. Set to true to include payloads, or false to exclude them.</p>
-   * @public
-   */
-  includePayloads?: boolean | undefined;
-
-  /**
-   * <p>Filter criteria to apply when listing events.</p>
-   * @public
-   */
-  filter?: FilterInput | undefined;
-
-  /**
-   * <p>The maximum number of results to return in a single call. The default value is 20.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListEventsOutput {
-  /**
-   * <p>The list of events that match the specified criteria.</p>
-   * @public
-   */
-  events: Event[] | undefined;
-
-  /**
-   * <p>The token to use in a subsequent request to get the next set of results. This value is null when there are no more results to return.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * <p>Filters for querying memory extraction jobs based on various criteria.</p>
- * @public
- */
-export interface ExtractionJobFilterInput {
-  /**
-   * <p>The memory strategy identifier to filter extraction jobs by. If specified, only extraction jobs with this strategy ID are returned.</p>
-   * @public
-   */
-  strategyId?: string | undefined;
-
-  /**
-   * <p>The unique identifier of the session. If specified, only extraction jobs with this session ID are returned.</p>
-   * @public
-   */
-  sessionId?: string | undefined;
-
-  /**
-   * <p>The identifier of the actor. If specified, only extraction jobs with this actor ID are returned.</p>
-   * @public
-   */
-  actorId?: string | undefined;
-
-  /**
-   * <p>The status of the extraction job. If specified, only extraction jobs with this status are returned.</p>
-   * @public
-   */
-  status?: ExtractionJobStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface ListMemoryExtractionJobsInput {
-  /**
-   * <p>The unique identifier of the memory to list extraction jobs for.</p>
-   * @public
-   */
-  memoryId: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return in a single call. The default value is 20.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>Filter criteria to apply when listing extraction jobs.</p>
-   * @public
-   */
-  filter?: ExtractionJobFilterInput | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * <p>Metadata information associated with this message.</p>
- * @public
- */
-export interface MessageMetadata {
-  /**
-   * <p>The identifier of the event associated with this message.</p>
-   * @public
-   */
-  eventId: string | undefined;
-
-  /**
-   * <p>The position of this message within that event’s ordered list of messages.</p>
-   * @public
-   */
-  messageIndex: number | undefined;
-}
-
-/**
- * <p>The list of messages that compose this extraction job.</p>
- * @public
- */
-export type ExtractionJobMessages =
-  | ExtractionJobMessages.MessagesListMember
-  | ExtractionJobMessages.$UnknownMember;
-
-/**
- * @public
- */
-export namespace ExtractionJobMessages {
-  /**
-   * <p>The list of messages that compose this extraction job.</p>
-   * @public
-   */
-  export interface MessagesListMember {
-    messagesList: MessageMetadata[];
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    messagesList?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    messagesList: (value: MessageMetadata[]) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Metadata information associated with this extraction job.</p>
- * @public
- */
-export interface ExtractionJobMetadata {
-  /**
-   * <p>The unique identifier for the extraction job.</p>
-   * @public
-   */
-  jobID: string | undefined;
-
-  /**
-   * <p>The messages associated with the extraction job.</p>
-   * @public
-   */
-  messages: ExtractionJobMessages | undefined;
-
-  /**
-   * <p>The current status of the extraction job.</p>
-   * @public
-   */
-  status?: ExtractionJobStatus | undefined;
-
-  /**
-   * <p>The cause of failure, if the job did not complete successfully.</p>
-   * @public
-   */
-  failureReason?: string | undefined;
-
-  /**
-   * <p>The identifier of the memory strategy for this extraction job.</p>
-   * @public
-   */
-  strategyId?: string | undefined;
-
-  /**
-   * <p>The identifier of the session for this extraction job.</p>
-   * @public
-   */
-  sessionId?: string | undefined;
-
-  /**
-   * <p>The identifier of the actor for this extraction job.</p>
-   * @public
-   */
-  actorId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListMemoryExtractionJobsOutput {
-  /**
-   * <p>List of extraction job metadata matching the specified criteria.</p>
-   * @public
-   */
-  jobs: ExtractionJobMetadata[] | undefined;
-
-  /**
-   * <p>Token to retrieve the next page of results, if available.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * <p>The left-hand side of a memory record metadata filter expression.</p>
- * @public
- */
-export type MemoryRecordLeftExpression =
-  | MemoryRecordLeftExpression.MetadataKeyMember
-  | MemoryRecordLeftExpression.$UnknownMember;
-
-/**
- * @public
- */
-export namespace MemoryRecordLeftExpression {
-  /**
-   * <p>The metadata key to filter on.</p>
-   * @public
-   */
-  export interface MetadataKeyMember {
-    metadataKey: string;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    metadataKey?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    metadataKey: (value: string) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>The right-hand side of a memory record metadata filter expression.</p>
- * @public
- */
-export type MemoryRecordRightExpression =
-  | MemoryRecordRightExpression.MetadataValueMember
-  | MemoryRecordRightExpression.$UnknownMember;
-
-/**
- * @public
- */
-export namespace MemoryRecordRightExpression {
-  /**
-   * <p>The metadata value to compare against.</p>
-   * @public
-   */
-  export interface MetadataValueMember {
-    metadataValue: MemoryRecordMetadataValue;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    metadataValue?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    metadataValue: (value: MemoryRecordMetadataValue) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Filters to apply to metadata associated with a memory. Specify the metadata key and value in the <code>left</code> and <code>right</code> fields and use the <code>operator</code> field to define the relationship to match.</p>
- * @public
- */
-export interface MemoryMetadataFilterExpression {
-  /**
-   * <p>The metadata key to evaluate.</p>
-   * @public
-   */
-  left: MemoryRecordLeftExpression | undefined;
-
-  /**
-   * <p>The relationship between the metadata key and value to match when applying the metadata filter.</p>
-   * @public
-   */
-  operator: MemoryRecordOperatorType | undefined;
-
-  /**
-   * <p>The value to compare against. Required for all operators except EXISTS and NOT_EXISTS.</p>
-   * @public
-   */
-  right?: MemoryRecordRightExpression | undefined;
-}
-
-/**
- * @public
- */
-export interface ListMemoryRecordsInput {
-  /**
-   * <p>The identifier of the AgentCore Memory resource for which to list memory records.</p>
-   * @public
-   */
-  memoryId: string | undefined;
-
-  /**
-   * <p>The namespace prefix to filter memory records by. Returns all memory records in namespaces that start with the provided prefix. Either <code>namespace</code> or <code>namespacePath</code> is required.</p>
-   * @public
-   */
-  namespace?: string | undefined;
-
-  /**
-   * <p>Use namespacePath for hierarchical retrievals. Return all memory records where namespace falls under the same parent hierarchy. Either <code>namespace</code> or <code>namespacePath</code> is required.</p>
-   * @public
-   */
-  namespacePath?: string | undefined;
-
-  /**
-   * <p>The memory strategy identifier to filter memory records by. If specified, only memory records with this strategy ID are returned.</p>
-   * @public
-   */
-  memoryStrategyId?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return in a single call. The default value is 20.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>A list of metadata filter expressions to scope the returned memory records.</p>
-   * @public
-   */
-  metadataFilters?: MemoryMetadataFilterExpression[] | undefined;
-}
-
-/**
- * <p>Contains summary information about a memory record.</p>
- * @public
- */
-export interface MemoryRecordSummary {
-  /**
-   * <p>The unique identifier of the memory record.</p>
-   * @public
-   */
-  memoryRecordId: string | undefined;
-
-  /**
-   * <p>The content of the memory record.</p>
-   * @public
-   */
-  content: MemoryContent | undefined;
-
-  /**
-   * <p>The identifier of the memory strategy associated with this record.</p>
-   * @public
-   */
-  memoryStrategyId: string | undefined;
-
-  /**
-   * <p>The namespaces associated with this memory record.</p>
-   * @public
-   */
-  namespaces: string[] | undefined;
-
-  /**
-   * <p>The timestamp when the memory record was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The relevance score of the memory record when returned as part of a search result. Higher values indicate greater relevance to the search query.</p>
-   * @public
-   */
-  score?: number | undefined;
-
-  /**
-   * <p>A map of metadata key-value pairs associated with a memory record.</p>
-   * @public
-   */
-  metadata?: Record<string, MemoryRecordMetadataValue> | undefined;
-}
-
-/**
- * @public
- */
-export interface ListMemoryRecordsOutput {
-  /**
-   * <p>The list of memory record summaries that match the specified criteria.</p>
-   * @public
-   */
-  memoryRecordSummaries: MemoryRecordSummary[] | undefined;
-
-  /**
-   * <p>The token to use in a subsequent request to get the next set of results. This value is null when there are no more results to return.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
 }

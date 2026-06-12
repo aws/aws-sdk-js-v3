@@ -7,7 +7,10 @@ import type {
   Currency,
   DescriptorType,
   EventFilterCondition,
+  ExtractionJobStatus,
   InstrumentBalanceToken,
+  MemoryRecordOperatorType,
+  OperatorType,
   PaymentInstrumentStatus,
   PaymentInstrumentType,
   PaymentSessionStatus,
@@ -18,9 +21,514 @@ import type {
 import type {
   A2aDescriptor,
   AgentSkillsDescriptor,
-  MemoryMetadataFilterExpression,
-  MemoryRecordSummary,
+  BranchFilter,
+  Event,
+  LeftExpression,
+  MemoryContent,
+  MemoryRecordMetadataValue,
+  RightExpression,
 } from "./models_0";
+
+/**
+ * <p>Filter expression for retrieving events based on metadata associated with an event.</p>
+ * @public
+ */
+export interface EventMetadataFilterExpression {
+  /**
+   * <p>Left operand of the event metadata filter expression.</p>
+   * @public
+   */
+  left: LeftExpression | undefined;
+
+  /**
+   * <p>Operator applied to the event metadata filter expression.</p>
+   * @public
+   */
+  operator: OperatorType | undefined;
+
+  /**
+   * <p>Right operand of the event metadata filter expression.</p>
+   * @public
+   */
+  right?: RightExpression | undefined;
+}
+
+/**
+ * <p>Contains filter criteria for listing events.</p>
+ * @public
+ */
+export interface FilterInput {
+  /**
+   * <p>The branch filter criteria to apply when listing events.</p>
+   * @public
+   */
+  branch?: BranchFilter | undefined;
+
+  /**
+   * <p>Event metadata filter criteria to apply when retrieving events.</p>
+   * @public
+   */
+  eventMetadata?: EventMetadataFilterExpression[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListEventsInput {
+  /**
+   * <p>The identifier of the AgentCore Memory resource for which to list events.</p>
+   * @public
+   */
+  memoryId: string | undefined;
+
+  /**
+   * <p>The identifier of the session for which to list events.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>The identifier of the actor for which to list events.</p>
+   * @public
+   */
+  actorId: string | undefined;
+
+  /**
+   * <p>Specifies whether to include event payloads in the response. Set to true to include payloads, or false to exclude them.</p>
+   * @public
+   */
+  includePayloads?: boolean | undefined;
+
+  /**
+   * <p>Filter criteria to apply when listing events.</p>
+   * @public
+   */
+  filter?: FilterInput | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call. The default value is 20.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListEventsOutput {
+  /**
+   * <p>The list of events that match the specified criteria.</p>
+   * @public
+   */
+  events: Event[] | undefined;
+
+  /**
+   * <p>The token to use in a subsequent request to get the next set of results. This value is null when there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Filters for querying memory extraction jobs based on various criteria.</p>
+ * @public
+ */
+export interface ExtractionJobFilterInput {
+  /**
+   * <p>The memory strategy identifier to filter extraction jobs by. If specified, only extraction jobs with this strategy ID are returned.</p>
+   * @public
+   */
+  strategyId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the session. If specified, only extraction jobs with this session ID are returned.</p>
+   * @public
+   */
+  sessionId?: string | undefined;
+
+  /**
+   * <p>The identifier of the actor. If specified, only extraction jobs with this actor ID are returned.</p>
+   * @public
+   */
+  actorId?: string | undefined;
+
+  /**
+   * <p>The status of the extraction job. If specified, only extraction jobs with this status are returned.</p>
+   * @public
+   */
+  status?: ExtractionJobStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMemoryExtractionJobsInput {
+  /**
+   * <p>The unique identifier of the memory to list extraction jobs for.</p>
+   * @public
+   */
+  memoryId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call. The default value is 20.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>Filter criteria to apply when listing extraction jobs.</p>
+   * @public
+   */
+  filter?: ExtractionJobFilterInput | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Metadata information associated with this message.</p>
+ * @public
+ */
+export interface MessageMetadata {
+  /**
+   * <p>The identifier of the event associated with this message.</p>
+   * @public
+   */
+  eventId: string | undefined;
+
+  /**
+   * <p>The position of this message within that event’s ordered list of messages.</p>
+   * @public
+   */
+  messageIndex: number | undefined;
+}
+
+/**
+ * <p>The list of messages that compose this extraction job.</p>
+ * @public
+ */
+export type ExtractionJobMessages =
+  | ExtractionJobMessages.MessagesListMember
+  | ExtractionJobMessages.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ExtractionJobMessages {
+  /**
+   * <p>The list of messages that compose this extraction job.</p>
+   * @public
+   */
+  export interface MessagesListMember {
+    messagesList: MessageMetadata[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    messagesList?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    messagesList: (value: MessageMetadata[]) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Metadata information associated with this extraction job.</p>
+ * @public
+ */
+export interface ExtractionJobMetadata {
+  /**
+   * <p>The unique identifier for the extraction job.</p>
+   * @public
+   */
+  jobID: string | undefined;
+
+  /**
+   * <p>The messages associated with the extraction job.</p>
+   * @public
+   */
+  messages: ExtractionJobMessages | undefined;
+
+  /**
+   * <p>The current status of the extraction job.</p>
+   * @public
+   */
+  status?: ExtractionJobStatus | undefined;
+
+  /**
+   * <p>The cause of failure, if the job did not complete successfully.</p>
+   * @public
+   */
+  failureReason?: string | undefined;
+
+  /**
+   * <p>The identifier of the memory strategy for this extraction job.</p>
+   * @public
+   */
+  strategyId?: string | undefined;
+
+  /**
+   * <p>The identifier of the session for this extraction job.</p>
+   * @public
+   */
+  sessionId?: string | undefined;
+
+  /**
+   * <p>The identifier of the actor for this extraction job.</p>
+   * @public
+   */
+  actorId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMemoryExtractionJobsOutput {
+  /**
+   * <p>List of extraction job metadata matching the specified criteria.</p>
+   * @public
+   */
+  jobs: ExtractionJobMetadata[] | undefined;
+
+  /**
+   * <p>Token to retrieve the next page of results, if available.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>The left-hand side of a memory record metadata filter expression.</p>
+ * @public
+ */
+export type MemoryRecordLeftExpression =
+  | MemoryRecordLeftExpression.MetadataKeyMember
+  | MemoryRecordLeftExpression.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace MemoryRecordLeftExpression {
+  /**
+   * <p>The metadata key to filter on.</p>
+   * @public
+   */
+  export interface MetadataKeyMember {
+    metadataKey: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    metadataKey?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    metadataKey: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The right-hand side of a memory record metadata filter expression.</p>
+ * @public
+ */
+export type MemoryRecordRightExpression =
+  | MemoryRecordRightExpression.MetadataValueMember
+  | MemoryRecordRightExpression.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace MemoryRecordRightExpression {
+  /**
+   * <p>The metadata value to compare against.</p>
+   * @public
+   */
+  export interface MetadataValueMember {
+    metadataValue: MemoryRecordMetadataValue;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    metadataValue?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    metadataValue: (value: MemoryRecordMetadataValue) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Filters to apply to metadata associated with a memory. Specify the metadata key and value in the <code>left</code> and <code>right</code> fields and use the <code>operator</code> field to define the relationship to match.</p>
+ * @public
+ */
+export interface MemoryMetadataFilterExpression {
+  /**
+   * <p>The metadata key to evaluate.</p>
+   * @public
+   */
+  left: MemoryRecordLeftExpression | undefined;
+
+  /**
+   * <p>The relationship between the metadata key and value to match when applying the metadata filter.</p>
+   * @public
+   */
+  operator: MemoryRecordOperatorType | undefined;
+
+  /**
+   * <p>The value to compare against. Required for all operators except EXISTS and NOT_EXISTS.</p>
+   * @public
+   */
+  right?: MemoryRecordRightExpression | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMemoryRecordsInput {
+  /**
+   * <p>The identifier of the AgentCore Memory resource for which to list memory records.</p>
+   * @public
+   */
+  memoryId: string | undefined;
+
+  /**
+   * <p>The namespace prefix to filter memory records by. Returns all memory records in namespaces that start with the provided prefix. Either <code>namespace</code> or <code>namespacePath</code> is required.</p>
+   * @public
+   */
+  namespace?: string | undefined;
+
+  /**
+   * <p>Use namespacePath for hierarchical retrievals. Return all memory records where namespace falls under the same parent hierarchy. Either <code>namespace</code> or <code>namespacePath</code> is required.</p>
+   * @public
+   */
+  namespacePath?: string | undefined;
+
+  /**
+   * <p>The memory strategy identifier to filter memory records by. If specified, only memory records with this strategy ID are returned.</p>
+   * @public
+   */
+  memoryStrategyId?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call. The default value is 20.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>A list of metadata filter expressions to scope the returned memory records.</p>
+   * @public
+   */
+  metadataFilters?: MemoryMetadataFilterExpression[] | undefined;
+}
+
+/**
+ * <p>Contains summary information about a memory record.</p>
+ * @public
+ */
+export interface MemoryRecordSummary {
+  /**
+   * <p>The unique identifier of the memory record.</p>
+   * @public
+   */
+  memoryRecordId: string | undefined;
+
+  /**
+   * <p>The content of the memory record.</p>
+   * @public
+   */
+  content: MemoryContent | undefined;
+
+  /**
+   * <p>The identifier of the memory strategy associated with this record.</p>
+   * @public
+   */
+  memoryStrategyId: string | undefined;
+
+  /**
+   * <p>The namespaces associated with this memory record.</p>
+   * @public
+   */
+  namespaces: string[] | undefined;
+
+  /**
+   * <p>The timestamp when the memory record was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The relevance score of the memory record when returned as part of a search result. Higher values indicate greater relevance to the search query.</p>
+   * @public
+   */
+  score?: number | undefined;
+
+  /**
+   * <p>A map of metadata key-value pairs associated with a memory record.</p>
+   * @public
+   */
+  metadata?: Record<string, MemoryRecordMetadataValue> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMemoryRecordsOutput {
+  /**
+   * <p>The list of memory record summaries that match the specified criteria.</p>
+   * @public
+   */
+  memoryRecordSummaries: MemoryRecordSummary[] | undefined;
+
+  /**
+   * <p>The token to use in a subsequent request to get the next set of results. This value is null when there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
 
 /**
  * <p>Contains filter criteria for listing sessions.</p>

@@ -81,6 +81,9 @@ export interface StartRecommendationCommandOutput extends StartRecommendationRes
  *             ],
  *           },
  *         },
+ *         batchEvaluation: { // BatchEvaluationTraceConfig
+ *           batchEvaluationArn: "STRING_VALUE", // required
+ *         },
  *       },
  *       evaluationConfig: { // RecommendationEvaluationConfig
  *         evaluators: [ // RecommendationEvaluatorList // required
@@ -140,10 +143,17 @@ export interface StartRecommendationCommandOutput extends StartRecommendationRes
  *             ],
  *           },
  *         },
+ *         batchEvaluation: {
+ *           batchEvaluationArn: "STRING_VALUE", // required
+ *         },
  *       },
  *     },
  *   },
+ *   kmsKeyArn: "STRING_VALUE",
  *   clientToken: "STRING_VALUE",
+ *   tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new StartRecommendationCommand(input);
  * const response = await client.send(command);
@@ -189,6 +199,9 @@ export interface StartRecommendationCommandOutput extends StartRecommendationRes
  * //               },
  * //             ],
  * //           },
+ * //         },
+ * //         batchEvaluation: { // BatchEvaluationTraceConfig
+ * //           batchEvaluationArn: "STRING_VALUE", // required
  * //         },
  * //       },
  * //       evaluationConfig: { // RecommendationEvaluationConfig
@@ -248,6 +261,9 @@ export interface StartRecommendationCommandOutput extends StartRecommendationRes
  * //               },
  * //             ],
  * //           },
+ * //         },
+ * //         batchEvaluation: {
+ * //           batchEvaluationArn: "STRING_VALUE", // required
  * //         },
  * //       },
  * //     },

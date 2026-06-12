@@ -76,6 +76,9 @@ export interface CreateABTestCommandOutput extends CreateABTestResponse, __Metad
  *   roleArn: "STRING_VALUE", // required
  *   enableOnCreate: true || false,
  *   clientToken: "STRING_VALUE",
+ *   tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateABTestCommand(input);
  * const response = await client.send(command);
