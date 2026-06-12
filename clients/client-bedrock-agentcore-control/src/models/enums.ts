@@ -990,6 +990,20 @@ export type Status = (typeof Status)[keyof typeof Status];
  * @public
  * @enum
  */
+export const ClusteringFrequency = {
+  DAILY: "DAILY",
+  MONTHLY: "MONTHLY",
+  WEEKLY: "WEEKLY",
+} as const;
+/**
+ * @public
+ */
+export type ClusteringFrequency = (typeof ClusteringFrequency)[keyof typeof ClusteringFrequency];
+
+/**
+ * @public
+ * @enum
+ */
 export const FilterOperator = {
   CONTAINS: "Contains",
   EQUALS: "Equals",

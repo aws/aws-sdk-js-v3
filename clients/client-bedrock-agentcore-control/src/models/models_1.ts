@@ -2,6 +2,7 @@
 import type {
   ActorTokenContentType,
   ClientAuthenticationMethodType,
+  ClusteringFrequency,
   ContentLevel,
   ContentType,
   CredentialProviderVendorType,
@@ -4216,6 +4217,18 @@ export interface UpdateOauth2CredentialProviderResponse {
 }
 
 /**
+ * <p>Configuration for periodic batch evaluation clustering, specifying how often clustering jobs run.</p>
+ * @public
+ */
+export interface ClusteringConfig {
+  /**
+   * <p>The list of frequencies at which clustering batch evaluations are triggered.</p>
+   * @public
+   */
+  frequencies: ClusteringFrequency[] | undefined;
+}
+
+/**
  * <p> The configuration for reading agent traces from CloudWatch logs as input for online evaluation. </p>
  * @public
  */
@@ -4309,6 +4322,19 @@ export namespace EvaluatorReference {
     evaluatorId: (value: string) => T;
     _: (name: string, value: any) => T;
   }
+}
+
+/**
+ * A reference to an insight analysis to run against sessions.
+ * @public
+ */
+export interface Insight {
+  /**
+   * Canonical insight identifiers using the Builtin.Insight.* naming convention.
+   * Used by BatchEvaluate, InternalEvaluate, and ServiceEngineEvaluate flows.
+   * @public
+   */
+  insightId: string | undefined;
 }
 
 /**
@@ -4490,7 +4516,19 @@ export interface CreateOnlineEvaluationConfigRequest {
    * <p> The list of evaluators to apply during online evaluation. Can include both built-in evaluators and custom evaluators created with <code>CreateEvaluator</code>. </p>
    * @public
    */
-  evaluators: EvaluatorReference[] | undefined;
+  evaluators?: EvaluatorReference[] | undefined;
+
+  /**
+   * <p>The list of insight types to run against agent sessions.</p>
+   * @public
+   */
+  insights?: Insight[] | undefined;
+
+  /**
+   * <p>Configuration for periodic batch evaluation clustering of insight results.</p>
+   * @public
+   */
+  clusteringConfig?: ClusteringConfig | undefined;
 
   /**
    * <p> The Amazon Resource Name (ARN) of the IAM role that grants permissions to read from CloudWatch logs, write evaluation results, and invoke Amazon Bedrock models for evaluation. If the configuration references evaluators encrypted with a customer managed KMS key, this role must also have <code>kms:Decrypt</code> permission on the KMS key. The service validates this permission at configuration creation time. For more information, see <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/evaluations-encryption.html">Encryption at rest for AgentCore Evaluations</a>. </p>
@@ -4671,7 +4709,19 @@ export interface GetOnlineEvaluationConfigResponse {
    * <p> The list of evaluators applied during online evaluation. </p>
    * @public
    */
-  evaluators: EvaluatorReference[] | undefined;
+  evaluators?: EvaluatorReference[] | undefined;
+
+  /**
+   * <p>The list of insight types configured for this evaluation.</p>
+   * @public
+   */
+  insights?: Insight[] | undefined;
+
+  /**
+   * <p>The clustering configuration for periodic batch evaluation.</p>
+   * @public
+   */
+  clusteringConfig?: ClusteringConfig | undefined;
 
   /**
    * <p> The output configuration specifying where evaluation results are written. </p>
@@ -4791,6 +4841,18 @@ export interface OnlineEvaluationConfigSummary {
    * @public
    */
   failureReason?: string | undefined;
+
+  /**
+   * <p>The list of insight types configured for this evaluation.</p>
+   * @public
+   */
+  insights?: Insight[] | undefined;
+
+  /**
+   * <p>The clustering configuration for periodic batch evaluation.</p>
+   * @public
+   */
+  clusteringConfig?: ClusteringConfig | undefined;
 }
 
 /**
@@ -4849,6 +4911,18 @@ export interface UpdateOnlineEvaluationConfigRequest {
    * @public
    */
   evaluators?: EvaluatorReference[] | undefined;
+
+  /**
+   * <p>The updated list of insight types to run against agent sessions.</p>
+   * @public
+   */
+  insights?: Insight[] | undefined;
+
+  /**
+   * <p>The updated clustering configuration for periodic batch evaluation.</p>
+   * @public
+   */
+  clusteringConfig?: ClusteringConfig | undefined;
 
   /**
    * <p> The updated Amazon Resource Name (ARN) of the IAM role used for evaluation execution. </p>
@@ -9800,49 +9874,3 @@ export interface UntagResourceRequest {
  * @public
  */
 export interface UntagResourceResponse {}
-
-/**
- * @public
- */
-export interface CreateWorkloadIdentityRequest {
-  /**
-   * <p>The name of the workload identity. The name must be unique within your account.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The list of allowed OAuth2 return URLs for resources associated with this workload identity.</p>
-   * @public
-   */
-  allowedResourceOauth2ReturnUrls?: string[] | undefined;
-
-  /**
-   * <p>A map of tag keys and values to assign to the workload identity. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateWorkloadIdentityResponse {
-  /**
-   * <p>The name of the workload identity.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the workload identity.</p>
-   * @public
-   */
-  workloadIdentityArn: string | undefined;
-
-  /**
-   * <p>The list of allowed OAuth2 return URLs for resources associated with this workload identity.</p>
-   * @public
-   */
-  allowedResourceOauth2ReturnUrls?: string[] | undefined;
-}

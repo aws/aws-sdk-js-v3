@@ -58,6 +58,16 @@ export interface ListOnlineEvaluationConfigsCommandOutput extends ListOnlineEval
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       updatedAt: new Date("TIMESTAMP"), // required
  * //       failureReason: "STRING_VALUE",
+ * //       insights: [ // InsightList
+ * //         { // Insight
+ * //           insightId: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       clusteringConfig: { // ClusteringConfig
+ * //         frequencies: [ // ClusteringFrequencyList // required
+ * //           "DAILY" || "WEEKLY" || "MONTHLY",
+ * //         ],
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

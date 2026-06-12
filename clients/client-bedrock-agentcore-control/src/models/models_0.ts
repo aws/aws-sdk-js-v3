@@ -3778,6 +3778,12 @@ export interface CreateConfigurationBundleRequest {
   createdBy?: VersionCreatedBySource | undefined;
 
   /**
+   * <p>Optional KMS key ARN for encrypting component configurations.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
+
+  /**
    * <p>A map of tag keys and values to assign to the configuration bundle. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
    * @public
    */
@@ -3945,6 +3951,12 @@ export interface GetConfigurationBundleResponse {
    * @public
    */
   updatedAt: Date | undefined;
+
+  /**
+   * <p>KMS key ARN used to encrypt component configurations, if CMK was provided.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
 }
 
 /**
@@ -4021,6 +4033,12 @@ export interface GetConfigurationBundleVersionResponse {
    * @public
    */
   versionCreatedAt: Date | undefined;
+
+  /**
+   * <p>KMS key ARN used to encrypt component configurations, if CMK was provided.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
 }
 
 /**
@@ -4256,6 +4274,12 @@ export interface UpdateConfigurationBundleRequest {
    * @public
    */
   createdBy?: VersionCreatedBySource | undefined;
+
+  /**
+   * <p>Optional KMS key ARN for encrypting component configurations. If provided, components will be encrypted with this key. If the bundle already has a KMS key, this rotates to the new key.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
 }
 
 /**

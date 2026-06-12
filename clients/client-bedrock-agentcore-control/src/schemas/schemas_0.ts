@@ -61,7 +61,7 @@ const _CBS = "ConfigurationBundleSummary";
 const _CBSL = "ConfigurationBundleSummaryList";
 const _CBVS = "ConfigurationBundleVersionSummary";
 const _CBVSL = "ConfigurationBundleVersionSummaryList";
-const _CC = "CodeConfiguration";
+const _CC = "ClusteringConfig";
 const _CCB = "CreateConfigurationBundle";
 const _CCBR = "CreateConfigurationBundleRequest";
 const _CCBRr = "CreateConfigurationBundleResponse";
@@ -77,7 +77,8 @@ const _CCL = "ContentConfigurationList";
 const _CCM = "ComponentConfigurationMap";
 const _CCVT = "CustomClaimValidationType";
 const _CCVTu = "CustomClaimValidationsType";
-const _CCo = "ComponentConfiguration";
+const _CCo = "CodeConfiguration";
+const _CCom = "ComponentConfiguration";
 const _CCon = "ContainerConfiguration";
 const _CCons = "ConsolidationConfiguration";
 const _CCont = "ContentConfiguration";
@@ -449,6 +450,7 @@ const _HTCa = "HarnessToolConfiguration";
 const _HTCt = "HttpTargetConfiguration";
 const _HTSC = "HarnessTruncationStrategyConfiguration";
 const _HTa = "HarnessTools";
+const _I = "Insight";
 const _IC = "InferenceConfiguration";
 const _ICI = "InvocationConfigurationInput";
 const _ICP = "IamCredentialProvider";
@@ -458,6 +460,7 @@ const _IES = "InlineExamplesSource";
 const _IIC = "InterceptorInputConfiguration";
 const _IK = "IndexedKey";
 const _IKL = "IndexedKeysList";
+const _IL = "InsightList";
 const _IOPCI = "IncludedOauth2ProviderConfigInput";
 const _IOPCO = "IncludedOauth2ProviderConfigOutput";
 const _IP = "InlinePayload";
@@ -982,13 +985,14 @@ const _cB = "createdBy";
 const _cBN = "createdByName";
 const _cBo = "configurationBundle";
 const _cBod = "codeBased";
-const _cC = "customClaims";
+const _cC = "clusteringConfig";
 const _cCC = "customConsolidationConfiguration";
 const _cCCo = "coinbaseCdpConfiguration";
 const _cCDP = "coinbaseCDP";
 const _cCo = "contentConfigurations";
 const _cCod = "codeConfiguration";
 const _cCon = "containerConfiguration";
+const _cCu = "customClaims";
 const _cEC = "customExtractionConfiguration";
 const _cI = "clientId";
 const _cIA = "codeInterpreterArn";
@@ -1090,14 +1094,15 @@ const _env = "environment";
 const _ev = "evaluators";
 const _ex = "extraction";
 const _exa = "examples";
-const _f = "findings";
+const _f = "frequencies";
 const _fC = "filesystemConfigurations";
 const _fL = "fieldList";
 const _fP = "filterPath";
 const _fR = "failureReason";
 const _fU = "fromUrl";
-const _fi = "filter";
-const _fil = "filters";
+const _fi = "findings";
+const _fil = "filter";
+const _filt = "filters";
 const _g = "git";
 const _gA = "gatewayArn";
 const _gI = "gatewayId";
@@ -1127,6 +1132,7 @@ const _iCnv = "invocationConfiguration";
 const _iD = "includedData";
 const _iE = "inlineExamples";
 const _iF = "inlineFunction";
+const _iI = "insightId";
 const _iK = "indexedKeys";
 const _iOPC = "includedOauth2ProviderConfig";
 const _iP = "interceptionPoints";
@@ -1138,8 +1144,9 @@ const _iST = "idleSessionTimeout";
 const _iT = "idempotencyToken";
 const _iTCN = "inboundTokenClaimName";
 const _iTCVT = "inboundTokenClaimValueType";
-const _in = "interceptor";
+const _in = "insights";
 const _ins = "instructions";
+const _int = "interceptor";
 const _is = "issuer";
 const _it = "items";
 const _jK = "jsonKey";
@@ -1752,7 +1759,12 @@ export var CloudWatchOutputConfig$: StaticStructureSchema = [3, n0, _CWOC,
   [_lGNo],
   [0], 1
 ];
-export var CodeConfiguration$: StaticStructureSchema = [3, n0, _CC,
+export var ClusteringConfig$: StaticStructureSchema = [3, n0, _CC,
+  0,
+  [_f],
+  [64 | 0], 1
+];
+export var CodeConfiguration$: StaticStructureSchema = [3, n0, _CCo,
   0,
   [_co, _ru, _eP],
   [() => Code$, 0, 64 | 0], 3
@@ -1777,7 +1789,7 @@ export var CoinbaseCdpConfigurationOutput$: StaticStructureSchema = [3, n0, _CCC
   [_aKI, _aKSA, _wSA, _aKSJK, _aKSS, _wSJK, _wSS],
   [0, () => Secret$, () => Secret$, 0, 0, 0, 0], 3
 ];
-export var ComponentConfiguration$: StaticStructureSchema = [3, n0, _CCo,
+export var ComponentConfiguration$: StaticStructureSchema = [3, n0, _CCom,
   8,
   [_con],
   [15], 1
@@ -1869,8 +1881,8 @@ export var CreateCodeInterpreterResponse$: StaticStructureSchema = [3, n0, _CCIR
 ];
 export var CreateConfigurationBundleRequest$: StaticStructureSchema = [3, n0, _CCBR,
   0,
-  [_bN, _com, _cT, _d, _bNr, _cM, _cB, _ta],
-  [0, [() => ComponentConfigurationMap, 0], [0, 4], [() => ConfigurationBundleDescription, 0], 0, 0, () => VersionCreatedBySource$, 128 | 0], 2
+  [_bN, _com, _cT, _d, _bNr, _cM, _cB, _kKA, _ta],
+  [0, [() => ComponentConfigurationMap, 0], [0, 4], [() => ConfigurationBundleDescription, 0], 0, 0, () => VersionCreatedBySource$, 0, 128 | 0], 2
 ];
 export var CreateConfigurationBundleResponse$: StaticStructureSchema = [3, n0, _CCBRr,
   0,
@@ -1969,8 +1981,8 @@ export var CreateOauth2CredentialProviderResponse$: StaticStructureSchema = [3, 
 ];
 export var CreateOnlineEvaluationConfigRequest$: StaticStructureSchema = [3, n0, _COECR,
   0,
-  [_oECN, _rul, _dSC, _ev, _eERA, _eOC, _cT, _d, _ta],
-  [0, () => Rule$, () => DataSourceConfig$, () => EvaluatorList, 0, 2, [0, 4], [() => EvaluationConfigDescription, 0], 128 | 0], 6
+  [_oECN, _rul, _dSC, _eERA, _eOC, _cT, _d, _ev, _in, _cC, _ta],
+  [0, () => Rule$, () => DataSourceConfig$, 0, 2, [0, 4], [() => EvaluationConfigDescription, 0], () => EvaluatorList, () => InsightList, () => ClusteringConfig$, 128 | 0], 5
 ];
 export var CreateOnlineEvaluationConfigResponse$: StaticStructureSchema = [3, n0, _COECRr,
   0,
@@ -2074,7 +2086,7 @@ export var CustomDescriptor$: StaticStructureSchema = [3, n0, _CD,
 ];
 export var CustomJWTAuthorizerConfiguration$: StaticStructureSchema = [3, n0, _CJWTAC,
   0,
-  [_dU, _aAl, _aCl, _aS, _cC, _pE, _pEO],
+  [_dU, _aAl, _aCl, _aS, _cCu, _pE, _pEO],
   [0, 64 | 0, 64 | 0, 64 | 0, () => CustomClaimValidationsType, () => PrivateEndpoint$, () => PrivateEndpointOverrides], 1
 ];
 export var CustomMemoryStrategyInput$: StaticStructureSchema = [3, n0, _CMSI,
@@ -2454,7 +2466,7 @@ export var GatewayApiKeyCredentialProvider$: StaticStructureSchema = [3, n0, _GA
 ];
 export var GatewayInterceptorConfiguration$: StaticStructureSchema = [3, n0, _GIC,
   0,
-  [_in, _iP, _iCnp],
+  [_int, _iP, _iCnp],
   [() => InterceptorConfiguration$, 64 | 0, () => InterceptorInputConfiguration$], 2
 ];
 export var GatewayPolicyEngineConfiguration$: StaticStructureSchema = [3, n0, _GPEC,
@@ -2544,8 +2556,8 @@ export var GetConfigurationBundleRequest$: StaticStructureSchema = [3, n0, _GCBR
 ];
 export var GetConfigurationBundleResponse$: StaticStructureSchema = [3, n0, _GCBRe,
   0,
-  [_bAu, _bIu, _bN, _vI, _com, _cA, _uA, _d, _lM],
-  [0, 0, 0, 0, [() => ComponentConfigurationMap, 0], 4, 4, [() => ConfigurationBundleDescription, 0], () => VersionLineageMetadata$], 7
+  [_bAu, _bIu, _bN, _vI, _com, _cA, _uA, _d, _lM, _kKA],
+  [0, 0, 0, 0, [() => ComponentConfigurationMap, 0], 4, 4, [() => ConfigurationBundleDescription, 0], () => VersionLineageMetadata$, 0], 7
 ];
 export var GetConfigurationBundleVersionRequest$: StaticStructureSchema = [3, n0, _GCBVR,
   0,
@@ -2554,8 +2566,8 @@ export var GetConfigurationBundleVersionRequest$: StaticStructureSchema = [3, n0
 ];
 export var GetConfigurationBundleVersionResponse$: StaticStructureSchema = [3, n0, _GCBVRe,
   0,
-  [_bAu, _bIu, _bN, _vI, _com, _cA, _vCA, _d, _lM],
-  [0, 0, 0, 0, [() => ComponentConfigurationMap, 0], 4, 4, [() => ConfigurationBundleDescription, 0], () => VersionLineageMetadata$], 7
+  [_bAu, _bIu, _bN, _vI, _com, _cA, _vCA, _d, _lM, _kKA],
+  [0, 0, 0, 0, [() => ComponentConfigurationMap, 0], 4, 4, [() => ConfigurationBundleDescription, 0], () => VersionLineageMetadata$, 0], 7
 ];
 export var GetDatasetRequest$: StaticStructureSchema = [3, n0, _GDR,
   0,
@@ -2644,8 +2656,8 @@ export var GetOnlineEvaluationConfigRequest$: StaticStructureSchema = [3, n0, _G
 ];
 export var GetOnlineEvaluationConfigResponse$: StaticStructureSchema = [3, n0, _GOECRe,
   0,
-  [_oECA, _oECI, _oECN, _rul, _dSC, _ev, _st, _eS, _cA, _uA, _d, _oC, _eERA, _fR],
-  [0, 0, 0, () => Rule$, () => DataSourceConfig$, () => EvaluatorList, 0, 0, 4, 4, [() => EvaluationConfigDescription, 0], () => OutputConfig$, 0, 0], 10
+  [_oECA, _oECI, _oECN, _rul, _dSC, _st, _eS, _cA, _uA, _d, _ev, _in, _cC, _oC, _eERA, _fR],
+  [0, 0, 0, () => Rule$, () => DataSourceConfig$, 0, 0, 4, 4, [() => EvaluationConfigDescription, 0], () => EvaluatorList, () => InsightList, () => ClusteringConfig$, () => OutputConfig$, 0, 0], 9
 ];
 export var GetPaymentConnectorRequest$: StaticStructureSchema = [3, n0, _GPCR,
   0,
@@ -2704,7 +2716,7 @@ export var GetPolicyGenerationRequest$: StaticStructureSchema = [3, n0, _GPGR,
 ];
 export var GetPolicyGenerationResponse$: StaticStructureSchema = [3, n0, _GPGRe,
   0,
-  [_pEI, _pGI, _n, _pGA, _res, _cA, _uA, _st, _sR, _f],
+  [_pEI, _pGI, _n, _pGA, _res, _cA, _uA, _st, _sR, _fi],
   [0, 0, 0, 0, () => Resource$, 5, 5, 0, 64 | 0, 0], 9
 ];
 export var GetPolicyGenerationSummaryRequest$: StaticStructureSchema = [3, n0, _GPGSR,
@@ -2714,7 +2726,7 @@ export var GetPolicyGenerationSummaryRequest$: StaticStructureSchema = [3, n0, _
 ];
 export var GetPolicyGenerationSummaryResponse$: StaticStructureSchema = [3, n0, _GPGSRe,
   0,
-  [_pEI, _pGI, _n, _pGA, _res, _cA, _uA, _st, _f],
+  [_pEI, _pGI, _n, _pGA, _res, _cA, _uA, _st, _fi],
   [0, 0, 0, 0, () => Resource$, 5, 5, 0, 0], 8
 ];
 export var GetPolicyRequest$: StaticStructureSchema = [3, n0, _GPR,
@@ -2952,6 +2964,11 @@ export var InlineExamplesSource$: StaticStructureSchema = [3, n0, _IES,
   [_exa],
   [[() => DatasetExampleList, 0]], 1
 ];
+export var Insight$: StaticStructureSchema = [3, n0, _I,
+  0,
+  [_iI],
+  [0], 1
+];
 export var InterceptorInputConfiguration$: StaticStructureSchema = [3, n0, _IIC,
   0,
   [_pRH],
@@ -3084,7 +3101,7 @@ export var ListConfigurationBundlesResponse$: StaticStructureSchema = [3, n0, _L
 ];
 export var ListConfigurationBundleVersionsRequest$: StaticStructureSchema = [3, n0, _LCBVR,
   0,
-  [_bIu, _nTe, _mR, _fi],
+  [_bIu, _nTe, _mR, _fil],
   [[0, 1], [0, { [_hQ]: _nTe }], [1, { [_hQ]: _mR }], () => VersionFilter$], 1
 ];
 export var ListConfigurationBundleVersionsResponse$: StaticStructureSchema = [3, n0, _LCBVRi,
@@ -3509,8 +3526,8 @@ export var OnBehalfOfTokenExchangeConfigType$: StaticStructureSchema = [3, n0, _
 ];
 export var OnlineEvaluationConfigSummary$: StaticStructureSchema = [3, n0, _OECS,
   0,
-  [_oECA, _oECI, _oECN, _st, _eS, _cA, _uA, _d, _fR],
-  [0, 0, 0, 0, 0, 4, 4, [() => EvaluationConfigDescription, 0], 0], 7
+  [_oECA, _oECI, _oECN, _st, _eS, _cA, _uA, _d, _fR, _in, _cC],
+  [0, 0, 0, 0, 0, 4, 4, [() => EvaluationConfigDescription, 0], 0, () => InsightList, () => ClusteringConfig$], 7
 ];
 export var OutputConfig$: StaticStructureSchema = [3, n0, _OC,
   0,
@@ -3554,12 +3571,12 @@ export var PolicyEngineSummary$: StaticStructureSchema = [3, n0, _PES,
 ];
 export var PolicyGeneration$: StaticStructureSchema = [3, n0, _PG,
   0,
-  [_pEI, _pGI, _n, _pGA, _res, _cA, _uA, _st, _sR, _f],
+  [_pEI, _pGI, _n, _pGA, _res, _cA, _uA, _st, _sR, _fi],
   [0, 0, 0, 0, () => Resource$, 5, 5, 0, 64 | 0, 0], 9
 ];
 export var PolicyGenerationAsset$: StaticStructureSchema = [3, n0, _PGA,
   0,
-  [_pGAI, _rTF, _f, _de],
+  [_pGAI, _rTF, _fi, _de],
   [0, 0, () => Findings, () => PolicyDefinition$], 3
 ];
 export var PolicyGenerationDetails$: StaticStructureSchema = [3, n0, _PGD,
@@ -3569,7 +3586,7 @@ export var PolicyGenerationDetails$: StaticStructureSchema = [3, n0, _PGD,
 ];
 export var PolicyGenerationSummary$: StaticStructureSchema = [3, n0, _PGS,
   0,
-  [_pEI, _pGI, _n, _pGA, _res, _cA, _uA, _st, _f],
+  [_pEI, _pGI, _n, _pGA, _res, _cA, _uA, _st, _fi],
   [0, 0, 0, 0, () => Resource$, 5, 5, 0, 0], 8
 ];
 export var PolicySummary$: StaticStructureSchema = [3, n0, _PS,
@@ -3629,7 +3646,7 @@ export var RegistrySummary$: StaticStructureSchema = [3, n0, _RS,
 ];
 export var Rule$: StaticStructureSchema = [3, n0, _R,
   0,
-  [_sCa, _fil, _sCes],
+  [_sCa, _filt, _sCes],
   [() => SamplingConfig$, () => FilterList, () => SessionConfig$], 1
 ];
 export var RuntimeMetadataConfiguration$: StaticStructureSchema = [3, n0, _RMC,
@@ -3794,7 +3811,7 @@ export var StartPolicyGenerationRequest$: StaticStructureSchema = [3, n0, _SPGR,
 ];
 export var StartPolicyGenerationResponse$: StaticStructureSchema = [3, n0, _SPGRt,
   0,
-  [_pEI, _pGI, _n, _pGA, _res, _cA, _uA, _st, _sR, _f],
+  [_pEI, _pGI, _n, _pGA, _res, _cA, _uA, _st, _sR, _fi],
   [0, 0, 0, 0, () => Resource$, 5, 5, 0, 64 | 0, 0], 9
 ];
 export var StaticOverride$: StaticStructureSchema = [3, n0, _SO,
@@ -3994,8 +4011,8 @@ export var UpdateApiKeyCredentialProviderResponse$: StaticStructureSchema = [3, 
 ];
 export var UpdateConfigurationBundleRequest$: StaticStructureSchema = [3, n0, _UCBR,
   0,
-  [_bIu, _cT, _bN, _d, _com, _pVI, _bNr, _cM, _cB],
-  [[0, 1], [0, 4], 0, [() => ConfigurationBundleDescription, 0], [() => ComponentConfigurationMap, 0], 64 | 0, 0, 0, () => VersionCreatedBySource$], 1
+  [_bIu, _cT, _bN, _d, _com, _pVI, _bNr, _cM, _cB, _kKA],
+  [[0, 1], [0, 4], 0, [() => ConfigurationBundleDescription, 0], [() => ComponentConfigurationMap, 0], 64 | 0, 0, 0, () => VersionCreatedBySource$, 0], 1
 ];
 export var UpdateConfigurationBundleResponse$: StaticStructureSchema = [3, n0, _UCBRp,
   0,
@@ -4189,8 +4206,8 @@ export var UpdateOauth2CredentialProviderResponse$: StaticStructureSchema = [3, 
 ];
 export var UpdateOnlineEvaluationConfigRequest$: StaticStructureSchema = [3, n0, _UOECR,
   0,
-  [_oECI, _cT, _d, _rul, _dSC, _ev, _eERA, _eS],
-  [[0, 1], [0, 4], [() => EvaluationConfigDescription, 0], () => Rule$, () => DataSourceConfig$, () => EvaluatorList, 0, 0], 1
+  [_oECI, _cT, _d, _rul, _dSC, _ev, _in, _cC, _eERA, _eS],
+  [[0, 1], [0, 4], [() => EvaluationConfigDescription, 0], () => Rule$, () => DataSourceConfig$, () => EvaluatorList, () => InsightList, () => ClusteringConfig$, 0, 0], 1
 ];
 export var UpdateOnlineEvaluationConfigResponse$: StaticStructureSchema = [3, n0, _UOECRp,
   0,
@@ -4409,6 +4426,7 @@ var CategoricalScaleDefinitions: StaticListSchema = [1, n0, _CSDa,
 var Certificates: StaticListSchema = [1, n0, _Ce,
   0, () => Certificate$
 ];
+var ClusteringFrequencyList = 64 | 0;
 var CodeInterpreterSummaries: StaticListSchema = [1, n0, _CISo,
   0, [() => CodeInterpreterSummary$,
     0]
@@ -4501,6 +4519,9 @@ var HarnessTools: StaticListSchema = [1, n0, _HTa,
 ];
 var IndexedKeysList: StaticListSchema = [1, n0, _IKL,
   0, () => IndexedKey$
+];
+var InsightList: StaticListSchema = [1, n0, _IL,
+  0, () => Insight$
 ];
 var LogGroupNamesList = 64 | 0;
 var MatchPathPatterns = 64 | 0;

@@ -55,6 +55,7 @@ export interface CreateConfigurationBundleCommandOutput extends CreateConfigurat
  *     name: "STRING_VALUE", // required
  *     arn: "STRING_VALUE",
  *   },
+ *   kmsKeyArn: "STRING_VALUE",
  *   tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },

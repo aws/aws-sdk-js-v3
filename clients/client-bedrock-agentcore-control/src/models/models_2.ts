@@ -16,6 +16,52 @@ import type {
 /**
  * @public
  */
+export interface CreateWorkloadIdentityRequest {
+  /**
+   * <p>The name of the workload identity. The name must be unique within your account.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The list of allowed OAuth2 return URLs for resources associated with this workload identity.</p>
+   * @public
+   */
+  allowedResourceOauth2ReturnUrls?: string[] | undefined;
+
+  /**
+   * <p>A map of tag keys and values to assign to the workload identity. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateWorkloadIdentityResponse {
+  /**
+   * <p>The name of the workload identity.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the workload identity.</p>
+   * @public
+   */
+  workloadIdentityArn: string | undefined;
+
+  /**
+   * <p>The list of allowed OAuth2 return URLs for resources associated with this workload identity.</p>
+   * @public
+   */
+  allowedResourceOauth2ReturnUrls?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteWorkloadIdentityRequest {
   /**
    * <p>The name of the workload identity to delete.</p>

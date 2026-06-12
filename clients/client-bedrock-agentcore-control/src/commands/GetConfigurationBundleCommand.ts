@@ -70,6 +70,7 @@ export interface GetConfigurationBundleCommandOutput extends GetConfigurationBun
  * //   },
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   updatedAt: new Date("TIMESTAMP"), // required
+ * //   kmsKeyArn: "STRING_VALUE",
  * // };
  *
  * ```

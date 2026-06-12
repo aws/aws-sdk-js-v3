@@ -53,6 +53,8 @@ import {
   ClientAuthenticationMethodType,
   CloudWatchLogsInputConfig$,
   CloudWatchOutputConfig$,
+  ClusteringConfig$,
+  ClusteringFrequency,
   Code$,
   CodeBasedEvaluatorConfig$,
   CodeConfiguration$,
@@ -532,6 +534,7 @@ import {
   IndexedKey$,
   InferenceConfiguration$,
   InlineExamplesSource$,
+  Insight$,
   InterceptorConfiguration$,
   InterceptorInputConfiguration$,
   InternalServerException,
@@ -1409,6 +1412,7 @@ assert(typeof CertificateLocation$ === "object");
 assert(typeof ClaimMatchValueType$ === "object");
 assert(typeof CloudWatchLogsInputConfig$ === "object");
 assert(typeof CloudWatchOutputConfig$ === "object");
+assert(typeof ClusteringConfig$ === "object");
 assert(typeof Code$ === "object");
 assert(typeof CodeBasedEvaluatorConfig$ === "object");
 assert(typeof CodeConfiguration$ === "object");
@@ -1685,6 +1689,7 @@ assert(typeof IncludedOauth2ProviderConfigOutput$ === "object");
 assert(typeof IndexedKey$ === "object");
 assert(typeof InferenceConfiguration$ === "object");
 assert(typeof InlineExamplesSource$ === "object");
+assert(typeof Insight$ === "object");
 assert(typeof InterceptorConfiguration$ === "object");
 assert(typeof InterceptorInputConfiguration$ === "object");
 assert(typeof InvocationConfiguration$ === "object");
@@ -2009,6 +2014,7 @@ assert(typeof BrowserProfileStatus === "object");
 assert(typeof BrowserStatus === "object");
 assert(typeof ClaimMatchOperatorType === "object");
 assert(typeof ClientAuthenticationMethodType === "object");
+assert(typeof ClusteringFrequency === "object");
 assert(typeof CodeInterpreterNetworkMode === "object");
 assert(typeof CodeInterpreterStatus === "object");
 assert(typeof ConfigurationBundleStatus === "object");

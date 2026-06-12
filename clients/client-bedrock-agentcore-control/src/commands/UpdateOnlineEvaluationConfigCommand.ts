@@ -78,6 +78,16 @@ export interface UpdateOnlineEvaluationConfigCommandOutput extends UpdateOnlineE
  *       evaluatorId: "STRING_VALUE",
  *     },
  *   ],
+ *   insights: [ // InsightList
+ *     { // Insight
+ *       insightId: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   clusteringConfig: { // ClusteringConfig
+ *     frequencies: [ // ClusteringFrequencyList // required
+ *       "DAILY" || "WEEKLY" || "MONTHLY",
+ *     ],
+ *   },
  *   evaluationExecutionRoleArn: "STRING_VALUE",
  *   executionStatus: "ENABLED" || "DISABLED",
  * };

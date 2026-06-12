@@ -59,6 +59,7 @@ export interface UpdateConfigurationBundleCommandOutput extends UpdateConfigurat
  *     name: "STRING_VALUE", // required
  *     arn: "STRING_VALUE",
  *   },
+ *   kmsKeyArn: "STRING_VALUE",
  * };
  * const command = new UpdateConfigurationBundleCommand(input);
  * const response = await client.send(command);

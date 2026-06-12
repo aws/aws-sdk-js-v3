@@ -79,11 +79,21 @@ export interface GetOnlineEvaluationConfigCommandOutput extends GetOnlineEvaluat
  * //       ],
  * //     },
  * //   },
- * //   evaluators: [ // EvaluatorList // required
+ * //   evaluators: [ // EvaluatorList
  * //     { // EvaluatorReference Union: only one key present
  * //       evaluatorId: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   insights: [ // InsightList
+ * //     { // Insight
+ * //       insightId: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   clusteringConfig: { // ClusteringConfig
+ * //     frequencies: [ // ClusteringFrequencyList // required
+ * //       "DAILY" || "WEEKLY" || "MONTHLY",
+ * //     ],
+ * //   },
  * //   outputConfig: { // OutputConfig
  * //     cloudWatchConfig: { // CloudWatchOutputConfig
  * //       logGroupName: "STRING_VALUE", // required
