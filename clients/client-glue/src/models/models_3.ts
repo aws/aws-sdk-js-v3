@@ -124,7 +124,19 @@ import type {
   TransformParameters,
   UserDefinedFunctionInput,
 } from "./models_1";
-import type { ColumnRowFilter, FederatedTable, SchemaVersionNumber, ViewDefinition, ViewValidation } from "./models_2";
+import type {
+  ColumnRowFilter,
+  FederatedTable,
+  IcebergTableMetadata,
+  SchemaVersionNumber,
+  ViewDefinition,
+  ViewValidation,
+} from "./models_2";
+
+/**
+ * @public
+ */
+export interface UpdateCrawlerScheduleResponse {}
 
 /**
  * @public
@@ -1532,6 +1544,12 @@ export interface Table {
    * @public
    */
   IsMaterializedView?: boolean | undefined;
+
+  /**
+   * <p>The latest Apache Iceberg table metadata for the table, including format version, schemas, partition specifications, and sort orders. This field is populated for Iceberg tables and reflects the current state of the table's Iceberg metadata.</p>
+   * @public
+   */
+  IcebergTableMetadata?: IcebergTableMetadata | undefined;
 
   /**
    * <p>Indicates the the state of an asynchronous change to a table.</p>

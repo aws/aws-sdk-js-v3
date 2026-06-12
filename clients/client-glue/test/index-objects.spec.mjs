@@ -986,6 +986,7 @@ import {
   IcebergSortOrder$,
   IcebergStructField$,
   IcebergStructTypeEnum,
+  IcebergTableMetadata$,
   IcebergTableUpdate$,
   IcebergTarget$,
   IcebergTargetCompressionType,
@@ -2870,6 +2871,7 @@ assert(typeof IcebergSchema$ === "object");
 assert(typeof IcebergSortField$ === "object");
 assert(typeof IcebergSortOrder$ === "object");
 assert(typeof IcebergStructField$ === "object");
+assert(typeof IcebergTableMetadata$ === "object");
 assert(typeof IcebergTableUpdate$ === "object");
 assert(typeof IcebergTarget$ === "object");
 assert(typeof ImportCatalogToGlueRequest$ === "object");

@@ -1990,6 +1990,21 @@ export type StatementState = (typeof StatementState)[keyof typeof StatementState
  * @public
  * @enum
  */
+export const TableAttributes = {
+  DEFAULT: "DEFAULT",
+  LATEST_ICEBERG_METADATA: "LATEST_ICEBERG_METADATA",
+  NAME: "NAME",
+  TABLE_TYPE: "TABLE_TYPE",
+} as const;
+/**
+ * @public
+ */
+export type TableAttributes = (typeof TableAttributes)[keyof typeof TableAttributes];
+
+/**
+ * @public
+ * @enum
+ */
 export const ResourceAction = {
   CREATE: "CREATE",
   UPDATE: "UPDATE",
@@ -2014,19 +2029,6 @@ export const ResourceState = {
  * @public
  */
 export type ResourceState = (typeof ResourceState)[keyof typeof ResourceState];
-
-/**
- * @public
- * @enum
- */
-export const TableAttributes = {
-  NAME: "NAME",
-  TABLE_TYPE: "TABLE_TYPE",
-} as const;
-/**
- * @public
- */
-export type TableAttributes = (typeof TableAttributes)[keyof typeof TableAttributes];
 
 /**
  * @public

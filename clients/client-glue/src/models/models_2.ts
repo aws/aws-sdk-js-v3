@@ -85,6 +85,9 @@ import type {
   DataCatalogEncryptionSettings,
   DataQualityEvaluationRunAdditionalRunOptions,
   EncryptionConfiguration,
+  IcebergPartitionSpec,
+  IcebergSchema,
+  IcebergSortOrder,
   IntegrationConfig,
   IntegrationError,
   JobBookmarkEntry,
@@ -2347,6 +2350,27 @@ export interface GetTableRequest {
    * @public
    */
   IncludeStatusDetails?: boolean | undefined;
+
+  /**
+   * <p>Specifies the table fields returned by the <code>GetTable</code> call. This parameter doesn't accept an empty list.</p>
+   *          <p>The following are the valid combinations of values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DEFAULT</code> - Returns the Hive-style table definition only.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LATEST_ICEBERG_METADATA</code> - Returns only the latest Apache Iceberg table metadata.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DEFAULT</code>, <code>LATEST_ICEBERG_METADATA</code> - Returns both the Hive-style table definition and the latest Apache Iceberg table metadata.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  AttributesToGet?: TableAttributes[] | undefined;
 }
 
 /**
@@ -2377,6 +2401,84 @@ export interface FederatedTable {
    * @public
    */
   ConnectionType?: string | undefined;
+}
+
+/**
+ * <p>The Apache Iceberg table metadata, including format version, table identifier, schemas, partition specifications, sort orders, and table properties. This structure captures the current state of an Iceberg table's metadata as managed by the Glue Data Catalog.</p>
+ * @public
+ */
+export interface IcebergTableMetadata {
+  /**
+   * <p>The Apache Iceberg table format version, such as <code>1</code> or <code>2</code>. Determines the set of features and on-disk layout supported by the table.</p>
+   * @public
+   */
+  FormatVersion?: string | undefined;
+
+  /**
+   * <p>The unique identifier (UUID) for the Iceberg table, assigned when the table is created and used to track the table across metadata updates.</p>
+   * @public
+   */
+  TableUuid?: string | undefined;
+
+  /**
+   * <p>The base S3 location where the Iceberg table's data and metadata files are stored.</p>
+   * @public
+   */
+  Location?: string | undefined;
+
+  /**
+   * <p>A map of key-value pairs that define table-level properties and configuration settings for the Iceberg table.</p>
+   * @public
+   */
+  Properties?: Record<string, string> | undefined;
+
+  /**
+   * <p>The list of schemas that have been associated with the Iceberg table over its history, supporting schema evolution.</p>
+   * @public
+   */
+  Schemas?: IcebergSchema[] | undefined;
+
+  /**
+   * <p>The identifier of the schema that is currently active for the Iceberg table. Matches an entry in <code>Schemas</code>.</p>
+   * @public
+   */
+  CurrentSchemaId?: number | undefined;
+
+  /**
+   * <p>The highest column identifier that has been assigned in the Iceberg table's schema, used to ensure unique IDs as new columns are added.</p>
+   * @public
+   */
+  LastColumnId?: number | undefined;
+
+  /**
+   * <p>The list of partition specifications that have been associated with the Iceberg table over its history, supporting partition evolution.</p>
+   * @public
+   */
+  PartitionSpecs?: IcebergPartitionSpec[] | undefined;
+
+  /**
+   * <p>The identifier of the partition specification that is currently used by default when writing new data to the Iceberg table.</p>
+   * @public
+   */
+  DefaultSpecId?: number | undefined;
+
+  /**
+   * <p>The highest partition field identifier that has been assigned across the table's partition specifications.</p>
+   * @public
+   */
+  LastPartitionId?: number | undefined;
+
+  /**
+   * <p>The list of sort order specifications that have been associated with the Iceberg table over its history.</p>
+   * @public
+   */
+  SortOrders?: IcebergSortOrder[] | undefined;
+
+  /**
+   * <p>The identifier of the sort order that is currently used by default when writing new data to the Iceberg table.</p>
+   * @public
+   */
+  DefaultSortOrderId?: number | undefined;
 }
 
 /**
@@ -8291,8 +8393,3 @@ export interface UpdateCrawlerScheduleRequest {
    */
   Schedule?: string | undefined;
 }
-
-/**
- * @public
- */
-export interface UpdateCrawlerScheduleResponse {}

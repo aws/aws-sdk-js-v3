@@ -390,6 +390,7 @@ const _CSE = "CrawlerStoppingException";
 const _CSEo = "ColumnStatisticsError";
 const _CSEol = "ColumnStatisticsErrors";
 const _CSI = "CreateSchemaInput";
+const _CSIu = "CurrentSchemaId";
 const _CSL = "ColumnStatisticsList";
 const _CSR = "CancelStatementRequest";
 const _CSRa = "CancelStatementResponse";
@@ -674,8 +675,10 @@ const _DSCP = "DirectSchemaChangePolicy";
 const _DSCR = "DeleteSecurityConfigurationRequest";
 const _DSCRe = "DeleteSecurityConfigurationResponse";
 const _DSI = "DeleteSchemaInput";
-const _DSIe = "DescribeShardInterval";
+const _DSIe = "DefaultSpecId";
+const _DSIes = "DescribeShardInterval";
 const _DSM = "DataSourceMap";
+const _DSOI = "DefaultSortOrderId";
 const _DSP = "DynamodbS3Prefix";
 const _DSR = "DeleteSchemaResponse";
 const _DSRA = "DynamodbStsRoleArn";
@@ -843,6 +846,7 @@ const _FTu = "FunctionType";
 const _FV = "FieldValue";
 const _FVi = "FilterValue";
 const _FVil = "FilterValues";
+const _FVo = "FormatVersion";
 const _F_ = "F1";
 const _Fi = "Filter";
 const _Fie = "Fields";
@@ -1190,7 +1194,8 @@ const _IPK = "IsPrimaryKey";
 const _IPME = "IdempotentParameterMismatchException";
 const _IPS = "IncludeParameterSpec";
 const _IPSFL = "IcebergPartitionSpecFieldList";
-const _IPSL = "IntegrationPartitionSpecList";
+const _IPSL = "IcebergPartitionSpecList";
+const _IPSLn = "IntegrationPartitionSpecList";
 const _IPSc = "IcebergPartitionSpec";
 const _IPm = "ImputedPath";
 const _IPn = "IntegrationPartition";
@@ -1215,8 +1220,10 @@ const _ISEnv = "InvalidStateException";
 const _ISF = "IcebergSortField";
 const _ISFL = "IcebergStructFieldList";
 const _ISFc = "IcebergStructField";
+const _ISL = "IcebergSchemaList";
 const _ISO = "IcebergSortOrder";
 const _ISOFL = "IcebergSortOrderFieldList";
+const _ISOL = "IcebergSortOrderList";
 const _ISP = "InputS3Path";
 const _ISSE = "IllegalSessionStateException";
 const _ISc = "IcebergSchema";
@@ -1226,6 +1233,7 @@ const _IT = "ImportTime";
 const _ITBRIM = "IdleTimeBetweenReadsInMs";
 const _ITL = "IcebergTargetList";
 const _ITLn = "IntegrationTagsList";
+const _ITM = "IcebergTableMetadata";
 const _ITU = "IcebergTableUpdate";
 const _ITUL = "IcebergTableUpdateList";
 const _ITc = "IcebergTargets";
@@ -1309,8 +1317,9 @@ const _LC = "LineageConfiguration";
 const _LCET = "ListCustomEntityTypes";
 const _LCETR = "ListCustomEntityTypesRequest";
 const _LCETRi = "ListCustomEntityTypesResponse";
-const _LCI = "LastCrawlInfo";
-const _LCIa = "LastCommitId";
+const _LCI = "LastColumnId";
+const _LCIa = "LastCrawlInfo";
+const _LCIas = "LastCommitId";
 const _LCR = "ListCrawlersRequest";
 const _LCRi = "ListCrawlersResponse";
 const _LCRis = "ListCrawlsRequest";
@@ -1375,6 +1384,7 @@ const _LMVRTRRi = "ListMaterializedViewRefreshTaskRunsResponse";
 const _LN = "LineNumber";
 const _LO = "LogicalOperator";
 const _LP = "LimitParameter";
+const _LPI = "LastPartitionId";
 const _LPL = "LimitedPathList";
 const _LR = "LastRun";
 const _LRI = "ListRegistriesInput";
@@ -1649,6 +1659,7 @@ const _PSVM = "PutSchemaVersionMetadata";
 const _PSVMI = "PutSchemaVersionMetadataInput";
 const _PSVMR = "PutSchemaVersionMetadataResponse";
 const _PSa = "PartitionSpec";
+const _PSar = "PartitionSpecs";
 const _PSy = "PythonScript";
 const _PT = "PropertyType";
 const _PTD = "PartitionsToDelete";
@@ -1998,7 +2009,8 @@ const _SO = "StartedOn";
 const _SOC = "StartOnCreation";
 const _SOD = "StatementOutputData";
 const _SOVI = "SubObjectVersionIds";
-const _SOo = "SortOrder";
+const _SOo = "SortOrders";
+const _SOor = "SortOrder";
 const _SOt = "StreamingOptions";
 const _SOta = "StartingOffsets";
 const _SOtat = "StatementOutput";
@@ -2193,6 +2205,7 @@ const _TU = "TokenUrl";
 const _TUP = "TokenUrlParameters";
 const _TUPM = "TokenUrlParametersMap";
 const _TUa = "TablesUpdated";
+const _TUab = "TableUuid";
 const _TUr = "TriggerUpdate";
 const _TV = "TableVersion";
 const _TVE = "TableVersionError";
@@ -5259,8 +5272,8 @@ export var GetTableOptimizerResponse$: StaticStructureSchema = [3, n0, _GTORe,
 ];
 export var GetTableRequest$: StaticStructureSchema = [3, n0, _GTR,
   0,
-  [_DN, _N, _CI, _TI, _QAOT, _ACu, _ISD],
-  [0, 0, 0, 0, 4, () => AuditContext$, 2], 2
+  [_DN, _N, _CI, _TI, _QAOT, _ACu, _ISD, _ATG],
+  [0, 0, 0, 0, 4, () => AuditContext$, 2, 64 | 0], 2
 ];
 export var GetTableResponse$: StaticStructureSchema = [3, n0, _GTRe,
   0,
@@ -5552,9 +5565,14 @@ export var IcebergStructField$: StaticStructureSchema = [3, n0, _ISFc,
   [_Id, _N, _Ty, _Req, _Do, _ID, _WD],
   [1, 0, 15, 2, 0, 15, 15], 4
 ];
+export var IcebergTableMetadata$: StaticStructureSchema = [3, n0, _ITM,
+  0,
+  [_FVo, _TUab, _L, _Pro, _Sche, _CSIu, _LCI, _PSar, _DSIe, _LPI, _SOo, _DSOI],
+  [0, 0, 0, 128 | 0, () => IcebergSchemaList, 1, 1, () => IcebergPartitionSpecList, 1, 1, () => IcebergSortOrderList, 1]
+];
 export var IcebergTableUpdate$: StaticStructureSchema = [3, n0, _ITU,
   0,
-  [_S, _L, _PSa, _SOo, _Pro, _A, _EK, _KI],
+  [_S, _L, _PSa, _SOor, _Pro, _A, _EK, _KI],
   [() => IcebergSchema$, 0, () => IcebergPartitionSpec$, () => IcebergSortOrder$, 128 | 0, 0, () => IcebergEncryptedKey$, 0], 2
 ];
 export var IcebergTarget$: StaticStructureSchema = [3, n0, _ITce,
@@ -5704,7 +5722,7 @@ export var KeySchemaElement$: StaticStructureSchema = [3, n0, _KSE,
 ];
 export var KinesisStreamingSourceOptions$: StaticStructureSchema = [3, n0, _KSSOi,
   0,
-  [_EU, _SNt, _Clas, _De, _SPt, _MFTIM, _MFRPS, _MRPR, _AITBR, _ITBRIM, _DSIe, _NR, _RIM, _MRIM, _AEB, _SAtr, _RA, _RSN, _ARTd, _ECLM, _STtar, _FCARN],
+  [_EU, _SNt, _Clas, _De, _SPt, _MFTIM, _MFRPS, _MRPR, _AITBR, _ITBRIM, _DSIes, _NR, _RIM, _MRIM, _AEB, _SAtr, _RA, _RSN, _ARTd, _ECLM, _STtar, _FCARN],
   [0, 0, 0, 0, 0, 1, 1, 1, 2, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 5, 0]
 ];
 export var LabelingSetGenerationTaskRunProperties$: StaticStructureSchema = [3, n0, _LSGTRP,
@@ -5722,7 +5740,7 @@ export var LastActiveDefinition$: StaticStructureSchema = [3, n0, _LAD,
   [_D, _LMO, _PS, _BL, _BSL],
   [0, 4, 0, 0, 0]
 ];
-export var LastCrawlInfo$: StaticStructureSchema = [3, n0, _LCI,
+export var LastCrawlInfo$: StaticStructureSchema = [3, n0, _LCIa,
   0,
   [_St, _EM, _LG, _LS, _MP, _STta],
   [0, 0, 0, 0, 0, 4]
@@ -6159,7 +6177,7 @@ export var OracleSQLCatalogTarget$: StaticStructureSchema = [3, n0, _OSQLCT,
 ];
 export var Order$: StaticStructureSchema = [3, n0, _Or,
   0,
-  [_C, _SOo],
+  [_C, _SOor],
   [0, 1], 2
 ];
 export var OrphanFileDeletionConfiguration$: StaticStructureSchema = [3, n0, _OFDC,
@@ -6734,7 +6752,7 @@ export var SourceConfiguration$: StaticStructureSchema = [3, n0, _SCo,
 ];
 export var SourceControlDetails$: StaticStructureSchema = [3, n0, _SCD,
   0,
-  [_Prov, _Repo, _Ow, _Br, _Fol, _LCIa, _AS, _ATuth],
+  [_Prov, _Repo, _Ow, _Br, _Fol, _LCIas, _AS, _ATuth],
   [0, 0, 0, 0, 0, 0, 0, 0]
 ];
 export var SourceProcessingProperties$: StaticStructureSchema = [3, n0, _SPP,
@@ -7069,8 +7087,8 @@ export var SupportedDialect$: StaticStructureSchema = [3, n0, _SDu,
 ];
 export var Table$: StaticStructureSchema = [3, n0, _Ta,
   0,
-  [_N, _DN, _D, _Ow, _CTr, _UT, _LAT, _LATa, _Ret, _SDto, _PK, _VOT, _VET, _TTab, _Par, _CBr, _IRWLF, _TT, _CI, _VIe, _FT, _VD, _IMDV, _IMV, _St],
-  [0, 0, 0, 0, 4, 4, 4, 4, 1, () => StorageDescriptor$, () => ColumnList, 0, 0, 0, 128 | 0, 0, 2, () => TableIdentifier$, 0, 0, () => FederatedTable$, () => ViewDefinition$, 2, 2, () => TableStatus$], 1
+  [_N, _DN, _D, _Ow, _CTr, _UT, _LAT, _LATa, _Ret, _SDto, _PK, _VOT, _VET, _TTab, _Par, _CBr, _IRWLF, _TT, _CI, _VIe, _FT, _VD, _IMDV, _IMV, _ITM, _St],
+  [0, 0, 0, 0, 4, 4, 4, 4, 1, () => StorageDescriptor$, () => ColumnList, 0, 0, 0, 128 | 0, 0, 2, () => TableIdentifier$, 0, 0, () => FederatedTable$, () => ViewDefinition$, 2, 2, () => IcebergTableMetadata$, () => TableStatus$], 1
 ];
 export var TableError$: StaticStructureSchema = [3, n0, _TEa,
   0,
@@ -7888,8 +7906,17 @@ var HudiTargetList: StaticListSchema = [1, n0, _HTL,
 var IcebergPartitionSpecFieldList: StaticListSchema = [1, n0, _IPSFL,
   0, () => IcebergPartitionField$
 ];
+var IcebergPartitionSpecList: StaticListSchema = [1, n0, _IPSL,
+  0, () => IcebergPartitionSpec$
+];
+var IcebergSchemaList: StaticListSchema = [1, n0, _ISL,
+  0, () => IcebergSchema$
+];
 var IcebergSortOrderFieldList: StaticListSchema = [1, n0, _ISOFL,
   0, () => IcebergSortField$
+];
+var IcebergSortOrderList: StaticListSchema = [1, n0, _ISOL,
+  0, () => IcebergSortOrder$
 ];
 var IcebergStructFieldList: StaticListSchema = [1, n0, _ISFL,
   0, () => IcebergStructField$
@@ -7915,7 +7942,7 @@ var IntegrationFilterList: StaticListSchema = [1, n0, _IFL,
   0, () => IntegrationFilter$
 ];
 var IntegrationFilterValues = 64 | 0;
-var IntegrationPartitionSpecList: StaticListSchema = [1, n0, _IPSL,
+var IntegrationPartitionSpecList: StaticListSchema = [1, n0, _IPSLn,
   0, () => IntegrationPartition$
 ];
 var IntegrationResourcePropertyFilterList: StaticListSchema = [1, n0, _IRPFL,

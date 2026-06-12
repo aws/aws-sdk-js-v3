@@ -197,6 +197,65 @@ export interface GetUnfilteredTableMetadataCommandOutput extends GetUnfilteredTa
  * //     },
  * //     IsMultiDialectView: true || false,
  * //     IsMaterializedView: true || false,
+ * //     IcebergTableMetadata: { // IcebergTableMetadata
+ * //       FormatVersion: "STRING_VALUE",
+ * //       TableUuid: "STRING_VALUE",
+ * //       Location: "STRING_VALUE",
+ * //       Properties: { // StringToStringMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       Schemas: [ // IcebergSchemaList
+ * //         { // IcebergSchema
+ * //           SchemaId: Number("int"),
+ * //           IdentifierFieldIds: [ // IntegerList
+ * //             Number("int"),
+ * //           ],
+ * //           Type: "struct",
+ * //           Fields: [ // IcebergStructFieldList // required
+ * //             { // IcebergStructField
+ * //               Id: Number("int"), // required
+ * //               Name: "STRING_VALUE", // required
+ * //               Type: "DOCUMENT_VALUE", // required
+ * //               Required: true || false, // required
+ * //               Doc: "STRING_VALUE",
+ * //               InitialDefault: "DOCUMENT_VALUE",
+ * //               WriteDefault: "DOCUMENT_VALUE",
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //       CurrentSchemaId: Number("int"),
+ * //       LastColumnId: Number("int"),
+ * //       PartitionSpecs: [ // IcebergPartitionSpecList
+ * //         { // IcebergPartitionSpec
+ * //           Fields: [ // IcebergPartitionSpecFieldList // required
+ * //             { // IcebergPartitionField
+ * //               SourceId: Number("int"), // required
+ * //               Transform: "STRING_VALUE", // required
+ * //               Name: "STRING_VALUE", // required
+ * //               FieldId: Number("int"),
+ * //             },
+ * //           ],
+ * //           SpecId: Number("int"),
+ * //         },
+ * //       ],
+ * //       DefaultSpecId: Number("int"),
+ * //       LastPartitionId: Number("int"),
+ * //       SortOrders: [ // IcebergSortOrderList
+ * //         { // IcebergSortOrder
+ * //           OrderId: Number("int"), // required
+ * //           Fields: [ // IcebergSortOrderFieldList // required
+ * //             { // IcebergSortField
+ * //               SourceId: Number("int"), // required
+ * //               Transform: "STRING_VALUE", // required
+ * //               Direction: "asc" || "desc", // required
+ * //               NullOrder: "nulls-first" || "nulls-last", // required
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //       DefaultSortOrderId: Number("int"),
+ * //     },
  * //     Status: { // TableStatus
  * //       RequestedBy: "STRING_VALUE",
  * //       UpdatedBy: "STRING_VALUE",
@@ -309,6 +368,65 @@ export interface GetUnfilteredTableMetadataCommandOutput extends GetUnfilteredTa
  * //           },
  * //           IsMultiDialectView: true || false,
  * //           IsMaterializedView: true || false,
+ * //           IcebergTableMetadata: {
+ * //             FormatVersion: "STRING_VALUE",
+ * //             TableUuid: "STRING_VALUE",
+ * //             Location: "STRING_VALUE",
+ * //             Properties: {
+ * //               "<keys>": "STRING_VALUE",
+ * //             },
+ * //             Schemas: [
+ * //               {
+ * //                 SchemaId: Number("int"),
+ * //                 IdentifierFieldIds: [
+ * //                   Number("int"),
+ * //                 ],
+ * //                 Type: "struct",
+ * //                 Fields: [ // required
+ * //                   {
+ * //                     Id: Number("int"), // required
+ * //                     Name: "STRING_VALUE", // required
+ * //                     Type: "DOCUMENT_VALUE", // required
+ * //                     Required: true || false, // required
+ * //                     Doc: "STRING_VALUE",
+ * //                     InitialDefault: "DOCUMENT_VALUE",
+ * //                     WriteDefault: "DOCUMENT_VALUE",
+ * //                   },
+ * //                 ],
+ * //               },
+ * //             ],
+ * //             CurrentSchemaId: Number("int"),
+ * //             LastColumnId: Number("int"),
+ * //             PartitionSpecs: [
+ * //               {
+ * //                 Fields: [ // required
+ * //                   {
+ * //                     SourceId: Number("int"), // required
+ * //                     Transform: "STRING_VALUE", // required
+ * //                     Name: "STRING_VALUE", // required
+ * //                     FieldId: Number("int"),
+ * //                   },
+ * //                 ],
+ * //                 SpecId: Number("int"),
+ * //               },
+ * //             ],
+ * //             DefaultSpecId: Number("int"),
+ * //             LastPartitionId: Number("int"),
+ * //             SortOrders: [
+ * //               {
+ * //                 OrderId: Number("int"), // required
+ * //                 Fields: [ // required
+ * //                   {
+ * //                     SourceId: Number("int"), // required
+ * //                     Transform: "STRING_VALUE", // required
+ * //                     Direction: "asc" || "desc", // required
+ * //                     NullOrder: "nulls-first" || "nulls-last", // required
+ * //                   },
+ * //                 ],
+ * //               },
+ * //             ],
+ * //             DefaultSortOrderId: Number("int"),
+ * //           },
  * //           Status: {
  * //             RequestedBy: "STRING_VALUE",
  * //             UpdatedBy: "STRING_VALUE",

@@ -1488,6 +1488,7 @@ export type {
   IcebergSortField,
   IcebergSortOrder,
   IcebergStructField,
+  IcebergTableMetadata,
   IcebergTableUpdate,
   IcebergTarget,
   ImportCatalogToGlueRequest,
