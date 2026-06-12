@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-bedrock-runtime",
   "description": "AWS SDK for JavaScript Bedrock Runtime Client for Node.js, Browser and React Native",
-  "version": "3.1067.0",
+  "version": "3.1068.0",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline",
@@ -34,7 +34,7 @@
     "@aws-sdk/eventstream-handler-node": "workspace:^3.972.21",
     "@aws-sdk/middleware-eventstream": "workspace:^3.972.17",
     "@aws-sdk/middleware-websocket": "workspace:^3.972.28",
-    "@aws-sdk/token-providers": "workspace:3.1067.0",
+    "@aws-sdk/token-providers": "workspace:3.1068.0",
     "@aws-sdk/types": "workspace:^3.973.12",
     "@smithy/core": "^3.24.6",
     "@smithy/fetch-http-handler": "^5.4.6",

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1068.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1067.0...v3.1068.0) (2026-06-12)
+
+
+### Features
+
+* **client-sagemaker-runtime:** Added support for inline request payloads to the InvokeEndpointAsync operation to allow users to provide the inference payload directly in the request Body (up to 128,000 bytes) as an alternative to uploading the payload to Amazon S3 and passing InputLocation. ([c4e229d](https://github.com/aws/aws-sdk-js-v3/commit/c4e229ddd3e868a668e2e97458c2330d767fa369))
+
+
+
+
+
 # [3.1067.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1066.0...v3.1067.0) (2026-06-11)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker-runtime

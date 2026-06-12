@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1068.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1067.0...v3.1068.0) (2026-06-12)
+
+
+### Features
+
+* **client-acm:** Certificate transparency logging opt-out is no longer available. Per compliance requirements, all public ACM certificates are automatically recorded in certificate transparency logs. The CertificateTransparencyLoggingPreference option is deprecated. ([ca60b0f](https://github.com/aws/aws-sdk-js-v3/commit/ca60b0f934de6000d65c60d217217cd179949e60))
+
+
+
+
+
 # [3.1067.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1066.0...v3.1067.0) (2026-06-11)
 
 **Note:** Version bump only for package @aws-sdk/client-acm

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1068.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1067.0...v3.1068.0) (2026-06-12)
+
+
+### Features
+
+* **client-bedrock-agentcore:** Added tagging and CMK support across optimization, an explanation field in recommendation output, and an insights feature to identify failure patterns, extract user intents, and summarize execution behavior ([1c06496](https://github.com/aws/aws-sdk-js-v3/commit/1c06496ff0a14ee1a5a5862de03d70cd149fe6f6))
+
+
+
+
+
 # [3.1067.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1066.0...v3.1067.0) (2026-06-11)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agentcore

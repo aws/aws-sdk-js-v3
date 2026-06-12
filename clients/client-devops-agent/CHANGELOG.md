@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1068.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1067.0...v3.1068.0) (2026-06-12)
+
+
+### Features
+
+* **client-devops-agent:** Adds support for Trigger CRUD APIs (CreateTrigger, GetTrigger, UpdateTrigger, DeleteTrigger, ListTriggers) for managing schedule-based automation triggers in DevOps Agent agent spaces. ([7139cf1](https://github.com/aws/aws-sdk-js-v3/commit/7139cf1ecc18c1497ad029bb6073ef8c39bd7fb3))
+
+
+
+
+
 # [3.1067.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1066.0...v3.1067.0) (2026-06-11)
 
 **Note:** Version bump only for package @aws-sdk/client-devops-agent

@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1068.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1067.0...v3.1068.0) (2026-06-12)
+
+
+### Features
+
+* **client-acm:** Certificate transparency logging opt-out is no longer available. Per compliance requirements, all public ACM certificates are automatically recorded in certificate transparency logs. The CertificateTransparencyLoggingPreference option is deprecated. ([ca60b0f](https://github.com/aws/aws-sdk-js-v3/commit/ca60b0f934de6000d65c60d217217cd179949e60))
+* **client-bedrock-agentcore-control:** Added tagging and CMK support for optimizations and an insights feature to identify failure patterns, extract user intents, and summarize execution behavior ([571ac1e](https://github.com/aws/aws-sdk-js-v3/commit/571ac1e7ab21fed49d403db02046705f55226622))
+* **client-bedrock-agentcore:** Added tagging and CMK support across optimization, an explanation field in recommendation output, and an insights feature to identify failure patterns, extract user intents, and summarize execution behavior ([1c06496](https://github.com/aws/aws-sdk-js-v3/commit/1c06496ff0a14ee1a5a5862de03d70cd149fe6f6))
+* **client-devops-agent:** Adds support for Trigger CRUD APIs (CreateTrigger, GetTrigger, UpdateTrigger, DeleteTrigger, ListTriggers) for managing schedule-based automation triggers in DevOps Agent agent spaces. ([7139cf1](https://github.com/aws/aws-sdk-js-v3/commit/7139cf1ecc18c1497ad029bb6073ef8c39bd7fb3))
+* **client-eks:** Patches missing enum values for EKS updates ([c2df34d](https://github.com/aws/aws-sdk-js-v3/commit/c2df34dc67e001dbe5eb49b77a567f65136202d3))
+* **client-firehose:** Update KeyARN in DeliveryStreamEncryptionConfigurationInput to accept KMS key ARNs only (not alias ARNs), matching service behavior. ([80837cd](https://github.com/aws/aws-sdk-js-v3/commit/80837cd31669d8be732a9e2b9bf2b13808099242))
+* **client-glue:** Adds support for retrieving Apache Iceberg table metadata via GetTable. Use the new AttributesToGet parameter with LATEST ICEBERG METADATA to receive schema, partition specs, sort orders, and table properties in the response. ([f45445f](https://github.com/aws/aws-sdk-js-v3/commit/f45445f9f2218542a4800a1f0b65b506ccbde2b8))
+* **client-sagemaker-runtime:** Added support for inline request payloads to the InvokeEndpointAsync operation to allow users to provide the inference payload directly in the request Body (up to 128,000 bytes) as an alternative to uploading the payload to Amazon S3 and passing InputLocation. ([c4e229d](https://github.com/aws/aws-sdk-js-v3/commit/c4e229ddd3e868a668e2e97458c2330d767fa369))
+* **clients:** update client endpoints as of 2026-06-12 ([3f89d03](https://github.com/aws/aws-sdk-js-v3/commit/3f89d039a6e67ad96c3c7c4593d2906d2b2b6abd))
+
+
+
+
+
 # [3.1067.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1066.0...v3.1067.0) (2026-06-11)
 
 
