@@ -27,7 +27,7 @@ export interface UpdateCertificateOptionsCommandInput extends UpdateCertificateO
 export interface UpdateCertificateOptionsCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Updates a certificate. You can use this function to specify whether to opt in to or out of recording your certificate in a certificate transparency log and exporting. For more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-bestpractices.html#best-practices-transparency"> Opting Out of Certificate Transparency Logging</a> and <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-exportable-certificates.html">Certificate Manager Exportable Managed Certificates</a>.</p>
+ * <p>Updates a certificate. You can use this function to specify whether to export your certificate. Certificate transparency logging opt-out is no longer available. For more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency">Certificate Transparency Logging</a> and <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-exportable-certificates.html">Certificate Manager Exportable Managed Certificates</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
