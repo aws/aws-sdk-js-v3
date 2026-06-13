@@ -58,6 +58,7 @@ export class Upload extends EventEmitter {
   private readonly partSize: number;
   private readonly leavePartsOnError: boolean = false;
   private readonly tags: Tag[] = [];
+  private readonly completeMultipartUploadTimeout?: number;
 
   private readonly client: S3Client;
   private readonly params: PutObjectCommandInput &
@@ -107,6 +108,7 @@ export class Upload extends EventEmitter {
     this.totalBytesSource = byteLengthSource(this.params.Body, this.params.ContentLength);
     this.bytesUploadedSoFar = 0;
     this.abortController = options.abortController ?? new AbortController();
+    this.completeMultipartUploadTimeout = options.completeMultipartUploadTimeout;
 
     this.partSize =
       options.partSize || Math.max(Upload.MIN_PART_SIZE, Math.ceil((this.totalBytes || 0) / this.MAX_PARTS));
@@ -408,7 +410,28 @@ to input.params.ContentLength in bytes.
           Parts: this.uploadedParts,
         },
       };
-      result = await this.client.send(new CompleteMultipartUploadCommand(uploadCompleteParams));
+      const sendComplete = this.client.send(new CompleteMultipartUploadCommand(uploadCompleteParams));
+      if (this.completeMultipartUploadTimeout !== undefined) {
+        const timeoutMs = this.completeMultipartUploadTimeout;
+        let timeoutHandle: ReturnType<typeof setTimeout>;
+        const timeoutPromise = new Promise<never>((_, reject) => {
+          timeoutHandle = setTimeout(() => {
+            const err = new Error(
+              `CompleteMultipartUpload timed out after ${timeoutMs}ms. ` +
+                "The TCP connection may have been silently dropped by a network intermediary."
+            );
+            err.name = "TimeoutError";
+            reject(err);
+          }, timeoutMs);
+        });
+        try {
+          result = await Promise.race([sendComplete, timeoutPromise]);
+        } finally {
+          clearTimeout(timeoutHandle!);
+        }
+      } else {
+        result = await sendComplete;
+      }
       if (typeof result?.Location === "string" && result.Location.includes("%2F")) {
         result.Location = result.Location.replace(/%2F/g, "/");
       }
