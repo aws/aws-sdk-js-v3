@@ -3,7 +3,6 @@
   "compilerOptions": {
     "baseUrl": ".",
     "downlevelIteration": true,
-    "incremental": true,
     "importHelpers": true,
     "module": "nodenext",
     "moduleResolution": "nodenext",

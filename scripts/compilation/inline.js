@@ -53,10 +53,10 @@ if (process.argv.includes("--setup")) {
   (async () => {
     const inliner = new Inliner(_package);
     await inliner.clean();
-    await inliner.tsc();
     await inliner.discoverVariants();
     await inliner.bundle();
-    await inliner.rewriteStubs();
+    await inliner.transformVariants();
+    await inliner.deleteUnreachableFiles();
     await inliner.fixVariantImportPaths();
     await inliner.validate();
   })();

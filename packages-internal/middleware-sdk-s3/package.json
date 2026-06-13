@@ -2,15 +2,16 @@
   "name": "@aws-sdk/middleware-sdk-s3",
   "version": "3.972.51",
   "scripts": {
-    "build": "yarn lint && concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
+    "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline",
-    "build:es": "tsc -p tsconfig.es.json",
+    "build:es": "premove dist-es && tsc -p tsconfig.es.json",
     "build:include:deps": "yarn g:turbo run build -F=\"$npm_package_name\"",
-    "build:types": "tsc -p tsconfig.types.json",
+    "build:types": "premove dist-types && tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
-    "clean": "premove dist-cjs dist-es dist-types tsconfig.cjs.tsbuildinfo tsconfig.es.tsbuildinfo tsconfig.types.tsbuildinfo",
+    "clean": "premove dist-cjs dist-es dist-types",
     "extract:docs": "api-extractor run --local",
     "lint": "node ../../scripts/validation/submodules-linter.js",
+    "prebuild": "yarn lint",
     "test": "yarn g:vitest run",
     "test:watch": "yarn g:vitest watch",
     "test:integration": "yarn g:vitest run -c vitest.config.integ.mts && yarn test:types",
@@ -98,14 +99,11 @@
     "dist-*/**"
   ],
   "browser": {
-    "./dist-es/index": "./dist-es/index.browser",
     "./dist-es/submodules/s3/index": "./dist-es/submodules/s3/index.browser",
     "./dist-es/submodules/s3/index.js": "./dist-es/submodules/s3/index.browser.js",
     "./dist-es/submodules/s3/to-stream/toStream": "./dist-es/submodules/s3/to-stream/toStream.browser"
   },
   "react-native": {
-    "./dist-es/index": "./dist-es/index.browser",
-    "./dist-cjs/index": "./dist-cjs/index.browser",
     "./dist-es/submodules/s3/index": "./dist-es/submodules/s3/index.browser",
     "./dist-cjs/submodules/s3/index": "./dist-cjs/submodules/s3/index.browser",
     "./dist-es/submodules/s3/to-stream/toStream": "./dist-es/submodules/s3/to-stream/toStream.browser",

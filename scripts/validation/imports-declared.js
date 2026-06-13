@@ -35,6 +35,7 @@ async function validateDist(packageDir, pkgJson, distName) {
     ...Object.keys(pkgJson.peerDependencies || {}),
   ]);
 
+  const useRequireResolve = distName === "dist-cjs";
   const errors = [];
   for await (const file of walk(distDir, ["node_modules"])) {
     if (!file.endsWith(".js")) {
@@ -57,6 +58,12 @@ async function validateDist(packageDir, pkgJson, distName) {
       }
       if (!declared.has(pkg)) {
         errors.push(`${pkg} imported but not declared in ${pkgJson.name} (${path.relative(packageDir, file)})`);
+      } else if (useRequireResolve) {
+        try {
+          require.resolve(specifier, { paths: [path.dirname(file)] });
+        } catch {
+          errors.push(`${specifier} does not resolve in ${pkgJson.name} (${path.relative(packageDir, file)})`);
+        }
       }
     }
   }

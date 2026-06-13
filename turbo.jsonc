@@ -3,30 +3,41 @@
   "remoteCache": {
     "signature": true
   },
+  "globalDependencies": [
+    "turbo.jsonc",
+    "tsconfig.json",
+    "tsconfig.cjs.json",
+    "tsconfig.es.json",
+    "tsconfig.types.json",
+    "scripts/compilation/**"
+  ],
   "tasks": {
+    "prebuild": {},
     "build": {
       "outputs": ["dist-types/**", "dist-cjs/**", "dist-es/**"],
-      "dependsOn": ["^build"]
+      "dependsOn": ["prebuild", "^build"]
     },
     "build:cjs": {
       "outputs": ["dist-cjs/**"],
-      "dependsOn": ["^build:types", "build:es"]
+      "dependsOn": ["build:es"]
     },
     "build:docs": {
       "outputs": ["dist-cjs/**"],
       "dependsOn": ["build:types", "^build:types"]
     },
     "build:es": {
+      // ^build:types is critical: without upstream .d.ts files, tsc cannot
+      // distinguish type-only re-exports from values, causing undefined exports.
       "outputs": ["dist-es/**"],
-      "dependsOn": ["build:types", "^build:types"]
+      "dependsOn": ["prebuild", "^build:types"]
     },
     "build:include:deps": {
       "outputs": ["dist-types/**", "dist-cjs/**", "dist-es/**"],
-      "dependsOn": ["^build", "build"]
+      "dependsOn": ["^build:types", "^build:es", "^build:cjs", "build:types", "build:es", "build:cjs"]
     },
     "build:types": {
       "outputs": ["dist-types/**"],
-      "dependsOn": ["^build:types"]
+      "dependsOn": ["prebuild", "^build:types"]
     },
     "build:types:downlevel": {
       "outputs": ["dist-types/ts3.4/**"],
@@ -34,10 +45,6 @@
     },
     "clean": {
       "cache": false
-    },
-    "generate:client": {
-      "outputs": ["src/**", "package.json", "README.md"],
-      "inputs": []
     },
     "test": {
       "cache": false

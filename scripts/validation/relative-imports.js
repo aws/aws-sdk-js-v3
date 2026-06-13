@@ -24,6 +24,7 @@ async function validateDist(packageDir, pkgJson, distName) {
     return [];
   }
 
+  const useRequireResolve = distName === "dist-cjs";
   const errors = [];
   for await (const file of walk(distDir, ["node_modules"])) {
     if (!file.endsWith(".js")) {
@@ -34,7 +35,13 @@ async function validateDist(packageDir, pkgJson, distName) {
       if (!specifier.startsWith(".")) {
         continue;
       }
-      if (!resolveRelative(file, specifier)) {
+      if (useRequireResolve) {
+        try {
+          require.resolve(specifier, { paths: [path.dirname(file)] });
+        } catch {
+          errors.push(`[${pkgJson.name}/${distName}] ${specifier} not found (from ${path.relative(packageDir, file)})`);
+        }
+      } else if (!resolveRelative(file, specifier)) {
         errors.push(`[${pkgJson.name}/${distName}] ${specifier} not found (from ${path.relative(packageDir, file)})`);
       }
     }

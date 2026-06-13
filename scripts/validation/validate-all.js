@@ -29,6 +29,7 @@ const VALIDATIONS = [
     script: "static-import-names.js",
   },
   { name: "banned-imports", label: "no banned imports in dist output", script: "banned-imports.js" },
+  { name: "export-names", label: "export function names match their keys", script: "export-names.js" },
   { name: "cycles", label: "no cyclical file or package dependencies", script: "cycles.js" },
   { name: "eslint", label: "eslint passes on source", script: "eslint.js" },
 ];

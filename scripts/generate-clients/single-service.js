@@ -1,14 +1,16 @@
 const yargs = require("yargs");
-const { normalize, join } = require("node:path");
+const { normalize, join, basename } = require("node:path");
 const { generateClient } = require("./code-gen");
 const { copyToClients } = require("./copy-to-clients");
 
 const SDK_CLIENTS_DIR = normalize(join(__dirname, "..", "..", "clients"));
 
-const { solo } = yargs(process.argv.slice(2))
+const { solo: soloArg } = yargs(process.argv.slice(2))
   .string("solo")
-  .describe("solo", "The service name of the service to codegen")
+  .describe("solo", "The service name of the service to codegen (defaults to caller directory name)")
   .help().argv;
+
+const solo = soloArg || basename(process.cwd()).replace(/^client-/, "");
 
 (async () => {
   try {

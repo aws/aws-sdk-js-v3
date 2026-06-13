@@ -46,7 +46,24 @@ const defaultVersions = import("../update-versions/getDepToDefaultVersionHash.mj
 const mergeManifest = async (fromContent = {}, toContent = {}, parentKey = "root") => {
   const merged = {};
   for (const name of Object.keys(fromContent)) {
-    if (fromContent[name].constructor.name === "Object") {
+    if (name === "scripts") {
+      // build CJS after types and ES because of rollup inliner.
+      fromContent[name]["build"] = `concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs`;
+      fromContent[name]["build:cjs"] = `node ../../scripts/compilation/inline`;
+      fromContent[name]["build:es"] = `premove dist-es && tsc -p tsconfig.es.json`;
+      fromContent[name]["build:types"] = `premove dist-types && tsc -p tsconfig.types.json`;
+      fromContent[name]["build:include:deps"] = `yarn g:turbo run build -F="$npm_package_name"`;
+      fromContent[name]["clean"] = "premove dist-cjs dist-es dist-types";
+
+      for (const [k, v] of Object.entries(fromContent[name])) {
+        if (k === "test" || k.startsWith("test:")) {
+          fromContent[name][k] = v.replace(/yarn dlx vitest/g, "yarn g:vitest");
+        }
+      }
+
+      // Preserve scripts from existing package.json that codegen doesn't generate.
+      merged[name] = { ...(toContent[name] || {}), ...fromContent[name] };
+    } else if (fromContent[name].constructor.name === "Object") {
       if (name === "devDependencies") {
         // Use same versions of devDependencies across all workspaces.
         // After moving to yarn modern, we'll use constraints feature to enforce
@@ -67,32 +84,12 @@ const mergeManifest = async (fromContent = {}, toContent = {}, parentKey = "root
         delete fromContent[name]["typedoc"];
       }
 
-      if (name === "scripts") {
-        // build CJS after types and ES because of rollup inliner.
-        fromContent[name]["build"] = `concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs`;
-        fromContent[name]["build:include:deps"] = `yarn g:turbo run build -F="$npm_package_name"`;
-        fromContent[name]["clean"] =
-          "premove dist-cjs dist-es dist-types tsconfig.cjs.tsbuildinfo tsconfig.es.tsbuildinfo tsconfig.types.tsbuildinfo";
-
-        for (const [k, v] of Object.entries(fromContent[name])) {
-          if (k === "test" || k.startsWith("test:")) {
-            fromContent[name][k] = v.replace(/yarn dlx vitest/g, "yarn g:vitest");
-          }
-        }
-      }
-
       merged[name] = await mergeManifest(fromContent[name], toContent[name], name);
 
-      if (name === "scripts" || name === "devDependencies") {
-        // Allow target package.json(toContent) has its own special script or
-        // dev dependencies that won't be overwritten in codegen
+      if (name === "devDependencies") {
+        // Allow target package.json(toContent) has its own special devDeps
+        // that won't be overwritten in codegen
         merged[name] = { ...toContent[name], ...merged[name] };
-      }
-
-      if (name === "scripts" || name === "dependencies" || name === "devDependencies") {
-        // Sort by keys to make sure the order is stable
-        const sorter = name === "scripts" ? sortScripts : (a, b) => (a < b ? -1 : a > b ? 1 : 0);
-        merged[name] = Object.fromEntries(Object.entries(merged[name]).sort(([a], [b]) => sorter(a, b)));
       }
     } else if (name.indexOf("@aws-sdk/") === 0) {
       // If it's internal dependency, use current version in the repo if not
@@ -201,10 +198,17 @@ const copyToClients = async (sourceDir, destinationDir, solo) => {
         const modelFile = join(__dirname, "..", "..", "codegen", "sdk-codegen", "aws-models", serviceName + ".json");
 
         if (existsSync(modelFile)) {
-          mergedManifest.scripts[
-            "generate:client"
-          ] = `node ../../scripts/generate-clients/single-service --solo ${serviceName}`;
-          mergedManifest.scripts["build:cjs"] = `node ../../scripts/compilation/inline`;
+          mergedManifest.scripts["generate:client"] = `node ../../scripts/generate-clients/single-service`;
+        }
+
+        // Sort keys for stable output
+        for (const key of ["scripts", "dependencies", "devDependencies"]) {
+          if (mergedManifest[key]) {
+            const sorter = key === "scripts" ? sortScripts : (a, b) => (a < b ? -1 : a > b ? 1 : 0);
+            mergedManifest[key] = Object.fromEntries(
+              Object.entries(mergedManifest[key]).sort(([a], [b]) => sorter(a, b))
+            );
+          }
         }
 
         writeFileSync(destSubPath, prettier.format(JSON.stringify(mergedManifest), { parser: "json-stringify" }));

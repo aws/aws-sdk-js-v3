@@ -5,13 +5,13 @@
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline",
-    "build:es": "tsc -p tsconfig.es.json",
+    "build:es": "premove dist-es && tsc -p tsconfig.es.json",
     "build:include:deps": "yarn g:turbo run build -F=\"$npm_package_name\"",
-    "build:types": "tsc -p tsconfig.types.json",
+    "build:types": "premove dist-types && tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
-    "clean": "premove dist-cjs dist-es dist-types tsconfig.cjs.tsbuildinfo tsconfig.es.tsbuildinfo tsconfig.types.tsbuildinfo",
+    "clean": "premove dist-cjs dist-es dist-types",
     "extract:docs": "api-extractor run --local",
-    "generate:client": "node ../../scripts/generate-clients/single-service --solo sesv2",
+    "generate:client": "node ../../scripts/generate-clients/single-service",
     "test:index": "tsc --noEmit ./test/index-types.ts && node ./test/index-objects.spec.mjs"
   },
   "main": "./dist-cjs/index.js",

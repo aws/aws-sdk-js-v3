@@ -3,7 +3,6 @@
   "compilerOptions": {
     "downlevelIteration": true,
     "importHelpers": true,
-    "incremental": true,
     "removeComments": true,
     "resolveJsonModule": true,
     "rootDir": "src",

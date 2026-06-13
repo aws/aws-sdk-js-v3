@@ -11939,7 +11939,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/undici-http-handler@workspace:packages-internal/undici-http-handler"
   dependencies:
-    "@smithy/undici-http-handler": "npm:^2.0.0"
+    "@smithy/undici-http-handler": "npm:^2.0.1"
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
@@ -16175,7 +16175,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@smithy/undici-http-handler@npm:^2.0.0":
+"@smithy/undici-http-handler@npm:^2.0.1":
   version: 2.0.2
   resolution: "@smithy/undici-http-handler@npm:2.0.2"
   dependencies:
