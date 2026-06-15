@@ -3,14 +3,14 @@ POST https://logs.us-east-1.amazonaws.com
 
 content-type: application/x-amz-json-1.1
 x-amz-target: Logs_20140328.UpdateScheduledQuery
-content-length: 579
+content-length: 597
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/cloudwatch-logs#_.__ m/E,e
 host: logs.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: 32eb03c188dd4b1d1cee3c67860dda7413e570a3dedaab18d62aa43693b19f44
+x-amz-content-sha256: 06ee7525cf494a2bb04a4abd9f25cd85f6ed8ad48720f082d3204bfd4cc42491
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/logs/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
 [string (json)]
@@ -28,6 +28,7 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/logs/aws4_requ
   ],
   "timezone": "__timezone__",
   "startTimeOffset": 0,
+  "endTimeOffset": 0,
   "destinationConfiguration": {
     "s3Configuration": {
       "destinationIdentifier": "__destinationIdentifier__",

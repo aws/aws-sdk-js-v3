@@ -33,6 +33,7 @@ import type {
   S3TableIntegrationSourceStatus,
   ScheduledQueryDestinationType,
   ScheduledQueryState,
+  ScheduleType,
   Scope,
   StandardUnit,
   State,
@@ -1429,8 +1430,7 @@ export interface DestinationConfiguration {
 export interface CreateScheduledQueryRequest {
   /**
    * <p>The name of the scheduled query. The name must be unique within your account and region.
-   *       Valid characters are alphanumeric characters, hyphens, underscores, and periods. Length must
-   *       be between 1 and 255 characters.</p>
+   *       Length must be between 1 and 300 characters.</p>
    * @public
    */
   name: string | undefined;
@@ -1483,6 +1483,14 @@ export interface CreateScheduledQueryRequest {
    * @public
    */
   startTimeOffset?: number | undefined;
+
+  /**
+   * <p>The time offset in seconds that defines the end of the lookback period for the query.
+   *       Together with <code>startTimeOffset</code>, this determines the time window relative to the
+   *       execution time over which the query runs.</p>
+   * @public
+   */
+  endTimeOffset?: number | undefined;
 
   /**
    * <p>Configuration for where to deliver query results. Currently supports Amazon S3 destinations for
@@ -5644,7 +5652,7 @@ export interface GetQueryResultsResponse {
    * <p>If there are more log events remaining in the results, the response includes a
    *       <code>nextToken</code>. You can use this token in a subsequent <code>GetQueryResults</code>
    *       request to get the next set of results. You can retrieve up to 100,000 log event results
-   *       from a query by paginating with this token.</p>
+   *       from a query by paginating with this token. This is only supported for Logs Insights QL and is currently not supported for PPL and SQL query languages.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -5720,6 +5728,13 @@ export interface GetScheduledQueryResponse {
   startTimeOffset?: number | undefined;
 
   /**
+   * <p>The time offset in seconds that defines the end of the lookback period for the
+   *       query.</p>
+   * @public
+   */
+  endTimeOffset?: number | undefined;
+
+  /**
    * <p>Configuration for where query results are delivered.</p>
    * @public
    */
@@ -5730,6 +5745,13 @@ export interface GetScheduledQueryResponse {
    * @public
    */
   state?: ScheduledQueryState | undefined;
+
+  /**
+   * <p>The schedule type of the scheduled query. Valid values are
+   *       <code>CUSTOMER_MANAGED</code> and <code>AWS_MANAGED</code>.</p>
+   * @public
+   */
+  scheduleType?: ScheduleType | undefined;
 
   /**
    * <p>The timestamp when the scheduled query was last executed.</p>
@@ -7160,6 +7182,14 @@ export interface ListScheduledQueriesRequest {
    * @public
    */
   state?: ScheduledQueryState | undefined;
+
+  /**
+   * <p>Filter scheduled queries by schedule type. Valid values are
+   *       <code>CUSTOMER_MANAGED</code> and <code>AWS_MANAGED</code>. If not specified, scheduled
+   *       queries of all schedule types are returned.</p>
+   * @public
+   */
+  scheduleType?: ScheduleType | undefined;
 }
 
 /**
@@ -7185,6 +7215,13 @@ export interface ScheduledQuerySummary {
    * @public
    */
   state?: ScheduledQueryState | undefined;
+
+  /**
+   * <p>The schedule type of the scheduled query. Valid values are
+   *       <code>CUSTOMER_MANAGED</code> and <code>AWS_MANAGED</code>.</p>
+   * @public
+   */
+  scheduleType?: ScheduleType | undefined;
 
   /**
    * <p>The timestamp when the scheduled query was last executed.</p>
@@ -9110,10 +9147,7 @@ export interface StartQueryRequest {
   queryString: string | undefined;
 
   /**
-   * <p>The maximum number of log events to return in the query. If the query string uses the
-   *         <code>fields</code> command, only the specified fields and their values are returned. The
-   *       default is 10,000.</p>
-   *          <p>The maximum value is 100,000.</p>
+   * <p>The maximum number of log events to return from the query. The maximum limit is 100,000. The maximum events returned in a single GetQueryResults API call is 10,000 log events per request. You can retrieve up to 100,000 log event results from a query by paginating with the <code>nextToken</code>. 100,000 limit is only supported for Logs Insights QL and is currently not supported for PPL and SQL query languages.</p>
    * @public
    */
   limit?: number | undefined;

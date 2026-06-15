@@ -492,6 +492,19 @@ export type IntegrationType = (typeof IntegrationType)[keyof typeof IntegrationT
  * @public
  * @enum
  */
+export const ScheduleType = {
+  AWS_MANAGED: "AWS_MANAGED",
+  CUSTOMER_MANAGED: "CUSTOMER_MANAGED",
+} as const;
+/**
+ * @public
+ */
+export type ScheduleType = (typeof ScheduleType)[keyof typeof ScheduleType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ScheduledQueryDestinationType = {
   S3: "S3",
 } as const;

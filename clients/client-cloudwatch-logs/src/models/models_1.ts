@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import type { EvaluationFrequency, ExecutionStatus, QueryLanguage, ScheduledQueryState } from "./enums";
+import type { EvaluationFrequency, ExecutionStatus, QueryLanguage, ScheduledQueryState, ScheduleType } from "./enums";
 import type { DestinationConfiguration } from "./models_0";
 
 /**
@@ -153,6 +153,13 @@ export interface UpdateScheduledQueryRequest {
   startTimeOffset?: number | undefined;
 
   /**
+   * <p>The updated time offset in seconds that defines the end of the lookback period for
+   *       the query.</p>
+   * @public
+   */
+  endTimeOffset?: number | undefined;
+
+  /**
    * <p>The updated configuration for where to deliver query results.</p>
    * @public
    */
@@ -243,6 +250,12 @@ export interface UpdateScheduledQueryResponse {
   startTimeOffset?: number | undefined;
 
   /**
+   * <p>The end time offset in seconds of the updated scheduled query.</p>
+   * @public
+   */
+  endTimeOffset?: number | undefined;
+
+  /**
    * <p>The destination configuration of the updated scheduled query.</p>
    * @public
    */
@@ -253,6 +266,12 @@ export interface UpdateScheduledQueryResponse {
    * @public
    */
   state?: ScheduledQueryState | undefined;
+
+  /**
+   * <p>The schedule type of the updated scheduled query.</p>
+   * @public
+   */
+  scheduleType?: ScheduleType | undefined;
 
   /**
    * <p>The timestamp when the updated scheduled query was last executed.</p>

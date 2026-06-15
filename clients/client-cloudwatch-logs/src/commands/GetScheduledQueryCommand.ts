@@ -58,6 +58,7 @@ export interface GetScheduledQueryCommandOutput extends GetScheduledQueryRespons
  * //   scheduleExpression: "STRING_VALUE",
  * //   timezone: "STRING_VALUE",
  * //   startTimeOffset: Number("long"),
+ * //   endTimeOffset: Number("long"),
  * //   destinationConfiguration: { // DestinationConfiguration
  * //     s3Configuration: { // S3Configuration
  * //       destinationIdentifier: "STRING_VALUE", // required
@@ -67,6 +68,7 @@ export interface GetScheduledQueryCommandOutput extends GetScheduledQueryRespons
  * //     },
  * //   },
  * //   state: "ENABLED" || "DISABLED",
+ * //   scheduleType: "CUSTOMER_MANAGED" || "AWS_MANAGED",
  * //   lastTriggeredTime: Number("long"),
  * //   lastExecutionStatus: "Running" || "InvalidQuery" || "Complete" || "Failed" || "Timeout",
  * //   scheduleStartTime: Number("long"),

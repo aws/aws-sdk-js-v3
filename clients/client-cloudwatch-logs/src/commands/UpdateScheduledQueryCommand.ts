@@ -52,6 +52,7 @@ export interface UpdateScheduledQueryCommandOutput extends UpdateScheduledQueryR
  *   scheduleExpression: "STRING_VALUE", // required
  *   timezone: "STRING_VALUE",
  *   startTimeOffset: Number("long"),
+ *   endTimeOffset: Number("long"),
  *   destinationConfiguration: { // DestinationConfiguration
  *     s3Configuration: { // S3Configuration
  *       destinationIdentifier: "STRING_VALUE", // required
@@ -79,6 +80,7 @@ export interface UpdateScheduledQueryCommandOutput extends UpdateScheduledQueryR
  * //   scheduleExpression: "STRING_VALUE",
  * //   timezone: "STRING_VALUE",
  * //   startTimeOffset: Number("long"),
+ * //   endTimeOffset: Number("long"),
  * //   destinationConfiguration: { // DestinationConfiguration
  * //     s3Configuration: { // S3Configuration
  * //       destinationIdentifier: "STRING_VALUE", // required
@@ -88,6 +90,7 @@ export interface UpdateScheduledQueryCommandOutput extends UpdateScheduledQueryR
  * //     },
  * //   },
  * //   state: "ENABLED" || "DISABLED",
+ * //   scheduleType: "CUSTOMER_MANAGED" || "AWS_MANAGED",
  * //   lastTriggeredTime: Number("long"),
  * //   lastExecutionStatus: "Running" || "InvalidQuery" || "Complete" || "Failed" || "Timeout",
  * //   scheduleStartTime: Number("long"),
@@ -107,6 +110,9 @@ export interface UpdateScheduledQueryCommandOutput extends UpdateScheduledQueryR
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have sufficient permissions to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>This operation attempted to create a resource that already exists.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An internal server error occurred while processing the request. This exception is returned

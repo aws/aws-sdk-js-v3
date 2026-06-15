@@ -41,6 +41,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   "scheduleExpression": "__scheduleExpression__",
   "timezone": "__timezone__",
   "startTimeOffset": 0,
+  "endTimeOffset": 0,
   "destinationConfiguration": {
     "s3Configuration": {
       "destinationIdentifier": "__destinationIdentifier__",
@@ -50,6 +51,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     }
   },
   "state": "__state__",
+  "scheduleType": "__scheduleType__",
   "lastTriggeredTime": 0,
   "lastExecutionStatus": "__lastExecutionStatus__",
   "scheduleStartTime": 0,
@@ -75,6 +77,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   scheduleExpression: "__scheduleExpression__",
   timezone: "__timezone__",
   startTimeOffset: (number) 0,
+  endTimeOffset: (number) 0,
   destinationConfiguration: {
     s3Configuration: {
       destinationIdentifier: "__destinationIdentifier__",
@@ -84,6 +87,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     }
   },
   state: "__state__",
+  scheduleType: "__scheduleType__",
   lastTriggeredTime: (number) 0,
   lastExecutionStatus: "__lastExecutionStatus__",
   scheduleStartTime: (number) 0,

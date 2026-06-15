@@ -54,6 +54,7 @@ export interface CreateScheduledQueryCommandOutput extends CreateScheduledQueryR
  *   scheduleExpression: "STRING_VALUE", // required
  *   timezone: "STRING_VALUE",
  *   startTimeOffset: Number("long"),
+ *   endTimeOffset: Number("long"),
  *   destinationConfiguration: { // DestinationConfiguration
  *     s3Configuration: { // S3Configuration
  *       destinationIdentifier: "STRING_VALUE", // required

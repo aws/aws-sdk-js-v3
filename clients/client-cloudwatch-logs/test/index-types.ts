@@ -374,6 +374,7 @@ export type {
   S3TableIntegrationSourceStatus,
   ScheduledQueryDestinationType,
   ScheduledQueryState,
+  ScheduleType,
   Scope,
   StandardUnit,
   State,

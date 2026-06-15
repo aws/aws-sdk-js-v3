@@ -3,19 +3,20 @@ POST https://logs.us-east-1.amazonaws.com
 
 content-type: application/x-amz-json-1.1
 x-amz-target: Logs_20140328.ListScheduledQueries
-content-length: 64
+content-length: 98
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/cloudwatch-logs#_.__ m/E,e
 host: logs.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: 702e28429f5656562cdc52b9c2c78bd2f482bfc10b58e982ec44971eb8d1f33a
+x-amz-content-sha256: 6f7c760c7ffe87bdba1cd60cace74f1992954b28d5825440106833a80082d1d2
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/logs/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
 [string (json)]
 {
   "maxResults": 0,
   "nextToken": "__nextToken__",
-  "state": "__state__"
+  "state": "__state__",
+  "scheduleType": "__scheduleType__"
 }

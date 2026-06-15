@@ -45,6 +45,7 @@ export interface ListScheduledQueriesCommandOutput extends ListScheduledQueriesR
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  *   state: "ENABLED" || "DISABLED",
+ *   scheduleType: "CUSTOMER_MANAGED" || "AWS_MANAGED",
  * };
  * const command = new ListScheduledQueriesCommand(input);
  * const response = await client.send(command);
@@ -55,6 +56,7 @@ export interface ListScheduledQueriesCommandOutput extends ListScheduledQueriesR
  * //       scheduledQueryArn: "STRING_VALUE",
  * //       name: "STRING_VALUE",
  * //       state: "ENABLED" || "DISABLED",
+ * //       scheduleType: "CUSTOMER_MANAGED" || "AWS_MANAGED",
  * //       lastTriggeredTime: Number("long"),
  * //       lastExecutionStatus: "Running" || "InvalidQuery" || "Complete" || "Failed" || "Timeout",
  * //       scheduleExpression: "STRING_VALUE",

@@ -549,6 +549,7 @@ import {
   ScheduledQueryDestinationType,
   ScheduledQueryState,
   ScheduledQuerySummary$,
+  ScheduleType,
   Scope,
   SearchedLogStream$,
   ServiceQuotaExceededException,
@@ -1213,6 +1214,7 @@ assert(typeof QueryStatus === "object");
 assert(typeof S3TableIntegrationSourceStatus === "object");
 assert(typeof ScheduledQueryDestinationType === "object");
 assert(typeof ScheduledQueryState === "object");
+assert(typeof ScheduleType === "object");
 assert(typeof Scope === "object");
 assert(typeof StandardUnit === "object");
 assert(typeof State === "object");

@@ -615,6 +615,7 @@ const _eST = "expectedSequenceToken";
 const _eSv = "eventSource";
 const _eSx = "executionStatus";
 const _eT = "exportTasks";
+const _eTO = "endTimeOffset";
 const _eTn = "endTime";
 const _eTr = "errorType";
 const _eV = "extractedValues";
@@ -857,6 +858,7 @@ const _sSu = "substituteString";
 const _sT = "sourceTimezone";
 const _sTI = "s3TablesIntegration";
 const _sTO = "startTimeOffset";
+const _sTc = "scheduleType";
 const _sTe = "sequenceToken";
 const _sTt = "startTime";
 const _sTu = "suppressionType";
@@ -1233,8 +1235,8 @@ export var CreateLookupTableResponse$: StaticStructureSchema = [3, n0, _CLTRr,
 ];
 export var CreateScheduledQueryRequest$: StaticStructureSchema = [3, n0, _CSQR,
   0,
-  [_n, _qL, _qS, _sE, _eRA, _d, _lGI, _ti, _sTO, _dC, _sST, _sET, _st, _ta],
-  [0, 0, 0, 0, 0, 0, 64 | 0, 0, 1, () => DestinationConfiguration$, 1, 1, 0, 128 | 0], 5
+  [_n, _qL, _qS, _sE, _eRA, _d, _lGI, _ti, _sTO, _eTO, _dC, _sST, _sET, _st, _ta],
+  [0, 0, 0, 0, 0, 0, 64 | 0, 0, 1, 1, () => DestinationConfiguration$, 1, 1, 0, 128 | 0], 5
 ];
 export var CreateScheduledQueryResponse$: StaticStructureSchema = [3, n0, _CSQRr,
   0,
@@ -1828,8 +1830,8 @@ export var GetScheduledQueryRequest$: StaticStructureSchema = [3, n0, _GSQR,
 ];
 export var GetScheduledQueryResponse$: StaticStructureSchema = [3, n0, _GSQRe,
   0,
-  [_sQA, _n, _d, _qL, _qS, _lGI, _sE, _ti, _sTO, _dC, _st, _lTT, _lES, _sST, _sET, _eRA, _cT, _lUT],
-  [0, 0, 0, 0, 0, 64 | 0, 0, 0, 1, () => DestinationConfiguration$, 0, 1, 0, 1, 1, 0, 1, 1]
+  [_sQA, _n, _d, _qL, _qS, _lGI, _sE, _ti, _sTO, _eTO, _dC, _st, _sTc, _lTT, _lES, _sST, _sET, _eRA, _cT, _lUT],
+  [0, 0, 0, 0, 0, 64 | 0, 0, 0, 1, 1, () => DestinationConfiguration$, 0, 0, 1, 0, 1, 1, 0, 1, 1]
 ];
 export var GetTransformerRequest$: StaticStructureSchema = [3, n0, _GTR,
   0,
@@ -1948,8 +1950,8 @@ export var ListLogGroupsResponse$: StaticStructureSchema = [3, n0, _LLGRi,
 ];
 export var ListScheduledQueriesRequest$: StaticStructureSchema = [3, n0, _LSQR,
   0,
-  [_mR, _nT, _st],
-  [1, 0, 0]
+  [_mR, _nT, _st, _sTc],
+  [1, 0, 0, 0]
 ];
 export var ListScheduledQueriesResponse$: StaticStructureSchema = [3, n0, _LSQRi,
   0,
@@ -2433,8 +2435,8 @@ export var ScheduledQueryDestination$: StaticStructureSchema = [3, n0, _SQD,
 ];
 export var ScheduledQuerySummary$: StaticStructureSchema = [3, n0, _SQS,
   0,
-  [_sQA, _n, _st, _lTT, _lES, _sE, _ti, _dC, _cT, _lUT],
-  [0, 0, 0, 1, 0, 0, 0, () => DestinationConfiguration$, 1, 1]
+  [_sQA, _n, _st, _sTc, _lTT, _lES, _sE, _ti, _dC, _cT, _lUT],
+  [0, 0, 0, 0, 1, 0, 0, 0, () => DestinationConfiguration$, 1, 1]
 ];
 export var SearchedLogStream$: StaticStructureSchema = [3, n0, _SLS,
   0,
@@ -2603,13 +2605,13 @@ export var UpdateLookupTableResponse$: StaticStructureSchema = [3, n0, _ULTRp,
 ];
 export var UpdateScheduledQueryRequest$: StaticStructureSchema = [3, n0, _USQR,
   0,
-  [_i, _qL, _qS, _sE, _eRA, _d, _lGI, _ti, _sTO, _dC, _sST, _sET, _st],
-  [0, 0, 0, 0, 0, 0, 64 | 0, 0, 1, () => DestinationConfiguration$, 1, 1, 0], 5
+  [_i, _qL, _qS, _sE, _eRA, _d, _lGI, _ti, _sTO, _eTO, _dC, _sST, _sET, _st],
+  [0, 0, 0, 0, 0, 0, 64 | 0, 0, 1, 1, () => DestinationConfiguration$, 1, 1, 0], 5
 ];
 export var UpdateScheduledQueryResponse$: StaticStructureSchema = [3, n0, _USQRp,
   0,
-  [_sQA, _n, _d, _qL, _qS, _lGI, _sE, _ti, _sTO, _dC, _st, _lTT, _lES, _sST, _sET, _eRA, _cT, _lUT],
-  [0, 0, 0, 0, 0, 64 | 0, 0, 0, 1, () => DestinationConfiguration$, 0, 1, 0, 1, 1, 0, 1, 1]
+  [_sQA, _n, _d, _qL, _qS, _lGI, _sE, _ti, _sTO, _eTO, _dC, _st, _sTc, _lTT, _lES, _sST, _sET, _eRA, _cT, _lUT],
+  [0, 0, 0, 0, 0, 64 | 0, 0, 0, 1, 1, () => DestinationConfiguration$, 0, 0, 1, 0, 1, 1, 0, 1, 1]
 ];
 export var UpperCaseString$: StaticStructureSchema = [3, n0, _UCS,
   0,
