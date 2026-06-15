@@ -40,7 +40,7 @@ const Literal = "Literal";
 
 // Keys that are never AST child nodes — skip during traversal to avoid
 // descending into primitives.
-const SKIP_KEYS = new Set(["type", "start", "end", "raw", "value", "sourceType"]);
+const SKIP_KEYS = new Set(["type", "start", "end", "raw", "sourceType"]);
 
 /**
  * @param {string} esmCode - ESM code.
@@ -55,16 +55,24 @@ function transpile(esmCode) {
 
   const edits = [];
   let hasExportStar = false;
+  const importedSymbols = new Set();
 
   for (let i = 0; i < ast.body.length; i++) {
     const node = ast.body[i];
     switch (node.type) {
       case ImportDeclaration:
         edits.push({ start: node.start, end: node.end, replacement: transformImport(node) });
+        for (const s of node.specifiers) {
+          importedSymbols.add(s.local.name);
+        }
         break;
       case ExportNamedDeclaration: {
         const inner = awaitImportEdits.filter((e) => e.start >= node.start && e.end <= node.end);
-        edits.push({ start: node.start, end: node.end, replacement: transformExportNamed(node, esmCode, inner) });
+        edits.push({
+          start: node.start,
+          end: node.end,
+          replacement: transformExportNamed(node, esmCode, inner, importedSymbols),
+        });
         break;
       }
       case ExportDefaultDeclaration:
@@ -169,7 +177,7 @@ function isNameUsedOutsideDecl(src, name, declStart, declEnd) {
   return false;
 }
 
-function transformExportNamed(node, src, innerEdits) {
+function transformExportNamed(node, src, innerEdits, importedSymbols) {
   for (let i = 0; i < node.specifiers.length; i++) {
     const s = node.specifiers[i];
     if (s.exported.type === Literal) {
@@ -238,13 +246,20 @@ function transformExportNamed(node, src, innerEdits) {
     let assignments = "";
     for (let i = 0; i < node.specifiers.length; i++) {
       const s = node.specifiers[i];
-      if (bindings) {
-        bindings += ", ";
+      if (importedSymbols.has(s.local.name)) {
+        assignments += "\nexports." + s.exported.name + " = " + s.local.name + ";";
+      } else {
+        if (bindings) {
+          bindings += ", ";
+        }
+        bindings += s.local.name === s.exported.name ? s.local.name : `${s.local.name}: ${s.exported.name}`;
+        assignments += "\nexports." + s.exported.name + " = " + s.exported.name + ";";
       }
-      bindings += s.local.name === s.exported.name ? s.local.name : `${s.local.name}: ${s.exported.name}`;
-      assignments += "\nexports." + s.exported.name + " = " + s.exported.name + ";";
     }
-    return `const { ${bindings} } = require(${source});` + assignments;
+    if (bindings) {
+      return `const { ${bindings} } = require(${source});` + assignments;
+    }
+    return assignments.slice(1);
   }
 
   let result = "";
@@ -359,5 +374,42 @@ module.exports = { transpile };
       threw = true;
     }
   }
-  if (!threw) throw new Error("esm-to-cjs self-test: non-awaited import() did not throw");
+  if (!threw) {
+    throw new Error("esm-to-cjs self-test: non-awaited import() must throw ERR_NON_AWAITED_IMPORT.");
+  }
+
+  // await import inside class method must be transformed.
+  const classSource = `import { foo } from "bar";
+class X { async load() { const { Y } = await import("baz"); return Y; } }
+export { X };`;
+  const classOut = transpile(classSource);
+  const classExpected = `const { foo } = require("bar");
+class X { async load() { const { Y } = require("baz"); return Y; } }
+exports.X = X;`;
+  if (classOut !== classExpected) {
+    throw new Error(
+      `esm-to-cjs self-test: class method mismatch
+  expected:
+    ${classExpected}
+  got:
+    ${classOut}`
+    );
+  }
+
+  // export-from must not re-declare already-imported symbols.
+  const dupSource = `import { A, B } from "pkg";\nexport { A, C } from "pkg";`;
+  const dupOut = transpile(dupSource);
+  if (dupOut.includes("const { A")) {
+    // A should only appear once as a const declaration
+    const matches = dupOut.match(/const \{[^}]*A[^}]*\}/g);
+    if (matches.length > 1) {
+      throw new Error(`esm-to-cjs self-test: duplicate declaration of A\nin:\n${dupOut}`);
+    }
+  }
+  if (!dupOut.includes("exports.A = A;")) {
+    throw new Error(`esm-to-cjs self-test: missing exports.A = A\nin:\n${dupOut}`);
+  }
+  if (!dupOut.includes("exports.C = C;")) {
+    throw new Error(`esm-to-cjs self-test: missing exports.C = C\nin:\n${dupOut}`);
+  }
 })();

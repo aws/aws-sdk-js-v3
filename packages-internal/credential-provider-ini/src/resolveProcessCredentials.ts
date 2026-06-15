@@ -19,10 +19,11 @@ export const isProcessProfile = (arg: any): arg is ProcessProfile =>
 /**
  * @internal
  */
-export const resolveProcessCredentials = async (options: FromIniInit, profile: string): Promise<Credentials> =>
-  import("@aws-sdk/credential-provider-process").then(({ fromProcess }) =>
-    fromProcess({
-      ...options,
-      profile,
-    })().then((creds) => setCredentialFeature(creds, "CREDENTIALS_PROFILE_PROCESS", "v"))
-  );
+export const resolveProcessCredentials = async (options: FromIniInit, profile: string): Promise<Credentials> => {
+  const { fromProcess } = await import("@aws-sdk/credential-provider-process");
+  const credentials = await fromProcess({
+    ...options,
+    profile,
+  })();
+  return setCredentialFeature(credentials, "CREDENTIALS_PROFILE_PROCESS", "v");
+};

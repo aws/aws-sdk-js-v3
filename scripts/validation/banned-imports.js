@@ -11,6 +11,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 const walk = require("../utils/walk");
 const { extractImports, getPackageDirs, summarizePackages } = require("./validation-shared");
+const { parse } = require("acorn");
 
 const root = path.join(__dirname, "..", "..");
 
@@ -128,6 +129,62 @@ async function validate(packageDir) {
         continue;
       }
       const code = fs.readFileSync(file, "utf-8");
+
+      // dist-cjs must not contain any ESM including dynamic import.
+      if (dist === "dist-cjs") {
+        let ast;
+        try {
+          ast = parse(code, { ecmaVersion: "latest", sourceType: "module", allowHashBang: true, locations: true });
+        } catch {
+          ast = null;
+        }
+        if (ast) {
+          for (const node of ast.body) {
+            if (
+              node.type === "ImportDeclaration" ||
+              node.type === "ExportNamedDeclaration" ||
+              node.type === "ExportAllDeclaration" ||
+              node.type === "ExportDefaultDeclaration"
+            ) {
+              errors.push(
+                `[${pkgJson.name}] ESM including dynamic import is not allowed in dist-cjs (${path.relative(
+                  packageDir,
+                  file
+                )}:${node.loc?.start?.line ?? 1})`
+              );
+              break;
+            }
+          }
+          // Also check for dynamic import() expressions anywhere in the AST.
+          const queue = [ast];
+          let foundDynamic = false;
+          while (queue.length && !foundDynamic) {
+            const n = queue.pop();
+            if (!n || typeof n !== "object") continue;
+            if (Array.isArray(n)) {
+              queue.push(...n);
+              continue;
+            }
+            if (n.type === "ImportExpression") {
+              errors.push(
+                `[${pkgJson.name}] ESM including dynamic import is not allowed in dist-cjs (${path.relative(
+                  packageDir,
+                  file
+                )}:${n.loc?.start?.line ?? 1})`
+              );
+              foundDynamic = true;
+              break;
+            }
+            for (const key of Object.keys(n)) {
+              if (key === "type") continue;
+              const val = n[key];
+              if (Array.isArray(val)) queue.push(...val);
+              else if (val && typeof val === "object" && val.type) queue.push(val);
+            }
+          }
+        }
+      }
+
       for (const specifier of extractImports(code)) {
         if (allowed.has(specifier)) {
           continue;

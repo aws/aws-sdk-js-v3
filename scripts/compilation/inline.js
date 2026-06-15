@@ -56,7 +56,6 @@ if (process.argv.includes("--setup")) {
     await inliner.discoverVariants();
     await inliner.bundle();
     await inliner.transformVariants();
-    await inliner.deleteUnreachableFiles();
     await inliner.fixVariantImportPaths();
     await inliner.validate();
   })();
