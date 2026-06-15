@@ -331,6 +331,10 @@ import {
   DeleteGlossaryTermCommand,
   DeleteGlossaryTermInput$,
   DeleteGlossaryTermOutput$,
+  DeleteLineageEvent$,
+  DeleteLineageEventCommand,
+  DeleteLineageEventInput$,
+  DeleteLineageEventOutput$,
   DeleteListing$,
   DeleteListingCommand,
   DeleteListingInput$,
@@ -1364,6 +1368,8 @@ assert(typeof DeleteGlossaryCommand === "function");
 assert(typeof DeleteGlossary$ === "object");
 assert(typeof DeleteGlossaryTermCommand === "function");
 assert(typeof DeleteGlossaryTerm$ === "object");
+assert(typeof DeleteLineageEventCommand === "function");
+assert(typeof DeleteLineageEvent$ === "object");
 assert(typeof DeleteListingCommand === "function");
 assert(typeof DeleteListing$ === "object");
 assert(typeof DeleteNotebookCommand === "function");
@@ -1819,6 +1825,8 @@ assert(typeof DeleteGlossaryInput$ === "object");
 assert(typeof DeleteGlossaryOutput$ === "object");
 assert(typeof DeleteGlossaryTermInput$ === "object");
 assert(typeof DeleteGlossaryTermOutput$ === "object");
+assert(typeof DeleteLineageEventInput$ === "object");
+assert(typeof DeleteLineageEventOutput$ === "object");
 assert(typeof DeleteListingInput$ === "object");
 assert(typeof DeleteListingOutput$ === "object");
 assert(typeof DeleteNotebookInput$ === "object");

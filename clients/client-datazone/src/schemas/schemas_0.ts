@@ -277,6 +277,9 @@ const _DGTel = "DeleteGlossaryTerm";
 const _DGTi = "DisassociateGovernedTerms";
 const _DI = "Domain-Id";
 const _DL = "DeleteListing";
+const _DLE = "DeleteLineageEvent";
+const _DLEI = "DeleteLineageEventInput";
+const _DLEO = "DeleteLineageEventOutput";
 const _DLI = "DeleteListingInput";
 const _DLO = "DeleteListingOutput";
 const _DN = "DomainName";
@@ -2793,6 +2796,16 @@ export var DeleteGlossaryTermOutput$: StaticStructureSchema = [3, n0, _DGTO,
   0,
   [],
   []
+];
+export var DeleteLineageEventInput$: StaticStructureSchema = [3, n0, _DLEI,
+  0,
+  [_dI, _i],
+  [[0, 1], [0, 1]], 2
+];
+export var DeleteLineageEventOutput$: StaticStructureSchema = [3, n0, _DLEO,
+  0,
+  [_id, _dIo, _pSr],
+  [0, 0, 0]
 ];
 export var DeleteListingInput$: StaticStructureSchema = [3, n0, _DLI,
   0,
@@ -6015,6 +6028,9 @@ export var DeleteGlossary$: StaticOperationSchema = [9, n0, _DG,
 ];
 export var DeleteGlossaryTerm$: StaticOperationSchema = [9, n0, _DGTel,
   { [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/glossary-terms/{identifier}", 204] }, () => DeleteGlossaryTermInput$, () => DeleteGlossaryTermOutput$
+];
+export var DeleteLineageEvent$: StaticOperationSchema = [9, n0, _DLE,
+  { [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/lineage/events/{identifier}", 200] }, () => DeleteLineageEventInput$, () => DeleteLineageEventOutput$
 ];
 export var DeleteListing$: StaticOperationSchema = [9, n0, _DL,
   { [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/listings/{identifier}", 204] }, () => DeleteListingInput$, () => DeleteListingOutput$

@@ -95,6 +95,7 @@ import type {
   Import,
   NetworkConfig,
   NotebookRunError,
+  NotebookRunSummary,
   StorageConfig,
   SubscribedAsset,
   SubscriptionTargetForm,
@@ -102,6 +103,94 @@ import type {
   TimeSeriesDataPointFormOutput,
   TriggerSource,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface ListNotebookRunsOutput {
+  /**
+   * <p>The results of the <code>ListNotebookRuns</code> action.</p>
+   * @public
+   */
+  items?: NotebookRunSummary[] | undefined;
+
+  /**
+   * <p>When the number of notebook runs is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of notebook runs, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListNotebookRuns</code> to list the next set of notebook runs.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartNotebookRunInput {
+  /**
+   * <p>The identifier of the Amazon SageMaker Unified Studio domain in which the notebook run is started.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the project that owns the notebook run.</p>
+   * @public
+   */
+  owningProjectIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the notebook to run.</p>
+   * @public
+   */
+  notebookIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the schedule associated with the notebook run.</p>
+   * @public
+   */
+  scheduleIdentifier?: string | undefined;
+
+  /**
+   * <p>The compute configuration for the notebook run, including instance type and environment version.</p>
+   * @public
+   */
+  computeConfiguration?: ComputeConfig | undefined;
+
+  /**
+   * <p>The network configuration for the notebook run, including network access type and optional VPC settings.</p>
+   * @public
+   */
+  networkConfiguration?: NetworkConfig | undefined;
+
+  /**
+   * <p>The timeout configuration for the notebook run. The default timeout is 720 minutes (12 hours) and the maximum is 1440 minutes (24 hours).</p>
+   * @public
+   */
+  timeoutConfiguration?: TimeoutConfig | undefined;
+
+  /**
+   * <p>The source that triggered the notebook run.</p>
+   * @public
+   */
+  triggerSource?: TriggerSource | undefined;
+
+  /**
+   * <p>The metadata for the notebook run, specified as key-value pairs. You can specify up to 50 entries, with keys up to 128 characters and values up to 1024 characters.</p>
+   * @public
+   */
+  metadata?: Record<string, string> | undefined;
+
+  /**
+   * <p>The sensitive parameters for the notebook run, specified as key-value pairs. You can specify up to 50 entries, with keys up to 128 characters and values up to 1024 characters.</p>
+   * @public
+   */
+  parameters?: Record<string, string> | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
 
 /**
  * @public

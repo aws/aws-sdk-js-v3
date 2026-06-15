@@ -288,6 +288,11 @@ import {
   DeleteGlossaryTermCommand,
 } from "./commands/DeleteGlossaryTermCommand";
 import {
+  type DeleteLineageEventCommandInput,
+  type DeleteLineageEventCommandOutput,
+  DeleteLineageEventCommand,
+} from "./commands/DeleteLineageEventCommand";
+import {
   type DeleteListingCommandInput,
   type DeleteListingCommandOutput,
   DeleteListingCommand,
@@ -1020,6 +1025,7 @@ const commands = {
   DeleteFormTypeCommand,
   DeleteGlossaryCommand,
   DeleteGlossaryTermCommand,
+  DeleteLineageEventCommand,
   DeleteListingCommand,
   DeleteNotebookCommand,
   DeleteProjectCommand,
@@ -2163,6 +2169,23 @@ export interface DataZone {
     args: DeleteGlossaryTermCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteGlossaryTermCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteLineageEventCommand}
+   */
+  deleteLineageEvent(
+    args: DeleteLineageEventCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteLineageEventCommandOutput>;
+  deleteLineageEvent(
+    args: DeleteLineageEventCommandInput,
+    cb: (err: any, data?: DeleteLineageEventCommandOutput) => void
+  ): void;
+  deleteLineageEvent(
+    args: DeleteLineageEventCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteLineageEventCommandOutput) => void
   ): void;
 
   /**

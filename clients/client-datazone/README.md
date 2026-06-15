@@ -580,6 +580,13 @@ DeleteGlossaryTerm
 </details>
 <details>
 <summary>
+DeleteLineageEvent
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/datazone/command/DeleteLineageEventCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datazone/Interface/DeleteLineageEventCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datazone/Interface/DeleteLineageEventCommandOutput/)
+</details>
+<details>
+<summary>
 DeleteListing
 </summary>
 

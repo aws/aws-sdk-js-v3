@@ -56,6 +56,7 @@ export * from "./DeleteEnvironmentProfileCommand";
 export * from "./DeleteFormTypeCommand";
 export * from "./DeleteGlossaryCommand";
 export * from "./DeleteGlossaryTermCommand";
+export * from "./DeleteLineageEventCommand";
 export * from "./DeleteListingCommand";
 export * from "./DeleteNotebookCommand";
 export * from "./DeleteProjectCommand";

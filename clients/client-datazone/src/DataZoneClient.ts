@@ -219,6 +219,10 @@ import type {
   DeleteGlossaryTermCommandInput,
   DeleteGlossaryTermCommandOutput,
 } from "./commands/DeleteGlossaryTermCommand";
+import type {
+  DeleteLineageEventCommandInput,
+  DeleteLineageEventCommandOutput,
+} from "./commands/DeleteLineageEventCommand";
 import type { DeleteListingCommandInput, DeleteListingCommandOutput } from "./commands/DeleteListingCommand";
 import type { DeleteNotebookCommandInput, DeleteNotebookCommandOutput } from "./commands/DeleteNotebookCommand";
 import type { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "./commands/DeleteProjectCommand";
@@ -638,6 +642,7 @@ export type ServiceInputTypes =
   | DeleteFormTypeCommandInput
   | DeleteGlossaryCommandInput
   | DeleteGlossaryTermCommandInput
+  | DeleteLineageEventCommandInput
   | DeleteListingCommandInput
   | DeleteNotebookCommandInput
   | DeleteProjectCommandInput
@@ -831,6 +836,7 @@ export type ServiceOutputTypes =
   | DeleteFormTypeCommandOutput
   | DeleteGlossaryCommandOutput
   | DeleteGlossaryTermCommandOutput
+  | DeleteLineageEventCommandOutput
   | DeleteListingCommandOutput
   | DeleteNotebookCommandOutput
   | DeleteProjectCommandOutput
