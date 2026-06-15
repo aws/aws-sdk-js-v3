@@ -400,6 +400,9 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  *                     ],
  *                   },
  *                 },
+ *                 Monetize: { // MonetizeAction
+ *                   PriceMultiplier: "STRING_VALUE",
+ *                 },
  *               },
  *             },
  *           ],
@@ -543,6 +546,9 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  *                     },
  *                     Challenge: {
  *                       CustomRequestHandling: "<CustomRequestHandling>",
+ *                     },
+ *                     Monetize: {
+ *                       PriceMultiplier: "STRING_VALUE",
  *                     },
  *                   },
  *                 },
@@ -794,6 +800,9 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  *                     Challenge: {
  *                       CustomRequestHandling: "<CustomRequestHandling>",
  *                     },
+ *                     Monetize: {
+ *                       PriceMultiplier: "STRING_VALUE",
+ *                     },
  *                   },
  *                 },
  *               ],
@@ -1033,6 +1042,9 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  *                 Challenge: {
  *                   CustomRequestHandling: "<CustomRequestHandling>",
  *                 },
+ *                 Monetize: {
+ *                   PriceMultiplier: "STRING_VALUE",
+ *                 },
  *               },
  *             },
  *           ],
@@ -1096,6 +1108,23 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  *       ContentType: "TEXT_PLAIN" || "TEXT_HTML" || "APPLICATION_JSON", // required
  *       Content: "STRING_VALUE", // required
  *     },
+ *   },
+ *   MonetizationConfig: { // MonetizationConfig
+ *     CryptoConfig: { // CryptoConfig
+ *       PaymentNetworks: [ // PaymentNetworks // required
+ *         { // PaymentNetwork
+ *           Chain: "BASE" || "SOLANA" || "BASE_SEPOLIA" || "SOLANA_DEVNET", // required
+ *           WalletAddress: "STRING_VALUE", // required
+ *           Prices: [ // Prices // required
+ *             { // Price
+ *               Amount: "STRING_VALUE", // required
+ *               Currency: "USDC", // required
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *     CurrencyMode: "REAL" || "TEST",
  *   },
  * };
  * const command = new CreateRuleGroupCommand(input);

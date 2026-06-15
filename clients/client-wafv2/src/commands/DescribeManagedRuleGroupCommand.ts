@@ -104,6 +104,9 @@ export interface DescribeManagedRuleGroupCommandOutput extends DescribeManagedRu
  * //             ],
  * //           },
  * //         },
+ * //         Monetize: { // MonetizeAction
+ * //           PriceMultiplier: "STRING_VALUE",
+ * //         },
  * //       },
  * //     },
  * //   ],

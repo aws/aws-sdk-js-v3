@@ -133,6 +133,18 @@ import type {
   GetRegexPatternSetCommandInput,
   GetRegexPatternSetCommandOutput,
 } from "./commands/GetRegexPatternSetCommand";
+import type {
+  GetRevenueStatisticsCommandInput,
+  GetRevenueStatisticsCommandOutput,
+} from "./commands/GetRevenueStatisticsCommand";
+import type {
+  GetRevenueStatisticsSummaryCommandInput,
+  GetRevenueStatisticsSummaryCommandOutput,
+} from "./commands/GetRevenueStatisticsSummaryCommand";
+import type {
+  GetRevenueStatisticsTimeSeriesCommandInput,
+  GetRevenueStatisticsTimeSeriesCommandOutput,
+} from "./commands/GetRevenueStatisticsTimeSeriesCommand";
 import type { GetRuleGroupCommandInput, GetRuleGroupCommandOutput } from "./commands/GetRuleGroupCommand";
 import type {
   GetSampledRequestsCommandInput,
@@ -178,6 +190,10 @@ import type {
   ListResourcesForWebACLCommandOutput,
 } from "./commands/ListResourcesForWebACLCommand";
 import type { ListRuleGroupsCommandInput, ListRuleGroupsCommandOutput } from "./commands/ListRuleGroupsCommand";
+import type {
+  ListSettlementRecordsCommandInput,
+  ListSettlementRecordsCommandOutput,
+} from "./commands/ListSettlementRecordsCommand";
 import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -251,6 +267,9 @@ export type ServiceInputTypes =
   | GetPermissionPolicyCommandInput
   | GetRateBasedStatementManagedKeysCommandInput
   | GetRegexPatternSetCommandInput
+  | GetRevenueStatisticsCommandInput
+  | GetRevenueStatisticsSummaryCommandInput
+  | GetRevenueStatisticsTimeSeriesCommandInput
   | GetRuleGroupCommandInput
   | GetSampledRequestsCommandInput
   | GetTopPathStatisticsByTrafficCommandInput
@@ -266,6 +285,7 @@ export type ServiceInputTypes =
   | ListRegexPatternSetsCommandInput
   | ListResourcesForWebACLCommandInput
   | ListRuleGroupsCommandInput
+  | ListSettlementRecordsCommandInput
   | ListTagsForResourceCommandInput
   | ListWebACLsCommandInput
   | PutLoggingConfigurationCommandInput
@@ -311,6 +331,9 @@ export type ServiceOutputTypes =
   | GetPermissionPolicyCommandOutput
   | GetRateBasedStatementManagedKeysCommandOutput
   | GetRegexPatternSetCommandOutput
+  | GetRevenueStatisticsCommandOutput
+  | GetRevenueStatisticsSummaryCommandOutput
+  | GetRevenueStatisticsTimeSeriesCommandOutput
   | GetRuleGroupCommandOutput
   | GetSampledRequestsCommandOutput
   | GetTopPathStatisticsByTrafficCommandOutput
@@ -326,6 +349,7 @@ export type ServiceOutputTypes =
   | ListRegexPatternSetsCommandOutput
   | ListResourcesForWebACLCommandOutput
   | ListRuleGroupsCommandOutput
+  | ListSettlementRecordsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListWebACLsCommandOutput
   | PutLoggingConfigurationCommandOutput

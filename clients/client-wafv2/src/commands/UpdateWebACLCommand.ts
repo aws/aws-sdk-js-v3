@@ -450,6 +450,9 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  *                     InsertHeaders: "<CustomHTTPHeaders>", // required
  *                   },
  *                 },
+ *                 Monetize: { // MonetizeAction
+ *                   PriceMultiplier: "STRING_VALUE",
+ *                 },
  *               },
  *             },
  *           ],
@@ -583,6 +586,9 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  *                     },
  *                     Challenge: {
  *                       CustomRequestHandling: "<CustomRequestHandling>",
+ *                     },
+ *                     Monetize: {
+ *                       PriceMultiplier: "STRING_VALUE",
  *                     },
  *                   },
  *                 },
@@ -826,6 +832,9 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  *                     Challenge: {
  *                       CustomRequestHandling: "<CustomRequestHandling>",
  *                     },
+ *                     Monetize: {
+ *                       PriceMultiplier: "STRING_VALUE",
+ *                     },
  *                   },
  *                 },
  *               ],
@@ -1057,6 +1066,9 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  *                 Challenge: {
  *                   CustomRequestHandling: "<CustomRequestHandling>",
  *                 },
+ *                 Monetize: {
+ *                   PriceMultiplier: "STRING_VALUE",
+ *                 },
  *               },
  *             },
  *           ],
@@ -1163,6 +1175,23 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  *         ],
  *       },
  *     ],
+ *   },
+ *   MonetizationConfig: { // MonetizationConfig
+ *     CryptoConfig: { // CryptoConfig
+ *       PaymentNetworks: [ // PaymentNetworks // required
+ *         { // PaymentNetwork
+ *           Chain: "BASE" || "SOLANA" || "BASE_SEPOLIA" || "SOLANA_DEVNET", // required
+ *           WalletAddress: "STRING_VALUE", // required
+ *           Prices: [ // Prices // required
+ *             { // Price
+ *               Amount: "STRING_VALUE", // required
+ *               Currency: "USDC", // required
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *     CurrencyMode: "REAL" || "TEST",
  *   },
  * };
  * const command = new UpdateWebACLCommand(input);

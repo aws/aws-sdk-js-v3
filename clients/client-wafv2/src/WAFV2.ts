@@ -139,6 +139,21 @@ import {
   GetRegexPatternSetCommand,
 } from "./commands/GetRegexPatternSetCommand";
 import {
+  type GetRevenueStatisticsCommandInput,
+  type GetRevenueStatisticsCommandOutput,
+  GetRevenueStatisticsCommand,
+} from "./commands/GetRevenueStatisticsCommand";
+import {
+  type GetRevenueStatisticsSummaryCommandInput,
+  type GetRevenueStatisticsSummaryCommandOutput,
+  GetRevenueStatisticsSummaryCommand,
+} from "./commands/GetRevenueStatisticsSummaryCommand";
+import {
+  type GetRevenueStatisticsTimeSeriesCommandInput,
+  type GetRevenueStatisticsTimeSeriesCommandOutput,
+  GetRevenueStatisticsTimeSeriesCommand,
+} from "./commands/GetRevenueStatisticsTimeSeriesCommand";
+import {
   type GetRuleGroupCommandInput,
   type GetRuleGroupCommandOutput,
   GetRuleGroupCommand,
@@ -209,6 +224,11 @@ import {
   type ListRuleGroupsCommandOutput,
   ListRuleGroupsCommand,
 } from "./commands/ListRuleGroupsCommand";
+import {
+  type ListSettlementRecordsCommandInput,
+  type ListSettlementRecordsCommandOutput,
+  ListSettlementRecordsCommand,
+} from "./commands/ListSettlementRecordsCommand";
 import {
   type ListTagsForResourceCommandInput,
   type ListTagsForResourceCommandOutput,
@@ -300,6 +320,9 @@ const commands = {
   GetPermissionPolicyCommand,
   GetRateBasedStatementManagedKeysCommand,
   GetRegexPatternSetCommand,
+  GetRevenueStatisticsCommand,
+  GetRevenueStatisticsSummaryCommand,
+  GetRevenueStatisticsTimeSeriesCommand,
   GetRuleGroupCommand,
   GetSampledRequestsCommand,
   GetTopPathStatisticsByTrafficCommand,
@@ -315,6 +338,7 @@ const commands = {
   ListRegexPatternSetsCommand,
   ListResourcesForWebACLCommand,
   ListRuleGroupsCommand,
+  ListSettlementRecordsCommand,
   ListTagsForResourceCommand,
   ListWebACLsCommand,
   PutLoggingConfigurationCommand,
@@ -807,6 +831,57 @@ export interface WAFV2 {
   ): void;
 
   /**
+   * @see {@link GetRevenueStatisticsCommand}
+   */
+  getRevenueStatistics(
+    args: GetRevenueStatisticsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRevenueStatisticsCommandOutput>;
+  getRevenueStatistics(
+    args: GetRevenueStatisticsCommandInput,
+    cb: (err: any, data?: GetRevenueStatisticsCommandOutput) => void
+  ): void;
+  getRevenueStatistics(
+    args: GetRevenueStatisticsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRevenueStatisticsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetRevenueStatisticsSummaryCommand}
+   */
+  getRevenueStatisticsSummary(
+    args: GetRevenueStatisticsSummaryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRevenueStatisticsSummaryCommandOutput>;
+  getRevenueStatisticsSummary(
+    args: GetRevenueStatisticsSummaryCommandInput,
+    cb: (err: any, data?: GetRevenueStatisticsSummaryCommandOutput) => void
+  ): void;
+  getRevenueStatisticsSummary(
+    args: GetRevenueStatisticsSummaryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRevenueStatisticsSummaryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetRevenueStatisticsTimeSeriesCommand}
+   */
+  getRevenueStatisticsTimeSeries(
+    args: GetRevenueStatisticsTimeSeriesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRevenueStatisticsTimeSeriesCommandOutput>;
+  getRevenueStatisticsTimeSeries(
+    args: GetRevenueStatisticsTimeSeriesCommandInput,
+    cb: (err: any, data?: GetRevenueStatisticsTimeSeriesCommandOutput) => void
+  ): void;
+  getRevenueStatisticsTimeSeries(
+    args: GetRevenueStatisticsTimeSeriesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRevenueStatisticsTimeSeriesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetRuleGroupCommand}
    */
   getRuleGroup(): Promise<GetRuleGroupCommandOutput>;
@@ -1061,6 +1136,23 @@ export interface WAFV2 {
     args: ListRuleGroupsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListRuleGroupsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSettlementRecordsCommand}
+   */
+  listSettlementRecords(
+    args: ListSettlementRecordsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSettlementRecordsCommandOutput>;
+  listSettlementRecords(
+    args: ListSettlementRecordsCommandInput,
+    cb: (err: any, data?: ListSettlementRecordsCommandOutput) => void
+  ): void;
+  listSettlementRecords(
+    args: ListSettlementRecordsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSettlementRecordsCommandOutput) => void
   ): void;
 
   /**

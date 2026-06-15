@@ -10,6 +10,7 @@ export const ActionValue = {
   CHALLENGE: "CHALLENGE",
   COUNT: "COUNT",
   EXCLUDED_AS_COUNT: "EXCLUDED_AS_COUNT",
+  MONETIZE: "MONETIZE",
 } as const;
 /**
  * @public
@@ -585,12 +586,15 @@ export const ParameterExceptionField = {
   MANAGED_RULE_SET_STATEMENT: "MANAGED_RULE_SET_STATEMENT",
   MAP_MATCH_SCOPE: "MAP_MATCH_SCOPE",
   METRIC_NAME: "METRIC_NAME",
+  MONETIZATION_CONFIG: "MONETIZATION_CONFIG",
   NOT_STATEMENT: "NOT_STATEMENT",
   OR_STATEMENT: "OR_STATEMENT",
   OVERRIDE_ACTION: "OVERRIDE_ACTION",
   OVERSIZE_HANDLING: "OVERSIZE_HANDLING",
   PAYLOAD_TYPE: "PAYLOAD_TYPE",
+  PAYMENT_NETWORK: "PAYMENT_NETWORK",
   POSITION: "POSITION",
+  PRICE_AMOUNT: "PRICE_AMOUNT",
   RATE_BASED_STATEMENT: "RATE_BASED_STATEMENT",
   REGEX_PATTERN_REFERENCE_STATEMENT: "REGEX_PATTERN_REFERENCE_STATEMENT",
   REGEX_PATTERN_SET: "REGEX_PATTERN_SET",
@@ -612,6 +616,7 @@ export const ParameterExceptionField = {
   TAG_KEYS: "TAG_KEYS",
   TEXT_TRANSFORMATION: "TEXT_TRANSFORMATION",
   TOKEN_DOMAIN: "TOKEN_DOMAIN",
+  WALLET_ADDRESS: "WALLET_ADDRESS",
   WEB_ACL: "WEB_ACL",
   XSS_MATCH_STATEMENT: "XSS_MATCH_STATEMENT",
 } as const;
@@ -674,6 +679,46 @@ export const ResponseContentType = {
  * @public
  */
 export type ResponseContentType = (typeof ResponseContentType)[keyof typeof ResponseContentType];
+
+/**
+ * @public
+ * @enum
+ */
+export const BlockchainChain = {
+  BASE: "BASE",
+  BASE_SEPOLIA: "BASE_SEPOLIA",
+  SOLANA: "SOLANA",
+  SOLANA_DEVNET: "SOLANA_DEVNET",
+} as const;
+/**
+ * @public
+ */
+export type BlockchainChain = (typeof BlockchainChain)[keyof typeof BlockchainChain];
+
+/**
+ * @public
+ * @enum
+ */
+export const CryptoCurrency = {
+  USDC: "USDC",
+} as const;
+/**
+ * @public
+ */
+export type CryptoCurrency = (typeof CryptoCurrency)[keyof typeof CryptoCurrency];
+
+/**
+ * @public
+ * @enum
+ */
+export const CurrencyMode = {
+  REAL: "REAL",
+  TEST: "TEST",
+} as const;
+/**
+ * @public
+ */
+export type CurrencyMode = (typeof CurrencyMode)[keyof typeof CurrencyMode];
 
 /**
  * @public
@@ -786,6 +831,102 @@ export type FilterRequirement = (typeof FilterRequirement)[keyof typeof FilterRe
  * @public
  * @enum
  */
+export const Currency = {
+  USDC: "USDC",
+} as const;
+/**
+ * @public
+ */
+export type Currency = (typeof Currency)[keyof typeof Currency];
+
+/**
+ * @public
+ * @enum
+ */
+export const GroupByType = {
+  CATEGORY: "CATEGORY",
+  INTENT: "INTENT",
+  NAME: "NAME",
+  ORGANIZATION: "ORGANIZATION",
+  WEBACL: "WEBACL",
+} as const;
+/**
+ * @public
+ */
+export type GroupByType = (typeof GroupByType)[keyof typeof GroupByType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RankingSortBy = {
+  NAME: "NAME",
+  PERCENTAGE: "PERCENTAGE",
+  REVENUE: "REVENUE",
+} as const;
+/**
+ * @public
+ */
+export type RankingSortBy = (typeof RankingSortBy)[keyof typeof RankingSortBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const SortOrder = {
+  ASC: "ASC",
+  DESC: "DESC",
+} as const;
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
+
+/**
+ * @public
+ * @enum
+ */
+export const RankingStatisticType = {
+  TOP_PATHS_BY_REVENUE: "TOP_PATHS_BY_REVENUE",
+  TOP_SOURCES_BY_REVENUE: "TOP_SOURCES_BY_REVENUE",
+} as const;
+/**
+ * @public
+ */
+export type RankingStatisticType = (typeof RankingStatisticType)[keyof typeof RankingStatisticType];
+
+/**
+ * @public
+ * @enum
+ */
+export const IntervalType = {
+  DAILY: "DAILY",
+  FIVE_MINUTELY: "FIVE_MINUTELY",
+  HOURLY: "HOURLY",
+  MINUTELY: "MINUTELY",
+} as const;
+/**
+ * @public
+ */
+export type IntervalType = (typeof IntervalType)[keyof typeof IntervalType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TimeSeriesStatisticType = {
+  DATE_HISTOGRAM: "DATE_HISTOGRAM",
+  PAYMENT_TRAFFIC: "PAYMENT_TRAFFIC",
+} as const;
+/**
+ * @public
+ */
+export type TimeSeriesStatisticType = (typeof TimeSeriesStatisticType)[keyof typeof TimeSeriesStatisticType];
+
+/**
+ * @public
+ * @enum
+ */
 export const FailureReason = {
   TOKEN_DOMAIN_MISMATCH: "TOKEN_DOMAIN_MISMATCH",
   TOKEN_EXPIRED: "TOKEN_EXPIRED",
@@ -814,3 +955,35 @@ export const ResourceType = {
  * @public
  */
 export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SettlementSortBy = {
+  AMOUNT: "AMOUNT",
+  NAME: "NAME",
+  STATUS: "STATUS",
+  TIMESTAMP: "TIMESTAMP",
+} as const;
+/**
+ * @public
+ */
+export type SettlementSortBy = (typeof SettlementSortBy)[keyof typeof SettlementSortBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const SettlementStatus = {
+  DUPLICATE: "DUPLICATE",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  SERVICE_ERROR: "SERVICE_ERROR",
+  SETTLED: "SETTLED",
+  SKIPPED_ORIGIN_ERROR: "SKIPPED_ORIGIN_ERROR",
+} as const;
+/**
+ * @public
+ */
+export type SettlementStatus = (typeof SettlementStatus)[keyof typeof SettlementStatus];

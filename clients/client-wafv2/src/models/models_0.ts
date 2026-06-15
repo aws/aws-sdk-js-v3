@@ -2,9 +2,13 @@
 import type {
   ActionValue,
   AssociatedResourceType,
+  BlockchainChain,
   BodyParsingFallbackBehavior,
   ComparisonOperator,
   CountryCode,
+  CryptoCurrency,
+  Currency,
+  CurrencyMode,
   DataProtectionAction,
   FailureReason,
   FallbackBehavior,
@@ -12,7 +16,9 @@ import type {
   FilterBehavior,
   FilterRequirement,
   ForwardedIPPosition,
+  GroupByType,
   InspectionLevel,
+  IntervalType,
   IPAddressVersion,
   JsonMatchScope,
   LabelMatchScope,
@@ -24,14 +30,20 @@ import type {
   PayloadType,
   Platform,
   PositionalConstraint,
+  RankingSortBy,
+  RankingStatisticType,
   RateBasedStatementAggregateKeyType,
   ResourceType,
   ResponseContentType,
   Scope,
   SensitivityLevel,
   SensitivityToAct,
+  SettlementSortBy,
+  SettlementStatus,
   SizeInspectionLimit,
+  SortOrder,
   TextTransformationType,
+  TimeSeriesStatisticType,
   UsageOfAction,
 } from "./enums";
 
@@ -2401,6 +2413,18 @@ export interface CountAction {
 }
 
 /**
+ * <p>Specifies the monetize action settings for a rule. When WAF applies this action, it returns an HTTP 402 Payment Required response containing pricing information that the requesting client uses to complete payment and gain access to the resource. This is a terminating action-if the client does not complete the 402 payment flow, the request is blocked. This action is available only for web ACLs associated with Amazon CloudFront distributions. You must configure a <code>MonetizationConfig</code> on the web ACL or rule group before adding rules that use this action. You cannot use the Monetize action for rate-based rules.</p>
+ * @public
+ */
+export interface MonetizeAction {
+  /**
+   * <p>An integer multiplier applied to the base price defined in the web ACL's <code>MonetizationConfig</code>. The effective price for the request is the base price multiplied by this value. Specify as a string. Valid values: 1 to 100.</p>
+   * @public
+   */
+  PriceMultiplier?: string | undefined;
+}
+
+/**
  * <p>The action that WAF should take on a web request when it matches a rule's
  *          statement. Settings at the web ACL level can override the rule action setting. </p>
  * @public
@@ -2435,6 +2459,12 @@ export interface RuleAction {
    * @public
    */
   Challenge?: ChallengeAction | undefined;
+
+  /**
+   * <p>Instructs WAF to return an HTTP 402 Payment Required response with a price manifest. The requesting client can complete payment and resubmit the request to gain access. This is a terminating action-requests that do not complete payment are blocked. This action is available only for web ACLs associated with Amazon CloudFront distributions and requires a <code>MonetizationConfig</code> on the web ACL.</p>
+   * @public
+   */
+  Monetize?: MonetizeAction | undefined;
 }
 
 /**
@@ -3576,6 +3606,79 @@ export interface CustomResponseBody {
    * @public
    */
   Content: string | undefined;
+}
+
+/**
+ * <p>The price per request for a payment network, specifying the amount and cryptocurrency.</p>
+ * @public
+ */
+export interface Price {
+  /**
+   * <p>The price per request as a decimal string in the specified currency. Minimum: 0.001. Maximum: 999999999.999. Supports up to 3 decimal places.</p>
+   * @public
+   */
+  Amount: string | undefined;
+
+  /**
+   * <p>The cryptocurrency for payment. Currently only <code>USDC</code> is supported.</p>
+   * @public
+   */
+  Currency: CryptoCurrency | undefined;
+}
+
+/**
+ * <p>A blockchain payment network configuration for receiving AI bot monetization payments. Specifies the blockchain chain, your wallet address on that chain, and the price per request.</p>
+ * @public
+ */
+export interface PaymentNetwork {
+  /**
+   * <p>The blockchain network for receiving payments. Production networks: <code>BASE</code> (Base mainnet), <code>SOLANA</code> (Solana mainnet). Test networks: <code>BASE_SEPOLIA</code> (Base Sepolia testnet), <code>SOLANA_DEVNET</code> (Solana Devnet).</p>
+   * @public
+   */
+  Chain: BlockchainChain | undefined;
+
+  /**
+   * <p>Your wallet address on the specified blockchain where payments are sent. For EVM chains (Base, Base Sepolia), provide a valid Ethereum address (42 characters including 0x prefix). For Solana chains, provide a valid Base58-encoded public key (32-44 characters).</p>
+   *          <p>For EVM addresses, WAF performs EIP-55 checksum validation for typo detection when the address uses a mix of lower and upper case letters. You can bypass this validation by providing the address in all lowercase or all uppercase.</p>
+   * @public
+   */
+  WalletAddress: string | undefined;
+
+  /**
+   * <p>The price configuration for this payment network. Currently supports a single price entry in USDC.</p>
+   * @public
+   */
+  Prices: Price[] | undefined;
+}
+
+/**
+ * <p>The cryptocurrency payment configuration for AI bot monetization. Contains the list of blockchain payment networks where you receive payments.</p>
+ * @public
+ */
+export interface CryptoConfig {
+  /**
+   * <p>The blockchain payment networks configured to receive payments. You can specify 1 to 2 networks. All networks must be in the same environment-either all production networks (Base, Solana) or all test networks (Base Sepolia, Solana Devnet).</p>
+   * @public
+   */
+  PaymentNetworks: PaymentNetwork[] | undefined;
+}
+
+/**
+ * <p>The monetization configuration for a web ACL or rule group. Specifies the cryptocurrency payment networks and currency mode for AI bot monetization. You must provide this configuration when any rule in the web ACL or rule group uses the <code>Monetize</code> action.</p>
+ * @public
+ */
+export interface MonetizationConfig {
+  /**
+   * <p>The cryptocurrency payment configuration, including the blockchain networks and wallet addresses where you receive payments.</p>
+   * @public
+   */
+  CryptoConfig?: CryptoConfig | undefined;
+
+  /**
+   * <p>Specifies whether the configuration uses real or test currency. Set to <code>REAL</code> to settle payments in USDC on production blockchain networks (Base, Solana). Set to <code>TEST</code> to settle on testnet networks (Base Sepolia, Solana Devnet) with tokens that have no monetary value. If not specified, defaults to <code>REAL</code>.</p>
+   * @public
+   */
+  CurrencyMode?: CurrencyMode | undefined;
 }
 
 /**
@@ -5293,41 +5396,116 @@ export interface GetRegexPatternSetResponse {
 }
 
 /**
+ * <p>A filter for narrowing monetization statistics and settlement record results. Specify a filter name and one or more values to match.</p>
+ *          <p>Filter behavior:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Multiple values within one filter: OR (match any)</p>
+ *             </li>
+ *             <li>
+ *                <p>Multiple filters: AND (all must match)</p>
+ *             </li>
+ *             <li>
+ *                <p>No duplicate filter names allowed (rejected with error)</p>
+ *             </li>
+ *             <li>
+ *                <p>Duplicate values within a filter are silently deduplicated</p>
+ *             </li>
+ *             <li>
+ *                <p>If no <code>CurrencyMode</code> filter is specified, defaults to <code>REAL</code>
+ *                </p>
+ *             </li>
+ *          </ul>
  * @public
  */
-export interface GetRuleGroupRequest {
+export interface MonetizationFilter {
   /**
-   * <p>The name of the rule group. You cannot change the name of a rule group after you create it.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p>
-   *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
+   * <p>The filter name. Format: Key is a string, Value is a list of strings.</p>
+   *          <p>Enum-restricted (invalid values rejected):</p>
    *          <ul>
    *             <li>
-   *                <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
+   *                <p>
+   *                   <code>CurrencyMode</code>: <code>REAL</code>, <code>TEST</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>
+   *                <p>
+   *                   <code>ChainName</code>: <code>BASE</code>, <code>SOLANA</code>, <code>BASE_SEPOLIA</code>, <code>SOLANA_DEVNET</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SettlementStatus</code>: <code>SETTLED</code>, <code>PENDING</code>, <code>FAILED</code>, <code>SERVICE_ERROR</code>, <code>SKIPPED_ORIGIN_ERROR</code>, <code>DUPLICATE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HttpSourceName</code>: <code>CF</code>, <code>ALB</code>, <code>APIGW</code>, <code>APPRUNNER</code>, <code>COGNITO</code>, <code>VERIFIED_ACCESS</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>ARN-validated:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>WebACLArn</code>: valid WAFv2 web ACL ARN</p>
+   *             </li>
+   *          </ul>
+   *          <p>Free-text (any string up to 256 chars):</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SourceName</code>: The name of the bot. Populated from Bot Control verified bot labels.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SourceCategory</code>: The category classification of the bot. From Bot Control categorization.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Intent</code>: The declared intent of the bot request.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Organization</code>: The organization operating the bot.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UriPathPrefix</code>: The URI path of the request that was monetized.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RequestId</code>: The WAF request ID associated with the transaction. Matches the requestId in WAF logs. Pattern: <code>^[a-zA-Z0-9:._\-=+/]+$</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TransactionId</code>: The blockchain transaction identifier. Pattern: <code>^[a-zA-Z0-9:._\-=+/]+$</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TerminatingRuleName</code>: The name of the WAF rule that triggered the Monetize action.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PayerAddress</code>: The blockchain wallet address of the paying client. Pattern: <code>^[a-zA-Z0-9:._\-=+/]+$</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HttpSourceId</code>: The identifier of the Amazon Web Services resource associated with the web ACL (for example, CloudFront distribution ID).</p>
    *             </li>
    *          </ul>
    * @public
    */
-  Scope?: Scope | undefined;
+  Name: string | undefined;
 
   /**
-   * <p>A unique identifier for the rule group. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
+   * <p>The values to filter on. Specify as a list of strings. Results match any of the specified values (OR logic). Duplicate values are silently deduplicated. Maximum: 20 values per filter.</p>
    * @public
    */
-  Id?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the entity.</p>
-   * @public
-   */
-  ARN?: string | undefined;
+  Values: string[] | undefined;
 }
 
 /**
@@ -5367,6 +5545,429 @@ export interface TimeWindow {
    * @public
    */
   EndTime: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRevenueStatisticsRequest {
+  /**
+   * <p>
+   *             <code>TOP_SOURCES_BY_REVENUE</code> ranks revenue from AI bot traffic, grouped by the dimension you specify in the <code>GroupBy</code> parameter (<code>NAME</code>, <code>CATEGORY</code>, <code>INTENT</code>, <code>ORGANIZATION</code>, or <code>WEBACL</code>); <code>GroupBy</code> is required for this statistic type. <code>TOP_PATHS_BY_REVENUE</code> ranks revenue by path.</p>
+   * @public
+   */
+  StatisticType: RankingStatisticType | undefined;
+
+  /**
+   * <p>The time range for the query. Specify start and end timestamps.</p>
+   * @public
+   */
+  TimeWindow: TimeWindow | undefined;
+
+  /**
+   * <p>Specifies whether this is for a Amazon CloudFront distribution (<code>CLOUDFRONT</code>) or for a regional application (<code>REGIONAL</code>).</p>
+   * @public
+   */
+  Scope: Scope | undefined;
+
+  /**
+   * <p>The currency for the revenue amounts in the response.</p>
+   * @public
+   */
+  Currency: Currency | undefined;
+
+  /**
+   * <p>The dimension to group results by: <code>NAME</code>, <code>CATEGORY</code>, <code>INTENT</code>, <code>ORGANIZATION</code>, or <code>WEBACL</code>. Required when <code>StatisticType</code> is <code>TOP_SOURCES_BY_REVENUE</code>. Not required for <code>TOP_PATHS_BY_REVENUE</code>, where results are grouped by content path. If <code>StatisticType</code> is <code>TOP_SOURCES_BY_REVENUE</code> and <code>GroupBy</code> is omitted, the request is rejected with a <code>WAFInvalidParameterException</code>.</p>
+   * @public
+   */
+  GroupBy?: GroupByType | undefined;
+
+  /**
+   * <p>Optional filters to narrow the results.</p>
+   * @public
+   */
+  Filters?: MonetizationFilter[] | undefined;
+
+  /**
+   * <p>When you get a paginated response, this marker indicates that additional results are available. Use it in a subsequent request to retrieve the next page of results.</p>
+   * @public
+   */
+  NextMarker?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   * @public
+   */
+  Limit?: number | undefined;
+
+  /**
+   * <p>The field to sort results by: <code>REVENUE</code>, <code>PERCENTAGE</code>, or <code>NAME</code>.</p>
+   * @public
+   */
+  SortBy?: RankingSortBy | undefined;
+
+  /**
+   * <p>The sort order: <code>ASC</code> for ascending or <code>DESC</code> for descending.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+}
+
+/**
+ * <p>Revenue statistics for a single content path, including the path, revenue amount, and request count.</p>
+ * @public
+ */
+export interface RevenuePathStatistics {
+  /**
+   * <p>The URI path.</p>
+   * @public
+   */
+  Path: string | undefined;
+
+  /**
+   * <p>The percentage of total revenue from this path.</p>
+   * @public
+   */
+  Percentage: number | undefined;
+
+  /**
+   * <p>The total revenue amount from this path in the specified currency.</p>
+   * @public
+   */
+  Amount: string | undefined;
+
+  /**
+   * <p>The number of monetized requests to this path.</p>
+   * @public
+   */
+  RequestCount: number | undefined;
+}
+
+/**
+ * <p>Revenue statistics for a single AI bot source, including the bot name, revenue amount, request count, and verification status.</p>
+ * @public
+ */
+export interface SourceStatistics {
+  /**
+   * <p>The name of the AI bot.</p>
+   * @public
+   */
+  SourceName: string | undefined;
+
+  /**
+   * <p>The percentage of total revenue from this source.</p>
+   * @public
+   */
+  Percentage: number | undefined;
+
+  /**
+   * <p>The total revenue amount from this source in the specified currency.</p>
+   * @public
+   */
+  Amount: string | undefined;
+
+  /**
+   * <p>The number of monetized requests from this source.</p>
+   * @public
+   */
+  RequestCount: number | undefined;
+
+  /**
+   * <p>The category of this AI bot source.</p>
+   * @public
+   */
+  SourceCategory?: string | undefined;
+
+  /**
+   * <p>The declared intent of the AI bot (for example, summarize, index, or train).</p>
+   * @public
+   */
+  Intent?: string | undefined;
+
+  /**
+   * <p>The organization associated with the AI bot.</p>
+   * @public
+   */
+  Organization?: string | undefined;
+
+  /**
+   * <p>Whether the AI bot's identity was verified.</p>
+   * @public
+   */
+  Verified?: boolean | undefined;
+
+  /**
+   * <p>The value for the group-by dimension, when grouping is applied.</p>
+   * @public
+   */
+  GroupByValue?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRevenueStatisticsResponse {
+  /**
+   * <p>Statistics for top revenue sources (AI bots). Populated when <code>StatisticType</code> is <code>TOP_SOURCES_BY_REVENUE</code>.</p>
+   * @public
+   */
+  SourceStatistics?: SourceStatistics[] | undefined;
+
+  /**
+   * <p>Statistics for top revenue paths. Populated when <code>StatisticType</code> is <code>TOP_PATHS_BY_REVENUE</code>.</p>
+   * @public
+   */
+  RevenuePathStatistics?: RevenuePathStatistics[] | undefined;
+
+  /**
+   * <p>When you get a paginated response, this marker indicates that additional results are available.</p>
+   * @public
+   */
+  NextMarker?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRevenueStatisticsSummaryRequest {
+  /**
+   * <p>The time range for the revenue summary query. Specify start and end timestamps.</p>
+   * @public
+   */
+  TimeWindow: TimeWindow | undefined;
+
+  /**
+   * <p>Specifies whether this is for a Amazon CloudFront distribution (<code>CLOUDFRONT</code>) or for a regional application (<code>REGIONAL</code>). AI bot monetization is only available for <code>CLOUDFRONT</code> scope.</p>
+   * @public
+   */
+  Scope: Scope | undefined;
+
+  /**
+   * <p>The currency for the revenue amounts in the response. Currently only <code>USDC</code> is supported.</p>
+   * @public
+   */
+  Currency: Currency | undefined;
+
+  /**
+   * <p>Optional filters to narrow the results. You can filter by source name, category, organization, intent, verified status, content path, web ACL ARN, or currency mode.</p>
+   * @public
+   */
+  Filters?: MonetizationFilter[] | undefined;
+}
+
+/**
+ * <p>A summary of AI bot monetization revenue, including total revenue, revenue by verification tier, and request counts.</p>
+ * @public
+ */
+export interface RevenueBreakdown {
+  /**
+   * <p>The total revenue amount in the specified currency.</p>
+   * @public
+   */
+  TotalAmount?: string | undefined;
+
+  /**
+   * <p>The revenue amount from verified AI bots.</p>
+   * @public
+   */
+  VerifiedAmount?: string | undefined;
+
+  /**
+   * <p>The revenue amount from unverified AI bots.</p>
+   * @public
+   */
+  UnverifiedAmount?: string | undefined;
+
+  /**
+   * <p>The currency of the revenue amounts.</p>
+   * @public
+   */
+  Currency?: Currency | undefined;
+
+  /**
+   * <p>The total number of successfully settled payment transactions.</p>
+   * @public
+   */
+  TotalSettled?: number | undefined;
+
+  /**
+   * <p>The total number of HTTP 402 Payment Required responses served to AI agents.</p>
+   * @public
+   */
+  TotalMonetizeServed?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRevenueStatisticsSummaryResponse {
+  /**
+   * <p>The revenue breakdown summary for the specified time window and filters.</p>
+   * @public
+   */
+  RevenueBreakdown?: RevenueBreakdown | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRevenueStatisticsTimeSeriesRequest {
+  /**
+   * <p>The type of time series data to retrieve: <code>DATE_HISTOGRAM</code> for revenue over time, or <code>PAYMENT_TRAFFIC</code> for payment traffic patterns.</p>
+   * @public
+   */
+  StatisticType: TimeSeriesStatisticType | undefined;
+
+  /**
+   * <p>The time range for the query. Specify start and end timestamps.</p>
+   * @public
+   */
+  TimeWindow: TimeWindow | undefined;
+
+  /**
+   * <p>Specifies whether this is for a Amazon CloudFront distribution (<code>CLOUDFRONT</code>) or for a regional application (<code>REGIONAL</code>).</p>
+   * @public
+   */
+  Scope: Scope | undefined;
+
+  /**
+   * <p>The time interval for aggregating data points: <code>MINUTELY</code>, <code>FIVE_MINUTELY</code>, <code>HOURLY</code>, or <code>DAILY</code>.</p>
+   * @public
+   */
+  Interval: IntervalType | undefined;
+
+  /**
+   * <p>The currency for the amounts in the response.</p>
+   * @public
+   */
+  Currency: Currency | undefined;
+
+  /**
+   * <p>The dimension to group results by.</p>
+   * @public
+   */
+  GroupBy?: GroupByType | undefined;
+
+  /**
+   * <p>Optional filters to narrow the results.</p>
+   * @public
+   */
+  Filters?: MonetizationFilter[] | undefined;
+
+  /**
+   * <p>The maximum number of data points to return. Minimum: 1. Maximum: 10000.</p>
+   * @public
+   */
+  Limit?: number | undefined;
+
+  /**
+   * <p>When you get a paginated response, this marker indicates that additional results are available.</p>
+   * @public
+   */
+  NextMarker?: string | undefined;
+}
+
+/**
+ * <p>A single data point in a revenue time series, representing aggregated monetization metrics for a specific time interval.</p>
+ * @public
+ */
+export interface DataPointEntry {
+  /**
+   * <p>The timestamp for this data point.</p>
+   * @public
+   */
+  Date?: Date | undefined;
+
+  /**
+   * <p>The number of HTTP 402 Payment Required responses served during this interval.</p>
+   * @public
+   */
+  MonetizeServedCount?: number | undefined;
+
+  /**
+   * <p>The number of successfully settled payments during this interval.</p>
+   * @public
+   */
+  SettledCount?: number | undefined;
+
+  /**
+   * <p>The total revenue amount during this interval in the specified currency.</p>
+   * @public
+   */
+  TotalAmount?: string | undefined;
+
+  /**
+   * <p>The bot category for this data point, when grouped by category.</p>
+   * @public
+   */
+  Category?: string | undefined;
+
+  /**
+   * <p>The intent classification for this data point, when grouped by intent.</p>
+   * @public
+   */
+  Intent?: string | undefined;
+
+  /**
+   * <p>The group-by dimension value for this data point.</p>
+   * @public
+   */
+  GroupByValue?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRevenueStatisticsTimeSeriesResponse {
+  /**
+   * <p>The list of time series data points.</p>
+   * @public
+   */
+  DataPoints?: DataPointEntry[] | undefined;
+
+  /**
+   * <p>When you get a paginated response, this marker indicates that additional results are available.</p>
+   * @public
+   */
+  NextMarker?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRuleGroupRequest {
+  /**
+   * <p>The name of the rule group. You cannot change the name of a rule group after you create it.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p>
+   *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
+   *          <ul>
+   *             <li>
+   *                <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
+   *             </li>
+   *             <li>
+   *                <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Scope?: Scope | undefined;
+
+  /**
+   * <p>A unique identifier for the rule group. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the entity.</p>
+   * @public
+   */
+  ARN?: string | undefined;
 }
 
 /**
@@ -6644,6 +7245,210 @@ export interface ListRuleGroupsResponse {
    * @public
    */
   RuleGroups?: RuleGroupSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSettlementRecordsRequest {
+  /**
+   * <p>The time range for the query. Specify start and end timestamps.</p>
+   * @public
+   */
+  TimeWindow: TimeWindow | undefined;
+
+  /**
+   * <p>Specifies whether this is for a Amazon CloudFront distribution (<code>CLOUDFRONT</code>) or for a regional application (<code>REGIONAL</code>).</p>
+   * @public
+   */
+  Scope: Scope | undefined;
+
+  /**
+   * <p>The currency for the amounts in the response.</p>
+   * @public
+   */
+  Currency: Currency | undefined;
+
+  /**
+   * <p>Optional filters to narrow the results. You can filter by payer address, status, source name, network, or other settlement fields.</p>
+   * @public
+   */
+  Filters?: MonetizationFilter[] | undefined;
+
+  /**
+   * <p>The field to sort settlement records by: <code>TIMESTAMP</code>, <code>AMOUNT</code>, <code>NAME</code>, or <code>STATUS</code>.</p>
+   * @public
+   */
+  SortBy?: SettlementSortBy | undefined;
+
+  /**
+   * <p>The sort order: <code>ASC</code> for ascending or <code>DESC</code> for descending.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>The maximum number of settlement records to return. Minimum: 1. Maximum: 100.</p>
+   * @public
+   */
+  Limit?: number | undefined;
+
+  /**
+   * <p>When you get a paginated response, this marker indicates that additional results are available.</p>
+   * @public
+   */
+  NextMarker?: string | undefined;
+}
+
+/**
+ * <p>A single settlement transaction record for AI bot monetization. Contains details about the payment including timestamp, amount, status, and the parties involved.</p>
+ * @public
+ */
+export interface SettlementRecord {
+  /**
+   * <p>The timestamp when the settlement was recorded.</p>
+   * @public
+   */
+  Timestamp: Date | undefined;
+
+  /**
+   * <p>The blockchain wallet address of the paying AI agent.</p>
+   * @public
+   */
+  PayerAddress?: string | undefined;
+
+  /**
+   * <p>Your receiving wallet address.</p>
+   * @public
+   */
+  WalletAddress?: string | undefined;
+
+  /**
+   * <p>The status of the settlement. Possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SETTLED</code> - The payment was successfully settled on the blockchain and the transfer from the payer's wallet to the publisher's wallet is confirmed. The <code>TransactionId</code> field contains the on-chain transaction hash. Content is served to the client.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING</code> - The blockchain transaction has been submitted but not yet confirmed on-chain. This is a transient state that automatically resolves to either <code>SETTLED</code> or <code>FAILED</code>. No action is required. While pending, content is not served and the API returns a 402 response. Clients can retry the request.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> - The payment settlement was attempted but failed. Possible causes include insufficient funds, an expired payment authorization, or a reverted blockchain transaction. The <code>failureReason</code> field contains a machine-readable error code. Content is not served.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SERVICE_ERROR</code> - Settlement could not be completed due to an internal service issue or an issue with the payment network. Content is not served. The client's payment authorization remains valid and the request can be retried.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SKIPPED_ORIGIN_ERROR</code> - The origin returned a non-2xx response, so settlement was intentionally skipped. The client is not charged.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DUPLICATE</code> - A prior request with the same payment payload has already been settled. This status typically appears when a previous attempt timed out but the payment was ultimately processed. The client is not charged again.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status: SettlementStatus | undefined;
+
+  /**
+   * <p>The payment amount in the specified currency.</p>
+   * @public
+   */
+  Amount: string | undefined;
+
+  /**
+   * <p>The currency of the payment amount.</p>
+   * @public
+   */
+  Currency?: Currency | undefined;
+
+  /**
+   * <p>The blockchain network on which the settlement occurred.</p>
+   * @public
+   */
+  Network?: string | undefined;
+
+  /**
+   * <p>The blockchain transaction identifier. You can use this to verify the transaction on a blockchain explorer.</p>
+   * @public
+   */
+  TransactionId?: string | undefined;
+
+  /**
+   * <p>The WAF request ID associated with this settlement.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The name of the AI bot that made the payment.</p>
+   * @public
+   */
+  SourceName?: string | undefined;
+
+  /**
+   * <p>The organization associated with the AI bot.</p>
+   * @public
+   */
+  Organization?: string | undefined;
+
+  /**
+   * <p>The category of the AI bot source.</p>
+   * @public
+   */
+  SourceCategory?: string | undefined;
+
+  /**
+   * <p>The declared intent of the AI bot request.</p>
+   * @public
+   */
+  Intent?: string | undefined;
+
+  /**
+   * <p>Whether the AI bot's identity was verified.</p>
+   * @public
+   */
+  Verified?: boolean | undefined;
+
+  /**
+   * <p>The content path that was accessed.</p>
+   * @public
+   */
+  ContentPath?: string | undefined;
+
+  /**
+   * <p>The ARN of the web ACL that processed the request.</p>
+   * @public
+   */
+  WebAclArn?: string | undefined;
+
+  /**
+   * <p>The timestamp of the original web request.</p>
+   * @public
+   */
+  RequestTimestamp?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSettlementRecordsResponse {
+  /**
+   * <p>The list of settlement records.</p>
+   * @public
+   */
+  Settlements?: SettlementRecord[] | undefined;
+
+  /**
+   * <p>When you get a paginated response, this marker indicates that additional results are available.</p>
+   * @public
+   */
+  NextMarker?: string | undefined;
 }
 
 /**
@@ -8001,6 +8806,12 @@ export interface CreateRuleGroupRequest {
    * @public
    */
   CustomResponseBodies?: Record<string, CustomResponseBody> | undefined;
+
+  /**
+   * <p>The monetization configuration for the rule group. Provide this when any rule in the rule group uses the <code>Monetize</code> action.</p>
+   * @public
+   */
+  MonetizationConfig?: MonetizationConfig | undefined;
 }
 
 /**
@@ -8126,6 +8937,12 @@ export interface CreateWebACLRequest {
    * @public
    */
   ApplicationConfig?: ApplicationConfig | undefined;
+
+  /**
+   * <p>The monetization configuration for the web ACL. Provide this when any rule in the web ACL uses the <code>Monetize</code> action.</p>
+   * @public
+   */
+  MonetizationConfig?: MonetizationConfig | undefined;
 }
 
 /**
@@ -8231,6 +9048,12 @@ export interface RuleGroup {
    * @public
    */
   ConsumedLabels?: LabelSummary[] | undefined;
+
+  /**
+   * <p>The monetization configuration for the rule group. Required when any rule in the rule group uses the <code>Monetize</code> action. When a rule group with a <code>MonetizationConfig</code> is used in a web ACL, the rule group's configuration applies to rules within that group unless overridden at the web ACL level.</p>
+   * @public
+   */
+  MonetizationConfig?: MonetizationConfig | undefined;
 }
 
 /**
@@ -8301,6 +9124,12 @@ export interface UpdateRuleGroupRequest {
    * @public
    */
   CustomResponseBodies?: Record<string, CustomResponseBody> | undefined;
+
+  /**
+   * <p>The monetization configuration for the rule group. Provide this when any rule in the rule group uses the <code>Monetize</code> action.</p>
+   * @public
+   */
+  MonetizationConfig?: MonetizationConfig | undefined;
 }
 
 /**
@@ -8442,6 +9271,12 @@ export interface UpdateWebACLRequest {
    * @public
    */
   ApplicationConfig?: ApplicationConfig | undefined;
+
+  /**
+   * <p>The monetization configuration for the web ACL. Provide this when any rule in the web ACL uses the <code>Monetize</code> action.</p>
+   * @public
+   */
+  MonetizationConfig?: MonetizationConfig | undefined;
 }
 
 /**
@@ -8649,6 +9484,12 @@ export interface WebACL {
    * @public
    */
   ApplicationConfig?: ApplicationConfig | undefined;
+
+  /**
+   * <p>The monetization configuration for the web ACL. Required when any rule in the web ACL uses the <code>Monetize</code> action. Specifies the cryptocurrency payment networks and currency mode for AI bot monetization.</p>
+   * @public
+   */
+  MonetizationConfig?: MonetizationConfig | undefined;
 }
 
 /**

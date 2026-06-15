@@ -409,6 +409,9 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  * //                       ],
  * //                     },
  * //                   },
+ * //                   Monetize: { // MonetizeAction
+ * //                     PriceMultiplier: "STRING_VALUE",
+ * //                   },
  * //                 },
  * //               },
  * //             ],
@@ -552,6 +555,9 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  * //                       },
  * //                       Challenge: {
  * //                         CustomRequestHandling: "<CustomRequestHandling>",
+ * //                       },
+ * //                       Monetize: {
+ * //                         PriceMultiplier: "STRING_VALUE",
  * //                       },
  * //                     },
  * //                   },
@@ -803,6 +809,9 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  * //                       Challenge: {
  * //                         CustomRequestHandling: "<CustomRequestHandling>",
  * //                       },
+ * //                       Monetize: {
+ * //                         PriceMultiplier: "STRING_VALUE",
+ * //                       },
  * //                     },
  * //                   },
  * //                 ],
@@ -1042,6 +1051,9 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  * //                   Challenge: {
  * //                     CustomRequestHandling: "<CustomRequestHandling>",
  * //                   },
+ * //                   Monetize: {
+ * //                     PriceMultiplier: "STRING_VALUE",
+ * //                   },
  * //                 },
  * //               },
  * //             ],
@@ -1111,6 +1123,23 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  * //         Name: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     MonetizationConfig: { // MonetizationConfig
+ * //       CryptoConfig: { // CryptoConfig
+ * //         PaymentNetworks: [ // PaymentNetworks // required
+ * //           { // PaymentNetwork
+ * //             Chain: "BASE" || "SOLANA" || "BASE_SEPOLIA" || "SOLANA_DEVNET", // required
+ * //             WalletAddress: "STRING_VALUE", // required
+ * //             Prices: [ // Prices // required
+ * //               { // Price
+ * //                 Amount: "STRING_VALUE", // required
+ * //                 Currency: "USDC", // required
+ * //               },
+ * //             ],
+ * //           },
+ * //         ],
+ * //       },
+ * //       CurrencyMode: "REAL" || "TEST",
+ * //     },
  * //   },
  * //   LockToken: "STRING_VALUE",
  * // };

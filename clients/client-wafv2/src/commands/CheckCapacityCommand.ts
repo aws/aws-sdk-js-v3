@@ -407,6 +407,9 @@ export interface CheckCapacityCommandOutput extends CheckCapacityResponse, __Met
  *                     ],
  *                   },
  *                 },
+ *                 Monetize: { // MonetizeAction
+ *                   PriceMultiplier: "STRING_VALUE",
+ *                 },
  *               },
  *             },
  *           ],
@@ -550,6 +553,9 @@ export interface CheckCapacityCommandOutput extends CheckCapacityResponse, __Met
  *                     },
  *                     Challenge: {
  *                       CustomRequestHandling: "<CustomRequestHandling>",
+ *                     },
+ *                     Monetize: {
+ *                       PriceMultiplier: "STRING_VALUE",
  *                     },
  *                   },
  *                 },
@@ -801,6 +807,9 @@ export interface CheckCapacityCommandOutput extends CheckCapacityResponse, __Met
  *                     Challenge: {
  *                       CustomRequestHandling: "<CustomRequestHandling>",
  *                     },
+ *                     Monetize: {
+ *                       PriceMultiplier: "STRING_VALUE",
+ *                     },
  *                   },
  *                 },
  *               ],
@@ -1039,6 +1048,9 @@ export interface CheckCapacityCommandOutput extends CheckCapacityResponse, __Met
  *                 },
  *                 Challenge: {
  *                   CustomRequestHandling: "<CustomRequestHandling>",
+ *                 },
+ *                 Monetize: {
+ *                   PriceMultiplier: "STRING_VALUE",
  *                 },
  *               },
  *             },

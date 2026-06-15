@@ -21,6 +21,7 @@ import {
   AWSManagedRulesATPRuleSet$,
   AWSManagedRulesBotControlRuleSet$,
   BlockAction$,
+  BlockchainChain,
   Body$,
   BodyParsingFallbackBehavior,
   BotStatistics$,
@@ -63,10 +64,15 @@ import {
   CreateWebACLCommand,
   CreateWebACLRequest$,
   CreateWebACLResponse$,
+  CryptoConfig$,
+  CryptoCurrency,
+  Currency,
+  CurrencyMode,
   CustomHTTPHeader$,
   CustomRequestHandling$,
   CustomResponse$,
   CustomResponseBody$,
+  DataPointEntry$,
   DataProtection$,
   DataProtectionAction,
   DataProtectionConfig$,
@@ -172,6 +178,18 @@ import {
   GetRegexPatternSetCommand,
   GetRegexPatternSetRequest$,
   GetRegexPatternSetResponse$,
+  GetRevenueStatistics$,
+  GetRevenueStatisticsCommand,
+  GetRevenueStatisticsRequest$,
+  GetRevenueStatisticsResponse$,
+  GetRevenueStatisticsSummary$,
+  GetRevenueStatisticsSummaryCommand,
+  GetRevenueStatisticsSummaryRequest$,
+  GetRevenueStatisticsSummaryResponse$,
+  GetRevenueStatisticsTimeSeries$,
+  GetRevenueStatisticsTimeSeriesCommand,
+  GetRevenueStatisticsTimeSeriesRequest$,
+  GetRevenueStatisticsTimeSeriesResponse$,
   GetRuleGroup$,
   GetRuleGroupCommand,
   GetRuleGroupRequest$,
@@ -192,6 +210,7 @@ import {
   GetWebACLForResourceResponse$,
   GetWebACLRequest$,
   GetWebACLResponse$,
+  GroupByType,
   HeaderMatchPattern$,
   HeaderOrder$,
   Headers$,
@@ -199,6 +218,7 @@ import {
   HTTPRequest$,
   ImmunityTimeProperty$,
   InspectionLevel,
+  IntervalType,
   IPAddressVersion,
   IPSet$,
   IPSetForwardedIPConfig$,
@@ -254,6 +274,10 @@ import {
   ListRuleGroupsCommand,
   ListRuleGroupsRequest$,
   ListRuleGroupsResponse$,
+  ListSettlementRecords$,
+  ListSettlementRecordsCommand,
+  ListSettlementRecordsRequest$,
+  ListSettlementRecordsResponse$,
   ListTagsForResource$,
   ListTagsForResourceCommand,
   ListTagsForResourceRequest$,
@@ -278,6 +302,9 @@ import {
   MapMatchScope,
   Method$,
   MobileSdkRelease$,
+  MonetizationConfig$,
+  MonetizationFilter$,
+  MonetizeAction$,
   NoneAction$,
   NotStatement$,
   OnSourceDDoSProtectionConfig$,
@@ -288,9 +315,11 @@ import {
   PasswordField$,
   PathStatistics$,
   PayloadType,
+  PaymentNetwork$,
   PhoneNumberField$,
   Platform,
   PositionalConstraint,
+  Price$,
   PutLoggingConfiguration$,
   PutLoggingConfigurationCommand,
   PutLoggingConfigurationRequest$,
@@ -304,6 +333,8 @@ import {
   PutPermissionPolicyRequest$,
   PutPermissionPolicyResponse$,
   QueryString$,
+  RankingSortBy,
+  RankingStatisticType,
   RateBasedStatement$,
   RateBasedStatementAggregateKeyType,
   RateBasedStatementCustomKey$,
@@ -336,6 +367,8 @@ import {
   ResponseInspectionHeader$,
   ResponseInspectionJson$,
   ResponseInspectionStatusCode$,
+  RevenueBreakdown$,
+  RevenuePathStatistics$,
   Rule$,
   RuleAction$,
   RuleActionOverride$,
@@ -347,10 +380,15 @@ import {
   Scope,
   SensitivityLevel,
   SensitivityToAct,
+  SettlementRecord$,
+  SettlementSortBy,
+  SettlementStatus,
   SingleHeader$,
   SingleQueryArgument$,
   SizeConstraintStatement$,
   SizeInspectionLimit,
+  SortOrder,
+  SourceStatistics$,
   SqliMatchStatement$,
   Statement$,
   Tag$,
@@ -361,6 +399,7 @@ import {
   TagResourceResponse$,
   TextTransformation$,
   TextTransformationType,
+  TimeSeriesStatisticType,
   TimeWindow$,
   UntagResource$,
   UntagResourceCommand,
@@ -500,6 +539,12 @@ assert(typeof GetRateBasedStatementManagedKeysCommand === "function");
 assert(typeof GetRateBasedStatementManagedKeys$ === "object");
 assert(typeof GetRegexPatternSetCommand === "function");
 assert(typeof GetRegexPatternSet$ === "object");
+assert(typeof GetRevenueStatisticsCommand === "function");
+assert(typeof GetRevenueStatistics$ === "object");
+assert(typeof GetRevenueStatisticsSummaryCommand === "function");
+assert(typeof GetRevenueStatisticsSummary$ === "object");
+assert(typeof GetRevenueStatisticsTimeSeriesCommand === "function");
+assert(typeof GetRevenueStatisticsTimeSeries$ === "object");
 assert(typeof GetRuleGroupCommand === "function");
 assert(typeof GetRuleGroup$ === "object");
 assert(typeof GetSampledRequestsCommand === "function");
@@ -530,6 +575,8 @@ assert(typeof ListResourcesForWebACLCommand === "function");
 assert(typeof ListResourcesForWebACL$ === "object");
 assert(typeof ListRuleGroupsCommand === "function");
 assert(typeof ListRuleGroups$ === "object");
+assert(typeof ListSettlementRecordsCommand === "function");
+assert(typeof ListSettlementRecords$ === "object");
 assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
 assert(typeof ListWebACLsCommand === "function");
@@ -600,10 +647,12 @@ assert(typeof CreateRuleGroupRequest$ === "object");
 assert(typeof CreateRuleGroupResponse$ === "object");
 assert(typeof CreateWebACLRequest$ === "object");
 assert(typeof CreateWebACLResponse$ === "object");
+assert(typeof CryptoConfig$ === "object");
 assert(typeof CustomHTTPHeader$ === "object");
 assert(typeof CustomRequestHandling$ === "object");
 assert(typeof CustomResponse$ === "object");
 assert(typeof CustomResponseBody$ === "object");
+assert(typeof DataPointEntry$ === "object");
 assert(typeof DataProtection$ === "object");
 assert(typeof DataProtectionConfig$ === "object");
 assert(typeof DefaultAction$ === "object");
@@ -660,6 +709,12 @@ assert(typeof GetRateBasedStatementManagedKeysRequest$ === "object");
 assert(typeof GetRateBasedStatementManagedKeysResponse$ === "object");
 assert(typeof GetRegexPatternSetRequest$ === "object");
 assert(typeof GetRegexPatternSetResponse$ === "object");
+assert(typeof GetRevenueStatisticsRequest$ === "object");
+assert(typeof GetRevenueStatisticsResponse$ === "object");
+assert(typeof GetRevenueStatisticsSummaryRequest$ === "object");
+assert(typeof GetRevenueStatisticsSummaryResponse$ === "object");
+assert(typeof GetRevenueStatisticsTimeSeriesRequest$ === "object");
+assert(typeof GetRevenueStatisticsTimeSeriesResponse$ === "object");
 assert(typeof GetRuleGroupRequest$ === "object");
 assert(typeof GetRuleGroupResponse$ === "object");
 assert(typeof GetSampledRequestsRequest$ === "object");
@@ -708,6 +763,8 @@ assert(typeof ListResourcesForWebACLRequest$ === "object");
 assert(typeof ListResourcesForWebACLResponse$ === "object");
 assert(typeof ListRuleGroupsRequest$ === "object");
 assert(typeof ListRuleGroupsResponse$ === "object");
+assert(typeof ListSettlementRecordsRequest$ === "object");
+assert(typeof ListSettlementRecordsResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof ListWebACLsRequest$ === "object");
@@ -724,6 +781,9 @@ assert(typeof ManagedRuleSetSummary$ === "object");
 assert(typeof ManagedRuleSetVersion$ === "object");
 assert(typeof Method$ === "object");
 assert(typeof MobileSdkRelease$ === "object");
+assert(typeof MonetizationConfig$ === "object");
+assert(typeof MonetizationFilter$ === "object");
+assert(typeof MonetizeAction$ === "object");
 assert(typeof NoneAction$ === "object");
 assert(typeof NotStatement$ === "object");
 assert(typeof OnSourceDDoSProtectionConfig$ === "object");
@@ -731,7 +791,9 @@ assert(typeof OrStatement$ === "object");
 assert(typeof OverrideAction$ === "object");
 assert(typeof PasswordField$ === "object");
 assert(typeof PathStatistics$ === "object");
+assert(typeof PaymentNetwork$ === "object");
 assert(typeof PhoneNumberField$ === "object");
+assert(typeof Price$ === "object");
 assert(typeof PutLoggingConfigurationRequest$ === "object");
 assert(typeof PutLoggingConfigurationResponse$ === "object");
 assert(typeof PutManagedRuleSetVersionsRequest$ === "object");
@@ -768,6 +830,8 @@ assert(typeof ResponseInspectionBodyContains$ === "object");
 assert(typeof ResponseInspectionHeader$ === "object");
 assert(typeof ResponseInspectionJson$ === "object");
 assert(typeof ResponseInspectionStatusCode$ === "object");
+assert(typeof RevenueBreakdown$ === "object");
+assert(typeof RevenuePathStatistics$ === "object");
 assert(typeof Rule$ === "object");
 assert(typeof RuleAction$ === "object");
 assert(typeof RuleActionOverride$ === "object");
@@ -776,9 +840,11 @@ assert(typeof RuleGroupReferenceStatement$ === "object");
 assert(typeof RuleGroupSummary$ === "object");
 assert(typeof RuleSummary$ === "object");
 assert(typeof SampledHTTPRequest$ === "object");
+assert(typeof SettlementRecord$ === "object");
 assert(typeof SingleHeader$ === "object");
 assert(typeof SingleQueryArgument$ === "object");
 assert(typeof SizeConstraintStatement$ === "object");
+assert(typeof SourceStatistics$ === "object");
 assert(typeof SqliMatchStatement$ === "object");
 assert(typeof Statement$ === "object");
 assert(typeof Tag$ === "object");
@@ -810,9 +876,13 @@ assert(typeof XssMatchStatement$ === "object");
 // enums
 assert(typeof ActionValue === "object");
 assert(typeof AssociatedResourceType === "object");
+assert(typeof BlockchainChain === "object");
 assert(typeof BodyParsingFallbackBehavior === "object");
 assert(typeof ComparisonOperator === "object");
 assert(typeof CountryCode === "object");
+assert(typeof CryptoCurrency === "object");
+assert(typeof Currency === "object");
+assert(typeof CurrencyMode === "object");
 assert(typeof DataProtectionAction === "object");
 assert(typeof FailureReason === "object");
 assert(typeof FallbackBehavior === "object");
@@ -820,7 +890,9 @@ assert(typeof FieldToProtectType === "object");
 assert(typeof FilterBehavior === "object");
 assert(typeof FilterRequirement === "object");
 assert(typeof ForwardedIPPosition === "object");
+assert(typeof GroupByType === "object");
 assert(typeof InspectionLevel === "object");
+assert(typeof IntervalType === "object");
 assert(typeof IPAddressVersion === "object");
 assert(typeof JsonMatchScope === "object");
 assert(typeof LabelMatchScope === "object");
@@ -833,14 +905,20 @@ assert(typeof ParameterExceptionField === "object");
 assert(typeof PayloadType === "object");
 assert(typeof Platform === "object");
 assert(typeof PositionalConstraint === "object");
+assert(typeof RankingSortBy === "object");
+assert(typeof RankingStatisticType === "object");
 assert(typeof RateBasedStatementAggregateKeyType === "object");
 assert(typeof ResourceType === "object");
 assert(typeof ResponseContentType === "object");
 assert(typeof Scope === "object");
 assert(typeof SensitivityLevel === "object");
 assert(typeof SensitivityToAct === "object");
+assert(typeof SettlementSortBy === "object");
+assert(typeof SettlementStatus === "object");
 assert(typeof SizeInspectionLimit === "object");
+assert(typeof SortOrder === "object");
 assert(typeof TextTransformationType === "object");
+assert(typeof TimeSeriesStatisticType === "object");
 assert(typeof UsageOfAction === "object");
 // errors
 assert(WAFAssociatedItemException.prototype instanceof WAFV2ServiceException);

@@ -124,7 +124,7 @@ export interface GetLoggingConfigurationCommandOutput extends GetLoggingConfigur
  * //           Conditions: [ // Conditions // required
  * //             { // Condition
  * //               ActionCondition: { // ActionCondition
- * //                 Action: "ALLOW" || "BLOCK" || "COUNT" || "CAPTCHA" || "CHALLENGE" || "EXCLUDED_AS_COUNT", // required
+ * //                 Action: "ALLOW" || "BLOCK" || "COUNT" || "CAPTCHA" || "CHALLENGE" || "MONETIZE" || "EXCLUDED_AS_COUNT", // required
  * //               },
  * //               LabelNameCondition: { // LabelNameCondition
  * //                 LabelName: "STRING_VALUE", // required
