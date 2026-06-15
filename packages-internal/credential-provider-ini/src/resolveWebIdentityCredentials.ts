@@ -30,16 +30,17 @@ export const resolveWebIdentityCredentials = async (
   profile: WebIdentityProfile,
   options: FromIniInit,
   callerClientConfig?: AwsIdentityProperties["callerClientConfig"]
-): Promise<AwsCredentialIdentity> =>
-  import("@aws-sdk/credential-provider-web-identity").then(({ fromTokenFile }) =>
-    fromTokenFile({
-      webIdentityTokenFile: profile.web_identity_token_file,
-      roleArn: profile.role_arn,
-      roleSessionName: profile.role_session_name,
-      roleAssumerWithWebIdentity: options.roleAssumerWithWebIdentity,
-      logger: options.logger,
-      parentClientConfig: options.parentClientConfig,
-    })({
-      callerClientConfig,
-    }).then((creds) => setCredentialFeature(creds, "CREDENTIALS_PROFILE_STS_WEB_ID_TOKEN", "q"))
-  );
+): Promise<AwsCredentialIdentity> => {
+  const { fromTokenFile } = await import("@aws-sdk/credential-provider-web-identity");
+  const credentials = await fromTokenFile({
+    webIdentityTokenFile: profile.web_identity_token_file,
+    roleArn: profile.role_arn,
+    roleSessionName: profile.role_session_name,
+    roleAssumerWithWebIdentity: options.roleAssumerWithWebIdentity,
+    logger: options.logger,
+    parentClientConfig: options.parentClientConfig,
+  })({
+    callerClientConfig,
+  });
+  return setCredentialFeature(credentials, "CREDENTIALS_PROFILE_STS_WEB_ID_TOKEN", "q");
+};

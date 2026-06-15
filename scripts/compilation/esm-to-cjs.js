@@ -14,7 +14,7 @@
  *   export class/function X    -> class/function X ...; exports.X = X
  *   export const/let/var X = V -> const/let/var X = V; exports.X = X
  *   await import("n")          -> require("n")
- *   import("n") (not awaited)  -> preserved
+ *   import("n") (not awaited)  -> ERROR (not supported)
  *
  * @internal
  */
@@ -24,6 +24,7 @@ const acorn = require("acorn");
 const ERR_DEFAULT_EXPORT = "default exports are not supported";
 const ERR_STRING_EXPORT = "string-literal export names are not supported";
 const ERR_DYNAMIC_IMPORT = "dynamic await import() with non-literal source is not supported";
+const ERR_NON_AWAITED_IMPORT = "non-awaited dynamic import() is not supported";
 
 const ImportDeclaration = "ImportDeclaration";
 const ExportNamedDeclaration = "ExportNamedDeclaration";
@@ -39,7 +40,7 @@ const Literal = "Literal";
 
 // Keys that are never AST child nodes — skip during traversal to avoid
 // descending into primitives.
-const SKIP_KEYS = new Set(["type", "start", "end", "raw", "value", "sourceType"]);
+const SKIP_KEYS = new Set(["type", "start", "end", "raw", "sourceType"]);
 
 /**
  * @param {string} esmCode - ESM code.
@@ -54,16 +55,24 @@ function transpile(esmCode) {
 
   const edits = [];
   let hasExportStar = false;
+  const importedSymbols = new Set();
 
   for (let i = 0; i < ast.body.length; i++) {
     const node = ast.body[i];
     switch (node.type) {
       case ImportDeclaration:
         edits.push({ start: node.start, end: node.end, replacement: transformImport(node) });
+        for (const s of node.specifiers) {
+          importedSymbols.add(s.local.name);
+        }
         break;
       case ExportNamedDeclaration: {
         const inner = awaitImportEdits.filter((e) => e.start >= node.start && e.end <= node.end);
-        edits.push({ start: node.start, end: node.end, replacement: transformExportNamed(node, esmCode, inner) });
+        edits.push({
+          start: node.start,
+          end: node.end,
+          replacement: transformExportNamed(node, esmCode, inner, importedSymbols),
+        });
         break;
       }
       case ExportDefaultDeclaration:
@@ -168,7 +177,7 @@ function isNameUsedOutsideDecl(src, name, declStart, declEnd) {
   return false;
 }
 
-function transformExportNamed(node, src, innerEdits) {
+function transformExportNamed(node, src, innerEdits, importedSymbols) {
   for (let i = 0; i < node.specifiers.length; i++) {
     const s = node.specifiers[i];
     if (s.exported.type === Literal) {
@@ -237,13 +246,20 @@ function transformExportNamed(node, src, innerEdits) {
     let assignments = "";
     for (let i = 0; i < node.specifiers.length; i++) {
       const s = node.specifiers[i];
-      if (bindings) {
-        bindings += ", ";
+      if (importedSymbols.has(s.local.name)) {
+        assignments += "\nexports." + s.exported.name + " = " + s.local.name + ";";
+      } else {
+        if (bindings) {
+          bindings += ", ";
+        }
+        bindings += s.local.name === s.exported.name ? s.local.name : `${s.local.name}: ${s.exported.name}`;
+        assignments += "\nexports." + s.exported.name + " = " + s.exported.name + ";";
       }
-      bindings += s.local.name === s.exported.name ? s.local.name : `${s.local.name}: ${s.exported.name}`;
-      assignments += "\nexports." + s.exported.name + " = " + s.exported.name + ";";
     }
-    return `const { ${bindings} } = require(${source});` + assignments;
+    if (bindings) {
+      return `const { ${bindings} } = require(${source});` + assignments;
+    }
+    return assignments.slice(1);
   }
 
   let result = "";
@@ -258,8 +274,8 @@ function transformExportNamed(node, src, innerEdits) {
 }
 
 /**
- * Stack-based AST walk. Converts `await import(x)` to `require(x)` while
- * leaving non-awaited dynamic imports untouched.
+ * Stack-based AST walk. Converts `await import(x)` to `require(x)` and
+ * throws on non-awaited dynamic imports.
  */
 function collectAwaitImports(ast, edits, src) {
   const stack = [ast];
@@ -287,6 +303,9 @@ function collectAwaitImports(ast, edits, src) {
       // Don't descend — the import expression is fully consumed.
       continue;
     }
+    if (node.type === ImportExpression) {
+      throw new Error(ERR_NON_AWAITED_IMPORT);
+    }
     for (const key in node) {
       if (SKIP_KEYS.has(key)) {
         continue;
@@ -312,7 +331,6 @@ module.exports = { transpile };
     `export { C } from "reexport";`,
     `export const foo = 1;`,
     `export const run = async () => { const m = await import("dynamic"); return m; };`,
-    `const p = import("lazy");`,
     `export * from "barrel2";`,
     `export const used = () => {};`,
     `const ref = used();`,
@@ -339,7 +357,6 @@ module.exports = { transpile };
   must(`exports.foo = 1;`);
   must(`exports.run = async () =>`);
   must(`require("dynamic")`);
-  must(`import("lazy")`);
   mustNot(`await import`);
   mustNot(`export `);
   mustNot(`const foo`);
@@ -347,4 +364,52 @@ module.exports = { transpile };
   // 'used' is referenced elsewhere -> two-line pattern
   must(`const used = () => {};`);
   must(`exports.used = used;`);
+
+  // Non-awaited dynamic import must throw.
+  let threw = false;
+  try {
+    transpile(`const p = import("lazy");`);
+  } catch (e) {
+    if (e.message === ERR_NON_AWAITED_IMPORT) {
+      threw = true;
+    }
+  }
+  if (!threw) {
+    throw new Error("esm-to-cjs self-test: non-awaited import() must throw ERR_NON_AWAITED_IMPORT.");
+  }
+
+  // await import inside class method must be transformed.
+  const classSource = `import { foo } from "bar";
+class X { async load() { const { Y } = await import("baz"); return Y; } }
+export { X };`;
+  const classOut = transpile(classSource);
+  const classExpected = `const { foo } = require("bar");
+class X { async load() { const { Y } = require("baz"); return Y; } }
+exports.X = X;`;
+  if (classOut !== classExpected) {
+    throw new Error(
+      `esm-to-cjs self-test: class method mismatch
+  expected:
+    ${classExpected}
+  got:
+    ${classOut}`
+    );
+  }
+
+  // export-from must not re-declare already-imported symbols.
+  const dupSource = `import { A, B } from "pkg";\nexport { A, C } from "pkg";`;
+  const dupOut = transpile(dupSource);
+  if (dupOut.includes("const { A")) {
+    // A should only appear once as a const declaration
+    const matches = dupOut.match(/const \{[^}]*A[^}]*\}/g);
+    if (matches.length > 1) {
+      throw new Error(`esm-to-cjs self-test: duplicate declaration of A\nin:\n${dupOut}`);
+    }
+  }
+  if (!dupOut.includes("exports.A = A;")) {
+    throw new Error(`esm-to-cjs self-test: missing exports.A = A\nin:\n${dupOut}`);
+  }
+  if (!dupOut.includes("exports.C = C;")) {
+    throw new Error(`esm-to-cjs self-test: missing exports.C = C\nin:\n${dupOut}`);
+  }
 })();

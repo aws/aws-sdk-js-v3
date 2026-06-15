@@ -6,6 +6,7 @@ const { extractImports } = require("./../validation/validation-shared");
 const rollup = require("rollup");
 const { nodeResolve } = require("@rollup/plugin-node-resolve");
 const json = require("@rollup/plugin-json");
+const { transpile } = require("./esm-to-cjs");
 
 const root = path.join(__dirname, "..", "..");
 
@@ -236,11 +237,22 @@ module.exports = class Inliner {
 
     const outputOptions = (dir) => ({
       dir,
-      format: "cjs",
-      exports: "named",
+      format: "es",
       preserveModules: false,
       externalLiveBindings: false,
     });
+
+    const transpileDir = (dir) => {
+      for (const file of fs.readdirSync(dir)) {
+        const full = path.join(dir, file);
+        if (fs.statSync(full).isDirectory()) {
+          transpileDir(full);
+        } else if (file.endsWith(".js")) {
+          const esm = fs.readFileSync(full, "utf-8");
+          fs.writeFileSync(full, transpile(esm));
+        }
+      }
+    };
 
     // Bundle main index.js (no variants externalized for submodule packages).
     const mainExternals = this.hasSubmodules ? [] : variantExternalsForRollup;
@@ -293,6 +305,8 @@ module.exports = class Inliner {
       }
     }
 
+    transpileDir(path.join(root, this.subfolder, this.package, "dist-cjs"));
+
     return this;
   }
 
@@ -324,78 +338,7 @@ module.exports = class Inliner {
   }
 
   /**
-   * step 4: delete unreachable dist-cjs files that were not bundled into
-   * index.js and are not variant externals or dynamic import targets.
-   */
-  async deleteUnreachableFiles() {
-    if (this.bailout || this.hasSubmodules) {
-      return this;
-    }
-
-    // Collect files that are targets of dynamic import() from variant externals.
-    const dynamicImportTargets = new Set();
-    for (const external of this.variantExternals) {
-      const externalFile = path.join(this.packageDirectory, "dist-cjs", external);
-      if (fs.existsSync(externalFile)) {
-        const contents = fs.readFileSync(externalFile, "utf-8");
-        for (const specifier of extractImports(contents)) {
-          if (specifier.startsWith(".")) {
-            const resolved = path.normalize(path.join(path.dirname(external), specifier));
-            dynamicImportTargets.add(resolved.endsWith(".js") ? resolved : resolved + ".js");
-          }
-        }
-      }
-    }
-
-    for await (const file of walk(path.join(this.packageDirectory, "dist-cjs"))) {
-      const relativePath = file.replace(path.join(this.packageDirectory, "dist-cjs"), "").slice(1);
-
-      if (relativePath.includes("submodules")) {
-        continue;
-      }
-
-      if (!file.endsWith(".js")) {
-        if (this.verbose) {
-          console.log("Skipping", path.basename(file), "file extension is not .js.");
-        }
-        continue;
-      }
-
-      if (relativePath === "index.js") {
-        if (this.verbose) {
-          console.log("Skipping index.js");
-        }
-        continue;
-      }
-
-      if (this.variantExternals.find((external) => relativePath.endsWith(external))) {
-        if (this.verbose) {
-          console.log("Not rewriting.", relativePath, "is variant.");
-        }
-        continue;
-      }
-
-      if (dynamicImportTargets.has(relativePath)) {
-        if (this.verbose) {
-          console.log("Not rewriting.", relativePath, "is a dynamic import target.");
-        }
-        continue;
-      }
-
-      if (fs.readFileSync(file, "utf-8").includes(`Object.defineProperty(exports, "__esModule", { value: true });`)) {
-        fs.rmSync(file);
-      }
-      const files = fs.readdirSync(path.dirname(file));
-      if (files.length === 0) {
-        fs.rmdirSync(path.dirname(file));
-      }
-    }
-
-    return this;
-  }
-
-  /**
-   * step 5: rewrite variant external imports to correct path.
+   * step 4: rewrite variant external imports to correct path.
    * For submodule packages, this is a no-op since all variants are fully inlined.
    */
   async fixVariantImportPaths() {
@@ -429,7 +372,7 @@ module.exports = class Inliner {
   }
 
   /**
-   * step 6: validate the output.
+   * step 5: validate the output.
    * Checks that variant externals are referenced in the bundled index.
    */
   async validate() {
