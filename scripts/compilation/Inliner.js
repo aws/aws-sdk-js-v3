@@ -6,6 +6,7 @@ const { extractImports } = require("./../validation/validation-shared");
 const rollup = require("rollup");
 const { nodeResolve } = require("@rollup/plugin-node-resolve");
 const json = require("@rollup/plugin-json");
+const { transpile } = require("./esm-to-cjs");
 
 const root = path.join(__dirname, "..", "..");
 
@@ -236,17 +237,22 @@ module.exports = class Inliner {
 
     const outputOptions = (dir) => ({
       dir,
-      format: "cjs",
-      exports: "named",
+      format: "es",
       preserveModules: false,
       externalLiveBindings: false,
     });
+
+    const transpileFile = (file) => {
+      const esm = fs.readFileSync(file, "utf-8");
+      fs.writeFileSync(file, transpile(esm));
+    };
 
     // Bundle main index.js (no variants externalized for submodule packages).
     const mainExternals = this.hasSubmodules ? [] : variantExternalsForRollup;
     const bundle = await rollup.rollup(makeInputOptions(entryPoint, mainExternals));
     await bundle.write(outputOptions(path.dirname(this.outfile)));
     await bundle.close();
+    transpileFile(this.outfile);
 
     if (this.hasSubmodules) {
       const submodulesDir = path.join(root, this.subfolder, this.package, "src", "submodules");
@@ -268,6 +274,7 @@ module.exports = class Inliner {
         const nodeBundle = await rollup.rollup(makeInputOptions(path.join(distEsSubmoduleDir, "index.js"), []));
         await nodeBundle.write(outputOptions(submoduleOutDir));
         await nodeBundle.close();
+        transpileFile(path.join(submoduleOutDir, "index.js"));
 
         // Bundle index.browser.js if the source file exists.
         const browserEntry = path.join(distEsSubmoduleDir, "index.browser.js");
@@ -278,6 +285,7 @@ module.exports = class Inliner {
             entryFileNames: "index.browser.js",
           });
           await browserBundle.close();
+          transpileFile(path.join(submoduleOutDir, "index.browser.js"));
         }
 
         // Bundle index.native.js if the source file exists.
@@ -289,6 +297,7 @@ module.exports = class Inliner {
             entryFileNames: "index.native.js",
           });
           await nativeBundle.close();
+          transpileFile(path.join(submoduleOutDir, "index.native.js"));
         }
       }
     }

@@ -14,7 +14,7 @@
  *   export class/function X    -> class/function X ...; exports.X = X
  *   export const/let/var X = V -> const/let/var X = V; exports.X = X
  *   await import("n")          -> require("n")
- *   import("n") (not awaited)  -> preserved
+ *   import("n") (not awaited)  -> ERROR (not supported)
  *
  * @internal
  */
@@ -24,6 +24,7 @@ const acorn = require("acorn");
 const ERR_DEFAULT_EXPORT = "default exports are not supported";
 const ERR_STRING_EXPORT = "string-literal export names are not supported";
 const ERR_DYNAMIC_IMPORT = "dynamic await import() with non-literal source is not supported";
+const ERR_NON_AWAITED_IMPORT = "non-awaited dynamic import() is not supported";
 
 const ImportDeclaration = "ImportDeclaration";
 const ExportNamedDeclaration = "ExportNamedDeclaration";
@@ -258,8 +259,8 @@ function transformExportNamed(node, src, innerEdits) {
 }
 
 /**
- * Stack-based AST walk. Converts `await import(x)` to `require(x)` while
- * leaving non-awaited dynamic imports untouched.
+ * Stack-based AST walk. Converts `await import(x)` to `require(x)` and
+ * throws on non-awaited dynamic imports.
  */
 function collectAwaitImports(ast, edits, src) {
   const stack = [ast];
@@ -287,6 +288,9 @@ function collectAwaitImports(ast, edits, src) {
       // Don't descend — the import expression is fully consumed.
       continue;
     }
+    if (node.type === ImportExpression) {
+      throw new Error(ERR_NON_AWAITED_IMPORT);
+    }
     for (const key in node) {
       if (SKIP_KEYS.has(key)) {
         continue;
@@ -312,7 +316,6 @@ module.exports = { transpile };
     `export { C } from "reexport";`,
     `export const foo = 1;`,
     `export const run = async () => { const m = await import("dynamic"); return m; };`,
-    `const p = import("lazy");`,
     `export * from "barrel2";`,
     `export const used = () => {};`,
     `const ref = used();`,
@@ -339,7 +342,6 @@ module.exports = { transpile };
   must(`exports.foo = 1;`);
   must(`exports.run = async () =>`);
   must(`require("dynamic")`);
-  must(`import("lazy")`);
   mustNot(`await import`);
   mustNot(`export `);
   mustNot(`const foo`);
@@ -347,4 +349,15 @@ module.exports = { transpile };
   // 'used' is referenced elsewhere -> two-line pattern
   must(`const used = () => {};`);
   must(`exports.used = used;`);
+
+  // Non-awaited dynamic import must throw.
+  let threw = false;
+  try {
+    transpile(`const p = import("lazy");`);
+  } catch (e) {
+    if (e.message === ERR_NON_AWAITED_IMPORT) {
+      threw = true;
+    }
+  }
+  if (!threw) throw new Error("esm-to-cjs self-test: non-awaited import() did not throw");
 })();
