@@ -101,7 +101,17 @@ const _GARVF = "GuardrailAutomatedReasoningValidFinding";
 const _GC = "GuardrailConfiguration";
 const _GCB = "GuardrailContentBlock";
 const _GCBL = "GuardrailContentBlockList";
-const _GCCB = "GuardrailConverseContentBlock";
+const _GCC = "GuardrailChecksConfig";
+const _GCCB = "GuardrailChecksContentBlock";
+const _GCCBL = "GuardrailChecksContentBlockList";
+const _GCCBu = "GuardrailConverseContentBlock";
+const _GCCFC = "GuardrailChecksContentFilterConfig";
+const _GCCFCC = "GuardrailChecksContentFilterCategoryConfig";
+const _GCCFCCL = "GuardrailChecksContentFilterCategoryConfigList";
+const _GCCFR = "GuardrailChecksContentFilterResult";
+const _GCCFRE = "GuardrailChecksContentFilterResultEntry";
+const _GCCFRL = "GuardrailChecksContentFilterResultList";
+const _GCCFU = "GuardrailChecksContentFilterUsage";
 const _GCF = "GuardrailContentFilter";
 const _GCFL = "GuardrailContentFilterList";
 const _GCGF = "GuardrailContextualGroundingFilter";
@@ -109,8 +119,27 @@ const _GCGFu = "GuardrailContextualGroundingFilters";
 const _GCGPA = "GuardrailContextualGroundingPolicyAssessment";
 const _GCIB = "GuardrailConverseImageBlock";
 const _GCIS = "GuardrailConverseImageSource";
+const _GCM = "GuardrailChecksMessage";
+const _GCML = "GuardrailChecksMessageList";
 const _GCPA = "GuardrailContentPolicyAssessment";
+const _GCPAC = "GuardrailChecksPromptAttackConfig";
+const _GCPACC = "GuardrailChecksPromptAttackCategoryConfig";
+const _GCPACCL = "GuardrailChecksPromptAttackCategoryConfigList";
+const _GCPAR = "GuardrailChecksPromptAttackResult";
+const _GCPARE = "GuardrailChecksPromptAttackResultEntry";
+const _GCPARL = "GuardrailChecksPromptAttackResultList";
+const _GCPAU = "GuardrailChecksPromptAttackUsage";
+const _GCR = "GuardrailChecksResults";
+const _GCSIC = "GuardrailChecksSensitiveInformationConfig";
+const _GCSIEC = "GuardrailChecksSensitiveInformationEntityConfig";
+const _GCSIECL = "GuardrailChecksSensitiveInformationEntityConfigList";
+const _GCSIR = "GuardrailChecksSensitiveInformationResult";
+const _GCSIRE = "GuardrailChecksSensitiveInformationResultEntry";
+const _GCSIRL = "GuardrailChecksSensitiveInformationResultList";
+const _GCSIU = "GuardrailChecksSensitiveInformationUsage";
 const _GCTB = "GuardrailConverseTextBlock";
+const _GCTC = "GuardrailChecksTextContent";
+const _GCUR = "GuardrailChecksUsageResults";
 const _GCW = "GuardrailCustomWord";
 const _GCWL = "GuardrailCustomWordList";
 const _GCu = "GuardrailCoverage";
@@ -140,6 +169,9 @@ const _IB = "ImageBlock";
 const _IBD = "ImageBlockDelta";
 const _IBS = "ImageBlockStart";
 const _IC = "InferenceConfiguration";
+const _IGC = "InvokeGuardrailChecks";
+const _IGCR = "InvokeGuardrailChecksRequest";
+const _IGCRn = "InvokeGuardrailChecksResponse";
 const _IM = "InvokeModel";
 const _IMR = "InvokeModelRequest";
 const _IMRn = "InvokeModelResponse";
@@ -246,6 +278,7 @@ const _au = "audio";
 const _aut = "auto";
 const _b = "bytes";
 const _bO = "bucketOwner";
+const _bOe = "beginOffset";
 const _bo = "body";
 const _c = "client";
 const _cBD = "contentBlockDelta";
@@ -254,9 +287,11 @@ const _cBS = "contentBlockStart";
 const _cBSo = "contentBlockStop";
 const _cC = "citationsContent";
 const _cD = "cacheDetails";
+const _cF = "contentFilter";
 const _cFS = "claimsFalseScenario";
 const _cGP = "contextualGroundingPolicy";
 const _cGPU = "contextualGroundingPolicyUnits";
+const _cI = "contentIndex";
 const _cP = "contentPolicy";
 const _cPIU = "contentPolicyImageUnits";
 const _cPU = "contentPolicyUnits";
@@ -264,11 +299,15 @@ const _cPa = "cachePoint";
 const _cR = "contradictingRules";
 const _cRIT = "cacheReadInputTokens";
 const _cRT = "clientRequestToken";
+const _cS = "confidenceScore";
 const _cT = "contentType";
 const _cTS = "claimsTrueScenario";
 const _cW = "customWords";
 const _cWIT = "cacheWriteInputTokens";
-const _ch = "chunk";
+const _ca = "category";
+const _cat = "categories";
+const _ch = "checks";
+const _chu = "chunk";
 const _ci = "citations";
 const _cit = "citation";
 const _cl = "claims";
@@ -287,9 +326,11 @@ const _des = "description";
 const _do = "domain";
 const _doc = "document";
 const _e = "error";
+const _eO = "endOffset";
 const _eT = "endTime";
 const _en = "enabled";
 const _end = "end";
+const _ent = "entities";
 const _f = "format";
 const _fM = "failureMessage";
 const _fS = "filterStrength";
@@ -339,6 +380,7 @@ const _lo = "logic";
 const _m = "message";
 const _mA = "modelArn";
 const _mI = "modelId";
+const _mIe = "messageIndex";
 const _mIo = "modelInput";
 const _mO = "modelOutput";
 const _mR = "maxResults";
@@ -367,6 +409,7 @@ const _oT = "outputTokens";
 const _op = "options";
 const _ou = "output";
 const _p = "premises";
+const _pA = "promptAttack";
 const _pC = "performanceConfig";
 const _pCL = "performanceConfigLatency";
 const _pE = "piiEntities";
@@ -374,18 +417,20 @@ const _pR = "promptRouter";
 const _pV = "promptVariables";
 const _pVA = "policyVersionArn";
 const _q = "qualifiers";
-const _r = "regex";
+const _r = "results";
 const _rC = "reasoningContent";
 const _rCe = "redactedContent";
 const _rM = "requestMetadata";
 const _rN = "resourceName";
 const _rT = "reasoningText";
-const _re = "regexes";
+const _re = "regex";
+const _reg = "regexes";
 const _ro = "role";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.bedrockruntime";
 const _sB = "sortBy";
 const _sC = "sourceContent";
 const _sE = "statusEquals";
+const _sI = "sensitiveInformation";
 const _sIP = "sensitiveInformationPolicy";
 const _sIPFU = "sensitiveInformationPolicyFreeUnits";
 const _sIPU = "sensitiveInformationPolicyUnits";
@@ -398,7 +443,8 @@ const _sRI = "searchResultIndex";
 const _sRL = "searchResultLocation";
 const _sRe = "searchResult";
 const _sRu = "supportingRules";
-const _sS = "stopSequences";
+const _sS = "severityScore";
+const _sSt = "stopSequences";
 const _sT = "submitTime";
 const _sTA = "submitTimeAfter";
 const _sTB = "submitTimeBefore";
@@ -434,8 +480,9 @@ const _tPo = "topP";
 const _tR = "toolResult";
 const _tS = "toolSpec";
 const _tT = "totalTokens";
-const _tU = "toolUse";
+const _tU = "textUnits";
 const _tUI = "toolUseId";
+const _tUo = "toolUse";
 const _ta = "tags";
 const _te = "text";
 const _tem = "temperature";
@@ -448,6 +495,7 @@ const _top = "topics";
 const _tr = "trace";
 const _tra = "translation";
 const _tran = "translations";
+const _tru = "truncated";
 const _ty = "type";
 const _u = "usage";
 const _uC = "untranslatedClaims";
@@ -581,6 +629,7 @@ var AsyncInvokeMessage: StaticSimpleSchema = [0, n0, _AIM, 8, 0];
 var Body: StaticSimpleSchema = [0, n0, _B, 8, 21];
 var GuardrailAutomatedReasoningStatementLogicContent: StaticSimpleSchema = [0, n0, _GARSLC, 8, 0];
 var GuardrailAutomatedReasoningStatementNaturalLanguageContent: StaticSimpleSchema = [0, n0, _GARSNLC, 8, 0];
+var GuardrailChecksTextContent: StaticSimpleSchema = [0, n0, _GCTC, 8, 0];
 var ModelInputPayload: StaticSimpleSchema = [0, n0, _MIP, 8, 15];
 var PartBody: StaticSimpleSchema = [0, n0, _PB, 8, 21];
 var RequestMetadataJson: StaticSimpleSchema = [0, n0, _RMJ, 8, 0];
@@ -859,6 +908,101 @@ export var GuardrailAutomatedReasoningValidFinding$: StaticStructureSchema = [3,
   [_tra, _cTS, _sRu, _lW],
   [[() => GuardrailAutomatedReasoningTranslation$, 0], [() => GuardrailAutomatedReasoningScenario$, 0], () => GuardrailAutomatedReasoningRuleList, [() => GuardrailAutomatedReasoningLogicWarning$, 0]]
 ];
+export var GuardrailChecksConfig$: StaticStructureSchema = [3, n0, _GCC,
+  0,
+  [_cF, _pA, _sI],
+  [() => GuardrailChecksContentFilterConfig$, () => GuardrailChecksPromptAttackConfig$, () => GuardrailChecksSensitiveInformationConfig$]
+];
+export var GuardrailChecksContentFilterCategoryConfig$: StaticStructureSchema = [3, n0, _GCCFCC,
+  0,
+  [_ca],
+  [0], 1
+];
+export var GuardrailChecksContentFilterConfig$: StaticStructureSchema = [3, n0, _GCCFC,
+  0,
+  [_cat],
+  [() => GuardrailChecksContentFilterCategoryConfigList], 1
+];
+export var GuardrailChecksContentFilterResult$: StaticStructureSchema = [3, n0, _GCCFR,
+  0,
+  [_r],
+  [() => GuardrailChecksContentFilterResultList], 1
+];
+export var GuardrailChecksContentFilterResultEntry$: StaticStructureSchema = [3, n0, _GCCFRE,
+  0,
+  [_ca, _sS],
+  [0, 1], 2
+];
+export var GuardrailChecksContentFilterUsage$: StaticStructureSchema = [3, n0, _GCCFU,
+  0,
+  [_tU],
+  [1], 1
+];
+export var GuardrailChecksMessage$: StaticStructureSchema = [3, n0, _GCM,
+  0,
+  [_ro, _co],
+  [0, [() => GuardrailChecksContentBlockList, 0]], 2
+];
+export var GuardrailChecksPromptAttackCategoryConfig$: StaticStructureSchema = [3, n0, _GCPACC,
+  0,
+  [_ca],
+  [0], 1
+];
+export var GuardrailChecksPromptAttackConfig$: StaticStructureSchema = [3, n0, _GCPAC,
+  0,
+  [_cat],
+  [() => GuardrailChecksPromptAttackCategoryConfigList], 1
+];
+export var GuardrailChecksPromptAttackResult$: StaticStructureSchema = [3, n0, _GCPAR,
+  0,
+  [_r],
+  [() => GuardrailChecksPromptAttackResultList], 1
+];
+export var GuardrailChecksPromptAttackResultEntry$: StaticStructureSchema = [3, n0, _GCPARE,
+  0,
+  [_ca, _sS],
+  [0, 1], 2
+];
+export var GuardrailChecksPromptAttackUsage$: StaticStructureSchema = [3, n0, _GCPAU,
+  0,
+  [_tU],
+  [1], 1
+];
+export var GuardrailChecksResults$: StaticStructureSchema = [3, n0, _GCR,
+  0,
+  [_cF, _pA, _sI],
+  [() => GuardrailChecksContentFilterResult$, () => GuardrailChecksPromptAttackResult$, () => GuardrailChecksSensitiveInformationResult$]
+];
+export var GuardrailChecksSensitiveInformationConfig$: StaticStructureSchema = [3, n0, _GCSIC,
+  0,
+  [_ent],
+  [() => GuardrailChecksSensitiveInformationEntityConfigList], 1
+];
+export var GuardrailChecksSensitiveInformationEntityConfig$: StaticStructureSchema = [3, n0, _GCSIEC,
+  0,
+  [_ty],
+  [0], 1
+];
+export var GuardrailChecksSensitiveInformationResult$: StaticStructureSchema = [3, n0, _GCSIR,
+  0,
+  [_r, _tru],
+  [() => GuardrailChecksSensitiveInformationResultList, 2], 1
+];
+export var GuardrailChecksSensitiveInformationResultEntry$: StaticStructureSchema = [3, n0, _GCSIRE,
+  0,
+  [_ty, _cS, _bOe, _eO, _mIe, _cI],
+  [0, 1, 1, 1, 1, 1], 6
+];
+export var GuardrailChecksSensitiveInformationUsage$: StaticStructureSchema = [3, n0, _GCSIU,
+  0,
+  [_tU],
+  [1], 1
+];
+export var GuardrailChecksUsageResults$: StaticStructureSchema = [3, n0, _GCUR,
+  0,
+  [_cF, _pA, _sI],
+  [() => GuardrailChecksContentFilterUsage$, () => GuardrailChecksPromptAttackUsage$, () => GuardrailChecksSensitiveInformationUsage$]
+];
 export var GuardrailConfiguration$: StaticStructureSchema = [3, n0, _GC,
   0,
   [_gIu, _gV, _tr],
@@ -936,12 +1080,12 @@ export var GuardrailPiiEntityFilter$: StaticStructureSchema = [3, n0, _GPEF,
 ];
 export var GuardrailRegexFilter$: StaticStructureSchema = [3, n0, _GRF,
   0,
-  [_a, _n, _ma, _r, _de],
+  [_a, _n, _ma, _re, _de],
   [0, 0, 0, 0, 2], 1
 ];
 export var GuardrailSensitiveInformationPolicyAssessment$: StaticStructureSchema = [3, n0, _GSIPA,
   0,
-  [_pE, _re],
+  [_pE, _reg],
   [() => GuardrailPiiEntityFilterList, () => GuardrailRegexFilterList], 2
 ];
 export var GuardrailStreamConfiguration$: StaticStructureSchema = [3, n0, _GSC,
@@ -1001,8 +1145,18 @@ export var ImageBlockStart$: StaticStructureSchema = [3, n0, _IBS,
 ];
 export var InferenceConfiguration$: StaticStructureSchema = [3, n0, _IC,
   0,
-  [_mT, _tem, _tPo, _sS],
+  [_mT, _tem, _tPo, _sSt],
   [1, 1, 1, 64 | 0]
+];
+export var InvokeGuardrailChecksRequest$: StaticStructureSchema = [3, n0, _IGCR,
+  0,
+  [_me, _ch],
+  [[() => GuardrailChecksMessageList, 0], () => GuardrailChecksConfig$], 2
+];
+export var InvokeGuardrailChecksResponse$: StaticStructureSchema = [3, n0, _IGCRn,
+  0,
+  [_r, _u],
+  [() => GuardrailChecksResults$, () => GuardrailChecksUsageResults$], 2
 ];
 export var InvokeModelRequest$: StaticStructureSchema = [3, n0, _IMR,
   0,
@@ -1257,6 +1411,32 @@ var GuardrailAutomatedReasoningTranslationOptionList: StaticListSchema = [1, n0,
   0, [() => GuardrailAutomatedReasoningTranslationOption$,
     0]
 ];
+var GuardrailChecksContentBlockList: StaticListSchema = [1, n0, _GCCBL,
+  0, [() => GuardrailChecksContentBlock$,
+    0]
+];
+var GuardrailChecksContentFilterCategoryConfigList: StaticListSchema = [1, n0, _GCCFCCL,
+  0, () => GuardrailChecksContentFilterCategoryConfig$
+];
+var GuardrailChecksContentFilterResultList: StaticListSchema = [1, n0, _GCCFRL,
+  0, () => GuardrailChecksContentFilterResultEntry$
+];
+var GuardrailChecksMessageList: StaticListSchema = [1, n0, _GCML,
+  0, [() => GuardrailChecksMessage$,
+    0]
+];
+var GuardrailChecksPromptAttackCategoryConfigList: StaticListSchema = [1, n0, _GCPACCL,
+  0, () => GuardrailChecksPromptAttackCategoryConfig$
+];
+var GuardrailChecksPromptAttackResultList: StaticListSchema = [1, n0, _GCPARL,
+  0, () => GuardrailChecksPromptAttackResultEntry$
+];
+var GuardrailChecksSensitiveInformationEntityConfigList: StaticListSchema = [1, n0, _GCSIECL,
+  0, () => GuardrailChecksSensitiveInformationEntityConfig$
+];
+var GuardrailChecksSensitiveInformationResultList: StaticListSchema = [1, n0, _GCSIRL,
+  0, () => GuardrailChecksSensitiveInformationResultEntry$
+];
 var GuardrailContentBlockList: StaticListSchema = [1, n0, _GCBL,
   0, [() => GuardrailContentBlock$,
     0]
@@ -1359,17 +1539,17 @@ export var CitationSourceContent$: StaticUnionSchema = [4, n0, _CSC,
 ];
 export var ContentBlock$: StaticUnionSchema = [4, n0, _CBo,
   0,
-  [_te, _ima, _doc, _vi, _au, _tU, _tR, _gCua, _cPa, _rC, _cC, _sRe],
+  [_te, _ima, _doc, _vi, _au, _tUo, _tR, _gCua, _cPa, _rC, _cC, _sRe],
   [0, [() => ImageBlock$, 0], () => DocumentBlock$, () => VideoBlock$, [() => AudioBlock$, 0], () => ToolUseBlock$, [() => ToolResultBlock$, 0], [() => GuardrailConverseContentBlock$, 0], () => CachePointBlock$, [() => ReasoningContentBlock$, 0], () => CitationsContentBlock$, () => SearchResultBlock$]
 ];
 export var ContentBlockDelta$: StaticUnionSchema = [4, n0, _CBD,
   0,
-  [_te, _tU, _tR, _rC, _cit, _ima],
+  [_te, _tUo, _tR, _rC, _cit, _ima],
   [0, () => ToolUseBlockDelta$, () => ToolResultBlocksDelta, [() => ReasoningContentBlockDelta$, 0], () => CitationsDelta$, [() => ImageBlockDelta$, 0]]
 ];
 export var ContentBlockStart$: StaticUnionSchema = [4, n0, _CBS,
   0,
-  [_tU, _tR, _ima],
+  [_tUo, _tR, _ima],
   [() => ToolUseBlockStart$, () => ToolResultBlockStart$, () => ImageBlockStart$]
 ];
 export var ConverseOutput$: StaticUnionSchema = [4, n0, _CO,
@@ -1402,12 +1582,17 @@ export var GuardrailAutomatedReasoningFinding$: StaticUnionSchema = [4, n0, _GAR
   [_va, _in, _sa, _imp, _tA, _tCoo, _nTo],
   [[() => GuardrailAutomatedReasoningValidFinding$, 0], [() => GuardrailAutomatedReasoningInvalidFinding$, 0], [() => GuardrailAutomatedReasoningSatisfiableFinding$, 0], [() => GuardrailAutomatedReasoningImpossibleFinding$, 0], [() => GuardrailAutomatedReasoningTranslationAmbiguousFinding$, 0], () => GuardrailAutomatedReasoningTooComplexFinding$, () => GuardrailAutomatedReasoningNoTranslationsFinding$]
 ];
+export var GuardrailChecksContentBlock$: StaticUnionSchema = [4, n0, _GCCB,
+  0,
+  [_te],
+  [[() => GuardrailChecksTextContent, 0]]
+];
 export var GuardrailContentBlock$: StaticUnionSchema = [4, n0, _GCB,
   0,
   [_te, _ima],
   [() => GuardrailTextBlock$, [() => GuardrailImageBlock$, 0]]
 ];
-export var GuardrailConverseContentBlock$: StaticUnionSchema = [4, n0, _GCCB,
+export var GuardrailConverseContentBlock$: StaticUnionSchema = [4, n0, _GCCBu,
   0,
   [_te, _ima],
   [() => GuardrailConverseTextBlock$, [() => GuardrailConverseImageBlock$, 0]]
@@ -1429,12 +1614,12 @@ export var ImageSource$: StaticUnionSchema = [4, n0, _IS,
 ];
 export var InvokeModelWithBidirectionalStreamInput$: StaticUnionSchema = [4, n0, _IMWBSI,
   { [_stre]: 1 },
-  [_ch],
+  [_chu],
   [[() => BidirectionalInputPayloadPart$, 0]]
 ];
 export var InvokeModelWithBidirectionalStreamOutput$: StaticUnionSchema = [4, n0, _IMWBSO,
   { [_stre]: 1 },
-  [_ch, _iSE, _mSEE, _vE, _tE, _mTE, _sUE],
+  [_chu, _iSE, _mSEE, _vE, _tE, _mTE, _sUE],
   [[() => BidirectionalOutputPayloadPart$, 0], [() => InternalServerException$, 0], [() => ModelStreamErrorException$, 0], [() => ValidationException$, 0], [() => ThrottlingException$, 0], [() => ModelTimeoutException$, 0], [() => ServiceUnavailableException$, 0]]
 ];
 export var OutputFormatStructure$: StaticUnionSchema = [4, n0, _OFS,
@@ -1459,7 +1644,7 @@ export var ReasoningContentBlockDelta$: StaticUnionSchema = [4, n0, _RCBD,
 ];
 export var ResponseStream$: StaticUnionSchema = [4, n0, _RS,
   { [_stre]: 1 },
-  [_ch, _iSE, _mSEE, _vE, _tE, _mTE, _sUE],
+  [_chu, _iSE, _mSEE, _vE, _tE, _mTE, _sUE],
   [[() => PayloadPart$, 0], [() => InternalServerException$, 0], [() => ModelStreamErrorException$, 0], [() => ValidationException$, 0], [() => ThrottlingException$, 0], [() => ModelTimeoutException$, 0], [() => ServiceUnavailableException$, 0]]
 ];
 export var SystemContentBlock$: StaticUnionSchema = [4, n0, _SCBy,
@@ -1511,6 +1696,9 @@ export var CountTokens$: StaticOperationSchema = [9, n0, _CTo,
 ];
 export var GetAsyncInvoke$: StaticOperationSchema = [9, n0, _GAI,
   { [_h]: ["GET", "/async-invoke/{invocationArn}", 200] }, () => GetAsyncInvokeRequest$, () => GetAsyncInvokeResponse$
+];
+export var InvokeGuardrailChecks$: StaticOperationSchema = [9, n0, _IGC,
+  { [_h]: ["POST", "/guardrail-checks/invoke", 200] }, () => InvokeGuardrailChecksRequest$, () => InvokeGuardrailChecksResponse$
 ];
 export var InvokeModel$: StaticOperationSchema = [9, n0, _IM,
   { [_h]: ["POST", "/model/{modelId}/invoke", 200] }, () => InvokeModelRequest$, () => InvokeModelResponse$

@@ -216,6 +216,13 @@ GetAsyncInvoke
 </details>
 <details>
 <summary>
+InvokeGuardrailChecks
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-runtime/command/InvokeGuardrailChecksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-runtime/Interface/InvokeGuardrailChecksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-runtime/Interface/InvokeGuardrailChecksCommandOutput/)
+</details>
+<details>
+<summary>
 InvokeModel
 </summary>
 

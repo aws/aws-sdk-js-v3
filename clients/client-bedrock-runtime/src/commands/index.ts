@@ -4,6 +4,7 @@ export * from "./ConverseCommand";
 export * from "./ConverseStreamCommand";
 export * from "./CountTokensCommand";
 export * from "./GetAsyncInvokeCommand";
+export * from "./InvokeGuardrailChecksCommand";
 export * from "./InvokeModelCommand";
 export * from "./InvokeModelWithBidirectionalStreamCommand";
 export * from "./InvokeModelWithResponseStreamCommand";

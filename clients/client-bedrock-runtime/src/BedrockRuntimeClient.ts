@@ -76,6 +76,10 @@ import type { ConverseCommandInput, ConverseCommandOutput } from "./commands/Con
 import type { ConverseStreamCommandInput, ConverseStreamCommandOutput } from "./commands/ConverseStreamCommand";
 import type { CountTokensCommandInput, CountTokensCommandOutput } from "./commands/CountTokensCommand";
 import type { GetAsyncInvokeCommandInput, GetAsyncInvokeCommandOutput } from "./commands/GetAsyncInvokeCommand";
+import type {
+  InvokeGuardrailChecksCommandInput,
+  InvokeGuardrailChecksCommandOutput,
+} from "./commands/InvokeGuardrailChecksCommand";
 import type { InvokeModelCommandInput, InvokeModelCommandOutput } from "./commands/InvokeModelCommand";
 import type {
   InvokeModelWithBidirectionalStreamCommandInput,
@@ -107,6 +111,7 @@ export type ServiceInputTypes =
   | ConverseStreamCommandInput
   | CountTokensCommandInput
   | GetAsyncInvokeCommandInput
+  | InvokeGuardrailChecksCommandInput
   | InvokeModelCommandInput
   | InvokeModelWithBidirectionalStreamCommandInput
   | InvokeModelWithResponseStreamCommandInput
@@ -122,6 +127,7 @@ export type ServiceOutputTypes =
   | ConverseStreamCommandOutput
   | CountTokensCommandOutput
   | GetAsyncInvokeCommandOutput
+  | InvokeGuardrailChecksCommandOutput
   | InvokeModelCommandOutput
   | InvokeModelWithBidirectionalStreamCommandOutput
   | InvokeModelWithResponseStreamCommandOutput

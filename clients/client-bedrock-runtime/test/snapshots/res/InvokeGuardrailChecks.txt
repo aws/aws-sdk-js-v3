@@ -1,0 +1,198 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "results": {},
+  "usage": {}
+}
+
+
+--- [output object] ---
+{
+  results: {},
+  usage: {},
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "results": {
+    "contentFilter": {
+      "results": [
+        {
+          "category": "__category__",
+          "severityScore": 0
+        },
+        {
+          "category": "__category__",
+          "severityScore": 0
+        },
+        {
+          "category": "__category__",
+          "severityScore": 0
+        }
+      ]
+    },
+    "promptAttack": {
+      "results": [
+        {
+          "category": "__category__",
+          "severityScore": 0
+        },
+        {
+          "category": "__category__",
+          "severityScore": 0
+        },
+        {
+          "category": "__category__",
+          "severityScore": 0
+        }
+      ]
+    },
+    "sensitiveInformation": {
+      "results": [
+        {
+          "type": "__type__",
+          "confidenceScore": 0,
+          "beginOffset": 0,
+          "endOffset": 0,
+          "messageIndex": 0,
+          "contentIndex": 0
+        },
+        {
+          "type": "__type__",
+          "confidenceScore": 0,
+          "beginOffset": 0,
+          "endOffset": 0,
+          "messageIndex": 0,
+          "contentIndex": 0
+        },
+        {
+          "type": "__type__",
+          "confidenceScore": 0,
+          "beginOffset": 0,
+          "endOffset": 0,
+          "messageIndex": 0,
+          "contentIndex": 0
+        }
+      ],
+      "truncated": false
+    }
+  },
+  "usage": {
+    "contentFilter": {
+      "textUnits": 0
+    },
+    "promptAttack": {
+      "textUnits": 0
+    },
+    "sensitiveInformation": {
+      "textUnits": 0
+    }
+  }
+}
+
+
+--- [output object] ---
+{
+  results: {
+    contentFilter: {
+      results: [
+        {
+          category: "__category__",
+          severityScore: (number) 0
+        },
+        {
+          category: "__category__",
+          severityScore: (number) 0
+        },
+        {
+          category: "__category__",
+          severityScore: (number) 0
+        }
+      ]
+    },
+    promptAttack: {
+      results: [
+        {
+          category: "__category__",
+          severityScore: (number) 0
+        },
+        {
+          category: "__category__",
+          severityScore: (number) 0
+        },
+        {
+          category: "__category__",
+          severityScore: (number) 0
+        }
+      ]
+    },
+    sensitiveInformation: {
+      results: [
+        {
+          type: "__type__",
+          confidenceScore: (number) 0,
+          beginOffset: (number) 0,
+          endOffset: (number) 0,
+          messageIndex: (number) 0,
+          contentIndex: (number) 0
+        },
+        {
+          type: "__type__",
+          confidenceScore: (number) 0,
+          beginOffset: (number) 0,
+          endOffset: (number) 0,
+          messageIndex: (number) 0,
+          contentIndex: (number) 0
+        },
+        {
+          type: "__type__",
+          confidenceScore: (number) 0,
+          beginOffset: (number) 0,
+          endOffset: (number) 0,
+          messageIndex: (number) 0,
+          contentIndex: (number) 0
+        }
+      ],
+      truncated: (boolean) false
+    }
+  },
+  usage: {
+    contentFilter: {
+      textUnits: (number) 0
+    },
+    promptAttack: {
+      textUnits: (number) 0
+    },
+    sensitiveInformation: {
+      textUnits: (number) 0
+    }
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

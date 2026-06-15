@@ -347,6 +347,95 @@ export type GuardrailManagedWordType = (typeof GuardrailManagedWordType)[keyof t
  * @public
  * @enum
  */
+export const GuardrailChecksContentFilterCategory = {
+  HATE: "HATE",
+  INSULTS: "INSULTS",
+  MISCONDUCT: "MISCONDUCT",
+  SEXUAL: "SEXUAL",
+  VIOLENCE: "VIOLENCE",
+} as const;
+/**
+ * @public
+ */
+export type GuardrailChecksContentFilterCategory =
+  (typeof GuardrailChecksContentFilterCategory)[keyof typeof GuardrailChecksContentFilterCategory];
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailChecksPromptAttackCategory = {
+  JAILBREAK: "JAILBREAK",
+  PROMPT_INJECTION: "PROMPT_INJECTION",
+  PROMPT_LEAKAGE: "PROMPT_LEAKAGE",
+} as const;
+/**
+ * @public
+ */
+export type GuardrailChecksPromptAttackCategory =
+  (typeof GuardrailChecksPromptAttackCategory)[keyof typeof GuardrailChecksPromptAttackCategory];
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailChecksSensitiveInformationEntityType = {
+  ADDRESS: "ADDRESS",
+  AGE: "AGE",
+  AWS_ACCESS_KEY: "AWS_ACCESS_KEY",
+  AWS_SECRET_KEY: "AWS_SECRET_KEY",
+  CA_HEALTH_NUMBER: "CA_HEALTH_NUMBER",
+  CA_SOCIAL_INSURANCE_NUMBER: "CA_SOCIAL_INSURANCE_NUMBER",
+  CREDIT_DEBIT_CARD_CVV: "CREDIT_DEBIT_CARD_CVV",
+  CREDIT_DEBIT_CARD_EXPIRY: "CREDIT_DEBIT_CARD_EXPIRY",
+  CREDIT_DEBIT_CARD_NUMBER: "CREDIT_DEBIT_CARD_NUMBER",
+  DRIVER_ID: "DRIVER_ID",
+  EMAIL: "EMAIL",
+  INTERNATIONAL_BANK_ACCOUNT_NUMBER: "INTERNATIONAL_BANK_ACCOUNT_NUMBER",
+  IP_ADDRESS: "IP_ADDRESS",
+  LICENSE_PLATE: "LICENSE_PLATE",
+  MAC_ADDRESS: "MAC_ADDRESS",
+  NAME: "NAME",
+  PASSWORD: "PASSWORD",
+  PHONE: "PHONE",
+  PIN: "PIN",
+  SWIFT_CODE: "SWIFT_CODE",
+  UK_NATIONAL_HEALTH_SERVICE_NUMBER: "UK_NATIONAL_HEALTH_SERVICE_NUMBER",
+  UK_NATIONAL_INSURANCE_NUMBER: "UK_NATIONAL_INSURANCE_NUMBER",
+  UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER: "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER",
+  URL: "URL",
+  USERNAME: "USERNAME",
+  US_BANK_ACCOUNT_NUMBER: "US_BANK_ACCOUNT_NUMBER",
+  US_BANK_ROUTING_NUMBER: "US_BANK_ROUTING_NUMBER",
+  US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER: "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER",
+  US_PASSPORT_NUMBER: "US_PASSPORT_NUMBER",
+  US_SOCIAL_SECURITY_NUMBER: "US_SOCIAL_SECURITY_NUMBER",
+  VEHICLE_IDENTIFICATION_NUMBER: "VEHICLE_IDENTIFICATION_NUMBER",
+} as const;
+/**
+ * @public
+ */
+export type GuardrailChecksSensitiveInformationEntityType =
+  (typeof GuardrailChecksSensitiveInformationEntityType)[keyof typeof GuardrailChecksSensitiveInformationEntityType];
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailChecksRole = {
+  ASSISTANT: "assistant",
+  SYSTEM: "system",
+  USER: "user",
+} as const;
+/**
+ * @public
+ */
+export type GuardrailChecksRole = (typeof GuardrailChecksRole)[keyof typeof GuardrailChecksRole];
+
+/**
+ * @public
+ * @enum
+ */
 export const GuardrailTrace = {
   DISABLED: "disabled",
   ENABLED: "enabled",

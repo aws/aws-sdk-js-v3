@@ -25,6 +25,11 @@ import {
   GetAsyncInvokeCommand,
 } from "./commands/GetAsyncInvokeCommand";
 import {
+  type InvokeGuardrailChecksCommandInput,
+  type InvokeGuardrailChecksCommandOutput,
+  InvokeGuardrailChecksCommand,
+} from "./commands/InvokeGuardrailChecksCommand";
+import {
   type InvokeModelCommandInput,
   type InvokeModelCommandOutput,
   InvokeModelCommand,
@@ -57,6 +62,7 @@ const commands = {
   ConverseStreamCommand,
   CountTokensCommand,
   GetAsyncInvokeCommand,
+  InvokeGuardrailChecksCommand,
   InvokeModelCommand,
   InvokeModelWithBidirectionalStreamCommand,
   InvokeModelWithResponseStreamCommand,
@@ -151,6 +157,23 @@ export interface BedrockRuntime {
     args: GetAsyncInvokeCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetAsyncInvokeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link InvokeGuardrailChecksCommand}
+   */
+  invokeGuardrailChecks(
+    args: InvokeGuardrailChecksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<InvokeGuardrailChecksCommandOutput>;
+  invokeGuardrailChecks(
+    args: InvokeGuardrailChecksCommandInput,
+    cb: (err: any, data?: InvokeGuardrailChecksCommandOutput) => void
+  ): void;
+  invokeGuardrailChecks(
+    args: InvokeGuardrailChecksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: InvokeGuardrailChecksCommandOutput) => void
   ): void;
 
   /**

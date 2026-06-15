@@ -10,6 +10,10 @@ import type {
   DocumentFormat,
   GuardrailAction,
   GuardrailAutomatedReasoningLogicWarningType,
+  GuardrailChecksContentFilterCategory,
+  GuardrailChecksPromptAttackCategory,
+  GuardrailChecksRole,
+  GuardrailChecksSensitiveInformationEntityType,
   GuardrailContentFilterConfidence,
   GuardrailContentFilterStrength,
   GuardrailContentFilterType,
@@ -1545,6 +1549,397 @@ export interface ApplyGuardrailResponse {
    * @public
    */
   guardrailCoverage?: GuardrailCoverage | undefined;
+}
+
+/**
+ * <p>The configuration for a single content filter category to evaluate.</p>
+ * @public
+ */
+export interface GuardrailChecksContentFilterCategoryConfig {
+  /**
+   * <p>The content filter category to evaluate.</p>
+   * @public
+   */
+  category: GuardrailChecksContentFilterCategory | undefined;
+}
+
+/**
+ * <p>The configuration for the content filter check, specifying which categories to evaluate.</p>
+ * @public
+ */
+export interface GuardrailChecksContentFilterConfig {
+  /**
+   * <p>The content filter categories to evaluate.</p>
+   * @public
+   */
+  categories: GuardrailChecksContentFilterCategoryConfig[] | undefined;
+}
+
+/**
+ * <p>The configuration for a single prompt attack category to evaluate.</p>
+ * @public
+ */
+export interface GuardrailChecksPromptAttackCategoryConfig {
+  /**
+   * <p>The prompt attack category to evaluate.</p>
+   * @public
+   */
+  category: GuardrailChecksPromptAttackCategory | undefined;
+}
+
+/**
+ * <p>The configuration for the prompt attack check, specifying which categories to evaluate.</p>
+ * @public
+ */
+export interface GuardrailChecksPromptAttackConfig {
+  /**
+   * <p>The prompt attack categories to evaluate.</p>
+   * @public
+   */
+  categories: GuardrailChecksPromptAttackCategoryConfig[] | undefined;
+}
+
+/**
+ * <p>The configuration for a single sensitive information entity type to detect.</p>
+ * @public
+ */
+export interface GuardrailChecksSensitiveInformationEntityConfig {
+  /**
+   * <p>The PII entity type to detect.</p>
+   * @public
+   */
+  type: GuardrailChecksSensitiveInformationEntityType | undefined;
+}
+
+/**
+ * <p>The configuration for the sensitive information check, specifying which entity types to detect.</p>
+ * @public
+ */
+export interface GuardrailChecksSensitiveInformationConfig {
+  /**
+   * <p>The sensitive information entity types to detect.</p>
+   * @public
+   */
+  entities: GuardrailChecksSensitiveInformationEntityConfig[] | undefined;
+}
+
+/**
+ * <p>The configuration for inline guardrail checks. Specify one or more check types to run against the messages.</p>
+ * @public
+ */
+export interface GuardrailChecksConfig {
+  /**
+   * <p>The content filter check configuration.</p>
+   * @public
+   */
+  contentFilter?: GuardrailChecksContentFilterConfig | undefined;
+
+  /**
+   * <p>The prompt attack check configuration.</p>
+   * @public
+   */
+  promptAttack?: GuardrailChecksPromptAttackConfig | undefined;
+
+  /**
+   * <p>The sensitive information check configuration.</p>
+   * @public
+   */
+  sensitiveInformation?: GuardrailChecksSensitiveInformationConfig | undefined;
+}
+
+/**
+ * <p>A content block within a message to evaluate.</p>
+ * @public
+ */
+export type GuardrailChecksContentBlock =
+  | GuardrailChecksContentBlock.TextMember
+  | GuardrailChecksContentBlock.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace GuardrailChecksContentBlock {
+  /**
+   * <p>The text content to evaluate.</p>
+   * @public
+   */
+  export interface TextMember {
+    text: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    text?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    text: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A message to evaluate against guardrail checks, containing a role and content blocks.</p>
+ * @public
+ */
+export interface GuardrailChecksMessage {
+  /**
+   * <p>The role of the message sender.</p>
+   * @public
+   */
+  role: GuardrailChecksRole | undefined;
+
+  /**
+   * <p>The content blocks for the message.</p>
+   * @public
+   */
+  content: GuardrailChecksContentBlock[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface InvokeGuardrailChecksRequest {
+  /**
+   * <p>The messages to evaluate against the specified guardrail checks. Each message includes a role and one or more content blocks.</p>
+   * @public
+   */
+  messages: GuardrailChecksMessage[] | undefined;
+
+  /**
+   * <p>The inline check configurations that specify which guardrail checks to run against the messages.</p>
+   * @public
+   */
+  checks: GuardrailChecksConfig | undefined;
+}
+
+/**
+ * <p>The evaluation result for a single content filter category.</p>
+ * @public
+ */
+export interface GuardrailChecksContentFilterResultEntry {
+  /**
+   * <p>The content filter category that was evaluated.</p>
+   * @public
+   */
+  category: GuardrailChecksContentFilterCategory | undefined;
+
+  /**
+   * <p>The severity score for the category, ranging from 0.0 to 1.0. Higher values indicate greater severity.</p>
+   * @public
+   */
+  severityScore: number | undefined;
+}
+
+/**
+ * <p>The content filter check results.</p>
+ * @public
+ */
+export interface GuardrailChecksContentFilterResult {
+  /**
+   * <p>The per-category content filter results.</p>
+   * @public
+   */
+  results: GuardrailChecksContentFilterResultEntry[] | undefined;
+}
+
+/**
+ * <p>The evaluation result for a single prompt attack category.</p>
+ * @public
+ */
+export interface GuardrailChecksPromptAttackResultEntry {
+  /**
+   * <p>The prompt attack category that was evaluated.</p>
+   * @public
+   */
+  category: GuardrailChecksPromptAttackCategory | undefined;
+
+  /**
+   * <p>The severity score for the category, ranging from 0.0 to 1.0. Higher values indicate greater severity.</p>
+   * @public
+   */
+  severityScore: number | undefined;
+}
+
+/**
+ * <p>The prompt attack check results.</p>
+ * @public
+ */
+export interface GuardrailChecksPromptAttackResult {
+  /**
+   * <p>The per-category prompt attack results.</p>
+   * @public
+   */
+  results: GuardrailChecksPromptAttackResultEntry[] | undefined;
+}
+
+/**
+ * <p>The detection result for a single sensitive information entity found in the evaluated messages.</p>
+ * @public
+ */
+export interface GuardrailChecksSensitiveInformationResultEntry {
+  /**
+   * <p>The PII entity type that was detected.</p>
+   * @public
+   */
+  type: GuardrailChecksSensitiveInformationEntityType | undefined;
+
+  /**
+   * <p>The confidence score for the detection, ranging from 0.0 to 1.0. Higher values indicate greater confidence.</p>
+   * @public
+   */
+  confidenceScore: number | undefined;
+
+  /**
+   * <p>The start character offset of the detected entity within the content block.</p>
+   * @public
+   */
+  beginOffset: number | undefined;
+
+  /**
+   * <p>The end character offset of the detected entity within the content block.</p>
+   * @public
+   */
+  endOffset: number | undefined;
+
+  /**
+   * <p>The zero-based index of the message in the input messages array where the entity was detected.</p>
+   * @public
+   */
+  messageIndex: number | undefined;
+
+  /**
+   * <p>The zero-based index of the content block within the message where the entity was detected.</p>
+   * @public
+   */
+  contentIndex: number | undefined;
+}
+
+/**
+ * <p>The sensitive information check results.</p>
+ * @public
+ */
+export interface GuardrailChecksSensitiveInformationResult {
+  /**
+   * <p>The detected sensitive information entities.</p>
+   * @public
+   */
+  results: GuardrailChecksSensitiveInformationResultEntry[] | undefined;
+
+  /**
+   * <p>Specifies whether the results were truncated because the number of detected entities exceeded the maximum limit.</p>
+   * @public
+   */
+  truncated?: boolean | undefined;
+}
+
+/**
+ * <p>The results from the guardrail checks evaluation, organized by check type.</p>
+ * @public
+ */
+export interface GuardrailChecksResults {
+  /**
+   * <p>The content filter check results.</p>
+   * @public
+   */
+  contentFilter?: GuardrailChecksContentFilterResult | undefined;
+
+  /**
+   * <p>The prompt attack check results.</p>
+   * @public
+   */
+  promptAttack?: GuardrailChecksPromptAttackResult | undefined;
+
+  /**
+   * <p>The sensitive information check results.</p>
+   * @public
+   */
+  sensitiveInformation?: GuardrailChecksSensitiveInformationResult | undefined;
+}
+
+/**
+ * <p>The text unit usage for the content filter check.</p>
+ * @public
+ */
+export interface GuardrailChecksContentFilterUsage {
+  /**
+   * <p>The number of text units consumed by the content filter check.</p>
+   * @public
+   */
+  textUnits: number | undefined;
+}
+
+/**
+ * <p>The text unit usage for the prompt attack check.</p>
+ * @public
+ */
+export interface GuardrailChecksPromptAttackUsage {
+  /**
+   * <p>The number of text units consumed by the prompt attack check.</p>
+   * @public
+   */
+  textUnits: number | undefined;
+}
+
+/**
+ * <p>The text unit usage for the sensitive information check.</p>
+ * @public
+ */
+export interface GuardrailChecksSensitiveInformationUsage {
+  /**
+   * <p>The number of text units consumed by the sensitive information check.</p>
+   * @public
+   */
+  textUnits: number | undefined;
+}
+
+/**
+ * <p>The text unit usage for the guardrail checks evaluation, organized by check type.</p>
+ * @public
+ */
+export interface GuardrailChecksUsageResults {
+  /**
+   * <p>The text unit usage for the content filter check.</p>
+   * @public
+   */
+  contentFilter?: GuardrailChecksContentFilterUsage | undefined;
+
+  /**
+   * <p>The text unit usage for the prompt attack check.</p>
+   * @public
+   */
+  promptAttack?: GuardrailChecksPromptAttackUsage | undefined;
+
+  /**
+   * <p>The text unit usage for the sensitive information check.</p>
+   * @public
+   */
+  sensitiveInformation?: GuardrailChecksSensitiveInformationUsage | undefined;
+}
+
+/**
+ * @public
+ */
+export interface InvokeGuardrailChecksResponse {
+  /**
+   * <p>The per-check results containing findings from the guardrail evaluation.</p>
+   * @public
+   */
+  results: GuardrailChecksResults | undefined;
+
+  /**
+   * <p>The per-check text unit consumption for the guardrail evaluation.</p>
+   * @public
+   */
+  usage: GuardrailChecksUsageResults | undefined;
 }
 
 /**

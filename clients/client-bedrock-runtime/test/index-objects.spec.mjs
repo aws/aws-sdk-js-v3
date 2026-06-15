@@ -93,6 +93,30 @@ import {
   GuardrailAutomatedReasoningTranslationAmbiguousFinding$,
   GuardrailAutomatedReasoningTranslationOption$,
   GuardrailAutomatedReasoningValidFinding$,
+  GuardrailChecksConfig$,
+  GuardrailChecksContentBlock$,
+  GuardrailChecksContentFilterCategory,
+  GuardrailChecksContentFilterCategoryConfig$,
+  GuardrailChecksContentFilterConfig$,
+  GuardrailChecksContentFilterResult$,
+  GuardrailChecksContentFilterResultEntry$,
+  GuardrailChecksContentFilterUsage$,
+  GuardrailChecksMessage$,
+  GuardrailChecksPromptAttackCategory,
+  GuardrailChecksPromptAttackCategoryConfig$,
+  GuardrailChecksPromptAttackConfig$,
+  GuardrailChecksPromptAttackResult$,
+  GuardrailChecksPromptAttackResultEntry$,
+  GuardrailChecksPromptAttackUsage$,
+  GuardrailChecksResults$,
+  GuardrailChecksRole,
+  GuardrailChecksSensitiveInformationConfig$,
+  GuardrailChecksSensitiveInformationEntityConfig$,
+  GuardrailChecksSensitiveInformationEntityType,
+  GuardrailChecksSensitiveInformationResult$,
+  GuardrailChecksSensitiveInformationResultEntry$,
+  GuardrailChecksSensitiveInformationUsage$,
+  GuardrailChecksUsageResults$,
   GuardrailConfiguration$,
   GuardrailContentBlock$,
   GuardrailContentFilter$,
@@ -152,6 +176,10 @@ import {
   InferenceConfiguration$,
   InternalServerException,
   InternalServerException$,
+  InvokeGuardrailChecks$,
+  InvokeGuardrailChecksCommand,
+  InvokeGuardrailChecksRequest$,
+  InvokeGuardrailChecksResponse$,
   InvokeModel$,
   InvokeModelCommand,
   InvokeModelRequest$,
@@ -260,6 +288,8 @@ assert(typeof CountTokensCommand === "function");
 assert(typeof CountTokens$ === "object");
 assert(typeof GetAsyncInvokeCommand === "function");
 assert(typeof GetAsyncInvoke$ === "object");
+assert(typeof InvokeGuardrailChecksCommand === "function");
+assert(typeof InvokeGuardrailChecks$ === "object");
 assert(typeof InvokeModelCommand === "function");
 assert(typeof InvokeModel$ === "object");
 assert(typeof InvokeModelWithBidirectionalStreamCommand === "function");
@@ -340,6 +370,26 @@ assert(typeof GuardrailAutomatedReasoningTranslation$ === "object");
 assert(typeof GuardrailAutomatedReasoningTranslationAmbiguousFinding$ === "object");
 assert(typeof GuardrailAutomatedReasoningTranslationOption$ === "object");
 assert(typeof GuardrailAutomatedReasoningValidFinding$ === "object");
+assert(typeof GuardrailChecksConfig$ === "object");
+assert(typeof GuardrailChecksContentBlock$ === "object");
+assert(typeof GuardrailChecksContentFilterCategoryConfig$ === "object");
+assert(typeof GuardrailChecksContentFilterConfig$ === "object");
+assert(typeof GuardrailChecksContentFilterResult$ === "object");
+assert(typeof GuardrailChecksContentFilterResultEntry$ === "object");
+assert(typeof GuardrailChecksContentFilterUsage$ === "object");
+assert(typeof GuardrailChecksMessage$ === "object");
+assert(typeof GuardrailChecksPromptAttackCategoryConfig$ === "object");
+assert(typeof GuardrailChecksPromptAttackConfig$ === "object");
+assert(typeof GuardrailChecksPromptAttackResult$ === "object");
+assert(typeof GuardrailChecksPromptAttackResultEntry$ === "object");
+assert(typeof GuardrailChecksPromptAttackUsage$ === "object");
+assert(typeof GuardrailChecksResults$ === "object");
+assert(typeof GuardrailChecksSensitiveInformationConfig$ === "object");
+assert(typeof GuardrailChecksSensitiveInformationEntityConfig$ === "object");
+assert(typeof GuardrailChecksSensitiveInformationResult$ === "object");
+assert(typeof GuardrailChecksSensitiveInformationResultEntry$ === "object");
+assert(typeof GuardrailChecksSensitiveInformationUsage$ === "object");
+assert(typeof GuardrailChecksUsageResults$ === "object");
 assert(typeof GuardrailConfiguration$ === "object");
 assert(typeof GuardrailContentBlock$ === "object");
 assert(typeof GuardrailContentFilter$ === "object");
@@ -374,6 +424,8 @@ assert(typeof ImageBlockDelta$ === "object");
 assert(typeof ImageBlockStart$ === "object");
 assert(typeof ImageSource$ === "object");
 assert(typeof InferenceConfiguration$ === "object");
+assert(typeof InvokeGuardrailChecksRequest$ === "object");
+assert(typeof InvokeGuardrailChecksResponse$ === "object");
 assert(typeof InvokeModelRequest$ === "object");
 assert(typeof InvokeModelResponse$ === "object");
 assert(typeof InvokeModelTokensRequest$ === "object");
@@ -436,6 +488,10 @@ assert(typeof ConversationRole === "object");
 assert(typeof DocumentFormat === "object");
 assert(typeof GuardrailAction === "object");
 assert(typeof GuardrailAutomatedReasoningLogicWarningType === "object");
+assert(typeof GuardrailChecksContentFilterCategory === "object");
+assert(typeof GuardrailChecksPromptAttackCategory === "object");
+assert(typeof GuardrailChecksRole === "object");
+assert(typeof GuardrailChecksSensitiveInformationEntityType === "object");
 assert(typeof GuardrailContentFilterConfidence === "object");
 assert(typeof GuardrailContentFilterStrength === "object");
 assert(typeof GuardrailContentFilterType === "object");
