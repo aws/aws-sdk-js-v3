@@ -152,6 +152,7 @@ import {
   FinalizeCutoverCommand,
   FinalizeCutoverRequest$,
   FirstBoot,
+  FsxOntapConfiguration$,
   GetLaunchConfiguration$,
   GetLaunchConfigurationCommand,
   GetLaunchConfigurationRequest$,
@@ -193,6 +194,9 @@ import {
   JobPostLaunchActionsLaunchStatus$,
   JobStatus,
   JobType,
+  LastKnownCheck$,
+  LastKnownCheckStatus,
+  LastKnownCheckType,
   LaunchConfiguration$,
   LaunchConfigurationTemplate$,
   LaunchDisposition,
@@ -495,6 +499,8 @@ import {
   StopReplication$,
   StopReplicationCommand,
   StopReplicationRequest$,
+  StorageConfiguration$,
+  StorageType,
   TagResource$,
   TagResourceCommand,
   TagResourceRequest$,
@@ -836,6 +842,7 @@ assert(typeof ExportTask$ === "object");
 assert(typeof ExportTaskError$ === "object");
 assert(typeof ExportTaskSummary$ === "object");
 assert(typeof FinalizeCutoverRequest$ === "object");
+assert(typeof FsxOntapConfiguration$ === "object");
 assert(typeof GetLaunchConfigurationRequest$ === "object");
 assert(typeof GetNetworkMigrationDefinitionRequest$ === "object");
 assert(typeof GetNetworkMigrationMapperSegmentConstructRequest$ === "object");
@@ -856,6 +863,7 @@ assert(typeof Job$ === "object");
 assert(typeof JobLog$ === "object");
 assert(typeof JobLogEventData$ === "object");
 assert(typeof JobPostLaunchActionsLaunchStatus$ === "object");
+assert(typeof LastKnownCheck$ === "object");
 assert(typeof LaunchConfiguration$ === "object");
 assert(typeof LaunchConfigurationTemplate$ === "object");
 assert(typeof LaunchedInstance$ === "object");
@@ -1012,6 +1020,7 @@ assert(typeof StartReplicationRequest$ === "object");
 assert(typeof StartTestRequest$ === "object");
 assert(typeof StartTestResponse$ === "object");
 assert(typeof StopReplicationRequest$ === "object");
+assert(typeof StorageConfiguration$ === "object");
 assert(typeof TagResourceRequest$ === "object");
 assert(typeof TargetNetwork$ === "object");
 assert(typeof TargetNetworkUpdate$ === "object");
@@ -1068,6 +1077,8 @@ assert(typeof IpAssignmentStrategy === "object");
 assert(typeof JobLogEvent === "object");
 assert(typeof JobStatus === "object");
 assert(typeof JobType === "object");
+assert(typeof LastKnownCheckStatus === "object");
+assert(typeof LastKnownCheckType === "object");
 assert(typeof LaunchDisposition === "object");
 assert(typeof LaunchStatus === "object");
 assert(typeof LifeCycleState === "object");
@@ -1090,6 +1101,7 @@ assert(typeof SecurityGroupMappingStrategy === "object");
 assert(typeof SourceEnvironment === "object");
 assert(typeof SsmDocumentType === "object");
 assert(typeof SsmParameterStoreParameterType === "object");
+assert(typeof StorageType === "object");
 assert(typeof TargetDeployment === "object");
 assert(typeof TargetInstanceTypeRightSizingMethod === "object");
 assert(typeof TargetNetworkTopology === "object");

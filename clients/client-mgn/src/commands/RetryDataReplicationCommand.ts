@@ -53,6 +53,16 @@ export interface RetryDataReplicationCommandOutput extends SourceServer, __Metad
  * //     ec2InstanceID: "STRING_VALUE",
  * //     jobID: "STRING_VALUE",
  * //     firstBoot: "STRING_VALUE",
+ * //     lastKnownChecks: [ // LastKnownChecksList
+ * //       { // LastKnownCheck
+ * //         type: "STRING_VALUE",
+ * //         name: "STRING_VALUE",
+ * //         status: "STRING_VALUE",
+ * //         error: "STRING_VALUE",
+ * //         checkedAt: new Date("TIMESTAMP"),
+ * //       },
+ * //     ],
+ * //     lastKnownFsxChecksStatus: "STRING_VALUE",
  * //   },
  * //   dataReplicationInfo: { // DataReplicationInfo
  * //     lagDuration: "STRING_VALUE",

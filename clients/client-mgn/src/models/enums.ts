@@ -670,6 +670,19 @@ export type InternetProtocol = (typeof InternetProtocol)[keyof typeof InternetPr
  * @public
  * @enum
  */
+export const StorageType = {
+  EBS: "EBS",
+  FSX_ONTAP: "FSX_ONTAP",
+} as const;
+/**
+ * @public
+ */
+export type StorageType = (typeof StorageType)[keyof typeof StorageType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ChangeServerLifeCycleStateSourceServerLifecycleState = {
   CUTOVER: "CUTOVER",
   READY_FOR_CUTOVER: "READY_FOR_CUTOVER",
@@ -691,11 +704,13 @@ export const DataReplicationErrorString = {
   FAILED_TO_AUTHENTICATE_WITH_SERVICE: "FAILED_TO_AUTHENTICATE_WITH_SERVICE",
   FAILED_TO_BOOT_REPLICATION_SERVER: "FAILED_TO_BOOT_REPLICATION_SERVER",
   FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER: "FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER",
+  FAILED_TO_CREATE_FSX_SNAPSHOT: "FAILED_TO_CREATE_FSX_SNAPSHOT",
   FAILED_TO_CREATE_SECURITY_GROUP: "FAILED_TO_CREATE_SECURITY_GROUP",
   FAILED_TO_CREATE_STAGING_DISKS: "FAILED_TO_CREATE_STAGING_DISKS",
   FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE: "FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE",
   FAILED_TO_LAUNCH_REPLICATION_SERVER: "FAILED_TO_LAUNCH_REPLICATION_SERVER",
   FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT: "FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT",
+  FAILED_TO_SETUP_FSX_PROXY: "FAILED_TO_SETUP_FSX_PROXY",
   FAILED_TO_START_DATA_TRANSFER: "FAILED_TO_START_DATA_TRANSFER",
   LAST_SNAPSHOT_JOB_FAILED: "LAST_SNAPSHOT_JOB_FAILED",
   NOT_CONVERGING: "NOT_CONVERGING",
@@ -722,6 +737,7 @@ export const DataReplicationInitiationStepName = {
   DOWNLOAD_REPLICATION_SOFTWARE: "DOWNLOAD_REPLICATION_SOFTWARE",
   LAUNCH_REPLICATION_SERVER: "LAUNCH_REPLICATION_SERVER",
   PAIR_REPLICATION_SERVER_WITH_AGENT: "PAIR_REPLICATION_SERVER_WITH_AGENT",
+  SETUP_FSX_PROXY: "SETUP_FSX_PROXY",
   START_DATA_TRANSFER: "START_DATA_TRANSFER",
   WAIT: "WAIT",
 } as const;
@@ -790,6 +806,33 @@ export type FirstBoot = (typeof FirstBoot)[keyof typeof FirstBoot];
  * @public
  * @enum
  */
+export const LastKnownCheckStatus = {
+  FAILED: "FAILED",
+  PASSED: "PASSED",
+  PENDING: "PENDING",
+} as const;
+/**
+ * @public
+ */
+export type LastKnownCheckStatus = (typeof LastKnownCheckStatus)[keyof typeof LastKnownCheckStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const LastKnownCheckType = {
+  EC2: "EC2",
+  FSx: "FSx",
+} as const;
+/**
+ * @public
+ */
+export type LastKnownCheckType = (typeof LastKnownCheckType)[keyof typeof LastKnownCheckType];
+
+/**
+ * @public
+ * @enum
+ */
 export const LifeCycleState = {
   CUTOVER: "CUTOVER",
   CUTTING_OVER: "CUTTING_OVER",
@@ -826,6 +869,7 @@ export type ReplicationType = (typeof ReplicationType)[keyof typeof ReplicationT
  */
 export const ReplicationConfigurationReplicatedDiskStagingDiskType = {
   AUTO: "AUTO",
+  FSX_ONTAP: "FSX_ONTAP",
   GP2: "GP2",
   GP3: "GP3",
   IO1: "IO1",

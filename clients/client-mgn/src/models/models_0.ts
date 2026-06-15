@@ -27,6 +27,8 @@ import type {
   JobLogEvent,
   JobStatus,
   JobType,
+  LastKnownCheckStatus,
+  LastKnownCheckType,
   LaunchDisposition,
   LaunchStatus,
   LifeCycleState,
@@ -49,6 +51,7 @@ import type {
   SourceEnvironment,
   SsmDocumentType,
   SsmParameterStoreParameterType,
+  StorageType,
   TargetDeployment,
   TargetInstanceTypeRightSizingMethod,
   TargetNetworkTopology,
@@ -4992,6 +4995,42 @@ export interface UpdateNetworkMigrationMapperSegmentRequest {
 }
 
 /**
+ * <p>FSx for ONTAP storage configuration.</p>
+ * @public
+ */
+export interface FsxOntapConfiguration {
+  /**
+   * <p>FSx ONTAP configuration storage virtual machine ID.</p>
+   * @public
+   */
+  storageVirtualMachineId: string | undefined;
+
+  /**
+   * <p>FSx ONTAP configuration credentials secret ARN.</p>
+   * @public
+   */
+  credentialsSecretArn: string | undefined;
+}
+
+/**
+ * <p>Storage configuration for replication.</p>
+ * @public
+ */
+export interface StorageConfiguration {
+  /**
+   * <p>Storage configuration storage type.</p>
+   * @public
+   */
+  storageType: StorageType | undefined;
+
+  /**
+   * <p>Storage configuration FSx ONTAP configuration.</p>
+   * @public
+   */
+  fsxOntapConfiguration?: FsxOntapConfiguration | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateReplicationConfigurationTemplateRequest {
@@ -5090,6 +5129,12 @@ export interface CreateReplicationConfigurationTemplateRequest {
    * @public
    */
   storeSnapshotOnLocalZone?: boolean | undefined;
+
+  /**
+   * <p>Request to configure storage during Replication Settings template creation.</p>
+   * @public
+   */
+  storageConfiguration?: StorageConfiguration | undefined;
 }
 
 /**
@@ -5203,6 +5248,12 @@ export interface ReplicationConfigurationTemplate {
    * @public
    */
   storeSnapshotOnLocalZone?: boolean | undefined;
+
+  /**
+   * <p>Replication Configuration template storage configuration.</p>
+   * @public
+   */
+  storageConfiguration?: StorageConfiguration | undefined;
 }
 
 /**
@@ -5366,6 +5417,12 @@ export interface UpdateReplicationConfigurationTemplateRequest {
    * @public
    */
   storeSnapshotOnLocalZone?: boolean | undefined;
+
+  /**
+   * <p>Update replication configuration template storage configuration request.</p>
+   * @public
+   */
+  storageConfiguration?: StorageConfiguration | undefined;
 }
 
 /**
@@ -5572,6 +5629,42 @@ export interface DataReplicationInfo {
 }
 
 /**
+ * <p>Last known check performed on a launched instance.</p>
+ * @public
+ */
+export interface LastKnownCheck {
+  /**
+   * <p>Last known check type.</p>
+   * @public
+   */
+  type?: LastKnownCheckType | undefined;
+
+  /**
+   * <p>Last known check name.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>Last known check status.</p>
+   * @public
+   */
+  status?: LastKnownCheckStatus | undefined;
+
+  /**
+   * <p>Last known check error.</p>
+   * @public
+   */
+  error?: string | undefined;
+
+  /**
+   * <p>Last known check timestamp.</p>
+   * @public
+   */
+  checkedAt?: Date | undefined;
+}
+
+/**
  * <p>Launched instance.</p>
  * @public
  */
@@ -5593,6 +5686,18 @@ export interface LaunchedInstance {
    * @public
    */
   firstBoot?: FirstBoot | undefined;
+
+  /**
+   * <p>Launched instance last known checks.</p>
+   * @public
+   */
+  lastKnownChecks?: LastKnownCheck[] | undefined;
+
+  /**
+   * <p>Launched instance last known FSx checks status.</p>
+   * @public
+   */
+  lastKnownFsxChecksStatus?: LastKnownCheckStatus | undefined;
 }
 
 /**
@@ -6422,6 +6527,12 @@ export interface ReplicationConfiguration {
    * @public
    */
   storeSnapshotOnLocalZone?: boolean | undefined;
+
+  /**
+   * <p>Replication Configuration storage configuration.</p>
+   * @public
+   */
+  storageConfiguration?: StorageConfiguration | undefined;
 }
 
 /**
@@ -7080,6 +7191,12 @@ export interface UpdateReplicationConfigurationRequest {
    * @public
    */
   storeSnapshotOnLocalZone?: boolean | undefined;
+
+  /**
+   * <p>Update replication configuration storage configuration.</p>
+   * @public
+   */
+  storageConfiguration?: StorageConfiguration | undefined;
 }
 
 /**
@@ -7103,6 +7220,24 @@ export interface UpdateSourceServerRequest {
    * @public
    */
   connectorAction?: SourceServerConnectorAction | undefined;
+
+  /**
+   * <p>Update Source Server request user provided ID.</p>
+   * @public
+   */
+  userProvidedID?: string | undefined;
+
+  /**
+   * <p>Update Source Server request FQDN for action framework.</p>
+   * @public
+   */
+  fqdnForActionFramework?: string | undefined;
+
+  /**
+   * <p>Update Source Server request platform operating system.</p>
+   * @public
+   */
+  platform?: string | undefined;
 }
 
 /**

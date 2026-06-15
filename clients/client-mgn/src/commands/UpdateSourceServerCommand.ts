@@ -43,6 +43,9 @@ export interface UpdateSourceServerCommandOutput extends SourceServer, __Metadat
  *     credentialsSecretArn: "STRING_VALUE",
  *     connectorArn: "STRING_VALUE",
  *   },
+ *   userProvidedID: "STRING_VALUE",
+ *   fqdnForActionFramework: "STRING_VALUE",
+ *   platform: "STRING_VALUE",
  * };
  * const command = new UpdateSourceServerCommand(input);
  * const response = await client.send(command);
@@ -57,6 +60,16 @@ export interface UpdateSourceServerCommandOutput extends SourceServer, __Metadat
  * //     ec2InstanceID: "STRING_VALUE",
  * //     jobID: "STRING_VALUE",
  * //     firstBoot: "STRING_VALUE",
+ * //     lastKnownChecks: [ // LastKnownChecksList
+ * //       { // LastKnownCheck
+ * //         type: "STRING_VALUE",
+ * //         name: "STRING_VALUE",
+ * //         status: "STRING_VALUE",
+ * //         error: "STRING_VALUE",
+ * //         checkedAt: new Date("TIMESTAMP"),
+ * //       },
+ * //     ],
+ * //     lastKnownFsxChecksStatus: "STRING_VALUE",
  * //   },
  * //   dataReplicationInfo: { // DataReplicationInfo
  * //     lagDuration: "STRING_VALUE",

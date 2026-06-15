@@ -62,6 +62,13 @@ export interface CreateReplicationConfigurationTemplateCommandOutput extends Rep
  *   },
  *   internetProtocol: "STRING_VALUE",
  *   storeSnapshotOnLocalZone: true || false,
+ *   storageConfiguration: { // StorageConfiguration
+ *     storageType: "STRING_VALUE", // required
+ *     fsxOntapConfiguration: { // FsxOntapConfiguration
+ *       storageVirtualMachineId: "STRING_VALUE", // required
+ *       credentialsSecretArn: "STRING_VALUE", // required
+ *     },
+ *   },
  * };
  * const command = new CreateReplicationConfigurationTemplateCommand(input);
  * const response = await client.send(command);
@@ -90,6 +97,13 @@ export interface CreateReplicationConfigurationTemplateCommandOutput extends Rep
  * //   },
  * //   internetProtocol: "STRING_VALUE",
  * //   storeSnapshotOnLocalZone: true || false,
+ * //   storageConfiguration: { // StorageConfiguration
+ * //     storageType: "STRING_VALUE", // required
+ * //     fsxOntapConfiguration: { // FsxOntapConfiguration
+ * //       storageVirtualMachineId: "STRING_VALUE", // required
+ * //       credentialsSecretArn: "STRING_VALUE", // required
+ * //     },
+ * //   },
  * // };
  *
  * ```

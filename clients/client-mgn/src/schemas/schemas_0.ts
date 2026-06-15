@@ -111,6 +111,7 @@ const _ETS = "ExportTaskSummary";
 const _ETSC = "EnrichmentTargetS3Configuration";
 const _FC = "FinalizeCutover";
 const _FCR = "FinalizeCutoverRequest";
+const _FOC = "FsxOntapConfiguration";
 const _GLC = "GetLaunchConfiguration";
 const _GLCR = "GetLaunchConfigurationRequest";
 const _GNMD = "GetNetworkMigrationDefinition";
@@ -182,6 +183,8 @@ const _LIR = "ListImportsRequest";
 const _LIRF = "ListImportsRequestFilters";
 const _LIRi = "ListImportsResponse";
 const _LIi = "ListImports";
+const _LKC = "LastKnownCheck";
+const _LKCL = "LastKnownChecksList";
 const _LMA = "ListManagedAccounts";
 const _LMAR = "ListManagedAccountsRequest";
 const _LMARi = "ListManagedAccountsResponse";
@@ -324,7 +327,8 @@ const _SCRt = "StartCutoverResponse";
 const _SCo = "SourceConfiguration";
 const _SCp = "SplitConstruct";
 const _SCpl = "SplitConstructs";
-const _SCt = "StartCutover";
+const _SCt = "StorageConfiguration";
+const _SCta = "StartCutover";
 const _SD = "SsmDocument";
 const _SDEP = "SsmDocumentExternalParameters";
 const _SDP = "SsmDocumentParameters";
@@ -462,6 +466,7 @@ const _bSB = "backloggedStorageBytes";
 const _bT = "bandwidthThrottling";
 const _c = "client";
 const _cA = "createdAt";
+const _cAh = "checkedAt";
 const _cAo = "connectorAction";
 const _cAon = "connectorArn";
 const _cB = "cidrBlock";
@@ -536,6 +541,7 @@ const _fBDT = "firstByteDateTime";
 const _fD = "fromDate";
 const _fFAF = "fqdnForActionFramework";
 const _fL = "fieldList";
+const _fOC = "fsxOntapConfiguration";
 const _fR = "failureReason";
 const _fRa = "failedResources";
 const _fS = "fullString";
@@ -579,6 +585,8 @@ const _lDa = "lagDuration";
 const _lEIID = "launchedEc2InstanceID";
 const _lI = "launchedInstance";
 const _lID = "logicalID";
+const _lKC = "lastKnownChecks";
+const _lKFCS = "lastKnownFsxChecksStatus";
 const _lMDT = "lastModifiedDateTime";
 const _lS = "launchStatus";
 const _lSBSDT = "lastSeenByServiceDateTime";
@@ -627,6 +635,7 @@ const _pS = "progressStatus";
 const _pSa = "participatingServers";
 const _pT = "parameterType";
 const _pa = "parameters";
+const _pl = "platform";
 const _qC = "quotaCode";
 const _qV = "quotaValue";
 const _r = "reason";
@@ -664,6 +673,7 @@ const _sCC = "ssmCommandConfig";
 const _sCe = "serversCount";
 const _sCo = "sourceConfigurations";
 const _sCp = "splitConstructs";
+const _sCt = "storageConfiguration";
 const _sD = "statusDetails";
 const _sDL = "statusDetailList";
 const _sDN = "ssmDocumentName";
@@ -693,7 +703,9 @@ const _sSOLZ = "storeSnapshotOnLocalZone";
 const _sST = "sourceServerTags";
 const _sT = "scopeTags";
 const _sTe = "segmentType";
+const _sTt = "storageType";
 const _sVC = "smallVolumeConf";
+const _sVMI = "storageVirtualMachineId";
 const _sVMS = "smallVolumeMaxSize";
 const _se = "server";
 const _seg = "segments";
@@ -923,8 +935,8 @@ export var CreateNetworkMigrationDefinitionRequest$: StaticStructureSchema = [3,
 ];
 export var CreateReplicationConfigurationTemplateRequest$: StaticStructureSchema = [3, n0, _CRCTR,
   0,
-  [_sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _eE, _bT, _dPR, _cPIP, _sAT, _eEKA, _uFE, _t, _iP, _sSOLZ],
-  [0, 2, 64 | 0, 0, 2, 0, 0, 1, 0, 2, [() => TagsMap, 0], 0, 2, [() => TagsMap, 0], 0, 2], 11
+  [_sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _eE, _bT, _dPR, _cPIP, _sAT, _eEKA, _uFE, _t, _iP, _sSOLZ, _sCt],
+  [0, 2, 64 | 0, 0, 2, 0, 0, 1, 0, 2, [() => TagsMap, 0], 0, 2, [() => TagsMap, 0], 0, 2, () => StorageConfiguration$], 11
 ];
 export var CreateWaveRequest$: StaticStructureSchema = [3, n0, _CWR,
   0,
@@ -1181,6 +1193,11 @@ export var FinalizeCutoverRequest$: StaticStructureSchema = [3, n0, _FCR,
   [_sSIDo, _aIDc],
   [0, 0], 1
 ];
+export var FsxOntapConfiguration$: StaticStructureSchema = [3, n0, _FOC,
+  0,
+  [_sVMI, _cSA],
+  [0, 0], 2
+];
 export var GetLaunchConfigurationRequest$: StaticStructureSchema = [3, n0, _GLCR,
   0,
   [_sSIDo, _aIDc],
@@ -1281,6 +1298,11 @@ export var JobPostLaunchActionsLaunchStatus$: StaticStructureSchema = [3, n0, _J
   [_sDs, _sDTs, _eIDx, _eS, _fR],
   [() => SsmDocument$, 0, 0, 0, 0]
 ];
+export var LastKnownCheck$: StaticStructureSchema = [3, n0, _LKC,
+  0,
+  [_ty, _n, _sta, _e, _cAh],
+  [0, 0, 0, 0, 4]
+];
 export var LaunchConfiguration$: StaticStructureSchema = [3, n0, _LC,
   0,
   [_sSIDo, _n, _eLTID, _lD, _tITRSM, _cPI, _cT, _l, _bM, _pLA, _eMAT, _mATMID],
@@ -1293,8 +1315,8 @@ export var LaunchConfigurationTemplate$: StaticStructureSchema = [3, n0, _LCT,
 ];
 export var LaunchedInstance$: StaticStructureSchema = [3, n0, _LI,
   0,
-  [_eIID, _jID, _fB],
-  [0, 0, 0]
+  [_eIID, _jID, _fB, _lKC, _lKFCS],
+  [0, 0, 0, () => LastKnownChecksList, 0]
 ];
 export var LaunchTemplateDiskConf$: StaticStructureSchema = [3, n0, _LTDC,
   0,
@@ -1843,8 +1865,8 @@ export var RemoveTemplateActionResponse$: StaticStructureSchema = [3, n0, _RTARe
 ];
 export var ReplicationConfiguration$: StaticStructureSchema = [3, n0, _RC,
   0,
-  [_sSIDo, _n, _sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _rD, _eE, _eEKA, _bT, _dPR, _cPIP, _sAT, _uFE, _iP, _sSOLZ],
-  [0, 0, 0, 2, 64 | 0, 0, 2, 0, () => ReplicationConfigurationReplicatedDisks, 0, 0, 1, 0, 2, [() => TagsMap, 0], 2, 0, 2]
+  [_sSIDo, _n, _sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _rD, _eE, _eEKA, _bT, _dPR, _cPIP, _sAT, _uFE, _iP, _sSOLZ, _sCt],
+  [0, 0, 0, 2, 64 | 0, 0, 2, 0, () => ReplicationConfigurationReplicatedDisks, 0, 0, 1, 0, 2, [() => TagsMap, 0], 2, 0, 2, () => StorageConfiguration$]
 ];
 export var ReplicationConfigurationReplicatedDisk$: StaticStructureSchema = [3, n0, _RCRD,
   0,
@@ -1853,8 +1875,8 @@ export var ReplicationConfigurationReplicatedDisk$: StaticStructureSchema = [3, 
 ];
 export var ReplicationConfigurationTemplate$: StaticStructureSchema = [3, n0, _RCT,
   0,
-  [_rCTID, _a, _sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _eE, _eEKA, _bT, _dPR, _cPIP, _sAT, _uFE, _t, _iP, _sSOLZ],
-  [0, 0, 0, 2, 64 | 0, 0, 2, 0, 0, 0, 1, 0, 2, [() => TagsMap, 0], 2, [() => TagsMap, 0], 0, 2], 1
+  [_rCTID, _a, _sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _eE, _eEKA, _bT, _dPR, _cPIP, _sAT, _uFE, _t, _iP, _sSOLZ, _sCt],
+  [0, 0, 0, 2, 64 | 0, 0, 2, 0, 0, 0, 1, 0, 2, [() => TagsMap, 0], 2, [() => TagsMap, 0], 0, 2, () => StorageConfiguration$], 1
 ];
 export var ResumeReplicationRequest$: StaticStructureSchema = [3, n0, _RRR,
   0,
@@ -2051,6 +2073,11 @@ export var StopReplicationRequest$: StaticStructureSchema = [3, n0, _SRRt,
   [_sSIDo, _aIDc],
   [0, 0], 1
 ];
+export var StorageConfiguration$: StaticStructureSchema = [3, n0, _SCt,
+  0,
+  [_sTt, _fOC],
+  [0, () => FsxOntapConfiguration$], 1
+];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rA, _t],
@@ -2148,13 +2175,13 @@ export var UpdateOperation$: StaticStructureSchema = [3, n0, _UO,
 ];
 export var UpdateReplicationConfigurationRequest$: StaticStructureSchema = [3, n0, _URCR,
   0,
-  [_sSIDo, _n, _sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _rD, _eE, _eEKA, _bT, _dPR, _cPIP, _sAT, _uFE, _aIDc, _iP, _sSOLZ],
-  [0, 0, 0, 2, 64 | 0, 0, 2, 0, () => ReplicationConfigurationReplicatedDisks, 0, 0, 1, 0, 2, [() => TagsMap, 0], 2, 0, 0, 2], 1
+  [_sSIDo, _n, _sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _rD, _eE, _eEKA, _bT, _dPR, _cPIP, _sAT, _uFE, _aIDc, _iP, _sSOLZ, _sCt],
+  [0, 0, 0, 2, 64 | 0, 0, 2, 0, () => ReplicationConfigurationReplicatedDisks, 0, 0, 1, 0, 2, [() => TagsMap, 0], 2, 0, 0, 2, () => StorageConfiguration$], 1
 ];
 export var UpdateReplicationConfigurationTemplateRequest$: StaticStructureSchema = [3, n0, _URCTR,
   0,
-  [_rCTID, _a, _sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _eE, _eEKA, _bT, _dPR, _cPIP, _sAT, _uFE, _iP, _sSOLZ],
-  [0, 0, 0, 2, 64 | 0, 0, 2, 0, 0, 0, 1, 0, 2, [() => TagsMap, 0], 2, 0, 2], 1
+  [_rCTID, _a, _sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _eE, _eEKA, _bT, _dPR, _cPIP, _sAT, _uFE, _iP, _sSOLZ, _sCt],
+  [0, 0, 0, 2, 64 | 0, 0, 2, 0, 0, 0, 1, 0, 2, [() => TagsMap, 0], 2, 0, 2, () => StorageConfiguration$], 1
 ];
 export var UpdateSourceServerReplicationTypeRequest$: StaticStructureSchema = [3, n0, _USSRTR,
   0,
@@ -2163,8 +2190,8 @@ export var UpdateSourceServerReplicationTypeRequest$: StaticStructureSchema = [3
 ];
 export var UpdateSourceServerRequest$: StaticStructureSchema = [3, n0, _USSR,
   0,
-  [_sSIDo, _aIDc, _cAo],
-  [0, 0, () => SourceServerConnectorAction$], 1
+  [_sSIDo, _aIDc, _cAo, _uPID, _fFAF, _pl],
+  [0, 0, () => SourceServerConnectorAction$, 0, 0, 0], 1
 ];
 export var UpdateWaveRequest$: StaticStructureSchema = [3, n0, _UWRp,
   0,
@@ -2251,6 +2278,9 @@ var JobLogs: StaticListSchema = [1, n0, _JLo,
 var JobsList: StaticListSchema = [1, n0, _JLob,
   0, [() => Job$,
     0]
+];
+var LastKnownChecksList: StaticListSchema = [1, n0, _LKCL,
+  0, () => LastKnownCheck$
 ];
 var LaunchConfigurationTemplateIDs = 64 | 0;
 var LaunchConfigurationTemplates: StaticListSchema = [1, n0, _LCTa,
@@ -2617,7 +2647,7 @@ export var ResumeReplication$: StaticOperationSchema = [9, n0, _RR,
 export var RetryDataReplication$: StaticOperationSchema = [9, n0, _RDR,
   { [_ht]: ["POST", "/RetryDataReplication", 200] }, () => RetryDataReplicationRequest$, () => SourceServer$
 ];
-export var StartCutover$: StaticOperationSchema = [9, n0, _SCt,
+export var StartCutover$: StaticOperationSchema = [9, n0, _SCta,
   { [_ht]: ["POST", "/StartCutover", 202] }, () => StartCutoverRequest$, () => StartCutoverResponse$
 ];
 export var StartExport$: StaticOperationSchema = [9, n0, _SE,

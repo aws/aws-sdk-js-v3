@@ -61,6 +61,13 @@ export interface UpdateReplicationConfigurationTemplateCommandOutput extends Rep
  *   useFipsEndpoint: true || false,
  *   internetProtocol: "STRING_VALUE",
  *   storeSnapshotOnLocalZone: true || false,
+ *   storageConfiguration: { // StorageConfiguration
+ *     storageType: "STRING_VALUE", // required
+ *     fsxOntapConfiguration: { // FsxOntapConfiguration
+ *       storageVirtualMachineId: "STRING_VALUE", // required
+ *       credentialsSecretArn: "STRING_VALUE", // required
+ *     },
+ *   },
  * };
  * const command = new UpdateReplicationConfigurationTemplateCommand(input);
  * const response = await client.send(command);
@@ -89,6 +96,13 @@ export interface UpdateReplicationConfigurationTemplateCommandOutput extends Rep
  * //   },
  * //   internetProtocol: "STRING_VALUE",
  * //   storeSnapshotOnLocalZone: true || false,
+ * //   storageConfiguration: { // StorageConfiguration
+ * //     storageType: "STRING_VALUE", // required
+ * //     fsxOntapConfiguration: { // FsxOntapConfiguration
+ * //       storageVirtualMachineId: "STRING_VALUE", // required
+ * //       credentialsSecretArn: "STRING_VALUE", // required
+ * //     },
+ * //   },
  * // };
  *
  * ```
