@@ -1552,7 +1552,7 @@ export interface WorkspaceProperties {
    *                </li>
    *                <li>
    *                   <p>Unavailable for Windows 7 WorkSpaces and WorkSpaces using GPU-based bundles
-   *                (Graphics, GraphicsPro, Graphics.g4dn, and GraphicsPro.g4dn).</p>
+   *                (Graphics, GraphicsPro, Graphics.g4dn, GraphicsPro.g4dn, and Graphics.g6).</p>
    *                </li>
    *             </ul>
    *          </note>
