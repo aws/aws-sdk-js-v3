@@ -56,6 +56,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.54 (2026-06-15)
+### Chores
+* **scripts:** apply esm-to-cjs transform to rollup bundles ([#8103](https://github.com/aws/aws-sdk-js-v3/issues/8103)) ([9675991](https://github.com/aws/aws-sdk-js-v3/commit/967599182d610a2b307ab4c5aa1a350a9428d6ee))
+* **scripts:** tuning the build graph ([#8095](https://github.com/aws/aws-sdk-js-v3/issues/8095)) ([67981c5](https://github.com/aws/aws-sdk-js-v3/commit/67981c5a65d6dd797a065df034a8d0fcdaa9b7bd))
+
+
+
 # 3.972.53 (2026-06-10)
 ### Chores
 * **credential-provider-ini:** update dependencies.

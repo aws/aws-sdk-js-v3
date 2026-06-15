@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/lib-transfer-manager",
-  "version": "3.1068.0",
+  "version": "3.1069.0",
   "private": true,
   "description": "S3 Transfer Manager for AWS SDK JS v3",
   "main": "./dist-cjs/index.js",
@@ -76,10 +76,10 @@
     "tslib": "^2.6.2"
   },
   "peerDependencies": {
-    "@aws-sdk/client-s3": "workspace:^3.1068.0"
+    "@aws-sdk/client-s3": "workspace:^3.1069.0"
   },
   "devDependencies": {
-    "@aws-sdk/client-s3": "workspace:3.1068.0",
+    "@aws-sdk/client-s3": "workspace:3.1069.0",
     "@tsconfig/recommended": "1.0.1",
     "@types/node": "^20.14.8",
     "concurrently": "7.0.0",

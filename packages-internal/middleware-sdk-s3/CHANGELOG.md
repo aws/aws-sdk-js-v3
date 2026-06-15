@@ -54,6 +54,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.52 (2026-06-13)
+### Chores
+* **scripts:** tuning the build graph ([#8095](https://github.com/aws/aws-sdk-js-v3/issues/8095)) ([67981c5](https://github.com/aws/aws-sdk-js-v3/commit/67981c5a65d6dd797a065df034a8d0fcdaa9b7bd))
+
+
+
 # 3.972.51 (2026-06-09)
 ### Tests
 * use crypto.randomUUID for resource names in e2e tests ([#8091](https://github.com/aws/aws-sdk-js-v3/issues/8091)) ([e4ef6c5](https://github.com/aws/aws-sdk-js-v3/commit/e4ef6c57d8fd97d15e0a7a27a24396990d704307))

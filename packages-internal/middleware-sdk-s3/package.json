@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-sdk-s3",
-  "version": "3.972.51",
+  "version": "3.972.52",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline",
@@ -67,9 +67,9 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.974.20",
-    "@aws-sdk/signature-v4-multi-region": "workspace:^3.996.34",
-    "@aws-sdk/types": "workspace:^3.973.12",
+    "@aws-sdk/core": "workspace:^3.974.21",
+    "@aws-sdk/signature-v4-multi-region": "workspace:^3.996.35",
+    "@aws-sdk/types": "workspace:^3.973.13",
     "@smithy/core": "^3.24.6",
     "@smithy/types": "^4.14.3",
     "tslib": "^2.6.2"

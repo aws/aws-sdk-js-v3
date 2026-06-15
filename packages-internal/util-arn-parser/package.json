@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-arn-parser",
-  "version": "3.972.15",
+  "version": "3.972.16",
   "description": "A parser to Amazon Resource Names",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -19,7 +19,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.974.20",
+    "@aws-sdk/core": "workspace:^3.974.21",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

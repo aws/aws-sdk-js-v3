@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1069.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1068.0...v3.1069.0) (2026-06-15)
+
+
+### Features
+
+* **client-bedrock-runtime:** InvokeGuardrailChecks API evaluates prompts and responses against safety checks (content filters, prompt attacks, sensitive info) without creating guardrail resources. It's a detect-only API, returning numeric scores so you can build adaptive logic as per your application. ([4b1fd02](https://github.com/aws/aws-sdk-js-v3/commit/4b1fd023258687353bf12a08cdedae80e3dce6ca))
+* **client-cloudwatch-logs:** Added endTimeOffset parameter to Scheduled Queries APIs (Create, Update, Get) enabling bounded time window configuration. Introduced scheduleType filter (CUSTOMER MANAGED, AWS MANAGED) for ListScheduledQueries and exposed it in Get and Update responses. ([e131884](https://github.com/aws/aws-sdk-js-v3/commit/e13188404db8ebab00d8cb2cc6f884a414bf4abf))
+* **client-datazone:** Adds support for deleting lineage events in Amazon DataZone. ([8e2a176](https://github.com/aws/aws-sdk-js-v3/commit/8e2a176da89bf29ecf38f5ad89568b4594eecc37))
+* **client-mgn:** AWS Transform for VMware now supports Amazon FSx for NetApp ONTAP as a target storage. Customers can migrate source server disks directly to FSx for NetApp ONTAP iSCSI LUNs. Target storage is configurable per source server, and compute, network, and storage migrate together in coordinated waves. ([cc83d72](https://github.com/aws/aws-sdk-js-v3/commit/cc83d72353d54145f44a96494160e452b7cebc3f))
+* **client-wafv2:** AWS WAF now supports AI traffic monetization for CloudFront. Configure payment networks and pricing on your web ACL, use the new Monetize rule action to charge AI agents via x402, and monitor revenue with new GetRevenueStatisticsSummary, GetRevenueStatistics, and ListSettlementRecords APIs. ([49bed3c](https://github.com/aws/aws-sdk-js-v3/commit/49bed3c93cbd86e6be1a8cc7e859aa126a8d194d))
+* **client-workspaces:** Added a validation for null check for ImageIds in DescribeWorkspaceImages API request parameters. ([4d72e87](https://github.com/aws/aws-sdk-js-v3/commit/4d72e87d10692091d12eaca3a799b1095f354862))
+
+
+
+
+
 # [3.1068.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1067.0...v3.1068.0) (2026-06-12)
 
 

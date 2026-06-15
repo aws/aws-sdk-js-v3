@@ -52,6 +52,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.974.21 (2026-06-13)
+### Chores
+* **scripts:** tuning the build graph ([#8095](https://github.com/aws/aws-sdk-js-v3/issues/8095)) ([67981c5](https://github.com/aws/aws-sdk-js-v3/commit/67981c5a65d6dd797a065df034a8d0fcdaa9b7bd))
+
+
+
 # 3.974.20 (2026-06-09)
 ### Bug Fixes
 * **core:** export legacy root symbols from submodules instead of relative paths ([#8086](https://github.com/aws/aws-sdk-js-v3/issues/8086)) ([abea090](https://github.com/aws/aws-sdk-js-v3/commit/abea090cb45feecf626d4abeffde999b774350a2))

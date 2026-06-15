@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1069.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1068.0...v3.1069.0) (2026-06-15)
+
+
+### Features
+
+* **client-cloudwatch-logs:** Added endTimeOffset parameter to Scheduled Queries APIs (Create, Update, Get) enabling bounded time window configuration. Introduced scheduleType filter (CUSTOMER MANAGED, AWS MANAGED) for ListScheduledQueries and exposed it in Get and Update responses. ([e131884](https://github.com/aws/aws-sdk-js-v3/commit/e13188404db8ebab00d8cb2cc6f884a414bf4abf))
+
+
+
+
+
 # [3.1068.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1067.0...v3.1068.0) (2026-06-12)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudwatch-logs
