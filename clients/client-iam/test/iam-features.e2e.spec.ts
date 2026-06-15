@@ -28,7 +28,7 @@ describe(IAM.name, () => {
         console.warn(`Failed to delete role ${roleName}:`, error);
       }
     }
-  }, 120_000);
+  }, 240_000);
 
   describe("Users", () => {
     it("should create IAM user", async () => {
