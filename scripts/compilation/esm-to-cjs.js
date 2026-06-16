@@ -49,6 +49,9 @@ const SKIP_KEYS = new Set(["type", "start", "end", "raw", "sourceType"]);
 function transpile(esmCode) {
   const ast = acorn.parse(esmCode, { ecmaVersion: 2022, sourceType: "module" });
 
+  // Build identifier reference map in a single O(n) AST traversal.
+  const identifierMap = buildIdentifierMap(ast);
+
   // Collect await-import edits first so they can be applied within export declarations.
   const awaitImportEdits = [];
   collectAwaitImports(ast, awaitImportEdits, esmCode);
@@ -71,7 +74,7 @@ function transpile(esmCode) {
         edits.push({
           start: node.start,
           end: node.end,
-          replacement: transformExportNamed(node, esmCode, inner, importedSymbols),
+          replacement: transformExportNamed(node, esmCode, inner, importedSymbols, identifierMap),
         });
         break;
       }
@@ -99,12 +102,17 @@ function transpile(esmCode) {
     }
   }
 
-  // Apply edits back-to-front so indices remain valid.
-  edits.sort((a, b) => b.start - a.start);
-  let output = esmCode;
+  // Apply edits in a single forward pass using array-join.
+  edits.sort((a, b) => a.start - b.start);
+  const parts = [];
+  let cursor = 0;
   for (let i = 0; i < edits.length; i++) {
-    output = output.slice(0, edits[i].start) + edits[i].replacement + output.slice(edits[i].end);
+    parts.push(esmCode.slice(cursor, edits[i].start));
+    parts.push(edits[i].replacement);
+    cursor = edits[i].end;
   }
+  parts.push(esmCode.slice(cursor));
+  let output = parts.join("");
   if (hasExportStar) {
     output = `var __exportStar = (m, e) => { Object.assign(e, m); };\n` + output;
   }
@@ -157,27 +165,61 @@ function transformImport(node) {
 }
 
 /**
- * Check if `name` is referenced in `src` outside the range [declStart, declEnd).
- * Uses indexOf + boundary checks to handle names containing $ or other non-word chars.
+ * Build a map of identifier name -> array of start offsets in a single AST traversal.
  */
-function isNameUsedOutsideDecl(src, name, declStart, declEnd) {
-  let pos = 0;
-  while ((pos = src.indexOf(name, pos)) !== -1) {
-    if (pos < declStart || pos >= declEnd) {
-      // Check boundaries: char before must not be word/$ and char after must not be word/$.
-      const before = pos > 0 ? src[pos - 1] : " ";
-      const after = pos + name.length < src.length ? src[pos + name.length] : " ";
-      const isWordChar = (c) => /[\w$]/.test(c);
-      if (!isWordChar(before) && !isWordChar(after)) {
-        return true;
+function buildIdentifierMap(ast) {
+  const refs = new Map();
+  const stack = [ast];
+  while (stack.length > 0) {
+    const node = stack.pop();
+    if (!node || typeof node !== "object") {
+      continue;
+    }
+    if (Array.isArray(node)) {
+      for (let i = 0; i < node.length; i++) {
+        stack.push(node[i]);
+      }
+      continue;
+    }
+    if (node.type === "Identifier") {
+      const arr = refs.get(node.name);
+      if (arr) {
+        arr.push(node.start);
+      } else {
+        refs.set(node.name, [node.start]);
+      }
+      continue;
+    }
+    for (const key in node) {
+      if (SKIP_KEYS.has(key)) {
+        continue;
+      }
+      const child = node[key];
+      if (child && typeof child === "object") {
+        stack.push(child);
       }
     }
-    pos += 1;
+  }
+  return refs;
+}
+
+/**
+ * Check if `name` is referenced outside the range [declStart, declEnd) using pre-built identifier map.
+ */
+function isNameUsedOutsideDecl(identifierMap, name, declStart, declEnd) {
+  const offsets = identifierMap.get(name);
+  if (!offsets) {
+    return false;
+  }
+  for (let i = 0; i < offsets.length; i++) {
+    if (offsets[i] < declStart || offsets[i] >= declEnd) {
+      return true;
+    }
   }
   return false;
 }
 
-function transformExportNamed(node, src, innerEdits, importedSymbols) {
+function transformExportNamed(node, src, innerEdits, importedSymbols, identifierMap) {
   for (let i = 0; i < node.specifiers.length; i++) {
     const s = node.specifiers[i];
     if (s.exported.type === Literal) {
@@ -211,7 +253,7 @@ function transformExportNamed(node, src, innerEdits, importedSymbols) {
         // If the name is referenced elsewhere in the file, keep as local + export.
         // Otherwise inline directly into exports.
         const name = d.id.name;
-        const usedElsewhere = isNameUsedOutsideDecl(src, name, node.start, node.end);
+        const usedElsewhere = isNameUsedOutsideDecl(identifierMap, name, node.start, node.end);
         if (usedElsewhere) {
           parts.push(`const ${name} = ${init};\nexports.${name} = ${name};`);
         } else {
@@ -233,7 +275,7 @@ function transformExportNamed(node, src, innerEdits, importedSymbols) {
       }
     }
     const name = decl.id.name;
-    const usedElsewhere = isNameUsedOutsideDecl(src, name, node.start, node.end);
+    const usedElsewhere = isNameUsedOutsideDecl(identifierMap, name, node.start, node.end);
     if (usedElsewhere) {
       return `${declText}\nexports.${name} = ${name};`;
     }
