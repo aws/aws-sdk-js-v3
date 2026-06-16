@@ -220,6 +220,8 @@ import {
   Lag$,
   Lags$,
   LagState,
+  LimitExceededException,
+  LimitExceededException$,
   ListVirtualInterfaceTestHistory$,
   ListVirtualInterfaceTestHistoryCommand,
   ListVirtualInterfaceTestHistoryRequest$,
@@ -237,6 +239,7 @@ import {
   NewTransitVirtualInterface$,
   NewTransitVirtualInterfaceAllocation$,
   NniPartnerType,
+  RateLimiterStatus$,
   ResourceTag$,
   RouteFilterPrefix$,
   RouterType$,
@@ -521,6 +524,7 @@ assert(typeof NewPublicVirtualInterface$ === "object");
 assert(typeof NewPublicVirtualInterfaceAllocation$ === "object");
 assert(typeof NewTransitVirtualInterface$ === "object");
 assert(typeof NewTransitVirtualInterfaceAllocation$ === "object");
+assert(typeof RateLimiterStatus$ === "object");
 assert(typeof ResourceTag$ === "object");
 assert(typeof RouteFilterPrefix$ === "object");
 assert(typeof RouterType$ === "object");
@@ -569,6 +573,8 @@ assert(DirectConnectServerException.prototype instanceof DirectConnectServiceExc
 assert(typeof DirectConnectServerException$ === "object");
 assert(DuplicateTagKeysException.prototype instanceof DirectConnectServiceException);
 assert(typeof DuplicateTagKeysException$ === "object");
+assert(LimitExceededException.prototype instanceof DirectConnectServiceException);
+assert(typeof LimitExceededException$ === "object");
 assert(TooManyTagsException.prototype instanceof DirectConnectServiceException);
 assert(typeof TooManyTagsException$ === "object");
 assert(DirectConnectServiceException.prototype instanceof Error);

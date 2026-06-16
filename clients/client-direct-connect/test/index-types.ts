@@ -313,6 +313,7 @@ export type {
   NewPublicVirtualInterfaceAllocation,
   NewTransitVirtualInterface,
   NewTransitVirtualInterfaceAllocation,
+  RateLimiterStatus,
   ResourceTag,
   RouteFilterPrefix,
   RouterType,
@@ -340,6 +341,7 @@ export type {
   DirectConnectClientException,
   DirectConnectServerException,
   DuplicateTagKeysException,
+  LimitExceededException,
   TooManyTagsException,
   DirectConnectServiceException,
 } from "../dist-types/index.d";

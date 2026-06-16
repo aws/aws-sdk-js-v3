@@ -34,7 +34,7 @@ export interface DescribeVirtualInterfacesCommandOutput extends VirtualInterface
  *          <p>A virtual interface (VLAN) transmits the traffic between the Direct Connect location and the customer network.</p>
  *          <ul>
  *             <li>
- *                <p>If you're using an <code>asn</code>, the response includes ASN value in both the <code>asn</code> and <code>asnLong</code> fields.</p>
+ *                <p>If you're using an <code>asn</code>, the response includes the ASN value in both the <code>asn</code> and <code>asnLong</code> fields.</p>
  *             </li>
  *             <li>
  *                <p>If you're using <code>asnLong</code>, the response returns a value of <code>0</code> (zero) for the <code>asn</code> attribute because it exceeds the highest ASN value of 2,147,483,647 that it can support</p>
@@ -109,6 +109,7 @@ export interface DescribeVirtualInterfacesCommandOutput extends VirtualInterface
  * //         },
  * //       ],
  * //       siteLinkEnabled: true || false,
+ * //       rateLimit: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

@@ -84,6 +84,12 @@ export interface AssociateHostedConnectionCommandOutput extends Connection, __Me
  * //       startOn: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   rateLimiterStatus: { // RateLimiterStatus
+ * //     maxAllowed: Number("int"),
+ * //     inUse: Number("int"),
+ * //     remaining: Number("int"),
+ * //     totalBandwidth: "STRING_VALUE",
+ * //   },
  * //   partnerInterconnectMacSecCapable: true || false,
  * // };
  *

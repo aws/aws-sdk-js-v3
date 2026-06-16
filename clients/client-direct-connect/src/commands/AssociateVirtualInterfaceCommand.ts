@@ -102,6 +102,7 @@ export interface AssociateVirtualInterfaceCommandOutput extends VirtualInterface
  * //     },
  * //   ],
  * //   siteLinkEnabled: true || false,
+ * //   rateLimit: "STRING_VALUE",
  * // };
  *
  * ```

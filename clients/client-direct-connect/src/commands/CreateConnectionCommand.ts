@@ -94,6 +94,12 @@ export interface CreateConnectionCommandOutput extends Connection, __MetadataBea
  * //       startOn: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   rateLimiterStatus: { // RateLimiterStatus
+ * //     maxAllowed: Number("int"),
+ * //     inUse: Number("int"),
+ * //     remaining: Number("int"),
+ * //     totalBandwidth: "STRING_VALUE",
+ * //   },
  * //   partnerInterconnectMacSecCapable: true || false,
  * // };
  *

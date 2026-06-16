@@ -67,6 +67,7 @@ export interface CreatePrivateVirtualInterfaceCommandOutput extends VirtualInter
  *       },
  *     ],
  *     enableSiteLink: true || false,
+ *     rateLimit: "STRING_VALUE",
  *   },
  * };
  * const command = new CreatePrivateVirtualInterfaceCommand(input);
@@ -122,6 +123,7 @@ export interface CreatePrivateVirtualInterfaceCommandOutput extends VirtualInter
  * //     },
  * //   ],
  * //   siteLinkEnabled: true || false,
+ * //   rateLimit: "STRING_VALUE",
  * // };
  *
  * ```
@@ -140,6 +142,9 @@ export interface CreatePrivateVirtualInterfaceCommandOutput extends VirtualInter
  *
  * @throws {@link DuplicateTagKeysException} (client fault)
  *  <p>A tag key was specified more than once.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The rate limiter limit has been exceeded for the connection. You cannot add more rate limiters to virtual interfaces on this connection.</p>
  *
  * @throws {@link TooManyTagsException} (client fault)
  *  <p>You have reached the limit on the number of tags that can be assigned.</p>

@@ -86,6 +86,12 @@ export interface DescribeConnectionsOnInterconnectCommandOutput extends Connecti
  * //           startOn: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       rateLimiterStatus: { // RateLimiterStatus
+ * //         maxAllowed: Number("int"),
+ * //         inUse: Number("int"),
+ * //         remaining: Number("int"),
+ * //         totalBandwidth: "STRING_VALUE",
+ * //       },
  * //       partnerInterconnectMacSecCapable: true || false,
  * //     },
  * //   ],

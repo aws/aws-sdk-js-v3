@@ -98,6 +98,7 @@ export interface DeleteBGPPeerCommandOutput extends DeleteBGPPeerResponse, __Met
  * //       },
  * //     ],
  * //     siteLinkEnabled: true || false,
+ * //     rateLimit: "STRING_VALUE",
  * //   },
  * // };
  *

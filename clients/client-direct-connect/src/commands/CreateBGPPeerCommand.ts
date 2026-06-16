@@ -116,6 +116,7 @@ export interface CreateBGPPeerCommandOutput extends CreateBGPPeerResponse, __Met
  * //       },
  * //     ],
  * //     siteLinkEnabled: true || false,
+ * //     rateLimit: "STRING_VALUE",
  * //   },
  * // };
  *

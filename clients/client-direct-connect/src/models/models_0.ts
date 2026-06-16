@@ -330,6 +330,36 @@ export interface MacSecKey {
 }
 
 /**
+ * <p>Contains information about the rate limiter status for a connection, including the maximum number of rate limiters allowed, the number currently in use, and the remaining capacity.</p>
+ * @public
+ */
+export interface RateLimiterStatus {
+  /**
+   * <p>The maximum number of rate limiters allowed on the connection.</p>
+   * @public
+   */
+  maxAllowed?: number | undefined;
+
+  /**
+   * <p>The number of rate limiters currently in use on the connection.</p>
+   * @public
+   */
+  inUse?: number | undefined;
+
+  /**
+   * <p>The number of rate limiters remaining (available) on the connection.</p>
+   * @public
+   */
+  remaining?: number | undefined;
+
+  /**
+   * <p>The total bandwidth allocated across all rate limiters on the connection.</p>
+   * @public
+   */
+  totalBandwidth?: string | undefined;
+}
+
+/**
  * <p>Information about a tag.</p>
  * @public
  */
@@ -528,6 +558,12 @@ export interface Connection {
   macSecKeys?: MacSecKey[] | undefined;
 
   /**
+   * <p>The rate limiter status for the connection, including how many rate limiters are in use and the maximum allowed.</p>
+   * @public
+   */
+  rateLimiterStatus?: RateLimiterStatus | undefined;
+
+  /**
    * <p>Indicates whether the interconnect hosting this connection supports MAC Security (MACsec).</p>
    * @public
    */
@@ -597,20 +633,25 @@ export interface NewPrivateVirtualInterfaceAllocation {
 
   /**
    * <p>The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum, an error is returned. Use <code>asnLong</code> instead.</p>
-   *          <note>
-   *             <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
-   *             <ul>
-   *                <li>
-   *                   <p>The <code>asnLong</code> attribute accepts both ASN and long ASN
-   *                             ranges.</p>
-   *                </li>
-   *                <li>
-   *                   <p>If you provide a value in the same API call for both <code>asn</code>
+   *          <ul>
+   *             <li>
+   *                <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
+   *             </li>
+   *             <li>
+   *                <p>If you provide a value in the same API call for both <code>asn</code>
    *                             and <code>asnLong</code>, the API will only accept the value for
-   *                                 <code>asnLong</code>.</p>
-   *                </li>
-   *             </ul>
-   *          </note>
+   *                                 <code>asnLong</code>.
+   *               </p>
+   *             </li>
+   *             <li>
+   *                <p>If you enter a 4-byte ASN for the <code>asn</code> parameter, the API returns an error.
+   *               </p>
+   *             </li>
+   *             <li>
+   *                <p>If you are using a 2-byte ASN, the API response will include the
+   * 2-byte value for both the <code>asn</code> and <code>asnLong</code> fields.</p>
+   *             </li>
+   *          </ul>
    *          <p>The valid values are 1-2147483646.</p>
    * @public
    */
@@ -618,20 +659,29 @@ export interface NewPrivateVirtualInterfaceAllocation {
 
   /**
    * <p>The ASN when allocating a new private virtual interface. The valid range is from 1 to 4294967294 for BGP configuration.</p>
-   *          <note>
-   *             <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
-   *             <ul>
-   *                <li>
-   *                   <p>The <code>asnLong</code> attribute accepts both ASN and long ASN
-   *                             ranges.</p>
-   *                </li>
-   *                <li>
-   *                   <p>If you provide a value in the same API call for both <code>asn</code>
+   *          <p>Note the following limitations when using <code>asnLong</code>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>asnLong</code> accepts any valid ASN value, regardless if it's 2-byte or 4-byte.
+   *               </p>
+   *             </li>
+   *             <li>
+   *                <p>When using a 4-byte <code>asnLong</code>, the API response returns <code>0</code> for the legacy <code>asn</code> attribute since 4-byte ASN values exceed the maximum supported value of 2,147,483,647.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you are using a 2-byte ASN, the API response will include the
+   * 2-byte value for both the <code>asn</code> and <code>asnLong</code> fields.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you provide a value in the same API call for both <code>asn</code>
    *                             and <code>asnLong</code>, the API will only accept the value for
    *                                 <code>asnLong</code>.</p>
-   *                </li>
-   *             </ul>
-   *          </note>
+   *             </li>
+   *          </ul>
    * @public
    */
   asnLong?: number | undefined;
@@ -671,6 +721,12 @@ export interface NewPrivateVirtualInterfaceAllocation {
    * @public
    */
   tags?: Tag[] | undefined;
+
+  /**
+   * <p>The rate limit (bandwidth allocation) to apply to the virtual interface. The rate limit restricts the maximum bandwidth that the virtual interface can use on the parent connection.</p>
+   * @public
+   */
+  rateLimit?: string | undefined;
 }
 
 /**
@@ -709,40 +765,54 @@ export interface BGPPeer {
 
   /**
    * <p>The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum, an error is returned. Use <code>asnLong</code> instead.</p>
-   *          <note>
-   *             <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
-   *             <ul>
-   *                <li>
-   *                   <p>The <code>asnLong</code> attribute accepts both ASN and long ASN
-   *                             ranges.</p>
-   *                </li>
-   *                <li>
-   *                   <p>If you provide a value in the same API call for both <code>asn</code>
+   *          <ul>
+   *             <li>
+   *                <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
+   *             </li>
+   *             <li>
+   *                <p>If you provide a value in the same API call for both <code>asn</code>
    *                             and <code>asnLong</code>, the API will only accept the value for
-   *                                 <code>asnLong</code>.</p>
-   *                </li>
-   *             </ul>
-   *          </note>
+   *                                 <code>asnLong</code>.
+   *               </p>
+   *             </li>
+   *             <li>
+   *                <p>If you enter a 4-byte ASN for the <code>asn</code> parameter, the API returns an error.
+   *               </p>
+   *             </li>
+   *             <li>
+   *                <p>If you are using a 2-byte ASN, the API response will include the
+   * 2-byte value for both the <code>asn</code> and <code>asnLong</code> fields.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   asn?: number | undefined;
 
   /**
    * <p>The long ASN for the BGP peer. The valid range is from 1 to 4294967294 for BGP configuration. </p>
-   *          <note>
-   *             <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
-   *             <ul>
-   *                <li>
-   *                   <p>The <code>asnLong</code> attribute accepts both ASN and long ASN
-   *                             ranges.</p>
-   *                </li>
-   *                <li>
-   *                   <p>If you provide a value in the same API call for both <code>asn</code>
+   *          <p>Note the following limitations when using <code>asnLong</code>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>asnLong</code> accepts any valid ASN value, regardless if it's 2-byte or 4-byte.
+   *               </p>
+   *             </li>
+   *             <li>
+   *                <p>When using a 4-byte <code>asnLong</code>, the API response returns <code>0</code> for the legacy <code>asn</code> attribute since 4-byte ASN values exceed the maximum supported value of 2,147,483,647.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you are using a 2-byte ASN, the API response will include the
+   * 2-byte value for both the <code>asn</code> and <code>asnLong</code> fields.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you provide a value in the same API call for both <code>asn</code>
    *                             and <code>asnLong</code>, the API will only accept the value for
    *                                 <code>asnLong</code>.</p>
-   *                </li>
-   *             </ul>
-   *          </note>
+   *             </li>
+   *          </ul>
    * @public
    */
   asnLong?: number | undefined;
@@ -883,40 +953,54 @@ export interface VirtualInterface {
 
   /**
    * <p>The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum, an error is returned. Use <code>asnLong</code> instead.</p>
-   *          <note>
-   *             <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
-   *             <ul>
-   *                <li>
-   *                   <p>The <code>asnLong</code> attribute accepts both ASN and long ASN
-   *                             ranges.</p>
-   *                </li>
-   *                <li>
-   *                   <p>If you provide a value in the same API call for both <code>asn</code>
+   *          <ul>
+   *             <li>
+   *                <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
+   *             </li>
+   *             <li>
+   *                <p>If you provide a value in the same API call for both <code>asn</code>
    *                             and <code>asnLong</code>, the API will only accept the value for
-   *                                 <code>asnLong</code>.</p>
-   *                </li>
-   *             </ul>
-   *          </note>
+   *                                 <code>asnLong</code>.
+   *               </p>
+   *             </li>
+   *             <li>
+   *                <p>If you enter a 4-byte ASN for the <code>asn</code> parameter, the API returns an error.
+   *               </p>
+   *             </li>
+   *             <li>
+   *                <p>If you are using a 2-byte ASN, the API response will include the
+   * 2-byte value for both the <code>asn</code> and <code>asnLong</code> fields.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   asn?: number | undefined;
 
   /**
    * <p>The long ASN for the virtual interface. The valid range is from 1 to 4294967294 for BGP configuration.</p>
-   *          <note>
-   *             <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
-   *             <ul>
-   *                <li>
-   *                   <p>The <code>asnLong</code> attribute accepts both ASN and long ASN
-   *                             ranges.</p>
-   *                </li>
-   *                <li>
-   *                   <p>If you provide a value in the same API call for both <code>asn</code>
+   *          <p>Note the following limitations when using <code>asnLong</code>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>asnLong</code> accepts any valid ASN value, regardless if it's 2-byte or 4-byte.
+   *               </p>
+   *             </li>
+   *             <li>
+   *                <p>When using a 4-byte <code>asnLong</code>, the API response returns <code>0</code> for the legacy <code>asn</code> attribute since 4-byte ASN values exceed the maximum supported value of 2,147,483,647.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you are using a 2-byte ASN, the API response will include the
+   * 2-byte value for both the <code>asn</code> and <code>asnLong</code> fields.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you provide a value in the same API call for both <code>asn</code>
    *                             and <code>asnLong</code>, the API will only accept the value for
    *                                 <code>asnLong</code>.</p>
-   *                </li>
-   *             </ul>
-   *          </note>
+   *             </li>
+   *          </ul>
    * @public
    */
   asnLong?: number | undefined;
@@ -1071,6 +1155,12 @@ export interface VirtualInterface {
    * @public
    */
   siteLinkEnabled?: boolean | undefined;
+
+  /**
+   * <p>The rate limit (bandwidth allocation) applied to the virtual interface. The possible values are <code>50 Mbps</code>, <code>100 Mbps</code>, <code>200 Mbps</code>, <code>300 Mbps</code>, <code>400 Mbps</code>, <code>500 Mbps</code>, <code>1 Gbps</code>, <code>2 Gbps</code>, <code>5 Gbps</code>, or <code>10 Gbps</code>.</p>
+   * @public
+   */
+  rateLimit?: string | undefined;
 }
 
 /**
@@ -1092,20 +1182,25 @@ export interface NewPublicVirtualInterfaceAllocation {
 
   /**
    * <p>The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum, an error is returned. Use <code>asnLong</code> instead.</p>
-   *          <note>
-   *             <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
-   *             <ul>
-   *                <li>
-   *                   <p>The <code>asnLong</code> attribute accepts both ASN and long ASN
-   *                             ranges.</p>
-   *                </li>
-   *                <li>
-   *                   <p>If you provide a value in the same API call for both <code>asn</code>
+   *          <ul>
+   *             <li>
+   *                <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
+   *             </li>
+   *             <li>
+   *                <p>If you provide a value in the same API call for both <code>asn</code>
    *                             and <code>asnLong</code>, the API will only accept the value for
-   *                                 <code>asnLong</code>.</p>
-   *                </li>
-   *             </ul>
-   *          </note>
+   *                                 <code>asnLong</code>.
+   *               </p>
+   *             </li>
+   *             <li>
+   *                <p>If you enter a 4-byte ASN for the <code>asn</code> parameter, the API returns an error.
+   *               </p>
+   *             </li>
+   *             <li>
+   *                <p>If you are using a 2-byte ASN, the API response will include the
+   * 2-byte value for both the <code>asn</code> and <code>asnLong</code> fields.</p>
+   *             </li>
+   *          </ul>
    *          <p>The valid values are 1-2147483646.</p>
    * @public
    */
@@ -1113,20 +1208,29 @@ export interface NewPublicVirtualInterfaceAllocation {
 
   /**
    * <p>The ASN when allocating a new public virtual interface. The valid range is from 1 to 4294967294 for BGP configuration.</p>
-   *          <note>
-   *             <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
-   *             <ul>
-   *                <li>
-   *                   <p>The <code>asnLong</code> attribute accepts both ASN and long ASN
-   *                             ranges.</p>
-   *                </li>
-   *                <li>
-   *                   <p>If you provide a value in the same API call for both <code>asn</code>
+   *          <p>Note the following limitations when using <code>asnLong</code>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>asnLong</code> accepts any valid ASN value, regardless if it's 2-byte or 4-byte.
+   *               </p>
+   *             </li>
+   *             <li>
+   *                <p>When using a 4-byte <code>asnLong</code>, the API response returns <code>0</code> for the legacy <code>asn</code> attribute since 4-byte ASN values exceed the maximum supported value of 2,147,483,647.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you are using a 2-byte ASN, the API response will include the
+   * 2-byte value for both the <code>asn</code> and <code>asnLong</code> fields.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you provide a value in the same API call for both <code>asn</code>
    *                             and <code>asnLong</code>, the API will only accept the value for
    *                                 <code>asnLong</code>.</p>
-   *                </li>
-   *             </ul>
-   *          </note>
+   *             </li>
+   *          </ul>
    * @public
    */
   asnLong?: number | undefined;
@@ -1166,6 +1270,12 @@ export interface NewPublicVirtualInterfaceAllocation {
    * @public
    */
   tags?: Tag[] | undefined;
+
+  /**
+   * <p>The rate limit (bandwidth allocation) to apply to the virtual interface. The rate limit restricts the maximum bandwidth that the virtual interface can use on the parent connection.</p>
+   * @public
+   */
+  rateLimit?: string | undefined;
 }
 
 /**
@@ -1210,20 +1320,25 @@ export interface NewTransitVirtualInterfaceAllocation {
 
   /**
    * <p>The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum, an error is returned. Use <code>asnLong</code> instead.</p>
-   *          <note>
-   *             <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
-   *             <ul>
-   *                <li>
-   *                   <p>The <code>asnLong</code> attribute accepts both ASN and long ASN
-   *                             ranges.</p>
-   *                </li>
-   *                <li>
-   *                   <p>If you provide a value in the same API call for both <code>asn</code>
+   *          <ul>
+   *             <li>
+   *                <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
+   *             </li>
+   *             <li>
+   *                <p>If you provide a value in the same API call for both <code>asn</code>
    *                             and <code>asnLong</code>, the API will only accept the value for
-   *                                 <code>asnLong</code>.</p>
-   *                </li>
-   *             </ul>
-   *          </note>
+   *                                 <code>asnLong</code>.
+   *               </p>
+   *             </li>
+   *             <li>
+   *                <p>If you enter a 4-byte ASN for the <code>asn</code> parameter, the API returns an error.
+   *               </p>
+   *             </li>
+   *             <li>
+   *                <p>If you are using a 2-byte ASN, the API response will include the
+   * 2-byte value for both the <code>asn</code> and <code>asnLong</code> fields.</p>
+   *             </li>
+   *          </ul>
    *          <p>The valid values are 1-2147483646.</p>
    * @public
    */
@@ -1231,20 +1346,29 @@ export interface NewTransitVirtualInterfaceAllocation {
 
   /**
    * <p>The ASN when allocating a new transit virtual interface. The valid range is from 1 to 4294967294 for BGP configuration.</p>
-   *          <note>
-   *             <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
-   *             <ul>
-   *                <li>
-   *                   <p>The <code>asnLong</code> attribute accepts both ASN and long ASN
-   *                             ranges.</p>
-   *                </li>
-   *                <li>
-   *                   <p>If you provide a value in the same API call for both <code>asn</code>
+   *          <p>Note the following limitations when using <code>asnLong</code>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>asnLong</code> accepts any valid ASN value, regardless if it's 2-byte or 4-byte.
+   *               </p>
+   *             </li>
+   *             <li>
+   *                <p>When using a 4-byte <code>asnLong</code>, the API response returns <code>0</code> for the legacy <code>asn</code> attribute since 4-byte ASN values exceed the maximum supported value of 2,147,483,647.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you are using a 2-byte ASN, the API response will include the
+   * 2-byte value for both the <code>asn</code> and <code>asnLong</code> fields.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you provide a value in the same API call for both <code>asn</code>
    *                             and <code>asnLong</code>, the API will only accept the value for
    *                                 <code>asnLong</code>.</p>
-   *                </li>
-   *             </ul>
-   *          </note>
+   *             </li>
+   *          </ul>
    * @public
    */
   asnLong?: number | undefined;
@@ -1284,6 +1408,12 @@ export interface NewTransitVirtualInterfaceAllocation {
    * @public
    */
   tags?: Tag[] | undefined;
+
+  /**
+   * <p>The rate limit (bandwidth allocation) to apply to the virtual interface. The rate limit restricts the maximum bandwidth that the virtual interface can use on the parent connection.</p>
+   * @public
+   */
+  rateLimit?: string | undefined;
 }
 
 /**
@@ -2547,6 +2677,12 @@ export interface Lag {
    * @public
    */
   macSecKeys?: MacSecKey[] | undefined;
+
+  /**
+   * <p>The rate limiter status for the LAG, including how many rate limiters are in use and the maximum allowed.</p>
+   * @public
+   */
+  rateLimiterStatus?: RateLimiterStatus | undefined;
 }
 
 /**
@@ -2568,20 +2704,25 @@ export interface NewPrivateVirtualInterface {
 
   /**
    * <p>The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum, an error is returned. Use <code>asnLong</code> instead.</p>
-   *          <note>
-   *             <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
-   *             <ul>
-   *                <li>
-   *                   <p>The <code>asnLong</code> attribute accepts both ASN and long ASN
-   *                             ranges.</p>
-   *                </li>
-   *                <li>
-   *                   <p>If you provide a value in the same API call for both <code>asn</code>
+   *          <ul>
+   *             <li>
+   *                <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
+   *             </li>
+   *             <li>
+   *                <p>If you provide a value in the same API call for both <code>asn</code>
    *                             and <code>asnLong</code>, the API will only accept the value for
-   *                                 <code>asnLong</code>.</p>
-   *                </li>
-   *             </ul>
-   *          </note>
+   *                                 <code>asnLong</code>.
+   *               </p>
+   *             </li>
+   *             <li>
+   *                <p>If you enter a 4-byte ASN for the <code>asn</code> parameter, the API returns an error.
+   *               </p>
+   *             </li>
+   *             <li>
+   *                <p>If you are using a 2-byte ASN, the API response will include the
+   * 2-byte value for both the <code>asn</code> and <code>asnLong</code> fields.</p>
+   *             </li>
+   *          </ul>
    *          <p>The valid values are 1-2147483646.</p>
    * @public
    */
@@ -2589,20 +2730,29 @@ export interface NewPrivateVirtualInterface {
 
   /**
    * <p>The long ASN for a new private virtual interface. The valid range is from 1 to 4294967294 for BGP configuration.</p>
-   *          <note>
-   *             <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
-   *             <ul>
-   *                <li>
-   *                   <p>The <code>asnLong</code> attribute accepts both ASN and long ASN
-   *                             ranges.</p>
-   *                </li>
-   *                <li>
-   *                   <p>If you provide a value in the same API call for both <code>asn</code>
+   *          <p>Note the following limitations when using <code>asnLong</code>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>asnLong</code> accepts any valid ASN value, regardless if it's 2-byte or 4-byte.
+   *               </p>
+   *             </li>
+   *             <li>
+   *                <p>When using a 4-byte <code>asnLong</code>, the API response returns <code>0</code> for the legacy <code>asn</code> attribute since 4-byte ASN values exceed the maximum supported value of 2,147,483,647.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you are using a 2-byte ASN, the API response will include the
+   * 2-byte value for both the <code>asn</code> and <code>asnLong</code> fields.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you provide a value in the same API call for both <code>asn</code>
    *                             and <code>asnLong</code>, the API will only accept the value for
    *                                 <code>asnLong</code>.</p>
-   *                </li>
-   *             </ul>
-   *          </note>
+   *             </li>
+   *          </ul>
    * @public
    */
   asnLong?: number | undefined;
@@ -2660,6 +2810,12 @@ export interface NewPrivateVirtualInterface {
    * @public
    */
   enableSiteLink?: boolean | undefined;
+
+  /**
+   * <p>The rate limit (bandwidth allocation) to apply to the virtual interface. The rate limit restricts the maximum bandwidth that the virtual interface can use on the parent connection.</p>
+   * @public
+   */
+  rateLimit?: string | undefined;
 }
 
 /**
@@ -2698,40 +2854,54 @@ export interface NewPublicVirtualInterface {
 
   /**
    * <p>The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum, an error is returned. Use <code>asnLong</code> instead.</p>
-   *          <note>
-   *             <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
-   *             <ul>
-   *                <li>
-   *                   <p>The <code>asnLong</code> attribute accepts both ASN and long ASN
-   *                             ranges.</p>
-   *                </li>
-   *                <li>
-   *                   <p>If you provide a value in the same API call for both <code>asn</code>
+   *          <ul>
+   *             <li>
+   *                <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
+   *             </li>
+   *             <li>
+   *                <p>If you provide a value in the same API call for both <code>asn</code>
    *                             and <code>asnLong</code>, the API will only accept the value for
-   *                                 <code>asnLong</code>.</p>
-   *                </li>
-   *             </ul>
-   *          </note>
+   *                                 <code>asnLong</code>.
+   *               </p>
+   *             </li>
+   *             <li>
+   *                <p>If you enter a 4-byte ASN for the <code>asn</code> parameter, the API returns an error.
+   *               </p>
+   *             </li>
+   *             <li>
+   *                <p>If you are using a 2-byte ASN, the API response will include the
+   * 2-byte value for both the <code>asn</code> and <code>asnLong</code> fields.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   asn?: number | undefined;
 
   /**
    * <p>The long ASN for a new public virtual interface. The valid range is from 1 to 4294967294 for BGP configuration.</p>
-   *          <note>
-   *             <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
-   *             <ul>
-   *                <li>
-   *                   <p>The <code>asnLong</code> attribute accepts both ASN and long ASN
-   *                             ranges.</p>
-   *                </li>
-   *                <li>
-   *                   <p>If you provide a value in the same API call for both <code>asn</code>
+   *          <p>Note the following limitations when using <code>asnLong</code>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>asnLong</code> accepts any valid ASN value, regardless if it's 2-byte or 4-byte.
+   *               </p>
+   *             </li>
+   *             <li>
+   *                <p>When using a 4-byte <code>asnLong</code>, the API response returns <code>0</code> for the legacy <code>asn</code> attribute since 4-byte ASN values exceed the maximum supported value of 2,147,483,647.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you are using a 2-byte ASN, the API response will include the
+   * 2-byte value for both the <code>asn</code> and <code>asnLong</code> fields.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you provide a value in the same API call for both <code>asn</code>
    *                             and <code>asnLong</code>, the API will only accept the value for
    *                                 <code>asnLong</code>.</p>
-   *                </li>
-   *             </ul>
-   *          </note>
+   *             </li>
+   *          </ul>
    * @public
    */
   asnLong?: number | undefined;
@@ -2771,6 +2941,12 @@ export interface NewPublicVirtualInterface {
    * @public
    */
   tags?: Tag[] | undefined;
+
+  /**
+   * <p>The rate limit (bandwidth allocation) to apply to the virtual interface. The rate limit restricts the maximum bandwidth that the virtual interface can use on the parent connection.</p>
+   * @public
+   */
+  rateLimit?: string | undefined;
 }
 
 /**
@@ -2809,40 +2985,54 @@ export interface NewTransitVirtualInterface {
 
   /**
    * <p>The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum, an error is returned. Use <code>asnLong</code> instead.</p>
-   *          <note>
-   *             <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
-   *             <ul>
-   *                <li>
-   *                   <p>The <code>asnLong</code> attribute accepts both ASN and long ASN
-   *                             ranges.</p>
-   *                </li>
-   *                <li>
-   *                   <p>If you provide a value in the same API call for both <code>asn</code>
+   *          <ul>
+   *             <li>
+   *                <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
+   *             </li>
+   *             <li>
+   *                <p>If you provide a value in the same API call for both <code>asn</code>
    *                             and <code>asnLong</code>, the API will only accept the value for
-   *                                 <code>asnLong</code>.</p>
-   *                </li>
-   *             </ul>
-   *          </note>
+   *                                 <code>asnLong</code>.
+   *               </p>
+   *             </li>
+   *             <li>
+   *                <p>If you enter a 4-byte ASN for the <code>asn</code> parameter, the API returns an error.
+   *               </p>
+   *             </li>
+   *             <li>
+   *                <p>If you are using a 2-byte ASN, the API response will include the
+   * 2-byte value for both the <code>asn</code> and <code>asnLong</code> fields.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   asn?: number | undefined;
 
   /**
    * <p>The long ASN for a new transit virtual interface.The valid range is from 1 to 4294967294 for BGP configuration.</p>
-   *          <note>
-   *             <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
-   *             <ul>
-   *                <li>
-   *                   <p>The <code>asnLong</code> attribute accepts both ASN and long ASN
-   *                             ranges.</p>
-   *                </li>
-   *                <li>
-   *                   <p>If you provide a value in the same API call for both <code>asn</code>
+   *          <p>Note the following limitations when using <code>asnLong</code>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>asnLong</code> accepts any valid ASN value, regardless if it's 2-byte or 4-byte.
+   *               </p>
+   *             </li>
+   *             <li>
+   *                <p>When using a 4-byte <code>asnLong</code>, the API response returns <code>0</code> for the legacy <code>asn</code> attribute since 4-byte ASN values exceed the maximum supported value of 2,147,483,647.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you are using a 2-byte ASN, the API response will include the
+   * 2-byte value for both the <code>asn</code> and <code>asnLong</code> fields.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you provide a value in the same API call for both <code>asn</code>
    *                             and <code>asnLong</code>, the API will only accept the value for
    *                                 <code>asnLong</code>.</p>
-   *                </li>
-   *             </ul>
-   *          </note>
+   *             </li>
+   *          </ul>
    * @public
    */
   asnLong?: number | undefined;
@@ -2894,6 +3084,12 @@ export interface NewTransitVirtualInterface {
    * @public
    */
   enableSiteLink?: boolean | undefined;
+
+  /**
+   * <p>The rate limit (bandwidth allocation) to apply to the virtual interface. The rate limit restricts the maximum bandwidth that the virtual interface can use on the parent connection.</p>
+   * @public
+   */
+  rateLimit?: string | undefined;
 }
 
 /**
@@ -2936,40 +3132,54 @@ export interface DeleteBGPPeerRequest {
 
   /**
    * <p>The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum, an error is returned. Use <code>asnLong</code> instead.</p>
-   *          <note>
-   *             <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
-   *             <ul>
-   *                <li>
-   *                   <p>The <code>asnLong</code> attribute accepts both ASN and long ASN
-   *                             ranges.</p>
-   *                </li>
-   *                <li>
-   *                   <p>If you provide a value in the same API call for both <code>asn</code>
+   *          <ul>
+   *             <li>
+   *                <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
+   *             </li>
+   *             <li>
+   *                <p>If you provide a value in the same API call for both <code>asn</code>
    *                             and <code>asnLong</code>, the API will only accept the value for
-   *                                 <code>asnLong</code>.</p>
-   *                </li>
-   *             </ul>
-   *          </note>
+   *                                 <code>asnLong</code>.
+   *               </p>
+   *             </li>
+   *             <li>
+   *                <p>If you enter a 4-byte ASN for the <code>asn</code> parameter, the API returns an error.
+   *               </p>
+   *             </li>
+   *             <li>
+   *                <p>If you are using a 2-byte ASN, the API response will include the
+   * 2-byte value for both the <code>asn</code> and <code>asnLong</code> fields.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   asn?: number | undefined;
 
   /**
    * <p>The long ASN for the BGP peer to be deleted from a Direct Connect virtual interface. The valid range is from 1 to 4294967294 for BGP configuration. </p>
-   *          <note>
-   *             <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
-   *             <ul>
-   *                <li>
-   *                   <p>The <code>asnLong</code> attribute accepts both ASN and long ASN
-   *                             ranges.</p>
-   *                </li>
-   *                <li>
-   *                   <p>If you provide a value in the same API call for both <code>asn</code>
+   *          <p>Note the following limitations when using <code>asnLong</code>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>asnLong</code> accepts any valid ASN value, regardless if it's 2-byte or 4-byte.
+   *               </p>
+   *             </li>
+   *             <li>
+   *                <p>When using a 4-byte <code>asnLong</code>, the API response returns <code>0</code> for the legacy <code>asn</code> attribute since 4-byte ASN values exceed the maximum supported value of 2,147,483,647.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you are using a 2-byte ASN, the API response will include the
+   * 2-byte value for both the <code>asn</code> and <code>asnLong</code> fields.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you provide a value in the same API call for both <code>asn</code>
    *                             and <code>asnLong</code>, the API will only accept the value for
    *                                 <code>asnLong</code>.</p>
-   *                </li>
-   *             </ul>
-   *          </note>
+   *             </li>
+   *          </ul>
    * @public
    */
   asnLong?: number | undefined;
@@ -4469,4 +4679,10 @@ export interface UpdateVirtualInterfaceAttributesRequest {
    * @public
    */
   virtualInterfaceName?: string | undefined;
+
+  /**
+   * <p>The rate limit (bandwidth allocation) to apply to the virtual interface. Use this to update the bandwidth allocation on an existing virtual interface.</p>
+   * @public
+   */
+  rateLimit?: string | undefined;
 }

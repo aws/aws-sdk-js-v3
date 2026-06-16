@@ -47,6 +47,7 @@ export interface UpdateVirtualInterfaceAttributesCommandOutput extends VirtualIn
  *   mtu: Number("int"),
  *   enableSiteLink: true || false,
  *   virtualInterfaceName: "STRING_VALUE",
+ *   rateLimit: "STRING_VALUE",
  * };
  * const command = new UpdateVirtualInterfaceAttributesCommand(input);
  * const response = await client.send(command);
@@ -101,6 +102,7 @@ export interface UpdateVirtualInterfaceAttributesCommandOutput extends VirtualIn
  * //     },
  * //   ],
  * //   siteLinkEnabled: true || false,
+ * //   rateLimit: "STRING_VALUE",
  * // };
  *
  * ```

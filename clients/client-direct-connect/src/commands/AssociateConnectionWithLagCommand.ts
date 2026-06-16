@@ -90,6 +90,12 @@ export interface AssociateConnectionWithLagCommandOutput extends Connection, __M
  * //       startOn: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   rateLimiterStatus: { // RateLimiterStatus
+ * //     maxAllowed: Number("int"),
+ * //     inUse: Number("int"),
+ * //     remaining: Number("int"),
+ * //     totalBandwidth: "STRING_VALUE",
+ * //   },
  * //   partnerInterconnectMacSecCapable: true || false,
  * // };
  *
@@ -106,6 +112,9 @@ export interface AssociateConnectionWithLagCommandOutput extends Connection, __M
  *
  * @throws {@link DirectConnectServerException} (server fault)
  *  <p>A server-side error occurred.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The rate limiter limit has been exceeded for the connection. You cannot add more rate limiters to virtual interfaces on this connection.</p>
  *
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>

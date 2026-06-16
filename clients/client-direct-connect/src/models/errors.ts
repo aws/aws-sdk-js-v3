@@ -82,3 +82,23 @@ export class TooManyTagsException extends __BaseException {
     Object.setPrototypeOf(this, TooManyTagsException.prototype);
   }
 }
+
+/**
+ * <p>The rate limiter limit has been exceeded for the connection. You cannot add more rate limiters to virtual interfaces on this connection.</p>
+ * @public
+ */
+export class LimitExceededException extends __BaseException {
+  readonly name = "LimitExceededException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+  }
+}

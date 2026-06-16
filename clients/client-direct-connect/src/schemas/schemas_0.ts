@@ -154,6 +154,7 @@ const _I = "Interconnect";
 const _IL = "InterconnectList";
 const _In = "Interconnects";
 const _L = "Lag";
+const _LEE = "LimitExceededException";
 const _LL = "LagList";
 const _LLo = "LocationList";
 const _LVITH = "ListVirtualInterfaceTestHistory";
@@ -174,6 +175,7 @@ const _NTVI = "NewTransitVirtualInterface";
 const _NTVIA = "NewTransitVirtualInterfaceAllocation";
 const _RFP = "RouteFilterPrefix";
 const _RFPL = "RouteFilterPrefixList";
+const _RLS = "RateLimiterStatus";
 const _RT = "ResourceTag";
 const _RTL = "ResourceTagList";
 const _RTo = "RouterType";
@@ -278,6 +280,7 @@ const _i = "id";
 const _iI = "interconnectId";
 const _iN = "interconnectName";
 const _iS = "interconnectState";
+const _iU = "inUse";
 const _in = "interconnects";
 const _jFC = "jumboFrameCapable";
 const _k = "key";
@@ -294,6 +297,7 @@ const _la = "lags";
 const _lo = "loa";
 const _loc = "locations";
 const _m = "message";
+const _mA = "maxAllowed";
 const _mL = "minimumLinks";
 const _mR = "maxResults";
 const _mSC = "macSecCapable";
@@ -326,9 +330,12 @@ const _rAPTDCG = "removeAllowedPrefixesToDirectConnectGateway";
 const _rAPTDCGe = "requestedAllowedPrefixesToDirectConnectGateway";
 const _rAe = "resourceArn";
 const _rFP = "routeFilterPrefixes";
+const _rL = "rateLimit";
+const _rLS = "rateLimiterStatus";
 const _rMACS = "requestMACSec";
 const _rT = "resourceTags";
 const _rTI = "routerTypeIdentifier";
+const _re = "remaining";
 const _ro = "router";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.directconnect";
 const _sARN = "secretARN";
@@ -341,6 +348,7 @@ const _so = "software";
 const _st = "status";
 const _sta = "state";
 const _t = "tags";
+const _tB = "totalBandwidth";
 const _tDIM = "testDurationInMinutes";
 const _tI = "testId";
 const _tK = "tagKeys";
@@ -376,6 +384,7 @@ import {
   DirectConnectClientException,
   DirectConnectServerException,
   DuplicateTagKeysException,
+  LimitExceededException,
   TooManyTagsException,
 } from "../models/errors";
 
@@ -402,6 +411,12 @@ export var DuplicateTagKeysException$: StaticErrorSchema = [-3, n0, _DTKE,
   [0]
 ];
 n0_registry.registerError(DuplicateTagKeysException$, DuplicateTagKeysException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
 export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
   { [_e]: _c },
   [_m],
@@ -549,8 +564,8 @@ export var ConfirmTransitVirtualInterfaceResponse$: StaticStructureSchema = [3, 
 ];
 export var Connection$: StaticStructureSchema = [3, n0, _C,
   0,
-  [_oA, _cI, _cN, _cS, _r, _l, _b, _v, _pN, _lIT, _lI, _aD, _jFC, _aDV, _aLDI, _hLR, _t, _pNr, _mSC, _pES, _eM, _mSK, _pIMSC],
-  [0, 0, 0, 0, 0, 0, 0, 1, 0, 4, 0, 0, 2, 0, 0, 0, () => TagList, 0, 2, 0, 0, () => MacSecKeyList, 2]
+  [_oA, _cI, _cN, _cS, _r, _l, _b, _v, _pN, _lIT, _lI, _aD, _jFC, _aDV, _aLDI, _hLR, _t, _pNr, _mSC, _pES, _eM, _mSK, _rLS, _pIMSC],
+  [0, 0, 0, 0, 0, 0, 0, 1, 0, 4, 0, 0, 2, 0, 0, 0, () => TagList, 0, 2, 0, 0, () => MacSecKeyList, () => RateLimiterStatus$, 2]
 ];
 export var Connections$: StaticStructureSchema = [3, n0, _Co,
   0,
@@ -874,8 +889,8 @@ export var Interconnects$: StaticStructureSchema = [3, n0, _In,
 ];
 export var Lag$: StaticStructureSchema = [3, n0, _L,
   0,
-  [_cB, _nOC, _lI, _oA, _lN, _lS, _l, _r, _mL, _aD, _aDV, _aLDI, _co, _aHC, _jFC, _hLR, _t, _pNr, _mSC, _eM, _mSK],
-  [0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, () => ConnectionList, 2, 2, 0, () => TagList, 0, 2, 0, () => MacSecKeyList]
+  [_cB, _nOC, _lI, _oA, _lN, _lS, _l, _r, _mL, _aD, _aDV, _aLDI, _co, _aHC, _jFC, _hLR, _t, _pNr, _mSC, _eM, _mSK, _rLS],
+  [0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, () => ConnectionList, 2, 2, 0, () => TagList, 0, 2, 0, () => MacSecKeyList, () => RateLimiterStatus$]
 ];
 export var Lags$: StaticStructureSchema = [3, n0, _La,
   0,
@@ -919,33 +934,38 @@ export var NewBGPPeer$: StaticStructureSchema = [3, n0, _NBGPP,
 ];
 export var NewPrivateVirtualInterface$: StaticStructureSchema = [3, n0, _NPVI,
   0,
-  [_vIN, _v, _a, _aL, _mt, _aK, _aA, _cA, _aF, _vGI, _dCGI, _t, _eSL],
-  [0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, () => TagList, 2], 2
+  [_vIN, _v, _a, _aL, _mt, _aK, _aA, _cA, _aF, _vGI, _dCGI, _t, _eSL, _rL],
+  [0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, () => TagList, 2, 0], 2
 ];
 export var NewPrivateVirtualInterfaceAllocation$: StaticStructureSchema = [3, n0, _NPVIA,
   0,
-  [_vIN, _v, _a, _aL, _mt, _aK, _aA, _aF, _cA, _t],
-  [0, 1, 1, 1, 1, 0, 0, 0, 0, () => TagList], 2
+  [_vIN, _v, _a, _aL, _mt, _aK, _aA, _aF, _cA, _t, _rL],
+  [0, 1, 1, 1, 1, 0, 0, 0, 0, () => TagList, 0], 2
 ];
 export var NewPublicVirtualInterface$: StaticStructureSchema = [3, n0, _NPVIe,
   0,
-  [_vIN, _v, _a, _aL, _aK, _aA, _cA, _aF, _rFP, _t],
-  [0, 1, 1, 1, 0, 0, 0, 0, () => RouteFilterPrefixList, () => TagList], 2
+  [_vIN, _v, _a, _aL, _aK, _aA, _cA, _aF, _rFP, _t, _rL],
+  [0, 1, 1, 1, 0, 0, 0, 0, () => RouteFilterPrefixList, () => TagList, 0], 2
 ];
 export var NewPublicVirtualInterfaceAllocation$: StaticStructureSchema = [3, n0, _NPVIAe,
   0,
-  [_vIN, _v, _a, _aL, _aK, _aA, _cA, _aF, _rFP, _t],
-  [0, 1, 1, 1, 0, 0, 0, 0, () => RouteFilterPrefixList, () => TagList], 2
+  [_vIN, _v, _a, _aL, _aK, _aA, _cA, _aF, _rFP, _t, _rL],
+  [0, 1, 1, 1, 0, 0, 0, 0, () => RouteFilterPrefixList, () => TagList, 0], 2
 ];
 export var NewTransitVirtualInterface$: StaticStructureSchema = [3, n0, _NTVI,
   0,
-  [_vIN, _v, _a, _aL, _mt, _aK, _aA, _cA, _aF, _dCGI, _t, _eSL],
-  [0, 1, 1, 1, 1, 0, 0, 0, 0, 0, () => TagList, 2]
+  [_vIN, _v, _a, _aL, _mt, _aK, _aA, _cA, _aF, _dCGI, _t, _eSL, _rL],
+  [0, 1, 1, 1, 1, 0, 0, 0, 0, 0, () => TagList, 2, 0]
 ];
 export var NewTransitVirtualInterfaceAllocation$: StaticStructureSchema = [3, n0, _NTVIA,
   0,
-  [_vIN, _v, _a, _aL, _mt, _aK, _aA, _cA, _aF, _t],
-  [0, 1, 1, 1, 1, 0, 0, 0, 0, () => TagList]
+  [_vIN, _v, _a, _aL, _mt, _aK, _aA, _cA, _aF, _t, _rL],
+  [0, 1, 1, 1, 1, 0, 0, 0, 0, () => TagList, 0]
+];
+export var RateLimiterStatus$: StaticStructureSchema = [3, n0, _RLS,
+  0,
+  [_mA, _iU, _re, _tB],
+  [1, 1, 1, 0]
 ];
 export var ResourceTag$: StaticStructureSchema = [3, n0, _RT,
   0,
@@ -1039,8 +1059,8 @@ export var UpdateLagRequest$: StaticStructureSchema = [3, n0, _ULR,
 ];
 export var UpdateVirtualInterfaceAttributesRequest$: StaticStructureSchema = [3, n0, _UVIAR,
   0,
-  [_vII, _mt, _eSL, _vIN],
-  [0, 1, 2, 0], 1
+  [_vII, _mt, _eSL, _vIN, _rL],
+  [0, 1, 2, 0, 0], 1
 ];
 export var VirtualGateway$: StaticStructureSchema = [3, n0, _VG,
   0,
@@ -1054,8 +1074,8 @@ export var VirtualGateways$: StaticStructureSchema = [3, n0, _VGi,
 ];
 export var VirtualInterface$: StaticStructureSchema = [3, n0, _VI,
   0,
-  [_oA, _vII, _l, _cI, _vITi, _vIN, _v, _a, _aL, _aSA, _aK, _aA, _cA, _aF, _vIS, _cRC, _mt, _jFC, _vGI, _dCGI, _rFP, _bP, _r, _aDV, _aLDI, _t, _sLE],
-  [0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, () => RouteFilterPrefixList, () => BGPPeerList, 0, 0, 0, () => TagList, 2]
+  [_oA, _vII, _l, _cI, _vITi, _vIN, _v, _a, _aL, _aSA, _aK, _aA, _cA, _aF, _vIS, _cRC, _mt, _jFC, _vGI, _dCGI, _rFP, _bP, _r, _aDV, _aLDI, _t, _sLE, _rL],
+  [0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, () => RouteFilterPrefixList, () => BGPPeerList, 0, 0, 0, () => TagList, 2, 0]
 ];
 export var VirtualInterfaces$: StaticStructureSchema = [3, n0, _VIi,
   0,
