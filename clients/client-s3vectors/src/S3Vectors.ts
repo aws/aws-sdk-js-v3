@@ -96,6 +96,7 @@ import {
 import { paginateListIndexes } from "./pagination/ListIndexesPaginator";
 import { paginateListVectorBuckets } from "./pagination/ListVectorBucketsPaginator";
 import { paginateListVectors } from "./pagination/ListVectorsPaginator";
+import { paginateQueryVectors } from "./pagination/QueryVectorsPaginator";
 import { S3VectorsClient } from "./S3VectorsClient";
 
 const commands = {
@@ -123,6 +124,7 @@ const paginators = {
   paginateListIndexes,
   paginateListVectorBuckets,
   paginateListVectors,
+  paginateQueryVectors,
 };
 
 export interface S3Vectors {
@@ -490,6 +492,17 @@ export interface S3Vectors {
     args?: ListVectorsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListVectorsCommandOutput>;
+
+  /**
+   * @see {@link QueryVectorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link QueryVectorsCommandOutput}.
+   */
+  paginateQueryVectors(
+    args: QueryVectorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<QueryVectorsCommandOutput>;
 }
 
 /**

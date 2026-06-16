@@ -460,13 +460,13 @@ export var QueryOutputVector$: StaticStructureSchema = [3, n0, _QOV,
 ];
 export var QueryVectorsInput$: StaticStructureSchema = [3, n0, _QVI,
   0,
-  [_tK, _qV, _vBN, _iN, _iA, _f, _rM, _rDe],
-  [1, () => VectorData$, 0, 0, 0, 15, 2, 2], 2
+  [_tK, _qV, _vBN, _iN, _iA, _f, _rM, _rDe, _nT],
+  [1, () => VectorData$, 0, 0, 0, 15, 2, 2, 0], 2
 ];
 export var QueryVectorsOutput$: StaticStructureSchema = [3, n0, _QVO,
   0,
-  [_v, _dM],
-  [() => QueryVectorsOutputList, 0], 2
+  [_v, _dM, _nT],
+  [() => QueryVectorsOutputList, 0, 0], 2
 ];
 export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
   0,

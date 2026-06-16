@@ -129,4 +129,5 @@ export type {
   paginateListIndexes,
   paginateListVectorBuckets,
   paginateListVectors,
+  paginateQueryVectors,
 } from "../dist-types/index.d";

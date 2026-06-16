@@ -82,6 +82,7 @@ import {
   paginateListIndexes,
   paginateListVectorBuckets,
   paginateListVectors,
+  paginateQueryVectors,
   PutInputVector$,
   PutVectorBucketPolicy$,
   PutVectorBucketPolicyCommand,
@@ -253,4 +254,5 @@ assert(S3VectorsServiceException.prototype instanceof Error);
 assert(typeof paginateListIndexes === "function");
 assert(typeof paginateListVectorBuckets === "function");
 assert(typeof paginateListVectors === "function");
+assert(typeof paginateQueryVectors === "function");
 console.log(`S3Vectors index test passed.`);

@@ -847,6 +847,12 @@ export interface QueryVectorsInput {
    * @public
    */
   returnDistance?: boolean | undefined;
+
+  /**
+   * <p>Pagination token from a previous request. The value of this field is empty for an initial request.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**
@@ -888,6 +894,12 @@ export interface QueryVectorsOutput {
    * @public
    */
   distanceMetric: DistanceMetric | undefined;
+
+  /**
+   * <p>Pagination token to be used in the subsequent page request. The field is empty if no further pagination is required.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**
