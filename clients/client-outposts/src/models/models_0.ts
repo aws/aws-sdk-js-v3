@@ -612,6 +612,18 @@ export interface CreateOrderInput {
   OutpostIdentifier: string | undefined;
 
   /**
+   * <p>The ID of the quote to use for the order.</p>
+   * @public
+   */
+  QuoteIdentifier?: string | undefined;
+
+  /**
+   * <p>The ID of the quote option to use for the order.</p>
+   * @public
+   */
+  QuoteOptionIdentifier?: string | undefined;
+
+  /**
    * <p>The line items that make up the order.</p>
    * @public
    */
@@ -731,6 +743,18 @@ export interface Order {
    * @public
    */
   OutpostId?: string | undefined;
+
+  /**
+   * <p>The ID of the quote associated with the order.</p>
+   * @public
+   */
+  QuoteIdentifier?: string | undefined;
+
+  /**
+   * <p>The ID of the quote option associated with the order.</p>
+   * @public
+   */
+  QuoteOptionIdentifier?: string | undefined;
 
   /**
    * <p>The ID of the order.</p>
@@ -1835,7 +1859,7 @@ export interface DeleteOutpostOutput {}
  */
 export interface DeleteQuoteInput {
   /**
-   * <p>The ID or ARN of the quote.</p>
+   * <p>The ID of the quote.</p>
    * @public
    */
   QuoteIdentifier: string | undefined;
@@ -2497,7 +2521,7 @@ export interface GetOutpostSupportedInstanceTypesOutput {
  */
 export interface GetQuoteInput {
   /**
-   * <p>The ID or ARN of the quote.</p>
+   * <p>The ID of the quote.</p>
    * @public
    */
   QuoteIdentifier: string | undefined;
@@ -3633,7 +3657,7 @@ export interface UpdateOutpostOutput {
  */
 export interface UpdateQuoteInput {
   /**
-   * <p>The ID or ARN of the quote.</p>
+   * <p>The ID of the quote.</p>
    * @public
    */
   QuoteIdentifier: string | undefined;

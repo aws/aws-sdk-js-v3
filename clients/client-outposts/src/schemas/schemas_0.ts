@@ -564,8 +564,8 @@ export var ConnectionDetails$: StaticStructureSchema = [3, n0, _CDon,
 ];
 export var CreateOrderInput$: StaticStructureSchema = [3, n0, _COIr,
   0,
-  [_OI, _PO, _LI, _PT],
-  [0, 0, () => LineItemRequestListDefinition, 0], 2
+  [_OI, _PO, _QI, _QOI, _LI, _PT],
+  [0, 0, 0, 0, () => LineItemRequestListDefinition, 0], 2
 ];
 export var CreateOrderOutput$: StaticStructureSchema = [3, n0, _COOr,
   0,
@@ -919,8 +919,8 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 ];
 export var Order$: StaticStructureSchema = [3, n0, _O,
   0,
-  [_OIu, _OIr, _St, _LI, _PO, _OSD, _OFD, _PT, _OT],
-  [0, 0, 0, () => LineItemListDefinition, 0, 4, 4, 0, 0]
+  [_OIu, _QI, _QOI, _OIr, _St, _LI, _PO, _OSD, _OFD, _PT, _OT],
+  [0, 0, 0, 0, 0, () => LineItemListDefinition, 0, 4, 4, 0, 0]
 ];
 export var OrderingRequirement$: StaticStructureSchema = [3, n0, _OR,
   0,

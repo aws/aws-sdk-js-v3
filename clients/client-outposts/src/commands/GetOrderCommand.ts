@@ -44,6 +44,8 @@ export interface GetOrderCommandOutput extends GetOrderOutput, __MetadataBearer 
  * // { // GetOrderOutput
  * //   Order: { // Order
  * //     OutpostId: "STRING_VALUE",
+ * //     QuoteIdentifier: "STRING_VALUE",
+ * //     QuoteOptionIdentifier: "STRING_VALUE",
  * //     OrderId: "STRING_VALUE",
  * //     Status: "RECEIVED" || "PENDING" || "PROCESSING" || "INSTALLING" || "FULFILLED" || "CANCELLED" || "PREPARING" || "IN_PROGRESS" || "DELIVERED" || "COMPLETED" || "ERROR",
  * //     LineItems: [ // LineItemListDefinition

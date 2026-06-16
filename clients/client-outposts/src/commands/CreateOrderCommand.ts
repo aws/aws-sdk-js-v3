@@ -38,6 +38,8 @@ export interface CreateOrderCommandOutput extends CreateOrderOutput, __MetadataB
  * const client = new OutpostsClient(config);
  * const input = { // CreateOrderInput
  *   OutpostIdentifier: "STRING_VALUE", // required
+ *   QuoteIdentifier: "STRING_VALUE",
+ *   QuoteOptionIdentifier: "STRING_VALUE",
  *   LineItems: [ // LineItemRequestListDefinition
  *     { // LineItemRequest
  *       CatalogItemId: "STRING_VALUE",
@@ -52,6 +54,8 @@ export interface CreateOrderCommandOutput extends CreateOrderOutput, __MetadataB
  * // { // CreateOrderOutput
  * //   Order: { // Order
  * //     OutpostId: "STRING_VALUE",
+ * //     QuoteIdentifier: "STRING_VALUE",
+ * //     QuoteOptionIdentifier: "STRING_VALUE",
  * //     OrderId: "STRING_VALUE",
  * //     Status: "RECEIVED" || "PENDING" || "PROCESSING" || "INSTALLING" || "FULFILLED" || "CANCELLED" || "PREPARING" || "IN_PROGRESS" || "DELIVERED" || "COMPLETED" || "ERROR",
  * //     LineItems: [ // LineItemListDefinition
