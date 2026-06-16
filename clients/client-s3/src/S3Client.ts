@@ -161,6 +161,10 @@ import type {
   DeleteBucketWebsiteCommandInput,
   DeleteBucketWebsiteCommandOutput,
 } from "./commands/DeleteBucketWebsiteCommand";
+import type {
+  DeleteObjectAnnotationCommandInput,
+  DeleteObjectAnnotationCommandOutput,
+} from "./commands/DeleteObjectAnnotationCommand";
 import type { DeleteObjectCommandInput, DeleteObjectCommandOutput } from "./commands/DeleteObjectCommand";
 import type { DeleteObjectsCommandInput, DeleteObjectsCommandOutput } from "./commands/DeleteObjectsCommand";
 import type {
@@ -244,6 +248,10 @@ import type {
 import type { GetBucketWebsiteCommandInput, GetBucketWebsiteCommandOutput } from "./commands/GetBucketWebsiteCommand";
 import type { GetObjectAclCommandInput, GetObjectAclCommandOutput } from "./commands/GetObjectAclCommand";
 import type {
+  GetObjectAnnotationCommandInput,
+  GetObjectAnnotationCommandOutput,
+} from "./commands/GetObjectAnnotationCommand";
+import type {
   GetObjectAttributesCommandInput,
   GetObjectAttributesCommandOutput,
 } from "./commands/GetObjectAttributesCommand";
@@ -293,6 +301,10 @@ import type {
   ListMultipartUploadsCommandInput,
   ListMultipartUploadsCommandOutput,
 } from "./commands/ListMultipartUploadsCommand";
+import type {
+  ListObjectAnnotationsCommandInput,
+  ListObjectAnnotationsCommandOutput,
+} from "./commands/ListObjectAnnotationsCommand";
 import type { ListObjectsCommandInput, ListObjectsCommandOutput } from "./commands/ListObjectsCommand";
 import type { ListObjectsV2CommandInput, ListObjectsV2CommandOutput } from "./commands/ListObjectsV2Command";
 import type {
@@ -356,6 +368,10 @@ import type {
 } from "./commands/PutBucketVersioningCommand";
 import type { PutBucketWebsiteCommandInput, PutBucketWebsiteCommandOutput } from "./commands/PutBucketWebsiteCommand";
 import type { PutObjectAclCommandInput, PutObjectAclCommandOutput } from "./commands/PutObjectAclCommand";
+import type {
+  PutObjectAnnotationCommandInput,
+  PutObjectAnnotationCommandOutput,
+} from "./commands/PutObjectAnnotationCommand";
 import type { PutObjectCommandInput, PutObjectCommandOutput } from "./commands/PutObjectCommand";
 import type {
   PutObjectLegalHoldCommandInput,
@@ -380,6 +396,10 @@ import type {
   SelectObjectContentCommandInput,
   SelectObjectContentCommandOutput,
 } from "./commands/SelectObjectContentCommand";
+import type {
+  UpdateBucketMetadataAnnotationTableConfigurationCommandInput,
+  UpdateBucketMetadataAnnotationTableConfigurationCommandOutput,
+} from "./commands/UpdateBucketMetadataAnnotationTableConfigurationCommand";
 import type {
   UpdateBucketMetadataInventoryTableConfigurationCommandInput,
   UpdateBucketMetadataInventoryTableConfigurationCommandOutput,
@@ -436,6 +456,7 @@ export type ServiceInputTypes =
   | DeleteBucketReplicationCommandInput
   | DeleteBucketTaggingCommandInput
   | DeleteBucketWebsiteCommandInput
+  | DeleteObjectAnnotationCommandInput
   | DeleteObjectCommandInput
   | DeleteObjectTaggingCommandInput
   | DeleteObjectsCommandInput
@@ -464,6 +485,7 @@ export type ServiceInputTypes =
   | GetBucketVersioningCommandInput
   | GetBucketWebsiteCommandInput
   | GetObjectAclCommandInput
+  | GetObjectAnnotationCommandInput
   | GetObjectAttributesCommandInput
   | GetObjectCommandInput
   | GetObjectLegalHoldCommandInput
@@ -481,6 +503,7 @@ export type ServiceInputTypes =
   | ListBucketsCommandInput
   | ListDirectoryBucketsCommandInput
   | ListMultipartUploadsCommandInput
+  | ListObjectAnnotationsCommandInput
   | ListObjectVersionsCommandInput
   | ListObjectsCommandInput
   | ListObjectsV2CommandInput
@@ -505,6 +528,7 @@ export type ServiceInputTypes =
   | PutBucketVersioningCommandInput
   | PutBucketWebsiteCommandInput
   | PutObjectAclCommandInput
+  | PutObjectAnnotationCommandInput
   | PutObjectCommandInput
   | PutObjectLegalHoldCommandInput
   | PutObjectLockConfigurationCommandInput
@@ -514,6 +538,7 @@ export type ServiceInputTypes =
   | RenameObjectCommandInput
   | RestoreObjectCommandInput
   | SelectObjectContentCommandInput
+  | UpdateBucketMetadataAnnotationTableConfigurationCommandInput
   | UpdateBucketMetadataInventoryTableConfigurationCommandInput
   | UpdateBucketMetadataJournalTableConfigurationCommandInput
   | UpdateObjectEncryptionCommandInput
@@ -548,6 +573,7 @@ export type ServiceOutputTypes =
   | DeleteBucketReplicationCommandOutput
   | DeleteBucketTaggingCommandOutput
   | DeleteBucketWebsiteCommandOutput
+  | DeleteObjectAnnotationCommandOutput
   | DeleteObjectCommandOutput
   | DeleteObjectTaggingCommandOutput
   | DeleteObjectsCommandOutput
@@ -576,6 +602,7 @@ export type ServiceOutputTypes =
   | GetBucketVersioningCommandOutput
   | GetBucketWebsiteCommandOutput
   | GetObjectAclCommandOutput
+  | GetObjectAnnotationCommandOutput
   | GetObjectAttributesCommandOutput
   | GetObjectCommandOutput
   | GetObjectLegalHoldCommandOutput
@@ -593,6 +620,7 @@ export type ServiceOutputTypes =
   | ListBucketsCommandOutput
   | ListDirectoryBucketsCommandOutput
   | ListMultipartUploadsCommandOutput
+  | ListObjectAnnotationsCommandOutput
   | ListObjectVersionsCommandOutput
   | ListObjectsCommandOutput
   | ListObjectsV2CommandOutput
@@ -617,6 +645,7 @@ export type ServiceOutputTypes =
   | PutBucketVersioningCommandOutput
   | PutBucketWebsiteCommandOutput
   | PutObjectAclCommandOutput
+  | PutObjectAnnotationCommandOutput
   | PutObjectCommandOutput
   | PutObjectLegalHoldCommandOutput
   | PutObjectLockConfigurationCommandOutput
@@ -626,6 +655,7 @@ export type ServiceOutputTypes =
   | RenameObjectCommandOutput
   | RestoreObjectCommandOutput
   | SelectObjectContentCommandOutput
+  | UpdateBucketMetadataAnnotationTableConfigurationCommandOutput
   | UpdateBucketMetadataInventoryTableConfigurationCommandOutput
   | UpdateBucketMetadataJournalTableConfigurationCommandOutput
   | UpdateObjectEncryptionCommandOutput

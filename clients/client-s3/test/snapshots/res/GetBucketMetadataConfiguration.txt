@@ -88,6 +88,31 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 __TableArn__
             </TableArn>
         </InventoryTableConfigurationResult>
+        <AnnotationTableConfigurationResult>
+            <ConfigurationState>
+                __ConfigurationState__
+            </ConfigurationState>
+            <TableStatus>
+                __TableStatus__
+            </TableStatus>
+            <Error>
+                <ErrorCode>
+                    __ErrorCode__
+                </ErrorCode>
+                <ErrorMessage>
+                    __ErrorMessage__
+                </ErrorMessage>
+            </Error>
+            <TableName>
+                __TableName__
+            </TableName>
+            <TableArn>
+                __TableArn__
+            </TableArn>
+            <Role>
+                __Role__
+            </Role>
+        </AnnotationTableConfigurationResult>
     </MetadataConfigurationResult>
 </GetBucketMetadataConfigurationResult>
 
@@ -123,6 +148,17 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         },
         TableName: "__TableName__",
         TableArn: "__TableArn__"
+      },
+      AnnotationTableConfigurationResult: {
+        ConfigurationState: "__ConfigurationState__",
+        TableStatus: "__TableStatus__",
+        Error: {
+          ErrorCode: "__ErrorCode__",
+          ErrorMessage: "__ErrorMessage__"
+        },
+        TableName: "__TableName__",
+        TableArn: "__TableArn__",
+        Role: "__Role__"
       }
     }
   },

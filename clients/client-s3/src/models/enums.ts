@@ -141,6 +141,19 @@ export type ObjectCannedACL = (typeof ObjectCannedACL)[keyof typeof ObjectCanned
  * @public
  * @enum
  */
+export const AnnotationDirective = {
+  COPY: "COPY",
+  EXCLUDE: "EXCLUDE",
+} as const;
+/**
+ * @public
+ */
+export type AnnotationDirective = (typeof AnnotationDirective)[keyof typeof AnnotationDirective];
+
+/**
+ * @public
+ * @enum
+ */
 export const ChecksumAlgorithm = {
   CRC32: "CRC32",
   CRC32C: "CRC32C",
@@ -367,15 +380,15 @@ export type ObjectOwnership = (typeof ObjectOwnership)[keyof typeof ObjectOwners
  * @public
  * @enum
  */
-export const InventoryConfigurationState = {
+export const AnnotationConfigurationState = {
   DISABLED: "DISABLED",
   ENABLED: "ENABLED",
 } as const;
 /**
  * @public
  */
-export type InventoryConfigurationState =
-  (typeof InventoryConfigurationState)[keyof typeof InventoryConfigurationState];
+export type AnnotationConfigurationState =
+  (typeof AnnotationConfigurationState)[keyof typeof AnnotationConfigurationState];
 
 /**
  * @public
@@ -389,6 +402,20 @@ export const TableSseAlgorithm = {
  * @public
  */
 export type TableSseAlgorithm = (typeof TableSseAlgorithm)[keyof typeof TableSseAlgorithm];
+
+/**
+ * @public
+ * @enum
+ */
+export const InventoryConfigurationState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type InventoryConfigurationState =
+  (typeof InventoryConfigurationState)[keyof typeof InventoryConfigurationState];
 
 /**
  * @public
@@ -645,6 +672,9 @@ export const Event = {
   s3_LifecycleExpiration_DeleteMarkerCreated: "s3:LifecycleExpiration:DeleteMarkerCreated",
   s3_LifecycleTransition: "s3:LifecycleTransition",
   s3_ObjectAcl_Put: "s3:ObjectAcl:Put",
+  s3_ObjectAnnotation_: "s3:ObjectAnnotation:*",
+  s3_ObjectAnnotation_Delete: "s3:ObjectAnnotation:Delete",
+  s3_ObjectAnnotation_Put: "s3:ObjectAnnotation:Put",
   s3_ObjectCreated_: "s3:ObjectCreated:*",
   s3_ObjectCreated_CompleteMultipartUpload: "s3:ObjectCreated:CompleteMultipartUpload",
   s3_ObjectCreated_Copy: "s3:ObjectCreated:Copy",

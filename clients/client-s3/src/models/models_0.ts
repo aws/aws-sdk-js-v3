@@ -3,6 +3,8 @@ import type { StreamingBlobTypes } from "@smithy/types";
 
 import type {
   AnalyticsS3ExportFileFormat,
+  AnnotationConfigurationState,
+  AnnotationDirective,
   ArchiveStatus,
   BucketAbacStatus,
   BucketAccelerateStatus,
@@ -23,7 +25,6 @@ import type {
   ExistingObjectReplicationStatus,
   ExpirationState,
   ExpirationStatus,
-  FileHeaderInfo,
   FilterRuleName,
   IntelligentTieringAccessTier,
   IntelligentTieringStatus,
@@ -32,7 +33,6 @@ import type {
   InventoryFrequency,
   InventoryIncludedObjectVersions,
   InventoryOptionalField,
-  JSONType,
   LocationType,
   MetadataDirective,
   MetricsStatus,
@@ -67,7 +67,6 @@ import type {
   StorageClassAnalysisSchemaVersion,
   TableSseAlgorithm,
   TaggingDirective,
-  Tier,
   TransitionDefaultMinimumObjectSize,
   TransitionStorageClass,
   Type,
@@ -1506,6 +1505,35 @@ export interface CopyObjectRequest {
   TaggingDirective?: TaggingDirective | undefined;
 
   /**
+   * <p>Specifies whether you want to copy annotations from the source object or exclude them. If this
+   *       header isn't specified, <code>COPY</code> is the default behavior.</p>
+   *          <p>Valid Values: <code>COPY | EXCLUDE</code>
+   *          </p>
+   *          <p>You can specify this directive as either an HTTP header
+   *       (<code>x-amz-object-annotation-directive</code>) or as a query string parameter. Use the query
+   *       string form when generating presigned URLs that need to control annotation copy behavior.</p>
+   *          <p>When set to <code>COPY</code>, you must have <code>s3:GetObjectAnnotation</code> permission on
+   *       the source object and <code>s3:PutObjectAnnotation</code> permission on the destination. Each
+   *       annotation copied is billed as a separate PUT request. If annotations on the source are modified
+   *       during the copy, Amazon S3 returns a retryable error.</p>
+   *          <note>
+   *             <p>For directory buckets, annotations are not supported. Use <code>EXCLUDE</code> to copy
+   *       objects to directory buckets without errors. If you specify <code>COPY</code> for a directory
+   *       bucket, the request returns HTTP 501 (Not Implemented).</p>
+   *          </note>
+   *          <note>
+   *             <p>When you copy objects using multipart upload (for example, when the Amazon Web Services CLI or Amazon Web Services SDKs
+   *       use Transfer Manager for objects larger than approximately 8 MB), annotations are not copied by
+   *       default. To include annotations, specify <code>--copy-props default</code> in the Amazon Web Services CLI or the
+   *       equivalent SDK configuration. With this opt-in, the SDK reads source annotations, completes the
+   *       multipart upload, and then writes each annotation to the destination. Between the upload completion
+   *       and the last annotation write, the destination object exists without all its annotations.</p>
+   *          </note>
+   * @public
+   */
+  AnnotationDirective?: AnnotationDirective | undefined;
+
+  /**
    * <p>The server-side encryption algorithm used when storing this object in Amazon S3. Unrecognized or
    *       unsupported values won’t write a destination object and will receive a <code>400 Bad Request</code>
    *       response. </p>
@@ -2165,6 +2193,34 @@ export interface MetadataTableEncryptionConfiguration {
 }
 
 /**
+ * <p>Specifies the configuration for the annotation table associated with a bucket's Amazon S3 Metadata
+ *       configuration. The annotation table is an Iceberg table that records annotation events for objects
+ *       in the bucket.</p>
+ * @public
+ */
+export interface AnnotationTableConfiguration {
+  /**
+   * <p>The state of the annotation table. Valid values are <code>ENABLED</code> and <code>DISABLED</code>.</p>
+   * @public
+   */
+  ConfigurationState: AnnotationConfigurationState | undefined;
+
+  /**
+   * <p>
+   *       The encryption settings for an S3 Metadata journal table or inventory table configuration.
+   *     </p>
+   * @public
+   */
+  EncryptionConfiguration?: MetadataTableEncryptionConfiguration | undefined;
+
+  /**
+   * <p>The ARN of the IAM role used to manage the annotation table.</p>
+   * @public
+   */
+  Role?: string | undefined;
+}
+
+/**
  * <p>
  *       The inventory table configuration for an S3 Metadata configuration.
  *     </p>
@@ -2262,6 +2318,12 @@ export interface MetadataConfiguration {
    * @public
    */
   InventoryTableConfiguration?: InventoryTableConfiguration | undefined;
+
+  /**
+   * <p>Optional annotation table configuration to include with the metadata configuration.</p>
+   * @public
+   */
+  AnnotationTableConfiguration?: AnnotationTableConfiguration | undefined;
 }
 
 /**
@@ -3835,6 +3897,86 @@ export interface DeleteObjectRequest {
    * @public
    */
   IfMatchSize?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteObjectAnnotationOutput {
+  /**
+   * <p>The version ID of the object that the annotation was deleted from.</p>
+   * @public
+   */
+  ObjectVersionId?: string | undefined;
+
+  /**
+   * <p>If present, indicates that the requester was successfully charged for the request. For more
+   *       information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple
+   *         Storage Service user guide</i>.</p>
+   *          <note>
+   *             <p>This functionality is not supported for directory buckets.</p>
+   *          </note>
+   * @public
+   */
+  RequestCharged?: RequestCharged | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteObjectAnnotationRequest {
+  /**
+   * <p>The name of the bucket that contains the object.</p>
+   * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
+   * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
+   * @public
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>The object key.</p>
+   * @public
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The name of the annotation to delete. Annotation names are UTF-8 encoded and cannot start with
+   *       <code>aws</code> or <code>s3</code> (case-insensitive).</p>
+   *          <p>Length Constraints: Minimum length of 1. Maximum length of 512 bytes.</p>
+   * @public
+   */
+  AnnotationName: string | undefined;
+
+  /**
+   * <p>The version ID of the object.</p>
+   * @public
+   */
+  VersionId?: string | undefined;
+
+  /**
+   * <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not
+   *       specify this parameter in their requests. If either the source or destination S3 bucket has Requester
+   *       Pays enabled, the requester will pay for the corresponding charges. For information about
+   *       downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays
+   *         Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <note>
+   *             <p>This functionality is not supported for directory buckets.</p>
+   *          </note>
+   * @public
+   */
+  RequestPayer?: RequestPayer | undefined;
+
+  /**
+   * <p>The account ID of the expected bucket owner.</p>
+   * @public
+   */
+  ExpectedBucketOwner?: string | undefined;
+
+  /**
+   * <p>If specified, the operation only succeeds if the object's ETag matches the provided value.</p>
+   * @public
+   */
+  ObjectIfMatch?: string | undefined;
 }
 
 /**
@@ -7724,42 +7866,6 @@ export interface GetBucketLoggingRequest {
 }
 
 /**
- * <p>
- *       The destination information for the S3 Metadata configuration.
- *     </p>
- * @public
- */
-export interface DestinationResult {
-  /**
-   * <p>
-   *       The type of the table bucket where the metadata configuration is stored. The <code>aws</code>
-   *       value indicates an Amazon Web Services managed table bucket, and the <code>customer</code> value indicates a
-   *       customer-managed table bucket. V2 metadata configurations are stored in Amazon Web Services managed table
-   *       buckets, and V1 metadata configurations are stored in customer-managed table buckets.
-   *     </p>
-   * @public
-   */
-  TableBucketType?: S3TablesBucketType | undefined;
-
-  /**
-   * <p>
-   *       The Amazon Resource Name (ARN) of the table bucket where the metadata configuration is stored.
-   *     </p>
-   * @public
-   */
-  TableBucketArn?: string | undefined;
-
-  /**
-   * <p>
-   *       The namespace in the table bucket where the metadata tables for a metadata configuration are
-   *       stored.
-   *     </p>
-   * @public
-   */
-  TableNamespace?: string | undefined;
-}
-
-/**
  * <p> If an S3 Metadata V1 <code>CreateBucketMetadataTableConfiguration</code> or V2
  *       <code>CreateBucketMetadataConfiguration</code> request succeeds, but S3 Metadata was
  *       unable to create the table, this structure contains the error code and error message. </p>
@@ -7997,6 +8103,92 @@ export interface ErrorDetails {
 }
 
 /**
+ * <p>Contains the current state of the annotation table associated with a bucket's Amazon S3 Metadata
+ *       configuration, including its provisioning status and identifiers.</p>
+ * @public
+ */
+export interface AnnotationTableConfigurationResult {
+  /**
+   * <p>The current configuration state of the annotation table.</p>
+   * @public
+   */
+  ConfigurationState: AnnotationConfigurationState | undefined;
+
+  /**
+   * <p>The provisioning status of the annotation table. Possible values: <code>CREATING</code>, <code>BACKFILLING</code>, <code>ACTIVE</code>, <code>FAILED</code>.</p>
+   * @public
+   */
+  TableStatus?: string | undefined;
+
+  /**
+   * <p> If an S3 Metadata V1 <code>CreateBucketMetadataTableConfiguration</code> or V2
+   *       <code>CreateBucketMetadataConfiguration</code> request succeeds, but S3 Metadata was
+   *       unable to create the table, this structure contains the error code and error message. </p>
+   *          <note>
+   *             <p>If you created your S3 Metadata configuration before July 15, 2025, we recommend that you delete
+   *         and re-create your configuration by using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataConfiguration.html">CreateBucketMetadataConfiguration</a> so that you can expire journal table records and create
+   *         a live inventory table.</p>
+   *          </note>
+   * @public
+   */
+  Error?: ErrorDetails | undefined;
+
+  /**
+   * <p>The name of the annotation table.</p>
+   * @public
+   */
+  TableName?: string | undefined;
+
+  /**
+   * <p>The ARN of the annotation table.</p>
+   * @public
+   */
+  TableArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role associated with the annotation table.</p>
+   * @public
+   */
+  Role?: string | undefined;
+}
+
+/**
+ * <p>
+ *       The destination information for the S3 Metadata configuration.
+ *     </p>
+ * @public
+ */
+export interface DestinationResult {
+  /**
+   * <p>
+   *       The type of the table bucket where the metadata configuration is stored. The <code>aws</code>
+   *       value indicates an Amazon Web Services managed table bucket, and the <code>customer</code> value indicates a
+   *       customer-managed table bucket. V2 metadata configurations are stored in Amazon Web Services managed table
+   *       buckets, and V1 metadata configurations are stored in customer-managed table buckets.
+   *     </p>
+   * @public
+   */
+  TableBucketType?: S3TablesBucketType | undefined;
+
+  /**
+   * <p>
+   *       The Amazon Resource Name (ARN) of the table bucket where the metadata configuration is stored.
+   *     </p>
+   * @public
+   */
+  TableBucketArn?: string | undefined;
+
+  /**
+   * <p>
+   *       The namespace in the table bucket where the metadata tables for a metadata configuration are
+   *       stored.
+   *     </p>
+   * @public
+   */
+  TableNamespace?: string | undefined;
+}
+
+/**
  * <p>
  *       The inventory table configuration for an S3 Metadata configuration.
  *     </p>
@@ -8174,6 +8366,12 @@ export interface MetadataConfigurationResult {
    * @public
    */
   InventoryTableConfigurationResult?: InventoryTableConfigurationResult | undefined;
+
+  /**
+   * <p>The annotation table configuration result, if an annotation table is configured.</p>
+   * @public
+   */
+  AnnotationTableConfigurationResult?: AnnotationTableConfigurationResult | undefined;
 }
 
 /**
@@ -10502,6 +10700,187 @@ export interface GetObjectAclRequest {
    * @public
    */
   ExpectedBucketOwner?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetObjectAnnotationOutput {
+  /**
+   * <p>The annotation payload.</p>
+   * @public
+   */
+  AnnotationPayload?: StreamingBlobTypes | undefined;
+
+  /**
+   * <p>The version ID of the object that the annotation is attached to.</p>
+   * @public
+   */
+  ObjectVersionId?: string | undefined;
+
+  /**
+   * <p>The date and time the annotation was last modified.</p>
+   * @public
+   */
+  LastModified?: Date | undefined;
+
+  /**
+   * <p>The size of the annotation payload, in bytes.</p>
+   * @public
+   */
+  ContentLength?: number | undefined;
+
+  /**
+   * <p>The entity tag of the annotation.</p>
+   * @public
+   */
+  ETag?: string | undefined;
+
+  /**
+   * <p>The CRC32 checksum of the annotation payload.</p>
+   * @public
+   */
+  ChecksumCRC32?: string | undefined;
+
+  /**
+   * <p>The CRC32C checksum of the annotation payload.</p>
+   * @public
+   */
+  ChecksumCRC32C?: string | undefined;
+
+  /**
+   * <p>The CRC64NVME checksum of the annotation payload.</p>
+   * @public
+   */
+  ChecksumCRC64NVME?: string | undefined;
+
+  /**
+   * <p>The SHA1 checksum of the annotation payload.</p>
+   * @public
+   */
+  ChecksumSHA1?: string | undefined;
+
+  /**
+   * <p>The SHA256 checksum of the annotation payload.</p>
+   * @public
+   */
+  ChecksumSHA256?: string | undefined;
+
+  /**
+   * <p>The SHA512 checksum of the annotation payload.</p>
+   * @public
+   */
+  ChecksumSHA512?: string | undefined;
+
+  /**
+   * <p>The MD5 checksum of the annotation payload.</p>
+   * @public
+   */
+  ChecksumMD5?: string | undefined;
+
+  /**
+   * <p>The XXHASH64 checksum of the annotation payload.</p>
+   * @public
+   */
+  ChecksumXXHASH64?: string | undefined;
+
+  /**
+   * <p>The XXHASH3 checksum of the annotation payload.</p>
+   * @public
+   */
+  ChecksumXXHASH3?: string | undefined;
+
+  /**
+   * <p>The XXHASH128 checksum of the annotation payload.</p>
+   * @public
+   */
+  ChecksumXXHASH128?: string | undefined;
+
+  /**
+   * <p>The type of checksum used.</p>
+   * @public
+   */
+  ChecksumType?: ChecksumType | undefined;
+
+  /**
+   * <p>The server-side encryption algorithm used.</p>
+   * @public
+   */
+  ServerSideEncryption?: ServerSideEncryption | undefined;
+
+  /**
+   * <p>If present, indicates that the requester was successfully charged for the request. For more
+   *       information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple
+   *         Storage Service user guide</i>.</p>
+   *          <note>
+   *             <p>This functionality is not supported for directory buckets.</p>
+   *          </note>
+   * @public
+   */
+  RequestCharged?: RequestCharged | undefined;
+
+  /**
+   * <p>The replication status of the annotation. Possible values include <code>PENDING</code>, <code>COMPLETED</code>, <code>FAILED</code>, and <code>REPLICA</code>.</p>
+   * @public
+   */
+  ReplicationStatus?: ReplicationStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetObjectAnnotationRequest {
+  /**
+   * <p>The name of the bucket that contains the object.</p>
+   * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
+   * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
+   * @public
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>The object key.</p>
+   * @public
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The name of the annotation to retrieve.</p>
+   *          <p>Length Constraints: Minimum length of 1. Maximum length of 512 bytes.</p>
+   * @public
+   */
+  AnnotationName: string | undefined;
+
+  /**
+   * <p>The version ID of the object.</p>
+   * @public
+   */
+  VersionId?: string | undefined;
+
+  /**
+   * <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not
+   *       specify this parameter in their requests. If either the source or destination S3 bucket has Requester
+   *       Pays enabled, the requester will pay for the corresponding charges. For information about
+   *       downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays
+   *         Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <note>
+   *             <p>This functionality is not supported for directory buckets.</p>
+   *          </note>
+   * @public
+   */
+  RequestPayer?: RequestPayer | undefined;
+
+  /**
+   * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with an HTTP 403 (Access Denied) error.</p>
+   * @public
+   */
+  ExpectedBucketOwner?: string | undefined;
+
+  /**
+   * <p>Set to <code>ENABLED</code> to validate the checksum of the annotation payload on retrieval.</p>
+   * @public
+   */
+  ChecksumMode?: ChecksumMode | undefined;
 }
 
 /**
@@ -13015,6 +13394,182 @@ export interface ListMultipartUploadsRequest {
    * @public
    */
   RequestPayer?: RequestPayer | undefined;
+}
+
+/**
+ * <p>Describes a single annotation attached to an object, including its name, last modified time,
+ *       size, ETag, checksum algorithm, and replication status. Returned in the response from
+ *       <code>ListObjectAnnotations</code>.</p>
+ * @public
+ */
+export interface AnnotationEntry {
+  /**
+   * <p>The name of the annotation.</p>
+   * @public
+   */
+  AnnotationName: string | undefined;
+
+  /**
+   * <p>The date and time the annotation was last modified.</p>
+   * @public
+   */
+  LastModified: Date | undefined;
+
+  /**
+   * <p>The entity tag of the annotation.</p>
+   * @public
+   */
+  ETag?: string | undefined;
+
+  /**
+   * <p>The checksum algorithm used for the annotation.</p>
+   * @public
+   */
+  ChecksumAlgorithm?: ChecksumAlgorithm[] | undefined;
+
+  /**
+   * <p>The size of the annotation payload, in bytes.</p>
+   * @public
+   */
+  Size: number | undefined;
+
+  /**
+   * <p>The replication status of the annotation.</p>
+   * @public
+   */
+  ReplicationStatus?: ReplicationStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListObjectAnnotationsOutput {
+  /**
+   * <p>The list of annotations attached to the object.</p>
+   * @public
+   */
+  Annotations?: AnnotationEntry[] | undefined;
+
+  /**
+   * <p>The bucket name.</p>
+   * @public
+   */
+  Bucket?: string | undefined;
+
+  /**
+   * <p>The object key.</p>
+   * @public
+   */
+  Key?: string | undefined;
+
+  /**
+   * <p>The version ID of the object.</p>
+   * @public
+   */
+  ObjectVersionId?: string | undefined;
+
+  /**
+   * <p>The prefix used to filter the response.</p>
+   * @public
+   */
+  AnnotationPrefix?: string | undefined;
+
+  /**
+   * <p>The maximum number of annotations returned in the response.</p>
+   * @public
+   */
+  MaxAnnotationResults?: number | undefined;
+
+  /**
+   * <p>The number of annotations returned.</p>
+   * @public
+   */
+  AnnotationCount?: number | undefined;
+
+  /**
+   * <p>The continuation token used in this request.</p>
+   * @public
+   */
+  ContinuationToken?: string | undefined;
+
+  /**
+   * <p>The continuation token to use to retrieve the next page of results.</p>
+   * @public
+   */
+  NextContinuationToken?: string | undefined;
+
+  /**
+   * <p>If present, indicates that the requester was successfully charged for the request. For more
+   *       information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple
+   *         Storage Service user guide</i>.</p>
+   *          <note>
+   *             <p>This functionality is not supported for directory buckets.</p>
+   *          </note>
+   * @public
+   */
+  RequestCharged?: RequestCharged | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListObjectAnnotationsRequest {
+  /**
+   * <p>The name of the bucket that contains the object.</p>
+   * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
+   * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
+   * @public
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>The object key.</p>
+   * @public
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The version ID of the object.</p>
+   * @public
+   */
+  VersionId?: string | undefined;
+
+  /**
+   * <p>The maximum number of annotations to return in the response. Maximum is 1,000.</p>
+   * @public
+   */
+  MaxAnnotationResults?: number | undefined;
+
+  /**
+   * <p>Filter results to annotations whose name begins with the specified prefix.</p>
+   * @public
+   */
+  AnnotationPrefix?: string | undefined;
+
+  /**
+   * <p>Continuation token returned by a previous request to retrieve the next page.</p>
+   * @public
+   */
+  ContinuationToken?: string | undefined;
+
+  /**
+   * <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not
+   *       specify this parameter in their requests. If either the source or destination S3 bucket has Requester
+   *       Pays enabled, the requester will pay for the corresponding charges. For information about
+   *       downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays
+   *         Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <note>
+   *             <p>This functionality is not supported for directory buckets.</p>
+   *          </note>
+   * @public
+   */
+  RequestPayer?: RequestPayer | undefined;
+
+  /**
+   * <p>The account ID of the expected bucket owner.</p>
+   * @public
+   */
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -16493,6 +17048,256 @@ export interface PutObjectAclRequest {
 /**
  * @public
  */
+export interface PutObjectAnnotationOutput {
+  /**
+   * <p>The object key.</p>
+   * @public
+   */
+  Key?: string | undefined;
+
+  /**
+   * <p>The name of the annotation.</p>
+   * @public
+   */
+  AnnotationName?: string | undefined;
+
+  /**
+   * <p>The version ID of the object that the annotation was attached to.</p>
+   * @public
+   */
+  ObjectVersionId?: string | undefined;
+
+  /**
+   * <p>The entity tag of the annotation.</p>
+   * @public
+   */
+  ETag?: string | undefined;
+
+  /**
+   * <p>The CRC32 checksum of the stored annotation.</p>
+   * @public
+   */
+  ChecksumCRC32?: string | undefined;
+
+  /**
+   * <p>The CRC32C checksum of the stored annotation.</p>
+   * @public
+   */
+  ChecksumCRC32C?: string | undefined;
+
+  /**
+   * <p>The CRC64NVME checksum of the stored annotation.</p>
+   * @public
+   */
+  ChecksumCRC64NVME?: string | undefined;
+
+  /**
+   * <p>The SHA1 checksum of the stored annotation.</p>
+   * @public
+   */
+  ChecksumSHA1?: string | undefined;
+
+  /**
+   * <p>The SHA256 checksum of the stored annotation.</p>
+   * @public
+   */
+  ChecksumSHA256?: string | undefined;
+
+  /**
+   * <p>The SHA512 checksum of the stored annotation.</p>
+   * @public
+   */
+  ChecksumSHA512?: string | undefined;
+
+  /**
+   * <p>The MD5 checksum of the stored annotation.</p>
+   * @public
+   */
+  ChecksumMD5?: string | undefined;
+
+  /**
+   * <p>The XXHASH64 checksum of the stored annotation.</p>
+   * @public
+   */
+  ChecksumXXHASH64?: string | undefined;
+
+  /**
+   * <p>The XXHASH3 checksum of the stored annotation.</p>
+   * @public
+   */
+  ChecksumXXHASH3?: string | undefined;
+
+  /**
+   * <p>The XXHASH128 checksum of the stored annotation.</p>
+   * @public
+   */
+  ChecksumXXHASH128?: string | undefined;
+
+  /**
+   * <p>The type of checksum used.</p>
+   * @public
+   */
+  ChecksumType?: ChecksumType | undefined;
+
+  /**
+   * <p>The server-side encryption algorithm used to encrypt the annotation.</p>
+   * @public
+   */
+  ServerSideEncryption?: ServerSideEncryption | undefined;
+
+  /**
+   * <p>If present, indicates that the requester was successfully charged for the request. For more
+   *       information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple
+   *         Storage Service user guide</i>.</p>
+   *          <note>
+   *             <p>This functionality is not supported for directory buckets.</p>
+   *          </note>
+   * @public
+   */
+  RequestCharged?: RequestCharged | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutObjectAnnotationRequest {
+  /**
+   * <p>The name of the bucket that contains the object.</p>
+   * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
+   * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
+   * @public
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>The object key.</p>
+   * @public
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The version ID of the object to attach the annotation to.</p>
+   * @public
+   */
+  VersionId?: string | undefined;
+
+  /**
+   * <p>The name of the annotation.</p>
+   *          <p>Length Constraints: Minimum length of 1. Maximum length of 512 bytes.</p>
+   * @public
+   */
+  AnnotationName: string | undefined;
+
+  /**
+   * <p>The annotation payload. Must be between 1 byte and 1 MiB in size, and must be valid UTF-8
+   *       encoded text. If the payload contains invalid UTF-8 bytes, the request fails with HTTP 415
+   *       (Unsupported Media Type). To store binary data, encode the payload using Base64 before
+   *       uploading.</p>
+   * @public
+   */
+  AnnotationPayload: StreamingBlobTypes | undefined;
+
+  /**
+   * <p>If specified, the operation only succeeds if the object's ETag matches the provided value.</p>
+   * @public
+   */
+  ObjectIfMatch?: string | undefined;
+
+  /**
+   * <p>The checksum algorithm to use. Supported values: <code>CRC32</code>, <code>CRC32C</code>, <code>CRC64NVME</code>, <code>SHA1</code>, <code>SHA256</code>, <code>SHA512</code>, <code>MD5</code>, <code>XXHASH64</code>, <code>XXHASH3</code>, <code>XXHASH128</code>.</p>
+   * @public
+   */
+  ChecksumAlgorithm?: ChecksumAlgorithm | undefined;
+
+  /**
+   * <p>Base64-encoded CRC32 checksum of the annotation payload.</p>
+   * @public
+   */
+  ChecksumCRC32?: string | undefined;
+
+  /**
+   * <p>Base64-encoded CRC32C checksum of the annotation payload.</p>
+   * @public
+   */
+  ChecksumCRC32C?: string | undefined;
+
+  /**
+   * <p>Base64-encoded CRC64NVME checksum of the annotation payload.</p>
+   * @public
+   */
+  ChecksumCRC64NVME?: string | undefined;
+
+  /**
+   * <p>Base64-encoded SHA1 checksum of the annotation payload.</p>
+   * @public
+   */
+  ChecksumSHA1?: string | undefined;
+
+  /**
+   * <p>Base64-encoded SHA256 checksum of the annotation payload.</p>
+   * @public
+   */
+  ChecksumSHA256?: string | undefined;
+
+  /**
+   * <p>Base64-encoded SHA512 checksum of the annotation payload.</p>
+   * @public
+   */
+  ChecksumSHA512?: string | undefined;
+
+  /**
+   * <p>Base64-encoded MD5 checksum of the annotation payload.</p>
+   * @public
+   */
+  ChecksumMD5?: string | undefined;
+
+  /**
+   * <p>Base64-encoded XXHASH64 checksum of the annotation payload.</p>
+   * @public
+   */
+  ChecksumXXHASH64?: string | undefined;
+
+  /**
+   * <p>Base64-encoded XXHASH3 checksum of the annotation payload.</p>
+   * @public
+   */
+  ChecksumXXHASH3?: string | undefined;
+
+  /**
+   * <p>Base64-encoded XXHASH128 checksum of the annotation payload.</p>
+   * @public
+   */
+  ChecksumXXHASH128?: string | undefined;
+
+  /**
+   * <p>Base64-encoded MD5 digest of the message.</p>
+   * @public
+   */
+  ContentMD5?: string | undefined;
+
+  /**
+   * <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not
+   *       specify this parameter in their requests. If either the source or destination S3 bucket has Requester
+   *       Pays enabled, the requester will pay for the corresponding charges. For information about
+   *       downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays
+   *         Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <note>
+   *             <p>This functionality is not supported for directory buckets.</p>
+   *          </note>
+   * @public
+   */
+  RequestPayer?: RequestPayer | undefined;
+
+  /**
+   * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with an HTTP 403 (Access Denied) error.</p>
+   * @public
+   */
+  ExpectedBucketOwner?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface PutObjectLegalHoldOutput {
   /**
    * <p>If present, indicates that the requester was successfully charged for the request. For more
@@ -16875,362 +17680,3 @@ export interface PutPublicAccessBlockRequest {
    */
   ExpectedBucketOwner?: string | undefined;
 }
-
-/**
- * @public
- */
-export interface RenameObjectOutput {}
-
-/**
- * @public
- */
-export interface RenameObjectRequest {
-  /**
-   * <p>The bucket name of the directory bucket containing the object.</p>
-   *          <p> You must use virtual-hosted-style requests in the format
-   *         <code>Bucket-name.s3express-zone-id.region-code.amazonaws.com</code>. Path-style requests are not
-   *       supported. Directory bucket names must be unique in the chosen Availability Zone. Bucket names must
-   *       follow the format <code>bucket-base-name--zone-id--x-s3 </code> (for example,
-   *         <code>amzn-s3-demo-bucket--usw2-az1--x-s3</code>). For information about bucket naming restrictions, see
-   *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i>.</p>
-   * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
-   * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
-   * @public
-   */
-  Bucket: string | undefined;
-
-  /**
-   * <p>Key name of the object to rename.</p>
-   * @public
-   */
-  Key: string | undefined;
-
-  /**
-   * <p>Specifies the source for the rename operation. The value must be URL encoded.</p>
-   * @public
-   */
-  RenameSource: string | undefined;
-
-  /**
-   * <p>Renames the object only if the ETag (entity tag) value provided during the operation matches the
-   *       ETag of the object in S3. The <code>If-Match</code> header field makes the request method conditional on
-   *       ETags. If the ETag values do not match, the operation returns a <code>412 Precondition Failed</code>
-   *       error.</p>
-   *          <p>Expects the ETag value as a string.</p>
-   * @public
-   */
-  DestinationIfMatch?: string | undefined;
-
-  /**
-   * <p> Renames the object only if the destination does not already exist in the specified directory
-   *       bucket. If the object does exist when you send a request with <code>If-None-Match:*</code>, the S3 API
-   *       will return a <code>412 Precondition Failed</code> error, preventing an overwrite. The
-   *         <code>If-None-Match</code> header prevents overwrites of existing data by validating that there's not
-   *       an object with the same key name already in your directory bucket.</p>
-   *          <p> Expects the <code>*</code> character (asterisk).</p>
-   * @public
-   */
-  DestinationIfNoneMatch?: string | undefined;
-
-  /**
-   * <p>Renames the object if the destination exists and if it has been modified since the specified
-   *       time.</p>
-   * @public
-   */
-  DestinationIfModifiedSince?: Date | undefined;
-
-  /**
-   * <p>Renames the object if it hasn't been modified since the specified time.</p>
-   * @public
-   */
-  DestinationIfUnmodifiedSince?: Date | undefined;
-
-  /**
-   * <p>Renames the object if the source exists and if its entity tag (ETag) matches the specified ETag.
-   *     </p>
-   * @public
-   */
-  SourceIfMatch?: string | undefined;
-
-  /**
-   * <p>Renames the object if the source exists and if its entity tag (ETag) is different than the specified
-   *       ETag. If an asterisk (<code>*</code>) character is provided, the operation will fail and return a
-   *         <code>412 Precondition Failed</code> error. </p>
-   * @public
-   */
-  SourceIfNoneMatch?: string | undefined;
-
-  /**
-   * <p>Renames the object if the source exists and if it has been modified since the specified time.</p>
-   * @public
-   */
-  SourceIfModifiedSince?: Date | undefined;
-
-  /**
-   * <p>Renames the object if the source exists and hasn't been modified since the specified time.</p>
-   * @public
-   */
-  SourceIfUnmodifiedSince?: Date | undefined;
-
-  /**
-   * <p> A unique string with a max of 64 ASCII characters in the ASCII range of 33 - 126.</p>
-   *          <note>
-   *             <p>
-   *                <code>RenameObject</code> supports idempotency using a client token. To make an idempotent API request
-   *         using <code>RenameObject</code>, specify a client token in the request. You should not reuse the same
-   *         client token for other API requests. If you retry a request that completed successfully using the same
-   *         client token and the same parameters, the retry succeeds without performing any further actions. If
-   *         you retry a successful request using the same client token, but one or more of the parameters are
-   *         different, the retry fails and an <code>IdempotentParameterMismatch</code> error is returned. </p>
-   *          </note>
-   * @public
-   */
-  ClientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RestoreObjectOutput {
-  /**
-   * <p>If present, indicates that the requester was successfully charged for the request. For more
-   *       information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple
-   *         Storage Service user guide</i>.</p>
-   *          <note>
-   *             <p>This functionality is not supported for directory buckets.</p>
-   *          </note>
-   * @public
-   */
-  RequestCharged?: RequestCharged | undefined;
-
-  /**
-   * <p>Indicates the path in the provided S3 output location where Select results will be restored
-   *       to.</p>
-   * @public
-   */
-  RestoreOutputPath?: string | undefined;
-}
-
-/**
- * <p>Container for S3 Glacier job parameters.</p>
- * @public
- */
-export interface GlacierJobParameters {
-  /**
-   * <p>Retrieval tier at which the restore will be processed.</p>
-   * @public
-   */
-  Tier: Tier | undefined;
-}
-
-/**
- * <p>Contains the type of server-side encryption used.</p>
- * @public
- */
-export interface Encryption {
-  /**
-   * <p>The server-side encryption algorithm used when storing job results in Amazon S3 (for example, AES256,
-   *         <code>aws:kms</code>).</p>
-   * @public
-   */
-  EncryptionType: ServerSideEncryption | undefined;
-
-  /**
-   * <p>If the encryption type is <code>aws:kms</code>, this optional value specifies the ID of the
-   *       symmetric encryption customer managed key to use for encryption of job results. Amazon S3 only supports symmetric
-   *       encryption KMS keys. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Asymmetric keys in KMS</a> in the
-   *         <i>Amazon Web Services Key Management Service Developer Guide</i>.</p>
-   * @public
-   */
-  KMSKeyId?: string | undefined;
-
-  /**
-   * <p>If the encryption type is <code>aws:kms</code>, this optional value can be used to specify the
-   *       encryption context for the restore results.</p>
-   * @public
-   */
-  KMSContext?: string | undefined;
-}
-
-/**
- * <p>A metadata key-value pair to store with an object.</p>
- * @public
- */
-export interface MetadataEntry {
-  /**
-   * <p>Name of the object.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>Value of the object.</p>
-   * @public
-   */
-  Value?: string | undefined;
-}
-
-/**
- * <p>Describes an Amazon S3 location that will receive the results of the restore request.</p>
- * @public
- */
-export interface S3Location {
-  /**
-   * <p>The name of the bucket where the restore results will be placed.</p>
-   * @public
-   */
-  BucketName: string | undefined;
-
-  /**
-   * <p>The prefix that is prepended to the restore results for this request.</p>
-   * @public
-   */
-  Prefix: string | undefined;
-
-  /**
-   * <p>Contains the type of server-side encryption used.</p>
-   * @public
-   */
-  Encryption?: Encryption | undefined;
-
-  /**
-   * <p>The canned ACL to apply to the restore results.</p>
-   * @public
-   */
-  CannedACL?: ObjectCannedACL | undefined;
-
-  /**
-   * <p>A list of grants that control access to the staged results.</p>
-   * @public
-   */
-  AccessControlList?: Grant[] | undefined;
-
-  /**
-   * <p>The tag-set that is applied to the restore results.</p>
-   * @public
-   */
-  Tagging?: Tagging | undefined;
-
-  /**
-   * <p>A list of metadata to store with the restore results in S3.</p>
-   * @public
-   */
-  UserMetadata?: MetadataEntry[] | undefined;
-
-  /**
-   * <p>The class of storage used to store the restore results.</p>
-   * @public
-   */
-  StorageClass?: StorageClass | undefined;
-}
-
-/**
- * <p>Describes the location where the restore job's output is stored.</p>
- * @public
- */
-export interface OutputLocation {
-  /**
-   * <p>Describes an S3 location that will receive the results of the restore request.</p>
-   * @public
-   */
-  S3?: S3Location | undefined;
-}
-
-/**
- * <p>Describes how an uncompressed comma-separated values (CSV)-formatted input object is
- *       formatted.</p>
- * @public
- */
-export interface CSVInput {
-  /**
-   * <p>Describes the first line of input. Valid values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>NONE</code>: First line is not a header.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>IGNORE</code>: First line is a header, but you can't use the header values to indicate the
-   *           column in an expression. You can use column position (such as _1, _2, …) to indicate the column
-   *             (<code>SELECT s._1 FROM OBJECT s</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Use</code>: First line is a header, and you can use the header value to identify a column
-   *           in an expression (<code>SELECT "name" FROM OBJECT</code>). </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  FileHeaderInfo?: FileHeaderInfo | undefined;
-
-  /**
-   * <p>A single character used to indicate that a row should be ignored when the character is present at
-   *       the start of that row. You can specify any character to indicate a comment line. The default character
-   *       is <code>#</code>.</p>
-   *          <p>Default: <code>#</code>
-   *          </p>
-   * @public
-   */
-  Comments?: string | undefined;
-
-  /**
-   * <p>A single character used for escaping the quotation mark character inside an already escaped value.
-   *       For example, the value <code>""" a , b """</code> is parsed as <code>" a , b "</code>.</p>
-   * @public
-   */
-  QuoteEscapeCharacter?: string | undefined;
-
-  /**
-   * <p>A single character used to separate individual records in the input. Instead of the default value,
-   *       you can specify an arbitrary delimiter.</p>
-   * @public
-   */
-  RecordDelimiter?: string | undefined;
-
-  /**
-   * <p>A single character used to separate individual fields in a record. You can specify an arbitrary
-   *       delimiter.</p>
-   * @public
-   */
-  FieldDelimiter?: string | undefined;
-
-  /**
-   * <p>A single character used for escaping when the field delimiter is part of the value. For example, if
-   *       the value is <code>a, b</code>, Amazon S3 wraps this field value in quotation marks, as follows: <code>" a ,
-   *         b "</code>.</p>
-   *          <p>Type: String</p>
-   *          <p>Default: <code>"</code>
-   *          </p>
-   *          <p>Ancestors: <code>CSV</code>
-   *          </p>
-   * @public
-   */
-  QuoteCharacter?: string | undefined;
-
-  /**
-   * <p>Specifies that CSV field values may contain quoted record delimiters and such records should be
-   *       allowed. Default value is FALSE. Setting this value to TRUE may lower performance.</p>
-   * @public
-   */
-  AllowQuotedRecordDelimiter?: boolean | undefined;
-}
-
-/**
- * <p>Specifies JSON as object's input serialization format.</p>
- * @public
- */
-export interface JSONInput {
-  /**
-   * <p>The type of JSON. Valid values: Document, Lines.</p>
-   * @public
-   */
-  Type?: JSONType | undefined;
-}
-
-/**
- * <p>Container for Parquet.</p>
- * @public
- */
-export interface ParquetInput {}

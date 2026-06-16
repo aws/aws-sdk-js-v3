@@ -6,8 +6,7 @@ import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { RestoreObjectOutput } from "../models/models_0";
-import type { RestoreObjectRequest } from "../models/models_1";
+import type { RestoreObjectOutput, RestoreObjectRequest } from "../models/models_1";
 import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { RestoreObject$ } from "../schemas/schemas_0";
 

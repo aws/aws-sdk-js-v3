@@ -2,10 +2,14 @@
 import type { StreamingBlobTypes } from "@smithy/types";
 
 import type {
+  AnnotationConfigurationState,
   ChecksumAlgorithm,
   CompressionType,
   ExpressionType,
+  FileHeaderInfo,
   InventoryConfigurationState,
+  JSONType,
+  ObjectCannedACL,
   ObjectLockLegalHoldStatus,
   ObjectLockMode,
   QuoteFields,
@@ -17,15 +21,366 @@ import type {
   StorageClass,
   Tier,
 } from "./enums";
-import type {
-  CSVInput,
-  GlacierJobParameters,
-  JSONInput,
-  MetadataTableEncryptionConfiguration,
-  OutputLocation,
-  ParquetInput,
-  RecordExpiration,
-} from "./models_0";
+import type { Grant, MetadataTableEncryptionConfiguration, RecordExpiration, Tagging } from "./models_0";
+
+/**
+ * @public
+ */
+export interface RenameObjectOutput {}
+
+/**
+ * @public
+ */
+export interface RenameObjectRequest {
+  /**
+   * <p>The bucket name of the directory bucket containing the object.</p>
+   *          <p> You must use virtual-hosted-style requests in the format
+   *         <code>Bucket-name.s3express-zone-id.region-code.amazonaws.com</code>. Path-style requests are not
+   *       supported. Directory bucket names must be unique in the chosen Availability Zone. Bucket names must
+   *       follow the format <code>bucket-base-name--zone-id--x-s3 </code> (for example,
+   *         <code>amzn-s3-demo-bucket--usw2-az1--x-s3</code>). For information about bucket naming restrictions, see
+   *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
+   * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
+   * @public
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>Key name of the object to rename.</p>
+   * @public
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>Specifies the source for the rename operation. The value must be URL encoded.</p>
+   * @public
+   */
+  RenameSource: string | undefined;
+
+  /**
+   * <p>Renames the object only if the ETag (entity tag) value provided during the operation matches the
+   *       ETag of the object in S3. The <code>If-Match</code> header field makes the request method conditional on
+   *       ETags. If the ETag values do not match, the operation returns a <code>412 Precondition Failed</code>
+   *       error.</p>
+   *          <p>Expects the ETag value as a string.</p>
+   * @public
+   */
+  DestinationIfMatch?: string | undefined;
+
+  /**
+   * <p> Renames the object only if the destination does not already exist in the specified directory
+   *       bucket. If the object does exist when you send a request with <code>If-None-Match:*</code>, the S3 API
+   *       will return a <code>412 Precondition Failed</code> error, preventing an overwrite. The
+   *         <code>If-None-Match</code> header prevents overwrites of existing data by validating that there's not
+   *       an object with the same key name already in your directory bucket.</p>
+   *          <p> Expects the <code>*</code> character (asterisk).</p>
+   * @public
+   */
+  DestinationIfNoneMatch?: string | undefined;
+
+  /**
+   * <p>Renames the object if the destination exists and if it has been modified since the specified
+   *       time.</p>
+   * @public
+   */
+  DestinationIfModifiedSince?: Date | undefined;
+
+  /**
+   * <p>Renames the object if it hasn't been modified since the specified time.</p>
+   * @public
+   */
+  DestinationIfUnmodifiedSince?: Date | undefined;
+
+  /**
+   * <p>Renames the object if the source exists and if its entity tag (ETag) matches the specified ETag.
+   *     </p>
+   * @public
+   */
+  SourceIfMatch?: string | undefined;
+
+  /**
+   * <p>Renames the object if the source exists and if its entity tag (ETag) is different than the specified
+   *       ETag. If an asterisk (<code>*</code>) character is provided, the operation will fail and return a
+   *         <code>412 Precondition Failed</code> error. </p>
+   * @public
+   */
+  SourceIfNoneMatch?: string | undefined;
+
+  /**
+   * <p>Renames the object if the source exists and if it has been modified since the specified time.</p>
+   * @public
+   */
+  SourceIfModifiedSince?: Date | undefined;
+
+  /**
+   * <p>Renames the object if the source exists and hasn't been modified since the specified time.</p>
+   * @public
+   */
+  SourceIfUnmodifiedSince?: Date | undefined;
+
+  /**
+   * <p> A unique string with a max of 64 ASCII characters in the ASCII range of 33 - 126.</p>
+   *          <note>
+   *             <p>
+   *                <code>RenameObject</code> supports idempotency using a client token. To make an idempotent API request
+   *         using <code>RenameObject</code>, specify a client token in the request. You should not reuse the same
+   *         client token for other API requests. If you retry a request that completed successfully using the same
+   *         client token and the same parameters, the retry succeeds without performing any further actions. If
+   *         you retry a successful request using the same client token, but one or more of the parameters are
+   *         different, the retry fails and an <code>IdempotentParameterMismatch</code> error is returned. </p>
+   *          </note>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RestoreObjectOutput {
+  /**
+   * <p>If present, indicates that the requester was successfully charged for the request. For more
+   *       information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple
+   *         Storage Service user guide</i>.</p>
+   *          <note>
+   *             <p>This functionality is not supported for directory buckets.</p>
+   *          </note>
+   * @public
+   */
+  RequestCharged?: RequestCharged | undefined;
+
+  /**
+   * <p>Indicates the path in the provided S3 output location where Select results will be restored
+   *       to.</p>
+   * @public
+   */
+  RestoreOutputPath?: string | undefined;
+}
+
+/**
+ * <p>Container for S3 Glacier job parameters.</p>
+ * @public
+ */
+export interface GlacierJobParameters {
+  /**
+   * <p>Retrieval tier at which the restore will be processed.</p>
+   * @public
+   */
+  Tier: Tier | undefined;
+}
+
+/**
+ * <p>Contains the type of server-side encryption used.</p>
+ * @public
+ */
+export interface Encryption {
+  /**
+   * <p>The server-side encryption algorithm used when storing job results in Amazon S3 (for example, AES256,
+   *         <code>aws:kms</code>).</p>
+   * @public
+   */
+  EncryptionType: ServerSideEncryption | undefined;
+
+  /**
+   * <p>If the encryption type is <code>aws:kms</code>, this optional value specifies the ID of the
+   *       symmetric encryption customer managed key to use for encryption of job results. Amazon S3 only supports symmetric
+   *       encryption KMS keys. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Asymmetric keys in KMS</a> in the
+   *         <i>Amazon Web Services Key Management Service Developer Guide</i>.</p>
+   * @public
+   */
+  KMSKeyId?: string | undefined;
+
+  /**
+   * <p>If the encryption type is <code>aws:kms</code>, this optional value can be used to specify the
+   *       encryption context for the restore results.</p>
+   * @public
+   */
+  KMSContext?: string | undefined;
+}
+
+/**
+ * <p>A metadata key-value pair to store with an object.</p>
+ * @public
+ */
+export interface MetadataEntry {
+  /**
+   * <p>Name of the object.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>Value of the object.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * <p>Describes an Amazon S3 location that will receive the results of the restore request.</p>
+ * @public
+ */
+export interface S3Location {
+  /**
+   * <p>The name of the bucket where the restore results will be placed.</p>
+   * @public
+   */
+  BucketName: string | undefined;
+
+  /**
+   * <p>The prefix that is prepended to the restore results for this request.</p>
+   * @public
+   */
+  Prefix: string | undefined;
+
+  /**
+   * <p>Contains the type of server-side encryption used.</p>
+   * @public
+   */
+  Encryption?: Encryption | undefined;
+
+  /**
+   * <p>The canned ACL to apply to the restore results.</p>
+   * @public
+   */
+  CannedACL?: ObjectCannedACL | undefined;
+
+  /**
+   * <p>A list of grants that control access to the staged results.</p>
+   * @public
+   */
+  AccessControlList?: Grant[] | undefined;
+
+  /**
+   * <p>The tag-set that is applied to the restore results.</p>
+   * @public
+   */
+  Tagging?: Tagging | undefined;
+
+  /**
+   * <p>A list of metadata to store with the restore results in S3.</p>
+   * @public
+   */
+  UserMetadata?: MetadataEntry[] | undefined;
+
+  /**
+   * <p>The class of storage used to store the restore results.</p>
+   * @public
+   */
+  StorageClass?: StorageClass | undefined;
+}
+
+/**
+ * <p>Describes the location where the restore job's output is stored.</p>
+ * @public
+ */
+export interface OutputLocation {
+  /**
+   * <p>Describes an S3 location that will receive the results of the restore request.</p>
+   * @public
+   */
+  S3?: S3Location | undefined;
+}
+
+/**
+ * <p>Describes how an uncompressed comma-separated values (CSV)-formatted input object is
+ *       formatted.</p>
+ * @public
+ */
+export interface CSVInput {
+  /**
+   * <p>Describes the first line of input. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code>: First line is not a header.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IGNORE</code>: First line is a header, but you can't use the header values to indicate the
+   *           column in an expression. You can use column position (such as _1, _2, …) to indicate the column
+   *             (<code>SELECT s._1 FROM OBJECT s</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Use</code>: First line is a header, and you can use the header value to identify a column
+   *           in an expression (<code>SELECT "name" FROM OBJECT</code>). </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  FileHeaderInfo?: FileHeaderInfo | undefined;
+
+  /**
+   * <p>A single character used to indicate that a row should be ignored when the character is present at
+   *       the start of that row. You can specify any character to indicate a comment line. The default character
+   *       is <code>#</code>.</p>
+   *          <p>Default: <code>#</code>
+   *          </p>
+   * @public
+   */
+  Comments?: string | undefined;
+
+  /**
+   * <p>A single character used for escaping the quotation mark character inside an already escaped value.
+   *       For example, the value <code>""" a , b """</code> is parsed as <code>" a , b "</code>.</p>
+   * @public
+   */
+  QuoteEscapeCharacter?: string | undefined;
+
+  /**
+   * <p>A single character used to separate individual records in the input. Instead of the default value,
+   *       you can specify an arbitrary delimiter.</p>
+   * @public
+   */
+  RecordDelimiter?: string | undefined;
+
+  /**
+   * <p>A single character used to separate individual fields in a record. You can specify an arbitrary
+   *       delimiter.</p>
+   * @public
+   */
+  FieldDelimiter?: string | undefined;
+
+  /**
+   * <p>A single character used for escaping when the field delimiter is part of the value. For example, if
+   *       the value is <code>a, b</code>, Amazon S3 wraps this field value in quotation marks, as follows: <code>" a ,
+   *         b "</code>.</p>
+   *          <p>Type: String</p>
+   *          <p>Default: <code>"</code>
+   *          </p>
+   *          <p>Ancestors: <code>CSV</code>
+   *          </p>
+   * @public
+   */
+  QuoteCharacter?: string | undefined;
+
+  /**
+   * <p>Specifies that CSV field values may contain quoted record delimiters and such records should be
+   *       allowed. Default value is FALSE. Setting this value to TRUE may lower performance.</p>
+   * @public
+   */
+  AllowQuotedRecordDelimiter?: boolean | undefined;
+}
+
+/**
+ * <p>Specifies JSON as object's input serialization format.</p>
+ * @public
+ */
+export interface JSONInput {
+  /**
+   * <p>The type of JSON. Valid values: Document, Lines.</p>
+   * @public
+   */
+  Type?: JSONType | undefined;
+}
+
+/**
+ * <p>Container for Parquet.</p>
+ * @public
+ */
+export interface ParquetInput {}
 
 /**
  * <p>Describes the serialization format of the object.</p>
@@ -688,6 +1043,70 @@ export interface SelectObjectContentRequest {
 
   /**
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+   * @public
+   */
+  ExpectedBucketOwner?: string | undefined;
+}
+
+/**
+ * <p>Specifies updates to apply to the annotation table configuration. Used as the request body for
+ *       <code>UpdateBucketMetadataAnnotationTableConfiguration</code>.</p>
+ * @public
+ */
+export interface AnnotationTableConfigurationUpdates {
+  /**
+   * <p>The new configuration state to apply.</p>
+   * @public
+   */
+  ConfigurationState: AnnotationConfigurationState | undefined;
+
+  /**
+   * <p>
+   *       The encryption settings for an S3 Metadata journal table or inventory table configuration.
+   *     </p>
+   * @public
+   */
+  EncryptionConfiguration?: MetadataTableEncryptionConfiguration | undefined;
+
+  /**
+   * <p>The new IAM role ARN to apply.</p>
+   * @public
+   */
+  Role?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateBucketMetadataAnnotationTableConfigurationRequest {
+  /**
+   * <p>The name of the bucket whose annotation table configuration to update.</p>
+   * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
+   * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
+   * @public
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>Base64-encoded MD5 digest of the message body.</p>
+   * @public
+   */
+  ContentMD5?: string | undefined;
+
+  /**
+   * <p>Checksum algorithm for the request payload.</p>
+   * @public
+   */
+  ChecksumAlgorithm?: ChecksumAlgorithm | undefined;
+
+  /**
+   * <p>The annotation table configuration updates to apply.</p>
+   * @public
+   */
+  AnnotationTableConfiguration: AnnotationTableConfigurationUpdates | undefined;
+
+  /**
+   * <p>The account ID of the expected bucket owner.</p>
    * @public
    */
   ExpectedBucketOwner?: string | undefined;

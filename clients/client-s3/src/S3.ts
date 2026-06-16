@@ -123,6 +123,11 @@ import {
   DeleteBucketWebsiteCommand,
 } from "./commands/DeleteBucketWebsiteCommand";
 import {
+  type DeleteObjectAnnotationCommandInput,
+  type DeleteObjectAnnotationCommandOutput,
+  DeleteObjectAnnotationCommand,
+} from "./commands/DeleteObjectAnnotationCommand";
+import {
   type DeleteObjectCommandInput,
   type DeleteObjectCommandOutput,
   DeleteObjectCommand,
@@ -263,6 +268,11 @@ import {
   GetObjectAclCommand,
 } from "./commands/GetObjectAclCommand";
 import {
+  type GetObjectAnnotationCommandInput,
+  type GetObjectAnnotationCommandOutput,
+  GetObjectAnnotationCommand,
+} from "./commands/GetObjectAnnotationCommand";
+import {
   type GetObjectAttributesCommandInput,
   type GetObjectAttributesCommandOutput,
   GetObjectAttributesCommand,
@@ -343,6 +353,11 @@ import {
   type ListMultipartUploadsCommandOutput,
   ListMultipartUploadsCommand,
 } from "./commands/ListMultipartUploadsCommand";
+import {
+  type ListObjectAnnotationsCommandInput,
+  type ListObjectAnnotationsCommandOutput,
+  ListObjectAnnotationsCommand,
+} from "./commands/ListObjectAnnotationsCommand";
 import {
   type ListObjectsCommandInput,
   type ListObjectsCommandOutput,
@@ -459,6 +474,11 @@ import {
   type PutObjectAclCommandOutput,
   PutObjectAclCommand,
 } from "./commands/PutObjectAclCommand";
+import {
+  type PutObjectAnnotationCommandInput,
+  type PutObjectAnnotationCommandOutput,
+  PutObjectAnnotationCommand,
+} from "./commands/PutObjectAnnotationCommand";
 import { type PutObjectCommandInput, type PutObjectCommandOutput, PutObjectCommand } from "./commands/PutObjectCommand";
 import {
   type PutObjectLegalHoldCommandInput,
@@ -501,6 +521,11 @@ import {
   SelectObjectContentCommand,
 } from "./commands/SelectObjectContentCommand";
 import {
+  type UpdateBucketMetadataAnnotationTableConfigurationCommandInput,
+  type UpdateBucketMetadataAnnotationTableConfigurationCommandOutput,
+  UpdateBucketMetadataAnnotationTableConfigurationCommand,
+} from "./commands/UpdateBucketMetadataAnnotationTableConfigurationCommand";
+import {
   type UpdateBucketMetadataInventoryTableConfigurationCommandInput,
   type UpdateBucketMetadataInventoryTableConfigurationCommandOutput,
   UpdateBucketMetadataInventoryTableConfigurationCommand,
@@ -534,6 +559,7 @@ import type { NotFound } from "./models/errors";
 import type { S3ServiceException } from "./models/S3ServiceException";
 import { paginateListBuckets } from "./pagination/ListBucketsPaginator";
 import { paginateListDirectoryBuckets } from "./pagination/ListDirectoryBucketsPaginator";
+import { paginateListObjectAnnotations } from "./pagination/ListObjectAnnotationsPaginator";
 import { paginateListObjectsV2 } from "./pagination/ListObjectsV2Paginator";
 import { paginateListParts } from "./pagination/ListPartsPaginator";
 import { S3Client } from "./S3Client";
@@ -567,6 +593,7 @@ const commands = {
   DeleteBucketTaggingCommand,
   DeleteBucketWebsiteCommand,
   DeleteObjectCommand,
+  DeleteObjectAnnotationCommand,
   DeleteObjectsCommand,
   DeleteObjectTaggingCommand,
   DeletePublicAccessBlockCommand,
@@ -595,6 +622,7 @@ const commands = {
   GetBucketWebsiteCommand,
   GetObjectCommand,
   GetObjectAclCommand,
+  GetObjectAnnotationCommand,
   GetObjectAttributesCommand,
   GetObjectLegalHoldCommand,
   GetObjectLockConfigurationCommand,
@@ -611,6 +639,7 @@ const commands = {
   ListBucketsCommand,
   ListDirectoryBucketsCommand,
   ListMultipartUploadsCommand,
+  ListObjectAnnotationsCommand,
   ListObjectsCommand,
   ListObjectsV2Command,
   ListObjectVersionsCommand,
@@ -636,6 +665,7 @@ const commands = {
   PutBucketWebsiteCommand,
   PutObjectCommand,
   PutObjectAclCommand,
+  PutObjectAnnotationCommand,
   PutObjectLegalHoldCommand,
   PutObjectLockConfigurationCommand,
   PutObjectRetentionCommand,
@@ -644,6 +674,7 @@ const commands = {
   RenameObjectCommand,
   RestoreObjectCommand,
   SelectObjectContentCommand,
+  UpdateBucketMetadataAnnotationTableConfigurationCommand,
   UpdateBucketMetadataInventoryTableConfigurationCommand,
   UpdateBucketMetadataJournalTableConfigurationCommand,
   UpdateObjectEncryptionCommand,
@@ -654,6 +685,7 @@ const commands = {
 const paginators = {
   paginateListBuckets,
   paginateListDirectoryBuckets,
+  paginateListObjectAnnotations,
   paginateListObjectsV2,
   paginateListParts,
 };
@@ -1071,6 +1103,23 @@ export interface S3 {
     args: DeleteObjectCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteObjectCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteObjectAnnotationCommand}
+   */
+  deleteObjectAnnotation(
+    args: DeleteObjectAnnotationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteObjectAnnotationCommandOutput>;
+  deleteObjectAnnotation(
+    args: DeleteObjectAnnotationCommandInput,
+    cb: (err: any, data?: DeleteObjectAnnotationCommandOutput) => void
+  ): void;
+  deleteObjectAnnotation(
+    args: DeleteObjectAnnotationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteObjectAnnotationCommandOutput) => void
   ): void;
 
   /**
@@ -1550,6 +1599,23 @@ export interface S3 {
   ): void;
 
   /**
+   * @see {@link GetObjectAnnotationCommand}
+   */
+  getObjectAnnotation(
+    args: GetObjectAnnotationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetObjectAnnotationCommandOutput>;
+  getObjectAnnotation(
+    args: GetObjectAnnotationCommandInput,
+    cb: (err: any, data?: GetObjectAnnotationCommandOutput) => void
+  ): void;
+  getObjectAnnotation(
+    args: GetObjectAnnotationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetObjectAnnotationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetObjectAttributesCommand}
    */
   getObjectAttributes(
@@ -1821,6 +1887,23 @@ export interface S3 {
     args: ListMultipartUploadsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListMultipartUploadsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListObjectAnnotationsCommand}
+   */
+  listObjectAnnotations(
+    args: ListObjectAnnotationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListObjectAnnotationsCommandOutput>;
+  listObjectAnnotations(
+    args: ListObjectAnnotationsCommandInput,
+    cb: (err: any, data?: ListObjectAnnotationsCommandOutput) => void
+  ): void;
+  listObjectAnnotations(
+    args: ListObjectAnnotationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListObjectAnnotationsCommandOutput) => void
   ): void;
 
   /**
@@ -2249,6 +2332,23 @@ export interface S3 {
   ): void;
 
   /**
+   * @see {@link PutObjectAnnotationCommand}
+   */
+  putObjectAnnotation(
+    args: PutObjectAnnotationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutObjectAnnotationCommandOutput>;
+  putObjectAnnotation(
+    args: PutObjectAnnotationCommandInput,
+    cb: (err: any, data?: PutObjectAnnotationCommandOutput) => void
+  ): void;
+  putObjectAnnotation(
+    args: PutObjectAnnotationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutObjectAnnotationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link PutObjectLegalHoldCommand}
    */
   putObjectLegalHold(
@@ -2385,6 +2485,23 @@ export interface S3 {
   ): void;
 
   /**
+   * @see {@link UpdateBucketMetadataAnnotationTableConfigurationCommand}
+   */
+  updateBucketMetadataAnnotationTableConfiguration(
+    args: UpdateBucketMetadataAnnotationTableConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateBucketMetadataAnnotationTableConfigurationCommandOutput>;
+  updateBucketMetadataAnnotationTableConfiguration(
+    args: UpdateBucketMetadataAnnotationTableConfigurationCommandInput,
+    cb: (err: any, data?: UpdateBucketMetadataAnnotationTableConfigurationCommandOutput) => void
+  ): void;
+  updateBucketMetadataAnnotationTableConfiguration(
+    args: UpdateBucketMetadataAnnotationTableConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateBucketMetadataAnnotationTableConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateBucketMetadataInventoryTableConfigurationCommand}
    */
   updateBucketMetadataInventoryTableConfiguration(
@@ -2507,6 +2624,17 @@ export interface S3 {
     args?: ListDirectoryBucketsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListDirectoryBucketsCommandOutput>;
+
+  /**
+   * @see {@link ListObjectAnnotationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListObjectAnnotationsCommandOutput}.
+   */
+  paginateListObjectAnnotations(
+    args: ListObjectAnnotationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListObjectAnnotationsCommandOutput>;
 
   /**
    * @see {@link ListObjectsV2Command}

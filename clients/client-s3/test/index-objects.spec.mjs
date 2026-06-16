@@ -18,6 +18,16 @@ import {
   AnalyticsFilter$,
   AnalyticsS3BucketDestination$,
   AnalyticsS3ExportFileFormat,
+  AnnotationConfigurationState,
+  AnnotationDirective,
+  AnnotationEntry$,
+  AnnotationLimitExceeded,
+  AnnotationLimitExceeded$,
+  AnnotationNameTooLong,
+  AnnotationNameTooLong$,
+  AnnotationTableConfiguration$,
+  AnnotationTableConfigurationResult$,
+  AnnotationTableConfigurationUpdates$,
   ArchiveStatus,
   BlockedEncryptionTypes$,
   Bucket$,
@@ -132,6 +142,10 @@ import {
   DeleteMarkerReplication$,
   DeleteMarkerReplicationStatus,
   DeleteObject$,
+  DeleteObjectAnnotation$,
+  DeleteObjectAnnotationCommand,
+  DeleteObjectAnnotationOutput$,
+  DeleteObjectAnnotationRequest$,
   DeleteObjectCommand,
   DeleteObjectOutput$,
   DeleteObjectRequest$,
@@ -265,6 +279,10 @@ import {
   GetObjectAclCommand,
   GetObjectAclOutput$,
   GetObjectAclRequest$,
+  GetObjectAnnotation$,
+  GetObjectAnnotationCommand,
+  GetObjectAnnotationOutput$,
+  GetObjectAnnotationRequest$,
   GetObjectAttributes$,
   GetObjectAttributesCommand,
   GetObjectAttributesOutput$,
@@ -318,8 +336,12 @@ import {
   IntelligentTieringConfiguration$,
   IntelligentTieringFilter$,
   IntelligentTieringStatus,
+  InvalidAnnotationName,
+  InvalidAnnotationName$,
   InvalidObjectState,
   InvalidObjectState$,
+  InvalidPrefix,
+  InvalidPrefix$,
   InvalidRequest,
   InvalidRequest$,
   InvalidWriteOffset,
@@ -377,6 +399,10 @@ import {
   ListMultipartUploadsCommand,
   ListMultipartUploadsOutput$,
   ListMultipartUploadsRequest$,
+  ListObjectAnnotations$,
+  ListObjectAnnotationsCommand,
+  ListObjectAnnotationsOutput$,
+  ListObjectAnnotationsRequest$,
   ListObjects$,
   ListObjectsCommand,
   ListObjectsOutput$,
@@ -413,6 +439,8 @@ import {
   MultipartUpload$,
   NoncurrentVersionExpiration$,
   NoncurrentVersionTransition$,
+  NoSuchAnnotation,
+  NoSuchAnnotation$,
   NoSuchBucket,
   NoSuchBucket$,
   NoSuchKey,
@@ -453,6 +481,7 @@ import {
   OwnershipControlsRule$,
   paginateListBuckets,
   paginateListDirectoryBuckets,
+  paginateListObjectAnnotations,
   paginateListObjectsV2,
   paginateListParts,
   ParquetInput$,
@@ -529,6 +558,10 @@ import {
   PutObjectAclCommand,
   PutObjectAclOutput$,
   PutObjectAclRequest$,
+  PutObjectAnnotation$,
+  PutObjectAnnotationCommand,
+  PutObjectAnnotationOutput$,
+  PutObjectAnnotationRequest$,
   PutObjectCommand,
   PutObjectLegalHold$,
   PutObjectLegalHoldCommand,
@@ -633,6 +666,11 @@ import {
   TransitionDefaultMinimumObjectSize,
   TransitionStorageClass,
   Type,
+  UnsupportedMediaType,
+  UnsupportedMediaType$,
+  UpdateBucketMetadataAnnotationTableConfiguration$,
+  UpdateBucketMetadataAnnotationTableConfigurationCommand,
+  UpdateBucketMetadataAnnotationTableConfigurationRequest$,
   UpdateBucketMetadataInventoryTableConfiguration$,
   UpdateBucketMetadataInventoryTableConfigurationCommand,
   UpdateBucketMetadataInventoryTableConfigurationRequest$,
@@ -718,6 +756,8 @@ assert(typeof DeleteBucketWebsiteCommand === "function");
 assert(typeof DeleteBucketWebsite$ === "object");
 assert(typeof DeleteObjectCommand === "function");
 assert(typeof DeleteObject$ === "object");
+assert(typeof DeleteObjectAnnotationCommand === "function");
+assert(typeof DeleteObjectAnnotation$ === "object");
 assert(typeof DeleteObjectsCommand === "function");
 assert(typeof DeleteObjects$ === "object");
 assert(typeof DeleteObjectTaggingCommand === "function");
@@ -774,6 +814,8 @@ assert(typeof GetObjectCommand === "function");
 assert(typeof GetObject$ === "object");
 assert(typeof GetObjectAclCommand === "function");
 assert(typeof GetObjectAcl$ === "object");
+assert(typeof GetObjectAnnotationCommand === "function");
+assert(typeof GetObjectAnnotation$ === "object");
 assert(typeof GetObjectAttributesCommand === "function");
 assert(typeof GetObjectAttributes$ === "object");
 assert(typeof GetObjectLegalHoldCommand === "function");
@@ -806,6 +848,8 @@ assert(typeof ListDirectoryBucketsCommand === "function");
 assert(typeof ListDirectoryBuckets$ === "object");
 assert(typeof ListMultipartUploadsCommand === "function");
 assert(typeof ListMultipartUploads$ === "object");
+assert(typeof ListObjectAnnotationsCommand === "function");
+assert(typeof ListObjectAnnotations$ === "object");
 assert(typeof ListObjectsCommand === "function");
 assert(typeof ListObjects$ === "object");
 assert(typeof ListObjectsV2Command === "function");
@@ -856,6 +900,8 @@ assert(typeof PutObjectCommand === "function");
 assert(typeof PutObject$ === "object");
 assert(typeof PutObjectAclCommand === "function");
 assert(typeof PutObjectAcl$ === "object");
+assert(typeof PutObjectAnnotationCommand === "function");
+assert(typeof PutObjectAnnotation$ === "object");
 assert(typeof PutObjectLegalHoldCommand === "function");
 assert(typeof PutObjectLegalHold$ === "object");
 assert(typeof PutObjectLockConfigurationCommand === "function");
@@ -872,6 +918,8 @@ assert(typeof RestoreObjectCommand === "function");
 assert(typeof RestoreObject$ === "object");
 assert(typeof SelectObjectContentCommand === "function");
 assert(typeof SelectObjectContent$ === "object");
+assert(typeof UpdateBucketMetadataAnnotationTableConfigurationCommand === "function");
+assert(typeof UpdateBucketMetadataAnnotationTableConfiguration$ === "object");
 assert(typeof UpdateBucketMetadataInventoryTableConfigurationCommand === "function");
 assert(typeof UpdateBucketMetadataInventoryTableConfiguration$ === "object");
 assert(typeof UpdateBucketMetadataJournalTableConfigurationCommand === "function");
@@ -897,6 +945,10 @@ assert(typeof AnalyticsConfiguration$ === "object");
 assert(typeof AnalyticsExportDestination$ === "object");
 assert(typeof AnalyticsFilter$ === "object");
 assert(typeof AnalyticsS3BucketDestination$ === "object");
+assert(typeof AnnotationEntry$ === "object");
+assert(typeof AnnotationTableConfiguration$ === "object");
+assert(typeof AnnotationTableConfigurationResult$ === "object");
+assert(typeof AnnotationTableConfigurationUpdates$ === "object");
 assert(typeof BlockedEncryptionTypes$ === "object");
 assert(typeof Bucket$ === "object");
 assert(typeof BucketInfo$ === "object");
@@ -947,6 +999,8 @@ assert(typeof DeleteBucketWebsiteRequest$ === "object");
 assert(typeof DeletedObject$ === "object");
 assert(typeof DeleteMarkerEntry$ === "object");
 assert(typeof DeleteMarkerReplication$ === "object");
+assert(typeof DeleteObjectAnnotationOutput$ === "object");
+assert(typeof DeleteObjectAnnotationRequest$ === "object");
 assert(typeof DeleteObjectOutput$ === "object");
 assert(typeof DeleteObjectRequest$ === "object");
 assert(typeof DeleteObjectsOutput$ === "object");
@@ -1014,6 +1068,8 @@ assert(typeof GetBucketWebsiteOutput$ === "object");
 assert(typeof GetBucketWebsiteRequest$ === "object");
 assert(typeof GetObjectAclOutput$ === "object");
 assert(typeof GetObjectAclRequest$ === "object");
+assert(typeof GetObjectAnnotationOutput$ === "object");
+assert(typeof GetObjectAnnotationRequest$ === "object");
 assert(typeof GetObjectAttributesOutput$ === "object");
 assert(typeof GetObjectAttributesParts$ === "object");
 assert(typeof GetObjectAttributesRequest$ === "object");
@@ -1077,6 +1133,8 @@ assert(typeof ListDirectoryBucketsOutput$ === "object");
 assert(typeof ListDirectoryBucketsRequest$ === "object");
 assert(typeof ListMultipartUploadsOutput$ === "object");
 assert(typeof ListMultipartUploadsRequest$ === "object");
+assert(typeof ListObjectAnnotationsOutput$ === "object");
+assert(typeof ListObjectAnnotationsRequest$ === "object");
 assert(typeof ListObjectsOutput$ === "object");
 assert(typeof ListObjectsRequest$ === "object");
 assert(typeof ListObjectsV2Output$ === "object");
@@ -1145,6 +1203,8 @@ assert(typeof PutBucketVersioningRequest$ === "object");
 assert(typeof PutBucketWebsiteRequest$ === "object");
 assert(typeof PutObjectAclOutput$ === "object");
 assert(typeof PutObjectAclRequest$ === "object");
+assert(typeof PutObjectAnnotationOutput$ === "object");
+assert(typeof PutObjectAnnotationRequest$ === "object");
 assert(typeof PutObjectLegalHoldOutput$ === "object");
 assert(typeof PutObjectLegalHoldRequest$ === "object");
 assert(typeof PutObjectLockConfigurationOutput$ === "object");
@@ -1207,6 +1267,7 @@ assert(typeof TargetObjectKeyFormat$ === "object");
 assert(typeof Tiering$ === "object");
 assert(typeof TopicConfiguration$ === "object");
 assert(typeof Transition$ === "object");
+assert(typeof UpdateBucketMetadataAnnotationTableConfigurationRequest$ === "object");
 assert(typeof UpdateBucketMetadataInventoryTableConfigurationRequest$ === "object");
 assert(typeof UpdateBucketMetadataJournalTableConfigurationRequest$ === "object");
 assert(typeof UpdateObjectEncryptionRequest$ === "object");
@@ -1220,6 +1281,8 @@ assert(typeof WebsiteConfiguration$ === "object");
 assert(typeof WriteGetObjectResponseRequest$ === "object");
 // enums
 assert(typeof AnalyticsS3ExportFileFormat === "object");
+assert(typeof AnnotationConfigurationState === "object");
+assert(typeof AnnotationDirective === "object");
 assert(typeof ArchiveStatus === "object");
 assert(typeof BucketAbacStatus === "object");
 assert(typeof BucketAccelerateStatus === "object");
@@ -1295,6 +1358,10 @@ assert(typeof Type === "object");
 // errors
 assert(AccessDenied.prototype instanceof S3ServiceException);
 assert(typeof AccessDenied$ === "object");
+assert(AnnotationLimitExceeded.prototype instanceof S3ServiceException);
+assert(typeof AnnotationLimitExceeded$ === "object");
+assert(AnnotationNameTooLong.prototype instanceof S3ServiceException);
+assert(typeof AnnotationNameTooLong$ === "object");
 assert(BucketAlreadyExists.prototype instanceof S3ServiceException);
 assert(typeof BucketAlreadyExists$ === "object");
 assert(BucketAlreadyOwnedByYou.prototype instanceof S3ServiceException);
@@ -1303,12 +1370,18 @@ assert(EncryptionTypeMismatch.prototype instanceof S3ServiceException);
 assert(typeof EncryptionTypeMismatch$ === "object");
 assert(IdempotencyParameterMismatch.prototype instanceof S3ServiceException);
 assert(typeof IdempotencyParameterMismatch$ === "object");
+assert(InvalidAnnotationName.prototype instanceof S3ServiceException);
+assert(typeof InvalidAnnotationName$ === "object");
 assert(InvalidObjectState.prototype instanceof S3ServiceException);
 assert(typeof InvalidObjectState$ === "object");
+assert(InvalidPrefix.prototype instanceof S3ServiceException);
+assert(typeof InvalidPrefix$ === "object");
 assert(InvalidRequest.prototype instanceof S3ServiceException);
 assert(typeof InvalidRequest$ === "object");
 assert(InvalidWriteOffset.prototype instanceof S3ServiceException);
 assert(typeof InvalidWriteOffset$ === "object");
+assert(NoSuchAnnotation.prototype instanceof S3ServiceException);
+assert(typeof NoSuchAnnotation$ === "object");
 assert(NoSuchBucket.prototype instanceof S3ServiceException);
 assert(typeof NoSuchBucket$ === "object");
 assert(NoSuchKey.prototype instanceof S3ServiceException);
@@ -1323,6 +1396,8 @@ assert(ObjectNotInActiveTierError.prototype instanceof S3ServiceException);
 assert(typeof ObjectNotInActiveTierError$ === "object");
 assert(TooManyParts.prototype instanceof S3ServiceException);
 assert(typeof TooManyParts$ === "object");
+assert(UnsupportedMediaType.prototype instanceof S3ServiceException);
+assert(typeof UnsupportedMediaType$ === "object");
 assert(S3ServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForBucketExists === "function");
@@ -1336,6 +1411,7 @@ assert(typeof waitUntilObjectNotExists === "function");
 // paginators
 assert(typeof paginateListBuckets === "function");
 assert(typeof paginateListDirectoryBuckets === "function");
+assert(typeof paginateListObjectAnnotations === "function");
 assert(typeof paginateListObjectsV2 === "function");
 assert(typeof paginateListParts === "function");
 console.log(`S3 index test passed.`);

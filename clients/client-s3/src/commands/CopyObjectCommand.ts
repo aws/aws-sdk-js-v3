@@ -265,6 +265,7 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  *   },
  *   MetadataDirective: "COPY" || "REPLACE",
  *   TaggingDirective: "COPY" || "REPLACE",
+ *   AnnotationDirective: "COPY" || "EXCLUDE",
  *   ServerSideEncryption: "AES256" || "aws:fsx" || "aws:kms" || "aws:kms:dsse",
  *   StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW" || "EXPRESS_ONEZONE" || "FSX_OPENZFS" || "FSX_ONTAP",
  *   WebsiteRedirectLocation: "STRING_VALUE",

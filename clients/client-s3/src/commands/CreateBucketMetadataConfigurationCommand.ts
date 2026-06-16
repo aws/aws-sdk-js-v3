@@ -85,6 +85,11 @@ export interface CreateBucketMetadataConfigurationCommandOutput extends __Metada
  *                   </li>
  *                   <li>
  *                      <p>
+ *                         <code>s3tables:PutTableBucketPolicy</code>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
  *                         <code>s3tables:PutTableEncryption</code>
  *                      </p>
  *                   </li>
@@ -92,6 +97,11 @@ export interface CreateBucketMetadataConfigurationCommandOutput extends __Metada
  *                      <p>
  *                         <code>kms:DescribeKey</code>
  *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <code>iam:PassRole</code> - required if you include an
+ *                 <code>AnnotationTableConfiguration</code> with an IAM role.</p>
  *                   </li>
  *                </ul>
  *             </dd>
@@ -118,7 +128,16 @@ export interface CreateBucketMetadataConfigurationCommandOutput extends __Metada
  *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UpdateBucketMetadataJournalTableConfiguration.html">UpdateBucketMetadataJournalTableConfiguration</a>
  *                </p>
  *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UpdateBucketMetadataAnnotationTableConfiguration.html">UpdateBucketMetadataAnnotationTableConfiguration</a>
+ *                </p>
+ *             </li>
  *          </ul>
+ *          <p>If you include an <code>AnnotationTableConfiguration</code> with an IAM role, the role must
+ *       have a trust policy that allows the Amazon S3 metadata service to assume it, and a permissions policy
+ *       that grants the actions needed to read annotations from your bucket. The following examples show
+ *       a trust policy and a permissions policy that you can adapt for your bucket and account.</p>
  *          <important>
  *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
  *          </important>
@@ -151,6 +170,14 @@ export interface CreateBucketMetadataConfigurationCommandOutput extends __Metada
  *         SseAlgorithm: "aws:kms" || "AES256", // required
  *         KmsKeyArn: "STRING_VALUE",
  *       },
+ *     },
+ *     AnnotationTableConfiguration: { // AnnotationTableConfiguration
+ *       ConfigurationState: "ENABLED" || "DISABLED", // required
+ *       EncryptionConfiguration: {
+ *         SseAlgorithm: "aws:kms" || "AES256", // required
+ *         KmsKeyArn: "STRING_VALUE",
+ *       },
+ *       Role: "STRING_VALUE",
  *     },
  *   },
  *   ExpectedBucketOwner: "STRING_VALUE",

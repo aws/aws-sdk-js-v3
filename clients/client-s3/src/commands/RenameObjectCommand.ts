@@ -5,7 +5,7 @@ import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { RenameObjectOutput, RenameObjectRequest } from "../models/models_0";
+import type { RenameObjectOutput, RenameObjectRequest } from "../models/models_1";
 import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { RenameObject$ } from "../schemas/schemas_0";
 

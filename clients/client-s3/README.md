@@ -349,6 +349,13 @@ DeleteObject
 </details>
 <details>
 <summary>
+DeleteObjectAnnotation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/DeleteObjectAnnotationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3/Interface/DeleteObjectAnnotationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3/Interface/DeleteObjectAnnotationCommandOutput/)
+</details>
+<details>
+<summary>
 DeleteObjects
 </summary>
 
@@ -545,6 +552,13 @@ GetObjectAcl
 </details>
 <details>
 <summary>
+GetObjectAnnotation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/GetObjectAnnotationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3/Interface/GetObjectAnnotationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3/Interface/GetObjectAnnotationCommandOutput/)
+</details>
+<details>
+<summary>
 GetObjectAttributes
 </summary>
 
@@ -654,6 +668,13 @@ ListMultipartUploads
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/ListMultipartUploadsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3/Interface/ListMultipartUploadsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3/Interface/ListMultipartUploadsCommandOutput/)
+</details>
+<details>
+<summary>
+ListObjectAnnotations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/ListObjectAnnotationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3/Interface/ListObjectAnnotationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3/Interface/ListObjectAnnotationsCommandOutput/)
 </details>
 <details>
 <summary>
@@ -832,6 +853,13 @@ PutObjectAcl
 </details>
 <details>
 <summary>
+PutObjectAnnotation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/PutObjectAnnotationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3/Interface/PutObjectAnnotationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3/Interface/PutObjectAnnotationCommandOutput/)
+</details>
+<details>
+<summary>
 PutObjectLegalHold
 </summary>
 
@@ -885,6 +913,13 @@ SelectObjectContent
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/SelectObjectContentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3/Interface/SelectObjectContentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3/Interface/SelectObjectContentCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateBucketMetadataAnnotationTableConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/UpdateBucketMetadataAnnotationTableConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3/Interface/UpdateBucketMetadataAnnotationTableConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3/Interface/UpdateBucketMetadataAnnotationTableConfigurationCommandOutput/)
 </details>
 <details>
 <summary>

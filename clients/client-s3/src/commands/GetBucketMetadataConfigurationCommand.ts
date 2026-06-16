@@ -119,6 +119,17 @@ export interface GetBucketMetadataConfigurationCommandOutput extends GetBucketMe
  * //         TableName: "STRING_VALUE",
  * //         TableArn: "STRING_VALUE",
  * //       },
+ * //       AnnotationTableConfigurationResult: { // AnnotationTableConfigurationResult
+ * //         ConfigurationState: "ENABLED" || "DISABLED", // required
+ * //         TableStatus: "STRING_VALUE",
+ * //         Error: {
+ * //           ErrorCode: "STRING_VALUE",
+ * //           ErrorMessage: "STRING_VALUE",
+ * //         },
+ * //         TableName: "STRING_VALUE",
+ * //         TableArn: "STRING_VALUE",
+ * //         Role: "STRING_VALUE",
+ * //       },
  * //     },
  * //   },
  * // };

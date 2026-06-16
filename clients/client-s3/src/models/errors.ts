@@ -132,6 +132,26 @@ export class NoSuchBucket extends __BaseException {
 }
 
 /**
+ * <p>The specified key does not exist.</p>
+ * @public
+ */
+export class NoSuchKey extends __BaseException {
+  readonly name = "NoSuchKey" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoSuchKey, __BaseException>) {
+    super({
+      name: "NoSuchKey",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchKey.prototype);
+  }
+}
+
+/**
  * <p>Object is archived and inaccessible until restored.</p>
  *          <p>If the object you are retrieving is stored in the S3 Glacier Flexible Retrieval storage class, the
  *       S3 Glacier Deep Archive storage class, the S3 Intelligent-Tiering Archive Access tier, or the
@@ -162,22 +182,22 @@ export class InvalidObjectState extends __BaseException {
 }
 
 /**
- * <p>The specified key does not exist.</p>
+ * <p>The specified annotation does not exist on this object.</p>
  * @public
  */
-export class NoSuchKey extends __BaseException {
-  readonly name = "NoSuchKey" as const;
+export class NoSuchAnnotation extends __BaseException {
+  readonly name = "NoSuchAnnotation" as const;
   readonly $fault = "client" as const;
   /**
    * @internal
    */
-  constructor(opts: __ExceptionOptionType<NoSuchKey, __BaseException>) {
+  constructor(opts: __ExceptionOptionType<NoSuchAnnotation, __BaseException>) {
     super({
-      name: "NoSuchKey",
+      name: "NoSuchAnnotation",
       $fault: "client",
       ...opts,
     });
-    Object.setPrototypeOf(this, NoSuchKey.prototype);
+    Object.setPrototypeOf(this, NoSuchAnnotation.prototype);
   }
 }
 
@@ -198,6 +218,26 @@ export class NotFound extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, NotFound.prototype);
+  }
+}
+
+/**
+ * <p>The annotation prefix you provided is invalid.</p>
+ * @public
+ */
+export class InvalidPrefix extends __BaseException {
+  readonly name = "InvalidPrefix" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidPrefix, __BaseException>) {
+    super({
+      name: "InvalidPrefix",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidPrefix.prototype);
   }
 }
 
@@ -282,6 +322,86 @@ export class TooManyParts extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, TooManyParts.prototype);
+  }
+}
+
+/**
+ * <p>The request would exceed the maximum number of annotations allowed per object.</p>
+ * @public
+ */
+export class AnnotationLimitExceeded extends __BaseException {
+  readonly name = "AnnotationLimitExceeded" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AnnotationLimitExceeded, __BaseException>) {
+    super({
+      name: "AnnotationLimitExceeded",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AnnotationLimitExceeded.prototype);
+  }
+}
+
+/**
+ * <p>The annotation name exceeds 512 bytes.</p>
+ * @public
+ */
+export class AnnotationNameTooLong extends __BaseException {
+  readonly name = "AnnotationNameTooLong" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AnnotationNameTooLong, __BaseException>) {
+    super({
+      name: "AnnotationNameTooLong",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AnnotationNameTooLong.prototype);
+  }
+}
+
+/**
+ * <p>The annotation name you provided is invalid.</p>
+ * @public
+ */
+export class InvalidAnnotationName extends __BaseException {
+  readonly name = "InvalidAnnotationName" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidAnnotationName, __BaseException>) {
+    super({
+      name: "InvalidAnnotationName",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidAnnotationName.prototype);
+  }
+}
+
+/**
+ * <p>The annotation payload is not valid UTF-8 encoded text.</p>
+ * @public
+ */
+export class UnsupportedMediaType extends __BaseException {
+  readonly name = "UnsupportedMediaType" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedMediaType, __BaseException>) {
+    super({
+      name: "UnsupportedMediaType",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedMediaType.prototype);
   }
 }
 
