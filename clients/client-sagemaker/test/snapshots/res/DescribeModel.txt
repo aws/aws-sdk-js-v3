@@ -237,6 +237,22 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     "InferenceSpecificationName": "__InferenceSpecificationName__",
     "MultiModelConfig": {
       "ModelCacheSetting": "__ModelCacheSetting__"
+    },
+    "ContainerMetricsConfig": {
+      "MetricsEndpoints": [
+        {
+          "MetricsEndpointPath": "__MetricsEndpointPath__",
+          "MetricPublishFrequencyInSeconds": 0
+        },
+        {
+          "MetricsEndpointPath": "__MetricsEndpointPath__",
+          "MetricPublishFrequencyInSeconds": 0
+        },
+        {
+          "MetricsEndpointPath": "__MetricsEndpointPath__",
+          "MetricPublishFrequencyInSeconds": 0
+        }
+      ]
     }
   },
   "Containers": [
@@ -329,6 +345,22 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "InferenceSpecificationName": "__InferenceSpecificationName__",
       "MultiModelConfig": {
         "ModelCacheSetting": "__ModelCacheSetting__"
+      },
+      "ContainerMetricsConfig": {
+        "MetricsEndpoints": [
+          {
+            "MetricsEndpointPath": "__MetricsEndpointPath__",
+            "MetricPublishFrequencyInSeconds": 0
+          },
+          {
+            "MetricsEndpointPath": "__MetricsEndpointPath__",
+            "MetricPublishFrequencyInSeconds": 0
+          },
+          {
+            "MetricsEndpointPath": "__MetricsEndpointPath__",
+            "MetricPublishFrequencyInSeconds": 0
+          }
+        ]
       }
     },
     {
@@ -420,6 +452,22 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "InferenceSpecificationName": "__InferenceSpecificationName__",
       "MultiModelConfig": {
         "ModelCacheSetting": "__ModelCacheSetting__"
+      },
+      "ContainerMetricsConfig": {
+        "MetricsEndpoints": [
+          {
+            "MetricsEndpointPath": "__MetricsEndpointPath__",
+            "MetricPublishFrequencyInSeconds": 0
+          },
+          {
+            "MetricsEndpointPath": "__MetricsEndpointPath__",
+            "MetricPublishFrequencyInSeconds": 0
+          },
+          {
+            "MetricsEndpointPath": "__MetricsEndpointPath__",
+            "MetricPublishFrequencyInSeconds": 0
+          }
+        ]
       }
     },
     {
@@ -511,6 +559,22 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "InferenceSpecificationName": "__InferenceSpecificationName__",
       "MultiModelConfig": {
         "ModelCacheSetting": "__ModelCacheSetting__"
+      },
+      "ContainerMetricsConfig": {
+        "MetricsEndpoints": [
+          {
+            "MetricsEndpointPath": "__MetricsEndpointPath__",
+            "MetricPublishFrequencyInSeconds": 0
+          },
+          {
+            "MetricsEndpointPath": "__MetricsEndpointPath__",
+            "MetricPublishFrequencyInSeconds": 0
+          },
+          {
+            "MetricsEndpointPath": "__MetricsEndpointPath__",
+            "MetricPublishFrequencyInSeconds": 0
+          }
+        ]
       }
     }
   ],
@@ -660,6 +724,22 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     InferenceSpecificationName: "__InferenceSpecificationName__",
     MultiModelConfig: {
       ModelCacheSetting: "__ModelCacheSetting__"
+    },
+    ContainerMetricsConfig: {
+      MetricsEndpoints: [
+        {
+          MetricsEndpointPath: "__MetricsEndpointPath__",
+          MetricPublishFrequencyInSeconds: (number) 0
+        },
+        {
+          MetricsEndpointPath: "__MetricsEndpointPath__",
+          MetricPublishFrequencyInSeconds: (number) 0
+        },
+        {
+          MetricsEndpointPath: "__MetricsEndpointPath__",
+          MetricPublishFrequencyInSeconds: (number) 0
+        }
+      ]
     }
   },
   Containers: [
@@ -752,6 +832,22 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       InferenceSpecificationName: "__InferenceSpecificationName__",
       MultiModelConfig: {
         ModelCacheSetting: "__ModelCacheSetting__"
+      },
+      ContainerMetricsConfig: {
+        MetricsEndpoints: [
+          {
+            MetricsEndpointPath: "__MetricsEndpointPath__",
+            MetricPublishFrequencyInSeconds: (number) 0
+          },
+          {
+            MetricsEndpointPath: "__MetricsEndpointPath__",
+            MetricPublishFrequencyInSeconds: (number) 0
+          },
+          {
+            MetricsEndpointPath: "__MetricsEndpointPath__",
+            MetricPublishFrequencyInSeconds: (number) 0
+          }
+        ]
       }
     },
     {
@@ -843,6 +939,22 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       InferenceSpecificationName: "__InferenceSpecificationName__",
       MultiModelConfig: {
         ModelCacheSetting: "__ModelCacheSetting__"
+      },
+      ContainerMetricsConfig: {
+        MetricsEndpoints: [
+          {
+            MetricsEndpointPath: "__MetricsEndpointPath__",
+            MetricPublishFrequencyInSeconds: (number) 0
+          },
+          {
+            MetricsEndpointPath: "__MetricsEndpointPath__",
+            MetricPublishFrequencyInSeconds: (number) 0
+          },
+          {
+            MetricsEndpointPath: "__MetricsEndpointPath__",
+            MetricPublishFrequencyInSeconds: (number) 0
+          }
+        ]
       }
     },
     {
@@ -934,6 +1046,22 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       InferenceSpecificationName: "__InferenceSpecificationName__",
       MultiModelConfig: {
         ModelCacheSetting: "__ModelCacheSetting__"
+      },
+      ContainerMetricsConfig: {
+        MetricsEndpoints: [
+          {
+            MetricsEndpointPath: "__MetricsEndpointPath__",
+            MetricPublishFrequencyInSeconds: (number) 0
+          },
+          {
+            MetricsEndpointPath: "__MetricsEndpointPath__",
+            MetricPublishFrequencyInSeconds: (number) 0
+          },
+          {
+            MetricsEndpointPath: "__MetricsEndpointPath__",
+            MetricPublishFrequencyInSeconds: (number) 0
+          }
+        ]
       }
     }
   ],

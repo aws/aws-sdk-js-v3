@@ -43,10 +43,8 @@ import type {
   HyperParameterTuningJobObjectiveType,
   HyperParameterTuningJobStatus,
   ImageStatus,
-  ImageVersionStatus,
   InputMode,
   JobCategory,
-  JobType,
   JoinSource,
   LastUpdateStatusValue,
   ModelSpeculativeDecodingS3DataType,
@@ -64,7 +62,6 @@ import type {
   ProcessingS3DataType,
   ProcessingS3InputMode,
   ProcessingS3UploadMode,
-  Processor,
   ProductionVariantAcceleratorType,
   ProductionVariantInstanceType,
   RecommendationStatus,
@@ -84,7 +81,6 @@ import type {
   TrainingJobStatus,
   TrialComponentPrimaryStatus,
   VariantStatus,
-  VendorGuidance,
   WorkforceIpAddressType,
 } from "./enums";
 import type {
@@ -184,9 +180,7 @@ import type {
   KernelGatewayAppSettings,
   MetadataProperties,
   MetricsConfig,
-  ModelCompilationConfig,
   ModelDeployConfig,
-  ModelQuantizationConfig,
   MonitoringNetworkConfig,
   MonitoringOutputConfig,
   MonitoringResources,
@@ -207,6 +201,42 @@ import type {
   TrainingSpecification,
   UserSettings,
 } from "./models_1";
+
+/**
+ * <p>Settings for the model compilation technique that's applied by a model optimization job.</p>
+ * @public
+ */
+export interface ModelCompilationConfig {
+  /**
+   * <p>The URI of an LMI DLC in Amazon ECR. SageMaker uses this image to run the optimization.</p>
+   * @public
+   */
+  Image?: string | undefined;
+
+  /**
+   * <p>Environment variables that override the default ones in the model container.</p>
+   * @public
+   */
+  OverrideEnvironment?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Settings for the model quantization technique that's applied by a model optimization job.</p>
+ * @public
+ */
+export interface ModelQuantizationConfig {
+  /**
+   * <p>The URI of an LMI DLC in Amazon ECR. SageMaker uses this image to run the optimization.</p>
+   * @public
+   */
+  Image?: string | undefined;
+
+  /**
+   * <p>Environment variables that override the default ones in the model container.</p>
+   * @public
+   */
+  OverrideEnvironment?: Record<string, string> | undefined;
+}
 
 /**
  * <p>Settings for the model sharding technique that's applied by a model optimization job.</p>
@@ -8404,128 +8434,4 @@ export interface DescribeImageResponse {
    * @public
    */
   RoleArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeImageVersionRequest {
-  /**
-   * <p>The name of the image.</p>
-   * @public
-   */
-  ImageName: string | undefined;
-
-  /**
-   * <p>The version of the image. If not specified, the latest version is described.</p>
-   * @public
-   */
-  Version?: number | undefined;
-
-  /**
-   * <p>The alias of the image version.</p>
-   * @public
-   */
-  Alias?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeImageVersionResponse {
-  /**
-   * <p>The registry path of the container image on which this image version is based.</p>
-   * @public
-   */
-  BaseImage?: string | undefined;
-
-  /**
-   * <p>The registry path of the container image that contains this image version.</p>
-   * @public
-   */
-  ContainerImage?: string | undefined;
-
-  /**
-   * <p>When the version was created.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>When a create or delete operation fails, the reason for the failure.</p>
-   * @public
-   */
-  FailureReason?: string | undefined;
-
-  /**
-   * <p>The ARN of the image the version is based on.</p>
-   * @public
-   */
-  ImageArn?: string | undefined;
-
-  /**
-   * <p>The ARN of the version.</p>
-   * @public
-   */
-  ImageVersionArn?: string | undefined;
-
-  /**
-   * <p>The status of the version.</p>
-   * @public
-   */
-  ImageVersionStatus?: ImageVersionStatus | undefined;
-
-  /**
-   * <p>When the version was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>The version number.</p>
-   * @public
-   */
-  Version?: number | undefined;
-
-  /**
-   * <p>The stability of the image version specified by the maintainer.</p> <ul> <li> <p> <code>NOT_PROVIDED</code>: The maintainers did not provide a status for image version stability.</p> </li> <li> <p> <code>STABLE</code>: The image version is stable.</p> </li> <li> <p> <code>TO_BE_ARCHIVED</code>: The image version is set to be archived. Custom image versions that are set to be archived are automatically archived after three months.</p> </li> <li> <p> <code>ARCHIVED</code>: The image version is archived. Archived image versions are not searchable and are no longer actively supported. </p> </li> </ul>
-   * @public
-   */
-  VendorGuidance?: VendorGuidance | undefined;
-
-  /**
-   * <p>Indicates SageMaker AI job type compatibility.</p> <ul> <li> <p> <code>TRAINING</code>: The image version is compatible with SageMaker AI training jobs.</p> </li> <li> <p> <code>INFERENCE</code>: The image version is compatible with SageMaker AI inference jobs.</p> </li> <li> <p> <code>NOTEBOOK_KERNEL</code>: The image version is compatible with SageMaker AI notebook kernels.</p> </li> </ul>
-   * @public
-   */
-  JobType?: JobType | undefined;
-
-  /**
-   * <p>The machine learning framework vended in the image version.</p>
-   * @public
-   */
-  MLFramework?: string | undefined;
-
-  /**
-   * <p>The supported programming language and its version.</p>
-   * @public
-   */
-  ProgrammingLang?: string | undefined;
-
-  /**
-   * <p>Indicates CPU or GPU compatibility.</p> <ul> <li> <p> <code>CPU</code>: The image version is compatible with CPU.</p> </li> <li> <p> <code>GPU</code>: The image version is compatible with GPU.</p> </li> </ul>
-   * @public
-   */
-  Processor?: Processor | undefined;
-
-  /**
-   * <p>Indicates Horovod compatibility.</p>
-   * @public
-   */
-  Horovod?: boolean | undefined;
-
-  /**
-   * <p>The maintainer description of the image version.</p>
-   * @public
-   */
-  ReleaseNotes?: string | undefined;
 }

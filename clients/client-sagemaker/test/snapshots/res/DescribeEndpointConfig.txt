@@ -1119,6 +1119,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   "EnableNetworkIsolation": false,
   "MetricsConfig": {
     "EnableEnhancedMetrics": false,
+    "EnableDetailedObservability": false,
     "MetricPublishFrequencyInSeconds": 0
   }
 }
@@ -1584,6 +1585,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   EnableNetworkIsolation: (boolean) false,
   MetricsConfig: {
     EnableEnhancedMetrics: (boolean) false,
+    EnableDetailedObservability: (boolean) false,
     MetricPublishFrequencyInSeconds: (number) 0
   },
   $metadata: {

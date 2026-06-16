@@ -61,6 +61,7 @@ import type {
   JobCategory,
   JobSecondaryStatus,
   JobStatus,
+  JobType,
   LabelingJobStatus,
   ListAIBenchmarkJobsSortBy,
   ListAIRecommendationJobsSortBy,
@@ -69,7 +70,6 @@ import type {
   ListDeviceFleetsSortBy,
   ListEdgeDeploymentPlansSortBy,
   ListEdgePackagingJobsSortBy,
-  ListInferenceRecommendationsJobsSortBy,
   MaintenanceStatus,
   ManagedStorageType,
   MlflowAppStatus,
@@ -97,6 +97,7 @@ import type {
   PipelineExecutionStatus,
   PipelineStatus,
   ProcessingJobStatus,
+  Processor,
   ProductionVariantInstanceType,
   ProfilingStatus,
   ProjectStatus,
@@ -133,6 +134,7 @@ import type {
   TrainingPlanStatus,
   TransformJobStatus,
   UserProfileStatus,
+  VendorGuidance,
   VolumeAttachmentStatus,
   WarmPoolResourceStatus,
   WorkforceIpAddressType,
@@ -185,6 +187,7 @@ import type {
 import type {
   ComputeQuotaSummary,
   ContainerDefinition,
+  ContainerMetricsConfig,
   ContextSummary,
   DockerSettings,
   DriftCheckBaselines,
@@ -298,6 +301,130 @@ import type {
   TrialComponentStatus,
   WorkerAccessConfiguration,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DescribeImageVersionRequest {
+  /**
+   * <p>The name of the image.</p>
+   * @public
+   */
+  ImageName: string | undefined;
+
+  /**
+   * <p>The version of the image. If not specified, the latest version is described.</p>
+   * @public
+   */
+  Version?: number | undefined;
+
+  /**
+   * <p>The alias of the image version.</p>
+   * @public
+   */
+  Alias?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeImageVersionResponse {
+  /**
+   * <p>The registry path of the container image on which this image version is based.</p>
+   * @public
+   */
+  BaseImage?: string | undefined;
+
+  /**
+   * <p>The registry path of the container image that contains this image version.</p>
+   * @public
+   */
+  ContainerImage?: string | undefined;
+
+  /**
+   * <p>When the version was created.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>When a create or delete operation fails, the reason for the failure.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+
+  /**
+   * <p>The ARN of the image the version is based on.</p>
+   * @public
+   */
+  ImageArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the version.</p>
+   * @public
+   */
+  ImageVersionArn?: string | undefined;
+
+  /**
+   * <p>The status of the version.</p>
+   * @public
+   */
+  ImageVersionStatus?: ImageVersionStatus | undefined;
+
+  /**
+   * <p>When the version was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The version number.</p>
+   * @public
+   */
+  Version?: number | undefined;
+
+  /**
+   * <p>The stability of the image version specified by the maintainer.</p> <ul> <li> <p> <code>NOT_PROVIDED</code>: The maintainers did not provide a status for image version stability.</p> </li> <li> <p> <code>STABLE</code>: The image version is stable.</p> </li> <li> <p> <code>TO_BE_ARCHIVED</code>: The image version is set to be archived. Custom image versions that are set to be archived are automatically archived after three months.</p> </li> <li> <p> <code>ARCHIVED</code>: The image version is archived. Archived image versions are not searchable and are no longer actively supported. </p> </li> </ul>
+   * @public
+   */
+  VendorGuidance?: VendorGuidance | undefined;
+
+  /**
+   * <p>Indicates SageMaker AI job type compatibility.</p> <ul> <li> <p> <code>TRAINING</code>: The image version is compatible with SageMaker AI training jobs.</p> </li> <li> <p> <code>INFERENCE</code>: The image version is compatible with SageMaker AI inference jobs.</p> </li> <li> <p> <code>NOTEBOOK_KERNEL</code>: The image version is compatible with SageMaker AI notebook kernels.</p> </li> </ul>
+   * @public
+   */
+  JobType?: JobType | undefined;
+
+  /**
+   * <p>The machine learning framework vended in the image version.</p>
+   * @public
+   */
+  MLFramework?: string | undefined;
+
+  /**
+   * <p>The supported programming language and its version.</p>
+   * @public
+   */
+  ProgrammingLang?: string | undefined;
+
+  /**
+   * <p>Indicates CPU or GPU compatibility.</p> <ul> <li> <p> <code>CPU</code>: The image version is compatible with CPU.</p> </li> <li> <p> <code>GPU</code>: The image version is compatible with GPU.</p> </li> </ul>
+   * @public
+   */
+  Processor?: Processor | undefined;
+
+  /**
+   * <p>Indicates Horovod compatibility.</p>
+   * @public
+   */
+  Horovod?: boolean | undefined;
+
+  /**
+   * <p>The maintainer description of the image version.</p>
+   * @public
+   */
+  ReleaseNotes?: string | undefined;
+}
 
 /**
  * @public
@@ -440,6 +567,12 @@ export interface InferenceComponentContainerSpecificationSummary {
    * @public
    */
   Environment?: Record<string, string> | undefined;
+
+  /**
+   * <p>The container metrics scraping configuration for this inference component, including the metrics endpoint path and publishing frequency.</p>
+   * @public
+   */
+  ContainerMetricsConfig?: ContainerMetricsConfig | undefined;
 }
 
 /**
@@ -8364,8 +8497,7 @@ export interface InferenceRecommendationsJobStep {
 }
 
 /**
- * Search shape for Job. Mirrors DescribeJobResponse fields.
- * If you update DescribeJobResponse, update this structure as well.
+ * <p>The properties of a job returned by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API.</p>
  * @public
  */
 export interface Job {
@@ -11675,100 +11807,6 @@ export interface ListInferenceExperimentsResponse {
 
   /**
    * <p>The token to use when calling the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListInferenceRecommendationsJobsRequest {
-  /**
-   * <p>A filter that returns only jobs created after the specified time (timestamp).</p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only jobs created before the specified time (timestamp).</p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only jobs that were last modified after the specified time (timestamp).</p>
-   * @public
-   */
-  LastModifiedTimeAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only jobs that were last modified before the specified time (timestamp).</p>
-   * @public
-   */
-  LastModifiedTimeBefore?: Date | undefined;
-
-  /**
-   * <p>A string in the job name. This filter returns only recommendations whose name contains the specified string.</p>
-   * @public
-   */
-  NameContains?: string | undefined;
-
-  /**
-   * <p>A filter that retrieves only inference recommendations jobs with a specific status.</p>
-   * @public
-   */
-  StatusEquals?: RecommendationJobStatus | undefined;
-
-  /**
-   * <p>The parameter by which to sort the results.</p>
-   * @public
-   */
-  SortBy?: ListInferenceRecommendationsJobsSortBy | undefined;
-
-  /**
-   * <p>The sort order for the results.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>If the response to a previous <code>ListInferenceRecommendationsJobsRequest</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of recommendations, use the token in the next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of recommendations to return in the response.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>A filter that returns only jobs that were created for this model.</p>
-   * @public
-   */
-  ModelNameEquals?: string | undefined;
-
-  /**
-   * <p>A filter that returns only jobs that were created for this versioned model package.</p>
-   * @public
-   */
-  ModelPackageVersionArnEquals?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListInferenceRecommendationsJobsResponse {
-  /**
-   * <p>The recommendations created from the Amazon SageMaker Inference Recommender job.</p>
-   * @public
-   */
-  InferenceRecommendationsJobs: InferenceRecommendationsJob[] | undefined;
-
-  /**
-   * <p>A token for getting the next set of recommendations, if there are any.</p>
    * @public
    */
   NextToken?: string | undefined;

@@ -327,6 +327,7 @@ import {
   ConflictException$,
   ContainerConfig$,
   ContainerDefinition$,
+  ContainerMetricsConfig$,
   ContainerMode,
   ContentClassifier,
   ContextSource$,
@@ -1867,6 +1868,7 @@ import {
   MetricDefinition$,
   MetricPublishFrequencyInSeconds,
   MetricsConfig$,
+  MetricsEndpoint$,
   MetricSetSource,
   MetricSpecification$,
   MetricsSource$,
@@ -3861,6 +3863,7 @@ assert(typeof ComputeQuotaTarget$ === "object");
 assert(typeof ConditionStepMetadata$ === "object");
 assert(typeof ContainerConfig$ === "object");
 assert(typeof ContainerDefinition$ === "object");
+assert(typeof ContainerMetricsConfig$ === "object");
 assert(typeof ContextSource$ === "object");
 assert(typeof ContextSummary$ === "object");
 assert(typeof ContinuousParameterRange$ === "object");
@@ -4675,6 +4678,7 @@ assert(typeof MetricData$ === "object");
 assert(typeof MetricDatum$ === "object");
 assert(typeof MetricDefinition$ === "object");
 assert(typeof MetricsConfig$ === "object");
+assert(typeof MetricsEndpoint$ === "object");
 assert(typeof MetricSpecification$ === "object");
 assert(typeof MetricsSource$ === "object");
 assert(typeof MlflowAppSummary$ === "object");

@@ -3,14 +3,14 @@ POST https://api.sagemaker.us-east-1.amazonaws.com
 
 content-type: application/x-amz-json-1.1
 x-amz-target: SageMaker.CreateInferenceComponent
-content-length: 3179
+content-length: 4403
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/sagemaker#_.__ m/E,e
 host: api.sagemaker.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: 648b6f24d13b493ec274b5add3f6fca01b168dcd79c493192550434c646efe9d
+x-amz-content-sha256: 233f497bf31653750245308d3946f103c5e6b9baf2227553863810a4410dfa3b
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
 [string (json)]
@@ -28,6 +28,22 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
         "key1": "__value__",
         "key2": "__value__",
         "key3": "__value__"
+      },
+      "ContainerMetricsConfig": {
+        "MetricsEndpoints": [
+          {
+            "MetricsEndpointPath": "__MetricsEndpointPath__",
+            "MetricPublishFrequencyInSeconds": 0
+          },
+          {
+            "MetricsEndpointPath": "__MetricsEndpointPath__",
+            "MetricPublishFrequencyInSeconds": 0
+          },
+          {
+            "MetricsEndpointPath": "__MetricsEndpointPath__",
+            "MetricPublishFrequencyInSeconds": 0
+          }
+        ]
       }
     },
     "StartupParameters": {
@@ -63,6 +79,22 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
           "key1": "__value__",
           "key2": "__value__",
           "key3": "__value__"
+        },
+        "ContainerMetricsConfig": {
+          "MetricsEndpoints": [
+            {
+              "MetricsEndpointPath": "__MetricsEndpointPath__",
+              "MetricPublishFrequencyInSeconds": 0
+            },
+            {
+              "MetricsEndpointPath": "__MetricsEndpointPath__",
+              "MetricPublishFrequencyInSeconds": 0
+            },
+            {
+              "MetricsEndpointPath": "__MetricsEndpointPath__",
+              "MetricPublishFrequencyInSeconds": 0
+            }
+          ]
         }
       },
       "StartupParameters": {
@@ -97,6 +129,22 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
           "key1": "__value__",
           "key2": "__value__",
           "key3": "__value__"
+        },
+        "ContainerMetricsConfig": {
+          "MetricsEndpoints": [
+            {
+              "MetricsEndpointPath": "__MetricsEndpointPath__",
+              "MetricPublishFrequencyInSeconds": 0
+            },
+            {
+              "MetricsEndpointPath": "__MetricsEndpointPath__",
+              "MetricPublishFrequencyInSeconds": 0
+            },
+            {
+              "MetricsEndpointPath": "__MetricsEndpointPath__",
+              "MetricPublishFrequencyInSeconds": 0
+            }
+          ]
         }
       },
       "StartupParameters": {
@@ -131,6 +179,22 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
           "key1": "__value__",
           "key2": "__value__",
           "key3": "__value__"
+        },
+        "ContainerMetricsConfig": {
+          "MetricsEndpoints": [
+            {
+              "MetricsEndpointPath": "__MetricsEndpointPath__",
+              "MetricPublishFrequencyInSeconds": 0
+            },
+            {
+              "MetricsEndpointPath": "__MetricsEndpointPath__",
+              "MetricPublishFrequencyInSeconds": 0
+            },
+            {
+              "MetricsEndpointPath": "__MetricsEndpointPath__",
+              "MetricPublishFrequencyInSeconds": 0
+            }
+          ]
         }
       },
       "StartupParameters": {

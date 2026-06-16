@@ -97,6 +97,14 @@ export interface DescribeModelCommandOutput extends DescribeModelOutput, __Metad
  * //     MultiModelConfig: { // MultiModelConfig
  * //       ModelCacheSetting: "Enabled" || "Disabled",
  * //     },
+ * //     ContainerMetricsConfig: { // ContainerMetricsConfig
+ * //       MetricsEndpoints: [ // MetricsEndpointList
+ * //         { // MetricsEndpoint
+ * //           MetricsEndpointPath: "STRING_VALUE", // required
+ * //           MetricPublishFrequencyInSeconds: 10 || 30 || 60 || 120 || 180 || 240 || 300,
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * //   Containers: [ // ContainerDefinitionList
  * //     {
@@ -139,6 +147,14 @@ export interface DescribeModelCommandOutput extends DescribeModelOutput, __Metad
  * //       InferenceSpecificationName: "STRING_VALUE",
  * //       MultiModelConfig: {
  * //         ModelCacheSetting: "Enabled" || "Disabled",
+ * //       },
+ * //       ContainerMetricsConfig: {
+ * //         MetricsEndpoints: [
+ * //           {
+ * //             MetricsEndpointPath: "STRING_VALUE", // required
+ * //             MetricPublishFrequencyInSeconds: 10 || 30 || 60 || 120 || 180 || 240 || 300,
+ * //           },
+ * //         ],
  * //       },
  * //     },
  * //   ],

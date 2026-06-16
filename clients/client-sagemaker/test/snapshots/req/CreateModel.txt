@@ -3,14 +3,14 @@ POST https://api.sagemaker.us-east-1.amazonaws.com
 
 content-type: application/x-amz-json-1.1
 x-amz-target: SageMaker.CreateModel
-content-length: 7815
+content-length: 9039
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/sagemaker#_.__ m/E,e
 host: api.sagemaker.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: 4b918f8f7310eca1dfb310d93ab25412f07c832ba3d5eee5140481f062d494f3
+x-amz-content-sha256: e8fa8c0bff91328810471c6900fbc7d4c7b6d5f9fa8f3d14b3faa4163a5b2562
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
 [string (json)]
@@ -105,6 +105,22 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
     "InferenceSpecificationName": "__InferenceSpecificationName__",
     "MultiModelConfig": {
       "ModelCacheSetting": "__ModelCacheSetting__"
+    },
+    "ContainerMetricsConfig": {
+      "MetricsEndpoints": [
+        {
+          "MetricsEndpointPath": "__MetricsEndpointPath__",
+          "MetricPublishFrequencyInSeconds": 0
+        },
+        {
+          "MetricsEndpointPath": "__MetricsEndpointPath__",
+          "MetricPublishFrequencyInSeconds": 0
+        },
+        {
+          "MetricsEndpointPath": "__MetricsEndpointPath__",
+          "MetricPublishFrequencyInSeconds": 0
+        }
+      ]
     }
   },
   "Containers": [
@@ -197,6 +213,22 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
       "InferenceSpecificationName": "__InferenceSpecificationName__",
       "MultiModelConfig": {
         "ModelCacheSetting": "__ModelCacheSetting__"
+      },
+      "ContainerMetricsConfig": {
+        "MetricsEndpoints": [
+          {
+            "MetricsEndpointPath": "__MetricsEndpointPath__",
+            "MetricPublishFrequencyInSeconds": 0
+          },
+          {
+            "MetricsEndpointPath": "__MetricsEndpointPath__",
+            "MetricPublishFrequencyInSeconds": 0
+          },
+          {
+            "MetricsEndpointPath": "__MetricsEndpointPath__",
+            "MetricPublishFrequencyInSeconds": 0
+          }
+        ]
       }
     },
     {
@@ -288,6 +320,22 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
       "InferenceSpecificationName": "__InferenceSpecificationName__",
       "MultiModelConfig": {
         "ModelCacheSetting": "__ModelCacheSetting__"
+      },
+      "ContainerMetricsConfig": {
+        "MetricsEndpoints": [
+          {
+            "MetricsEndpointPath": "__MetricsEndpointPath__",
+            "MetricPublishFrequencyInSeconds": 0
+          },
+          {
+            "MetricsEndpointPath": "__MetricsEndpointPath__",
+            "MetricPublishFrequencyInSeconds": 0
+          },
+          {
+            "MetricsEndpointPath": "__MetricsEndpointPath__",
+            "MetricPublishFrequencyInSeconds": 0
+          }
+        ]
       }
     },
     {
@@ -379,6 +427,22 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
       "InferenceSpecificationName": "__InferenceSpecificationName__",
       "MultiModelConfig": {
         "ModelCacheSetting": "__ModelCacheSetting__"
+      },
+      "ContainerMetricsConfig": {
+        "MetricsEndpoints": [
+          {
+            "MetricsEndpointPath": "__MetricsEndpointPath__",
+            "MetricPublishFrequencyInSeconds": 0
+          },
+          {
+            "MetricsEndpointPath": "__MetricsEndpointPath__",
+            "MetricPublishFrequencyInSeconds": 0
+          },
+          {
+            "MetricsEndpointPath": "__MetricsEndpointPath__",
+            "MetricPublishFrequencyInSeconds": 0
+          }
+        ]
       }
     }
   ],

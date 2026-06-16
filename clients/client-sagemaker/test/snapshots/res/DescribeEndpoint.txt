@@ -2743,6 +2743,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   ],
   "MetricsConfig": {
     "EnableEnhancedMetrics": false,
+    "EnableDetailedObservability": false,
     "MetricPublishFrequencyInSeconds": 0
   }
 }
@@ -3994,6 +3995,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   ],
   MetricsConfig: {
     EnableEnhancedMetrics: (boolean) false,
+    EnableDetailedObservability: (boolean) false,
     MetricPublishFrequencyInSeconds: (number) 0
   },
   $metadata: {

@@ -553,12 +553,13 @@ const _CMARr = "CreateMlflowAppResponse";
 const _CMBJD = "CreateModelBiasJobDefinition";
 const _CMBJDR = "CreateModelBiasJobDefinitionRequest";
 const _CMBJDRr = "CreateModelBiasJobDefinitionResponse";
-const _CMC = "CreateModelCard";
+const _CMC = "ContainerMetricsConfig";
 const _CMCEJ = "CreateModelCardExportJob";
 const _CMCEJR = "CreateModelCardExportJobRequest";
 const _CMCEJRr = "CreateModelCardExportJobResponse";
 const _CMCR = "CreateModelCardRequest";
 const _CMCRr = "CreateModelCardResponse";
+const _CMCr = "CreateModelCard";
 const _CMD = "CognitoMemberDefinition";
 const _CMEJD = "CreateModelExplainabilityJobDefinition";
 const _CMEJDR = "CreateModelExplainabilityJobDefinitionRequest";
@@ -1385,6 +1386,7 @@ const _EDF = "EdgeDeploymentFailed";
 const _EDFIS = "EdgeDeploymentFailedInStage";
 const _EDMC = "EdgeDeploymentModelConfig";
 const _EDMCd = "EdgeDeploymentModelConfigs";
+const _EDO = "EnableDetailedObservability";
 const _EDP = "EdgeDeploymentPending";
 const _EDPA = "EdgeDeploymentPlanArn";
 const _EDPIS = "EdgeDeploymentPendingInStage";
@@ -2334,20 +2336,24 @@ const _MDetr = "MetricDatum";
 const _MDetri = "MetricDefinition";
 const _MDl = "MlflowDetails";
 const _MDo = "ModelDigests";
-const _ME = "ManifestEtag";
+const _ME = "MetricsEndpoints";
 const _MEAS = "ModelExplainabilityAppSpecification";
 const _MEBC = "ModelExplainabilityBaselineConfig";
 const _MEI = "MlflowExperimentId";
 const _MEJI = "ModelExplainabilityJobInput";
 const _MEJOC = "ModelExplainabilityJobOutputConfig";
+const _MEL = "MetricsEndpointList";
 const _MEN = "MlflowExperimentName";
+const _MEP = "MetricsEndpointPath";
 const _MES = "MonitoringExecutionSummaries";
 const _MESL = "MonitoringExecutionSummaryList";
 const _MESo = "MonitoringExecutionSummary";
 const _MESon = "MonitoringExecutionStatus";
 const _METIS = "MaximumExecutionTimeoutInSeconds";
 const _MEVSIG = "MaximumEbsVolumeSizeInGb";
-const _MEa = "MaxEpoch";
+const _MEa = "ManifestEtag";
+const _MEax = "MaxEpoch";
+const _MEe = "MetricsEndpoint";
 const _MGTSI = "MonitoringGroundTruthS3Input";
 const _MH = "ModelHandle";
 const _MHLOC = "MaxHumanLabeledObjectCount";
@@ -4805,8 +4811,13 @@ export var ContainerConfig$: StaticStructureSchema = [3, n0, _CCon,
 ];
 export var ContainerDefinition$: StaticStructureSchema = [3, n0, _CD,
   0,
-  [_CH, _Im, _ICm, _Mo, _MDU, _MDS, _AMDSd, _E, _MPN, _ISN, _MMC],
-  [0, 0, () => ImageConfig$, 0, 0, () => ModelDataSource$, () => AdditionalModelDataSources, 128 | 0, 0, 0, () => MultiModelConfig$]
+  [_CH, _Im, _ICm, _Mo, _MDU, _MDS, _AMDSd, _E, _MPN, _ISN, _MMC, _CMC],
+  [0, 0, () => ImageConfig$, 0, 0, () => ModelDataSource$, () => AdditionalModelDataSources, 128 | 0, 0, 0, () => MultiModelConfig$, () => ContainerMetricsConfig$]
+];
+export var ContainerMetricsConfig$: StaticStructureSchema = [3, n0, _CMC,
+  0,
+  [_ME],
+  [() => MetricsEndpointList]
 ];
 export var ContextSource$: StaticStructureSchema = [3, n0, _CSo,
   0,
@@ -7585,13 +7596,13 @@ export var InferenceComponentComputeResourceRequirements$: StaticStructureSchema
 ];
 export var InferenceComponentContainerSpecification$: StaticStructureSchema = [3, n0, _ICCSn,
   0,
-  [_Im, _AUr, _E],
-  [0, 0, 128 | 0]
+  [_Im, _AUr, _E, _CMC],
+  [0, 0, 128 | 0, () => ContainerMetricsConfig$]
 ];
 export var InferenceComponentContainerSpecificationSummary$: StaticStructureSchema = [3, n0, _ICCSS,
   0,
-  [_DIe, _AUr, _E],
-  [() => DeployedImage$, 0, 128 | 0]
+  [_DIe, _AUr, _E, _CMC],
+  [() => DeployedImage$, 0, 128 | 0, () => ContainerMetricsConfig$]
 ];
 export var InferenceComponentDataCacheConfig$: StaticStructureSchema = [3, n0, _ICDCC,
   0,
@@ -8860,8 +8871,13 @@ export var MetricDefinition$: StaticStructureSchema = [3, n0, _MDetri,
 ];
 export var MetricsConfig$: StaticStructureSchema = [3, n0, _MCe,
   0,
-  [_EEM, _MPFIS],
-  [2, 1]
+  [_EEM, _EDO, _MPFIS],
+  [2, 2, 1]
+];
+export var MetricsEndpoint$: StaticStructureSchema = [3, n0, _MEe,
+  0,
+  [_MEP, _MPFIS],
+  [0, 1], 1
 ];
 export var MetricsSource$: StaticStructureSchema = [3, n0, _MSe,
   0,
@@ -10035,7 +10051,7 @@ export var S3FileSystemConfig$: StaticStructureSchema = [3, n0, _SFSC,
 ];
 export var S3ModelDataSource$: StaticStructureSchema = [3, n0, _SMDS,
   0,
-  [_SUr, _SDT, _CTo, _MAC, _HAC, _MSU, _ET, _ME],
+  [_SUr, _SDT, _CTo, _MAC, _HAC, _MSU, _ET, _MEa],
   [0, 0, 0, () => ModelAccessConfig$, () => InferenceHubAccessConfig$, 0, 0, 0], 3
 ];
 export var S3Presign$: StaticStructureSchema = [3, n0, _SPr,
@@ -10640,7 +10656,7 @@ export var TrainingPlanSummary$: StaticStructureSchema = [3, n0, _TPSra,
 ];
 export var TrainingProgressInfo$: StaticStructureSchema = [3, n0, _TPI,
   0,
-  [_TSCPE, _CSu, _CEur, _MEa],
+  [_TSCPE, _CSu, _CEur, _MEax],
   [1, 1, 1, 1]
 ];
 export var TrainingRepositoryAuthConfig$: StaticStructureSchema = [3, n0, _TRAC,
@@ -11841,6 +11857,9 @@ var MetricDataList: StaticListSchema = [1, n0, _MDL,
 var MetricDefinitionList: StaticListSchema = [1, n0, _MDLe,
   0, () => MetricDefinition$
 ];
+var MetricsEndpointList: StaticListSchema = [1, n0, _MEL,
+  0, () => MetricsEndpoint$
+];
 var MlflowAppSummaries: StaticListSchema = [1, n0, _MASlf,
   0, () => MlflowAppSummary$
 ];
@@ -12446,7 +12465,7 @@ export var CreateModel$: StaticOperationSchema = [9, n0, _CMr,
 export var CreateModelBiasJobDefinition$: StaticOperationSchema = [9, n0, _CMBJD,
   0, () => CreateModelBiasJobDefinitionRequest$, () => CreateModelBiasJobDefinitionResponse$
 ];
-export var CreateModelCard$: StaticOperationSchema = [9, n0, _CMC,
+export var CreateModelCard$: StaticOperationSchema = [9, n0, _CMCr,
   0, () => CreateModelCardRequest$, () => CreateModelCardResponse$
 ];
 export var CreateModelCardExportJob$: StaticOperationSchema = [9, n0, _CMCEJ,

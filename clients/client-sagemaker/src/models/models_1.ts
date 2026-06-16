@@ -279,6 +279,36 @@ export interface ConditionStepMetadata {
 }
 
 /**
+ * <p>Specifies a metrics endpoint for a container, including the path where the container exposes Prometheus-formatted metrics and the frequency at which to publish them to Amazon CloudWatch.</p>
+ * @public
+ */
+export interface MetricsEndpoint {
+  /**
+   * <p>The path to the metrics endpoint exposed by the container. For example, <code>/metrics</code> or <code>/server/metrics</code>. The path must start with <code>/</code> and can contain alphanumeric characters, forward slashes, underscores, hyphens, and periods. Maximum length is 256 characters. If not specified, defaults to <code>/metrics</code>.</p>
+   * @public
+   */
+  MetricsEndpointPath: string | undefined;
+
+  /**
+   * <p>The interval, in seconds, at which container metrics scraped from the endpoint are published to Amazon CloudWatch. Valid values: <code>10</code>, <code>30</code>, <code>60</code>, <code>120</code>, <code>180</code>, <code>240</code>, <code>300</code>. Defaults to <code>60</code>.</p>
+   * @public
+   */
+  MetricPublishFrequencyInSeconds?: MetricPublishFrequencyInSeconds | undefined;
+}
+
+/**
+ * <p>The configuration for container-level metrics scraping. Use this configuration to specify a custom metrics endpoint path and publishing frequency for container metrics. When <code>EnableDetailedObservability</code> is set to <code>True</code> in <code>MetricsConfig</code>, metrics are scraped from the container's Prometheus endpoint. If this configuration is not provided, the default path <code>/metrics</code> on port <code>8080</code> is used with a default publishing frequency of <code>60</code> seconds. For first-party and Deep Learning Containers (DLC), the endpoint path is determined automatically and this configuration is optional.</p>
+ * @public
+ */
+export interface ContainerMetricsConfig {
+  /**
+   * <p>A list of metrics endpoints to scrape from the container. Each endpoint specifies the path where the container exposes Prometheus-formatted metrics and the frequency at which to publish them. You can specify a maximum of 1 endpoint.</p>
+   * @public
+   */
+  MetricsEndpoints?: MetricsEndpoint[] | undefined;
+}
+
+/**
  * <p>Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified <code>Vpc</code> as the value for the <code>RepositoryAccessMode</code> field of the <code>ImageConfig</code> object that you passed to a call to <code>CreateModel</code> and the private Docker registry where the model image is hosted requires authentication.</p>
  * @public
  */
@@ -390,6 +420,12 @@ export interface ContainerDefinition {
    * @public
    */
   MultiModelConfig?: MultiModelConfig | undefined;
+
+  /**
+   * <p>The configuration for container metrics scraping. Specifies the metrics endpoint path and publishing frequency. If not specified when <code>EnableDetailedObservability</code> is <code>True</code>, the default path <code>/metrics</code> on port <code>8080</code> is used. For first-party and Deep Learning Containers (DLC), the endpoint path is determined automatically and this configuration is optional.</p>
+   * @public
+   */
+  ContainerMetricsConfig?: ContainerMetricsConfig | undefined;
 }
 
 /**
@@ -3540,7 +3576,13 @@ export interface MetricsConfig {
   EnableEnhancedMetrics?: boolean | undefined;
 
   /**
-   * <p>The interval, in seconds, at which metrics are published to Amazon CloudWatch. Defaults to <code>60</code>. Valid values: <code>10</code>, <code>30</code>, <code>60</code>, <code>120</code>, <code>180</code>, <code>240</code>, <code>300</code>. When <code>EnableEnhancedMetrics</code> is set to <code>False</code>, this interval applies to utilization metrics only; invocation metrics continue to be published at the default 60-second interval. When <code>EnableEnhancedMetrics</code> is set to <code>True</code>, this interval applies to both utilization and invocation metrics.</p>
+   * <p>Indicates whether detailed observability is enabled for the endpoint. When set to <code>True</code>, the following metrics are published at the configured frequency:</p> <ul> <li> <p>Container-level inference metrics scraped from the container's Prometheus endpoint (such as request latency, error counts, and throughput). Available metrics vary by framework.</p> </li> <li> <p>Per-GPU metrics (utilization, memory, and temperature) attributed to individual inference components.</p> </li> <li> <p>Per-instance host metrics (CPU, memory, and disk utilization).</p> </li> <li> <p>Inference component placement metrics (copy count per Availability Zone).</p> </li> </ul> <p>For first-party and Deep Learning Containers (DLC), the Prometheus endpoint path is determined automatically. For Bring-Your-Own-Container (BYOC) cases, you can optionally set <code>ContainerMetricsConfig</code> to specify a custom endpoint path. If not specified, the default path <code>/metrics</code> on port <code>8080</code> is used.</p> <p>When set to <code>False</code>, these additional metrics are not published. Standard invocation and utilization metrics controlled by <code>EnableEnhancedMetrics</code> are unaffected.</p> <p>The default value for new endpoint configurations is <code>True</code>. For existing endpoint configurations created before this feature, the value is <code>False</code> unless explicitly set.</p>
+   * @public
+   */
+  EnableDetailedObservability?: boolean | undefined;
+
+  /**
+   * <p>The interval, in seconds, at which metrics are published to Amazon CloudWatch. Defaults to <code>60</code>. Valid values: <code>10</code>, <code>30</code>, <code>60</code>, <code>120</code>, <code>180</code>, <code>240</code>, <code>300</code>.</p> <p>When <code>EnableEnhancedMetrics</code> is set to <code>False</code>, this interval applies to utilization metrics only. Invocation metrics continue to be published at the default 60-second interval. When <code>EnableEnhancedMetrics</code> is set to <code>True</code>, this interval applies to both utilization and invocation metrics.</p> <p>When <code>EnableDetailedObservability</code> is set to <code>True</code>, this interval applies to per-GPU metrics, per-instance host metrics, container metrics, and fleet-level inference component lifecycle and placement metrics.</p>
    * @public
    */
   MetricPublishFrequencyInSeconds?: MetricPublishFrequencyInSeconds | undefined;
@@ -5352,6 +5394,12 @@ export interface InferenceComponentContainerSpecification {
    * @public
    */
   Environment?: Record<string, string> | undefined;
+
+  /**
+   * <p>The configuration for container metrics scraping. Specifies the metrics endpoint path and publishing frequency for the inference component's container. If not specified when <code>EnableDetailedObservability</code> is <code>True</code>, the default path <code>/metrics</code> on port <code>8080</code> is used. For first-party and Deep Learning Containers (DLC), the endpoint path is determined automatically and this configuration is optional.</p>
+   * @public
+   */
+  ContainerMetricsConfig?: ContainerMetricsConfig | undefined;
 }
 
 /**
@@ -8412,40 +8460,4 @@ export interface OptimizationJobModelSource {
    * @public
    */
   SageMakerModel?: OptimizationSageMakerModel | undefined;
-}
-
-/**
- * <p>Settings for the model compilation technique that's applied by a model optimization job.</p>
- * @public
- */
-export interface ModelCompilationConfig {
-  /**
-   * <p>The URI of an LMI DLC in Amazon ECR. SageMaker uses this image to run the optimization.</p>
-   * @public
-   */
-  Image?: string | undefined;
-
-  /**
-   * <p>Environment variables that override the default ones in the model container.</p>
-   * @public
-   */
-  OverrideEnvironment?: Record<string, string> | undefined;
-}
-
-/**
- * <p>Settings for the model quantization technique that's applied by a model optimization job.</p>
- * @public
- */
-export interface ModelQuantizationConfig {
-  /**
-   * <p>The URI of an LMI DLC in Amazon ECR. SageMaker uses this image to run the optimization.</p>
-   * @public
-   */
-  Image?: string | undefined;
-
-  /**
-   * <p>Environment variables that override the default ones in the model container.</p>
-   * @public
-   */
-  OverrideEnvironment?: Record<string, string> | undefined;
 }

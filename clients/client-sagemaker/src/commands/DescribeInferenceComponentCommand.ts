@@ -61,6 +61,14 @@ export interface DescribeInferenceComponentCommandOutput extends DescribeInferen
  * //       Environment: { // EnvironmentMap
  * //         "<keys>": "STRING_VALUE",
  * //       },
+ * //       ContainerMetricsConfig: { // ContainerMetricsConfig
+ * //         MetricsEndpoints: [ // MetricsEndpointList
+ * //           { // MetricsEndpoint
+ * //             MetricsEndpointPath: "STRING_VALUE", // required
+ * //             MetricPublishFrequencyInSeconds: 10 || 30 || 60 || 120 || 180 || 240 || 300,
+ * //           },
+ * //         ],
+ * //       },
  * //     },
  * //     StartupParameters: { // InferenceComponentStartupParameters
  * //       ModelDataDownloadTimeoutInSeconds: Number("int"),
@@ -97,6 +105,14 @@ export interface DescribeInferenceComponentCommandOutput extends DescribeInferen
  * //         ArtifactUrl: "STRING_VALUE",
  * //         Environment: {
  * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         ContainerMetricsConfig: {
+ * //           MetricsEndpoints: [
+ * //             {
+ * //               MetricsEndpointPath: "STRING_VALUE", // required
+ * //               MetricPublishFrequencyInSeconds: 10 || 30 || 60 || 120 || 180 || 240 || 300,
+ * //             },
+ * //           ],
  * //         },
  * //       },
  * //       StartupParameters: {

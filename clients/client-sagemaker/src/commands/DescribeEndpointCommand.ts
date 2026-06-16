@@ -384,6 +384,7 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointOutput, _
  * //   ],
  * //   MetricsConfig: { // MetricsConfig
  * //     EnableEnhancedMetrics: true || false,
+ * //     EnableDetailedObservability: true || false,
  * //     MetricPublishFrequencyInSeconds: 10 || 30 || 60 || 120 || 180 || 240 || 300,
  * //   },
  * // };

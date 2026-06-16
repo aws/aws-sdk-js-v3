@@ -2027,6 +2027,14 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //             MultiModelConfig: { // MultiModelConfig
  * //               ModelCacheSetting: "Enabled" || "Disabled",
  * //             },
+ * //             ContainerMetricsConfig: { // ContainerMetricsConfig
+ * //               MetricsEndpoints: [ // MetricsEndpointList
+ * //                 { // MetricsEndpoint
+ * //                   MetricsEndpointPath: "STRING_VALUE", // required
+ * //                   MetricPublishFrequencyInSeconds: 10 || 30 || 60 || 120 || 180 || 240 || 300,
+ * //                 },
+ * //               ],
+ * //             },
  * //           },
  * //           Containers: [ // ContainerDefinitionList
  * //             {
@@ -2047,6 +2055,14 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //               InferenceSpecificationName: "STRING_VALUE",
  * //               MultiModelConfig: {
  * //                 ModelCacheSetting: "Enabled" || "Disabled",
+ * //               },
+ * //               ContainerMetricsConfig: {
+ * //                 MetricsEndpoints: [
+ * //                   {
+ * //                     MetricsEndpointPath: "STRING_VALUE", // required
+ * //                     MetricPublishFrequencyInSeconds: 10 || 30 || 60 || 120 || 180 || 240 || 300,
+ * //                   },
+ * //                 ],
  * //               },
  * //             },
  * //           ],

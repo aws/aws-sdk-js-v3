@@ -1306,6 +1306,12 @@ export const AppInstanceType = {
   ML_G6_4XLARGE: "ml.g6.4xlarge",
   ML_G6_8XLARGE: "ml.g6.8xlarge",
   ML_G6_XLARGE: "ml.g6.xlarge",
+  ML_G7E_12XLARGE: "ml.g7e.12xlarge",
+  ML_G7E_24XLARGE: "ml.g7e.24xlarge",
+  ML_G7E_2XLARGE: "ml.g7e.2xlarge",
+  ML_G7E_48XLARGE: "ml.g7e.48xlarge",
+  ML_G7E_4XLARGE: "ml.g7e.4xlarge",
+  ML_G7E_8XLARGE: "ml.g7e.8xlarge",
   ML_GEOSPATIAL_INTERACTIVE: "ml.geospatial.interactive",
   ML_M5D_12XLARGE: "ml.m5d.12xlarge",
   ML_M5D_16XLARGE: "ml.m5d.16xlarge",
@@ -2865,6 +2871,16 @@ export const ConditionOutcome = {
  */
 export type ConditionOutcome = (typeof ConditionOutcome)[keyof typeof ConditionOutcome];
 
+export enum MetricPublishFrequencyInSeconds {
+  FREQ_10_S = 10,
+  FREQ_30_S = 30,
+  FREQ_60_S = 60,
+  FREQ_120_S = 120,
+  FREQ_180_S = 180,
+  FREQ_240_S = 240,
+  FREQ_300_S = 300,
+}
+
 /**
  * @public
  * @enum
@@ -3362,16 +3378,6 @@ export const DeviceSubsetType = {
  * @public
  */
 export type DeviceSubsetType = (typeof DeviceSubsetType)[keyof typeof DeviceSubsetType];
-
-export enum MetricPublishFrequencyInSeconds {
-  FREQ_10_S = 10,
-  FREQ_30_S = 30,
-  FREQ_60_S = 60,
-  FREQ_120_S = 120,
-  FREQ_180_S = 180,
-  FREQ_240_S = 240,
-  FREQ_300_S = 300,
-}
 
 /**
  * @public

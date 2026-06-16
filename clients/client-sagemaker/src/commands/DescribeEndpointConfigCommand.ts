@@ -230,6 +230,7 @@ export interface DescribeEndpointConfigCommandOutput extends DescribeEndpointCon
  * //   EnableNetworkIsolation: true || false,
  * //   MetricsConfig: { // MetricsConfig
  * //     EnableEnhancedMetrics: true || false,
+ * //     EnableDetailedObservability: true || false,
  * //     MetricPublishFrequencyInSeconds: 10 || 30 || 60 || 120 || 180 || 240 || 300,
  * //   },
  * // };

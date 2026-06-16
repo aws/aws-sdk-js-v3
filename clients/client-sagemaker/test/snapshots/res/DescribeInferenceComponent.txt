@@ -113,6 +113,22 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "key1": "__value__",
         "key2": "__value__",
         "key3": "__value__"
+      },
+      "ContainerMetricsConfig": {
+        "MetricsEndpoints": [
+          {
+            "MetricsEndpointPath": "__MetricsEndpointPath__",
+            "MetricPublishFrequencyInSeconds": 0
+          },
+          {
+            "MetricsEndpointPath": "__MetricsEndpointPath__",
+            "MetricPublishFrequencyInSeconds": 0
+          },
+          {
+            "MetricsEndpointPath": "__MetricsEndpointPath__",
+            "MetricPublishFrequencyInSeconds": 0
+          }
+        ]
       }
     },
     "StartupParameters": {
@@ -152,6 +168,22 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "key1": "__value__",
           "key2": "__value__",
           "key3": "__value__"
+        },
+        "ContainerMetricsConfig": {
+          "MetricsEndpoints": [
+            {
+              "MetricsEndpointPath": "__MetricsEndpointPath__",
+              "MetricPublishFrequencyInSeconds": 0
+            },
+            {
+              "MetricsEndpointPath": "__MetricsEndpointPath__",
+              "MetricPublishFrequencyInSeconds": 0
+            },
+            {
+              "MetricsEndpointPath": "__MetricsEndpointPath__",
+              "MetricPublishFrequencyInSeconds": 0
+            }
+          ]
         }
       },
       "StartupParameters": {
@@ -190,6 +222,22 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "key1": "__value__",
           "key2": "__value__",
           "key3": "__value__"
+        },
+        "ContainerMetricsConfig": {
+          "MetricsEndpoints": [
+            {
+              "MetricsEndpointPath": "__MetricsEndpointPath__",
+              "MetricPublishFrequencyInSeconds": 0
+            },
+            {
+              "MetricsEndpointPath": "__MetricsEndpointPath__",
+              "MetricPublishFrequencyInSeconds": 0
+            },
+            {
+              "MetricsEndpointPath": "__MetricsEndpointPath__",
+              "MetricPublishFrequencyInSeconds": 0
+            }
+          ]
         }
       },
       "StartupParameters": {
@@ -228,6 +276,22 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "key1": "__value__",
           "key2": "__value__",
           "key3": "__value__"
+        },
+        "ContainerMetricsConfig": {
+          "MetricsEndpoints": [
+            {
+              "MetricsEndpointPath": "__MetricsEndpointPath__",
+              "MetricPublishFrequencyInSeconds": 0
+            },
+            {
+              "MetricsEndpointPath": "__MetricsEndpointPath__",
+              "MetricPublishFrequencyInSeconds": 0
+            },
+            {
+              "MetricsEndpointPath": "__MetricsEndpointPath__",
+              "MetricPublishFrequencyInSeconds": 0
+            }
+          ]
         }
       },
       "StartupParameters": {
@@ -326,6 +390,22 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         key1: "__value__",
         key2: "__value__",
         key3: "__value__"
+      },
+      ContainerMetricsConfig: {
+        MetricsEndpoints: [
+          {
+            MetricsEndpointPath: "__MetricsEndpointPath__",
+            MetricPublishFrequencyInSeconds: (number) 0
+          },
+          {
+            MetricsEndpointPath: "__MetricsEndpointPath__",
+            MetricPublishFrequencyInSeconds: (number) 0
+          },
+          {
+            MetricsEndpointPath: "__MetricsEndpointPath__",
+            MetricPublishFrequencyInSeconds: (number) 0
+          }
+        ]
       }
     },
     StartupParameters: {
@@ -365,6 +445,22 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           key1: "__value__",
           key2: "__value__",
           key3: "__value__"
+        },
+        ContainerMetricsConfig: {
+          MetricsEndpoints: [
+            {
+              MetricsEndpointPath: "__MetricsEndpointPath__",
+              MetricPublishFrequencyInSeconds: (number) 0
+            },
+            {
+              MetricsEndpointPath: "__MetricsEndpointPath__",
+              MetricPublishFrequencyInSeconds: (number) 0
+            },
+            {
+              MetricsEndpointPath: "__MetricsEndpointPath__",
+              MetricPublishFrequencyInSeconds: (number) 0
+            }
+          ]
         }
       },
       StartupParameters: {
@@ -403,6 +499,22 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           key1: "__value__",
           key2: "__value__",
           key3: "__value__"
+        },
+        ContainerMetricsConfig: {
+          MetricsEndpoints: [
+            {
+              MetricsEndpointPath: "__MetricsEndpointPath__",
+              MetricPublishFrequencyInSeconds: (number) 0
+            },
+            {
+              MetricsEndpointPath: "__MetricsEndpointPath__",
+              MetricPublishFrequencyInSeconds: (number) 0
+            },
+            {
+              MetricsEndpointPath: "__MetricsEndpointPath__",
+              MetricPublishFrequencyInSeconds: (number) 0
+            }
+          ]
         }
       },
       StartupParameters: {
@@ -441,6 +553,22 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           key1: "__value__",
           key2: "__value__",
           key3: "__value__"
+        },
+        ContainerMetricsConfig: {
+          MetricsEndpoints: [
+            {
+              MetricsEndpointPath: "__MetricsEndpointPath__",
+              MetricPublishFrequencyInSeconds: (number) 0
+            },
+            {
+              MetricsEndpointPath: "__MetricsEndpointPath__",
+              MetricPublishFrequencyInSeconds: (number) 0
+            },
+            {
+              MetricsEndpointPath: "__MetricsEndpointPath__",
+              MetricPublishFrequencyInSeconds: (number) 0
+            }
+          ]
         }
       },
       StartupParameters: {

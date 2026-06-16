@@ -4,8 +4,7 @@ import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { UpdateNotebookInstanceInput } from "../models/models_4";
-import type { UpdateNotebookInstanceOutput } from "../models/models_5";
+import type { UpdateNotebookInstanceInput, UpdateNotebookInstanceOutput } from "../models/models_5";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { UpdateNotebookInstance$ } from "../schemas/schemas_0";
 
