@@ -58,6 +58,9 @@ export interface BatchCreateFirewallRuleCommandOutput extends BatchCreateFirewal
  *       DnsThreatProtection: "DGA" || "DNS_TUNNELING" || "DICTIONARY_DGA",
  *       ConfidenceThreshold: "LOW" || "MEDIUM" || "HIGH",
  *       FirewallRuleType: { // FirewallRuleType
+ *         PartnerThreatProtection: { // PartnerThreatProtectionConfig
+ *           Partner: "STRING_VALUE", // required
+ *         },
  *         FirewallAdvancedContentCategory: { // FirewallAdvancedContentCategoryConfig
  *           Category: "STRING_VALUE", // required
  *         },
@@ -95,6 +98,9 @@ export interface BatchCreateFirewallRuleCommandOutput extends BatchCreateFirewal
  * //       DnsThreatProtection: "DGA" || "DNS_TUNNELING" || "DICTIONARY_DGA",
  * //       ConfidenceThreshold: "LOW" || "MEDIUM" || "HIGH",
  * //       FirewallRuleType: { // FirewallRuleType
+ * //         PartnerThreatProtection: { // PartnerThreatProtectionConfig
+ * //           Partner: "STRING_VALUE", // required
+ * //         },
  * //         FirewallAdvancedContentCategory: { // FirewallAdvancedContentCategoryConfig
  * //           Category: "STRING_VALUE", // required
  * //         },
@@ -106,6 +112,8 @@ export interface BatchCreateFirewallRuleCommandOutput extends BatchCreateFirewal
  * //           ConfidenceThreshold: "LOW" || "MEDIUM" || "HIGH", // required
  * //         },
  * //       },
+ * //       Status: "STRING_VALUE",
+ * //       StatusMessage: "STRING_VALUE",
  * //     },
  * //   ],
  * //   CreateErrors: [ // BatchCreateFirewallRuleErrors
@@ -126,6 +134,9 @@ export interface BatchCreateFirewallRuleCommandOutput extends BatchCreateFirewal
  * //         DnsThreatProtection: "DGA" || "DNS_TUNNELING" || "DICTIONARY_DGA",
  * //         ConfidenceThreshold: "LOW" || "MEDIUM" || "HIGH",
  * //         FirewallRuleType: {
+ * //           PartnerThreatProtection: {
+ * //             Partner: "STRING_VALUE", // required
+ * //           },
  * //           FirewallAdvancedContentCategory: {
  * //             Category: "STRING_VALUE", // required
  * //           },

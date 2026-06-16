@@ -291,6 +291,7 @@ const _P = "Priority";
 const _PFRGP = "PutFirewallRuleGroupPolicy";
 const _PFRGPR = "PutFirewallRuleGroupPolicyRequest";
 const _PFRGPRu = "PutFirewallRuleGroupPolicyResponse";
+const _PI = "ProductId";
 const _PIT = "PreferredInstanceType";
 const _PRQLCP = "PutResolverQueryLogConfigPolicy";
 const _PRQLCPR = "PutResolverQueryLogConfigPolicyRequest";
@@ -298,6 +299,9 @@ const _PRQLCPRu = "PutResolverQueryLogConfigPolicyResponse";
 const _PRRP = "PutResolverRulePolicy";
 const _PRRPR = "PutResolverRulePolicyRequest";
 const _PRRPRu = "PutResolverRulePolicyResponse";
+const _PTP = "PartnerThreatProtection";
+const _PTPC = "PartnerThreatProtectionConfig";
+const _Pa = "Partner";
 const _Po = "Port";
 const _Pr = "Protocols";
 const _Pro = "Protocol";
@@ -344,7 +348,8 @@ const _RV = "ReturnValue";
 const _S = "Status";
 const _SB = "SortBy";
 const _SGI = "SecurityGroupIds";
-const _SI = "SubnetId";
+const _SI = "SubscriptionInfo";
+const _SIu = "SubnetId";
 const _SM = "StatusMessage";
 const _SNI = "ServerNameIndication";
 const _SO = "SortOrder";
@@ -404,6 +409,7 @@ const _URRp = "UpdateResolverRule";
 const _V = "Value";
 const _VE = "ValidationException";
 const _VI = "VpcId";
+const _VN = "VendorName";
 const _VPCI = "VPCId";
 const _VS = "ValidationStatus";
 const _Va = "Values";
@@ -866,8 +872,8 @@ export var FirewallDomainListMetadata$: StaticStructureSchema = [3, n0, _FDLM,
 ];
 export var FirewallRule$: StaticStructureSchema = [3, n0, _FR,
   0,
-  [_FRGI, _FDLI, _FTPI, _N, _P, _A, _BR, _BOD, _BODT, _BOT, _CRI, _CTr, _MT, _FDRA, _Q, _DTP, _CT, _FRT],
-  [0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, () => FirewallRuleType$]
+  [_FRGI, _FDLI, _FTPI, _N, _P, _A, _BR, _BOD, _BODT, _BOT, _CRI, _CTr, _MT, _FDRA, _Q, _DTP, _CT, _FRT, _S, _SM],
+  [0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, () => FirewallRuleType$, 0, 0]
 ];
 export var FirewallRuleGroup$: StaticStructureSchema = [3, n0, _FRG,
   0,
@@ -886,13 +892,13 @@ export var FirewallRuleGroupMetadata$: StaticStructureSchema = [3, n0, _FRGM,
 ];
 export var FirewallRuleType$: StaticStructureSchema = [3, n0, _FRT,
   0,
-  [_FACC, _FATC, _DTP],
-  [() => FirewallAdvancedContentCategoryConfig$, () => FirewallAdvancedThreatCategoryConfig$, () => DnsThreatProtectionRuleTypeConfig$]
+  [_PTP, _FACC, _FATC, _DTP],
+  [() => PartnerThreatProtectionConfig$, () => FirewallAdvancedContentCategoryConfig$, () => FirewallAdvancedThreatCategoryConfig$, () => DnsThreatProtectionRuleTypeConfig$]
 ];
 export var FirewallRuleTypeDefinition$: StaticStructureSchema = [3, n0, _FRTD,
   0,
-  [_RTu, _V, _DNi, _De],
-  [0, 0, 0, 0]
+  [_RTu, _V, _DNi, _De, _SI],
+  [0, 0, 0, 0, () => SubscriptionInfo$]
 ];
 export var GetFirewallConfigRequest$: StaticStructureSchema = [3, n0, _GFCR,
   0,
@@ -1056,17 +1062,17 @@ export var ImportFirewallDomainsResponse$: StaticStructureSchema = [3, n0, _IFDR
 ];
 export var IpAddressRequest$: StaticStructureSchema = [3, n0, _IAR,
   0,
-  [_SI, _Ip, _Ipv],
+  [_SIu, _Ip, _Ipv],
   [0, 0, 0], 1
 ];
 export var IpAddressResponse$: StaticStructureSchema = [3, n0, _IARp,
   0,
-  [_II, _SI, _Ip, _Ipv, _S, _SM, _CTr, _MT],
+  [_II, _SIu, _Ip, _Ipv, _S, _SM, _CTr, _MT],
   [0, 0, 0, 0, 0, 0, 0, 0]
 ];
 export var IpAddressUpdate$: StaticStructureSchema = [3, n0, _IAU,
   0,
-  [_II, _SI, _Ip, _Ipv],
+  [_II, _SIu, _Ip, _Ipv],
   [0, 0, 0, 0]
 ];
 export var ListFirewallConfigsRequest$: StaticStructureSchema = [3, n0, _LFCR,
@@ -1244,6 +1250,11 @@ export var OutpostResolver$: StaticStructureSchema = [3, n0, _OR,
   [_Ar, _CTr, _MT, _CRI, _I, _IC, _PIT, _N, _S, _SM, _OA],
   [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0]
 ];
+export var PartnerThreatProtectionConfig$: StaticStructureSchema = [3, n0, _PTPC,
+  0,
+  [_Pa],
+  [0], 1
+];
 export var PutFirewallRuleGroupPolicyRequest$: StaticStructureSchema = [3, n0, _PFRGPR,
   0,
   [_Ar, _FRGP],
@@ -1313,6 +1324,11 @@ export var ResolverRuleConfig$: StaticStructureSchema = [3, n0, _RRC,
   0,
   [_N, _TI, _REI],
   [0, () => TargetList, 0]
+];
+export var SubscriptionInfo$: StaticStructureSchema = [3, n0, _SI,
+  0,
+  [_VN, _PI],
+  [0, 0]
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,

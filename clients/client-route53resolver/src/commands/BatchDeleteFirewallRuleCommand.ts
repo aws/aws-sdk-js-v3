@@ -73,6 +73,9 @@ export interface BatchDeleteFirewallRuleCommandOutput extends BatchDeleteFirewal
  * //       DnsThreatProtection: "DGA" || "DNS_TUNNELING" || "DICTIONARY_DGA",
  * //       ConfidenceThreshold: "LOW" || "MEDIUM" || "HIGH",
  * //       FirewallRuleType: { // FirewallRuleType
+ * //         PartnerThreatProtection: { // PartnerThreatProtectionConfig
+ * //           Partner: "STRING_VALUE", // required
+ * //         },
  * //         FirewallAdvancedContentCategory: { // FirewallAdvancedContentCategoryConfig
  * //           Category: "STRING_VALUE", // required
  * //         },
@@ -84,6 +87,8 @@ export interface BatchDeleteFirewallRuleCommandOutput extends BatchDeleteFirewal
  * //           ConfidenceThreshold: "LOW" || "MEDIUM" || "HIGH", // required
  * //         },
  * //       },
+ * //       Status: "STRING_VALUE",
+ * //       StatusMessage: "STRING_VALUE",
  * //     },
  * //   ],
  * //   DeleteErrors: [ // BatchDeleteFirewallRuleErrors

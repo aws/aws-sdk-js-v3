@@ -31,8 +31,9 @@ export interface ListFirewallRulesCommandInput extends ListFirewallRulesRequest 
 export interface ListFirewallRulesCommandOutput extends ListFirewallRulesResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the firewall rules that you have defined for the specified firewall rule group. DNS Firewall uses the rules in a rule group to filter DNS network traffic for a VPC. </p>
- *          <p>A single call might return only a partial list of the rules. For information, see <code>MaxResults</code>. </p>
+ * <p>Retrieves the firewall rules that you have defined for the specified firewall rule group. DNS Firewall uses the rules in a rule group to filter DNS network traffic for a VPC.</p>
+ *          <p>A single call might return only a partial list of the rules. For information, see <code>MaxResults</code>.</p>
+ *          <p>For rules that require asynchronous provisioning, the response includes <code>Status</code> (see <a>FirewallRuleStatus</a>) and, on failure, <code>StatusMessage</code> with the reason.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,6 +73,9 @@ export interface ListFirewallRulesCommandOutput extends ListFirewallRulesRespons
  * //       DnsThreatProtection: "DGA" || "DNS_TUNNELING" || "DICTIONARY_DGA",
  * //       ConfidenceThreshold: "LOW" || "MEDIUM" || "HIGH",
  * //       FirewallRuleType: { // FirewallRuleType
+ * //         PartnerThreatProtection: { // PartnerThreatProtectionConfig
+ * //           Partner: "STRING_VALUE", // required
+ * //         },
  * //         FirewallAdvancedContentCategory: { // FirewallAdvancedContentCategoryConfig
  * //           Category: "STRING_VALUE", // required
  * //         },
@@ -83,6 +87,8 @@ export interface ListFirewallRulesCommandOutput extends ListFirewallRulesRespons
  * //           ConfidenceThreshold: "LOW" || "MEDIUM" || "HIGH", // required
  * //         },
  * //       },
+ * //       Status: "STRING_VALUE",
+ * //       StatusMessage: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

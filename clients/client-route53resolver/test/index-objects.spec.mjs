@@ -305,6 +305,7 @@ import {
   paginateListResolverRuleAssociations,
   paginateListResolverRules,
   paginateListTagsForResource,
+  PartnerThreatProtectionConfig$,
   Protocol,
   PutFirewallRuleGroupPolicy$,
   PutFirewallRuleGroupPolicyCommand,
@@ -352,6 +353,7 @@ import {
   ServiceQuotaExceededException$,
   ShareStatus,
   SortOrder,
+  SubscriptionInfo$,
   Tag$,
   TagResource$,
   TagResourceCommand,
@@ -696,6 +698,7 @@ assert(typeof ListResolverRulesResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof OutpostResolver$ === "object");
+assert(typeof PartnerThreatProtectionConfig$ === "object");
 assert(typeof PutFirewallRuleGroupPolicyRequest$ === "object");
 assert(typeof PutFirewallRuleGroupPolicyResponse$ === "object");
 assert(typeof PutResolverQueryLogConfigPolicyRequest$ === "object");
@@ -710,6 +713,7 @@ assert(typeof ResolverQueryLogConfigAssociation$ === "object");
 assert(typeof ResolverRule$ === "object");
 assert(typeof ResolverRuleAssociation$ === "object");
 assert(typeof ResolverRuleConfig$ === "object");
+assert(typeof SubscriptionInfo$ === "object");
 assert(typeof Tag$ === "object");
 assert(typeof TagResourceRequest$ === "object");
 assert(typeof TagResourceResponse$ === "object");

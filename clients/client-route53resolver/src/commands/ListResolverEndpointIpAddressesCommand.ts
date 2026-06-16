@@ -59,7 +59,7 @@ export interface ListResolverEndpointIpAddressesCommandOutput extends ListResolv
  * //       SubnetId: "STRING_VALUE",
  * //       Ip: "STRING_VALUE",
  * //       Ipv6: "STRING_VALUE",
- * //       Status: "CREATING" || "FAILED_CREATION" || "ATTACHING" || "ATTACHED" || "REMAP_DETACHING" || "REMAP_ATTACHING" || "DETACHING" || "FAILED_RESOURCE_GONE" || "DELETING" || "DELETE_FAILED_FAS_EXPIRED" || "UPDATING" || "UPDATE_FAILED" || "ISOLATED",
+ * //       Status: "CREATING" || "FAILED_CREATION" || "FAILED_CREATION_INSUFFICIENT_EC2_CAPACITY_IN_OUTPOST" || "ATTACHING" || "ATTACHED" || "REMAP_DETACHING" || "REMAP_ATTACHING" || "DETACHING" || "FAILED_RESOURCE_GONE" || "DELETING" || "DELETE_FAILED_FAS_EXPIRED" || "UPDATING" || "UPDATE_FAILED" || "ISOLATED",
  * //       StatusMessage: "STRING_VALUE",
  * //       CreationTime: "STRING_VALUE",
  * //       ModificationTime: "STRING_VALUE",

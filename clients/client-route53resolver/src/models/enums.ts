@@ -443,6 +443,7 @@ export const IpAddressStatus = {
   Deleting: "DELETING",
   Detaching: "DETACHING",
   FailedCreation: "FAILED_CREATION",
+  FailedCreationInsufficientEC2CapacityInOutpost: "FAILED_CREATION_INSUFFICIENT_EC2_CAPACITY_IN_OUTPOST",
   FailedResourceGone: "FAILED_RESOURCE_GONE",
   Isolated: "ISOLATED",
   RemapAttaching: "REMAP_ATTACHING",

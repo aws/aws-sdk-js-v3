@@ -31,7 +31,9 @@ export interface DeleteFirewallRuleCommandInput extends DeleteFirewallRuleReques
 export interface DeleteFirewallRuleCommandOutput extends DeleteFirewallRuleResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified firewall rule.</p>
+ * <p>Deletes the specified firewall rule. Identify the rule using either <code>FirewallDomainListId</code> (for domain-list and DNS Firewall Advanced rules) or <code>FirewallThreatProtectionId</code> (for partner-managed and DNS Firewall Advanced rules) — together with <code>FirewallRuleGroupId</code>.</p>
+ *          <p>
+ *             <code>DeleteFirewallRule</code> is the only operation that succeeds against a rule whose <code>Status</code> is <code>CREATION_FAILED</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,6 +70,9 @@ export interface DeleteFirewallRuleCommandOutput extends DeleteFirewallRuleRespo
  * //     DnsThreatProtection: "DGA" || "DNS_TUNNELING" || "DICTIONARY_DGA",
  * //     ConfidenceThreshold: "LOW" || "MEDIUM" || "HIGH",
  * //     FirewallRuleType: { // FirewallRuleType
+ * //       PartnerThreatProtection: { // PartnerThreatProtectionConfig
+ * //         Partner: "STRING_VALUE", // required
+ * //       },
  * //       FirewallAdvancedContentCategory: { // FirewallAdvancedContentCategoryConfig
  * //         Category: "STRING_VALUE", // required
  * //       },
@@ -79,6 +84,8 @@ export interface DeleteFirewallRuleCommandOutput extends DeleteFirewallRuleRespo
  * //         ConfidenceThreshold: "LOW" || "MEDIUM" || "HIGH", // required
  * //       },
  * //     },
+ * //     Status: "STRING_VALUE",
+ * //     StatusMessage: "STRING_VALUE",
  * //   },
  * // };
  *

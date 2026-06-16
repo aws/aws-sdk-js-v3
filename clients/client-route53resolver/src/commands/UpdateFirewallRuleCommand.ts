@@ -31,7 +31,7 @@ export interface UpdateFirewallRuleCommandInput extends UpdateFirewallRuleReques
 export interface UpdateFirewallRuleCommandOutput extends UpdateFirewallRuleResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the specified firewall rule. </p>
+ * <p>Updates the specified firewall rule. The rule's <code>FirewallRuleType</code>, <code>FirewallDomainListId</code>, and top-level <code>DnsThreatProtection</code> match source cannot be changed after creation. Rules whose <code>Status</code> is <code>CREATING</code> or <code>CREATION_FAILED</code> cannot be updated; remove a failed rule with <a>DeleteFirewallRule</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,6 +56,9 @@ export interface UpdateFirewallRuleCommandOutput extends UpdateFirewallRuleRespo
  *   DnsThreatProtection: "DGA" || "DNS_TUNNELING" || "DICTIONARY_DGA",
  *   ConfidenceThreshold: "LOW" || "MEDIUM" || "HIGH",
  *   FirewallRuleType: { // FirewallRuleType
+ *     PartnerThreatProtection: { // PartnerThreatProtectionConfig
+ *       Partner: "STRING_VALUE", // required
+ *     },
  *     FirewallAdvancedContentCategory: { // FirewallAdvancedContentCategoryConfig
  *       Category: "STRING_VALUE", // required
  *     },
@@ -90,6 +93,9 @@ export interface UpdateFirewallRuleCommandOutput extends UpdateFirewallRuleRespo
  * //     DnsThreatProtection: "DGA" || "DNS_TUNNELING" || "DICTIONARY_DGA",
  * //     ConfidenceThreshold: "LOW" || "MEDIUM" || "HIGH",
  * //     FirewallRuleType: { // FirewallRuleType
+ * //       PartnerThreatProtection: { // PartnerThreatProtectionConfig
+ * //         Partner: "STRING_VALUE", // required
+ * //       },
  * //       FirewallAdvancedContentCategory: { // FirewallAdvancedContentCategoryConfig
  * //         Category: "STRING_VALUE", // required
  * //       },
@@ -101,6 +107,8 @@ export interface UpdateFirewallRuleCommandOutput extends UpdateFirewallRuleRespo
  * //         ConfidenceThreshold: "LOW" || "MEDIUM" || "HIGH", // required
  * //       },
  * //     },
+ * //     Status: "STRING_VALUE",
+ * //     StatusMessage: "STRING_VALUE",
  * //   },
  * // };
  *

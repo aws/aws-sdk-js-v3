@@ -31,7 +31,22 @@ export interface CreateFirewallRuleCommandInput extends CreateFirewallRuleReques
 export interface CreateFirewallRuleCommandOutput extends CreateFirewallRuleResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a single DNS Firewall rule in the specified rule group, using the specified domain list.</p>
+ * <p>Creates a single DNS Firewall rule in the specified rule group. The rule can use any one of the following match sources, and the chosen source must be supplied through the matching request field — they are mutually exclusive:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>FirewallDomainListId</code> — match a customer-managed or AWS-managed domain list.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>DnsThreatProtection</code> — match a built-in DNS Firewall Advanced threat detector (<code>DGA</code>, <code>DNS_TUNNELING</code>, or <code>DICTIONARY_DGA</code>).</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>FirewallRuleType</code> — match one of the rule-type variants returned by <a>ListFirewallRuleTypes</a>: <code>FirewallAdvancedContentCategory</code>, <code>FirewallAdvancedThreatCategory</code>, <code>DnsThreatProtection</code>, or <code>PartnerThreatProtection</code>. The <code>PartnerThreatProtection</code> variant requires an active AWS Marketplace subscription to the named partner product.</p>
+ *             </li>
+ *          </ul>
+ *          <p>For rules that require asynchronous provisioning (today, the <code>PartnerThreatProtection</code> rule type), the rule's <code>Status</code> begins at <code>CREATING</code> and transitions to <code>COMPLETE</code> once the rule is provisioned and the marketplace entitlement is verified. If provisioning fails, <code>Status</code> becomes <code>CREATION_FAILED</code> and <code>StatusMessage</code> contains a human-readable reason; the rule is then immutable and must be removed with <a>DeleteFirewallRule</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,6 +71,9 @@ export interface CreateFirewallRuleCommandOutput extends CreateFirewallRuleRespo
  *   DnsThreatProtection: "DGA" || "DNS_TUNNELING" || "DICTIONARY_DGA",
  *   ConfidenceThreshold: "LOW" || "MEDIUM" || "HIGH",
  *   FirewallRuleType: { // FirewallRuleType
+ *     PartnerThreatProtection: { // PartnerThreatProtectionConfig
+ *       Partner: "STRING_VALUE", // required
+ *     },
  *     FirewallAdvancedContentCategory: { // FirewallAdvancedContentCategoryConfig
  *       Category: "STRING_VALUE", // required
  *     },
@@ -90,6 +108,9 @@ export interface CreateFirewallRuleCommandOutput extends CreateFirewallRuleRespo
  * //     DnsThreatProtection: "DGA" || "DNS_TUNNELING" || "DICTIONARY_DGA",
  * //     ConfidenceThreshold: "LOW" || "MEDIUM" || "HIGH",
  * //     FirewallRuleType: { // FirewallRuleType
+ * //       PartnerThreatProtection: { // PartnerThreatProtectionConfig
+ * //         Partner: "STRING_VALUE", // required
+ * //       },
  * //       FirewallAdvancedContentCategory: { // FirewallAdvancedContentCategoryConfig
  * //         Category: "STRING_VALUE", // required
  * //       },
@@ -101,6 +122,8 @@ export interface CreateFirewallRuleCommandOutput extends CreateFirewallRuleRespo
  * //         ConfidenceThreshold: "LOW" || "MEDIUM" || "HIGH", // required
  * //       },
  * //     },
+ * //     Status: "STRING_VALUE",
+ * //     StatusMessage: "STRING_VALUE",
  * //   },
  * // };
  *

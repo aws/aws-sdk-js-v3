@@ -31,7 +31,8 @@ export interface ListFirewallRuleTypesCommandInput extends ListFirewallRuleTypes
 export interface ListFirewallRuleTypesCommandOutput extends ListFirewallRuleTypesResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the available rule types that can be used in DNS Firewall rules.</p>
+ * <p>Retrieves the rule-type variants that can be used in the <code>FirewallRuleType</code> field of <a>CreateFirewallRule</a> and <a>UpdateFirewallRule</a>. Each returned <a>FirewallRuleTypeDefinition</a> identifies one variant + value combination — for example, <code>FirewallAdvancedContentCategory</code> + <code>VIOLENCE_AND_HATE_SPEECH</code>, or <code>PartnerThreatProtection</code> + a partner-managed feed.</p>
+ *          <p>The supported <code>RuleType</code> filter values are <code>FirewallAdvancedContentCategory</code>, <code>FirewallAdvancedThreatCategory</code>, <code>DnsThreatProtection</code>, and <code>PartnerThreatProtection</code>. When a returned definition's variant requires an external subscription (currently only <code>PartnerThreatProtection</code>), the response also includes a <a>SubscriptionInfo</a> identifying the AWS Marketplace product that backs it; absence of <code>SubscriptionInfo</code> means the variant is fully managed by AWS and requires no separate subscription.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,6 +55,10 @@ export interface ListFirewallRuleTypesCommandOutput extends ListFirewallRuleType
  * //       Value: "STRING_VALUE",
  * //       DisplayName: "STRING_VALUE",
  * //       Description: "STRING_VALUE",
+ * //       SubscriptionInfo: { // SubscriptionInfo
+ * //         VendorName: "STRING_VALUE",
+ * //         ProductId: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

@@ -31,7 +31,8 @@ export interface AssociateFirewallRuleGroupCommandInput extends AssociateFirewal
 export interface AssociateFirewallRuleGroupCommandOutput extends AssociateFirewallRuleGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Associates a <a>FirewallRuleGroup</a> with a VPC, to provide DNS filtering for the VPC. </p>
+ * <p>Associates a <a>FirewallRuleGroup</a> with a VPC, to provide DNS filtering for the VPC.</p>
+ *          <p>If the rule group contains any rule configured with the <code>PartnerThreatProtection</code> rule type, the calling account must hold an active AWS Marketplace subscription to the named partner. If the subscription is missing, the association request is rejected.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
