@@ -4,13 +4,16 @@ import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { ListEngagementsRequest, ListEngagementsResponse } from "../models/models_0";
+import type {
+  GetProspectingFromEngagementTaskRequest,
+  GetProspectingFromEngagementTaskResponse,
+} from "../models/models_0";
 import type {
   PartnerCentralSellingClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralSellingClient";
-import { ListEngagements$ } from "../schemas/schemas_0";
+import { GetProspectingFromEngagementTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -20,77 +23,55 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListEngagementsCommand}.
+ * The input for {@link GetProspectingFromEngagementTaskCommand}.
  */
-export interface ListEngagementsCommandInput extends ListEngagementsRequest {}
+export interface GetProspectingFromEngagementTaskCommandInput extends GetProspectingFromEngagementTaskRequest {}
 /**
  * @public
  *
- * The output of {@link ListEngagementsCommand}.
+ * The output of {@link GetProspectingFromEngagementTaskCommand}.
  */
-export interface ListEngagementsCommandOutput extends ListEngagementsResponse, __MetadataBearer {}
+export interface GetProspectingFromEngagementTaskCommandOutput extends GetProspectingFromEngagementTaskResponse, __MetadataBearer {}
 
 /**
- * <p>This action allows users to retrieve a list of Engagement records from Partner Central. This action can be used to manage and track various engagements across different stages of the partner selling process. </p>
+ * <p>Retrieves the details and current status of a prospecting task previously started with <code>StartProspectingFromEngagementTask</code> to enable polling for completion and access to per-engagement processing results.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PartnerCentralSellingClient, ListEngagementsCommand } from "@aws-sdk/client-partnercentral-selling"; // ES Modules import
- * // const { PartnerCentralSellingClient, ListEngagementsCommand } = require("@aws-sdk/client-partnercentral-selling"); // CommonJS import
+ * import { PartnerCentralSellingClient, GetProspectingFromEngagementTaskCommand } from "@aws-sdk/client-partnercentral-selling"; // ES Modules import
+ * // const { PartnerCentralSellingClient, GetProspectingFromEngagementTaskCommand } = require("@aws-sdk/client-partnercentral-selling"); // CommonJS import
  * // import type { PartnerCentralSellingClientConfig } from "@aws-sdk/client-partnercentral-selling";
  * const config = {}; // type is PartnerCentralSellingClientConfig
  * const client = new PartnerCentralSellingClient(config);
- * const input = { // ListEngagementsRequest
+ * const input = { // GetProspectingFromEngagementTaskRequest
  *   Catalog: "STRING_VALUE", // required
- *   CreatedBy: [ // AwsAccountList
- *     "STRING_VALUE",
- *   ],
- *   ExcludeCreatedBy: [
- *     "STRING_VALUE",
- *   ],
- *   ContextTypes: [ // EngagementContextTypeList
- *     "CustomerProject" || "Lead" || "ProspectingResult",
- *   ],
- *   ExcludeContextTypes: [
- *     "CustomerProject" || "Lead" || "ProspectingResult",
- *   ],
- *   Sort: { // EngagementSort
- *     SortOrder: "ASCENDING" || "DESCENDING", // required
- *     SortBy: "CreatedDate", // required
- *   },
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   EngagementIdentifier: [ // EngagementIdentifiers
- *     "STRING_VALUE",
- *   ],
+ *   TaskIdentifier: "STRING_VALUE", // required
  * };
- * const command = new ListEngagementsCommand(input);
+ * const command = new GetProspectingFromEngagementTaskCommand(input);
  * const response = await client.send(command);
- * // { // ListEngagementsResponse
- * //   EngagementSummaryList: [ // EngagementSummaryList // required
- * //     { // EngagementSummary
- * //       Arn: "STRING_VALUE",
- * //       Id: "STRING_VALUE",
- * //       Title: "STRING_VALUE",
- * //       CreatedAt: new Date("TIMESTAMP"),
- * //       CreatedBy: "STRING_VALUE",
- * //       MemberCount: Number("int"),
- * //       ModifiedAt: new Date("TIMESTAMP"),
- * //       ModifiedBy: "STRING_VALUE",
- * //       ContextTypes: [ // EngagementContextTypeList
- * //         "CustomerProject" || "Lead" || "ProspectingResult",
- * //       ],
+ * // { // GetProspectingFromEngagementTaskResponse
+ * //   TaskId: "STRING_VALUE", // required
+ * //   TaskArn: "STRING_VALUE", // required
+ * //   TaskName: "STRING_VALUE", // required
+ * //   StartTime: new Date("TIMESTAMP"), // required
+ * //   EndTime: new Date("TIMESTAMP"),
+ * //   Engagements: [ // EngagementProspectingResultList // required
+ * //     { // EngagementProspectingResult
+ * //       EngagementIdentifier: "STRING_VALUE", // required
+ * //       EngagementContextId: "STRING_VALUE",
+ * //       Status: "PENDING" || "IN_PROGRESS" || "COMPLETED" || "FAILED", // required
+ * //       ReasonCode: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
  * //     },
  * //   ],
- * //   NextToken: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param ListEngagementsCommandInput - {@link ListEngagementsCommandInput}
- * @returns {@link ListEngagementsCommandOutput}
- * @see {@link ListEngagementsCommandInput} for command's `input` shape.
- * @see {@link ListEngagementsCommandOutput} for command's `response` shape.
+ * @param GetProspectingFromEngagementTaskCommandInput - {@link GetProspectingFromEngagementTaskCommandInput}
+ * @returns {@link GetProspectingFromEngagementTaskCommandOutput}
+ * @see {@link GetProspectingFromEngagementTaskCommandInput} for command's `input` shape.
+ * @see {@link GetProspectingFromEngagementTaskCommandOutput} for command's `response` shape.
  * @see {@link PartnerCentralSellingClientResolvedConfig | config} for PartnerCentralSellingClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -114,10 +95,10 @@ export interface ListEngagementsCommandOutput extends ListEngagementsResponse, _
  *
  * @public
  */
-export class ListEngagementsCommand extends $Command
+export class GetProspectingFromEngagementTaskCommand extends $Command
   .classBuilder<
-    ListEngagementsCommandInput,
-    ListEngagementsCommandOutput,
+    GetProspectingFromEngagementTaskCommandInput,
+    GetProspectingFromEngagementTaskCommandOutput,
     PartnerCentralSellingClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -126,19 +107,19 @@ export class ListEngagementsCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: PartnerCentralSellingClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("AWSPartnerCentralSelling", "ListEngagements", {})
-  .n("PartnerCentralSellingClient", "ListEngagementsCommand")
-  .sc(ListEngagements$)
+  .s("AWSPartnerCentralSelling", "GetProspectingFromEngagementTask", {})
+  .n("PartnerCentralSellingClient", "GetProspectingFromEngagementTaskCommand")
+  .sc(GetProspectingFromEngagementTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListEngagementsRequest;
-      output: ListEngagementsResponse;
+      input: GetProspectingFromEngagementTaskRequest;
+      output: GetProspectingFromEngagementTaskResponse;
     };
     sdk: {
-      input: ListEngagementsCommandInput;
-      output: ListEngagementsCommandOutput;
+      input: GetProspectingFromEngagementTaskCommandInput;
+      output: GetProspectingFromEngagementTaskCommandOutput;
     };
   };
 }

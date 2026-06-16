@@ -8,6 +8,7 @@ export * from "./ListEngagementResourceAssociationsPaginator";
 export * from "./ListEngagementsPaginator";
 export * from "./ListOpportunitiesPaginator";
 export * from "./ListOpportunityFromEngagementTasksPaginator";
+export * from "./ListProspectingFromEngagementTasksPaginator";
 export * from "./ListResourceSnapshotJobsPaginator";
 export * from "./ListResourceSnapshotsPaginator";
 export * from "./ListSolutionsPaginator";

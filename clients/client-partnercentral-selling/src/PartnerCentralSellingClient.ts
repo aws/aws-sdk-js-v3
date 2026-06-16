@@ -106,6 +106,10 @@ import type {
 } from "./commands/GetEngagementInvitationCommand";
 import type { GetOpportunityCommandInput, GetOpportunityCommandOutput } from "./commands/GetOpportunityCommand";
 import type {
+  GetProspectingFromEngagementTaskCommandInput,
+  GetProspectingFromEngagementTaskCommandOutput,
+} from "./commands/GetProspectingFromEngagementTaskCommand";
+import type {
   GetResourceSnapshotCommandInput,
   GetResourceSnapshotCommandOutput,
 } from "./commands/GetResourceSnapshotCommand";
@@ -147,6 +151,10 @@ import type {
   ListOpportunityFromEngagementTasksCommandOutput,
 } from "./commands/ListOpportunityFromEngagementTasksCommand";
 import type {
+  ListProspectingFromEngagementTasksCommandInput,
+  ListProspectingFromEngagementTasksCommandOutput,
+} from "./commands/ListProspectingFromEngagementTasksCommand";
+import type {
   ListResourceSnapshotJobsCommandInput,
   ListResourceSnapshotJobsCommandOutput,
 } from "./commands/ListResourceSnapshotJobsCommand";
@@ -179,6 +187,10 @@ import type {
   StartOpportunityFromEngagementTaskCommandInput,
   StartOpportunityFromEngagementTaskCommandOutput,
 } from "./commands/StartOpportunityFromEngagementTaskCommand";
+import type {
+  StartProspectingFromEngagementTaskCommandInput,
+  StartProspectingFromEngagementTaskCommandOutput,
+} from "./commands/StartProspectingFromEngagementTaskCommand";
 import type {
   StartResourceSnapshotJobCommandInput,
   StartResourceSnapshotJobCommandOutput,
@@ -231,6 +243,7 @@ export type ServiceInputTypes =
   | GetEngagementCommandInput
   | GetEngagementInvitationCommandInput
   | GetOpportunityCommandInput
+  | GetProspectingFromEngagementTaskCommandInput
   | GetResourceSnapshotCommandInput
   | GetResourceSnapshotJobCommandInput
   | GetSellingSystemSettingsCommandInput
@@ -242,6 +255,7 @@ export type ServiceInputTypes =
   | ListEngagementsCommandInput
   | ListOpportunitiesCommandInput
   | ListOpportunityFromEngagementTasksCommandInput
+  | ListProspectingFromEngagementTasksCommandInput
   | ListResourceSnapshotJobsCommandInput
   | ListResourceSnapshotsCommandInput
   | ListSolutionsCommandInput
@@ -251,6 +265,7 @@ export type ServiceInputTypes =
   | StartEngagementByAcceptingInvitationTaskCommandInput
   | StartEngagementFromOpportunityTaskCommandInput
   | StartOpportunityFromEngagementTaskCommandInput
+  | StartProspectingFromEngagementTaskCommandInput
   | StartResourceSnapshotJobCommandInput
   | StopResourceSnapshotJobCommandInput
   | SubmitOpportunityCommandInput
@@ -278,6 +293,7 @@ export type ServiceOutputTypes =
   | GetEngagementCommandOutput
   | GetEngagementInvitationCommandOutput
   | GetOpportunityCommandOutput
+  | GetProspectingFromEngagementTaskCommandOutput
   | GetResourceSnapshotCommandOutput
   | GetResourceSnapshotJobCommandOutput
   | GetSellingSystemSettingsCommandOutput
@@ -289,6 +305,7 @@ export type ServiceOutputTypes =
   | ListEngagementsCommandOutput
   | ListOpportunitiesCommandOutput
   | ListOpportunityFromEngagementTasksCommandOutput
+  | ListProspectingFromEngagementTasksCommandOutput
   | ListResourceSnapshotJobsCommandOutput
   | ListResourceSnapshotsCommandOutput
   | ListSolutionsCommandOutput
@@ -298,6 +315,7 @@ export type ServiceOutputTypes =
   | StartEngagementByAcceptingInvitationTaskCommandOutput
   | StartEngagementFromOpportunityTaskCommandOutput
   | StartOpportunityFromEngagementTaskCommandOutput
+  | StartProspectingFromEngagementTaskCommandOutput
   | StartResourceSnapshotJobCommandOutput
   | StopResourceSnapshotJobCommandOutput
   | SubmitOpportunityCommandOutput

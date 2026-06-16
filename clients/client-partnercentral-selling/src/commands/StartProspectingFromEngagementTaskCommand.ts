@@ -4,13 +4,16 @@ import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { ListEngagementsRequest, ListEngagementsResponse } from "../models/models_0";
+import type {
+  StartProspectingFromEngagementTaskRequest,
+  StartProspectingFromEngagementTaskResponse,
+} from "../models/models_0";
 import type {
   PartnerCentralSellingClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralSellingClient";
-import { ListEngagements$ } from "../schemas/schemas_0";
+import { StartProspectingFromEngagementTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -20,81 +23,62 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListEngagementsCommand}.
+ * The input for {@link StartProspectingFromEngagementTaskCommand}.
  */
-export interface ListEngagementsCommandInput extends ListEngagementsRequest {}
+export interface StartProspectingFromEngagementTaskCommandInput extends StartProspectingFromEngagementTaskRequest {}
 /**
  * @public
  *
- * The output of {@link ListEngagementsCommand}.
+ * The output of {@link StartProspectingFromEngagementTaskCommand}.
  */
-export interface ListEngagementsCommandOutput extends ListEngagementsResponse, __MetadataBearer {}
+export interface StartProspectingFromEngagementTaskCommandOutput extends StartProspectingFromEngagementTaskResponse, __MetadataBearer {}
 
 /**
- * <p>This action allows users to retrieve a list of Engagement records from Partner Central. This action can be used to manage and track various engagements across different stages of the partner selling process. </p>
+ * <p>Starts a task to convert one or more engagement contexts into new prospecting leads. The task runs asynchronously. To poll for status, use <code>GetProspectingFromEngagementTask</code>, or use <code>ListProspectingFromEngagementTasks</code> to monitor multiple tasks.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PartnerCentralSellingClient, ListEngagementsCommand } from "@aws-sdk/client-partnercentral-selling"; // ES Modules import
- * // const { PartnerCentralSellingClient, ListEngagementsCommand } = require("@aws-sdk/client-partnercentral-selling"); // CommonJS import
+ * import { PartnerCentralSellingClient, StartProspectingFromEngagementTaskCommand } from "@aws-sdk/client-partnercentral-selling"; // ES Modules import
+ * // const { PartnerCentralSellingClient, StartProspectingFromEngagementTaskCommand } = require("@aws-sdk/client-partnercentral-selling"); // CommonJS import
  * // import type { PartnerCentralSellingClientConfig } from "@aws-sdk/client-partnercentral-selling";
  * const config = {}; // type is PartnerCentralSellingClientConfig
  * const client = new PartnerCentralSellingClient(config);
- * const input = { // ListEngagementsRequest
+ * const input = { // StartProspectingFromEngagementTaskRequest
  *   Catalog: "STRING_VALUE", // required
- *   CreatedBy: [ // AwsAccountList
+ *   Identifiers: [ // EngagementIdentifierList // required
  *     "STRING_VALUE",
  *   ],
- *   ExcludeCreatedBy: [
- *     "STRING_VALUE",
- *   ],
- *   ContextTypes: [ // EngagementContextTypeList
- *     "CustomerProject" || "Lead" || "ProspectingResult",
- *   ],
- *   ExcludeContextTypes: [
- *     "CustomerProject" || "Lead" || "ProspectingResult",
- *   ],
- *   Sort: { // EngagementSort
- *     SortOrder: "ASCENDING" || "DESCENDING", // required
- *     SortBy: "CreatedDate", // required
- *   },
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   EngagementIdentifier: [ // EngagementIdentifiers
- *     "STRING_VALUE",
- *   ],
+ *   TaskName: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE", // required
  * };
- * const command = new ListEngagementsCommand(input);
+ * const command = new StartProspectingFromEngagementTaskCommand(input);
  * const response = await client.send(command);
- * // { // ListEngagementsResponse
- * //   EngagementSummaryList: [ // EngagementSummaryList // required
- * //     { // EngagementSummary
- * //       Arn: "STRING_VALUE",
- * //       Id: "STRING_VALUE",
- * //       Title: "STRING_VALUE",
- * //       CreatedAt: new Date("TIMESTAMP"),
- * //       CreatedBy: "STRING_VALUE",
- * //       MemberCount: Number("int"),
- * //       ModifiedAt: new Date("TIMESTAMP"),
- * //       ModifiedBy: "STRING_VALUE",
- * //       ContextTypes: [ // EngagementContextTypeList
- * //         "CustomerProject" || "Lead" || "ProspectingResult",
- * //       ],
- * //     },
+ * // { // StartProspectingFromEngagementTaskResponse
+ * //   Identifiers: [ // EngagementIdentifierList // required
+ * //     "STRING_VALUE",
  * //   ],
- * //   NextToken: "STRING_VALUE",
+ * //   TaskName: "STRING_VALUE", // required
+ * //   Message: "STRING_VALUE",
+ * //   ReasonCode: "STRING_VALUE",
+ * //   StartTime: new Date("TIMESTAMP"), // required
+ * //   TaskId: "STRING_VALUE",
+ * //   TaskArn: "STRING_VALUE",
+ * //   TaskStatus: "PENDING" || "IN_PROGRESS" || "COMPLETED" || "FAILED", // required
  * // };
  *
  * ```
  *
- * @param ListEngagementsCommandInput - {@link ListEngagementsCommandInput}
- * @returns {@link ListEngagementsCommandOutput}
- * @see {@link ListEngagementsCommandInput} for command's `input` shape.
- * @see {@link ListEngagementsCommandOutput} for command's `response` shape.
+ * @param StartProspectingFromEngagementTaskCommandInput - {@link StartProspectingFromEngagementTaskCommandInput}
+ * @returns {@link StartProspectingFromEngagementTaskCommandOutput}
+ * @see {@link StartProspectingFromEngagementTaskCommandInput} for command's `input` shape.
+ * @see {@link StartProspectingFromEngagementTaskCommandOutput} for command's `response` shape.
  * @see {@link PartnerCentralSellingClientResolvedConfig | config} for PartnerCentralSellingClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>This error occurs when you don't have permission to perform the requested action.</p> <p>You don’t have access to this action or resource. Review IAM policies or contact your AWS administrator for assistance.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>This error occurs when the request can’t be processed due to a conflict with the target resource's current state, which could result from updating or deleting the resource.</p> <p>Suggested action: Fetch the latest state of the resource, verify the state, and retry the request.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>This error occurs when the specified resource can’t be found or doesn't exist. Resource ID and type might be incorrect.</p> <p>Suggested action: This is usually a transient error. Retry after the provided retry delay or a short interval. If the problem persists, contact AWS support.</p>
@@ -114,10 +98,10 @@ export interface ListEngagementsCommandOutput extends ListEngagementsResponse, _
  *
  * @public
  */
-export class ListEngagementsCommand extends $Command
+export class StartProspectingFromEngagementTaskCommand extends $Command
   .classBuilder<
-    ListEngagementsCommandInput,
-    ListEngagementsCommandOutput,
+    StartProspectingFromEngagementTaskCommandInput,
+    StartProspectingFromEngagementTaskCommandOutput,
     PartnerCentralSellingClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -126,19 +110,19 @@ export class ListEngagementsCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: PartnerCentralSellingClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("AWSPartnerCentralSelling", "ListEngagements", {})
-  .n("PartnerCentralSellingClient", "ListEngagementsCommand")
-  .sc(ListEngagements$)
+  .s("AWSPartnerCentralSelling", "StartProspectingFromEngagementTask", {})
+  .n("PartnerCentralSellingClient", "StartProspectingFromEngagementTaskCommand")
+  .sc(StartProspectingFromEngagementTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListEngagementsRequest;
-      output: ListEngagementsResponse;
+      input: StartProspectingFromEngagementTaskRequest;
+      output: StartProspectingFromEngagementTaskResponse;
     };
     sdk: {
-      input: ListEngagementsCommandInput;
-      output: ListEngagementsCommandOutput;
+      input: StartProspectingFromEngagementTaskCommandInput;
+      output: StartProspectingFromEngagementTaskCommandOutput;
     };
   };
 }

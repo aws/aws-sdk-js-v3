@@ -286,6 +286,13 @@ GetOpportunity
 </details>
 <details>
 <summary>
+GetProspectingFromEngagementTask
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-selling/command/GetProspectingFromEngagementTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/GetProspectingFromEngagementTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/GetProspectingFromEngagementTaskCommandOutput/)
+</details>
+<details>
+<summary>
 GetResourceSnapshot
 </summary>
 
@@ -363,6 +370,13 @@ ListOpportunityFromEngagementTasks
 </details>
 <details>
 <summary>
+ListProspectingFromEngagementTasks
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-selling/command/ListProspectingFromEngagementTasksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/ListProspectingFromEngagementTasksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/ListProspectingFromEngagementTasksCommandOutput/)
+</details>
+<details>
+<summary>
 ListResourceSnapshotJobs
 </summary>
 
@@ -423,6 +437,13 @@ StartOpportunityFromEngagementTask
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-selling/command/StartOpportunityFromEngagementTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/StartOpportunityFromEngagementTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/StartOpportunityFromEngagementTaskCommandOutput/)
+</details>
+<details>
+<summary>
+StartProspectingFromEngagementTask
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-selling/command/StartProspectingFromEngagementTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/StartProspectingFromEngagementTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/StartProspectingFromEngagementTaskCommandOutput/)
 </details>
 <details>
 <summary>

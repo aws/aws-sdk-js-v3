@@ -231,6 +231,19 @@ export interface GetResourceSnapshotCommandOutput extends GetResourceSnapshotRes
  * //             ],
  * //           },
  * //         },
+ * //         OpportunityQuality: { // OpportunityQuality
+ * //           Score: Number("int"),
+ * //           Trend: "STRING_VALUE",
+ * //         },
+ * //         Recommendations: [ // RecommendationList
+ * //           { // Recommendation
+ * //             Type: "STRING_VALUE", // required
+ * //             Details: "STRING_VALUE", // required
+ * //             Attributes: { // RecommendationAttributeMap
+ * //               "<keys>": "STRING_VALUE",
+ * //             },
+ * //           },
+ * //         ],
  * //       },
  * //       InvolvementTypeChangeReason: "Expansion Opportunity" || "Change in Deal Information" || "Customer Requested" || "Technical Complexity" || "Risk Mitigation",
  * //       RelatedEntityIds: { // AwsOpportunityRelatedEntities
@@ -264,6 +277,7 @@ export interface GetResourceSnapshotCommandOutput extends GetResourceSnapshotRes
  * //         ],
  * //         AwsPartition: "aws-eusc",
  * //       },
+ * //       CosellMotion: "STRING_VALUE",
  * //     },
  * //   },
  * //   TargetMemberAccounts: [ // AwsAccountIdOrAliasList

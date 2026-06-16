@@ -78,6 +78,11 @@ import {
   GetOpportunityCommand,
 } from "./commands/GetOpportunityCommand";
 import {
+  type GetProspectingFromEngagementTaskCommandInput,
+  type GetProspectingFromEngagementTaskCommandOutput,
+  GetProspectingFromEngagementTaskCommand,
+} from "./commands/GetProspectingFromEngagementTaskCommand";
+import {
   type GetResourceSnapshotCommandInput,
   type GetResourceSnapshotCommandOutput,
   GetResourceSnapshotCommand,
@@ -133,6 +138,11 @@ import {
   ListOpportunityFromEngagementTasksCommand,
 } from "./commands/ListOpportunityFromEngagementTasksCommand";
 import {
+  type ListProspectingFromEngagementTasksCommandInput,
+  type ListProspectingFromEngagementTasksCommandOutput,
+  ListProspectingFromEngagementTasksCommand,
+} from "./commands/ListProspectingFromEngagementTasksCommand";
+import {
   type ListResourceSnapshotJobsCommandInput,
   type ListResourceSnapshotJobsCommandOutput,
   ListResourceSnapshotJobsCommand,
@@ -178,6 +188,11 @@ import {
   StartOpportunityFromEngagementTaskCommand,
 } from "./commands/StartOpportunityFromEngagementTaskCommand";
 import {
+  type StartProspectingFromEngagementTaskCommandInput,
+  type StartProspectingFromEngagementTaskCommandOutput,
+  StartProspectingFromEngagementTaskCommand,
+} from "./commands/StartProspectingFromEngagementTaskCommand";
+import {
   type StartResourceSnapshotJobCommandInput,
   type StartResourceSnapshotJobCommandOutput,
   StartResourceSnapshotJobCommand,
@@ -222,6 +237,7 @@ import { paginateListEngagementResourceAssociations } from "./pagination/ListEng
 import { paginateListEngagements } from "./pagination/ListEngagementsPaginator";
 import { paginateListOpportunities } from "./pagination/ListOpportunitiesPaginator";
 import { paginateListOpportunityFromEngagementTasks } from "./pagination/ListOpportunityFromEngagementTasksPaginator";
+import { paginateListProspectingFromEngagementTasks } from "./pagination/ListProspectingFromEngagementTasksPaginator";
 import { paginateListResourceSnapshotJobs } from "./pagination/ListResourceSnapshotJobsPaginator";
 import { paginateListResourceSnapshots } from "./pagination/ListResourceSnapshotsPaginator";
 import { paginateListSolutions } from "./pagination/ListSolutionsPaginator";
@@ -243,6 +259,7 @@ const commands = {
   GetEngagementCommand,
   GetEngagementInvitationCommand,
   GetOpportunityCommand,
+  GetProspectingFromEngagementTaskCommand,
   GetResourceSnapshotCommand,
   GetResourceSnapshotJobCommand,
   GetSellingSystemSettingsCommand,
@@ -254,6 +271,7 @@ const commands = {
   ListEngagementsCommand,
   ListOpportunitiesCommand,
   ListOpportunityFromEngagementTasksCommand,
+  ListProspectingFromEngagementTasksCommand,
   ListResourceSnapshotJobsCommand,
   ListResourceSnapshotsCommand,
   ListSolutionsCommand,
@@ -263,6 +281,7 @@ const commands = {
   StartEngagementByAcceptingInvitationTaskCommand,
   StartEngagementFromOpportunityTaskCommand,
   StartOpportunityFromEngagementTaskCommand,
+  StartProspectingFromEngagementTaskCommand,
   StartResourceSnapshotJobCommand,
   StopResourceSnapshotJobCommand,
   SubmitOpportunityCommand,
@@ -280,6 +299,7 @@ const paginators = {
   paginateListEngagements,
   paginateListOpportunities,
   paginateListOpportunityFromEngagementTasks,
+  paginateListProspectingFromEngagementTasks,
   paginateListResourceSnapshotJobs,
   paginateListResourceSnapshots,
   paginateListSolutions,
@@ -542,6 +562,23 @@ export interface PartnerCentralSelling {
   ): void;
 
   /**
+   * @see {@link GetProspectingFromEngagementTaskCommand}
+   */
+  getProspectingFromEngagementTask(
+    args: GetProspectingFromEngagementTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetProspectingFromEngagementTaskCommandOutput>;
+  getProspectingFromEngagementTask(
+    args: GetProspectingFromEngagementTaskCommandInput,
+    cb: (err: any, data?: GetProspectingFromEngagementTaskCommandOutput) => void
+  ): void;
+  getProspectingFromEngagementTask(
+    args: GetProspectingFromEngagementTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetProspectingFromEngagementTaskCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetResourceSnapshotCommand}
    */
   getResourceSnapshot(
@@ -729,6 +766,23 @@ export interface PartnerCentralSelling {
   ): void;
 
   /**
+   * @see {@link ListProspectingFromEngagementTasksCommand}
+   */
+  listProspectingFromEngagementTasks(
+    args: ListProspectingFromEngagementTasksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListProspectingFromEngagementTasksCommandOutput>;
+  listProspectingFromEngagementTasks(
+    args: ListProspectingFromEngagementTasksCommandInput,
+    cb: (err: any, data?: ListProspectingFromEngagementTasksCommandOutput) => void
+  ): void;
+  listProspectingFromEngagementTasks(
+    args: ListProspectingFromEngagementTasksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListProspectingFromEngagementTasksCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListResourceSnapshotJobsCommand}
    */
   listResourceSnapshotJobs(
@@ -879,6 +933,23 @@ export interface PartnerCentralSelling {
     args: StartOpportunityFromEngagementTaskCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartOpportunityFromEngagementTaskCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartProspectingFromEngagementTaskCommand}
+   */
+  startProspectingFromEngagementTask(
+    args: StartProspectingFromEngagementTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartProspectingFromEngagementTaskCommandOutput>;
+  startProspectingFromEngagementTask(
+    args: StartProspectingFromEngagementTaskCommandInput,
+    cb: (err: any, data?: StartProspectingFromEngagementTaskCommandOutput) => void
+  ): void;
+  startProspectingFromEngagementTask(
+    args: StartProspectingFromEngagementTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartProspectingFromEngagementTaskCommandOutput) => void
   ): void;
 
   /**
@@ -1087,6 +1158,17 @@ export interface PartnerCentralSelling {
     args: ListOpportunityFromEngagementTasksCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListOpportunityFromEngagementTasksCommandOutput>;
+
+  /**
+   * @see {@link ListProspectingFromEngagementTasksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProspectingFromEngagementTasksCommandOutput}.
+   */
+  paginateListProspectingFromEngagementTasks(
+    args: ListProspectingFromEngagementTasksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProspectingFromEngagementTasksCommandOutput>;
 
   /**
    * @see {@link ListResourceSnapshotJobsCommand}

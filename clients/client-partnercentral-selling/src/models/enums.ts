@@ -781,6 +781,7 @@ export type MarketSegment = (typeof MarketSegment)[keyof typeof MarketSegment];
 export const EngagementContextType = {
   CUSTOMER_PROJECT: "CustomerProject",
   LEAD: "Lead",
+  PROSPECTING_RESULT: "ProspectingResult",
 } as const;
 /**
  * @public
@@ -1194,6 +1195,36 @@ export const OpportunitySortName = {
  * @public
  */
 export type OpportunitySortName = (typeof OpportunitySortName)[keyof typeof OpportunitySortName];
+
+/**
+ * @public
+ * @enum
+ */
+export const ProspectingTaskStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+} as const;
+/**
+ * @public
+ */
+export type ProspectingTaskStatus = (typeof ProspectingTaskStatus)[keyof typeof ProspectingTaskStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ProspectingFromEngagementTaskSortName = {
+  FailedEngagementCount: "FailedEngagementCount",
+  StartTime: "StartTime",
+  TaskName: "TaskName",
+} as const;
+/**
+ * @public
+ */
+export type ProspectingFromEngagementTaskSortName =
+  (typeof ProspectingFromEngagementTaskSortName)[keyof typeof ProspectingFromEngagementTaskSortName];
 
 /**
  * @public

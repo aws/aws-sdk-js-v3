@@ -30,6 +30,8 @@ import type {
   ParticipantType,
   PaymentFrequency,
   PrimaryNeedFromAws,
+  ProspectingFromEngagementTaskSortName,
+  ProspectingTaskStatus,
   ReasonCode,
   ReceiverResponsibility,
   RelatedEntityType,
@@ -527,6 +529,48 @@ export interface AwsProductsSpendInsightsBySource {
 }
 
 /**
+ * <p>Opportunity quality score and trend.</p>
+ * @public
+ */
+export interface OpportunityQuality {
+  /**
+   * <p>Deal quality score based on opportunity content completeness and sales methodology criteria. Values range from 0 to 100.</p>
+   * @public
+   */
+  Score?: number | undefined;
+
+  /**
+   * <p>Direction of score change since last scoring iteration. Known values: <code>Improving</code>, <code>Declining</code>, <code>No Change</code>.</p>
+   * @public
+   */
+  Trend?: string | undefined;
+}
+
+/**
+ * <p>A recommendation from an agent-driven source.</p>
+ * @public
+ */
+export interface Recommendation {
+  /**
+   * <p>The recommendation source type. Known values: <code>OpportunityQuality</code>, <code>SolutionRecommendation</code>, <code>SpecialistRecommendation</code>.</p>
+   * @public
+   */
+  Type: string | undefined;
+
+  /**
+   * <p>Human-readable recommendation text from this source.</p>
+   * @public
+   */
+  Details: string | undefined;
+
+  /**
+   * <p>Source-specific metadata as key-value pairs.</p>
+   * @public
+   */
+  Attributes?: Record<string, string> | undefined;
+}
+
+/**
  * <p>Contains insights provided by AWS for the opportunity, offering recommendations and analysis that can help the partner optimize their engagement and strategy.</p>
  * @public
  */
@@ -548,6 +592,18 @@ export interface AwsOpportunityInsights {
    * @public
    */
   AwsProductsSpendInsightsBySource?: AwsProductsSpendInsightsBySource | undefined;
+
+  /**
+   * <p>Opportunity quality assessment. Null if not yet scored.</p>
+   * @public
+   */
+  OpportunityQuality?: OpportunityQuality | undefined;
+
+  /**
+   * <p>List of recommendations from various agent-driven sources.</p>
+   * @public
+   */
+  Recommendations?: Recommendation[] | undefined;
 }
 
 /**
@@ -622,13 +678,13 @@ export interface ExpectedCustomerSpend {
   CurrencyCode: CurrencyCode | undefined;
 
   /**
-   * <p>Indicates how frequently the customer is expected to spend the projected amount. Only the value <code>Monthly</code> is allowed for the <code>Frequency</code> field, representing recurring monthly spend.</p>
+   * <p>Indicates how frequently the customer is expected to spend the projected amount. Use <code>Monthly</code> for recurring monthly spend (required for <code>TargetCompany: "AWS"</code> entries). Use <code>None</code> for one-time deal value entries (required for <code>TargetCompany: "Self"</code> entries when providing Total Contract Value).</p>
    * @public
    */
   Frequency: PaymentFrequency | undefined;
 
   /**
-   * <p>Specifies the name of the partner company that is expected to generate revenue from the opportunity. This field helps track the partner’s involvement in the opportunity. This field only accepts the value <code>AWS</code>. If any other value is provided, the system will automatically set it to <code>AWS</code>.</p>
+   * <p>Specifies the entity associated with this spend entry. Use <code>AWS</code> for the system’s AWS Monthly Recurring Revenue (MRR) estimate. Use <code>Self</code> for the partner’s own deal value entry when providing Total Contract Value (TCV) for automatic MRR conversion. When <code>ExpectedContractDuration</code> is present on the Project, only <code>AWS</code> and <code>Self</code> are accepted. When <code>ExpectedContractDuration</code> is not present, only <code>AWS</code> is accepted and any other value will be automatically set to <code>AWS</code>.</p>
    * @public
    */
   TargetCompany: string | undefined;
@@ -776,6 +832,12 @@ export interface AwsOpportunitySummaryFullView {
    * @public
    */
   Project?: AwsOpportunityProject | undefined;
+
+  /**
+   * <p>Engagement classification for this opportunity. Read-only. Null before scoring. Known values: <code>AWS Field-engaged</code>, <code>Agent-engaged</code>, <code>Partner-led</code>.</p>
+   * @public
+   */
+  CosellMotion?: string | undefined;
 }
 
 /**
@@ -893,6 +955,18 @@ export interface LeadCustomer {
 }
 
 /**
+ * <p>Contains insights that AI generates for a lead. These insights provide automated analysis to help partners evaluate the lead quality and prioritize engagement efforts.</p>
+ * @public
+ */
+export interface LeadInsights {
+  /**
+   * <p>A score that indicates the lead's readiness for engagement. Valid values are <code>Low</code>, <code>Medium</code>, and <code>High</code>. Use this score to prioritize leads based on their likelihood of conversion.</p>
+   * @public
+   */
+  LeadReadinessScore?: string | undefined;
+}
+
+/**
  * <p>An object that contains a lead contact's details associated with the engagement. This provides contact information for individuals involved in lead-related activities.</p>
  * @public
  */
@@ -988,6 +1062,12 @@ export interface LeadInteraction {
  */
 export interface LeadContext {
   /**
+   * <p>Insights that AI generates and associates with the lead. These insights provide automated analysis such as lead readiness scoring to help partners assess the lead quality.</p>
+   * @public
+   */
+  Insights?: LeadInsights | undefined;
+
+  /**
    * <p>Indicates the current qualification status of the lead, such as whether it has been qualified, disqualified, or is still under evaluation. This helps track the lead's progression through the qualification process.</p>
    * @public
    */
@@ -1007,12 +1087,175 @@ export interface LeadContext {
 }
 
 /**
+ * <p>Contains detailed information about the prospected customer account, including company identifiers, geographic classification, industry segmentation, and program eligibility.</p>
+ * @public
+ */
+export interface ProspectingResultCustomer {
+  /**
+   * <p>The name of the prospected customer account.</p>
+   * @public
+   */
+  AccountName?: string | undefined;
+
+  /**
+   * <p>The geographic region classification of the prospected customer account.</p>
+   * @public
+   */
+  Geo?: string | undefined;
+
+  /**
+   * <p>The specific region of the prospected customer account.</p>
+   * @public
+   */
+  Region?: string | undefined;
+
+  /**
+   * <p>The subregion classification of the prospected customer account.</p>
+   * @public
+   */
+  SubRegion?: string | undefined;
+
+  /**
+   * <p>The country code of the prospected customer account.</p>
+   * @public
+   */
+  Country?: CountryCode | undefined;
+
+  /**
+   * <p>The industry classification of the prospected customer account.</p>
+   * @public
+   */
+  Industry?: Industry | undefined;
+
+  /**
+   * <p>The sub-industry classification of the prospected customer account. This provides more granular categorization within the primary industry.</p>
+   * @public
+   */
+  SubIndustry?: string | undefined;
+
+  /**
+   * <p>The market segment classification of the prospected customer account.</p>
+   * @public
+   */
+  Segment?: string | undefined;
+
+  /**
+   * <p>The company size classification of the prospected customer account.</p>
+   * @public
+   */
+  CompanySize?: string | undefined;
+
+  /**
+   * <p>A list of AWS Greenfield programs that the prospected customer is eligible for. Use this list to identify relevant go-to-market opportunities.</p>
+   * @public
+   */
+  EligiblePrograms?: string[] | undefined;
+
+  /**
+   * <p>A summary of publicly available information about the prospected customer. The system uses this summary to generate customer insights and inform engagement strategies.</p>
+   * @public
+   */
+  PublicProfileSummary?: string | undefined;
+}
+
+/**
+ * <p>Contains insights that AI generates from the prospecting analysis. These insights include marketplace engagement scoring, solution fit assessments, and solution categorization for the prospected customer.</p>
+ * @public
+ */
+export interface ProspectingInsights {
+  /**
+   * <p>A score that indicates the prospected customer's level of engagement with AWS Marketplace. Valid values are <code>High</code>, <code>Medium</code>, and <code>Low</code>.</p>
+   * @public
+   */
+  MarketplaceEngagementScore?: string | undefined;
+
+  /**
+   * <p>A score that indicates how well the partner's solution fits the prospected customer's needs.</p>
+   * @public
+   */
+  SolutionScore?: string | undefined;
+
+  /**
+   * <p>The primary solution category classification for the prospected customer. This indicates the type of solution that best addresses their needs.</p>
+   * @public
+   */
+  SolutionCategory?: string | undefined;
+
+  /**
+   * <p>The solution sub-category classification for the prospected customer. This provides more granular categorization of the recommended solution type.</p>
+   * @public
+   */
+  SolutionSubCategory?: string | undefined;
+}
+
+/**
+ * <p>Contains the prospecting data that AWS sources. This includes task execution details, customer account information, and insights that AI generates from the prospecting analysis.</p>
+ * @public
+ */
+export interface ProspectingResultAws {
+  /**
+   * <p>The timestamp when the prospecting result context was created. The format is ISO 8601 (UTC).</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the prospecting task completed processing. The format is ISO 8601 (UTC).</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>The unique identifier of the prospecting task that generates this result.</p>
+   * @public
+   */
+  TaskId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the prospecting task. Use this ARN to track and manage the task within AWS.</p>
+   * @public
+   */
+  TaskArn?: string | undefined;
+
+  /**
+   * <p>The name that the user provides for the prospecting task that generates this result.</p>
+   * @public
+   */
+  TaskName?: string | undefined;
+
+  /**
+   * <p>Contains details about the prospected customer account, including geographic, industry, and segment classifications.</p>
+   * @public
+   */
+  Customer?: ProspectingResultCustomer | undefined;
+
+  /**
+   * <p>Insights that AI generates from the prospecting analysis. These insights include engagement scores and solution fit assessments for the prospected customer.</p>
+   * @public
+   */
+  Insights?: ProspectingInsights | undefined;
+}
+
+/**
+ * <p>Contains the results of an autonomous prospecting job. This includes data and insights that AWS provides about a prospected customer account.</p>
+ * @public
+ */
+export interface ProspectingResult {
+  /**
+   * <p>Prospecting data and insights that AWS provides during the prospecting job. This includes customer details, task information, and scoring that AI generates.</p>
+   * @public
+   */
+  Aws?: ProspectingResultAws | undefined;
+}
+
+/**
  * <p>Represents the payload of an Engagement context. The structure of this payload varies based on the context type specified in the EngagementContextDetails. </p>
  * @public
  */
 export type EngagementContextPayload =
   | EngagementContextPayload.CustomerProjectMember
   | EngagementContextPayload.LeadMember
+  | EngagementContextPayload.ProspectingResultMember
   | EngagementContextPayload.$UnknownMember;
 
 /**
@@ -1026,6 +1269,7 @@ export namespace EngagementContextPayload {
   export interface CustomerProjectMember {
     CustomerProject: CustomerProjectsContext;
     Lead?: never;
+    ProspectingResult?: never;
     $unknown?: never;
   }
 
@@ -1036,6 +1280,18 @@ export namespace EngagementContextPayload {
   export interface LeadMember {
     CustomerProject?: never;
     Lead: LeadContext;
+    ProspectingResult?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains prospecting result data with enriched insights. The system generates these insights when a partner runs an autonomous prospecting job on leads. This field appears only when the context type is "ProspectingResult".</p>
+   * @public
+   */
+  export interface ProspectingResultMember {
+    CustomerProject?: never;
+    Lead?: never;
+    ProspectingResult: ProspectingResult;
     $unknown?: never;
   }
 
@@ -1045,6 +1301,7 @@ export namespace EngagementContextPayload {
   export interface $UnknownMember {
     CustomerProject?: never;
     Lead?: never;
+    ProspectingResult?: never;
     $unknown: [string, any];
   }
 
@@ -1055,6 +1312,7 @@ export namespace EngagementContextPayload {
   export interface Visitor<T> {
     CustomerProject: (value: CustomerProjectsContext) => T;
     Lead: (value: LeadContext) => T;
+    ProspectingResult: (value: ProspectingResult) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -3277,6 +3535,12 @@ export interface GetAwsOpportunitySummaryResponse {
   Project?: AwsOpportunityProject | undefined;
 
   /**
+   * <p>Engagement classification for this opportunity. Read-only. Null before scoring. Known values: <code>AWS Field-engaged</code>, <code>Agent-engaged</code>, <code>Partner-led</code>.</p>
+   * @public
+   */
+  CosellMotion?: string | undefined;
+
+  /**
    * <p>Specifies the catalog in which the AWS Opportunity exists. This is the environment (e.g., <code>AWS</code> or <code>Sandbox</code>) where the opportunity is being managed.</p>
    * @public
    */
@@ -4104,6 +4368,330 @@ export interface StartOpportunityFromEngagementTaskResponse {
    * @public
    */
   ContextId?: string | undefined;
+}
+
+/**
+ * <p>Represents the request structure for retrieving the status and results of a prospecting task.</p>
+ * @public
+ */
+export interface GetProspectingFromEngagementTaskRequest {
+  /**
+   * <p>Specifies the catalog associated with the task. Specify <code>AWS</code> for production environments and <code>Sandbox</code> for testing and development purposes. The value must match the catalog used when the task was created.</p>
+   * @public
+   */
+  Catalog: string | undefined;
+
+  /**
+   * <p>The unique identifier of the prospecting task to retrieve. This value is returned in the <code>TaskId</code> field of the <code>StartProspectingFromEngagementTask</code> response.</p>
+   * @public
+   */
+  TaskIdentifier: string | undefined;
+}
+
+/**
+ * <p>Contains the result of processing a single engagement within a prospecting task. Each engagement is processed independently, so individual engagements can succeed or fail regardless of other engagements in the same task.</p>
+ * @public
+ */
+export interface EngagementProspectingResult {
+  /**
+   * <p>The unique identifier of the engagement that was processed.</p>
+   * @public
+   */
+  EngagementIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the prospecting context created for this engagement. This field is only populated when the engagement was processed successfully (status is <code>COMPLETED</code>). Use this identifier to reference the prospecting context in subsequent operations.</p>
+   * @public
+   */
+  EngagementContextId?: string | undefined;
+
+  /**
+   * <p>The processing status of this specific engagement. Possible values are <code>PENDING</code>, <code>IN_PROGRESS</code>, <code>COMPLETED</code>, and <code>FAILED</code>.</p>
+   * @public
+   */
+  Status: ProspectingTaskStatus | undefined;
+
+  /**
+   * <p>An enumerated code indicating the reason this engagement failed to process. This field is only populated when <code>Status</code> is <code>FAILED</code>.</p>
+   * @public
+   */
+  ReasonCode?: string | undefined;
+
+  /**
+   * <p>A human-readable description of the failure for this engagement, including suggested recovery steps. This field is only populated when <code>Status</code> is <code>FAILED</code>.</p>
+   * @public
+   */
+  Message?: string | undefined;
+}
+
+/**
+ * <p>Represents the response structure containing the full details of a prospecting task, including per-engagement processing results. Includes the <code>Status</code> field of each <code>EngagementProspectingResult</code> entry to determine individual outcomes.</p>
+ * @public
+ */
+export interface GetProspectingFromEngagementTaskResponse {
+  /**
+   * <p>The unique identifier of the task.</p>
+   * @public
+   */
+  TaskId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the task.</p>
+   * @public
+   */
+  TaskArn: string | undefined;
+
+  /**
+   * <p>The descriptive name of the task that you provided when you created it.</p>
+   * @public
+   */
+  TaskName: string | undefined;
+
+  /**
+   * <p>The timestamp indicating when the task was initiated. The format follows ISO 8601 date-time notation.</p>
+   * @public
+   */
+  StartTime: Date | undefined;
+
+  /**
+   * <p>The timestamp indicating when the task finished processing. This field is absent if the task is still in progress. The format follows ISO 8601 date-time notation.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>An array of <code>EngagementProspectingResult</code> entries for each engagement in the task. Each entry contains the processing status. For successfully completed engagements, includes the prospecting context identifier. For failed engagements, includes an error code and message.</p>
+   * @public
+   */
+  Engagements: EngagementProspectingResult[] | undefined;
+}
+
+/**
+ * <p>Specifies the sort configuration for <code>ListProspectingFromEngagementTasks</code>. Contains the field to sort by and the sort direction.</p>
+ * @public
+ */
+export interface ProspectingFromEngagementTaskSort {
+  /**
+   * <p>The direction in which to sort the results. Use <code>ASCENDING</code> to return the smallest or earliest values first, or <code>DESCENDING</code> to return the largest or most recent values first.</p>
+   * @public
+   */
+  SortOrder: SortOrder | undefined;
+
+  /**
+   * <p>The field by which to sort the returned tasks. Valid values: <code>StartTime</code> (task creation timestamp), <code>TaskName</code> (alphabetically by task name), and <code>FailedEngagementCount</code> (number of failed engagements).</p>
+   * @public
+   */
+  SortBy: ProspectingFromEngagementTaskSortName | undefined;
+}
+
+/**
+ * <p>Represents the request structure for listing prospecting tasks. All filter parameters are optional. Results are paginated — uses <code>NextToken</code> from the response to retrieve subsequent pages.</p>
+ * @public
+ */
+export interface ListProspectingFromEngagementTasksRequest {
+  /**
+   * <p>Specifies the catalog to list tasks from. Specify <code>AWS</code> for production environments and <code>Sandbox</code> for testing and development purposes.</p>
+   * @public
+   */
+  Catalog: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single page. If additional results exist, the response includes a <code>NextToken</code> value for retrieving the next page. If omitted, the API uses a service-defined default page size.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The pagination token from a previous call to this API. Include this value to retrieve the next page of results. If omitted, the first page is returned.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Filters the results to include only the tasks with the specified identifiers. Provide up to 10 task IDs to narrow the list to specific tasks. If omitted, tasks are not filtered by identifier.</p>
+   * @public
+   */
+  TaskIdentifier?: string[] | undefined;
+
+  /**
+   * <p>Filters the results to include only tasks with the specified names. Provide up to 10 task names to narrow the list. If omitted, tasks are not filtered by name.</p>
+   * @public
+   */
+  TaskName?: string[] | undefined;
+
+  /**
+   * <p>Filters tasks to include only those that started after the specified timestamp. Use this with <code>StartBefore</code> to define a start-time range for your query. The format follows ISO 8601 date-time notation.</p>
+   * @public
+   */
+  StartAfter?: Date | undefined;
+
+  /**
+   * <p>Filters tasks to include only those that started before the specified timestamp. Use this with <code>StartAfter</code> to define a start-time range for your query. The format follows ISO 8601 date-time notation.</p>
+   * @public
+   */
+  StartBefore?: Date | undefined;
+
+  /**
+   * <p>Specifies the field and order used to sort the returned tasks. If omitted, tasks are returned in the default sort order.</p>
+   * @public
+   */
+  Sort?: ProspectingFromEngagementTaskSort | undefined;
+}
+
+/**
+ * <p>A summary of a single prospecting task, returned by <code>ListProspectingFromEngagementTasks</code>. Contains key metrics and status information without the full per-engagement detail available from <code>GetProspectingFromEngagementTask</code>.</p>
+ * @public
+ */
+export interface ProspectingTaskSummary {
+  /**
+   * <p>The unique identifier of the task. Use this value with <code>GetProspectingFromEngagementTask</code> to retrieve full task details.</p>
+   * @public
+   */
+  TaskId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the task.</p>
+   * @public
+   */
+  TaskArn: string | undefined;
+
+  /**
+   * <p>The descriptive name of the task provided when it was created.</p>
+   * @public
+   */
+  TaskName: string | undefined;
+
+  /**
+   * <p>The timestamp indicating when the task was initiated. The format follows ISO 8601 date-time notation.</p>
+   * @public
+   */
+  StartTime: Date | undefined;
+
+  /**
+   * <p>The timestamp indicating when the task finished processing. This field is absent if the task is still in progress. The format follows ISO 8601 date-time notation.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>The total number of engagements included in the task.</p>
+   * @public
+   */
+  TotalEngagementCount: number | undefined;
+
+  /**
+   * <p>The number of engagements that have been successfully converted into prospecting leads.</p>
+   * @public
+   */
+  CompletedEngagementCount: number | undefined;
+
+  /**
+   * <p>The number of engagements that failed to be converted. Retrieve the full task details using <code>GetProspectingFromEngagementTask</code> for per-engagement error information.</p>
+   * @public
+   */
+  FailedEngagementCount: number | undefined;
+}
+
+/**
+ * <p>Represents the response structure containing a paginated list of prospecting task summaries matching the request filters. Indicates through <code>NextToken</code> when additional results are available.</p>
+ * @public
+ */
+export interface ListProspectingFromEngagementTasksResponse {
+  /**
+   * <p>A pagination token used to retrieve the next page of results. If this field is present, pass its value as <code>NextToken</code> in the next call. If absent or empty, there are no further pages.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Prospecting task summaries matching the specified filters. Each summary includes the task identifier, name, status counters, and timing information. If no tasks match the filter criteria, the list is empty.</p>
+   * @public
+   */
+  TaskSummaries: ProspectingTaskSummary[] | undefined;
+}
+
+/**
+ * <p>Represents the request structure for starting a prospecting task. Includes up to 100 engagement identifiers and a task name. Uses <code>ClientToken</code> to ensure idempotency.</p>
+ * @public
+ */
+export interface StartProspectingFromEngagementTaskRequest {
+  /**
+   * <p>Specifies the catalog in which the task is initiated. Specify <code>AWS</code> for production environments and <code>Sandbox</code> for testing and development purposes.</p>
+   * @public
+   */
+  Catalog: string | undefined;
+
+  /**
+   * <p>The list of engagement identifiers to include in this prospecting task. Each identifier must correspond to an existing engagement in the specified catalog. Maximum of 100 identifiers per task.</p>
+   * @public
+   */
+  Identifiers: string[] | undefined;
+
+  /**
+   * <p>A descriptive name for the task. This name helps identify the task in list and get operations. The name must contain 1 to 128 characters.</p>
+   * @public
+   */
+  TaskName: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier provided by the client to ensure idempotency. Making the same request with the same <code>ClientToken</code> returns the same response without creating a duplicate task.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * <p>Represents the response structure returned when a prospecting task is successfully submitted. Contains the task identifier, ARN, and initial status. Uses <code>TaskId</code> with <code>GetProspectingFromEngagementTask</code> to poll for completion.</p>
+ * @public
+ */
+export interface StartProspectingFromEngagementTaskResponse {
+  /**
+   * <p>The list of engagement identifiers that were accepted into the task queue for processing. This list matches the identifiers provided in the request.</p>
+   * @public
+   */
+  Identifiers: string[] | undefined;
+
+  /**
+   * <p>The task name from the request.</p>
+   * @public
+   */
+  TaskName: string | undefined;
+
+  /**
+   * <p>A message providing additional context about the task's current state. When the task fails, this field contains a detailed description of the failure and suggested recovery steps. This field is only populated for tasks in a failed state.</p>
+   * @public
+   */
+  Message?: string | undefined;
+
+  /**
+   * <p>An enumerated code identifying the reason for task failure. This field is only populated when the task has failed. Use the corresponding <code>Message</code> field for a human-readable description of the failure.</p>
+   * @public
+   */
+  ReasonCode?: string | undefined;
+
+  /**
+   * <p>The timestamp indicating when the task was initiated. The format follows ISO 8601 date-time notation.</p>
+   * @public
+   */
+  StartTime: Date | undefined;
+
+  /**
+   * <p>The unique identifier assigned to this task. Use this identifier with <code>GetProspectingFromEngagementTask</code> to retrieve task details and check status.</p>
+   * @public
+   */
+  TaskId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the task. The ARN uniquely identifies the task across AWS and can be used for resource-level IAM policies.</p>
+   * @public
+   */
+  TaskArn?: string | undefined;
+
+  /**
+   * <p>The current status of the task. Possible values: <code>PENDING</code> (waiting to run), <code>IN_PROGRESS</code> (actively processing), <code>COMPLETED</code> (successfully processed), and <code>FAILED</code> (unrecoverable error).</p>
+   * @public
+   */
+  TaskStatus: ProspectingTaskStatus | undefined;
 }
 
 /**
@@ -5206,6 +5794,12 @@ export interface UpdateLeadContext {
    * @public
    */
   Interaction?: LeadInteraction | undefined;
+
+  /**
+   * <p>Insights that AI generates and associates with the lead. These insights provide automated analysis to help partners assess the lead quality and readiness.</p>
+   * @public
+   */
+  Insights?: LeadInsights | undefined;
 }
 
 /**
@@ -5215,6 +5809,7 @@ export interface UpdateLeadContext {
 export type UpdateEngagementContextPayload =
   | UpdateEngagementContextPayload.CustomerProjectMember
   | UpdateEngagementContextPayload.LeadMember
+  | UpdateEngagementContextPayload.ProspectingResultMember
   | UpdateEngagementContextPayload.$UnknownMember;
 
 /**
@@ -5228,6 +5823,7 @@ export namespace UpdateEngagementContextPayload {
   export interface LeadMember {
     Lead: UpdateLeadContext;
     CustomerProject?: never;
+    ProspectingResult?: never;
     $unknown?: never;
   }
 
@@ -5238,6 +5834,18 @@ export namespace UpdateEngagementContextPayload {
   export interface CustomerProjectMember {
     Lead?: never;
     CustomerProject: CustomerProjectsContext;
+    ProspectingResult?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains updated prospecting result data when the context type is "ProspectingResult". This field includes enriched data and insights that the system generates when a partner runs an autonomous prospecting job on leads.</p>
+   * @public
+   */
+  export interface ProspectingResultMember {
+    Lead?: never;
+    CustomerProject?: never;
+    ProspectingResult: ProspectingResult;
     $unknown?: never;
   }
 
@@ -5247,6 +5855,7 @@ export namespace UpdateEngagementContextPayload {
   export interface $UnknownMember {
     Lead?: never;
     CustomerProject?: never;
+    ProspectingResult?: never;
     $unknown: [string, any];
   }
 
@@ -5257,6 +5866,7 @@ export namespace UpdateEngagementContextPayload {
   export interface Visitor<T> {
     Lead: (value: UpdateLeadContext) => T;
     CustomerProject: (value: CustomerProjectsContext) => T;
+    ProspectingResult: (value: ProspectingResult) => T;
     _: (name: string, value: any) => T;
   }
 }

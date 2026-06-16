@@ -86,6 +86,7 @@ import {
   EngagementInvitationSummary$,
   EngagementMember$,
   EngagementMemberSummary$,
+  EngagementProspectingResult$,
   EngagementResourceAssociationSummary$,
   EngagementScore,
   EngagementSort$,
@@ -110,6 +111,10 @@ import {
   GetOpportunityCommand,
   GetOpportunityRequest$,
   GetOpportunityResponse$,
+  GetProspectingFromEngagementTask$,
+  GetProspectingFromEngagementTaskCommand,
+  GetProspectingFromEngagementTaskRequest$,
+  GetProspectingFromEngagementTaskResponse$,
   GetResourceSnapshot$,
   GetResourceSnapshotCommand,
   GetResourceSnapshotJob$,
@@ -132,6 +137,7 @@ import {
   LeadContact$,
   LeadContext$,
   LeadCustomer$,
+  LeadInsights$,
   LeadInteraction$,
   LeadInvitationCustomer$,
   LeadInvitationInteraction$,
@@ -174,6 +180,10 @@ import {
   ListOpportunityFromEngagementTasksRequest$,
   ListOpportunityFromEngagementTasksResponse$,
   ListOpportunityFromEngagementTaskSummary$,
+  ListProspectingFromEngagementTasks$,
+  ListProspectingFromEngagementTasksCommand,
+  ListProspectingFromEngagementTasksRequest$,
+  ListProspectingFromEngagementTasksResponse$,
   ListResourceSnapshotJobs$,
   ListResourceSnapshotJobsCommand,
   ListResourceSnapshotJobsRequest$,
@@ -202,6 +212,7 @@ import {
   OpportunityEngagementInvitationSortName,
   OpportunityInvitationPayload$,
   OpportunityOrigin,
+  OpportunityQuality$,
   OpportunitySort$,
   OpportunitySortName,
   OpportunitySummary$,
@@ -215,6 +226,7 @@ import {
   paginateListEngagements,
   paginateListOpportunities,
   paginateListOpportunityFromEngagementTasks,
+  paginateListProspectingFromEngagementTasks,
   paginateListResourceSnapshotJobs,
   paginateListResourceSnapshots,
   paginateListSolutions,
@@ -230,6 +242,14 @@ import {
   ProjectDetails$,
   ProjectSummary$,
   ProjectView$,
+  ProspectingFromEngagementTaskSort$,
+  ProspectingFromEngagementTaskSortName,
+  ProspectingInsights$,
+  ProspectingResult$,
+  ProspectingResultAws$,
+  ProspectingResultCustomer$,
+  ProspectingTaskStatus,
+  ProspectingTaskSummary$,
   PutSellingSystemSettings$,
   PutSellingSystemSettingsCommand,
   PutSellingSystemSettingsRequest$,
@@ -237,6 +257,7 @@ import {
   ReasonCode,
   Receiver$,
   ReceiverResponsibility,
+  Recommendation$,
   RejectEngagementInvitation$,
   RejectEngagementInvitationCommand,
   RejectEngagementInvitationRequest$,
@@ -277,6 +298,10 @@ import {
   StartOpportunityFromEngagementTaskCommand,
   StartOpportunityFromEngagementTaskRequest$,
   StartOpportunityFromEngagementTaskResponse$,
+  StartProspectingFromEngagementTask$,
+  StartProspectingFromEngagementTaskCommand,
+  StartProspectingFromEngagementTaskRequest$,
+  StartProspectingFromEngagementTaskResponse$,
   StartResourceSnapshotJob$,
   StartResourceSnapshotJobCommand,
   StartResourceSnapshotJobRequest$,
@@ -351,6 +376,8 @@ assert(typeof GetEngagementInvitationCommand === "function");
 assert(typeof GetEngagementInvitation$ === "object");
 assert(typeof GetOpportunityCommand === "function");
 assert(typeof GetOpportunity$ === "object");
+assert(typeof GetProspectingFromEngagementTaskCommand === "function");
+assert(typeof GetProspectingFromEngagementTask$ === "object");
 assert(typeof GetResourceSnapshotCommand === "function");
 assert(typeof GetResourceSnapshot$ === "object");
 assert(typeof GetResourceSnapshotJobCommand === "function");
@@ -373,6 +400,8 @@ assert(typeof ListOpportunitiesCommand === "function");
 assert(typeof ListOpportunities$ === "object");
 assert(typeof ListOpportunityFromEngagementTasksCommand === "function");
 assert(typeof ListOpportunityFromEngagementTasks$ === "object");
+assert(typeof ListProspectingFromEngagementTasksCommand === "function");
+assert(typeof ListProspectingFromEngagementTasks$ === "object");
 assert(typeof ListResourceSnapshotJobsCommand === "function");
 assert(typeof ListResourceSnapshotJobs$ === "object");
 assert(typeof ListResourceSnapshotsCommand === "function");
@@ -391,6 +420,8 @@ assert(typeof StartEngagementFromOpportunityTaskCommand === "function");
 assert(typeof StartEngagementFromOpportunityTask$ === "object");
 assert(typeof StartOpportunityFromEngagementTaskCommand === "function");
 assert(typeof StartOpportunityFromEngagementTask$ === "object");
+assert(typeof StartProspectingFromEngagementTaskCommand === "function");
+assert(typeof StartProspectingFromEngagementTask$ === "object");
 assert(typeof StartResourceSnapshotJobCommand === "function");
 assert(typeof StartResourceSnapshotJob$ === "object");
 assert(typeof StopResourceSnapshotJobCommand === "function");
@@ -453,6 +484,7 @@ assert(typeof EngagementCustomerProjectDetails$ === "object");
 assert(typeof EngagementInvitationSummary$ === "object");
 assert(typeof EngagementMember$ === "object");
 assert(typeof EngagementMemberSummary$ === "object");
+assert(typeof EngagementProspectingResult$ === "object");
 assert(typeof EngagementResourceAssociationSummary$ === "object");
 assert(typeof EngagementSort$ === "object");
 assert(typeof EngagementSummary$ === "object");
@@ -466,6 +498,8 @@ assert(typeof GetEngagementRequest$ === "object");
 assert(typeof GetEngagementResponse$ === "object");
 assert(typeof GetOpportunityRequest$ === "object");
 assert(typeof GetOpportunityResponse$ === "object");
+assert(typeof GetProspectingFromEngagementTaskRequest$ === "object");
+assert(typeof GetProspectingFromEngagementTaskResponse$ === "object");
 assert(typeof GetResourceSnapshotJobRequest$ === "object");
 assert(typeof GetResourceSnapshotJobResponse$ === "object");
 assert(typeof GetResourceSnapshotRequest$ === "object");
@@ -477,6 +511,7 @@ assert(typeof LastModifiedDate$ === "object");
 assert(typeof LeadContact$ === "object");
 assert(typeof LeadContext$ === "object");
 assert(typeof LeadCustomer$ === "object");
+assert(typeof LeadInsights$ === "object");
 assert(typeof LeadInteraction$ === "object");
 assert(typeof LeadInvitationCustomer$ === "object");
 assert(typeof LeadInvitationInteraction$ === "object");
@@ -503,6 +538,8 @@ assert(typeof ListOpportunitiesResponse$ === "object");
 assert(typeof ListOpportunityFromEngagementTasksRequest$ === "object");
 assert(typeof ListOpportunityFromEngagementTasksResponse$ === "object");
 assert(typeof ListOpportunityFromEngagementTaskSummary$ === "object");
+assert(typeof ListProspectingFromEngagementTasksRequest$ === "object");
+assert(typeof ListProspectingFromEngagementTasksResponse$ === "object");
 assert(typeof ListResourceSnapshotJobsRequest$ === "object");
 assert(typeof ListResourceSnapshotJobsResponse$ === "object");
 assert(typeof ListResourceSnapshotsRequest$ === "object");
@@ -517,6 +554,7 @@ assert(typeof MonetaryValue$ === "object");
 assert(typeof NextStepsHistory$ === "object");
 assert(typeof OpportunityEngagementInvitationSort$ === "object");
 assert(typeof OpportunityInvitationPayload$ === "object");
+assert(typeof OpportunityQuality$ === "object");
 assert(typeof OpportunitySort$ === "object");
 assert(typeof OpportunitySummary$ === "object");
 assert(typeof OpportunitySummaryView$ === "object");
@@ -526,9 +564,16 @@ assert(typeof Project$ === "object");
 assert(typeof ProjectDetails$ === "object");
 assert(typeof ProjectSummary$ === "object");
 assert(typeof ProjectView$ === "object");
+assert(typeof ProspectingFromEngagementTaskSort$ === "object");
+assert(typeof ProspectingInsights$ === "object");
+assert(typeof ProspectingResult$ === "object");
+assert(typeof ProspectingResultAws$ === "object");
+assert(typeof ProspectingResultCustomer$ === "object");
+assert(typeof ProspectingTaskSummary$ === "object");
 assert(typeof PutSellingSystemSettingsRequest$ === "object");
 assert(typeof PutSellingSystemSettingsResponse$ === "object");
 assert(typeof Receiver$ === "object");
+assert(typeof Recommendation$ === "object");
 assert(typeof RejectEngagementInvitationRequest$ === "object");
 assert(typeof RelatedEntityIdentifiers$ === "object");
 assert(typeof ResourceSnapshotJobSummary$ === "object");
@@ -545,6 +590,8 @@ assert(typeof StartEngagementFromOpportunityTaskRequest$ === "object");
 assert(typeof StartEngagementFromOpportunityTaskResponse$ === "object");
 assert(typeof StartOpportunityFromEngagementTaskRequest$ === "object");
 assert(typeof StartOpportunityFromEngagementTaskResponse$ === "object");
+assert(typeof StartProspectingFromEngagementTaskRequest$ === "object");
+assert(typeof StartProspectingFromEngagementTaskResponse$ === "object");
 assert(typeof StartResourceSnapshotJobRequest$ === "object");
 assert(typeof StopResourceSnapshotJobRequest$ === "object");
 assert(typeof SubmitOpportunityRequest$ === "object");
@@ -593,6 +640,8 @@ assert(typeof OpportunityType === "object");
 assert(typeof ParticipantType === "object");
 assert(typeof PaymentFrequency === "object");
 assert(typeof PrimaryNeedFromAws === "object");
+assert(typeof ProspectingFromEngagementTaskSortName === "object");
+assert(typeof ProspectingTaskStatus === "object");
 assert(typeof ReasonCode === "object");
 assert(typeof ReceiverResponsibility === "object");
 assert(typeof RelatedEntityType === "object");
@@ -636,6 +685,7 @@ assert(typeof paginateListEngagementResourceAssociations === "function");
 assert(typeof paginateListEngagements === "function");
 assert(typeof paginateListOpportunities === "function");
 assert(typeof paginateListOpportunityFromEngagementTasks === "function");
+assert(typeof paginateListProspectingFromEngagementTasks === "function");
 assert(typeof paginateListResourceSnapshotJobs === "function");
 assert(typeof paginateListResourceSnapshots === "function");
 assert(typeof paginateListSolutions === "function");
