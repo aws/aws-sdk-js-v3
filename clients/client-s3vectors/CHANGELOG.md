@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1070.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1069.0...v3.1070.0) (2026-06-16)
+
+
+### Features
+
+* **client-s3vectors:** Amazon S3 Vectors now supports paginated QueryVectors requests, returning up to 10,000 results per query. ([8b2ef7f](https://github.com/aws/aws-sdk-js-v3/commit/8b2ef7f217f089d2a59bc2d6e50d42d40a2236ca))
+
+
+
+
+
 # [3.1069.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1068.0...v3.1069.0) (2026-06-15)
 
 **Note:** Version bump only for package @aws-sdk/client-s3vectors

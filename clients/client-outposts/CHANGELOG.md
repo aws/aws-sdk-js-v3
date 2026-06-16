@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1070.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1069.0...v3.1070.0) (2026-06-16)
+
+
+### Features
+
+* **client-outposts:** Adds support for creating an order from quotes. ([d438988](https://github.com/aws/aws-sdk-js-v3/commit/d4389889cc293fa5eee48933589b7bb8783f76f6))
+
+
+
+
+
 # [3.1069.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1068.0...v3.1069.0) (2026-06-15)
 
 **Note:** Version bump only for package @aws-sdk/client-outposts

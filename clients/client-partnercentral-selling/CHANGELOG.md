@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1070.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1069.0...v3.1070.0) (2026-06-16)
+
+
+### Features
+
+* **client-partnercentral-selling:** Added Prospecting APIs to convert engagements into AI-enriched leads with scoring insights. Extended Engagement APIs with ProspectingResult and Lead contexts. Added CoSell Scoring to GetAwsOpportunitySummary- quality score, trend, agent-driven recommendations, and engagement classification. ([c6c54ef](https://github.com/aws/aws-sdk-js-v3/commit/c6c54ef001cdc5dcc6bc13891a733d4643579ecd))
+
+
+
+
+
 # [3.1069.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1068.0...v3.1069.0) (2026-06-15)
 
 **Note:** Version bump only for package @aws-sdk/client-partnercentral-selling

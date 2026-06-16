@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1070.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1069.0...v3.1070.0) (2026-06-16)
+
+
+### Features
+
+* **client-direct-connect:** Added VIF rate limiting support for AWS Direct Connect, allowing customers to set bandwidth allocations on virtual interfaces to manage traffic on dedicated connections. ([73df938](https://github.com/aws/aws-sdk-js-v3/commit/73df93835943446ede93e9fdd1e053920cafa18b))
+* **client-outposts:** Adds support for creating an order from quotes. ([d438988](https://github.com/aws/aws-sdk-js-v3/commit/d4389889cc293fa5eee48933589b7bb8783f76f6))
+* **client-partnercentral-selling:** Added Prospecting APIs to convert engagements into AI-enriched leads with scoring insights. Extended Engagement APIs with ProspectingResult and Lead contexts. Added CoSell Scoring to GetAwsOpportunitySummary- quality score, trend, agent-driven recommendations, and engagement classification. ([c6c54ef](https://github.com/aws/aws-sdk-js-v3/commit/c6c54ef001cdc5dcc6bc13891a733d4643579ecd))
+* **client-route53resolver:** Adds supports for PartnerManagedRules ([b76e2ee](https://github.com/aws/aws-sdk-js-v3/commit/b76e2eeddfb7ec05ea007177988db34b4cb3bc0c))
+* **client-s3:** Added support for annotations. You can now attach up to 1000 annotations (up to 1 MB each) directly to objects and create, retrieve, list, and delete them using new annotation APIs. Also added support for configuring an annotation table in S3 Metadata. ([c555874](https://github.com/aws/aws-sdk-js-v3/commit/c555874690846b81904a2c0c1e96130bd03bbeaa))
+* **client-s3vectors:** Amazon S3 Vectors now supports paginated QueryVectors requests, returning up to 10,000 results per query. ([8b2ef7f](https://github.com/aws/aws-sdk-js-v3/commit/8b2ef7f217f089d2a59bc2d6e50d42d40a2236ca))
+* **client-sagemaker:** Add EnableDetailedObservability to Endpoint MetricsConfig. Publishes GPU, host, and framework-native inference metrics to CloudWatch with per-inference-component, availability-zone, and instance dimensions. Adds Inference Component provisioning lifecycle and multi-AZ placement metrics. ([97bb02c](https://github.com/aws/aws-sdk-js-v3/commit/97bb02cfa0cb952ac992ff873668892b382dc9be))
+* **clients:** update client endpoints as of 2026-06-16 ([dc04478](https://github.com/aws/aws-sdk-js-v3/commit/dc0447840e46473b44a9998676ece31649ff74d5))
+
+
+
+
+
 # [3.1069.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1068.0...v3.1069.0) (2026-06-15)
 
 
