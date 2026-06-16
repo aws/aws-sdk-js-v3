@@ -11939,7 +11939,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/undici-http-handler@workspace:packages-internal/undici-http-handler"
   dependencies:
-    "@smithy/undici-http-handler": "npm:^2.0.1"
+    "@smithy/undici-http-handler": "file:./package.tgz"
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
@@ -16003,6 +16003,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@smithy/core@npm:^3.25.0":
+  version: 3.25.0
+  resolution: "@smithy/core@npm:3.25.0"
+  dependencies:
+    "@aws-crypto/crc32": "npm:5.2.0"
+    "@smithy/types": "npm:^4.15.0"
+    tslib: "npm:^2.6.2"
+  checksum: 10c0/eb63370cab43828b56d0268e7eb34d63558abfeb365dcdaa840f65af757f4ae433584bfc8951bc804fc0e8600a262d2f74855ad556dd5c22f8129bfd3ad0ebda
+  languageName: node
+  linkType: hard
+
 "@smithy/credential-provider-imds@npm:^4.3.7":
   version: 4.3.7
   resolution: "@smithy/credential-provider-imds@npm:4.3.7"
@@ -16175,17 +16186,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@smithy/undici-http-handler@npm:^2.0.1":
-  version: 2.0.2
-  resolution: "@smithy/undici-http-handler@npm:2.0.2"
+"@smithy/types@npm:^4.15.0":
+  version: 4.15.0
+  resolution: "@smithy/types@npm:4.15.0"
   dependencies:
-    "@smithy/core": "npm:^3.24.6"
-    "@smithy/types": "npm:^4.14.3"
+    tslib: "npm:^2.6.2"
+  checksum: 10c0/18b7f64544c7450dbc5602817d6f1a6bc337fcb19bc56d6df977bfcf7a25e233640df1f7f1791cc50a291dfedf30b99f5942ea517e0611b37f4c4a79327637cf
+  languageName: node
+  linkType: hard
+
+"@smithy/undici-http-handler@file:./package.tgz::locator=%40aws-sdk%2Fundici-http-handler%40workspace%3Apackages-internal%2Fundici-http-handler":
+  version: 2.1.1
+  resolution: "@smithy/undici-http-handler@file:./package.tgz#./package.tgz::hash=4108aa&locator=%40aws-sdk%2Fundici-http-handler%40workspace%3Apackages-internal%2Fundici-http-handler"
+  dependencies:
+    "@smithy/core": "npm:^3.25.0"
+    "@smithy/types": "npm:^4.15.0"
     tslib: "npm:^2.6.2"
     undici: "npm:^7.0.0"
   peerDependencies:
     undici: ">=7.0.0"
-  checksum: 10c0/740792abcfb888c421c84b6f577c937fa092da75c958acd505d9375d32e8d27fa4df2a0ea315ff329b272c6155c4d6000f58d13b307716970fa4524bc897e56c
+  checksum: 10c0/a423876299ee4b70eeb69f459f3345e8f5b3fdf893dde5fa05b131e7f00558d00f9970a74872e12a654ab0d3395ba8083190231ca98122de95204af24454f881
   languageName: node
   linkType: hard
 
