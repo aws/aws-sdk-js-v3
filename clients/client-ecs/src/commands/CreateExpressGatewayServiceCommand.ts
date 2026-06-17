@@ -37,7 +37,7 @@ export interface CreateExpressGatewayServiceCommandOutput extends CreateExpressG
  * const config = {}; // type is ECSClientConfig
  * const client = new ECSClient(config);
  * const input = { // CreateExpressGatewayServiceRequest
- *   executionRoleArn: "STRING_VALUE", // required
+ *   executionRoleArn: "STRING_VALUE",
  *   infrastructureRoleArn: "STRING_VALUE", // required
  *   serviceName: "STRING_VALUE",
  *   cluster: "STRING_VALUE",
@@ -91,6 +91,7 @@ export interface CreateExpressGatewayServiceCommandOutput extends CreateExpressG
  *       value: "STRING_VALUE",
  *     },
  *   ],
+ *   taskDefinitionArn: "STRING_VALUE",
  * };
  * const command = new CreateExpressGatewayServiceCommand(input);
  * const response = await client.send(command);
@@ -110,6 +111,7 @@ export interface CreateExpressGatewayServiceCommandOutput extends CreateExpressG
  * //         serviceRevisionArn: "STRING_VALUE",
  * //         executionRoleArn: "STRING_VALUE",
  * //         taskRoleArn: "STRING_VALUE",
+ * //         taskDefinitionArn: "STRING_VALUE",
  * //         cpu: "STRING_VALUE",
  * //         memory: "STRING_VALUE",
  * //         networkConfiguration: { // ExpressGatewayServiceNetworkConfiguration

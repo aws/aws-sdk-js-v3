@@ -404,7 +404,7 @@ export class NoUpdateAvailableException extends __BaseException {
 }
 
 /**
- * <p>The service deploy ARN that you specified in the <code>StopServiceDeployment</code> doesn't exist. You can use <code>ListServiceDeployments</code> to retrieve the service deployment ARNs.</p>
+ * <p>The service deploy ARN that you specified in the <code>ContinueServiceDeployment</code> doesn't exist. You can use <code>ListServiceDeployments</code> to retrieve the service deployment ARNs.</p>
  * @public
  */
 export class ServiceDeploymentNotFoundException extends __BaseException {

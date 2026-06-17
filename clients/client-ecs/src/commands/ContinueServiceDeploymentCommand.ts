@@ -27,7 +27,7 @@ export interface ContinueServiceDeploymentCommandInput extends ContinueServiceDe
 export interface ContinueServiceDeploymentCommandOutput extends ContinueServiceDeploymentResponse, __MetadataBearer {}
 
 /**
- * <p>Continues or rolls back an Amazon ECS service deployment that is paused at a lifecycle hook.</p> <p>When a service deployment reaches a lifecycle stage that has a <code>PAUSE</code> hook configured, the deployment pauses and waits for an explicit action. Use this API to either continue the deployment to the next stage or roll back to the previous service revision.</p> <p>To find the <code>hookId</code> of the paused hook, call <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeServiceDeployments.html">DescribeServiceDeployments</a> and inspect the <code>lifecycleHookDetails</code> field.</p>
+ * <p>Continues or rolls back an Amazon ECS service deployment that is paused at a lifecycle hook.</p> <p>When a service deployment reaches a lifecycle stage that has a <code>PAUSE</code> hook configured, the deployment pauses and waits for an explicit action. Use this API to either continue the deployment to the next stage or roll back to the previous service revision.</p> <p>To find the <code>hookId</code> of the paused hook, call <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeServiceDeployments.html">DescribeServiceDeployments</a> and inspect the <code>lifecycleHookDetails</code> field.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/continue-service-deployment.html">Continuing Amazon ECS service deployments</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,7 +68,7 @@ export interface ContinueServiceDeploymentCommandOutput extends ContinueServiceD
  *  <p>These errors are usually caused by a server issue.</p>
  *
  * @throws {@link ServiceDeploymentNotFoundException} (client fault)
- *  <p>The service deploy ARN that you specified in the <code>StopServiceDeployment</code> doesn't exist. You can use <code>ListServiceDeployments</code> to retrieve the service deployment ARNs.</p>
+ *  <p>The service deploy ARN that you specified in the <code>ContinueServiceDeployment</code> doesn't exist. You can use <code>ListServiceDeployments</code> to retrieve the service deployment ARNs.</p>
  *
  * @throws {@link UnsupportedFeatureException} (client fault)
  *  <p>The specified task isn't supported in this Region.</p>
@@ -82,7 +82,7 @@ export interface ContinueServiceDeploymentCommandOutput extends ContinueServiceD
  * // This example continues a service deployment that is paused at a lifecycle hook, using the CONTINUE action to proceed to the next deployment stage.
  * const input = {
  *   action: "CONTINUE",
- *   hookId: "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567",
+ *   hookId: "ecs-pause-Xk7rT2mP9sLwQn4vB8fYd3hJ6gA1cE5iO0uR_ZpWq",
  *   serviceDeploymentArn: "arn:aws:ecs:us-east-1:123456789012:service-deployment/MyCluster/MyService/r9i43YFjvgF_xlg7m2eJ1r"
  * };
  * const command = new ContinueServiceDeploymentCommand(input);
@@ -99,7 +99,7 @@ export interface ContinueServiceDeploymentCommandOutput extends ContinueServiceD
  * // This example rolls back a service deployment that is paused at a lifecycle hook, using the ROLLBACK action to revert to the previous service revision.
  * const input = {
  *   action: "ROLLBACK",
- *   hookId: "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567",
+ *   hookId: "ecs-pause-Xk7rT2mP9sLwQn4vB8fYd3hJ6gA1cE5iO0uR_ZpWq",
  *   serviceDeploymentArn: "arn:aws:ecs:us-east-1:123456789012:service-deployment/MyCluster/MyService/r9i43YFjvgF_xlg7m2eJ1r"
  * };
  * const command = new ContinueServiceDeploymentCommand(input);

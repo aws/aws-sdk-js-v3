@@ -83,6 +83,7 @@ export interface UpdateExpressGatewayServiceCommandOutput extends UpdateExpressG
  *     autoScalingMetric: "AVERAGE_CPU" || "AVERAGE_MEMORY" || "REQUEST_COUNT_PER_TARGET",
  *     autoScalingTargetValue: Number("int"),
  *   },
+ *   taskDefinitionArn: "STRING_VALUE",
  * };
  * const command = new UpdateExpressGatewayServiceCommand(input);
  * const response = await client.send(command);
@@ -99,6 +100,7 @@ export interface UpdateExpressGatewayServiceCommandOutput extends UpdateExpressG
  * //       serviceRevisionArn: "STRING_VALUE",
  * //       executionRoleArn: "STRING_VALUE",
  * //       taskRoleArn: "STRING_VALUE",
+ * //       taskDefinitionArn: "STRING_VALUE",
  * //       cpu: "STRING_VALUE",
  * //       memory: "STRING_VALUE",
  * //       networkConfiguration: { // ExpressGatewayServiceNetworkConfiguration

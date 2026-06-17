@@ -60,6 +60,7 @@ export interface DescribeExpressGatewayServiceCommandOutput extends DescribeExpr
  * //         serviceRevisionArn: "STRING_VALUE",
  * //         executionRoleArn: "STRING_VALUE",
  * //         taskRoleArn: "STRING_VALUE",
+ * //         taskDefinitionArn: "STRING_VALUE",
  * //         cpu: "STRING_VALUE",
  * //         memory: "STRING_VALUE",
  * //         networkConfiguration: { // ExpressGatewayServiceNetworkConfiguration

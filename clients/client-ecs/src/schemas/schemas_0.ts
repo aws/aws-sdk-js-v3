@@ -1057,8 +1057,8 @@ const _tC = "timeoutConfiguration";
 const _tCa = "targetCapacity";
 const _tCar = "targetConfiguration";
 const _tD = "taskDefinition";
-const _tDA = "taskDefinitionArns";
-const _tDAa = "taskDefinitionArn";
+const _tDA = "taskDefinitionArn";
+const _tDAa = "taskDefinitionArns";
 const _tDIC = "totalDrainingInstanceCount";
 const _tDR = "targetDaemonRevision";
 const _tDRA = "targetDaemonRevisionArn";
@@ -1552,8 +1552,8 @@ export var CreatedAt$: StaticStructureSchema = [3, n0, _CA,
 ];
 export var CreateExpressGatewayServiceRequest$: StaticStructureSchema = [3, n0, _CEGSR,
   0,
-  [_eRA, _iRA, _pC, _sN, _cl, _hCP, _tRA, _nC, _cp, _me, _sTc, _ta],
-  [0, 0, [() => ExpressGatewayContainer$, 0], 0, 0, 0, 0, () => ExpressGatewayServiceNetworkConfiguration$, 0, 0, () => ExpressGatewayScalingTarget$, () => Tags], 3
+  [_iRA, _eRA, _sN, _cl, _hCP, _pC, _tRA, _nC, _cp, _me, _sTc, _ta, _tDA],
+  [0, 0, 0, 0, 0, [() => ExpressGatewayContainer$, 0], 0, () => ExpressGatewayServiceNetworkConfiguration$, 0, 0, () => ExpressGatewayScalingTarget$, () => Tags, 0], 1
 ];
 export var CreateExpressGatewayServiceResponse$: StaticStructureSchema = [3, n0, _CEGSRr,
   0,
@@ -2087,8 +2087,8 @@ export var ExpressGatewayServiceAwsLogsConfiguration$: StaticStructureSchema = [
 ];
 export var ExpressGatewayServiceConfiguration$: StaticStructureSchema = [3, n0, _EGSC,
   0,
-  [_sRAe, _eRA, _tRA, _cp, _me, _nC, _hCP, _pC, _sTc, _iP, _cAr],
-  [0, 0, 0, 0, 0, () => ExpressGatewayServiceNetworkConfiguration$, 0, [() => ExpressGatewayContainer$, 0], () => ExpressGatewayScalingTarget$, () => IngressPathSummaries, 4]
+  [_sRAe, _eRA, _tRA, _tDA, _cp, _me, _nC, _hCP, _pC, _sTc, _iP, _cAr],
+  [0, 0, 0, 0, 0, 0, () => ExpressGatewayServiceNetworkConfiguration$, 0, [() => ExpressGatewayContainer$, 0], () => ExpressGatewayScalingTarget$, () => IngressPathSummaries, 4]
 ];
 export var ExpressGatewayServiceNetworkConfiguration$: StaticStructureSchema = [3, n0, _EGSNC,
   0,
@@ -2332,7 +2332,7 @@ export var ListTaskDefinitionsRequest$: StaticStructureSchema = [3, n0, _LTDR,
 ];
 export var ListTaskDefinitionsResponse$: StaticStructureSchema = [3, n0, _LTDRi,
   0,
-  [_tDA, _nT],
+  [_tDAa, _nT],
   [64 | 0, 0]
 ];
 export var ListTasksRequest$: StaticStructureSchema = [3, n0, _LTR,
@@ -2857,12 +2857,12 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 ];
 export var Task$: StaticStructureSchema = [3, n0, _Ta,
   0,
-  [_a, _at, _aZ, _cPN, _cA, _conn, _cAon, _cIA, _conta, _cp, _cAr, _dSe, _eEC, _eSA, _g, _hS, _iAn, _lS, _lT, _me, _ov, _pV, _pF, _pSA, _pSAu, _sA, _sB, _sCtop, _sAt, _sRt, _sAto, _ta, _tA, _tDAa, _ve, _eSp, _fES],
+  [_a, _at, _aZ, _cPN, _cA, _conn, _cAon, _cIA, _conta, _cp, _cAr, _dSe, _eEC, _eSA, _g, _hS, _iAn, _lS, _lT, _me, _ov, _pV, _pF, _pSA, _pSAu, _sA, _sB, _sCtop, _sAt, _sRt, _sAto, _ta, _tA, _tDA, _ve, _eSp, _fES],
   [() => Attachments, () => Attributes, 0, 0, 0, 0, 4, 0, () => Containers, 0, 4, 0, 2, 4, 0, 0, () => InferenceAccelerators, 0, 0, 0, [() => TaskOverride$, 0], 0, 0, 4, 4, 4, 0, 0, 4, 0, 4, () => Tags, 0, 0, 1, () => EphemeralStorage$, () => TaskEphemeralStorage$]
 ];
 export var TaskDefinition$: StaticStructureSchema = [3, n0, _TD,
   0,
-  [_tDAa, _cD, _f, _tRA, _eRA, _nM, _re, _vo, _st, _rAeq, _pCl, _comp, _rPu, _rCe, _cp, _me, _iAn, _pMi, _iM, _pCr, _rAe, _dAer, _dRAe, _rB, _eSp, _eFI],
+  [_tDA, _cD, _f, _tRA, _eRA, _nM, _re, _vo, _st, _rAeq, _pCl, _comp, _rPu, _rCe, _cp, _me, _iAn, _pMi, _iM, _pCr, _rAe, _dAer, _dRAe, _rB, _eSp, _eFI],
   [0, [() => ContainerDefinitions, 0], 0, 0, 0, 0, 1, () => VolumeList, 0, () => RequiresAttributes, () => TaskDefinitionPlacementConstraints, 64 | 0, () => RuntimePlatform$, 64 | 0, 0, 0, () => InferenceAccelerators, 0, 0, () => ProxyConfiguration$, 4, 4, 4, 0, () => EphemeralStorage$, 2]
 ];
 export var TaskDefinitionPlacementConstraint$: StaticStructureSchema = [3, n0, _TDPC,
@@ -2997,8 +2997,8 @@ export var UpdatedExpressGatewayService$: StaticStructureSchema = [3, n0, _UEGS,
 ];
 export var UpdateExpressGatewayServiceRequest$: StaticStructureSchema = [3, n0, _UEGSR,
   0,
-  [_sAe, _eRA, _hCP, _pC, _tRA, _nC, _cp, _me, _sTc],
-  [0, 0, 0, [() => ExpressGatewayContainer$, 0], 0, () => ExpressGatewayServiceNetworkConfiguration$, 0, 0, () => ExpressGatewayScalingTarget$], 1
+  [_sAe, _eRA, _hCP, _pC, _tRA, _nC, _cp, _me, _sTc, _tDA],
+  [0, 0, 0, [() => ExpressGatewayContainer$, 0], 0, () => ExpressGatewayServiceNetworkConfiguration$, 0, 0, () => ExpressGatewayScalingTarget$, 0], 1
 ];
 export var UpdateExpressGatewayServiceResponse$: StaticStructureSchema = [3, n0, _UEGSRp,
   0,

@@ -3588,7 +3588,7 @@ export interface ListDaemonDeploymentsResponse {
  */
 export interface ListDaemonsRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the cluster to filter daemons by. If not specified, daemons from all clusters are returned.</p>
+   * <p>The Amazon Resource Name (ARN) of the cluster to filter daemons by. If you do not specify a cluster, the default cluster is assumed.</p>
    * @public
    */
   clusterArn?: string | undefined;
@@ -4510,13 +4510,13 @@ export interface DaemonTaskDefinition {
   registeredBy?: string | undefined;
 
   /**
-   * <p>The process namespace mode for the daemon. A value of <code>shared</code> means the daemon shares the PID namespace with co-located tasks, giving it visibility into application processes. A value of <code>none</code> means the daemon has its own isolated PID namespace.</p>
+   * <p>The PID namespace mode for the daemon. The valid values are <code>none</code> and <code>shared</code>. The default is <code>none</code>.</p> <p>If <code>none</code> is specified or no value is provided, the daemon runs with its own PID namespace, isolated from other tasks. If <code>shared</code> is specified, the daemon joins the host PID namespace, making it accessible to non-daemon tasks that use <code>pidMode: "host"</code> or other daemons that use <code>pidMode: "shared"</code>.</p>
    * @public
    */
   pidMode?: DaemonPidMode | undefined;
 
   /**
-   * <p>The IPC namespace mode for the daemon. A value of <code>shared</code> means the daemon shares the IPC namespace with co-located tasks, allowing communication through POSIX shared memory, semaphores, and message queues. A value of <code>none</code> means the daemon has its own isolated IPC namespace.</p>
+   * <p>The IPC namespace mode for the daemon. The valid values are <code>none</code> and <code>shared</code>. The default is <code>none</code>.</p> <p>If <code>none</code> is specified or no value is provided, the daemon runs with its own IPC namespace, isolated from other tasks. If <code>shared</code> is specified, the daemon joins the host IPC namespace, making it accessible to non-daemon tasks that use <code>ipcMode: "host"</code> or other daemons that use <code>ipcMode: "shared"</code>.</p>
    * @public
    */
   ipcMode?: DaemonIpcMode | undefined;
@@ -4686,13 +4686,13 @@ export interface RegisterDaemonTaskDefinitionRequest {
   tags?: Tag[] | undefined;
 
   /**
-   * <p>The process namespace mode for the daemon. When set to <code>shared</code>, the daemon shares the PID namespace with co-located tasks on the same container instance, giving the daemon visibility into application processes. When set to <code>none</code>, the daemon gets its own isolated PID namespace. The default is <code>none</code>.</p>
+   * <p>The PID namespace mode for the daemon. The valid values are <code>none</code> and <code>shared</code>. The default is <code>none</code>.</p> <p>If <code>none</code> is specified or no value is provided, the daemon runs with its own PID namespace, isolated from other tasks. If <code>shared</code> is specified, the daemon joins the host PID namespace, making it accessible to non-daemon tasks that use <code>pidMode: "host"</code> or other daemons that use <code>pidMode: "shared"</code>.</p>
    * @public
    */
   pidMode?: DaemonPidMode | undefined;
 
   /**
-   * <p>The IPC namespace mode for the daemon. When set to <code>shared</code>, the daemon shares the IPC namespace with co-located tasks on the same container instance, allowing communication through POSIX shared memory, semaphores, and message queues. When set to <code>none</code>, the daemon gets its own isolated IPC namespace. The default is <code>none</code>.</p>
+   * <p>The IPC namespace mode for the daemon. The valid values are <code>none</code> and <code>shared</code>. The default is <code>none</code>.</p> <p>If <code>none</code> is specified or no value is provided, the daemon runs with its own IPC namespace, isolated from other tasks. If <code>shared</code> is specified, the daemon joins the host IPC namespace, making it accessible to non-daemon tasks that use <code>ipcMode: "host"</code> or other daemons that use <code>ipcMode: "shared"</code>.</p>
    * @public
    */
   ipcMode?: DaemonIpcMode | undefined;
@@ -6092,20 +6092,20 @@ export interface DeploymentCircuitBreaker {
  */
 export interface DeploymentLifecycleHookTimeoutConfiguration {
   /**
-   * <p>The number of minutes Amazon ECS waits for the lifecycle hook to complete before taking the timeout action.</p>
+   * <p>The number of minutes Amazon ECS waits for the lifecycle hook to complete before taking the timeout action.</p> <p>Default: 1440 (24 hours)</p>
    * @public
    */
   timeoutInMinutes?: number | undefined;
 
   /**
-   * <p>The action Amazon ECS takes when the lifecycle hook times out. Valid values are:</p> <ul> <li> <p> <code>CONTINUE</code> - Proceeds the deployment to the next lifecycle stage.</p> </li> <li> <p> <code>ROLLBACK</code> - Rolls back the deployment to the previous service revision.</p> </li> </ul>
+   * <p>The action Amazon ECS takes when the lifecycle hook times out. Valid values are:</p> <ul> <li> <p> <code>CONTINUE</code> - Proceeds the deployment to the next lifecycle stage.</p> </li> <li> <p> <code>ROLLBACK</code> - Rolls back the deployment to the previous service revision.</p> </li> </ul> <p>Default: <code>ROLLBACK</code> </p>
    * @public
    */
   action?: DeploymentLifecycleHookAction | undefined;
 }
 
 /**
- * <p>A deployment lifecycle hook runs custom logic at specific stages of the deployment process. Currently, you can use Lambda functions as hook targets.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-lifecycle-hooks.html">Lifecycle hooks for Amazon ECS service deployments</a> in the <i> Amazon Elastic Container Service Developer Guide</i>.</p>
+ * <p>A deployment lifecycle hook runs custom logic or pauses the deployment at specific stages of the deployment process. You can use Lambda functions or pause hooks as hook targets.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-lifecycle-hooks.html">Lifecycle hooks for Amazon ECS service deployments</a> in the <i> Amazon Elastic Container Service Developer Guide</i>.</p>
  * @public
  */
 export interface DeploymentLifecycleHook {
@@ -6116,7 +6116,7 @@ export interface DeploymentLifecycleHook {
   targetType?: DeploymentLifecycleHookTargetType | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the hook target. Currently, only Lambda function ARNs are supported.</p> <p>You must provide this parameter when configuring a deployment lifecycle hook.</p>
+   * <p>The Amazon Resource Name (ARN) of the hook target. For <code>AWS_LAMBDA</code> hooks, this is the Lambda function ARN. This field is not applicable for <code>PAUSE</code> hooks.</p> <p>You must provide this parameter when configuring an <code>AWS_LAMBDA</code> lifecycle hook.</p>
    * @public
    */
   hookTargetArn?: string | undefined;
@@ -6128,13 +6128,13 @@ export interface DeploymentLifecycleHook {
   roleArn?: string | undefined;
 
   /**
-   * <p>The lifecycle stages at which to run the hook. Choose from these valid values:</p> <ul> <li> <p>RECONCILE_SERVICE</p> <p>The reconciliation stage that only happens when you start a new service deployment with more than 1 service revision in an ACTIVE state.</p> <p>You can use a lifecycle hook for this stage.</p> </li> <li> <p>PRE_SCALE_UP</p> <p>The green service revision has not started. The blue service revision is handling 100% of the production traffic. There is no test traffic.</p> <p>You can use a lifecycle hook for this stage.</p> </li> <li> <p>POST_SCALE_UP</p> <p>The green service revision has started. The blue service revision is handling 100% of the production traffic. There is no test traffic.</p> <p>You can use a lifecycle hook for this stage.</p> </li> <li> <p>TEST_TRAFFIC_SHIFT</p> <p>The blue and green service revisions are running. The blue service revision handles 100% of the production traffic. The green service revision is migrating from 0% to 100% of test traffic.</p> <p>You can use a lifecycle hook for this stage.</p> </li> <li> <p>POST_TEST_TRAFFIC_SHIFT</p> <p>The test traffic shift is complete. The green service revision handles 100% of the test traffic.</p> <p>You can use a lifecycle hook for this stage.</p> </li> <li> <p>PRODUCTION_TRAFFIC_SHIFT</p> <p>Production traffic is shifting to the green service revision. The green service revision is migrating from 0% to 100% of production traffic.</p> <p>You can use a lifecycle hook for this stage.</p> </li> <li> <p>POST_PRODUCTION_TRAFFIC_SHIFT</p> <p>The production traffic shift is complete.</p> <p>You can use a lifecycle hook for this stage.</p> </li> </ul> <p>You must provide this parameter when configuring a deployment lifecycle hook.</p>
+   * <p>The lifecycle stages at which to run the hook. Choose from these valid values:</p> <ul> <li> <p>RECONCILE_SERVICE</p> <p>The reconciliation stage that only happens when you start a new service deployment with more than 1 service revision in an ACTIVE state.</p> <p>You can use a lifecycle hook for this stage.</p> </li> <li> <p>PRE_SCALE_UP</p> <p>The green service revision has not started. The blue service revision is handling 100% of the production traffic. There is no test traffic.</p> <p>You can use a lifecycle hook for this stage.</p> </li> <li> <p>POST_SCALE_UP</p> <p>The green service revision has started. The blue service revision is handling 100% of the production traffic. There is no test traffic.</p> <p>You can use a lifecycle hook for this stage.</p> </li> <li> <p>TEST_TRAFFIC_SHIFT</p> <p>The blue and green service revisions are running. The blue service revision handles 100% of the production traffic. The green service revision is migrating from 0% to 100% of test traffic.</p> <p>You can use a lifecycle hook for this stage.</p> </li> <li> <p>POST_TEST_TRAFFIC_SHIFT</p> <p>The test traffic shift is complete. The green service revision handles 100% of the test traffic.</p> <p>You can use a lifecycle hook for this stage.</p> </li> <li> <p>PRE_PRODUCTION_TRAFFIC_SHIFT</p> <p>Occurs before production traffic shift. For linear and canary deployments, this stage is invoked before every traffic shift step.</p> <p>You can use a lifecycle hook for this stage.</p> </li> <li> <p>PRODUCTION_TRAFFIC_SHIFT</p> <p>Production traffic is shifting to the green service revision. The green service revision is migrating from 0% to 100% of production traffic. For linear and canary deployments, this stage is invoked at every traffic shift step.</p> <p>You can use a lifecycle hook for this stage.</p> </li> <li> <p>POST_PRODUCTION_TRAFFIC_SHIFT</p> <p>The production traffic shift is complete.</p> <p>You can use a lifecycle hook for this stage.</p> </li> </ul> <note> <p> <code>PAUSE</code> hooks cannot be configured at <code>TEST_TRAFFIC_SHIFT</code> or <code>PRODUCTION_TRAFFIC_SHIFT</code> stages. These stages are only valid for <code>AWS_LAMBDA</code> hooks.</p> </note> <p>You must provide this parameter when configuring a deployment lifecycle hook.</p>
    * @public
    */
   lifecycleStages?: DeploymentLifecycleHookStage[] | undefined;
 
   /**
-   * <p>Use this field to specify custom parameters that Amazon ECS will pass to your hook target invocations (such as a Lambda function).</p>
+   * <p>Use this field to specify custom parameters that Amazon ECS passes to your Lambda function on each invocation. This field is not used for <code>PAUSE</code> hooks.</p>
    * @public
    */
   hookDetails?: __DocumentType | undefined;
@@ -6206,7 +6206,7 @@ export interface DeploymentConfiguration {
   bakeTimeInMinutes?: number | undefined;
 
   /**
-   * <p>An array of deployment lifecycle hook objects to run custom logic at specific stages of the deployment lifecycle.</p>
+   * <p>An array of deployment lifecycle hook objects to run custom logic or pause the deployment at specific stages of the deployment lifecycle.</p>
    * @public
    */
   lifecycleHooks?: DeploymentLifecycleHook[] | undefined;
@@ -6248,7 +6248,7 @@ export interface DeploymentLifecycleHookDetail {
   targetArn?: string | undefined;
 
   /**
-   * <p>The status of the lifecycle hook. Valid values depend on the hook type:</p> <ul> <li> <p>For <code>AWS_LAMBDA</code> hooks: <code>IN_PROGRESS</code>, <code>SUCCEEDED</code>, <code>FAILED</code>, and <code>TIMED_OUT</code>.</p> </li> <li> <p>For <code>PAUSE</code> hooks: <code>AWAITING_ACTION</code>, <code>SUCCEEDED</code>, <code>FAILED</code>, and <code>TIMED_OUT</code>.</p> </li> </ul>
+   * <p>The status of the lifecycle hook. Valid values include <code>AWAITING_ACTION</code>, <code>IN_PROGRESS</code>, <code>SUCCEEDED</code>, <code>FAILED</code>, and <code>TIMED_OUT</code>.</p>
    * @public
    */
   status?: DeploymentLifecycleHookStatus | undefined;
@@ -6410,7 +6410,7 @@ export interface ServiceDeployment {
   statusReason?: string | undefined;
 
   /**
-   * <p>The current lifecycle stage of the deployment. Possible values include:</p> <ul> <li> <p>RECONCILE_SERVICE</p> <p>The reconciliation stage that only happens when you start a new service deployment with more than 1 service revision in an ACTIVE state.</p> </li> <li> <p>PRE_SCALE_UP</p> <p>The green service revision has not started. The blue service revision is handling 100% of the production traffic. There is no test traffic.</p> </li> <li> <p>SCALE_UP</p> <p>The stage when the green service revision scales up to 100% and launches new tasks. The green service revision is not serving any traffic at this point.</p> </li> <li> <p>POST_SCALE_UP</p> <p>The green service revision has started. The blue service revision is handling 100% of the production traffic. There is no test traffic.</p> </li> <li> <p>TEST_TRAFFIC_SHIFT</p> <p>The blue and green service revisions are running. The blue service revision handles 100% of the production traffic. The green service revision is migrating from 0% to 100% of test traffic.</p> </li> <li> <p>POST_TEST_TRAFFIC_SHIFT</p> <p>The test traffic shift is complete. The green service revision handles 100% of the test traffic.</p> </li> <li> <p>PRODUCTION_TRAFFIC_SHIFT</p> <p>Production traffic is shifting to the green service revision. The green service revision is migrating from 0% to 100% of production traffic.</p> </li> <li> <p>POST_PRODUCTION_TRAFFIC_SHIFT</p> <p>The production traffic shift is complete.</p> </li> <li> <p>BAKE_TIME</p> <p>The stage when both blue and green service revisions are running simultaneously after the production traffic has shifted.</p> </li> <li> <p>CLEAN_UP</p> <p>The stage when the blue service revision has completely scaled down to 0 running tasks. The green service revision is now the production service revision after this stage.</p> </li> </ul>
+   * <p>The current lifecycle stage of the deployment. Possible values include:</p> <ul> <li> <p>RECONCILE_SERVICE</p> <p>The reconciliation stage that only happens when you start a new service deployment with more than 1 service revision in an ACTIVE state.</p> </li> <li> <p>PRE_SCALE_UP</p> <p>The green service revision has not started. The blue service revision is handling 100% of the production traffic. There is no test traffic.</p> </li> <li> <p>SCALE_UP</p> <p>The stage when the green service revision scales up to 100% and launches new tasks. The green service revision is not serving any traffic at this point.</p> </li> <li> <p>POST_SCALE_UP</p> <p>The green service revision has started. The blue service revision is handling 100% of the production traffic. There is no test traffic.</p> </li> <li> <p>TEST_TRAFFIC_SHIFT</p> <p>The blue and green service revisions are running. The blue service revision handles 100% of the production traffic. The green service revision is migrating from 0% to 100% of test traffic.</p> </li> <li> <p>POST_TEST_TRAFFIC_SHIFT</p> <p>The test traffic shift is complete. The green service revision handles 100% of the test traffic.</p> </li> <li> <p>PRE_PRODUCTION_TRAFFIC_SHIFT</p> <p>Occurs before production traffic shift. For linear and canary deployments, this stage is invoked before every traffic shift step.</p> </li> <li> <p>PRODUCTION_TRAFFIC_SHIFT</p> <p>Production traffic is shifting to the green service revision. The green service revision is migrating from 0% to 100% of production traffic. For linear and canary deployments, this stage is invoked at every traffic shift step.</p> </li> <li> <p>POST_PRODUCTION_TRAFFIC_SHIFT</p> <p>The production traffic shift is complete.</p> </li> <li> <p>BAKE_TIME</p> <p>The stage when both blue and green service revisions are running simultaneously after the production traffic has shifted.</p> </li> <li> <p>CLEAN_UP</p> <p>The stage when the blue service revision has completely scaled down to 0 running tasks. The green service revision is now the production service revision after this stage.</p> </li> </ul>
    * @public
    */
   lifecycleStage?: ServiceDeploymentLifecycleStage | undefined;
@@ -6597,7 +6597,7 @@ export interface CreateExpressGatewayServiceRequest {
    * <p>The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent permission to make Amazon Web Services API calls on your behalf. This role is required for Amazon ECS to pull container images from Amazon ECR, send container logs to Amazon CloudWatch Logs, and retrieve sensitive data from Amazon Web Services Systems Manager Parameter Store or Amazon Web Services Secrets Manager.</p> <p>The execution role must include the <code>AmazonECSTaskExecutionRolePolicy</code> managed policy or equivalent permissions. For Express services, this role is used during task startup and runtime for container management operations.</p>
    * @public
    */
-  executionRoleArn: string | undefined;
+  executionRoleArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the infrastructure role that grants Amazon ECS permission to create and manage Amazon Web Services resources on your behalf for the Express service. This role is used to provision and manage Application Load Balancers, target groups, security groups, auto-scaling policies, and other Amazon Web Services infrastructure components.</p> <p>The infrastructure role must include permissions for Elastic Load Balancing, Application Auto Scaling, Amazon EC2 (for security groups), and other services required for managed infrastructure. This role is only used during Express service creation, updates, and deletion operations.</p>
@@ -6627,7 +6627,7 @@ export interface CreateExpressGatewayServiceRequest {
    * <p>The primary container configuration for the Express service. This defines the main application container that will receive traffic from the Application Load Balancer.</p> <p>The primary container must specify at minimum a container image. You can also configure the container port (defaults to 80), logging configuration, environment variables, secrets, and startup commands. The container image can be from Amazon ECR, Docker Hub, or any other container registry accessible to your execution role.</p>
    * @public
    */
-  primaryContainer: ExpressGatewayContainer | undefined;
+  primaryContainer?: ExpressGatewayContainer | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. This role allows your application code to access other Amazon Web Services services securely.</p> <p>The task role is different from the execution role. While the execution role is used by the Amazon ECS agent to set up the task, the task role is used by your application code running inside the container to make Amazon Web Services API calls. If your application doesn't need to access Amazon Web Services services, you can omit this parameter.</p>
@@ -6664,6 +6664,12 @@ export interface CreateExpressGatewayServiceRequest {
    * @public
    */
   tags?: Tag[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a task definition to use to create the Express Gateway service. This allows you to manage your own task definition, giving you more control over the service configuration such as adding sidecar containers.</p> <p>The task definition must have a container named <code>Main</code> with a single TCP port mapping that includes a container port and port name. The task definition must also have <code>FARGATE</code> compatibility.</p> <p>If you provide a task definition ARN, you cannot also specify <code>primaryContainer</code>, <code>executionRoleArn</code>, <code>taskRoleArn</code>, <code>cpu</code>, or <code>memory</code>.</p>
+   * @public
+   */
+  taskDefinitionArn?: string | undefined;
 }
 
 /**
@@ -6706,6 +6712,12 @@ export interface ExpressGatewayServiceConfiguration {
    * @public
    */
   taskRoleArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the task definition used by this service revision. This is present for all Express services and reflects the task definition in use, whether managed by Amazon ECS or provided by the customer.</p>
+   * @public
+   */
+  taskDefinitionArn?: string | undefined;
 
   /**
    * <p>The CPU allocation for tasks in this service revision.</p>
@@ -8526,6 +8538,12 @@ export interface UpdateExpressGatewayServiceRequest {
    * @public
    */
   scalingTarget?: ExpressGatewayScalingTarget | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a task definition to use to update the Express Gateway service. This allows you to manage your own task definition, giving you more control over the service configuration such as adding sidecar containers.</p> <p>The task definition must have a container named <code>Main</code> with a single TCP port mapping that includes a container port and port name. The task definition must also have <code>FARGATE</code> compatibility.</p> <p>If you provide a task definition ARN, you cannot also specify <code>primaryContainer</code>, <code>taskRoleArn</code>, <code>cpu</code>, or <code>memory</code>.</p>
+   * @public
+   */
+  taskDefinitionArn?: string | undefined;
 }
 
 /**

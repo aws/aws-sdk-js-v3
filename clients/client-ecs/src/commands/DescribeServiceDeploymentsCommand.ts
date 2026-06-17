@@ -268,7 +268,7 @@ export interface DescribeServiceDeploymentsCommandOutput extends DescribeService
  *       lifecycleHookDetails: [
  *         {
  *           expiresAt: "2026-05-06T17:00:00.000Z",
- *           hookId: "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567",
+ *           hookId: "ecs-pause-Xk7rT2mP9sLwQn4vB8fYd3hJ6gA1cE5iO0uR_ZpWq",
  *           status: "AWAITING_ACTION",
  *           targetType: "PAUSE",
  *           timeoutAction: "ROLLBACK"
