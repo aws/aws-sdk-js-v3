@@ -14,15 +14,29 @@ login:
 sync:
 	make -f Makefile.private.mk sync
 
-bundles: build-s3-browser-bundle build-signature-v4-multi-region-browser-bundle
-	node ./packages-internal/core/scripts/browser-build/esbuild.js
-
-test-unit: bundles
-	yarn workspace @aws-sdk/core run prebuild
+test-unit: bundles core-prebuild
 	yarn g:vitest run -c vitest.config.mts
 	yarn g:vitest run -c vitest.config.browser.mts
 	yarn g:vitest run -c vitest.config.clients.unit.mts
 	npx jest -c jest.config.js
+
+# run public API tests (no network requests).
+test-integration: bundles core-prebuild
+	rm -rf ./clients/client-sso/node_modules/\@smithy # todo(yarn) incompatible redundant nesting.
+	make static-analysis
+	node ./scripts/compilation/Inliner.spec.js
+	yarn g:vitest run -c vitest.config.integ.mts
+	make test-protocols
+	make test-types
+	make snapshot-compare
+	make test-indices
+	make test-endpoints
+
+# run all e2e tests (real services).
+test-e2e: bundles core-prebuild
+	yarn g:vitest run -c vitest.config.e2e.mts --retry.count=4 --retry.delay=20000 --test-timeout=60000 --hook-timeout=60000
+	make test-browser-cross-platform
+	make test-canary
 
 test-codegen:
 	cp ./private/aws-protocoltests-restjson-schema/package.json ./tmp/pkg.json.bak
@@ -55,18 +69,6 @@ snapshot-write:
 test-schema: bundles
 	yarn g:vitest run -c vitest.config.protocols-schema.integ.mts
 
-# run public API tests (no network requests).
-test-integration: bundles
-	rm -rf ./clients/client-sso/node_modules/\@smithy # todo(yarn) incompatible redundant nesting.
-	make static-analysis
-	node ./scripts/compilation/Inliner.spec.js
-	yarn g:vitest run -c vitest.config.integ.mts
-	make test-protocols
-	make test-types
-	make snapshot-compare
-	make test-indices
-	make test-endpoints
-
 api-snapshot:
 	node ./scripts/validation/api-snapshot.js
 	git diff --exit-code scripts/validation/api.json
@@ -76,12 +78,6 @@ update-lib-dynamodb-snapshot:
 
 test-endpoints:
 	npx vitest run -c ./tests/endpoints-2.0/vitest.config.mts
-
-# run all e2e tests (real services).
-test-e2e: bundles
-	yarn g:vitest run -c vitest.config.e2e.mts --retry.count=4 --retry.delay=20000 --test-timeout=60000 --hook-timeout=60000
-	make test-browser-cross-platform
-	make test-canary
 
 test-x: test-browser-cross-platform
 
@@ -99,6 +95,9 @@ reset-test-credentials:
 test-canary:
 	make test-bundlers;
 	node ./tests/canary/canary-runner.js
+
+bundles: build-s3-browser-bundle build-signature-v4-multi-region-browser-bundle
+	node ./packages-internal/core/scripts/browser-build/esbuild.js
 
 test-bundlers:
 	node ./tests/bundlers/bundler-canary.mjs
@@ -163,3 +162,6 @@ clients:
 
 nested-clients:
 	node scripts/generate-clients/nested-clients/generate-nested-clients.js --exec
+
+core-prebuild:
+	yarn workspace @aws-sdk/core run prebuild
