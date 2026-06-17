@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1071.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1070.0...v3.1071.0) (2026-06-17)
+
+
+### Features
+
+* **client-glue:** This release adds support for Search and Discovery in AWS Glue, letting you and your applications search Data Catalog assets such as table and enrich them with business context and glossary terms. ([b394fc0](https://github.com/aws/aws-sdk-js-v3/commit/b394fc0b39c814d5f72593dfc4db5ff5c2cbe643))
+
+
+
+
+
 # [3.1070.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1069.0...v3.1070.0) (2026-06-16)
 
 **Note:** Version bump only for package @aws-sdk/client-glue

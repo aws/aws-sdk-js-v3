@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1071.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1070.0...v3.1071.0) (2026-06-17)
+
+
+### Features
+
+* **client-mq:** This release adds private networking support for Amazon MQ for RabbitMQ. You can now associate AWS RAM resource shares with your broker and retrieve shared resource details using the new DescribeSharedResources API. ([e96af45](https://github.com/aws/aws-sdk-js-v3/commit/e96af4503bfea9a6f211bc905b8e949af6cc38d7))
+
+
+
+
+
 # [3.1070.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1069.0...v3.1070.0) (2026-06-16)
 
 **Note:** Version bump only for package @aws-sdk/client-mq

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1071.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1070.0...v3.1071.0) (2026-06-17)
+
+
+### Features
+
+* **client-securityagent:** Updated AWS Security Agent SDK model with new APIs for threat modeling, code review, security requirements, and additional integration providers. ([9c3d335](https://github.com/aws/aws-sdk-js-v3/commit/9c3d3351842902b1ea1e8be52c4e7f40b868daae))
+
+
+
+
+
 # [3.1070.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1069.0...v3.1070.0) (2026-06-16)
 
 **Note:** Version bump only for package @aws-sdk/client-securityagent

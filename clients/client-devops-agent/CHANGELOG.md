@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1071.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1070.0...v3.1071.0) (2026-06-17)
+
+
+### Features
+
+* **client-devops-agent:** Adds support for Remote A2A (Agent-to-Agent) agent registration and management. Adds new Release Readiness Review and Release Testing capabilities. Adds support for Git managed skills in AWS DevOps Agent. ([ebc040e](https://github.com/aws/aws-sdk-js-v3/commit/ebc040e1f3fc292d3eee1a9b146c972338e14807))
+
+
+
+
+
 # [3.1070.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1069.0...v3.1070.0) (2026-06-16)
 
 **Note:** Version bump only for package @aws-sdk/client-devops-agent

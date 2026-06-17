@@ -7,6 +7,13 @@
 
 
 
+
+# 3.1000.7 (2026-06-17)
+### Chores
+* **checksums:** update dependencies.
+
+
+
 # 3.1000.6 (2026-06-13)
 ### Chores
 * **scripts:** tuning the build graph ([#8095](https://github.com/aws/aws-sdk-js-v3/issues/8095)) ([67981c5](https://github.com/aws/aws-sdk-js-v3/commit/67981c5a65d6dd797a065df034a8d0fcdaa9b7bd))

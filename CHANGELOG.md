@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1071.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1070.0...v3.1071.0) (2026-06-17)
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** Adds new AgenticRetrieveStream API for managed knowledge bases to use conversation history and autonomously plan for multi-hop multi-KB reasoning with built-in evaluation and access-control. Updates Retrieve API for access-control-based filtering for managed knowledge bases. ([557f7b3](https://github.com/aws/aws-sdk-js-v3/commit/557f7b3246fb6530fb8dcb481f1035d7827d2a1e))
+* **client-bedrock-agentcore-control:** AgentCore Gateway now supports inference targets to LLM providers (direct config or built-in connectors), HTTP passthrough targets with session stickiness, runtime target API schemas, AWS WAF web ACL association with configurable fail-open or fail-close modes, and interceptor payload filtering. ([75f1d58](https://github.com/aws/aws-sdk-js-v3/commit/75f1d588d526de04060ebd653ca1a96e7ea75ff6))
+* **client-bedrock-agentcore:** AgentCore Harness service will be Generally Available at NYS 2026 with this Treb release. Harness will support invoking specific endpoints via the qualifier parameter, AWS Skills for pre-built agent capabilities, and improved validation for skill git source URLs. ([5bf9fcc](https://github.com/aws/aws-sdk-js-v3/commit/5bf9fcccc3b4cc204df57caea2adcf254c5d3846))
+* **client-bedrock-agent:** Launching Bedrock Managed Knowledge Bases. Added support for resource-based policies on Knowledge Base resources, enabling cross-account access for Managed Knowledge Bases. ([de0affe](https://github.com/aws/aws-sdk-js-v3/commit/de0affe4ad738b7f07d91574e2b2cfd83a447d44))
+* **client-compute-optimizer-automation:** This launch adds IfExists comparison operators to Compute Optimizer Automation rule criteria, so a rule can include recommended actions whose specified attribute isn't present. ([ab2c616](https://github.com/aws/aws-sdk-js-v3/commit/ab2c616d167a0796fba91e44d1118a6a8baee60d))
+* **client-devops-agent:** Adds support for Remote A2A (Agent-to-Agent) agent registration and management. Adds new Release Readiness Review and Release Testing capabilities. Adds support for Git managed skills in AWS DevOps Agent. ([ebc040e](https://github.com/aws/aws-sdk-js-v3/commit/ebc040e1f3fc292d3eee1a9b146c972338e14807))
+* **client-ecs:** Releasing the ability to bring-your-own task-definition for CreateExpressGatewayService and UpdateGatewayExpressService ([b7b9cb4](https://github.com/aws/aws-sdk-js-v3/commit/b7b9cb4f46a34c4ab0fedf2138a9a5ba17bdd731))
+* **client-glue:** This release adds support for Search and Discovery in AWS Glue, letting you and your applications search Data Catalog assets such as table and enrich them with business context and glossary terms. ([b394fc0](https://github.com/aws/aws-sdk-js-v3/commit/b394fc0b39c814d5f72593dfc4db5ff5c2cbe643))
+* **client-mq:** This release adds private networking support for Amazon MQ for RabbitMQ. You can now associate AWS RAM resource shares with your broker and retrieve shared resource details using the new DescribeSharedResources API. ([e96af45](https://github.com/aws/aws-sdk-js-v3/commit/e96af4503bfea9a6f211bc905b8e949af6cc38d7))
+* **client-opensearch:** Adds support for configuring IAM Identity Center options on existing OpenSearch applications via the UpdateApplication API. ([94f06a2](https://github.com/aws/aws-sdk-js-v3/commit/94f06a20a15ab75302088d5f3c31d708a8256e5c))
+* **client-partnercentral-selling:** Cosell Resonate AND Prospecing API Launch with ARN correction ([7e8c98a](https://github.com/aws/aws-sdk-js-v3/commit/7e8c98abe070924fbbd1ea2abc183f0715f80945))
+* **client-securityagent:** Updated AWS Security Agent SDK model with new APIs for threat modeling, code review, security requirements, and additional integration providers. ([9c3d335](https://github.com/aws/aws-sdk-js-v3/commit/9c3d3351842902b1ea1e8be52c4e7f40b868daae))
+
+
+
+
+
 # [3.1070.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1069.0...v3.1070.0) (2026-06-16)
 
 
