@@ -114,6 +114,16 @@ export interface CreatePaymentManagerCommandOutput extends CreatePaymentManagerR
  *           },
  *         },
  *       ],
+ *       allowedWorkloadConfiguration: { // AllowedWorkloadConfiguration
+ *         hostingEnvironments: [ // HostingEnvironmentListType
+ *           { // HostingEnvironment
+ *             arn: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *         workloadIdentities: [ // WorkloadIdentityNameListType
+ *           "STRING_VALUE",
+ *         ],
+ *       },
  *     },
  *   },
  *   roleArn: "STRING_VALUE", // required
@@ -197,6 +207,16 @@ export interface CreatePaymentManagerCommandOutput extends CreatePaymentManagerR
  * //           },
  * //         },
  * //       ],
+ * //       allowedWorkloadConfiguration: { // AllowedWorkloadConfiguration
+ * //         hostingEnvironments: [ // HostingEnvironmentListType
+ * //           { // HostingEnvironment
+ * //             arn: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //         workloadIdentities: [ // WorkloadIdentityNameListType
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
  * //     },
  * //   },
  * //   roleArn: "STRING_VALUE", // required

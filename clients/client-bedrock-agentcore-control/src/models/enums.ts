@@ -448,6 +448,19 @@ export type ExceptionLevel = (typeof ExceptionLevel)[keyof typeof ExceptionLevel
  * @public
  * @enum
  */
+export const InterceptorPayloadExclusion = {
+  RESPONSE_BODY: "RESPONSE_BODY",
+} as const;
+/**
+ * @public
+ */
+export type InterceptorPayloadExclusion =
+  (typeof InterceptorPayloadExclusion)[keyof typeof InterceptorPayloadExclusion];
+
+/**
+ * @public
+ * @enum
+ */
 export const GatewayInterceptionPoint = {
   REQUEST: "REQUEST",
   RESPONSE: "RESPONSE",
@@ -510,6 +523,19 @@ export const GatewayStatus = {
  * @public
  */
 export type GatewayStatus = (typeof GatewayStatus)[keyof typeof GatewayStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const WafFailureMode = {
+  FAIL_CLOSE: "FAIL_CLOSE",
+  FAIL_OPEN: "FAIL_OPEN",
+} as const;
+/**
+ * @public
+ */
+export type WafFailureMode = (typeof WafFailureMode)[keyof typeof WafFailureMode];
 
 /**
  * @public
@@ -581,6 +607,21 @@ export const CredentialProviderType = {
  * @public
  */
 export type CredentialProviderType = (typeof CredentialProviderType)[keyof typeof CredentialProviderType];
+
+/**
+ * @public
+ * @enum
+ */
+export const PassthroughProtocolType = {
+  A2A: "A2A",
+  CUSTOM: "CUSTOM",
+  INFERENCE: "INFERENCE",
+  MCP: "MCP",
+} as const;
+/**
+ * @public
+ */
+export type PassthroughProtocolType = (typeof PassthroughProtocolType)[keyof typeof PassthroughProtocolType];
 
 /**
  * @public
@@ -669,6 +710,26 @@ export type TargetStatus = (typeof TargetStatus)[keyof typeof TargetStatus];
  * @public
  * @enum
  */
+export const TargetType = {
+  AGENTCORE_RUNTIME: "AGENTCORE_RUNTIME",
+  API_GATEWAY: "API_GATEWAY",
+  CONNECTOR: "CONNECTOR",
+  LAMBDA: "LAMBDA",
+  MCP_SERVER: "MCP_SERVER",
+  OPEN_API_SCHEMA: "OPEN_API_SCHEMA",
+  PASSTHROUGH: "PASSTHROUGH",
+  PROVIDER: "PROVIDER",
+  SMITHY_MODEL: "SMITHY_MODEL",
+} as const;
+/**
+ * @public
+ */
+export type TargetType = (typeof TargetType)[keyof typeof TargetType];
+
+/**
+ * @public
+ * @enum
+ */
 export const KeyType = {
   CustomerManagedKey: "CustomerManagedKey",
   ServiceManagedKey: "ServiceManagedKey",
@@ -677,6 +738,40 @@ export const KeyType = {
  * @public
  */
 export type KeyType = (typeof KeyType)[keyof typeof KeyType];
+
+/**
+ * @public
+ * @enum
+ */
+export const HarnessEndpointStatus = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+  READY: "READY",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
+} as const;
+/**
+ * @public
+ */
+export type HarnessEndpointStatus = (typeof HarnessEndpointStatus)[keyof typeof HarnessEndpointStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const HarnessManagedMemoryStrategyType = {
+  EPISODIC: "EPISODIC",
+  SEMANTIC: "SEMANTIC",
+  SUMMARIZATION: "SUMMARIZATION",
+  USER_PREFERENCE: "USER_PREFERENCE",
+} as const;
+/**
+ * @public
+ */
+export type HarnessManagedMemoryStrategyType =
+  (typeof HarnessManagedMemoryStrategyType)[keyof typeof HarnessManagedMemoryStrategyType];
 
 /**
  * @public
@@ -1184,6 +1279,19 @@ export const FindingType = {
  * @public
  */
 export type FindingType = (typeof FindingType)[keyof typeof FindingType];
+
+/**
+ * @public
+ * @enum
+ */
+export const EnforcementMode = {
+  ACTIVE: "ACTIVE",
+  LOG_ONLY: "LOG_ONLY",
+} as const;
+/**
+ * @public
+ */
+export type EnforcementMode = (typeof EnforcementMode)[keyof typeof EnforcementMode];
 
 /**
  * @public

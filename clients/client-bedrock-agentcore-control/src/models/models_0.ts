@@ -30,16 +30,17 @@ import type {
   GatewayRuleStatus,
   GatewayStatus,
   HarnessBedrockApiFormat,
+  HarnessEndpointStatus,
+  HarnessManagedMemoryStrategyType,
   HarnessOpenAiApiFormat,
-  HarnessStatus,
-  HarnessToolType,
-  HarnessTruncationStrategy,
   InboundTokenClaimValueType,
   IncludedData,
+  InterceptorPayloadExclusion,
   KeyType,
   ListingMode,
   NetworkMode,
   OAuthGrantType,
+  PassthroughProtocolType,
   PrincipalMatchOperator,
   ResourceType,
   RestApiMethod,
@@ -47,6 +48,8 @@ import type {
   SecretSourceType,
   ServerProtocol,
   TargetStatus,
+  TargetType,
+  WafFailureMode,
 } from "./enums";
 
 /**
@@ -1104,6 +1107,36 @@ export namespace AgentRuntimeArtifact {
 }
 
 /**
+ * <p>A hosting environment whose workloads are allowed to invoke the target. At launch, the only supported hosting environment is AgentCore Gateway.</p>
+ * @public
+ */
+export interface HostingEnvironment {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the hosting environment.</p>
+   * @public
+   */
+  arn: string | undefined;
+}
+
+/**
+ * <p>The configuration that restricts which workloads in the request's identity chain are allowed to invoke the target, identified by their hosting environments and workload identities. At launch, this is supported only for AgentCore Runtime targets, and the allowed workloads are AgentCore Gateways.</p>
+ * @public
+ */
+export interface AllowedWorkloadConfiguration {
+  /**
+   * <p>The list of hosting environments whose workloads are allowed to invoke the target. At launch, the only supported hosting environment is AgentCore Gateway.</p>
+   * @public
+   */
+  hostingEnvironments?: HostingEnvironment[] | undefined;
+
+  /**
+   * <p>The list of workload identities that are allowed to invoke the target.</p>
+   * @public
+   */
+  workloadIdentities?: string[] | undefined;
+}
+
+/**
  * <p>The value or values to match for.</p> <ul> <li> <p>Include a <code>matchValueString</code> with the <code>EQUALS</code> operator to specify a string that matches the claim field value.</p> </li> <li> <p>Include a <code>matchValueArray</code> to specify an array of string values. You can use the following operators:</p> <ul> <li> <p>Use <code>CONTAINS</code> to yield a match if the claim field value is in the array.</p> </li> <li> <p>Use <code>CONTAINS_ANY</code> to yield a match if the claim field value contains any of the strings in the array.</p> </li> </ul> </li> </ul>
  * @public
  */
@@ -1396,6 +1429,12 @@ export interface CustomJWTAuthorizerConfiguration {
    * @public
    */
   privateEndpointOverrides?: PrivateEndpointOverride[] | undefined;
+
+  /**
+   * <p>The configuration that restricts which workloads in the request's identity chain are allowed to invoke the target, identified by their hosting environments and workload identities. At launch, this is supported only for AgentCore Runtime targets, and the allowed workloads are AgentCore Gateways.</p>
+   * @public
+   */
+  allowedWorkloadConfiguration?: AllowedWorkloadConfiguration | undefined;
 }
 
 /**
@@ -2290,18 +2329,18 @@ export interface AgentSkillsDescriptor {
 }
 
 /**
- * <p>Contains a reference to a secret stored in AWS Secrets Manager.</p>
+ * <p>Contains a reference to a secret stored in Amazon Web Services Secrets Manager.</p>
  * @public
  */
 export interface SecretReference {
   /**
-   * <p>The ID of the AWS Secrets Manager secret that stores the secret value.</p>
+   * <p>The ID of the Amazon Web Services Secrets Manager secret that stores the secret value.</p>
    * @public
    */
   secretId: string | undefined;
 
   /**
-   * <p>The JSON key used to extract the secret value from the AWS Secrets Manager secret.</p>
+   * <p>The JSON key used to extract the secret value from the Amazon Web Services Secrets Manager secret.</p>
    * @public
    */
   jsonKey: string | undefined;
@@ -2324,13 +2363,13 @@ export interface CreateApiKeyCredentialProviderRequest {
   apiKey?: string | undefined;
 
   /**
-   * <p>A reference to the AWS Secrets Manager secret that stores the API key. This includes the secret ID and the JSON key used to extract the API key value from the secret. Required when <code>apiKeySecretSource</code> is set to <code>EXTERNAL</code>.</p>
+   * <p>A reference to the Amazon Web Services Secrets Manager secret that stores the API key. This includes the secret ID and the JSON key used to extract the API key value from the secret. Required when <code>apiKeySecretSource</code> is set to <code>EXTERNAL</code>.</p>
    * @public
    */
   apiKeySecretConfig?: SecretReference | undefined;
 
   /**
-   * <p>The source type of the API key secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in AWS Secrets Manager.</p>
+   * <p>The source type of the API key secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
    * @public
    */
   apiKeySecretSource?: SecretSourceType | undefined;
@@ -2343,12 +2382,12 @@ export interface CreateApiKeyCredentialProviderRequest {
 }
 
 /**
- * <p>Contains information about a secret in AWS Secrets Manager.</p>
+ * <p>Contains information about a secret in Amazon Web Services Secrets Manager.</p>
  * @public
  */
 export interface Secret {
   /**
-   * <p>The Amazon Resource Name (ARN) of the secret in AWS Secrets Manager.</p>
+   * <p>The Amazon Resource Name (ARN) of the secret in Amazon Web Services Secrets Manager.</p>
    * @public
    */
   secretArn: string | undefined;
@@ -2365,13 +2404,13 @@ export interface CreateApiKeyCredentialProviderResponse {
   apiKeySecretArn: Secret | undefined;
 
   /**
-   * <p>The JSON key used to extract the API key value from the AWS Secrets Manager secret.</p>
+   * <p>The JSON key used to extract the API key value from the Amazon Web Services Secrets Manager secret.</p>
    * @public
    */
   apiKeySecretJsonKey?: string | undefined;
 
   /**
-   * <p>The source type of the API key secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in AWS Secrets Manager.</p>
+   * <p>The source type of the API key secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in Amazon Web Services Secrets Manager.</p>
    * @public
    */
   apiKeySecretSource?: SecretSourceType | undefined;
@@ -2421,19 +2460,19 @@ export interface GetApiKeyCredentialProviderRequest {
  */
 export interface GetApiKeyCredentialProviderResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the API key secret in AWS Secrets Manager.</p>
+   * <p>The Amazon Resource Name (ARN) of the API key secret in Amazon Web Services Secrets Manager.</p>
    * @public
    */
   apiKeySecretArn: Secret | undefined;
 
   /**
-   * <p>The JSON key used to extract the API key value from the AWS Secrets Manager secret.</p>
+   * <p>The JSON key used to extract the API key value from the Amazon Web Services Secrets Manager secret.</p>
    * @public
    */
   apiKeySecretJsonKey?: string | undefined;
 
   /**
-   * <p>The source type of the API key secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in AWS Secrets Manager.</p>
+   * <p>The source type of the API key secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in Amazon Web Services Secrets Manager.</p>
    * @public
    */
   apiKeySecretSource?: SecretSourceType | undefined;
@@ -2544,13 +2583,13 @@ export interface UpdateApiKeyCredentialProviderRequest {
   apiKey?: string | undefined;
 
   /**
-   * <p>A reference to the AWS Secrets Manager secret that stores the API key. This includes the secret ID and the JSON key used to extract the API key value from the secret. Required when <code>apiKeySecretSource</code> is set to <code>EXTERNAL</code>.</p>
+   * <p>A reference to the Amazon Web Services Secrets Manager secret that stores the API key. This includes the secret ID and the JSON key used to extract the API key value from the secret. Required when <code>apiKeySecretSource</code> is set to <code>EXTERNAL</code>.</p>
    * @public
    */
   apiKeySecretConfig?: SecretReference | undefined;
 
   /**
-   * <p>The source type of the API key secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in AWS Secrets Manager.</p>
+   * <p>The source type of the API key secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
    * @public
    */
   apiKeySecretSource?: SecretSourceType | undefined;
@@ -2561,19 +2600,19 @@ export interface UpdateApiKeyCredentialProviderRequest {
  */
 export interface UpdateApiKeyCredentialProviderResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the API key secret in AWS Secrets Manager.</p>
+   * <p>The Amazon Resource Name (ARN) of the API key secret in Amazon Web Services Secrets Manager.</p>
    * @public
    */
   apiKeySecretArn: Secret | undefined;
 
   /**
-   * <p>The JSON key used to extract the API key value from the AWS Secrets Manager secret.</p>
+   * <p>The JSON key used to extract the API key value from the Amazon Web Services Secrets Manager secret.</p>
    * @public
    */
   apiKeySecretJsonKey?: string | undefined;
 
   /**
-   * <p>The source type of the API key secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in AWS Secrets Manager.</p>
+   * <p>The source type of the API key secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in Amazon Web Services Secrets Manager.</p>
    * @public
    */
   apiKeySecretSource?: SecretSourceType | undefined;
@@ -5712,6 +5751,57 @@ export interface UpdateEvaluatorResponse {
 }
 
 /**
+ * <p>A selector that identifies a payload field to exclude from the interceptor input.</p>
+ * @public
+ */
+export type InterceptorPayloadExclusionSelector =
+  | InterceptorPayloadExclusionSelector.FieldMember
+  | InterceptorPayloadExclusionSelector.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace InterceptorPayloadExclusionSelector {
+  /**
+   * <p>The field to exclude from the interceptor input.</p>
+   * @public
+   */
+  export interface FieldMember {
+    field: InterceptorPayloadExclusion;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    field?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    field: (value: InterceptorPayloadExclusion) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The filter that controls which fields of the request or response payload are included in the input to the interceptor.</p>
+ * @public
+ */
+export interface InterceptorPayloadFilter {
+  /**
+   * <p>The list of selectors that identify payload fields to exclude from the interceptor input.</p>
+   * @public
+   */
+  exclude: InterceptorPayloadExclusionSelector[] | undefined;
+}
+
+/**
  * <p>The input configuration of the interceptor.</p>
  * @public
  */
@@ -5721,6 +5811,12 @@ export interface InterceptorInputConfiguration {
    * @public
    */
   passRequestHeaders: boolean | undefined;
+
+  /**
+   * <p>The filter that determines which parts of the request or response payload are passed as input to the interceptor.</p>
+   * @public
+   */
+  payloadFilter?: InterceptorPayloadFilter | undefined;
 }
 
 /**
@@ -5999,6 +6095,42 @@ export interface CreateGatewayRequest {
 }
 
 /**
+ * <p>The Lambda configuration for custom transformations. This structure defines the Lambda function that the gateway invokes to transform data.</p>
+ * @public
+ */
+export interface LambdaTransformConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Lambda function. This function is invoked by the gateway to transform data.</p>
+   * @public
+   */
+  arn?: string | undefined;
+}
+
+/**
+ * <p>The configuration for custom transformations applied to requests and responses through the gateway. This structure defines how the gateway transforms data.</p>
+ * @public
+ */
+export interface CustomTransformConfiguration {
+  /**
+   * <p>The Lambda configuration for custom transformations. This configuration defines how the gateway uses a Lambda function to transform data.</p>
+   * @public
+   */
+  lambda?: LambdaTransformConfiguration | undefined;
+}
+
+/**
+ * <p>The Amazon Web Services WAF configuration for the gateway. This configuration controls how the gateway behaves when the associated web ACL cannot be evaluated.</p>
+ * @public
+ */
+export interface WafConfiguration {
+  /**
+   * <p>The failure mode that determines how the gateway handles requests when Amazon Web Services WAF is unreachable or times out. Valid values include:</p> <ul> <li> <p> <code>FAIL_CLOSE</code> - The gateway blocks requests when Amazon Web Services WAF cannot be evaluated.</p> </li> <li> <p> <code>FAIL_OPEN</code> - The gateway allows requests when Amazon Web Services WAF cannot be evaluated.</p> </li> </ul>
+   * @public
+   */
+  failureMode?: WafFailureMode | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateGatewayResponse {
@@ -6093,6 +6225,12 @@ export interface CreateGatewayResponse {
   kmsKeyArn?: string | undefined;
 
   /**
+   * <p>The custom transformation configuration for the gateway. This configuration defines how the gateway transforms requests and responses.</p>
+   * @public
+   */
+  customTransformConfiguration?: CustomTransformConfiguration | undefined;
+
+  /**
    * <p>The list of interceptor configurations for the created gateway.</p>
    * @public
    */
@@ -6115,6 +6253,18 @@ export interface CreateGatewayResponse {
    * @public
    */
   exceptionLevel?: ExceptionLevel | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services WAF web ACL associated with the gateway.</p>
+   * @public
+   */
+  webAclArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services WAF configuration for the gateway.</p>
+   * @public
+   */
+  wafConfiguration?: WafConfiguration | undefined;
 }
 
 /**
@@ -6257,6 +6407,12 @@ export interface GetGatewayResponse {
   kmsKeyArn?: string | undefined;
 
   /**
+   * <p>The custom transformation configuration for the gateway. This configuration defines how the gateway transforms requests and responses.</p>
+   * @public
+   */
+  customTransformConfiguration?: CustomTransformConfiguration | undefined;
+
+  /**
    * <p>The interceptors configured on the gateway.</p>
    * @public
    */
@@ -6279,6 +6435,18 @@ export interface GetGatewayResponse {
    * @public
    */
   exceptionLevel?: ExceptionLevel | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services WAF web ACL associated with the gateway.</p>
+   * @public
+   */
+  webAclArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services WAF configuration for the gateway.</p>
+   * @public
+   */
+  wafConfiguration?: WafConfiguration | undefined;
 }
 
 /**
@@ -6428,6 +6596,12 @@ export interface UpdateGatewayRequest {
   kmsKeyArn?: string | undefined;
 
   /**
+   * <p>The updated custom transformation configuration for the gateway. This configuration defines how the gateway transforms requests and responses.</p>
+   * @public
+   */
+  customTransformConfiguration?: CustomTransformConfiguration | undefined;
+
+  /**
    * <p>The updated interceptor configurations for the gateway.</p>
    * @public
    */
@@ -6444,6 +6618,12 @@ export interface UpdateGatewayRequest {
    * @public
    */
   exceptionLevel?: ExceptionLevel | undefined;
+
+  /**
+   * <p>The updated Amazon Web Services WAF configuration for the gateway.</p>
+   * @public
+   */
+  wafConfiguration?: WafConfiguration | undefined;
 }
 
 /**
@@ -6541,6 +6721,12 @@ export interface UpdateGatewayResponse {
   kmsKeyArn?: string | undefined;
 
   /**
+   * <p>The custom transformation configuration for the gateway. This configuration defines how the gateway transforms requests and responses.</p>
+   * @public
+   */
+  customTransformConfiguration?: CustomTransformConfiguration | undefined;
+
+  /**
    * <p>The updated interceptor configurations for the gateway.</p>
    * @public
    */
@@ -6563,6 +6749,18 @@ export interface UpdateGatewayResponse {
    * @public
    */
   exceptionLevel?: ExceptionLevel | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services WAF web ACL associated with the gateway.</p>
+   * @public
+   */
+  webAclArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services WAF configuration for the gateway.</p>
+   * @public
+   */
+  wafConfiguration?: WafConfiguration | undefined;
 }
 
 /**
@@ -7339,6 +7537,89 @@ export interface MetadataConfiguration {
 }
 
 /**
+ * <p>The Amazon S3 configuration for a gateway. This structure defines how the gateway accesses files in Amazon S3.</p>
+ * @public
+ */
+export interface S3Configuration {
+  /**
+   * <p>The URI of the Amazon S3 object. This URI specifies the location of the object in Amazon S3.</p>
+   * @public
+   */
+  uri?: string | undefined;
+
+  /**
+   * <p>The account ID of the Amazon S3 bucket owner. This ID is used for cross-account access to the bucket.</p>
+   * @public
+   */
+  bucketOwnerAccountId?: string | undefined;
+}
+
+/**
+ * <p>Configuration for API schema.</p>
+ * @public
+ */
+export type ApiSchemaConfiguration =
+  | ApiSchemaConfiguration.InlinePayloadMember
+  | ApiSchemaConfiguration.S3Member
+  | ApiSchemaConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ApiSchemaConfiguration {
+  /**
+   * <p>The Amazon S3 configuration for a gateway. This structure defines how the gateway accesses files in Amazon S3.</p>
+   * @public
+   */
+  export interface S3Member {
+    s3: S3Configuration;
+    inlinePayload?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The inline payload containing the API schema definition.</p>
+   * @public
+   */
+  export interface InlinePayloadMember {
+    s3?: never;
+    inlinePayload: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3?: never;
+    inlinePayload?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    s3: (value: S3Configuration) => T;
+    inlinePayload: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The API schema configuration for an HTTP target. This schema defines the API structure that the target exposes.</p>
+ * @public
+ */
+export interface HttpApiSchemaConfiguration {
+  /**
+   * <p>Configuration for API schema.</p>
+   * @public
+   */
+  source: ApiSchemaConfiguration | undefined;
+}
+
+/**
  * <p>Configuration for an AgentCore Runtime target. Specifies the agent runtime to route requests to via HTTP.</p>
  * @public
  */
@@ -7354,6 +7635,60 @@ export interface RuntimeTargetConfiguration {
    * @public
    */
   qualifier?: string | undefined;
+
+  /**
+   * <p>The API schema configuration that defines the structure of the runtime target's API.</p>
+   * @public
+   */
+  schema?: HttpApiSchemaConfiguration | undefined;
+}
+
+/**
+ * <p>The configuration for session-sticky routing to a target. Session stickiness routes requests that share a session identifier to the same target.</p>
+ * @public
+ */
+export interface StickinessConfiguration {
+  /**
+   * <p>The expression that identifies where to extract the session identifier from the request (for example, <code>$context.header.x-session-id</code>).</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The session stickiness timeout, in seconds. After this duration of inactivity, the session affinity expires. Valid values range from 1 to 86400.</p>
+   * @public
+   */
+  timeout?: number | undefined;
+}
+
+/**
+ * <p>The configuration for an HTTP passthrough target. A passthrough target forwards requests directly to an external HTTP endpoint.</p>
+ * @public
+ */
+export interface PassthroughTargetConfiguration {
+  /**
+   * <p>The HTTPS endpoint that the gateway forwards requests to for this passthrough target.</p>
+   * @public
+   */
+  endpoint: string | undefined;
+
+  /**
+   * The application protocol the passthrough target implements. Required for passthrough targets.
+   * @public
+   */
+  protocolType: PassthroughProtocolType | undefined;
+
+  /**
+   * <p>The API schema configuration that defines the structure of the passthrough target's API.</p>
+   * @public
+   */
+  schema?: HttpApiSchemaConfiguration | undefined;
+
+  /**
+   * <p>The session stickiness configuration for the passthrough target. This configuration routes requests within the same session to the same target.</p>
+   * @public
+   */
+  stickinessConfiguration?: StickinessConfiguration | undefined;
 }
 
 /**
@@ -7362,6 +7697,7 @@ export interface RuntimeTargetConfiguration {
  */
 export type HttpTargetConfiguration =
   | HttpTargetConfiguration.AgentcoreRuntimeMember
+  | HttpTargetConfiguration.PassthroughMember
   | HttpTargetConfiguration.$UnknownMember;
 
 /**
@@ -7374,6 +7710,17 @@ export namespace HttpTargetConfiguration {
    */
   export interface AgentcoreRuntimeMember {
     agentcoreRuntime: RuntimeTargetConfiguration;
+    passthrough?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The passthrough configuration for the HTTP target. A passthrough target forwards requests directly to an external HTTP endpoint.</p>
+   * @public
+   */
+  export interface PassthroughMember {
+    agentcoreRuntime?: never;
+    passthrough: PassthroughTargetConfiguration;
     $unknown?: never;
   }
 
@@ -7382,6 +7729,7 @@ export namespace HttpTargetConfiguration {
    */
   export interface $UnknownMember {
     agentcoreRuntime?: never;
+    passthrough?: never;
     $unknown: [string, any];
   }
 
@@ -7391,6 +7739,174 @@ export namespace HttpTargetConfiguration {
    */
   export interface Visitor<T> {
     agentcoreRuntime: (value: RuntimeTargetConfiguration) => T;
+    passthrough: (value: PassthroughTargetConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The source identifying the inference connector.</p>
+ * @public
+ */
+export interface InferenceConnectorSource {
+  /**
+   * <p>The identifier for the inference connector (for example, <code>bedrock-mantle</code>, <code>openai</code>, or <code>anthropic</code>).</p>
+   * @public
+   */
+  connectorId: string | undefined;
+}
+
+/**
+ * <p>The configuration for a connector-based inference target. This configuration uses a built-in connector that provides predefined rules for a large language model (LLM) provider.</p>
+ * @public
+ */
+export interface InferenceConnectorTargetConfiguration {
+  /**
+   * <p>The source configuration identifying which inference connector to use.</p>
+   * @public
+   */
+  source: InferenceConnectorSource | undefined;
+}
+
+/**
+ * <p>The configuration that controls how a provider prefix is applied to model IDs during translation.</p>
+ * @public
+ */
+export interface ProviderPrefix {
+  /**
+   * <p>Whether clients can omit the provider prefix from model IDs. If <code>true</code>, the gateway accepts model IDs without the prefix and restores the full prefixed form before forwarding to the provider. The default is <code>false</code>.</p>
+   * @public
+   */
+  strip?: boolean | undefined;
+
+  /**
+   * <p>The single character that separates the provider prefix from the model name (for example, <code>.</code>). The default is <code>.</code>.</p>
+   * @public
+   */
+  separator?: string | undefined;
+}
+
+/**
+ * <p>The configuration that translates model IDs between client-facing names and provider model IDs.</p>
+ * @public
+ */
+export interface ModelMapping {
+  /**
+   * <p>The provider prefix configuration used for model ID translation.</p>
+   * @public
+   */
+  providerPrefix?: ProviderPrefix | undefined;
+}
+
+/**
+ * <p>A model entry that specifies a model supported for an inference operation.</p>
+ * @public
+ */
+export interface ModelEntry {
+  /**
+   * <p>The model ID or glob pattern that identifies the model (for example, <code>anthropic.claude-opus-*</code> or <code>openai.gpt-oss-*</code>).</p>
+   * @public
+   */
+  model: string | undefined;
+}
+
+/**
+ * <p>The configuration for a specific inference operation, including its request path and the models that the operation supports.</p>
+ * @public
+ */
+export interface InferenceOperationConfiguration {
+  /**
+   * <p>The request path for this operation (for example, <code>/v1/messages</code> or <code>/v1/responses</code>).</p>
+   * @public
+   */
+  path: string | undefined;
+
+  /**
+   * <p>The provider path to forward requests to, if it differs from the request path. For example, <code>/anthropic/v1/messages</code> when the provider expects a different path than the client-facing <code>/v1/messages</code>.</p>
+   * @public
+   */
+  providerPath?: string | undefined;
+
+  /**
+   * <p>The list of models supported for this operation.</p>
+   * @public
+   */
+  models?: ModelEntry[] | undefined;
+}
+
+/**
+ * <p>The configuration for a provider-based inference target. This configuration explicitly defines the endpoint, model mapping, and operations used to route requests to a large language model (LLM) provider.</p>
+ * @public
+ */
+export interface InferenceProviderTargetConfiguration {
+  /**
+   * <p>The HTTPS endpoint of the inference provider that the gateway forwards requests to.</p>
+   * @public
+   */
+  endpoint: string | undefined;
+
+  /**
+   * <p>The configuration that translates client-facing model IDs to the model IDs expected by the provider.</p>
+   * @public
+   */
+  modelMapping?: ModelMapping | undefined;
+
+  /**
+   * <p>A list of per-operation configurations that map request paths to the models supported for each operation.</p>
+   * @public
+   */
+  operations?: InferenceOperationConfiguration[] | undefined;
+}
+
+/**
+ * <p>The configuration for an inference target. An inference target routes requests to a large language model (LLM) provider, either through a built-in connector or an explicitly configured provider.</p>
+ * @public
+ */
+export type InferenceTargetConfiguration =
+  | InferenceTargetConfiguration.ConnectorMember
+  | InferenceTargetConfiguration.ProviderMember
+  | InferenceTargetConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace InferenceTargetConfiguration {
+  /**
+   * <p>The connector-based inference configuration. Use this option to route requests to an LLM provider through a built-in connector that includes predefined provider rules.</p>
+   * @public
+   */
+  export interface ConnectorMember {
+    connector: InferenceConnectorTargetConfiguration;
+    provider?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The provider-based inference configuration. Use this option to explicitly configure the endpoint, model mapping, and operations for an LLM provider.</p>
+   * @public
+   */
+  export interface ProviderMember {
+    connector?: never;
+    provider: InferenceProviderTargetConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    connector?: never;
+    provider?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    connector: (value: InferenceConnectorTargetConfiguration) => T;
+    provider: (value: InferenceProviderTargetConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -7486,21 +8002,93 @@ export interface ApiGatewayTargetConfiguration {
 }
 
 /**
- * <p>The Amazon S3 configuration for a gateway. This structure defines how the gateway accesses files in Amazon S3.</p>
+ * <p>Specifies a parameter override for a connector tool, allowing you to control parameter visibility and descriptions.</p>
  * @public
  */
-export interface S3Configuration {
+export interface ConnectorParameterOverride {
   /**
-   * <p>The URI of the Amazon S3 object. This URI specifies the location of the object in Amazon S3.</p>
+   * <p>A JSON Pointer path identifying the parameter (for example, <code>/numberOfResults</code> or <code>/filter</code>).</p>
    * @public
    */
-  uri?: string | undefined;
+  path: string | undefined;
 
   /**
-   * <p>The account ID of the Amazon S3 bucket owner. This ID is used for cross-account access to the bucket.</p>
+   * <p>An agent-facing description override for this parameter.</p>
    * @public
    */
-  bucketOwnerAccountId?: string | undefined;
+  description?: string | undefined;
+
+  /**
+   * <p>Whether this parameter is visible to the agent. If not specified, uses the service default.</p>
+   * @public
+   */
+  visible?: boolean | undefined;
+}
+
+/**
+ * <p>Configuration for a single tool within a connector.</p>
+ * @public
+ */
+export interface ConnectorConfiguration {
+  /**
+   * <p>The tool or operation name (for example, <code>retrieve</code> or <code>webSearch</code>).</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>An agent-facing description override for this tool.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Parameters to set as fixed or default values when provisioning this tool.</p>
+   * @public
+   */
+  parameterValues?: __DocumentType | undefined;
+
+  /**
+   * <p>Parameters to expose to the agent at runtime, with optional description overrides.</p>
+   * @public
+   */
+  parameterOverrides?: ConnectorParameterOverride[] | undefined;
+}
+
+/**
+ * <p>The source identifying the connector integration.</p>
+ * @public
+ */
+export interface ConnectorSource {
+  /**
+   * <p>The identifier for the connector integration (for example, <code>bedrock-knowledge-bases</code>).</p>
+   * @public
+   */
+  connectorId: string | undefined;
+}
+
+/**
+ * <p>Configuration for a connector integration target. Connectors provide pre-built integrations with Amazon Web Services services and third-party tools.</p>
+ * @public
+ */
+export interface ConnectorTargetConfiguration {
+  /**
+   * <p>The source configuration identifying which connector to use.</p>
+   * @public
+   */
+  source: ConnectorSource | undefined;
+
+  /**
+   * <p>A list of tool names to enable from this connector. If absent, all tools provided by the connector are enabled.</p>
+   * @public
+   */
+  enabled?: string[] | undefined;
+
+  /**
+   * <p>A list of per-tool configurations for the connector.</p>
+   * @public
+   */
+  configurations?: ConnectorConfiguration[] | undefined;
 }
 
 /**
@@ -7584,59 +8172,6 @@ export interface McpServerTargetConfiguration {
    * @public
    */
   resourcePriority?: number | undefined;
-}
-
-/**
- * <p>Configuration for API schema.</p>
- * @public
- */
-export type ApiSchemaConfiguration =
-  | ApiSchemaConfiguration.InlinePayloadMember
-  | ApiSchemaConfiguration.S3Member
-  | ApiSchemaConfiguration.$UnknownMember;
-
-/**
- * @public
- */
-export namespace ApiSchemaConfiguration {
-  /**
-   * <p>The Amazon S3 configuration for a gateway. This structure defines how the gateway accesses files in Amazon S3.</p>
-   * @public
-   */
-  export interface S3Member {
-    s3: S3Configuration;
-    inlinePayload?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The inline payload containing the API schema definition.</p>
-   * @public
-   */
-  export interface InlinePayloadMember {
-    s3?: never;
-    inlinePayload: string;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    s3?: never;
-    inlinePayload?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    s3: (value: S3Configuration) => T;
-    inlinePayload: (value: string) => T;
-    _: (name: string, value: any) => T;
-  }
 }
 
 /**
@@ -7852,6 +8387,30 @@ export interface TargetSummary {
    * @public
    */
   resourcePriority?: number | undefined;
+
+  /**
+   * <p>The timestamp when the target was last synchronized.</p>
+   * @public
+   */
+  lastSynchronizedAt?: Date | undefined;
+
+  /**
+   * <p>Contains the authorization data that is returned when a gateway target is configured with a credential provider with authorization code grant type and requires user federation.</p>
+   * @public
+   */
+  authorizationData?: AuthorizationData | undefined;
+
+  /**
+   * <p>The type of the target.</p>
+   * @public
+   */
+  targetType?: TargetType | undefined;
+
+  /**
+   * <p>The listing mode for the target. MCP resources for <code>DEFAULT</code> targets are cached at the control plane for faster access. MCP resources for <code>DYNAMIC</code> targets are retrieved dynamically when listing tools.</p>
+   * @public
+   */
+  listingMode?: ListingMode | undefined;
 }
 
 /**
@@ -7960,6 +8519,278 @@ export interface GetTokenVaultResponse {
    * @public
    */
   lastModifiedDate: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateHarnessEndpointRequest {
+  /**
+   * <p>The ID of the harness to create an endpoint for.</p>
+   * @public
+   */
+  harnessId: string | undefined;
+
+  /**
+   * <p>The name of the endpoint. Must start with a letter and contain only alphanumeric characters and underscores.</p>
+   * @public
+   */
+  endpointName: string | undefined;
+
+  /**
+   * <p>The harness version that the endpoint points to and serves invocations from.</p>
+   * @public
+   */
+  targetVersion?: string | undefined;
+
+  /**
+   * <p>A description of the endpoint.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>Tags to apply to the endpoint resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Representation of a harness endpoint. An endpoint is a named, stable reference to a specific version of a harness that callers invoke, allowing the underlying version to be updated without changing how the agent is invoked.</p>
+ * @public
+ */
+export interface HarnessEndpoint {
+  /**
+   * <p>The ID of the harness that the endpoint belongs to.</p>
+   * @public
+   */
+  harnessId: string | undefined;
+
+  /**
+   * <p>The name of the harness that the endpoint belongs to.</p>
+   * @public
+   */
+  harnessName: string | undefined;
+
+  /**
+   * <p>The name of the endpoint.</p>
+   * @public
+   */
+  endpointName: string | undefined;
+
+  /**
+   * <p>The ARN of the endpoint.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The status of the endpoint.</p>
+   * @public
+   */
+  status: HarnessEndpointStatus | undefined;
+
+  /**
+   * <p>The timestamp when the endpoint was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the endpoint was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The harness version that the endpoint is currently serving.</p>
+   * @public
+   */
+  liveVersion?: string | undefined;
+
+  /**
+   * <p>The harness version that the endpoint points to. While an update is in progress, this can differ from the live version until the endpoint finishes transitioning.</p>
+   * @public
+   */
+  targetVersion?: string | undefined;
+
+  /**
+   * <p>The description of the endpoint.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The reason the endpoint's last create or update operation failed.</p>
+   * @public
+   */
+  failureReason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateHarnessEndpointResponse {
+  /**
+   * <p>The endpoint that was created.</p>
+   * @public
+   */
+  endpoint: HarnessEndpoint | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteHarnessEndpointRequest {
+  /**
+   * <p>The ID of the harness that the endpoint belongs to.</p>
+   * @public
+   */
+  harnessId: string | undefined;
+
+  /**
+   * <p>The name of the endpoint to delete.</p>
+   * @public
+   */
+  endpointName: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteHarnessEndpointResponse {
+  /**
+   * <p>The endpoint that was deleted.</p>
+   * @public
+   */
+  endpoint: HarnessEndpoint | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetHarnessEndpointRequest {
+  /**
+   * <p>The ID of the harness that the endpoint belongs to.</p>
+   * @public
+   */
+  harnessId: string | undefined;
+
+  /**
+   * <p>The name of the endpoint to retrieve.</p>
+   * @public
+   */
+  endpointName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetHarnessEndpointResponse {
+  /**
+   * <p>The endpoint resource.</p>
+   * @public
+   */
+  endpoint: HarnessEndpoint | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListHarnessEndpointsRequest {
+  /**
+   * <p>The ID of the harness whose endpoints are listed.</p>
+   * @public
+   */
+  harnessId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListHarnessEndpointsResponse {
+  /**
+   * <p>The list of harness endpoints.</p>
+   * @public
+   */
+  endpoints: HarnessEndpoint[] | undefined;
+
+  /**
+   * <p>The token for the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateHarnessEndpointRequest {
+  /**
+   * <p>The ID of the harness that the endpoint belongs to.</p>
+   * @public
+   */
+  harnessId: string | undefined;
+
+  /**
+   * <p>The name of the endpoint to update.</p>
+   * @public
+   */
+  endpointName: string | undefined;
+
+  /**
+   * <p>The harness version that the endpoint points to. If not specified, the existing value is retained.</p>
+   * @public
+   */
+  targetVersion?: string | undefined;
+
+  /**
+   * <p>A description of the endpoint. If not specified, the existing value is retained.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateHarnessEndpointResponse {
+  /**
+   * <p>The updated endpoint.</p>
+   * @public
+   */
+  endpoint: HarnessEndpoint | undefined;
 }
 
 /**
@@ -8119,11 +8950,49 @@ export interface HarnessAgentCoreMemoryConfiguration {
 }
 
 /**
+ * <p>Explicitly opt out of memory.</p>
+ * @public
+ */
+export interface HarnessDisabledMemoryConfiguration {}
+
+/**
+ * <p>Configuration for managed memory creation.</p>
+ * @public
+ */
+export interface HarnessManagedMemoryConfiguration {
+  /**
+   * <p>The ARN of the managed AgentCore Memory resource. Read-only on Get, ignored on Create/Update input.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>Strategy types to enable. Defaults to [SEMANTIC, SUMMARIZATION].</p>
+   * @public
+   */
+  strategies?: HarnessManagedMemoryStrategyType[] | undefined;
+
+  /**
+   * <p>Event retention in days. Defaults to 30.</p>
+   * @public
+   */
+  eventExpiryDuration?: number | undefined;
+
+  /**
+   * <p>Customer-managed KMS key. Defaults to AWS-owned key. Not updatable after creation.</p>
+   * @public
+   */
+  encryptionKeyArn?: string | undefined;
+}
+
+/**
  * <p>The memory configuration for a harness.</p>
  * @public
  */
 export type HarnessMemoryConfiguration =
   | HarnessMemoryConfiguration.AgentCoreMemoryConfigurationMember
+  | HarnessMemoryConfiguration.DisabledMember
+  | HarnessMemoryConfiguration.ManagedMemoryConfigurationMember
   | HarnessMemoryConfiguration.$UnknownMember;
 
 /**
@@ -8136,6 +9005,30 @@ export namespace HarnessMemoryConfiguration {
    */
   export interface AgentCoreMemoryConfigurationMember {
     agentCoreMemoryConfiguration: HarnessAgentCoreMemoryConfiguration;
+    managedMemoryConfiguration?: never;
+    disabled?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Harness creates and manages a memory resource in the customer's account.</p>
+   * @public
+   */
+  export interface ManagedMemoryConfigurationMember {
+    agentCoreMemoryConfiguration?: never;
+    managedMemoryConfiguration: HarnessManagedMemoryConfiguration;
+    disabled?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Explicitly opt out of memory.</p>
+   * @public
+   */
+  export interface DisabledMember {
+    agentCoreMemoryConfiguration?: never;
+    managedMemoryConfiguration?: never;
+    disabled: HarnessDisabledMemoryConfiguration;
     $unknown?: never;
   }
 
@@ -8144,6 +9037,8 @@ export namespace HarnessMemoryConfiguration {
    */
   export interface $UnknownMember {
     agentCoreMemoryConfiguration?: never;
+    managedMemoryConfiguration?: never;
+    disabled?: never;
     $unknown: [string, any];
   }
 
@@ -8153,6 +9048,8 @@ export namespace HarnessMemoryConfiguration {
    */
   export interface Visitor<T> {
     agentCoreMemoryConfiguration: (value: HarnessAgentCoreMemoryConfiguration) => T;
+    managedMemoryConfiguration: (value: HarnessManagedMemoryConfiguration) => T;
+    disabled: (value: HarnessDisabledMemoryConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -8425,1198 +9322,18 @@ export namespace HarnessModelConfiguration {
 }
 
 /**
- * <p>Authentication configuration for accessing a private git repository.</p>
+ * <p>Passed to show that AWS Skills should be included.</p>
  * @public
  */
-export interface HarnessSkillGitAuth {
+export interface HarnessSkillAwsSkillsSource {
   /**
-   * <p>The ARN of the credential in AgentCore Identity containing the password or personal access token.</p>
+   * <p>Optionally filter allowed skills with glob syntax, e.g., ['core-skills/*'].</p>
    * @public
    */
-  credentialArn: string | undefined;
-
-  /**
-   * <p>Username for authentication. Defaults to 'oauth2' if not specified.</p>
-   * @public
-   */
-  username?: string | undefined;
-}
-
-/**
- * <p>A git repository source for a skill.</p>
- * @public
- */
-export interface HarnessSkillGitSource {
-  /**
-   * <p>The HTTPS URL of the git repository.</p>
-   * @public
-   */
-  url: string | undefined;
-
-  /**
-   * <p>Subdirectory within the repository containing the skill.</p>
-   * @public
-   */
-  path?: string | undefined;
-
-  /**
-   * <p>Authentication configuration for private repositories.</p>
-   * @public
-   */
-  auth?: HarnessSkillGitAuth | undefined;
-}
-
-/**
- * <p>An S3 source for a skill.</p>
- * @public
- */
-export interface HarnessSkillS3Source {
-  /**
-   * <p>The S3 URI pointing to the skill directory (e.g., s3://bucket/skills/my-skill/).</p>
-   * @public
-   */
-  uri: string | undefined;
-}
-
-/**
- * <p>A skill available to the agent.</p>
- * @public
- */
-export type HarnessSkill =
-  | HarnessSkill.GitMember
-  | HarnessSkill.PathMember
-  | HarnessSkill.S3Member
-  | HarnessSkill.$UnknownMember;
-
-/**
- * @public
- */
-export namespace HarnessSkill {
-  /**
-   * <p>The filesystem path to the skill definition.</p>
-   * @public
-   */
-  export interface PathMember {
-    path: string;
-    s3?: never;
-    git?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>An S3 source containing the skill.</p>
-   * @public
-   */
-  export interface S3Member {
-    path?: never;
-    s3: HarnessSkillS3Source;
-    git?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A git repository containing the skill.</p>
-   * @public
-   */
-  export interface GitMember {
-    path?: never;
-    s3?: never;
-    git: HarnessSkillGitSource;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    path?: never;
-    s3?: never;
-    git?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    path: (value: string) => T;
-    s3: (value: HarnessSkillS3Source) => T;
-    git: (value: HarnessSkillGitSource) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>A content block in the system prompt.</p>
- * @public
- */
-export type HarnessSystemContentBlock =
-  | HarnessSystemContentBlock.TextMember
-  | HarnessSystemContentBlock.$UnknownMember;
-
-/**
- * @public
- */
-export namespace HarnessSystemContentBlock {
-  /**
-   * <p>The text content of the system prompt block.</p>
-   * @public
-   */
-  export interface TextMember {
-    text: string;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    text?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    text: (value: string) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Configuration for AgentCore Browser.</p>
- * @public
- */
-export interface HarnessAgentCoreBrowserConfig {
-  /**
-   * <p>If not populated, the built-in Browser ARN is used.</p>
-   * @public
-   */
-  browserArn?: string | undefined;
-}
-
-/**
- * <p>Configuration for AgentCore Code Interpreter.</p>
- * @public
- */
-export interface HarnessAgentCoreCodeInterpreterConfig {
-  /**
-   * <p>If not populated, the built-in Code Interpreter ARN is used.</p>
-   * @public
-   */
-  codeInterpreterArn?: string | undefined;
+  paths?: string[] | undefined;
 }
 
 /**
  * @public
  */
 export interface Unit {}
-
-/**
- * <p>Authentication method for calling a Gateway.</p>
- * @public
- */
-export type HarnessGatewayOutboundAuth =
-  | HarnessGatewayOutboundAuth.AwsIamMember
-  | HarnessGatewayOutboundAuth.NoneMember
-  | HarnessGatewayOutboundAuth.OauthMember
-  | HarnessGatewayOutboundAuth.$UnknownMember;
-
-/**
- * @public
- */
-export namespace HarnessGatewayOutboundAuth {
-  /**
-   * <p>SigV4-sign requests using the agent's execution role.</p>
-   * @public
-   */
-  export interface AwsIamMember {
-    awsIam: Unit;
-    none?: never;
-    oauth?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>No authentication.</p>
-   * @public
-   */
-  export interface NoneMember {
-    awsIam?: never;
-    none: Unit;
-    oauth?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Use OAuth credentials for outbound authentication to the gateway.</p>
-   * @public
-   */
-  export interface OauthMember {
-    awsIam?: never;
-    none?: never;
-    oauth: OAuthCredentialProvider;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    awsIam?: never;
-    none?: never;
-    oauth?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    awsIam: (value: Unit) => T;
-    none: (value: Unit) => T;
-    oauth: (value: OAuthCredentialProvider) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Configuration for AgentCore Gateway.</p>
- * @public
- */
-export interface HarnessAgentCoreGatewayConfig {
-  /**
-   * <p>The ARN of the desired AgentCore Gateway.</p>
-   * @public
-   */
-  gatewayArn: string | undefined;
-
-  /**
-   * <p>How harness authenticates to this Gateway. Defaults to AWS_IAM (SigV4) if omitted.</p>
-   * @public
-   */
-  outboundAuth?: HarnessGatewayOutboundAuth | undefined;
-}
-
-/**
- * <p>Configuration for an inline function tool. When the agent calls this tool, the tool call is returned to the caller for external execution.</p>
- * @public
- */
-export interface HarnessInlineFunctionConfig {
-  /**
-   * <p>Description of what the tool does, provided to the model.</p>
-   * @public
-   */
-  description: string | undefined;
-
-  /**
-   * <p>JSON Schema describing the tool's input parameters.</p>
-   * @public
-   */
-  inputSchema: __DocumentType | undefined;
-}
-
-/**
- * <p>Configuration for connecting to a remote MCP server.</p>
- * @public
- */
-export interface HarnessRemoteMcpConfig {
-  /**
-   * <p>URL of the MCP endpoint.</p>
-   * @public
-   */
-  url: string | undefined;
-
-  /**
-   * <p>Custom headers to include when connecting to the remote MCP server.</p>
-   * @public
-   */
-  headers?: Record<string, string> | undefined;
-}
-
-/**
- * <p>Configuration union for different tool types.</p>
- * @public
- */
-export type HarnessToolConfiguration =
-  | HarnessToolConfiguration.AgentCoreBrowserMember
-  | HarnessToolConfiguration.AgentCoreCodeInterpreterMember
-  | HarnessToolConfiguration.AgentCoreGatewayMember
-  | HarnessToolConfiguration.InlineFunctionMember
-  | HarnessToolConfiguration.RemoteMcpMember
-  | HarnessToolConfiguration.$UnknownMember;
-
-/**
- * @public
- */
-export namespace HarnessToolConfiguration {
-  /**
-   * <p>Configuration for remote MCP server.</p>
-   * @public
-   */
-  export interface RemoteMcpMember {
-    remoteMcp: HarnessRemoteMcpConfig;
-    agentCoreBrowser?: never;
-    agentCoreGateway?: never;
-    inlineFunction?: never;
-    agentCoreCodeInterpreter?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Configuration for AgentCore Browser.</p>
-   * @public
-   */
-  export interface AgentCoreBrowserMember {
-    remoteMcp?: never;
-    agentCoreBrowser: HarnessAgentCoreBrowserConfig;
-    agentCoreGateway?: never;
-    inlineFunction?: never;
-    agentCoreCodeInterpreter?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Configuration for AgentCore Gateway.</p>
-   * @public
-   */
-  export interface AgentCoreGatewayMember {
-    remoteMcp?: never;
-    agentCoreBrowser?: never;
-    agentCoreGateway: HarnessAgentCoreGatewayConfig;
-    inlineFunction?: never;
-    agentCoreCodeInterpreter?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Configuration for an inline function tool.</p>
-   * @public
-   */
-  export interface InlineFunctionMember {
-    remoteMcp?: never;
-    agentCoreBrowser?: never;
-    agentCoreGateway?: never;
-    inlineFunction: HarnessInlineFunctionConfig;
-    agentCoreCodeInterpreter?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Configuration for AgentCore Code Interpreter.</p>
-   * @public
-   */
-  export interface AgentCoreCodeInterpreterMember {
-    remoteMcp?: never;
-    agentCoreBrowser?: never;
-    agentCoreGateway?: never;
-    inlineFunction?: never;
-    agentCoreCodeInterpreter: HarnessAgentCoreCodeInterpreterConfig;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    remoteMcp?: never;
-    agentCoreBrowser?: never;
-    agentCoreGateway?: never;
-    inlineFunction?: never;
-    agentCoreCodeInterpreter?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    remoteMcp: (value: HarnessRemoteMcpConfig) => T;
-    agentCoreBrowser: (value: HarnessAgentCoreBrowserConfig) => T;
-    agentCoreGateway: (value: HarnessAgentCoreGatewayConfig) => T;
-    inlineFunction: (value: HarnessInlineFunctionConfig) => T;
-    agentCoreCodeInterpreter: (value: HarnessAgentCoreCodeInterpreterConfig) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>A tool available to the agent loop.</p>
- * @public
- */
-export interface HarnessTool {
-  /**
-   * <p>The type of tool.</p>
-   * @public
-   */
-  type: HarnessToolType | undefined;
-
-  /**
-   * <p>Unique name for the tool. If not provided, a name will be inferred or generated.</p>
-   * @public
-   */
-  name?: string | undefined;
-
-  /**
-   * <p>Tool-specific configuration.</p>
-   * @public
-   */
-  config?: HarnessToolConfiguration | undefined;
-}
-
-/**
- * <p>Configuration for sliding window truncation strategy.</p>
- * @public
- */
-export interface HarnessSlidingWindowConfiguration {
-  /**
-   * <p>The number of recent messages to retain in the context window.</p>
-   * @public
-   */
-  messagesCount?: number | undefined;
-}
-
-/**
- * <p>Configuration for summarization-based truncation strategy.</p>
- * @public
- */
-export interface HarnessSummarizationConfiguration {
-  /**
-   * <p>The ratio of content to summarize.</p>
-   * @public
-   */
-  summaryRatio?: number | undefined;
-
-  /**
-   * <p>The number of recent messages to preserve without summarization.</p>
-   * @public
-   */
-  preserveRecentMessages?: number | undefined;
-
-  /**
-   * <p>The system prompt used for generating summaries.</p>
-   * @public
-   */
-  summarizationSystemPrompt?: string | undefined;
-}
-
-/**
- * <p>Strategy-specific truncation configuration.</p>
- * @public
- */
-export type HarnessTruncationStrategyConfiguration =
-  | HarnessTruncationStrategyConfiguration.SlidingWindowMember
-  | HarnessTruncationStrategyConfiguration.SummarizationMember
-  | HarnessTruncationStrategyConfiguration.$UnknownMember;
-
-/**
- * @public
- */
-export namespace HarnessTruncationStrategyConfiguration {
-  /**
-   * <p>Configuration for sliding window truncation.</p>
-   * @public
-   */
-  export interface SlidingWindowMember {
-    slidingWindow: HarnessSlidingWindowConfiguration;
-    summarization?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Configuration for summarization-based truncation.</p>
-   * @public
-   */
-  export interface SummarizationMember {
-    slidingWindow?: never;
-    summarization: HarnessSummarizationConfiguration;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    slidingWindow?: never;
-    summarization?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    slidingWindow: (value: HarnessSlidingWindowConfiguration) => T;
-    summarization: (value: HarnessSummarizationConfiguration) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Configuration for truncating conversation context when it exceeds model limits.</p>
- * @public
- */
-export interface HarnessTruncationConfiguration {
-  /**
-   * <p>The truncation strategy to use.</p>
-   * @public
-   */
-  strategy: HarnessTruncationStrategy | undefined;
-
-  /**
-   * <p>The strategy-specific configuration.</p>
-   * @public
-   */
-  config?: HarnessTruncationStrategyConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateHarnessRequest {
-  /**
-   * <p>The name of the harness. Must start with a letter and contain only alphanumeric characters and underscores.</p>
-   * @public
-   */
-  harnessName: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
-   * <p>The ARN of the IAM role that the harness assumes when running. This role must have permissions for the services the agent needs to access, such as Amazon Bedrock for model invocation.</p>
-   * @public
-   */
-  executionRoleArn: string | undefined;
-
-  /**
-   * <p>The compute environment configuration for the harness, including network and lifecycle settings.</p>
-   * @public
-   */
-  environment?: HarnessEnvironmentProviderRequest | undefined;
-
-  /**
-   * <p>The environment artifact for the harness, such as a custom container image containing additional dependencies.</p>
-   * @public
-   */
-  environmentArtifact?: HarnessEnvironmentArtifact | undefined;
-
-  /**
-   * <p>Environment variables to set in the harness runtime environment.</p>
-   * @public
-   */
-  environmentVariables?: Record<string, string> | undefined;
-
-  /**
-   * <p>Represents inbound authorization configuration options used to authenticate incoming requests. </p>
-   * @public
-   */
-  authorizerConfiguration?: AuthorizerConfiguration | undefined;
-
-  /**
-   * <p>The model configuration for the harness. Supports Amazon Bedrock, OpenAI, and Google Gemini model providers.</p>
-   * @public
-   */
-  model?: HarnessModelConfiguration | undefined;
-
-  /**
-   * <p>The system prompt that defines the agent's behavior and instructions.</p>
-   * @public
-   */
-  systemPrompt?: HarnessSystemContentBlock[] | undefined;
-
-  /**
-   * <p>The tools available to the agent, such as remote MCP servers, AgentCore Gateway, AgentCore Browser, Code Interpreter, or inline functions.</p>
-   * @public
-   */
-  tools?: HarnessTool[] | undefined;
-
-  /**
-   * <p>The skills available to the agent. Skills are bundles of files that the agent can pull into its context on demand.</p>
-   * @public
-   */
-  skills?: HarnessSkill[] | undefined;
-
-  /**
-   * <p>The tools that the agent is allowed to use. Supports glob patterns such as * for all tools, @builtin for all built-in tools, or @serverName/toolName for specific MCP server tools.</p>
-   * @public
-   */
-  allowedTools?: string[] | undefined;
-
-  /**
-   * <p>The AgentCore Memory configuration for persisting conversation context across sessions.</p>
-   * @public
-   */
-  memory?: HarnessMemoryConfiguration | undefined;
-
-  /**
-   * <p>The truncation configuration for managing conversation context when it exceeds model limits.</p>
-   * @public
-   */
-  truncation?: HarnessTruncationConfiguration | undefined;
-
-  /**
-   * <p>The maximum number of iterations the agent loop can execute per invocation.</p>
-   * @public
-   */
-  maxIterations?: number | undefined;
-
-  /**
-   * <p>The maximum total number of output tokens the agent can generate across all model calls within a single invocation.</p>
-   * @public
-   */
-  maxTokens?: number | undefined;
-
-  /**
-   * <p>The maximum duration in seconds for the agent loop execution per invocation.</p>
-   * @public
-   */
-  timeoutSeconds?: number | undefined;
-
-  /**
-   * <p>Tags to apply to the harness resource.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
-}
-
-/**
- * <p>The AgentCore Runtime environment for a harness.</p>
- * @public
- */
-export interface HarnessAgentCoreRuntimeEnvironment {
-  /**
-   * <p>The ARN of the underlying AgentCore Runtime.</p>
-   * @public
-   */
-  agentRuntimeArn: string | undefined;
-
-  /**
-   * <p>The name of the underlying AgentCore Runtime.</p>
-   * @public
-   */
-  agentRuntimeName: string | undefined;
-
-  /**
-   * <p>The ID of the underlying AgentCore Runtime.</p>
-   * @public
-   */
-  agentRuntimeId: string | undefined;
-
-  /**
-   * <p>LifecycleConfiguration lets you manage the lifecycle of runtime sessions and resources in AgentCore Runtime. This configuration helps optimize resource utilization by automatically cleaning up idle sessions and preventing long-running instances from consuming resources indefinitely.</p>
-   * @public
-   */
-  lifecycleConfiguration: LifecycleConfiguration | undefined;
-
-  /**
-   * <p>SecurityConfig for the Agent.</p>
-   * @public
-   */
-  networkConfiguration: NetworkConfiguration | undefined;
-
-  /**
-   * <p>The filesystem configurations for the runtime environment.</p>
-   * @public
-   */
-  filesystemConfigurations?: FilesystemConfiguration[] | undefined;
-}
-
-/**
- * <p>The environment provider for a harness.</p>
- * @public
- */
-export type HarnessEnvironmentProvider =
-  | HarnessEnvironmentProvider.AgentCoreRuntimeEnvironmentMember
-  | HarnessEnvironmentProvider.$UnknownMember;
-
-/**
- * @public
- */
-export namespace HarnessEnvironmentProvider {
-  /**
-   * <p>The AgentCore Runtime environment configuration.</p>
-   * @public
-   */
-  export interface AgentCoreRuntimeEnvironmentMember {
-    agentCoreRuntimeEnvironment: HarnessAgentCoreRuntimeEnvironment;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    agentCoreRuntimeEnvironment?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    agentCoreRuntimeEnvironment: (value: HarnessAgentCoreRuntimeEnvironment) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Representation of a Harness.</p>
- * @public
- */
-export interface Harness {
-  /**
-   * <p>The ID of the Harness.</p>
-   * @public
-   */
-  harnessId: string | undefined;
-
-  /**
-   * <p>The name of the Harness.</p>
-   * @public
-   */
-  harnessName: string | undefined;
-
-  /**
-   * <p>The ARN of the Harness.</p>
-   * @public
-   */
-  arn: string | undefined;
-
-  /**
-   * <p>The status of the Harness.</p>
-   * @public
-   */
-  status: HarnessStatus | undefined;
-
-  /**
-   * <p>IAM role the Harness assumes when running.</p>
-   * @public
-   */
-  executionRoleArn: string | undefined;
-
-  /**
-   * <p>The createdAt time of the Harness.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The updatedAt time of the Harness.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The configuration of the default model used by the Harness.</p>
-   * @public
-   */
-  model: HarnessModelConfiguration | undefined;
-
-  /**
-   * <p>The system prompt of the Harness.</p>
-   * @public
-   */
-  systemPrompt: HarnessSystemContentBlock[] | undefined;
-
-  /**
-   * <p>The tools of the Harness.</p>
-   * @public
-   */
-  tools: HarnessTool[] | undefined;
-
-  /**
-   * <p>The skills of the Harness.</p>
-   * @public
-   */
-  skills: HarnessSkill[] | undefined;
-
-  /**
-   * <p>The allowed tools of the Harness. All tools are allowed by default.</p>
-   * @public
-   */
-  allowedTools: string[] | undefined;
-
-  /**
-   * <p>Configuration for truncating model context.</p>
-   * @public
-   */
-  truncation: HarnessTruncationConfiguration | undefined;
-
-  /**
-   * <p>The compute environment on which the Harness runs.</p>
-   * @public
-   */
-  environment: HarnessEnvironmentProvider | undefined;
-
-  /**
-   * <p>The environment artifact (e.g., container) in which the Harness operates.</p>
-   * @public
-   */
-  environmentArtifact?: HarnessEnvironmentArtifact | undefined;
-
-  /**
-   * <p>Environment variables exposed in the environment in which the Harness operates.</p>
-   * @public
-   */
-  environmentVariables?: Record<string, string> | undefined;
-
-  /**
-   * <p>Represents inbound authorization configuration options used to authenticate incoming requests. </p>
-   * @public
-   */
-  authorizerConfiguration?: AuthorizerConfiguration | undefined;
-
-  /**
-   * <p>AgentCore Memory instance configuration for short and long term memory.</p>
-   * @public
-   */
-  memory?: HarnessMemoryConfiguration | undefined;
-
-  /**
-   * <p>The maximum number of iterations in the agent loop allowed before exiting per invocation.</p>
-   * @public
-   */
-  maxIterations?: number | undefined;
-
-  /**
-   * <p>The maximum total number of output tokens the agent can generate across all model calls within a single invocation.</p>
-   * @public
-   */
-  maxTokens?: number | undefined;
-
-  /**
-   * <p>The maximum duration per invocation.</p>
-   * @public
-   */
-  timeoutSeconds?: number | undefined;
-
-  /**
-   * <p>Reason why create or update operations fail.</p>
-   * @public
-   */
-  failureReason?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateHarnessResponse {
-  /**
-   * <p>The harness that was created.</p>
-   * @public
-   */
-  harness: Harness | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteHarnessRequest {
-  /**
-   * <p>The ID of the harness to delete.</p>
-   * @public
-   */
-  harnessId: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteHarnessResponse {
-  /**
-   * <p>The harness that was deleted.</p>
-   * @public
-   */
-  harness?: Harness | undefined;
-}
-
-/**
- * @public
- */
-export interface GetHarnessRequest {
-  /**
-   * <p>The ID of the harness to retrieve.</p>
-   * @public
-   */
-  harnessId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetHarnessResponse {
-  /**
-   * <p>The harness resource.</p>
-   * @public
-   */
-  harness: Harness | undefined;
-}
-
-/**
- * @public
- */
-export interface ListHarnessesRequest {
-  /**
-   * <p>The maximum number of results to return in a single call.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * <p>Summary information about a harness.</p>
- * @public
- */
-export interface HarnessSummary {
-  /**
-   * <p>The ID of the harness.</p>
-   * @public
-   */
-  harnessId: string | undefined;
-
-  /**
-   * <p>The name of the harness.</p>
-   * @public
-   */
-  harnessName: string | undefined;
-
-  /**
-   * <p>The ARN of the harness.</p>
-   * @public
-   */
-  arn: string | undefined;
-
-  /**
-   * <p>The current status of the harness.</p>
-   * @public
-   */
-  status: HarnessStatus | undefined;
-
-  /**
-   * <p>The timestamp when the harness was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when the harness was last updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListHarnessesResponse {
-  /**
-   * <p>The list of harness summaries.</p>
-   * @public
-   */
-  harnesses: HarnessSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * <p>Wrapper for updating an optional AuthorizerConfiguration field with PATCH semantics. When present in an update request, the authorizer configuration is replaced with optionalValue. When absent, the authorizer configuration is left unchanged. To unset, include the wrapper with optionalValue not specified.</p>
- * @public
- */
-export interface UpdatedAuthorizerConfiguration {
-  /**
-   * <p>The updated authorizer configuration value. If not specified, it will clear the current authorizer configuration of the resource.</p>
-   * @public
-   */
-  optionalValue?: AuthorizerConfiguration | undefined;
-}
-
-/**
- * <p>Wrapper for updating the environment artifact configuration.</p>
- * @public
- */
-export interface UpdatedHarnessEnvironmentArtifact {
-  /**
-   * <p>The updated environment artifact value, or null to clear the existing configuration.</p>
-   * @public
-   */
-  optionalValue?: HarnessEnvironmentArtifact | undefined;
-}
-
-/**
- * <p>Wrapper for updating the memory configuration.</p>
- * @public
- */
-export interface UpdatedHarnessMemoryConfiguration {
-  /**
-   * <p>The updated memory configuration value, or null to clear the existing configuration.</p>
-   * @public
-   */
-  optionalValue?: HarnessMemoryConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateHarnessRequest {
-  /**
-   * <p>The ID of the harness to update.</p>
-   * @public
-   */
-  harnessId: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
-   * <p>The ARN of the IAM role that the harness assumes when running. If not specified, the existing value is retained.</p>
-   * @public
-   */
-  executionRoleArn?: string | undefined;
-
-  /**
-   * <p>The compute environment configuration for the harness. If not specified, the existing value is retained.</p>
-   * @public
-   */
-  environment?: HarnessEnvironmentProviderRequest | undefined;
-
-  /**
-   * <p>The environment artifact for the harness. Use the optionalValue wrapper to set a new value, or set it to null to clear the existing configuration.</p>
-   * @public
-   */
-  environmentArtifact?: UpdatedHarnessEnvironmentArtifact | undefined;
-
-  /**
-   * <p>Environment variables to set in the harness runtime environment. If specified, this replaces all existing environment variables. If not specified, the existing value is retained.</p>
-   * @public
-   */
-  environmentVariables?: Record<string, string> | undefined;
-
-  /**
-   * <p>Wrapper for updating an optional AuthorizerConfiguration field with PATCH semantics. When present in an update request, the authorizer configuration is replaced with optionalValue. When absent, the authorizer configuration is left unchanged. To unset, include the wrapper with optionalValue not specified.</p>
-   * @public
-   */
-  authorizerConfiguration?: UpdatedAuthorizerConfiguration | undefined;
-
-  /**
-   * <p>The model configuration for the harness. If not specified, the existing value is retained.</p>
-   * @public
-   */
-  model?: HarnessModelConfiguration | undefined;
-
-  /**
-   * <p>The system prompt that defines the agent's behavior. If not specified, the existing value is retained.</p>
-   * @public
-   */
-  systemPrompt?: HarnessSystemContentBlock[] | undefined;
-
-  /**
-   * <p>The tools available to the agent. If specified, this replaces all existing tools. If not specified, the existing value is retained.</p>
-   * @public
-   */
-  tools?: HarnessTool[] | undefined;
-
-  /**
-   * <p>The skills available to the agent. If specified, this replaces all existing skills. If not specified, the existing value is retained.</p>
-   * @public
-   */
-  skills?: HarnessSkill[] | undefined;
-
-  /**
-   * <p>The tools that the agent is allowed to use. If specified, this replaces all existing allowed tools. If not specified, the existing value is retained.</p>
-   * @public
-   */
-  allowedTools?: string[] | undefined;
-
-  /**
-   * <p>The AgentCore Memory configuration. Use the optionalValue wrapper to set a new value, or set it to null to clear the existing configuration.</p>
-   * @public
-   */
-  memory?: UpdatedHarnessMemoryConfiguration | undefined;
-
-  /**
-   * <p>The truncation configuration for managing conversation context. If not specified, the existing value is retained.</p>
-   * @public
-   */
-  truncation?: HarnessTruncationConfiguration | undefined;
-
-  /**
-   * <p>The maximum number of iterations the agent loop can execute per invocation. If not specified, the existing value is retained.</p>
-   * @public
-   */
-  maxIterations?: number | undefined;
-
-  /**
-   * <p>The maximum total number of output tokens the agent can generate across all model calls within a single invocation. If not specified, the existing value is retained.</p>
-   * @public
-   */
-  maxTokens?: number | undefined;
-
-  /**
-   * <p>The maximum duration in seconds for the agent loop execution per invocation. If not specified, the existing value is retained.</p>
-   * @public
-   */
-  timeoutSeconds?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateHarnessResponse {
-  /**
-   * <p>The updated harness.</p>
-   * @public
-   */
-  harness: Harness | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource for which you want to list tags.</p>
-   * @public
-   */
-  resourceArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceResponse {
-  /**
-   * <p>The tags associated with the resource.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
-}

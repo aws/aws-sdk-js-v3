@@ -239,6 +239,7 @@ export interface GetMemoryCommandOutput extends GetMemoryOutput, __MetadataBeare
  * //         },
  * //       ],
  * //     },
+ * //     managedByResourceArn: "STRING_VALUE",
  * //   },
  * // };
  *

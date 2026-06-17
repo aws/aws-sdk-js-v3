@@ -9,8 +9,8 @@ import type {
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { ListRegistriesRequest, ListRegistriesResponse } from "../models/models_2";
-import { ListRegistries$ } from "../schemas/schemas_0";
+import type { ListHarnessVersionsRequest, ListHarnessVersionsResponse } from "../models/models_1";
+import { ListHarnessVersions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -20,46 +20,44 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListRegistriesCommand}.
+ * The input for {@link ListHarnessVersionsCommand}.
  */
-export interface ListRegistriesCommandInput extends ListRegistriesRequest {}
+export interface ListHarnessVersionsCommandInput extends ListHarnessVersionsRequest {}
 /**
  * @public
  *
- * The output of {@link ListRegistriesCommand}.
+ * The output of {@link ListHarnessVersionsCommand}.
  */
-export interface ListRegistriesCommandOutput extends ListRegistriesResponse, __MetadataBearer {}
+export interface ListHarnessVersionsCommandOutput extends ListHarnessVersionsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all registries in the account. You can optionally filter results by status using the <code>status</code> parameter, or by authorizer type using the <code>authorizerType</code> parameter.</p>
+ * <p>Operation to list the versions of a Harness.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BedrockAgentCoreControlClient, ListRegistriesCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
- * // const { BedrockAgentCoreControlClient, ListRegistriesCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * import { BedrockAgentCoreControlClient, ListHarnessVersionsCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
+ * // const { BedrockAgentCoreControlClient, ListHarnessVersionsCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
  * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
  * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
- * const input = { // ListRegistriesRequest
+ * const input = { // ListHarnessVersionsRequest
+ *   harnessId: "STRING_VALUE", // required
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
- *   status: "CREATING" || "READY" || "UPDATING" || "CREATE_FAILED" || "UPDATE_FAILED" || "DELETING" || "DELETE_FAILED",
- *   authorizerType: "CUSTOM_JWT" || "AWS_IAM",
  * };
- * const command = new ListRegistriesCommand(input);
+ * const command = new ListHarnessVersionsCommand(input);
  * const response = await client.send(command);
- * // { // ListRegistriesResponse
- * //   registries: [ // RegistrySummaryList // required
- * //     { // RegistrySummary
- * //       name: "STRING_VALUE", // required
- * //       description: "STRING_VALUE",
- * //       registryId: "STRING_VALUE", // required
- * //       registryArn: "STRING_VALUE", // required
- * //       authorizerType: "CUSTOM_JWT" || "AWS_IAM",
- * //       status: "CREATING" || "READY" || "UPDATING" || "CREATE_FAILED" || "UPDATE_FAILED" || "DELETING" || "DELETE_FAILED", // required
- * //       statusReason: "STRING_VALUE",
+ * // { // ListHarnessVersionsResponse
+ * //   harnessVersions: [ // HarnessVersionSummaries // required
+ * //     { // HarnessVersionSummary
+ * //       harnessId: "STRING_VALUE", // required
+ * //       harnessName: "STRING_VALUE", // required
+ * //       arn: "STRING_VALUE", // required
+ * //       harnessVersion: "STRING_VALUE", // required
+ * //       status: "CREATING" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "READY" || "DELETING" || "DELETE_FAILED", // required
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       updatedAt: new Date("TIMESTAMP"), // required
+ * //       failureReason: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -67,10 +65,10 @@ export interface ListRegistriesCommandOutput extends ListRegistriesResponse, __M
  *
  * ```
  *
- * @param ListRegistriesCommandInput - {@link ListRegistriesCommandInput}
- * @returns {@link ListRegistriesCommandOutput}
- * @see {@link ListRegistriesCommandInput} for command's `input` shape.
- * @see {@link ListRegistriesCommandOutput} for command's `response` shape.
+ * @param ListHarnessVersionsCommandInput - {@link ListHarnessVersionsCommandInput}
+ * @returns {@link ListHarnessVersionsCommandOutput}
+ * @see {@link ListHarnessVersionsCommandInput} for command's `input` shape.
+ * @see {@link ListHarnessVersionsCommandOutput} for command's `response` shape.
  * @see {@link BedrockAgentCoreControlClientResolvedConfig | config} for BedrockAgentCoreControlClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -78,6 +76,9 @@ export interface ListRegistriesCommandOutput extends ListRegistriesResponse, __M
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>This exception is thrown if there was an unexpected error during processing of request</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when a resource referenced by the operation does not exist</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>This exception is thrown when the number of requests exceeds the limit</p>
@@ -91,10 +92,10 @@ export interface ListRegistriesCommandOutput extends ListRegistriesResponse, __M
  *
  * @public
  */
-export class ListRegistriesCommand extends $Command
+export class ListHarnessVersionsCommand extends $Command
   .classBuilder<
-    ListRegistriesCommandInput,
-    ListRegistriesCommandOutput,
+    ListHarnessVersionsCommandInput,
+    ListHarnessVersionsCommandOutput,
     BedrockAgentCoreControlClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -103,19 +104,19 @@ export class ListRegistriesCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("AmazonBedrockAgentCoreControl", "ListRegistries", {})
-  .n("BedrockAgentCoreControlClient", "ListRegistriesCommand")
-  .sc(ListRegistries$)
+  .s("AmazonBedrockAgentCoreControl", "ListHarnessVersions", {})
+  .n("BedrockAgentCoreControlClient", "ListHarnessVersionsCommand")
+  .sc(ListHarnessVersions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListRegistriesRequest;
-      output: ListRegistriesResponse;
+      input: ListHarnessVersionsRequest;
+      output: ListHarnessVersionsResponse;
     };
     sdk: {
-      input: ListRegistriesCommandInput;
-      output: ListRegistriesCommandOutput;
+      input: ListHarnessVersionsCommandInput;
+      output: ListHarnessVersionsCommandOutput;
     };
   };
 }

@@ -26,6 +26,7 @@ const _AREg = "AgentRuntimeEndpoints";
 const _ARg = "AgentRuntimes";
 const _ASC = "ApiSchemaConfiguration";
 const _ASD = "AgentSkillsDescriptor";
+const _AWC = "AllowedWorkloadConfiguration";
 const _Ac = "Action";
 const _BEMC = "BedrockEvaluatorModelConfig";
 const _BEP = "BrowserEnterprisePolicy";
@@ -79,9 +80,11 @@ const _CCVT = "CustomClaimValidationType";
 const _CCVTu = "CustomClaimValidationsType";
 const _CCo = "CodeConfiguration";
 const _CCom = "ComponentConfiguration";
-const _CCon = "ContainerConfiguration";
+const _CCon = "ConnectorConfiguration";
+const _CConn = "ConnectorConfigurations";
 const _CCons = "ConsolidationConfiguration";
-const _CCont = "ContentConfiguration";
+const _CCont = "ContainerConfiguration";
+const _CConte = "ContentConfiguration";
 const _CD = "CustomDescriptor";
 const _CDR = "CreateDatasetRequest";
 const _CDRr = "CreateDatasetResponse";
@@ -105,6 +108,9 @@ const _CGT = "CreateGatewayTarget";
 const _CGTR = "CreateGatewayTargetRequest";
 const _CGTRr = "CreateGatewayTargetResponse";
 const _CH = "CreateHarness";
+const _CHE = "CreateHarnessEndpoint";
+const _CHER = "CreateHarnessEndpointRequest";
+const _CHERr = "CreateHarnessEndpointResponse";
 const _CHR = "CreateHarnessRequest";
 const _CHRr = "CreateHarnessResponse";
 const _CINC = "CodeInterpreterNetworkConfiguration";
@@ -143,6 +149,8 @@ const _CPERr = "CreatePolicyEngineResponse";
 const _CPM = "CreatePaymentManager";
 const _CPMR = "CreatePaymentManagerRequest";
 const _CPMRr = "CreatePaymentManagerResponse";
+const _CPO = "ConnectorParameterOverride";
+const _CPOo = "ConnectorParameterOverrides";
 const _CPR = "CreatePolicyRequest";
 const _CPRr = "CreatePolicyResponse";
 const _CPr = "CredentialProvider";
@@ -155,8 +163,11 @@ const _CRRR = "CreateRegistryRecordRequest";
 const _CRRRr = "CreateRegistryRecordResponse";
 const _CRRr = "CreateRegistryResponse";
 const _CRRre = "CreateRegistryRecord";
+const _CS = "ConnectorSource";
 const _CSD = "CategoricalScaleDefinition";
 const _CSDa = "CategoricalScaleDefinitions";
+const _CTC = "ConnectorTargetConfiguration";
+const _CTCu = "CustomTransformConfiguration";
 const _CWI = "CreateWorkloadIdentity";
 const _CWIR = "CreateWorkloadIdentityRequest";
 const _CWIRr = "CreateWorkloadIdentityResponse";
@@ -214,6 +225,9 @@ const _DGT = "DeleteGatewayTarget";
 const _DGTR = "DeleteGatewayTargetRequest";
 const _DGTRe = "DeleteGatewayTargetResponse";
 const _DH = "DeleteHarness";
+const _DHE = "DeleteHarnessEndpoint";
+const _DHER = "DeleteHarnessEndpointRequest";
+const _DHERe = "DeleteHarnessEndpointResponse";
 const _DHR = "DeleteHarnessRequest";
 const _DHRe = "DeleteHarnessResponse";
 const _DM = "DeleteMemory";
@@ -340,6 +354,9 @@ const _GGT = "GetGatewayTarget";
 const _GGTR = "GetGatewayTargetRequest";
 const _GGTRe = "GetGatewayTargetResponse";
 const _GH = "GetHarness";
+const _GHE = "GetHarnessEndpoint";
+const _GHER = "GetHarnessEndpointRequest";
+const _GHERe = "GetHarnessEndpointResponse";
 const _GHR = "GetHarnessRequest";
 const _GHRe = "GetHarnessResponse";
 const _GIC = "GatewayInterceptorConfiguration";
@@ -347,7 +364,6 @@ const _GICa = "GatewayInterceptorConfigurations";
 const _GM = "GetMemory";
 const _GMI = "GetMemoryInput";
 const _GMO = "GetMemoryOutput";
-const _GN = "GatewayName";
 const _GOCP = "GetOauth2CredentialProvider";
 const _GOCPR = "GetOauth2CredentialProviderRequest";
 const _GOCPRe = "GetOauth2CredentialProviderResponse";
@@ -417,10 +433,16 @@ const _HACMRC = "HarnessAgentCoreMemoryRetrievalConfig";
 const _HACMRCa = "HarnessAgentCoreMemoryRetrievalConfigs";
 const _HACRE = "HarnessAgentCoreRuntimeEnvironment";
 const _HACRER = "HarnessAgentCoreRuntimeEnvironmentRequest";
+const _HASC = "HttpApiSchemaConfiguration";
 const _HBMC = "HarnessBedrockModelConfig";
+const _HDMC = "HarnessDisabledMemoryConfiguration";
+const _HE = "HarnessEndpoint";
 const _HEA = "HarnessEnvironmentArtifact";
+const _HELT = "HostingEnvironmentListType";
 const _HEP = "HarnessEnvironmentProvider";
 const _HEPR = "HarnessEnvironmentProviderRequest";
+const _HEa = "HarnessEndpoints";
+const _HEo = "HostingEnvironment";
 const _HGMC = "HarnessGeminiModelConfig";
 const _HGOA = "HarnessGatewayOutboundAuth";
 const _HHM = "HttpHeadersMap";
@@ -430,10 +452,12 @@ const _HLLAB = "HarnessLiteLlmApiBase";
 const _HLLMC = "HarnessLiteLlmModelConfig";
 const _HMC = "HarnessMemoryConfiguration";
 const _HMCa = "HarnessModelConfiguration";
+const _HMMC = "HarnessManagedMemoryConfiguration";
 const _HOAMC = "HarnessOpenAiModelConfig";
 const _HRMC = "HarnessRemoteMcpConfig";
 const _HRMU = "HarnessRemoteMcpUrl";
 const _HS = "HarnessSummary";
+const _HSASS = "HarnessSkillAwsSkillsSource";
 const _HSC = "HarnessSummarizationConfiguration";
 const _HSCB = "HarnessSystemContentBlock";
 const _HSGA = "HarnessSkillGitAuth";
@@ -450,10 +474,14 @@ const _HTCa = "HarnessToolConfiguration";
 const _HTCt = "HttpTargetConfiguration";
 const _HTSC = "HarnessTruncationStrategyConfiguration";
 const _HTa = "HarnessTools";
+const _HVS = "HarnessVersionSummary";
+const _HVSa = "HarnessVersionSummaries";
 const _I = "Insight";
 const _IC = "InferenceConfiguration";
 const _ICI = "InvocationConfigurationInput";
 const _ICP = "IamCredentialProvider";
+const _ICS = "InferenceConnectorSource";
+const _ICTC = "InferenceConnectorTargetConfiguration";
 const _ICn = "InvocationConfiguration";
 const _ICnt = "InterceptorConfiguration";
 const _IES = "InlineExamplesSource";
@@ -461,11 +489,18 @@ const _IIC = "InterceptorInputConfiguration";
 const _IK = "IndexedKey";
 const _IKL = "IndexedKeysList";
 const _IL = "InsightList";
+const _IOC = "InferenceOperationConfiguration";
+const _IOCn = "InferenceOperationConfigurations";
 const _IOPCI = "IncludedOauth2ProviderConfigInput";
 const _IOPCO = "IncludedOauth2ProviderConfigOutput";
 const _IP = "InlinePayload";
+const _IPES = "InterceptorPayloadExclusionSelector";
+const _IPESL = "InterceptorPayloadExclusionSelectorList";
+const _IPF = "InterceptorPayloadFilter";
+const _IPTC = "InferenceProviderTargetConfiguration";
 const _IPa = "IamPrincipal";
 const _ISE = "InternalServerException";
+const _ITC = "InferenceTargetConfiguration";
 const _KC = "KmsConfiguration";
 const _KR = "KinesisResource";
 const _LAAJEC = "LlmAsAJudgeEvaluatorConfig";
@@ -522,8 +557,14 @@ const _LGT = "ListGatewayTargets";
 const _LGTR = "ListGatewayTargetsRequest";
 const _LGTRi = "ListGatewayTargetsResponse";
 const _LH = "ListHarnesses";
+const _LHE = "ListHarnessEndpoints";
+const _LHER = "ListHarnessEndpointsRequest";
+const _LHERi = "ListHarnessEndpointsResponse";
 const _LHR = "ListHarnessesRequest";
 const _LHRi = "ListHarnessesResponse";
+const _LHV = "ListHarnessVersions";
+const _LHVR = "ListHarnessVersionsRequest";
+const _LHVRi = "ListHarnessVersionsResponse";
 const _LIC = "LambdaInterceptorConfiguration";
 const _LM = "ListMemories";
 const _LMI = "ListMemoriesInput";
@@ -572,6 +613,7 @@ const _LRRR = "ListRegistryRecordsRequest";
 const _LRRRi = "ListRegistryRecordsResponse";
 const _LRRi = "ListRegistriesResponse";
 const _LRRis = "ListRegistryRecords";
+const _LTC = "LambdaTransformConfiguration";
 const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
@@ -585,9 +627,13 @@ const _MC = "MetadataConfiguration";
 const _MCC = "ModifyConsolidationConfiguration";
 const _MCPGC = "MCPGatewayConfiguration";
 const _MD = "McpDescriptor";
+const _ME = "ModelEntry";
 const _MEC = "ModifyExtractionConfiguration";
+const _MEo = "ModelEntries";
+const _MI = "McpInstructions";
 const _MICI = "ModifyInvocationConfigurationInput";
 const _MLTC = "McpLambdaTargetConfiguration";
+const _MM = "ModelMapping";
 const _MMS = "ModifyMemoryStrategies";
 const _MMSI = "ModifyMemoryStrategyInput";
 const _MMSL = "ModifyMemoryStrategiesList";
@@ -657,13 +703,16 @@ const _PGSL = "PolicyGenerationSummaryList";
 const _PGo = "PolicyGenerations";
 const _PMS = "PaymentManagerSummary";
 const _PMSa = "PaymentManagerSummaries";
+const _PP = "ProviderPrefix";
 const _PPCI = "PaymentProviderConfigurationInput";
 const _PPCO = "PaymentProviderConfigurationOutput";
 const _PRP = "PutResourcePolicy";
 const _PRPR = "PutResourcePolicyRequest";
 const _PRPRu = "PutResourcePolicyResponse";
-const _PS = "PolicySummary";
+const _PS = "PolicyStatement";
 const _PSL = "PolicySummaryList";
+const _PSo = "PolicySummary";
+const _PTC = "PassthroughTargetConfiguration";
 const _Po = "Policy";
 const _Pol = "Policies";
 const _R = "Rule";
@@ -694,8 +743,9 @@ const _SCOu = "SummaryConsolidationOverride";
 const _SCa = "SamplingConfig";
 const _SCe = "SessionConfig";
 const _SCes = "SessionConfiguration";
-const _SCt = "StrategyConfiguration";
-const _SCtr = "StreamingConfiguration";
+const _SCt = "StickinessConfiguration";
+const _SCtr = "StrategyConfiguration";
+const _SCtre = "StreamingConfiguration";
 const _SCy = "SynchronizationConfiguration";
 const _SD = "SchemaDefinition";
 const _SDR = "StreamDeliveryResources";
@@ -817,7 +867,10 @@ const _UGT = "UpdateGatewayTarget";
 const _UGTR = "UpdateGatewayTargetRequest";
 const _UGTRp = "UpdateGatewayTargetResponse";
 const _UH = "UpdateHarness";
+const _UHE = "UpdateHarnessEndpoint";
 const _UHEA = "UpdatedHarnessEnvironmentArtifact";
+const _UHER = "UpdateHarnessEndpointRequest";
+const _UHERp = "UpdateHarnessEndpointResponse";
 const _UHMC = "UpdatedHarnessMemoryConfiguration";
 const _UHR = "UpdateHarnessRequest";
 const _UHRp = "UpdateHarnessResponse";
@@ -882,6 +935,7 @@ const _VEF = "ValidationExceptionField";
 const _VEFL = "ValidationExceptionFieldList";
 const _VF = "VersionFilter";
 const _VLM = "VersionLineageMetadata";
+const _WC = "WafConfiguration";
 const _WID = "WorkloadIdentityDetails";
 const _WIL = "WorkloadIdentityList";
 const _WIT = "WorkloadIdentityType";
@@ -952,6 +1006,7 @@ const _aSM = "authorizationServerMetadata";
 const _aSS = "appSecretSource";
 const _aSg = "agentSkills";
 const _aSp = "appSecret";
+const _aSw = "awsSkills";
 const _aT = "authorizerType";
 const _aTC = "actorTokenContent";
 const _aTP = "appendToPrompt";
@@ -959,6 +1014,7 @@ const _aTS = "actorTokenScopes";
 const _aTl = "allowedTools";
 const _aU = "authorizationUrl";
 const _aV = "allowedValues";
+const _aWC = "allowedWorkloadConfiguration";
 const _aa = "a2a";
 const _ar = "arn";
 const _au = "auth";
@@ -998,6 +1054,7 @@ const _cI = "clientId";
 const _cIA = "codeInterpreterArn";
 const _cII = "codeInterpreterId";
 const _cIS = "codeInterpreterSummaries";
+const _cIo = "connectorId";
 const _cJWTA = "customJWTAuthorizer";
 const _cL = "credentialLocation";
 const _cM = "commitMessage";
@@ -1021,6 +1078,7 @@ const _cSC = "clientSecretConfig";
 const _cSJK = "clientSecretJsonKey";
 const _cSS = "clientSecretSource";
 const _cT = "clientToken";
+const _cTC = "customTransformConfiguration";
 const _cTr = "createdTime";
 const _cU = "containerUri";
 const _cUa = "callbackUrl";
@@ -1033,7 +1091,9 @@ const _co = "code";
 const _com = "components";
 const _con = "configuration";
 const _cond = "conditions";
-const _conf = "config";
+const _conf = "configurations";
+const _confi = "config";
+const _conn = "connector";
 const _cons = "consolidation";
 const _cont = "content";
 const _cu = "custom";
@@ -1041,6 +1101,7 @@ const _d = "description";
 const _dA = "datasetArn";
 const _dC = "deletedCount";
 const _dI = "datasetId";
+const _dMM = "deleteManagedMemory";
 const _dMS = "deleteMemoryStrategies";
 const _dN = "datasetName";
 const _dRU = "defaultReturnUrl";
@@ -1056,6 +1117,7 @@ const _dVo = "doubleValue";
 const _da = "datasets";
 const _de = "definition";
 const _des = "descriptors";
+const _di = "disabled";
 const _do = "domain";
 const _e = "error";
 const _eA = "evaluatorArn";
@@ -1073,6 +1135,7 @@ const _eIAT = "endpointIpAddressType";
 const _eIv = "evaluatorId";
 const _eKA = "encryptionKeyArn";
 const _eL = "exceptionLevel";
+const _eM = "enforcementMode";
 const _eMS = "episodicMemoryStrategy";
 const _eN = "endpointName";
 const _eNv = "evaluatorName";
@@ -1090,17 +1153,21 @@ const _eTx = "extractionType";
 const _eV = "environmentVariables";
 const _en = "enabled";
 const _end = "endpoint";
+const _endp = "endpoints";
 const _env = "environment";
 const _ev = "evaluators";
 const _ex = "extraction";
 const _exa = "examples";
+const _exc = "exclude";
 const _f = "frequencies";
 const _fC = "filesystemConfigurations";
 const _fL = "fieldList";
+const _fM = "failureMode";
 const _fP = "filterPath";
 const _fR = "failureReason";
 const _fU = "fromUrl";
 const _fi = "findings";
+const _fie = "field";
 const _fil = "filter";
 const _filt = "filters";
 const _g = "git";
@@ -1116,9 +1183,12 @@ const _gU = "gatewayUrl";
 const _h = "harness";
 const _hCWS = "historicalContextWindowSize";
 const _hE = "httpError";
+const _hEo = "hostingEnvironments";
 const _hI = "harnessId";
 const _hN = "harnessName";
 const _hQ = "httpQuery";
+const _hV = "harnessVersion";
+const _hVa = "harnessVersions";
 const _ha = "harnesses";
 const _he = "headers";
 const _ht = "http";
@@ -1144,7 +1214,9 @@ const _iST = "idleSessionTimeout";
 const _iT = "idempotencyToken";
 const _iTCN = "inboundTokenClaimName";
 const _iTCVT = "inboundTokenClaimValueType";
+const _id = "identifier";
 const _in = "insights";
+const _inf = "inference";
 const _ins = "instructions";
 const _int = "interceptor";
 const _is = "issuer";
@@ -1184,6 +1256,7 @@ const _lam = "lambda";
 const _le = "level";
 const _m = "message";
 const _mB = "managedBy";
+const _mBRA = "managedByResourceArn";
 const _mBT = "messageBasedTrigger";
 const _mC = "metadataConfiguration";
 const _mCe = "messagesCount";
@@ -1195,6 +1268,8 @@ const _mIa = "maxIterations";
 const _mIax = "maxItems";
 const _mIe = "memoryId";
 const _mL = "maxLifetime";
+const _mM = "modelMapping";
+const _mMC = "managedMemoryConfiguration";
 const _mMS = "modifyMemoryStrategies";
 const _mOPC = "microsoftOauth2ProviderConfig";
 const _mP = "mountPath";
@@ -1221,6 +1296,7 @@ const _met = "method";
 const _meta = "metadata";
 const _mo = "model";
 const _mod = "mode";
+const _mode = "models";
 const _n = "name";
 const _nC = "networkConfiguration";
 const _nM = "networkMode";
@@ -1249,6 +1325,7 @@ const _oS = "outputSchema";
 const _oV = "optionalValue";
 const _oa = "oauth2";
 const _oau = "oauth";
+const _op = "operations";
 const _p = "path";
 const _pA = "profileArn";
 const _pAo = "policyArn";
@@ -1266,6 +1343,7 @@ const _pEI = "policyEngineId";
 const _pEMR = "privateEndpointManagedResources";
 const _pEO = "privateEndpointOverrides";
 const _pEo = "policyEngines";
+const _pF = "payloadFilter";
 const _pG = "policyGenerations";
 const _pGA = "policyGenerationArn";
 const _pGAI = "policyGenerationAssetId";
@@ -1277,17 +1355,24 @@ const _pIo = "policyId";
 const _pM = "paymentManagers";
 const _pMA = "paymentManagerArn";
 const _pMI = "paymentManagerId";
+const _pO = "parameterOverrides";
+const _pP = "providerPath";
+const _pPr = "providerPrefix";
 const _pRH = "passRequestHeaders";
 const _pRM = "preserveRecentMessages";
 const _pS = "profileSummaries";
 const _pT = "protocolType";
-const _pV = "protocolVersion";
+const _pV = "parameterValues";
 const _pVI = "parentVersionIds";
+const _pVr = "protocolVersion";
+const _pa = "paths";
+const _pas = "passthrough";
 const _po = "policy";
 const _pol = "policies";
 const _pr = "priority";
 const _pre = "prefix";
 const _pro = "properties";
+const _prov = "provider";
 const _q = "qualifier";
 const _r = "reason";
 const _rA = "roleArn";
@@ -1337,6 +1422,7 @@ const _sCa = "samplingConfig";
 const _sCe = "sessionConfiguration";
 const _sCes = "sessionConfig";
 const _sCt = "streamingConfiguration";
+const _sCti = "stickinessConfiguration";
 const _sD = "skillDefinition";
 const _sDR = "streamDeliveryResources";
 const _sEO = "semanticExtractionOverride";
@@ -1387,15 +1473,18 @@ const _sVu = "supportedVersions";
 const _sW = "slidingWindow";
 const _s_ = "s3";
 const _sc = "scopes";
+const _sch = "schema";
 const _se = "server";
+const _sep = "separator";
 const _ser = "service";
 const _sk = "skills";
 const _so = "source";
 const _st = "status";
 const _sta = "stage";
 const _stat = "statement";
-const _str = "strategy";
-const _stra = "strategies";
+const _str = "strategies";
+const _stra = "strategy";
+const _stri = "strip";
 const _su = "subnets";
 const _sum = "summarization";
 const _sy = "system";
@@ -1423,12 +1512,14 @@ const _tS = "timeoutSeconds";
 const _tSo = "toolSchema";
 const _tSr = "triggerSynchronization";
 const _tSra = "trafficSplit";
+const _tT = "targetType";
 const _tV = "targetVersion";
 const _tVI = "tokenVaultId";
 const _ta = "tags";
 const _tar = "targets";
 const _te = "temperature";
 const _tex = "text";
+const _ti = "timeout";
 const _to = "tools";
 const _tr = "truncation";
 const _u = "url";
@@ -1441,17 +1532,20 @@ const _uPMS = "userPreferenceMemoryStrategy";
 const _uPO = "userPreferenceOverride";
 const _ur = "uri";
 const _us = "username";
-const _v = "value";
+const _v = "visible";
 const _vC = "vpcConfig";
 const _vCA = "versionCreatedAt";
 const _vI = "versionId";
 const _vIp = "vpcIdentifier";
 const _vM = "validationMode";
-const _va = "validation";
+const _va = "value";
+const _val = "validation";
 const _ve = "version";
 const _ver = "versions";
 const _vi = "view";
 const _w = "weight";
+const _wAA = "webAclArn";
+const _wC = "wafConfiguration";
 const _wI = "workloadIdentities";
 const _wIA = "workloadIdentityArn";
 const _wID = "workloadIdentityDetails";
@@ -1607,12 +1701,12 @@ var EvaluationConfigDescription: StaticSimpleSchema = [0, n0, _ECD, 8, 0];
 var EvaluatorDescription: StaticSimpleSchema = [0, n0, _ED, 8, 0];
 var EvaluatorInstructions: StaticSimpleSchema = [0, n0, _EI, 8, 0];
 var GatewayDescription: StaticSimpleSchema = [0, n0, _GD, 8, 0];
-var GatewayName: StaticSimpleSchema = [0, n0, _GN, 8, 0];
 var HarnessInlineFunctionDescription: StaticSimpleSchema = [0, n0, _HIFD, 8, 0];
 var HarnessLiteLlmApiBase: StaticSimpleSchema = [0, n0, _HLLAB, 8, 0];
 var HarnessRemoteMcpUrl: StaticSimpleSchema = [0, n0, _HRMU, 8, 0];
 var InlinePayload: StaticSimpleSchema = [0, n0, _IP, 8, 0];
 var LlmExtractionInstruction: StaticSimpleSchema = [0, n0, _LEI, 8, 0];
+var McpInstructions: StaticSimpleSchema = [0, n0, _MI, 8, 0];
 var OAuthCustomParametersValue: StaticSimpleSchema = [0, n0, _OACPV, 8, 0];
 var Prompt: StaticSimpleSchema = [0, n0, _P, 8, 0];
 var SensitiveJson: StaticSimpleSchema = [0, n0, _SJ, 8, 15];
@@ -1653,6 +1747,11 @@ export var AgentSkillsDescriptor$: StaticStructureSchema = [3, n0, _ASD,
   0,
   [_sM, _sD],
   [() => SkillMdDefinition$, () => SkillDefinition$]
+];
+export var AllowedWorkloadConfiguration$: StaticStructureSchema = [3, n0, _AWC,
+  0,
+  [_hEo, _wI],
+  [() => HostingEnvironmentListType, 64 | 0]
 ];
 export var ApiGatewayTargetConfiguration$: StaticStructureSchema = [3, n0, _AGTC,
   0,
@@ -1809,12 +1908,32 @@ export var ConfigurationBundleVersionSummary$: StaticStructureSchema = [3, n0, _
   [_bAu, _bIu, _vI, _vCA, _lM],
   [0, 0, 0, 4, () => VersionLineageMetadata$], 4
 ];
-export var ContainerConfiguration$: StaticStructureSchema = [3, n0, _CCon,
+export var ConnectorConfiguration$: StaticStructureSchema = [3, n0, _CCon,
+  0,
+  [_n, _d, _pV, _pO],
+  [0, 0, 15, () => ConnectorParameterOverrides], 1
+];
+export var ConnectorParameterOverride$: StaticStructureSchema = [3, n0, _CPO,
+  0,
+  [_p, _d, _v],
+  [0, 0, 2], 1
+];
+export var ConnectorSource$: StaticStructureSchema = [3, n0, _CS,
+  0,
+  [_cIo],
+  [0], 1
+];
+export var ConnectorTargetConfiguration$: StaticStructureSchema = [3, n0, _CTC,
+  0,
+  [_so, _en, _conf],
+  [() => ConnectorSource$, 64 | 0, () => ConnectorConfigurations], 1
+];
+export var ContainerConfiguration$: StaticStructureSchema = [3, n0, _CCont,
   0,
   [_cU],
   [0], 1
 ];
-export var ContentConfiguration$: StaticStructureSchema = [3, n0, _CCont,
+export var ContentConfiguration$: StaticStructureSchema = [3, n0, _CConte,
   0,
   [_t, _le],
   [0, 0], 1
@@ -1922,12 +2041,12 @@ export var CreateEvaluatorResponse$: StaticStructureSchema = [3, n0, _CERr,
 export var CreateGatewayRequest$: StaticStructureSchema = [3, n0, _CGR,
   0,
   [_n, _rA, _aT, _d, _cT, _pT, _pC, _aCu, _kKA, _iCnt, _pEC, _eL, _ta],
-  [[() => GatewayName, 0], 0, 0, [() => GatewayDescription, 0], [0, 4], 0, () => GatewayProtocolConfiguration$, () => AuthorizerConfiguration$, 0, () => GatewayInterceptorConfigurations, () => GatewayPolicyEngineConfiguration$, 0, 128 | 0], 3
+  [0, 0, 0, [() => GatewayDescription, 0], [0, 4], 0, [() => GatewayProtocolConfiguration$, 0], () => AuthorizerConfiguration$, 0, () => GatewayInterceptorConfigurations, () => GatewayPolicyEngineConfiguration$, 0, 128 | 0], 3
 ];
 export var CreateGatewayResponse$: StaticStructureSchema = [3, n0, _CGRr,
   0,
-  [_gA, _gI, _cA, _uA, _st, _n, _aT, _gU, _sR, _d, _rA, _pT, _pC, _aCu, _kKA, _iCnt, _pEC, _wID, _eL],
-  [0, 0, 5, 5, 0, [() => GatewayName, 0], 0, 0, 64 | 0, [() => GatewayDescription, 0], 0, 0, () => GatewayProtocolConfiguration$, () => AuthorizerConfiguration$, 0, () => GatewayInterceptorConfigurations, () => GatewayPolicyEngineConfiguration$, () => WorkloadIdentityDetails$, 0], 7
+  [_gA, _gI, _cA, _uA, _st, _n, _aT, _gU, _sR, _d, _rA, _pT, _pC, _aCu, _kKA, _cTC, _iCnt, _pEC, _wID, _eL, _wAA, _wC],
+  [0, 0, 5, 5, 0, 0, 0, 0, 64 | 0, [() => GatewayDescription, 0], 0, 0, [() => GatewayProtocolConfiguration$, 0], () => AuthorizerConfiguration$, 0, () => CustomTransformConfiguration$, () => GatewayInterceptorConfigurations, () => GatewayPolicyEngineConfiguration$, () => WorkloadIdentityDetails$, 0, 0, () => WafConfiguration$], 7
 ];
 export var CreateGatewayRuleRequest$: StaticStructureSchema = [3, n0, _CGRR,
   0,
@@ -1941,13 +2060,23 @@ export var CreateGatewayRuleResponse$: StaticStructureSchema = [3, n0, _CGRRr,
 ];
 export var CreateGatewayTargetRequest$: StaticStructureSchema = [3, n0, _CGTR,
   0,
-  [_gIa, _n, _tC, _d, _cT, _cPC, _mC, _pE],
-  [[0, 1], [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => TargetDescription, 0], [0, 4], [() => CredentialProviderConfigurations, 0], () => MetadataConfiguration$, () => PrivateEndpoint$], 3
+  [_gIa, _tC, _n, _d, _cT, _cPC, _mC, _pE],
+  [[0, 1], [() => TargetConfiguration$, 0], [() => TargetName, 0], [() => TargetDescription, 0], [0, 4], [() => CredentialProviderConfigurations, 0], () => MetadataConfiguration$, () => PrivateEndpoint$], 2
 ];
 export var CreateGatewayTargetResponse$: StaticStructureSchema = [3, n0, _CGTRr,
   0,
   [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPC, _sR, _d, _lSAa, _mC, _pE, _pEMR, _aD, _pT],
   [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$, () => PrivateEndpoint$, () => PrivateEndpointManagedResources, () => AuthorizationData$, 0], 8
+];
+export var CreateHarnessEndpointRequest$: StaticStructureSchema = [3, n0, _CHER,
+  0,
+  [_hI, _eN, _tV, _d, _cT, _ta],
+  [[0, 1], 0, 0, 0, [0, 4], 128 | 0], 2
+];
+export var CreateHarnessEndpointResponse$: StaticStructureSchema = [3, n0, _CHERr,
+  0,
+  [_end],
+  [() => HarnessEndpoint$], 1
 ];
 export var CreateHarnessRequest$: StaticStructureSchema = [3, n0, _CHR,
   0,
@@ -2031,13 +2160,13 @@ export var CreatePolicyEngineResponse$: StaticStructureSchema = [3, n0, _CPERr,
 ];
 export var CreatePolicyRequest$: StaticStructureSchema = [3, n0, _CPR,
   0,
-  [_n, _de, _pEI, _d, _vM, _cT],
-  [0, () => PolicyDefinition$, [0, 1], [() => Description, 0], 0, [0, 4]], 3
+  [_n, _de, _pEI, _d, _vM, _eM, _cT],
+  [0, () => PolicyDefinition$, [0, 1], [() => Description, 0], 0, 0, [0, 4]], 3
 ];
 export var CreatePolicyResponse$: StaticStructureSchema = [3, n0, _CPRr,
   0,
-  [_pIo, _n, _pEI, _cA, _uA, _pAo, _st, _de, _sR, _d],
-  [0, 0, 0, 5, 5, 0, 0, () => PolicyDefinition$, 64 | 0, [() => Description, 0]], 9
+  [_pIo, _n, _pEI, _cA, _uA, _pAo, _st, _de, _sR, _eM, _d],
+  [0, 0, 0, 5, 5, 0, 0, () => PolicyDefinition$, 64 | 0, 0, [() => Description, 0]], 9
 ];
 export var CreateRegistryRecordRequest$: StaticStructureSchema = [3, n0, _CRRR,
   0,
@@ -2086,8 +2215,8 @@ export var CustomDescriptor$: StaticStructureSchema = [3, n0, _CD,
 ];
 export var CustomJWTAuthorizerConfiguration$: StaticStructureSchema = [3, n0, _CJWTAC,
   0,
-  [_dU, _aAl, _aCl, _aS, _cCu, _pE, _pEO],
-  [0, 64 | 0, 64 | 0, 64 | 0, () => CustomClaimValidationsType, () => PrivateEndpoint$, () => PrivateEndpointOverrides], 1
+  [_dU, _aAl, _aCl, _aS, _cCu, _pE, _pEO, _aWC],
+  [0, 64 | 0, 64 | 0, 64 | 0, () => CustomClaimValidationsType, () => PrivateEndpoint$, () => PrivateEndpointOverrides, () => AllowedWorkloadConfiguration$], 1
 ];
 export var CustomMemoryStrategyInput$: StaticStructureSchema = [3, n0, _CMSI,
   0,
@@ -2103,6 +2232,11 @@ export var CustomOauth2ProviderConfigOutput$: StaticStructureSchema = [3, n0, _C
   0,
   [_oD, _cI, _pE, _pEO, _oBOTEC, _cAM],
   [() => Oauth2Discovery$, 0, () => PrivateEndpoint$, () => PrivateEndpointOverrides, () => OnBehalfOfTokenExchangeConfigType$, 0], 1
+];
+export var CustomTransformConfiguration$: StaticStructureSchema = [3, n0, _CTCu,
+  0,
+  [_lam],
+  [() => LambdaTransformConfiguration$]
 ];
 export var DatasetSummary$: StaticStructureSchema = [3, n0, _DS,
   0,
@@ -2244,10 +2378,20 @@ export var DeleteGatewayTargetResponse$: StaticStructureSchema = [3, n0, _DGTRe,
   [_gA, _tI, _st, _sR],
   [0, 0, 0, 64 | 0], 3
 ];
+export var DeleteHarnessEndpointRequest$: StaticStructureSchema = [3, n0, _DHER,
+  0,
+  [_hI, _eN, _cT],
+  [[0, 1], [0, 1], [0, { [_hQ]: _cT, [_iT]: 1 }]], 2
+];
+export var DeleteHarnessEndpointResponse$: StaticStructureSchema = [3, n0, _DHERe,
+  0,
+  [_end],
+  [() => HarnessEndpoint$], 1
+];
 export var DeleteHarnessRequest$: StaticStructureSchema = [3, n0, _DHR,
   0,
-  [_hI, _cT],
-  [[0, 1], [0, { [_hQ]: _cT, [_iT]: 1 }]], 1
+  [_hI, _cT, _dMM],
+  [[0, 1], [0, { [_hQ]: _cT, [_iT]: 1 }], [2, { [_hQ]: _dMM }]], 1
 ];
 export var DeleteHarnessResponse$: StaticStructureSchema = [3, n0, _DHRe,
   0,
@@ -2336,8 +2480,8 @@ export var DeletePolicyRequest$: StaticStructureSchema = [3, n0, _DPR,
 ];
 export var DeletePolicyResponse$: StaticStructureSchema = [3, n0, _DPRe,
   0,
-  [_pIo, _n, _pEI, _cA, _uA, _pAo, _st, _de, _sR, _d],
-  [0, 0, 0, 5, 5, 0, 0, () => PolicyDefinition$, 64 | 0, [() => Description, 0]], 9
+  [_pIo, _n, _pEI, _cA, _uA, _pAo, _st, _de, _sR, _eM, _d],
+  [0, 0, 0, 5, 5, 0, 0, () => PolicyDefinition$, 64 | 0, 0, [() => Description, 0]], 9
 ];
 export var DeleteRegistryRecordRequest$: StaticStructureSchema = [3, n0, _DRRR,
   0,
@@ -2446,7 +2590,7 @@ export var EvaluatorSummary$: StaticStructureSchema = [3, n0, _ES,
 ];
 export var Filter$: StaticStructureSchema = [3, n0, _F,
   0,
-  [_k, _o, _v],
+  [_k, _o, _va],
   [0, 0, () => FilterValue$], 3
 ];
 export var Finding$: StaticStructureSchema = [3, n0, _Fi,
@@ -2482,7 +2626,7 @@ export var GatewayRuleDetail$: StaticStructureSchema = [3, n0, _GRD,
 export var GatewaySummary$: StaticStructureSchema = [3, n0, _GS,
   0,
   [_gI, _n, _st, _cA, _uA, _aT, _d, _pT],
-  [0, [() => GatewayName, 0], 0, 5, 5, 0, [() => GatewayDescription, 0], 0], 6
+  [0, 0, 0, 5, 5, 0, [() => GatewayDescription, 0], 0], 6
 ];
 export var GatewayTarget$: StaticStructureSchema = [3, n0, _GT,
   0,
@@ -2596,8 +2740,8 @@ export var GetGatewayRequest$: StaticStructureSchema = [3, n0, _GGR,
 ];
 export var GetGatewayResponse$: StaticStructureSchema = [3, n0, _GGRe,
   0,
-  [_gA, _gI, _cA, _uA, _st, _n, _aT, _gU, _sR, _d, _rA, _pT, _pC, _aCu, _kKA, _iCnt, _pEC, _wID, _eL],
-  [0, 0, 5, 5, 0, [() => GatewayName, 0], 0, 0, 64 | 0, [() => GatewayDescription, 0], 0, 0, () => GatewayProtocolConfiguration$, () => AuthorizerConfiguration$, 0, () => GatewayInterceptorConfigurations, () => GatewayPolicyEngineConfiguration$, () => WorkloadIdentityDetails$, 0], 7
+  [_gA, _gI, _cA, _uA, _st, _n, _aT, _gU, _sR, _d, _rA, _pT, _pC, _aCu, _kKA, _cTC, _iCnt, _pEC, _wID, _eL, _wAA, _wC],
+  [0, 0, 5, 5, 0, 0, 0, 0, 64 | 0, [() => GatewayDescription, 0], 0, 0, [() => GatewayProtocolConfiguration$, 0], () => AuthorizerConfiguration$, 0, () => CustomTransformConfiguration$, () => GatewayInterceptorConfigurations, () => GatewayPolicyEngineConfiguration$, () => WorkloadIdentityDetails$, 0, 0, () => WafConfiguration$], 7
 ];
 export var GetGatewayRuleRequest$: StaticStructureSchema = [3, n0, _GGRR,
   0,
@@ -2619,10 +2763,20 @@ export var GetGatewayTargetResponse$: StaticStructureSchema = [3, n0, _GGTRe,
   [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPC, _sR, _d, _lSAa, _mC, _pE, _pEMR, _aD, _pT],
   [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$, () => PrivateEndpoint$, () => PrivateEndpointManagedResources, () => AuthorizationData$, 0], 8
 ];
+export var GetHarnessEndpointRequest$: StaticStructureSchema = [3, n0, _GHER,
+  0,
+  [_hI, _eN],
+  [[0, 1], [0, 1]], 2
+];
+export var GetHarnessEndpointResponse$: StaticStructureSchema = [3, n0, _GHERe,
+  0,
+  [_end],
+  [() => HarnessEndpoint$], 1
+];
 export var GetHarnessRequest$: StaticStructureSchema = [3, n0, _GHR,
   0,
-  [_hI],
-  [[0, 1]], 1
+  [_hI, _hV],
+  [[0, 1], [0, { [_hQ]: _hV }]], 1
 ];
 export var GetHarnessResponse$: StaticStructureSchema = [3, n0, _GHRe,
   0,
@@ -2736,8 +2890,8 @@ export var GetPolicyRequest$: StaticStructureSchema = [3, n0, _GPR,
 ];
 export var GetPolicyResponse$: StaticStructureSchema = [3, n0, _GPRe,
   0,
-  [_pIo, _n, _pEI, _cA, _uA, _pAo, _st, _de, _sR, _d],
-  [0, 0, 0, 5, 5, 0, 0, () => PolicyDefinition$, 64 | 0, [() => Description, 0]], 9
+  [_pIo, _n, _pEI, _cA, _uA, _pAo, _st, _de, _sR, _eM, _d],
+  [0, 0, 0, 5, 5, 0, 0, () => PolicyDefinition$, 64 | 0, 0, [() => Description, 0]], 9
 ];
 export var GetPolicySummaryRequest$: StaticStructureSchema = [3, n0, _GPSR,
   0,
@@ -2746,8 +2900,8 @@ export var GetPolicySummaryRequest$: StaticStructureSchema = [3, n0, _GPSR,
 ];
 export var GetPolicySummaryResponse$: StaticStructureSchema = [3, n0, _GPSRe,
   0,
-  [_pIo, _n, _pEI, _cA, _uA, _pAo, _st],
-  [0, 0, 0, 5, 5, 0, 0], 7
+  [_pIo, _n, _pEI, _cA, _uA, _pAo, _st, _eM],
+  [0, 0, 0, 5, 5, 0, 0, 0], 7
 ];
 export var GetRegistryRecordRequest$: StaticStructureSchema = [3, n0, _GRRR,
   0,
@@ -2821,8 +2975,8 @@ export var GoogleOauth2ProviderConfigOutput$: StaticStructureSchema = [3, n0, _G
 ];
 export var Harness$: StaticStructureSchema = [3, n0, _H,
   0,
-  [_hI, _hN, _ar, _st, _eRA, _cA, _uA, _mo, _sP, _to, _sk, _aTl, _tr, _env, _eAn, _eV, _aCu, _mem, _mIa, _mT, _tS, _fR],
-  [0, 0, 0, 0, 0, 5, 5, [() => HarnessModelConfiguration$, 0], [() => HarnessSystemPrompt, 0], [() => HarnessTools, 0], () => HarnessSkills, 64 | 0, () => HarnessTruncationConfiguration$, () => HarnessEnvironmentProvider$, () => HarnessEnvironmentArtifact$, [() => EnvironmentVariablesMap, 0], () => AuthorizerConfiguration$, () => HarnessMemoryConfiguration$, 1, 1, 1, 0], 14
+  [_hI, _hN, _ar, _st, _eRA, _cA, _uA, _mo, _sP, _to, _sk, _aTl, _tr, _env, _hV, _eAn, _eV, _aCu, _mem, _mIa, _mT, _tS, _fR],
+  [0, 0, 0, 0, 0, 5, 5, [() => HarnessModelConfiguration$, 0], [() => HarnessSystemPrompt, 0], [() => HarnessTools, 0], () => HarnessSkills, 64 | 0, () => HarnessTruncationConfiguration$, () => HarnessEnvironmentProvider$, 0, () => HarnessEnvironmentArtifact$, [() => EnvironmentVariablesMap, 0], () => AuthorizerConfiguration$, () => HarnessMemoryConfiguration$, 1, 1, 1, 0], 14
 ];
 export var HarnessAgentCoreBrowserConfig$: StaticStructureSchema = [3, n0, _HACBC,
   0,
@@ -2864,6 +3018,16 @@ export var HarnessBedrockModelConfig$: StaticStructureSchema = [3, n0, _HBMC,
   [_mI, _mT, _te, _tP, _aF, _aP],
   [0, 1, 1, 1, 0, 15], 1
 ];
+export var HarnessDisabledMemoryConfiguration$: StaticStructureSchema = [3, n0, _HDMC,
+  0,
+  [],
+  []
+];
+export var HarnessEndpoint$: StaticStructureSchema = [3, n0, _HE,
+  0,
+  [_hI, _hN, _eN, _ar, _st, _cA, _uA, _lV, _tV, _d, _fR],
+  [0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0], 7
+];
 export var HarnessGeminiModelConfig$: StaticStructureSchema = [3, n0, _HGMC,
   0,
   [_mI, _aKA, _mT, _te, _tP, _tK],
@@ -2879,6 +3043,11 @@ export var HarnessLiteLlmModelConfig$: StaticStructureSchema = [3, n0, _HLLMC,
   [_mI, _aKA, _aB, _mT, _te, _tP, _aP],
   [0, 0, [() => HarnessLiteLlmApiBase, 0], 1, 1, 1, 15], 1
 ];
+export var HarnessManagedMemoryConfiguration$: StaticStructureSchema = [3, n0, _HMMC,
+  0,
+  [_ar, _str, _eED, _eKA],
+  [0, 64 | 0, 1, 0]
+];
 export var HarnessOpenAiModelConfig$: StaticStructureSchema = [3, n0, _HOAMC,
   0,
   [_mI, _aKA, _mT, _te, _tP, _aF, _aP],
@@ -2888,6 +3057,11 @@ export var HarnessRemoteMcpConfig$: StaticStructureSchema = [3, n0, _HRMC,
   0,
   [_u, _he],
   [[() => HarnessRemoteMcpUrl, 0], [() => HttpHeadersMap, 0]], 1
+];
+export var HarnessSkillAwsSkillsSource$: StaticStructureSchema = [3, n0, _HSASS,
+  0,
+  [_pa],
+  [64 | 0]
 ];
 export var HarnessSkillGitAuth$: StaticStructureSchema = [3, n0, _HSGA,
   0,
@@ -2916,18 +3090,33 @@ export var HarnessSummarizationConfiguration$: StaticStructureSchema = [3, n0, _
 ];
 export var HarnessSummary$: StaticStructureSchema = [3, n0, _HS,
   0,
-  [_hI, _hN, _ar, _st, _cA, _uA],
-  [0, 0, 0, 0, 5, 5], 6
+  [_hI, _hN, _ar, _st, _cA, _uA, _hV],
+  [0, 0, 0, 0, 5, 5, 0], 6
 ];
 export var HarnessTool$: StaticStructureSchema = [3, n0, _HT,
   0,
-  [_t, _n, _conf],
+  [_t, _n, _confi],
   [0, 0, [() => HarnessToolConfiguration$, 0]], 1
 ];
 export var HarnessTruncationConfiguration$: StaticStructureSchema = [3, n0, _HTC,
   0,
-  [_str, _conf],
+  [_stra, _confi],
   [0, () => HarnessTruncationStrategyConfiguration$], 1
+];
+export var HarnessVersionSummary$: StaticStructureSchema = [3, n0, _HVS,
+  0,
+  [_hI, _hN, _ar, _hV, _st, _cA, _uA, _fR],
+  [0, 0, 0, 0, 0, 5, 5, 0], 7
+];
+export var HostingEnvironment$: StaticStructureSchema = [3, n0, _HEo,
+  0,
+  [_ar],
+  [0], 1
+];
+export var HttpApiSchemaConfiguration$: StaticStructureSchema = [3, n0, _HASC,
+  0,
+  [_so],
+  [[() => ApiSchemaConfiguration$, 0]], 1
 ];
 export var IamCredentialProvider$: StaticStructureSchema = [3, n0, _ICP,
   0,
@@ -2959,6 +3148,26 @@ export var InferenceConfiguration$: StaticStructureSchema = [3, n0, _IC,
   [_mT, _te, _tP, _sS],
   [1, 1, 1, 64 | 0]
 ];
+export var InferenceConnectorSource$: StaticStructureSchema = [3, n0, _ICS,
+  0,
+  [_cIo],
+  [0], 1
+];
+export var InferenceConnectorTargetConfiguration$: StaticStructureSchema = [3, n0, _ICTC,
+  0,
+  [_so],
+  [() => InferenceConnectorSource$], 1
+];
+export var InferenceOperationConfiguration$: StaticStructureSchema = [3, n0, _IOC,
+  0,
+  [_p, _pP, _mode],
+  [0, 0, () => ModelEntries], 1
+];
+export var InferenceProviderTargetConfiguration$: StaticStructureSchema = [3, n0, _IPTC,
+  0,
+  [_end, _mM, _op],
+  [0, () => ModelMapping$, () => InferenceOperationConfigurations], 1
+];
 export var InlineExamplesSource$: StaticStructureSchema = [3, n0, _IES,
   0,
   [_exa],
@@ -2971,8 +3180,13 @@ export var Insight$: StaticStructureSchema = [3, n0, _I,
 ];
 export var InterceptorInputConfiguration$: StaticStructureSchema = [3, n0, _IIC,
   0,
-  [_pRH],
-  [2], 1
+  [_pRH, _pF],
+  [2, () => InterceptorPayloadFilter$], 1
+];
+export var InterceptorPayloadFilter$: StaticStructureSchema = [3, n0, _IPF,
+  0,
+  [_exc],
+  [() => InterceptorPayloadExclusionSelectorList], 1
 ];
 export var InvocationConfiguration$: StaticStructureSchema = [3, n0, _ICn,
   0,
@@ -3003,6 +3217,11 @@ export var LambdaInterceptorConfiguration$: StaticStructureSchema = [3, n0, _LIC
   0,
   [_ar],
   [0], 1
+];
+export var LambdaTransformConfiguration$: StaticStructureSchema = [3, n0, _LTC,
+  0,
+  [_ar],
+  [0]
 ];
 export var LifecycleConfiguration$: StaticStructureSchema = [3, n0, _LC,
   0,
@@ -3179,6 +3398,16 @@ export var ListGatewayTargetsResponse$: StaticStructureSchema = [3, n0, _LGTRi,
   [_it, _nTe],
   [[() => TargetSummaries, 0], 0], 1
 ];
+export var ListHarnessEndpointsRequest$: StaticStructureSchema = [3, n0, _LHER,
+  0,
+  [_hI, _mR, _nTe],
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nTe }]], 1
+];
+export var ListHarnessEndpointsResponse$: StaticStructureSchema = [3, n0, _LHERi,
+  0,
+  [_endp, _nTe],
+  [() => HarnessEndpoints, 0], 1
+];
 export var ListHarnessesRequest$: StaticStructureSchema = [3, n0, _LHR,
   0,
   [_mR, _nTe],
@@ -3188,6 +3417,16 @@ export var ListHarnessesResponse$: StaticStructureSchema = [3, n0, _LHRi,
   0,
   [_ha, _nTe],
   [() => HarnessSummaries, 0], 1
+];
+export var ListHarnessVersionsRequest$: StaticStructureSchema = [3, n0, _LHVR,
+  0,
+  [_hI, _mR, _nTe],
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nTe }]], 1
+];
+export var ListHarnessVersionsResponse$: StaticStructureSchema = [3, n0, _LHVRi,
+  0,
+  [_hVa, _nTe],
+  [() => HarnessVersionSummaries, 0], 1
 ];
 export var ListMemoriesInput$: StaticStructureSchema = [3, n0, _LMI,
   0,
@@ -3366,7 +3605,7 @@ export var LlmAsAJudgeEvaluatorConfig$: StaticStructureSchema = [3, n0, _LAAJEC,
 ];
 export var LlmExtractionConfig$: StaticStructureSchema = [3, n0, _LECl,
   0,
-  [_de, _lEI, _va],
+  [_de, _lEI, _val],
   [[() => Definition, 0], [() => LlmExtractionInstruction, 0], () => Validation$], 1
 ];
 export var ManagedResourceDetails$: StaticStructureSchema = [3, n0, _MRD,
@@ -3397,12 +3636,12 @@ export var McpDescriptor$: StaticStructureSchema = [3, n0, _MD,
 export var MCPGatewayConfiguration$: StaticStructureSchema = [3, n0, _MCPGC,
   0,
   [_sVu, _ins, _sTe, _sCe, _sCt],
-  [64 | 0, 0, 0, () => SessionConfiguration$, () => StreamingConfiguration$]
+  [64 | 0, [() => McpInstructions, 0], 0, () => SessionConfiguration$, () => StreamingConfiguration$]
 ];
 export var McpLambdaTargetConfiguration$: StaticStructureSchema = [3, n0, _MLTC,
   0,
   [_lA, _tSo],
-  [0, () => ToolSchema$], 2
+  [0, [() => ToolSchema$, 0]], 2
 ];
 export var McpServerTargetConfiguration$: StaticStructureSchema = [3, n0, _MSTC,
   0,
@@ -3411,8 +3650,8 @@ export var McpServerTargetConfiguration$: StaticStructureSchema = [3, n0, _MSTC,
 ];
 export var Memory$: StaticStructureSchema = [3, n0, _M,
   0,
-  [_ar, _i, _n, _eED, _st, _cA, _uA, _d, _eKA, _mERA, _fR, _stra, _iK, _sDR],
-  [0, 0, 0, 1, 0, 4, 4, [() => Description, 0], 0, 0, 0, [() => MemoryStrategyList, 0], () => IndexedKeysList, () => StreamDeliveryResources$], 7
+  [_ar, _i, _n, _eED, _st, _cA, _uA, _d, _eKA, _mERA, _fR, _str, _iK, _sDR, _mBRA],
+  [0, 0, 0, 1, 0, 4, 4, [() => Description, 0], 0, 0, 0, [() => MemoryStrategyList, 0], () => IndexedKeysList, () => StreamDeliveryResources$, 0], 7
 ];
 export var MemoryRecordSchema$: StaticStructureSchema = [3, n0, _MRS,
   0,
@@ -3426,8 +3665,8 @@ export var MemoryStrategy$: StaticStructureSchema = [3, n0, _MS,
 ];
 export var MemorySummary$: StaticStructureSchema = [3, n0, _MSe,
   0,
-  [_cA, _uA, _ar, _i, _st],
-  [4, 4, 0, 0, 0], 2
+  [_cA, _uA, _ar, _i, _st, _mBRA],
+  [4, 4, 0, 0, 0, 0], 2
 ];
 export var MessageBasedTrigger$: StaticStructureSchema = [3, n0, _MBT,
   0,
@@ -3458,6 +3697,16 @@ export var MicrosoftOauth2ProviderConfigOutput$: StaticStructureSchema = [3, n0,
   0,
   [_oD, _cI],
   [() => Oauth2Discovery$, 0], 1
+];
+export var ModelEntry$: StaticStructureSchema = [3, n0, _ME,
+  0,
+  [_mo],
+  [0], 1
+];
+export var ModelMapping$: StaticStructureSchema = [3, n0, _MM,
+  0,
+  [_pPr],
+  [() => ProviderPrefix$]
 ];
 export var ModifyInvocationConfigurationInput$: StaticStructureSchema = [3, n0, _MICI,
   0,
@@ -3496,7 +3745,7 @@ export var NumberValidation$: StaticStructureSchema = [3, n0, _NV,
 ];
 export var NumericalScaleDefinition$: StaticStructureSchema = [3, n0, _NSD,
   0,
-  [_de, _v, _la],
+  [_de, _va, _la],
   [0, 1, 0], 3
 ];
 export var OAuth2AuthorizationData$: StaticStructureSchema = [3, n0, _OAAD,
@@ -3534,6 +3783,11 @@ export var OutputConfig$: StaticStructureSchema = [3, n0, _OC,
   [_cWC],
   [() => CloudWatchOutputConfig$], 1
 ];
+export var PassthroughTargetConfiguration$: StaticStructureSchema = [3, n0, _PTC,
+  0,
+  [_end, _pT, _sch, _sCti],
+  [0, 0, [() => HttpApiSchemaConfiguration$, 0], () => StickinessConfiguration$], 2
+];
 export var PaymentConnectorSummary$: StaticStructureSchema = [3, n0, _PCS,
   0,
   [_pCI, _n, _t, _st, _lUA],
@@ -3556,8 +3810,8 @@ export var PaymentManagerSummary$: StaticStructureSchema = [3, n0, _PMS,
 ];
 export var Policy$: StaticStructureSchema = [3, n0, _Po,
   0,
-  [_pIo, _n, _pEI, _cA, _uA, _pAo, _st, _de, _sR, _d],
-  [0, 0, 0, 5, 5, 0, 0, () => PolicyDefinition$, 64 | 0, [() => Description, 0]], 9
+  [_pIo, _n, _pEI, _cA, _uA, _pAo, _st, _de, _sR, _eM, _d],
+  [0, 0, 0, 5, 5, 0, 0, () => PolicyDefinition$, 64 | 0, 0, [() => Description, 0]], 9
 ];
 export var PolicyEngine$: StaticStructureSchema = [3, n0, _PE,
   0,
@@ -3589,10 +3843,15 @@ export var PolicyGenerationSummary$: StaticStructureSchema = [3, n0, _PGS,
   [_pEI, _pGI, _n, _pGA, _res, _cA, _uA, _st, _fi],
   [0, 0, 0, 0, () => Resource$, 5, 5, 0, 0], 8
 ];
-export var PolicySummary$: StaticStructureSchema = [3, n0, _PS,
+export var PolicyStatement$: StaticStructureSchema = [3, n0, _PS,
   0,
-  [_pIo, _n, _pEI, _cA, _uA, _pAo, _st],
-  [0, 0, 0, 5, 5, 0, 0], 7
+  [_stat],
+  [0], 1
+];
+export var PolicySummary$: StaticStructureSchema = [3, n0, _PSo,
+  0,
+  [_pIo, _n, _pEI, _cA, _uA, _pAo, _st, _eM],
+  [0, 0, 0, 5, 5, 0, 0, 0], 7
 ];
 export var PrivateEndpointOverride$: StaticStructureSchema = [3, n0, _PEO,
   0,
@@ -3603,6 +3862,11 @@ export var ProtocolConfiguration$: StaticStructureSchema = [3, n0, _PC,
   0,
   [_sPe],
   [0], 1
+];
+export var ProviderPrefix$: StaticStructureSchema = [3, n0, _PP,
+  0,
+  [_stri, _sep],
+  [2, 0]
 ];
 export var PutResourcePolicyRequest$: StaticStructureSchema = [3, n0, _PRPR,
   0,
@@ -3656,8 +3920,8 @@ export var RuntimeMetadataConfiguration$: StaticStructureSchema = [3, n0, _RMC,
 ];
 export var RuntimeTargetConfiguration$: StaticStructureSchema = [3, n0, _RTC,
   0,
-  [_ar, _q],
-  [0, 0], 1
+  [_ar, _q, _sch],
+  [0, 0, [() => HttpApiSchemaConfiguration$, 0]], 1
 ];
 export var S3Configuration$: StaticStructureSchema = [3, n0, _SC,
   0,
@@ -3824,7 +4088,12 @@ export var StaticRoute$: StaticStructureSchema = [3, n0, _SRt,
   [_tN],
   [[() => TargetName, 0]], 1
 ];
-export var StrategyConfiguration$: StaticStructureSchema = [3, n0, _SCt,
+export var StickinessConfiguration$: StaticStructureSchema = [3, n0, _SCt,
+  0,
+  [_id, _ti],
+  [0, 1], 1
+];
+export var StrategyConfiguration$: StaticStructureSchema = [3, n0, _SCtr,
   0,
   [_t, _ex, _cons, _ref, _sMC],
   [0, [() => ExtractionConfiguration$, 0], [() => ConsolidationConfiguration$, 0], [() => ReflectionConfiguration$, 0], () => SelfManagedConfiguration$]
@@ -3834,7 +4103,7 @@ export var StreamDeliveryResources$: StaticStructureSchema = [3, n0, _SDR,
   [_reso],
   [() => StreamDeliveryResourcesList], 1
 ];
-export var StreamingConfiguration$: StaticStructureSchema = [3, n0, _SCtr,
+export var StreamingConfiguration$: StaticStructureSchema = [3, n0, _SCtre,
   0,
   [_eRS],
   [2]
@@ -3921,8 +4190,8 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 ];
 export var TargetSummary$: StaticStructureSchema = [3, n0, _TS,
   0,
-  [_tI, _n, _st, _cA, _uA, _d, _rP],
-  [0, [() => TargetName, 0], 0, 5, 5, [() => TargetDescription, 0], 1], 5
+  [_tI, _n, _st, _cA, _uA, _d, _rP, _lSAa, _aD, _tT, _lMi],
+  [0, [() => TargetName, 0], 0, 5, 5, [() => TargetDescription, 0], 1, 5, () => AuthorizationData$, 0, 0], 5
 ];
 export var TargetTrafficSplitEntry$: StaticStructureSchema = [3, n0, _TTSE,
   0,
@@ -3955,13 +4224,13 @@ export var TokenExchangeGrantTypeConfigType$: StaticStructureSchema = [3, n0, _T
   [0, 64 | 0], 1
 ];
 export var ToolDefinition$: StaticStructureSchema = [3, n0, _TDo,
-  0,
+  8,
   [_n, _d, _iS, _oS],
   [0, 0, () => SchemaDefinition$, () => SchemaDefinition$], 3
 ];
 export var ToolsDefinition$: StaticStructureSchema = [3, n0, _TDoo,
   0,
-  [_pV, _iC],
+  [_pVr, _iC],
   [0, 0]
 ];
 export var TrafficSplitEntry$: StaticStructureSchema = [3, n0, _TSE,
@@ -4146,13 +4415,13 @@ export var UpdateEvaluatorResponse$: StaticStructureSchema = [3, n0, _UERp,
 ];
 export var UpdateGatewayRequest$: StaticStructureSchema = [3, n0, _UGR,
   0,
-  [_gIa, _n, _rA, _aT, _d, _pT, _pC, _aCu, _kKA, _iCnt, _pEC, _eL],
-  [[0, 1], [() => GatewayName, 0], 0, 0, [() => GatewayDescription, 0], 0, () => GatewayProtocolConfiguration$, () => AuthorizerConfiguration$, 0, () => GatewayInterceptorConfigurations, () => GatewayPolicyEngineConfiguration$, 0], 4
+  [_gIa, _n, _rA, _aT, _d, _pT, _pC, _aCu, _kKA, _cTC, _iCnt, _pEC, _eL, _wC],
+  [[0, 1], 0, 0, 0, [() => GatewayDescription, 0], 0, [() => GatewayProtocolConfiguration$, 0], () => AuthorizerConfiguration$, 0, () => CustomTransformConfiguration$, () => GatewayInterceptorConfigurations, () => GatewayPolicyEngineConfiguration$, 0, () => WafConfiguration$], 4
 ];
 export var UpdateGatewayResponse$: StaticStructureSchema = [3, n0, _UGRp,
   0,
-  [_gA, _gI, _cA, _uA, _st, _n, _aT, _gU, _sR, _d, _rA, _pT, _pC, _aCu, _kKA, _iCnt, _pEC, _wID, _eL],
-  [0, 0, 5, 5, 0, [() => GatewayName, 0], 0, 0, 64 | 0, [() => GatewayDescription, 0], 0, 0, () => GatewayProtocolConfiguration$, () => AuthorizerConfiguration$, 0, () => GatewayInterceptorConfigurations, () => GatewayPolicyEngineConfiguration$, () => WorkloadIdentityDetails$, 0], 7
+  [_gA, _gI, _cA, _uA, _st, _n, _aT, _gU, _sR, _d, _rA, _pT, _pC, _aCu, _kKA, _cTC, _iCnt, _pEC, _wID, _eL, _wAA, _wC],
+  [0, 0, 5, 5, 0, 0, 0, 0, 64 | 0, [() => GatewayDescription, 0], 0, 0, [() => GatewayProtocolConfiguration$, 0], () => AuthorizerConfiguration$, 0, () => CustomTransformConfiguration$, () => GatewayInterceptorConfigurations, () => GatewayPolicyEngineConfiguration$, () => WorkloadIdentityDetails$, 0, 0, () => WafConfiguration$], 7
 ];
 export var UpdateGatewayRuleRequest$: StaticStructureSchema = [3, n0, _UGRR,
   0,
@@ -4166,13 +4435,23 @@ export var UpdateGatewayRuleResponse$: StaticStructureSchema = [3, n0, _UGRRp,
 ];
 export var UpdateGatewayTargetRequest$: StaticStructureSchema = [3, n0, _UGTR,
   0,
-  [_gIa, _tI, _n, _tC, _d, _cPC, _mC, _pE],
-  [[0, 1], [0, 1], [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => TargetDescription, 0], [() => CredentialProviderConfigurations, 0], () => MetadataConfiguration$, () => PrivateEndpoint$], 4
+  [_gIa, _tI, _tC, _n, _d, _cPC, _mC, _pE],
+  [[0, 1], [0, 1], [() => TargetConfiguration$, 0], [() => TargetName, 0], [() => TargetDescription, 0], [() => CredentialProviderConfigurations, 0], () => MetadataConfiguration$, () => PrivateEndpoint$], 3
 ];
 export var UpdateGatewayTargetResponse$: StaticStructureSchema = [3, n0, _UGTRp,
   0,
   [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPC, _sR, _d, _lSAa, _mC, _pE, _pEMR, _aD, _pT],
   [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$, () => PrivateEndpoint$, () => PrivateEndpointManagedResources, () => AuthorizationData$, 0], 8
+];
+export var UpdateHarnessEndpointRequest$: StaticStructureSchema = [3, n0, _UHER,
+  0,
+  [_hI, _eN, _tV, _d, _cT],
+  [[0, 1], [0, 1], 0, 0, [0, 4]], 2
+];
+export var UpdateHarnessEndpointResponse$: StaticStructureSchema = [3, n0, _UHERp,
+  0,
+  [_end],
+  [() => HarnessEndpoint$], 1
 ];
 export var UpdateHarnessRequest$: StaticStructureSchema = [3, n0, _UHR,
   0,
@@ -4256,13 +4535,13 @@ export var UpdatePolicyEngineResponse$: StaticStructureSchema = [3, n0, _UPERp,
 ];
 export var UpdatePolicyRequest$: StaticStructureSchema = [3, n0, _UPR,
   0,
-  [_pEI, _pIo, _d, _de, _vM],
-  [[0, 1], [0, 1], [() => UpdatedDescription$, 0], () => PolicyDefinition$, 0], 2
+  [_pEI, _pIo, _d, _de, _vM, _eM],
+  [[0, 1], [0, 1], [() => UpdatedDescription$, 0], () => PolicyDefinition$, 0, 0], 2
 ];
 export var UpdatePolicyResponse$: StaticStructureSchema = [3, n0, _UPRp,
   0,
-  [_pIo, _n, _pEI, _cA, _uA, _pAo, _st, _de, _sR, _d],
-  [0, 0, 0, 5, 5, 0, 0, () => PolicyDefinition$, 64 | 0, [() => Description, 0]], 9
+  [_pIo, _n, _pEI, _cA, _uA, _pAo, _st, _de, _sR, _eM, _d],
+  [0, 0, 0, 5, 5, 0, 0, () => PolicyDefinition$, 64 | 0, 0, [() => Description, 0]], 9
 ];
 export var UpdateRegistryRecordRequest$: StaticStructureSchema = [3, n0, _URRR,
   0,
@@ -4359,6 +4638,11 @@ export var VpcConfig$: StaticStructureSchema = [3, n0, _VC,
   [_sG, _su, _rSSE],
   [64 | 0, 64 | 0, 2], 2
 ];
+export var WafConfiguration$: StaticStructureSchema = [3, n0, _WC,
+  0,
+  [_fM],
+  [0]
+];
 export var WeightedOverride$: StaticStructureSchema = [3, n0, _WO,
   0,
   [_tSra],
@@ -4442,6 +4726,12 @@ var ConfigurationBundleVersionList = 64 | 0;
 var ConfigurationBundleVersionSummaryList: StaticListSchema = [1, n0, _CBVSL,
   0, () => ConfigurationBundleVersionSummary$
 ];
+var ConnectorConfigurations: StaticListSchema = [1, n0, _CConn,
+  0, () => ConnectorConfiguration$
+];
+var ConnectorParameterOverrides: StaticListSchema = [1, n0, _CPOo,
+  0, () => ConnectorParameterOverride$
+];
 var ContentConfigurationList: StaticListSchema = [1, n0, _CCL,
   0, () => ContentConfiguration$
 ];
@@ -4468,6 +4758,7 @@ var DatasetVersionSummaryList: StaticListSchema = [1, n0, _DVSL,
 var DeleteMemoryStrategiesList: StaticListSchema = [1, n0, _DMSL,
   0, () => DeleteMemoryStrategyInput$
 ];
+var EnabledConnectors = 64 | 0;
 var EntryPoints = 64 | 0;
 var EvaluatorList: StaticListSchema = [1, n0, _EL,
   0, () => EvaluatorReference$
@@ -4503,6 +4794,11 @@ var GatewayTargetList: StaticListSchema = [1, n0, _GTL,
     0]
 ];
 var HarnessAllowedTools = 64 | 0;
+var HarnessAwsSkillPaths = 64 | 0;
+var HarnessEndpoints: StaticListSchema = [1, n0, _HEa,
+  0, () => HarnessEndpoint$
+];
+var HarnessManagedMemoryStrategyList = 64 | 0;
 var HarnessSkills: StaticListSchema = [1, n0, _HSa,
   0, () => HarnessSkill$
 ];
@@ -4517,11 +4813,23 @@ var HarnessTools: StaticListSchema = [1, n0, _HTa,
   0, [() => HarnessTool$,
     0]
 ];
+var HarnessVersionSummaries: StaticListSchema = [1, n0, _HVSa,
+  0, () => HarnessVersionSummary$
+];
+var HostingEnvironmentListType: StaticListSchema = [1, n0, _HELT,
+  0, () => HostingEnvironment$
+];
 var IndexedKeysList: StaticListSchema = [1, n0, _IKL,
   0, () => IndexedKey$
 ];
+var InferenceOperationConfigurations: StaticListSchema = [1, n0, _IOCn,
+  0, () => InferenceOperationConfiguration$
+];
 var InsightList: StaticListSchema = [1, n0, _IL,
   0, () => Insight$
+];
+var InterceptorPayloadExclusionSelectorList: StaticListSchema = [1, n0, _IPESL,
+  0, () => InterceptorPayloadExclusionSelector$
 ];
 var LogGroupNamesList = 64 | 0;
 var MatchPathPatterns = 64 | 0;
@@ -4544,6 +4852,9 @@ var MemorySummaryList: StaticListSchema = [1, n0, _MSLe,
 var MetadataSchemaList: StaticListSchema = [1, n0, _MSLet,
   0, [() => MetadataSchemaEntry$,
     0]
+];
+var ModelEntries: StaticListSchema = [1, n0, _MEo,
+  0, () => ModelEntry$
 ];
 var ModifyMemoryStrategiesList: StaticListSchema = [1, n0, _MMSL,
   0, [() => ModifyMemoryStrategyInput$,
@@ -4640,7 +4951,8 @@ var TargetTrafficSplitEntries: StaticListSchema = [1, n0, _TTSEa,
 ];
 var TokenEndpointAuthMethodsType = 64 | 0;
 var ToolDefinitions: StaticListSchema = [1, n0, _TDool,
-  0, () => ToolDefinition$
+  0, [() => ToolDefinition$,
+    0]
 ];
 var TrafficSplitEntries: StaticListSchema = [1, n0, _TSEr,
   0, () => TrafficSplitEntry$
@@ -4657,6 +4969,7 @@ var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL,
 var WorkloadIdentityList: StaticListSchema = [1, n0, _WIL,
   0, () => WorkloadIdentityType$
 ];
+var WorkloadIdentityNameListType = 64 | 0;
 var ComponentConfigurationMap: StaticMapSchema = [2, n0, _CCM,
   0, [0,
     0]
@@ -4842,7 +5155,7 @@ export var FilterValue$: StaticUnionSchema = [4, n0, _FV,
 export var GatewayProtocolConfiguration$: StaticUnionSchema = [4, n0, _GPC,
   0,
   [_mc],
-  [() => MCPGatewayConfiguration$]
+  [[() => MCPGatewayConfiguration$, 0]]
 ];
 export var HarnessEnvironmentArtifact$: StaticUnionSchema = [4, n0, _HEA,
   0,
@@ -4866,8 +5179,8 @@ export var HarnessGatewayOutboundAuth$: StaticUnionSchema = [4, n0, _HGOA,
 ];
 export var HarnessMemoryConfiguration$: StaticUnionSchema = [4, n0, _HMC,
   0,
-  [_aCMC],
-  [() => HarnessAgentCoreMemoryConfiguration$]
+  [_aCMC, _mMC, _di],
+  [() => HarnessAgentCoreMemoryConfiguration$, () => HarnessManagedMemoryConfiguration$, () => HarnessDisabledMemoryConfiguration$]
 ];
 export var HarnessModelConfiguration$: StaticUnionSchema = [4, n0, _HMCa,
   0,
@@ -4876,8 +5189,8 @@ export var HarnessModelConfiguration$: StaticUnionSchema = [4, n0, _HMCa,
 ];
 export var HarnessSkill$: StaticUnionSchema = [4, n0, _HSarn,
   0,
-  [_p, _s_, _g],
-  [0, () => HarnessSkillS3Source$, () => HarnessSkillGitSource$]
+  [_p, _s_, _g, _aSw],
+  [0, () => HarnessSkillS3Source$, () => HarnessSkillGitSource$, () => HarnessSkillAwsSkillsSource$]
 ];
 export var HarnessSystemContentBlock$: StaticUnionSchema = [4, n0, _HSCB,
   0,
@@ -4896,13 +5209,23 @@ export var HarnessTruncationStrategyConfiguration$: StaticUnionSchema = [4, n0, 
 ];
 export var HttpTargetConfiguration$: StaticUnionSchema = [4, n0, _HTCt,
   0,
-  [_aRg],
-  [() => RuntimeTargetConfiguration$]
+  [_aRg, _pas],
+  [[() => RuntimeTargetConfiguration$, 0], [() => PassthroughTargetConfiguration$, 0]]
+];
+export var InferenceTargetConfiguration$: StaticUnionSchema = [4, n0, _ITC,
+  0,
+  [_conn, _prov],
+  [() => InferenceConnectorTargetConfiguration$, () => InferenceProviderTargetConfiguration$]
 ];
 export var InterceptorConfiguration$: StaticUnionSchema = [4, n0, _ICnt,
   0,
   [_lam],
   [() => LambdaInterceptorConfiguration$]
+];
+export var InterceptorPayloadExclusionSelector$: StaticUnionSchema = [4, n0, _IPES,
+  0,
+  [_fie],
+  [0]
 ];
 export var MatchPrincipalEntry$: StaticUnionSchema = [4, n0, _MPEa,
   0,
@@ -4911,8 +5234,8 @@ export var MatchPrincipalEntry$: StaticUnionSchema = [4, n0, _MPEa,
 ];
 export var McpTargetConfiguration$: StaticUnionSchema = [4, n0, _MTC,
   0,
-  [_oAS, _sMm, _lam, _mSc, _aG],
-  [[() => ApiSchemaConfiguration$, 0], [() => ApiSchemaConfiguration$, 0], () => McpLambdaTargetConfiguration$, [() => McpServerTargetConfiguration$, 0], () => ApiGatewayTargetConfiguration$]
+  [_oAS, _sMm, _lam, _mSc, _aG, _conn],
+  [[() => ApiSchemaConfiguration$, 0], [() => ApiSchemaConfiguration$, 0], [() => McpLambdaTargetConfiguration$, 0], [() => McpServerTargetConfiguration$, 0], () => ApiGatewayTargetConfiguration$, () => ConnectorTargetConfiguration$]
 ];
 export var McpToolSchemaConfiguration$: StaticUnionSchema = [4, n0, _MTSC,
   0,
@@ -4966,8 +5289,8 @@ export var PaymentProviderConfigurationOutput$: StaticUnionSchema = [4, n0, _PPC
 ];
 export var PolicyDefinition$: StaticUnionSchema = [4, n0, _PD,
   0,
-  [_ced, _pGo],
-  [() => CedarPolicy$, () => PolicyGenerationDetails$]
+  [_ced, _pGo, _po],
+  [() => CedarPolicy$, () => PolicyGenerationDetails$, () => PolicyStatement$]
 ];
 export var PrivateEndpoint$: StaticUnionSchema = [4, n0, _PEr,
   0,
@@ -5021,13 +5344,13 @@ export var StreamDeliveryResource$: StaticUnionSchema = [4, n0, _SDRt,
 ];
 export var TargetConfiguration$: StaticUnionSchema = [4, n0, _TC,
   0,
-  [_mc, _ht],
-  [[() => McpTargetConfiguration$, 0], () => HttpTargetConfiguration$]
+  [_mc, _ht, _inf],
+  [[() => McpTargetConfiguration$, 0], [() => HttpTargetConfiguration$, 0], () => InferenceTargetConfiguration$]
 ];
 export var ToolSchema$: StaticUnionSchema = [4, n0, _TSo,
   0,
   [_s_, _iPn],
-  [() => S3Configuration$, () => ToolDefinitions]
+  [() => S3Configuration$, [() => ToolDefinitions, 0]]
 ];
 export var TriggerCondition$: StaticUnionSchema = [4, n0, _TCr,
   0,
@@ -5088,6 +5411,9 @@ export var CreateGatewayTarget$: StaticOperationSchema = [9, n0, _CGT,
 ];
 export var CreateHarness$: StaticOperationSchema = [9, n0, _CH,
   { [_ht]: ["POST", "/harnesses", 201] }, () => CreateHarnessRequest$, () => CreateHarnessResponse$
+];
+export var CreateHarnessEndpoint$: StaticOperationSchema = [9, n0, _CHE,
+  { [_ht]: ["POST", "/harnesses/{harnessId}/endpoints", 201] }, () => CreateHarnessEndpointRequest$, () => CreateHarnessEndpointResponse$
 ];
 export var CreateMemory$: StaticOperationSchema = [9, n0, _CM,
   { [_ht]: ["POST", "/memories/create", 202] }, () => CreateMemoryInput$, () => CreateMemoryOutput$
@@ -5163,6 +5489,9 @@ export var DeleteGatewayTarget$: StaticOperationSchema = [9, n0, _DGT,
 ];
 export var DeleteHarness$: StaticOperationSchema = [9, n0, _DH,
   { [_ht]: ["DELETE", "/harnesses/{harnessId}", 200] }, () => DeleteHarnessRequest$, () => DeleteHarnessResponse$
+];
+export var DeleteHarnessEndpoint$: StaticOperationSchema = [9, n0, _DHE,
+  { [_ht]: ["DELETE", "/harnesses/{harnessId}/endpoints/{endpointName}", 200] }, () => DeleteHarnessEndpointRequest$, () => DeleteHarnessEndpointResponse$
 ];
 export var DeleteMemory$: StaticOperationSchema = [9, n0, _DM,
   { [_ht]: ["DELETE", "/memories/{memoryId}/delete", 202] }, () => DeleteMemoryInput$, () => DeleteMemoryOutput$
@@ -5241,6 +5570,9 @@ export var GetGatewayTarget$: StaticOperationSchema = [9, n0, _GGT,
 ];
 export var GetHarness$: StaticOperationSchema = [9, n0, _GH,
   { [_ht]: ["GET", "/harnesses/{harnessId}", 200] }, () => GetHarnessRequest$, () => GetHarnessResponse$
+];
+export var GetHarnessEndpoint$: StaticOperationSchema = [9, n0, _GHE,
+  { [_ht]: ["GET", "/harnesses/{harnessId}/endpoints/{endpointName}", 200] }, () => GetHarnessEndpointRequest$, () => GetHarnessEndpointResponse$
 ];
 export var GetMemory$: StaticOperationSchema = [9, n0, _GM,
   { [_ht]: ["GET", "/memories/{memoryId}/details", 200] }, () => GetMemoryInput$, () => GetMemoryOutput$
@@ -5341,8 +5673,14 @@ export var ListGateways$: StaticOperationSchema = [9, n0, _LG,
 export var ListGatewayTargets$: StaticOperationSchema = [9, n0, _LGT,
   { [_ht]: ["GET", "/gateways/{gatewayIdentifier}/targets/", 200] }, () => ListGatewayTargetsRequest$, () => ListGatewayTargetsResponse$
 ];
+export var ListHarnessEndpoints$: StaticOperationSchema = [9, n0, _LHE,
+  { [_ht]: ["GET", "/harnesses/{harnessId}/endpoints", 200] }, () => ListHarnessEndpointsRequest$, () => ListHarnessEndpointsResponse$
+];
 export var ListHarnesses$: StaticOperationSchema = [9, n0, _LH,
   { [_ht]: ["GET", "/harnesses", 200] }, () => ListHarnessesRequest$, () => ListHarnessesResponse$
+];
+export var ListHarnessVersions$: StaticOperationSchema = [9, n0, _LHV,
+  { [_ht]: ["GET", "/harnesses/{harnessId}/versions", 200] }, () => ListHarnessVersionsRequest$, () => ListHarnessVersionsResponse$
 ];
 export var ListMemories$: StaticOperationSchema = [9, n0, _LM,
   { [_ht]: ["POST", "/memories/", 200] }, () => ListMemoriesInput$, () => ListMemoriesOutput$
@@ -5448,6 +5786,9 @@ export var UpdateGatewayTarget$: StaticOperationSchema = [9, n0, _UGT,
 ];
 export var UpdateHarness$: StaticOperationSchema = [9, n0, _UH,
   { [_ht]: ["PATCH", "/harnesses/{harnessId}", 200] }, () => UpdateHarnessRequest$, () => UpdateHarnessResponse$
+];
+export var UpdateHarnessEndpoint$: StaticOperationSchema = [9, n0, _UHE,
+  { [_ht]: ["PATCH", "/harnesses/{harnessId}/endpoints/{endpointName}", 200] }, () => UpdateHarnessEndpointRequest$, () => UpdateHarnessEndpointResponse$
 ];
 export var UpdateMemory$: StaticOperationSchema = [9, n0, _UM,
   { [_ht]: ["PUT", "/memories/{memoryId}/update", 202] }, () => UpdateMemoryInput$, () => UpdateMemoryOutput$

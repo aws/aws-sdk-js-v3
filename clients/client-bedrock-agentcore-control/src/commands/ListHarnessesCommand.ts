@@ -9,7 +9,7 @@ import type {
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { ListHarnessesRequest, ListHarnessesResponse } from "../models/models_0";
+import type { ListHarnessesRequest, ListHarnessesResponse } from "../models/models_1";
 import { ListHarnesses$ } from "../schemas/schemas_0";
 
 /**
@@ -31,7 +31,7 @@ export interface ListHarnessesCommandInput extends ListHarnessesRequest {}
 export interface ListHarnessesCommandOutput extends ListHarnessesResponse, __MetadataBearer {}
 
 /**
- * <p>Operation to list Harnesses.</p>
+ * <p>Operation to list harnesses.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,6 +55,7 @@ export interface ListHarnessesCommandOutput extends ListHarnessesResponse, __Met
  * //       status: "CREATING" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "READY" || "DELETING" || "DELETE_FAILED", // required
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       updatedAt: new Date("TIMESTAMP"), // required
+ * //       harnessVersion: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

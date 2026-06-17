@@ -541,6 +541,7 @@ export interface CreateMemoryCommandOutput extends CreateMemoryOutput, __Metadat
  * //         },
  * //       ],
  * //     },
+ * //     managedByResourceArn: "STRING_VALUE",
  * //   },
  * // };
  *

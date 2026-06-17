@@ -132,9 +132,24 @@ export interface UpdateGatewayCommandOutput extends UpdateGatewayResponse, __Met
  *           },
  *         },
  *       ],
+ *       allowedWorkloadConfiguration: { // AllowedWorkloadConfiguration
+ *         hostingEnvironments: [ // HostingEnvironmentListType
+ *           { // HostingEnvironment
+ *             arn: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *         workloadIdentities: [ // WorkloadIdentityNameListType
+ *           "STRING_VALUE",
+ *         ],
+ *       },
  *     },
  *   },
  *   kmsKeyArn: "STRING_VALUE",
+ *   customTransformConfiguration: { // CustomTransformConfiguration
+ *     lambda: { // LambdaTransformConfiguration
+ *       arn: "STRING_VALUE",
+ *     },
+ *   },
  *   interceptorConfigurations: [ // GatewayInterceptorConfigurations
  *     { // GatewayInterceptorConfiguration
  *       interceptor: { // InterceptorConfiguration Union: only one key present
@@ -147,6 +162,13 @@ export interface UpdateGatewayCommandOutput extends UpdateGatewayResponse, __Met
  *       ],
  *       inputConfiguration: { // InterceptorInputConfiguration
  *         passRequestHeaders: true || false, // required
+ *         payloadFilter: { // InterceptorPayloadFilter
+ *           exclude: [ // InterceptorPayloadExclusionSelectorList // required
+ *             { // InterceptorPayloadExclusionSelector Union: only one key present
+ *               field: "RESPONSE_BODY",
+ *             },
+ *           ],
+ *         },
  *       },
  *     },
  *   ],
@@ -155,6 +177,9 @@ export interface UpdateGatewayCommandOutput extends UpdateGatewayResponse, __Met
  *     mode: "LOG_ONLY" || "ENFORCE", // required
  *   },
  *   exceptionLevel: "DEBUG",
+ *   wafConfiguration: { // WafConfiguration
+ *     failureMode: "FAIL_CLOSE" || "FAIL_OPEN",
+ *   },
  * };
  * const command = new UpdateGatewayCommand(input);
  * const response = await client.send(command);
@@ -258,9 +283,24 @@ export interface UpdateGatewayCommandOutput extends UpdateGatewayResponse, __Met
  * //           },
  * //         },
  * //       ],
+ * //       allowedWorkloadConfiguration: { // AllowedWorkloadConfiguration
+ * //         hostingEnvironments: [ // HostingEnvironmentListType
+ * //           { // HostingEnvironment
+ * //             arn: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //         workloadIdentities: [ // WorkloadIdentityNameListType
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
  * //     },
  * //   },
  * //   kmsKeyArn: "STRING_VALUE",
+ * //   customTransformConfiguration: { // CustomTransformConfiguration
+ * //     lambda: { // LambdaTransformConfiguration
+ * //       arn: "STRING_VALUE",
+ * //     },
+ * //   },
  * //   interceptorConfigurations: [ // GatewayInterceptorConfigurations
  * //     { // GatewayInterceptorConfiguration
  * //       interceptor: { // InterceptorConfiguration Union: only one key present
@@ -273,6 +313,13 @@ export interface UpdateGatewayCommandOutput extends UpdateGatewayResponse, __Met
  * //       ],
  * //       inputConfiguration: { // InterceptorInputConfiguration
  * //         passRequestHeaders: true || false, // required
+ * //         payloadFilter: { // InterceptorPayloadFilter
+ * //           exclude: [ // InterceptorPayloadExclusionSelectorList // required
+ * //             { // InterceptorPayloadExclusionSelector Union: only one key present
+ * //               field: "RESPONSE_BODY",
+ * //             },
+ * //           ],
+ * //         },
  * //       },
  * //     },
  * //   ],
@@ -284,6 +331,10 @@ export interface UpdateGatewayCommandOutput extends UpdateGatewayResponse, __Met
  * //     workloadIdentityArn: "STRING_VALUE", // required
  * //   },
  * //   exceptionLevel: "DEBUG",
+ * //   webAclArn: "STRING_VALUE",
+ * //   wafConfiguration: { // WafConfiguration
+ * //     failureMode: "FAIL_CLOSE" || "FAIL_OPEN",
+ * //   },
  * // };
  *
  * ```

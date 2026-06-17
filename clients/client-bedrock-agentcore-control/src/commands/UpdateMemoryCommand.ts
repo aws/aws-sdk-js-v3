@@ -627,6 +627,7 @@ export interface UpdateMemoryCommandOutput extends UpdateMemoryOutput, __Metadat
  * //         },
  * //       ],
  * //     },
+ * //     managedByResourceArn: "STRING_VALUE",
  * //   },
  * // };
  *

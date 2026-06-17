@@ -9,7 +9,7 @@ import type {
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { UpdateRegistryRequest, UpdateRegistryResponse } from "../models/models_1";
+import type { UpdateRegistryRequest, UpdateRegistryResponse } from "../models/models_2";
 import { UpdateRegistry$ } from "../schemas/schemas_0";
 
 /**
@@ -117,6 +117,16 @@ export interface UpdateRegistryCommandOutput extends UpdateRegistryResponse, __M
  *             },
  *           },
  *         ],
+ *         allowedWorkloadConfiguration: { // AllowedWorkloadConfiguration
+ *           hostingEnvironments: [ // HostingEnvironmentListType
+ *             { // HostingEnvironment
+ *               arn: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *           workloadIdentities: [ // WorkloadIdentityNameListType
+ *             "STRING_VALUE",
+ *           ],
+ *         },
  *       },
  *     },
  *   },
@@ -204,6 +214,16 @@ export interface UpdateRegistryCommandOutput extends UpdateRegistryResponse, __M
  * //           },
  * //         },
  * //       ],
+ * //       allowedWorkloadConfiguration: { // AllowedWorkloadConfiguration
+ * //         hostingEnvironments: [ // HostingEnvironmentListType
+ * //           { // HostingEnvironment
+ * //             arn: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //         workloadIdentities: [ // WorkloadIdentityNameListType
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
  * //     },
  * //   },
  * //   approvalConfiguration: { // ApprovalConfiguration

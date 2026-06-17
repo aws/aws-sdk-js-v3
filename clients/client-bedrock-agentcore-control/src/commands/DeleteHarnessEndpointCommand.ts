@@ -9,8 +9,8 @@ import type {
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { DeleteRegistryRequest, DeleteRegistryResponse } from "../models/models_2";
-import { DeleteRegistry$ } from "../schemas/schemas_0";
+import type { DeleteHarnessEndpointRequest, DeleteHarnessEndpointResponse } from "../models/models_0";
+import { DeleteHarnessEndpoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -20,41 +20,55 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DeleteRegistryCommand}.
+ * The input for {@link DeleteHarnessEndpointCommand}.
  */
-export interface DeleteRegistryCommandInput extends DeleteRegistryRequest {}
+export interface DeleteHarnessEndpointCommandInput extends DeleteHarnessEndpointRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteRegistryCommand}.
+ * The output of {@link DeleteHarnessEndpointCommand}.
  */
-export interface DeleteRegistryCommandOutput extends DeleteRegistryResponse, __MetadataBearer {}
+export interface DeleteHarnessEndpointCommandOutput extends DeleteHarnessEndpointResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a registry. The registry must contain zero records before it can be deleted. This operation initiates the deletion process asynchronously.</p>
+ * <p>Operation to delete a harness endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BedrockAgentCoreControlClient, DeleteRegistryCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
- * // const { BedrockAgentCoreControlClient, DeleteRegistryCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * import { BedrockAgentCoreControlClient, DeleteHarnessEndpointCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
+ * // const { BedrockAgentCoreControlClient, DeleteHarnessEndpointCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
  * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
  * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
- * const input = { // DeleteRegistryRequest
- *   registryId: "STRING_VALUE", // required
+ * const input = { // DeleteHarnessEndpointRequest
+ *   harnessId: "STRING_VALUE", // required
+ *   endpointName: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
  * };
- * const command = new DeleteRegistryCommand(input);
+ * const command = new DeleteHarnessEndpointCommand(input);
  * const response = await client.send(command);
- * // { // DeleteRegistryResponse
- * //   status: "CREATING" || "READY" || "UPDATING" || "CREATE_FAILED" || "UPDATE_FAILED" || "DELETING" || "DELETE_FAILED", // required
+ * // { // DeleteHarnessEndpointResponse
+ * //   endpoint: { // HarnessEndpoint
+ * //     harnessId: "STRING_VALUE", // required
+ * //     harnessName: "STRING_VALUE", // required
+ * //     endpointName: "STRING_VALUE", // required
+ * //     arn: "STRING_VALUE", // required
+ * //     status: "CREATING" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "READY" || "DELETING" || "DELETE_FAILED", // required
+ * //     createdAt: new Date("TIMESTAMP"), // required
+ * //     updatedAt: new Date("TIMESTAMP"), // required
+ * //     liveVersion: "STRING_VALUE",
+ * //     targetVersion: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     failureReason: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```
  *
- * @param DeleteRegistryCommandInput - {@link DeleteRegistryCommandInput}
- * @returns {@link DeleteRegistryCommandOutput}
- * @see {@link DeleteRegistryCommandInput} for command's `input` shape.
- * @see {@link DeleteRegistryCommandOutput} for command's `response` shape.
+ * @param DeleteHarnessEndpointCommandInput - {@link DeleteHarnessEndpointCommandInput}
+ * @returns {@link DeleteHarnessEndpointCommandOutput}
+ * @see {@link DeleteHarnessEndpointCommandInput} for command's `input` shape.
+ * @see {@link DeleteHarnessEndpointCommandOutput} for command's `response` shape.
  * @see {@link BedrockAgentCoreControlClientResolvedConfig | config} for BedrockAgentCoreControlClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -81,10 +95,10 @@ export interface DeleteRegistryCommandOutput extends DeleteRegistryResponse, __M
  *
  * @public
  */
-export class DeleteRegistryCommand extends $Command
+export class DeleteHarnessEndpointCommand extends $Command
   .classBuilder<
-    DeleteRegistryCommandInput,
-    DeleteRegistryCommandOutput,
+    DeleteHarnessEndpointCommandInput,
+    DeleteHarnessEndpointCommandOutput,
     BedrockAgentCoreControlClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -93,19 +107,19 @@ export class DeleteRegistryCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("AmazonBedrockAgentCoreControl", "DeleteRegistry", {})
-  .n("BedrockAgentCoreControlClient", "DeleteRegistryCommand")
-  .sc(DeleteRegistry$)
+  .s("AmazonBedrockAgentCoreControl", "DeleteHarnessEndpoint", {})
+  .n("BedrockAgentCoreControlClient", "DeleteHarnessEndpointCommand")
+  .sc(DeleteHarnessEndpoint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DeleteRegistryRequest;
-      output: DeleteRegistryResponse;
+      input: DeleteHarnessEndpointRequest;
+      output: DeleteHarnessEndpointResponse;
     };
     sdk: {
-      input: DeleteRegistryCommandInput;
-      output: DeleteRegistryCommandOutput;
+      input: DeleteHarnessEndpointCommandInput;
+      output: DeleteHarnessEndpointCommandOutput;
     };
   };
 }

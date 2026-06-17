@@ -9,7 +9,7 @@ import type {
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { GetHarnessRequest, GetHarnessResponse } from "../models/models_0";
+import type { GetHarnessRequest, GetHarnessResponse } from "../models/models_1";
 import { GetHarness$ } from "../schemas/schemas_0";
 
 /**
@@ -31,7 +31,7 @@ export interface GetHarnessCommandInput extends GetHarnessRequest {}
 export interface GetHarnessCommandOutput extends GetHarnessResponse, __MetadataBearer {}
 
 /**
- * <p>Operation to get a single Harness.</p>
+ * <p>Operation to get a single harness.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -42,6 +42,7 @@ export interface GetHarnessCommandOutput extends GetHarnessResponse, __MetadataB
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // GetHarnessRequest
  *   harnessId: "STRING_VALUE", // required
+ *   harnessVersion: "STRING_VALUE",
  * };
  * const command = new GetHarnessCommand(input);
  * const response = await client.send(command);
@@ -51,6 +52,7 @@ export interface GetHarnessCommandOutput extends GetHarnessResponse, __MetadataB
  * //     harnessName: "STRING_VALUE", // required
  * //     arn: "STRING_VALUE", // required
  * //     status: "CREATING" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "READY" || "DELETING" || "DELETE_FAILED", // required
+ * //     harnessVersion: "STRING_VALUE",
  * //     executionRoleArn: "STRING_VALUE", // required
  * //     createdAt: new Date("TIMESTAMP"), // required
  * //     updatedAt: new Date("TIMESTAMP"), // required
@@ -150,6 +152,11 @@ export interface GetHarnessCommandOutput extends GetHarnessResponse, __MetadataB
  * //             credentialArn: "STRING_VALUE", // required
  * //             username: "STRING_VALUE",
  * //           },
+ * //         },
+ * //         awsSkills: { // HarnessSkillAwsSkillsSource
+ * //           paths: [ // HarnessAwsSkillPaths
+ * //             "STRING_VALUE",
+ * //           ],
  * //         },
  * //       },
  * //     ],
@@ -285,6 +292,16 @@ export interface GetHarnessCommandOutput extends GetHarnessResponse, __MetadataB
  * //             },
  * //           },
  * //         ],
+ * //         allowedWorkloadConfiguration: { // AllowedWorkloadConfiguration
+ * //           hostingEnvironments: [ // HostingEnvironmentListType
+ * //             { // HostingEnvironment
+ * //               arn: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //           workloadIdentities: [ // WorkloadIdentityNameListType
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
  * //       },
  * //     },
  * //     memory: { // HarnessMemoryConfiguration Union: only one key present
@@ -300,6 +317,15 @@ export interface GetHarnessCommandOutput extends GetHarnessResponse, __MetadataB
  * //           },
  * //         },
  * //       },
+ * //       managedMemoryConfiguration: { // HarnessManagedMemoryConfiguration
+ * //         arn: "STRING_VALUE",
+ * //         strategies: [ // HarnessManagedMemoryStrategyList
+ * //           "SEMANTIC" || "SUMMARIZATION" || "USER_PREFERENCE" || "EPISODIC",
+ * //         ],
+ * //         eventExpiryDuration: Number("int"),
+ * //         encryptionKeyArn: "STRING_VALUE",
+ * //       },
+ * //       disabled: {},
  * //     },
  * //     maxIterations: Number("int"),
  * //     maxTokens: Number("int"),

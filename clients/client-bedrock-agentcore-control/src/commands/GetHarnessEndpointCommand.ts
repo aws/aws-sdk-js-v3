@@ -9,8 +9,8 @@ import type {
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { TagResourceRequest, TagResourceResponse } from "../models/models_2";
-import { TagResource$ } from "../schemas/schemas_0";
+import type { GetHarnessEndpointRequest, GetHarnessEndpointResponse } from "../models/models_0";
+import { GetHarnessEndpoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -20,42 +20,54 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link TagResourceCommand}.
+ * The input for {@link GetHarnessEndpointCommand}.
  */
-export interface TagResourceCommandInput extends TagResourceRequest {}
+export interface GetHarnessEndpointCommandInput extends GetHarnessEndpointRequest {}
 /**
  * @public
  *
- * The output of {@link TagResourceCommand}.
+ * The output of {@link GetHarnessEndpointCommand}.
  */
-export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
+export interface GetHarnessEndpointCommandOutput extends GetHarnessEndpointResponse, __MetadataBearer {}
 
 /**
- * <p>Associates the specified tags to a resource with the specified resourceArn. If existing tags on a resource are not specified in the request parameters, they are not changed. When a resource is deleted, the tags associated with that resource are also deleted.</p> <note> <p>This feature is currently available only for AgentCore Runtime, Browser, Browser Profile, Code Interpreter tool, and Gateway.</p> </note>
+ * <p>Operation to get a single harness endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BedrockAgentCoreControlClient, TagResourceCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
- * // const { BedrockAgentCoreControlClient, TagResourceCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * import { BedrockAgentCoreControlClient, GetHarnessEndpointCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
+ * // const { BedrockAgentCoreControlClient, GetHarnessEndpointCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
  * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
  * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
- * const input = { // TagResourceRequest
- *   resourceArn: "STRING_VALUE", // required
- *   tags: { // TagsMap // required
- *     "<keys>": "STRING_VALUE",
- *   },
+ * const input = { // GetHarnessEndpointRequest
+ *   harnessId: "STRING_VALUE", // required
+ *   endpointName: "STRING_VALUE", // required
  * };
- * const command = new TagResourceCommand(input);
+ * const command = new GetHarnessEndpointCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // GetHarnessEndpointResponse
+ * //   endpoint: { // HarnessEndpoint
+ * //     harnessId: "STRING_VALUE", // required
+ * //     harnessName: "STRING_VALUE", // required
+ * //     endpointName: "STRING_VALUE", // required
+ * //     arn: "STRING_VALUE", // required
+ * //     status: "CREATING" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "READY" || "DELETING" || "DELETE_FAILED", // required
+ * //     createdAt: new Date("TIMESTAMP"), // required
+ * //     updatedAt: new Date("TIMESTAMP"), // required
+ * //     liveVersion: "STRING_VALUE",
+ * //     targetVersion: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     failureReason: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *
- * @param TagResourceCommandInput - {@link TagResourceCommandInput}
- * @returns {@link TagResourceCommandOutput}
- * @see {@link TagResourceCommandInput} for command's `input` shape.
- * @see {@link TagResourceCommandOutput} for command's `response` shape.
+ * @param GetHarnessEndpointCommandInput - {@link GetHarnessEndpointCommandInput}
+ * @returns {@link GetHarnessEndpointCommandOutput}
+ * @see {@link GetHarnessEndpointCommandInput} for command's `input` shape.
+ * @see {@link GetHarnessEndpointCommandOutput} for command's `response` shape.
  * @see {@link BedrockAgentCoreControlClientResolvedConfig | config} for BedrockAgentCoreControlClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -66,9 +78,6 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>This exception is thrown when a resource referenced by the operation does not exist</p>
- *
- * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>This exception is thrown when a request is made beyond the service quota</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>This exception is thrown when the number of requests exceeds the limit</p>
@@ -82,10 +91,10 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *
  * @public
  */
-export class TagResourceCommand extends $Command
+export class GetHarnessEndpointCommand extends $Command
   .classBuilder<
-    TagResourceCommandInput,
-    TagResourceCommandOutput,
+    GetHarnessEndpointCommandInput,
+    GetHarnessEndpointCommandOutput,
     BedrockAgentCoreControlClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -94,19 +103,19 @@ export class TagResourceCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("AmazonBedrockAgentCoreControl", "TagResource", {})
-  .n("BedrockAgentCoreControlClient", "TagResourceCommand")
-  .sc(TagResource$)
+  .s("AmazonBedrockAgentCoreControl", "GetHarnessEndpoint", {})
+  .n("BedrockAgentCoreControlClient", "GetHarnessEndpointCommand")
+  .sc(GetHarnessEndpoint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: TagResourceRequest;
-      output: {};
+      input: GetHarnessEndpointRequest;
+      output: GetHarnessEndpointResponse;
     };
     sdk: {
-      input: TagResourceCommandInput;
-      output: TagResourceCommandOutput;
+      input: GetHarnessEndpointCommandInput;
+      output: GetHarnessEndpointCommandOutput;
     };
   };
 }

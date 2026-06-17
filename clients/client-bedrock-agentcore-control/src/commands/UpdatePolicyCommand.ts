@@ -54,8 +54,12 @@ export interface UpdatePolicyCommandOutput extends UpdatePolicyResponse, __Metad
  *       policyGenerationId: "STRING_VALUE", // required
  *       policyGenerationAssetId: "STRING_VALUE", // required
  *     },
+ *     policy: { // PolicyStatement
+ *       statement: "STRING_VALUE", // required
+ *     },
  *   },
  *   validationMode: "FAIL_ON_ANY_FINDINGS" || "IGNORE_ALL_FINDINGS",
+ *   enforcementMode: "ACTIVE" || "LOG_ONLY",
  * };
  * const command = new UpdatePolicyCommand(input);
  * const response = await client.send(command);
@@ -67,6 +71,7 @@ export interface UpdatePolicyCommandOutput extends UpdatePolicyResponse, __Metad
  * //   updatedAt: new Date("TIMESTAMP"), // required
  * //   policyArn: "STRING_VALUE", // required
  * //   status: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "CREATE_FAILED" || "UPDATE_FAILED" || "DELETE_FAILED", // required
+ * //   enforcementMode: "ACTIVE" || "LOG_ONLY",
  * //   definition: { // PolicyDefinition Union: only one key present
  * //     cedar: { // CedarPolicy
  * //       statement: "STRING_VALUE", // required
@@ -74,6 +79,9 @@ export interface UpdatePolicyCommandOutput extends UpdatePolicyResponse, __Metad
  * //     policyGeneration: { // PolicyGenerationDetails
  * //       policyGenerationId: "STRING_VALUE", // required
  * //       policyGenerationAssetId: "STRING_VALUE", // required
+ * //     },
+ * //     policy: { // PolicyStatement
+ * //       statement: "STRING_VALUE", // required
  * //     },
  * //   },
  * //   description: "STRING_VALUE",

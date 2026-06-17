@@ -54,6 +54,7 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  * //   updatedAt: new Date("TIMESTAMP"), // required
  * //   policyArn: "STRING_VALUE", // required
  * //   status: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "CREATE_FAILED" || "UPDATE_FAILED" || "DELETE_FAILED", // required
+ * //   enforcementMode: "ACTIVE" || "LOG_ONLY",
  * //   definition: { // PolicyDefinition Union: only one key present
  * //     cedar: { // CedarPolicy
  * //       statement: "STRING_VALUE", // required
@@ -61,6 +62,9 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  * //     policyGeneration: { // PolicyGenerationDetails
  * //       policyGenerationId: "STRING_VALUE", // required
  * //       policyGenerationAssetId: "STRING_VALUE", // required
+ * //     },
+ * //     policy: { // PolicyStatement
+ * //       statement: "STRING_VALUE", // required
  * //     },
  * //   },
  * //   description: "STRING_VALUE",

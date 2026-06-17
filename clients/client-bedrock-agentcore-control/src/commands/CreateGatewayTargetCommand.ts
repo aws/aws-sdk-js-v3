@@ -42,7 +42,7 @@ export interface CreateGatewayTargetCommandOutput extends CreateGatewayTargetRes
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // CreateGatewayTargetRequest
  *   gatewayIdentifier: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
  *   description: "STRING_VALUE",
  *   clientToken: "STRING_VALUE",
  *   targetConfiguration: { // TargetConfiguration Union: only one key present
@@ -132,11 +132,80 @@ export interface CreateGatewayTargetCommandOutput extends CreateGatewayTargetRes
  *           ],
  *         },
  *       },
+ *       connector: { // ConnectorTargetConfiguration
+ *         source: { // ConnectorSource
+ *           connectorId: "STRING_VALUE", // required
+ *         },
+ *         enabled: [ // EnabledConnectors
+ *           "STRING_VALUE",
+ *         ],
+ *         configurations: [ // ConnectorConfigurations
+ *           { // ConnectorConfiguration
+ *             name: "STRING_VALUE", // required
+ *             description: "STRING_VALUE",
+ *             parameterValues: "DOCUMENT_VALUE",
+ *             parameterOverrides: [ // ConnectorParameterOverrides
+ *               { // ConnectorParameterOverride
+ *                 path: "STRING_VALUE", // required
+ *                 description: "STRING_VALUE",
+ *                 visible: true || false,
+ *               },
+ *             ],
+ *           },
+ *         ],
+ *       },
  *     },
  *     http: { // HttpTargetConfiguration Union: only one key present
  *       agentcoreRuntime: { // RuntimeTargetConfiguration
  *         arn: "STRING_VALUE", // required
  *         qualifier: "STRING_VALUE",
+ *         schema: { // HttpApiSchemaConfiguration
+ *           source: {//  Union: only one key present
+ *             s3: "<S3Configuration>",
+ *             inlinePayload: "STRING_VALUE",
+ *           },
+ *         },
+ *       },
+ *       passthrough: { // PassthroughTargetConfiguration
+ *         endpoint: "STRING_VALUE", // required
+ *         protocolType: "MCP" || "A2A" || "INFERENCE" || "CUSTOM", // required
+ *         schema: {
+ *           source: {//  Union: only one key present
+ *             s3: "<S3Configuration>",
+ *             inlinePayload: "STRING_VALUE",
+ *           },
+ *         },
+ *         stickinessConfiguration: { // StickinessConfiguration
+ *           identifier: "STRING_VALUE", // required
+ *           timeout: Number("int"),
+ *         },
+ *       },
+ *     },
+ *     inference: { // InferenceTargetConfiguration Union: only one key present
+ *       connector: { // InferenceConnectorTargetConfiguration
+ *         source: { // InferenceConnectorSource
+ *           connectorId: "STRING_VALUE", // required
+ *         },
+ *       },
+ *       provider: { // InferenceProviderTargetConfiguration
+ *         endpoint: "STRING_VALUE", // required
+ *         modelMapping: { // ModelMapping
+ *           providerPrefix: { // ProviderPrefix
+ *             strip: true || false,
+ *             separator: "STRING_VALUE",
+ *           },
+ *         },
+ *         operations: [ // InferenceOperationConfigurations
+ *           { // InferenceOperationConfiguration
+ *             path: "STRING_VALUE", // required
+ *             providerPath: "STRING_VALUE",
+ *             models: [ // ModelEntries
+ *               { // ModelEntry
+ *                 model: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *           },
+ *         ],
  *       },
  *     },
  *   },
@@ -299,11 +368,80 @@ export interface CreateGatewayTargetCommandOutput extends CreateGatewayTargetRes
  * //           ],
  * //         },
  * //       },
+ * //       connector: { // ConnectorTargetConfiguration
+ * //         source: { // ConnectorSource
+ * //           connectorId: "STRING_VALUE", // required
+ * //         },
+ * //         enabled: [ // EnabledConnectors
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         configurations: [ // ConnectorConfigurations
+ * //           { // ConnectorConfiguration
+ * //             name: "STRING_VALUE", // required
+ * //             description: "STRING_VALUE",
+ * //             parameterValues: "DOCUMENT_VALUE",
+ * //             parameterOverrides: [ // ConnectorParameterOverrides
+ * //               { // ConnectorParameterOverride
+ * //                 path: "STRING_VALUE", // required
+ * //                 description: "STRING_VALUE",
+ * //                 visible: true || false,
+ * //               },
+ * //             ],
+ * //           },
+ * //         ],
+ * //       },
  * //     },
  * //     http: { // HttpTargetConfiguration Union: only one key present
  * //       agentcoreRuntime: { // RuntimeTargetConfiguration
  * //         arn: "STRING_VALUE", // required
  * //         qualifier: "STRING_VALUE",
+ * //         schema: { // HttpApiSchemaConfiguration
+ * //           source: {//  Union: only one key present
+ * //             s3: "<S3Configuration>",
+ * //             inlinePayload: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       },
+ * //       passthrough: { // PassthroughTargetConfiguration
+ * //         endpoint: "STRING_VALUE", // required
+ * //         protocolType: "MCP" || "A2A" || "INFERENCE" || "CUSTOM", // required
+ * //         schema: {
+ * //           source: {//  Union: only one key present
+ * //             s3: "<S3Configuration>",
+ * //             inlinePayload: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //         stickinessConfiguration: { // StickinessConfiguration
+ * //           identifier: "STRING_VALUE", // required
+ * //           timeout: Number("int"),
+ * //         },
+ * //       },
+ * //     },
+ * //     inference: { // InferenceTargetConfiguration Union: only one key present
+ * //       connector: { // InferenceConnectorTargetConfiguration
+ * //         source: { // InferenceConnectorSource
+ * //           connectorId: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //       provider: { // InferenceProviderTargetConfiguration
+ * //         endpoint: "STRING_VALUE", // required
+ * //         modelMapping: { // ModelMapping
+ * //           providerPrefix: { // ProviderPrefix
+ * //             strip: true || false,
+ * //             separator: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //         operations: [ // InferenceOperationConfigurations
+ * //           { // InferenceOperationConfiguration
+ * //             path: "STRING_VALUE", // required
+ * //             providerPath: "STRING_VALUE",
+ * //             models: [ // ModelEntries
+ * //               { // ModelEntry
+ * //                 model: "STRING_VALUE", // required
+ * //               },
+ * //             ],
+ * //           },
+ * //         ],
  * //       },
  * //     },
  * //   },

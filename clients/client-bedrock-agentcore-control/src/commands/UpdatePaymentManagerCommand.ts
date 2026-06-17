@@ -114,6 +114,16 @@ export interface UpdatePaymentManagerCommandOutput extends UpdatePaymentManagerR
  *           },
  *         },
  *       ],
+ *       allowedWorkloadConfiguration: { // AllowedWorkloadConfiguration
+ *         hostingEnvironments: [ // HostingEnvironmentListType
+ *           { // HostingEnvironment
+ *             arn: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *         workloadIdentities: [ // WorkloadIdentityNameListType
+ *           "STRING_VALUE",
+ *         ],
+ *       },
  *     },
  *   },
  *   roleArn: "STRING_VALUE",

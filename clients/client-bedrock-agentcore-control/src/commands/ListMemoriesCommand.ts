@@ -54,6 +54,7 @@ export interface ListMemoriesCommandOutput extends ListMemoriesOutput, __Metadat
  * //       status: "CREATING" || "ACTIVE" || "FAILED" || "DELETING" || "UPDATING",
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       updatedAt: new Date("TIMESTAMP"), // required
+ * //       managedByResourceArn: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

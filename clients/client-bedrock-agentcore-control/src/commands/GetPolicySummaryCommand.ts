@@ -54,6 +54,7 @@ export interface GetPolicySummaryCommandOutput extends GetPolicySummaryResponse,
  * //   updatedAt: new Date("TIMESTAMP"), // required
  * //   policyArn: "STRING_VALUE", // required
  * //   status: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "CREATE_FAILED" || "UPDATE_FAILED" || "DELETE_FAILED", // required
+ * //   enforcementMode: "ACTIVE" || "LOG_ONLY",
  * // };
  *
  * ```

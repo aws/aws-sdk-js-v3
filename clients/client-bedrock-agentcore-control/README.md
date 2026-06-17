@@ -286,6 +286,13 @@ CreateHarness
 </details>
 <details>
 <summary>
+CreateHarnessEndpoint
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agentcore-control/command/CreateHarnessEndpointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore-control/Interface/CreateHarnessEndpointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore-control/Interface/CreateHarnessEndpointCommandOutput/)
+</details>
+<details>
+<summary>
 CreateMemory
 </summary>
 
@@ -458,6 +465,13 @@ DeleteHarness
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agentcore-control/command/DeleteHarnessCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore-control/Interface/DeleteHarnessCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore-control/Interface/DeleteHarnessCommandOutput/)
+</details>
+<details>
+<summary>
+DeleteHarnessEndpoint
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agentcore-control/command/DeleteHarnessEndpointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore-control/Interface/DeleteHarnessEndpointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore-control/Interface/DeleteHarnessEndpointCommandOutput/)
 </details>
 <details>
 <summary>
@@ -640,6 +654,13 @@ GetHarness
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agentcore-control/command/GetHarnessCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore-control/Interface/GetHarnessCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore-control/Interface/GetHarnessCommandOutput/)
+</details>
+<details>
+<summary>
+GetHarnessEndpoint
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agentcore-control/command/GetHarnessEndpointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore-control/Interface/GetHarnessEndpointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore-control/Interface/GetHarnessEndpointCommandOutput/)
 </details>
 <details>
 <summary>
@@ -874,10 +895,24 @@ ListGatewayTargets
 </details>
 <details>
 <summary>
+ListHarnessEndpoints
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agentcore-control/command/ListHarnessEndpointsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore-control/Interface/ListHarnessEndpointsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore-control/Interface/ListHarnessEndpointsCommandOutput/)
+</details>
+<details>
+<summary>
 ListHarnesses
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agentcore-control/command/ListHarnessesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore-control/Interface/ListHarnessesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore-control/Interface/ListHarnessesCommandOutput/)
+</details>
+<details>
+<summary>
+ListHarnessVersions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agentcore-control/command/ListHarnessVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore-control/Interface/ListHarnessVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore-control/Interface/ListHarnessVersionsCommandOutput/)
 </details>
 <details>
 <summary>
@@ -1123,6 +1158,13 @@ UpdateHarness
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agentcore-control/command/UpdateHarnessCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore-control/Interface/UpdateHarnessCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore-control/Interface/UpdateHarnessCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateHarnessEndpoint
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agentcore-control/command/UpdateHarnessEndpointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore-control/Interface/UpdateHarnessEndpointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore-control/Interface/UpdateHarnessEndpointCommandOutput/)
 </details>
 <details>
 <summary>

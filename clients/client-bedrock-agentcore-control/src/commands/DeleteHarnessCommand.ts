@@ -9,7 +9,7 @@ import type {
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { DeleteHarnessRequest, DeleteHarnessResponse } from "../models/models_0";
+import type { DeleteHarnessRequest, DeleteHarnessResponse } from "../models/models_1";
 import { DeleteHarness$ } from "../schemas/schemas_0";
 
 /**
@@ -43,6 +43,7 @@ export interface DeleteHarnessCommandOutput extends DeleteHarnessResponse, __Met
  * const input = { // DeleteHarnessRequest
  *   harnessId: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
+ *   deleteManagedMemory: true || false,
  * };
  * const command = new DeleteHarnessCommand(input);
  * const response = await client.send(command);
@@ -52,6 +53,7 @@ export interface DeleteHarnessCommandOutput extends DeleteHarnessResponse, __Met
  * //     harnessName: "STRING_VALUE", // required
  * //     arn: "STRING_VALUE", // required
  * //     status: "CREATING" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "READY" || "DELETING" || "DELETE_FAILED", // required
+ * //     harnessVersion: "STRING_VALUE",
  * //     executionRoleArn: "STRING_VALUE", // required
  * //     createdAt: new Date("TIMESTAMP"), // required
  * //     updatedAt: new Date("TIMESTAMP"), // required
@@ -151,6 +153,11 @@ export interface DeleteHarnessCommandOutput extends DeleteHarnessResponse, __Met
  * //             credentialArn: "STRING_VALUE", // required
  * //             username: "STRING_VALUE",
  * //           },
+ * //         },
+ * //         awsSkills: { // HarnessSkillAwsSkillsSource
+ * //           paths: [ // HarnessAwsSkillPaths
+ * //             "STRING_VALUE",
+ * //           ],
  * //         },
  * //       },
  * //     ],
@@ -286,6 +293,16 @@ export interface DeleteHarnessCommandOutput extends DeleteHarnessResponse, __Met
  * //             },
  * //           },
  * //         ],
+ * //         allowedWorkloadConfiguration: { // AllowedWorkloadConfiguration
+ * //           hostingEnvironments: [ // HostingEnvironmentListType
+ * //             { // HostingEnvironment
+ * //               arn: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //           workloadIdentities: [ // WorkloadIdentityNameListType
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
  * //       },
  * //     },
  * //     memory: { // HarnessMemoryConfiguration Union: only one key present
@@ -301,6 +318,15 @@ export interface DeleteHarnessCommandOutput extends DeleteHarnessResponse, __Met
  * //           },
  * //         },
  * //       },
+ * //       managedMemoryConfiguration: { // HarnessManagedMemoryConfiguration
+ * //         arn: "STRING_VALUE",
+ * //         strategies: [ // HarnessManagedMemoryStrategyList
+ * //           "SEMANTIC" || "SUMMARIZATION" || "USER_PREFERENCE" || "EPISODIC",
+ * //         ],
+ * //         eventExpiryDuration: Number("int"),
+ * //         encryptionKeyArn: "STRING_VALUE",
+ * //       },
+ * //       disabled: {},
  * //     },
  * //     maxIterations: Number("int"),
  * //     maxTokens: Number("int"),

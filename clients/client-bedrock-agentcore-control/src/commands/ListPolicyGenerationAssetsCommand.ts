@@ -60,6 +60,9 @@ export interface ListPolicyGenerationAssetsCommandOutput extends ListPolicyGener
  * //           policyGenerationId: "STRING_VALUE", // required
  * //           policyGenerationAssetId: "STRING_VALUE", // required
  * //         },
+ * //         policy: { // PolicyStatement
+ * //           statement: "STRING_VALUE", // required
+ * //         },
  * //       },
  * //       rawTextFragment: "STRING_VALUE", // required
  * //       findings: [ // Findings // required

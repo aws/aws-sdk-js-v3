@@ -9,7 +9,7 @@ import type {
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { CreateRegistryRequest, CreateRegistryResponse } from "../models/models_1";
+import type { CreateRegistryRequest, CreateRegistryResponse } from "../models/models_2";
 import { CreateRegistry$ } from "../schemas/schemas_0";
 
 /**
@@ -114,6 +114,16 @@ export interface CreateRegistryCommandOutput extends CreateRegistryResponse, __M
  *           },
  *         },
  *       ],
+ *       allowedWorkloadConfiguration: { // AllowedWorkloadConfiguration
+ *         hostingEnvironments: [ // HostingEnvironmentListType
+ *           { // HostingEnvironment
+ *             arn: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *         workloadIdentities: [ // WorkloadIdentityNameListType
+ *           "STRING_VALUE",
+ *         ],
+ *       },
  *     },
  *   },
  *   clientToken: "STRING_VALUE",

@@ -84,6 +84,11 @@ import {
   CreateHarnessCommand,
 } from "./commands/CreateHarnessCommand";
 import {
+  type CreateHarnessEndpointCommandInput,
+  type CreateHarnessEndpointCommandOutput,
+  CreateHarnessEndpointCommand,
+} from "./commands/CreateHarnessEndpointCommand";
+import {
   type CreateMemoryCommandInput,
   type CreateMemoryCommandOutput,
   CreateMemoryCommand,
@@ -208,6 +213,11 @@ import {
   type DeleteHarnessCommandOutput,
   DeleteHarnessCommand,
 } from "./commands/DeleteHarnessCommand";
+import {
+  type DeleteHarnessEndpointCommandInput,
+  type DeleteHarnessEndpointCommandOutput,
+  DeleteHarnessEndpointCommand,
+} from "./commands/DeleteHarnessEndpointCommand";
 import {
   type DeleteMemoryCommandInput,
   type DeleteMemoryCommandOutput,
@@ -338,6 +348,11 @@ import {
   type GetHarnessCommandOutput,
   GetHarnessCommand,
 } from "./commands/GetHarnessCommand";
+import {
+  type GetHarnessEndpointCommandInput,
+  type GetHarnessEndpointCommandOutput,
+  GetHarnessEndpointCommand,
+} from "./commands/GetHarnessEndpointCommand";
 import { type GetMemoryCommandInput, type GetMemoryCommandOutput, GetMemoryCommand } from "./commands/GetMemoryCommand";
 import {
   type GetOauth2CredentialProviderCommandInput,
@@ -496,10 +511,20 @@ import {
   ListGatewayTargetsCommand,
 } from "./commands/ListGatewayTargetsCommand";
 import {
+  type ListHarnessEndpointsCommandInput,
+  type ListHarnessEndpointsCommandOutput,
+  ListHarnessEndpointsCommand,
+} from "./commands/ListHarnessEndpointsCommand";
+import {
   type ListHarnessesCommandInput,
   type ListHarnessesCommandOutput,
   ListHarnessesCommand,
 } from "./commands/ListHarnessesCommand";
+import {
+  type ListHarnessVersionsCommandInput,
+  type ListHarnessVersionsCommandOutput,
+  ListHarnessVersionsCommand,
+} from "./commands/ListHarnessVersionsCommand";
 import {
   type ListMemoriesCommandInput,
   type ListMemoriesCommandOutput,
@@ -676,6 +701,11 @@ import {
   UpdateHarnessCommand,
 } from "./commands/UpdateHarnessCommand";
 import {
+  type UpdateHarnessEndpointCommandInput,
+  type UpdateHarnessEndpointCommandOutput,
+  UpdateHarnessEndpointCommand,
+} from "./commands/UpdateHarnessEndpointCommand";
+import {
   type UpdateMemoryCommandInput,
   type UpdateMemoryCommandOutput,
   UpdateMemoryCommand,
@@ -753,7 +783,9 @@ import { paginateListEvaluators } from "./pagination/ListEvaluatorsPaginator";
 import { paginateListGatewayRules } from "./pagination/ListGatewayRulesPaginator";
 import { paginateListGateways } from "./pagination/ListGatewaysPaginator";
 import { paginateListGatewayTargets } from "./pagination/ListGatewayTargetsPaginator";
+import { paginateListHarnessEndpoints } from "./pagination/ListHarnessEndpointsPaginator";
 import { paginateListHarnesses } from "./pagination/ListHarnessesPaginator";
+import { paginateListHarnessVersions } from "./pagination/ListHarnessVersionsPaginator";
 import { paginateListMemories } from "./pagination/ListMemoriesPaginator";
 import { paginateListOauth2CredentialProviders } from "./pagination/ListOauth2CredentialProvidersPaginator";
 import { paginateListOnlineEvaluationConfigs } from "./pagination/ListOnlineEvaluationConfigsPaginator";
@@ -793,6 +825,7 @@ const commands = {
   CreateGatewayRuleCommand,
   CreateGatewayTargetCommand,
   CreateHarnessCommand,
+  CreateHarnessEndpointCommand,
   CreateMemoryCommand,
   CreateOauth2CredentialProviderCommand,
   CreateOnlineEvaluationConfigCommand,
@@ -818,6 +851,7 @@ const commands = {
   DeleteGatewayRuleCommand,
   DeleteGatewayTargetCommand,
   DeleteHarnessCommand,
+  DeleteHarnessEndpointCommand,
   DeleteMemoryCommand,
   DeleteOauth2CredentialProviderCommand,
   DeleteOnlineEvaluationConfigCommand,
@@ -844,6 +878,7 @@ const commands = {
   GetGatewayRuleCommand,
   GetGatewayTargetCommand,
   GetHarnessCommand,
+  GetHarnessEndpointCommand,
   GetMemoryCommand,
   GetOauth2CredentialProviderCommand,
   GetOnlineEvaluationConfigCommand,
@@ -877,7 +912,9 @@ const commands = {
   ListGatewayRulesCommand,
   ListGatewaysCommand,
   ListGatewayTargetsCommand,
+  ListHarnessEndpointsCommand,
   ListHarnessesCommand,
+  ListHarnessVersionsCommand,
   ListMemoriesCommand,
   ListOauth2CredentialProvidersCommand,
   ListOnlineEvaluationConfigsCommand,
@@ -913,6 +950,7 @@ const commands = {
   UpdateGatewayRuleCommand,
   UpdateGatewayTargetCommand,
   UpdateHarnessCommand,
+  UpdateHarnessEndpointCommand,
   UpdateMemoryCommand,
   UpdateOauth2CredentialProviderCommand,
   UpdateOnlineEvaluationConfigCommand,
@@ -943,7 +981,9 @@ const paginators = {
   paginateListGatewayRules,
   paginateListGateways,
   paginateListGatewayTargets,
+  paginateListHarnessEndpoints,
   paginateListHarnesses,
+  paginateListHarnessVersions,
   paginateListMemories,
   paginateListOauth2CredentialProviders,
   paginateListOnlineEvaluationConfigs,
@@ -1224,6 +1264,23 @@ export interface BedrockAgentCoreControl {
     args: CreateHarnessCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateHarnessCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateHarnessEndpointCommand}
+   */
+  createHarnessEndpoint(
+    args: CreateHarnessEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateHarnessEndpointCommandOutput>;
+  createHarnessEndpoint(
+    args: CreateHarnessEndpointCommandInput,
+    cb: (err: any, data?: CreateHarnessEndpointCommandOutput) => void
+  ): void;
+  createHarnessEndpoint(
+    args: CreateHarnessEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateHarnessEndpointCommandOutput) => void
   ): void;
 
   /**
@@ -1649,6 +1706,23 @@ export interface BedrockAgentCoreControl {
     args: DeleteHarnessCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteHarnessCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteHarnessEndpointCommand}
+   */
+  deleteHarnessEndpoint(
+    args: DeleteHarnessEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteHarnessEndpointCommandOutput>;
+  deleteHarnessEndpoint(
+    args: DeleteHarnessEndpointCommandInput,
+    cb: (err: any, data?: DeleteHarnessEndpointCommandOutput) => void
+  ): void;
+  deleteHarnessEndpoint(
+    args: DeleteHarnessEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteHarnessEndpointCommandOutput) => void
   ): void;
 
   /**
@@ -2091,6 +2165,23 @@ export interface BedrockAgentCoreControl {
     args: GetHarnessCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetHarnessCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetHarnessEndpointCommand}
+   */
+  getHarnessEndpoint(
+    args: GetHarnessEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetHarnessEndpointCommandOutput>;
+  getHarnessEndpoint(
+    args: GetHarnessEndpointCommandInput,
+    cb: (err: any, data?: GetHarnessEndpointCommandOutput) => void
+  ): void;
+  getHarnessEndpoint(
+    args: GetHarnessEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetHarnessEndpointCommandOutput) => void
   ): void;
 
   /**
@@ -2665,6 +2756,23 @@ export interface BedrockAgentCoreControl {
   ): void;
 
   /**
+   * @see {@link ListHarnessEndpointsCommand}
+   */
+  listHarnessEndpoints(
+    args: ListHarnessEndpointsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListHarnessEndpointsCommandOutput>;
+  listHarnessEndpoints(
+    args: ListHarnessEndpointsCommandInput,
+    cb: (err: any, data?: ListHarnessEndpointsCommandOutput) => void
+  ): void;
+  listHarnessEndpoints(
+    args: ListHarnessEndpointsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListHarnessEndpointsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListHarnessesCommand}
    */
   listHarnesses(): Promise<ListHarnessesCommandOutput>;
@@ -2680,6 +2788,23 @@ export interface BedrockAgentCoreControl {
     args: ListHarnessesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListHarnessesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListHarnessVersionsCommand}
+   */
+  listHarnessVersions(
+    args: ListHarnessVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListHarnessVersionsCommandOutput>;
+  listHarnessVersions(
+    args: ListHarnessVersionsCommandInput,
+    cb: (err: any, data?: ListHarnessVersionsCommandOutput) => void
+  ): void;
+  listHarnessVersions(
+    args: ListHarnessVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListHarnessVersionsCommandOutput) => void
   ): void;
 
   /**
@@ -3287,6 +3412,23 @@ export interface BedrockAgentCoreControl {
   ): void;
 
   /**
+   * @see {@link UpdateHarnessEndpointCommand}
+   */
+  updateHarnessEndpoint(
+    args: UpdateHarnessEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateHarnessEndpointCommandOutput>;
+  updateHarnessEndpoint(
+    args: UpdateHarnessEndpointCommandInput,
+    cb: (err: any, data?: UpdateHarnessEndpointCommandOutput) => void
+  ): void;
+  updateHarnessEndpoint(
+    args: UpdateHarnessEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateHarnessEndpointCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateMemoryCommand}
    */
   updateMemory(
@@ -3667,6 +3809,17 @@ export interface BedrockAgentCoreControl {
   ): Paginator<ListGatewayTargetsCommandOutput>;
 
   /**
+   * @see {@link ListHarnessEndpointsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListHarnessEndpointsCommandOutput}.
+   */
+  paginateListHarnessEndpoints(
+    args: ListHarnessEndpointsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListHarnessEndpointsCommandOutput>;
+
+  /**
    * @see {@link ListHarnessesCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -3676,6 +3829,17 @@ export interface BedrockAgentCoreControl {
     args?: ListHarnessesCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListHarnessesCommandOutput>;
+
+  /**
+   * @see {@link ListHarnessVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListHarnessVersionsCommandOutput}.
+   */
+  paginateListHarnessVersions(
+    args: ListHarnessVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListHarnessVersionsCommandOutput>;
 
   /**
    * @see {@link ListMemoriesCommand}

@@ -50,9 +50,13 @@ export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __Metad
  *       policyGenerationId: "STRING_VALUE", // required
  *       policyGenerationAssetId: "STRING_VALUE", // required
  *     },
+ *     policy: { // PolicyStatement
+ *       statement: "STRING_VALUE", // required
+ *     },
  *   },
  *   description: "STRING_VALUE",
  *   validationMode: "FAIL_ON_ANY_FINDINGS" || "IGNORE_ALL_FINDINGS",
+ *   enforcementMode: "ACTIVE" || "LOG_ONLY",
  *   policyEngineId: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
  * };
@@ -66,6 +70,7 @@ export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __Metad
  * //   updatedAt: new Date("TIMESTAMP"), // required
  * //   policyArn: "STRING_VALUE", // required
  * //   status: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "CREATE_FAILED" || "UPDATE_FAILED" || "DELETE_FAILED", // required
+ * //   enforcementMode: "ACTIVE" || "LOG_ONLY",
  * //   definition: { // PolicyDefinition Union: only one key present
  * //     cedar: { // CedarPolicy
  * //       statement: "STRING_VALUE", // required
@@ -73,6 +78,9 @@ export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __Metad
  * //     policyGeneration: { // PolicyGenerationDetails
  * //       policyGenerationId: "STRING_VALUE", // required
  * //       policyGenerationAssetId: "STRING_VALUE", // required
+ * //     },
+ * //     policy: { // PolicyStatement
+ * //       statement: "STRING_VALUE", // required
  * //     },
  * //   },
  * //   description: "STRING_VALUE",

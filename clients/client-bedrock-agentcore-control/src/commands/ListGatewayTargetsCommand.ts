@@ -57,6 +57,15 @@ export interface ListGatewayTargetsCommandOutput extends ListGatewayTargetsRespo
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       updatedAt: new Date("TIMESTAMP"), // required
  * //       resourcePriority: Number("int"),
+ * //       lastSynchronizedAt: new Date("TIMESTAMP"),
+ * //       authorizationData: { // AuthorizationData Union: only one key present
+ * //         oauth2: { // OAuth2AuthorizationData
+ * //           authorizationUrl: "STRING_VALUE", // required
+ * //           userId: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       targetType: "OPEN_API_SCHEMA" || "SMITHY_MODEL" || "MCP_SERVER" || "LAMBDA" || "API_GATEWAY" || "CONNECTOR" || "AGENTCORE_RUNTIME" || "PASSTHROUGH" || "PROVIDER",
+ * //       listingMode: "DEFAULT" || "DYNAMIC",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -75,6 +84,9 @@ export interface ListGatewayTargetsCommandOutput extends ListGatewayTargetsRespo
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>This exception is thrown if there was an unexpected error during processing of request</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when a resource referenced by the operation does not exist</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>This exception is thrown when the number of requests exceeds the limit</p>

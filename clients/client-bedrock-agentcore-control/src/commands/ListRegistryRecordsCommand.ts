@@ -9,7 +9,8 @@ import type {
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { ListRegistryRecordsRequest, ListRegistryRecordsResponse } from "../models/models_1";
+import type { ListRegistryRecordsRequest } from "../models/models_1";
+import type { ListRegistryRecordsResponse } from "../models/models_2";
 import { ListRegistryRecords$ } from "../schemas/schemas_0";
 
 /**

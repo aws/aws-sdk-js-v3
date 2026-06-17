@@ -145,9 +145,24 @@ export interface GetGatewayCommandOutput extends GetGatewayResponse, __MetadataB
  * //           },
  * //         },
  * //       ],
+ * //       allowedWorkloadConfiguration: { // AllowedWorkloadConfiguration
+ * //         hostingEnvironments: [ // HostingEnvironmentListType
+ * //           { // HostingEnvironment
+ * //             arn: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //         workloadIdentities: [ // WorkloadIdentityNameListType
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
  * //     },
  * //   },
  * //   kmsKeyArn: "STRING_VALUE",
+ * //   customTransformConfiguration: { // CustomTransformConfiguration
+ * //     lambda: { // LambdaTransformConfiguration
+ * //       arn: "STRING_VALUE",
+ * //     },
+ * //   },
  * //   interceptorConfigurations: [ // GatewayInterceptorConfigurations
  * //     { // GatewayInterceptorConfiguration
  * //       interceptor: { // InterceptorConfiguration Union: only one key present
@@ -160,6 +175,13 @@ export interface GetGatewayCommandOutput extends GetGatewayResponse, __MetadataB
  * //       ],
  * //       inputConfiguration: { // InterceptorInputConfiguration
  * //         passRequestHeaders: true || false, // required
+ * //         payloadFilter: { // InterceptorPayloadFilter
+ * //           exclude: [ // InterceptorPayloadExclusionSelectorList // required
+ * //             { // InterceptorPayloadExclusionSelector Union: only one key present
+ * //               field: "RESPONSE_BODY",
+ * //             },
+ * //           ],
+ * //         },
  * //       },
  * //     },
  * //   ],
@@ -171,6 +193,10 @@ export interface GetGatewayCommandOutput extends GetGatewayResponse, __MetadataB
  * //     workloadIdentityArn: "STRING_VALUE", // required
  * //   },
  * //   exceptionLevel: "DEBUG",
+ * //   webAclArn: "STRING_VALUE",
+ * //   wafConfiguration: { // WafConfiguration
+ * //     failureMode: "FAIL_CLOSE" || "FAIL_OPEN",
+ * //   },
  * // };
  *
  * ```

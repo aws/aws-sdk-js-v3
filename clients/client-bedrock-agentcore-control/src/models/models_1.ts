@@ -1,4 +1,6 @@
 // smithy-typescript generated code
+import type { DocumentType as __DocumentType } from "@smithy/types";
+
 import type {
   ActorTokenContentType,
   ClientAuthenticationMethodType,
@@ -7,9 +9,13 @@ import type {
   ContentType,
   CredentialProviderVendorType,
   DescriptorType,
+  EnforcementMode,
   ExtractionType,
   FilterOperator,
   FindingType,
+  HarnessStatus,
+  HarnessToolType,
+  HarnessTruncationStrategy,
   MemoryStatus,
   MemoryStrategyStatus,
   MemoryStrategyType,
@@ -28,11 +34,9 @@ import type {
   PolicyGenerationStatus,
   PolicyStatus,
   PolicyValidationMode,
-  RegistryAuthorizerType,
   RegistryRecordCredentialProviderType,
   RegistryRecordOAuthGrantType,
   RegistryRecordStatus,
-  RegistryStatus,
   SecretSourceType,
   Status,
   SynchronizationType,
@@ -41,16 +45,1350 @@ import type {
   A2aDescriptor,
   AgentSkillsDescriptor,
   AuthorizerConfiguration,
-  KmsConfiguration,
+  FilesystemConfiguration,
+  HarnessEnvironmentArtifact,
+  HarnessEnvironmentProviderRequest,
+  HarnessMemoryConfiguration,
+  HarnessModelConfiguration,
+  HarnessSkillAwsSkillsSource,
+  LifecycleConfiguration,
+  NetworkConfiguration,
+  OAuthCredentialProvider,
   PrivateEndpoint,
   PrivateEndpointOverride,
   Secret,
   SecretReference,
-  SkillDefinition,
-  SkillMdDefinition,
-  UpdatedAuthorizerConfiguration,
+  Unit,
   WorkloadIdentityDetails,
 } from "./models_0";
+
+/**
+ * <p>Authentication configuration for accessing a private git repository.</p>
+ * @public
+ */
+export interface HarnessSkillGitAuth {
+  /**
+   * <p>The ARN of the credential in AgentCore Identity containing the password or personal access token.</p>
+   * @public
+   */
+  credentialArn: string | undefined;
+
+  /**
+   * <p>Username for authentication. Defaults to 'oauth2' if not specified.</p>
+   * @public
+   */
+  username?: string | undefined;
+}
+
+/**
+ * <p>A git repository source for a skill.</p>
+ * @public
+ */
+export interface HarnessSkillGitSource {
+  /**
+   * <p>The HTTPS URL of the git repository.</p>
+   * @public
+   */
+  url: string | undefined;
+
+  /**
+   * <p>Subdirectory within the repository containing the skill.</p>
+   * @public
+   */
+  path?: string | undefined;
+
+  /**
+   * <p>Authentication configuration for private repositories.</p>
+   * @public
+   */
+  auth?: HarnessSkillGitAuth | undefined;
+}
+
+/**
+ * <p>An S3 source for a skill.</p>
+ * @public
+ */
+export interface HarnessSkillS3Source {
+  /**
+   * <p>The S3 URI pointing to the skill directory (e.g., s3://bucket/skills/my-skill/).</p>
+   * @public
+   */
+  uri: string | undefined;
+}
+
+/**
+ * <p>A skill available to the agent.</p>
+ * @public
+ */
+export type HarnessSkill =
+  | HarnessSkill.AwsSkillsMember
+  | HarnessSkill.GitMember
+  | HarnessSkill.PathMember
+  | HarnessSkill.S3Member
+  | HarnessSkill.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace HarnessSkill {
+  /**
+   * <p>The filesystem path to the skill definition.</p>
+   * @public
+   */
+  export interface PathMember {
+    path: string;
+    s3?: never;
+    git?: never;
+    awsSkills?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An S3 source containing the skill.</p>
+   * @public
+   */
+  export interface S3Member {
+    path?: never;
+    s3: HarnessSkillS3Source;
+    git?: never;
+    awsSkills?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A git repository containing the skill.</p>
+   * @public
+   */
+  export interface GitMember {
+    path?: never;
+    s3?: never;
+    git: HarnessSkillGitSource;
+    awsSkills?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>AWS Skills baked into the harness's underlying Runtime.</p>
+   * @public
+   */
+  export interface AwsSkillsMember {
+    path?: never;
+    s3?: never;
+    git?: never;
+    awsSkills: HarnessSkillAwsSkillsSource;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    path?: never;
+    s3?: never;
+    git?: never;
+    awsSkills?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    path: (value: string) => T;
+    s3: (value: HarnessSkillS3Source) => T;
+    git: (value: HarnessSkillGitSource) => T;
+    awsSkills: (value: HarnessSkillAwsSkillsSource) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A content block in the system prompt.</p>
+ * @public
+ */
+export type HarnessSystemContentBlock =
+  | HarnessSystemContentBlock.TextMember
+  | HarnessSystemContentBlock.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace HarnessSystemContentBlock {
+  /**
+   * <p>The text content of the system prompt block.</p>
+   * @public
+   */
+  export interface TextMember {
+    text: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    text?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    text: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Configuration for AgentCore Browser.</p>
+ * @public
+ */
+export interface HarnessAgentCoreBrowserConfig {
+  /**
+   * <p>If not populated, the built-in Browser ARN is used.</p>
+   * @public
+   */
+  browserArn?: string | undefined;
+}
+
+/**
+ * <p>Configuration for AgentCore Code Interpreter.</p>
+ * @public
+ */
+export interface HarnessAgentCoreCodeInterpreterConfig {
+  /**
+   * <p>If not populated, the built-in Code Interpreter ARN is used.</p>
+   * @public
+   */
+  codeInterpreterArn?: string | undefined;
+}
+
+/**
+ * <p>Authentication method for calling a Gateway.</p>
+ * @public
+ */
+export type HarnessGatewayOutboundAuth =
+  | HarnessGatewayOutboundAuth.AwsIamMember
+  | HarnessGatewayOutboundAuth.NoneMember
+  | HarnessGatewayOutboundAuth.OauthMember
+  | HarnessGatewayOutboundAuth.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace HarnessGatewayOutboundAuth {
+  /**
+   * <p>SigV4-sign requests using the agent's execution role.</p>
+   * @public
+   */
+  export interface AwsIamMember {
+    awsIam: Unit;
+    none?: never;
+    oauth?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>No authentication.</p>
+   * @public
+   */
+  export interface NoneMember {
+    awsIam?: never;
+    none: Unit;
+    oauth?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Use OAuth credentials for outbound authentication to the gateway.</p>
+   * @public
+   */
+  export interface OauthMember {
+    awsIam?: never;
+    none?: never;
+    oauth: OAuthCredentialProvider;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    awsIam?: never;
+    none?: never;
+    oauth?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    awsIam: (value: Unit) => T;
+    none: (value: Unit) => T;
+    oauth: (value: OAuthCredentialProvider) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Configuration for AgentCore Gateway.</p>
+ * @public
+ */
+export interface HarnessAgentCoreGatewayConfig {
+  /**
+   * <p>The ARN of the desired AgentCore Gateway.</p>
+   * @public
+   */
+  gatewayArn: string | undefined;
+
+  /**
+   * <p>How harness authenticates to this Gateway. Defaults to AWS_IAM (SigV4) if omitted.</p>
+   * @public
+   */
+  outboundAuth?: HarnessGatewayOutboundAuth | undefined;
+}
+
+/**
+ * <p>Configuration for an inline function tool. When the agent calls this tool, the tool call is returned to the caller for external execution.</p>
+ * @public
+ */
+export interface HarnessInlineFunctionConfig {
+  /**
+   * <p>Description of what the tool does, provided to the model.</p>
+   * @public
+   */
+  description: string | undefined;
+
+  /**
+   * <p>JSON Schema describing the tool's input parameters.</p>
+   * @public
+   */
+  inputSchema: __DocumentType | undefined;
+}
+
+/**
+ * <p>Configuration for connecting to a remote MCP server.</p>
+ * @public
+ */
+export interface HarnessRemoteMcpConfig {
+  /**
+   * <p>URL of the MCP endpoint.</p>
+   * @public
+   */
+  url: string | undefined;
+
+  /**
+   * <p>Custom headers to include when connecting to the remote MCP server.</p>
+   * @public
+   */
+  headers?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Configuration union for different tool types.</p>
+ * @public
+ */
+export type HarnessToolConfiguration =
+  | HarnessToolConfiguration.AgentCoreBrowserMember
+  | HarnessToolConfiguration.AgentCoreCodeInterpreterMember
+  | HarnessToolConfiguration.AgentCoreGatewayMember
+  | HarnessToolConfiguration.InlineFunctionMember
+  | HarnessToolConfiguration.RemoteMcpMember
+  | HarnessToolConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace HarnessToolConfiguration {
+  /**
+   * <p>Configuration for remote MCP server.</p>
+   * @public
+   */
+  export interface RemoteMcpMember {
+    remoteMcp: HarnessRemoteMcpConfig;
+    agentCoreBrowser?: never;
+    agentCoreGateway?: never;
+    inlineFunction?: never;
+    agentCoreCodeInterpreter?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration for AgentCore Browser.</p>
+   * @public
+   */
+  export interface AgentCoreBrowserMember {
+    remoteMcp?: never;
+    agentCoreBrowser: HarnessAgentCoreBrowserConfig;
+    agentCoreGateway?: never;
+    inlineFunction?: never;
+    agentCoreCodeInterpreter?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration for AgentCore Gateway.</p>
+   * @public
+   */
+  export interface AgentCoreGatewayMember {
+    remoteMcp?: never;
+    agentCoreBrowser?: never;
+    agentCoreGateway: HarnessAgentCoreGatewayConfig;
+    inlineFunction?: never;
+    agentCoreCodeInterpreter?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration for an inline function tool.</p>
+   * @public
+   */
+  export interface InlineFunctionMember {
+    remoteMcp?: never;
+    agentCoreBrowser?: never;
+    agentCoreGateway?: never;
+    inlineFunction: HarnessInlineFunctionConfig;
+    agentCoreCodeInterpreter?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration for AgentCore Code Interpreter.</p>
+   * @public
+   */
+  export interface AgentCoreCodeInterpreterMember {
+    remoteMcp?: never;
+    agentCoreBrowser?: never;
+    agentCoreGateway?: never;
+    inlineFunction?: never;
+    agentCoreCodeInterpreter: HarnessAgentCoreCodeInterpreterConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    remoteMcp?: never;
+    agentCoreBrowser?: never;
+    agentCoreGateway?: never;
+    inlineFunction?: never;
+    agentCoreCodeInterpreter?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    remoteMcp: (value: HarnessRemoteMcpConfig) => T;
+    agentCoreBrowser: (value: HarnessAgentCoreBrowserConfig) => T;
+    agentCoreGateway: (value: HarnessAgentCoreGatewayConfig) => T;
+    inlineFunction: (value: HarnessInlineFunctionConfig) => T;
+    agentCoreCodeInterpreter: (value: HarnessAgentCoreCodeInterpreterConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A tool available to the agent loop.</p>
+ * @public
+ */
+export interface HarnessTool {
+  /**
+   * <p>The type of tool.</p>
+   * @public
+   */
+  type: HarnessToolType | undefined;
+
+  /**
+   * <p>Unique name for the tool. If not provided, a name will be inferred or generated.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>Tool-specific configuration.</p>
+   * @public
+   */
+  config?: HarnessToolConfiguration | undefined;
+}
+
+/**
+ * <p>Configuration for sliding window truncation strategy.</p>
+ * @public
+ */
+export interface HarnessSlidingWindowConfiguration {
+  /**
+   * <p>The number of recent messages to retain in the context window.</p>
+   * @public
+   */
+  messagesCount?: number | undefined;
+}
+
+/**
+ * <p>Configuration for summarization-based truncation strategy.</p>
+ * @public
+ */
+export interface HarnessSummarizationConfiguration {
+  /**
+   * <p>The ratio of content to summarize.</p>
+   * @public
+   */
+  summaryRatio?: number | undefined;
+
+  /**
+   * <p>The number of recent messages to preserve without summarization.</p>
+   * @public
+   */
+  preserveRecentMessages?: number | undefined;
+
+  /**
+   * <p>The system prompt used for generating summaries.</p>
+   * @public
+   */
+  summarizationSystemPrompt?: string | undefined;
+}
+
+/**
+ * <p>Strategy-specific truncation configuration.</p>
+ * @public
+ */
+export type HarnessTruncationStrategyConfiguration =
+  | HarnessTruncationStrategyConfiguration.SlidingWindowMember
+  | HarnessTruncationStrategyConfiguration.SummarizationMember
+  | HarnessTruncationStrategyConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace HarnessTruncationStrategyConfiguration {
+  /**
+   * <p>Configuration for sliding window truncation.</p>
+   * @public
+   */
+  export interface SlidingWindowMember {
+    slidingWindow: HarnessSlidingWindowConfiguration;
+    summarization?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration for summarization-based truncation.</p>
+   * @public
+   */
+  export interface SummarizationMember {
+    slidingWindow?: never;
+    summarization: HarnessSummarizationConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    slidingWindow?: never;
+    summarization?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    slidingWindow: (value: HarnessSlidingWindowConfiguration) => T;
+    summarization: (value: HarnessSummarizationConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Configuration for truncating conversation context when it exceeds model limits.</p>
+ * @public
+ */
+export interface HarnessTruncationConfiguration {
+  /**
+   * <p>The truncation strategy to use.</p>
+   * @public
+   */
+  strategy: HarnessTruncationStrategy | undefined;
+
+  /**
+   * <p>The strategy-specific configuration.</p>
+   * @public
+   */
+  config?: HarnessTruncationStrategyConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateHarnessRequest {
+  /**
+   * <p>The name of the harness. Must start with a letter and contain only alphanumeric characters and underscores.</p>
+   * @public
+   */
+  harnessName: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role that the harness assumes when running. This role must have permissions for the services the agent needs to access, such as Amazon Bedrock for model invocation.</p>
+   * @public
+   */
+  executionRoleArn: string | undefined;
+
+  /**
+   * <p>The compute environment configuration for the harness, including network and lifecycle settings.</p>
+   * @public
+   */
+  environment?: HarnessEnvironmentProviderRequest | undefined;
+
+  /**
+   * <p>The environment artifact for the harness, such as a custom container image containing additional dependencies.</p>
+   * @public
+   */
+  environmentArtifact?: HarnessEnvironmentArtifact | undefined;
+
+  /**
+   * <p>Environment variables to set in the harness runtime environment.</p>
+   * @public
+   */
+  environmentVariables?: Record<string, string> | undefined;
+
+  /**
+   * <p>Represents inbound authorization configuration options used to authenticate incoming requests. </p>
+   * @public
+   */
+  authorizerConfiguration?: AuthorizerConfiguration | undefined;
+
+  /**
+   * <p>The model configuration for the harness. Supports Amazon Bedrock, OpenAI, and Google Gemini model providers.</p>
+   * @public
+   */
+  model?: HarnessModelConfiguration | undefined;
+
+  /**
+   * <p>The system prompt that defines the agent's behavior and instructions.</p>
+   * @public
+   */
+  systemPrompt?: HarnessSystemContentBlock[] | undefined;
+
+  /**
+   * <p>The tools available to the agent, such as remote MCP servers, AgentCore Gateway, AgentCore Browser, Code Interpreter, or inline functions.</p>
+   * @public
+   */
+  tools?: HarnessTool[] | undefined;
+
+  /**
+   * <p>The skills available to the agent. Skills are bundles of files that the agent can pull into its context on demand.</p>
+   * @public
+   */
+  skills?: HarnessSkill[] | undefined;
+
+  /**
+   * <p>The tools that the agent is allowed to use. Supports glob patterns such as * for all tools, @builtin for all built-in tools, or @serverName/toolName for specific MCP server tools.</p>
+   * @public
+   */
+  allowedTools?: string[] | undefined;
+
+  /**
+   * <p>The AgentCore Memory configuration for persisting conversation context across sessions.</p>
+   * @public
+   */
+  memory?: HarnessMemoryConfiguration | undefined;
+
+  /**
+   * <p>The truncation configuration for managing conversation context when it exceeds model limits.</p>
+   * @public
+   */
+  truncation?: HarnessTruncationConfiguration | undefined;
+
+  /**
+   * <p>The maximum number of iterations the agent loop can execute per invocation.</p>
+   * @public
+   */
+  maxIterations?: number | undefined;
+
+  /**
+   * <p>The maximum total number of output tokens the agent can generate across all model calls within a single invocation.</p>
+   * @public
+   */
+  maxTokens?: number | undefined;
+
+  /**
+   * <p>The maximum duration in seconds for the agent loop execution per invocation.</p>
+   * @public
+   */
+  timeoutSeconds?: number | undefined;
+
+  /**
+   * <p>Tags to apply to the harness resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>The AgentCore Runtime environment for a harness.</p>
+ * @public
+ */
+export interface HarnessAgentCoreRuntimeEnvironment {
+  /**
+   * <p>The ARN of the underlying AgentCore Runtime.</p>
+   * @public
+   */
+  agentRuntimeArn: string | undefined;
+
+  /**
+   * <p>The name of the underlying AgentCore Runtime.</p>
+   * @public
+   */
+  agentRuntimeName: string | undefined;
+
+  /**
+   * <p>The ID of the underlying AgentCore Runtime.</p>
+   * @public
+   */
+  agentRuntimeId: string | undefined;
+
+  /**
+   * <p>LifecycleConfiguration lets you manage the lifecycle of runtime sessions and resources in AgentCore Runtime. This configuration helps optimize resource utilization by automatically cleaning up idle sessions and preventing long-running instances from consuming resources indefinitely.</p>
+   * @public
+   */
+  lifecycleConfiguration: LifecycleConfiguration | undefined;
+
+  /**
+   * <p>SecurityConfig for the Agent.</p>
+   * @public
+   */
+  networkConfiguration: NetworkConfiguration | undefined;
+
+  /**
+   * <p>The filesystem configurations for the runtime environment.</p>
+   * @public
+   */
+  filesystemConfigurations?: FilesystemConfiguration[] | undefined;
+}
+
+/**
+ * <p>The environment provider for a harness.</p>
+ * @public
+ */
+export type HarnessEnvironmentProvider =
+  | HarnessEnvironmentProvider.AgentCoreRuntimeEnvironmentMember
+  | HarnessEnvironmentProvider.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace HarnessEnvironmentProvider {
+  /**
+   * <p>The AgentCore Runtime environment configuration.</p>
+   * @public
+   */
+  export interface AgentCoreRuntimeEnvironmentMember {
+    agentCoreRuntimeEnvironment: HarnessAgentCoreRuntimeEnvironment;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    agentCoreRuntimeEnvironment?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    agentCoreRuntimeEnvironment: (value: HarnessAgentCoreRuntimeEnvironment) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Representation of a harness.</p>
+ * @public
+ */
+export interface Harness {
+  /**
+   * <p>The ID of the harness.</p>
+   * @public
+   */
+  harnessId: string | undefined;
+
+  /**
+   * <p>The name of the harness.</p>
+   * @public
+   */
+  harnessName: string | undefined;
+
+  /**
+   * <p>The ARN of the harness.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The status of the harness.</p>
+   * @public
+   */
+  status: HarnessStatus | undefined;
+
+  /**
+   * <p>The version of the harness. Incremented on every successful UpdateHarness.</p>
+   * @public
+   */
+  harnessVersion?: string | undefined;
+
+  /**
+   * <p>IAM role the harness assumes when running.</p>
+   * @public
+   */
+  executionRoleArn: string | undefined;
+
+  /**
+   * <p>The createdAt time of the harness.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The updatedAt time of the harness.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The configuration of the default model used by the Harness.</p>
+   * @public
+   */
+  model: HarnessModelConfiguration | undefined;
+
+  /**
+   * <p>The system prompt of the harness.</p>
+   * @public
+   */
+  systemPrompt: HarnessSystemContentBlock[] | undefined;
+
+  /**
+   * <p>The tools of the harness.</p>
+   * @public
+   */
+  tools: HarnessTool[] | undefined;
+
+  /**
+   * <p>The skills of the harness.</p>
+   * @public
+   */
+  skills: HarnessSkill[] | undefined;
+
+  /**
+   * <p>The allowed tools of the harness. All tools are allowed by default.</p>
+   * @public
+   */
+  allowedTools: string[] | undefined;
+
+  /**
+   * <p>Configuration for truncating model context.</p>
+   * @public
+   */
+  truncation: HarnessTruncationConfiguration | undefined;
+
+  /**
+   * <p>The compute environment on which the Harness runs.</p>
+   * @public
+   */
+  environment: HarnessEnvironmentProvider | undefined;
+
+  /**
+   * <p>The environment artifact (e.g., container) in which the Harness operates.</p>
+   * @public
+   */
+  environmentArtifact?: HarnessEnvironmentArtifact | undefined;
+
+  /**
+   * <p>Environment variables exposed in the environment in which the harness operates.</p>
+   * @public
+   */
+  environmentVariables?: Record<string, string> | undefined;
+
+  /**
+   * <p>Represents inbound authorization configuration options used to authenticate incoming requests. </p>
+   * @public
+   */
+  authorizerConfiguration?: AuthorizerConfiguration | undefined;
+
+  /**
+   * <p>AgentCore Memory instance configuration for short and long term memory.</p>
+   * @public
+   */
+  memory?: HarnessMemoryConfiguration | undefined;
+
+  /**
+   * <p>The maximum number of iterations in the agent loop allowed before exiting per invocation.</p>
+   * @public
+   */
+  maxIterations?: number | undefined;
+
+  /**
+   * <p>The maximum total number of output tokens the agent can generate across all model calls within a single invocation.</p>
+   * @public
+   */
+  maxTokens?: number | undefined;
+
+  /**
+   * <p>The maximum duration per invocation.</p>
+   * @public
+   */
+  timeoutSeconds?: number | undefined;
+
+  /**
+   * <p>Reason why create or update operations fail.</p>
+   * @public
+   */
+  failureReason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateHarnessResponse {
+  /**
+   * <p>The harness that was created.</p>
+   * @public
+   */
+  harness: Harness | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteHarnessRequest {
+  /**
+   * <p>The ID of the harness to delete.</p>
+   * @public
+   */
+  harnessId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>Whether to delete the managed memory on harness deletion. Default: true. If false, the memory is disassociated and becomes a regular customer-owned resource.</p>
+   * @public
+   */
+  deleteManagedMemory?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteHarnessResponse {
+  /**
+   * <p>The harness that was deleted.</p>
+   * @public
+   */
+  harness?: Harness | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetHarnessRequest {
+  /**
+   * <p>The ID of the harness to retrieve.</p>
+   * @public
+   */
+  harnessId: string | undefined;
+
+  /**
+   * <p>Specific version of the harness to retrieve. If omitted, returns the current Harness configuration, including its status.</p>
+   * @public
+   */
+  harnessVersion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetHarnessResponse {
+  /**
+   * <p>The harness resource.</p>
+   * @public
+   */
+  harness: Harness | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListHarnessesRequest {
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Summary information about a harness.</p>
+ * @public
+ */
+export interface HarnessSummary {
+  /**
+   * <p>The ID of the harness.</p>
+   * @public
+   */
+  harnessId: string | undefined;
+
+  /**
+   * <p>The name of the harness.</p>
+   * @public
+   */
+  harnessName: string | undefined;
+
+  /**
+   * <p>The ARN of the harness.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The current status of the harness.</p>
+   * @public
+   */
+  status: HarnessStatus | undefined;
+
+  /**
+   * <p>The timestamp when the harness was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the harness was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The latest version of the harness.</p>
+   * @public
+   */
+  harnessVersion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListHarnessesResponse {
+  /**
+   * <p>The list of harness summaries.</p>
+   * @public
+   */
+  harnesses: HarnessSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListHarnessVersionsRequest {
+  /**
+   * <p>The ID of the harness whose versions are listed.</p>
+   * @public
+   */
+  harnessId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Summary information about a single version of a harness.</p>
+ * @public
+ */
+export interface HarnessVersionSummary {
+  /**
+   * <p>The ID of the harness.</p>
+   * @public
+   */
+  harnessId: string | undefined;
+
+  /**
+   * <p>The name of the harness.</p>
+   * @public
+   */
+  harnessName: string | undefined;
+
+  /**
+   * <p>The ARN of the harness.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The version of the harness that this summary describes.</p>
+   * @public
+   */
+  harnessVersion: string | undefined;
+
+  /**
+   * <p>The status of this harness version.</p>
+   * @public
+   */
+  status: HarnessStatus | undefined;
+
+  /**
+   * <p>The timestamp when this harness version was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when this harness version was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>Reason why the create or update operation for this harness version failed.</p>
+   * @public
+   */
+  failureReason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListHarnessVersionsResponse {
+  /**
+   * <p>The list of harness version summaries.</p>
+   * @public
+   */
+  harnessVersions: HarnessVersionSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Wrapper for updating an optional AuthorizerConfiguration field with PATCH semantics. When present in an update request, the authorizer configuration is replaced with optionalValue. When absent, the authorizer configuration is left unchanged. To unset, include the wrapper with optionalValue not specified.</p>
+ * @public
+ */
+export interface UpdatedAuthorizerConfiguration {
+  /**
+   * <p>The updated authorizer configuration value. If not specified, it will clear the current authorizer configuration of the resource.</p>
+   * @public
+   */
+  optionalValue?: AuthorizerConfiguration | undefined;
+}
+
+/**
+ * <p>Wrapper for updating the environment artifact configuration.</p>
+ * @public
+ */
+export interface UpdatedHarnessEnvironmentArtifact {
+  /**
+   * <p>The updated environment artifact value, or null to clear the existing configuration.</p>
+   * @public
+   */
+  optionalValue?: HarnessEnvironmentArtifact | undefined;
+}
+
+/**
+ * <p>Wrapper for updating the memory configuration.</p>
+ * @public
+ */
+export interface UpdatedHarnessMemoryConfiguration {
+  /**
+   * <p>The updated memory configuration value, or null to clear the existing configuration.</p>
+   * @public
+   */
+  optionalValue?: HarnessMemoryConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateHarnessRequest {
+  /**
+   * <p>The ID of the harness to update.</p>
+   * @public
+   */
+  harnessId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role that the harness assumes when running. If not specified, the existing value is retained.</p>
+   * @public
+   */
+  executionRoleArn?: string | undefined;
+
+  /**
+   * <p>The compute environment configuration for the harness. If not specified, the existing value is retained.</p>
+   * @public
+   */
+  environment?: HarnessEnvironmentProviderRequest | undefined;
+
+  /**
+   * <p>The environment artifact for the harness. Use the optionalValue wrapper to set a new value, or set it to null to clear the existing configuration.</p>
+   * @public
+   */
+  environmentArtifact?: UpdatedHarnessEnvironmentArtifact | undefined;
+
+  /**
+   * <p>Environment variables to set in the harness runtime environment. If specified, this replaces all existing environment variables. If not specified, the existing value is retained.</p>
+   * @public
+   */
+  environmentVariables?: Record<string, string> | undefined;
+
+  /**
+   * <p>Wrapper for updating an optional AuthorizerConfiguration field with PATCH semantics. When present in an update request, the authorizer configuration is replaced with optionalValue. When absent, the authorizer configuration is left unchanged. To unset, include the wrapper with optionalValue not specified.</p>
+   * @public
+   */
+  authorizerConfiguration?: UpdatedAuthorizerConfiguration | undefined;
+
+  /**
+   * <p>The model configuration for the harness. If not specified, the existing value is retained.</p>
+   * @public
+   */
+  model?: HarnessModelConfiguration | undefined;
+
+  /**
+   * <p>The system prompt that defines the agent's behavior. If not specified, the existing value is retained.</p>
+   * @public
+   */
+  systemPrompt?: HarnessSystemContentBlock[] | undefined;
+
+  /**
+   * <p>The tools available to the agent. If specified, this replaces all existing tools. If not specified, the existing value is retained.</p>
+   * @public
+   */
+  tools?: HarnessTool[] | undefined;
+
+  /**
+   * <p>The skills available to the agent. If specified, this replaces all existing skills. If not specified, the existing value is retained.</p>
+   * @public
+   */
+  skills?: HarnessSkill[] | undefined;
+
+  /**
+   * <p>The tools that the agent is allowed to use. If specified, this replaces all existing allowed tools. If not specified, the existing value is retained.</p>
+   * @public
+   */
+  allowedTools?: string[] | undefined;
+
+  /**
+   * <p>The AgentCore Memory configuration. Use the optionalValue wrapper to set a new value, or set it to null to clear the existing configuration.</p>
+   * @public
+   */
+  memory?: UpdatedHarnessMemoryConfiguration | undefined;
+
+  /**
+   * <p>The truncation configuration for managing conversation context. If not specified, the existing value is retained.</p>
+   * @public
+   */
+  truncation?: HarnessTruncationConfiguration | undefined;
+
+  /**
+   * <p>The maximum number of iterations the agent loop can execute per invocation. If not specified, the existing value is retained.</p>
+   * @public
+   */
+  maxIterations?: number | undefined;
+
+  /**
+   * <p>The maximum total number of output tokens the agent can generate across all model calls within a single invocation. If not specified, the existing value is retained.</p>
+   * @public
+   */
+  maxTokens?: number | undefined;
+
+  /**
+   * <p>The maximum duration in seconds for the agent loop execution per invocation. If not specified, the existing value is retained.</p>
+   * @public
+   */
+  timeoutSeconds?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateHarnessResponse {
+  /**
+   * <p>The updated harness.</p>
+   * @public
+   */
+  harness: Harness | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource for which you want to list tags.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>The tags associated with the resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
 
 /**
  * <p>A metadata key indexed for filtering.</p>
@@ -2130,6 +3468,13 @@ export interface Memory {
    * @public
    */
   streamDeliveryResources?: StreamDeliveryResources | undefined;
+
+  /**
+   * ARN of the resource managing this memory (e.g. a harness). When set, strategy
+   * modifications and deletion are only allowed through the managing resource.
+   * @public
+   */
+  managedByResourceArn?: string | undefined;
 }
 
 /**
@@ -2256,6 +3601,12 @@ export interface MemorySummary {
    * @public
    */
   updatedAt: Date | undefined;
+
+  /**
+   * ARN of the resource managing this memory (e.g. a harness). Null if not managed.
+   * @public
+   */
+  managedByResourceArn?: string | undefined;
 }
 
 /**
@@ -2835,13 +4186,13 @@ export interface AtlassianOauth2ProviderConfigInput {
   clientSecret?: string | undefined;
 
   /**
-   * <p>A reference to the AWS Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when <code>clientSecretSource</code> is set to <code>EXTERNAL</code>.</p>
+   * <p>A reference to the Amazon Web Services Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when <code>clientSecretSource</code> is set to <code>EXTERNAL</code>.</p>
    * @public
    */
   clientSecretConfig?: SecretReference | undefined;
 
   /**
-   * <p>The source type of the client secret for the Atlassian OAuth2 provider. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in AWS Secrets Manager.</p>
+   * <p>The source type of the client secret for the Atlassian OAuth2 provider. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
    * @public
    */
   clientSecretSource?: SecretSourceType | undefined;
@@ -2996,13 +4347,13 @@ export interface CustomOauth2ProviderConfigInput {
   clientSecret?: string | undefined;
 
   /**
-   * <p>A reference to the AWS Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when <code>clientSecretSource</code> is set to <code>EXTERNAL</code>.</p>
+   * <p>A reference to the Amazon Web Services Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when <code>clientSecretSource</code> is set to <code>EXTERNAL</code>.</p>
    * @public
    */
   clientSecretConfig?: SecretReference | undefined;
 
   /**
-   * <p>The source type of the client secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in AWS Secrets Manager.</p>
+   * <p>The source type of the client secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
    * @public
    */
   clientSecretSource?: SecretSourceType | undefined;
@@ -3050,13 +4401,13 @@ export interface GithubOauth2ProviderConfigInput {
   clientSecret?: string | undefined;
 
   /**
-   * <p>A reference to the AWS Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when <code>clientSecretSource</code> is set to <code>EXTERNAL</code>.</p>
+   * <p>A reference to the Amazon Web Services Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when <code>clientSecretSource</code> is set to <code>EXTERNAL</code>.</p>
    * @public
    */
   clientSecretConfig?: SecretReference | undefined;
 
   /**
-   * <p>The source type of the client secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in AWS Secrets Manager.</p>
+   * <p>The source type of the client secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
    * @public
    */
   clientSecretSource?: SecretSourceType | undefined;
@@ -3080,13 +4431,13 @@ export interface GoogleOauth2ProviderConfigInput {
   clientSecret?: string | undefined;
 
   /**
-   * <p>A reference to the AWS Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when <code>clientSecretSource</code> is set to <code>EXTERNAL</code>.</p>
+   * <p>A reference to the Amazon Web Services Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when <code>clientSecretSource</code> is set to <code>EXTERNAL</code>.</p>
    * @public
    */
   clientSecretConfig?: SecretReference | undefined;
 
   /**
-   * <p>The source type of the client secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in AWS Secrets Manager.</p>
+   * <p>The source type of the client secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
    * @public
    */
   clientSecretSource?: SecretSourceType | undefined;
@@ -3110,13 +4461,13 @@ export interface IncludedOauth2ProviderConfigInput {
   clientSecret?: string | undefined;
 
   /**
-   * <p>A reference to the AWS Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when <code>clientSecretSource</code> is set to <code>EXTERNAL</code>.</p>
+   * <p>A reference to the Amazon Web Services Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when <code>clientSecretSource</code> is set to <code>EXTERNAL</code>.</p>
    * @public
    */
   clientSecretConfig?: SecretReference | undefined;
 
   /**
-   * <p>The source type of the client secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in AWS Secrets Manager.</p>
+   * <p>The source type of the client secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
    * @public
    */
   clientSecretSource?: SecretSourceType | undefined;
@@ -3158,13 +4509,13 @@ export interface LinkedinOauth2ProviderConfigInput {
   clientSecret?: string | undefined;
 
   /**
-   * <p>A reference to the AWS Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when <code>clientSecretSource</code> is set to <code>EXTERNAL</code>.</p>
+   * <p>A reference to the Amazon Web Services Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when <code>clientSecretSource</code> is set to <code>EXTERNAL</code>.</p>
    * @public
    */
   clientSecretConfig?: SecretReference | undefined;
 
   /**
-   * <p>The source type of the client secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in AWS Secrets Manager.</p>
+   * <p>The source type of the client secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
    * @public
    */
   clientSecretSource?: SecretSourceType | undefined;
@@ -3188,13 +4539,13 @@ export interface MicrosoftOauth2ProviderConfigInput {
   clientSecret?: string | undefined;
 
   /**
-   * <p>A reference to the AWS Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when <code>clientSecretSource</code> is set to <code>EXTERNAL</code>.</p>
+   * <p>A reference to the Amazon Web Services Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when <code>clientSecretSource</code> is set to <code>EXTERNAL</code>.</p>
    * @public
    */
   clientSecretConfig?: SecretReference | undefined;
 
   /**
-   * <p>The source type of the client secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in AWS Secrets Manager.</p>
+   * <p>The source type of the client secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
    * @public
    */
   clientSecretSource?: SecretSourceType | undefined;
@@ -3224,13 +4575,13 @@ export interface SalesforceOauth2ProviderConfigInput {
   clientSecret?: string | undefined;
 
   /**
-   * <p>A reference to the AWS Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when <code>clientSecretSource</code> is set to <code>EXTERNAL</code>.</p>
+   * <p>A reference to the Amazon Web Services Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when <code>clientSecretSource</code> is set to <code>EXTERNAL</code>.</p>
    * @public
    */
   clientSecretConfig?: SecretReference | undefined;
 
   /**
-   * <p>The source type of the client secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in AWS Secrets Manager.</p>
+   * <p>The source type of the client secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
    * @public
    */
   clientSecretSource?: SecretSourceType | undefined;
@@ -3254,13 +4605,13 @@ export interface SlackOauth2ProviderConfigInput {
   clientSecret?: string | undefined;
 
   /**
-   * <p>A reference to the AWS Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when <code>clientSecretSource</code> is set to <code>EXTERNAL</code>.</p>
+   * <p>A reference to the Amazon Web Services Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when <code>clientSecretSource</code> is set to <code>EXTERNAL</code>.</p>
    * @public
    */
   clientSecretConfig?: SecretReference | undefined;
 
   /**
-   * <p>The source type of the client secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in AWS Secrets Manager.</p>
+   * <p>The source type of the client secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
    * @public
    */
   clientSecretSource?: SecretSourceType | undefined;
@@ -3900,19 +5251,19 @@ export namespace Oauth2ProviderConfigOutput {
  */
 export interface CreateOauth2CredentialProviderResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the client secret in AWS Secrets Manager.</p>
+   * <p>The Amazon Resource Name (ARN) of the client secret in Amazon Web Services Secrets Manager.</p>
    * @public
    */
   clientSecretArn: Secret | undefined;
 
   /**
-   * <p>The JSON key used to extract the client secret value from the AWS Secrets Manager secret.</p>
+   * <p>The JSON key used to extract the client secret value from the Amazon Web Services Secrets Manager secret.</p>
    * @public
    */
   clientSecretJsonKey?: string | undefined;
 
   /**
-   * <p>The source type of the client secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in AWS Secrets Manager.</p>
+   * <p>The source type of the client secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in Amazon Web Services Secrets Manager.</p>
    * @public
    */
   clientSecretSource?: SecretSourceType | undefined;
@@ -3980,19 +5331,19 @@ export interface GetOauth2CredentialProviderRequest {
  */
 export interface GetOauth2CredentialProviderResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the client secret in AWS Secrets Manager.</p>
+   * <p>The Amazon Resource Name (ARN) of the client secret in Amazon Web Services Secrets Manager.</p>
    * @public
    */
   clientSecretArn: Secret | undefined;
 
   /**
-   * <p>The JSON key used to extract the client secret value from the AWS Secrets Manager secret.</p>
+   * <p>The JSON key used to extract the client secret value from the Amazon Web Services Secrets Manager secret.</p>
    * @public
    */
   clientSecretJsonKey?: string | undefined;
 
   /**
-   * <p>The source type of the client secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in AWS Secrets Manager.</p>
+   * <p>The source type of the client secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in Amazon Web Services Secrets Manager.</p>
    * @public
    */
   clientSecretSource?: SecretSourceType | undefined;
@@ -4150,19 +5501,19 @@ export interface UpdateOauth2CredentialProviderRequest {
  */
 export interface UpdateOauth2CredentialProviderResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the client secret in AWS Secrets Manager.</p>
+   * <p>The Amazon Resource Name (ARN) of the client secret in Amazon Web Services Secrets Manager.</p>
    * @public
    */
   clientSecretArn: Secret | undefined;
 
   /**
-   * <p>The JSON key used to extract the client secret value from the AWS Secrets Manager secret.</p>
+   * <p>The JSON key used to extract the client secret value from the Amazon Web Services Secrets Manager secret.</p>
    * @public
    */
   clientSecretJsonKey?: string | undefined;
 
   /**
-   * <p>The source type of the client secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in AWS Secrets Manager.</p>
+   * <p>The source type of the client secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in Amazon Web Services Secrets Manager.</p>
    * @public
    */
   clientSecretSource?: SecretSourceType | undefined;
@@ -4325,13 +5676,12 @@ export namespace EvaluatorReference {
 }
 
 /**
- * A reference to an insight analysis to run against sessions.
+ * <p>A reference to an insight analysis to run against sessions during evaluation. Insights provide deeper analysis beyond individual evaluator scores, including failure detection, user intent clustering, and execution summarization.</p>
  * @public
  */
 export interface Insight {
   /**
-   * Canonical insight identifiers using the Builtin.Insight.* naming convention.
-   * Used by BatchEvaluate, InternalEvaluate, and ServiceEngineEvaluate flows.
+   * <p>The unique identifier of the insight to run.</p>
    * @public
    */
   insightId: string | undefined;
@@ -4996,13 +6346,13 @@ export interface CoinbaseCdpConfigurationInput {
   apiKeySecret?: string | undefined;
 
   /**
-   * <p>The source type of the API key secret for the Coinbase Developer Platform. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in AWS Secrets Manager.</p>
+   * <p>The source type of the API key secret for the Coinbase Developer Platform. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
    * @public
    */
   apiKeySecretSource?: SecretSourceType | undefined;
 
   /**
-   * <p>A reference to the AWS Secrets Manager secret that stores the API key secret. This includes the secret ID and the JSON key used to extract the API key secret value from the secret. Required when <code>apiKeySecretSource</code> is set to <code>EXTERNAL</code>.</p>
+   * <p>A reference to the Amazon Web Services Secrets Manager secret that stores the API key secret. This includes the secret ID and the JSON key used to extract the API key secret value from the secret. Required when <code>apiKeySecretSource</code> is set to <code>EXTERNAL</code>.</p>
    * @public
    */
   apiKeySecretConfig?: SecretReference | undefined;
@@ -5014,13 +6364,13 @@ export interface CoinbaseCdpConfigurationInput {
   walletSecret?: string | undefined;
 
   /**
-   * <p>The source type of the wallet secret for the Coinbase Developer Platform. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in AWS Secrets Manager.</p>
+   * <p>The source type of the wallet secret for the Coinbase Developer Platform. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
    * @public
    */
   walletSecretSource?: SecretSourceType | undefined;
 
   /**
-   * <p>A reference to the AWS Secrets Manager secret that stores the wallet secret. This includes the secret ID and the JSON key used to extract the wallet secret value from the secret. Required when <code>walletSecretSource</code> is set to <code>EXTERNAL</code>.</p>
+   * <p>A reference to the Amazon Web Services Secrets Manager secret that stores the wallet secret. This includes the secret ID and the JSON key used to extract the wallet secret value from the secret. Required when <code>walletSecretSource</code> is set to <code>EXTERNAL</code>.</p>
    * @public
    */
   walletSecretConfig?: SecretReference | undefined;
@@ -5044,13 +6394,13 @@ export interface StripePrivyConfigurationInput {
   appSecret?: string | undefined;
 
   /**
-   * <p>The source type of the app secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in AWS Secrets Manager.</p>
+   * <p>The source type of the app secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
    * @public
    */
   appSecretSource?: SecretSourceType | undefined;
 
   /**
-   * <p>A reference to the AWS Secrets Manager secret that stores the app secret. This includes the secret ID and the JSON key used to extract the app secret value from the secret. Required when <code>appSecretSource</code> is set to <code>EXTERNAL</code>.</p>
+   * <p>A reference to the Amazon Web Services Secrets Manager secret that stores the app secret. This includes the secret ID and the JSON key used to extract the app secret value from the secret. Required when <code>appSecretSource</code> is set to <code>EXTERNAL</code>.</p>
    * @public
    */
   appSecretConfig?: SecretReference | undefined;
@@ -5062,13 +6412,13 @@ export interface StripePrivyConfigurationInput {
   authorizationPrivateKey?: string | undefined;
 
   /**
-   * <p>The source type of the authorization private key. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in AWS Secrets Manager.</p>
+   * <p>The source type of the authorization private key. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
    * @public
    */
   authorizationPrivateKeySource?: SecretSourceType | undefined;
 
   /**
-   * <p>A reference to the AWS Secrets Manager secret that stores the authorization private key. This includes the secret ID and the JSON key used to extract the authorization private key value from the secret. Required when <code>authorizationPrivateKeySource</code> is set to <code>EXTERNAL</code>.</p>
+   * <p>A reference to the Amazon Web Services Secrets Manager secret that stores the authorization private key. This includes the secret ID and the JSON key used to extract the authorization private key value from the secret. Required when <code>authorizationPrivateKeySource</code> is set to <code>EXTERNAL</code>.</p>
    * @public
    */
   authorizationPrivateKeyConfig?: SecretReference | undefined;
@@ -5174,37 +6524,37 @@ export interface CoinbaseCdpConfigurationOutput {
   apiKeyId: string | undefined;
 
   /**
-   * <p>Contains information about a secret in AWS Secrets Manager.</p>
+   * <p>Contains information about a secret in Amazon Web Services Secrets Manager.</p>
    * @public
    */
   apiKeySecretArn: Secret | undefined;
 
   /**
-   * <p>The JSON key used to extract the API key secret value from the AWS Secrets Manager secret.</p>
+   * <p>The JSON key used to extract the API key secret value from the Amazon Web Services Secrets Manager secret.</p>
    * @public
    */
   apiKeySecretJsonKey?: string | undefined;
 
   /**
-   * <p>The source type of the API key secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in AWS Secrets Manager.</p>
+   * <p>The source type of the API key secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in Amazon Web Services Secrets Manager.</p>
    * @public
    */
   apiKeySecretSource?: SecretSourceType | undefined;
 
   /**
-   * <p>Contains information about a secret in AWS Secrets Manager.</p>
+   * <p>Contains information about a secret in Amazon Web Services Secrets Manager.</p>
    * @public
    */
   walletSecretArn: Secret | undefined;
 
   /**
-   * <p>The JSON key used to extract the wallet secret value from the AWS Secrets Manager secret.</p>
+   * <p>The JSON key used to extract the wallet secret value from the Amazon Web Services Secrets Manager secret.</p>
    * @public
    */
   walletSecretJsonKey?: string | undefined;
 
   /**
-   * <p>The source type of the wallet secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in AWS Secrets Manager.</p>
+   * <p>The source type of the wallet secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in Amazon Web Services Secrets Manager.</p>
    * @public
    */
   walletSecretSource?: SecretSourceType | undefined;
@@ -5222,37 +6572,37 @@ export interface StripePrivyConfigurationOutput {
   appId: string | undefined;
 
   /**
-   * <p>Contains information about a secret in AWS Secrets Manager.</p>
+   * <p>Contains information about a secret in Amazon Web Services Secrets Manager.</p>
    * @public
    */
   appSecretArn: Secret | undefined;
 
   /**
-   * <p>The JSON key used to extract the app secret value from the AWS Secrets Manager secret.</p>
+   * <p>The JSON key used to extract the app secret value from the Amazon Web Services Secrets Manager secret.</p>
    * @public
    */
   appSecretJsonKey?: string | undefined;
 
   /**
-   * <p>The source type of the app secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in AWS Secrets Manager.</p>
+   * <p>The source type of the app secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in Amazon Web Services Secrets Manager.</p>
    * @public
    */
   appSecretSource?: SecretSourceType | undefined;
 
   /**
-   * <p>Contains information about a secret in AWS Secrets Manager.</p>
+   * <p>Contains information about a secret in Amazon Web Services Secrets Manager.</p>
    * @public
    */
   authorizationPrivateKeyArn: Secret | undefined;
 
   /**
-   * <p>The JSON key used to extract the authorization private key value from the AWS Secrets Manager secret.</p>
+   * <p>The JSON key used to extract the authorization private key value from the Amazon Web Services Secrets Manager secret.</p>
    * @public
    */
   authorizationPrivateKeyJsonKey?: string | undefined;
 
   /**
-   * <p>The source type of the authorization private key. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in AWS Secrets Manager.</p>
+   * <p>The source type of the authorization private key. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in Amazon Web Services Secrets Manager.</p>
    * @public
    */
   authorizationPrivateKeySource?: SecretSourceType | undefined;
@@ -7198,6 +8548,18 @@ export interface CedarPolicy {
 }
 
 /**
+ * <p>An AgentCore policy statement, which supports plain Cedar policies as well as guardrails definitions.</p>
+ * @public
+ */
+export interface PolicyStatement {
+  /**
+   * <p>The body of the AgentCore policy statement. Contains the policy logic, which can be a Cedar policy or a guardrails definition.</p>
+   * @public
+   */
+  statement: string | undefined;
+}
+
+/**
  * <p>Represents the information identifying a generated policy asset from the AI-powered policy generation process within the AgentCore Policy system. Each asset contains a Cedar policy statement generated from natural language input, along with associated metadata and analysis findings to help users evaluate and select the most appropriate policy option.</p>
  * @public
  */
@@ -7221,6 +8583,7 @@ export interface PolicyGenerationDetails {
  */
 export type PolicyDefinition =
   | PolicyDefinition.CedarMember
+  | PolicyDefinition.PolicyMember
   | PolicyDefinition.PolicyGenerationMember
   | PolicyDefinition.$UnknownMember;
 
@@ -7235,6 +8598,7 @@ export namespace PolicyDefinition {
   export interface CedarMember {
     cedar: CedarPolicy;
     policyGeneration?: never;
+    policy?: never;
     $unknown?: never;
   }
 
@@ -7245,6 +8609,18 @@ export namespace PolicyDefinition {
   export interface PolicyGenerationMember {
     cedar?: never;
     policyGeneration: PolicyGenerationDetails;
+    policy?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An AgentCore policy statement that defines the access control rules. The statement can be a Cedar policy or a guardrails definition.</p>
+   * @public
+   */
+  export interface PolicyMember {
+    cedar?: never;
+    policyGeneration?: never;
+    policy: PolicyStatement;
     $unknown?: never;
   }
 
@@ -7254,6 +8630,7 @@ export namespace PolicyDefinition {
   export interface $UnknownMember {
     cedar?: never;
     policyGeneration?: never;
+    policy?: never;
     $unknown: [string, any];
   }
 
@@ -7264,6 +8641,7 @@ export namespace PolicyDefinition {
   export interface Visitor<T> {
     cedar: (value: CedarPolicy) => T;
     policyGeneration: (value: PolicyGenerationDetails) => T;
+    policy: (value: PolicyStatement) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -7707,6 +9085,12 @@ export interface CreatePolicyRequest {
   validationMode?: PolicyValidationMode | undefined;
 
   /**
+   * <p>The enforcement mode for the policy. Run this policy in <code>LOG_ONLY</code> mode to collect data on how it affects your application. Once you are satisfied with the data gathered, switch the policy to <code>ACTIVE</code>. Defaults to <code>ACTIVE</code>.</p>
+   * @public
+   */
+  enforcementMode?: EnforcementMode | undefined;
+
+  /**
    * <p>The identifier of the policy engine which contains this policy. Policy engines group related policies and provide the execution context for policy evaluation.</p>
    * @public
    */
@@ -7764,6 +9148,12 @@ export interface CreatePolicyResponse {
    * @public
    */
   status: PolicyStatus | undefined;
+
+  /**
+   * <p>The enforcement mode of the created policy.</p>
+   * @public
+   */
+  enforcementMode?: EnforcementMode | undefined;
 
   /**
    * <p>The Cedar policy statement that was created. This is the validated policy definition that will be used for agent behavior control and access decisions.</p>
@@ -7848,6 +9238,12 @@ export interface DeletePolicyResponse {
   status: PolicyStatus | undefined;
 
   /**
+   * <p>The enforcement mode of the deleted policy.</p>
+   * @public
+   */
+  enforcementMode?: EnforcementMode | undefined;
+
+  /**
    * <p>Represents the definition structure for policies within the AgentCore Policy system. This structure encapsulates different policy formats and languages that can be used to define access control rules.</p>
    * @public
    */
@@ -7930,6 +9326,12 @@ export interface GetPolicyResponse {
   status: PolicyStatus | undefined;
 
   /**
+   * <p>The current enforcement mode of the policy.</p>
+   * @public
+   */
+  enforcementMode?: EnforcementMode | undefined;
+
+  /**
    * <p>The Cedar policy statement that defines the access control rules. This contains the actual policy logic used for agent behavior control and access decisions.</p>
    * @public
    */
@@ -8010,6 +9412,12 @@ export interface GetPolicySummaryResponse {
    * @public
    */
   status: PolicyStatus | undefined;
+
+  /**
+   * <p>The current enforcement mode of the policy.</p>
+   * @public
+   */
+  enforcementMode?: EnforcementMode | undefined;
 }
 
 /**
@@ -8087,6 +9495,12 @@ export interface Policy {
    * @public
    */
   status: PolicyStatus | undefined;
+
+  /**
+   * <p>The current enforcement mode of the policy.</p>
+   * @public
+   */
+  enforcementMode?: EnforcementMode | undefined;
 
   /**
    * <p>The Cedar policy statement that defines the access control rules. This contains the actual policy logic used for agent behavior control and access decisions.</p>
@@ -8199,6 +9613,12 @@ export interface PolicySummary {
    * @public
    */
   status: PolicyStatus | undefined;
+
+  /**
+   * <p>The current enforcement mode of the policy.</p>
+   * @public
+   */
+  enforcementMode?: EnforcementMode | undefined;
 }
 
 /**
@@ -8251,6 +9671,12 @@ export interface UpdatePolicyRequest {
    * @public
    */
   validationMode?: PolicyValidationMode | undefined;
+
+  /**
+   * <p>The enforcement mode for the policy. Run this policy in <code>LOG_ONLY</code> mode to collect data on how it affects your application. Once you are satisfied with the data gathered, switch the policy to <code>ACTIVE</code>. If you omit this field, the policy's existing enforcement mode is unchanged.</p>
+   * @public
+   */
+  enforcementMode?: EnforcementMode | undefined;
 }
 
 /**
@@ -8298,6 +9724,12 @@ export interface UpdatePolicyResponse {
    * @public
    */
   status: PolicyStatus | undefined;
+
+  /**
+   * <p>The current enforcement mode of the updated policy.</p>
+   * @public
+   */
+  enforcementMode?: EnforcementMode | undefined;
 
   /**
    * <p>The updated Cedar policy statement.</p>
@@ -8907,970 +10339,3 @@ export interface RegistryRecordSummary {
    */
   updatedAt: Date | undefined;
 }
-
-/**
- * @public
- */
-export interface ListRegistryRecordsResponse {
-  /**
-   * <p>The list of registry record summaries. For details about the fields in each summary, see the <code>RegistryRecordSummary</code> data type.</p>
-   * @public
-   */
-  registryRecords: RegistryRecordSummary[] | undefined;
-
-  /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface SubmitRegistryRecordForApprovalRequest {
-  /**
-   * <p>The identifier of the registry containing the record. You can specify either the Amazon Resource Name (ARN) or the ID of the registry.</p>
-   * @public
-   */
-  registryId: string | undefined;
-
-  /**
-   * <p>The identifier of the registry record to submit for approval. You can specify either the Amazon Resource Name (ARN) or the ID of the record.</p>
-   * @public
-   */
-  recordId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface SubmitRegistryRecordForApprovalResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the registry that contains the record.</p>
-   * @public
-   */
-  registryArn: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the registry record.</p>
-   * @public
-   */
-  recordArn: string | undefined;
-
-  /**
-   * <p>The unique identifier of the registry record.</p>
-   * @public
-   */
-  recordId: string | undefined;
-
-  /**
-   * <p>The resulting status of the registry record after submission.</p>
-   * @public
-   */
-  status: RegistryRecordStatus | undefined;
-
-  /**
-   * <p>The timestamp when the record was last updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-}
-
-/**
- * <p>Wrapper for updating an A2A descriptor with PATCH semantics. When present, the A2A descriptor is replaced with the provided value. When absent, the A2A descriptor is left unchanged. To unset, include the wrapper with the value set to null.</p>
- * @public
- */
-export interface UpdatedA2aDescriptor {
-  /**
-   * <p>The updated A2A descriptor value.</p>
-   * @public
-   */
-  optionalValue?: A2aDescriptor | undefined;
-}
-
-/**
- * <p>Wrapper for updating a skill definition with PATCH semantics.</p>
- * @public
- */
-export interface UpdatedSkillDefinition {
-  /**
-   * <p>The updated skill definition value.</p>
-   * @public
-   */
-  optionalValue?: SkillDefinition | undefined;
-}
-
-/**
- * <p>Wrapper for updating a skill markdown definition with PATCH semantics.</p>
- * @public
- */
-export interface UpdatedSkillMdDefinition {
-  /**
-   * <p>The updated skill markdown definition value.</p>
-   * @public
-   */
-  optionalValue?: SkillMdDefinition | undefined;
-}
-
-/**
- * <p>Individual agent skills descriptor fields that can be updated independently.</p>
- * @public
- */
-export interface UpdatedAgentSkillsDescriptorFields {
-  /**
-   * <p>The updated skill markdown definition.</p>
-   * @public
-   */
-  skillMd?: UpdatedSkillMdDefinition | undefined;
-
-  /**
-   * <p>The updated skill definition.</p>
-   * @public
-   */
-  skillDefinition?: UpdatedSkillDefinition | undefined;
-}
-
-/**
- * <p>Wrapper for updating an agent skills descriptor with PATCH semantics. When present with a value, individual fields can be updated independently. When present with a null value, the entire agent skills descriptor is unset. When absent, the agent skills descriptor is left unchanged.</p>
- * @public
- */
-export interface UpdatedAgentSkillsDescriptor {
-  /**
-   * <p>The updated agent skills descriptor fields.</p>
-   * @public
-   */
-  optionalValue?: UpdatedAgentSkillsDescriptorFields | undefined;
-}
-
-/**
- * <p>Wrapper for updating a custom descriptor with PATCH semantics. When present, the custom descriptor is replaced with the provided value. When absent, the custom descriptor is left unchanged. To unset, include the wrapper with the value set to null.</p>
- * @public
- */
-export interface UpdatedCustomDescriptor {
-  /**
-   * <p>The updated custom descriptor value.</p>
-   * @public
-   */
-  optionalValue?: CustomDescriptor | undefined;
-}
-
-/**
- * <p>Wrapper for updating a server definition with PATCH semantics. When present, the server definition is replaced with the provided value. When absent, the server definition is left unchanged. To unset, include the wrapper with the value set to null.</p>
- * @public
- */
-export interface UpdatedServerDefinition {
-  /**
-   * <p>The updated server definition value.</p>
-   * @public
-   */
-  optionalValue?: ServerDefinition | undefined;
-}
-
-/**
- * <p>Wrapper for updating a tools definition with PATCH semantics. When present, the tools definition is replaced with the provided value. When absent, the tools definition is left unchanged. To unset, include the wrapper with the value set to null.</p>
- * @public
- */
-export interface UpdatedToolsDefinition {
-  /**
-   * <p>The updated tools definition value.</p>
-   * @public
-   */
-  optionalValue?: ToolsDefinition | undefined;
-}
-
-/**
- * <p>Individual MCP descriptor fields that can be updated independently.</p>
- * @public
- */
-export interface UpdatedMcpDescriptorFields {
-  /**
-   * <p>The updated server definition for the MCP descriptor.</p>
-   * @public
-   */
-  server?: UpdatedServerDefinition | undefined;
-
-  /**
-   * <p>The updated tools definition for the MCP descriptor.</p>
-   * @public
-   */
-  tools?: UpdatedToolsDefinition | undefined;
-}
-
-/**
- * <p>Wrapper for updating an MCP descriptor with PATCH semantics. When present with a value, individual MCP fields can be updated independently. When present with a null value, the entire MCP descriptor is unset. When absent, the MCP descriptor is left unchanged.</p>
- * @public
- */
-export interface UpdatedMcpDescriptor {
-  /**
-   * <p>The updated MCP descriptor fields.</p>
-   * @public
-   */
-  optionalValue?: UpdatedMcpDescriptorFields | undefined;
-}
-
-/**
- * <p>Contains per-descriptor-type wrappers for updating descriptors. Each descriptor type can be updated independently.</p>
- * @public
- */
-export interface UpdatedDescriptorsUnion {
-  /**
-   * <p>The updated MCP descriptor.</p>
-   * @public
-   */
-  mcp?: UpdatedMcpDescriptor | undefined;
-
-  /**
-   * <p>The updated A2A descriptor.</p>
-   * @public
-   */
-  a2a?: UpdatedA2aDescriptor | undefined;
-
-  /**
-   * <p>The updated custom descriptor.</p>
-   * @public
-   */
-  custom?: UpdatedCustomDescriptor | undefined;
-
-  /**
-   * <p>The updated agent skills descriptor.</p>
-   * @public
-   */
-  agentSkills?: UpdatedAgentSkillsDescriptor | undefined;
-}
-
-/**
- * <p>Wrapper for updating an optional descriptors field with PATCH semantics. When present with a value, individual descriptors can be updated. When present with a null value, all descriptors are unset. When absent, descriptors are left unchanged.</p>
- * @public
- */
-export interface UpdatedDescriptors {
-  /**
-   * <p>The updated descriptors value. Contains per-descriptor-type wrappers that are each independently updatable.</p>
-   * @public
-   */
-  optionalValue?: UpdatedDescriptorsUnion | undefined;
-}
-
-/**
- * <p>Wrapper for updating the synchronization configuration with PATCH semantics. Must be matched with <code>UpdatedSynchronizationType</code>.</p>
- * @public
- */
-export interface UpdatedSynchronizationConfiguration {
-  /**
-   * <p>The updated synchronization configuration value.</p>
-   * @public
-   */
-  optionalValue?: SynchronizationConfiguration | undefined;
-}
-
-/**
- * <p>Wrapper for updating the synchronization type with PATCH semantics. Must be matched with <code>UpdatedSynchronizationConfiguration</code>.</p>
- * @public
- */
-export interface UpdatedSynchronizationType {
-  /**
-   * <p>The updated synchronization type value.</p>
-   * @public
-   */
-  optionalValue?: SynchronizationType | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateRegistryRecordRequest {
-  /**
-   * <p>The identifier of the registry containing the record. You can specify either the Amazon Resource Name (ARN) or the ID of the registry.</p>
-   * @public
-   */
-  registryId: string | undefined;
-
-  /**
-   * <p>The identifier of the registry record to update. You can specify either the Amazon Resource Name (ARN) or the ID of the record.</p>
-   * @public
-   */
-  recordId: string | undefined;
-
-  /**
-   * <p>The updated name for the registry record.</p>
-   * @public
-   */
-  name?: string | undefined;
-
-  /**
-   * <p>The updated description for the registry record. To clear the description, include the <code>UpdatedDescription</code> wrapper with <code>optionalValue</code> not specified.</p>
-   * @public
-   */
-  description?: UpdatedDescription | undefined;
-
-  /**
-   * <p>The updated descriptor type for the registry record. Changing the descriptor type may require updating the <code>descriptors</code> field to match the new type's schema requirements.</p>
-   * @public
-   */
-  descriptorType?: DescriptorType | undefined;
-
-  /**
-   * <p>The updated descriptor-type-specific configuration containing the resource schema and metadata. Uses PATCH semantics where individual descriptor fields can be updated independently.</p>
-   * @public
-   */
-  descriptors?: UpdatedDescriptors | undefined;
-
-  /**
-   * <p>The version of the registry record for optimistic locking. If provided, it must match the current version of the record. The service automatically increments the version after a successful update.</p>
-   * @public
-   */
-  recordVersion?: string | undefined;
-
-  /**
-   * <p>The updated synchronization type for the registry record.</p>
-   * @public
-   */
-  synchronizationType?: UpdatedSynchronizationType | undefined;
-
-  /**
-   * <p>The updated synchronization configuration for the registry record.</p>
-   * @public
-   */
-  synchronizationConfiguration?: UpdatedSynchronizationConfiguration | undefined;
-
-  /**
-   * <p>Whether to trigger synchronization using the stored or provided configuration. When set to <code>true</code>, the service will synchronize the record metadata from the configured external source.</p>
-   * @public
-   */
-  triggerSynchronization?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateRegistryRecordResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the registry that contains the updated record.</p>
-   * @public
-   */
-  registryArn: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the updated registry record.</p>
-   * @public
-   */
-  recordArn: string | undefined;
-
-  /**
-   * <p>The unique identifier of the updated registry record.</p>
-   * @public
-   */
-  recordId: string | undefined;
-
-  /**
-   * <p>The name of the updated registry record.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The description of the updated registry record.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The descriptor type of the updated registry record. Possible values are <code>MCP</code>, <code>A2A</code>, <code>CUSTOM</code>, and <code>AGENT_SKILLS</code>.</p>
-   * @public
-   */
-  descriptorType: DescriptorType | undefined;
-
-  /**
-   * <p>The descriptor-type-specific configuration of the updated registry record. For details, see the <code>Descriptors</code> data type.</p>
-   * @public
-   */
-  descriptors: Descriptors | undefined;
-
-  /**
-   * <p>The version of the updated registry record.</p>
-   * @public
-   */
-  recordVersion?: string | undefined;
-
-  /**
-   * <p>The current status of the updated registry record. Possible values include <code>CREATING</code>, <code>DRAFT</code>, <code>APPROVED</code>, <code>PENDING_APPROVAL</code>, <code>REJECTED</code>, <code>DEPRECATED</code>, <code>UPDATING</code>, <code>CREATE_FAILED</code>, and <code>UPDATE_FAILED</code>.</p>
-   * @public
-   */
-  status: RegistryRecordStatus | undefined;
-
-  /**
-   * <p>The timestamp when the registry record was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when the registry record was last updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The reason for the current status of the updated registry record.</p>
-   * @public
-   */
-  statusReason?: string | undefined;
-
-  /**
-   * <p>The synchronization type of the updated registry record.</p>
-   * @public
-   */
-  synchronizationType?: SynchronizationType | undefined;
-
-  /**
-   * <p>The synchronization configuration of the updated registry record.</p>
-   * @public
-   */
-  synchronizationConfiguration?: SynchronizationConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateRegistryRecordStatusRequest {
-  /**
-   * <p>The identifier of the registry containing the record. You can specify either the Amazon Resource Name (ARN) or the ID of the registry.</p>
-   * @public
-   */
-  registryId: string | undefined;
-
-  /**
-   * <p>The identifier of the registry record to update the status for. You can specify either the Amazon Resource Name (ARN) or the ID of the record.</p>
-   * @public
-   */
-  recordId: string | undefined;
-
-  /**
-   * <p>The target status for the registry record.</p>
-   * @public
-   */
-  status: RegistryRecordStatus | undefined;
-
-  /**
-   * <p>The reason for the status change, such as why the record was approved or rejected.</p>
-   * @public
-   */
-  statusReason: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateRegistryRecordStatusResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the registry that contains the record.</p>
-   * @public
-   */
-  registryArn: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the registry record.</p>
-   * @public
-   */
-  recordArn: string | undefined;
-
-  /**
-   * <p>The unique identifier of the registry record.</p>
-   * @public
-   */
-  recordId: string | undefined;
-
-  /**
-   * <p>The resulting status of the registry record.</p>
-   * @public
-   */
-  status: RegistryRecordStatus | undefined;
-
-  /**
-   * <p>The reason for the status change.</p>
-   * @public
-   */
-  statusReason: string | undefined;
-
-  /**
-   * <p>The timestamp when the record was last updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-}
-
-/**
- * <p>Configuration for the registry record approval workflow. Controls whether records added to the registry require explicit approval before becoming active.</p>
- * @public
- */
-export interface ApprovalConfiguration {
-  /**
-   * <p>Whether registry records are auto-approved. When set to <code>true</code>, records are automatically approved upon creation. When set to <code>false</code> (the default), records require explicit approval for security purposes.</p>
-   * @public
-   */
-  autoApproval?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateRegistryRequest {
-  /**
-   * <p>The name of the registry. The name must be unique within your account and can contain alphanumeric characters and underscores.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>A description of the registry.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The type of authorizer to use for the registry. This controls the authorization method for the Search and Invoke APIs used by consumers, and does not affect the standard CRUDL APIs for registry and registry record management used by administrators.</p> <ul> <li> <p> <code>CUSTOM_JWT</code> - Authorize with a bearer token.</p> </li> <li> <p> <code>AWS_IAM</code> - Authorize with your Amazon Web Services IAM credentials.</p> </li> </ul>
-   * @public
-   */
-  authorizerType?: RegistryAuthorizerType | undefined;
-
-  /**
-   * <p>The authorizer configuration for the registry. Required if <code>authorizerType</code> is <code>CUSTOM_JWT</code>. For details, see the <code>AuthorizerConfiguration</code> data type.</p>
-   * @public
-   */
-  authorizerConfiguration?: AuthorizerConfiguration | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
-   * <p>The approval configuration for registry records. Controls whether records require explicit approval before becoming active. See the <code>ApprovalConfiguration</code> data type for supported configuration options.</p>
-   * @public
-   */
-  approvalConfiguration?: ApprovalConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateRegistryResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the created registry.</p>
-   * @public
-   */
-  registryArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteRegistryRequest {
-  /**
-   * <p>The identifier of the registry to delete. You can specify either the Amazon Resource Name (ARN) or the ID of the registry.</p>
-   * @public
-   */
-  registryId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteRegistryResponse {
-  /**
-   * <p>The current status of the registry, set to <code>DELETING</code> when deletion is initiated. For a list of all possible registry statuses, see the <code>RegistryStatus</code> data type.</p>
-   * @public
-   */
-  status: RegistryStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface GetRegistryRequest {
-  /**
-   * <p>The identifier of the registry to retrieve. You can specify either the Amazon Resource Name (ARN) or the ID of the registry.</p>
-   * @public
-   */
-  registryId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetRegistryResponse {
-  /**
-   * <p>The name of the registry.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The description of the registry.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The unique identifier of the registry.</p>
-   * @public
-   */
-  registryId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the registry.</p>
-   * @public
-   */
-  registryArn: string | undefined;
-
-  /**
-   * <p>The type of authorizer used by the registry. This controls the authorization method for the Search and Invoke APIs used by consumers.</p> <ul> <li> <p> <code>CUSTOM_JWT</code> - Authorize with a bearer token.</p> </li> <li> <p> <code>AWS_IAM</code> - Authorize with your Amazon Web Services IAM credentials.</p> </li> </ul>
-   * @public
-   */
-  authorizerType?: RegistryAuthorizerType | undefined;
-
-  /**
-   * <p>The authorizer configuration for the registry. For details, see the <code>AuthorizerConfiguration</code> data type.</p>
-   * @public
-   */
-  authorizerConfiguration?: AuthorizerConfiguration | undefined;
-
-  /**
-   * <p>The approval configuration for registry records. For details, see the <code>ApprovalConfiguration</code> data type.</p>
-   * @public
-   */
-  approvalConfiguration?: ApprovalConfiguration | undefined;
-
-  /**
-   * <p>The current status of the registry. Possible values include <code>CREATING</code>, <code>READY</code>, <code>UPDATING</code>, <code>CREATE_FAILED</code>, <code>UPDATE_FAILED</code>, <code>DELETING</code>, and <code>DELETE_FAILED</code>.</p>
-   * @public
-   */
-  status: RegistryStatus | undefined;
-
-  /**
-   * <p>The reason for the current status, typically set when the status is a failure state.</p>
-   * @public
-   */
-  statusReason?: string | undefined;
-
-  /**
-   * <p>The timestamp when the registry was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when the registry was last updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListRegistriesRequest {
-  /**
-   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>Filter registries by their current status. Possible values include <code>CREATING</code>, <code>READY</code>, <code>UPDATING</code>, <code>CREATE_FAILED</code>, <code>UPDATE_FAILED</code>, <code>DELETING</code>, and <code>DELETE_FAILED</code>.</p>
-   * @public
-   */
-  status?: RegistryStatus | undefined;
-
-  /**
-   * <p>Filter registries by their authorizer type. Possible values are <code>CUSTOM_JWT</code> and <code>AWS_IAM</code>. For more information about authorizer types, see the <code>RegistryAuthorizerType</code> enum.</p>
-   * @public
-   */
-  authorizerType?: RegistryAuthorizerType | undefined;
-}
-
-/**
- * <p>Contains summary information about a registry.</p>
- * @public
- */
-export interface RegistrySummary {
-  /**
-   * <p>The name of the registry.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The description of the registry.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The unique identifier of the registry.</p>
-   * @public
-   */
-  registryId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the registry.</p>
-   * @public
-   */
-  registryArn: string | undefined;
-
-  /**
-   * <p>The type of authorizer used by the registry. This controls the authorization method for the Search and Invoke APIs used by consumers.</p> <ul> <li> <p> <code>CUSTOM_JWT</code> - Authorize with a bearer token.</p> </li> <li> <p> <code>AWS_IAM</code> - Authorize with your Amazon Web Services IAM credentials.</p> </li> </ul>
-   * @public
-   */
-  authorizerType?: RegistryAuthorizerType | undefined;
-
-  /**
-   * <p>The current status of the registry. Possible values include <code>CREATING</code>, <code>READY</code>, <code>UPDATING</code>, <code>CREATE_FAILED</code>, <code>UPDATE_FAILED</code>, <code>DELETING</code>, and <code>DELETE_FAILED</code>.</p>
-   * @public
-   */
-  status: RegistryStatus | undefined;
-
-  /**
-   * <p>The reason for the current status, typically set when the status is a failure state.</p>
-   * @public
-   */
-  statusReason?: string | undefined;
-
-  /**
-   * <p>The timestamp when the registry was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when the registry was last updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListRegistriesResponse {
-  /**
-   * <p>The list of registry summaries. For details about the fields in each summary, see the <code>RegistrySummary</code> data type.</p>
-   * @public
-   */
-  registries: RegistrySummary[] | undefined;
-
-  /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * <p>Wrapper for updating an optional approval configuration field with PATCH semantics. When present in an update request, the approval configuration is replaced with the provided value. When absent, the approval configuration is left unchanged.</p>
- * @public
- */
-export interface UpdatedApprovalConfiguration {
-  /**
-   * <p>The updated approval configuration value. Set to <code>null</code> to unset the approval configuration.</p>
-   * @public
-   */
-  optionalValue?: ApprovalConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateRegistryRequest {
-  /**
-   * <p>The identifier of the registry to update. You can specify either the Amazon Resource Name (ARN) or the ID of the registry.</p>
-   * @public
-   */
-  registryId: string | undefined;
-
-  /**
-   * <p>The updated name of the registry.</p>
-   * @public
-   */
-  name?: string | undefined;
-
-  /**
-   * <p>The updated description of the registry. To clear the description, include the <code>UpdatedDescription</code> wrapper with <code>optionalValue</code> not specified.</p>
-   * @public
-   */
-  description?: UpdatedDescription | undefined;
-
-  /**
-   * <p>The updated authorizer configuration for the registry. Changing the authorizer configuration can break existing consumers of the registry who are using the authorization type prior to the update.</p>
-   * @public
-   */
-  authorizerConfiguration?: UpdatedAuthorizerConfiguration | undefined;
-
-  /**
-   * <p>The updated approval configuration for registry records. The updated configuration only affects new records that move to <code>PENDING_APPROVAL</code> status after the change. Existing records already in <code>PENDING_APPROVAL</code> status are not affected.</p>
-   * @public
-   */
-  approvalConfiguration?: UpdatedApprovalConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateRegistryResponse {
-  /**
-   * <p>The name of the updated registry.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The description of the updated registry.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The unique identifier of the updated registry.</p>
-   * @public
-   */
-  registryId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the updated registry.</p>
-   * @public
-   */
-  registryArn: string | undefined;
-
-  /**
-   * <p>The type of authorizer used by the updated registry. This controls the authorization method for the Search and Invoke APIs used by consumers.</p> <ul> <li> <p> <code>CUSTOM_JWT</code> - Authorize with a bearer token.</p> </li> <li> <p> <code>AWS_IAM</code> - Authorize with your Amazon Web Services IAM credentials.</p> </li> </ul>
-   * @public
-   */
-  authorizerType?: RegistryAuthorizerType | undefined;
-
-  /**
-   * <p>The authorizer configuration for the updated registry. For details, see the <code>AuthorizerConfiguration</code> data type.</p>
-   * @public
-   */
-  authorizerConfiguration?: AuthorizerConfiguration | undefined;
-
-  /**
-   * <p>The approval configuration for the updated registry. For details, see the <code>ApprovalConfiguration</code> data type.</p>
-   * @public
-   */
-  approvalConfiguration?: ApprovalConfiguration | undefined;
-
-  /**
-   * <p>The current status of the updated registry. Possible values include <code>CREATING</code>, <code>READY</code>, <code>UPDATING</code>, <code>CREATE_FAILED</code>, <code>UPDATE_FAILED</code>, <code>DELETING</code>, and <code>DELETE_FAILED</code>.</p>
-   * @public
-   */
-  status: RegistryStatus | undefined;
-
-  /**
-   * <p>The reason for the current status of the updated registry.</p>
-   * @public
-   */
-  statusReason?: string | undefined;
-
-  /**
-   * <p>The timestamp when the registry was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when the registry was last updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface SetTokenVaultCMKRequest {
-  /**
-   * <p>The unique identifier of the token vault to update.</p>
-   * @public
-   */
-  tokenVaultId?: string | undefined;
-
-  /**
-   * <p>The KMS configuration for the token vault, including the key type and KMS key ARN.</p>
-   * @public
-   */
-  kmsConfiguration: KmsConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface SetTokenVaultCMKResponse {
-  /**
-   * <p>The ID of the token vault.</p>
-   * @public
-   */
-  tokenVaultId: string | undefined;
-
-  /**
-   * <p>The KMS configuration for the token vault.</p>
-   * @public
-   */
-  kmsConfiguration: KmsConfiguration | undefined;
-
-  /**
-   * <p>The timestamp when the token vault was last modified.</p>
-   * @public
-   */
-  lastModifiedDate: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface TagResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource that you want to tag.</p>
-   * @public
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * <p>The tags to add to the resource. A tag is a key-value pair.</p>
-   * @public
-   */
-  tags: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface TagResourceResponse {}
-
-/**
- * @public
- */
-export interface UntagResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource that you want to untag.</p>
-   * @public
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * <p>The tag keys of the tags to remove from the resource.</p>
-   * @public
-   */
-  tagKeys: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UntagResourceResponse {}

@@ -9,7 +9,7 @@ import type {
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { GetRegistryRequest, GetRegistryResponse } from "../models/models_1";
+import type { GetRegistryRequest, GetRegistryResponse } from "../models/models_2";
 import { GetRegistry$ } from "../schemas/schemas_0";
 
 /**
@@ -121,6 +121,16 @@ export interface GetRegistryCommandOutput extends GetRegistryResponse, __Metadat
  * //           },
  * //         },
  * //       ],
+ * //       allowedWorkloadConfiguration: { // AllowedWorkloadConfiguration
+ * //         hostingEnvironments: [ // HostingEnvironmentListType
+ * //           { // HostingEnvironment
+ * //             arn: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //         workloadIdentities: [ // WorkloadIdentityNameListType
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
  * //     },
  * //   },
  * //   approvalConfiguration: { // ApprovalConfiguration

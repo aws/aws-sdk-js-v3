@@ -9,7 +9,7 @@ import type {
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { CreateHarnessRequest, CreateHarnessResponse } from "../models/models_0";
+import type { CreateHarnessRequest, CreateHarnessResponse } from "../models/models_1";
 import { CreateHarness$ } from "../schemas/schemas_0";
 
 /**
@@ -31,7 +31,7 @@ export interface CreateHarnessCommandInput extends CreateHarnessRequest {}
 export interface CreateHarnessCommandOutput extends CreateHarnessResponse, __MetadataBearer {}
 
 /**
- * <p>Operation to create a Harness.</p>
+ * <p>Operation to create a harness.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -157,6 +157,16 @@ export interface CreateHarnessCommandOutput extends CreateHarnessResponse, __Met
  *           },
  *         },
  *       ],
+ *       allowedWorkloadConfiguration: { // AllowedWorkloadConfiguration
+ *         hostingEnvironments: [ // HostingEnvironmentListType
+ *           { // HostingEnvironment
+ *             arn: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *         workloadIdentities: [ // WorkloadIdentityNameListType
+ *           "STRING_VALUE",
+ *         ],
+ *       },
  *     },
  *   },
  *   model: { // HarnessModelConfiguration Union: only one key present
@@ -256,6 +266,11 @@ export interface CreateHarnessCommandOutput extends CreateHarnessResponse, __Met
  *           username: "STRING_VALUE",
  *         },
  *       },
+ *       awsSkills: { // HarnessSkillAwsSkillsSource
+ *         paths: [ // HarnessAwsSkillPaths
+ *           "STRING_VALUE",
+ *         ],
+ *       },
  *     },
  *   ],
  *   allowedTools: [ // HarnessAllowedTools
@@ -274,6 +289,15 @@ export interface CreateHarnessCommandOutput extends CreateHarnessResponse, __Met
  *         },
  *       },
  *     },
+ *     managedMemoryConfiguration: { // HarnessManagedMemoryConfiguration
+ *       arn: "STRING_VALUE",
+ *       strategies: [ // HarnessManagedMemoryStrategyList
+ *         "SEMANTIC" || "SUMMARIZATION" || "USER_PREFERENCE" || "EPISODIC",
+ *       ],
+ *       eventExpiryDuration: Number("int"),
+ *       encryptionKeyArn: "STRING_VALUE",
+ *     },
+ *     disabled: {},
  *   },
  *   truncation: { // HarnessTruncationConfiguration
  *     strategy: "sliding_window" || "summarization" || "none", // required
@@ -301,6 +325,7 @@ export interface CreateHarnessCommandOutput extends CreateHarnessResponse, __Met
  * //     harnessName: "STRING_VALUE", // required
  * //     arn: "STRING_VALUE", // required
  * //     status: "CREATING" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "READY" || "DELETING" || "DELETE_FAILED", // required
+ * //     harnessVersion: "STRING_VALUE",
  * //     executionRoleArn: "STRING_VALUE", // required
  * //     createdAt: new Date("TIMESTAMP"), // required
  * //     updatedAt: new Date("TIMESTAMP"), // required
@@ -400,6 +425,11 @@ export interface CreateHarnessCommandOutput extends CreateHarnessResponse, __Met
  * //             credentialArn: "STRING_VALUE", // required
  * //             username: "STRING_VALUE",
  * //           },
+ * //         },
+ * //         awsSkills: { // HarnessSkillAwsSkillsSource
+ * //           paths: [ // HarnessAwsSkillPaths
+ * //             "STRING_VALUE",
+ * //           ],
  * //         },
  * //       },
  * //     ],
@@ -535,6 +565,16 @@ export interface CreateHarnessCommandOutput extends CreateHarnessResponse, __Met
  * //             },
  * //           },
  * //         ],
+ * //         allowedWorkloadConfiguration: { // AllowedWorkloadConfiguration
+ * //           hostingEnvironments: [ // HostingEnvironmentListType
+ * //             { // HostingEnvironment
+ * //               arn: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //           workloadIdentities: [ // WorkloadIdentityNameListType
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
  * //       },
  * //     },
  * //     memory: { // HarnessMemoryConfiguration Union: only one key present
@@ -550,6 +590,15 @@ export interface CreateHarnessCommandOutput extends CreateHarnessResponse, __Met
  * //           },
  * //         },
  * //       },
+ * //       managedMemoryConfiguration: { // HarnessManagedMemoryConfiguration
+ * //         arn: "STRING_VALUE",
+ * //         strategies: [ // HarnessManagedMemoryStrategyList
+ * //           "SEMANTIC" || "SUMMARIZATION" || "USER_PREFERENCE" || "EPISODIC",
+ * //         ],
+ * //         eventExpiryDuration: Number("int"),
+ * //         encryptionKeyArn: "STRING_VALUE",
+ * //       },
+ * //       disabled: {},
  * //     },
  * //     maxIterations: Number("int"),
  * //     maxTokens: Number("int"),

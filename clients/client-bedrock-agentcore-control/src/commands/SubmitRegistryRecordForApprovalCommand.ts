@@ -12,7 +12,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type {
   SubmitRegistryRecordForApprovalRequest,
   SubmitRegistryRecordForApprovalResponse,
-} from "../models/models_1";
+} from "../models/models_2";
 import { SubmitRegistryRecordForApproval$ } from "../schemas/schemas_0";
 
 /**

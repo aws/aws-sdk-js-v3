@@ -16,6 +16,7 @@ import {
   AgentRuntimeEndpointStatus,
   AgentRuntimeStatus,
   AgentSkillsDescriptor$,
+  AllowedWorkloadConfiguration$,
   ApiGatewayTargetConfiguration$,
   ApiGatewayToolConfiguration$,
   ApiGatewayToolFilter$,
@@ -75,6 +76,10 @@ import {
   ConfigurationBundleVersionSummary$,
   ConflictException,
   ConflictException$,
+  ConnectorConfiguration$,
+  ConnectorParameterOverride$,
+  ConnectorSource$,
+  ConnectorTargetConfiguration$,
   ConsolidationConfiguration$,
   ContainerConfiguration$,
   Content$,
@@ -135,6 +140,10 @@ import {
   CreateGatewayTargetResponse$,
   CreateHarness$,
   CreateHarnessCommand,
+  CreateHarnessEndpoint$,
+  CreateHarnessEndpointCommand,
+  CreateHarnessEndpointRequest$,
+  CreateHarnessEndpointResponse$,
   CreateHarnessRequest$,
   CreateHarnessResponse$,
   CreateMemory$,
@@ -199,6 +208,7 @@ import {
   CustomOauth2ProviderConfigOutput$,
   CustomReflectionConfiguration$,
   CustomReflectionConfigurationInput$,
+  CustomTransformConfiguration$,
   DatasetSchemaType,
   DatasetStatus,
   DatasetSummary$,
@@ -261,6 +271,10 @@ import {
   DeleteGatewayTargetResponse$,
   DeleteHarness$,
   DeleteHarnessCommand,
+  DeleteHarnessEndpoint$,
+  DeleteHarnessEndpointCommand,
+  DeleteHarnessEndpointRequest$,
+  DeleteHarnessEndpointResponse$,
   DeleteHarnessRequest$,
   DeleteHarnessResponse$,
   DeleteMemory$,
@@ -319,6 +333,7 @@ import {
   EncryptionFailure,
   EncryptionFailure$,
   EndpointIpAddressType,
+  EnforcementMode,
   EpisodicConsolidationOverride$,
   EpisodicExtractionOverride$,
   EpisodicMemoryStrategyInput$,
@@ -413,6 +428,10 @@ import {
   GetGatewayTargetResponse$,
   GetHarness$,
   GetHarnessCommand,
+  GetHarnessEndpoint$,
+  GetHarnessEndpointCommand,
+  GetHarnessEndpointRequest$,
+  GetHarnessEndpointResponse$,
   GetHarnessRequest$,
   GetHarnessResponse$,
   GetMemory$,
@@ -497,6 +516,9 @@ import {
   HarnessAgentCoreRuntimeEnvironmentRequest$,
   HarnessBedrockApiFormat,
   HarnessBedrockModelConfig$,
+  HarnessDisabledMemoryConfiguration$,
+  HarnessEndpoint$,
+  HarnessEndpointStatus,
   HarnessEnvironmentArtifact$,
   HarnessEnvironmentProvider$,
   HarnessEnvironmentProviderRequest$,
@@ -504,12 +526,15 @@ import {
   HarnessGeminiModelConfig$,
   HarnessInlineFunctionConfig$,
   HarnessLiteLlmModelConfig$,
+  HarnessManagedMemoryConfiguration$,
+  HarnessManagedMemoryStrategyType,
   HarnessMemoryConfiguration$,
   HarnessModelConfiguration$,
   HarnessOpenAiApiFormat,
   HarnessOpenAiModelConfig$,
   HarnessRemoteMcpConfig$,
   HarnessSkill$,
+  HarnessSkillAwsSkillsSource$,
   HarnessSkillGitAuth$,
   HarnessSkillGitSource$,
   HarnessSkillS3Source$,
@@ -524,6 +549,9 @@ import {
   HarnessTruncationConfiguration$,
   HarnessTruncationStrategy,
   HarnessTruncationStrategyConfiguration$,
+  HarnessVersionSummary$,
+  HostingEnvironment$,
+  HttpApiSchemaConfiguration$,
   HttpTargetConfiguration$,
   IamCredentialProvider$,
   IamPrincipal$,
@@ -533,10 +561,18 @@ import {
   IncludedOauth2ProviderConfigOutput$,
   IndexedKey$,
   InferenceConfiguration$,
+  InferenceConnectorSource$,
+  InferenceConnectorTargetConfiguration$,
+  InferenceOperationConfiguration$,
+  InferenceProviderTargetConfiguration$,
+  InferenceTargetConfiguration$,
   InlineExamplesSource$,
   Insight$,
   InterceptorConfiguration$,
   InterceptorInputConfiguration$,
+  InterceptorPayloadExclusion,
+  InterceptorPayloadExclusionSelector$,
+  InterceptorPayloadFilter$,
   InternalServerException,
   InternalServerException$,
   InvocationConfiguration$,
@@ -546,6 +582,7 @@ import {
   KmsConfiguration$,
   LambdaEvaluatorConfig$,
   LambdaInterceptorConfiguration$,
+  LambdaTransformConfiguration$,
   LifecycleConfiguration$,
   LinkedinOauth2ProviderConfigInput$,
   LinkedinOauth2ProviderConfigOutput$,
@@ -613,10 +650,18 @@ import {
   ListGatewayTargetsCommand,
   ListGatewayTargetsRequest$,
   ListGatewayTargetsResponse$,
+  ListHarnessEndpoints$,
+  ListHarnessEndpointsCommand,
+  ListHarnessEndpointsRequest$,
+  ListHarnessEndpointsResponse$,
   ListHarnesses$,
   ListHarnessesCommand,
   ListHarnessesRequest$,
   ListHarnessesResponse$,
+  ListHarnessVersions$,
+  ListHarnessVersionsCommand,
+  ListHarnessVersionsRequest$,
+  ListHarnessVersionsResponse$,
   ListingMode,
   ListMemories$,
   ListMemoriesCommand,
@@ -715,6 +760,8 @@ import {
   MetadataValueType,
   MicrosoftOauth2ProviderConfigInput$,
   MicrosoftOauth2ProviderConfigOutput$,
+  ModelEntry$,
+  ModelMapping$,
   ModifyConsolidationConfiguration$,
   ModifyExtractionConfiguration$,
   ModifyInvocationConfigurationInput$,
@@ -758,7 +805,9 @@ import {
   paginateListGatewayRules,
   paginateListGateways,
   paginateListGatewayTargets,
+  paginateListHarnessEndpoints,
   paginateListHarnesses,
+  paginateListHarnessVersions,
   paginateListMemories,
   paginateListOauth2CredentialProviders,
   paginateListOnlineEvaluationConfigs,
@@ -775,6 +824,8 @@ import {
   paginateListRegistries,
   paginateListRegistryRecords,
   paginateListWorkloadIdentities,
+  PassthroughProtocolType,
+  PassthroughTargetConfiguration$,
   PaymentConnectorStatus,
   PaymentConnectorSummary$,
   PaymentConnectorType,
@@ -796,6 +847,7 @@ import {
   PolicyGenerationDetails$,
   PolicyGenerationStatus,
   PolicyGenerationSummary$,
+  PolicyStatement$,
   PolicyStatus,
   PolicySummary$,
   PolicyValidationMode,
@@ -803,6 +855,7 @@ import {
   PrivateEndpoint$,
   PrivateEndpointOverride$,
   ProtocolConfiguration$,
+  ProviderPrefix$,
   PutResourcePolicy$,
   PutResourcePolicyCommand,
   PutResourcePolicyRequest$,
@@ -881,6 +934,7 @@ import {
   StaticOverride$,
   StaticRoute$,
   Status,
+  StickinessConfiguration$,
   StrategyConfiguration$,
   StreamDeliveryResource$,
   StreamDeliveryResources$,
@@ -913,6 +967,7 @@ import {
   TargetStatus,
   TargetSummary$,
   TargetTrafficSplitEntry$,
+  TargetType,
   ThrottledException,
   ThrottledException$,
   ThrottlingException,
@@ -995,6 +1050,10 @@ import {
   UpdateGatewayTargetResponse$,
   UpdateHarness$,
   UpdateHarnessCommand,
+  UpdateHarnessEndpoint$,
+  UpdateHarnessEndpointCommand,
+  UpdateHarnessEndpointRequest$,
+  UpdateHarnessEndpointResponse$,
   UpdateHarnessRequest$,
   UpdateHarnessResponse$,
   UpdateMemory$,
@@ -1060,6 +1119,8 @@ import {
   VersionFilter$,
   VersionLineageMetadata$,
   VpcConfig$,
+  WafConfiguration$,
+  WafFailureMode,
   waitForMemoryCreated,
   waitForPolicyActive,
   waitForPolicyDeleted,
@@ -1112,6 +1173,8 @@ assert(typeof CreateGatewayTargetCommand === "function");
 assert(typeof CreateGatewayTarget$ === "object");
 assert(typeof CreateHarnessCommand === "function");
 assert(typeof CreateHarness$ === "object");
+assert(typeof CreateHarnessEndpointCommand === "function");
+assert(typeof CreateHarnessEndpoint$ === "object");
 assert(typeof CreateMemoryCommand === "function");
 assert(typeof CreateMemory$ === "object");
 assert(typeof CreateOauth2CredentialProviderCommand === "function");
@@ -1162,6 +1225,8 @@ assert(typeof DeleteGatewayTargetCommand === "function");
 assert(typeof DeleteGatewayTarget$ === "object");
 assert(typeof DeleteHarnessCommand === "function");
 assert(typeof DeleteHarness$ === "object");
+assert(typeof DeleteHarnessEndpointCommand === "function");
+assert(typeof DeleteHarnessEndpoint$ === "object");
 assert(typeof DeleteMemoryCommand === "function");
 assert(typeof DeleteMemory$ === "object");
 assert(typeof DeleteOauth2CredentialProviderCommand === "function");
@@ -1214,6 +1279,8 @@ assert(typeof GetGatewayTargetCommand === "function");
 assert(typeof GetGatewayTarget$ === "object");
 assert(typeof GetHarnessCommand === "function");
 assert(typeof GetHarness$ === "object");
+assert(typeof GetHarnessEndpointCommand === "function");
+assert(typeof GetHarnessEndpoint$ === "object");
 assert(typeof GetMemoryCommand === "function");
 assert(typeof GetMemory$ === "object");
 assert(typeof GetOauth2CredentialProviderCommand === "function");
@@ -1280,8 +1347,12 @@ assert(typeof ListGatewaysCommand === "function");
 assert(typeof ListGateways$ === "object");
 assert(typeof ListGatewayTargetsCommand === "function");
 assert(typeof ListGatewayTargets$ === "object");
+assert(typeof ListHarnessEndpointsCommand === "function");
+assert(typeof ListHarnessEndpoints$ === "object");
 assert(typeof ListHarnessesCommand === "function");
 assert(typeof ListHarnesses$ === "object");
+assert(typeof ListHarnessVersionsCommand === "function");
+assert(typeof ListHarnessVersions$ === "object");
 assert(typeof ListMemoriesCommand === "function");
 assert(typeof ListMemories$ === "object");
 assert(typeof ListOauth2CredentialProvidersCommand === "function");
@@ -1352,6 +1423,8 @@ assert(typeof UpdateGatewayTargetCommand === "function");
 assert(typeof UpdateGatewayTarget$ === "object");
 assert(typeof UpdateHarnessCommand === "function");
 assert(typeof UpdateHarness$ === "object");
+assert(typeof UpdateHarnessEndpointCommand === "function");
+assert(typeof UpdateHarnessEndpoint$ === "object");
 assert(typeof UpdateMemoryCommand === "function");
 assert(typeof UpdateMemory$ === "object");
 assert(typeof UpdateOauth2CredentialProviderCommand === "function");
@@ -1386,6 +1459,7 @@ assert(typeof AgentRuntime$ === "object");
 assert(typeof AgentRuntimeArtifact$ === "object");
 assert(typeof AgentRuntimeEndpoint$ === "object");
 assert(typeof AgentSkillsDescriptor$ === "object");
+assert(typeof AllowedWorkloadConfiguration$ === "object");
 assert(typeof ApiGatewayTargetConfiguration$ === "object");
 assert(typeof ApiGatewayToolConfiguration$ === "object");
 assert(typeof ApiGatewayToolFilter$ === "object");
@@ -1426,6 +1500,10 @@ assert(typeof ConfigurationBundleAction$ === "object");
 assert(typeof ConfigurationBundleReference$ === "object");
 assert(typeof ConfigurationBundleSummary$ === "object");
 assert(typeof ConfigurationBundleVersionSummary$ === "object");
+assert(typeof ConnectorConfiguration$ === "object");
+assert(typeof ConnectorParameterOverride$ === "object");
+assert(typeof ConnectorSource$ === "object");
+assert(typeof ConnectorTargetConfiguration$ === "object");
 assert(typeof ConsolidationConfiguration$ === "object");
 assert(typeof ContainerConfiguration$ === "object");
 assert(typeof Content$ === "object");
@@ -1456,6 +1534,8 @@ assert(typeof CreateGatewayRuleRequest$ === "object");
 assert(typeof CreateGatewayRuleResponse$ === "object");
 assert(typeof CreateGatewayTargetRequest$ === "object");
 assert(typeof CreateGatewayTargetResponse$ === "object");
+assert(typeof CreateHarnessEndpointRequest$ === "object");
+assert(typeof CreateHarnessEndpointResponse$ === "object");
 assert(typeof CreateHarnessRequest$ === "object");
 assert(typeof CreateHarnessResponse$ === "object");
 assert(typeof CreateMemoryInput$ === "object");
@@ -1496,6 +1576,7 @@ assert(typeof CustomOauth2ProviderConfigInput$ === "object");
 assert(typeof CustomOauth2ProviderConfigOutput$ === "object");
 assert(typeof CustomReflectionConfiguration$ === "object");
 assert(typeof CustomReflectionConfigurationInput$ === "object");
+assert(typeof CustomTransformConfiguration$ === "object");
 assert(typeof DatasetSummary$ === "object");
 assert(typeof DatasetVersionSummary$ === "object");
 assert(typeof DataSourceConfig$ === "object");
@@ -1526,6 +1607,8 @@ assert(typeof DeleteGatewayRuleRequest$ === "object");
 assert(typeof DeleteGatewayRuleResponse$ === "object");
 assert(typeof DeleteGatewayTargetRequest$ === "object");
 assert(typeof DeleteGatewayTargetResponse$ === "object");
+assert(typeof DeleteHarnessEndpointRequest$ === "object");
+assert(typeof DeleteHarnessEndpointResponse$ === "object");
 assert(typeof DeleteHarnessRequest$ === "object");
 assert(typeof DeleteHarnessResponse$ === "object");
 assert(typeof DeleteMemoryInput$ === "object");
@@ -1609,6 +1692,8 @@ assert(typeof GetGatewayRuleRequest$ === "object");
 assert(typeof GetGatewayRuleResponse$ === "object");
 assert(typeof GetGatewayTargetRequest$ === "object");
 assert(typeof GetGatewayTargetResponse$ === "object");
+assert(typeof GetHarnessEndpointRequest$ === "object");
+assert(typeof GetHarnessEndpointResponse$ === "object");
 assert(typeof GetHarnessRequest$ === "object");
 assert(typeof GetHarnessResponse$ === "object");
 assert(typeof GetMemoryInput$ === "object");
@@ -1658,6 +1743,8 @@ assert(typeof HarnessAgentCoreMemoryRetrievalConfig$ === "object");
 assert(typeof HarnessAgentCoreRuntimeEnvironment$ === "object");
 assert(typeof HarnessAgentCoreRuntimeEnvironmentRequest$ === "object");
 assert(typeof HarnessBedrockModelConfig$ === "object");
+assert(typeof HarnessDisabledMemoryConfiguration$ === "object");
+assert(typeof HarnessEndpoint$ === "object");
 assert(typeof HarnessEnvironmentArtifact$ === "object");
 assert(typeof HarnessEnvironmentProvider$ === "object");
 assert(typeof HarnessEnvironmentProviderRequest$ === "object");
@@ -1665,11 +1752,13 @@ assert(typeof HarnessGatewayOutboundAuth$ === "object");
 assert(typeof HarnessGeminiModelConfig$ === "object");
 assert(typeof HarnessInlineFunctionConfig$ === "object");
 assert(typeof HarnessLiteLlmModelConfig$ === "object");
+assert(typeof HarnessManagedMemoryConfiguration$ === "object");
 assert(typeof HarnessMemoryConfiguration$ === "object");
 assert(typeof HarnessModelConfiguration$ === "object");
 assert(typeof HarnessOpenAiModelConfig$ === "object");
 assert(typeof HarnessRemoteMcpConfig$ === "object");
 assert(typeof HarnessSkill$ === "object");
+assert(typeof HarnessSkillAwsSkillsSource$ === "object");
 assert(typeof HarnessSkillGitAuth$ === "object");
 assert(typeof HarnessSkillGitSource$ === "object");
 assert(typeof HarnessSkillS3Source$ === "object");
@@ -1681,6 +1770,9 @@ assert(typeof HarnessTool$ === "object");
 assert(typeof HarnessToolConfiguration$ === "object");
 assert(typeof HarnessTruncationConfiguration$ === "object");
 assert(typeof HarnessTruncationStrategyConfiguration$ === "object");
+assert(typeof HarnessVersionSummary$ === "object");
+assert(typeof HostingEnvironment$ === "object");
+assert(typeof HttpApiSchemaConfiguration$ === "object");
 assert(typeof HttpTargetConfiguration$ === "object");
 assert(typeof IamCredentialProvider$ === "object");
 assert(typeof IamPrincipal$ === "object");
@@ -1688,16 +1780,24 @@ assert(typeof IncludedOauth2ProviderConfigInput$ === "object");
 assert(typeof IncludedOauth2ProviderConfigOutput$ === "object");
 assert(typeof IndexedKey$ === "object");
 assert(typeof InferenceConfiguration$ === "object");
+assert(typeof InferenceConnectorSource$ === "object");
+assert(typeof InferenceConnectorTargetConfiguration$ === "object");
+assert(typeof InferenceOperationConfiguration$ === "object");
+assert(typeof InferenceProviderTargetConfiguration$ === "object");
+assert(typeof InferenceTargetConfiguration$ === "object");
 assert(typeof InlineExamplesSource$ === "object");
 assert(typeof Insight$ === "object");
 assert(typeof InterceptorConfiguration$ === "object");
 assert(typeof InterceptorInputConfiguration$ === "object");
+assert(typeof InterceptorPayloadExclusionSelector$ === "object");
+assert(typeof InterceptorPayloadFilter$ === "object");
 assert(typeof InvocationConfiguration$ === "object");
 assert(typeof InvocationConfigurationInput$ === "object");
 assert(typeof KinesisResource$ === "object");
 assert(typeof KmsConfiguration$ === "object");
 assert(typeof LambdaEvaluatorConfig$ === "object");
 assert(typeof LambdaInterceptorConfiguration$ === "object");
+assert(typeof LambdaTransformConfiguration$ === "object");
 assert(typeof LifecycleConfiguration$ === "object");
 assert(typeof LinkedinOauth2ProviderConfigInput$ === "object");
 assert(typeof LinkedinOauth2ProviderConfigOutput$ === "object");
@@ -1733,8 +1833,12 @@ assert(typeof ListGatewaysRequest$ === "object");
 assert(typeof ListGatewaysResponse$ === "object");
 assert(typeof ListGatewayTargetsRequest$ === "object");
 assert(typeof ListGatewayTargetsResponse$ === "object");
+assert(typeof ListHarnessEndpointsRequest$ === "object");
+assert(typeof ListHarnessEndpointsResponse$ === "object");
 assert(typeof ListHarnessesRequest$ === "object");
 assert(typeof ListHarnessesResponse$ === "object");
+assert(typeof ListHarnessVersionsRequest$ === "object");
+assert(typeof ListHarnessVersionsResponse$ === "object");
 assert(typeof ListMemoriesInput$ === "object");
 assert(typeof ListMemoriesOutput$ === "object");
 assert(typeof ListOauth2CredentialProvidersRequest$ === "object");
@@ -1793,6 +1897,8 @@ assert(typeof MetadataConfiguration$ === "object");
 assert(typeof MetadataSchemaEntry$ === "object");
 assert(typeof MicrosoftOauth2ProviderConfigInput$ === "object");
 assert(typeof MicrosoftOauth2ProviderConfigOutput$ === "object");
+assert(typeof ModelEntry$ === "object");
+assert(typeof ModelMapping$ === "object");
 assert(typeof ModifyConsolidationConfiguration$ === "object");
 assert(typeof ModifyExtractionConfiguration$ === "object");
 assert(typeof ModifyInvocationConfigurationInput$ === "object");
@@ -1814,6 +1920,7 @@ assert(typeof OAuthCredentialProvider$ === "object");
 assert(typeof OnBehalfOfTokenExchangeConfigType$ === "object");
 assert(typeof OnlineEvaluationConfigSummary$ === "object");
 assert(typeof OutputConfig$ === "object");
+assert(typeof PassthroughTargetConfiguration$ === "object");
 assert(typeof PaymentConnectorSummary$ === "object");
 assert(typeof PaymentCredentialProviderConfiguration$ === "object");
 assert(typeof PaymentCredentialProviderItem$ === "object");
@@ -1828,10 +1935,12 @@ assert(typeof PolicyGeneration$ === "object");
 assert(typeof PolicyGenerationAsset$ === "object");
 assert(typeof PolicyGenerationDetails$ === "object");
 assert(typeof PolicyGenerationSummary$ === "object");
+assert(typeof PolicyStatement$ === "object");
 assert(typeof PolicySummary$ === "object");
 assert(typeof PrivateEndpoint$ === "object");
 assert(typeof PrivateEndpointOverride$ === "object");
 assert(typeof ProtocolConfiguration$ === "object");
+assert(typeof ProviderPrefix$ === "object");
 assert(typeof PutResourcePolicyRequest$ === "object");
 assert(typeof PutResourcePolicyResponse$ === "object");
 assert(typeof RatingScale$ === "object");
@@ -1884,6 +1993,7 @@ assert(typeof StartPolicyGenerationRequest$ === "object");
 assert(typeof StartPolicyGenerationResponse$ === "object");
 assert(typeof StaticOverride$ === "object");
 assert(typeof StaticRoute$ === "object");
+assert(typeof StickinessConfiguration$ === "object");
 assert(typeof StrategyConfiguration$ === "object");
 assert(typeof StreamDeliveryResource$ === "object");
 assert(typeof StreamDeliveryResources$ === "object");
@@ -1959,6 +2069,8 @@ assert(typeof UpdateGatewayRuleRequest$ === "object");
 assert(typeof UpdateGatewayRuleResponse$ === "object");
 assert(typeof UpdateGatewayTargetRequest$ === "object");
 assert(typeof UpdateGatewayTargetResponse$ === "object");
+assert(typeof UpdateHarnessEndpointRequest$ === "object");
+assert(typeof UpdateHarnessEndpointResponse$ === "object");
 assert(typeof UpdateHarnessRequest$ === "object");
 assert(typeof UpdateHarnessResponse$ === "object");
 assert(typeof UpdateMemoryInput$ === "object");
@@ -1997,6 +2109,7 @@ assert(typeof VersionCreatedBySource$ === "object");
 assert(typeof VersionFilter$ === "object");
 assert(typeof VersionLineageMetadata$ === "object");
 assert(typeof VpcConfig$ === "object");
+assert(typeof WafConfiguration$ === "object");
 assert(typeof WeightedOverride$ === "object");
 assert(typeof WeightedRoute$ === "object");
 assert(typeof WorkloadIdentityDetails$ === "object");
@@ -2027,6 +2140,7 @@ assert(typeof DatasetStatus === "object");
 assert(typeof DescriptorType === "object");
 assert(typeof DraftStatus === "object");
 assert(typeof EndpointIpAddressType === "object");
+assert(typeof EnforcementMode === "object");
 assert(typeof EvaluatorLevel === "object");
 assert(typeof EvaluatorStatus === "object");
 assert(typeof EvaluatorType === "object");
@@ -2040,12 +2154,15 @@ assert(typeof GatewayProtocolType === "object");
 assert(typeof GatewayRuleStatus === "object");
 assert(typeof GatewayStatus === "object");
 assert(typeof HarnessBedrockApiFormat === "object");
+assert(typeof HarnessEndpointStatus === "object");
+assert(typeof HarnessManagedMemoryStrategyType === "object");
 assert(typeof HarnessOpenAiApiFormat === "object");
 assert(typeof HarnessStatus === "object");
 assert(typeof HarnessToolType === "object");
 assert(typeof HarnessTruncationStrategy === "object");
 assert(typeof InboundTokenClaimValueType === "object");
 assert(typeof IncludedData === "object");
+assert(typeof InterceptorPayloadExclusion === "object");
 assert(typeof KeyType === "object");
 assert(typeof ListingMode === "object");
 assert(typeof MemoryStatus === "object");
@@ -2059,6 +2176,7 @@ assert(typeof OnBehalfOfTokenExchangeGrantTypeType === "object");
 assert(typeof OnlineEvaluationConfigStatus === "object");
 assert(typeof OnlineEvaluationExecutionStatus === "object");
 assert(typeof OverrideType === "object");
+assert(typeof PassthroughProtocolType === "object");
 assert(typeof PaymentConnectorStatus === "object");
 assert(typeof PaymentConnectorType === "object");
 assert(typeof PaymentCredentialProviderVendorType === "object");
@@ -2084,7 +2202,9 @@ assert(typeof Status === "object");
 assert(typeof SynchronizationType === "object");
 assert(typeof TargetProtocolType === "object");
 assert(typeof TargetStatus === "object");
+assert(typeof TargetType === "object");
 assert(typeof ValidationExceptionReason === "object");
+assert(typeof WafFailureMode === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof BedrockAgentCoreControlServiceException);
 assert(typeof AccessDeniedException$ === "object");
@@ -2145,6 +2265,8 @@ assert(typeof paginateListEvaluators === "function");
 assert(typeof paginateListGatewayRules === "function");
 assert(typeof paginateListGatewayTargets === "function");
 assert(typeof paginateListGateways === "function");
+assert(typeof paginateListHarnessEndpoints === "function");
+assert(typeof paginateListHarnessVersions === "function");
 assert(typeof paginateListHarnesses === "function");
 assert(typeof paginateListMemories === "function");
 assert(typeof paginateListOauth2CredentialProviders === "function");

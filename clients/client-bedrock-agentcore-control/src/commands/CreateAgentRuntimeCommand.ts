@@ -145,6 +145,16 @@ export interface CreateAgentRuntimeCommandOutput extends CreateAgentRuntimeRespo
  *           },
  *         },
  *       ],
+ *       allowedWorkloadConfiguration: { // AllowedWorkloadConfiguration
+ *         hostingEnvironments: [ // HostingEnvironmentListType
+ *           { // HostingEnvironment
+ *             arn: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *         workloadIdentities: [ // WorkloadIdentityNameListType
+ *           "STRING_VALUE",
+ *         ],
+ *       },
  *     },
  *   },
  *   requestHeaderConfiguration: { // RequestHeaderConfiguration Union: only one key present

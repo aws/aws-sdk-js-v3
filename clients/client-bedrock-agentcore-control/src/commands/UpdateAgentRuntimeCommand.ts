@@ -144,6 +144,16 @@ export interface UpdateAgentRuntimeCommandOutput extends UpdateAgentRuntimeRespo
  *           },
  *         },
  *       ],
+ *       allowedWorkloadConfiguration: { // AllowedWorkloadConfiguration
+ *         hostingEnvironments: [ // HostingEnvironmentListType
+ *           { // HostingEnvironment
+ *             arn: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *         workloadIdentities: [ // WorkloadIdentityNameListType
+ *           "STRING_VALUE",
+ *         ],
+ *       },
  *     },
  *   },
  *   requestHeaderConfiguration: { // RequestHeaderConfiguration Union: only one key present

@@ -132,6 +132,16 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  *           },
  *         },
  *       ],
+ *       allowedWorkloadConfiguration: { // AllowedWorkloadConfiguration
+ *         hostingEnvironments: [ // HostingEnvironmentListType
+ *           { // HostingEnvironment
+ *             arn: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *         workloadIdentities: [ // WorkloadIdentityNameListType
+ *           "STRING_VALUE",
+ *         ],
+ *       },
  *     },
  *   },
  *   kmsKeyArn: "STRING_VALUE",
@@ -147,6 +157,13 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  *       ],
  *       inputConfiguration: { // InterceptorInputConfiguration
  *         passRequestHeaders: true || false, // required
+ *         payloadFilter: { // InterceptorPayloadFilter
+ *           exclude: [ // InterceptorPayloadExclusionSelectorList // required
+ *             { // InterceptorPayloadExclusionSelector Union: only one key present
+ *               field: "RESPONSE_BODY",
+ *             },
+ *           ],
+ *         },
  *       },
  *     },
  *   ],
@@ -259,9 +276,24 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  * //           },
  * //         },
  * //       ],
+ * //       allowedWorkloadConfiguration: { // AllowedWorkloadConfiguration
+ * //         hostingEnvironments: [ // HostingEnvironmentListType
+ * //           { // HostingEnvironment
+ * //             arn: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //         workloadIdentities: [ // WorkloadIdentityNameListType
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
  * //     },
  * //   },
  * //   kmsKeyArn: "STRING_VALUE",
+ * //   customTransformConfiguration: { // CustomTransformConfiguration
+ * //     lambda: { // LambdaTransformConfiguration
+ * //       arn: "STRING_VALUE",
+ * //     },
+ * //   },
  * //   interceptorConfigurations: [ // GatewayInterceptorConfigurations
  * //     { // GatewayInterceptorConfiguration
  * //       interceptor: { // InterceptorConfiguration Union: only one key present
@@ -274,6 +306,13 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  * //       ],
  * //       inputConfiguration: { // InterceptorInputConfiguration
  * //         passRequestHeaders: true || false, // required
+ * //         payloadFilter: { // InterceptorPayloadFilter
+ * //           exclude: [ // InterceptorPayloadExclusionSelectorList // required
+ * //             { // InterceptorPayloadExclusionSelector Union: only one key present
+ * //               field: "RESPONSE_BODY",
+ * //             },
+ * //           ],
+ * //         },
  * //       },
  * //     },
  * //   ],
@@ -285,6 +324,10 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  * //     workloadIdentityArn: "STRING_VALUE", // required
  * //   },
  * //   exceptionLevel: "DEBUG",
+ * //   webAclArn: "STRING_VALUE",
+ * //   wafConfiguration: { // WafConfiguration
+ * //     failureMode: "FAIL_CLOSE" || "FAIL_OPEN",
+ * //   },
  * // };
  *
  * ```
