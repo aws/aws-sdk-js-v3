@@ -2177,6 +2177,36 @@ export type IntegrationType = (typeof IntegrationType)[keyof typeof IntegrationT
  * @public
  * @enum
  */
+export const SearchFilterOperator = {
+  equals: "equals",
+  greaterThan: "greaterThan",
+  greaterThanOrEquals: "greaterThanOrEquals",
+  lessThan: "lessThan",
+  lessThanOrEquals: "lessThanOrEquals",
+  notExists: "notExists",
+} as const;
+/**
+ * @public
+ */
+export type SearchFilterOperator = (typeof SearchFilterOperator)[keyof typeof SearchFilterOperator];
+
+/**
+ * @public
+ * @enum
+ */
+export const SearchSortOrder = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+} as const;
+/**
+ * @public
+ */
+export type SearchSortOrder = (typeof SearchSortOrder)[keyof typeof SearchSortOrder];
+
+/**
+ * @public
+ * @enum
+ */
 export const Comparator = {
   EQUALS: "EQUALS",
   GREATER_THAN: "GREATER_THAN",

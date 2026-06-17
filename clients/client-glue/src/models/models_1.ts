@@ -22,7 +22,6 @@ import type {
   DataOperation,
   DataQualityEncryptionMode,
   DataQualityModelStatus,
-  DQCompositeRuleEvaluationMethod,
   ExecutionStatus,
   FieldDataType,
   FieldFilterOperator,
@@ -37,8 +36,6 @@ import type {
   JobBookmarksEncryptionMode,
   Language,
   LastRefreshType,
-  MaterializedViewRefreshState,
-  MaterializedViewRefreshType,
   MetadataOperation,
   MLUserDataEncryptionModeString,
   PrincipalType,
@@ -64,26 +61,23 @@ import type {
 } from "./enums";
 import type {
   Action,
+  AssetFormEntry,
+  AssetTypeFormReference,
   AuthConfiguration,
   AuthenticationConfiguration,
   Blueprint,
   Column,
   ConnectionsList,
   Crawler,
-  DatabaseIdentifier,
   DataQualityAggregatedMetrics,
   DataQualityAnalyzerResult,
   DataQualityObservation,
   DataQualityRuleResult,
-  DataQualityTargetTable,
   DataSource,
-  DevEndpoint,
   ErrorDetail,
   EventBatchingCondition,
   FederatedCatalog,
-  FederatedDatabase,
   GlueTable,
-  JobRun,
   PartitionInput,
   PhysicalConnectionRequirements,
   Predicate,
@@ -95,6 +89,204 @@ import type {
   TableOptimizerConfiguration,
   TargetRedshiftCatalog,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface CreateCrawlerResponse {}
+
+/**
+ * @public
+ */
+export interface CreateCustomEntityTypeRequest {
+  /**
+   * <p>A name for the custom pattern that allows it to be retrieved or deleted later. This name must be unique per Amazon Web Services account.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A regular expression string that is used for detecting sensitive data in a custom pattern.</p>
+   * @public
+   */
+  RegexString: string | undefined;
+
+  /**
+   * <p>A list of context words. If none of these context words are found within the vicinity of the regular expression the data will not be detected as sensitive data.</p>
+   *          <p>If no context words are passed only a regular expression is checked.</p>
+   * @public
+   */
+  ContextWords?: string[] | undefined;
+
+  /**
+   * <p>A list of tags applied to the custom entity type.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCustomEntityTypeResponse {
+  /**
+   * <p>The name of the custom pattern you created.</p>
+   * @public
+   */
+  Name?: string | undefined;
+}
+
+/**
+ * <p>A database that points to an entity outside the Glue Data Catalog.</p>
+ * @public
+ */
+export interface FederatedDatabase {
+  /**
+   * <p>A unique identifier for the federated database.</p>
+   * @public
+   */
+  Identifier?: string | undefined;
+
+  /**
+   * <p>The name of the connection to the external metastore.</p>
+   * @public
+   */
+  ConnectionName?: string | undefined;
+
+  /**
+   * <p>The type of connection used to access the federated database, such as JDBC, ODBC, or other supported connection protocols.</p>
+   * @public
+   */
+  ConnectionType?: string | undefined;
+}
+
+/**
+ * <p>A structure that describes a target database for resource linking.</p>
+ * @public
+ */
+export interface DatabaseIdentifier {
+  /**
+   * <p>The ID of the Data Catalog in which the database resides.</p>
+   * @public
+   */
+  CatalogId?: string | undefined;
+
+  /**
+   * <p>The name of the catalog database.</p>
+   * @public
+   */
+  DatabaseName?: string | undefined;
+
+  /**
+   * <p>Region of the target database.</p>
+   * @public
+   */
+  Region?: string | undefined;
+}
+
+/**
+ * <p>The structure used to create or update a database.</p>
+ * @public
+ */
+export interface DatabaseInput {
+  /**
+   * <p>The name of the database. For Hive compatibility, this is folded to lowercase when it is
+   *       stored.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A description of the database.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The location of the database (for example, an HDFS path). </p>
+   * @public
+   */
+  LocationUri?: string | undefined;
+
+  /**
+   * <p>These key-value pairs define parameters and properties
+   *       of the database.</p>
+   *          <p>These key-value pairs define parameters and properties of the database.</p>
+   * @public
+   */
+  Parameters?: Record<string, string> | undefined;
+
+  /**
+   * <p>Creates a set of default permissions on the table for principals. Used by Lake Formation. Not used in the normal course of Glue operations.</p>
+   * @public
+   */
+  CreateTableDefaultPermissions?: PrincipalPermissions[] | undefined;
+
+  /**
+   * <p>A <code>DatabaseIdentifier</code> structure that describes a target database for resource linking.</p>
+   * @public
+   */
+  TargetDatabase?: DatabaseIdentifier | undefined;
+
+  /**
+   * <p>A <code>FederatedDatabase</code> structure that references an entity outside the Glue Data Catalog.</p>
+   * @public
+   */
+  FederatedDatabase?: FederatedDatabase | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateDatabaseRequest {
+  /**
+   * <p>The ID of the Data Catalog in which to create the database. If none is provided, the Amazon Web Services
+   *       account ID is used by default.</p>
+   * @public
+   */
+  CatalogId?: string | undefined;
+
+  /**
+   * <p>The metadata for the database.</p>
+   * @public
+   */
+  DatabaseInput: DatabaseInput | undefined;
+
+  /**
+   * <p>The tags you assign to the database.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateDatabaseResponse {}
+
+/**
+ * <p>An object representing an Glue table.</p>
+ * @public
+ */
+export interface DataQualityTargetTable {
+  /**
+   * <p>The name of the Glue table.</p>
+   * @public
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>The name of the database where the Glue table exists.</p>
+   * @public
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>The catalog id where the Glue table exists.</p>
+   * @public
+   */
+  CatalogId?: string | undefined;
+}
 
 /**
  * <p>A request to create a data quality ruleset.</p>
@@ -419,6 +611,122 @@ export interface CreateDevEndpointResponse {
    * @public
    */
   Arguments?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateGlossaryRequest {
+  /**
+   * <p>The name of the glossary.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The description of the glossary.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateGlossaryResponse {
+  /**
+   * <p>The unique identifier of the glossary.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The name of the glossary.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The description of the glossary.</p>
+   * @public
+   */
+  Description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateGlossaryTermRequest {
+  /**
+   * <p>The unique identifier of the glossary in which to create the term.</p>
+   * @public
+   */
+  GlossaryIdentifier: string | undefined;
+
+  /**
+   * <p>The name of the glossary term.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A short description of the glossary term.</p>
+   * @public
+   */
+  ShortDescription?: string | undefined;
+
+  /**
+   * <p>A long description of the glossary term.</p>
+   * @public
+   */
+  LongDescription?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateGlossaryTermResponse {
+  /**
+   * <p>The unique identifier of the glossary term.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the glossary containing this term.</p>
+   * @public
+   */
+  GlossaryId?: string | undefined;
+
+  /**
+   * <p>The name of the glossary term.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The short description of the glossary term.</p>
+   * @public
+   */
+  ShortDescription?: string | undefined;
+
+  /**
+   * <p>The long description of the glossary term.</p>
+   * @public
+   */
+  LongDescription?: string | undefined;
 }
 
 /**
@@ -3021,6 +3329,66 @@ export interface CreateWorkflowResponse {
 /**
  * @public
  */
+export interface DeleteAssetRequest {
+  /**
+   * <p>The unique identifier of the asset to delete.</p>
+   * @public
+   */
+  Identifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAssetResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteAssetTypeRequest {
+  /**
+   * <p>The identifier of the asset type to delete.</p>
+   * @public
+   */
+  Identifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAssetTypeResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteAttachmentRequest {
+  /**
+   * <p>The unique identifier of the asset from which to delete the attachment.</p>
+   * @public
+   */
+  Identifier: string | undefined;
+
+  /**
+   * <p>The name of the attachment to delete.</p>
+   * @public
+   */
+  AttachmentName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAttachmentResponse {
+  /**
+   * <p>The unique identifier of the asset.</p>
+   * @public
+   */
+  Identifier?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteBlueprintRequest {
   /**
    * <p>The name of the blueprint to delete.</p>
@@ -3302,6 +3670,54 @@ export interface DeleteDevEndpointRequest {
  * @public
  */
 export interface DeleteDevEndpointResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteFormTypeRequest {
+  /**
+   * <p>The identifier of the form type to delete.</p>
+   * @public
+   */
+  Identifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteFormTypeResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteGlossaryRequest {
+  /**
+   * <p>The unique identifier of the glossary to delete.</p>
+   * @public
+   */
+  Identifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteGlossaryResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteGlossaryTermRequest {
+  /**
+   * <p>The unique identifier of the glossary term to delete.</p>
+   * @public
+   */
+  Identifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteGlossaryTermResponse {}
 
 /**
  * <p>Request to delete the existing Glue Identity Center configuration.</p>
@@ -4870,6 +5286,168 @@ export interface DescribeIntegrationsResponse {
    * @public
    */
   Marker?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateGlossaryTermsRequest {
+  /**
+   * <p>The unique identifier of the asset to disassociate glossary terms from.</p>
+   * @public
+   */
+  Identifier: string | undefined;
+
+  /**
+   * <p>The list of glossary term identifiers to disassociate from the asset.</p>
+   * @public
+   */
+  GlossaryTermIdentifiers: string[] | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateGlossaryTermsResponse {
+  /**
+   * <p>The unique identifier of the asset.</p>
+   * @public
+   */
+  Identifier?: string | undefined;
+
+  /**
+   * <p>The remaining glossary terms associated with the asset.</p>
+   * @public
+   */
+  GlossaryTerms?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAssetInput {
+  /**
+   * <p>The unique identifier of the asset to retrieve.</p>
+   * @public
+   */
+  Identifier: string | undefined;
+}
+
+/**
+ * <p>An iterable form available on an asset, identified by its form type.</p>
+ * @public
+ */
+export interface IterableFormEntry {
+  /**
+   * <p>The form type identifier of the iterable form (for example, <code>columns</code>), used to retrieve its items via <code>ListIterableForms</code> or <code>BatchGetIterableForms</code>.</p>
+   * @public
+   */
+  FormTypeId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAssetOutput {
+  /**
+   * <p>The unique identifier of the asset.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The name of the asset.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The description of the asset.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The timestamp at which the asset was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp at which the asset was last updated.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The identifier of the asset type for this asset.</p>
+   * @public
+   */
+  AssetTypeId: string | undefined;
+
+  /**
+   * <p>The identifiers of the glossary terms associated with the asset.</p>
+   * @public
+   */
+  GlossaryTerms?: string[] | undefined;
+
+  /**
+   * <p>The forms on the asset, keyed by form name.</p>
+   * @public
+   */
+  Forms?: Record<string, AssetFormEntry> | undefined;
+
+  /**
+   * <p>Additional attachments on the asset for more context, keyed by attachment name.</p>
+   * @public
+   */
+  Attachments?: Record<string, AssetFormEntry> | undefined;
+
+  /**
+   * <p>The iterable forms available on the asset, keyed by form name (for example, <code>columns</code>). Use the form name with <code>ListIterableForms</code> or <code>BatchGetIterableForms</code> to retrieve the form's items.</p>
+   * @public
+   */
+  IterableForms?: Record<string, IterableFormEntry> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAssetTypeRequest {
+  /**
+   * <p>The identifier of the asset type to retrieve.</p>
+   * @public
+   */
+  Identifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAssetTypeResponse {
+  /**
+   * <p>The identifier of the asset type.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The name of the asset type.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The forms that make up the asset type, keyed by form name.</p>
+   * @public
+   */
+  Forms?: Record<string, AssetTypeFormReference> | undefined;
 }
 
 /**
@@ -7781,827 +8359,4 @@ export interface GetDataQualityRulesetResponse {
    * @public
    */
   DataQualitySecurityConfiguration?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDataQualityRulesetEvaluationRunRequest {
-  /**
-   * <p>The unique run identifier associated with this run.</p>
-   * @public
-   */
-  RunId: string | undefined;
-}
-
-/**
- * <p>Additional run options you can specify for an evaluation run.</p>
- * @public
- */
-export interface DataQualityEvaluationRunAdditionalRunOptions {
-  /**
-   * <p>Whether or not to enable CloudWatch metrics.</p>
-   * @public
-   */
-  CloudWatchMetricsEnabled?: boolean | undefined;
-
-  /**
-   * <p>Prefix for Amazon S3 to store results.</p>
-   * @public
-   */
-  ResultsS3Prefix?: string | undefined;
-
-  /**
-   * <p>Set the evaluation method for composite rules in the ruleset to ROW/COLUMN</p>
-   * @public
-   */
-  CompositeRuleEvaluationMethod?: DQCompositeRuleEvaluationMethod | undefined;
-
-  /**
-   * <p>A custom prefix for the CloudWatch log group names. When specified, evaluation run logs are written to <code><CustomLogGroupPrefix>/error</code> and <code><CustomLogGroupPrefix>/output</code> instead of the default <code>/aws-glue/data-quality/error</code> and <code>/aws-glue/data-quality/output</code> log groups.</p>
-   * @public
-   */
-  CustomLogGroupPrefix?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDataQualityRulesetEvaluationRunResponse {
-  /**
-   * <p>The unique run identifier associated with this run.</p>
-   * @public
-   */
-  RunId?: string | undefined;
-
-  /**
-   * <p>The data source (an Glue table) associated with this evaluation run.</p>
-   * @public
-   */
-  DataSource?: DataSource | undefined;
-
-  /**
-   * <p>An IAM role supplied to encrypt the results of the run.</p>
-   * @public
-   */
-  Role?: string | undefined;
-
-  /**
-   * <p>The number of <code>G.1X</code> workers to be used in the run. The default is 5.</p>
-   * @public
-   */
-  NumberOfWorkers?: number | undefined;
-
-  /**
-   * <p>The timeout for a run in minutes. This is the maximum time that a run can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</p>
-   * @public
-   */
-  Timeout?: number | undefined;
-
-  /**
-   * <p>Additional run options you can specify for an evaluation run.</p>
-   * @public
-   */
-  AdditionalRunOptions?: DataQualityEvaluationRunAdditionalRunOptions | undefined;
-
-  /**
-   * <p>The status for this run.</p>
-   * @public
-   */
-  Status?: TaskStatusType | undefined;
-
-  /**
-   * <p>The error strings that are associated with the run.</p>
-   * @public
-   */
-  ErrorString?: string | undefined;
-
-  /**
-   * <p>The date and time when this run started.</p>
-   * @public
-   */
-  StartedOn?: Date | undefined;
-
-  /**
-   * <p>A timestamp. The last point in time when this data quality rule recommendation run was modified.</p>
-   * @public
-   */
-  LastModifiedOn?: Date | undefined;
-
-  /**
-   * <p>The date and time when this run was completed.</p>
-   * @public
-   */
-  CompletedOn?: Date | undefined;
-
-  /**
-   * <p>The amount of time (in seconds) that the run consumed resources.</p>
-   * @public
-   */
-  ExecutionTime?: number | undefined;
-
-  /**
-   * <p>A list of ruleset names for the run. Currently, this parameter takes only one Ruleset name.</p>
-   * @public
-   */
-  RulesetNames?: string[] | undefined;
-
-  /**
-   * <p>A list of result IDs for the data quality results for the run.</p>
-   * @public
-   */
-  ResultIds?: string[] | undefined;
-
-  /**
-   * <p>A map of reference strings to additional data sources you can specify for an evaluation run.</p>
-   * @public
-   */
-  AdditionalDataSources?: Record<string, DataSource> | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDevEndpointRequest {
-  /**
-   * <p>Name of the <code>DevEndpoint</code> to retrieve information for.</p>
-   * @public
-   */
-  EndpointName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDevEndpointResponse {
-  /**
-   * <p>A <code>DevEndpoint</code> definition.</p>
-   * @public
-   */
-  DevEndpoint?: DevEndpoint | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDevEndpointsRequest {
-  /**
-   * <p>The maximum size of information to return.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>A continuation token, if this is a continuation call.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDevEndpointsResponse {
-  /**
-   * <p>A list of <code>DevEndpoint</code> definitions.</p>
-   * @public
-   */
-  DevEndpoints?: DevEndpoint[] | undefined;
-
-  /**
-   * <p>A continuation token, if not all <code>DevEndpoint</code> definitions have yet been
-   *       returned.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetEntityRecordsRequest {
-  /**
-   * <p>The name of the connection that contains the connection type credentials.</p>
-   * @public
-   */
-  ConnectionName?: string | undefined;
-
-  /**
-   * <p>The catalog ID of the catalog that contains the connection. This can be null, By default, the Amazon Web Services Account ID is the catalog ID.</p>
-   * @public
-   */
-  CatalogId?: string | undefined;
-
-  /**
-   * <p>Name of the entity that we want to query the preview data from the given connection type.</p>
-   * @public
-   */
-  EntityName: string | undefined;
-
-  /**
-   * <p>A continuation token, included if this is a continuation call.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The API version of the SaaS connector.</p>
-   * @public
-   */
-  DataStoreApiVersion?: string | undefined;
-
-  /**
-   * <p>Connector options that are required to query the data.</p>
-   * @public
-   */
-  ConnectionOptions?: Record<string, string> | undefined;
-
-  /**
-   * <p>A filter predicate that you can apply in the query request.</p>
-   * @public
-   */
-  FilterPredicate?: string | undefined;
-
-  /**
-   * <p>Limits the number of records fetched with the request.</p>
-   * @public
-   */
-  Limit: number | undefined;
-
-  /**
-   * <p>A parameter that orders the response preview data.</p>
-   * @public
-   */
-  OrderBy?: string | undefined;
-
-  /**
-   * <p> List of fields that we want to fetch as part of preview data.</p>
-   * @public
-   */
-  SelectedFields?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetEntityRecordsResponse {
-  /**
-   * <p>A list of the requested objects.</p>
-   * @public
-   */
-  Records?: __DocumentType[] | undefined;
-
-  /**
-   * <p>A continuation token, present if the current segment is not the last.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>Request to retrieve the Glue Identity Center configuration.</p>
- * @public
- */
-export interface GetGlueIdentityCenterConfigurationRequest {}
-
-/**
- * <p>Response containing the Glue Identity Center configuration details.</p>
- * @public
- */
-export interface GetGlueIdentityCenterConfigurationResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Identity Center application associated with the Glue configuration.</p>
-   * @public
-   */
-  ApplicationArn?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Identity Center instance associated with the Glue configuration.</p>
-   * @public
-   */
-  InstanceArn?: string | undefined;
-
-  /**
-   * <p>A list of Identity Center scopes that define the permissions and access levels for the Glue configuration.</p>
-   * @public
-   */
-  Scopes?: string[] | undefined;
-
-  /**
-   * <p>Indicates whether users can run background sessions when using Identity Center authentication with Glue services.</p>
-   * @public
-   */
-  UserBackgroundSessionsEnabled?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface GetIntegrationResourcePropertyRequest {
-  /**
-   * <p>The connection ARN of the source, or the database ARN of the target.</p>
-   * @public
-   */
-  ResourceArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetIntegrationResourcePropertyResponse {
-  /**
-   * <p>The connection ARN of the source, or the database ARN of the target.</p>
-   * @public
-   */
-  ResourceArn?: string | undefined;
-
-  /**
-   * <p>The resource ARN created through this create API. The format is something like arn:aws:glue:<region>:<account_id>:integrationresourceproperty/*</p>
-   * @public
-   */
-  ResourcePropertyArn?: string | undefined;
-
-  /**
-   * <p>The resource properties associated with the integration source.</p>
-   * @public
-   */
-  SourceProcessingProperties?: SourceProcessingProperties | undefined;
-
-  /**
-   * <p>The resource properties associated with the integration target.</p>
-   * @public
-   */
-  TargetProcessingProperties?: TargetProcessingProperties | undefined;
-}
-
-/**
- * @public
- */
-export interface GetIntegrationTablePropertiesRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the target table for which to retrieve integration table properties. Currently, this API only supports retrieving
-   *       properties for target tables, and the provided ARN should be the ARN of the target table in the Glue Data Catalog. Support for retrieving integration
-   *       table properties for source connections (using the connection ARN) is not yet implemented and will be added in a future release.
-   *     </p>
-   * @public
-   */
-  ResourceArn: string | undefined;
-
-  /**
-   * <p>The name of the table to be replicated.</p>
-   * @public
-   */
-  TableName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetIntegrationTablePropertiesResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the target table for which to retrieve integration table properties. Currently, this API only supports retrieving
-   *       properties for target tables, and the provided ARN should be the ARN of the target table in the Glue Data Catalog. Support for retrieving integration
-   *       table properties for source connections (using the connection ARN) is not yet implemented and will be added in a future release.
-   *     </p>
-   * @public
-   */
-  ResourceArn?: string | undefined;
-
-  /**
-   * <p>The name of the table to be replicated.</p>
-   * @public
-   */
-  TableName?: string | undefined;
-
-  /**
-   * <p>A structure for the source table configuration.</p>
-   * @public
-   */
-  SourceTableConfig?: SourceTableConfig | undefined;
-
-  /**
-   * <p>A structure for the target table configuration.</p>
-   * @public
-   */
-  TargetTableConfig?: TargetTableConfig | undefined;
-}
-
-/**
- * @public
- */
-export interface GetJobRequest {
-  /**
-   * <p>The name of the job definition to retrieve.</p>
-   * @public
-   */
-  JobName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetJobBookmarkRequest {
-  /**
-   * <p>The name of the job in question.</p>
-   * @public
-   */
-  JobName: string | undefined;
-
-  /**
-   * <p>The unique run identifier associated with this job run.</p>
-   * @public
-   */
-  RunId?: string | undefined;
-}
-
-/**
- * <p>Defines a point that a job can resume processing.</p>
- * @public
- */
-export interface JobBookmarkEntry {
-  /**
-   * <p>The name of the job in question.</p>
-   * @public
-   */
-  JobName?: string | undefined;
-
-  /**
-   * <p>The version of the job.</p>
-   * @public
-   */
-  Version?: number | undefined;
-
-  /**
-   * <p>The run ID number.</p>
-   * @public
-   */
-  Run?: number | undefined;
-
-  /**
-   * <p>The attempt ID number.</p>
-   * @public
-   */
-  Attempt?: number | undefined;
-
-  /**
-   * <p>The unique run identifier associated with the previous job run.</p>
-   * @public
-   */
-  PreviousRunId?: string | undefined;
-
-  /**
-   * <p>The run ID number.</p>
-   * @public
-   */
-  RunId?: string | undefined;
-
-  /**
-   * <p>The bookmark itself.</p>
-   * @public
-   */
-  JobBookmark?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetJobBookmarkResponse {
-  /**
-   * <p>A structure that defines a point that a job can resume processing.</p>
-   * @public
-   */
-  JobBookmarkEntry?: JobBookmarkEntry | undefined;
-}
-
-/**
- * @public
- */
-export interface GetJobRunRequest {
-  /**
-   * <p>Name of the job definition being run.</p>
-   * @public
-   */
-  JobName: string | undefined;
-
-  /**
-   * <p>The ID of the job run.</p>
-   * @public
-   */
-  RunId: string | undefined;
-
-  /**
-   * <p>True if a list of predecessor runs should be returned.</p>
-   * @public
-   */
-  PredecessorsIncluded?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface GetJobRunResponse {
-  /**
-   * <p>The requested job-run metadata.</p>
-   * @public
-   */
-  JobRun?: JobRun | undefined;
-}
-
-/**
- * @public
- */
-export interface GetJobRunsRequest {
-  /**
-   * <p>The name of the job definition for which to retrieve all job runs.</p>
-   * @public
-   */
-  JobName: string | undefined;
-
-  /**
-   * <p>A continuation token, if this is a continuation call.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum size of the response.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface GetJobRunsResponse {
-  /**
-   * <p>A list of job-run metadata objects.</p>
-   * @public
-   */
-  JobRuns?: JobRun[] | undefined;
-
-  /**
-   * <p>A continuation token, if not all requested job runs have been returned.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetJobsRequest {
-  /**
-   * <p>A continuation token, if this is a continuation call.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum size of the response.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>The location of resources.</p>
- * @public
- */
-export interface Location {
-  /**
-   * <p>A JDBC location.</p>
-   * @public
-   */
-  Jdbc?: CodeGenNodeArg[] | undefined;
-
-  /**
-   * <p>An Amazon Simple Storage Service (Amazon S3) location.</p>
-   * @public
-   */
-  S3?: CodeGenNodeArg[] | undefined;
-
-  /**
-   * <p>An Amazon DynamoDB table location.</p>
-   * @public
-   */
-  DynamoDB?: CodeGenNodeArg[] | undefined;
-}
-
-/**
- * <p>Specifies a table definition in the Glue Data Catalog.</p>
- * @public
- */
-export interface CatalogEntry {
-  /**
-   * <p>The database in which the table metadata resides.</p>
-   * @public
-   */
-  DatabaseName: string | undefined;
-
-  /**
-   * <p>The name of the table in question.</p>
-   * @public
-   */
-  TableName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMappingRequest {
-  /**
-   * <p>Specifies the source table.</p>
-   * @public
-   */
-  Source: CatalogEntry | undefined;
-
-  /**
-   * <p>A list of target tables.</p>
-   * @public
-   */
-  Sinks?: CatalogEntry[] | undefined;
-
-  /**
-   * <p>Parameters for the mapping.</p>
-   * @public
-   */
-  Location?: Location | undefined;
-}
-
-/**
- * <p>Defines a mapping.</p>
- * @public
- */
-export interface MappingEntry {
-  /**
-   * <p>The name of the source table.</p>
-   * @public
-   */
-  SourceTable?: string | undefined;
-
-  /**
-   * <p>The source path.</p>
-   * @public
-   */
-  SourcePath?: string | undefined;
-
-  /**
-   * <p>The source type.</p>
-   * @public
-   */
-  SourceType?: string | undefined;
-
-  /**
-   * <p>The target table.</p>
-   * @public
-   */
-  TargetTable?: string | undefined;
-
-  /**
-   * <p>The target path.</p>
-   * @public
-   */
-  TargetPath?: string | undefined;
-
-  /**
-   * <p>The target type.</p>
-   * @public
-   */
-  TargetType?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMappingResponse {
-  /**
-   * <p>A list of mappings to the specified targets.</p>
-   * @public
-   */
-  Mapping: MappingEntry[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMaterializedViewRefreshTaskRunRequest {
-  /**
-   * <p>The ID of the Data Catalog where the table resides. If none is supplied, the account ID is used by default.</p>
-   * @public
-   */
-  CatalogId: string | undefined;
-
-  /**
-   * <p>The identifier for the particular materialized view refresh task run.</p>
-   * @public
-   */
-  MaterializedViewRefreshTaskRunId: string | undefined;
-}
-
-/**
- * <p>The object that shows the details of the materialized view refresh task run.</p>
- * @public
- */
-export interface MaterializedViewRefreshTaskRun {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  CustomerId?: string | undefined;
-
-  /**
-   * <p>The identifier of the materialized view refresh task run.</p>
-   * @public
-   */
-  MaterializedViewRefreshTaskRunId?: string | undefined;
-
-  /**
-   * <p>The database where the table resides.</p>
-   * @public
-   */
-  DatabaseName?: string | undefined;
-
-  /**
-   * <p>The name of the table for which statistics is generated.</p>
-   * @public
-   */
-  TableName?: string | undefined;
-
-  /**
-   * <p>The ID of the Data Catalog where the table resides. If none is supplied, the account ID is used by default.</p>
-   * @public
-   */
-  CatalogId?: string | undefined;
-
-  /**
-   * <p>The IAM role that the service assumes to generate statistics.</p>
-   * @public
-   */
-  Role?: string | undefined;
-
-  /**
-   * <p>The status of the task run.</p>
-   * @public
-   */
-  Status?: MaterializedViewRefreshState | undefined;
-
-  /**
-   * <p>The time that this task was created.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>The last point in time when this task was modified.</p>
-   * @public
-   */
-  LastUpdated?: Date | undefined;
-
-  /**
-   * <p>The start time of the task.</p>
-   * @public
-   */
-  StartTime?: Date | undefined;
-
-  /**
-   * <p>The end time of the task.</p>
-   * @public
-   */
-  EndTime?: Date | undefined;
-
-  /**
-   * <p>The error message for the job.</p>
-   * @public
-   */
-  ErrorMessage?: string | undefined;
-
-  /**
-   * <p>The calculated DPU usage in seconds for all autoscaled workers.</p>
-   * @public
-   */
-  DPUSeconds?: number | undefined;
-
-  /**
-   * <p>The type of the refresh task run. Either FULL or INCREMENTAL.</p>
-   * @public
-   */
-  RefreshType?: MaterializedViewRefreshType | undefined;
-
-  /**
-   * <p>The number of bytes the refresh task run has scanned to refresh the materialized view.</p>
-   * @public
-   */
-  ProcessedBytes?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMaterializedViewRefreshTaskRunResponse {
-  /**
-   * <p>A MaterializedViewRefreshTaskRun object representing the details of the task run.</p>
-   * @public
-   */
-  MaterializedViewRefreshTaskRun?: MaterializedViewRefreshTaskRun | undefined;
 }

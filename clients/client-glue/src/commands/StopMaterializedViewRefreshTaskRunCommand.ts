@@ -8,7 +8,7 @@ import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 import type {
   StopMaterializedViewRefreshTaskRunRequest,
   StopMaterializedViewRefreshTaskRunResponse,
-} from "../models/models_2";
+} from "../models/models_3";
 import { StopMaterializedViewRefreshTaskRun$ } from "../schemas/schemas_0";
 
 /**

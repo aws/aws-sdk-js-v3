@@ -524,6 +524,94 @@ export interface StatisticAnnotation {
 }
 
 /**
+ * <p>A form on an asset, consisting of the form type identifier and its JSON content.</p>
+ * @public
+ */
+export interface AssetFormEntry {
+  /**
+   * <p>The identifier of the form type that defines this form's schema.</p>
+   * @public
+   */
+  FormTypeId?: string | undefined;
+
+  /**
+   * <p>The JSON content of the form, conforming to the schema of the specified form type.</p>
+   * @public
+   */
+  Content?: string | undefined;
+}
+
+/**
+ * <p>A reference to a form type that is included in an asset type.</p>
+ * @public
+ */
+export interface AssetTypeFormReference {
+  /**
+   * <p>The identifier of the referenced form type.</p>
+   * @public
+   */
+  FormTypeIdentifier: string | undefined;
+}
+
+/**
+ * <p>A summary of an asset type.</p>
+ * @public
+ */
+export interface AssetTypeItem {
+  /**
+   * <p>The identifier of the asset type.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The name of the asset type.</p>
+   * @public
+   */
+  Name?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateGlossaryTermsRequest {
+  /**
+   * <p>The unique identifier of the asset to associate glossary terms with.</p>
+   * @public
+   */
+  Identifier: string | undefined;
+
+  /**
+   * <p>The list of glossary term identifiers to associate with the asset.</p>
+   * @public
+   */
+  GlossaryTermIdentifiers: string[] | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateGlossaryTermsResponse {
+  /**
+   * <p>The unique identifier of the asset.</p>
+   * @public
+   */
+  Identifier?: string | undefined;
+
+  /**
+   * <p>The glossary terms now associated with the asset.</p>
+   * @public
+   */
+  GlossaryTerms?: string[] | undefined;
+}
+
+/**
  * <p>Specifies a single column in a Glue schema definition.</p>
  * @public
  */
@@ -3059,6 +3147,106 @@ export interface BatchGetDevEndpointsResponse {
    * @public
    */
   DevEndpointsNotFound?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetIterableFormsRequest {
+  /**
+   * <p>The unique identifier of the asset.</p>
+   * @public
+   */
+  AssetIdentifier: string | undefined;
+
+  /**
+   * <p>The name of the iterable form to retrieve items from.</p>
+   * @public
+   */
+  IterableFormName: string | undefined;
+
+  /**
+   * <p>The list of item identifiers to retrieve. Each identifier can be an item ID or item name.</p>
+   * @public
+   */
+  ItemIdentifiers: string[] | undefined;
+}
+
+/**
+ * <p>An error that occurred when retrieving an iterable form item.</p>
+ * @public
+ */
+export interface ItemError {
+  /**
+   * <p>The identifier of the item that caused the error.</p>
+   * @public
+   */
+  ItemIdentifier?: string | undefined;
+
+  /**
+   * <p>The error code.</p>
+   * @public
+   */
+  Code?: string | undefined;
+
+  /**
+   * <p>The error message.</p>
+   * @public
+   */
+  Message?: string | undefined;
+}
+
+/**
+ * <p>A full iterable form item with its forms.</p>
+ * @public
+ */
+export interface IterableFormItem {
+  /**
+   * <p>The unique identifier of the item.</p>
+   * @public
+   */
+  ItemId?: string | undefined;
+
+  /**
+   * <p>The name of the item.</p>
+   * @public
+   */
+  ItemName?: string | undefined;
+
+  /**
+   * <p>The identifiers of the glossary terms associated with the item.</p>
+   * @public
+   */
+  GlossaryTerms?: string[] | undefined;
+
+  /**
+   * <p>The forms on the item, keyed by form name.</p>
+   * @public
+   */
+  Forms?: Record<string, AssetFormEntry> | undefined;
+
+  /**
+   * <p>Additional attachments on the item for more context, keyed by attachment name.</p>
+   * @public
+   */
+  Attachments?: Record<string, AssetFormEntry> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetIterableFormsResponse {
+  /**
+   * <p>The list of retrieved iterable form items.</p>
+   * @public
+   */
+  Items?: IterableFormItem[] | undefined;
+
+  /**
+   * <p>The list of errors for items that could not be retrieved.</p>
+   * @public
+   */
+  Errors?: ItemError[] | undefined;
 }
 
 /**
@@ -10310,202 +10498,4 @@ export interface CreateCrawlerRequest {
    * @public
    */
   Tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateCrawlerResponse {}
-
-/**
- * @public
- */
-export interface CreateCustomEntityTypeRequest {
-  /**
-   * <p>A name for the custom pattern that allows it to be retrieved or deleted later. This name must be unique per Amazon Web Services account.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>A regular expression string that is used for detecting sensitive data in a custom pattern.</p>
-   * @public
-   */
-  RegexString: string | undefined;
-
-  /**
-   * <p>A list of context words. If none of these context words are found within the vicinity of the regular expression the data will not be detected as sensitive data.</p>
-   *          <p>If no context words are passed only a regular expression is checked.</p>
-   * @public
-   */
-  ContextWords?: string[] | undefined;
-
-  /**
-   * <p>A list of tags applied to the custom entity type.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateCustomEntityTypeResponse {
-  /**
-   * <p>The name of the custom pattern you created.</p>
-   * @public
-   */
-  Name?: string | undefined;
-}
-
-/**
- * <p>A database that points to an entity outside the Glue Data Catalog.</p>
- * @public
- */
-export interface FederatedDatabase {
-  /**
-   * <p>A unique identifier for the federated database.</p>
-   * @public
-   */
-  Identifier?: string | undefined;
-
-  /**
-   * <p>The name of the connection to the external metastore.</p>
-   * @public
-   */
-  ConnectionName?: string | undefined;
-
-  /**
-   * <p>The type of connection used to access the federated database, such as JDBC, ODBC, or other supported connection protocols.</p>
-   * @public
-   */
-  ConnectionType?: string | undefined;
-}
-
-/**
- * <p>A structure that describes a target database for resource linking.</p>
- * @public
- */
-export interface DatabaseIdentifier {
-  /**
-   * <p>The ID of the Data Catalog in which the database resides.</p>
-   * @public
-   */
-  CatalogId?: string | undefined;
-
-  /**
-   * <p>The name of the catalog database.</p>
-   * @public
-   */
-  DatabaseName?: string | undefined;
-
-  /**
-   * <p>Region of the target database.</p>
-   * @public
-   */
-  Region?: string | undefined;
-}
-
-/**
- * <p>The structure used to create or update a database.</p>
- * @public
- */
-export interface DatabaseInput {
-  /**
-   * <p>The name of the database. For Hive compatibility, this is folded to lowercase when it is
-   *       stored.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>A description of the database.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The location of the database (for example, an HDFS path). </p>
-   * @public
-   */
-  LocationUri?: string | undefined;
-
-  /**
-   * <p>These key-value pairs define parameters and properties
-   *       of the database.</p>
-   *          <p>These key-value pairs define parameters and properties of the database.</p>
-   * @public
-   */
-  Parameters?: Record<string, string> | undefined;
-
-  /**
-   * <p>Creates a set of default permissions on the table for principals. Used by Lake Formation. Not used in the normal course of Glue operations.</p>
-   * @public
-   */
-  CreateTableDefaultPermissions?: PrincipalPermissions[] | undefined;
-
-  /**
-   * <p>A <code>DatabaseIdentifier</code> structure that describes a target database for resource linking.</p>
-   * @public
-   */
-  TargetDatabase?: DatabaseIdentifier | undefined;
-
-  /**
-   * <p>A <code>FederatedDatabase</code> structure that references an entity outside the Glue Data Catalog.</p>
-   * @public
-   */
-  FederatedDatabase?: FederatedDatabase | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateDatabaseRequest {
-  /**
-   * <p>The ID of the Data Catalog in which to create the database. If none is provided, the Amazon Web Services
-   *       account ID is used by default.</p>
-   * @public
-   */
-  CatalogId?: string | undefined;
-
-  /**
-   * <p>The metadata for the database.</p>
-   * @public
-   */
-  DatabaseInput: DatabaseInput | undefined;
-
-  /**
-   * <p>The tags you assign to the database.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateDatabaseResponse {}
-
-/**
- * <p>An object representing an Glue table.</p>
- * @public
- */
-export interface DataQualityTargetTable {
-  /**
-   * <p>The name of the Glue table.</p>
-   * @public
-   */
-  TableName: string | undefined;
-
-  /**
-   * <p>The name of the database where the Glue table exists.</p>
-   * @public
-   */
-  DatabaseName: string | undefined;
-
-  /**
-   * <p>The catalog id where the Glue table exists.</p>
-   * @public
-   */
-  CatalogId?: string | undefined;
 }

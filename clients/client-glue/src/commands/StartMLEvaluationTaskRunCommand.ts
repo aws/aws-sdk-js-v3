@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import type { StartMLEvaluationTaskRunRequest, StartMLEvaluationTaskRunResponse } from "../models/models_2";
+import type { StartMLEvaluationTaskRunRequest, StartMLEvaluationTaskRunResponse } from "../models/models_3";
 import { StartMLEvaluationTaskRun$ } from "../schemas/schemas_0";
 
 /**

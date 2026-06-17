@@ -3,6 +3,11 @@ import { createAggregatedClient } from "@smithy/core/client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AssociateGlossaryTermsCommandInput,
+  type AssociateGlossaryTermsCommandOutput,
+  AssociateGlossaryTermsCommand,
+} from "./commands/AssociateGlossaryTermsCommand";
+import {
   type BatchCreatePartitionCommandInput,
   type BatchCreatePartitionCommandOutput,
   BatchCreatePartitionCommand,
@@ -52,6 +57,11 @@ import {
   type BatchGetDevEndpointsCommandOutput,
   BatchGetDevEndpointsCommand,
 } from "./commands/BatchGetDevEndpointsCommand";
+import {
+  type BatchGetIterableFormsCommandInput,
+  type BatchGetIterableFormsCommandOutput,
+  BatchGetIterableFormsCommand,
+} from "./commands/BatchGetIterableFormsCommand";
 import {
   type BatchGetJobsCommandInput,
   type BatchGetJobsCommandOutput,
@@ -168,6 +178,16 @@ import {
   CreateDevEndpointCommand,
 } from "./commands/CreateDevEndpointCommand";
 import {
+  type CreateGlossaryCommandInput,
+  type CreateGlossaryCommandOutput,
+  CreateGlossaryCommand,
+} from "./commands/CreateGlossaryCommand";
+import {
+  type CreateGlossaryTermCommandInput,
+  type CreateGlossaryTermCommandOutput,
+  CreateGlossaryTermCommand,
+} from "./commands/CreateGlossaryTermCommand";
+import {
   type CreateGlueIdentityCenterConfigurationCommandInput,
   type CreateGlueIdentityCenterConfigurationCommandOutput,
   CreateGlueIdentityCenterConfigurationCommand,
@@ -259,6 +279,21 @@ import {
   CreateWorkflowCommand,
 } from "./commands/CreateWorkflowCommand";
 import {
+  type DeleteAssetCommandInput,
+  type DeleteAssetCommandOutput,
+  DeleteAssetCommand,
+} from "./commands/DeleteAssetCommand";
+import {
+  type DeleteAssetTypeCommandInput,
+  type DeleteAssetTypeCommandOutput,
+  DeleteAssetTypeCommand,
+} from "./commands/DeleteAssetTypeCommand";
+import {
+  type DeleteAttachmentCommandInput,
+  type DeleteAttachmentCommandOutput,
+  DeleteAttachmentCommand,
+} from "./commands/DeleteAttachmentCommand";
+import {
   type DeleteBlueprintCommandInput,
   type DeleteBlueprintCommandOutput,
   DeleteBlueprintCommand,
@@ -323,6 +358,21 @@ import {
   type DeleteDevEndpointCommandOutput,
   DeleteDevEndpointCommand,
 } from "./commands/DeleteDevEndpointCommand";
+import {
+  type DeleteFormTypeCommandInput,
+  type DeleteFormTypeCommandOutput,
+  DeleteFormTypeCommand,
+} from "./commands/DeleteFormTypeCommand";
+import {
+  type DeleteGlossaryCommandInput,
+  type DeleteGlossaryCommandOutput,
+  DeleteGlossaryCommand,
+} from "./commands/DeleteGlossaryCommand";
+import {
+  type DeleteGlossaryTermCommandInput,
+  type DeleteGlossaryTermCommandOutput,
+  DeleteGlossaryTermCommand,
+} from "./commands/DeleteGlossaryTermCommand";
 import {
   type DeleteGlueIdentityCenterConfigurationCommandInput,
   type DeleteGlueIdentityCenterConfigurationCommandOutput,
@@ -444,6 +494,17 @@ import {
   type DescribeIntegrationsCommandOutput,
   DescribeIntegrationsCommand,
 } from "./commands/DescribeIntegrationsCommand";
+import {
+  type DisassociateGlossaryTermsCommandInput,
+  type DisassociateGlossaryTermsCommandOutput,
+  DisassociateGlossaryTermsCommand,
+} from "./commands/DisassociateGlossaryTermsCommand";
+import { type GetAssetCommandInput, type GetAssetCommandOutput, GetAssetCommand } from "./commands/GetAssetCommand";
+import {
+  type GetAssetTypeCommandInput,
+  type GetAssetTypeCommandOutput,
+  GetAssetTypeCommand,
+} from "./commands/GetAssetTypeCommand";
 import {
   type GetBlueprintCommandInput,
   type GetBlueprintCommandOutput,
@@ -609,6 +670,21 @@ import {
   type GetEntityRecordsCommandOutput,
   GetEntityRecordsCommand,
 } from "./commands/GetEntityRecordsCommand";
+import {
+  type GetFormTypeCommandInput,
+  type GetFormTypeCommandOutput,
+  GetFormTypeCommand,
+} from "./commands/GetFormTypeCommand";
+import {
+  type GetGlossaryCommandInput,
+  type GetGlossaryCommandOutput,
+  GetGlossaryCommand,
+} from "./commands/GetGlossaryCommand";
+import {
+  type GetGlossaryTermCommandInput,
+  type GetGlossaryTermCommandOutput,
+  GetGlossaryTermCommand,
+} from "./commands/GetGlossaryTermCommand";
 import {
   type GetGlueIdentityCenterConfigurationCommandInput,
   type GetGlueIdentityCenterConfigurationCommandOutput,
@@ -823,6 +899,11 @@ import {
   ImportCatalogToGlueCommand,
 } from "./commands/ImportCatalogToGlueCommand";
 import {
+  type ListAssetTypesCommandInput,
+  type ListAssetTypesCommandOutput,
+  ListAssetTypesCommand,
+} from "./commands/ListAssetTypesCommand";
+import {
   type ListBlueprintsCommandInput,
   type ListBlueprintsCommandOutput,
   ListBlueprintsCommand,
@@ -893,10 +974,30 @@ import {
   ListEntitiesCommand,
 } from "./commands/ListEntitiesCommand";
 import {
+  type ListFormTypesCommandInput,
+  type ListFormTypesCommandOutput,
+  ListFormTypesCommand,
+} from "./commands/ListFormTypesCommand";
+import {
+  type ListGlossariesCommandInput,
+  type ListGlossariesCommandOutput,
+  ListGlossariesCommand,
+} from "./commands/ListGlossariesCommand";
+import {
+  type ListGlossaryTermsCommandInput,
+  type ListGlossaryTermsCommandOutput,
+  ListGlossaryTermsCommand,
+} from "./commands/ListGlossaryTermsCommand";
+import {
   type ListIntegrationResourcePropertiesCommandInput,
   type ListIntegrationResourcePropertiesCommandOutput,
   ListIntegrationResourcePropertiesCommand,
 } from "./commands/ListIntegrationResourcePropertiesCommand";
+import {
+  type ListIterableFormsCommandInput,
+  type ListIterableFormsCommandOutput,
+  ListIterableFormsCommand,
+} from "./commands/ListIterableFormsCommand";
 import { type ListJobsCommandInput, type ListJobsCommandOutput, ListJobsCommand } from "./commands/ListJobsCommand";
 import {
   type ListMaterializedViewRefreshTaskRunsCommandInput,
@@ -958,6 +1059,17 @@ import {
   type ModifyIntegrationCommandOutput,
   ModifyIntegrationCommand,
 } from "./commands/ModifyIntegrationCommand";
+import { type PutAssetCommandInput, type PutAssetCommandOutput, PutAssetCommand } from "./commands/PutAssetCommand";
+import {
+  type PutAssetTypeCommandInput,
+  type PutAssetTypeCommandOutput,
+  PutAssetTypeCommand,
+} from "./commands/PutAssetTypeCommand";
+import {
+  type PutAttachmentCommandInput,
+  type PutAttachmentCommandOutput,
+  PutAttachmentCommand,
+} from "./commands/PutAttachmentCommand";
 import {
   type PutDataCatalogEncryptionSettingsCommandInput,
   type PutDataCatalogEncryptionSettingsCommandOutput,
@@ -968,6 +1080,11 @@ import {
   type PutDataQualityProfileAnnotationCommandOutput,
   PutDataQualityProfileAnnotationCommand,
 } from "./commands/PutDataQualityProfileAnnotationCommand";
+import {
+  type PutFormTypeCommandInput,
+  type PutFormTypeCommandOutput,
+  PutFormTypeCommand,
+} from "./commands/PutFormTypeCommand";
 import {
   type PutResourcePolicyCommandInput,
   type PutResourcePolicyCommandOutput,
@@ -1018,6 +1135,7 @@ import {
   type RunStatementCommandOutput,
   RunStatementCommand,
 } from "./commands/RunStatementCommand";
+import { type SearchCommandInput, type SearchCommandOutput, SearchCommand } from "./commands/SearchCommand";
 import {
   type SearchTablesCommandInput,
   type SearchTablesCommandOutput,
@@ -1214,6 +1332,16 @@ import {
   UpdateDevEndpointCommand,
 } from "./commands/UpdateDevEndpointCommand";
 import {
+  type UpdateGlossaryCommandInput,
+  type UpdateGlossaryCommandOutput,
+  UpdateGlossaryCommand,
+} from "./commands/UpdateGlossaryCommand";
+import {
+  type UpdateGlossaryTermCommandInput,
+  type UpdateGlossaryTermCommandOutput,
+  UpdateGlossaryTermCommand,
+} from "./commands/UpdateGlossaryTermCommand";
+import {
   type UpdateGlueIdentityCenterConfigurationCommandInput,
   type UpdateGlueIdentityCenterConfigurationCommandOutput,
   UpdateGlueIdentityCenterConfigurationCommand,
@@ -1313,6 +1441,7 @@ import { paginateGetTriggers } from "./pagination/GetTriggersPaginator";
 import { paginateGetUnfilteredPartitionsMetadata } from "./pagination/GetUnfilteredPartitionsMetadataPaginator";
 import { paginateGetUserDefinedFunctions } from "./pagination/GetUserDefinedFunctionsPaginator";
 import { paginateGetWorkflowRuns } from "./pagination/GetWorkflowRunsPaginator";
+import { paginateListAssetTypes } from "./pagination/ListAssetTypesPaginator";
 import { paginateListBlueprints } from "./pagination/ListBlueprintsPaginator";
 import { paginateListColumnStatisticsTaskRuns } from "./pagination/ListColumnStatisticsTaskRunsPaginator";
 import { paginateListConnectionTypes } from "./pagination/ListConnectionTypesPaginator";
@@ -1328,6 +1457,10 @@ import {
 import { paginateListDataQualityRulesets } from "./pagination/ListDataQualityRulesetsPaginator";
 import { paginateListDevEndpoints } from "./pagination/ListDevEndpointsPaginator";
 import { paginateListEntities } from "./pagination/ListEntitiesPaginator";
+import { paginateListFormTypes } from "./pagination/ListFormTypesPaginator";
+import { paginateListGlossaries } from "./pagination/ListGlossariesPaginator";
+import { paginateListGlossaryTerms } from "./pagination/ListGlossaryTermsPaginator";
+import { paginateListIterableForms } from "./pagination/ListIterableFormsPaginator";
 import { paginateListJobs } from "./pagination/ListJobsPaginator";
 import { paginateListMaterializedViewRefreshTaskRuns } from "./pagination/ListMaterializedViewRefreshTaskRunsPaginator";
 import { paginateListMLTransforms } from "./pagination/ListMLTransformsPaginator";
@@ -1339,9 +1472,11 @@ import { paginateListTableOptimizerRuns } from "./pagination/ListTableOptimizerR
 import { paginateListTriggers } from "./pagination/ListTriggersPaginator";
 import { paginateListUsageProfiles } from "./pagination/ListUsageProfilesPaginator";
 import { paginateListWorkflows } from "./pagination/ListWorkflowsPaginator";
+import { paginateSearch } from "./pagination/SearchPaginator";
 import { paginateSearchTables } from "./pagination/SearchTablesPaginator";
 
 const commands = {
+  AssociateGlossaryTermsCommand,
   BatchCreatePartitionCommand,
   BatchDeleteConnectionCommand,
   BatchDeletePartitionCommand,
@@ -1352,6 +1487,7 @@ const commands = {
   BatchGetCustomEntityTypesCommand,
   BatchGetDataQualityResultCommand,
   BatchGetDevEndpointsCommand,
+  BatchGetIterableFormsCommand,
   BatchGetJobsCommand,
   BatchGetPartitionCommand,
   BatchGetTableOptimizerCommand,
@@ -1375,6 +1511,8 @@ const commands = {
   CreateDatabaseCommand,
   CreateDataQualityRulesetCommand,
   CreateDevEndpointCommand,
+  CreateGlossaryCommand,
+  CreateGlossaryTermCommand,
   CreateGlueIdentityCenterConfigurationCommand,
   CreateIntegrationCommand,
   CreateIntegrationResourcePropertyCommand,
@@ -1394,6 +1532,9 @@ const commands = {
   CreateUsageProfileCommand,
   CreateUserDefinedFunctionCommand,
   CreateWorkflowCommand,
+  DeleteAssetCommand,
+  DeleteAssetTypeCommand,
+  DeleteAttachmentCommand,
   DeleteBlueprintCommand,
   DeleteCatalogCommand,
   DeleteClassifierCommand,
@@ -1407,6 +1548,9 @@ const commands = {
   DeleteDatabaseCommand,
   DeleteDataQualityRulesetCommand,
   DeleteDevEndpointCommand,
+  DeleteFormTypeCommand,
+  DeleteGlossaryCommand,
+  DeleteGlossaryTermCommand,
   DeleteGlueIdentityCenterConfigurationCommand,
   DeleteIntegrationCommand,
   DeleteIntegrationResourcePropertyCommand,
@@ -1432,6 +1576,9 @@ const commands = {
   DescribeEntityCommand,
   DescribeInboundIntegrationsCommand,
   DescribeIntegrationsCommand,
+  DisassociateGlossaryTermsCommand,
+  GetAssetCommand,
+  GetAssetTypeCommand,
   GetBlueprintCommand,
   GetBlueprintRunCommand,
   GetBlueprintRunsCommand,
@@ -1465,6 +1612,9 @@ const commands = {
   GetDevEndpointCommand,
   GetDevEndpointsCommand,
   GetEntityRecordsCommand,
+  GetFormTypeCommand,
+  GetGlossaryCommand,
+  GetGlossaryTermCommand,
   GetGlueIdentityCenterConfigurationCommand,
   GetIntegrationResourcePropertyCommand,
   GetIntegrationTablePropertiesCommand,
@@ -1514,6 +1664,7 @@ const commands = {
   GetWorkflowRunPropertiesCommand,
   GetWorkflowRunsCommand,
   ImportCatalogToGlueCommand,
+  ListAssetTypesCommand,
   ListBlueprintsCommand,
   ListColumnStatisticsTaskRunsCommand,
   ListConnectionTypesCommand,
@@ -1528,7 +1679,11 @@ const commands = {
   ListDataQualityStatisticsCommand,
   ListDevEndpointsCommand,
   ListEntitiesCommand,
+  ListFormTypesCommand,
+  ListGlossariesCommand,
+  ListGlossaryTermsCommand,
   ListIntegrationResourcePropertiesCommand,
+  ListIterableFormsCommand,
   ListJobsCommand,
   ListMaterializedViewRefreshTaskRunsCommand,
   ListMLTransformsCommand,
@@ -1542,8 +1697,12 @@ const commands = {
   ListUsageProfilesCommand,
   ListWorkflowsCommand,
   ModifyIntegrationCommand,
+  PutAssetCommand,
+  PutAssetTypeCommand,
+  PutAttachmentCommand,
   PutDataCatalogEncryptionSettingsCommand,
   PutDataQualityProfileAnnotationCommand,
+  PutFormTypeCommand,
   PutResourcePolicyCommand,
   PutSchemaVersionMetadataCommand,
   PutWorkflowRunPropertiesCommand,
@@ -1554,6 +1713,7 @@ const commands = {
   ResetJobBookmarkCommand,
   ResumeWorkflowRunCommand,
   RunStatementCommand,
+  SearchCommand,
   SearchTablesCommand,
   StartBlueprintRunCommand,
   StartColumnStatisticsTaskRunCommand,
@@ -1593,6 +1753,8 @@ const commands = {
   UpdateDatabaseCommand,
   UpdateDataQualityRulesetCommand,
   UpdateDevEndpointCommand,
+  UpdateGlossaryCommand,
+  UpdateGlossaryTermCommand,
   UpdateGlueIdentityCenterConfigurationCommand,
   UpdateIntegrationResourcePropertyCommand,
   UpdateIntegrationTablePropertiesCommand,
@@ -1634,6 +1796,7 @@ const paginators = {
   paginateGetUnfilteredPartitionsMetadata,
   paginateGetUserDefinedFunctions,
   paginateGetWorkflowRuns,
+  paginateListAssetTypes,
   paginateListBlueprints,
   paginateListColumnStatisticsTaskRuns,
   paginateListConnectionTypes,
@@ -1645,6 +1808,10 @@ const paginators = {
   paginateListDataQualityRulesets,
   paginateListDevEndpoints,
   paginateListEntities,
+  paginateListFormTypes,
+  paginateListGlossaries,
+  paginateListGlossaryTerms,
+  paginateListIterableForms,
   paginateListJobs,
   paginateListMaterializedViewRefreshTaskRuns,
   paginateListMLTransforms,
@@ -1656,10 +1823,28 @@ const paginators = {
   paginateListTriggers,
   paginateListUsageProfiles,
   paginateListWorkflows,
+  paginateSearch,
   paginateSearchTables,
 };
 
 export interface Glue {
+  /**
+   * @see {@link AssociateGlossaryTermsCommand}
+   */
+  associateGlossaryTerms(
+    args: AssociateGlossaryTermsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateGlossaryTermsCommandOutput>;
+  associateGlossaryTerms(
+    args: AssociateGlossaryTermsCommandInput,
+    cb: (err: any, data?: AssociateGlossaryTermsCommandOutput) => void
+  ): void;
+  associateGlossaryTerms(
+    args: AssociateGlossaryTermsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateGlossaryTermsCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link BatchCreatePartitionCommand}
    */
@@ -1828,6 +2013,23 @@ export interface Glue {
     args: BatchGetDevEndpointsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchGetDevEndpointsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetIterableFormsCommand}
+   */
+  batchGetIterableForms(
+    args: BatchGetIterableFormsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetIterableFormsCommandOutput>;
+  batchGetIterableForms(
+    args: BatchGetIterableFormsCommandInput,
+    cb: (err: any, data?: BatchGetIterableFormsCommandOutput) => void
+  ): void;
+  batchGetIterableForms(
+    args: BatchGetIterableFormsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetIterableFormsCommandOutput) => void
   ): void;
 
   /**
@@ -2223,6 +2425,40 @@ export interface Glue {
   ): void;
 
   /**
+   * @see {@link CreateGlossaryCommand}
+   */
+  createGlossary(
+    args: CreateGlossaryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateGlossaryCommandOutput>;
+  createGlossary(
+    args: CreateGlossaryCommandInput,
+    cb: (err: any, data?: CreateGlossaryCommandOutput) => void
+  ): void;
+  createGlossary(
+    args: CreateGlossaryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateGlossaryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateGlossaryTermCommand}
+   */
+  createGlossaryTerm(
+    args: CreateGlossaryTermCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateGlossaryTermCommandOutput>;
+  createGlossaryTerm(
+    args: CreateGlossaryTermCommandInput,
+    cb: (err: any, data?: CreateGlossaryTermCommandOutput) => void
+  ): void;
+  createGlossaryTerm(
+    args: CreateGlossaryTermCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateGlossaryTermCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateGlueIdentityCenterConfigurationCommand}
    */
   createGlueIdentityCenterConfiguration(
@@ -2547,6 +2783,57 @@ export interface Glue {
   ): void;
 
   /**
+   * @see {@link DeleteAssetCommand}
+   */
+  deleteAsset(
+    args: DeleteAssetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAssetCommandOutput>;
+  deleteAsset(
+    args: DeleteAssetCommandInput,
+    cb: (err: any, data?: DeleteAssetCommandOutput) => void
+  ): void;
+  deleteAsset(
+    args: DeleteAssetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAssetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAssetTypeCommand}
+   */
+  deleteAssetType(
+    args: DeleteAssetTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAssetTypeCommandOutput>;
+  deleteAssetType(
+    args: DeleteAssetTypeCommandInput,
+    cb: (err: any, data?: DeleteAssetTypeCommandOutput) => void
+  ): void;
+  deleteAssetType(
+    args: DeleteAssetTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAssetTypeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAttachmentCommand}
+   */
+  deleteAttachment(
+    args: DeleteAttachmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAttachmentCommandOutput>;
+  deleteAttachment(
+    args: DeleteAttachmentCommandInput,
+    cb: (err: any, data?: DeleteAttachmentCommandOutput) => void
+  ): void;
+  deleteAttachment(
+    args: DeleteAttachmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAttachmentCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteBlueprintCommand}
    */
   deleteBlueprint(
@@ -2765,6 +3052,57 @@ export interface Glue {
     args: DeleteDevEndpointCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteDevEndpointCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteFormTypeCommand}
+   */
+  deleteFormType(
+    args: DeleteFormTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteFormTypeCommandOutput>;
+  deleteFormType(
+    args: DeleteFormTypeCommandInput,
+    cb: (err: any, data?: DeleteFormTypeCommandOutput) => void
+  ): void;
+  deleteFormType(
+    args: DeleteFormTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteFormTypeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteGlossaryCommand}
+   */
+  deleteGlossary(
+    args: DeleteGlossaryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteGlossaryCommandOutput>;
+  deleteGlossary(
+    args: DeleteGlossaryCommandInput,
+    cb: (err: any, data?: DeleteGlossaryCommandOutput) => void
+  ): void;
+  deleteGlossary(
+    args: DeleteGlossaryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteGlossaryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteGlossaryTermCommand}
+   */
+  deleteGlossaryTerm(
+    args: DeleteGlossaryTermCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteGlossaryTermCommandOutput>;
+  deleteGlossaryTerm(
+    args: DeleteGlossaryTermCommandInput,
+    cb: (err: any, data?: DeleteGlossaryTermCommandOutput) => void
+  ): void;
+  deleteGlossaryTerm(
+    args: DeleteGlossaryTermCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteGlossaryTermCommandOutput) => void
   ): void;
 
   /**
@@ -3194,6 +3532,57 @@ export interface Glue {
     args: DescribeIntegrationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeIntegrationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociateGlossaryTermsCommand}
+   */
+  disassociateGlossaryTerms(
+    args: DisassociateGlossaryTermsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateGlossaryTermsCommandOutput>;
+  disassociateGlossaryTerms(
+    args: DisassociateGlossaryTermsCommandInput,
+    cb: (err: any, data?: DisassociateGlossaryTermsCommandOutput) => void
+  ): void;
+  disassociateGlossaryTerms(
+    args: DisassociateGlossaryTermsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateGlossaryTermsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAssetCommand}
+   */
+  getAsset(
+    args: GetAssetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAssetCommandOutput>;
+  getAsset(
+    args: GetAssetCommandInput,
+    cb: (err: any, data?: GetAssetCommandOutput) => void
+  ): void;
+  getAsset(
+    args: GetAssetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAssetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAssetTypeCommand}
+   */
+  getAssetType(
+    args: GetAssetTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAssetTypeCommandOutput>;
+  getAssetType(
+    args: GetAssetTypeCommandInput,
+    cb: (err: any, data?: GetAssetTypeCommandOutput) => void
+  ): void;
+  getAssetType(
+    args: GetAssetTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAssetTypeCommandOutput) => void
   ): void;
 
   /**
@@ -3765,6 +4154,57 @@ export interface Glue {
     args: GetEntityRecordsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetEntityRecordsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetFormTypeCommand}
+   */
+  getFormType(
+    args: GetFormTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFormTypeCommandOutput>;
+  getFormType(
+    args: GetFormTypeCommandInput,
+    cb: (err: any, data?: GetFormTypeCommandOutput) => void
+  ): void;
+  getFormType(
+    args: GetFormTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetFormTypeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetGlossaryCommand}
+   */
+  getGlossary(
+    args: GetGlossaryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetGlossaryCommandOutput>;
+  getGlossary(
+    args: GetGlossaryCommandInput,
+    cb: (err: any, data?: GetGlossaryCommandOutput) => void
+  ): void;
+  getGlossary(
+    args: GetGlossaryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetGlossaryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetGlossaryTermCommand}
+   */
+  getGlossaryTerm(
+    args: GetGlossaryTermCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetGlossaryTermCommandOutput>;
+  getGlossaryTerm(
+    args: GetGlossaryTermCommandInput,
+    cb: (err: any, data?: GetGlossaryTermCommandOutput) => void
+  ): void;
+  getGlossaryTerm(
+    args: GetGlossaryTermCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetGlossaryTermCommandOutput) => void
   ): void;
 
   /**
@@ -4610,6 +5050,24 @@ export interface Glue {
   ): void;
 
   /**
+   * @see {@link ListAssetTypesCommand}
+   */
+  listAssetTypes(): Promise<ListAssetTypesCommandOutput>;
+  listAssetTypes(
+    args: ListAssetTypesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAssetTypesCommandOutput>;
+  listAssetTypes(
+    args: ListAssetTypesCommandInput,
+    cb: (err: any, data?: ListAssetTypesCommandOutput) => void
+  ): void;
+  listAssetTypes(
+    args: ListAssetTypesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAssetTypesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListBlueprintsCommand}
    */
   listBlueprints(): Promise<ListBlueprintsCommandOutput>;
@@ -4861,6 +5319,59 @@ export interface Glue {
   ): void;
 
   /**
+   * @see {@link ListFormTypesCommand}
+   */
+  listFormTypes(): Promise<ListFormTypesCommandOutput>;
+  listFormTypes(
+    args: ListFormTypesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFormTypesCommandOutput>;
+  listFormTypes(
+    args: ListFormTypesCommandInput,
+    cb: (err: any, data?: ListFormTypesCommandOutput) => void
+  ): void;
+  listFormTypes(
+    args: ListFormTypesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListFormTypesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListGlossariesCommand}
+   */
+  listGlossaries(): Promise<ListGlossariesCommandOutput>;
+  listGlossaries(
+    args: ListGlossariesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListGlossariesCommandOutput>;
+  listGlossaries(
+    args: ListGlossariesCommandInput,
+    cb: (err: any, data?: ListGlossariesCommandOutput) => void
+  ): void;
+  listGlossaries(
+    args: ListGlossariesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListGlossariesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListGlossaryTermsCommand}
+   */
+  listGlossaryTerms(
+    args: ListGlossaryTermsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListGlossaryTermsCommandOutput>;
+  listGlossaryTerms(
+    args: ListGlossaryTermsCommandInput,
+    cb: (err: any, data?: ListGlossaryTermsCommandOutput) => void
+  ): void;
+  listGlossaryTerms(
+    args: ListGlossaryTermsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListGlossaryTermsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListIntegrationResourcePropertiesCommand}
    */
   listIntegrationResourceProperties(): Promise<ListIntegrationResourcePropertiesCommandOutput>;
@@ -4876,6 +5387,23 @@ export interface Glue {
     args: ListIntegrationResourcePropertiesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListIntegrationResourcePropertiesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListIterableFormsCommand}
+   */
+  listIterableForms(
+    args: ListIterableFormsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListIterableFormsCommandOutput>;
+  listIterableForms(
+    args: ListIterableFormsCommandInput,
+    cb: (err: any, data?: ListIterableFormsCommandOutput) => void
+  ): void;
+  listIterableForms(
+    args: ListIterableFormsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListIterableFormsCommandOutput) => void
   ): void;
 
   /**
@@ -5108,6 +5636,57 @@ export interface Glue {
   ): void;
 
   /**
+   * @see {@link PutAssetCommand}
+   */
+  putAsset(
+    args: PutAssetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutAssetCommandOutput>;
+  putAsset(
+    args: PutAssetCommandInput,
+    cb: (err: any, data?: PutAssetCommandOutput) => void
+  ): void;
+  putAsset(
+    args: PutAssetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutAssetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutAssetTypeCommand}
+   */
+  putAssetType(
+    args: PutAssetTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutAssetTypeCommandOutput>;
+  putAssetType(
+    args: PutAssetTypeCommandInput,
+    cb: (err: any, data?: PutAssetTypeCommandOutput) => void
+  ): void;
+  putAssetType(
+    args: PutAssetTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutAssetTypeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutAttachmentCommand}
+   */
+  putAttachment(
+    args: PutAttachmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutAttachmentCommandOutput>;
+  putAttachment(
+    args: PutAttachmentCommandInput,
+    cb: (err: any, data?: PutAttachmentCommandOutput) => void
+  ): void;
+  putAttachment(
+    args: PutAttachmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutAttachmentCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link PutDataCatalogEncryptionSettingsCommand}
    */
   putDataCatalogEncryptionSettings(
@@ -5139,6 +5718,23 @@ export interface Glue {
     args: PutDataQualityProfileAnnotationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutDataQualityProfileAnnotationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutFormTypeCommand}
+   */
+  putFormType(
+    args: PutFormTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutFormTypeCommandOutput>;
+  putFormType(
+    args: PutFormTypeCommandInput,
+    cb: (err: any, data?: PutFormTypeCommandOutput) => void
+  ): void;
+  putFormType(
+    args: PutFormTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutFormTypeCommandOutput) => void
   ): void;
 
   /**
@@ -5310,6 +5906,24 @@ export interface Glue {
     args: RunStatementCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RunStatementCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SearchCommand}
+   */
+  search(): Promise<SearchCommandOutput>;
+  search(
+    args: SearchCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchCommandOutput>;
+  search(
+    args: SearchCommandInput,
+    cb: (err: any, data?: SearchCommandOutput) => void
+  ): void;
+  search(
+    args: SearchCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchCommandOutput) => void
   ): void;
 
   /**
@@ -5979,6 +6593,40 @@ export interface Glue {
   ): void;
 
   /**
+   * @see {@link UpdateGlossaryCommand}
+   */
+  updateGlossary(
+    args: UpdateGlossaryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateGlossaryCommandOutput>;
+  updateGlossary(
+    args: UpdateGlossaryCommandInput,
+    cb: (err: any, data?: UpdateGlossaryCommandOutput) => void
+  ): void;
+  updateGlossary(
+    args: UpdateGlossaryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateGlossaryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateGlossaryTermCommand}
+   */
+  updateGlossaryTerm(
+    args: UpdateGlossaryTermCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateGlossaryTermCommandOutput>;
+  updateGlossaryTerm(
+    args: UpdateGlossaryTermCommandInput,
+    cb: (err: any, data?: UpdateGlossaryTermCommandOutput) => void
+  ): void;
+  updateGlossaryTerm(
+    args: UpdateGlossaryTermCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateGlossaryTermCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateGlueIdentityCenterConfigurationCommand}
    */
   updateGlueIdentityCenterConfiguration(): Promise<UpdateGlueIdentityCenterConfigurationCommandOutput>;
@@ -6507,6 +7155,17 @@ export interface Glue {
   ): Paginator<GetWorkflowRunsCommandOutput>;
 
   /**
+   * @see {@link ListAssetTypesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAssetTypesCommandOutput}.
+   */
+  paginateListAssetTypes(
+    args?: ListAssetTypesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAssetTypesCommandOutput>;
+
+  /**
    * @see {@link ListBlueprintsCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -6628,6 +7287,50 @@ export interface Glue {
   ): Paginator<ListEntitiesCommandOutput>;
 
   /**
+   * @see {@link ListFormTypesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFormTypesCommandOutput}.
+   */
+  paginateListFormTypes(
+    args?: ListFormTypesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFormTypesCommandOutput>;
+
+  /**
+   * @see {@link ListGlossariesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGlossariesCommandOutput}.
+   */
+  paginateListGlossaries(
+    args?: ListGlossariesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGlossariesCommandOutput>;
+
+  /**
+   * @see {@link ListGlossaryTermsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGlossaryTermsCommandOutput}.
+   */
+  paginateListGlossaryTerms(
+    args: ListGlossaryTermsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGlossaryTermsCommandOutput>;
+
+  /**
+   * @see {@link ListIterableFormsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListIterableFormsCommandOutput}.
+   */
+  paginateListIterableForms(
+    args: ListIterableFormsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListIterableFormsCommandOutput>;
+
+  /**
    * @see {@link ListJobsCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -6747,6 +7450,17 @@ export interface Glue {
     args?: ListWorkflowsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListWorkflowsCommandOutput>;
+
+  /**
+   * @see {@link SearchCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchCommandOutput}.
+   */
+  paginateSearch(
+    args?: SearchCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchCommandOutput>;
 
   /**
    * @see {@link SearchTablesCommand}

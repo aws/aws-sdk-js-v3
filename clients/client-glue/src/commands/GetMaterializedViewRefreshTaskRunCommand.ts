@@ -8,7 +8,7 @@ import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 import type {
   GetMaterializedViewRefreshTaskRunRequest,
   GetMaterializedViewRefreshTaskRunResponse,
-} from "../models/models_1";
+} from "../models/models_2";
 import { GetMaterializedViewRefreshTaskRun$ } from "../schemas/schemas_0";
 
 /**

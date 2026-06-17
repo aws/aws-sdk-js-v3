@@ -8,7 +8,7 @@ import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 import type {
   GetGlueIdentityCenterConfigurationRequest,
   GetGlueIdentityCenterConfigurationResponse,
-} from "../models/models_1";
+} from "../models/models_2";
 import { GetGlueIdentityCenterConfiguration$ } from "../schemas/schemas_0";
 
 /**

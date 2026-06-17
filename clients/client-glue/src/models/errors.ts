@@ -57,6 +57,32 @@ export class AlreadyExistsException extends __BaseException {
 }
 
 /**
+ * <p>Two processes are trying to modify a resource simultaneously.</p>
+ * @public
+ */
+export class ConcurrentModificationException extends __BaseException {
+  readonly name = "ConcurrentModificationException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>A message describing the problem.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
+    super({
+      name: "ConcurrentModificationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>A specified entity does not exist</p>
  * @public
  */
@@ -86,32 +112,6 @@ export class EntityNotFoundException extends __BaseException {
     Object.setPrototypeOf(this, EntityNotFoundException.prototype);
     this.Message = opts.Message;
     this.FromFederationSource = opts.FromFederationSource;
-  }
-}
-
-/**
- * <p>An encryption operation failed.</p>
- * @public
- */
-export class GlueEncryptionException extends __BaseException {
-  readonly name = "GlueEncryptionException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * <p>The message describing the problem.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<GlueEncryptionException, __BaseException>) {
-    super({
-      name: "GlueEncryptionException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, GlueEncryptionException.prototype);
-    this.Message = opts.Message;
   }
 }
 
@@ -171,6 +171,58 @@ export class InvalidInputException extends __BaseException {
     Object.setPrototypeOf(this, InvalidInputException.prototype);
     this.Message = opts.Message;
     this.FromFederationSource = opts.FromFederationSource;
+  }
+}
+
+/**
+ * <p>The throttling threshhold was exceeded.</p>
+ * @public
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name = "ThrottlingException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>A message describing the problem.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>An encryption operation failed.</p>
+ * @public
+ */
+export class GlueEncryptionException extends __BaseException {
+  readonly name = "GlueEncryptionException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>The message describing the problem.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<GlueEncryptionException, __BaseException>) {
+    super({
+      name: "GlueEncryptionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, GlueEncryptionException.prototype);
+    this.Message = opts.Message;
   }
 }
 
@@ -338,32 +390,6 @@ export class InvalidStateException extends __BaseException {
 }
 
 /**
- * <p>The throttling threshhold was exceeded.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name = "ThrottlingException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * <p>A message describing the problem.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>The session is in an invalid state to perform a requested operation.</p>
  * @public
  */
@@ -385,32 +411,6 @@ export class IllegalSessionStateException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, IllegalSessionStateException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Two processes are trying to modify a resource simultaneously.</p>
- * @public
- */
-export class ConcurrentModificationException extends __BaseException {
-  readonly name = "ConcurrentModificationException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * <p>A message describing the problem.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
-    super({
-      name: "ConcurrentModificationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
     this.Message = opts.Message;
   }
 }

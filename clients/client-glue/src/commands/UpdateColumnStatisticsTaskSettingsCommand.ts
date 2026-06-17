@@ -8,7 +8,7 @@ import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 import type {
   UpdateColumnStatisticsTaskSettingsRequest,
   UpdateColumnStatisticsTaskSettingsResponse,
-} from "../models/models_2";
+} from "../models/models_3";
 import { UpdateColumnStatisticsTaskSettings$ } from "../schemas/schemas_0";
 
 /**

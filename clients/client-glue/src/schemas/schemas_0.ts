@@ -1,6 +1,7 @@
 const _A = "Action";
 const _AA = "ApplicationArn";
 const _AAC = "AdditionalAuditContext";
+const _AAF = "AndAllFilters";
 const _AAd = "AddArguments";
 const _AC = "AuthorizationCode";
 const _ACI = "AuthenticationConfigurationInput";
@@ -16,6 +17,7 @@ const _ACu = "AuditContext";
 const _ACut = "AuthConfiguration";
 const _ACuth = "AuthenticationConfiguration";
 const _ACutho = "AuthorizedColumns";
+const _AD = "AssetDescription";
 const _ADE = "AccessDeniedException";
 const _ADO = "AdditionalDeltaOptions";
 const _ADQ = "AutoDataQuality";
@@ -26,12 +28,20 @@ const _AEC = "AdditionalEncryptionContext";
 const _AEE = "AlreadyExistsException";
 const _AEL = "AnnotationErrorList";
 const _AF = "AggFunc";
+const _AFE = "AssetFormEntry";
+const _AFM = "AssetFormMap";
 const _AFTEDA = "AllowFullTableExternalDataAccess";
+const _AFt = "AttributeFilter";
 const _AGR = "AssociatedGlueResource";
+const _AGT = "AssociateGlossaryTerms";
+const _AGTR = "AssociateGlossaryTermsRequest";
+const _AGTRs = "AssociateGlossaryTermsResponse";
 const _AHO = "AdditionalHudiOptions";
-const _AI = "AccountId";
+const _AI = "AssetIdentifier";
 const _AIO = "AdditionalIcebergOptions";
 const _AITBR = "AddIdleTimeBetweenReads";
+const _AIc = "AccountId";
+const _AIs = "AssetId";
 const _AKKI = "AwsKmsKeyId";
 const _AL = "AverageLength";
 const _ALc = "ActionList";
@@ -39,6 +49,8 @@ const _ALd = "AdditionalLocations";
 const _ALn = "AnnotationList";
 const _AM = "ApplyMapping";
 const _AMg = "AggregatedMetrics";
+const _AN = "AttachmentName";
+const _ANs = "AssetName";
 const _AO = "AggregateOperation";
 const _AOFCE = "ApplyOverrideForComputeEnvironment";
 const _AOd = "AdvancedOptions";
@@ -62,7 +74,12 @@ const _AS = "AuthStrategy";
 const _ASC = "AllowSingleColumn";
 const _AT = "AccessToken";
 const _ATET = "AuthTokenExpirationTime";
+const _ATFM = "AssetTypeFormsMap";
+const _ATFR = "AssetTypeFormReference";
 const _ATG = "AttributesToGet";
+const _ATI = "AssetTypeItem";
+const _ATIL = "AssetTypeItemList";
+const _ATIs = "AssetTypeId";
 const _ATc = "AccessType";
 const _ATn = "AnalyzedTime";
 const _ATu = "AuthenticationType";
@@ -82,7 +99,9 @@ const _An = "Annotations";
 const _Ar = "Arguments";
 const _Arg = "Args";
 const _As = "Assign";
-const _At = "Attempt";
+const _At = "Attachments";
+const _Att = "Attempt";
+const _Attr = "Attribute";
 const _B = "Blueprints";
 const _BAC = "BasicAuthenticationCredentials";
 const _BAP = "BasicAuthenticationProperties";
@@ -126,6 +145,9 @@ const _BGDERa = "BatchGetDevEndpointsResponse";
 const _BGDQR = "BatchGetDataQualityResult";
 const _BGDQRR = "BatchGetDataQualityResultRequest";
 const _BGDQRRa = "BatchGetDataQualityResultResponse";
+const _BGIF = "BatchGetIterableForms";
+const _BGIFR = "BatchGetIterableFormsRequest";
+const _BGIFRa = "BatchGetIterableFormsResponse";
 const _BGJ = "BatchGetJobs";
 const _BGJR = "BatchGetJobsRequest";
 const _BGJRa = "BatchGetJobsResponse";
@@ -184,6 +206,7 @@ const _CACP = "ConnectorAuthorizationCodeProperties";
 const _CACo = "ConnectorAuthenticationConfiguration";
 const _CAP = "CustomAuthenticationProperties";
 const _CAa = "CatalogArn";
+const _CAr = "CreatedAt";
 const _CB = "CreatedBefore";
 const _CBR = "CreateBlueprintRequest";
 const _CBRr = "CreateBlueprintResponse";
@@ -261,6 +284,7 @@ const _CEond = "ConditionExpressions";
 const _CF = "CrawlsFilter";
 const _CFL = "CrawlsFilterList";
 const _CFe = "CellFilters";
+const _CG = "CreateGlossary";
 const _CGCN = "CodeGenConfigurationNode";
 const _CGCNo = "CodeGenConfigurationNodes";
 const _CGCR = "CreateGrokClassifierRequest";
@@ -271,6 +295,11 @@ const _CGICCRr = "CreateGlueIdentityCenterConfigurationResponse";
 const _CGN = "CodeGenNode";
 const _CGNA = "CodeGenNodeArg";
 const _CGNAo = "CodeGenNodeArgs";
+const _CGR = "CreateGlossaryRequest";
+const _CGRr = "CreateGlossaryResponse";
+const _CGT = "CreateGlossaryTerm";
+const _CGTR = "CreateGlossaryTermRequest";
+const _CGTRr = "CreateGlossaryTermResponse";
 const _CH = "CrawlerHistory";
 const _CHL = "CrawlerHistoryList";
 const _CHS = "CatalogHudiSource";
@@ -489,8 +518,9 @@ const _Compa = "Compaction";
 const _Compar = "Comparator";
 const _Compr = "Compression";
 const _Compre = "Compressed";
-const _Con = "Condition";
-const _Cond = "Conditions";
+const _Con = "Content";
+const _Cond = "Condition";
+const _Condi = "Conditions";
 const _Conf = "Configuration";
 const _Conn = "Connections";
 const _Cr = "Crawlers";
@@ -499,7 +529,16 @@ const _Craw = "Crawler";
 const _Crawl = "Crawls";
 const _D = "Description";
 const _DA = "DefaultArguments";
+const _DAR = "DeleteAssetRequest";
+const _DARe = "DeleteAssetResponse";
+const _DARel = "DeleteAttachmentRequest";
+const _DARele = "DeleteAttachmentResponse";
+const _DAT = "DeleteAssetType";
+const _DATR = "DeleteAssetTypeRequest";
+const _DATRe = "DeleteAssetTypeResponse";
 const _DAe = "DeleteArguments";
+const _DAel = "DeleteAsset";
+const _DAele = "DeleteAttachment";
 const _DB = "DeleteBehavior";
 const _DBR = "DeleteBlueprintRequest";
 const _DBRe = "DeleteBlueprintResponse";
@@ -569,11 +608,23 @@ const _DEe = "DevEndpoint";
 const _DEes = "DescribeEntity";
 const _DEy = "DynamodbExport";
 const _DF = "DataFormat";
+const _DFT = "DeleteFormType";
+const _DFTR = "DeleteFormTypeRequest";
+const _DFTRe = "DeleteFormTypeResponse";
 const _DFa = "DataFilter";
 const _DFr = "DropFields";
+const _DG = "DeleteGlossary";
 const _DGICC = "DeleteGlueIdentityCenterConfiguration";
 const _DGICCR = "DeleteGlueIdentityCenterConfigurationRequest";
 const _DGICCRe = "DeleteGlueIdentityCenterConfigurationResponse";
+const _DGR = "DeleteGlossaryRequest";
+const _DGRe = "DeleteGlossaryResponse";
+const _DGT = "DeleteGlossaryTerm";
+const _DGTR = "DeleteGlossaryTermRequest";
+const _DGTRe = "DeleteGlossaryTermResponse";
+const _DGTRi = "DisassociateGlossaryTermsRequest";
+const _DGTRis = "DisassociateGlossaryTermsResponse";
+const _DGTi = "DisassociateGlossaryTerms";
 const _DH = "DpuHours";
 const _DI = "DatabaseInput";
 const _DIA = "DatapointInclusionAnnotation";
@@ -810,6 +861,7 @@ const _F = "Failures";
 const _FA = "FailedActions";
 const _FC = "FederatedCatalog";
 const _FCARN = "FanoutConsumerARN";
+const _FCi = "FilterClause";
 const _FD = "FederatedDatabase";
 const _FDM = "FieldDefinitionMap";
 const _FDT = "FieldDataType";
@@ -840,6 +892,10 @@ const _FSEC = "FederationSourceErrorCode";
 const _FSRE = "FederationSourceRetryableException";
 const _FSVN = "FirstSchemaVersionNumber";
 const _FT = "FederatedTable";
+const _FTI = "FormTypeId";
+const _FTIL = "FormTypeItemList";
+const _FTIo = "FormTypeIdentifier";
+const _FTIor = "FormTypeItem";
 const _FTi = "FieldType";
 const _FTr = "FromType";
 const _FTu = "FunctionType";
@@ -852,11 +908,18 @@ const _Fi = "Filter";
 const _Fie = "Fields";
 const _Fiel = "Field";
 const _Fil = "Filters";
-const _Fo = "Format";
+const _Fo = "Forms";
 const _Fol = "Folder";
-const _For = "Force";
+const _For = "Format";
+const _Forc = "Force";
 const _Fr = "From";
 const _G = "Groups";
+const _GA = "GetAsset";
+const _GAI = "GetAssetInput";
+const _GAO = "GetAssetOutput";
+const _GAT = "GetAssetType";
+const _GATR = "GetAssetTypeRequest";
+const _GATRe = "GetAssetTypeResponse";
 const _GB = "GetBlueprint";
 const _GBR = "GetBlueprintRequest";
 const _GBRR = "GetBlueprintRunRequest";
@@ -963,16 +1026,29 @@ const _GERR = "GetEntityRecordsRequest";
 const _GERRe = "GetEntityRecordsResponse";
 const _GF = "GroupFilters";
 const _GFL = "GroupFiltersList";
+const _GFT = "GetFormType";
+const _GFTR = "GetFormTypeRequest";
+const _GFTRe = "GetFormTypeResponse";
 const _GFr = "GroupFiles";
+const _GG = "GetGlossary";
 const _GGICC = "GetGlueIdentityCenterConfiguration";
 const _GGICCR = "GetGlueIdentityCenterConfigurationRequest";
 const _GGICCRe = "GetGlueIdentityCenterConfigurationResponse";
+const _GGR = "GetGlossaryRequest";
+const _GGRe = "GetGlossaryResponse";
+const _GGT = "GetGlossaryTerm";
+const _GGTR = "GetGlossaryTermRequest";
+const _GGTRe = "GetGlossaryTermResponse";
+const _GI = "GlossaryIdentifier";
+const _GIL = "GlossaryItemList";
 const _GIRP = "GetIntegrationResourceProperty";
 const _GIRPR = "GetIntegrationResourcePropertyRequest";
 const _GIRPRe = "GetIntegrationResourcePropertyResponse";
 const _GITP = "GetIntegrationTableProperties";
 const _GITPR = "GetIntegrationTablePropertiesRequest";
 const _GITPRe = "GetIntegrationTablePropertiesResponse";
+const _GIl = "GlossaryId";
+const _GIlo = "GlossaryItem";
 const _GJ = "GetJob";
 const _GJB = "GetJobBookmark";
 const _GJBR = "GetJobBookmarkRequest";
@@ -1066,7 +1142,10 @@ const _GSet = "GetSession";
 const _GSett = "GetStatement";
 const _GSl = "GlueSchemas";
 const _GSr = "GroupSize";
-const _GT = "GlueTable";
+const _GT = "GlossaryTerms";
+const _GTI = "GlossaryTermIdentifiers";
+const _GTIL = "GlossaryTermItemList";
+const _GTIl = "GlossaryTermItem";
 const _GTO = "GetTableOptimizer";
 const _GTOR = "GetTableOptimizerRequest";
 const _GTORe = "GetTableOptimizerResponse";
@@ -1092,7 +1171,8 @@ const _GTet = "GetTables";
 const _GTeta = "GetTags";
 const _GTetr = "GetTrigger";
 const _GTetri = "GetTriggers";
-const _GTl = "GlueTables";
+const _GTl = "GlueTable";
+const _GTlu = "GlueTables";
 const _GUDF = "GetUserDefinedFunction";
 const _GUDFR = "GetUserDefinedFunctionRequest";
 const _GUDFRe = "GetUserDefinedFunctionResponse";
@@ -1155,22 +1235,35 @@ const _IDOC = "IsDefaultOnCreate";
 const _IE = "IsEnabled";
 const _IEK = "IcebergEncryptedKey";
 const _IEL = "IntegrationErrorList";
+const _IELt = "ItemErrorList";
 const _IEn = "IntegrationError";
 const _IEs = "IsEmpty";
+const _IEt = "ItemError";
 const _IF = "IsFilterable";
+const _IFE = "IterableFormEntry";
 const _IFI = "IdentifierFieldIds";
+const _IFIL = "IterableFormItemList";
+const _IFIt = "IterableFormItem";
 const _IFL = "IntegrationFilterList";
+const _IFLI = "IterableFormListItem";
+const _IFLIL = "IterableFormListItemList";
+const _IFM = "IterableFormMap";
+const _IFN = "IterableFormName";
 const _IFn = "IntegrationFilter";
 const _IFnp = "InputFormat";
+const _IFt = "IterableForms";
 const _IG = "IncludeGraph";
 const _IH = "IncludeHeaders";
-const _II = "IntegrationIdentifier";
+const _II = "ItemIdentifiers";
 const _IIE = "InvalidInputException";
 const _IIL = "InboundIntegrationsList";
 const _IISF = "InvalidIntegrationStateFault";
 const _IIc = "IcebergInput";
-const _IIn = "InboundIntegrations";
-const _IInb = "InboundIntegration";
+const _IIn = "IntegrationIdentifier";
+const _IInb = "InboundIntegrations";
+const _IInbo = "InboundIntegration";
+const _IIt = "ItemIdentifier";
+const _IIte = "ItemId";
 const _IL = "IntegrationsList";
 const _ILTRP = "ImportLabelsTaskRunProperties";
 const _IM = "IcebergMetrics";
@@ -1182,6 +1275,7 @@ const _INO = "IsNegOne";
 const _INS = "IsNullString";
 const _INn = "IndexName";
 const _INs = "IsNullable";
+const _INt = "ItemName";
 const _IO = "IsOptional";
 const _IOFDC = "IcebergOrphanFileDeletionConfiguration";
 const _IOFDM = "IcebergOrphanFileDeletionMetrics";
@@ -1250,6 +1344,7 @@ const _Im = "Importance";
 const _In = "Integrations";
 const _Ind = "Index";
 const _Int = "Integration";
+const _It = "Items";
 const _J = "Jobs";
 const _JB = "JobBookmark";
 const _JBE = "JobBookmarksEncryption";
@@ -1308,7 +1403,10 @@ const _Ke = "Keys";
 const _L = "Location";
 const _LAD = "LastActiveDefinition";
 const _LAT = "LastAccessTime";
+const _LATR = "ListAssetTypesRequest";
+const _LATRi = "ListAssetTypesResponse";
 const _LATa = "LastAnalyzedTime";
+const _LATi = "ListAssetTypes";
 const _LB = "LowerBound";
 const _LBR = "ListBlueprintsRequest";
 const _LBRi = "ListBlueprintsResponse";
@@ -1336,6 +1434,7 @@ const _LCa = "LastCrawl";
 const _LCab = "LabelCount";
 const _LCi = "ListCrawlers";
 const _LCis = "ListCrawls";
+const _LD = "LongDescription";
 const _LDE = "ListDevEndpoints";
 const _LDER = "ListDevEndpointsRequest";
 const _LDERi = "ListDevEndpointsResponse";
@@ -1362,8 +1461,20 @@ const _LEA = "LastExecutionAttempt";
 const _LER = "ListEntitiesRequest";
 const _LERi = "ListEntitiesResponse";
 const _LFC = "LakeFormationConfiguration";
+const _LFT = "ListFormTypes";
+const _LFTR = "ListFormTypesRequest";
+const _LFTRi = "ListFormTypesResponse";
 const _LG = "LogGroup";
 const _LGN = "LogGroupName";
+const _LGR = "ListGlossariesRequest";
+const _LGRi = "ListGlossariesResponse";
+const _LGT = "ListGlossaryTerms";
+const _LGTR = "ListGlossaryTermsRequest";
+const _LGTRi = "ListGlossaryTermsResponse";
+const _LGi = "ListGlossaries";
+const _LIF = "ListIterableForms";
+const _LIFR = "ListIterableFormsRequest";
+const _LIFRi = "ListIterableFormsResponse";
 const _LIRP = "ListIntegrationResourceProperties";
 const _LIRPR = "ListIntegrationResourcePropertiesRequest";
 const _LIRPRi = "ListIntegrationResourcePropertiesResponse";
@@ -1425,6 +1536,7 @@ const _LUo = "LogoUrl";
 const _LUoc = "LocationUri";
 const _LUog = "LogUri";
 const _LV = "LatestVersion";
+const _LVo = "LongValue";
 const _LW = "ListWorkflows";
 const _LWR = "ListWorkflowsRequest";
 const _LWRi = "ListWorkflowsResponse";
@@ -1446,6 +1558,7 @@ const _MDBT = "MongoDBTargets";
 const _MDBTL = "MongoDBTargetList";
 const _MDBTo = "MongoDBTarget";
 const _ME = "MappingEntry";
+const _MF = "MapFilter";
 const _MFIB = "MaxFilesInBand";
 const _MFRPS = "MaxFetchRecordsPerShard";
 const _MFTIM = "MaxFetchTimeInMs";
@@ -1557,6 +1670,7 @@ const _Nod = "Nodes";
 const _O = "Observations";
 const _OAC = "OAuth2Credentials";
 const _OACA = "OAuth2ClientApplication";
+const _OAF = "OrAnyFilters";
 const _OAGT = "OAuth2GrantType";
 const _OAP = "OAuth2Properties";
 const _OAPI = "OAuth2PropertiesInput";
@@ -1585,15 +1699,25 @@ const _OT = "OwnerType";
 const _OTE = "OperationTimeoutException";
 const _OTFI = "OpenTableFormatInput";
 const _Op = "Operation";
+const _Ope = "Operator";
 const _Opt = "Option";
 const _Or = "Order";
 const _Ou = "Output";
 const _Ow = "Owner";
 const _P = "Password";
 const _PA = "PreAction";
+const _PAR = "PutAssetRequest";
+const _PARu = "PutAssetResponse";
+const _PARut = "PutAttachmentRequest";
+const _PARutt = "PutAttachmentResponse";
+const _PAT = "PutAssetType";
+const _PATR = "PutAssetTypeRequest";
+const _PATRu = "PutAssetTypeResponse";
 const _PAo = "PostAction";
 const _PAr = "PrivateAddress";
 const _PAu = "PublicAddress";
+const _PAut = "PutAsset";
+const _PAutt = "PutAttachment";
 const _PB = "ProcessedBytes";
 const _PC = "PartitionColumn";
 const _PCI = "ParentCatalogId";
@@ -1614,6 +1738,9 @@ const _PEN = "ParentEntityName";
 const _PEa = "PartitionError";
 const _PEar = "PartitionErrors";
 const _PF = "ParentField";
+const _PFT = "PutFormType";
+const _PFTR = "PutFormTypeRequest";
+const _PFTRu = "PutFormTypeResponse";
 const _PH = "PolicyHash";
 const _PHC = "PolicyHashCondition";
 const _PI = "ProfileId";
@@ -1837,6 +1964,7 @@ const _Runs = "Runs";
 const _Runt = "Runtime";
 const _S = "Schema";
 const _SA = "SecretArn";
+const _SAF = "SearchAttributeFilter";
 const _SAKKI = "SseAwsKmsKeyId";
 const _SASD = "StoredAsSubDirectories";
 const _SAT = "SupportedAuthenticationTypes";
@@ -1927,6 +2055,7 @@ const _SDS = "S3DeltaSource";
 const _SDSAO = "S3DirectSourceAdditionalOptions";
 const _SDT = "S3DirectTarget";
 const _SDTc = "SchemaDiffType";
+const _SDh = "ShortDescription";
 const _SDo = "SortDirection";
 const _SDt = "StatisticsData";
 const _SDta = "StateDetail";
@@ -1946,7 +2075,10 @@ const _SEe = "SessionEndpoint";
 const _SEn = "S3Encryption";
 const _SF = "SelectFields";
 const _SFC = "SelectFromCollection";
+const _SFCL = "SearchFilterClauseList";
+const _SFCe = "SearchFilterClause";
 const _SFO = "SupportedFilterOperators";
+const _SFV = "SearchFilterValue";
 const _SFa = "SampleFraction";
 const _SFe = "SelectedFields";
 const _SFk = "SkipFirst";
@@ -1967,6 +2099,7 @@ const _SILTRR = "StartImportLabelsTaskRunRequest";
 const _SILTRRt = "StartImportLabelsTaskRunResponse";
 const _SIc = "SchemaId";
 const _SIe = "SessionId";
+const _SIea = "SearchInput";
 const _SIer = "SerdeInfo";
 const _SIk = "SkewedInfo";
 const _SIo = "SourceId";
@@ -1985,6 +2118,8 @@ const _SLe = "SerializationLibrary";
 const _SLes = "SessionList";
 const _SLt = "StatementList";
 const _SM = "StatusMessage";
+const _SMF = "SearchMapFilter";
+const _SMFV = "SearchMapFilterValue";
 const _SMLETR = "StartMLEvaluationTaskRun";
 const _SMLETRR = "StartMLEvaluationTaskRunRequest";
 const _SMLETRRt = "StartMLEvaluationTaskRunResponse";
@@ -2009,6 +2144,7 @@ const _SO = "StartedOn";
 const _SOC = "StartOnCreation";
 const _SOD = "StatementOutputData";
 const _SOVI = "SubObjectVersionIds";
+const _SOe = "SearchOutput";
 const _SOo = "SortOrders";
 const _SOor = "SortOrder";
 const _SOt = "StreamingOptions";
@@ -2032,6 +2168,8 @@ const _SQ = "SampleQuery";
 const _SQq = "SqlQuery";
 const _SR = "StatusReason";
 const _SRE = "SchedulerRunningException";
+const _SRI = "SearchResultItem";
+const _SRIL = "SearchResultItemList";
 const _SRO = "StatisticRecordedOn";
 const _SRc = "SchemaReference";
 const _SS = "SensitiveString";
@@ -2044,6 +2182,7 @@ const _SSVN = "SecondSchemaVersionNumber";
 const _SSa = "SampleSize";
 const _SSc = "SchemaStatus";
 const _SSe = "SettingSource";
+const _SSea = "SearchSort";
 const _SSn = "SnowflakeSource";
 const _SSt = "StatisticSummary";
 const _SSto = "StopSession";
@@ -2081,6 +2220,7 @@ const _SVL = "SchemaVersionList";
 const _SVLI = "SchemaVersionListItem";
 const _SVN = "SchemaVersionNumber";
 const _SVS = "SchemaVersionStatus";
+const _SVt = "StringValue";
 const _SWR = "StartWorkflowRun";
 const _SWRR = "StartWorkflowRunRequest";
 const _SWRRt = "StartWorkflowRunResponse";
@@ -2095,6 +2235,7 @@ const _Sche = "Schemas";
 const _Sco = "Scopes";
 const _Scor = "Score";
 const _Se = "Serde";
+const _Sea = "Search";
 const _Seg = "Segment";
 const _Sep = "Separator";
 const _Ses = "Session";
@@ -2225,6 +2366,7 @@ const _Tran = "Transform";
 const _Tri = "Trigger";
 const _Ty = "Type";
 const _U = "Upsert";
+const _UA = "UpdatedAt";
 const _UB = "UpdateBehavior";
 const _UBR = "UpdateBlueprintRequest";
 const _UBRp = "UpdateBlueprintResponse";
@@ -2272,10 +2414,16 @@ const _UDQRRp = "UpdateDataQualityRulesetResponse";
 const _UDR = "UpdateDatabaseRequest";
 const _UDRp = "UpdateDatabaseResponse";
 const _UEL = "UpdateEtlLibraries";
+const _UG = "UpdateGlossary";
 const _UGCR = "UpdateGrokClassifierRequest";
 const _UGICC = "UpdateGlueIdentityCenterConfiguration";
 const _UGICCR = "UpdateGlueIdentityCenterConfigurationRequest";
 const _UGICCRp = "UpdateGlueIdentityCenterConfigurationResponse";
+const _UGR = "UpdateGlossaryRequest";
+const _UGRp = "UpdateGlossaryResponse";
+const _UGT = "UpdateGlossaryTerm";
+const _UGTR = "UpdateGlossaryTermRequest";
+const _UGTRp = "UpdateGlossaryTermResponse";
 const _UI = "UniqueId";
 const _UII = "UpdateIcebergInput";
 const _UIRP = "UpdateIntegrationResourceProperty";
@@ -2421,7 +2569,10 @@ const _eT = "eventType";
 const _eTn = "endTimestamp";
 const _en = "enabled";
 const _gCN = "glueConnectionName";
+const _gI = "glossaryIdentifier";
+const _h = "http";
 const _hE = "httpError";
+const _hQ = "httpQuery";
 const _iC = "icebergConfiguration";
 const _jN = "jsonName";
 const _k = "key";
@@ -2429,7 +2580,9 @@ const _l = "location";
 const _lR = "lastRun";
 const _m = "metrics";
 const _mIF = "minInputFiles";
+const _mR = "maxResults";
 const _nOSTR = "numberOfSnapshotsToRetain";
+const _nT = "nextToken";
 const _oFDC = "orphanFileDeletionConfiguration";
 const _oFDM = "orphanFileDeletionMetrics";
 const _oFRPID = "orphanFileRetentionPeriodInDays";
@@ -2885,6 +3038,31 @@ export var ApplyMapping$: StaticStructureSchema = [3, n0, _AM,
   [_N, _I, _Ma],
   [0, 64 | 0, () => Mappings], 3
 ];
+export var AssetFormEntry$: StaticStructureSchema = [3, n0, _AFE,
+  0,
+  [_FTI, _Con],
+  [0, 0]
+];
+export var AssetTypeFormReference$: StaticStructureSchema = [3, n0, _ATFR,
+  0,
+  [_FTIo],
+  [0], 1
+];
+export var AssetTypeItem$: StaticStructureSchema = [3, n0, _ATI,
+  0,
+  [_Id, _N],
+  [0, 0]
+];
+export var AssociateGlossaryTermsRequest$: StaticStructureSchema = [3, n0, _AGTR,
+  0,
+  [_Ide, _GTI, _CTl],
+  [[0, 1], 64 | 0, [0, 4]], 2
+];
+export var AssociateGlossaryTermsResponse$: StaticStructureSchema = [3, n0, _AGTRs,
+  0,
+  [_Ide, _GT],
+  [0, 64 | 0]
+];
 export var AthenaConnectorSource$: StaticStructureSchema = [3, n0, _ACS,
   0,
   [_N, _CNo, _CNon, _CTo, _SN, _CTon, _OS],
@@ -3039,6 +3217,16 @@ export var BatchGetDevEndpointsResponse$: StaticStructureSchema = [3, n0, _BGDER
   0,
   [_DE, _DENF],
   [() => DevEndpointList, 64 | 0]
+];
+export var BatchGetIterableFormsRequest$: StaticStructureSchema = [3, n0, _BGIFR,
+  0,
+  [_AI, _IFN, _II],
+  [[0, 1], [0, 1], 64 | 0], 3
+];
+export var BatchGetIterableFormsResponse$: StaticStructureSchema = [3, n0, _BGIFRa,
+  0,
+  [_It, _E],
+  [() => IterableFormItemList, () => ItemErrorList]
 ];
 export var BatchGetJobsRequest$: StaticStructureSchema = [3, n0, _BGJR,
   0,
@@ -3400,14 +3588,14 @@ export var ComputeEnvironmentConfiguration$: StaticStructureSchema = [3, n0, _CE
   [_N, _D, _CEom, _SAT, _COon, _CPNO, _CONO, _CPRO, _PCPR],
   [0, 0, 0, 64 | 0, () => PropertiesMap, 128 | 0, 128 | 0, 64 | 0, 2], 8
 ];
-export var Condition$: StaticStructureSchema = [3, n0, _Con,
+export var Condition$: StaticStructureSchema = [3, n0, _Cond,
   0,
   [_LO, _JN, _Sta, _CN, _CSr],
   [0, 0, 0, 0, 0]
 ];
 export var ConditionExpression$: StaticStructureSchema = [3, n0, _CEon,
   0,
-  [_Con, _TC, _V],
+  [_Cond, _TC, _V],
   [0, 0, 0], 2
 ];
 export var ConfigurationObject$: StaticStructureSchema = [3, n0, _COonf,
@@ -3624,6 +3812,26 @@ export var CreateDevEndpointResponse$: StaticStructureSchema = [3, n0, _CDERr,
   0,
   [_EN, _St, _SGI, _SIu, _RA, _YEA, _ZRSIP, _NONu, _WT, _GV, _NOW, _AZ, _VIp, _EPLSP, _EJSP, _FR, _SC, _CTrea, _Ar],
   [0, 0, 64 | 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 4, 128 | 0]
+];
+export var CreateGlossaryRequest$: StaticStructureSchema = [3, n0, _CGR,
+  0,
+  [_N, _D, _CTl],
+  [0, 0, [0, 4]], 1
+];
+export var CreateGlossaryResponse$: StaticStructureSchema = [3, n0, _CGRr,
+  0,
+  [_Id, _N, _D],
+  [0, 0, 0]
+];
+export var CreateGlossaryTermRequest$: StaticStructureSchema = [3, n0, _CGTR,
+  0,
+  [_GI, _N, _SDh, _LD, _CTl],
+  [0, 0, 0, 0, [0, 4]], 2
+];
+export var CreateGlossaryTermResponse$: StaticStructureSchema = [3, n0, _CGTRr,
+  0,
+  [_Id, _GIl, _N, _SDh, _LD],
+  [0, 0, 0, 0, 0]
 ];
 export var CreateGlueIdentityCenterConfigurationRequest$: StaticStructureSchema = [3, n0, _CGICCR,
   0,
@@ -3992,7 +4200,7 @@ export var DataQualityTargetTable$: StaticStructureSchema = [3, n0, _DQTT,
 ];
 export var DataSource$: StaticStructureSchema = [3, n0, _DSa,
   0,
-  [_GT, _DQGT],
+  [_GTl, _DQGT],
   [() => GlueTable$, () => DataQualityGlueTable$]
 ];
 export var Datatype$: StaticStructureSchema = [3, n0, _Data,
@@ -4024,6 +4232,36 @@ export var DecimalNumber$: StaticStructureSchema = [3, n0, _DNe,
   0,
   [_UV, _Sca],
   [21, 1], 2
+];
+export var DeleteAssetRequest$: StaticStructureSchema = [3, n0, _DAR,
+  0,
+  [_Ide],
+  [[0, 1]], 1
+];
+export var DeleteAssetResponse$: StaticStructureSchema = [3, n0, _DARe,
+  0,
+  [],
+  []
+];
+export var DeleteAssetTypeRequest$: StaticStructureSchema = [3, n0, _DATR,
+  0,
+  [_Ide],
+  [[0, 1]], 1
+];
+export var DeleteAssetTypeResponse$: StaticStructureSchema = [3, n0, _DATRe,
+  0,
+  [],
+  []
+];
+export var DeleteAttachmentRequest$: StaticStructureSchema = [3, n0, _DARel,
+  0,
+  [_Ide, _AN],
+  [[0, 1], [0, 1]], 2
+];
+export var DeleteAttachmentResponse$: StaticStructureSchema = [3, n0, _DARele,
+  0,
+  [_Ide],
+  [0]
 ];
 export var DeleteBlueprintRequest$: StaticStructureSchema = [3, n0, _DBR,
   0,
@@ -4155,6 +4393,36 @@ export var DeleteDevEndpointResponse$: StaticStructureSchema = [3, n0, _DDERe,
   [],
   []
 ];
+export var DeleteFormTypeRequest$: StaticStructureSchema = [3, n0, _DFTR,
+  0,
+  [_Ide],
+  [[0, 1]], 1
+];
+export var DeleteFormTypeResponse$: StaticStructureSchema = [3, n0, _DFTRe,
+  0,
+  [],
+  []
+];
+export var DeleteGlossaryRequest$: StaticStructureSchema = [3, n0, _DGR,
+  0,
+  [_Ide],
+  [[0, 1]], 1
+];
+export var DeleteGlossaryResponse$: StaticStructureSchema = [3, n0, _DGRe,
+  0,
+  [],
+  []
+];
+export var DeleteGlossaryTermRequest$: StaticStructureSchema = [3, n0, _DGTR,
+  0,
+  [_Ide],
+  [[0, 1]], 1
+];
+export var DeleteGlossaryTermResponse$: StaticStructureSchema = [3, n0, _DGTRe,
+  0,
+  [],
+  []
+];
 export var DeleteGlueIdentityCenterConfigurationRequest$: StaticStructureSchema = [3, n0, _DGICCR,
   0,
   [],
@@ -4167,7 +4435,7 @@ export var DeleteGlueIdentityCenterConfigurationResponse$: StaticStructureSchema
 ];
 export var DeleteIntegrationRequest$: StaticStructureSchema = [3, n0, _DIR,
   0,
-  [_II],
+  [_IIn],
   [0], 1
 ];
 export var DeleteIntegrationResourcePropertyRequest$: StaticStructureSchema = [3, n0, _DIRPR,
@@ -4397,12 +4665,12 @@ export var DescribeInboundIntegrationsRequest$: StaticStructureSchema = [3, n0, 
 ];
 export var DescribeInboundIntegrationsResponse$: StaticStructureSchema = [3, n0, _DIIRe,
   0,
-  [_IIn, _Mar],
+  [_IInb, _Mar],
   [() => InboundIntegrationsList, 0]
 ];
 export var DescribeIntegrationsRequest$: StaticStructureSchema = [3, n0, _DIRes,
   0,
-  [_II, _Mar, _MRa, _Fil],
+  [_IIn, _Mar, _MRa, _Fil],
   [0, 0, 1, () => IntegrationFilterList]
 ];
 export var DescribeIntegrationsResponse$: StaticStructureSchema = [3, n0, _DIResc,
@@ -4439,6 +4707,16 @@ export var DirectSchemaChangePolicy$: StaticStructureSchema = [3, n0, _DSCP,
   0,
   [_EUC, _UB, _Ta, _Dat],
   [2, 0, 0, 0]
+];
+export var DisassociateGlossaryTermsRequest$: StaticStructureSchema = [3, n0, _DGTRi,
+  0,
+  [_Ide, _GTI, _CTl],
+  [[0, 1], 64 | 0, [0, 4]], 2
+];
+export var DisassociateGlossaryTermsResponse$: StaticStructureSchema = [3, n0, _DGTRis,
+  0,
+  [_Ide, _GT],
+  [0, 64 | 0]
 ];
 export var DoubleColumnStatisticsData$: StaticStructureSchema = [3, n0, _DCSDo,
   0,
@@ -4624,6 +4902,31 @@ export var FindMatchesTaskRunProperties$: StaticStructureSchema = [3, n0, _FMTRP
   0,
   [_JI, _JN, _JRI],
   [0, 0, 0]
+];
+export var FormTypeItem$: StaticStructureSchema = [3, n0, _FTIor,
+  0,
+  [_Id, _N],
+  [0, 0]
+];
+export var GetAssetInput$: StaticStructureSchema = [3, n0, _GAI,
+  0,
+  [_Ide],
+  [[0, 1]], 1
+];
+export var GetAssetOutput$: StaticStructureSchema = [3, n0, _GAO,
+  0,
+  [_Id, _ATIs, _N, _D, _CAr, _UA, _GT, _Fo, _At, _IFt],
+  [0, 0, 0, 0, 4, 4, 64 | 0, () => AssetFormMap, () => AssetFormMap, () => IterableFormMap], 2
+];
+export var GetAssetTypeRequest$: StaticStructureSchema = [3, n0, _GATR,
+  0,
+  [_Ide],
+  [[0, 1]], 1
+];
+export var GetAssetTypeResponse$: StaticStructureSchema = [3, n0, _GATRe,
+  0,
+  [_Id, _N, _Fo],
+  [0, 0, () => AssetTypeFormsMap]
 ];
 export var GetBlueprintRequest$: StaticStructureSchema = [3, n0, _GBR,
   0,
@@ -4959,6 +5262,36 @@ export var GetEntityRecordsResponse$: StaticStructureSchema = [3, n0, _GERRe,
   0,
   [_Reco, _NTe],
   [[() => Records, 0], 0]
+];
+export var GetFormTypeRequest$: StaticStructureSchema = [3, n0, _GFTR,
+  0,
+  [_Ide],
+  [[0, 1]], 1
+];
+export var GetFormTypeResponse$: StaticStructureSchema = [3, n0, _GFTRe,
+  0,
+  [_Id, _N, _S],
+  [0, 0, 0]
+];
+export var GetGlossaryRequest$: StaticStructureSchema = [3, n0, _GGR,
+  0,
+  [_Ide],
+  [[0, 1]], 1
+];
+export var GetGlossaryResponse$: StaticStructureSchema = [3, n0, _GGRe,
+  0,
+  [_Id, _N, _D],
+  [0, 0, 0]
+];
+export var GetGlossaryTermRequest$: StaticStructureSchema = [3, n0, _GGTR,
+  0,
+  [_Ide],
+  [[0, 1]], 1
+];
+export var GetGlossaryTermResponse$: StaticStructureSchema = [3, n0, _GGTRe,
+  0,
+  [_Id, _GIl, _N, _SDh, _LD],
+  [0, 0, 0, 0, 0]
 ];
 export var GetGlueIdentityCenterConfigurationRequest$: StaticStructureSchema = [3, n0, _GGICCR,
   0,
@@ -5440,6 +5773,16 @@ export var GetWorkflowRunsResponse$: StaticStructureSchema = [3, n0, _GWRReto,
   [_Runs, _NTe],
   [() => WorkflowRuns, 0]
 ];
+export var GlossaryItem$: StaticStructureSchema = [3, n0, _GIlo,
+  0,
+  [_Id, _N, _D],
+  [0, 0, 0]
+];
+export var GlossaryTermItem$: StaticStructureSchema = [3, n0, _GTIl,
+  0,
+  [_Id, _N, _SDh],
+  [0, 0, 0]
+];
 export var GluePolicy$: StaticStructureSchema = [3, n0, _GPl,
   0,
   [_PIJ, _PH, _CTr, _UT],
@@ -5455,7 +5798,7 @@ export var GlueStudioSchemaColumn$: StaticStructureSchema = [3, n0, _GSSC,
   [_N, _Ty, _GST],
   [0, 0, 0], 1
 ];
-export var GlueTable$: StaticStructureSchema = [3, n0, _GT,
+export var GlueTable$: StaticStructureSchema = [3, n0, _GTl,
   0,
   [_DN, _TN, _CI, _CNo, _AOdd],
   [0, 0, 0, 0, 128 | 0], 2
@@ -5595,7 +5938,7 @@ export var ImportLabelsTaskRunProperties$: StaticStructureSchema = [3, n0, _ILTR
   [_ISP, _Rep],
   [0, 2]
 ];
-export var InboundIntegration$: StaticStructureSchema = [3, n0, _IInb,
+export var InboundIntegration$: StaticStructureSchema = [3, n0, _IInbo,
   0,
   [_SAo, _TA, _IAnt, _St, _CTr, _ICn, _E],
   [0, 0, 0, 0, 4, () => IntegrationConfig$, () => IntegrationErrorList], 5
@@ -5635,6 +5978,26 @@ export var IntegrationResourcePropertyFilter$: StaticStructureSchema = [3, n0, _
   [_N, _Val],
   [0, 64 | 0]
 ];
+export var ItemError$: StaticStructureSchema = [3, n0, _IEt,
+  0,
+  [_IIt, _Cod, _M],
+  [0, 0, 0]
+];
+export var IterableFormEntry$: StaticStructureSchema = [3, n0, _IFE,
+  0,
+  [_FTI],
+  [0]
+];
+export var IterableFormItem$: StaticStructureSchema = [3, n0, _IFIt,
+  0,
+  [_IIte, _INt, _GT, _Fo, _At],
+  [0, 0, 64 | 0, () => AssetFormMap, () => AssetFormMap]
+];
+export var IterableFormListItem$: StaticStructureSchema = [3, n0, _IFLI,
+  0,
+  [_IIte, _INt, _D, _GT],
+  [0, 0, 0, 64 | 0]
+];
 export var JDBCConnectorOptions$: StaticStructureSchema = [3, n0, _JDBCCO,
   0,
   [_FPi, _PC, _LB, _UBp, _NPu, _JBK, _JBKSO, _DTM],
@@ -5662,7 +6025,7 @@ export var Job$: StaticStructureSchema = [3, n0, _Job,
 ];
 export var JobBookmarkEntry$: StaticStructureSchema = [3, n0, _JBEo,
   0,
-  [_JN, _Ver, _Run, _At, _PRI, _RIu, _JB],
+  [_JN, _Ver, _Run, _Att, _PRI, _RIu, _JB],
   [0, 1, 1, 1, 0, 0, 0]
 ];
 export var JobBookmarksEncryption$: StaticStructureSchema = [3, n0, _JBE,
@@ -5682,7 +6045,7 @@ export var JobNodeDetails$: StaticStructureSchema = [3, n0, _JND,
 ];
 export var JobRun$: StaticStructureSchema = [3, n0, _JR,
   0,
-  [_Id, _At, _PRI, _TNri, _JN, _JM, _JRQE, _SO, _LMO, _COo, _JRS, _Ar, _EM, _PR, _ACl, _ETxe, _T, _MCax, _WT, _NOW, _SC, _LGN, _NP, _GV, _DPUS, _ECx, _MWa, _PN, _SDta, _ERSP],
+  [_Id, _Att, _PRI, _TNri, _JN, _JM, _JRQE, _SO, _LMO, _COo, _JRS, _Ar, _EM, _PR, _ACl, _ETxe, _T, _MCax, _WT, _NOW, _SC, _LGN, _NP, _GV, _DPUS, _ECx, _MWa, _PN, _SDta, _ERSP],
   [0, 1, 0, 0, 0, 0, 2, 4, 4, 4, 0, 128 | 0, 0, () => PredecessorList, 1, 1, 1, 1, 0, 1, 0, 0, () => NotificationProperty$, 0, 1, 0, 0, 0, 0, 0]
 ];
 export var JobUpdate$: StaticStructureSchema = [3, n0, _JU,
@@ -5732,7 +6095,7 @@ export var LabelingSetGenerationTaskRunProperties$: StaticStructureSchema = [3, 
 ];
 export var LakeFormationConfiguration$: StaticStructureSchema = [3, n0, _LFC,
   0,
-  [_ULFC, _AI],
+  [_ULFC, _AIc],
   [2, 0]
 ];
 export var LastActiveDefinition$: StaticStructureSchema = [3, n0, _LAD,
@@ -5749,6 +6112,16 @@ export var LineageConfiguration$: StaticStructureSchema = [3, n0, _LC,
   0,
   [_CLS],
   [0]
+];
+export var ListAssetTypesRequest$: StaticStructureSchema = [3, n0, _LATR,
+  0,
+  [_MRax, _NTe],
+  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+];
+export var ListAssetTypesResponse$: StaticStructureSchema = [3, n0, _LATRi,
+  0,
+  [_It, _NTe],
+  [() => AssetTypeItemList, 0]
 ];
 export var ListBlueprintsRequest$: StaticStructureSchema = [3, n0, _LBR,
   0,
@@ -5890,6 +6263,36 @@ export var ListEntitiesResponse$: StaticStructureSchema = [3, n0, _LERi,
   [_Enti, _NTe],
   [() => EntityList, 0]
 ];
+export var ListFormTypesRequest$: StaticStructureSchema = [3, n0, _LFTR,
+  0,
+  [_MRax, _NTe],
+  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+];
+export var ListFormTypesResponse$: StaticStructureSchema = [3, n0, _LFTRi,
+  0,
+  [_It, _NTe],
+  [() => FormTypeItemList, 0], 1
+];
+export var ListGlossariesRequest$: StaticStructureSchema = [3, n0, _LGR,
+  0,
+  [_MRax, _NTe],
+  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+];
+export var ListGlossariesResponse$: StaticStructureSchema = [3, n0, _LGRi,
+  0,
+  [_It, _NTe],
+  [() => GlossaryItemList, 0]
+];
+export var ListGlossaryTermsRequest$: StaticStructureSchema = [3, n0, _LGTR,
+  0,
+  [_GI, _MRax, _NTe],
+  [[0, { [_hQ]: _gI }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
+];
+export var ListGlossaryTermsResponse$: StaticStructureSchema = [3, n0, _LGTRi,
+  0,
+  [_It, _NTe],
+  [() => GlossaryTermItemList, 0]
+];
 export var ListIntegrationResourcePropertiesRequest$: StaticStructureSchema = [3, n0, _LIRPR,
   0,
   [_Mar, _Fil, _MRa],
@@ -5899,6 +6302,16 @@ export var ListIntegrationResourcePropertiesResponse$: StaticStructureSchema = [
   0,
   [_IRPL, _Mar],
   [() => IntegrationResourcePropertyList, 0]
+];
+export var ListIterableFormsRequest$: StaticStructureSchema = [3, n0, _LIFR,
+  0,
+  [_AI, _IFN, _MRax, _NTe],
+  [[0, 1], [0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 2
+];
+export var ListIterableFormsResponse$: StaticStructureSchema = [3, n0, _LIFRi,
+  0,
+  [_It, _NTe],
+  [() => IterableFormListItemList, 0]
 ];
 export var ListJobsRequest$: StaticStructureSchema = [3, n0, _LJR,
   0,
@@ -6087,7 +6500,7 @@ export var MLUserDataEncryption$: StaticStructureSchema = [3, n0, _MLUDE,
 ];
 export var ModifyIntegrationRequest$: StaticStructureSchema = [3, n0, _MIR,
   0,
-  [_II, _D, _DFa, _ICn, _IN],
+  [_IIn, _D, _DFa, _ICn, _IN],
   [0, 0, 0, () => IntegrationConfig$, 0], 1
 ];
 export var ModifyIntegrationResponse$: StaticStructureSchema = [3, n0, _MIRo,
@@ -6257,7 +6670,7 @@ export var Predecessor$: StaticStructureSchema = [3, n0, _Pred,
 ];
 export var Predicate$: StaticStructureSchema = [3, n0, _Pre,
   0,
-  [_Lo, _Cond],
+  [_Lo, _Condi],
   [0, () => ConditionList]
 ];
 export var PrincipalPermissions$: StaticStructureSchema = [3, n0, _PPr,
@@ -6280,6 +6693,36 @@ export var PropertyPredicate$: StaticStructureSchema = [3, n0, _PPro,
   [_K, _V, _Compar],
   [0, 0, 0]
 ];
+export var PutAssetRequest$: StaticStructureSchema = [3, n0, _PAR,
+  0,
+  [_ATIs, _Ide, _N, _Fo, _D, _CTl],
+  [0, 0, 0, () => AssetFormMap, 0, [0, 4]], 4
+];
+export var PutAssetResponse$: StaticStructureSchema = [3, n0, _PARu,
+  0,
+  [_Id, _N, _D, _CAr, _Fo],
+  [0, 0, 0, 4, () => AssetFormMap], 2
+];
+export var PutAssetTypeRequest$: StaticStructureSchema = [3, n0, _PATR,
+  0,
+  [_N, _Fo, _CTl],
+  [0, () => AssetTypeFormsMap, [0, 4]], 2
+];
+export var PutAssetTypeResponse$: StaticStructureSchema = [3, n0, _PATRu,
+  0,
+  [_Id, _N, _Fo],
+  [0, 0, () => AssetTypeFormsMap]
+];
+export var PutAttachmentRequest$: StaticStructureSchema = [3, n0, _PARut,
+  0,
+  [_AI, _AN, _Con, _FTI, _IFN, _IIt, _CTl],
+  [[0, 1], 0, 0, 0, 0, 0, [0, 4]], 4
+];
+export var PutAttachmentResponse$: StaticStructureSchema = [3, n0, _PARutt,
+  0,
+  [_AIs, _IFN, _IIt, _AN, _FTI],
+  [0, 0, 0, 0, 0]
+];
 export var PutDataCatalogEncryptionSettingsRequest$: StaticStructureSchema = [3, n0, _PDCESR,
   0,
   [_DCES, _CI],
@@ -6299,6 +6742,16 @@ export var PutDataQualityProfileAnnotationResponse$: StaticStructureSchema = [3,
   0,
   [],
   []
+];
+export var PutFormTypeRequest$: StaticStructureSchema = [3, n0, _PFTR,
+  0,
+  [_N, _S, _CTl],
+  [0, 0, [0, 4]], 2
+];
+export var PutFormTypeResponse$: StaticStructureSchema = [3, n0, _PFTRu,
+  0,
+  [_Id, _N, _S],
+  [0, 0, 0]
 ];
 export var PutResourcePolicyRequest$: StaticStructureSchema = [3, n0, _PRPR,
   0,
@@ -6542,7 +6995,7 @@ export var S3DeltaCatalogTarget$: StaticStructureSchema = [3, n0, _SDCT,
 ];
 export var S3DeltaDirectTarget$: StaticStructureSchema = [3, n0, _SDDT,
   0,
-  [_N, _I, _Path, _Compr, _Fo, _PK, _NTPu, _AOdd, _SCP, _ADQ],
+  [_N, _I, _Path, _Compr, _For, _PK, _NTPu, _AOdd, _SCP, _ADQ],
   [0, 64 | 0, 0, 0, 0, [1, n0, _GSPL, 0, 64 | 0], 0, 128 | 0, () => DirectSchemaChangePolicy$, () => AutoDataQuality$], 5
 ];
 export var S3DeltaSource$: StaticStructureSchema = [3, n0, _SDS,
@@ -6557,7 +7010,7 @@ export var S3DirectSourceAdditionalOptions$: StaticStructureSchema = [3, n0, _SD
 ];
 export var S3DirectTarget$: StaticStructureSchema = [3, n0, _SDT,
   0,
-  [_N, _I, _Path, _Fo, _PK, _Compr, _NTPu, _SCP, _ADQ, _OS],
+  [_N, _I, _Path, _For, _PK, _Compr, _NTPu, _SCP, _ADQ, _OS],
   [0, 64 | 0, 0, 0, [1, n0, _GSPL, 0, 64 | 0], 0, 0, () => DirectSchemaChangePolicy$, () => AutoDataQuality$, () => GlueSchemas], 4
 ];
 export var S3Encryption$: StaticStructureSchema = [3, n0, _SEn,
@@ -6582,7 +7035,7 @@ export var S3HudiCatalogTarget$: StaticStructureSchema = [3, n0, _SHCT,
 ];
 export var S3HudiDirectTarget$: StaticStructureSchema = [3, n0, _SHDT,
   0,
-  [_N, _I, _Path, _Compr, _Fo, _AOdd, _NTPu, _PK, _SCP, _ADQ],
+  [_N, _I, _Path, _Compr, _For, _AOdd, _NTPu, _PK, _SCP, _ADQ],
   [0, 64 | 0, 0, 0, 0, 128 | 0, 0, [1, n0, _GSPL, 0, 64 | 0], () => DirectSchemaChangePolicy$, () => AutoDataQuality$], 6
 ];
 export var S3HudiSource$: StaticStructureSchema = [3, n0, _SHS,
@@ -6592,7 +7045,7 @@ export var S3HudiSource$: StaticStructureSchema = [3, n0, _SHS,
 ];
 export var S3HyperDirectTarget$: StaticStructureSchema = [3, n0, _SHDTy,
   0,
-  [_N, _I, _Path, _Fo, _PK, _Compr, _SCP, _ADQ, _OS],
+  [_N, _I, _Path, _For, _PK, _Compr, _SCP, _ADQ, _OS],
   [0, 64 | 0, 0, 0, [1, n0, _GSPL, 0, 64 | 0], 0, () => DirectSchemaChangePolicy$, () => AutoDataQuality$, () => GlueSchemas], 3
 ];
 export var S3IcebergCatalogTarget$: StaticStructureSchema = [3, n0, _SICT,
@@ -6602,7 +7055,7 @@ export var S3IcebergCatalogTarget$: StaticStructureSchema = [3, n0, _SICT,
 ];
 export var S3IcebergDirectTarget$: StaticStructureSchema = [3, n0, _SIDT,
   0,
-  [_N, _I, _Path, _Fo, _Compr, _PK, _AOdd, _SCP, _ADQ, _NTPu, _OS],
+  [_N, _I, _Path, _For, _Compr, _PK, _AOdd, _SCP, _ADQ, _NTPu, _OS],
   [0, 64 | 0, 0, 0, 0, [1, n0, _GSPL, 0, 64 | 0], 128 | 0, () => DirectSchemaChangePolicy$, () => AutoDataQuality$, 0, () => GlueSchemas], 5
 ];
 export var S3JsonSource$: StaticStructureSchema = [3, n0, _SJS,
@@ -6669,6 +7122,36 @@ export var SchemaVersionNumber$: StaticStructureSchema = [3, n0, _SVN,
   0,
   [_LV, _VN],
   [2, 1]
+];
+export var SearchAttributeFilter$: StaticStructureSchema = [3, n0, _SAF,
+  0,
+  [_Attr, _Ope, _V],
+  [0, 0, () => SearchFilterValue$], 2
+];
+export var SearchInput$: StaticStructureSchema = [3, n0, _SIea,
+  0,
+  [_STea, _MRax, _NTe, _Sor, _FCi],
+  [0, 1, 0, () => SearchSort$, () => SearchFilterClause$]
+];
+export var SearchMapFilter$: StaticStructureSchema = [3, n0, _SMF,
+  0,
+  [_Attr, _K, _V],
+  [0, 0, () => SearchMapFilterValue$], 3
+];
+export var SearchOutput$: StaticStructureSchema = [3, n0, _SOe,
+  0,
+  [_It, _NTe],
+  [() => SearchResultItemList, 0]
+];
+export var SearchResultItem$: StaticStructureSchema = [3, n0, _SRI,
+  0,
+  [_Id, _ANs, _AD, _UA, _ATIs],
+  [0, 0, 0, 4, 0]
+];
+export var SearchSort$: StaticStructureSchema = [3, n0, _SSea,
+  0,
+  [_Attr, _Or],
+  [0, 0], 1
 ];
 export var SearchTablesRequest$: StaticStructureSchema = [3, n0, _STR,
   0,
@@ -7395,6 +7878,26 @@ export var UpdateDevEndpointResponse$: StaticStructureSchema = [3, n0, _UDERp,
   [],
   []
 ];
+export var UpdateGlossaryRequest$: StaticStructureSchema = [3, n0, _UGR,
+  0,
+  [_Ide, _N, _D, _CTl],
+  [[0, 1], 0, 0, [0, 4]], 1
+];
+export var UpdateGlossaryResponse$: StaticStructureSchema = [3, n0, _UGRp,
+  0,
+  [_Id, _N, _D],
+  [0, 0, 0]
+];
+export var UpdateGlossaryTermRequest$: StaticStructureSchema = [3, n0, _UGTR,
+  0,
+  [_Ide, _N, _SDh, _LD, _CTl],
+  [[0, 1], 0, 0, 0, [0, 4]], 1
+];
+export var UpdateGlossaryTermResponse$: StaticStructureSchema = [3, n0, _UGTRp,
+  0,
+  [_Id, _GIl, _N, _SDh, _LD],
+  [0, 0, 0, 0, 0]
+];
 export var UpdateGlueIdentityCenterConfigurationRequest$: StaticStructureSchema = [3, n0, _UGICCR,
   0,
   [_Sco, _UBSE],
@@ -7532,7 +8035,7 @@ export var UpdateTableOptimizerResponse$: StaticStructureSchema = [3, n0, _UTORp
 ];
 export var UpdateTableRequest$: StaticStructureSchema = [3, n0, _UTR,
   0,
-  [_DN, _CI, _N, _TIa, _SAk, _TI, _VIe, _VUA, _For, _UOTFI],
+  [_DN, _CI, _N, _TIa, _SAk, _TI, _VIe, _VUA, _Forc, _UOTFI],
   [0, 0, 0, () => TableInput$, 2, 0, 0, 0, 2, () => UpdateOpenTableFormatInput$], 1
 ];
 export var UpdateTableResponse$: StaticStructureSchema = [3, n0, _UTRp,
@@ -7673,6 +8176,9 @@ var AnnotationErrorList: StaticListSchema = [1, n0, _AEL,
 ];
 var AnnotationList: StaticListSchema = [1, n0, _ALn,
   0, () => StatisticAnnotation$
+];
+var AssetTypeItemList: StaticListSchema = [1, n0, _ATIL,
+  0, () => AssetTypeItem$
 ];
 var AuditColumnNamesList = 64 | 0;
 var AuthenticationTypes = 64 | 0;
@@ -7878,12 +8384,22 @@ var FilterExpressions: StaticListSchema = [1, n0, _FEi,
 var FilterValues: StaticListSchema = [1, n0, _FVil,
   0, () => FilterValue$
 ];
+var FormTypeItemList: StaticListSchema = [1, n0, _FTIL,
+  0, () => FormTypeItem$
+];
 var GetColumnNamesList = 64 | 0;
 var GetResourcePoliciesResponseList: StaticListSchema = [1, n0, _GRPRL,
   0, () => GluePolicy$
 ];
 var GetTableVersionsList: StaticListSchema = [1, n0, _GTVL,
   0, () => TableVersion$
+];
+var GlossaryItemList: StaticListSchema = [1, n0, _GIL,
+  0, () => GlossaryItem$
+];
+var GlossaryTermIdList = 64 | 0;
+var GlossaryTermItemList: StaticListSchema = [1, n0, _GTIL,
+  0, () => GlossaryTermItem$
 ];
 var GlueSchemas: StaticListSchema = [1, n0, _GSl,
   0, () => GlueSchema$
@@ -7894,7 +8410,7 @@ var GlueStudioPathList: StaticListSchema = [1, n0, _GSPL,
 var GlueStudioSchemaColumnList: StaticListSchema = [1, n0, _GSSCL,
   0, () => GlueStudioSchemaColumn$
 ];
-var GlueTables: StaticListSchema = [1, n0, _GTl,
+var GlueTables: StaticListSchema = [1, n0, _GTlu,
   0, () => GlueTable$
 ];
 var GroupFiltersList: StaticListSchema = [1, n0, _GFL,
@@ -7957,6 +8473,16 @@ var IntegrationsList: StaticListSchema = [1, n0, _IL,
 ];
 var IntegrationTagsList: StaticListSchema = [1, n0, _ITLn,
   0, () => Tag$
+];
+var ItemErrorList: StaticListSchema = [1, n0, _IELt,
+  0, () => ItemError$
+];
+var ItemIdentifierList = 64 | 0;
+var IterableFormItemList: StaticListSchema = [1, n0, _IFIL,
+  0, () => IterableFormItem$
+];
+var IterableFormListItemList: StaticListSchema = [1, n0, _IFLIL,
+  0, () => IterableFormListItem$
 ];
 var JdbcTargetList: StaticListSchema = [1, n0, _JTL,
   0, () => JdbcTarget$
@@ -8076,8 +8602,14 @@ var SchemaVersionErrorList: StaticListSchema = [1, n0, _SVEL,
 var SchemaVersionList: StaticListSchema = [1, n0, _SVL,
   0, () => SchemaVersionListItem$
 ];
+var SearchFilterClauseList: StaticListSchema = [1, n0, _SFCL,
+  0, () => SearchFilterClause$
+];
 var SearchPropertyPredicates: StaticListSchema = [1, n0, _SPPe,
   0, () => PropertyPredicate$
+];
+var SearchResultItemList: StaticListSchema = [1, n0, _SRIL,
+  0, () => SearchResultItem$
 ];
 var SecurityConfigurationList: StaticListSchema = [1, n0, _SCL,
   0, () => SecurityConfiguration$
@@ -8172,6 +8704,12 @@ var Workflows: StaticListSchema = [1, n0, _W,
 var AdditionalContextMap = 128 | 0;
 var AdditionalOptions = 128 | 0;
 var AdditionalPlanOptionsMap = 128 | 0;
+var AssetFormMap: StaticMapSchema = [2, n0, _AFM,
+  0, 0, () => AssetFormEntry$
+];
+var AssetTypeFormsMap: StaticMapSchema = [2, n0, _ATFM,
+  0, 0, () => AssetTypeFormReference$
+];
 var CodeGenConfigurationNodes: StaticMapSchema = [2, n0, _CGCNo,
   8, 0, () => CodeGenConfigurationNode$
 ];
@@ -8209,6 +8747,9 @@ var GenericMap = 128 | 0;
 var GlueTableAdditionalOptions = 128 | 0;
 var IntegrationAdditionalEncryptionContextMap = 128 | 0;
 var IntegrationSourcePropertiesMap = 128 | 0;
+var IterableFormMap: StaticMapSchema = [2, n0, _IFM,
+  0, 0, () => IterableFormEntry$
+];
 var JDBCDataTypeMapping = 128 | 0;
 var Labels = 128 | 0;
 var LocationMap = 128 | 0;
@@ -8234,10 +8775,28 @@ var StringToStringMap = 128 | 0;
 var TagsMap = 128 | 0;
 var TokenUrlParametersMap = 128 | 0;
 var WorkflowRunProperties = 128 | 0;
+export var SearchFilterClause$: StaticUnionSchema = [4, n0, _SFCe,
+  0,
+  [_AAF, _OAF, _AFt, _MF],
+  [() => SearchFilterClauseList, () => SearchFilterClauseList, () => SearchAttributeFilter$, () => SearchMapFilter$]
+];
+export var SearchFilterValue$: StaticUnionSchema = [4, n0, _SFV,
+  0,
+  [_SVt, _LVo],
+  [0, 1]
+];
+export var SearchMapFilterValue$: StaticUnionSchema = [4, n0, _SMFV,
+  0,
+  [_SVt],
+  [0]
+];
 export var TableOptimizerVpcConfiguration$: StaticUnionSchema = [4, n0, _TOVC,
   0,
   [_gCN],
   [0]
+];
+export var AssociateGlossaryTerms$: StaticOperationSchema = [9, n0, _AGT,
+  { [_h]: ["POST", "/assets/{Identifier}/associate-glossary-terms", 200] }, () => AssociateGlossaryTermsRequest$, () => AssociateGlossaryTermsResponse$
 ];
 export var BatchCreatePartition$: StaticOperationSchema = [9, n0, _BCP,
   0, () => BatchCreatePartitionRequest$, () => BatchCreatePartitionResponse$
@@ -8268,6 +8827,9 @@ export var BatchGetDataQualityResult$: StaticOperationSchema = [9, n0, _BGDQR,
 ];
 export var BatchGetDevEndpoints$: StaticOperationSchema = [9, n0, _BGDE,
   0, () => BatchGetDevEndpointsRequest$, () => BatchGetDevEndpointsResponse$
+];
+export var BatchGetIterableForms$: StaticOperationSchema = [9, n0, _BGIF,
+  { [_h]: ["POST", "/assets/{AssetIdentifier}/iterable-forms/{IterableFormName}/batch-get", 200] }, () => BatchGetIterableFormsRequest$, () => BatchGetIterableFormsResponse$
 ];
 export var BatchGetJobs$: StaticOperationSchema = [9, n0, _BGJ,
   0, () => BatchGetJobsRequest$, () => BatchGetJobsResponse$
@@ -8338,6 +8900,12 @@ export var CreateDataQualityRuleset$: StaticOperationSchema = [9, n0, _CDQR,
 export var CreateDevEndpoint$: StaticOperationSchema = [9, n0, _CDE,
   0, () => CreateDevEndpointRequest$, () => CreateDevEndpointResponse$
 ];
+export var CreateGlossary$: StaticOperationSchema = [9, n0, _CG,
+  { [_h]: ["POST", "/glossaries", 200] }, () => CreateGlossaryRequest$, () => CreateGlossaryResponse$
+];
+export var CreateGlossaryTerm$: StaticOperationSchema = [9, n0, _CGT,
+  { [_h]: ["POST", "/glossary-terms", 200] }, () => CreateGlossaryTermRequest$, () => CreateGlossaryTermResponse$
+];
 export var CreateGlueIdentityCenterConfiguration$: StaticOperationSchema = [9, n0, _CGICC,
   0, () => CreateGlueIdentityCenterConfigurationRequest$, () => CreateGlueIdentityCenterConfigurationResponse$
 ];
@@ -8395,6 +8963,15 @@ export var CreateUserDefinedFunction$: StaticOperationSchema = [9, n0, _CUDF,
 export var CreateWorkflow$: StaticOperationSchema = [9, n0, _CWr,
   0, () => CreateWorkflowRequest$, () => CreateWorkflowResponse$
 ];
+export var DeleteAsset$: StaticOperationSchema = [9, n0, _DAel,
+  { [_h]: ["DELETE", "/assets/{Identifier}", 200] }, () => DeleteAssetRequest$, () => DeleteAssetResponse$
+];
+export var DeleteAssetType$: StaticOperationSchema = [9, n0, _DAT,
+  { [_h]: ["DELETE", "/asset-types/{Identifier}", 200] }, () => DeleteAssetTypeRequest$, () => DeleteAssetTypeResponse$
+];
+export var DeleteAttachment$: StaticOperationSchema = [9, n0, _DAele,
+  { [_h]: ["DELETE", "/assets/{Identifier}/attachments/{AttachmentName}", 200] }, () => DeleteAttachmentRequest$, () => DeleteAttachmentResponse$
+];
 export var DeleteBlueprint$: StaticOperationSchema = [9, n0, _DBe,
   0, () => DeleteBlueprintRequest$, () => DeleteBlueprintResponse$
 ];
@@ -8433,6 +9010,15 @@ export var DeleteDataQualityRuleset$: StaticOperationSchema = [9, n0, _DDQR,
 ];
 export var DeleteDevEndpoint$: StaticOperationSchema = [9, n0, _DDE,
   0, () => DeleteDevEndpointRequest$, () => DeleteDevEndpointResponse$
+];
+export var DeleteFormType$: StaticOperationSchema = [9, n0, _DFT,
+  { [_h]: ["DELETE", "/form-types/{Identifier}", 200] }, () => DeleteFormTypeRequest$, () => DeleteFormTypeResponse$
+];
+export var DeleteGlossary$: StaticOperationSchema = [9, n0, _DG,
+  { [_h]: ["DELETE", "/glossaries/{Identifier}", 200] }, () => DeleteGlossaryRequest$, () => DeleteGlossaryResponse$
+];
+export var DeleteGlossaryTerm$: StaticOperationSchema = [9, n0, _DGT,
+  { [_h]: ["DELETE", "/glossary-terms/{Identifier}", 200] }, () => DeleteGlossaryTermRequest$, () => DeleteGlossaryTermResponse$
 ];
 export var DeleteGlueIdentityCenterConfiguration$: StaticOperationSchema = [9, n0, _DGICC,
   0, () => DeleteGlueIdentityCenterConfigurationRequest$, () => DeleteGlueIdentityCenterConfigurationResponse$
@@ -8508,6 +9094,15 @@ export var DescribeInboundIntegrations$: StaticOperationSchema = [9, n0, _DII,
 ];
 export var DescribeIntegrations$: StaticOperationSchema = [9, n0, _DIes,
   0, () => DescribeIntegrationsRequest$, () => DescribeIntegrationsResponse$
+];
+export var DisassociateGlossaryTerms$: StaticOperationSchema = [9, n0, _DGTi,
+  { [_h]: ["POST", "/assets/{Identifier}/disassociate-glossary-terms", 200] }, () => DisassociateGlossaryTermsRequest$, () => DisassociateGlossaryTermsResponse$
+];
+export var GetAsset$: StaticOperationSchema = [9, n0, _GA,
+  { [_h]: ["GET", "/assets/{Identifier}", 200] }, () => GetAssetInput$, () => GetAssetOutput$
+];
+export var GetAssetType$: StaticOperationSchema = [9, n0, _GAT,
+  { [_h]: ["GET", "/asset-types/{Identifier}", 200] }, () => GetAssetTypeRequest$, () => GetAssetTypeResponse$
 ];
 export var GetBlueprint$: StaticOperationSchema = [9, n0, _GB,
   0, () => GetBlueprintRequest$, () => GetBlueprintResponse$
@@ -8607,6 +9202,15 @@ export var GetDevEndpoints$: StaticOperationSchema = [9, n0, _GDEe,
 ];
 export var GetEntityRecords$: StaticOperationSchema = [9, n0, _GER,
   0, () => GetEntityRecordsRequest$, () => GetEntityRecordsResponse$
+];
+export var GetFormType$: StaticOperationSchema = [9, n0, _GFT,
+  { [_h]: ["GET", "/form-types/{Identifier}", 200] }, () => GetFormTypeRequest$, () => GetFormTypeResponse$
+];
+export var GetGlossary$: StaticOperationSchema = [9, n0, _GG,
+  { [_h]: ["GET", "/glossaries/{Identifier}", 200] }, () => GetGlossaryRequest$, () => GetGlossaryResponse$
+];
+export var GetGlossaryTerm$: StaticOperationSchema = [9, n0, _GGT,
+  { [_h]: ["GET", "/glossary-terms/{Identifier}", 200] }, () => GetGlossaryTermRequest$, () => GetGlossaryTermResponse$
 ];
 export var GetGlueIdentityCenterConfiguration$: StaticOperationSchema = [9, n0, _GGICC,
   0, () => GetGlueIdentityCenterConfigurationRequest$, () => GetGlueIdentityCenterConfigurationResponse$
@@ -8755,6 +9359,9 @@ export var GetWorkflowRuns$: StaticOperationSchema = [9, n0, _GWReto,
 export var ImportCatalogToGlue$: StaticOperationSchema = [9, n0, _ICTG,
   0, () => ImportCatalogToGlueRequest$, () => ImportCatalogToGlueResponse$
 ];
+export var ListAssetTypes$: StaticOperationSchema = [9, n0, _LATi,
+  { [_h]: ["GET", "/asset-types", 200] }, () => ListAssetTypesRequest$, () => ListAssetTypesResponse$
+];
 export var ListBlueprints$: StaticOperationSchema = [9, n0, _LBi,
   0, () => ListBlueprintsRequest$, () => ListBlueprintsResponse$
 ];
@@ -8797,8 +9404,20 @@ export var ListDevEndpoints$: StaticOperationSchema = [9, n0, _LDE,
 export var ListEntities$: StaticOperationSchema = [9, n0, _LE,
   0, () => ListEntitiesRequest$, () => ListEntitiesResponse$
 ];
+export var ListFormTypes$: StaticOperationSchema = [9, n0, _LFT,
+  { [_h]: ["GET", "/form-types", 200] }, () => ListFormTypesRequest$, () => ListFormTypesResponse$
+];
+export var ListGlossaries$: StaticOperationSchema = [9, n0, _LGi,
+  { [_h]: ["GET", "/glossaries", 200] }, () => ListGlossariesRequest$, () => ListGlossariesResponse$
+];
+export var ListGlossaryTerms$: StaticOperationSchema = [9, n0, _LGT,
+  { [_h]: ["GET", "/glossary-terms", 200] }, () => ListGlossaryTermsRequest$, () => ListGlossaryTermsResponse$
+];
 export var ListIntegrationResourceProperties$: StaticOperationSchema = [9, n0, _LIRP,
   0, () => ListIntegrationResourcePropertiesRequest$, () => ListIntegrationResourcePropertiesResponse$
+];
+export var ListIterableForms$: StaticOperationSchema = [9, n0, _LIF,
+  { [_h]: ["GET", "/assets/{AssetIdentifier}/iterable-forms/{IterableFormName}", 200] }, () => ListIterableFormsRequest$, () => ListIterableFormsResponse$
 ];
 export var ListJobs$: StaticOperationSchema = [9, n0, _LJ,
   0, () => ListJobsRequest$, () => ListJobsResponse$
@@ -8839,11 +9458,23 @@ export var ListWorkflows$: StaticOperationSchema = [9, n0, _LW,
 export var ModifyIntegration$: StaticOperationSchema = [9, n0, _MIo,
   0, () => ModifyIntegrationRequest$, () => ModifyIntegrationResponse$
 ];
+export var PutAsset$: StaticOperationSchema = [9, n0, _PAut,
+  { [_h]: ["PUT", "/assets", 200] }, () => PutAssetRequest$, () => PutAssetResponse$
+];
+export var PutAssetType$: StaticOperationSchema = [9, n0, _PAT,
+  { [_h]: ["PUT", "/asset-types", 200] }, () => PutAssetTypeRequest$, () => PutAssetTypeResponse$
+];
+export var PutAttachment$: StaticOperationSchema = [9, n0, _PAutt,
+  { [_h]: ["POST", "/assets/{AssetIdentifier}/attachment", 200] }, () => PutAttachmentRequest$, () => PutAttachmentResponse$
+];
 export var PutDataCatalogEncryptionSettings$: StaticOperationSchema = [9, n0, _PDCES,
   0, () => PutDataCatalogEncryptionSettingsRequest$, () => PutDataCatalogEncryptionSettingsResponse$
 ];
 export var PutDataQualityProfileAnnotation$: StaticOperationSchema = [9, n0, _PDQPA,
   0, () => PutDataQualityProfileAnnotationRequest$, () => PutDataQualityProfileAnnotationResponse$
+];
+export var PutFormType$: StaticOperationSchema = [9, n0, _PFT,
+  { [_h]: ["PUT", "/form-types", 200] }, () => PutFormTypeRequest$, () => PutFormTypeResponse$
 ];
 export var PutResourcePolicy$: StaticOperationSchema = [9, n0, _PRP,
   0, () => PutResourcePolicyRequest$, () => PutResourcePolicyResponse$
@@ -8874,6 +9505,9 @@ export var ResumeWorkflowRun$: StaticOperationSchema = [9, n0, _RWR,
 ];
 export var RunStatement$: StaticOperationSchema = [9, n0, _RSu,
   0, () => RunStatementRequest$, () => RunStatementResponse$
+];
+export var Search$: StaticOperationSchema = [9, n0, _Sea,
+  { [_h]: ["POST", "/search", 200] }, () => SearchInput$, () => SearchOutput$
 ];
 export var SearchTables$: StaticOperationSchema = [9, n0, _STear,
   0, () => SearchTablesRequest$, () => SearchTablesResponse$
@@ -8991,6 +9625,12 @@ export var UpdateDataQualityRuleset$: StaticOperationSchema = [9, n0, _UDQR,
 ];
 export var UpdateDevEndpoint$: StaticOperationSchema = [9, n0, _UDE,
   0, () => UpdateDevEndpointRequest$, () => UpdateDevEndpointResponse$
+];
+export var UpdateGlossary$: StaticOperationSchema = [9, n0, _UG,
+  { [_h]: ["PUT", "/glossaries/{Identifier}", 200] }, () => UpdateGlossaryRequest$, () => UpdateGlossaryResponse$
+];
+export var UpdateGlossaryTerm$: StaticOperationSchema = [9, n0, _UGT,
+  { [_h]: ["PUT", "/glossary-terms/{Identifier}", 200] }, () => UpdateGlossaryTermRequest$, () => UpdateGlossaryTermResponse$
 ];
 export var UpdateGlueIdentityCenterConfiguration$: StaticOperationSchema = [9, n0, _UGICC,
   0, () => UpdateGlueIdentityCenterConfigurationRequest$, () => UpdateGlueIdentityCenterConfigurationResponse$

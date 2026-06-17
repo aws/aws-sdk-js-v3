@@ -55,6 +55,10 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import type {
+  AssociateGlossaryTermsCommandInput,
+  AssociateGlossaryTermsCommandOutput,
+} from "./commands/AssociateGlossaryTermsCommand";
+import type {
   BatchCreatePartitionCommandInput,
   BatchCreatePartitionCommandOutput,
 } from "./commands/BatchCreatePartitionCommand";
@@ -88,6 +92,10 @@ import type {
   BatchGetDevEndpointsCommandInput,
   BatchGetDevEndpointsCommandOutput,
 } from "./commands/BatchGetDevEndpointsCommand";
+import type {
+  BatchGetIterableFormsCommandInput,
+  BatchGetIterableFormsCommandOutput,
+} from "./commands/BatchGetIterableFormsCommand";
 import type { BatchGetJobsCommandInput, BatchGetJobsCommandOutput } from "./commands/BatchGetJobsCommand";
 import type {
   BatchGetPartitionCommandInput,
@@ -147,6 +155,11 @@ import type {
   CreateDevEndpointCommandInput,
   CreateDevEndpointCommandOutput,
 } from "./commands/CreateDevEndpointCommand";
+import type { CreateGlossaryCommandInput, CreateGlossaryCommandOutput } from "./commands/CreateGlossaryCommand";
+import type {
+  CreateGlossaryTermCommandInput,
+  CreateGlossaryTermCommandOutput,
+} from "./commands/CreateGlossaryTermCommand";
 import type {
   CreateGlueIdentityCenterConfigurationCommandInput,
   CreateGlueIdentityCenterConfigurationCommandOutput,
@@ -196,6 +209,9 @@ import type {
   CreateUserDefinedFunctionCommandOutput,
 } from "./commands/CreateUserDefinedFunctionCommand";
 import type { CreateWorkflowCommandInput, CreateWorkflowCommandOutput } from "./commands/CreateWorkflowCommand";
+import type { DeleteAssetCommandInput, DeleteAssetCommandOutput } from "./commands/DeleteAssetCommand";
+import type { DeleteAssetTypeCommandInput, DeleteAssetTypeCommandOutput } from "./commands/DeleteAssetTypeCommand";
+import type { DeleteAttachmentCommandInput, DeleteAttachmentCommandOutput } from "./commands/DeleteAttachmentCommand";
 import type { DeleteBlueprintCommandInput, DeleteBlueprintCommandOutput } from "./commands/DeleteBlueprintCommand";
 import type { DeleteCatalogCommandInput, DeleteCatalogCommandOutput } from "./commands/DeleteCatalogCommand";
 import type { DeleteClassifierCommandInput, DeleteClassifierCommandOutput } from "./commands/DeleteClassifierCommand";
@@ -230,6 +246,12 @@ import type {
   DeleteDevEndpointCommandInput,
   DeleteDevEndpointCommandOutput,
 } from "./commands/DeleteDevEndpointCommand";
+import type { DeleteFormTypeCommandInput, DeleteFormTypeCommandOutput } from "./commands/DeleteFormTypeCommand";
+import type { DeleteGlossaryCommandInput, DeleteGlossaryCommandOutput } from "./commands/DeleteGlossaryCommand";
+import type {
+  DeleteGlossaryTermCommandInput,
+  DeleteGlossaryTermCommandOutput,
+} from "./commands/DeleteGlossaryTermCommand";
 import type {
   DeleteGlueIdentityCenterConfigurationCommandInput,
   DeleteGlueIdentityCenterConfigurationCommandOutput,
@@ -303,6 +325,12 @@ import type {
   DescribeIntegrationsCommandInput,
   DescribeIntegrationsCommandOutput,
 } from "./commands/DescribeIntegrationsCommand";
+import type {
+  DisassociateGlossaryTermsCommandInput,
+  DisassociateGlossaryTermsCommandOutput,
+} from "./commands/DisassociateGlossaryTermsCommand";
+import type { GetAssetCommandInput, GetAssetCommandOutput } from "./commands/GetAssetCommand";
+import type { GetAssetTypeCommandInput, GetAssetTypeCommandOutput } from "./commands/GetAssetTypeCommand";
 import type { GetBlueprintCommandInput, GetBlueprintCommandOutput } from "./commands/GetBlueprintCommand";
 import type { GetBlueprintRunCommandInput, GetBlueprintRunCommandOutput } from "./commands/GetBlueprintRunCommand";
 import type { GetBlueprintRunsCommandInput, GetBlueprintRunsCommandOutput } from "./commands/GetBlueprintRunsCommand";
@@ -381,6 +409,9 @@ import type {
 import type { GetDevEndpointCommandInput, GetDevEndpointCommandOutput } from "./commands/GetDevEndpointCommand";
 import type { GetDevEndpointsCommandInput, GetDevEndpointsCommandOutput } from "./commands/GetDevEndpointsCommand";
 import type { GetEntityRecordsCommandInput, GetEntityRecordsCommandOutput } from "./commands/GetEntityRecordsCommand";
+import type { GetFormTypeCommandInput, GetFormTypeCommandOutput } from "./commands/GetFormTypeCommand";
+import type { GetGlossaryCommandInput, GetGlossaryCommandOutput } from "./commands/GetGlossaryCommand";
+import type { GetGlossaryTermCommandInput, GetGlossaryTermCommandOutput } from "./commands/GetGlossaryTermCommand";
 import type {
   GetGlueIdentityCenterConfigurationCommandInput,
   GetGlueIdentityCenterConfigurationCommandOutput,
@@ -490,6 +521,7 @@ import type {
   ImportCatalogToGlueCommandInput,
   ImportCatalogToGlueCommandOutput,
 } from "./commands/ImportCatalogToGlueCommand";
+import type { ListAssetTypesCommandInput, ListAssetTypesCommandOutput } from "./commands/ListAssetTypesCommand";
 import type { ListBlueprintsCommandInput, ListBlueprintsCommandOutput } from "./commands/ListBlueprintsCommand";
 import type {
   ListColumnStatisticsTaskRunsCommandInput,
@@ -531,10 +563,20 @@ import type {
 } from "./commands/ListDataQualityStatisticsCommand";
 import type { ListDevEndpointsCommandInput, ListDevEndpointsCommandOutput } from "./commands/ListDevEndpointsCommand";
 import type { ListEntitiesCommandInput, ListEntitiesCommandOutput } from "./commands/ListEntitiesCommand";
+import type { ListFormTypesCommandInput, ListFormTypesCommandOutput } from "./commands/ListFormTypesCommand";
+import type { ListGlossariesCommandInput, ListGlossariesCommandOutput } from "./commands/ListGlossariesCommand";
+import type {
+  ListGlossaryTermsCommandInput,
+  ListGlossaryTermsCommandOutput,
+} from "./commands/ListGlossaryTermsCommand";
 import type {
   ListIntegrationResourcePropertiesCommandInput,
   ListIntegrationResourcePropertiesCommandOutput,
 } from "./commands/ListIntegrationResourcePropertiesCommand";
+import type {
+  ListIterableFormsCommandInput,
+  ListIterableFormsCommandOutput,
+} from "./commands/ListIterableFormsCommand";
 import type { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import type {
   ListMaterializedViewRefreshTaskRunsCommandInput,
@@ -563,6 +605,9 @@ import type {
   ModifyIntegrationCommandInput,
   ModifyIntegrationCommandOutput,
 } from "./commands/ModifyIntegrationCommand";
+import type { PutAssetCommandInput, PutAssetCommandOutput } from "./commands/PutAssetCommand";
+import type { PutAssetTypeCommandInput, PutAssetTypeCommandOutput } from "./commands/PutAssetTypeCommand";
+import type { PutAttachmentCommandInput, PutAttachmentCommandOutput } from "./commands/PutAttachmentCommand";
 import type {
   PutDataCatalogEncryptionSettingsCommandInput,
   PutDataCatalogEncryptionSettingsCommandOutput,
@@ -571,6 +616,7 @@ import type {
   PutDataQualityProfileAnnotationCommandInput,
   PutDataQualityProfileAnnotationCommandOutput,
 } from "./commands/PutDataQualityProfileAnnotationCommand";
+import type { PutFormTypeCommandInput, PutFormTypeCommandOutput } from "./commands/PutFormTypeCommand";
 import type {
   PutResourcePolicyCommandInput,
   PutResourcePolicyCommandOutput,
@@ -605,6 +651,7 @@ import type {
   ResumeWorkflowRunCommandOutput,
 } from "./commands/ResumeWorkflowRunCommand";
 import type { RunStatementCommandInput, RunStatementCommandOutput } from "./commands/RunStatementCommand";
+import type { SearchCommandInput, SearchCommandOutput } from "./commands/SearchCommand";
 import type { SearchTablesCommandInput, SearchTablesCommandOutput } from "./commands/SearchTablesCommand";
 import type {
   StartBlueprintRunCommandInput,
@@ -707,6 +754,11 @@ import type {
   UpdateDevEndpointCommandInput,
   UpdateDevEndpointCommandOutput,
 } from "./commands/UpdateDevEndpointCommand";
+import type { UpdateGlossaryCommandInput, UpdateGlossaryCommandOutput } from "./commands/UpdateGlossaryCommand";
+import type {
+  UpdateGlossaryTermCommandInput,
+  UpdateGlossaryTermCommandOutput,
+} from "./commands/UpdateGlossaryTermCommand";
 import type {
   UpdateGlueIdentityCenterConfigurationCommandInput,
   UpdateGlueIdentityCenterConfigurationCommandOutput,
@@ -765,6 +817,7 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | AssociateGlossaryTermsCommandInput
   | BatchCreatePartitionCommandInput
   | BatchDeleteConnectionCommandInput
   | BatchDeletePartitionCommandInput
@@ -775,6 +828,7 @@ export type ServiceInputTypes =
   | BatchGetCustomEntityTypesCommandInput
   | BatchGetDataQualityResultCommandInput
   | BatchGetDevEndpointsCommandInput
+  | BatchGetIterableFormsCommandInput
   | BatchGetJobsCommandInput
   | BatchGetPartitionCommandInput
   | BatchGetTableOptimizerCommandInput
@@ -798,6 +852,8 @@ export type ServiceInputTypes =
   | CreateDataQualityRulesetCommandInput
   | CreateDatabaseCommandInput
   | CreateDevEndpointCommandInput
+  | CreateGlossaryCommandInput
+  | CreateGlossaryTermCommandInput
   | CreateGlueIdentityCenterConfigurationCommandInput
   | CreateIntegrationCommandInput
   | CreateIntegrationResourcePropertyCommandInput
@@ -817,6 +873,9 @@ export type ServiceInputTypes =
   | CreateUsageProfileCommandInput
   | CreateUserDefinedFunctionCommandInput
   | CreateWorkflowCommandInput
+  | DeleteAssetCommandInput
+  | DeleteAssetTypeCommandInput
+  | DeleteAttachmentCommandInput
   | DeleteBlueprintCommandInput
   | DeleteCatalogCommandInput
   | DeleteClassifierCommandInput
@@ -830,6 +889,9 @@ export type ServiceInputTypes =
   | DeleteDataQualityRulesetCommandInput
   | DeleteDatabaseCommandInput
   | DeleteDevEndpointCommandInput
+  | DeleteFormTypeCommandInput
+  | DeleteGlossaryCommandInput
+  | DeleteGlossaryTermCommandInput
   | DeleteGlueIdentityCenterConfigurationCommandInput
   | DeleteIntegrationCommandInput
   | DeleteIntegrationResourcePropertyCommandInput
@@ -855,6 +917,9 @@ export type ServiceInputTypes =
   | DescribeEntityCommandInput
   | DescribeInboundIntegrationsCommandInput
   | DescribeIntegrationsCommandInput
+  | DisassociateGlossaryTermsCommandInput
+  | GetAssetCommandInput
+  | GetAssetTypeCommandInput
   | GetBlueprintCommandInput
   | GetBlueprintRunCommandInput
   | GetBlueprintRunsCommandInput
@@ -888,6 +953,9 @@ export type ServiceInputTypes =
   | GetDevEndpointCommandInput
   | GetDevEndpointsCommandInput
   | GetEntityRecordsCommandInput
+  | GetFormTypeCommandInput
+  | GetGlossaryCommandInput
+  | GetGlossaryTermCommandInput
   | GetGlueIdentityCenterConfigurationCommandInput
   | GetIntegrationResourcePropertyCommandInput
   | GetIntegrationTablePropertiesCommandInput
@@ -937,6 +1005,7 @@ export type ServiceInputTypes =
   | GetWorkflowRunPropertiesCommandInput
   | GetWorkflowRunsCommandInput
   | ImportCatalogToGlueCommandInput
+  | ListAssetTypesCommandInput
   | ListBlueprintsCommandInput
   | ListColumnStatisticsTaskRunsCommandInput
   | ListConnectionTypesCommandInput
@@ -951,7 +1020,11 @@ export type ServiceInputTypes =
   | ListDataQualityStatisticsCommandInput
   | ListDevEndpointsCommandInput
   | ListEntitiesCommandInput
+  | ListFormTypesCommandInput
+  | ListGlossariesCommandInput
+  | ListGlossaryTermsCommandInput
   | ListIntegrationResourcePropertiesCommandInput
+  | ListIterableFormsCommandInput
   | ListJobsCommandInput
   | ListMLTransformsCommandInput
   | ListMaterializedViewRefreshTaskRunsCommandInput
@@ -965,8 +1038,12 @@ export type ServiceInputTypes =
   | ListUsageProfilesCommandInput
   | ListWorkflowsCommandInput
   | ModifyIntegrationCommandInput
+  | PutAssetCommandInput
+  | PutAssetTypeCommandInput
+  | PutAttachmentCommandInput
   | PutDataCatalogEncryptionSettingsCommandInput
   | PutDataQualityProfileAnnotationCommandInput
+  | PutFormTypeCommandInput
   | PutResourcePolicyCommandInput
   | PutSchemaVersionMetadataCommandInput
   | PutWorkflowRunPropertiesCommandInput
@@ -977,6 +1054,7 @@ export type ServiceInputTypes =
   | ResetJobBookmarkCommandInput
   | ResumeWorkflowRunCommandInput
   | RunStatementCommandInput
+  | SearchCommandInput
   | SearchTablesCommandInput
   | StartBlueprintRunCommandInput
   | StartColumnStatisticsTaskRunCommandInput
@@ -1016,6 +1094,8 @@ export type ServiceInputTypes =
   | UpdateDataQualityRulesetCommandInput
   | UpdateDatabaseCommandInput
   | UpdateDevEndpointCommandInput
+  | UpdateGlossaryCommandInput
+  | UpdateGlossaryTermCommandInput
   | UpdateGlueIdentityCenterConfigurationCommandInput
   | UpdateIntegrationResourcePropertyCommandInput
   | UpdateIntegrationTablePropertiesCommandInput
@@ -1037,6 +1117,7 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | AssociateGlossaryTermsCommandOutput
   | BatchCreatePartitionCommandOutput
   | BatchDeleteConnectionCommandOutput
   | BatchDeletePartitionCommandOutput
@@ -1047,6 +1128,7 @@ export type ServiceOutputTypes =
   | BatchGetCustomEntityTypesCommandOutput
   | BatchGetDataQualityResultCommandOutput
   | BatchGetDevEndpointsCommandOutput
+  | BatchGetIterableFormsCommandOutput
   | BatchGetJobsCommandOutput
   | BatchGetPartitionCommandOutput
   | BatchGetTableOptimizerCommandOutput
@@ -1070,6 +1152,8 @@ export type ServiceOutputTypes =
   | CreateDataQualityRulesetCommandOutput
   | CreateDatabaseCommandOutput
   | CreateDevEndpointCommandOutput
+  | CreateGlossaryCommandOutput
+  | CreateGlossaryTermCommandOutput
   | CreateGlueIdentityCenterConfigurationCommandOutput
   | CreateIntegrationCommandOutput
   | CreateIntegrationResourcePropertyCommandOutput
@@ -1089,6 +1173,9 @@ export type ServiceOutputTypes =
   | CreateUsageProfileCommandOutput
   | CreateUserDefinedFunctionCommandOutput
   | CreateWorkflowCommandOutput
+  | DeleteAssetCommandOutput
+  | DeleteAssetTypeCommandOutput
+  | DeleteAttachmentCommandOutput
   | DeleteBlueprintCommandOutput
   | DeleteCatalogCommandOutput
   | DeleteClassifierCommandOutput
@@ -1102,6 +1189,9 @@ export type ServiceOutputTypes =
   | DeleteDataQualityRulesetCommandOutput
   | DeleteDatabaseCommandOutput
   | DeleteDevEndpointCommandOutput
+  | DeleteFormTypeCommandOutput
+  | DeleteGlossaryCommandOutput
+  | DeleteGlossaryTermCommandOutput
   | DeleteGlueIdentityCenterConfigurationCommandOutput
   | DeleteIntegrationCommandOutput
   | DeleteIntegrationResourcePropertyCommandOutput
@@ -1127,6 +1217,9 @@ export type ServiceOutputTypes =
   | DescribeEntityCommandOutput
   | DescribeInboundIntegrationsCommandOutput
   | DescribeIntegrationsCommandOutput
+  | DisassociateGlossaryTermsCommandOutput
+  | GetAssetCommandOutput
+  | GetAssetTypeCommandOutput
   | GetBlueprintCommandOutput
   | GetBlueprintRunCommandOutput
   | GetBlueprintRunsCommandOutput
@@ -1160,6 +1253,9 @@ export type ServiceOutputTypes =
   | GetDevEndpointCommandOutput
   | GetDevEndpointsCommandOutput
   | GetEntityRecordsCommandOutput
+  | GetFormTypeCommandOutput
+  | GetGlossaryCommandOutput
+  | GetGlossaryTermCommandOutput
   | GetGlueIdentityCenterConfigurationCommandOutput
   | GetIntegrationResourcePropertyCommandOutput
   | GetIntegrationTablePropertiesCommandOutput
@@ -1209,6 +1305,7 @@ export type ServiceOutputTypes =
   | GetWorkflowRunPropertiesCommandOutput
   | GetWorkflowRunsCommandOutput
   | ImportCatalogToGlueCommandOutput
+  | ListAssetTypesCommandOutput
   | ListBlueprintsCommandOutput
   | ListColumnStatisticsTaskRunsCommandOutput
   | ListConnectionTypesCommandOutput
@@ -1223,7 +1320,11 @@ export type ServiceOutputTypes =
   | ListDataQualityStatisticsCommandOutput
   | ListDevEndpointsCommandOutput
   | ListEntitiesCommandOutput
+  | ListFormTypesCommandOutput
+  | ListGlossariesCommandOutput
+  | ListGlossaryTermsCommandOutput
   | ListIntegrationResourcePropertiesCommandOutput
+  | ListIterableFormsCommandOutput
   | ListJobsCommandOutput
   | ListMLTransformsCommandOutput
   | ListMaterializedViewRefreshTaskRunsCommandOutput
@@ -1237,8 +1338,12 @@ export type ServiceOutputTypes =
   | ListUsageProfilesCommandOutput
   | ListWorkflowsCommandOutput
   | ModifyIntegrationCommandOutput
+  | PutAssetCommandOutput
+  | PutAssetTypeCommandOutput
+  | PutAttachmentCommandOutput
   | PutDataCatalogEncryptionSettingsCommandOutput
   | PutDataQualityProfileAnnotationCommandOutput
+  | PutFormTypeCommandOutput
   | PutResourcePolicyCommandOutput
   | PutSchemaVersionMetadataCommandOutput
   | PutWorkflowRunPropertiesCommandOutput
@@ -1249,6 +1354,7 @@ export type ServiceOutputTypes =
   | ResetJobBookmarkCommandOutput
   | ResumeWorkflowRunCommandOutput
   | RunStatementCommandOutput
+  | SearchCommandOutput
   | SearchTablesCommandOutput
   | StartBlueprintRunCommandOutput
   | StartColumnStatisticsTaskRunCommandOutput
@@ -1288,6 +1394,8 @@ export type ServiceOutputTypes =
   | UpdateDataQualityRulesetCommandOutput
   | UpdateDatabaseCommandOutput
   | UpdateDevEndpointCommandOutput
+  | UpdateGlossaryCommandOutput
+  | UpdateGlossaryTermCommandOutput
   | UpdateGlueIdentityCenterConfigurationCommandOutput
   | UpdateIntegrationResourcePropertyCommandOutput
   | UpdateIntegrationTablePropertiesCommandOutput

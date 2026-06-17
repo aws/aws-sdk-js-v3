@@ -16,6 +16,13 @@ import {
   AmazonRedshiftTarget$,
   AnnotationError$,
   ApplyMapping$,
+  AssetFormEntry$,
+  AssetTypeFormReference$,
+  AssetTypeItem$,
+  AssociateGlossaryTerms$,
+  AssociateGlossaryTermsCommand,
+  AssociateGlossaryTermsRequest$,
+  AssociateGlossaryTermsResponse$,
   AthenaConnectorSource$,
   AuditContext$,
   AuthConfiguration$,
@@ -69,6 +76,10 @@ import {
   BatchGetDevEndpointsCommand,
   BatchGetDevEndpointsRequest$,
   BatchGetDevEndpointsResponse$,
+  BatchGetIterableForms$,
+  BatchGetIterableFormsCommand,
+  BatchGetIterableFormsRequest$,
+  BatchGetIterableFormsResponse$,
   BatchGetJobs$,
   BatchGetJobsCommand,
   BatchGetJobsRequest$,
@@ -274,6 +285,14 @@ import {
   CreateDevEndpointCommand,
   CreateDevEndpointRequest$,
   CreateDevEndpointResponse$,
+  CreateGlossary$,
+  CreateGlossaryCommand,
+  CreateGlossaryRequest$,
+  CreateGlossaryResponse$,
+  CreateGlossaryTerm$,
+  CreateGlossaryTermCommand,
+  CreateGlossaryTermRequest$,
+  CreateGlossaryTermResponse$,
   CreateGlueIdentityCenterConfiguration$,
   CreateGlueIdentityCenterConfigurationCommand,
   CreateGlueIdentityCenterConfigurationRequest$,
@@ -401,6 +420,18 @@ import {
   DdbExportType,
   DecimalColumnStatisticsData$,
   DecimalNumber$,
+  DeleteAsset$,
+  DeleteAssetCommand,
+  DeleteAssetRequest$,
+  DeleteAssetResponse$,
+  DeleteAssetType$,
+  DeleteAssetTypeCommand,
+  DeleteAssetTypeRequest$,
+  DeleteAssetTypeResponse$,
+  DeleteAttachment$,
+  DeleteAttachmentCommand,
+  DeleteAttachmentRequest$,
+  DeleteAttachmentResponse$,
   DeleteBehavior,
   DeleteBlueprint$,
   DeleteBlueprintCommand,
@@ -454,6 +485,18 @@ import {
   DeleteDevEndpointCommand,
   DeleteDevEndpointRequest$,
   DeleteDevEndpointResponse$,
+  DeleteFormType$,
+  DeleteFormTypeCommand,
+  DeleteFormTypeRequest$,
+  DeleteFormTypeResponse$,
+  DeleteGlossary$,
+  DeleteGlossaryCommand,
+  DeleteGlossaryRequest$,
+  DeleteGlossaryResponse$,
+  DeleteGlossaryTerm$,
+  DeleteGlossaryTermCommand,
+  DeleteGlossaryTermRequest$,
+  DeleteGlossaryTermResponse$,
   DeleteGlueIdentityCenterConfiguration$,
   DeleteGlueIdentityCenterConfigurationCommand,
   DeleteGlueIdentityCenterConfigurationRequest$,
@@ -562,6 +605,10 @@ import {
   DirectKafkaSource$,
   DirectKinesisSource$,
   DirectSchemaChangePolicy$,
+  DisassociateGlossaryTerms$,
+  DisassociateGlossaryTermsCommand,
+  DisassociateGlossaryTermsRequest$,
+  DisassociateGlossaryTermsResponse$,
   DoubleColumnStatisticsData$,
   DQCompositeRuleEvaluationMethod,
   DQResultsPublishingOptions$,
@@ -622,7 +669,16 @@ import {
   FindMatchesMetrics$,
   FindMatchesParameters$,
   FindMatchesTaskRunProperties$,
+  FormTypeItem$,
   FunctionType,
+  GetAsset$,
+  GetAssetCommand,
+  GetAssetInput$,
+  GetAssetOutput$,
+  GetAssetType$,
+  GetAssetTypeCommand,
+  GetAssetTypeRequest$,
+  GetAssetTypeResponse$,
   GetBlueprint$,
   GetBlueprintCommand,
   GetBlueprintRequest$,
@@ -756,6 +812,18 @@ import {
   GetEntityRecordsCommand,
   GetEntityRecordsRequest$,
   GetEntityRecordsResponse$,
+  GetFormType$,
+  GetFormTypeCommand,
+  GetFormTypeRequest$,
+  GetFormTypeResponse$,
+  GetGlossary$,
+  GetGlossaryCommand,
+  GetGlossaryRequest$,
+  GetGlossaryResponse$,
+  GetGlossaryTerm$,
+  GetGlossaryTermCommand,
+  GetGlossaryTermRequest$,
+  GetGlossaryTermResponse$,
   GetGlueIdentityCenterConfiguration$,
   GetGlueIdentityCenterConfigurationCommand,
   GetGlueIdentityCenterConfigurationRequest$,
@@ -948,6 +1016,8 @@ import {
   GetWorkflowRunsCommand,
   GetWorkflowRunsRequest$,
   GetWorkflowRunsResponse$,
+  GlossaryItem$,
+  GlossaryTermItem$,
   Glue,
   GlueClient,
   GlueEncryptionException,
@@ -1031,6 +1101,10 @@ import {
   InvalidIntegrationStateFault$,
   InvalidStateException,
   InvalidStateException$,
+  ItemError$,
+  IterableFormEntry$,
+  IterableFormItem$,
+  IterableFormListItem$,
   JDBCConnectionType,
   JDBCConnectorOptions$,
   JDBCConnectorSource$,
@@ -1066,6 +1140,10 @@ import {
   LastCrawlStatus,
   LastRefreshType,
   LineageConfiguration$,
+  ListAssetTypes$,
+  ListAssetTypesCommand,
+  ListAssetTypesRequest$,
+  ListAssetTypesResponse$,
   ListBlueprints$,
   ListBlueprintsCommand,
   ListBlueprintsRequest$,
@@ -1122,10 +1200,26 @@ import {
   ListEntitiesCommand,
   ListEntitiesRequest$,
   ListEntitiesResponse$,
+  ListFormTypes$,
+  ListFormTypesCommand,
+  ListFormTypesRequest$,
+  ListFormTypesResponse$,
+  ListGlossaries$,
+  ListGlossariesCommand,
+  ListGlossariesRequest$,
+  ListGlossariesResponse$,
+  ListGlossaryTerms$,
+  ListGlossaryTermsCommand,
+  ListGlossaryTermsRequest$,
+  ListGlossaryTermsResponse$,
   ListIntegrationResourceProperties$,
   ListIntegrationResourcePropertiesCommand,
   ListIntegrationResourcePropertiesRequest$,
   ListIntegrationResourcePropertiesResponse$,
+  ListIterableForms$,
+  ListIterableFormsCommand,
+  ListIterableFormsRequest$,
+  ListIterableFormsResponse$,
   ListJobs$,
   ListJobsCommand,
   ListJobsRequest$,
@@ -1257,6 +1351,7 @@ import {
   paginateGetUnfilteredPartitionsMetadata,
   paginateGetUserDefinedFunctions,
   paginateGetWorkflowRuns,
+  paginateListAssetTypes,
   paginateListBlueprints,
   paginateListColumnStatisticsTaskRuns,
   paginateListConnectionTypes,
@@ -1268,6 +1363,10 @@ import {
   paginateListDataQualityRulesets,
   paginateListDevEndpoints,
   paginateListEntities,
+  paginateListFormTypes,
+  paginateListGlossaries,
+  paginateListGlossaryTerms,
+  paginateListIterableForms,
   paginateListJobs,
   paginateListMaterializedViewRefreshTaskRuns,
   paginateListMLTransforms,
@@ -1279,6 +1378,7 @@ import {
   paginateListTriggers,
   paginateListUsageProfiles,
   paginateListWorkflows,
+  paginateSearch,
   paginateSearchTables,
   PaginationConfiguration$,
   ParamType,
@@ -1308,6 +1408,18 @@ import {
   PropertyLocation,
   PropertyPredicate$,
   PropertyType,
+  PutAsset$,
+  PutAssetCommand,
+  PutAssetRequest$,
+  PutAssetResponse$,
+  PutAssetType$,
+  PutAssetTypeCommand,
+  PutAssetTypeRequest$,
+  PutAssetTypeResponse$,
+  PutAttachment$,
+  PutAttachmentCommand,
+  PutAttachmentRequest$,
+  PutAttachmentResponse$,
   PutDataCatalogEncryptionSettings$,
   PutDataCatalogEncryptionSettingsCommand,
   PutDataCatalogEncryptionSettingsRequest$,
@@ -1316,6 +1428,10 @@ import {
   PutDataQualityProfileAnnotationCommand,
   PutDataQualityProfileAnnotationRequest$,
   PutDataQualityProfileAnnotationResponse$,
+  PutFormType$,
+  PutFormTypeCommand,
+  PutFormTypeRequest$,
+  PutFormTypeResponse$,
   PutResourcePolicy$,
   PutResourcePolicyCommand,
   PutResourcePolicyRequest$,
@@ -1435,6 +1551,19 @@ import {
   SchemaVersionListItem$,
   SchemaVersionNumber$,
   SchemaVersionStatus,
+  Search$,
+  SearchAttributeFilter$,
+  SearchCommand,
+  SearchFilterClause$,
+  SearchFilterOperator,
+  SearchFilterValue$,
+  SearchInput$,
+  SearchMapFilter$,
+  SearchMapFilterValue$,
+  SearchOutput$,
+  SearchResultItem$,
+  SearchSort$,
+  SearchSortOrder,
   SearchTables$,
   SearchTablesCommand,
   SearchTablesRequest$,
@@ -1692,6 +1821,14 @@ import {
   UpdateDevEndpointCommand,
   UpdateDevEndpointRequest$,
   UpdateDevEndpointResponse$,
+  UpdateGlossary$,
+  UpdateGlossaryCommand,
+  UpdateGlossaryRequest$,
+  UpdateGlossaryResponse$,
+  UpdateGlossaryTerm$,
+  UpdateGlossaryTermCommand,
+  UpdateGlossaryTermRequest$,
+  UpdateGlossaryTermResponse$,
   UpdateGlueIdentityCenterConfiguration$,
   UpdateGlueIdentityCenterConfigurationCommand,
   UpdateGlueIdentityCenterConfigurationRequest$,
@@ -1790,6 +1927,8 @@ import assert from "node:assert";
 assert(typeof GlueClient === "function");
 assert(typeof Glue === "function");
 // commands
+assert(typeof AssociateGlossaryTermsCommand === "function");
+assert(typeof AssociateGlossaryTerms$ === "object");
 assert(typeof BatchCreatePartitionCommand === "function");
 assert(typeof BatchCreatePartition$ === "object");
 assert(typeof BatchDeleteConnectionCommand === "function");
@@ -1810,6 +1949,8 @@ assert(typeof BatchGetDataQualityResultCommand === "function");
 assert(typeof BatchGetDataQualityResult$ === "object");
 assert(typeof BatchGetDevEndpointsCommand === "function");
 assert(typeof BatchGetDevEndpoints$ === "object");
+assert(typeof BatchGetIterableFormsCommand === "function");
+assert(typeof BatchGetIterableForms$ === "object");
 assert(typeof BatchGetJobsCommand === "function");
 assert(typeof BatchGetJobs$ === "object");
 assert(typeof BatchGetPartitionCommand === "function");
@@ -1856,6 +1997,10 @@ assert(typeof CreateDataQualityRulesetCommand === "function");
 assert(typeof CreateDataQualityRuleset$ === "object");
 assert(typeof CreateDevEndpointCommand === "function");
 assert(typeof CreateDevEndpoint$ === "object");
+assert(typeof CreateGlossaryCommand === "function");
+assert(typeof CreateGlossary$ === "object");
+assert(typeof CreateGlossaryTermCommand === "function");
+assert(typeof CreateGlossaryTerm$ === "object");
 assert(typeof CreateGlueIdentityCenterConfigurationCommand === "function");
 assert(typeof CreateGlueIdentityCenterConfiguration$ === "object");
 assert(typeof CreateIntegrationCommand === "function");
@@ -1894,6 +2039,12 @@ assert(typeof CreateUserDefinedFunctionCommand === "function");
 assert(typeof CreateUserDefinedFunction$ === "object");
 assert(typeof CreateWorkflowCommand === "function");
 assert(typeof CreateWorkflow$ === "object");
+assert(typeof DeleteAssetCommand === "function");
+assert(typeof DeleteAsset$ === "object");
+assert(typeof DeleteAssetTypeCommand === "function");
+assert(typeof DeleteAssetType$ === "object");
+assert(typeof DeleteAttachmentCommand === "function");
+assert(typeof DeleteAttachment$ === "object");
 assert(typeof DeleteBlueprintCommand === "function");
 assert(typeof DeleteBlueprint$ === "object");
 assert(typeof DeleteCatalogCommand === "function");
@@ -1920,6 +2071,12 @@ assert(typeof DeleteDataQualityRulesetCommand === "function");
 assert(typeof DeleteDataQualityRuleset$ === "object");
 assert(typeof DeleteDevEndpointCommand === "function");
 assert(typeof DeleteDevEndpoint$ === "object");
+assert(typeof DeleteFormTypeCommand === "function");
+assert(typeof DeleteFormType$ === "object");
+assert(typeof DeleteGlossaryCommand === "function");
+assert(typeof DeleteGlossary$ === "object");
+assert(typeof DeleteGlossaryTermCommand === "function");
+assert(typeof DeleteGlossaryTerm$ === "object");
 assert(typeof DeleteGlueIdentityCenterConfigurationCommand === "function");
 assert(typeof DeleteGlueIdentityCenterConfiguration$ === "object");
 assert(typeof DeleteIntegrationCommand === "function");
@@ -1970,6 +2127,12 @@ assert(typeof DescribeInboundIntegrationsCommand === "function");
 assert(typeof DescribeInboundIntegrations$ === "object");
 assert(typeof DescribeIntegrationsCommand === "function");
 assert(typeof DescribeIntegrations$ === "object");
+assert(typeof DisassociateGlossaryTermsCommand === "function");
+assert(typeof DisassociateGlossaryTerms$ === "object");
+assert(typeof GetAssetCommand === "function");
+assert(typeof GetAsset$ === "object");
+assert(typeof GetAssetTypeCommand === "function");
+assert(typeof GetAssetType$ === "object");
 assert(typeof GetBlueprintCommand === "function");
 assert(typeof GetBlueprint$ === "object");
 assert(typeof GetBlueprintRunCommand === "function");
@@ -2036,6 +2199,12 @@ assert(typeof GetDevEndpointsCommand === "function");
 assert(typeof GetDevEndpoints$ === "object");
 assert(typeof GetEntityRecordsCommand === "function");
 assert(typeof GetEntityRecords$ === "object");
+assert(typeof GetFormTypeCommand === "function");
+assert(typeof GetFormType$ === "object");
+assert(typeof GetGlossaryCommand === "function");
+assert(typeof GetGlossary$ === "object");
+assert(typeof GetGlossaryTermCommand === "function");
+assert(typeof GetGlossaryTerm$ === "object");
 assert(typeof GetGlueIdentityCenterConfigurationCommand === "function");
 assert(typeof GetGlueIdentityCenterConfiguration$ === "object");
 assert(typeof GetIntegrationResourcePropertyCommand === "function");
@@ -2134,6 +2303,8 @@ assert(typeof GetWorkflowRunsCommand === "function");
 assert(typeof GetWorkflowRuns$ === "object");
 assert(typeof ImportCatalogToGlueCommand === "function");
 assert(typeof ImportCatalogToGlue$ === "object");
+assert(typeof ListAssetTypesCommand === "function");
+assert(typeof ListAssetTypes$ === "object");
 assert(typeof ListBlueprintsCommand === "function");
 assert(typeof ListBlueprints$ === "object");
 assert(typeof ListColumnStatisticsTaskRunsCommand === "function");
@@ -2162,8 +2333,16 @@ assert(typeof ListDevEndpointsCommand === "function");
 assert(typeof ListDevEndpoints$ === "object");
 assert(typeof ListEntitiesCommand === "function");
 assert(typeof ListEntities$ === "object");
+assert(typeof ListFormTypesCommand === "function");
+assert(typeof ListFormTypes$ === "object");
+assert(typeof ListGlossariesCommand === "function");
+assert(typeof ListGlossaries$ === "object");
+assert(typeof ListGlossaryTermsCommand === "function");
+assert(typeof ListGlossaryTerms$ === "object");
 assert(typeof ListIntegrationResourcePropertiesCommand === "function");
 assert(typeof ListIntegrationResourceProperties$ === "object");
+assert(typeof ListIterableFormsCommand === "function");
+assert(typeof ListIterableForms$ === "object");
 assert(typeof ListJobsCommand === "function");
 assert(typeof ListJobs$ === "object");
 assert(typeof ListMaterializedViewRefreshTaskRunsCommand === "function");
@@ -2190,10 +2369,18 @@ assert(typeof ListWorkflowsCommand === "function");
 assert(typeof ListWorkflows$ === "object");
 assert(typeof ModifyIntegrationCommand === "function");
 assert(typeof ModifyIntegration$ === "object");
+assert(typeof PutAssetCommand === "function");
+assert(typeof PutAsset$ === "object");
+assert(typeof PutAssetTypeCommand === "function");
+assert(typeof PutAssetType$ === "object");
+assert(typeof PutAttachmentCommand === "function");
+assert(typeof PutAttachment$ === "object");
 assert(typeof PutDataCatalogEncryptionSettingsCommand === "function");
 assert(typeof PutDataCatalogEncryptionSettings$ === "object");
 assert(typeof PutDataQualityProfileAnnotationCommand === "function");
 assert(typeof PutDataQualityProfileAnnotation$ === "object");
+assert(typeof PutFormTypeCommand === "function");
+assert(typeof PutFormType$ === "object");
 assert(typeof PutResourcePolicyCommand === "function");
 assert(typeof PutResourcePolicy$ === "object");
 assert(typeof PutSchemaVersionMetadataCommand === "function");
@@ -2214,6 +2401,8 @@ assert(typeof ResumeWorkflowRunCommand === "function");
 assert(typeof ResumeWorkflowRun$ === "object");
 assert(typeof RunStatementCommand === "function");
 assert(typeof RunStatement$ === "object");
+assert(typeof SearchCommand === "function");
+assert(typeof Search$ === "object");
 assert(typeof SearchTablesCommand === "function");
 assert(typeof SearchTables$ === "object");
 assert(typeof StartBlueprintRunCommand === "function");
@@ -2292,6 +2481,10 @@ assert(typeof UpdateDataQualityRulesetCommand === "function");
 assert(typeof UpdateDataQualityRuleset$ === "object");
 assert(typeof UpdateDevEndpointCommand === "function");
 assert(typeof UpdateDevEndpoint$ === "object");
+assert(typeof UpdateGlossaryCommand === "function");
+assert(typeof UpdateGlossary$ === "object");
+assert(typeof UpdateGlossaryTermCommand === "function");
+assert(typeof UpdateGlossaryTerm$ === "object");
 assert(typeof UpdateGlueIdentityCenterConfigurationCommand === "function");
 assert(typeof UpdateGlueIdentityCenterConfiguration$ === "object");
 assert(typeof UpdateIntegrationResourcePropertyCommand === "function");
@@ -2335,6 +2528,11 @@ assert(typeof AmazonRedshiftSource$ === "object");
 assert(typeof AmazonRedshiftTarget$ === "object");
 assert(typeof AnnotationError$ === "object");
 assert(typeof ApplyMapping$ === "object");
+assert(typeof AssetFormEntry$ === "object");
+assert(typeof AssetTypeFormReference$ === "object");
+assert(typeof AssetTypeItem$ === "object");
+assert(typeof AssociateGlossaryTermsRequest$ === "object");
+assert(typeof AssociateGlossaryTermsResponse$ === "object");
 assert(typeof AthenaConnectorSource$ === "object");
 assert(typeof AuditContext$ === "object");
 assert(typeof AuthConfiguration$ === "object");
@@ -2366,6 +2564,8 @@ assert(typeof BatchGetDataQualityResultRequest$ === "object");
 assert(typeof BatchGetDataQualityResultResponse$ === "object");
 assert(typeof BatchGetDevEndpointsRequest$ === "object");
 assert(typeof BatchGetDevEndpointsResponse$ === "object");
+assert(typeof BatchGetIterableFormsRequest$ === "object");
+assert(typeof BatchGetIterableFormsResponse$ === "object");
 assert(typeof BatchGetJobsRequest$ === "object");
 assert(typeof BatchGetJobsResponse$ === "object");
 assert(typeof BatchGetPartitionRequest$ === "object");
@@ -2483,6 +2683,10 @@ assert(typeof CreateDataQualityRulesetRequest$ === "object");
 assert(typeof CreateDataQualityRulesetResponse$ === "object");
 assert(typeof CreateDevEndpointRequest$ === "object");
 assert(typeof CreateDevEndpointResponse$ === "object");
+assert(typeof CreateGlossaryRequest$ === "object");
+assert(typeof CreateGlossaryResponse$ === "object");
+assert(typeof CreateGlossaryTermRequest$ === "object");
+assert(typeof CreateGlossaryTermResponse$ === "object");
 assert(typeof CreateGlueIdentityCenterConfigurationRequest$ === "object");
 assert(typeof CreateGlueIdentityCenterConfigurationResponse$ === "object");
 assert(typeof CreateGrokClassifierRequest$ === "object");
@@ -2563,6 +2767,12 @@ assert(typeof DDBELTCatalogAdditionalOptions$ === "object");
 assert(typeof DDBELTConnectionOptions$ === "object");
 assert(typeof DecimalColumnStatisticsData$ === "object");
 assert(typeof DecimalNumber$ === "object");
+assert(typeof DeleteAssetRequest$ === "object");
+assert(typeof DeleteAssetResponse$ === "object");
+assert(typeof DeleteAssetTypeRequest$ === "object");
+assert(typeof DeleteAssetTypeResponse$ === "object");
+assert(typeof DeleteAttachmentRequest$ === "object");
+assert(typeof DeleteAttachmentResponse$ === "object");
 assert(typeof DeleteBlueprintRequest$ === "object");
 assert(typeof DeleteBlueprintResponse$ === "object");
 assert(typeof DeleteCatalogRequest$ === "object");
@@ -2589,6 +2799,12 @@ assert(typeof DeleteDataQualityRulesetRequest$ === "object");
 assert(typeof DeleteDataQualityRulesetResponse$ === "object");
 assert(typeof DeleteDevEndpointRequest$ === "object");
 assert(typeof DeleteDevEndpointResponse$ === "object");
+assert(typeof DeleteFormTypeRequest$ === "object");
+assert(typeof DeleteFormTypeResponse$ === "object");
+assert(typeof DeleteGlossaryRequest$ === "object");
+assert(typeof DeleteGlossaryResponse$ === "object");
+assert(typeof DeleteGlossaryTermRequest$ === "object");
+assert(typeof DeleteGlossaryTermResponse$ === "object");
 assert(typeof DeleteGlueIdentityCenterConfigurationRequest$ === "object");
 assert(typeof DeleteGlueIdentityCenterConfigurationResponse$ === "object");
 assert(typeof DeleteIntegrationRequest$ === "object");
@@ -2646,6 +2862,8 @@ assert(typeof DirectJDBCSource$ === "object");
 assert(typeof DirectKafkaSource$ === "object");
 assert(typeof DirectKinesisSource$ === "object");
 assert(typeof DirectSchemaChangePolicy$ === "object");
+assert(typeof DisassociateGlossaryTermsRequest$ === "object");
+assert(typeof DisassociateGlossaryTermsResponse$ === "object");
 assert(typeof DoubleColumnStatisticsData$ === "object");
 assert(typeof DQResultsPublishingOptions$ === "object");
 assert(typeof DQStopJobOnFailureOptions$ === "object");
@@ -2683,6 +2901,11 @@ assert(typeof FilterValue$ === "object");
 assert(typeof FindMatchesMetrics$ === "object");
 assert(typeof FindMatchesParameters$ === "object");
 assert(typeof FindMatchesTaskRunProperties$ === "object");
+assert(typeof FormTypeItem$ === "object");
+assert(typeof GetAssetInput$ === "object");
+assert(typeof GetAssetOutput$ === "object");
+assert(typeof GetAssetTypeRequest$ === "object");
+assert(typeof GetAssetTypeResponse$ === "object");
 assert(typeof GetBlueprintRequest$ === "object");
 assert(typeof GetBlueprintResponse$ === "object");
 assert(typeof GetBlueprintRunRequest$ === "object");
@@ -2750,6 +2973,12 @@ assert(typeof GetDevEndpointsRequest$ === "object");
 assert(typeof GetDevEndpointsResponse$ === "object");
 assert(typeof GetEntityRecordsRequest$ === "object");
 assert(typeof GetEntityRecordsResponse$ === "object");
+assert(typeof GetFormTypeRequest$ === "object");
+assert(typeof GetFormTypeResponse$ === "object");
+assert(typeof GetGlossaryRequest$ === "object");
+assert(typeof GetGlossaryResponse$ === "object");
+assert(typeof GetGlossaryTermRequest$ === "object");
+assert(typeof GetGlossaryTermResponse$ === "object");
 assert(typeof GetGlueIdentityCenterConfigurationRequest$ === "object");
 assert(typeof GetGlueIdentityCenterConfigurationResponse$ === "object");
 assert(typeof GetIntegrationResourcePropertyRequest$ === "object");
@@ -2846,6 +3075,8 @@ assert(typeof GetWorkflowRunRequest$ === "object");
 assert(typeof GetWorkflowRunResponse$ === "object");
 assert(typeof GetWorkflowRunsRequest$ === "object");
 assert(typeof GetWorkflowRunsResponse$ === "object");
+assert(typeof GlossaryItem$ === "object");
+assert(typeof GlossaryTermItem$ === "object");
 assert(typeof GluePolicy$ === "object");
 assert(typeof GlueSchema$ === "object");
 assert(typeof GlueStudioSchemaColumn$ === "object");
@@ -2885,6 +3116,10 @@ assert(typeof IntegrationFilter$ === "object");
 assert(typeof IntegrationPartition$ === "object");
 assert(typeof IntegrationResourceProperty$ === "object");
 assert(typeof IntegrationResourcePropertyFilter$ === "object");
+assert(typeof ItemError$ === "object");
+assert(typeof IterableFormEntry$ === "object");
+assert(typeof IterableFormItem$ === "object");
+assert(typeof IterableFormListItem$ === "object");
 assert(typeof JDBCConnectorOptions$ === "object");
 assert(typeof JDBCConnectorSource$ === "object");
 assert(typeof JDBCConnectorTarget$ === "object");
@@ -2908,6 +3143,8 @@ assert(typeof LakeFormationConfiguration$ === "object");
 assert(typeof LastActiveDefinition$ === "object");
 assert(typeof LastCrawlInfo$ === "object");
 assert(typeof LineageConfiguration$ === "object");
+assert(typeof ListAssetTypesRequest$ === "object");
+assert(typeof ListAssetTypesResponse$ === "object");
 assert(typeof ListBlueprintsRequest$ === "object");
 assert(typeof ListBlueprintsResponse$ === "object");
 assert(typeof ListColumnStatisticsTaskRunsRequest$ === "object");
@@ -2936,8 +3173,16 @@ assert(typeof ListDevEndpointsRequest$ === "object");
 assert(typeof ListDevEndpointsResponse$ === "object");
 assert(typeof ListEntitiesRequest$ === "object");
 assert(typeof ListEntitiesResponse$ === "object");
+assert(typeof ListFormTypesRequest$ === "object");
+assert(typeof ListFormTypesResponse$ === "object");
+assert(typeof ListGlossariesRequest$ === "object");
+assert(typeof ListGlossariesResponse$ === "object");
+assert(typeof ListGlossaryTermsRequest$ === "object");
+assert(typeof ListGlossaryTermsResponse$ === "object");
 assert(typeof ListIntegrationResourcePropertiesRequest$ === "object");
 assert(typeof ListIntegrationResourcePropertiesResponse$ === "object");
+assert(typeof ListIterableFormsRequest$ === "object");
+assert(typeof ListIterableFormsResponse$ === "object");
 assert(typeof ListJobsRequest$ === "object");
 assert(typeof ListJobsResponse$ === "object");
 assert(typeof ListMaterializedViewRefreshTaskRunsRequest$ === "object");
@@ -3014,10 +3259,18 @@ assert(typeof PrincipalPermissions$ === "object");
 assert(typeof ProfileConfiguration$ === "object");
 assert(typeof Property$ === "object");
 assert(typeof PropertyPredicate$ === "object");
+assert(typeof PutAssetRequest$ === "object");
+assert(typeof PutAssetResponse$ === "object");
+assert(typeof PutAssetTypeRequest$ === "object");
+assert(typeof PutAssetTypeResponse$ === "object");
+assert(typeof PutAttachmentRequest$ === "object");
+assert(typeof PutAttachmentResponse$ === "object");
 assert(typeof PutDataCatalogEncryptionSettingsRequest$ === "object");
 assert(typeof PutDataCatalogEncryptionSettingsResponse$ === "object");
 assert(typeof PutDataQualityProfileAnnotationRequest$ === "object");
 assert(typeof PutDataQualityProfileAnnotationResponse$ === "object");
+assert(typeof PutFormTypeRequest$ === "object");
+assert(typeof PutFormTypeResponse$ === "object");
 assert(typeof PutResourcePolicyRequest$ === "object");
 assert(typeof PutResourcePolicyResponse$ === "object");
 assert(typeof PutSchemaVersionMetadataInput$ === "object");
@@ -3092,6 +3345,15 @@ assert(typeof SchemaReference$ === "object");
 assert(typeof SchemaVersionErrorItem$ === "object");
 assert(typeof SchemaVersionListItem$ === "object");
 assert(typeof SchemaVersionNumber$ === "object");
+assert(typeof SearchAttributeFilter$ === "object");
+assert(typeof SearchFilterClause$ === "object");
+assert(typeof SearchFilterValue$ === "object");
+assert(typeof SearchInput$ === "object");
+assert(typeof SearchMapFilter$ === "object");
+assert(typeof SearchMapFilterValue$ === "object");
+assert(typeof SearchOutput$ === "object");
+assert(typeof SearchResultItem$ === "object");
+assert(typeof SearchSort$ === "object");
 assert(typeof SearchTablesRequest$ === "object");
 assert(typeof SearchTablesResponse$ === "object");
 assert(typeof SecurityConfiguration$ === "object");
@@ -3238,6 +3500,10 @@ assert(typeof UpdateDataQualityRulesetRequest$ === "object");
 assert(typeof UpdateDataQualityRulesetResponse$ === "object");
 assert(typeof UpdateDevEndpointRequest$ === "object");
 assert(typeof UpdateDevEndpointResponse$ === "object");
+assert(typeof UpdateGlossaryRequest$ === "object");
+assert(typeof UpdateGlossaryResponse$ === "object");
+assert(typeof UpdateGlossaryTermRequest$ === "object");
+assert(typeof UpdateGlossaryTermResponse$ === "object");
 assert(typeof UpdateGlueIdentityCenterConfigurationRequest$ === "object");
 assert(typeof UpdateGlueIdentityCenterConfigurationResponse$ === "object");
 assert(typeof UpdateGrokClassifierRequest$ === "object");
@@ -3399,6 +3665,8 @@ assert(typeof ScheduleType === "object");
 assert(typeof SchemaDiffType === "object");
 assert(typeof SchemaStatus === "object");
 assert(typeof SchemaVersionStatus === "object");
+assert(typeof SearchFilterOperator === "object");
+assert(typeof SearchSortOrder === "object");
 assert(typeof Separator === "object");
 assert(typeof SessionStatus === "object");
 assert(typeof SessionType === "object");
@@ -3554,6 +3822,7 @@ assert(typeof paginateGetTriggers === "function");
 assert(typeof paginateGetUnfilteredPartitionsMetadata === "function");
 assert(typeof paginateGetUserDefinedFunctions === "function");
 assert(typeof paginateGetWorkflowRuns === "function");
+assert(typeof paginateListAssetTypes === "function");
 assert(typeof paginateListBlueprints === "function");
 assert(typeof paginateListColumnStatisticsTaskRuns === "function");
 assert(typeof paginateListConnectionTypes === "function");
@@ -3565,6 +3834,10 @@ assert(typeof paginateListDataQualityRulesetEvaluationRuns === "function");
 assert(typeof paginateListDataQualityRulesets === "function");
 assert(typeof paginateListDevEndpoints === "function");
 assert(typeof paginateListEntities === "function");
+assert(typeof paginateListFormTypes === "function");
+assert(typeof paginateListGlossaries === "function");
+assert(typeof paginateListGlossaryTerms === "function");
+assert(typeof paginateListIterableForms === "function");
 assert(typeof paginateListJobs === "function");
 assert(typeof paginateListMLTransforms === "function");
 assert(typeof paginateListMaterializedViewRefreshTaskRuns === "function");
@@ -3576,5 +3849,6 @@ assert(typeof paginateListTableOptimizerRuns === "function");
 assert(typeof paginateListTriggers === "function");
 assert(typeof paginateListUsageProfiles === "function");
 assert(typeof paginateListWorkflows === "function");
+assert(typeof paginateSearch === "function");
 assert(typeof paginateSearchTables === "function");
 console.log(`Glue index test passed.`);
