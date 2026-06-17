@@ -2423,8 +2423,8 @@ export var Tag$: StaticStructureSchema = [3, n0, _Ta,
 ];
 export var UpdateApplicationRequest$: StaticStructureSchema = [3, n0, _UAR,
   0,
-  [_i, _dS, _aC],
-  [[0, 1], () => DataSources, () => AppConfigs], 1
+  [_i, _dS, _aC, _iICO],
+  [[0, 1], () => DataSources, () => AppConfigs, () => IamIdentityCenterOptionsInput$], 1
 ];
 export var UpdateApplicationResponse$: StaticStructureSchema = [3, n0, _UARp,
   0,

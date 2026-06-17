@@ -51,6 +51,11 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  *       value: "STRING_VALUE",
  *     },
  *   ],
+ *   iamIdentityCenterOptions: { // IamIdentityCenterOptionsInput
+ *     enabled: true || false,
+ *     iamIdentityCenterInstanceArn: "STRING_VALUE",
+ *     iamRoleForIdentityCenterApplicationArn: "STRING_VALUE",
+ *   },
  * };
  * const command = new UpdateApplicationCommand(input);
  * const response = await client.send(command);

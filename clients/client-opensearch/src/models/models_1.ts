@@ -32,6 +32,7 @@ import type {
   EBSOptions,
   EncryptionAtRestOptions,
   IamIdentityCenterOptions,
+  IamIdentityCenterOptionsInput,
   IdentityCenterOptionsInput,
   LogPublishingOption,
   NodeToNodeEncryptionOptions,
@@ -169,6 +170,13 @@ export interface UpdateApplicationRequest {
    * @public
    */
   appConfigs?: AppConfig[] | undefined;
+
+  /**
+   * <p>Configuration settings for integrating IAM Identity Center with the OpenSearch
+   *             application.</p>
+   * @public
+   */
+  iamIdentityCenterOptions?: IamIdentityCenterOptionsInput | undefined;
 }
 
 /**
