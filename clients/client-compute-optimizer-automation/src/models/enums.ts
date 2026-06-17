@@ -217,17 +217,29 @@ export type AutomationRuleFilterName = (typeof AutomationRuleFilterName)[keyof t
  */
 export const ComparisonOperator = {
   NUMERIC_EQUALS: "NumericEquals",
+  NUMERIC_EQUALS_IF_EXISTS: "NumericEqualsIfExists",
   NUMERIC_GREATER_THAN: "NumericGreaterThan",
   NUMERIC_GREATER_THAN_EQUALS: "NumericGreaterThanEquals",
+  NUMERIC_GREATER_THAN_EQUALS_IF_EXISTS: "NumericGreaterThanEqualsIfExists",
+  NUMERIC_GREATER_THAN_IF_EXISTS: "NumericGreaterThanIfExists",
   NUMERIC_LESS_THAN: "NumericLessThan",
   NUMERIC_LESS_THAN_EQUALS: "NumericLessThanEquals",
+  NUMERIC_LESS_THAN_EQUALS_IF_EXISTS: "NumericLessThanEqualsIfExists",
+  NUMERIC_LESS_THAN_IF_EXISTS: "NumericLessThanIfExists",
   NUMERIC_NOT_EQUALS: "NumericNotEquals",
+  NUMERIC_NOT_EQUALS_IF_EXISTS: "NumericNotEqualsIfExists",
   STRING_EQUALS: "StringEquals",
+  STRING_EQUALS_IF_EXISTS: "StringEqualsIfExists",
   STRING_EQUALS_IGNORE_CASE: "StringEqualsIgnoreCase",
+  STRING_EQUALS_IGNORE_CASE_IF_EXISTS: "StringEqualsIgnoreCaseIfExists",
   STRING_LIKE: "StringLike",
+  STRING_LIKE_IF_EXISTS: "StringLikeIfExists",
   STRING_NOT_EQUALS: "StringNotEquals",
+  STRING_NOT_EQUALS_IF_EXISTS: "StringNotEqualsIfExists",
   STRING_NOT_EQUALS_IGNORE_CASE: "StringNotEqualsIgnoreCase",
+  STRING_NOT_EQUALS_IGNORE_CASE_IF_EXISTS: "StringNotEqualsIgnoreCaseIfExists",
   STRING_NOT_LIKE: "StringNotLike",
+  STRING_NOT_LIKE_IF_EXISTS: "StringNotLikeIfExists",
 } as const;
 /**
  * @public

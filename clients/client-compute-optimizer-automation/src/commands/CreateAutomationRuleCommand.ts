@@ -57,7 +57,7 @@ export interface CreateAutomationRuleCommandOutput extends CreateAutomationRuleR
  *   criteria: { // Criteria
  *     region: [ // StringCriteriaConditionList
  *       { // StringCriteriaCondition
- *         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals",
+ *         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals" || "StringEqualsIfExists" || "StringNotEqualsIfExists" || "StringEqualsIgnoreCaseIfExists" || "StringNotEqualsIgnoreCaseIfExists" || "StringLikeIfExists" || "StringNotLikeIfExists" || "NumericEqualsIfExists" || "NumericNotEqualsIfExists" || "NumericLessThanIfExists" || "NumericLessThanEqualsIfExists" || "NumericGreaterThanIfExists" || "NumericGreaterThanEqualsIfExists",
  *         values: [ // StringCriteriaValues
  *           "STRING_VALUE",
  *         ],
@@ -65,7 +65,7 @@ export interface CreateAutomationRuleCommandOutput extends CreateAutomationRuleR
  *     ],
  *     resourceArn: [
  *       {
- *         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals",
+ *         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals" || "StringEqualsIfExists" || "StringNotEqualsIfExists" || "StringEqualsIgnoreCaseIfExists" || "StringNotEqualsIgnoreCaseIfExists" || "StringLikeIfExists" || "StringNotLikeIfExists" || "NumericEqualsIfExists" || "NumericNotEqualsIfExists" || "NumericLessThanIfExists" || "NumericLessThanEqualsIfExists" || "NumericGreaterThanIfExists" || "NumericGreaterThanEqualsIfExists",
  *         values: [
  *           "STRING_VALUE",
  *         ],
@@ -73,7 +73,7 @@ export interface CreateAutomationRuleCommandOutput extends CreateAutomationRuleR
  *     ],
  *     ebsVolumeType: [
  *       {
- *         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals",
+ *         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals" || "StringEqualsIfExists" || "StringNotEqualsIfExists" || "StringEqualsIgnoreCaseIfExists" || "StringNotEqualsIgnoreCaseIfExists" || "StringLikeIfExists" || "StringNotLikeIfExists" || "NumericEqualsIfExists" || "NumericNotEqualsIfExists" || "NumericLessThanIfExists" || "NumericLessThanEqualsIfExists" || "NumericGreaterThanIfExists" || "NumericGreaterThanEqualsIfExists",
  *         values: [
  *           "STRING_VALUE",
  *         ],
@@ -81,7 +81,7 @@ export interface CreateAutomationRuleCommandOutput extends CreateAutomationRuleR
  *     ],
  *     ebsVolumeSizeInGib: [ // IntegerCriteriaConditionList
  *       { // IntegerCriteriaCondition
- *         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals",
+ *         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals" || "StringEqualsIfExists" || "StringNotEqualsIfExists" || "StringEqualsIgnoreCaseIfExists" || "StringNotEqualsIgnoreCaseIfExists" || "StringLikeIfExists" || "StringNotLikeIfExists" || "NumericEqualsIfExists" || "NumericNotEqualsIfExists" || "NumericLessThanIfExists" || "NumericLessThanEqualsIfExists" || "NumericGreaterThanIfExists" || "NumericGreaterThanEqualsIfExists",
  *         values: [ // IntegerList
  *           Number("int"),
  *         ],
@@ -89,7 +89,7 @@ export interface CreateAutomationRuleCommandOutput extends CreateAutomationRuleR
  *     ],
  *     estimatedMonthlySavings: [ // DoubleCriteriaConditionList
  *       { // DoubleCriteriaCondition
- *         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals",
+ *         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals" || "StringEqualsIfExists" || "StringNotEqualsIfExists" || "StringEqualsIgnoreCaseIfExists" || "StringNotEqualsIgnoreCaseIfExists" || "StringLikeIfExists" || "StringNotLikeIfExists" || "NumericEqualsIfExists" || "NumericNotEqualsIfExists" || "NumericLessThanIfExists" || "NumericLessThanEqualsIfExists" || "NumericGreaterThanIfExists" || "NumericGreaterThanEqualsIfExists",
  *         values: [ // DoubleList
  *           Number("double"),
  *         ],
@@ -97,7 +97,7 @@ export interface CreateAutomationRuleCommandOutput extends CreateAutomationRuleR
  *     ],
  *     resourceTag: [ // ResourceTagsCriteriaConditionList
  *       { // ResourceTagsCriteriaCondition
- *         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals",
+ *         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals" || "StringEqualsIfExists" || "StringNotEqualsIfExists" || "StringEqualsIgnoreCaseIfExists" || "StringNotEqualsIgnoreCaseIfExists" || "StringLikeIfExists" || "StringNotLikeIfExists" || "NumericEqualsIfExists" || "NumericNotEqualsIfExists" || "NumericLessThanIfExists" || "NumericLessThanEqualsIfExists" || "NumericGreaterThanIfExists" || "NumericGreaterThanEqualsIfExists",
  *         key: "STRING_VALUE",
  *         values: [
  *           "STRING_VALUE",
@@ -106,7 +106,7 @@ export interface CreateAutomationRuleCommandOutput extends CreateAutomationRuleR
  *     ],
  *     lookBackPeriodInDays: [
  *       {
- *         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals",
+ *         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals" || "StringEqualsIfExists" || "StringNotEqualsIfExists" || "StringEqualsIgnoreCaseIfExists" || "StringNotEqualsIgnoreCaseIfExists" || "StringLikeIfExists" || "StringNotLikeIfExists" || "NumericEqualsIfExists" || "NumericNotEqualsIfExists" || "NumericLessThanIfExists" || "NumericLessThanEqualsIfExists" || "NumericGreaterThanIfExists" || "NumericGreaterThanEqualsIfExists",
  *         values: [
  *           Number("int"),
  *         ],
@@ -114,7 +114,7 @@ export interface CreateAutomationRuleCommandOutput extends CreateAutomationRuleR
  *     ],
  *     restartNeeded: [
  *       {
- *         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals",
+ *         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals" || "StringEqualsIfExists" || "StringNotEqualsIfExists" || "StringEqualsIgnoreCaseIfExists" || "StringNotEqualsIgnoreCaseIfExists" || "StringLikeIfExists" || "StringNotLikeIfExists" || "NumericEqualsIfExists" || "NumericNotEqualsIfExists" || "NumericLessThanIfExists" || "NumericLessThanEqualsIfExists" || "NumericGreaterThanIfExists" || "NumericGreaterThanEqualsIfExists",
  *         values: [
  *           "STRING_VALUE",
  *         ],
@@ -157,7 +157,7 @@ export interface CreateAutomationRuleCommandOutput extends CreateAutomationRuleR
  * //   criteria: { // Criteria
  * //     region: [ // StringCriteriaConditionList
  * //       { // StringCriteriaCondition
- * //         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals",
+ * //         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals" || "StringEqualsIfExists" || "StringNotEqualsIfExists" || "StringEqualsIgnoreCaseIfExists" || "StringNotEqualsIgnoreCaseIfExists" || "StringLikeIfExists" || "StringNotLikeIfExists" || "NumericEqualsIfExists" || "NumericNotEqualsIfExists" || "NumericLessThanIfExists" || "NumericLessThanEqualsIfExists" || "NumericGreaterThanIfExists" || "NumericGreaterThanEqualsIfExists",
  * //         values: [ // StringCriteriaValues
  * //           "STRING_VALUE",
  * //         ],
@@ -165,7 +165,7 @@ export interface CreateAutomationRuleCommandOutput extends CreateAutomationRuleR
  * //     ],
  * //     resourceArn: [
  * //       {
- * //         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals",
+ * //         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals" || "StringEqualsIfExists" || "StringNotEqualsIfExists" || "StringEqualsIgnoreCaseIfExists" || "StringNotEqualsIgnoreCaseIfExists" || "StringLikeIfExists" || "StringNotLikeIfExists" || "NumericEqualsIfExists" || "NumericNotEqualsIfExists" || "NumericLessThanIfExists" || "NumericLessThanEqualsIfExists" || "NumericGreaterThanIfExists" || "NumericGreaterThanEqualsIfExists",
  * //         values: [
  * //           "STRING_VALUE",
  * //         ],
@@ -173,7 +173,7 @@ export interface CreateAutomationRuleCommandOutput extends CreateAutomationRuleR
  * //     ],
  * //     ebsVolumeType: [
  * //       {
- * //         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals",
+ * //         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals" || "StringEqualsIfExists" || "StringNotEqualsIfExists" || "StringEqualsIgnoreCaseIfExists" || "StringNotEqualsIgnoreCaseIfExists" || "StringLikeIfExists" || "StringNotLikeIfExists" || "NumericEqualsIfExists" || "NumericNotEqualsIfExists" || "NumericLessThanIfExists" || "NumericLessThanEqualsIfExists" || "NumericGreaterThanIfExists" || "NumericGreaterThanEqualsIfExists",
  * //         values: [
  * //           "STRING_VALUE",
  * //         ],
@@ -181,7 +181,7 @@ export interface CreateAutomationRuleCommandOutput extends CreateAutomationRuleR
  * //     ],
  * //     ebsVolumeSizeInGib: [ // IntegerCriteriaConditionList
  * //       { // IntegerCriteriaCondition
- * //         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals",
+ * //         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals" || "StringEqualsIfExists" || "StringNotEqualsIfExists" || "StringEqualsIgnoreCaseIfExists" || "StringNotEqualsIgnoreCaseIfExists" || "StringLikeIfExists" || "StringNotLikeIfExists" || "NumericEqualsIfExists" || "NumericNotEqualsIfExists" || "NumericLessThanIfExists" || "NumericLessThanEqualsIfExists" || "NumericGreaterThanIfExists" || "NumericGreaterThanEqualsIfExists",
  * //         values: [ // IntegerList
  * //           Number("int"),
  * //         ],
@@ -189,7 +189,7 @@ export interface CreateAutomationRuleCommandOutput extends CreateAutomationRuleR
  * //     ],
  * //     estimatedMonthlySavings: [ // DoubleCriteriaConditionList
  * //       { // DoubleCriteriaCondition
- * //         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals",
+ * //         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals" || "StringEqualsIfExists" || "StringNotEqualsIfExists" || "StringEqualsIgnoreCaseIfExists" || "StringNotEqualsIgnoreCaseIfExists" || "StringLikeIfExists" || "StringNotLikeIfExists" || "NumericEqualsIfExists" || "NumericNotEqualsIfExists" || "NumericLessThanIfExists" || "NumericLessThanEqualsIfExists" || "NumericGreaterThanIfExists" || "NumericGreaterThanEqualsIfExists",
  * //         values: [ // DoubleList
  * //           Number("double"),
  * //         ],
@@ -197,7 +197,7 @@ export interface CreateAutomationRuleCommandOutput extends CreateAutomationRuleR
  * //     ],
  * //     resourceTag: [ // ResourceTagsCriteriaConditionList
  * //       { // ResourceTagsCriteriaCondition
- * //         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals",
+ * //         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals" || "StringEqualsIfExists" || "StringNotEqualsIfExists" || "StringEqualsIgnoreCaseIfExists" || "StringNotEqualsIgnoreCaseIfExists" || "StringLikeIfExists" || "StringNotLikeIfExists" || "NumericEqualsIfExists" || "NumericNotEqualsIfExists" || "NumericLessThanIfExists" || "NumericLessThanEqualsIfExists" || "NumericGreaterThanIfExists" || "NumericGreaterThanEqualsIfExists",
  * //         key: "STRING_VALUE",
  * //         values: [
  * //           "STRING_VALUE",
@@ -206,7 +206,7 @@ export interface CreateAutomationRuleCommandOutput extends CreateAutomationRuleR
  * //     ],
  * //     lookBackPeriodInDays: [
  * //       {
- * //         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals",
+ * //         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals" || "StringEqualsIfExists" || "StringNotEqualsIfExists" || "StringEqualsIgnoreCaseIfExists" || "StringNotEqualsIgnoreCaseIfExists" || "StringLikeIfExists" || "StringNotLikeIfExists" || "NumericEqualsIfExists" || "NumericNotEqualsIfExists" || "NumericLessThanIfExists" || "NumericLessThanEqualsIfExists" || "NumericGreaterThanIfExists" || "NumericGreaterThanEqualsIfExists",
  * //         values: [
  * //           Number("int"),
  * //         ],
@@ -214,7 +214,7 @@ export interface CreateAutomationRuleCommandOutput extends CreateAutomationRuleR
  * //     ],
  * //     restartNeeded: [
  * //       {
- * //         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals",
+ * //         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals" || "StringEqualsIfExists" || "StringNotEqualsIfExists" || "StringEqualsIgnoreCaseIfExists" || "StringNotEqualsIgnoreCaseIfExists" || "StringLikeIfExists" || "StringNotLikeIfExists" || "NumericEqualsIfExists" || "NumericNotEqualsIfExists" || "NumericLessThanIfExists" || "NumericLessThanEqualsIfExists" || "NumericGreaterThanIfExists" || "NumericGreaterThanEqualsIfExists",
  * //         values: [
  * //           "STRING_VALUE",
  * //         ],

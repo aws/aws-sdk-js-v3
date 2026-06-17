@@ -56,7 +56,7 @@ export interface ListAutomationRulePreviewSummariesCommandOutput extends ListAut
  *   criteria: { // Criteria
  *     region: [ // StringCriteriaConditionList
  *       { // StringCriteriaCondition
- *         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals",
+ *         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals" || "StringEqualsIfExists" || "StringNotEqualsIfExists" || "StringEqualsIgnoreCaseIfExists" || "StringNotEqualsIgnoreCaseIfExists" || "StringLikeIfExists" || "StringNotLikeIfExists" || "NumericEqualsIfExists" || "NumericNotEqualsIfExists" || "NumericLessThanIfExists" || "NumericLessThanEqualsIfExists" || "NumericGreaterThanIfExists" || "NumericGreaterThanEqualsIfExists",
  *         values: [ // StringCriteriaValues
  *           "STRING_VALUE",
  *         ],
@@ -64,7 +64,7 @@ export interface ListAutomationRulePreviewSummariesCommandOutput extends ListAut
  *     ],
  *     resourceArn: [
  *       {
- *         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals",
+ *         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals" || "StringEqualsIfExists" || "StringNotEqualsIfExists" || "StringEqualsIgnoreCaseIfExists" || "StringNotEqualsIgnoreCaseIfExists" || "StringLikeIfExists" || "StringNotLikeIfExists" || "NumericEqualsIfExists" || "NumericNotEqualsIfExists" || "NumericLessThanIfExists" || "NumericLessThanEqualsIfExists" || "NumericGreaterThanIfExists" || "NumericGreaterThanEqualsIfExists",
  *         values: [
  *           "STRING_VALUE",
  *         ],
@@ -72,7 +72,7 @@ export interface ListAutomationRulePreviewSummariesCommandOutput extends ListAut
  *     ],
  *     ebsVolumeType: [
  *       {
- *         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals",
+ *         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals" || "StringEqualsIfExists" || "StringNotEqualsIfExists" || "StringEqualsIgnoreCaseIfExists" || "StringNotEqualsIgnoreCaseIfExists" || "StringLikeIfExists" || "StringNotLikeIfExists" || "NumericEqualsIfExists" || "NumericNotEqualsIfExists" || "NumericLessThanIfExists" || "NumericLessThanEqualsIfExists" || "NumericGreaterThanIfExists" || "NumericGreaterThanEqualsIfExists",
  *         values: [
  *           "STRING_VALUE",
  *         ],
@@ -80,7 +80,7 @@ export interface ListAutomationRulePreviewSummariesCommandOutput extends ListAut
  *     ],
  *     ebsVolumeSizeInGib: [ // IntegerCriteriaConditionList
  *       { // IntegerCriteriaCondition
- *         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals",
+ *         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals" || "StringEqualsIfExists" || "StringNotEqualsIfExists" || "StringEqualsIgnoreCaseIfExists" || "StringNotEqualsIgnoreCaseIfExists" || "StringLikeIfExists" || "StringNotLikeIfExists" || "NumericEqualsIfExists" || "NumericNotEqualsIfExists" || "NumericLessThanIfExists" || "NumericLessThanEqualsIfExists" || "NumericGreaterThanIfExists" || "NumericGreaterThanEqualsIfExists",
  *         values: [ // IntegerList
  *           Number("int"),
  *         ],
@@ -88,7 +88,7 @@ export interface ListAutomationRulePreviewSummariesCommandOutput extends ListAut
  *     ],
  *     estimatedMonthlySavings: [ // DoubleCriteriaConditionList
  *       { // DoubleCriteriaCondition
- *         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals",
+ *         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals" || "StringEqualsIfExists" || "StringNotEqualsIfExists" || "StringEqualsIgnoreCaseIfExists" || "StringNotEqualsIgnoreCaseIfExists" || "StringLikeIfExists" || "StringNotLikeIfExists" || "NumericEqualsIfExists" || "NumericNotEqualsIfExists" || "NumericLessThanIfExists" || "NumericLessThanEqualsIfExists" || "NumericGreaterThanIfExists" || "NumericGreaterThanEqualsIfExists",
  *         values: [ // DoubleList
  *           Number("double"),
  *         ],
@@ -96,7 +96,7 @@ export interface ListAutomationRulePreviewSummariesCommandOutput extends ListAut
  *     ],
  *     resourceTag: [ // ResourceTagsCriteriaConditionList
  *       { // ResourceTagsCriteriaCondition
- *         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals",
+ *         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals" || "StringEqualsIfExists" || "StringNotEqualsIfExists" || "StringEqualsIgnoreCaseIfExists" || "StringNotEqualsIgnoreCaseIfExists" || "StringLikeIfExists" || "StringNotLikeIfExists" || "NumericEqualsIfExists" || "NumericNotEqualsIfExists" || "NumericLessThanIfExists" || "NumericLessThanEqualsIfExists" || "NumericGreaterThanIfExists" || "NumericGreaterThanEqualsIfExists",
  *         key: "STRING_VALUE",
  *         values: [
  *           "STRING_VALUE",
@@ -105,7 +105,7 @@ export interface ListAutomationRulePreviewSummariesCommandOutput extends ListAut
  *     ],
  *     lookBackPeriodInDays: [
  *       {
- *         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals",
+ *         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals" || "StringEqualsIfExists" || "StringNotEqualsIfExists" || "StringEqualsIgnoreCaseIfExists" || "StringNotEqualsIgnoreCaseIfExists" || "StringLikeIfExists" || "StringNotLikeIfExists" || "NumericEqualsIfExists" || "NumericNotEqualsIfExists" || "NumericLessThanIfExists" || "NumericLessThanEqualsIfExists" || "NumericGreaterThanIfExists" || "NumericGreaterThanEqualsIfExists",
  *         values: [
  *           Number("int"),
  *         ],
@@ -113,7 +113,7 @@ export interface ListAutomationRulePreviewSummariesCommandOutput extends ListAut
  *     ],
  *     restartNeeded: [
  *       {
- *         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals",
+ *         comparison: "StringEquals" || "StringNotEquals" || "StringEqualsIgnoreCase" || "StringNotEqualsIgnoreCase" || "StringLike" || "StringNotLike" || "NumericEquals" || "NumericNotEquals" || "NumericLessThan" || "NumericLessThanEquals" || "NumericGreaterThan" || "NumericGreaterThanEquals" || "StringEqualsIfExists" || "StringNotEqualsIfExists" || "StringEqualsIgnoreCaseIfExists" || "StringNotEqualsIgnoreCaseIfExists" || "StringLikeIfExists" || "StringNotLikeIfExists" || "NumericEqualsIfExists" || "NumericNotEqualsIfExists" || "NumericLessThanIfExists" || "NumericLessThanEqualsIfExists" || "NumericGreaterThanIfExists" || "NumericGreaterThanEqualsIfExists",
  *         values: [
  *           "STRING_VALUE",
  *         ],

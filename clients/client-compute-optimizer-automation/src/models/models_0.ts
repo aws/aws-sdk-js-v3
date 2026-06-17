@@ -509,7 +509,7 @@ export interface AutomationRule {
  */
 export interface IntegerCriteriaCondition {
   /**
-   * <p>The comparison operator to use, such as equals, greater than, less than, etc.</p>
+   * <p>The comparison operator used to evaluate the attribute against the specified values.</p>
    * @public
    */
   comparison?: ComparisonOperator | undefined;
@@ -527,7 +527,7 @@ export interface IntegerCriteriaCondition {
  */
 export interface StringCriteriaCondition {
   /**
-   * <p>The comparison operator used to evaluate the string criteria, such as equals, not equals, or contains.</p>
+   * <p>The comparison operator used to evaluate the attribute against the specified values.</p>
    * @public
    */
   comparison?: ComparisonOperator | undefined;
@@ -545,7 +545,7 @@ export interface StringCriteriaCondition {
  */
 export interface DoubleCriteriaCondition {
   /**
-   * <p>The comparison operator to use, such as equals, greater than, less than, etc.</p>
+   * <p>The comparison operator used to evaluate the attribute against the specified values.</p>
    * @public
    */
   comparison?: ComparisonOperator | undefined;
@@ -563,7 +563,7 @@ export interface DoubleCriteriaCondition {
  */
 export interface ResourceTagsCriteriaCondition {
   /**
-   * <p>The comparison operator used to evaluate the tag criteria, such as equals, not equals, or contains.</p>
+   * <p>The comparison operator used to evaluate the attribute against the specified values.</p>
    * @public
    */
   comparison?: ComparisonOperator | undefined;
