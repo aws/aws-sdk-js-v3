@@ -6,5 +6,5 @@ const partitionsInfo = require(resolve(root, "..", "util-endpoints", "src", "lib
 
 writeFileSync(
   resolve(root, "src", "submodules", "client", "util-endpoints", "lib", "aws", "partitions.ts"),
-  "export const partitionsInfo = " + JSON.stringify(partitionsInfo) + ";\n"
+  "export const partitionsInfo = " + JSON.stringify(partitionsInfo, null, 2) + ";\n"
 );
