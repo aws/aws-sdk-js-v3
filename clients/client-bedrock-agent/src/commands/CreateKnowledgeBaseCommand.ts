@@ -27,7 +27,7 @@ export interface CreateKnowledgeBaseCommandInput extends CreateKnowledgeBaseRequ
 export interface CreateKnowledgeBaseCommandOutput extends CreateKnowledgeBaseResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a knowledge base. A knowledge base contains your data sources so that Large Language Models (LLMs) can use your data. To create a knowledge base, you must first set up your data sources and configure a supported vector store. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowlege-base-prereq.html">Set up a knowledge base</a>.</p> <note> <p>If you prefer to let Amazon Bedrock create and manage a vector store for you in Amazon OpenSearch Service, use the console. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-create">Create a knowledge base</a>.</p> </note> <ul> <li> <p>Provide the <code>name</code> and an optional <code>description</code>.</p> </li> <li> <p>Provide the Amazon Resource Name (ARN) with permissions to create a knowledge base in the <code>roleArn</code> field.</p> </li> <li> <p>Provide the embedding model to use in the <code>embeddingModelArn</code> field in the <code>knowledgeBaseConfiguration</code> object.</p> </li> <li> <p>Provide the configuration for your vector store in the <code>storageConfiguration</code> object.</p> <ul> <li> <p>For an Amazon OpenSearch Service database, use the <code>opensearchServerlessConfiguration</code> object. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-oss.html">Create a vector store in Amazon OpenSearch Service</a>.</p> </li> <li> <p>For an Amazon Aurora database, use the <code>RdsConfiguration</code> object. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-rds.html">Create a vector store in Amazon Aurora</a>.</p> </li> <li> <p>For a Pinecone database, use the <code>pineconeConfiguration</code> object. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-pinecone.html">Create a vector store in Pinecone</a>.</p> </li> <li> <p>For a Redis Enterprise Cloud database, use the <code>redisEnterpriseCloudConfiguration</code> object. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-redis.html">Create a vector store in Redis Enterprise Cloud</a>.</p> </li> </ul> </li> </ul>
+ * <p>Creates a knowledge base. A knowledge base contains your data sources so that Large Language Models (LLMs) can use your data. To create a knowledge base, you must first set up your data sources and configure a supported vector store. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowlege-base-prereq.html">Set up a knowledge base</a>.</p> <note> <p>To create a managed knowledge base, provide a <code>managedKnowledgeBaseConfiguration</code> during creation. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-build-managed.html">Build a managed knowledge base</a>.</p> </note> <ul> <li> <p>Provide the <code>name</code> and an optional <code>description</code>.</p> </li> <li> <p>Provide the Amazon Resource Name (ARN) with permissions to create a knowledge base in the <code>roleArn</code> field.</p> </li> <li> <p>For managed knowledge bases, set <code>embeddingModelType</code> to <code>MANAGED</code> to use the service-managed embedding model, or <code>CUSTOM</code> with an <code>embeddingModelArn</code> to use your own. To use your own KMS key for encryption, provide the ARN in <code>serverSideEncryptionConfiguration</code>. No vector store configuration is required for managed knowledge bases.</p> </li> <li> <p>For self-managed knowledge bases, provide the embedding model to use in the <code>embeddingModelArn</code> field in the <code>knowledgeBaseConfiguration</code> object.</p> </li> <li> <p>For self-managed knowledge bases, provide the configuration for your vector store in the <code>storageConfiguration</code> object.</p> <ul> <li> <p>For an Amazon OpenSearch Service database, use the <code>opensearchServerlessConfiguration</code> object. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-oss.html">Create a vector store in Amazon OpenSearch Service</a>.</p> </li> <li> <p>For an Amazon Aurora database, use the <code>RdsConfiguration</code> object. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-rds.html">Create a vector store in Amazon Aurora</a>.</p> </li> <li> <p>For a Pinecone database, use the <code>pineconeConfiguration</code> object. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-pinecone.html">Create a vector store in Pinecone</a>.</p> </li> <li> <p>For a Redis Enterprise Cloud database, use the <code>redisEnterpriseCloudConfiguration</code> object. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-redis.html">Create a vector store in Redis Enterprise Cloud</a>.</p> </li> </ul> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -42,7 +42,7 @@ export interface CreateKnowledgeBaseCommandOutput extends CreateKnowledgeBaseRes
  *   description: "STRING_VALUE",
  *   roleArn: "STRING_VALUE", // required
  *   knowledgeBaseConfiguration: { // KnowledgeBaseConfiguration
- *     type: "VECTOR" || "KENDRA" || "SQL", // required
+ *     type: "VECTOR" || "KENDRA" || "SQL" || "MANAGED", // required
  *     vectorKnowledgeBaseConfiguration: { // VectorKnowledgeBaseConfiguration
  *       embeddingModelArn: "STRING_VALUE", // required
  *       embeddingModelConfiguration: { // EmbeddingModelConfiguration
@@ -74,6 +74,33 @@ export interface CreateKnowledgeBaseCommandOutput extends CreateKnowledgeBaseRes
  *             },
  *           },
  *         ],
+ *       },
+ *     },
+ *     managedKnowledgeBaseConfiguration: { // ManagedKnowledgeBaseConfiguration
+ *       embeddingModelType: "CUSTOM" || "MANAGED",
+ *       embeddingModelArn: "STRING_VALUE",
+ *       embeddingModelConfiguration: {
+ *         bedrockEmbeddingModelConfiguration: {
+ *           dimensions: Number("int"),
+ *           embeddingDataType: "FLOAT32" || "BINARY",
+ *           audio: [
+ *             {
+ *               segmentationConfiguration: {
+ *                 fixedLengthDuration: Number("int"), // required
+ *               },
+ *             },
+ *           ],
+ *           video: [
+ *             {
+ *               segmentationConfiguration: {
+ *                 fixedLengthDuration: Number("int"), // required
+ *               },
+ *             },
+ *           ],
+ *         },
+ *       },
+ *       serverSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
+ *         kmsKeyArn: "STRING_VALUE",
  *       },
  *     },
  *     kendraKnowledgeBaseConfiguration: { // KendraKnowledgeBaseConfiguration
@@ -235,7 +262,7 @@ export interface CreateKnowledgeBaseCommandOutput extends CreateKnowledgeBaseRes
  * //     description: "STRING_VALUE",
  * //     roleArn: "STRING_VALUE", // required
  * //     knowledgeBaseConfiguration: { // KnowledgeBaseConfiguration
- * //       type: "VECTOR" || "KENDRA" || "SQL", // required
+ * //       type: "VECTOR" || "KENDRA" || "SQL" || "MANAGED", // required
  * //       vectorKnowledgeBaseConfiguration: { // VectorKnowledgeBaseConfiguration
  * //         embeddingModelArn: "STRING_VALUE", // required
  * //         embeddingModelConfiguration: { // EmbeddingModelConfiguration
@@ -267,6 +294,33 @@ export interface CreateKnowledgeBaseCommandOutput extends CreateKnowledgeBaseRes
  * //               },
  * //             },
  * //           ],
+ * //         },
+ * //       },
+ * //       managedKnowledgeBaseConfiguration: { // ManagedKnowledgeBaseConfiguration
+ * //         embeddingModelType: "CUSTOM" || "MANAGED",
+ * //         embeddingModelArn: "STRING_VALUE",
+ * //         embeddingModelConfiguration: {
+ * //           bedrockEmbeddingModelConfiguration: {
+ * //             dimensions: Number("int"),
+ * //             embeddingDataType: "FLOAT32" || "BINARY",
+ * //             audio: [
+ * //               {
+ * //                 segmentationConfiguration: {
+ * //                   fixedLengthDuration: Number("int"), // required
+ * //                 },
+ * //               },
+ * //             ],
+ * //             video: [
+ * //               {
+ * //                 segmentationConfiguration: {
+ * //                   fixedLengthDuration: Number("int"), // required
+ * //                 },
+ * //               },
+ * //             ],
+ * //           },
+ * //         },
+ * //         serverSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
+ * //           kmsKeyArn: "STRING_VALUE",
  * //         },
  * //       },
  * //       kendraKnowledgeBaseConfiguration: { // KendraKnowledgeBaseConfiguration
@@ -414,7 +468,7 @@ export interface CreateKnowledgeBaseCommandOutput extends CreateKnowledgeBaseRes
  * //         indexName: "STRING_VALUE",
  * //       },
  * //     },
- * //     status: "CREATING" || "ACTIVE" || "DELETING" || "UPDATING" || "FAILED" || "DELETE_UNSUCCESSFUL", // required
+ * //     status: "CREATING" || "ACTIVE" || "DELETING" || "UPDATING" || "FAILED" || "DELETE_UNSUCCESSFUL" || "UPDATE_UNSUCCESSFUL", // required
  * //     createdAt: new Date("TIMESTAMP"), // required
  * //     updatedAt: new Date("TIMESTAMP"), // required
  * //     failureReasons: [ // FailureReasons

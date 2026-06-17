@@ -49,7 +49,7 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
  * //       knowledgeBaseId: "STRING_VALUE", // required
  * //       dataSourceId: "STRING_VALUE", // required
  * //       name: "STRING_VALUE", // required
- * //       status: "AVAILABLE" || "DELETING" || "DELETE_UNSUCCESSFUL", // required
+ * //       status: "AVAILABLE" || "DELETING" || "DELETE_UNSUCCESSFUL" || "CREATING" || "UPDATING" || "FAILED", // required
  * //       description: "STRING_VALUE",
  * //       updatedAt: new Date("TIMESTAMP"), // required
  * //     },

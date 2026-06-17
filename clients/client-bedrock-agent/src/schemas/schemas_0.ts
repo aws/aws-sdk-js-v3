@@ -20,6 +20,7 @@ const _ACu = "AudioConfiguration";
 const _ACud = "AudioConfigurations";
 const _AD = "AgentDescriptor";
 const _ADE = "AccessDeniedException";
+const _AEC = "AudioExtractionConfiguration";
 const _AFNC = "AgentFlowNodeConfiguration";
 const _AGE = "ActionGroupExecutor";
 const _AGS = "ActionGroupSummary";
@@ -104,6 +105,8 @@ const _DAAGRe = "DeleteAgentActionGroupResponse";
 const _DAAR = "DeleteAgentAliasRequest";
 const _DAARe = "DeleteAgentAliasResponse";
 const _DAC = "DisassociateAgentCollaborator";
+const _DACE = "DocumentAccessControlEntry";
+const _DACL = "DocumentAccessControlList";
 const _DACR = "DisassociateAgentCollaboratorRequest";
 const _DACRi = "DisassociateAgentCollaboratorResponse";
 const _DAKB = "DisassociateAgentKnowledgeBase";
@@ -139,8 +142,12 @@ const _DKBR = "DeleteKnowledgeBaseRequest";
 const _DKBRe = "DeleteKnowledgeBaseResponse";
 const _DM = "DocumentMetadata";
 const _DP = "DeletePrompt";
+const _DPC = "DeletionProtectionConfiguration";
 const _DPR = "DeletePromptRequest";
 const _DPRe = "DeletePromptResponse";
+const _DRP = "DeleteResourcePolicy";
+const _DRPR = "DeleteResourcePolicyRequest";
+const _DRPRe = "DeleteResourcePolicyResponse";
 const _DS = "DataSource";
 const _DSC = "DataSourceConfiguration";
 const _DSS = "DataSourceSummary";
@@ -229,6 +236,9 @@ const _GKBRe = "GetKnowledgeBaseResponse";
 const _GP = "GetPrompt";
 const _GPR = "GetPromptRequest";
 const _GPRe = "GetPromptResponse";
+const _GRP = "GetResourcePolicy";
+const _GRPR = "GetResourcePolicyRequest";
+const _GRPRe = "GetResourcePolicyResponse";
 const _HCC = "HierarchicalChunkingConfiguration";
 const _HCLC = "HierarchicalChunkingLevelConfiguration";
 const _HCLCi = "HierarchicalChunkingLevelConfigurations";
@@ -239,6 +249,7 @@ const _ICDTFVD = "IncompatibleConnectionDataTypeFlowValidationDetails";
 const _ICFNC = "InlineCodeFlowNodeConfiguration";
 const _ICn = "InferenceConfiguration";
 const _ICnl = "InlineContent";
+const _IEC = "ImageExtractionConfiguration";
 const _IFNC = "InputFlowNodeConfiguration";
 const _IFNCt = "IteratorFlowNodeConfiguration";
 const _IJ = "IngestionJob";
@@ -331,7 +342,10 @@ const _MCFR = "MetadataConfigurationForReranking";
 const _MDAC = "MongoDbAtlasConfiguration";
 const _MDAFM = "MongoDbAtlasFieldMapping";
 const _MDCFVD = "MissingDefaultConditionFlowValidationDetails";
+const _MEC = "MediaExtractionConfiguration";
 const _MENFVD = "MissingEndingNodesFlowValidationDetails";
+const _MKBC = "ManagedKnowledgeBaseConfiguration";
+const _MKBCC = "ManagedKnowledgeBaseConnectorConfiguration";
 const _MLCNFVD = "MissingLoopControllerNodeFlowValidationDetails";
 const _MLCNFVDu = "MultipleLoopControllerNodesFlowValidationDetails";
 const _MLINFVD = "MissingLoopInputNodeFlowValidationDetails";
@@ -389,6 +403,9 @@ const _POF = "PatternObjectFilter";
 const _POFC = "PatternObjectFilterConfiguration";
 const _POFL = "PatternObjectFilterList";
 const _PP = "ParsingPrompt";
+const _PRP = "PutResourcePolicy";
+const _PRPR = "PutResourcePolicyRequest";
+const _PRPRu = "PutResourcePolicyResponse";
 const _PS = "PromptSummary";
 const _PSr = "PromptSummaries";
 const _PTC = "PromptTemplateConfiguration";
@@ -410,6 +427,7 @@ const _RFNSC = "RetrievalFlowNodeS3Configuration";
 const _RFNSCe = "RetrievalFlowNodeServiceConfiguration";
 const _RMSMC = "RerankingMetadataSelectiveModeConfiguration";
 const _RNFE = "ResourceNotFoundException";
+const _RP = "ResourcePolicy";
 const _RPAC = "RedshiftProvisionedAuthConfiguration";
 const _RPC = "RedshiftProvisionedConfiguration";
 const _RQEADCSC = "RedshiftQueryEngineAwsDataCatalogStorageConfiguration";
@@ -525,6 +543,7 @@ const _VBA = "VectorBucketArn";
 const _VC = "VideoConfiguration";
 const _VCi = "VideoConfigurations";
 const _VE = "ValidationException";
+const _VEC = "VideoExtractionConfiguration";
 const _VEF = "ValidationExceptionField";
 const _VEFL = "ValidationExceptionFieldList";
 const _VFD = "ValidateFlowDefinition";
@@ -540,7 +559,7 @@ const _WCC = "WebCrawlerConfiguration";
 const _WCL = "WebCrawlerLimits";
 const _WDSC = "WebDataSourceConfiguration";
 const _WSC = "WebSourceConfiguration";
-const _a = "audio";
+const _a = "application/json";
 const _aA = "agentArn";
 const _aAA = "agentAliasArn";
 const _aAG = "agentActionGroup";
@@ -552,11 +571,14 @@ const _aASg = "agentAliasSummaries";
 const _aAg = "agentAlias";
 const _aAl = "aliasArn";
 const _aC = "agentCollaboration";
+const _aCL = "accessControlList";
 const _aCS = "agentCollaboratorSummaries";
 const _aCg = "agentCollaborator";
 const _aCu = "authConfiguration";
 const _aD = "agentDescriptor";
 const _aDCC = "awsDataCatalogConfiguration";
+const _aEC = "audioExtractionConfiguration";
+const _aES = "audioExtractionStatus";
 const _aGE = "actionGroupExecutor";
 const _aGI = "actionGroupId";
 const _aGN = "actionGroupName";
@@ -577,11 +599,13 @@ const _aSp = "apiSchema";
 const _aT = "authType";
 const _aV = "agentVersion";
 const _aVS = "agentVersionSummaries";
+const _ac = "access";
 const _ag = "agent";
 const _an = "any";
 const _ar = "arn";
 const _at = "attribute";
-const _au = "auto";
+const _au = "audio";
+const _aut = "auto";
 const _bA = "bucketArn";
 const _bAA = "botAliasArn";
 const _bC = "byteContent";
@@ -616,7 +640,8 @@ const _cMF = "customMetadataField";
 const _cN = "collaboratorName";
 const _cNo = "collectionName";
 const _cO = "customOrchestration";
-const _cP = "cachePoint";
+const _cP = "connectorParameters";
+const _cPa = "cachePoint";
 const _cQ = "curatedQueries";
 const _cS = "chunkingStrategy";
 const _cSA = "credentialsSecretArn";
@@ -646,6 +671,9 @@ const _dDP = "dataDeletionPolicy";
 const _dE = "domainEndpoint";
 const _dI = "documentIdentifiers";
 const _dN = "databaseName";
+const _dPC = "deletionProtectionConfiguration";
+const _dPS = "deletionProtectionStatus";
+const _dPT = "deletionProtectionThreshold";
 const _dS = "dataSource";
 const _dSC = "dataSourceConfiguration";
 const _dSI = "dataSourceId";
@@ -665,8 +693,10 @@ const _eDT = "embeddingDataType";
 const _eF = "exclusionFilters";
 const _eMA = "embeddingModelArn";
 const _eMC = "embeddingModelConfiguration";
-const _eMT = "enabledMemoryTypes";
+const _eMT = "embeddingModelType";
+const _eMTn = "enabledMemoryTypes";
 const _eRA = "executionRoleArn";
+const _eRI = "expectedRevisionId";
 const _eSC = "enrichmentStrategyConfiguration";
 const _eSN = "endpointServiceName";
 const _eT = "expectedType";
@@ -713,6 +743,8 @@ const _iCDT = "incompatibleConnectionDataType";
 const _iCn = "inferenceConfiguration";
 const _iCnf = "inferenceConfig";
 const _iCnl = "inlineCode";
+const _iEC = "imageExtractionConfiguration";
+const _iES = "imageExtractionStatus";
 const _iF = "inclusionFilters";
 const _iJ = "ingestionJob";
 const _iJI = "ingestionJobId";
@@ -769,10 +801,13 @@ const _mCe = "metadataConfiguration";
 const _mCo = "modelConfiguration";
 const _mDAC = "mongoDbAtlasConfiguration";
 const _mDC = "missingDefaultCondition";
+const _mEC = "mediaExtractionConfiguration";
 const _mEN = "missingEndingNodes";
 const _mF = "metadataField";
 const _mI = "modelId";
 const _mIa = "maxIterations";
+const _mKBC = "managedKnowledgeBaseConfiguration";
+const _mKBCC = "managedKnowledgeBaseConnectorConfiguration";
 const _mL = "maximumLength";
 const _mLCN = "missingLoopControllerNode";
 const _mLCNu = "multipleLoopControllerNodes";
@@ -789,8 +824,9 @@ const _mP = "maxPages";
 const _mR = "maxResults";
 const _mRS = "maxRecentSessions";
 const _mSN = "missingStartingNodes";
-const _mT = "mimeType";
+const _mT = "mediaType";
 const _mTa = "maxTokens";
+const _mTi = "mimeType";
 const _me = "messages";
 const _met = "method";
 const _meta = "metadata";
@@ -800,6 +836,7 @@ const _nL = "naturalLanguage";
 const _nODD = "numberOfDocumentsDeleted";
 const _nODF = "numberOfDocumentsFailed";
 const _nODS = "numberOfDocumentsScanned";
+const _nODSu = "numberOfDocumentsSkipped";
 const _nOMDI = "numberOfModifiedDocumentsIndexed";
 const _nOMDM = "numberOfMetadataDocumentsModified";
 const _nOMDS = "numberOfMetadataDocumentsScanned";
@@ -851,6 +888,7 @@ const _pTr = "promptTemplate";
 const _pTro = "promptType";
 const _pV = "promptVersion";
 const _pa = "payload";
+const _po = "policy";
 const _pr = "prompt";
 const _qEC = "queryEngineConfiguration";
 const _qGC = "queryGenerationConfiguration";
@@ -865,6 +903,7 @@ const _rCe = "requireConfirmation";
 const _rCed = "redshiftConfiguration";
 const _rCer = "rerankingConfiguration";
 const _rECC = "redisEnterpriseCloudConfiguration";
+const _rI = "revisionId";
 const _rL = "rateLimit";
 const _re = "required";
 const _res = "resource";
@@ -963,6 +1002,8 @@ const _un = "unspecified";
 const _ur = "url";
 const _v = "version";
 const _vBA = "vectorBucketArn";
+const _vEC = "videoExtractionConfiguration";
+const _vES = "videoExtractionStatus";
 const _vF = "vectorField";
 const _vIC = "vectorIngestionConfiguration";
 const _vIN = "vectorIndexName";
@@ -1075,6 +1116,7 @@ var OpenSearchManagedClusterIndexName: StaticSimpleSchema = [0, n0, _OSMCIN, 8, 
 var Payload: StaticSimpleSchema = [0, n0, _P, 8, 0];
 var PromptMetadataKey: StaticSimpleSchema = [0, n0, _PMK, 8, 0];
 var PromptMetadataValue: StaticSimpleSchema = [0, n0, _PMV, 8, 0];
+var ResourcePolicy: StaticSimpleSchema = [0, n0, _RP, { [_mT]: _a }, 0];
 var S3Prefix: StaticSimpleSchema = [0, n0, _SP, 8, 0];
 var StringValue: StaticSimpleSchema = [0, n0, _SV, 8, 0];
 var TextPrompt: StaticSimpleSchema = [0, n0, _TP, 8, 0];
@@ -1191,6 +1233,11 @@ export var AudioConfiguration$: StaticStructureSchema = [3, n0, _ACu,
   [_sC],
   [() => AudioSegmentationConfiguration$], 1
 ];
+export var AudioExtractionConfiguration$: StaticStructureSchema = [3, n0, _AEC,
+  0,
+  [_aES],
+  [0], 1
+];
 export var AudioSegmentationConfiguration$: StaticStructureSchema = [3, n0, _ASC,
   0,
   [_fLD],
@@ -1208,7 +1255,7 @@ export var BedrockDataAutomationConfiguration$: StaticStructureSchema = [3, n0, 
 ];
 export var BedrockEmbeddingModelConfiguration$: StaticStructureSchema = [3, n0, _BEMC,
   0,
-  [_di, _eDT, _a, _vi],
+  [_di, _eDT, _au, _vi],
   [1, 0, () => AudioConfigurations, () => VideoConfigurations]
 ];
 export var BedrockFoundationModelConfiguration$: StaticStructureSchema = [3, n0, _BFMC,
@@ -1223,7 +1270,7 @@ export var BedrockFoundationModelContextEnrichmentConfiguration$: StaticStructur
 ];
 export var ByteContentDoc$: StaticStructureSchema = [3, n0, _BCD,
   0,
-  [_mT, _da],
+  [_mTi, _da],
   [0, [() => ByteContentBlob, 0]], 2
 ];
 export var CachePointBlock$: StaticStructureSchema = [3, n0, _CPB,
@@ -1418,8 +1465,8 @@ export var DataSource$: StaticStructureSchema = [3, n0, _DS,
 ];
 export var DataSourceConfiguration$: StaticStructureSchema = [3, n0, _DSC,
   0,
-  [_t, _sCon, _wC, _cCon, _sCa, _sPC],
-  [0, [() => S3DataSourceConfiguration$, 0], [() => WebDataSourceConfiguration$, 0], [() => ConfluenceDataSourceConfiguration$, 0], [() => SalesforceDataSourceConfiguration$, 0], [() => SharePointDataSourceConfiguration$, 0]], 1
+  [_t, _mKBCC, _sCon, _wC, _cCon, _sCa, _sPC],
+  [0, () => ManagedKnowledgeBaseConnectorConfiguration$, [() => S3DataSourceConfiguration$, 0], [() => WebDataSourceConfiguration$, 0], [() => ConfluenceDataSourceConfiguration$, 0], [() => SalesforceDataSourceConfiguration$, 0], [() => SharePointDataSourceConfiguration$, 0]], 1
 ];
 export var DataSourceSummary$: StaticStructureSchema = [3, n0, _DSS,
   0,
@@ -1536,6 +1583,21 @@ export var DeletePromptResponse$: StaticStructureSchema = [3, n0, _DPRe,
   [_id, _v],
   [0, 0], 1
 ];
+export var DeleteResourcePolicyRequest$: StaticStructureSchema = [3, n0, _DRPR,
+  0,
+  [_rAe, _eRI],
+  [[0, 1], [0, { [_hQ]: _eRI }]], 1
+];
+export var DeleteResourcePolicyResponse$: StaticStructureSchema = [3, n0, _DRPRe,
+  0,
+  [_rAe, _rI],
+  [0, 0], 1
+];
+export var DeletionProtectionConfiguration$: StaticStructureSchema = [3, n0, _DPC,
+  0,
+  [_dPS, _dPT],
+  [0, 1], 1
+];
 export var DisassociateAgentCollaboratorRequest$: StaticStructureSchema = [3, n0, _DACR,
   0,
   [_aI, _aV, _cI],
@@ -1556,6 +1618,11 @@ export var DisassociateAgentKnowledgeBaseResponse$: StaticStructureSchema = [3, 
   [],
   []
 ];
+export var DocumentAccessControlEntry$: StaticStructureSchema = [3, n0, _DACE,
+  8,
+  [_n, _t, _ac],
+  [0, 0, 0], 3
+];
 export var DocumentContent$: StaticStructureSchema = [3, n0, _DC,
   0,
   [_dST, _cu, _s_],
@@ -1568,8 +1635,8 @@ export var DocumentIdentifier$: StaticStructureSchema = [3, n0, _DI,
 ];
 export var DocumentMetadata$: StaticStructureSchema = [3, n0, _DM,
   0,
-  [_t, _iA, _sL],
-  [0, [() => MetadataAttributes, 0], () => CustomS3Location$], 1
+  [_t, _iA, _sL, _aCL],
+  [0, [() => MetadataAttributes, 0], () => CustomS3Location$, [() => DocumentAccessControlList, 0]], 1
 ];
 export var DuplicateConditionExpressionFlowValidationDetails$: StaticStructureSchema = [3, n0, _DCEFVD,
   0,
@@ -1816,6 +1883,16 @@ export var GetPromptResponse$: StaticStructureSchema = [3, n0, _GPRe,
   [_n, _id, _ar, _v, _cA, _uA, _d, _cEKA, _dV, _va],
   [0, 0, 0, 0, 5, 5, 0, 0, 0, [() => PromptVariantList, 0]], 6
 ];
+export var GetResourcePolicyRequest$: StaticStructureSchema = [3, n0, _GRPR,
+  0,
+  [_rAe],
+  [[0, 1]], 1
+];
+export var GetResourcePolicyResponse$: StaticStructureSchema = [3, n0, _GRPRe,
+  0,
+  [_rAe, _po, _rI],
+  [0, [() => ResourcePolicy, 0], 0], 3
+];
 export var GuardrailConfiguration$: StaticStructureSchema = [3, n0, _GC,
   0,
   [_gI, _gV],
@@ -1830,6 +1907,11 @@ export var HierarchicalChunkingLevelConfiguration$: StaticStructureSchema = [3, 
   0,
   [_mTa],
   [1], 1
+];
+export var ImageExtractionConfiguration$: StaticStructureSchema = [3, n0, _IEC,
+  0,
+  [_iES],
+  [0], 1
 ];
 export var IncompatibleConnectionDataTypeFlowValidationDetails$: StaticStructureSchema = [3, n0, _ICDTFVD,
   0,
@@ -1858,8 +1940,8 @@ export var IngestionJobSortBy$: StaticStructureSchema = [3, n0, _IJSB,
 ];
 export var IngestionJobStatistics$: StaticStructureSchema = [3, n0, _IJS,
   0,
-  [_nODS, _nOMDS, _nONDI, _nOMDI, _nOMDM, _nODD, _nODF],
-  [1, 1, 1, 1, 1, 1, 1]
+  [_nODS, _nOMDS, _nONDI, _nOMDI, _nOMDM, _nODD, _nODF, _nODSu],
+  [1, 1, 1, 1, 1, 1, 1, 1]
 ];
 export var IngestionJobSummary$: StaticStructureSchema = [3, n0, _IJSn,
   0,
@@ -1918,8 +2000,8 @@ export var KnowledgeBase$: StaticStructureSchema = [3, n0, _KB,
 ];
 export var KnowledgeBaseConfiguration$: StaticStructureSchema = [3, n0, _KBC,
   0,
-  [_t, _vKBC, _kKBC, _sKBC],
-  [0, () => VectorKnowledgeBaseConfiguration$, () => KendraKnowledgeBaseConfiguration$, [() => SqlKnowledgeBaseConfiguration$, 0]], 1
+  [_t, _vKBC, _mKBC, _kKBC, _sKBC],
+  [0, () => VectorKnowledgeBaseConfiguration$, () => ManagedKnowledgeBaseConfiguration$, () => KendraKnowledgeBaseConfiguration$, [() => SqlKnowledgeBaseConfiguration$, 0]], 1
 ];
 export var KnowledgeBaseDocument$: StaticStructureSchema = [3, n0, _KBD,
   0,
@@ -2141,9 +2223,24 @@ export var MalformedNodeInputExpressionFlowValidationDetails$: StaticStructureSc
   [_no, _inp, _cau],
   [0, 0, 0], 3
 ];
+export var ManagedKnowledgeBaseConfiguration$: StaticStructureSchema = [3, n0, _MKBC,
+  0,
+  [_eMT, _eMA, _eMC, _sSEC],
+  [0, 0, () => EmbeddingModelConfiguration$, () => ServerSideEncryptionConfiguration$]
+];
+export var ManagedKnowledgeBaseConnectorConfiguration$: StaticStructureSchema = [3, n0, _MKBCC,
+  0,
+  [_dPC, _mEC, _cP],
+  [() => DeletionProtectionConfiguration$, () => MediaExtractionConfiguration$, 15]
+];
+export var MediaExtractionConfiguration$: StaticStructureSchema = [3, n0, _MEC,
+  0,
+  [_iEC, _aEC, _vEC],
+  [() => ImageExtractionConfiguration$, () => AudioExtractionConfiguration$, () => VideoExtractionConfiguration$]
+];
 export var MemoryConfiguration$: StaticStructureSchema = [3, n0, _MC,
   0,
-  [_eMT, _sDt, _sSC],
+  [_eMTn, _sDt, _sSC],
   [64 | 0, 1, () => SessionSummaryConfiguration$], 1
 ];
 export var Message$: StaticStructureSchema = [3, n0, _M,
@@ -2396,6 +2493,16 @@ export var PromptVariant$: StaticStructureSchema = [3, n0, _PV,
   [_n, _tT, _tCem, _mI, _iCn, _meta, _aMRF, _gAR],
   [0, 0, [() => PromptTemplateConfiguration$, 0], 0, () => PromptInferenceConfiguration$, [() => PromptMetadataList, 0], 15, [() => PromptGenAiResource$, 0]], 3
 ];
+export var PutResourcePolicyRequest$: StaticStructureSchema = [3, n0, _PRPR,
+  0,
+  [_rAe, _po, _eRI],
+  [[0, 1], [() => ResourcePolicy, 0], 0], 2
+];
+export var PutResourcePolicyResponse$: StaticStructureSchema = [3, n0, _PRPRu,
+  0,
+  [_rAe, _rI],
+  [0, 0], 2
+];
 export var QueryGenerationColumn$: StaticStructureSchema = [3, n0, _QGC,
   0,
   [_n, _d, _inc],
@@ -2638,7 +2745,7 @@ export var TextContentDoc$: StaticStructureSchema = [3, n0, _TCD,
 ];
 export var TextPromptTemplateConfiguration$: StaticStructureSchema = [3, n0, _TPTC,
   8,
-  [_tex, _cP, _iV],
+  [_tex, _cPa, _iV],
   [[() => TextPrompt, 0], () => CachePointBlock$, [() => PromptInputVariablesList, 0]], 1
 ];
 export var ToolConfiguration$: StaticStructureSchema = [3, n0, _TC,
@@ -2881,6 +2988,11 @@ export var VideoConfiguration$: StaticStructureSchema = [3, n0, _VC,
   [_sC],
   [() => VideoSegmentationConfiguration$], 1
 ];
+export var VideoExtractionConfiguration$: StaticStructureSchema = [3, n0, _VEC,
+  0,
+  [_vES],
+  [0], 1
+];
 export var VideoSegmentationConfiguration$: StaticStructureSchema = [3, n0, _VSC,
   0,
   [_fLD],
@@ -2944,6 +3056,10 @@ var CuratedQueries: StaticListSchema = [1, n0, _CQu,
 ];
 var DataSourceSummaries: StaticListSchema = [1, n0, _DSSa,
   0, () => DataSourceSummary$
+];
+var DocumentAccessControlList: StaticListSchema = [1, n0, _DACL,
+  0, [() => DocumentAccessControlEntry$,
+    0]
 ];
 var DocumentIdentifiers: StaticListSchema = [1, n0, _DIo,
   0, () => DocumentIdentifier$
@@ -3105,7 +3221,7 @@ export var APISchema$: StaticUnionSchema = [4, n0, _APIS,
 ];
 export var ContentBlock$: StaticUnionSchema = [4, n0, _CBo,
   8,
-  [_tex, _cP],
+  [_tex, _cPa],
   [0, () => CachePointBlock$]
 ];
 export var FlowConnectionConfiguration$: StaticUnionSchema = [4, n0, _FCC,
@@ -3170,17 +3286,17 @@ export var StorageFlowNodeServiceConfiguration$: StaticUnionSchema = [4, n0, _SF
 ];
 export var SystemContentBlock$: StaticUnionSchema = [4, n0, _SCBy,
   8,
-  [_tex, _cP],
+  [_tex, _cPa],
   [0, () => CachePointBlock$]
 ];
 export var Tool$: StaticUnionSchema = [4, n0, _Too,
   0,
-  [_tS, _cP],
+  [_tS, _cPa],
   [() => ToolSpecification$, () => CachePointBlock$]
 ];
 export var ToolChoice$: StaticUnionSchema = [4, n0, _TCo,
   8,
-  [_au, _an, _too],
+  [_aut, _an, _too],
   [() => AutoToolChoice$, () => AnyToolChoice$, () => SpecificToolChoice$]
 ];
 export var ToolInputSchema$: StaticUnionSchema = [4, n0, _TIS,
@@ -3257,6 +3373,9 @@ export var DeleteKnowledgeBaseDocuments$: StaticOperationSchema = [9, n0, _DKBD,
 export var DeletePrompt$: StaticOperationSchema = [9, n0, _DP,
   { [_h]: ["DELETE", "/prompts/{promptIdentifier}/", 200] }, () => DeletePromptRequest$, () => DeletePromptResponse$
 ];
+export var DeleteResourcePolicy$: StaticOperationSchema = [9, n0, _DRP,
+  { [_h]: ["DELETE", "/resourcepolicy/{resourceArn}", 200] }, () => DeleteResourcePolicyRequest$, () => DeleteResourcePolicyResponse$
+];
 export var DisassociateAgentCollaborator$: StaticOperationSchema = [9, n0, _DAC,
   { [_h]: ["DELETE", "/agents/{agentId}/agentversions/{agentVersion}/agentcollaborators/{collaboratorId}/", 204] }, () => DisassociateAgentCollaboratorRequest$, () => DisassociateAgentCollaboratorResponse$
 ];
@@ -3304,6 +3423,9 @@ export var GetKnowledgeBaseDocuments$: StaticOperationSchema = [9, n0, _GKBD,
 ];
 export var GetPrompt$: StaticOperationSchema = [9, n0, _GP,
   { [_h]: ["GET", "/prompts/{promptIdentifier}/", 200] }, () => GetPromptRequest$, () => GetPromptResponse$
+];
+export var GetResourcePolicy$: StaticOperationSchema = [9, n0, _GRP,
+  { [_h]: ["GET", "/resourcepolicy/{resourceArn}", 200] }, () => GetResourcePolicyRequest$, () => GetResourcePolicyResponse$
 ];
 export var IngestKnowledgeBaseDocuments$: StaticOperationSchema = [9, n0, _IKBD,
   { [_h]: ["PUT", "/knowledgebases/{knowledgeBaseId}/datasources/{dataSourceId}/documents", 202] }, () => IngestKnowledgeBaseDocumentsRequest$, () => IngestKnowledgeBaseDocumentsResponse$
@@ -3358,6 +3480,9 @@ export var PrepareAgent$: StaticOperationSchema = [9, n0, _PA,
 ];
 export var PrepareFlow$: StaticOperationSchema = [9, n0, _PF,
   { [_h]: ["POST", "/flows/{flowIdentifier}/", 202] }, () => PrepareFlowRequest$, () => PrepareFlowResponse$
+];
+export var PutResourcePolicy$: StaticOperationSchema = [9, n0, _PRP,
+  { [_h]: ["PUT", "/resourcepolicy/{resourceArn}", 200] }, () => PutResourcePolicyRequest$, () => PutResourcePolicyResponse$
 ];
 export var StartIngestionJob$: StaticOperationSchema = [9, n0, _SIJ,
   { [_h]: ["PUT", "/knowledgebases/{knowledgeBaseId}/datasources/{dataSourceId}/ingestionjobs/", 202] }, () => StartIngestionJobRequest$, () => StartIngestionJobResponse$

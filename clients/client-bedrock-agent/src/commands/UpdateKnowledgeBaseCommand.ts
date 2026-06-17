@@ -42,7 +42,7 @@ export interface UpdateKnowledgeBaseCommandOutput extends UpdateKnowledgeBaseRes
  *   description: "STRING_VALUE",
  *   roleArn: "STRING_VALUE", // required
  *   knowledgeBaseConfiguration: { // KnowledgeBaseConfiguration
- *     type: "VECTOR" || "KENDRA" || "SQL", // required
+ *     type: "VECTOR" || "KENDRA" || "SQL" || "MANAGED", // required
  *     vectorKnowledgeBaseConfiguration: { // VectorKnowledgeBaseConfiguration
  *       embeddingModelArn: "STRING_VALUE", // required
  *       embeddingModelConfiguration: { // EmbeddingModelConfiguration
@@ -74,6 +74,33 @@ export interface UpdateKnowledgeBaseCommandOutput extends UpdateKnowledgeBaseRes
  *             },
  *           },
  *         ],
+ *       },
+ *     },
+ *     managedKnowledgeBaseConfiguration: { // ManagedKnowledgeBaseConfiguration
+ *       embeddingModelType: "CUSTOM" || "MANAGED",
+ *       embeddingModelArn: "STRING_VALUE",
+ *       embeddingModelConfiguration: {
+ *         bedrockEmbeddingModelConfiguration: {
+ *           dimensions: Number("int"),
+ *           embeddingDataType: "FLOAT32" || "BINARY",
+ *           audio: [
+ *             {
+ *               segmentationConfiguration: {
+ *                 fixedLengthDuration: Number("int"), // required
+ *               },
+ *             },
+ *           ],
+ *           video: [
+ *             {
+ *               segmentationConfiguration: {
+ *                 fixedLengthDuration: Number("int"), // required
+ *               },
+ *             },
+ *           ],
+ *         },
+ *       },
+ *       serverSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
+ *         kmsKeyArn: "STRING_VALUE",
  *       },
  *     },
  *     kendraKnowledgeBaseConfiguration: { // KendraKnowledgeBaseConfiguration
@@ -232,7 +259,7 @@ export interface UpdateKnowledgeBaseCommandOutput extends UpdateKnowledgeBaseRes
  * //     description: "STRING_VALUE",
  * //     roleArn: "STRING_VALUE", // required
  * //     knowledgeBaseConfiguration: { // KnowledgeBaseConfiguration
- * //       type: "VECTOR" || "KENDRA" || "SQL", // required
+ * //       type: "VECTOR" || "KENDRA" || "SQL" || "MANAGED", // required
  * //       vectorKnowledgeBaseConfiguration: { // VectorKnowledgeBaseConfiguration
  * //         embeddingModelArn: "STRING_VALUE", // required
  * //         embeddingModelConfiguration: { // EmbeddingModelConfiguration
@@ -264,6 +291,33 @@ export interface UpdateKnowledgeBaseCommandOutput extends UpdateKnowledgeBaseRes
  * //               },
  * //             },
  * //           ],
+ * //         },
+ * //       },
+ * //       managedKnowledgeBaseConfiguration: { // ManagedKnowledgeBaseConfiguration
+ * //         embeddingModelType: "CUSTOM" || "MANAGED",
+ * //         embeddingModelArn: "STRING_VALUE",
+ * //         embeddingModelConfiguration: {
+ * //           bedrockEmbeddingModelConfiguration: {
+ * //             dimensions: Number("int"),
+ * //             embeddingDataType: "FLOAT32" || "BINARY",
+ * //             audio: [
+ * //               {
+ * //                 segmentationConfiguration: {
+ * //                   fixedLengthDuration: Number("int"), // required
+ * //                 },
+ * //               },
+ * //             ],
+ * //             video: [
+ * //               {
+ * //                 segmentationConfiguration: {
+ * //                   fixedLengthDuration: Number("int"), // required
+ * //                 },
+ * //               },
+ * //             ],
+ * //           },
+ * //         },
+ * //         serverSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
+ * //           kmsKeyArn: "STRING_VALUE",
  * //         },
  * //       },
  * //       kendraKnowledgeBaseConfiguration: { // KendraKnowledgeBaseConfiguration
@@ -411,7 +465,7 @@ export interface UpdateKnowledgeBaseCommandOutput extends UpdateKnowledgeBaseRes
  * //         indexName: "STRING_VALUE",
  * //       },
  * //     },
- * //     status: "CREATING" || "ACTIVE" || "DELETING" || "UPDATING" || "FAILED" || "DELETE_UNSUCCESSFUL", // required
+ * //     status: "CREATING" || "ACTIVE" || "DELETING" || "UPDATING" || "FAILED" || "DELETE_UNSUCCESSFUL" || "UPDATE_UNSUCCESSFUL", // required
  * //     createdAt: new Date("TIMESTAMP"), // required
  * //     updatedAt: new Date("TIMESTAMP"), // required
  * //     failureReasons: [ // FailureReasons

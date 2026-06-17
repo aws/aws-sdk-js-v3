@@ -59,6 +59,7 @@ export interface StartIngestionJobCommandOutput extends StartIngestionJobRespons
  * //       numberOfMetadataDocumentsModified: Number("long"),
  * //       numberOfDocumentsDeleted: Number("long"),
  * //       numberOfDocumentsFailed: Number("long"),
+ * //       numberOfDocumentsSkipped: Number("long"),
  * //     },
  * //     failureReasons: [ // FailureReasons
  * //       "STRING_VALUE",

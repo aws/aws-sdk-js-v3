@@ -1,16 +1,21 @@
 // smithy-typescript generated code
+import { AutomaticJsonStringConversion as __AutomaticJsonStringConversion } from "@smithy/core/serde";
 import type { DocumentType as __DocumentType } from "@smithy/types";
 
 import type {
   AgentStatus,
-  EmbeddingDataType,
   FlowNodeType,
   FlowStatus,
+  IncludeExclude,
   KnowledgeBaseState,
   KnowledgeBaseStatus,
   KnowledgeBaseStorageType,
   KnowledgeBaseType,
   PromptTemplateType,
+  QueryEngineType,
+  RedshiftQueryEngineStorageType,
+  RedshiftQueryEngineType,
+  RedshiftServerlessAuthType,
   SupplementalDataStorageLocationType,
 } from "./enums";
 import type {
@@ -19,9 +24,9 @@ import type {
   AgentKnowledgeBaseSummary,
   AgentVersion,
   AgentVersionSummary,
-  AudioConfiguration,
   CollectorFlowNodeConfiguration,
   ConditionFlowNodeConfiguration,
+  EmbeddingModelConfiguration,
   FlowConnection,
   FlowNodeInput,
   FlowNodeOutput,
@@ -35,61 +40,295 @@ import type {
   LexFlowNodeConfiguration,
   LoopControllerFlowNodeConfiguration,
   LoopInputFlowNodeConfiguration,
+  ManagedKnowledgeBaseConfiguration,
   OutputFlowNodeConfiguration,
   PromptFlowNodeConfiguration,
   PromptInferenceConfiguration,
   PromptTemplateConfiguration,
+  RedshiftProvisionedAuthConfiguration,
   RetrievalFlowNodeConfiguration,
   S3Location,
-  SqlKnowledgeBaseConfiguration,
   StorageFlowNodeConfiguration,
-  VideoConfiguration,
 } from "./models_0";
 
 /**
- * <p>The vector configuration details for the Bedrock embeddings model.</p>
+ * <p>Contains configurations for a provisioned Amazon Redshift query engine.</p>
  * @public
  */
-export interface BedrockEmbeddingModelConfiguration {
+export interface RedshiftProvisionedConfiguration {
   /**
-   * <p>The dimensions details for the vector configuration used on the Bedrock embeddings model.</p>
+   * <p>The ID of the Amazon Redshift cluster.</p>
    * @public
    */
-  dimensions?: number | undefined;
+  clusterIdentifier: string | undefined;
 
   /**
-   * <p>The data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings. Floating-point (float32) is the default data type, and is supported by most models for vector embeddings. See <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-supported.html">Supported embeddings models</a> for information on the available models and their vector data types.</p>
+   * <p>Specifies configurations for authentication to Amazon Redshift.</p>
    * @public
    */
-  embeddingDataType?: EmbeddingDataType | undefined;
-
-  /**
-   * <p>Configuration settings for processing audio content in multimodal knowledge bases.</p>
-   * @public
-   */
-  audio?: AudioConfiguration[] | undefined;
-
-  /**
-   * <p>Configuration settings for processing video content in multimodal knowledge bases.</p>
-   * @public
-   */
-  video?: VideoConfiguration[] | undefined;
+  authConfiguration: RedshiftProvisionedAuthConfiguration | undefined;
 }
 
 /**
- * <p>The configuration details for the embeddings model.</p>
+ * <p>Specifies configurations for authentication to a Redshift Serverless. Specify the type of authentication to use in the <code>type</code> field and include the corresponding field. If you specify IAM authentication, you don't need to include another field.</p>
  * @public
  */
-export interface EmbeddingModelConfiguration {
+export interface RedshiftServerlessAuthConfiguration {
   /**
-   * <p>The vector configuration details on the Bedrock embeddings model.</p>
+   * <p>The type of authentication to use.</p>
    * @public
    */
-  bedrockEmbeddingModelConfiguration?: BedrockEmbeddingModelConfiguration | undefined;
+  type: RedshiftServerlessAuthType | undefined;
+
+  /**
+   * <p>The ARN of an Secrets Manager secret for authentication.</p>
+   * @public
+   */
+  usernamePasswordSecretArn?: string | undefined;
 }
 
 /**
- * <p>Contains information about a storage location for images extracted from multimodal documents in your data source.</p>
+ * <p>Contains configurations for authentication to Amazon Redshift Serverless.</p>
+ * @public
+ */
+export interface RedshiftServerlessConfiguration {
+  /**
+   * <p>The ARN of the Amazon Redshift workgroup.</p>
+   * @public
+   */
+  workgroupArn: string | undefined;
+
+  /**
+   * <p>Specifies configurations for authentication to an Amazon Redshift provisioned data warehouse.</p>
+   * @public
+   */
+  authConfiguration: RedshiftServerlessAuthConfiguration | undefined;
+}
+
+/**
+ * <p>Contains configurations for an Amazon Redshift query engine. Specify the type of query engine in <code>type</code> and include the corresponding field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-build-structured.html">Build a knowledge base by connecting to a structured data source</a> in the Amazon Bedrock User Guide.</p>
+ * @public
+ */
+export interface RedshiftQueryEngineConfiguration {
+  /**
+   * <p>The type of query engine.</p>
+   * @public
+   */
+  type: RedshiftQueryEngineType | undefined;
+
+  /**
+   * <p>Specifies configurations for a serverless Amazon Redshift query engine.</p>
+   * @public
+   */
+  serverlessConfiguration?: RedshiftServerlessConfiguration | undefined;
+
+  /**
+   * <p>Specifies configurations for a provisioned Amazon Redshift query engine.</p>
+   * @public
+   */
+  provisionedConfiguration?: RedshiftProvisionedConfiguration | undefined;
+}
+
+/**
+ * <p>Contains configurations for a query, each of which defines information about example queries to help the query engine generate appropriate SQL queries.</p>
+ * @public
+ */
+export interface CuratedQuery {
+  /**
+   * <p>An example natural language query.</p>
+   * @public
+   */
+  naturalLanguage: string | undefined;
+
+  /**
+   * <p>The SQL equivalent of the natural language query.</p>
+   * @public
+   */
+  sql: string | undefined;
+}
+
+/**
+ * <p>Contains information about a column in the current table for the query engine to consider.</p>
+ * @public
+ */
+export interface QueryGenerationColumn {
+  /**
+   * <p>The name of the column for which the other fields in this object apply.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>A description of the column that helps the query engine understand the contents of the column.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Specifies whether to include or exclude the column during query generation. If you specify <code>EXCLUDE</code>, the column will be ignored. If you specify <code>INCLUDE</code>, all other columns in the table will be ignored.</p>
+   * @public
+   */
+  inclusion?: IncludeExclude | undefined;
+}
+
+/**
+ * <p>Contains information about a table for the query engine to consider.</p>
+ * @public
+ */
+export interface QueryGenerationTable {
+  /**
+   * <p>The name of the table for which the other fields in this object apply.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A description of the table that helps the query engine understand the contents of the table.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Specifies whether to include or exclude the table during query generation. If you specify <code>EXCLUDE</code>, the table will be ignored. If you specify <code>INCLUDE</code>, all other tables will be ignored.</p>
+   * @public
+   */
+  inclusion?: IncludeExclude | undefined;
+
+  /**
+   * <p>An array of objects, each of which defines information about a column in the table.</p>
+   * @public
+   */
+  columns?: QueryGenerationColumn[] | undefined;
+}
+
+/**
+ * <p>&gt;Contains configurations for context to use during query generation.</p>
+ * @public
+ */
+export interface QueryGenerationContext {
+  /**
+   * <p>An array of objects, each of which defines information about a table in the database.</p>
+   * @public
+   */
+  tables?: QueryGenerationTable[] | undefined;
+
+  /**
+   * <p>An array of objects, each of which defines information about example queries to help the query engine generate appropriate SQL queries.</p>
+   * @public
+   */
+  curatedQueries?: CuratedQuery[] | undefined;
+}
+
+/**
+ * <p>Contains configurations for query generation. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-build-structured.html">Build a knowledge base by connecting to a structured data source</a> in the Amazon Bedrock User Guide..</p>
+ * @public
+ */
+export interface QueryGenerationConfiguration {
+  /**
+   * <p>The time after which query generation will time out.</p>
+   * @public
+   */
+  executionTimeoutSeconds?: number | undefined;
+
+  /**
+   * <p>Specifies configurations for context to use during query generation.</p>
+   * @public
+   */
+  generationContext?: QueryGenerationContext | undefined;
+}
+
+/**
+ * <p>Contains configurations for storage in Glue Data Catalog.</p>
+ * @public
+ */
+export interface RedshiftQueryEngineAwsDataCatalogStorageConfiguration {
+  /**
+   * <p>A list of names of the tables to use.</p>
+   * @public
+   */
+  tableNames: string[] | undefined;
+}
+
+/**
+ * <p>Contains configurations for storage in Amazon Redshift.</p>
+ * @public
+ */
+export interface RedshiftQueryEngineRedshiftStorageConfiguration {
+  /**
+   * <p>The name of the Amazon Redshift database.</p>
+   * @public
+   */
+  databaseName: string | undefined;
+}
+
+/**
+ * <p>Contains configurations for Amazon Redshift data storage. Specify the data storage service to use in the <code>type</code> field and include the corresponding field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-build-structured.html">Build a knowledge base by connecting to a structured data source</a> in the Amazon Bedrock User Guide.</p>
+ * @public
+ */
+export interface RedshiftQueryEngineStorageConfiguration {
+  /**
+   * <p>The data storage service to use.</p>
+   * @public
+   */
+  type: RedshiftQueryEngineStorageType | undefined;
+
+  /**
+   * <p>Specifies configurations for storage in Glue Data Catalog.</p>
+   * @public
+   */
+  awsDataCatalogConfiguration?: RedshiftQueryEngineAwsDataCatalogStorageConfiguration | undefined;
+
+  /**
+   * <p>Specifies configurations for storage in Amazon Redshift.</p>
+   * @public
+   */
+  redshiftConfiguration?: RedshiftQueryEngineRedshiftStorageConfiguration | undefined;
+}
+
+/**
+ * <p>Contains configurations for an Amazon Redshift database. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-build-structured.html">Build a knowledge base by connecting to a structured data source</a> in the Amazon Bedrock User Guide.</p>
+ * @public
+ */
+export interface RedshiftConfiguration {
+  /**
+   * <p>Specifies configurations for Amazon Redshift database storage.</p>
+   * @public
+   */
+  storageConfigurations: RedshiftQueryEngineStorageConfiguration[] | undefined;
+
+  /**
+   * <p>Specifies configurations for an Amazon Redshift query engine.</p>
+   * @public
+   */
+  queryEngineConfiguration: RedshiftQueryEngineConfiguration | undefined;
+
+  /**
+   * <p>Specifies configurations for generating queries.</p>
+   * @public
+   */
+  queryGenerationConfiguration?: QueryGenerationConfiguration | undefined;
+}
+
+/**
+ * <p>Contains configurations for a knowledge base connected to an SQL database. Specify the SQL database type in the <code>type</code> field and include the corresponding field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-build-structured.html">Build a knowledge base by connecting to a structured data source</a> in the Amazon Bedrock User Guide.</p>
+ * @public
+ */
+export interface SqlKnowledgeBaseConfiguration {
+  /**
+   * <p>The type of SQL database to connect to the knowledge base.</p>
+   * @public
+   */
+  type: QueryEngineType | undefined;
+
+  /**
+   * <p>Specifies configurations for a knowledge base connected to an Amazon Redshift database.</p>
+   * @public
+   */
+  redshiftConfiguration?: RedshiftConfiguration | undefined;
+}
+
+/**
+ * <p>Contains information about a storage location for multimedia content (images, audio, and video) extracted from multimodal documents in your data source.</p>
  * @public
  */
 export interface SupplementalDataStorageLocation {
@@ -100,19 +339,19 @@ export interface SupplementalDataStorageLocation {
   type: SupplementalDataStorageLocationType | undefined;
 
   /**
-   * <p>Contains information about the Amazon S3 location for the extracted images.</p>
+   * <p>Contains information about the Amazon S3 location for the extracted multimedia content.</p>
    * @public
    */
   s3Location?: S3Location | undefined;
 }
 
 /**
- * <p>Specifies configurations for the storage location of the images extracted from multimodal documents in your data source. These images can be retrieved and returned to the end user.</p>
+ * <p>Specifies configurations for the storage location of multimedia content (images, audio, and video) extracted from multimodal documents in your data source. This content can be retrieved and returned to the end user with timestamp references for audio and video segments.</p>
  * @public
  */
 export interface SupplementalDataStorageConfiguration {
   /**
-   * <p>A list of objects specifying storage locations for images extracted from multimodal documents in your data source.</p>
+   * <p>A list of objects specifying storage locations for multimedia content (images, audio, and video) extracted from multimodal documents in your data source.</p>
    * @public
    */
   storageLocations: SupplementalDataStorageLocation[] | undefined;
@@ -148,7 +387,7 @@ export interface VectorKnowledgeBaseConfiguration {
  */
 export interface KnowledgeBaseConfiguration {
   /**
-   * <p>The type of data that the data source is converted into for the knowledge base.</p>
+   * <p>The type of data that the data source is converted into for the knowledge base. Choose <code>MANAGED</code> to create a managed knowledge base.</p>
    * @public
    */
   type: KnowledgeBaseType | undefined;
@@ -158,6 +397,12 @@ export interface KnowledgeBaseConfiguration {
    * @public
    */
   vectorKnowledgeBaseConfiguration?: VectorKnowledgeBaseConfiguration | undefined;
+
+  /**
+   * <p>Configurations for a managed knowledge base.</p>
+   * @public
+   */
+  managedKnowledgeBaseConfiguration?: ManagedKnowledgeBaseConfiguration | undefined;
 
   /**
    * <p>Settings for an Amazon Kendra knowledge base.</p>
@@ -1739,6 +1984,46 @@ export interface UpdatePromptResponse {
    * @public
    */
   updatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutResourcePolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the knowledge base to attach the resource policy to.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>The JSON-formatted resource policy to associate with the knowledge base.</p>
+   * @public
+   */
+  policy: __AutomaticJsonStringConversion | string | undefined;
+
+  /**
+   * <p>The expected revision identifier of the resource policy. Use this to prevent conflicts when multiple users update the same policy concurrently. Specify the <code>revisionId</code> from the most recent <code>GetResourcePolicy</code> or <code>PutResourcePolicy</code> response.</p>
+   * @public
+   */
+  expectedRevisionId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutResourcePolicyResponse {
+  /**
+   * <p>The ARN of the knowledge base that the resource policy was attached to.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>The revision identifier of the resource policy. Use this value in the <code>expectedRevisionId</code> field of a subsequent <code>PutResourcePolicy</code> or <code>DeleteResourcePolicy</code> request.</p>
+   * @public
+   */
+  revisionId: string | undefined;
 }
 
 /**

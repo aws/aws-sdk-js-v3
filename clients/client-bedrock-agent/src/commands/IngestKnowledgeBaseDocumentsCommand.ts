@@ -62,6 +62,13 @@ export interface IngestKnowledgeBaseDocumentsCommandOutput extends IngestKnowled
  *           uri: "STRING_VALUE", // required
  *           bucketOwnerAccountId: "STRING_VALUE",
  *         },
+ *         accessControlList: [ // DocumentAccessControlList
+ *           { // DocumentAccessControlEntry
+ *             name: "STRING_VALUE", // required
+ *             type: "USER", // required
+ *             access: "ALLOW" || "DENY", // required
+ *           },
+ *         ],
  *       },
  *       content: { // DocumentContent
  *         dataSourceType: "CUSTOM" || "S3", // required

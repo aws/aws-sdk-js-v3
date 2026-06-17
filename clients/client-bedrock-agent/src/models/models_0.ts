@@ -1,7 +1,10 @@
 // smithy-typescript generated code
+import { AutomaticJsonStringConversion as __AutomaticJsonStringConversion } from "@smithy/core/serde";
 import type { DocumentType as __DocumentType } from "@smithy/types";
 
 import type {
+  AccessControlAccess,
+  AccessControlPrincipalType,
   ActionGroupSignature,
   ActionGroupState,
   AgentAliasStatus,
@@ -24,6 +27,9 @@ import type {
   DataSourceStatus,
   DataSourceType,
   DocumentStatus,
+  EmbeddingDataType,
+  EmbeddingModelType,
+  EnabledOrDisabledState,
   EnrichmentStrategyMethod,
   FlowConnectionType,
   FlowNodeInputCategory,
@@ -31,7 +37,6 @@ import type {
   FlowStatus,
   FlowValidationSeverity,
   FlowValidationType,
-  IncludeExclude,
   IncompatibleLoopNodeType,
   IngestionJobFilterAttribute,
   IngestionJobFilterOperator,
@@ -49,11 +54,7 @@ import type {
   PromptState,
   PromptTemplateType,
   PromptType,
-  QueryEngineType,
   RedshiftProvisionedAuthType,
-  RedshiftQueryEngineStorageType,
-  RedshiftQueryEngineType,
-  RedshiftServerlessAuthType,
   RelayConversationHistory,
   RequireConfirmation,
   RerankingMetadataSelectionMode,
@@ -2557,7 +2558,7 @@ export interface ConfluenceSourceConfiguration {
 }
 
 /**
- * <p>The configuration information to connect to Confluence as your data source.</p>
+ * <p>The configuration information to connect to Confluence as your data source for self-managed knowledge bases.</p>
  * @public
  */
 export interface ConfluenceDataSourceConfiguration {
@@ -2575,7 +2576,109 @@ export interface ConfluenceDataSourceConfiguration {
 }
 
 /**
- * <p>The configuration information to connect to Amazon S3 as your data source.</p>
+ * <p>Configuration for deletion protection.</p>
+ * @public
+ */
+export interface DeletionProtectionConfiguration {
+  /**
+   * <p>Enable or disable deletion protection for the connector.</p>
+   * @public
+   */
+  deletionProtectionStatus: EnabledOrDisabledState | undefined;
+
+  /**
+   * <p>The threshold is the maximum percentage of documents that a sync job can delete from your index. If a sync would delete more than this percentage, the sync skips its delete phase, leaving your indexed documents in place. Not supported for the Custom connector.</p>
+   * @public
+   */
+  deletionProtectionThreshold?: number | undefined;
+}
+
+/**
+ * <p>Configuration for audio extraction.</p>
+ * @public
+ */
+export interface AudioExtractionConfiguration {
+  /**
+   * Whether audio extraction is enabled or disabled.
+   * @public
+   */
+  audioExtractionStatus: EnabledOrDisabledState | undefined;
+}
+
+/**
+ * <p>Configuration for image extraction.</p>
+ * @public
+ */
+export interface ImageExtractionConfiguration {
+  /**
+   * Whether image extraction is enabled or disabled.
+   * @public
+   */
+  imageExtractionStatus: EnabledOrDisabledState | undefined;
+}
+
+/**
+ * <p>Configuration for video extraction.</p>
+ * @public
+ */
+export interface VideoExtractionConfiguration {
+  /**
+   * Whether video extraction is enabled or disabled.
+   * @public
+   */
+  videoExtractionStatus: EnabledOrDisabledState | undefined;
+}
+
+/**
+ * <p>Configuration for media extraction settings.</p>
+ * @public
+ */
+export interface MediaExtractionConfiguration {
+  /**
+   * <p>Configuration for image extraction.</p>
+   * @public
+   */
+  imageExtractionConfiguration?: ImageExtractionConfiguration | undefined;
+
+  /**
+   * <p>Configuration for audio extraction.</p>
+   * @public
+   */
+  audioExtractionConfiguration?: AudioExtractionConfiguration | undefined;
+
+  /**
+   * <p>Configuration for video extraction.</p>
+   * @public
+   */
+  videoExtractionConfiguration?: VideoExtractionConfiguration | undefined;
+}
+
+/**
+ * <p>Configuration for managed knowledge base connector data sources.</p>
+ * @public
+ */
+export interface ManagedKnowledgeBaseConnectorConfiguration {
+  /**
+   * <p>A safeguard against accidental bulk deletion of indexed content.</p>
+   * @public
+   */
+  deletionProtectionConfiguration?: DeletionProtectionConfiguration | undefined;
+
+  /**
+   * <p>Configuration for extracting media (images, audio, video) from data source files.</p>
+   * @public
+   */
+  mediaExtractionConfiguration?: MediaExtractionConfiguration | undefined;
+
+  /**
+   * <p>Connector-specific parameters. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-managed-connect-ds.html">Connect a data source</a>.</p>
+   * @public
+   */
+  connectorParameters?: __DocumentType | undefined;
+}
+
+/**
+ * <p>The configuration information to connect to Amazon S3 as your data source for self-managed knowledge bases. To configure this data source for managed knowledge bases, use <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ManagedKnowledgeBaseConnectorConfiguration.html">managedKnowledgeBaseConnectorConfiguration</a>.</p>
  * @public
  */
 export interface S3DataSourceConfiguration {
@@ -2707,7 +2810,7 @@ export interface SharePointSourceConfiguration {
 }
 
 /**
- * <p>The configuration information to connect to SharePoint as your data source.</p>
+ * <p>The configuration information to connect to SharePoint as your data source for self-managed knowledge bases.</p>
  * @public
  */
 export interface SharePointDataSourceConfiguration {
@@ -2850,38 +2953,44 @@ export interface DataSourceConfiguration {
   type: DataSourceType | undefined;
 
   /**
-   * <p>The configuration information to connect to Amazon S3 as your data source.</p>
+   * <p>Contains the configuration for a data source that connects a managed knowledge base to a supported data source connector. Specify this object when the data source type is <code>MANAGED_KNOWLEDGE_BASE_CONNECTOR</code>.</p>
+   * @public
+   */
+  managedKnowledgeBaseConnectorConfiguration?: ManagedKnowledgeBaseConnectorConfiguration | undefined;
+
+  /**
+   * <p>The configuration information to connect to Amazon S3 as your data source for self-managed knowledge bases. To configure this data source for managed knowledge bases, use <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ManagedKnowledgeBaseConnectorConfiguration.html">managedKnowledgeBaseConnectorConfiguration</a>.</p>
    * @public
    */
   s3Configuration?: S3DataSourceConfiguration | undefined;
 
   /**
-   * <p>The configuration of web URLs to crawl for your data source. You should be authorized to crawl the URLs.</p> <note> <p>Crawling web URLs as your data source is in preview release and is subject to change.</p> </note>
+   * <p>The configuration of web URLs to crawl for your data source. You should be authorized to crawl the URLs.</p> <note> <p>To configure this data source for managed knowledge bases, use <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ManagedKnowledgeBaseConnectorConfiguration.html">managedKnowledgeBaseConnectorConfiguration</a>. Web crawler data source connector for self-managed knowledge bases is in preview release and is subject to change.</p> </note>
    * @public
    */
   webConfiguration?: WebDataSourceConfiguration | undefined;
 
   /**
-   * <p>The configuration information to connect to Confluence as your data source.</p> <note> <p>Confluence data source connector is in preview release and is subject to change.</p> </note>
+   * <p>The configuration information to connect to Confluence as your data source for self-managed knowledge bases.</p> <note> <p>To configure this data source for managed knowledge bases, use <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ManagedKnowledgeBaseConnectorConfiguration.html">managedKnowledgeBaseConnectorConfiguration</a>. Confluence data source connector for self-managed knowledge bases is in preview release and is subject to change.</p> </note>
    * @public
    */
   confluenceConfiguration?: ConfluenceDataSourceConfiguration | undefined;
 
   /**
-   * <p>The configuration information to connect to Salesforce as your data source.</p> <note> <p>Salesforce data source connector is in preview release and is subject to change.</p> </note>
+   * <p>The configuration information to connect to Salesforce as your data source.</p> <note> <p>Salesforce data source connector for self-managed knowledge bases is in preview release and is subject to change.</p> </note>
    * @public
    */
   salesforceConfiguration?: SalesforceDataSourceConfiguration | undefined;
 
   /**
-   * <p>The configuration information to connect to SharePoint as your data source.</p> <note> <p>SharePoint data source connector is in preview release and is subject to change.</p> </note>
+   * <p>The configuration information to connect to SharePoint as your data source for self-managed knowledge bases.</p> <note> <p>To configure this data source for managed knowledge bases, use <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ManagedKnowledgeBaseConnectorConfiguration.html">managedKnowledgeBaseConnectorConfiguration</a>. SharePoint data source connector for self-managed knowledge bases is in preview release and is subject to change.</p> </note>
    * @public
    */
   sharePointConfiguration?: SharePointDataSourceConfiguration | undefined;
 }
 
 /**
- * <p>Contains the configuration for server-side encryption.</p>
+ * <p>Contains the configuration for server-side encryption for your managed knowledge base.</p>
  * @public
  */
 export interface ServerSideEncryptionConfiguration {
@@ -3180,7 +3289,7 @@ export interface BedrockFoundationModelConfiguration {
  */
 export interface ParsingConfiguration {
   /**
-   * <p>The parsing strategy for the data source.</p>
+   * <p>The parsing strategy for the data source. Only <code>SMART_PARSING</code> can be selected for managed knowledge bases. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-managed-customize-ingestion.html">Customize ingestion for managed knowledge bases</a>.</p>
    * @public
    */
   parsingStrategy: ParsingStrategy | undefined;
@@ -3263,7 +3372,7 @@ export interface CreateDataSourceRequest {
   dataSourceConfiguration: DataSourceConfiguration | undefined;
 
   /**
-   * <p>The data deletion policy for the data source.</p> <p>You can set the data deletion policy to:</p> <ul> <li> <p>DELETE: Deletes all data from your data source that’s converted into vector embeddings upon deletion of a knowledge base or data source resource. Note that the <b>vector store itself is not deleted</b>, only the data. This flag is ignored if an Amazon Web Services account is deleted.</p> </li> <li> <p>RETAIN: Retains all data from your data source that’s converted into vector embeddings upon deletion of a knowledge base or data source resource. Note that the <b>vector store itself is not deleted</b> if you delete a knowledge base or data source resource.</p> </li> </ul>
+   * <p>The data deletion policy for the data source.</p> <p>You can set the data deletion policy to:</p> <ul> <li> <p>DELETE: Deletes all data from your data source that’s converted into vector embeddings upon deletion of a knowledge base or data source resource. Note that the <b>vector store itself is not deleted</b>, only the data. This flag is ignored if an Amazon Web Services account is deleted.</p> </li> <li> <p>RETAIN: Retains all data from your data source that’s converted into vector embeddings upon deletion of a knowledge base or data source resource. Note that the <b>vector store itself is not deleted</b> if you delete a knowledge base or data source resource.</p> </li> </ul> <note> <p>For managed knowledge bases, the only supported option is <code>DELETE</code>, which is also the default.</p> </note>
    * @public
    */
   dataDeletionPolicy?: DataDeletionPolicy | undefined;
@@ -3582,6 +3691,40 @@ export interface UpdateDataSourceResponse {
    * @public
    */
   dataSource: DataSource | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteResourcePolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the knowledge base to remove the resource policy from.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>The expected revision identifier of the resource policy. Use this to prevent conflicts when multiple users update the same policy concurrently.</p>
+   * @public
+   */
+  expectedRevisionId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteResourcePolicyResponse {
+  /**
+   * <p>The ARN of the knowledge base that the resource policy was removed from.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>The revision identifier after the resource policy was deleted.</p>
+   * @public
+   */
+  revisionId?: string | undefined;
 }
 
 /**
@@ -7697,6 +7840,40 @@ export interface PrepareFlowResponse {
 /**
  * @public
  */
+export interface GetResourcePolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the knowledge base to retrieve the resource policy for.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetResourcePolicyResponse {
+  /**
+   * <p>The ARN of the knowledge base that the resource policy is associated with.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>The JSON-formatted resource policy associated with the knowledge base.</p>
+   * @public
+   */
+  policy: __AutomaticJsonStringConversion | string | undefined;
+
+  /**
+   * <p>The revision identifier of the resource policy.</p>
+   * @public
+   */
+  revisionId: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetIngestionJobRequest {
   /**
    * <p>The unique identifier of the knowledge base for the data ingestion job you want to get information on.</p>
@@ -7763,6 +7940,12 @@ export interface IngestionJobStatistics {
    * @public
    */
   numberOfDocumentsFailed?: number | undefined;
+
+  /**
+   * <p>The number of source documents that were skipped during ingestion.</p>
+   * @public
+   */
+  numberOfDocumentsSkipped?: number | undefined;
 }
 
 /**
@@ -8355,6 +8538,30 @@ export interface DocumentContent {
 }
 
 /**
+ * <p>An access control entry specifying a principal and their access level.</p>
+ * @public
+ */
+export interface DocumentAccessControlEntry {
+  /**
+   * <p>The user identifier.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of principal.</p>
+   * @public
+   */
+  type: AccessControlPrincipalType | undefined;
+
+  /**
+   * <p>Whether to allow or deny access.</p>
+   * @public
+   */
+  access: AccessControlAccess | undefined;
+}
+
+/**
  * <p>Contains the value of the metadata attribute. Choose a <code>type</code> and include the field that corresponds to it.</p>
  * @public
  */
@@ -8430,6 +8637,12 @@ export interface DocumentMetadata {
    * @public
    */
   s3Location?: CustomS3Location | undefined;
+
+  /**
+   * <p>Access control list for the document. Used when metadata type is IN_LINE_ATTRIBUTE.</p>
+   * @public
+   */
+  accessControlList?: DocumentAccessControlEntry[] | undefined;
 }
 
 /**
@@ -8595,306 +8808,6 @@ export interface KendraKnowledgeBaseConfiguration {
 }
 
 /**
- * <p>Contains configurations for authentication to an Amazon Redshift provisioned data warehouse. Specify the type of authentication to use in the <code>type</code> field and include the corresponding field. If you specify IAM authentication, you don't need to include another field.</p>
- * @public
- */
-export interface RedshiftProvisionedAuthConfiguration {
-  /**
-   * <p>The type of authentication to use.</p>
-   * @public
-   */
-  type: RedshiftProvisionedAuthType | undefined;
-
-  /**
-   * <p>The database username for authentication to an Amazon Redshift provisioned data warehouse.</p>
-   * @public
-   */
-  databaseUser?: string | undefined;
-
-  /**
-   * <p>The ARN of an Secrets Manager secret for authentication.</p>
-   * @public
-   */
-  usernamePasswordSecretArn?: string | undefined;
-}
-
-/**
- * <p>Contains configurations for a provisioned Amazon Redshift query engine.</p>
- * @public
- */
-export interface RedshiftProvisionedConfiguration {
-  /**
-   * <p>The ID of the Amazon Redshift cluster.</p>
-   * @public
-   */
-  clusterIdentifier: string | undefined;
-
-  /**
-   * <p>Specifies configurations for authentication to Amazon Redshift.</p>
-   * @public
-   */
-  authConfiguration: RedshiftProvisionedAuthConfiguration | undefined;
-}
-
-/**
- * <p>Specifies configurations for authentication to a Redshift Serverless. Specify the type of authentication to use in the <code>type</code> field and include the corresponding field. If you specify IAM authentication, you don't need to include another field.</p>
- * @public
- */
-export interface RedshiftServerlessAuthConfiguration {
-  /**
-   * <p>The type of authentication to use.</p>
-   * @public
-   */
-  type: RedshiftServerlessAuthType | undefined;
-
-  /**
-   * <p>The ARN of an Secrets Manager secret for authentication.</p>
-   * @public
-   */
-  usernamePasswordSecretArn?: string | undefined;
-}
-
-/**
- * <p>Contains configurations for authentication to Amazon Redshift Serverless.</p>
- * @public
- */
-export interface RedshiftServerlessConfiguration {
-  /**
-   * <p>The ARN of the Amazon Redshift workgroup.</p>
-   * @public
-   */
-  workgroupArn: string | undefined;
-
-  /**
-   * <p>Specifies configurations for authentication to an Amazon Redshift provisioned data warehouse.</p>
-   * @public
-   */
-  authConfiguration: RedshiftServerlessAuthConfiguration | undefined;
-}
-
-/**
- * <p>Contains configurations for an Amazon Redshift query engine. Specify the type of query engine in <code>type</code> and include the corresponding field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-build-structured.html">Build a knowledge base by connecting to a structured data source</a> in the Amazon Bedrock User Guide.</p>
- * @public
- */
-export interface RedshiftQueryEngineConfiguration {
-  /**
-   * <p>The type of query engine.</p>
-   * @public
-   */
-  type: RedshiftQueryEngineType | undefined;
-
-  /**
-   * <p>Specifies configurations for a serverless Amazon Redshift query engine.</p>
-   * @public
-   */
-  serverlessConfiguration?: RedshiftServerlessConfiguration | undefined;
-
-  /**
-   * <p>Specifies configurations for a provisioned Amazon Redshift query engine.</p>
-   * @public
-   */
-  provisionedConfiguration?: RedshiftProvisionedConfiguration | undefined;
-}
-
-/**
- * <p>Contains configurations for a query, each of which defines information about example queries to help the query engine generate appropriate SQL queries.</p>
- * @public
- */
-export interface CuratedQuery {
-  /**
-   * <p>An example natural language query.</p>
-   * @public
-   */
-  naturalLanguage: string | undefined;
-
-  /**
-   * <p>The SQL equivalent of the natural language query.</p>
-   * @public
-   */
-  sql: string | undefined;
-}
-
-/**
- * <p>Contains information about a column in the current table for the query engine to consider.</p>
- * @public
- */
-export interface QueryGenerationColumn {
-  /**
-   * <p>The name of the column for which the other fields in this object apply.</p>
-   * @public
-   */
-  name?: string | undefined;
-
-  /**
-   * <p>A description of the column that helps the query engine understand the contents of the column.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>Specifies whether to include or exclude the column during query generation. If you specify <code>EXCLUDE</code>, the column will be ignored. If you specify <code>INCLUDE</code>, all other columns in the table will be ignored.</p>
-   * @public
-   */
-  inclusion?: IncludeExclude | undefined;
-}
-
-/**
- * <p>Contains information about a table for the query engine to consider.</p>
- * @public
- */
-export interface QueryGenerationTable {
-  /**
-   * <p>The name of the table for which the other fields in this object apply.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>A description of the table that helps the query engine understand the contents of the table.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>Specifies whether to include or exclude the table during query generation. If you specify <code>EXCLUDE</code>, the table will be ignored. If you specify <code>INCLUDE</code>, all other tables will be ignored.</p>
-   * @public
-   */
-  inclusion?: IncludeExclude | undefined;
-
-  /**
-   * <p>An array of objects, each of which defines information about a column in the table.</p>
-   * @public
-   */
-  columns?: QueryGenerationColumn[] | undefined;
-}
-
-/**
- * <p>&gt;Contains configurations for context to use during query generation.</p>
- * @public
- */
-export interface QueryGenerationContext {
-  /**
-   * <p>An array of objects, each of which defines information about a table in the database.</p>
-   * @public
-   */
-  tables?: QueryGenerationTable[] | undefined;
-
-  /**
-   * <p>An array of objects, each of which defines information about example queries to help the query engine generate appropriate SQL queries.</p>
-   * @public
-   */
-  curatedQueries?: CuratedQuery[] | undefined;
-}
-
-/**
- * <p>Contains configurations for query generation. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-build-structured.html">Build a knowledge base by connecting to a structured data source</a> in the Amazon Bedrock User Guide..</p>
- * @public
- */
-export interface QueryGenerationConfiguration {
-  /**
-   * <p>The time after which query generation will time out.</p>
-   * @public
-   */
-  executionTimeoutSeconds?: number | undefined;
-
-  /**
-   * <p>Specifies configurations for context to use during query generation.</p>
-   * @public
-   */
-  generationContext?: QueryGenerationContext | undefined;
-}
-
-/**
- * <p>Contains configurations for storage in Glue Data Catalog.</p>
- * @public
- */
-export interface RedshiftQueryEngineAwsDataCatalogStorageConfiguration {
-  /**
-   * <p>A list of names of the tables to use.</p>
-   * @public
-   */
-  tableNames: string[] | undefined;
-}
-
-/**
- * <p>Contains configurations for storage in Amazon Redshift.</p>
- * @public
- */
-export interface RedshiftQueryEngineRedshiftStorageConfiguration {
-  /**
-   * <p>The name of the Amazon Redshift database.</p>
-   * @public
-   */
-  databaseName: string | undefined;
-}
-
-/**
- * <p>Contains configurations for Amazon Redshift data storage. Specify the data storage service to use in the <code>type</code> field and include the corresponding field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-build-structured.html">Build a knowledge base by connecting to a structured data source</a> in the Amazon Bedrock User Guide.</p>
- * @public
- */
-export interface RedshiftQueryEngineStorageConfiguration {
-  /**
-   * <p>The data storage service to use.</p>
-   * @public
-   */
-  type: RedshiftQueryEngineStorageType | undefined;
-
-  /**
-   * <p>Specifies configurations for storage in Glue Data Catalog.</p>
-   * @public
-   */
-  awsDataCatalogConfiguration?: RedshiftQueryEngineAwsDataCatalogStorageConfiguration | undefined;
-
-  /**
-   * <p>Specifies configurations for storage in Amazon Redshift.</p>
-   * @public
-   */
-  redshiftConfiguration?: RedshiftQueryEngineRedshiftStorageConfiguration | undefined;
-}
-
-/**
- * <p>Contains configurations for an Amazon Redshift database. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-build-structured.html">Build a knowledge base by connecting to a structured data source</a> in the Amazon Bedrock User Guide.</p>
- * @public
- */
-export interface RedshiftConfiguration {
-  /**
-   * <p>Specifies configurations for Amazon Redshift database storage.</p>
-   * @public
-   */
-  storageConfigurations: RedshiftQueryEngineStorageConfiguration[] | undefined;
-
-  /**
-   * <p>Specifies configurations for an Amazon Redshift query engine.</p>
-   * @public
-   */
-  queryEngineConfiguration: RedshiftQueryEngineConfiguration | undefined;
-
-  /**
-   * <p>Specifies configurations for generating queries.</p>
-   * @public
-   */
-  queryGenerationConfiguration?: QueryGenerationConfiguration | undefined;
-}
-
-/**
- * <p>Contains configurations for a knowledge base connected to an SQL database. Specify the SQL database type in the <code>type</code> field and include the corresponding field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-build-structured.html">Build a knowledge base by connecting to a structured data source</a> in the Amazon Bedrock User Guide.</p>
- * @public
- */
-export interface SqlKnowledgeBaseConfiguration {
-  /**
-   * <p>The type of SQL database to connect to the knowledge base.</p>
-   * @public
-   */
-  type: QueryEngineType | undefined;
-
-  /**
-   * <p>Specifies configurations for a knowledge base connected to an Amazon Redshift database.</p>
-   * @public
-   */
-  redshiftConfiguration?: RedshiftConfiguration | undefined;
-}
-
-/**
  * <p>Configuration for segmenting audio content during multimodal knowledge base ingestion. Determines how audio files are divided into chunks for processing.</p>
  * @public
  */
@@ -8940,4 +8853,100 @@ export interface VideoConfiguration {
    * @public
    */
   segmentationConfiguration: VideoSegmentationConfiguration | undefined;
+}
+
+/**
+ * <p>The vector configuration details for the Bedrock embeddings model.</p>
+ * @public
+ */
+export interface BedrockEmbeddingModelConfiguration {
+  /**
+   * <p>The dimensions details for the vector configuration used on the Bedrock embeddings model.</p>
+   * @public
+   */
+  dimensions?: number | undefined;
+
+  /**
+   * <p>The data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings. Floating-point (float32) is the default data type, and is supported by most models for vector embeddings. See <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-supported.html">Supported embeddings models</a> for information on the available models and their vector data types.</p>
+   * @public
+   */
+  embeddingDataType?: EmbeddingDataType | undefined;
+
+  /**
+   * <p>Configuration settings for processing audio content in multimodal knowledge bases.</p>
+   * @public
+   */
+  audio?: AudioConfiguration[] | undefined;
+
+  /**
+   * <p>Configuration settings for processing video content in multimodal knowledge bases.</p>
+   * @public
+   */
+  video?: VideoConfiguration[] | undefined;
+}
+
+/**
+ * <p>The configuration details for the embeddings model.</p>
+ * @public
+ */
+export interface EmbeddingModelConfiguration {
+  /**
+   * <p>The vector configuration details on the Bedrock embeddings model.</p>
+   * @public
+   */
+  bedrockEmbeddingModelConfiguration?: BedrockEmbeddingModelConfiguration | undefined;
+}
+
+/**
+ * <p>Configurations for a managed knowledge base.</p>
+ * @public
+ */
+export interface ManagedKnowledgeBaseConfiguration {
+  /**
+   * <p>Choose <code>CUSTOM</code> to provide your own Bedrock embedding model ARN. Choose <code>MANAGED</code> to use a service-managed embedding model. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-managed-create.html#kb-managed-embedding-models">Embedding model options</a>.</p>
+   * @public
+   */
+  embeddingModelType?: EmbeddingModelType | undefined;
+
+  /**
+   * <p>The ARN for the embeddings model.</p>
+   * @public
+   */
+  embeddingModelArn?: string | undefined;
+
+  /**
+   * <p>The configuration details for the embeddings model.</p>
+   * @public
+   */
+  embeddingModelConfiguration?: EmbeddingModelConfiguration | undefined;
+
+  /**
+   * <p>Contains the configuration for server-side encryption for your managed knowledge base.</p>
+   * @public
+   */
+  serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration | undefined;
+}
+
+/**
+ * <p>Contains configurations for authentication to an Amazon Redshift provisioned data warehouse. Specify the type of authentication to use in the <code>type</code> field and include the corresponding field. If you specify IAM authentication, you don't need to include another field.</p>
+ * @public
+ */
+export interface RedshiftProvisionedAuthConfiguration {
+  /**
+   * <p>The type of authentication to use.</p>
+   * @public
+   */
+  type: RedshiftProvisionedAuthType | undefined;
+
+  /**
+   * <p>The database username for authentication to an Amazon Redshift provisioned data warehouse.</p>
+   * @public
+   */
+  databaseUser?: string | undefined;
+
+  /**
+   * <p>The ARN of an Secrets Manager secret for authentication.</p>
+   * @public
+   */
+  usernamePasswordSecretArn?: string | undefined;
 }

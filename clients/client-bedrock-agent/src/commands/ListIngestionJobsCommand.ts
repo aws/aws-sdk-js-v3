@@ -75,6 +75,7 @@ export interface ListIngestionJobsCommandOutput extends ListIngestionJobsRespons
  * //         numberOfMetadataDocumentsModified: Number("long"),
  * //         numberOfDocumentsDeleted: Number("long"),
  * //         numberOfDocumentsFailed: Number("long"),
+ * //         numberOfDocumentsSkipped: Number("long"),
  * //       },
  * //     },
  * //   ],

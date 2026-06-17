@@ -42,7 +42,25 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   dataSourceConfiguration: { // DataSourceConfiguration
- *     type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT" || "CUSTOM" || "REDSHIFT_METADATA", // required
+ *     type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT" || "CUSTOM" || "REDSHIFT_METADATA" || "MANAGED_KNOWLEDGE_BASE_CONNECTOR", // required
+ *     managedKnowledgeBaseConnectorConfiguration: { // ManagedKnowledgeBaseConnectorConfiguration
+ *       deletionProtectionConfiguration: { // DeletionProtectionConfiguration
+ *         deletionProtectionStatus: "ENABLED" || "DISABLED", // required
+ *         deletionProtectionThreshold: Number("int"),
+ *       },
+ *       mediaExtractionConfiguration: { // MediaExtractionConfiguration
+ *         imageExtractionConfiguration: { // ImageExtractionConfiguration
+ *           imageExtractionStatus: "ENABLED" || "DISABLED", // required
+ *         },
+ *         audioExtractionConfiguration: { // AudioExtractionConfiguration
+ *           audioExtractionStatus: "ENABLED" || "DISABLED", // required
+ *         },
+ *         videoExtractionConfiguration: { // VideoExtractionConfiguration
+ *           videoExtractionStatus: "ENABLED" || "DISABLED", // required
+ *         },
+ *       },
+ *       connectorParameters: "DOCUMENT_VALUE",
+ *     },
  *     s3Configuration: { // S3DataSourceConfiguration
  *       bucketArn: "STRING_VALUE", // required
  *       inclusionPrefixes: [ // S3Prefixes
@@ -195,7 +213,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *       ],
  *     },
  *     parsingConfiguration: { // ParsingConfiguration
- *       parsingStrategy: "BEDROCK_FOUNDATION_MODEL" || "BEDROCK_DATA_AUTOMATION", // required
+ *       parsingStrategy: "BEDROCK_FOUNDATION_MODEL" || "BEDROCK_DATA_AUTOMATION" || "SMART_PARSING", // required
  *       bedrockFoundationModelConfiguration: { // BedrockFoundationModelConfiguration
  *         modelArn: "STRING_VALUE", // required
  *         parsingPrompt: { // ParsingPrompt
@@ -225,10 +243,28 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  * //     knowledgeBaseId: "STRING_VALUE", // required
  * //     dataSourceId: "STRING_VALUE", // required
  * //     name: "STRING_VALUE", // required
- * //     status: "AVAILABLE" || "DELETING" || "DELETE_UNSUCCESSFUL", // required
+ * //     status: "AVAILABLE" || "DELETING" || "DELETE_UNSUCCESSFUL" || "CREATING" || "UPDATING" || "FAILED", // required
  * //     description: "STRING_VALUE",
  * //     dataSourceConfiguration: { // DataSourceConfiguration
- * //       type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT" || "CUSTOM" || "REDSHIFT_METADATA", // required
+ * //       type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT" || "CUSTOM" || "REDSHIFT_METADATA" || "MANAGED_KNOWLEDGE_BASE_CONNECTOR", // required
+ * //       managedKnowledgeBaseConnectorConfiguration: { // ManagedKnowledgeBaseConnectorConfiguration
+ * //         deletionProtectionConfiguration: { // DeletionProtectionConfiguration
+ * //           deletionProtectionStatus: "ENABLED" || "DISABLED", // required
+ * //           deletionProtectionThreshold: Number("int"),
+ * //         },
+ * //         mediaExtractionConfiguration: { // MediaExtractionConfiguration
+ * //           imageExtractionConfiguration: { // ImageExtractionConfiguration
+ * //             imageExtractionStatus: "ENABLED" || "DISABLED", // required
+ * //           },
+ * //           audioExtractionConfiguration: { // AudioExtractionConfiguration
+ * //             audioExtractionStatus: "ENABLED" || "DISABLED", // required
+ * //           },
+ * //           videoExtractionConfiguration: { // VideoExtractionConfiguration
+ * //             videoExtractionStatus: "ENABLED" || "DISABLED", // required
+ * //           },
+ * //         },
+ * //         connectorParameters: "DOCUMENT_VALUE",
+ * //       },
  * //       s3Configuration: { // S3DataSourceConfiguration
  * //         bucketArn: "STRING_VALUE", // required
  * //         inclusionPrefixes: [ // S3Prefixes
@@ -380,7 +416,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  * //         ],
  * //       },
  * //       parsingConfiguration: { // ParsingConfiguration
- * //         parsingStrategy: "BEDROCK_FOUNDATION_MODEL" || "BEDROCK_DATA_AUTOMATION", // required
+ * //         parsingStrategy: "BEDROCK_FOUNDATION_MODEL" || "BEDROCK_DATA_AUTOMATION" || "SMART_PARSING", // required
  * //         bedrockFoundationModelConfiguration: { // BedrockFoundationModelConfiguration
  * //           modelArn: "STRING_VALUE", // required
  * //           parsingPrompt: { // ParsingPrompt

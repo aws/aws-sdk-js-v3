@@ -111,6 +111,10 @@ import type {
 } from "./commands/DeleteKnowledgeBaseDocumentsCommand";
 import type { DeletePromptCommandInput, DeletePromptCommandOutput } from "./commands/DeletePromptCommand";
 import type {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
+import type {
   DisassociateAgentCollaboratorCommandInput,
   DisassociateAgentCollaboratorCommandOutput,
 } from "./commands/DisassociateAgentCollaboratorCommand";
@@ -144,6 +148,10 @@ import type {
   GetKnowledgeBaseDocumentsCommandOutput,
 } from "./commands/GetKnowledgeBaseDocumentsCommand";
 import type { GetPromptCommandInput, GetPromptCommandOutput } from "./commands/GetPromptCommand";
+import type {
+  GetResourcePolicyCommandInput,
+  GetResourcePolicyCommandOutput,
+} from "./commands/GetResourcePolicyCommand";
 import type {
   IngestKnowledgeBaseDocumentsCommandInput,
   IngestKnowledgeBaseDocumentsCommandOutput,
@@ -189,6 +197,10 @@ import type {
 } from "./commands/ListTagsForResourceCommand";
 import type { PrepareAgentCommandInput, PrepareAgentCommandOutput } from "./commands/PrepareAgentCommand";
 import type { PrepareFlowCommandInput, PrepareFlowCommandOutput } from "./commands/PrepareFlowCommand";
+import type {
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
+} from "./commands/PutResourcePolicyCommand";
 import type {
   StartIngestionJobCommandInput,
   StartIngestionJobCommandOutput,
@@ -260,6 +272,7 @@ export type ServiceInputTypes =
   | DeleteKnowledgeBaseCommandInput
   | DeleteKnowledgeBaseDocumentsCommandInput
   | DeletePromptCommandInput
+  | DeleteResourcePolicyCommandInput
   | DisassociateAgentCollaboratorCommandInput
   | DisassociateAgentKnowledgeBaseCommandInput
   | GetAgentActionGroupCommandInput
@@ -276,6 +289,7 @@ export type ServiceInputTypes =
   | GetKnowledgeBaseCommandInput
   | GetKnowledgeBaseDocumentsCommandInput
   | GetPromptCommandInput
+  | GetResourcePolicyCommandInput
   | IngestKnowledgeBaseDocumentsCommandInput
   | ListAgentActionGroupsCommandInput
   | ListAgentAliasesCommandInput
@@ -294,6 +308,7 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | PrepareAgentCommandInput
   | PrepareFlowCommandInput
+  | PutResourcePolicyCommandInput
   | StartIngestionJobCommandInput
   | StopIngestionJobCommandInput
   | TagResourceCommandInput
@@ -337,6 +352,7 @@ export type ServiceOutputTypes =
   | DeleteKnowledgeBaseCommandOutput
   | DeleteKnowledgeBaseDocumentsCommandOutput
   | DeletePromptCommandOutput
+  | DeleteResourcePolicyCommandOutput
   | DisassociateAgentCollaboratorCommandOutput
   | DisassociateAgentKnowledgeBaseCommandOutput
   | GetAgentActionGroupCommandOutput
@@ -353,6 +369,7 @@ export type ServiceOutputTypes =
   | GetKnowledgeBaseCommandOutput
   | GetKnowledgeBaseDocumentsCommandOutput
   | GetPromptCommandOutput
+  | GetResourcePolicyCommandOutput
   | IngestKnowledgeBaseDocumentsCommandOutput
   | ListAgentActionGroupsCommandOutput
   | ListAgentAliasesCommandOutput
@@ -371,6 +388,7 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | PrepareAgentCommandOutput
   | PrepareFlowCommandOutput
+  | PutResourcePolicyCommandOutput
   | StartIngestionJobCommandOutput
   | StopIngestionJobCommandOutput
   | TagResourceCommandOutput

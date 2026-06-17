@@ -119,6 +119,11 @@ import {
   DeletePromptCommand,
 } from "./commands/DeletePromptCommand";
 import {
+  type DeleteResourcePolicyCommandInput,
+  type DeleteResourcePolicyCommandOutput,
+  DeleteResourcePolicyCommand,
+} from "./commands/DeleteResourcePolicyCommand";
+import {
   type DisassociateAgentCollaboratorCommandInput,
   type DisassociateAgentCollaboratorCommandOutput,
   DisassociateAgentCollaboratorCommand,
@@ -186,6 +191,11 @@ import {
   GetKnowledgeBaseDocumentsCommand,
 } from "./commands/GetKnowledgeBaseDocumentsCommand";
 import { type GetPromptCommandInput, type GetPromptCommandOutput, GetPromptCommand } from "./commands/GetPromptCommand";
+import {
+  type GetResourcePolicyCommandInput,
+  type GetResourcePolicyCommandOutput,
+  GetResourcePolicyCommand,
+} from "./commands/GetResourcePolicyCommand";
 import {
   type IngestKnowledgeBaseDocumentsCommandInput,
   type IngestKnowledgeBaseDocumentsCommandOutput,
@@ -272,6 +282,11 @@ import {
   type PrepareFlowCommandOutput,
   PrepareFlowCommand,
 } from "./commands/PrepareFlowCommand";
+import {
+  type PutResourcePolicyCommandInput,
+  type PutResourcePolicyCommandOutput,
+  PutResourcePolicyCommand,
+} from "./commands/PutResourcePolicyCommand";
 import {
   type StartIngestionJobCommandInput,
   type StartIngestionJobCommandOutput,
@@ -386,6 +401,7 @@ const commands = {
   DeleteKnowledgeBaseCommand,
   DeleteKnowledgeBaseDocumentsCommand,
   DeletePromptCommand,
+  DeleteResourcePolicyCommand,
   DisassociateAgentCollaboratorCommand,
   DisassociateAgentKnowledgeBaseCommand,
   GetAgentCommand,
@@ -402,6 +418,7 @@ const commands = {
   GetKnowledgeBaseCommand,
   GetKnowledgeBaseDocumentsCommand,
   GetPromptCommand,
+  GetResourcePolicyCommand,
   IngestKnowledgeBaseDocumentsCommand,
   ListAgentActionGroupsCommand,
   ListAgentAliasesCommand,
@@ -420,6 +437,7 @@ const commands = {
   ListTagsForResourceCommand,
   PrepareAgentCommand,
   PrepareFlowCommand,
+  PutResourcePolicyCommand,
   StartIngestionJobCommand,
   StopIngestionJobCommand,
   TagResourceCommand,
@@ -846,6 +864,23 @@ export interface BedrockAgent {
   ): void;
 
   /**
+   * @see {@link DeleteResourcePolicyCommand}
+   */
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteResourcePolicyCommandOutput>;
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DisassociateAgentCollaboratorCommand}
    */
   disassociateAgentCollaborator(
@@ -1115,6 +1150,23 @@ export interface BedrockAgent {
     args: GetPromptCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetPromptCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetResourcePolicyCommand}
+   */
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourcePolicyCommandOutput>;
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
+  ): void;
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
   ): void;
 
   /**
@@ -1425,6 +1477,23 @@ export interface BedrockAgent {
     args: PrepareFlowCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PrepareFlowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutResourcePolicyCommand}
+   */
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutResourcePolicyCommandOutput>;
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
   ): void;
 
   /**

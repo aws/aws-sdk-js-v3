@@ -1,4 +1,6 @@
 import {
+  AccessControlAccess,
+  AccessControlPrincipalType,
   AccessDeniedException,
   AccessDeniedException$,
   ActionGroupExecutor$,
@@ -35,6 +37,7 @@ import {
   AssociateAgentKnowledgeBaseRequest$,
   AssociateAgentKnowledgeBaseResponse$,
   AudioConfiguration$,
+  AudioExtractionConfiguration$,
   AudioSegmentationConfiguration$,
   AutoToolChoice$,
   BedrockAgent,
@@ -167,6 +170,11 @@ import {
   DeletePromptCommand,
   DeletePromptRequest$,
   DeletePromptResponse$,
+  DeleteResourcePolicy$,
+  DeleteResourcePolicyCommand,
+  DeleteResourcePolicyRequest$,
+  DeleteResourcePolicyResponse$,
+  DeletionProtectionConfiguration$,
   DisassociateAgentCollaborator$,
   DisassociateAgentCollaboratorCommand,
   DisassociateAgentCollaboratorRequest$,
@@ -175,6 +183,7 @@ import {
   DisassociateAgentKnowledgeBaseCommand,
   DisassociateAgentKnowledgeBaseRequest$,
   DisassociateAgentKnowledgeBaseResponse$,
+  DocumentAccessControlEntry$,
   DocumentContent$,
   DocumentIdentifier$,
   DocumentMetadata$,
@@ -183,6 +192,8 @@ import {
   DuplicateConnectionsFlowValidationDetails$,
   EmbeddingDataType,
   EmbeddingModelConfiguration$,
+  EmbeddingModelType,
+  EnabledOrDisabledState,
   EnrichmentStrategyConfiguration$,
   EnrichmentStrategyMethod,
   FieldForReranking$,
@@ -269,9 +280,14 @@ import {
   GetPromptCommand,
   GetPromptRequest$,
   GetPromptResponse$,
+  GetResourcePolicy$,
+  GetResourcePolicyCommand,
+  GetResourcePolicyRequest$,
+  GetResourcePolicyResponse$,
   GuardrailConfiguration$,
   HierarchicalChunkingConfiguration$,
   HierarchicalChunkingLevelConfiguration$,
+  ImageExtractionConfiguration$,
   IncludeExclude,
   IncompatibleConnectionDataTypeFlowValidationDetails$,
   IncompatibleLoopNodeType,
@@ -379,6 +395,9 @@ import {
   LoopInputFlowNodeConfiguration$,
   MalformedConditionExpressionFlowValidationDetails$,
   MalformedNodeInputExpressionFlowValidationDetails$,
+  ManagedKnowledgeBaseConfiguration$,
+  ManagedKnowledgeBaseConnectorConfiguration$,
+  MediaExtractionConfiguration$,
   MemoryConfiguration$,
   MemoryType,
   Message$,
@@ -463,6 +482,10 @@ import {
   PromptTemplateType,
   PromptType,
   PromptVariant$,
+  PutResourcePolicy$,
+  PutResourcePolicyCommand,
+  PutResourcePolicyRequest$,
+  PutResourcePolicyResponse$,
   QueryEngineType,
   QueryGenerationColumn$,
   QueryGenerationConfiguration$,
@@ -622,6 +645,7 @@ import {
   VectorSearchRerankingConfiguration$,
   VectorSearchRerankingConfigurationType,
   VideoConfiguration$,
+  VideoExtractionConfiguration$,
   VideoSegmentationConfiguration$,
   WebCrawlerConfiguration$,
   WebCrawlerLimits$,
@@ -680,6 +704,8 @@ assert(typeof DeleteKnowledgeBaseDocumentsCommand === "function");
 assert(typeof DeleteKnowledgeBaseDocuments$ === "object");
 assert(typeof DeletePromptCommand === "function");
 assert(typeof DeletePrompt$ === "object");
+assert(typeof DeleteResourcePolicyCommand === "function");
+assert(typeof DeleteResourcePolicy$ === "object");
 assert(typeof DisassociateAgentCollaboratorCommand === "function");
 assert(typeof DisassociateAgentCollaborator$ === "object");
 assert(typeof DisassociateAgentKnowledgeBaseCommand === "function");
@@ -712,6 +738,8 @@ assert(typeof GetKnowledgeBaseDocumentsCommand === "function");
 assert(typeof GetKnowledgeBaseDocuments$ === "object");
 assert(typeof GetPromptCommand === "function");
 assert(typeof GetPrompt$ === "object");
+assert(typeof GetResourcePolicyCommand === "function");
+assert(typeof GetResourcePolicy$ === "object");
 assert(typeof IngestKnowledgeBaseDocumentsCommand === "function");
 assert(typeof IngestKnowledgeBaseDocuments$ === "object");
 assert(typeof ListAgentActionGroupsCommand === "function");
@@ -748,6 +776,8 @@ assert(typeof PrepareAgentCommand === "function");
 assert(typeof PrepareAgent$ === "object");
 assert(typeof PrepareFlowCommand === "function");
 assert(typeof PrepareFlow$ === "object");
+assert(typeof PutResourcePolicyCommand === "function");
+assert(typeof PutResourcePolicy$ === "object");
 assert(typeof StartIngestionJobCommand === "function");
 assert(typeof StartIngestionJob$ === "object");
 assert(typeof StopIngestionJobCommand === "function");
@@ -803,6 +833,7 @@ assert(typeof AssociateAgentCollaboratorResponse$ === "object");
 assert(typeof AssociateAgentKnowledgeBaseRequest$ === "object");
 assert(typeof AssociateAgentKnowledgeBaseResponse$ === "object");
 assert(typeof AudioConfiguration$ === "object");
+assert(typeof AudioExtractionConfiguration$ === "object");
 assert(typeof AudioSegmentationConfiguration$ === "object");
 assert(typeof AutoToolChoice$ === "object");
 assert(typeof BedrockDataAutomationConfiguration$ === "object");
@@ -873,10 +904,14 @@ assert(typeof DeleteKnowledgeBaseRequest$ === "object");
 assert(typeof DeleteKnowledgeBaseResponse$ === "object");
 assert(typeof DeletePromptRequest$ === "object");
 assert(typeof DeletePromptResponse$ === "object");
+assert(typeof DeleteResourcePolicyRequest$ === "object");
+assert(typeof DeleteResourcePolicyResponse$ === "object");
+assert(typeof DeletionProtectionConfiguration$ === "object");
 assert(typeof DisassociateAgentCollaboratorRequest$ === "object");
 assert(typeof DisassociateAgentCollaboratorResponse$ === "object");
 assert(typeof DisassociateAgentKnowledgeBaseRequest$ === "object");
 assert(typeof DisassociateAgentKnowledgeBaseResponse$ === "object");
+assert(typeof DocumentAccessControlEntry$ === "object");
 assert(typeof DocumentContent$ === "object");
 assert(typeof DocumentIdentifier$ === "object");
 assert(typeof DocumentMetadata$ === "object");
@@ -933,9 +968,12 @@ assert(typeof GetKnowledgeBaseRequest$ === "object");
 assert(typeof GetKnowledgeBaseResponse$ === "object");
 assert(typeof GetPromptRequest$ === "object");
 assert(typeof GetPromptResponse$ === "object");
+assert(typeof GetResourcePolicyRequest$ === "object");
+assert(typeof GetResourcePolicyResponse$ === "object");
 assert(typeof GuardrailConfiguration$ === "object");
 assert(typeof HierarchicalChunkingConfiguration$ === "object");
 assert(typeof HierarchicalChunkingLevelConfiguration$ === "object");
+assert(typeof ImageExtractionConfiguration$ === "object");
 assert(typeof IncompatibleConnectionDataTypeFlowValidationDetails$ === "object");
 assert(typeof InferenceConfiguration$ === "object");
 assert(typeof IngestionJob$ === "object");
@@ -998,6 +1036,9 @@ assert(typeof LoopIncompatibleNodeTypeFlowValidationDetails$ === "object");
 assert(typeof LoopInputFlowNodeConfiguration$ === "object");
 assert(typeof MalformedConditionExpressionFlowValidationDetails$ === "object");
 assert(typeof MalformedNodeInputExpressionFlowValidationDetails$ === "object");
+assert(typeof ManagedKnowledgeBaseConfiguration$ === "object");
+assert(typeof ManagedKnowledgeBaseConnectorConfiguration$ === "object");
+assert(typeof MediaExtractionConfiguration$ === "object");
 assert(typeof MemoryConfiguration$ === "object");
 assert(typeof Message$ === "object");
 assert(typeof MetadataAttribute$ === "object");
@@ -1054,6 +1095,8 @@ assert(typeof PromptOverrideConfiguration$ === "object");
 assert(typeof PromptSummary$ === "object");
 assert(typeof PromptTemplateConfiguration$ === "object");
 assert(typeof PromptVariant$ === "object");
+assert(typeof PutResourcePolicyRequest$ === "object");
+assert(typeof PutResourcePolicyResponse$ === "object");
 assert(typeof QueryGenerationColumn$ === "object");
 assert(typeof QueryGenerationConfiguration$ === "object");
 assert(typeof QueryGenerationContext$ === "object");
@@ -1158,12 +1201,15 @@ assert(typeof VectorSearchBedrockRerankingConfiguration$ === "object");
 assert(typeof VectorSearchBedrockRerankingModelConfiguration$ === "object");
 assert(typeof VectorSearchRerankingConfiguration$ === "object");
 assert(typeof VideoConfiguration$ === "object");
+assert(typeof VideoExtractionConfiguration$ === "object");
 assert(typeof VideoSegmentationConfiguration$ === "object");
 assert(typeof WebCrawlerConfiguration$ === "object");
 assert(typeof WebCrawlerLimits$ === "object");
 assert(typeof WebDataSourceConfiguration$ === "object");
 assert(typeof WebSourceConfiguration$ === "object");
 // enums
+assert(typeof AccessControlAccess === "object");
+assert(typeof AccessControlPrincipalType === "object");
 assert(typeof ActionGroupSignature === "object");
 assert(typeof ActionGroupState === "object");
 assert(typeof AgentAliasStatus === "object");
@@ -1187,6 +1233,8 @@ assert(typeof DataSourceStatus === "object");
 assert(typeof DataSourceType === "object");
 assert(typeof DocumentStatus === "object");
 assert(typeof EmbeddingDataType === "object");
+assert(typeof EmbeddingModelType === "object");
+assert(typeof EnabledOrDisabledState === "object");
 assert(typeof EnrichmentStrategyMethod === "object");
 assert(typeof FlowConnectionType === "object");
 assert(typeof FlowNodeInputCategory === "object");

@@ -58,6 +58,7 @@ export interface GetIngestionJobCommandOutput extends GetIngestionJobResponse, _
  * //       numberOfMetadataDocumentsModified: Number("long"),
  * //       numberOfDocumentsDeleted: Number("long"),
  * //       numberOfDocumentsFailed: Number("long"),
+ * //       numberOfDocumentsSkipped: Number("long"),
  * //     },
  * //     failureReasons: [ // FailureReasons
  * //       "STRING_VALUE",

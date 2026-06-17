@@ -3,6 +3,31 @@
  * @public
  * @enum
  */
+export const AccessControlAccess = {
+  ALLOW: "ALLOW",
+  DENY: "DENY",
+} as const;
+/**
+ * @public
+ */
+export type AccessControlAccess = (typeof AccessControlAccess)[keyof typeof AccessControlAccess];
+
+/**
+ * @public
+ * @enum
+ */
+export const AccessControlPrincipalType = {
+  USER: "USER",
+} as const;
+/**
+ * @public
+ */
+export type AccessControlPrincipalType = (typeof AccessControlPrincipalType)[keyof typeof AccessControlPrincipalType];
+
+/**
+ * @public
+ * @enum
+ */
 export const CustomControlMethod = {
   RETURN_CONTROL: "RETURN_CONTROL",
 } as const;
@@ -286,6 +311,19 @@ export type ConfluenceHostType = (typeof ConfluenceHostType)[keyof typeof Conflu
  * @public
  * @enum
  */
+export const EnabledOrDisabledState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type EnabledOrDisabledState = (typeof EnabledOrDisabledState)[keyof typeof EnabledOrDisabledState];
+
+/**
+ * @public
+ * @enum
+ */
 export const SalesforceAuthType = {
   OAUTH2_CLIENT_CREDENTIALS: "OAUTH2_CLIENT_CREDENTIALS",
 } as const;
@@ -326,6 +364,7 @@ export type SharePointHostType = (typeof SharePointHostType)[keyof typeof ShareP
 export const DataSourceType = {
   CONFLUENCE: "CONFLUENCE",
   CUSTOM: "CUSTOM",
+  MANAGED_KNOWLEDGE_BASE_CONNECTOR: "MANAGED_KNOWLEDGE_BASE_CONNECTOR",
   REDSHIFT_METADATA: "REDSHIFT_METADATA",
   S3: "S3",
   SALESFORCE: "SALESFORCE",
@@ -420,6 +459,7 @@ export type ParsingModality = (typeof ParsingModality)[keyof typeof ParsingModal
 export const ParsingStrategy = {
   BEDROCK_DATA_AUTOMATION: "BEDROCK_DATA_AUTOMATION",
   BEDROCK_FOUNDATION_MODEL: "BEDROCK_FOUNDATION_MODEL",
+  SMART_PARSING: "SMART_PARSING",
 } as const;
 /**
  * @public
@@ -432,8 +472,11 @@ export type ParsingStrategy = (typeof ParsingStrategy)[keyof typeof ParsingStrat
  */
 export const DataSourceStatus = {
   AVAILABLE: "AVAILABLE",
+  CREATING: "CREATING",
   DELETE_UNSUCCESSFUL: "DELETE_UNSUCCESSFUL",
   DELETING: "DELETING",
+  FAILED: "FAILED",
+  UPDATING: "UPDATING",
 } as const;
 /**
  * @public
@@ -863,6 +906,32 @@ export type MetadataSourceType = (typeof MetadataSourceType)[keyof typeof Metada
  * @public
  * @enum
  */
+export const EmbeddingDataType = {
+  BINARY: "BINARY",
+  FLOAT32: "FLOAT32",
+} as const;
+/**
+ * @public
+ */
+export type EmbeddingDataType = (typeof EmbeddingDataType)[keyof typeof EmbeddingDataType];
+
+/**
+ * @public
+ * @enum
+ */
+export const EmbeddingModelType = {
+  CUSTOM: "CUSTOM",
+  MANAGED: "MANAGED",
+} as const;
+/**
+ * @public
+ */
+export type EmbeddingModelType = (typeof EmbeddingModelType)[keyof typeof EmbeddingModelType];
+
+/**
+ * @public
+ * @enum
+ */
 export const RedshiftProvisionedAuthType = {
   IAM: "IAM",
   USERNAME: "USERNAME",
@@ -945,6 +1014,7 @@ export type QueryEngineType = (typeof QueryEngineType)[keyof typeof QueryEngineT
  */
 export const KnowledgeBaseType = {
   KENDRA: "KENDRA",
+  MANAGED: "MANAGED",
   SQL: "SQL",
   VECTOR: "VECTOR",
 } as const;
@@ -952,19 +1022,6 @@ export const KnowledgeBaseType = {
  * @public
  */
 export type KnowledgeBaseType = (typeof KnowledgeBaseType)[keyof typeof KnowledgeBaseType];
-
-/**
- * @public
- * @enum
- */
-export const EmbeddingDataType = {
-  BINARY: "BINARY",
-  FLOAT32: "FLOAT32",
-} as const;
-/**
- * @public
- */
-export type EmbeddingDataType = (typeof EmbeddingDataType)[keyof typeof EmbeddingDataType];
 
 /**
  * @public
@@ -1008,6 +1065,7 @@ export const KnowledgeBaseStatus = {
   DELETE_UNSUCCESSFUL: "DELETE_UNSUCCESSFUL",
   DELETING: "DELETING",
   FAILED: "FAILED",
+  UPDATE_UNSUCCESSFUL: "UPDATE_UNSUCCESSFUL",
   UPDATING: "UPDATING",
 } as const;
 /**

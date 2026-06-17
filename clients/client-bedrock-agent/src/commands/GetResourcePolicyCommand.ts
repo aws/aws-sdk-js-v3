@@ -5,8 +5,8 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { DeleteKnowledgeBaseRequest, DeleteKnowledgeBaseResponse } from "../models/models_1";
-import { DeleteKnowledgeBase$ } from "../schemas/schemas_0";
+import type { GetResourcePolicyRequest, GetResourcePolicyResponse } from "../models/models_0";
+import { GetResourcePolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,49 +16,47 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DeleteKnowledgeBaseCommand}.
+ * The input for {@link GetResourcePolicyCommand}.
  */
-export interface DeleteKnowledgeBaseCommandInput extends DeleteKnowledgeBaseRequest {}
+export interface GetResourcePolicyCommandInput extends GetResourcePolicyRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteKnowledgeBaseCommand}.
+ * The output of {@link GetResourcePolicyCommand}.
  */
-export interface DeleteKnowledgeBaseCommandOutput extends DeleteKnowledgeBaseResponse, __MetadataBearer {}
+export interface GetResourcePolicyCommandOutput extends GetResourcePolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a knowledge base. Before deleting a knowledge base, you should disassociate the knowledge base from any agents that it is associated with by making a <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_DisassociateAgentKnowledgeBase.html">DisassociateAgentKnowledgeBase</a> request.</p>
+ * <p>Retrieves the resource policy associated with a knowledge base.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BedrockAgentClient, DeleteKnowledgeBaseCommand } from "@aws-sdk/client-bedrock-agent"; // ES Modules import
- * // const { BedrockAgentClient, DeleteKnowledgeBaseCommand } = require("@aws-sdk/client-bedrock-agent"); // CommonJS import
+ * import { BedrockAgentClient, GetResourcePolicyCommand } from "@aws-sdk/client-bedrock-agent"; // ES Modules import
+ * // const { BedrockAgentClient, GetResourcePolicyCommand } = require("@aws-sdk/client-bedrock-agent"); // CommonJS import
  * // import type { BedrockAgentClientConfig } from "@aws-sdk/client-bedrock-agent";
  * const config = {}; // type is BedrockAgentClientConfig
  * const client = new BedrockAgentClient(config);
- * const input = { // DeleteKnowledgeBaseRequest
- *   knowledgeBaseId: "STRING_VALUE", // required
+ * const input = { // GetResourcePolicyRequest
+ *   resourceArn: "STRING_VALUE", // required
  * };
- * const command = new DeleteKnowledgeBaseCommand(input);
+ * const command = new GetResourcePolicyCommand(input);
  * const response = await client.send(command);
- * // { // DeleteKnowledgeBaseResponse
- * //   knowledgeBaseId: "STRING_VALUE", // required
- * //   status: "CREATING" || "ACTIVE" || "DELETING" || "UPDATING" || "FAILED" || "DELETE_UNSUCCESSFUL" || "UPDATE_UNSUCCESSFUL", // required
+ * // { // GetResourcePolicyResponse
+ * //   resourceArn: "STRING_VALUE", // required
+ * //   policy: "STRING_VALUE", // required
+ * //   revisionId: "STRING_VALUE", // required
  * // };
  *
  * ```
  *
- * @param DeleteKnowledgeBaseCommandInput - {@link DeleteKnowledgeBaseCommandInput}
- * @returns {@link DeleteKnowledgeBaseCommandOutput}
- * @see {@link DeleteKnowledgeBaseCommandInput} for command's `input` shape.
- * @see {@link DeleteKnowledgeBaseCommandOutput} for command's `response` shape.
+ * @param GetResourcePolicyCommandInput - {@link GetResourcePolicyCommandInput}
+ * @returns {@link GetResourcePolicyCommandOutput}
+ * @see {@link GetResourcePolicyCommandInput} for command's `input` shape.
+ * @see {@link GetResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link BedrockAgentClientResolvedConfig | config} for BedrockAgentClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>The request is denied because of missing access permissions.</p>
- *
- * @throws {@link ConflictException} (client fault)
- *  <p>There was a conflict performing an operation.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An internal server error occurred. Retry your request.</p>
@@ -78,10 +76,10 @@ export interface DeleteKnowledgeBaseCommandOutput extends DeleteKnowledgeBaseRes
  *
  * @public
  */
-export class DeleteKnowledgeBaseCommand extends $Command
+export class GetResourcePolicyCommand extends $Command
   .classBuilder<
-    DeleteKnowledgeBaseCommandInput,
-    DeleteKnowledgeBaseCommandOutput,
+    GetResourcePolicyCommandInput,
+    GetResourcePolicyCommandOutput,
     BedrockAgentClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -90,19 +88,19 @@ export class DeleteKnowledgeBaseCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("AmazonBedrockAgentBuildTimeLambda", "DeleteKnowledgeBase", {})
-  .n("BedrockAgentClient", "DeleteKnowledgeBaseCommand")
-  .sc(DeleteKnowledgeBase$)
+  .s("AmazonBedrockAgentBuildTimeLambda", "GetResourcePolicy", {})
+  .n("BedrockAgentClient", "GetResourcePolicyCommand")
+  .sc(GetResourcePolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DeleteKnowledgeBaseRequest;
-      output: DeleteKnowledgeBaseResponse;
+      input: GetResourcePolicyRequest;
+      output: GetResourcePolicyResponse;
     };
     sdk: {
-      input: DeleteKnowledgeBaseCommandInput;
-      output: DeleteKnowledgeBaseCommandOutput;
+      input: GetResourcePolicyCommandInput;
+      output: GetResourcePolicyCommandOutput;
     };
   };
 }
