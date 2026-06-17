@@ -9,7 +9,7 @@ import type {
   ServiceOutputTypes,
 } from "../BedrockAgentRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { PutInvocationStepRequest, PutInvocationStepResponse } from "../models/models_0";
+import type { PutInvocationStepRequest, PutInvocationStepResponse } from "../models/models_1";
 import { PutInvocationStep$ } from "../schemas/schemas_0";
 
 /**

@@ -517,7 +517,7 @@ export interface ListFlowExecutionEventsCommandOutput extends ListFlowExecutionE
  * //                             ],
  * //                           },
  * //                           location: { // RetrievalResultLocation
- * //                             type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT" || "CUSTOM" || "KENDRA" || "SQL", // required
+ * //                             type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT" || "CUSTOM" || "KENDRA" || "SQL" || "ONEDRIVE" || "GOOGLEDRIVE", // required
  * //                             s3Location: { // RetrievalResultS3Location
  * //                               uri: "STRING_VALUE",
  * //                             },
@@ -541,6 +541,12 @@ export interface ListFlowExecutionEventsCommandOutput extends ListFlowExecutionE
  * //                             },
  * //                             sqlLocation: { // RetrievalResultSqlLocation
  * //                               query: "STRING_VALUE",
+ * //                             },
+ * //                             oneDriveLocation: { // RetrievalResultOneDriveLocation
+ * //                               url: "STRING_VALUE",
+ * //                             },
+ * //                             googleDriveLocation: { // RetrievalResultGoogleDriveLocation
+ * //                               url: "STRING_VALUE",
  * //                             },
  * //                           },
  * //                           metadata: { // RetrievalResultMetadata
@@ -813,7 +819,7 @@ export interface ListFlowExecutionEventsCommandOutput extends ListFlowExecutionE
  * //                             ],
  * //                           },
  * //                           location: {
- * //                             type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT" || "CUSTOM" || "KENDRA" || "SQL", // required
+ * //                             type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT" || "CUSTOM" || "KENDRA" || "SQL" || "ONEDRIVE" || "GOOGLEDRIVE", // required
  * //                             s3Location: {
  * //                               uri: "STRING_VALUE",
  * //                             },
@@ -837,6 +843,12 @@ export interface ListFlowExecutionEventsCommandOutput extends ListFlowExecutionE
  * //                             },
  * //                             sqlLocation: {
  * //                               query: "STRING_VALUE",
+ * //                             },
+ * //                             oneDriveLocation: {
+ * //                               url: "STRING_VALUE",
+ * //                             },
+ * //                             googleDriveLocation: {
+ * //                               url: "STRING_VALUE",
  * //                             },
  * //                           },
  * //                           metadata: {

@@ -9,7 +9,8 @@ import type {
   ServiceOutputTypes,
 } from "../BedrockAgentRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { InvokeAgentRequest, InvokeAgentResponse } from "../models/models_0";
+import type { InvokeAgentResponse } from "../models/models_0";
+import type { InvokeAgentRequest } from "../models/models_1";
 import { InvokeAgent$ } from "../schemas/schemas_0";
 
 /**
@@ -208,6 +209,38 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  *               modelArn: "STRING_VALUE", // required
  *             },
  *           },
+ *           managedSearchConfiguration: { // ManagedSearchConfiguration
+ *             numberOfResults: Number("int"),
+ *             filter: "<RetrievalFilter>",
+ *             rerankingModelType: "CUSTOM" || "MANAGED" || "NONE",
+ *             rerankingConfiguration: { // ManagedSearchRerankingConfiguration
+ *               type: "BEDROCK_RERANKING_MODEL", // required
+ *               bedrockRerankingConfiguration: { // ManagedSearchBedrockRerankingConfiguration
+ *                 modelConfiguration: { // ManagedSearchBedrockRerankingModelConfiguration
+ *                   modelArn: "STRING_VALUE", // required
+ *                   additionalModelRequestFields: {
+ *                     "<keys>": "DOCUMENT_VALUE",
+ *                   },
+ *                 },
+ *                 numberOfRerankedResults: Number("int"),
+ *                 metadataConfiguration: {
+ *                   selectionMode: "SELECTIVE" || "ALL", // required
+ *                   selectiveModeConfiguration: {//  Union: only one key present
+ *                     fieldsToInclude: [
+ *                       {
+ *                         fieldName: "STRING_VALUE", // required
+ *                       },
+ *                     ],
+ *                     fieldsToExclude: [
+ *                       {
+ *                         fieldName: "STRING_VALUE", // required
+ *                       },
+ *                     ],
+ *                   },
+ *                 },
+ *               },
+ *             },
+ *           },
  *         },
  *       },
  *     ],
@@ -287,7 +320,7 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //                   ],
  * //                 },
  * //                 location: { // RetrievalResultLocation
- * //                   type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT" || "CUSTOM" || "KENDRA" || "SQL", // required
+ * //                   type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT" || "CUSTOM" || "KENDRA" || "SQL" || "ONEDRIVE" || "GOOGLEDRIVE", // required
  * //                   s3Location: { // RetrievalResultS3Location
  * //                     uri: "STRING_VALUE",
  * //                   },
@@ -311,6 +344,12 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //                   },
  * //                   sqlLocation: { // RetrievalResultSqlLocation
  * //                     query: "STRING_VALUE",
+ * //                   },
+ * //                   oneDriveLocation: { // RetrievalResultOneDriveLocation
+ * //                     url: "STRING_VALUE",
+ * //                   },
+ * //                   googleDriveLocation: { // RetrievalResultGoogleDriveLocation
+ * //                     url: "STRING_VALUE",
  * //                   },
  * //                 },
  * //                 metadata: { // RetrievalResultMetadata
@@ -683,7 +722,7 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //                     ],
  * //                   },
  * //                   location: {
- * //                     type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT" || "CUSTOM" || "KENDRA" || "SQL", // required
+ * //                     type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT" || "CUSTOM" || "KENDRA" || "SQL" || "ONEDRIVE" || "GOOGLEDRIVE", // required
  * //                     s3Location: {
  * //                       uri: "STRING_VALUE",
  * //                     },
@@ -707,6 +746,12 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //                     },
  * //                     sqlLocation: {
  * //                       query: "STRING_VALUE",
+ * //                     },
+ * //                     oneDriveLocation: {
+ * //                       url: "STRING_VALUE",
+ * //                     },
+ * //                     googleDriveLocation: {
+ * //                       url: "STRING_VALUE",
  * //                     },
  * //                   },
  * //                   metadata: {
@@ -979,7 +1024,7 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //                     ],
  * //                   },
  * //                   location: {
- * //                     type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT" || "CUSTOM" || "KENDRA" || "SQL", // required
+ * //                     type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT" || "CUSTOM" || "KENDRA" || "SQL" || "ONEDRIVE" || "GOOGLEDRIVE", // required
  * //                     s3Location: {
  * //                       uri: "STRING_VALUE",
  * //                     },
@@ -1003,6 +1048,12 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //                     },
  * //                     sqlLocation: {
  * //                       query: "STRING_VALUE",
+ * //                     },
+ * //                     oneDriveLocation: {
+ * //                       url: "STRING_VALUE",
+ * //                     },
+ * //                     googleDriveLocation: {
+ * //                       url: "STRING_VALUE",
  * //                     },
  * //                   },
  * //                   metadata: {

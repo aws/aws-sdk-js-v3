@@ -60,6 +60,10 @@ import {
   defaultBedrockAgentRuntimeHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import type {
+  AgenticRetrieveStreamCommandInput,
+  AgenticRetrieveStreamCommandOutput,
+} from "./commands/AgenticRetrieveStreamCommand";
 import type { CreateInvocationCommandInput, CreateInvocationCommandOutput } from "./commands/CreateInvocationCommand";
 import type { CreateSessionCommandInput, CreateSessionCommandOutput } from "./commands/CreateSessionCommand";
 import type {
@@ -70,6 +74,10 @@ import type { DeleteSessionCommandInput, DeleteSessionCommandOutput } from "./co
 import type { EndSessionCommandInput, EndSessionCommandOutput } from "./commands/EndSessionCommand";
 import type { GenerateQueryCommandInput, GenerateQueryCommandOutput } from "./commands/GenerateQueryCommand";
 import type { GetAgentMemoryCommandInput, GetAgentMemoryCommandOutput } from "./commands/GetAgentMemoryCommand";
+import type {
+  GetDocumentContentCommandInput,
+  GetDocumentContentCommandOutput,
+} from "./commands/GetDocumentContentCommand";
 import type {
   GetExecutionFlowSnapshotCommandInput,
   GetExecutionFlowSnapshotCommandOutput,
@@ -145,6 +153,7 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | AgenticRetrieveStreamCommandInput
   | CreateInvocationCommandInput
   | CreateSessionCommandInput
   | DeleteAgentMemoryCommandInput
@@ -152,6 +161,7 @@ export type ServiceInputTypes =
   | EndSessionCommandInput
   | GenerateQueryCommandInput
   | GetAgentMemoryCommandInput
+  | GetDocumentContentCommandInput
   | GetExecutionFlowSnapshotCommandInput
   | GetFlowExecutionCommandInput
   | GetInvocationStepCommandInput
@@ -181,6 +191,7 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | AgenticRetrieveStreamCommandOutput
   | CreateInvocationCommandOutput
   | CreateSessionCommandOutput
   | DeleteAgentMemoryCommandOutput
@@ -188,6 +199,7 @@ export type ServiceOutputTypes =
   | EndSessionCommandOutput
   | GenerateQueryCommandOutput
   | GetAgentMemoryCommandOutput
+  | GetDocumentContentCommandOutput
   | GetExecutionFlowSnapshotCommandOutput
   | GetFlowExecutionCommandOutput
   | GetInvocationStepCommandOutput

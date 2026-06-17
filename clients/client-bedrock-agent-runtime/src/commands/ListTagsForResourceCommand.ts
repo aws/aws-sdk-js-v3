@@ -9,7 +9,7 @@ import type {
   ServiceOutputTypes,
 } from "../BedrockAgentRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_0";
+import type { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_1";
 import { ListTagsForResource$ } from "../schemas/schemas_0";
 
 /**

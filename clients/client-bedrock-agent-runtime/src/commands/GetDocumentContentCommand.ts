@@ -9,8 +9,8 @@ import type {
   ServiceOutputTypes,
 } from "../BedrockAgentRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { ListInvocationsRequest, ListInvocationsResponse } from "../models/models_1";
-import { ListInvocations$ } from "../schemas/schemas_0";
+import type { GetDocumentContentRequest, GetDocumentContentResponse } from "../models/models_0";
+import { GetDocumentContent$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -20,50 +20,49 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListInvocationsCommand}.
+ * The input for {@link GetDocumentContentCommand}.
  */
-export interface ListInvocationsCommandInput extends ListInvocationsRequest {}
+export interface GetDocumentContentCommandInput extends GetDocumentContentRequest {}
 /**
  * @public
  *
- * The output of {@link ListInvocationsCommand}.
+ * The output of {@link GetDocumentContentCommand}.
  */
-export interface ListInvocationsCommandOutput extends ListInvocationsResponse, __MetadataBearer {}
+export interface GetDocumentContentCommandOutput extends GetDocumentContentResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all invocations associated with a specific session. For more information about sessions, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/sessions.html">Store and retrieve conversation history and context with Amazon Bedrock sessions</a>.</p>
+ * <p>Retrieves the content of an ingested document from a knowledge base. Returns a pre-signed URL for secure document access.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BedrockAgentRuntimeClient, ListInvocationsCommand } from "@aws-sdk/client-bedrock-agent-runtime"; // ES Modules import
- * // const { BedrockAgentRuntimeClient, ListInvocationsCommand } = require("@aws-sdk/client-bedrock-agent-runtime"); // CommonJS import
+ * import { BedrockAgentRuntimeClient, GetDocumentContentCommand } from "@aws-sdk/client-bedrock-agent-runtime"; // ES Modules import
+ * // const { BedrockAgentRuntimeClient, GetDocumentContentCommand } = require("@aws-sdk/client-bedrock-agent-runtime"); // CommonJS import
  * // import type { BedrockAgentRuntimeClientConfig } from "@aws-sdk/client-bedrock-agent-runtime";
  * const config = {}; // type is BedrockAgentRuntimeClientConfig
  * const client = new BedrockAgentRuntimeClient(config);
- * const input = { // ListInvocationsRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   sessionIdentifier: "STRING_VALUE", // required
+ * const input = { // GetDocumentContentRequest
+ *   knowledgeBaseId: "STRING_VALUE", // required
+ *   dataSourceId: "STRING_VALUE", // required
+ *   documentId: "STRING_VALUE", // required
+ *   outputFormat: "RAW" || "EXTRACTED",
+ *   userContext: { // UserContext
+ *     userId: "STRING_VALUE", // required
+ *   },
  * };
- * const command = new ListInvocationsCommand(input);
+ * const command = new GetDocumentContentCommand(input);
  * const response = await client.send(command);
- * // { // ListInvocationsResponse
- * //   invocationSummaries: [ // InvocationSummaries // required
- * //     { // InvocationSummary
- * //       sessionId: "STRING_VALUE", // required
- * //       invocationId: "STRING_VALUE", // required
- * //       createdAt: new Date("TIMESTAMP"), // required
- * //     },
- * //   ],
- * //   nextToken: "STRING_VALUE",
+ * // { // GetDocumentContentResponse
+ * //   mimeType: "STRING_VALUE", // required
+ * //   presignedUrl: "STRING_VALUE", // required
+ * //   documentContentLength: Number("long"),
  * // };
  *
  * ```
  *
- * @param ListInvocationsCommandInput - {@link ListInvocationsCommandInput}
- * @returns {@link ListInvocationsCommandOutput}
- * @see {@link ListInvocationsCommandInput} for command's `input` shape.
- * @see {@link ListInvocationsCommandOutput} for command's `response` shape.
+ * @param GetDocumentContentCommandInput - {@link GetDocumentContentCommandInput}
+ * @returns {@link GetDocumentContentCommandOutput}
+ * @see {@link GetDocumentContentCommandInput} for command's `input` shape.
+ * @see {@link GetDocumentContentCommandOutput} for command's `response` shape.
  * @see {@link BedrockAgentRuntimeClientResolvedConfig | config} for BedrockAgentRuntimeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -87,10 +86,10 @@ export interface ListInvocationsCommandOutput extends ListInvocationsResponse, _
  *
  * @public
  */
-export class ListInvocationsCommand extends $Command
+export class GetDocumentContentCommand extends $Command
   .classBuilder<
-    ListInvocationsCommandInput,
-    ListInvocationsCommandOutput,
+    GetDocumentContentCommandInput,
+    GetDocumentContentCommandOutput,
     BedrockAgentRuntimeClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -99,19 +98,19 @@ export class ListInvocationsCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentRuntimeClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("AmazonBedrockAgentRunTimeService", "ListInvocations", {})
-  .n("BedrockAgentRuntimeClient", "ListInvocationsCommand")
-  .sc(ListInvocations$)
+  .s("AmazonBedrockAgentRunTimeService", "GetDocumentContent", {})
+  .n("BedrockAgentRuntimeClient", "GetDocumentContentCommand")
+  .sc(GetDocumentContent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListInvocationsRequest;
-      output: ListInvocationsResponse;
+      input: GetDocumentContentRequest;
+      output: GetDocumentContentResponse;
     };
     sdk: {
-      input: ListInvocationsCommandInput;
-      output: ListInvocationsCommandOutput;
+      input: GetDocumentContentCommandInput;
+      output: GetDocumentContentCommandOutput;
     };
   };
 }

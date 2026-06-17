@@ -9,7 +9,8 @@ import type {
   ServiceOutputTypes,
 } from "../BedrockAgentRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { RetrieveRequest, RetrieveResponse } from "../models/models_0";
+import type { RetrieveResponse } from "../models/models_0";
+import type { RetrieveRequest } from "../models/models_1";
 import { Retrieve$ } from "../schemas/schemas_0";
 
 /**
@@ -144,12 +145,47 @@ export interface RetrieveCommandOutput extends RetrieveResponse, __MetadataBeare
  *         modelArn: "STRING_VALUE", // required
  *       },
  *     },
+ *     managedSearchConfiguration: { // ManagedSearchConfiguration
+ *       numberOfResults: Number("int"),
+ *       filter: "<RetrievalFilter>",
+ *       rerankingModelType: "CUSTOM" || "MANAGED" || "NONE",
+ *       rerankingConfiguration: { // ManagedSearchRerankingConfiguration
+ *         type: "BEDROCK_RERANKING_MODEL", // required
+ *         bedrockRerankingConfiguration: { // ManagedSearchBedrockRerankingConfiguration
+ *           modelConfiguration: { // ManagedSearchBedrockRerankingModelConfiguration
+ *             modelArn: "STRING_VALUE", // required
+ *             additionalModelRequestFields: {
+ *               "<keys>": "DOCUMENT_VALUE",
+ *             },
+ *           },
+ *           numberOfRerankedResults: Number("int"),
+ *           metadataConfiguration: {
+ *             selectionMode: "SELECTIVE" || "ALL", // required
+ *             selectiveModeConfiguration: {//  Union: only one key present
+ *               fieldsToInclude: [
+ *                 {
+ *                   fieldName: "STRING_VALUE", // required
+ *                 },
+ *               ],
+ *               fieldsToExclude: [
+ *                 {
+ *                   fieldName: "STRING_VALUE", // required
+ *                 },
+ *               ],
+ *             },
+ *           },
+ *         },
+ *       },
+ *     },
  *   },
  *   guardrailConfiguration: { // GuardrailConfiguration
  *     guardrailId: "STRING_VALUE", // required
  *     guardrailVersion: "STRING_VALUE", // required
  *   },
  *   nextToken: "STRING_VALUE",
+ *   userContext: { // UserContext
+ *     userId: "STRING_VALUE", // required
+ *   },
  * };
  * const command = new RetrieveCommand(input);
  * const response = await client.send(command);
@@ -177,7 +213,7 @@ export interface RetrieveCommandOutput extends RetrieveResponse, __MetadataBeare
  * //         ],
  * //       },
  * //       location: { // RetrievalResultLocation
- * //         type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT" || "CUSTOM" || "KENDRA" || "SQL", // required
+ * //         type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT" || "CUSTOM" || "KENDRA" || "SQL" || "ONEDRIVE" || "GOOGLEDRIVE", // required
  * //         s3Location: { // RetrievalResultS3Location
  * //           uri: "STRING_VALUE",
  * //         },
@@ -202,11 +238,18 @@ export interface RetrieveCommandOutput extends RetrieveResponse, __MetadataBeare
  * //         sqlLocation: { // RetrievalResultSqlLocation
  * //           query: "STRING_VALUE",
  * //         },
+ * //         oneDriveLocation: { // RetrievalResultOneDriveLocation
+ * //           url: "STRING_VALUE",
+ * //         },
+ * //         googleDriveLocation: { // RetrievalResultGoogleDriveLocation
+ * //           url: "STRING_VALUE",
+ * //         },
  * //       },
  * //       score: Number("double"),
  * //       metadata: { // RetrievalResultMetadata
  * //         "<keys>": "DOCUMENT_VALUE",
  * //       },
+ * //       documentId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   guardrailAction: "INTERVENED" || "NONE",

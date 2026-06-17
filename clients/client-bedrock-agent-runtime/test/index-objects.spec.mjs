@@ -12,6 +12,43 @@ import {
   AgentCollaboratorInvocationInput$,
   AgentCollaboratorInvocationOutput$,
   AgentCollaboratorOutputPayload$,
+  AgenticRetrieveAction$,
+  AgenticRetrieveActionDetails$,
+  AgenticRetrieveBedrockGuardrailConfiguration$,
+  AgenticRetrieveBedrockRerankingConfiguration$,
+  AgenticRetrieveBedrockRerankingModelConfiguration$,
+  AgenticRetrieveCitation$,
+  AgenticRetrieveCitationReference$,
+  AgenticRetrieveConfiguration$,
+  AgenticRetrieveFailure$,
+  AgenticRetrieveFullDocExpansionDetails$,
+  AgenticRetrieveGeneratedResponse$,
+  AgenticRetrieveGuardrailWarning$,
+  AgenticRetrieveMessage$,
+  AgenticRetrieveMessageContent$,
+  AgenticRetrievePolicyConfiguration$,
+  AgenticRetriever$,
+  AgenticRetrieveRerankingConfiguration$,
+  AgenticRetrieveRerankingConfigurationType,
+  AgenticRetrieveRerankingModelType,
+  AgenticRetrieveResponseEvent$,
+  AgenticRetrieveResultEvent$,
+  AgenticRetrieveResultItem$,
+  AgenticRetrieveSourceMetadata$,
+  AgenticRetrieveSourceRetriever$,
+  AgenticRetrieveStatus,
+  AgenticRetrieveStep,
+  AgenticRetrieveStream$,
+  AgenticRetrieveStreamCommand,
+  AgenticRetrieveStreamRequest$,
+  AgenticRetrieveStreamResponse$,
+  AgenticRetrieveStreamResponseOutput$,
+  AgenticRetrieveTraceEvent$,
+  AgenticRetrieveTraceEventAttributes$,
+  AgenticRetrieveTraceResultItem$,
+  AgenticRetrieveType,
+  AgenticRetrieveWarning$,
+  AgenticRetrieveWarningMessage$,
   AnalyzePromptEvent$,
   ApiInvocationInput$,
   ApiParameter$,
@@ -26,6 +63,8 @@ import {
   BedrockAgentRuntime,
   BedrockAgentRuntimeClient,
   BedrockAgentRuntimeServiceException,
+  BedrockFoundationModelConfiguration$,
+  BedrockFoundationModelModelConfiguration$,
   BedrockModelConfigurations$,
   BedrockRerankingConfiguration$,
   BedrockRerankingModelConfiguration$,
@@ -70,6 +109,7 @@ import {
   DeleteSessionResponse$,
   DependencyFailedException,
   DependencyFailedException$,
+  DocumentOutputFormat,
   EndSession$,
   EndSessionCommand,
   EndSessionRequest$,
@@ -127,6 +167,9 @@ import {
   FlowTraceNodeOutputEvent$,
   FlowTraceNodeOutputField$,
   FlowTraceNodeOutputNext$,
+  FoundationModelConfiguration$,
+  FoundationModelConfigurationType,
+  FoundationModelType,
   FunctionDefinition$,
   FunctionInvocationInput$,
   FunctionParameter$,
@@ -144,6 +187,10 @@ import {
   GetAgentMemoryCommand,
   GetAgentMemoryRequest$,
   GetAgentMemoryResponse$,
+  GetDocumentContent$,
+  GetDocumentContentCommand,
+  GetDocumentContentRequest$,
+  GetDocumentContentResponse$,
   GetExecutionFlowSnapshot$,
   GetExecutionFlowSnapshotCommand,
   GetExecutionFlowSnapshotRequest$,
@@ -238,6 +285,7 @@ import {
   KnowledgeBaseRetrievalConfiguration$,
   KnowledgeBaseRetrievalResult$,
   KnowledgeBaseRetrieveAndGenerateConfiguration$,
+  KnowledgeBaseRetrieverConfiguration$,
   KnowledgeBaseVectorSearchConfiguration$,
   ListFlowExecutionEvents$,
   ListFlowExecutionEventsCommand,
@@ -263,6 +311,11 @@ import {
   ListTagsForResourceCommand,
   ListTagsForResourceRequest$,
   ListTagsForResourceResponse$,
+  ManagedSearchBedrockRerankingConfiguration$,
+  ManagedSearchBedrockRerankingModelConfiguration$,
+  ManagedSearchConfiguration$,
+  ManagedSearchRerankingConfiguration$,
+  ManagedSearchRerankingConfigurationType,
   Memory$,
   MemorySessionSummary$,
   MemoryType,
@@ -354,6 +407,7 @@ import {
   RerankingConfigurationType,
   RerankingMetadataSelectionMode,
   RerankingMetadataSelectiveModeConfiguration$,
+  RerankingModelType,
   RerankQuery$,
   RerankQueryContentType,
   RerankRequest$,
@@ -366,16 +420,20 @@ import {
   ResourceNotFoundException$,
   ResponseState,
   ResponseStream$,
+  RetrievalContent$,
   RetrievalFilter$,
+  RetrievalOverrides$,
   RetrievalResultConfluenceLocation$,
   RetrievalResultContent$,
   RetrievalResultContentColumn$,
   RetrievalResultContentColumnType,
   RetrievalResultContentType,
   RetrievalResultCustomDocumentLocation$,
+  RetrievalResultGoogleDriveLocation$,
   RetrievalResultKendraDocumentLocation$,
   RetrievalResultLocation$,
   RetrievalResultLocationType,
+  RetrievalResultOneDriveLocation$,
   RetrievalResultS3Location$,
   RetrievalResultSalesforceLocation$,
   RetrievalResultSharePointLocation$,
@@ -399,6 +457,7 @@ import {
   RetrieveAndGenerateType,
   RetrieveCommand,
   RetrievedReference$,
+  RetrieverConfiguration$,
   RetrieveRequest$,
   RetrieveResponse$,
   ReturnControlPayload$,
@@ -453,6 +512,7 @@ import {
   UpdateSessionRequest$,
   UpdateSessionResponse$,
   Usage$,
+  UserContext$,
   ValidationException,
   ValidationException$,
   VectorSearchBedrockRerankingConfiguration$,
@@ -466,6 +526,8 @@ import assert from "node:assert";
 assert(typeof BedrockAgentRuntimeClient === "function");
 assert(typeof BedrockAgentRuntime === "function");
 // commands
+assert(typeof AgenticRetrieveStreamCommand === "function");
+assert(typeof AgenticRetrieveStream$ === "object");
 assert(typeof CreateInvocationCommand === "function");
 assert(typeof CreateInvocation$ === "object");
 assert(typeof CreateSessionCommand === "function");
@@ -480,6 +542,8 @@ assert(typeof GenerateQueryCommand === "function");
 assert(typeof GenerateQuery$ === "object");
 assert(typeof GetAgentMemoryCommand === "function");
 assert(typeof GetAgentMemory$ === "object");
+assert(typeof GetDocumentContentCommand === "function");
+assert(typeof GetDocumentContent$ === "object");
 assert(typeof GetExecutionFlowSnapshotCommand === "function");
 assert(typeof GetExecutionFlowSnapshot$ === "object");
 assert(typeof GetFlowExecutionCommand === "function");
@@ -537,6 +601,36 @@ assert(typeof AgentCollaboratorInputPayload$ === "object");
 assert(typeof AgentCollaboratorInvocationInput$ === "object");
 assert(typeof AgentCollaboratorInvocationOutput$ === "object");
 assert(typeof AgentCollaboratorOutputPayload$ === "object");
+assert(typeof AgenticRetrieveAction$ === "object");
+assert(typeof AgenticRetrieveActionDetails$ === "object");
+assert(typeof AgenticRetrieveBedrockGuardrailConfiguration$ === "object");
+assert(typeof AgenticRetrieveBedrockRerankingConfiguration$ === "object");
+assert(typeof AgenticRetrieveBedrockRerankingModelConfiguration$ === "object");
+assert(typeof AgenticRetrieveCitation$ === "object");
+assert(typeof AgenticRetrieveCitationReference$ === "object");
+assert(typeof AgenticRetrieveConfiguration$ === "object");
+assert(typeof AgenticRetrieveFailure$ === "object");
+assert(typeof AgenticRetrieveFullDocExpansionDetails$ === "object");
+assert(typeof AgenticRetrieveGeneratedResponse$ === "object");
+assert(typeof AgenticRetrieveGuardrailWarning$ === "object");
+assert(typeof AgenticRetrieveMessage$ === "object");
+assert(typeof AgenticRetrieveMessageContent$ === "object");
+assert(typeof AgenticRetrievePolicyConfiguration$ === "object");
+assert(typeof AgenticRetriever$ === "object");
+assert(typeof AgenticRetrieveRerankingConfiguration$ === "object");
+assert(typeof AgenticRetrieveResponseEvent$ === "object");
+assert(typeof AgenticRetrieveResultEvent$ === "object");
+assert(typeof AgenticRetrieveResultItem$ === "object");
+assert(typeof AgenticRetrieveSourceMetadata$ === "object");
+assert(typeof AgenticRetrieveSourceRetriever$ === "object");
+assert(typeof AgenticRetrieveStreamRequest$ === "object");
+assert(typeof AgenticRetrieveStreamResponse$ === "object");
+assert(typeof AgenticRetrieveStreamResponseOutput$ === "object");
+assert(typeof AgenticRetrieveTraceEvent$ === "object");
+assert(typeof AgenticRetrieveTraceEventAttributes$ === "object");
+assert(typeof AgenticRetrieveTraceResultItem$ === "object");
+assert(typeof AgenticRetrieveWarning$ === "object");
+assert(typeof AgenticRetrieveWarningMessage$ === "object");
 assert(typeof AnalyzePromptEvent$ === "object");
 assert(typeof ApiInvocationInput$ === "object");
 assert(typeof ApiParameter$ === "object");
@@ -545,6 +639,8 @@ assert(typeof ApiResult$ === "object");
 assert(typeof APISchema$ === "object");
 assert(typeof Attribution$ === "object");
 assert(typeof AudioSegment$ === "object");
+assert(typeof BedrockFoundationModelConfiguration$ === "object");
+assert(typeof BedrockFoundationModelModelConfiguration$ === "object");
 assert(typeof BedrockModelConfigurations$ === "object");
 assert(typeof BedrockRerankingConfiguration$ === "object");
 assert(typeof BedrockRerankingModelConfiguration$ === "object");
@@ -616,6 +712,7 @@ assert(typeof FlowTraceNodeOutputContent$ === "object");
 assert(typeof FlowTraceNodeOutputEvent$ === "object");
 assert(typeof FlowTraceNodeOutputField$ === "object");
 assert(typeof FlowTraceNodeOutputNext$ === "object");
+assert(typeof FoundationModelConfiguration$ === "object");
 assert(typeof FunctionDefinition$ === "object");
 assert(typeof FunctionInvocationInput$ === "object");
 assert(typeof FunctionParameter$ === "object");
@@ -628,6 +725,8 @@ assert(typeof GenerateQueryResponse$ === "object");
 assert(typeof GenerationConfiguration$ === "object");
 assert(typeof GetAgentMemoryRequest$ === "object");
 assert(typeof GetAgentMemoryResponse$ === "object");
+assert(typeof GetDocumentContentRequest$ === "object");
+assert(typeof GetDocumentContentResponse$ === "object");
 assert(typeof GetExecutionFlowSnapshotRequest$ === "object");
 assert(typeof GetExecutionFlowSnapshotResponse$ === "object");
 assert(typeof GetFlowExecutionRequest$ === "object");
@@ -689,6 +788,7 @@ assert(typeof KnowledgeBaseQuery$ === "object");
 assert(typeof KnowledgeBaseRetrievalConfiguration$ === "object");
 assert(typeof KnowledgeBaseRetrievalResult$ === "object");
 assert(typeof KnowledgeBaseRetrieveAndGenerateConfiguration$ === "object");
+assert(typeof KnowledgeBaseRetrieverConfiguration$ === "object");
 assert(typeof KnowledgeBaseVectorSearchConfiguration$ === "object");
 assert(typeof ListFlowExecutionEventsRequest$ === "object");
 assert(typeof ListFlowExecutionEventsResponse$ === "object");
@@ -702,6 +802,10 @@ assert(typeof ListSessionsRequest$ === "object");
 assert(typeof ListSessionsResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
+assert(typeof ManagedSearchBedrockRerankingConfiguration$ === "object");
+assert(typeof ManagedSearchBedrockRerankingModelConfiguration$ === "object");
+assert(typeof ManagedSearchConfiguration$ === "object");
+assert(typeof ManagedSearchRerankingConfiguration$ === "object");
 assert(typeof Memory$ === "object");
 assert(typeof MemorySessionSummary$ === "object");
 assert(typeof Message$ === "object");
@@ -768,13 +872,17 @@ assert(typeof RerankResult$ === "object");
 assert(typeof RerankSource$ === "object");
 assert(typeof RerankTextDocument$ === "object");
 assert(typeof ResponseStream$ === "object");
+assert(typeof RetrievalContent$ === "object");
 assert(typeof RetrievalFilter$ === "object");
+assert(typeof RetrievalOverrides$ === "object");
 assert(typeof RetrievalResultConfluenceLocation$ === "object");
 assert(typeof RetrievalResultContent$ === "object");
 assert(typeof RetrievalResultContentColumn$ === "object");
 assert(typeof RetrievalResultCustomDocumentLocation$ === "object");
+assert(typeof RetrievalResultGoogleDriveLocation$ === "object");
 assert(typeof RetrievalResultKendraDocumentLocation$ === "object");
 assert(typeof RetrievalResultLocation$ === "object");
+assert(typeof RetrievalResultOneDriveLocation$ === "object");
 assert(typeof RetrievalResultS3Location$ === "object");
 assert(typeof RetrievalResultSalesforceLocation$ === "object");
 assert(typeof RetrievalResultSharePointLocation$ === "object");
@@ -791,6 +899,7 @@ assert(typeof RetrieveAndGenerateStreamRequest$ === "object");
 assert(typeof RetrieveAndGenerateStreamResponse$ === "object");
 assert(typeof RetrieveAndGenerateStreamResponseOutput$ === "object");
 assert(typeof RetrievedReference$ === "object");
+assert(typeof RetrieverConfiguration$ === "object");
 assert(typeof RetrieveRequest$ === "object");
 assert(typeof RetrieveResponse$ === "object");
 assert(typeof ReturnControlPayload$ === "object");
@@ -826,6 +935,7 @@ assert(typeof UntagResourceResponse$ === "object");
 assert(typeof UpdateSessionRequest$ === "object");
 assert(typeof UpdateSessionResponse$ === "object");
 assert(typeof Usage$ === "object");
+assert(typeof UserContext$ === "object");
 assert(typeof VectorSearchBedrockRerankingConfiguration$ === "object");
 assert(typeof VectorSearchBedrockRerankingModelConfiguration$ === "object");
 assert(typeof VectorSearchRerankingConfiguration$ === "object");
@@ -834,11 +944,17 @@ assert(typeof VideoSegment$ === "object");
 assert(typeof ActionGroupSignature === "object");
 assert(typeof ActionInvocationType === "object");
 assert(typeof AgentCollaboration === "object");
+assert(typeof AgenticRetrieveRerankingConfigurationType === "object");
+assert(typeof AgenticRetrieveRerankingModelType === "object");
+assert(typeof AgenticRetrieveStatus === "object");
+assert(typeof AgenticRetrieveStep === "object");
+assert(typeof AgenticRetrieveType === "object");
 assert(typeof AttributeType === "object");
 assert(typeof ConfirmationState === "object");
 assert(typeof ConversationRole === "object");
 assert(typeof CreationMode === "object");
 assert(typeof CustomControlMethod === "object");
+assert(typeof DocumentOutputFormat === "object");
 assert(typeof ExecutionType === "object");
 assert(typeof ExternalSourceType === "object");
 assert(typeof FileSourceType === "object");
@@ -851,6 +967,8 @@ assert(typeof FlowExecutionEventType === "object");
 assert(typeof FlowExecutionStatus === "object");
 assert(typeof FlowNodeInputCategory === "object");
 assert(typeof FlowNodeIODataType === "object");
+assert(typeof FoundationModelConfigurationType === "object");
+assert(typeof FoundationModelType === "object");
 assert(typeof GeneratedQueryType === "object");
 assert(typeof GuadrailAction === "object");
 assert(typeof GuardrailAction === "object");
@@ -869,6 +987,7 @@ assert(typeof InputImageFormat === "object");
 assert(typeof InputQueryType === "object");
 assert(typeof InvocationType === "object");
 assert(typeof KnowledgeBaseQueryType === "object");
+assert(typeof ManagedSearchRerankingConfigurationType === "object");
 assert(typeof MemoryType === "object");
 assert(typeof NodeErrorCode === "object");
 assert(typeof NodeType === "object");
@@ -885,6 +1004,7 @@ assert(typeof RequireConfirmation === "object");
 assert(typeof RerankDocumentType === "object");
 assert(typeof RerankingConfigurationType === "object");
 assert(typeof RerankingMetadataSelectionMode === "object");
+assert(typeof RerankingModelType === "object");
 assert(typeof RerankQueryContentType === "object");
 assert(typeof RerankSourceType === "object");
 assert(typeof ResponseState === "object");

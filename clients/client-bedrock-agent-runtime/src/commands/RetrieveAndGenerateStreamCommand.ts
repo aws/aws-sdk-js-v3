@@ -9,7 +9,8 @@ import type {
   ServiceOutputTypes,
 } from "../BedrockAgentRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { RetrieveAndGenerateStreamRequest, RetrieveAndGenerateStreamResponse } from "../models/models_0";
+import type { RetrieveAndGenerateStreamResponse } from "../models/models_0";
+import type { RetrieveAndGenerateStreamRequest } from "../models/models_1";
 import { RetrieveAndGenerateStream$ } from "../schemas/schemas_0";
 
 /**
@@ -31,7 +32,7 @@ export interface RetrieveAndGenerateStreamCommandInput extends RetrieveAndGenera
 export interface RetrieveAndGenerateStreamCommandOutput extends RetrieveAndGenerateStreamResponse, __MetadataBearer {}
 
 /**
- * <p>Queries a knowledge base and generates responses based on the retrieved results, with output in streaming format.</p> <note> <p>The CLI doesn't support streaming operations in Amazon Bedrock, including <code>InvokeModelWithResponseStream</code>.</p> </note> <p>This operation requires permission for the <code> bedrock:RetrieveAndGenerate</code> action.</p>
+ * <p>Queries a knowledge base and generates responses based on the retrieved results, with output in streaming format.</p> <note> <p>This API cannot be used with managed knowledge bases. Use <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_AgenticRetrieveStream.html">AgenticRetrieveStream</a> or <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html">Retrieve</a> with managed knowledge bases.</p> </note> <note> <p>The CLI doesn't support streaming operations in Amazon Bedrock, including <code>InvokeModelWithResponseStream</code>.</p> </note> <p>This operation requires permission for the <code> bedrock:RetrieveAndGenerate</code> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -144,6 +145,38 @@ export interface RetrieveAndGenerateStreamCommandOutput extends RetrieveAndGener
  *             modelArn: "STRING_VALUE", // required
  *           },
  *         },
+ *         managedSearchConfiguration: { // ManagedSearchConfiguration
+ *           numberOfResults: Number("int"),
+ *           filter: "<RetrievalFilter>",
+ *           rerankingModelType: "CUSTOM" || "MANAGED" || "NONE",
+ *           rerankingConfiguration: { // ManagedSearchRerankingConfiguration
+ *             type: "BEDROCK_RERANKING_MODEL", // required
+ *             bedrockRerankingConfiguration: { // ManagedSearchBedrockRerankingConfiguration
+ *               modelConfiguration: { // ManagedSearchBedrockRerankingModelConfiguration
+ *                 modelArn: "STRING_VALUE", // required
+ *                 additionalModelRequestFields: {
+ *                   "<keys>": "DOCUMENT_VALUE",
+ *                 },
+ *               },
+ *               numberOfRerankedResults: Number("int"),
+ *               metadataConfiguration: {
+ *                 selectionMode: "SELECTIVE" || "ALL", // required
+ *                 selectiveModeConfiguration: {//  Union: only one key present
+ *                   fieldsToInclude: [
+ *                     {
+ *                       fieldName: "STRING_VALUE", // required
+ *                     },
+ *                   ],
+ *                   fieldsToExclude: [
+ *                     {
+ *                       fieldName: "STRING_VALUE", // required
+ *                     },
+ *                   ],
+ *                 },
+ *               },
+ *             },
+ *           },
+ *         },
  *       },
  *       generationConfiguration: { // GenerationConfiguration
  *         promptTemplate: { // PromptTemplate
@@ -240,6 +273,9 @@ export interface RetrieveAndGenerateStreamCommandOutput extends RetrieveAndGener
  *   sessionConfiguration: { // RetrieveAndGenerateSessionConfiguration
  *     kmsKeyArn: "STRING_VALUE", // required
  *   },
+ *   userContext: { // UserContext
+ *     userId: "STRING_VALUE", // required
+ *   },
  * };
  * const command = new RetrieveAndGenerateStreamCommand(input);
  * const response = await client.send(command);
@@ -282,7 +318,7 @@ export interface RetrieveAndGenerateStreamCommandOutput extends RetrieveAndGener
  * //               ],
  * //             },
  * //             location: { // RetrievalResultLocation
- * //               type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT" || "CUSTOM" || "KENDRA" || "SQL", // required
+ * //               type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT" || "CUSTOM" || "KENDRA" || "SQL" || "ONEDRIVE" || "GOOGLEDRIVE", // required
  * //               s3Location: { // RetrievalResultS3Location
  * //                 uri: "STRING_VALUE",
  * //               },
@@ -306,6 +342,12 @@ export interface RetrieveAndGenerateStreamCommandOutput extends RetrieveAndGener
  * //               },
  * //               sqlLocation: { // RetrievalResultSqlLocation
  * //                 query: "STRING_VALUE",
+ * //               },
+ * //               oneDriveLocation: { // RetrievalResultOneDriveLocation
+ * //                 url: "STRING_VALUE",
+ * //               },
+ * //               googleDriveLocation: { // RetrievalResultGoogleDriveLocation
+ * //                 url: "STRING_VALUE",
  * //               },
  * //             },
  * //             metadata: { // RetrievalResultMetadata
@@ -346,7 +388,7 @@ export interface RetrieveAndGenerateStreamCommandOutput extends RetrieveAndGener
  * //             ],
  * //           },
  * //           location: {
- * //             type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT" || "CUSTOM" || "KENDRA" || "SQL", // required
+ * //             type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT" || "CUSTOM" || "KENDRA" || "SQL" || "ONEDRIVE" || "GOOGLEDRIVE", // required
  * //             s3Location: {
  * //               uri: "STRING_VALUE",
  * //             },
@@ -370,6 +412,12 @@ export interface RetrieveAndGenerateStreamCommandOutput extends RetrieveAndGener
  * //             },
  * //             sqlLocation: {
  * //               query: "STRING_VALUE",
+ * //             },
+ * //             oneDriveLocation: {
+ * //               url: "STRING_VALUE",
+ * //             },
+ * //             googleDriveLocation: {
+ * //               url: "STRING_VALUE",
  * //             },
  * //           },
  * //           metadata: {

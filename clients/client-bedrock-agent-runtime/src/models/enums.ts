@@ -155,6 +155,60 @@ export type PayloadType = (typeof PayloadType)[keyof typeof PayloadType];
  * @public
  * @enum
  */
+export const FoundationModelConfigurationType = {
+  BEDROCK_FOUNDATION_MODEL: "BEDROCK_FOUNDATION_MODEL",
+} as const;
+/**
+ * @public
+ */
+export type FoundationModelConfigurationType =
+  (typeof FoundationModelConfigurationType)[keyof typeof FoundationModelConfigurationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const FoundationModelType = {
+  CUSTOM: "CUSTOM",
+  MANAGED: "MANAGED",
+} as const;
+/**
+ * @public
+ */
+export type FoundationModelType = (typeof FoundationModelType)[keyof typeof FoundationModelType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AgenticRetrieveRerankingConfigurationType = {
+  BEDROCK_RERANKING_MODEL: "BEDROCK_RERANKING_MODEL",
+} as const;
+/**
+ * @public
+ */
+export type AgenticRetrieveRerankingConfigurationType =
+  (typeof AgenticRetrieveRerankingConfigurationType)[keyof typeof AgenticRetrieveRerankingConfigurationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AgenticRetrieveRerankingModelType = {
+  CUSTOM: "CUSTOM",
+  MANAGED: "MANAGED",
+  NONE: "NONE",
+} as const;
+/**
+ * @public
+ */
+export type AgenticRetrieveRerankingModelType =
+  (typeof AgenticRetrieveRerankingModelType)[keyof typeof AgenticRetrieveRerankingModelType];
+
+/**
+ * @public
+ * @enum
+ */
 export const GuardrailAction = {
   INTERVENED: "INTERVENED",
   NONE: "NONE",
@@ -163,6 +217,84 @@ export const GuardrailAction = {
  * @public
  */
 export type GuardrailAction = (typeof GuardrailAction)[keyof typeof GuardrailAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConversationRole = {
+  ASSISTANT: "assistant",
+  USER: "user",
+} as const;
+/**
+ * @public
+ */
+export type ConversationRole = (typeof ConversationRole)[keyof typeof ConversationRole];
+
+/**
+ * @public
+ * @enum
+ */
+export const AgenticRetrieveType = {
+  /**
+   * <p>A Bedrock knowledge base retrieval source.</p>
+   */
+  BEDROCK_KNOWLEDGE_BASE: "BedrockKnowledgeBase",
+} as const;
+/**
+ * @public
+ */
+export type AgenticRetrieveType = (typeof AgenticRetrieveType)[keyof typeof AgenticRetrieveType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AgenticRetrieveStatus = {
+  /**
+   * <p>The step failed.</p>
+   */
+  FAILED: "FAILED",
+  /**
+   * <p>The step is currently in progress.</p>
+   */
+  IN_PROGRESS: "IN_PROGRESS",
+  /**
+   * <p>The step completed successfully.</p>
+   */
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+/**
+ * @public
+ */
+export type AgenticRetrieveStatus = (typeof AgenticRetrieveStatus)[keyof typeof AgenticRetrieveStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const AgenticRetrieveStep = {
+  /**
+   * <p>The full document expansion phase.</p>
+   */
+  FULL_DOCUMENT_EXPANSION: "FullDocumentExpansion",
+  /**
+   * <p>The planning phase of retrieval.</p>
+   */
+  PLANNING: "Planning",
+  /**
+   * <p>The retrieval phase where data is fetched.</p>
+   */
+  RETRIEVAL: "Retrieval",
+  /**
+   * <p>A speculative retrieval phase for optimization.</p>
+   */
+  SPECULATIVE_RETRIEVAL: "SpeculativeRetrieval",
+} as const;
+/**
+ * @public
+ */
+export type AgenticRetrieveStep = (typeof AgenticRetrieveStep)[keyof typeof AgenticRetrieveStep];
 
 /**
  * @public
@@ -400,7 +532,9 @@ export type RetrievalResultContentType = (typeof RetrievalResultContentType)[key
 export const RetrievalResultLocationType = {
   CONFLUENCE: "CONFLUENCE",
   CUSTOM: "CUSTOM",
+  GOOGLEDRIVE: "GOOGLEDRIVE",
   KENDRA: "KENDRA",
+  ONEDRIVE: "ONEDRIVE",
   S3: "S3",
   SALESFORCE: "SALESFORCE",
   SHAREPOINT: "SHAREPOINT",
@@ -653,14 +787,14 @@ export type GeneratedQueryType = (typeof GeneratedQueryType)[keyof typeof Genera
  * @public
  * @enum
  */
-export const ConversationRole = {
-  ASSISTANT: "assistant",
-  USER: "user",
+export const DocumentOutputFormat = {
+  EXTRACTED: "EXTRACTED",
+  RAW: "RAW",
 } as const;
 /**
  * @public
  */
-export type ConversationRole = (typeof ConversationRole)[keyof typeof ConversationRole];
+export type DocumentOutputFormat = (typeof DocumentOutputFormat)[keyof typeof DocumentOutputFormat];
 
 /**
  * @public
@@ -692,6 +826,47 @@ export type FileUseCase = (typeof FileUseCase)[keyof typeof FileUseCase];
  * @public
  * @enum
  */
+export const RerankingMetadataSelectionMode = {
+  ALL: "ALL",
+  SELECTIVE: "SELECTIVE",
+} as const;
+/**
+ * @public
+ */
+export type RerankingMetadataSelectionMode =
+  (typeof RerankingMetadataSelectionMode)[keyof typeof RerankingMetadataSelectionMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const ManagedSearchRerankingConfigurationType = {
+  BEDROCK_RERANKING_MODEL: "BEDROCK_RERANKING_MODEL",
+} as const;
+/**
+ * @public
+ */
+export type ManagedSearchRerankingConfigurationType =
+  (typeof ManagedSearchRerankingConfigurationType)[keyof typeof ManagedSearchRerankingConfigurationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RerankingModelType = {
+  CUSTOM: "CUSTOM",
+  MANAGED: "MANAGED",
+  NONE: "NONE",
+} as const;
+/**
+ * @public
+ */
+export type RerankingModelType = (typeof RerankingModelType)[keyof typeof RerankingModelType];
+
+/**
+ * @public
+ * @enum
+ */
 export const AttributeType = {
   BOOLEAN: "BOOLEAN",
   NUMBER: "NUMBER",
@@ -715,20 +890,6 @@ export const SearchType = {
  * @public
  */
 export type SearchType = (typeof SearchType)[keyof typeof SearchType];
-
-/**
- * @public
- * @enum
- */
-export const RerankingMetadataSelectionMode = {
-  ALL: "ALL",
-  SELECTIVE: "SELECTIVE",
-} as const;
-/**
- * @public
- */
-export type RerankingMetadataSelectionMode =
-  (typeof RerankingMetadataSelectionMode)[keyof typeof RerankingMetadataSelectionMode];
 
 /**
  * @public

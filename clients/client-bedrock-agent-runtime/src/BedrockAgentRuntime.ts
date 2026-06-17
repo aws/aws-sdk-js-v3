@@ -4,6 +4,11 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { BedrockAgentRuntimeClient } from "./BedrockAgentRuntimeClient";
 import {
+  type AgenticRetrieveStreamCommandInput,
+  type AgenticRetrieveStreamCommandOutput,
+  AgenticRetrieveStreamCommand,
+} from "./commands/AgenticRetrieveStreamCommand";
+import {
   type CreateInvocationCommandInput,
   type CreateInvocationCommandOutput,
   CreateInvocationCommand,
@@ -38,6 +43,11 @@ import {
   type GetAgentMemoryCommandOutput,
   GetAgentMemoryCommand,
 } from "./commands/GetAgentMemoryCommand";
+import {
+  type GetDocumentContentCommandInput,
+  type GetDocumentContentCommandOutput,
+  GetDocumentContentCommand,
+} from "./commands/GetDocumentContentCommand";
 import {
   type GetExecutionFlowSnapshotCommandInput,
   type GetExecutionFlowSnapshotCommandOutput,
@@ -160,6 +170,7 @@ import { paginateRerank } from "./pagination/RerankPaginator";
 import { paginateRetrieve } from "./pagination/RetrievePaginator";
 
 const commands = {
+  AgenticRetrieveStreamCommand,
   CreateInvocationCommand,
   CreateSessionCommand,
   DeleteAgentMemoryCommand,
@@ -167,6 +178,7 @@ const commands = {
   EndSessionCommand,
   GenerateQueryCommand,
   GetAgentMemoryCommand,
+  GetDocumentContentCommand,
   GetExecutionFlowSnapshotCommand,
   GetFlowExecutionCommand,
   GetInvocationStepCommand,
@@ -204,6 +216,23 @@ const paginators = {
 };
 
 export interface BedrockAgentRuntime {
+  /**
+   * @see {@link AgenticRetrieveStreamCommand}
+   */
+  agenticRetrieveStream(
+    args: AgenticRetrieveStreamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AgenticRetrieveStreamCommandOutput>;
+  agenticRetrieveStream(
+    args: AgenticRetrieveStreamCommandInput,
+    cb: (err: any, data?: AgenticRetrieveStreamCommandOutput) => void
+  ): void;
+  agenticRetrieveStream(
+    args: AgenticRetrieveStreamCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AgenticRetrieveStreamCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link CreateInvocationCommand}
    */
@@ -322,6 +351,23 @@ export interface BedrockAgentRuntime {
     args: GetAgentMemoryCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetAgentMemoryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDocumentContentCommand}
+   */
+  getDocumentContent(
+    args: GetDocumentContentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDocumentContentCommandOutput>;
+  getDocumentContent(
+    args: GetDocumentContentCommandInput,
+    cb: (err: any, data?: GetDocumentContentCommandOutput) => void
+  ): void;
+  getDocumentContent(
+    args: GetDocumentContentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDocumentContentCommandOutput) => void
   ): void;
 
   /**

@@ -25,7 +25,7 @@ import {
   NODE_RETRY_MODE_CONFIG_OPTIONS,
 } from "@smithy/core/retry";
 import { calculateBodyLength, Hash } from "@smithy/core/serde";
-import { NodeHttpHandler as RequestHandler, streamCollector } from "@smithy/node-http-handler";
+import { NodeHttp2Handler as RequestHandler, streamCollector } from "@smithy/node-http-handler";
 
 import type { BedrockAgentRuntimeClientConfig } from "./BedrockAgentRuntimeClient";
 import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared";
@@ -59,7 +59,10 @@ export const getRuntimeConfig = (config: BedrockAgentRuntimeClientConfig) => {
         NODE_REGION_CONFIG_OPTIONS,
         {...NODE_REGION_CONFIG_FILE_OPTIONS, ...loaderConfig}
     ),
-    requestHandler: RequestHandler.create(config?.requestHandler ?? defaultConfigProvider),
+    requestHandler: RequestHandler.create(config?.requestHandler ?? (async () => ({
+      ...await defaultConfigProvider(),
+      disableConcurrentStreams: true
+    }))),
     retryMode:
       config?.retryMode ??
       loadNodeConfig(
