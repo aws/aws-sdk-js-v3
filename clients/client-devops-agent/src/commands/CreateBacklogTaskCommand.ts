@@ -45,7 +45,7 @@ export interface CreateBacklogTaskCommandOutput extends CreateBacklogTaskRespons
  *     referenceUrl: "STRING_VALUE", // required
  *     associationId: "STRING_VALUE", // required
  *   },
- *   taskType: "INVESTIGATION" || "EVALUATION", // required
+ *   taskType: "INVESTIGATION" || "EVALUATION" || "RELEASE_READINESS_REVIEW" || "RELEASE_TESTING", // required
  *   title: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   priority: "CRITICAL" || "HIGH" || "MEDIUM" || "LOW" || "MINIMAL", // required
@@ -67,7 +67,7 @@ export interface CreateBacklogTaskCommandOutput extends CreateBacklogTaskRespons
  * //       referenceUrl: "STRING_VALUE", // required
  * //       associationId: "STRING_VALUE", // required
  * //     },
- * //     taskType: "INVESTIGATION" || "EVALUATION", // required
+ * //     taskType: "INVESTIGATION" || "EVALUATION" || "RELEASE_READINESS_REVIEW" || "RELEASE_TESTING", // required
  * //     priority: "CRITICAL" || "HIGH" || "MEDIUM" || "LOW" || "MINIMAL", // required
  * //     status: "PENDING_TRIAGE" || "LINKED" || "PENDING_START" || "IN_PROGRESS" || "PENDING_CUSTOMER_APPROVAL" || "COMPLETED" || "FAILED" || "TIMED_OUT" || "CANCELED" || "SKIPPED", // required
  * //     createdAt: new Date("TIMESTAMP"), // required

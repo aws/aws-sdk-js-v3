@@ -68,6 +68,7 @@ export interface GetAssociationCommandOutput extends GetAssociationOutput, __Met
  * //         owner: "STRING_VALUE", // required
  * //         ownerType: "organization" || "user", // required
  * //         instanceIdentifier: "STRING_VALUE",
+ * //         runtimeRoleArn: "STRING_VALUE",
  * //       },
  * //       slack: { // SlackConfiguration
  * //         workspaceId: "STRING_VALUE", // required
@@ -109,6 +110,7 @@ export interface GetAssociationCommandOutput extends GetAssociationOutput, __Met
  * //         projectId: "STRING_VALUE", // required
  * //         projectPath: "STRING_VALUE", // required
  * //         instanceIdentifier: "STRING_VALUE",
+ * //         runtimeRoleArn: "STRING_VALUE",
  * //       },
  * //       mcpserversplunk: {},
  * //       eventChannel: {},
@@ -137,6 +139,13 @@ export interface GetAssociationCommandOutput extends GetAssociationOutput, __Met
  * //         tools: [ // required
  * //           "STRING_VALUE",
  * //         ],
+ * //       },
+ * //       remoteagent: {},
+ * //       remoteagentsigv4: {},
+ * //     },
+ * //     capabilities: { // AssociationCapabilities
+ * //       "<keys>": { // CapabilityConfiguration
+ * //         enabled: true || false,
  * //       },
  * //     },
  * //   },

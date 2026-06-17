@@ -44,7 +44,7 @@ export interface GetServiceCommandOutput extends GetServiceOutput, __MetadataBea
  * // { // GetServiceOutput
  * //   service: { // RegisteredService
  * //     serviceId: "STRING_VALUE", // required
- * //     serviceType: "github" || "slack" || "azure" || "azuredevops" || "dynatrace" || "servicenow" || "pagerduty" || "gitlab" || "eventChannel" || "mcpservernewrelic" || "mcpservergrafana" || "mcpserverdatadog" || "mcpserver" || "mcpserversplunk" || "azureidentity" || "mcpserversigv4", // required
+ * //     serviceType: "github" || "slack" || "azure" || "azuredevops" || "dynatrace" || "servicenow" || "pagerduty" || "gitlab" || "eventChannel" || "mcpservernewrelic" || "mcpservergrafana" || "mcpserverdatadog" || "mcpserver" || "mcpserversplunk" || "azureidentity" || "mcpserversigv4" || "remoteagent" || "remoteagentsigv4", // required
  * //     name: "STRING_VALUE",
  * //     accessibleResources: [ // DocumentList
  * //       "DOCUMENT_VALUE",
@@ -124,6 +124,21 @@ export interface GetServiceCommandOutput extends GetServiceOutput, __MetadataBea
  * //         customHeaders: { // CustomHeaders
  * //           "<keys>": "STRING_VALUE",
  * //         },
+ * //       },
+ * //       remoteagent: { // RegisteredRemoteAgentDetails
+ * //         name: "STRING_VALUE", // required
+ * //         endpoint: "STRING_VALUE", // required
+ * //         description: "STRING_VALUE",
+ * //         authorizationMethod: "oauth-client-credentials" || "api-key" || "bearer-token", // required
+ * //         apiKeyHeader: "STRING_VALUE",
+ * //       },
+ * //       remoteagentsigv4: { // RegisteredRemoteAgentSigV4Details
+ * //         name: "STRING_VALUE", // required
+ * //         endpoint: "STRING_VALUE", // required
+ * //         description: "STRING_VALUE",
+ * //         region: "STRING_VALUE", // required
+ * //         service: "STRING_VALUE", // required
+ * //         roleArn: "STRING_VALUE",
  * //       },
  * //     },
  * //     kmsKeyArn: "STRING_VALUE",

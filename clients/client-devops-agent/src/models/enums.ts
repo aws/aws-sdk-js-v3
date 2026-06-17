@@ -88,6 +88,49 @@ export type NewRelicRegion = (typeof NewRelicRegion)[keyof typeof NewRelicRegion
  * @public
  * @enum
  */
+export const RemoteAgentAuthorizationMethod = {
+  /**
+   * <p>API key-based authentication.</p>
+   */
+  API_KEY: "api-key",
+  /**
+   * <p>Bearer token authentication (RFC 6750).</p>
+   */
+  BEARER_TOKEN: "bearer-token",
+  /**
+   * <p>OAuth 2.0 client credentials flow.</p>
+   */
+  OAUTH_CLIENT_CREDENTIALS: "oauth-client-credentials",
+} as const;
+/**
+ * @public
+ */
+export type RemoteAgentAuthorizationMethod =
+  (typeof RemoteAgentAuthorizationMethod)[keyof typeof RemoteAgentAuthorizationMethod];
+
+/**
+ * @public
+ * @enum
+ */
+export const CapabilityType = {
+  /**
+   * <p>Release readiness review auto-trigger capability.</p>
+   */
+  RELEASE_READINESS_REVIEW: "RELEASE_READINESS_REVIEW",
+  /**
+   * <p>Release readiness review automated testing capability.</p>
+   */
+  RELEASE_READINESS_REVIEW_AUTOMATED_TESTING: "RELEASE_READINESS_REVIEW_AUTOMATED_TESTING",
+} as const;
+/**
+ * @public
+ */
+export type CapabilityType = (typeof CapabilityType)[keyof typeof CapabilityType];
+
+/**
+ * @public
+ * @enum
+ */
 export const MonitorAccountType = {
   MONITOR: "monitor",
 } as const;
@@ -225,6 +268,14 @@ export const TaskType = {
    * <p>Task for investigating issues or requirements</p>
    */
   INVESTIGATION: "INVESTIGATION",
+  /**
+   * <p>Task for reviewing changes for production readiness</p>
+   */
+  RELEASE_READINESS_REVIEW: "RELEASE_READINESS_REVIEW",
+  /**
+   * <p>Task for automated release testing</p>
+   */
+  RELEASE_TESTING: "RELEASE_TESTING",
 } as const;
 /**
  * @public
@@ -615,6 +666,14 @@ export const Service = {
    */
   MCP_SERVER_SPLUNK: "mcpserversplunk",
   PAGERDUTY: "pagerduty",
+  /**
+   * <p>Remote A2A agent with token-based authentication (API key or OAuth).</p>
+   */
+  REMOTE_AGENT: "remoteagent",
+  /**
+   * <p>Remote A2A agent with SigV4 authentication.</p>
+   */
+  REMOTE_AGENT_SIGV4: "remoteagentsigv4",
   SERVICENOW: "servicenow",
   SLACK: "slack",
 } as const;
@@ -660,6 +719,14 @@ export const PostRegisterServiceSupportedService = {
    */
   MCP_SERVER_SPLUNK: "mcpserversplunk",
   PAGERDUTY: "pagerduty",
+  /**
+   * <p>Remote A2A agent with token-based authentication (API key or OAuth).</p>
+   */
+  REMOTE_AGENT: "remoteagent",
+  /**
+   * <p>Remote A2A agent with SigV4 authentication.</p>
+   */
+  REMOTE_AGENT_SIGV4: "remoteagentsigv4",
   SERVICENOW: "servicenow",
 } as const;
 /**

@@ -10,6 +10,7 @@ import {
   AssetFileBody$,
   AssetFileContent$,
   AssetFileSummary$,
+  AssetSourceUrlContent$,
   AssetTypeSummary$,
   AssetVersionMetadata$,
   AssetZipContent$,
@@ -23,6 +24,8 @@ import {
   AWSConfiguration$,
   AzureConfiguration$,
   AzureDevOpsConfiguration$,
+  CapabilityConfiguration$,
+  CapabilityType,
   ChatExecution$,
   ConflictException,
   ConflictException$,
@@ -311,6 +314,8 @@ import {
   RegisteredMCPServerSigV4Details$,
   RegisteredNewRelicDetails$,
   RegisteredPagerDutyDetails$,
+  RegisteredRemoteAgentDetails$,
+  RegisteredRemoteAgentSigV4Details$,
   RegisteredService$,
   RegisteredServiceNowDetails$,
   RegisteredSlackServiceDetails$,
@@ -318,6 +323,16 @@ import {
   RegisterServiceCommand,
   RegisterServiceInput$,
   RegisterServiceOutput$,
+  RemoteAgentAPIKeyConfig$,
+  RemoteAgentAuthorizationConfig$,
+  RemoteAgentAuthorizationMethod,
+  RemoteAgentBearerTokenConfig$,
+  RemoteAgentConfiguration$,
+  RemoteAgentOAuthClientCredentialsConfig$,
+  RemoteAgentServiceDetails$,
+  RemoteAgentSigV4AuthorizationConfig$,
+  RemoteAgentSigV4Configuration$,
+  RemoteAgentSigV4ServiceDetails$,
   ResourceConfigDnsResolution,
   ResourceNotFoundException,
   ResourceNotFoundException$,
@@ -570,6 +585,7 @@ assert(typeof AssetFile$ === "object");
 assert(typeof AssetFileBody$ === "object");
 assert(typeof AssetFileContent$ === "object");
 assert(typeof AssetFileSummary$ === "object");
+assert(typeof AssetSourceUrlContent$ === "object");
 assert(typeof AssetTypeSummary$ === "object");
 assert(typeof AssetVersionMetadata$ === "object");
 assert(typeof AssetZipContent$ === "object");
@@ -580,6 +596,7 @@ assert(typeof Association$ === "object");
 assert(typeof AWSConfiguration$ === "object");
 assert(typeof AzureConfiguration$ === "object");
 assert(typeof AzureDevOpsConfiguration$ === "object");
+assert(typeof CapabilityConfiguration$ === "object");
 assert(typeof ChatExecution$ === "object");
 assert(typeof CreateAgentSpaceInput$ === "object");
 assert(typeof CreateAgentSpaceOutput$ === "object");
@@ -734,11 +751,22 @@ assert(typeof RegisteredMCPServerDetails$ === "object");
 assert(typeof RegisteredMCPServerSigV4Details$ === "object");
 assert(typeof RegisteredNewRelicDetails$ === "object");
 assert(typeof RegisteredPagerDutyDetails$ === "object");
+assert(typeof RegisteredRemoteAgentDetails$ === "object");
+assert(typeof RegisteredRemoteAgentSigV4Details$ === "object");
 assert(typeof RegisteredService$ === "object");
 assert(typeof RegisteredServiceNowDetails$ === "object");
 assert(typeof RegisteredSlackServiceDetails$ === "object");
 assert(typeof RegisterServiceInput$ === "object");
 assert(typeof RegisterServiceOutput$ === "object");
+assert(typeof RemoteAgentAPIKeyConfig$ === "object");
+assert(typeof RemoteAgentAuthorizationConfig$ === "object");
+assert(typeof RemoteAgentBearerTokenConfig$ === "object");
+assert(typeof RemoteAgentConfiguration$ === "object");
+assert(typeof RemoteAgentOAuthClientCredentialsConfig$ === "object");
+assert(typeof RemoteAgentServiceDetails$ === "object");
+assert(typeof RemoteAgentSigV4AuthorizationConfig$ === "object");
+assert(typeof RemoteAgentSigV4Configuration$ === "object");
+assert(typeof RemoteAgentSigV4ServiceDetails$ === "object");
 assert(typeof ScheduleCondition$ === "object");
 assert(typeof SelfManagedInput$ === "object");
 assert(typeof SendMessageContentBlockDelta$ === "object");
@@ -806,6 +834,7 @@ assert(typeof ValidationExceptionField$ === "object");
 assert(typeof Webhook$ === "object");
 // enums
 assert(typeof AuthFlow === "object");
+assert(typeof CapabilityType === "object");
 assert(typeof EventChannelType === "object");
 assert(typeof ExecutionStatus === "object");
 assert(typeof GithubRepoOwnerType === "object");
@@ -823,6 +852,7 @@ assert(typeof PrivateConnectionStatus === "object");
 assert(typeof PrivateConnectionType === "object");
 assert(typeof RecommendationPriority === "object");
 assert(typeof RecommendationStatus === "object");
+assert(typeof RemoteAgentAuthorizationMethod === "object");
 assert(typeof ResourceConfigDnsResolution === "object");
 assert(typeof SchedulerState === "object");
 assert(typeof Service === "object");

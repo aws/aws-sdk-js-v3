@@ -52,6 +52,9 @@ export interface UpdateAssetCommandOutput extends UpdateAssetResponse, __Metadat
  *     zip: { // AssetZipContent
  *       zipFile: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")       // required
  *     },
+ *     sourceUrl: { // AssetSourceUrlContent
+ *       url: "STRING_VALUE", // required
+ *     },
  *   },
  *   clientToken: "STRING_VALUE",
  * };

@@ -37,7 +37,7 @@ export interface RegisterServiceCommandOutput extends RegisterServiceOutput, __M
  * const config = {}; // type is DevOpsAgentClientConfig
  * const client = new DevOpsAgentClient(config);
  * const input = { // RegisterServiceInput
- *   service: "dynatrace" || "servicenow" || "pagerduty" || "gitlab" || "eventChannel" || "mcpservernewrelic" || "mcpservergrafana" || "mcpserverdatadog" || "mcpserver" || "mcpserversplunk" || "azureidentity" || "mcpserversigv4", // required
+ *   service: "dynatrace" || "servicenow" || "pagerduty" || "gitlab" || "eventChannel" || "mcpservernewrelic" || "mcpservergrafana" || "mcpserverdatadog" || "mcpserver" || "mcpserversplunk" || "azureidentity" || "mcpserversigv4" || "remoteagent" || "remoteagentsigv4", // required
  *   serviceDetails: { // ServiceDetails Union: only one key present
  *     dynatrace: { // DynatraceServiceDetails
  *       accountUrn: "STRING_VALUE", // required
@@ -268,6 +268,41 @@ export interface RegisterServiceCommandOutput extends RegisterServiceOutput, __M
  *         customHeaders: { // CustomHeaders
  *           "<keys>": "STRING_VALUE",
  *         },
+ *       },
+ *     },
+ *     remoteagent: { // RemoteAgentServiceDetails
+ *       name: "STRING_VALUE", // required
+ *       endpoint: "STRING_VALUE", // required
+ *       description: "STRING_VALUE",
+ *       authorizationConfig: { // RemoteAgentAuthorizationConfig Union: only one key present
+ *         apiKey: { // RemoteAgentAPIKeyConfig
+ *           apiKeyName: "STRING_VALUE", // required
+ *           apiKeyValue: "STRING_VALUE", // required
+ *           apiKeyHeader: "STRING_VALUE", // required
+ *         },
+ *         oAuthClientCredentials: { // RemoteAgentOAuthClientCredentialsConfig
+ *           clientName: "STRING_VALUE",
+ *           clientId: "STRING_VALUE", // required
+ *           exchangeParameters: "<ExchangeParameters>",
+ *           clientSecret: "STRING_VALUE", // required
+ *           exchangeUrl: "STRING_VALUE", // required
+ *           scopes: "<Scopes>",
+ *         },
+ *         bearerToken: { // RemoteAgentBearerTokenConfig
+ *           tokenName: "STRING_VALUE", // required
+ *           tokenValue: "STRING_VALUE", // required
+ *           authorizationHeader: "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *     remoteagentsigv4: { // RemoteAgentSigV4ServiceDetails
+ *       name: "STRING_VALUE", // required
+ *       endpoint: "STRING_VALUE", // required
+ *       description: "STRING_VALUE",
+ *       authorizationConfig: { // RemoteAgentSigV4AuthorizationConfig
+ *         region: "STRING_VALUE", // required
+ *         service: "STRING_VALUE", // required
+ *         roleArn: "STRING_VALUE",
  *       },
  *     },
  *   },

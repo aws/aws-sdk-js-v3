@@ -1,6 +1,7 @@
 const _A = "Asset";
 const _AC = "AzureConfiguration";
-const _ACs = "AssetContent";
+const _ACs = "AssociationCapabilities";
+const _ACss = "AssetContent";
 const _ADE = "AccessDeniedException";
 const _ADOC = "AzureDevOpsConfiguration";
 const _AF = "AssetFile";
@@ -19,6 +20,7 @@ const _ASI = "AssociateServiceInput";
 const _ASL = "AgentSpaceList";
 const _ASO = "AssociateServiceOutput";
 const _ASRS = "AdditionalServiceRegistrationStep";
+const _ASUC = "AssetSourceUrlContent";
 const _ASs = "AssociateService";
 const _ATL = "AssetTypeList";
 const _ATS = "AssetTypeSummary";
@@ -39,9 +41,10 @@ const _CASO = "CreateAgentSpaceOutput";
 const _CBT = "CreateBacklogTask";
 const _CBTR = "CreateBacklogTaskRequest";
 const _CBTRr = "CreateBacklogTaskResponse";
-const _CC = "CreateChat";
+const _CC = "CapabilityConfiguration";
 const _CCR = "CreateChatRequest";
 const _CCRr = "CreateChatResponse";
+const _CCr = "CreateChat";
 const _CE = "ConflictException";
 const _CEL = "ChatExecutionList";
 const _CEh = "ChatExecution";
@@ -235,8 +238,17 @@ const _PDOACCC = "PagerDutyOAuthClientCredentialsConfig";
 const _PM = "PendingMessage";
 const _PMe = "PendingMessages";
 const _R = "Recommendation";
+const _RAAC = "RemoteAgentAuthorizationConfig";
+const _RAAPIKC = "RemoteAgentAPIKeyConfig";
+const _RABTC = "RemoteAgentBearerTokenConfig";
+const _RAC = "RemoteAgentConfiguration";
 const _RADOSD = "RegisteredAzureDevOpsServiceDetails";
 const _RAID = "RegisteredAzureIdentityDetails";
+const _RAOACCC = "RemoteAgentOAuthClientCredentialsConfig";
+const _RASD = "RemoteAgentServiceDetails";
+const _RASVAC = "RemoteAgentSigV4AuthorizationConfig";
+const _RASVC = "RemoteAgentSigV4Configuration";
+const _RASVSD = "RemoteAgentSigV4ServiceDetails";
 const _RC = "RecommendationContent";
 const _RGLSD = "RegisteredGitLabServiceDetails";
 const _RGSD = "RegisteredGithubServiceDetails";
@@ -249,6 +261,8 @@ const _RNFE = "ResourceNotFoundException";
 const _RNRD = "RegisteredNewRelicDetails";
 const _RO = "ReferenceOutput";
 const _RPDD = "RegisteredPagerDutyDetails";
+const _RRAD = "RegisteredRemoteAgentDetails";
+const _RRASVD = "RegisteredRemoteAgentSigV4Details";
 const _RS = "RegisteredService";
 const _RSI = "RegisterServiceInput";
 const _RSL = "RegisteredServicesList";
@@ -406,6 +420,7 @@ const _cNh = "channelName";
 const _cP = "currentPage";
 const _cS = "clientSecret";
 const _cT = "clientToken";
+const _ca = "capabilities";
 const _ce = "certificate";
 const _co = "content";
 const _con = "configuration";
@@ -428,7 +443,8 @@ const _eS = "executionStatus";
 const _eSv = "evaluationSchedule";
 const _eU = "exchangeUrl";
 const _eUPCN = "exchangeUrlPrivateConnectionName";
-const _en = "endpoint";
+const _en = "enabled";
+const _end = "endpoint";
 const _ev = "events";
 const _ex = "expression";
 const _exe = "executions";
@@ -543,6 +559,7 @@ const _rIef = "referenceId";
 const _rIes = "responseId";
 const _rN = "repoName";
 const _rP = "rankPosition";
+const _rRA = "runtimeRoleArn";
 const _rT = "recordType";
 const _rTE = "returnToEndpoint";
 const _rU = "referenceUrl";
@@ -552,6 +569,8 @@ const _rec = "recommendation";
 const _reco = "records";
 const _recom = "recommendations";
 const _reg = "region";
+const _rem = "remoteagent";
+const _remo = "remoteagentsigv4";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.devopsagent";
 const _sA = "sourceAws";
 const _sCC = "supportCodeChallenge";
@@ -567,6 +586,7 @@ const _sMel = "selfManaged";
 const _sN = "sequenceNumber";
 const _sR = "statusReason";
 const _sT = "serviceType";
+const _sU = "sourceUrl";
 const _sc = "scopes";
 const _sch = "schedule";
 const _se = "server";
@@ -606,7 +626,7 @@ const _ti = "title";
 const _to = "tools";
 const _tr = "trigger";
 const _ty = "type";
-const _u = "uid";
+const _u = "url";
 const _uA = "updatedAt";
 const _uAR = "userActionResponse";
 const _uAp = "updatedAfter";
@@ -618,6 +638,7 @@ const _uPET = "usagePeriodEndTime";
 const _uPST = "usagePeriodStartTime";
 const _uR = "userReference";
 const _uT = "userType";
+const _ui = "uid";
 const _us = "usage";
 const _v = "version";
 const _vI = "vpcId";
@@ -771,6 +792,11 @@ export var AssetFileSummary$: StaticStructureSchema = [3, n0, _AFS,
   [_p, _v, _cA, _uA, _me],
   [0, 1, 4, 4, 15], 4
 ];
+export var AssetSourceUrlContent$: StaticStructureSchema = [3, n0, _ASUC,
+  0,
+  [_u],
+  [0], 1
+];
 export var AssetTypeSummary$: StaticStructureSchema = [3, n0, _ATS,
   0,
   [_aT, _d],
@@ -788,8 +814,8 @@ export var AssetZipContent$: StaticStructureSchema = [3, n0, _AZC,
 ];
 export var AssociateServiceInput$: StaticStructureSchema = [3, n0, _ASI,
   0,
-  [_aSI, _sI, _con],
-  [[0, 1], 0, [() => ServiceConfiguration$, 0]], 3
+  [_aSI, _sI, _con, _ca],
+  [[0, 1], 0, [() => ServiceConfiguration$, 0], () => AssociationCapabilities], 3
 ];
 export var AssociateServiceOutput$: StaticStructureSchema = [3, n0, _ASO,
   0,
@@ -798,8 +824,8 @@ export var AssociateServiceOutput$: StaticStructureSchema = [3, n0, _ASO,
 ];
 export var Association$: StaticStructureSchema = [3, n0, _As,
   0,
-  [_aSI, _cA, _uA, _aIs, _sI, _con, _st],
-  [0, 5, 5, 0, 0, [() => ServiceConfiguration$, 0], 0], 6
+  [_aSI, _cA, _uA, _aIs, _sI, _con, _st, _ca],
+  [0, 5, 5, 0, 0, [() => ServiceConfiguration$, 0], 0, () => AssociationCapabilities], 6
 ];
 export var AWSConfiguration$: StaticStructureSchema = [3, n0, _AWSC,
   0,
@@ -815,6 +841,11 @@ export var AzureDevOpsConfiguration$: StaticStructureSchema = [3, n0, _ADOC,
   0,
   [_oN, _pI, _pN],
   [0, 0, 0], 3
+];
+export var CapabilityConfiguration$: StaticStructureSchema = [3, n0, _CC,
+  0,
+  [_en],
+  [2]
 ];
 export var ChatExecution$: StaticStructureSchema = [3, n0, _CEh,
   0,
@@ -893,7 +924,7 @@ export var CreateTriggerResponse$: StaticStructureSchema = [3, n0, _CTRr,
 ];
 export var DatadogServiceDetails$: StaticStructureSchema = [3, n0, _DSD,
   0,
-  [_n, _en, _aC, _d],
+  [_n, _end, _aC, _d],
   [0, 0, () => DatadogAuthorizationConfig$, [() => Description, 0]], 3
 ];
 export var DeleteAgentSpaceInput$: StaticStructureSchema = [3, n0, _DASI,
@@ -1018,7 +1049,7 @@ export var EventChannelDetails$: StaticStructureSchema = [3, n0, _ECD,
 ];
 export var Execution$: StaticStructureSchema = [3, n0, _E,
   0,
-  [_aSI, _eI, _aST, _cA, _uA, _eS, _pEI, _aTg, _u],
+  [_aSI, _eI, _aST, _cA, _uA, _eS, _pEI, _aTg, _ui],
   [0, 0, 0, 4, 4, 0, 0, 0, 0], 6
 ];
 export var GenericWebhook$: StaticStructureSchema = [3, n0, _GW,
@@ -1138,13 +1169,13 @@ export var GetTriggerResponse$: StaticStructureSchema = [3, n0, _GTRe,
 ];
 export var GitHubConfiguration$: StaticStructureSchema = [3, n0, _GHC,
   0,
-  [_rN, _rIe, _o, _oT, _iI],
-  [0, 0, 0, 0, 0], 4
+  [_rN, _rIe, _o, _oT, _iI, _rRA],
+  [0, 0, 0, 0, 0, 0], 4
 ];
 export var GitLabConfiguration$: StaticStructureSchema = [3, n0, _GLC,
   0,
-  [_pI, _pP, _iI],
-  [0, 0, 0], 2
+  [_pI, _pP, _iI, _rRA],
+  [0, 0, 0, 0], 2
 ];
 export var GitLabDetails$: StaticStructureSchema = [3, n0, _GLD,
   0,
@@ -1173,7 +1204,7 @@ export var GoalScheduleInput$: StaticStructureSchema = [3, n0, _GSIo,
 ];
 export var GrafanaServiceDetails$: StaticStructureSchema = [3, n0, _GSD,
   0,
-  [_n, _en, _aC, _d],
+  [_n, _end, _aC, _d],
   [0, 0, [() => MCPServerAuthorizationConfig$, 0], [() => Description, 0]], 3
 ];
 export var IamAuthConfiguration$: StaticStructureSchema = [3, n0, _IAC,
@@ -1403,17 +1434,17 @@ export var MCPServerDatadogConfiguration$: StaticStructureSchema = [3, n0, _MCPS
 ];
 export var MCPServerDetails$: StaticStructureSchema = [3, n0, _MCPSD,
   0,
-  [_n, _en, _aC, _d],
+  [_n, _end, _aC, _d],
   [0, 0, [() => MCPServerAuthorizationConfig$, 0], [() => Description, 0]], 3
 ];
 export var MCPServerGrafanaConfiguration$: StaticStructureSchema = [3, n0, _MCPSGC,
   0,
-  [_en, _oI, _to],
+  [_end, _oI, _to],
   [0, 0, 64 | 0], 1
 ];
 export var MCPServerNewRelicConfiguration$: StaticStructureSchema = [3, n0, _MCPSNRC,
   0,
-  [_aIc, _en],
+  [_aIc, _end],
   [0, 0], 2
 ];
 export var MCPServerOAuth3LOConfig$: StaticStructureSchema = [3, n0, _MCPSOALOC,
@@ -1438,7 +1469,7 @@ export var MCPServerSigV4Configuration$: StaticStructureSchema = [3, n0, _MCPSSV
 ];
 export var MCPServerSigV4ServiceDetails$: StaticStructureSchema = [3, n0, _MCPSSVSD,
   0,
-  [_n, _en, _aC, _d],
+  [_n, _end, _aC, _d],
   [0, 0, [() => MCPServerSigV4AuthorizationConfig$, 0], [() => Description, 0]], 3
 ];
 export var MCPServerSplunkConfiguration$: StaticStructureSchema = [3, n0, _MCPSSC,
@@ -1528,17 +1559,17 @@ export var RegisteredGitLabServiceDetails$: StaticStructureSchema = [3, n0, _RGL
 ];
 export var RegisteredGrafanaServerDetails$: StaticStructureSchema = [3, n0, _RGSDe,
   0,
-  [_en, _aM],
+  [_end, _aM],
   [0, 0], 2
 ];
 export var RegisteredMCPServerDetails$: StaticStructureSchema = [3, n0, _RMCPSD,
   0,
-  [_n, _en, _aM, _d, _aKH],
+  [_n, _end, _aM, _d, _aKH],
   [0, 0, 0, [() => Description, 0], 0], 3
 ];
 export var RegisteredMCPServerSigV4Details$: StaticStructureSchema = [3, n0, _RMCPSSVD,
   0,
-  [_n, _en, _reg, _ser, _rAo, _d, _mRA, _cH],
+  [_n, _end, _reg, _ser, _rAo, _d, _mRA, _cH],
   [0, 0, 0, 0, 0, [() => Description, 0], 0, [() => CustomHeaders, 0]], 5
 ];
 export var RegisteredNewRelicDetails$: StaticStructureSchema = [3, n0, _RNRD,
@@ -1550,6 +1581,16 @@ export var RegisteredPagerDutyDetails$: StaticStructureSchema = [3, n0, _RPDD,
   0,
   [_sc],
   [64 | 0], 1
+];
+export var RegisteredRemoteAgentDetails$: StaticStructureSchema = [3, n0, _RRAD,
+  0,
+  [_n, _end, _aM, _d, _aKH],
+  [0, 0, 0, [() => Description, 0], 0], 3
+];
+export var RegisteredRemoteAgentSigV4Details$: StaticStructureSchema = [3, n0, _RRASVD,
+  0,
+  [_n, _end, _reg, _ser, _d, _rAo],
+  [0, 0, 0, 0, [() => Description, 0], 0], 4
 ];
 export var RegisteredService$: StaticStructureSchema = [3, n0, _RS,
   0,
@@ -1575,6 +1616,46 @@ export var RegisterServiceOutput$: StaticStructureSchema = [3, n0, _RSO,
   0,
   [_sI, _aSd, _kKA, _t],
   [0, () => AdditionalServiceRegistrationStep$, 0, 128 | 0]
+];
+export var RemoteAgentAPIKeyConfig$: StaticStructureSchema = [3, n0, _RAAPIKC,
+  0,
+  [_aKN, _aKV, _aKH],
+  [0, [() => ApiKeyValue, 0], 0], 3
+];
+export var RemoteAgentBearerTokenConfig$: StaticStructureSchema = [3, n0, _RABTC,
+  0,
+  [_tN, _tV, _aH],
+  [0, [() => TokenValue, 0], 0], 2
+];
+export var RemoteAgentConfiguration$: StaticStructureSchema = [3, n0, _RAC,
+  0,
+  [],
+  []
+];
+export var RemoteAgentOAuthClientCredentialsConfig$: StaticStructureSchema = [3, n0, _RAOACCC,
+  0,
+  [_cI, _cS, _eU, _cN, _eP, _sc],
+  [[() => ClientId, 0], [() => ClientSecret, 0], 0, 0, [() => ExchangeParameters, 0], 64 | 0], 3
+];
+export var RemoteAgentServiceDetails$: StaticStructureSchema = [3, n0, _RASD,
+  0,
+  [_n, _end, _aC, _d],
+  [0, 0, [() => RemoteAgentAuthorizationConfig$, 0], [() => Description, 0]], 3
+];
+export var RemoteAgentSigV4AuthorizationConfig$: StaticStructureSchema = [3, n0, _RASVAC,
+  0,
+  [_reg, _ser, _rAo],
+  [0, 0, 0], 2
+];
+export var RemoteAgentSigV4Configuration$: StaticStructureSchema = [3, n0, _RASVC,
+  0,
+  [],
+  []
+];
+export var RemoteAgentSigV4ServiceDetails$: StaticStructureSchema = [3, n0, _RASVSD,
+  0,
+  [_n, _end, _aC, _d],
+  [0, 0, () => RemoteAgentSigV4AuthorizationConfig$, [() => Description, 0]], 3
 ];
 export var ScheduleCondition$: StaticStructureSchema = [3, n0, _SC,
   0,
@@ -1768,8 +1849,8 @@ export var UpdateAssetResponse$: StaticStructureSchema = [3, n0, _UARp,
 ];
 export var UpdateAssociationInput$: StaticStructureSchema = [3, n0, _UAI,
   0,
-  [_aSI, _aIs, _con],
-  [[0, 1], [0, 1], [() => ServiceConfiguration$, 0]], 3
+  [_aSI, _aIs, _con, _ca],
+  [[0, 1], [0, 1], [() => ServiceConfiguration$, 0], () => AssociationCapabilities], 3
 ];
 export var UpdateAssociationOutput$: StaticStructureSchema = [3, n0, _UAO,
   0,
@@ -1950,6 +2031,9 @@ var WebhooksList: StaticListSchema = [1, n0, _WL,
   0, () => Webhook$
 ];
 var WebIdentityTokenAudienceList = 64 | 0;
+var AssociationCapabilities: StaticMapSchema = [2, n0, _ACs,
+  0, 0, () => CapabilityConfiguration$
+];
 var CustomHeaders: StaticMapSchema = [2, n0, _CH,
   0, [0,
     0]
@@ -1965,18 +2049,18 @@ var ExchangeParameters: StaticMapSchema = [2, n0, _EP,
 var Tags = 128 | 0;
 export var AdditionalServiceDetails$: StaticUnionSchema = [4, n0, _ASD,
   0,
-  [_gi, _sl, _mc, _mcp, _servi, _git, _mcps, _mcpse, _az, _azu, _mcpser, _pa, _mcpserv],
-  [() => RegisteredGithubServiceDetails$, () => RegisteredSlackServiceDetails$, [() => RegisteredMCPServerDetails$, 0], [() => RegisteredMCPServerDetails$, 0], () => RegisteredServiceNowDetails$, () => RegisteredGitLabServiceDetails$, [() => RegisteredMCPServerDetails$, 0], [() => RegisteredNewRelicDetails$, 0], () => RegisteredAzureDevOpsServiceDetails$, () => RegisteredAzureIdentityDetails$, () => RegisteredGrafanaServerDetails$, () => RegisteredPagerDutyDetails$, [() => RegisteredMCPServerSigV4Details$, 0]]
+  [_gi, _sl, _mc, _mcp, _servi, _git, _mcps, _mcpse, _az, _azu, _mcpser, _pa, _mcpserv, _rem, _remo],
+  [() => RegisteredGithubServiceDetails$, () => RegisteredSlackServiceDetails$, [() => RegisteredMCPServerDetails$, 0], [() => RegisteredMCPServerDetails$, 0], () => RegisteredServiceNowDetails$, () => RegisteredGitLabServiceDetails$, [() => RegisteredMCPServerDetails$, 0], [() => RegisteredNewRelicDetails$, 0], () => RegisteredAzureDevOpsServiceDetails$, () => RegisteredAzureIdentityDetails$, () => RegisteredGrafanaServerDetails$, () => RegisteredPagerDutyDetails$, [() => RegisteredMCPServerSigV4Details$, 0], [() => RegisteredRemoteAgentDetails$, 0], [() => RegisteredRemoteAgentSigV4Details$, 0]]
 ];
 export var AdditionalServiceRegistrationStep$: StaticUnionSchema = [4, n0, _ASRS,
   0,
   [_oa],
   [() => OAuthAdditionalStepDetails$]
 ];
-export var AssetContent$: StaticUnionSchema = [4, n0, _ACs,
+export var AssetContent$: StaticUnionSchema = [4, n0, _ACss,
   0,
-  [_f, _z],
-  [() => AssetFileContent$, () => AssetZipContent$]
+  [_f, _z, _sU],
+  [() => AssetFileContent$, () => AssetZipContent$, () => AssetSourceUrlContent$]
 ];
 export var AssetFileBody$: StaticUnionSchema = [4, n0, _AFB,
   0,
@@ -2023,6 +2107,11 @@ export var PrivateConnectionMode$: StaticUnionSchema = [4, n0, _PCM,
   [_sMe, _sMel],
   [() => ServiceManagedInput$, () => SelfManagedInput$]
 ];
+export var RemoteAgentAuthorizationConfig$: StaticUnionSchema = [4, n0, _RAAC,
+  0,
+  [_aK, _oACC, _bT],
+  [[() => RemoteAgentAPIKeyConfig$, 0], [() => RemoteAgentOAuthClientCredentialsConfig$, 0], [() => RemoteAgentBearerTokenConfig$, 0]]
+];
 export var SendMessageContentBlockDelta$: StaticUnionSchema = [4, n0, _SMCBD,
   0,
   [_tD, _jD],
@@ -2035,13 +2124,13 @@ export var SendMessageEvents$: StaticUnionSchema = [4, n0, _SME,
 ];
 export var ServiceConfiguration$: StaticUnionSchema = [4, n0, _SCe,
   0,
-  [_sA, _aw, _gi, _sl, _dy, _servi, _mcpse, _mc, _mcp, _git, _mcps, _eCv, _azur, _az, _mcpser, _pa, _mcpserv],
-  [() => SourceAwsConfiguration$, () => AWSConfiguration$, () => GitHubConfiguration$, () => SlackConfiguration$, () => DynatraceConfiguration$, () => ServiceNowConfiguration$, () => MCPServerNewRelicConfiguration$, () => MCPServerDatadogConfiguration$, () => MCPServerConfiguration$, () => GitLabConfiguration$, () => MCPServerSplunkConfiguration$, () => EventChannelConfiguration$, () => AzureConfiguration$, () => AzureDevOpsConfiguration$, () => MCPServerGrafanaConfiguration$, [() => PagerDutyConfiguration$, 0], () => MCPServerSigV4Configuration$]
+  [_sA, _aw, _gi, _sl, _dy, _servi, _mcpse, _mc, _mcp, _git, _mcps, _eCv, _azur, _az, _mcpser, _pa, _mcpserv, _rem, _remo],
+  [() => SourceAwsConfiguration$, () => AWSConfiguration$, () => GitHubConfiguration$, () => SlackConfiguration$, () => DynatraceConfiguration$, () => ServiceNowConfiguration$, () => MCPServerNewRelicConfiguration$, () => MCPServerDatadogConfiguration$, () => MCPServerConfiguration$, () => GitLabConfiguration$, () => MCPServerSplunkConfiguration$, () => EventChannelConfiguration$, () => AzureConfiguration$, () => AzureDevOpsConfiguration$, () => MCPServerGrafanaConfiguration$, [() => PagerDutyConfiguration$, 0], () => MCPServerSigV4Configuration$, () => RemoteAgentConfiguration$, () => RemoteAgentSigV4Configuration$]
 ];
 export var ServiceDetails$: StaticUnionSchema = [4, n0, _SD,
   0,
-  [_dy, _servi, _mc, _mcp, _git, _mcps, _mcpse, _eCv, _mcpser, _pa, _azu, _mcpserv],
-  [[() => DynatraceServiceDetails$, 0], [() => ServiceNowServiceDetails$, 0], [() => DatadogServiceDetails$, 0], [() => MCPServerDetails$, 0], [() => GitLabDetails$, 0], [() => MCPServerDetails$, 0], [() => NewRelicServiceDetails$, 0], () => EventChannelDetails$, [() => GrafanaServiceDetails$, 0], [() => PagerDutyDetails$, 0], () => RegisteredAzureIdentityDetails$, [() => MCPServerSigV4ServiceDetails$, 0]]
+  [_dy, _servi, _mc, _mcp, _git, _mcps, _mcpse, _eCv, _mcpser, _pa, _azu, _mcpserv, _rem, _remo],
+  [[() => DynatraceServiceDetails$, 0], [() => ServiceNowServiceDetails$, 0], [() => DatadogServiceDetails$, 0], [() => MCPServerDetails$, 0], [() => GitLabDetails$, 0], [() => MCPServerDetails$, 0], [() => NewRelicServiceDetails$, 0], () => EventChannelDetails$, [() => GrafanaServiceDetails$, 0], [() => PagerDutyDetails$, 0], () => RegisteredAzureIdentityDetails$, [() => MCPServerSigV4ServiceDetails$, 0], [() => RemoteAgentServiceDetails$, 0], [() => RemoteAgentSigV4ServiceDetails$, 0]]
 ];
 export var ServiceNowServiceAuthorizationConfig$: StaticUnionSchema = [4, n0, _SNSAC,
   0,
@@ -2059,188 +2148,188 @@ export var UserMessageBlock$: StaticUnionSchema = [4, n0, _UMB,
   [0, 15]
 ];
 export var AssociateService$: StaticOperationSchema = [9, n0, _ASs,
-  { [_en]: ["cp."], [_ht]: ["POST", "/v1/agentspaces/{agentSpaceId}/associations", 201] }, () => AssociateServiceInput$, () => AssociateServiceOutput$
+  { [_end]: ["cp."], [_ht]: ["POST", "/v1/agentspaces/{agentSpaceId}/associations", 201] }, () => AssociateServiceInput$, () => AssociateServiceOutput$
 ];
 export var CreateAgentSpace$: StaticOperationSchema = [9, n0, _CAS,
-  { [_en]: ["cp."], [_ht]: ["POST", "/v1/agentspaces", 201] }, () => CreateAgentSpaceInput$, () => CreateAgentSpaceOutput$
+  { [_end]: ["cp."], [_ht]: ["POST", "/v1/agentspaces", 201] }, () => CreateAgentSpaceInput$, () => CreateAgentSpaceOutput$
 ];
 export var CreateAsset$: StaticOperationSchema = [9, n0, _CA,
-  { [_en]: ["dp."], [_ht]: ["POST", "/asset/agent-space/{agentSpaceId}/assets", 201] }, () => CreateAssetRequest$, () => CreateAssetResponse$
+  { [_end]: ["dp."], [_ht]: ["POST", "/asset/agent-space/{agentSpaceId}/assets", 201] }, () => CreateAssetRequest$, () => CreateAssetResponse$
 ];
 export var CreateAssetFile$: StaticOperationSchema = [9, n0, _CAF,
-  { [_en]: ["dp."], [_ht]: ["POST", "/asset/agent-space/{agentSpaceId}/assets/{assetId}/files/{path+}", 201] }, () => CreateAssetFileRequest$, () => CreateAssetFileResponse$
+  { [_end]: ["dp."], [_ht]: ["POST", "/asset/agent-space/{agentSpaceId}/assets/{assetId}/files/{path+}", 201] }, () => CreateAssetFileRequest$, () => CreateAssetFileResponse$
 ];
 export var CreateBacklogTask$: StaticOperationSchema = [9, n0, _CBT,
-  { [_en]: ["dp."], [_ht]: ["POST", "/backlog/agent-space/{agentSpaceId}/tasks", 201] }, () => CreateBacklogTaskRequest$, () => CreateBacklogTaskResponse$
+  { [_end]: ["dp."], [_ht]: ["POST", "/backlog/agent-space/{agentSpaceId}/tasks", 201] }, () => CreateBacklogTaskRequest$, () => CreateBacklogTaskResponse$
 ];
-export var CreateChat$: StaticOperationSchema = [9, n0, _CC,
-  { [_en]: ["dp."], [_ht]: ["POST", "/agents/agent-space/{agentSpaceId}/chat/create", 200] }, () => CreateChatRequest$, () => CreateChatResponse$
+export var CreateChat$: StaticOperationSchema = [9, n0, _CCr,
+  { [_end]: ["dp."], [_ht]: ["POST", "/agents/agent-space/{agentSpaceId}/chat/create", 200] }, () => CreateChatRequest$, () => CreateChatResponse$
 ];
 export var CreatePrivateConnection$: StaticOperationSchema = [9, n0, _CPC,
-  { [_en]: ["cp."], [_ht]: ["POST", "/v1/private-connections", 200] }, () => CreatePrivateConnectionInput$, () => CreatePrivateConnectionOutput$
+  { [_end]: ["cp."], [_ht]: ["POST", "/v1/private-connections", 200] }, () => CreatePrivateConnectionInput$, () => CreatePrivateConnectionOutput$
 ];
 export var CreateTrigger$: StaticOperationSchema = [9, n0, _CT,
-  { [_en]: ["dp."], [_ht]: ["POST", "/trigger/agent-space/{agentSpaceId}/triggers", 201] }, () => CreateTriggerRequest$, () => CreateTriggerResponse$
+  { [_end]: ["dp."], [_ht]: ["POST", "/trigger/agent-space/{agentSpaceId}/triggers", 201] }, () => CreateTriggerRequest$, () => CreateTriggerResponse$
 ];
 export var DeleteAgentSpace$: StaticOperationSchema = [9, n0, _DAS,
-  { [_en]: ["cp."], [_ht]: ["DELETE", "/v1/agentspaces/{agentSpaceId}", 204] }, () => DeleteAgentSpaceInput$, () => DeleteAgentSpaceOutput$
+  { [_end]: ["cp."], [_ht]: ["DELETE", "/v1/agentspaces/{agentSpaceId}", 204] }, () => DeleteAgentSpaceInput$, () => DeleteAgentSpaceOutput$
 ];
 export var DeleteAsset$: StaticOperationSchema = [9, n0, _DA,
-  { [_en]: ["dp."], [_ht]: ["DELETE", "/asset/agent-space/{agentSpaceId}/assets/{assetId}", 200] }, () => DeleteAssetRequest$, () => DeleteAssetResponse$
+  { [_end]: ["dp."], [_ht]: ["DELETE", "/asset/agent-space/{agentSpaceId}/assets/{assetId}", 200] }, () => DeleteAssetRequest$, () => DeleteAssetResponse$
 ];
 export var DeleteAssetFile$: StaticOperationSchema = [9, n0, _DAF,
-  { [_en]: ["dp."], [_ht]: ["DELETE", "/asset/agent-space/{agentSpaceId}/assets/{assetId}/files/{path+}", 200] }, () => DeleteAssetFileRequest$, () => DeleteAssetFileResponse$
+  { [_end]: ["dp."], [_ht]: ["DELETE", "/asset/agent-space/{agentSpaceId}/assets/{assetId}/files/{path+}", 200] }, () => DeleteAssetFileRequest$, () => DeleteAssetFileResponse$
 ];
 export var DeletePrivateConnection$: StaticOperationSchema = [9, n0, _DPC,
-  { [_en]: ["cp."], [_ht]: ["DELETE", "/v1/private-connections/{name}", 200] }, () => DeletePrivateConnectionInput$, () => DeletePrivateConnectionOutput$
+  { [_end]: ["cp."], [_ht]: ["DELETE", "/v1/private-connections/{name}", 200] }, () => DeletePrivateConnectionInput$, () => DeletePrivateConnectionOutput$
 ];
 export var DeleteTrigger$: StaticOperationSchema = [9, n0, _DT,
-  { [_en]: ["dp."], [_ht]: ["DELETE", "/trigger/agent-space/{agentSpaceId}/triggers/{triggerId}", 200] }, () => DeleteTriggerRequest$, () => DeleteTriggerResponse$
+  { [_end]: ["dp."], [_ht]: ["DELETE", "/trigger/agent-space/{agentSpaceId}/triggers/{triggerId}", 200] }, () => DeleteTriggerRequest$, () => DeleteTriggerResponse$
 ];
 export var DeregisterService$: StaticOperationSchema = [9, n0, _DS,
-  { [_en]: ["cp."], [_ht]: ["DELETE", "/v1/services/{serviceId}", 200] }, () => DeregisterServiceInput$, () => DeregisterServiceOutput$
+  { [_end]: ["cp."], [_ht]: ["DELETE", "/v1/services/{serviceId}", 200] }, () => DeregisterServiceInput$, () => DeregisterServiceOutput$
 ];
 export var DescribePrivateConnection$: StaticOperationSchema = [9, n0, _DPCe,
-  { [_en]: ["cp."], [_ht]: ["GET", "/v1/private-connections/{name}", 200] }, () => DescribePrivateConnectionInput$, () => DescribePrivateConnectionOutput$
+  { [_end]: ["cp."], [_ht]: ["GET", "/v1/private-connections/{name}", 200] }, () => DescribePrivateConnectionInput$, () => DescribePrivateConnectionOutput$
 ];
 export var DisableOperatorApp$: StaticOperationSchema = [9, n0, _DOA,
-  { [_en]: ["cp."], [_ht]: ["DELETE", "/v1/agentspaces/{agentSpaceId}/operator", 200] }, () => DisableOperatorAppInput$, () => __Unit
+  { [_end]: ["cp."], [_ht]: ["DELETE", "/v1/agentspaces/{agentSpaceId}/operator", 200] }, () => DisableOperatorAppInput$, () => __Unit
 ];
 export var DisassociateService$: StaticOperationSchema = [9, n0, _DSi,
-  { [_en]: ["cp."], [_ht]: ["DELETE", "/v1/agentspaces/{agentSpaceId}/associations/{associationId}", 204] }, () => DisassociateServiceInput$, () => DisassociateServiceOutput$
+  { [_end]: ["cp."], [_ht]: ["DELETE", "/v1/agentspaces/{agentSpaceId}/associations/{associationId}", 204] }, () => DisassociateServiceInput$, () => DisassociateServiceOutput$
 ];
 export var EnableOperatorApp$: StaticOperationSchema = [9, n0, _EOA,
-  { [_en]: ["cp."], [_ht]: ["POST", "/v1/agentspaces/{agentSpaceId}/operator", 200] }, () => EnableOperatorAppInput$, () => EnableOperatorAppOutput$
+  { [_end]: ["cp."], [_ht]: ["POST", "/v1/agentspaces/{agentSpaceId}/operator", 200] }, () => EnableOperatorAppInput$, () => EnableOperatorAppOutput$
 ];
 export var GetAccountUsage$: StaticOperationSchema = [9, n0, _GAU,
-  { [_en]: ["dp."], [_ht]: ["GET", "/usage/account", 200] }, () => GetAccountUsageInput$, () => GetAccountUsageOutput$
+  { [_end]: ["dp."], [_ht]: ["GET", "/usage/account", 200] }, () => GetAccountUsageInput$, () => GetAccountUsageOutput$
 ];
 export var GetAgentSpace$: StaticOperationSchema = [9, n0, _GAS,
-  { [_en]: ["cp."], [_ht]: ["GET", "/v1/agentspaces/{agentSpaceId}", 200] }, () => GetAgentSpaceInput$, () => GetAgentSpaceOutput$
+  { [_end]: ["cp."], [_ht]: ["GET", "/v1/agentspaces/{agentSpaceId}", 200] }, () => GetAgentSpaceInput$, () => GetAgentSpaceOutput$
 ];
 export var GetAsset$: StaticOperationSchema = [9, n0, _GA,
-  { [_en]: ["dp."], [_ht]: ["GET", "/asset/agent-space/{agentSpaceId}/assets/{assetId}", 200] }, () => GetAssetRequest$, () => GetAssetResponse$
+  { [_end]: ["dp."], [_ht]: ["GET", "/asset/agent-space/{agentSpaceId}/assets/{assetId}", 200] }, () => GetAssetRequest$, () => GetAssetResponse$
 ];
 export var GetAssetContent$: StaticOperationSchema = [9, n0, _GAC,
-  { [_en]: ["dp."], [_ht]: ["GET", "/asset/agent-space/{agentSpaceId}/assets/{assetId}/content", 200] }, () => GetAssetContentRequest$, () => GetAssetContentResponse$
+  { [_end]: ["dp."], [_ht]: ["GET", "/asset/agent-space/{agentSpaceId}/assets/{assetId}/content", 200] }, () => GetAssetContentRequest$, () => GetAssetContentResponse$
 ];
 export var GetAssetFile$: StaticOperationSchema = [9, n0, _GAF,
-  { [_en]: ["dp."], [_ht]: ["GET", "/asset/agent-space/{agentSpaceId}/assets/{assetId}/files/{path+}", 200] }, () => GetAssetFileRequest$, () => GetAssetFileResponse$
+  { [_end]: ["dp."], [_ht]: ["GET", "/asset/agent-space/{agentSpaceId}/assets/{assetId}/files/{path+}", 200] }, () => GetAssetFileRequest$, () => GetAssetFileResponse$
 ];
 export var GetAssociation$: StaticOperationSchema = [9, n0, _GAe,
-  { [_en]: ["cp."], [_ht]: ["GET", "/v1/agentspaces/{agentSpaceId}/associations/{associationId}", 200] }, () => GetAssociationInput$, () => GetAssociationOutput$
+  { [_end]: ["cp."], [_ht]: ["GET", "/v1/agentspaces/{agentSpaceId}/associations/{associationId}", 200] }, () => GetAssociationInput$, () => GetAssociationOutput$
 ];
 export var GetBacklogTask$: StaticOperationSchema = [9, n0, _GBT,
-  { [_en]: ["dp."], [_ht]: ["GET", "/backlog/agent-space/{agentSpaceId}/tasks/{taskId}", 200] }, () => GetBacklogTaskRequest$, () => GetBacklogTaskResponse$
+  { [_end]: ["dp."], [_ht]: ["GET", "/backlog/agent-space/{agentSpaceId}/tasks/{taskId}", 200] }, () => GetBacklogTaskRequest$, () => GetBacklogTaskResponse$
 ];
 export var GetOperatorApp$: StaticOperationSchema = [9, n0, _GOA,
-  { [_en]: ["cp."], [_ht]: ["GET", "/v2/agentspaces/{agentSpaceId}/operator", 200] }, () => GetOperatorAppInput$, () => GetOperatorAppOutput$
+  { [_end]: ["cp."], [_ht]: ["GET", "/v2/agentspaces/{agentSpaceId}/operator", 200] }, () => GetOperatorAppInput$, () => GetOperatorAppOutput$
 ];
 export var GetRecommendation$: StaticOperationSchema = [9, n0, _GR,
-  { [_en]: ["dp."], [_ht]: ["GET", "/backlog/agent-space/{agentSpaceId}/recommendations/{recommendationId}", 200] }, () => GetRecommendationRequest$, () => GetRecommendationResponse$
+  { [_end]: ["dp."], [_ht]: ["GET", "/backlog/agent-space/{agentSpaceId}/recommendations/{recommendationId}", 200] }, () => GetRecommendationRequest$, () => GetRecommendationResponse$
 ];
 export var GetService$: StaticOperationSchema = [9, n0, _GSe,
-  { [_en]: ["cp."], [_ht]: ["GET", "/v1/services/{serviceId}", 200] }, () => GetServiceInput$, () => GetServiceOutput$
+  { [_end]: ["cp."], [_ht]: ["GET", "/v1/services/{serviceId}", 200] }, () => GetServiceInput$, () => GetServiceOutput$
 ];
 export var GetTrigger$: StaticOperationSchema = [9, n0, _GT,
-  { [_en]: ["dp."], [_ht]: ["GET", "/trigger/agent-space/{agentSpaceId}/triggers/{triggerId}", 200] }, () => GetTriggerRequest$, () => GetTriggerResponse$
+  { [_end]: ["dp."], [_ht]: ["GET", "/trigger/agent-space/{agentSpaceId}/triggers/{triggerId}", 200] }, () => GetTriggerRequest$, () => GetTriggerResponse$
 ];
 export var ListAgentSpaces$: StaticOperationSchema = [9, n0, _LAS,
-  { [_en]: ["cp."], [_ht]: ["POST", "/v1/agentspaces/list", 200] }, () => ListAgentSpacesInput$, () => ListAgentSpacesOutput$
+  { [_end]: ["cp."], [_ht]: ["POST", "/v1/agentspaces/list", 200] }, () => ListAgentSpacesInput$, () => ListAgentSpacesOutput$
 ];
 export var ListAssetFiles$: StaticOperationSchema = [9, n0, _LAF,
-  { [_en]: ["dp."], [_ht]: ["GET", "/asset/agent-space/{agentSpaceId}/assets/{assetId}/files", 200] }, () => ListAssetFilesRequest$, () => ListAssetFilesResponse$
+  { [_end]: ["dp."], [_ht]: ["GET", "/asset/agent-space/{agentSpaceId}/assets/{assetId}/files", 200] }, () => ListAssetFilesRequest$, () => ListAssetFilesResponse$
 ];
 export var ListAssets$: StaticOperationSchema = [9, n0, _LA,
-  { [_en]: ["dp."], [_ht]: ["GET", "/asset/agent-space/{agentSpaceId}/assets", 200] }, () => ListAssetsRequest$, () => ListAssetsResponse$
+  { [_end]: ["dp."], [_ht]: ["GET", "/asset/agent-space/{agentSpaceId}/assets", 200] }, () => ListAssetsRequest$, () => ListAssetsResponse$
 ];
 export var ListAssetTypes$: StaticOperationSchema = [9, n0, _LAT,
-  { [_en]: ["dp."], [_ht]: ["GET", "/asset/types", 200] }, () => ListAssetTypesRequest$, () => ListAssetTypesResponse$
+  { [_end]: ["dp."], [_ht]: ["GET", "/asset/types", 200] }, () => ListAssetTypesRequest$, () => ListAssetTypesResponse$
 ];
 export var ListAssetVersions$: StaticOperationSchema = [9, n0, _LAV,
-  { [_en]: ["dp."], [_ht]: ["GET", "/asset/agent-space/{agentSpaceId}/assets/{assetId}/versions", 200] }, () => ListAssetVersionsRequest$, () => ListAssetVersionsResponse$
+  { [_end]: ["dp."], [_ht]: ["GET", "/asset/agent-space/{agentSpaceId}/assets/{assetId}/versions", 200] }, () => ListAssetVersionsRequest$, () => ListAssetVersionsResponse$
 ];
 export var ListAssociations$: StaticOperationSchema = [9, n0, _LAi,
-  { [_en]: ["cp."], [_ht]: ["POST", "/v1/agentspaces/{agentSpaceId}/associations/list", 200] }, () => ListAssociationsInput$, () => ListAssociationsOutput$
+  { [_end]: ["cp."], [_ht]: ["POST", "/v1/agentspaces/{agentSpaceId}/associations/list", 200] }, () => ListAssociationsInput$, () => ListAssociationsOutput$
 ];
 export var ListBacklogTasks$: StaticOperationSchema = [9, n0, _LBT,
-  { [_en]: ["dp."], [_ht]: ["POST", "/backlog/agent-space/{agentSpaceId}/tasks/list", 200] }, () => ListBacklogTasksRequest$, () => ListBacklogTasksResponse$
+  { [_end]: ["dp."], [_ht]: ["POST", "/backlog/agent-space/{agentSpaceId}/tasks/list", 200] }, () => ListBacklogTasksRequest$, () => ListBacklogTasksResponse$
 ];
 export var ListChats$: StaticOperationSchema = [9, n0, _LC,
-  { [_en]: ["dp."], [_ht]: ["GET", "/agents/agent-space/{agentSpaceId}/chat/list", 200] }, () => ListChatsRequest$, () => ListChatsResponse$
+  { [_end]: ["dp."], [_ht]: ["GET", "/agents/agent-space/{agentSpaceId}/chat/list", 200] }, () => ListChatsRequest$, () => ListChatsResponse$
 ];
 export var ListExecutions$: StaticOperationSchema = [9, n0, _LE,
-  { [_en]: ["dp."], [_ht]: ["POST", "/journal/agent-space/{agentSpaceId}/executions", 200] }, () => ListExecutionsRequest$, () => ListExecutionsResponse$
+  { [_end]: ["dp."], [_ht]: ["POST", "/journal/agent-space/{agentSpaceId}/executions", 200] }, () => ListExecutionsRequest$, () => ListExecutionsResponse$
 ];
 export var ListGoals$: StaticOperationSchema = [9, n0, _LG,
-  { [_en]: ["dp."], [_ht]: ["POST", "/backlog/agent-space/{agentSpaceId}/goals/list", 200] }, () => ListGoalsRequest$, () => ListGoalsResponse$
+  { [_end]: ["dp."], [_ht]: ["POST", "/backlog/agent-space/{agentSpaceId}/goals/list", 200] }, () => ListGoalsRequest$, () => ListGoalsResponse$
 ];
 export var ListJournalRecords$: StaticOperationSchema = [9, n0, _LJR,
-  { [_en]: ["dp."], [_ht]: ["POST", "/journal/agent-space/{agentSpaceId}/journalRecords", 200] }, () => ListJournalRecordsRequest$, () => ListJournalRecordsResponse$
+  { [_end]: ["dp."], [_ht]: ["POST", "/journal/agent-space/{agentSpaceId}/journalRecords", 200] }, () => ListJournalRecordsRequest$, () => ListJournalRecordsResponse$
 ];
 export var ListPendingMessages$: StaticOperationSchema = [9, n0, _LPM,
-  { [_en]: ["dp."], [_ht]: ["POST", "/agents/agent-space/{agentSpaceId}/pendingMessages", 200] }, () => ListPendingMessagesRequest$, () => ListPendingMessagesResponse$
+  { [_end]: ["dp."], [_ht]: ["POST", "/agents/agent-space/{agentSpaceId}/pendingMessages", 200] }, () => ListPendingMessagesRequest$, () => ListPendingMessagesResponse$
 ];
 export var ListPrivateConnections$: StaticOperationSchema = [9, n0, _LPC,
-  { [_en]: ["cp."], [_ht]: ["GET", "/v1/private-connections", 200] }, () => ListPrivateConnectionsInput$, () => ListPrivateConnectionsOutput$
+  { [_end]: ["cp."], [_ht]: ["GET", "/v1/private-connections", 200] }, () => ListPrivateConnectionsInput$, () => ListPrivateConnectionsOutput$
 ];
 export var ListRecommendations$: StaticOperationSchema = [9, n0, _LR,
-  { [_en]: ["dp."], [_ht]: ["POST", "/backlog/agent-space/{agentSpaceId}/recommendations/list", 200] }, () => ListRecommendationsRequest$, () => ListRecommendationsResponse$
+  { [_end]: ["dp."], [_ht]: ["POST", "/backlog/agent-space/{agentSpaceId}/recommendations/list", 200] }, () => ListRecommendationsRequest$, () => ListRecommendationsResponse$
 ];
 export var ListServices$: StaticOperationSchema = [9, n0, _LS,
-  { [_en]: ["cp."], [_ht]: ["POST", "/v1/services/list", 200] }, () => ListServicesInput$, () => ListServicesOutput$
+  { [_end]: ["cp."], [_ht]: ["POST", "/v1/services/list", 200] }, () => ListServicesInput$, () => ListServicesOutput$
 ];
 export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
-  { [_en]: ["cp."], [_ht]: ["GET", "/tags/{resourceArn}", 200] }, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
+  { [_end]: ["cp."], [_ht]: ["GET", "/tags/{resourceArn}", 200] }, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
 ];
 export var ListTriggers$: StaticOperationSchema = [9, n0, _LT,
-  { [_en]: ["dp."], [_ht]: ["GET", "/trigger/agent-space/{agentSpaceId}/triggers", 200] }, () => ListTriggersRequest$, () => ListTriggersResponse$
+  { [_end]: ["dp."], [_ht]: ["GET", "/trigger/agent-space/{agentSpaceId}/triggers", 200] }, () => ListTriggersRequest$, () => ListTriggersResponse$
 ];
 export var ListWebhooks$: StaticOperationSchema = [9, n0, _LW,
-  { [_en]: ["cp."], [_ht]: ["POST", "/v1/agentspaces/{agentSpaceId}/associations/{associationId}/webhooks/list", 200] }, () => ListWebhooksInput$, () => ListWebhooksOutput$
+  { [_end]: ["cp."], [_ht]: ["POST", "/v1/agentspaces/{agentSpaceId}/associations/{associationId}/webhooks/list", 200] }, () => ListWebhooksInput$, () => ListWebhooksOutput$
 ];
 export var RegisterService$: StaticOperationSchema = [9, n0, _RSe,
-  { [_en]: ["cp."], [_ht]: ["POST", "/v1/register/{service}", 201] }, () => RegisterServiceInput$, () => RegisterServiceOutput$
+  { [_end]: ["cp."], [_ht]: ["POST", "/v1/register/{service}", 201] }, () => RegisterServiceInput$, () => RegisterServiceOutput$
 ];
 export var SendMessage$: StaticOperationSchema = [9, n0, _SM,
-  { [_en]: ["dp."], [_ht]: ["POST", "/agents/agent-space/{agentSpaceId}/chat/sendMessage", 200] }, () => SendMessageRequest$, () => SendMessageResponse$
+  { [_end]: ["dp."], [_ht]: ["POST", "/agents/agent-space/{agentSpaceId}/chat/sendMessage", 200] }, () => SendMessageRequest$, () => SendMessageResponse$
 ];
 export var TagResource$: StaticOperationSchema = [9, n0, _TR,
-  { [_en]: ["cp."], [_ht]: ["POST", "/tags/{resourceArn}", 204] }, () => TagResourceRequest$, () => TagResourceResponse$
+  { [_end]: ["cp."], [_ht]: ["POST", "/tags/{resourceArn}", 204] }, () => TagResourceRequest$, () => TagResourceResponse$
 ];
 export var UntagResource$: StaticOperationSchema = [9, n0, _URn,
-  { [_en]: ["cp."], [_ht]: ["DELETE", "/tags/{resourceArn}", 204] }, () => UntagResourceRequest$, () => UntagResourceResponse$
+  { [_end]: ["cp."], [_ht]: ["DELETE", "/tags/{resourceArn}", 204] }, () => UntagResourceRequest$, () => UntagResourceResponse$
 ];
 export var UpdateAgentSpace$: StaticOperationSchema = [9, n0, _UAS,
-  { [_en]: ["cp."], [_ht]: ["PATCH", "/v1/agentspaces/{agentSpaceId}", 200] }, () => UpdateAgentSpaceInput$, () => UpdateAgentSpaceOutput$
+  { [_end]: ["cp."], [_ht]: ["PATCH", "/v1/agentspaces/{agentSpaceId}", 200] }, () => UpdateAgentSpaceInput$, () => UpdateAgentSpaceOutput$
 ];
 export var UpdateAsset$: StaticOperationSchema = [9, n0, _UA,
-  { [_en]: ["dp."], [_ht]: ["PATCH", "/asset/agent-space/{agentSpaceId}/assets/{assetId}", 200] }, () => UpdateAssetRequest$, () => UpdateAssetResponse$
+  { [_end]: ["dp."], [_ht]: ["PATCH", "/asset/agent-space/{agentSpaceId}/assets/{assetId}", 200] }, () => UpdateAssetRequest$, () => UpdateAssetResponse$
 ];
 export var UpdateAssetFile$: StaticOperationSchema = [9, n0, _UAF,
-  { [_en]: ["dp."], [_ht]: ["PATCH", "/asset/agent-space/{agentSpaceId}/assets/{assetId}/files/{path+}", 200] }, () => UpdateAssetFileRequest$, () => UpdateAssetFileResponse$
+  { [_end]: ["dp."], [_ht]: ["PATCH", "/asset/agent-space/{agentSpaceId}/assets/{assetId}/files/{path+}", 200] }, () => UpdateAssetFileRequest$, () => UpdateAssetFileResponse$
 ];
 export var UpdateAssociation$: StaticOperationSchema = [9, n0, _UAp,
-  { [_en]: ["cp."], [_ht]: ["PATCH", "/v1/agentspaces/{agentSpaceId}/associations/{associationId}", 200] }, () => UpdateAssociationInput$, () => UpdateAssociationOutput$
+  { [_end]: ["cp."], [_ht]: ["PATCH", "/v1/agentspaces/{agentSpaceId}/associations/{associationId}", 200] }, () => UpdateAssociationInput$, () => UpdateAssociationOutput$
 ];
 export var UpdateBacklogTask$: StaticOperationSchema = [9, n0, _UBT,
-  { [_en]: ["dp."], [_ht]: ["PATCH", "/backlog/agent-space/{agentSpaceId}/tasks/{taskId}", 200] }, () => UpdateBacklogTaskRequest$, () => UpdateBacklogTaskResponse$
+  { [_end]: ["dp."], [_ht]: ["PATCH", "/backlog/agent-space/{agentSpaceId}/tasks/{taskId}", 200] }, () => UpdateBacklogTaskRequest$, () => UpdateBacklogTaskResponse$
 ];
 export var UpdateGoal$: StaticOperationSchema = [9, n0, _UG,
-  { [_en]: ["dp."], [_ht]: ["PATCH", "/backlog/agent-space/{agentSpaceId}/goals/{goalId}", 200] }, () => UpdateGoalRequest$, () => UpdateGoalResponse$
+  { [_end]: ["dp."], [_ht]: ["PATCH", "/backlog/agent-space/{agentSpaceId}/goals/{goalId}", 200] }, () => UpdateGoalRequest$, () => UpdateGoalResponse$
 ];
 export var UpdateOperatorAppIdpConfig$: StaticOperationSchema = [9, n0, _UOAIC,
-  { [_en]: ["cp."], [_ht]: ["PATCH", "/v1/agentspaces/{agentSpaceId}/operator/idp", 200] }, () => UpdateOperatorAppIdpConfigInput$, () => UpdateOperatorAppIdpConfigOutput$
+  { [_end]: ["cp."], [_ht]: ["PATCH", "/v1/agentspaces/{agentSpaceId}/operator/idp", 200] }, () => UpdateOperatorAppIdpConfigInput$, () => UpdateOperatorAppIdpConfigOutput$
 ];
 export var UpdatePrivateConnectionCertificate$: StaticOperationSchema = [9, n0, _UPCC,
-  { [_en]: ["cp."], [_ht]: ["POST", "/v1/private-connections/{name}/certificate", 200] }, () => UpdatePrivateConnectionCertificateInput$, () => UpdatePrivateConnectionCertificateOutput$
+  { [_end]: ["cp."], [_ht]: ["POST", "/v1/private-connections/{name}/certificate", 200] }, () => UpdatePrivateConnectionCertificateInput$, () => UpdatePrivateConnectionCertificateOutput$
 ];
 export var UpdateRecommendation$: StaticOperationSchema = [9, n0, _URp,
-  { [_en]: ["dp."], [_ht]: ["PATCH", "/backlog/agent-space/{agentSpaceId}/recommendations/{recommendationId}", 200] }, () => UpdateRecommendationRequest$, () => UpdateRecommendationResponse$
+  { [_end]: ["dp."], [_ht]: ["PATCH", "/backlog/agent-space/{agentSpaceId}/recommendations/{recommendationId}", 200] }, () => UpdateRecommendationRequest$, () => UpdateRecommendationResponse$
 ];
 export var UpdateTrigger$: StaticOperationSchema = [9, n0, _UT,
-  { [_en]: ["dp."], [_ht]: ["PATCH", "/trigger/agent-space/{agentSpaceId}/triggers/{triggerId}", 200] }, () => UpdateTriggerRequest$, () => UpdateTriggerResponse$
+  { [_end]: ["dp."], [_ht]: ["PATCH", "/trigger/agent-space/{agentSpaceId}/triggers/{triggerId}", 200] }, () => UpdateTriggerRequest$, () => UpdateTriggerResponse$
 ];
 export var ValidateAwsAssociations$: StaticOperationSchema = [9, n0, _VAA,
-  { [_en]: ["cp."], [_ht]: ["POST", "/v1/agentspaces/{agentSpaceId}/associations/validate", 204] }, () => ValidateAwsAssociationsInput$, () => ValidateAwsAssociationsOutput$
+  { [_end]: ["cp."], [_ht]: ["POST", "/v1/agentspaces/{agentSpaceId}/associations/validate", 204] }, () => ValidateAwsAssociationsInput$, () => ValidateAwsAssociationsOutput$
 ];

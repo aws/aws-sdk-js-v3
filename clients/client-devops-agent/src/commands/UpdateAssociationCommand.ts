@@ -57,6 +57,7 @@ export interface UpdateAssociationCommandOutput extends UpdateAssociationOutput,
  *       owner: "STRING_VALUE", // required
  *       ownerType: "organization" || "user", // required
  *       instanceIdentifier: "STRING_VALUE",
+ *       runtimeRoleArn: "STRING_VALUE",
  *     },
  *     slack: { // SlackConfiguration
  *       workspaceId: "STRING_VALUE", // required
@@ -98,6 +99,7 @@ export interface UpdateAssociationCommandOutput extends UpdateAssociationOutput,
  *       projectId: "STRING_VALUE", // required
  *       projectPath: "STRING_VALUE", // required
  *       instanceIdentifier: "STRING_VALUE",
+ *       runtimeRoleArn: "STRING_VALUE",
  *     },
  *     mcpserversplunk: {},
  *     eventChannel: {},
@@ -126,6 +128,13 @@ export interface UpdateAssociationCommandOutput extends UpdateAssociationOutput,
  *       tools: [ // required
  *         "STRING_VALUE",
  *       ],
+ *     },
+ *     remoteagent: {},
+ *     remoteagentsigv4: {},
+ *   },
+ *   capabilities: { // AssociationCapabilities
+ *     "<keys>": { // CapabilityConfiguration
+ *       enabled: true || false,
  *     },
  *   },
  * };
@@ -157,6 +166,7 @@ export interface UpdateAssociationCommandOutput extends UpdateAssociationOutput,
  * //         owner: "STRING_VALUE", // required
  * //         ownerType: "organization" || "user", // required
  * //         instanceIdentifier: "STRING_VALUE",
+ * //         runtimeRoleArn: "STRING_VALUE",
  * //       },
  * //       slack: { // SlackConfiguration
  * //         workspaceId: "STRING_VALUE", // required
@@ -198,6 +208,7 @@ export interface UpdateAssociationCommandOutput extends UpdateAssociationOutput,
  * //         projectId: "STRING_VALUE", // required
  * //         projectPath: "STRING_VALUE", // required
  * //         instanceIdentifier: "STRING_VALUE",
+ * //         runtimeRoleArn: "STRING_VALUE",
  * //       },
  * //       mcpserversplunk: {},
  * //       eventChannel: {},
@@ -226,6 +237,13 @@ export interface UpdateAssociationCommandOutput extends UpdateAssociationOutput,
  * //         tools: [ // required
  * //           "STRING_VALUE",
  * //         ],
+ * //       },
+ * //       remoteagent: {},
+ * //       remoteagentsigv4: {},
+ * //     },
+ * //     capabilities: { // AssociationCapabilities
+ * //       "<keys>": { // CapabilityConfiguration
+ * //         enabled: true || false,
  * //       },
  * //     },
  * //   },

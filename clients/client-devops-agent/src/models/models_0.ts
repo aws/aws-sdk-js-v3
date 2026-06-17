@@ -3,6 +3,7 @@ import type { DocumentType as __DocumentType } from "@smithy/types";
 
 import type {
   AuthFlow,
+  CapabilityType,
   EventChannelType,
   ExecutionStatus,
   GithubRepoOwnerType,
@@ -20,6 +21,7 @@ import type {
   PrivateConnectionType,
   RecommendationPriority,
   RecommendationStatus,
+  RemoteAgentAuthorizationMethod,
   ResourceConfigDnsResolution,
   SchedulerState,
   Service,
@@ -270,6 +272,84 @@ export interface RegisteredPagerDutyDetails {
 }
 
 /**
+ * <p>Details specific to a registered token-based remote A2A agent.</p>
+ * @public
+ */
+export interface RegisteredRemoteAgentDetails {
+  /**
+   * <p>Name identifier for a remote A2A agent.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>HTTPS endpoint URL for a remote A2A agent.</p>
+   * @public
+   */
+  endpoint: string | undefined;
+
+  /**
+   * <p>Description field</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The authorization method used by the remote agent.</p>
+   * @public
+   */
+  authorizationMethod: RemoteAgentAuthorizationMethod | undefined;
+
+  /**
+   * <p>If the remote agent uses API key authentication, the header name.</p>
+   * @public
+   */
+  apiKeyHeader?: string | undefined;
+}
+
+/**
+ * <p>Details specific to a registered SigV4-authenticated remote A2A agent.</p>
+ * @public
+ */
+export interface RegisteredRemoteAgentSigV4Details {
+  /**
+   * <p>Name identifier for a remote A2A agent.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>HTTPS endpoint URL for a remote A2A agent.</p>
+   * @public
+   */
+  endpoint: string | undefined;
+
+  /**
+   * <p>Description field</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>AWS region identifier or wildcard (*) for SigV4a multi-region signing.</p>
+   * @public
+   */
+  region: string | undefined;
+
+  /**
+   * <p>The AWS service name for SigV4 signing.</p>
+   * @public
+   */
+  service: string | undefined;
+
+  /**
+   * <p>AWS IAM role ARN.</p>
+   * @public
+   */
+  roleArn?: string | undefined;
+}
+
+/**
  * <p>Details specific to a registered ServiceNow instance.</p>
  * @public
  */
@@ -315,6 +395,8 @@ export type AdditionalServiceDetails =
   | AdditionalServiceDetails.Mcpserversigv4Member
   | AdditionalServiceDetails.McpserversplunkMember
   | AdditionalServiceDetails.PagerdutyMember
+  | AdditionalServiceDetails.RemoteagentMember
+  | AdditionalServiceDetails.Remoteagentsigv4Member
   | AdditionalServiceDetails.ServicenowMember
   | AdditionalServiceDetails.SlackMember
   | AdditionalServiceDetails.$UnknownMember;
@@ -341,6 +423,8 @@ export namespace AdditionalServiceDetails {
     mcpservergrafana?: never;
     pagerduty?: never;
     mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
     $unknown?: never;
   }
 
@@ -362,6 +446,8 @@ export namespace AdditionalServiceDetails {
     mcpservergrafana?: never;
     pagerduty?: never;
     mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
     $unknown?: never;
   }
 
@@ -383,6 +469,8 @@ export namespace AdditionalServiceDetails {
     mcpservergrafana?: never;
     pagerduty?: never;
     mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
     $unknown?: never;
   }
 
@@ -404,6 +492,8 @@ export namespace AdditionalServiceDetails {
     mcpservergrafana?: never;
     pagerduty?: never;
     mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
     $unknown?: never;
   }
 
@@ -425,6 +515,8 @@ export namespace AdditionalServiceDetails {
     mcpservergrafana?: never;
     pagerduty?: never;
     mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
     $unknown?: never;
   }
 
@@ -446,6 +538,8 @@ export namespace AdditionalServiceDetails {
     mcpservergrafana?: never;
     pagerduty?: never;
     mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
     $unknown?: never;
   }
 
@@ -467,6 +561,8 @@ export namespace AdditionalServiceDetails {
     mcpservergrafana?: never;
     pagerduty?: never;
     mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
     $unknown?: never;
   }
 
@@ -488,6 +584,8 @@ export namespace AdditionalServiceDetails {
     mcpservergrafana?: never;
     pagerduty?: never;
     mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
     $unknown?: never;
   }
 
@@ -509,6 +607,8 @@ export namespace AdditionalServiceDetails {
     mcpservergrafana?: never;
     pagerduty?: never;
     mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
     $unknown?: never;
   }
 
@@ -530,6 +630,8 @@ export namespace AdditionalServiceDetails {
     mcpservergrafana?: never;
     pagerduty?: never;
     mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
     $unknown?: never;
   }
 
@@ -551,6 +653,8 @@ export namespace AdditionalServiceDetails {
     mcpservergrafana: RegisteredGrafanaServerDetails;
     pagerduty?: never;
     mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
     $unknown?: never;
   }
 
@@ -572,6 +676,8 @@ export namespace AdditionalServiceDetails {
     mcpservergrafana?: never;
     pagerduty: RegisteredPagerDutyDetails;
     mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
     $unknown?: never;
   }
 
@@ -593,6 +699,54 @@ export namespace AdditionalServiceDetails {
     mcpservergrafana?: never;
     pagerduty?: never;
     mcpserversigv4: RegisteredMCPServerSigV4Details;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Remote A2A agent-specific service details (token-based auth).</p>
+   * @public
+   */
+  export interface RemoteagentMember {
+    github?: never;
+    slack?: never;
+    mcpserverdatadog?: never;
+    mcpserver?: never;
+    servicenow?: never;
+    gitlab?: never;
+    mcpserversplunk?: never;
+    mcpservernewrelic?: never;
+    azuredevops?: never;
+    azureidentity?: never;
+    mcpservergrafana?: never;
+    pagerduty?: never;
+    mcpserversigv4?: never;
+    remoteagent: RegisteredRemoteAgentDetails;
+    remoteagentsigv4?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Remote A2A agent-specific service details (SigV4 auth).</p>
+   * @public
+   */
+  export interface Remoteagentsigv4Member {
+    github?: never;
+    slack?: never;
+    mcpserverdatadog?: never;
+    mcpserver?: never;
+    servicenow?: never;
+    gitlab?: never;
+    mcpserversplunk?: never;
+    mcpservernewrelic?: never;
+    azuredevops?: never;
+    azureidentity?: never;
+    mcpservergrafana?: never;
+    pagerduty?: never;
+    mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4: RegisteredRemoteAgentSigV4Details;
     $unknown?: never;
   }
 
@@ -613,6 +767,8 @@ export namespace AdditionalServiceDetails {
     mcpservergrafana?: never;
     pagerduty?: never;
     mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
     $unknown: [string, any];
   }
 
@@ -634,6 +790,8 @@ export namespace AdditionalServiceDetails {
     mcpservergrafana: (value: RegisteredGrafanaServerDetails) => T;
     pagerduty: (value: RegisteredPagerDutyDetails) => T;
     mcpserversigv4: (value: RegisteredMCPServerSigV4Details) => T;
+    remoteagent: (value: RegisteredRemoteAgentDetails) => T;
+    remoteagentsigv4: (value: RegisteredRemoteAgentSigV4Details) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -735,6 +893,18 @@ export interface AgentSpace {
    * @public
    */
   agentSpaceId: string | undefined;
+}
+
+/**
+ * <p>Capability configuration for the AWS DevOps Agent.</p>
+ * @public
+ */
+export interface CapabilityConfiguration {
+  /**
+   * <p>Whether the capability is enabled.</p>
+   * @public
+   */
+  enabled?: boolean | undefined;
 }
 
 /**
@@ -855,6 +1025,12 @@ export interface GitHubConfiguration {
    * @public
    */
   instanceIdentifier?: string | undefined;
+
+  /**
+   * <p>Optional role ARN that AIDevOps assumes at runtime for automatic verification testing and VPC connectivity on this association.</p>
+   * @public
+   */
+  runtimeRoleArn?: string | undefined;
 }
 
 /**
@@ -879,6 +1055,12 @@ export interface GitLabConfiguration {
    * @public
    */
   instanceIdentifier?: string | undefined;
+
+  /**
+   * <p>Optional role ARN that AIDevOps assumes at runtime for automatic verification testing and VPC connectivity on this association.</p>
+   * @public
+   */
+  runtimeRoleArn?: string | undefined;
 }
 
 /**
@@ -976,6 +1158,18 @@ export interface PagerDutyConfiguration {
    */
   customerEmail: string | undefined;
 }
+
+/**
+ * <p>Configuration for token-based remote A2A agent integration.</p>
+ * @public
+ */
+export interface RemoteAgentConfiguration {}
+
+/**
+ * <p>Configuration for SigV4-authenticated remote A2A agent integration.</p>
+ * @public
+ */
+export interface RemoteAgentSigV4Configuration {}
 
 /**
  * <p>Configuration for ServiceNow instance integration.</p>
@@ -1104,6 +1298,8 @@ export type ServiceConfiguration =
   | ServiceConfiguration.Mcpserversigv4Member
   | ServiceConfiguration.McpserversplunkMember
   | ServiceConfiguration.PagerdutyMember
+  | ServiceConfiguration.RemoteagentMember
+  | ServiceConfiguration.Remoteagentsigv4Member
   | ServiceConfiguration.ServicenowMember
   | ServiceConfiguration.SlackMember
   | ServiceConfiguration.SourceAwsMember
@@ -1135,6 +1331,8 @@ export namespace ServiceConfiguration {
     mcpservergrafana?: never;
     pagerduty?: never;
     mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
     $unknown?: never;
   }
 
@@ -1160,6 +1358,8 @@ export namespace ServiceConfiguration {
     mcpservergrafana?: never;
     pagerduty?: never;
     mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
     $unknown?: never;
   }
 
@@ -1185,6 +1385,8 @@ export namespace ServiceConfiguration {
     mcpservergrafana?: never;
     pagerduty?: never;
     mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
     $unknown?: never;
   }
 
@@ -1210,6 +1412,8 @@ export namespace ServiceConfiguration {
     mcpservergrafana?: never;
     pagerduty?: never;
     mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
     $unknown?: never;
   }
 
@@ -1235,6 +1439,8 @@ export namespace ServiceConfiguration {
     mcpservergrafana?: never;
     pagerduty?: never;
     mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
     $unknown?: never;
   }
 
@@ -1260,6 +1466,8 @@ export namespace ServiceConfiguration {
     mcpservergrafana?: never;
     pagerduty?: never;
     mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
     $unknown?: never;
   }
 
@@ -1285,6 +1493,8 @@ export namespace ServiceConfiguration {
     mcpservergrafana?: never;
     pagerduty?: never;
     mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
     $unknown?: never;
   }
 
@@ -1310,6 +1520,8 @@ export namespace ServiceConfiguration {
     mcpservergrafana?: never;
     pagerduty?: never;
     mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
     $unknown?: never;
   }
 
@@ -1335,6 +1547,8 @@ export namespace ServiceConfiguration {
     mcpservergrafana?: never;
     pagerduty?: never;
     mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
     $unknown?: never;
   }
 
@@ -1360,6 +1574,8 @@ export namespace ServiceConfiguration {
     mcpservergrafana?: never;
     pagerduty?: never;
     mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
     $unknown?: never;
   }
 
@@ -1385,6 +1601,8 @@ export namespace ServiceConfiguration {
     mcpservergrafana?: never;
     pagerduty?: never;
     mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
     $unknown?: never;
   }
 
@@ -1410,6 +1628,8 @@ export namespace ServiceConfiguration {
     mcpservergrafana?: never;
     pagerduty?: never;
     mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
     $unknown?: never;
   }
 
@@ -1435,6 +1655,8 @@ export namespace ServiceConfiguration {
     mcpservergrafana?: never;
     pagerduty?: never;
     mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
     $unknown?: never;
   }
 
@@ -1460,6 +1682,8 @@ export namespace ServiceConfiguration {
     mcpservergrafana?: never;
     pagerduty?: never;
     mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
     $unknown?: never;
   }
 
@@ -1485,6 +1709,8 @@ export namespace ServiceConfiguration {
     mcpservergrafana: MCPServerGrafanaConfiguration;
     pagerduty?: never;
     mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
     $unknown?: never;
   }
 
@@ -1510,6 +1736,8 @@ export namespace ServiceConfiguration {
     mcpservergrafana?: never;
     pagerduty: PagerDutyConfiguration;
     mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
     $unknown?: never;
   }
 
@@ -1535,6 +1763,62 @@ export namespace ServiceConfiguration {
     mcpservergrafana?: never;
     pagerduty?: never;
     mcpserversigv4: MCPServerSigV4Configuration;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Remote A2A agent integration configuration (token-based auth).</p>
+   * @public
+   */
+  export interface RemoteagentMember {
+    sourceAws?: never;
+    aws?: never;
+    github?: never;
+    slack?: never;
+    dynatrace?: never;
+    servicenow?: never;
+    mcpservernewrelic?: never;
+    mcpserverdatadog?: never;
+    mcpserver?: never;
+    gitlab?: never;
+    mcpserversplunk?: never;
+    eventChannel?: never;
+    azure?: never;
+    azuredevops?: never;
+    mcpservergrafana?: never;
+    pagerduty?: never;
+    mcpserversigv4?: never;
+    remoteagent: RemoteAgentConfiguration;
+    remoteagentsigv4?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Remote A2A agent integration configuration (SigV4 auth).</p>
+   * @public
+   */
+  export interface Remoteagentsigv4Member {
+    sourceAws?: never;
+    aws?: never;
+    github?: never;
+    slack?: never;
+    dynatrace?: never;
+    servicenow?: never;
+    mcpservernewrelic?: never;
+    mcpserverdatadog?: never;
+    mcpserver?: never;
+    gitlab?: never;
+    mcpserversplunk?: never;
+    eventChannel?: never;
+    azure?: never;
+    azuredevops?: never;
+    mcpservergrafana?: never;
+    pagerduty?: never;
+    mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4: RemoteAgentSigV4Configuration;
     $unknown?: never;
   }
 
@@ -1559,6 +1843,8 @@ export namespace ServiceConfiguration {
     mcpservergrafana?: never;
     pagerduty?: never;
     mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
     $unknown: [string, any];
   }
 
@@ -1584,6 +1870,8 @@ export namespace ServiceConfiguration {
     mcpservergrafana: (value: MCPServerGrafanaConfiguration) => T;
     pagerduty: (value: PagerDutyConfiguration) => T;
     mcpserversigv4: (value: MCPServerSigV4Configuration) => T;
+    remoteagent: (value: RemoteAgentConfiguration) => T;
+    remoteagentsigv4: (value: RemoteAgentSigV4Configuration) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -1610,6 +1898,12 @@ export interface AssociateServiceInput {
    * @public
    */
   configuration: ServiceConfiguration | undefined;
+
+  /**
+   * <p>Enabled capabilities for this association.</p>
+   * @public
+   */
+  capabilities?: Partial<Record<CapabilityType, CapabilityConfiguration>> | undefined;
 }
 
 /**
@@ -1658,6 +1952,12 @@ export interface Association {
    * @public
    */
   configuration: ServiceConfiguration | undefined;
+
+  /**
+   * <p>Enabled capabilities for this association.</p>
+   * @public
+   */
+  capabilities?: Partial<Record<CapabilityType, CapabilityConfiguration>> | undefined;
 }
 
 /**
@@ -1910,6 +2210,12 @@ export interface UpdateAssociationInput {
    * @public
    */
   configuration: ServiceConfiguration | undefined;
+
+  /**
+   * <p>Enabled capabilities for this association.</p>
+   * @public
+   */
+  capabilities?: Partial<Record<CapabilityType, CapabilityConfiguration>> | undefined;
 }
 
 /**
@@ -2542,6 +2848,18 @@ export interface AssetFileContent {
 }
 
 /**
+ * <p>Content for an asset sourced from an external URL.</p>
+ * @public
+ */
+export interface AssetSourceUrlContent {
+  /**
+   * <p>The source URL to import asset content from</p>
+   * @public
+   */
+  url: string | undefined;
+}
+
+/**
  * <p>A zip file containing asset files</p>
  * @public
  */
@@ -2554,11 +2872,12 @@ export interface AssetZipContent {
 }
 
 /**
- * <p>Content for an asset, either a single file or a zip bundle</p>
+ * <p>Content for an asset: a single file, a zip bundle, or a source URL to import from</p>
  * @public
  */
 export type AssetContent =
   | AssetContent.FileMember
+  | AssetContent.SourceUrlMember
   | AssetContent.ZipMember
   | AssetContent.$UnknownMember;
 
@@ -2573,6 +2892,7 @@ export namespace AssetContent {
   export interface FileMember {
     file: AssetFileContent;
     zip?: never;
+    sourceUrl?: never;
     $unknown?: never;
   }
 
@@ -2583,6 +2903,18 @@ export namespace AssetContent {
   export interface ZipMember {
     file?: never;
     zip: AssetZipContent;
+    sourceUrl?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A source URL to import asset content from</p>
+   * @public
+   */
+  export interface SourceUrlMember {
+    file?: never;
+    zip?: never;
+    sourceUrl: AssetSourceUrlContent;
     $unknown?: never;
   }
 
@@ -2592,6 +2924,7 @@ export namespace AssetContent {
   export interface $UnknownMember {
     file?: never;
     zip?: never;
+    sourceUrl?: never;
     $unknown: [string, any];
   }
 
@@ -2602,6 +2935,7 @@ export namespace AssetContent {
   export interface Visitor<T> {
     file: (value: AssetFileContent) => T;
     zip: (value: AssetZipContent) => T;
+    sourceUrl: (value: AssetSourceUrlContent) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -2833,7 +3167,7 @@ export interface CreateAssetRequest {
   metadata?: __DocumentType | undefined;
 
   /**
-   * <p>The content for the asset. Provide a single file or a zip bundle.</p>
+   * <p>The content for the asset. Provide a single file, a zip bundle, or a sourceUrl to import from an external source.</p>
    * @public
    */
   content: AssetContent | undefined;
@@ -3474,11 +3808,12 @@ export namespace TriggerCondition {
 }
 
 /**
+ * <p>Request structure for creating a new Trigger</p>
  * @public
  */
 export interface CreateTriggerRequest {
   /**
-   * <p>Unique identifier for an agent space (allows alphanumeric characters and hyphens; 1-64 characters)</p>
+   * <p>The unique identifier for the agent space where the Trigger will be created</p>
    * @public
    */
   agentSpaceId: string | undefined;
@@ -3520,13 +3855,13 @@ export interface CreateTriggerRequest {
  */
 export interface Trigger {
   /**
-   * <p>Generic resource identifier (allows alphanumeric characters, hyphens, and underscores; 1-128 characters)</p>
+   * <p>The unique identifier for this Trigger</p>
    * @public
    */
   triggerId: string | undefined;
 
   /**
-   * <p>Unique identifier for an agent space (allows alphanumeric characters and hyphens; 1-64 characters)</p>
+   * <p>The agent space this Trigger belongs to</p>
    * @public
    */
   agentSpaceId: string | undefined;
@@ -3569,6 +3904,7 @@ export interface Trigger {
 }
 
 /**
+ * <p>Response structure for creating a new Trigger</p>
  * @public
  */
 export interface CreateTriggerResponse {
@@ -3745,23 +4081,25 @@ export interface DeletePrivateConnectionOutput {
 }
 
 /**
+ * <p>Request structure for deleting a Trigger</p>
  * @public
  */
 export interface DeleteTriggerRequest {
   /**
-   * <p>Unique identifier for an agent space (allows alphanumeric characters and hyphens; 1-64 characters)</p>
+   * <p>The unique identifier for the agent space containing the Trigger</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>Generic resource identifier (allows alphanumeric characters, hyphens, and underscores; 1-128 characters)</p>
+   * <p>The unique identifier of the Trigger to delete</p>
    * @public
    */
   triggerId: string | undefined;
 }
 
 /**
+ * <p>Response structure for deleting a Trigger</p>
  * @public
  */
 export interface DeleteTriggerResponse {}
@@ -4233,23 +4571,25 @@ export interface GetRecommendationResponse {
 }
 
 /**
+ * <p>Request structure for getting a Trigger</p>
  * @public
  */
 export interface GetTriggerRequest {
   /**
-   * <p>Unique identifier for an agent space (allows alphanumeric characters and hyphens; 1-64 characters)</p>
+   * <p>The unique identifier for the agent space containing the Trigger</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>Generic resource identifier (allows alphanumeric characters, hyphens, and underscores; 1-128 characters)</p>
+   * <p>The unique identifier of the Trigger to retrieve</p>
    * @public
    */
   triggerId: string | undefined;
 }
 
 /**
+ * <p>Response structure for getting a Trigger</p>
  * @public
  */
 export interface GetTriggerResponse {
@@ -5279,11 +5619,12 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * <p>Request structure for listing Triggers in an agent space</p>
  * @public
  */
 export interface ListTriggersRequest {
   /**
-   * <p>Unique identifier for an agent space (allows alphanumeric characters and hyphens; 1-64 characters)</p>
+   * <p>The unique identifier for the agent space whose Triggers should be listed</p>
    * @public
    */
   agentSpaceId: string | undefined;
@@ -5308,6 +5649,7 @@ export interface ListTriggersRequest {
 }
 
 /**
+ * <p>Response structure for listing Triggers</p>
  * @public
  */
 export interface ListTriggersResponse {
@@ -5318,7 +5660,7 @@ export interface ListTriggersResponse {
   items: Trigger[] | undefined;
 
   /**
-   * <p>Pagination token for list operations (1-2048 characters)</p>
+   * <p>Pagination token to retrieve the next page of results</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -5510,7 +5852,7 @@ export interface SendMessageContext {
   lastMessage?: string | undefined;
 
   /**
-   * <p>Response to a UI prompt (not a text conversation message)</p>
+   * <p>Response to a UI prompt (not a text conversation message). Operator App SDK clients set this to the control-string sentinel `"APPROVAL_ACTION"` when the request is resuming a paused tool call after an operator approval decision; in that case the structured decision context lives on the sibling `approvalAction` member and the chat agent reads from there. Preserved as a String for back-compat: pre-typed-approval clients still encode arbitrary UI-prompt responses as JSON in this field, and the chat agent parses them out during the transition.</p>
    * @public
    */
   userActionResponse?: string | undefined;
@@ -6905,6 +7247,249 @@ export interface PagerDutyDetails {
 }
 
 /**
+ * <p>API key configuration for remote A2A agent.</p>
+ * @public
+ */
+export interface RemoteAgentAPIKeyConfig {
+  /**
+   * <p>User friendly API key name specified by end user.</p>
+   * @public
+   */
+  apiKeyName: string | undefined;
+
+  /**
+   * <p>API key value for authenticating with the service.</p>
+   * @public
+   */
+  apiKeyValue: string | undefined;
+
+  /**
+   * <p>HTTP header name to send the API key in requests to the service.</p>
+   * @public
+   */
+  apiKeyHeader: string | undefined;
+}
+
+/**
+ * <p>Bearer token configuration for remote A2A agent (RFC 6750).</p>
+ * @public
+ */
+export interface RemoteAgentBearerTokenConfig {
+  /**
+   * <p>User friendly bearer token name specified by end user.</p>
+   * @public
+   */
+  tokenName: string | undefined;
+
+  /**
+   * <p>Bearer token value in alphanumeric for authenticating with the service.</p>
+   * @public
+   */
+  tokenValue: string | undefined;
+
+  /**
+   * <p>HTTP header name to send the bearer token in requests to the service. Defaults to 'Authorization' per RFC 6750.</p>
+   * @public
+   */
+  authorizationHeader?: string | undefined;
+}
+
+/**
+ * <p>OAuth client credentials configuration for remote A2A agent.</p>
+ * @public
+ */
+export interface RemoteAgentOAuthClientCredentialsConfig {
+  /**
+   * <p>User friendly OAuth client name specified by end user.</p>
+   * @public
+   */
+  clientName?: string | undefined;
+
+  /**
+   * <p>OAuth client ID for authenticating with the service.</p>
+   * @public
+   */
+  clientId: string | undefined;
+
+  /**
+   * <p>OAuth token exchange parameters for authenticating with the service.</p>
+   * @public
+   */
+  exchangeParameters?: Record<string, string> | undefined;
+
+  /**
+   * <p>OAuth client secret for authenticating with the service.</p>
+   * @public
+   */
+  clientSecret: string | undefined;
+
+  /**
+   * <p>OAuth token exchange URL.</p>
+   * @public
+   */
+  exchangeUrl: string | undefined;
+
+  /**
+   * <p>OAuth scopes for authentication.</p>
+   * @public
+   */
+  scopes?: string[] | undefined;
+}
+
+/**
+ * <p>Authorization configuration for remote A2A agents with token-based auth (API key, OAuth, bearer token).</p>
+ * @public
+ */
+export type RemoteAgentAuthorizationConfig =
+  | RemoteAgentAuthorizationConfig.ApiKeyMember
+  | RemoteAgentAuthorizationConfig.BearerTokenMember
+  | RemoteAgentAuthorizationConfig.OAuthClientCredentialsMember
+  | RemoteAgentAuthorizationConfig.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RemoteAgentAuthorizationConfig {
+  /**
+   * <p>Remote agent configuration with API key authentication.</p>
+   * @public
+   */
+  export interface ApiKeyMember {
+    apiKey: RemoteAgentAPIKeyConfig;
+    oAuthClientCredentials?: never;
+    bearerToken?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Remote agent configuration with OAuth client credentials.</p>
+   * @public
+   */
+  export interface OAuthClientCredentialsMember {
+    apiKey?: never;
+    oAuthClientCredentials: RemoteAgentOAuthClientCredentialsConfig;
+    bearerToken?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Remote agent configuration with Bearer token (RFC 6750).</p>
+   * @public
+   */
+  export interface BearerTokenMember {
+    apiKey?: never;
+    oAuthClientCredentials?: never;
+    bearerToken: RemoteAgentBearerTokenConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    apiKey?: never;
+    oAuthClientCredentials?: never;
+    bearerToken?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    apiKey: (value: RemoteAgentAPIKeyConfig) => T;
+    oAuthClientCredentials: (value: RemoteAgentOAuthClientCredentialsConfig) => T;
+    bearerToken: (value: RemoteAgentBearerTokenConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Complete service details for token-based remote A2A agent integration.</p>
+ * @public
+ */
+export interface RemoteAgentServiceDetails {
+  /**
+   * <p>Name identifier for a remote A2A agent.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>HTTPS endpoint URL for a remote A2A agent.</p>
+   * @public
+   */
+  endpoint: string | undefined;
+
+  /**
+   * <p>Description field</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Remote agent authorization configuration.</p>
+   * @public
+   */
+  authorizationConfig: RemoteAgentAuthorizationConfig | undefined;
+}
+
+/**
+ * <p>SigV4 authorization configuration for remote A2A agent.</p>
+ * @public
+ */
+export interface RemoteAgentSigV4AuthorizationConfig {
+  /**
+   * <p>AWS region identifier or wildcard (*) for SigV4a multi-region signing.</p>
+   * @public
+   */
+  region: string | undefined;
+
+  /**
+   * <p>The AWS service name for SigV4 signing.</p>
+   * @public
+   */
+  service: string | undefined;
+
+  /**
+   * <p>AWS IAM role ARN.</p>
+   * @public
+   */
+  roleArn?: string | undefined;
+}
+
+/**
+ * <p>Complete service details for SigV4-authenticated remote A2A agent integration.</p>
+ * @public
+ */
+export interface RemoteAgentSigV4ServiceDetails {
+  /**
+   * <p>Name identifier for a remote A2A agent.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>HTTPS endpoint URL for a remote A2A agent.</p>
+   * @public
+   */
+  endpoint: string | undefined;
+
+  /**
+   * <p>Description field</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Remote agent SigV4 authorization configuration.</p>
+   * @public
+   */
+  authorizationConfig: RemoteAgentSigV4AuthorizationConfig | undefined;
+}
+
+/**
  * <p>OAuth client credentials configuration for ServiceNow.</p>
  * @public
  */
@@ -7007,6 +7592,8 @@ export type ServiceDetails =
   | ServiceDetails.Mcpserversigv4Member
   | ServiceDetails.McpserversplunkMember
   | ServiceDetails.PagerdutyMember
+  | ServiceDetails.RemoteagentMember
+  | ServiceDetails.Remoteagentsigv4Member
   | ServiceDetails.ServicenowMember
   | ServiceDetails.$UnknownMember;
 
@@ -7031,6 +7618,8 @@ export namespace ServiceDetails {
     pagerduty?: never;
     azureidentity?: never;
     mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
     $unknown?: never;
   }
 
@@ -7051,6 +7640,8 @@ export namespace ServiceDetails {
     pagerduty?: never;
     azureidentity?: never;
     mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
     $unknown?: never;
   }
 
@@ -7071,6 +7662,8 @@ export namespace ServiceDetails {
     pagerduty?: never;
     azureidentity?: never;
     mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
     $unknown?: never;
   }
 
@@ -7091,6 +7684,8 @@ export namespace ServiceDetails {
     pagerduty?: never;
     azureidentity?: never;
     mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
     $unknown?: never;
   }
 
@@ -7111,6 +7706,8 @@ export namespace ServiceDetails {
     pagerduty?: never;
     azureidentity?: never;
     mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
     $unknown?: never;
   }
 
@@ -7131,6 +7728,8 @@ export namespace ServiceDetails {
     pagerduty?: never;
     azureidentity?: never;
     mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
     $unknown?: never;
   }
 
@@ -7151,6 +7750,8 @@ export namespace ServiceDetails {
     pagerduty?: never;
     azureidentity?: never;
     mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
     $unknown?: never;
   }
 
@@ -7171,6 +7772,8 @@ export namespace ServiceDetails {
     pagerduty?: never;
     azureidentity?: never;
     mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
     $unknown?: never;
   }
 
@@ -7191,6 +7794,8 @@ export namespace ServiceDetails {
     pagerduty?: never;
     azureidentity?: never;
     mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
     $unknown?: never;
   }
 
@@ -7211,6 +7816,8 @@ export namespace ServiceDetails {
     pagerduty: PagerDutyDetails;
     azureidentity?: never;
     mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
     $unknown?: never;
   }
 
@@ -7231,6 +7838,8 @@ export namespace ServiceDetails {
     pagerduty?: never;
     azureidentity: RegisteredAzureIdentityDetails;
     mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
     $unknown?: never;
   }
 
@@ -7251,6 +7860,52 @@ export namespace ServiceDetails {
     pagerduty?: never;
     azureidentity?: never;
     mcpserversigv4: MCPServerSigV4ServiceDetails;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Remote A2A agent service details (token-based auth).</p>
+   * @public
+   */
+  export interface RemoteagentMember {
+    dynatrace?: never;
+    servicenow?: never;
+    mcpserverdatadog?: never;
+    mcpserver?: never;
+    gitlab?: never;
+    mcpserversplunk?: never;
+    mcpservernewrelic?: never;
+    eventChannel?: never;
+    mcpservergrafana?: never;
+    pagerduty?: never;
+    azureidentity?: never;
+    mcpserversigv4?: never;
+    remoteagent: RemoteAgentServiceDetails;
+    remoteagentsigv4?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Remote A2A agent service details (SigV4 auth).</p>
+   * @public
+   */
+  export interface Remoteagentsigv4Member {
+    dynatrace?: never;
+    servicenow?: never;
+    mcpserverdatadog?: never;
+    mcpserver?: never;
+    gitlab?: never;
+    mcpserversplunk?: never;
+    mcpservernewrelic?: never;
+    eventChannel?: never;
+    mcpservergrafana?: never;
+    pagerduty?: never;
+    azureidentity?: never;
+    mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4: RemoteAgentSigV4ServiceDetails;
     $unknown?: never;
   }
 
@@ -7270,6 +7925,8 @@ export namespace ServiceDetails {
     pagerduty?: never;
     azureidentity?: never;
     mcpserversigv4?: never;
+    remoteagent?: never;
+    remoteagentsigv4?: never;
     $unknown: [string, any];
   }
 
@@ -7290,6 +7947,8 @@ export namespace ServiceDetails {
     pagerduty: (value: PagerDutyDetails) => T;
     azureidentity: (value: RegisteredAzureIdentityDetails) => T;
     mcpserversigv4: (value: MCPServerSigV4ServiceDetails) => T;
+    remoteagent: (value: RemoteAgentServiceDetails) => T;
+    remoteagentsigv4: (value: RemoteAgentSigV4ServiceDetails) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -7446,7 +8105,7 @@ export interface UpdateAssetRequest {
   metadata?: __DocumentType | undefined;
 
   /**
-   * <p>Optional content to set or replace. A single file adds or replaces one file; a zip replaces all files.</p>
+   * <p>Optional content update. A single file adds or replaces one file; a zip replaces all files; a sourceUrl re-syncs from the original source.</p>
    * @public
    */
   content?: AssetContent | undefined;
@@ -7669,17 +8328,18 @@ export interface UpdateRecommendationResponse {
 }
 
 /**
+ * <p>Request structure for updating a Trigger</p>
  * @public
  */
 export interface UpdateTriggerRequest {
   /**
-   * <p>Unique identifier for an agent space (allows alphanumeric characters and hyphens; 1-64 characters)</p>
+   * <p>The unique identifier for the agent space containing the Trigger</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>Generic resource identifier (allows alphanumeric characters, hyphens, and underscores; 1-128 characters)</p>
+   * <p>The unique identifier of the Trigger to update</p>
    * @public
    */
   triggerId: string | undefined;
@@ -7698,6 +8358,7 @@ export interface UpdateTriggerRequest {
 }
 
 /**
+ * <p>Response structure for updating a Trigger</p>
  * @public
  */
 export interface UpdateTriggerResponse {
