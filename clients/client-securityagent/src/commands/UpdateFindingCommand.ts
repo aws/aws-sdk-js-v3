@@ -39,8 +39,15 @@ export interface UpdateFindingCommandOutput extends UpdateFindingOutput, __Metad
  * const input = { // UpdateFindingInput
  *   findingId: "STRING_VALUE", // required
  *   agentSpaceId: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   riskType: "STRING_VALUE",
  *   riskLevel: "UNKNOWN" || "INFORMATIONAL" || "LOW" || "MEDIUM" || "HIGH" || "CRITICAL",
+ *   riskScore: "STRING_VALUE",
+ *   attackScript: "STRING_VALUE",
+ *   reasoning: "STRING_VALUE",
  *   status: "ACTIVE" || "RESOLVED" || "ACCEPTED" || "FALSE_POSITIVE",
+ *   customerNote: "STRING_VALUE",
  * };
  * const command = new UpdateFindingCommand(input);
  * const response = await client.send(command);

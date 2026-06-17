@@ -37,7 +37,7 @@ export interface InitiateProviderRegistrationCommandOutput extends InitiateProvi
  * const config = {}; // type is SecurityAgentClientConfig
  * const client = new SecurityAgentClient(config);
  * const input = { // InitiateProviderRegistrationInput
- *   provider: "GITHUB", // required
+ *   provider: "GITHUB" || "GITLAB" || "BITBUCKET" || "CONFLUENCE", // required
  * };
  * const command = new InitiateProviderRegistrationCommand(input);
  * const response = await client.send(command);

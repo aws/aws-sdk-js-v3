@@ -144,3 +144,23 @@ export class ConflictException extends __BaseException {
     Object.setPrototypeOf(this, ConflictException.prototype);
   }
 }
+
+/**
+ * <p>The request exceeds a service quota. Review your current usage and request a quota increase if needed.</p>
+ * @public
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name = "ServiceQuotaExceededException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+  }
+}

@@ -8,6 +8,11 @@ import {
   AddArtifactCommand,
 } from "./commands/AddArtifactCommand";
 import {
+  type BatchCreateSecurityRequirementsCommandInput,
+  type BatchCreateSecurityRequirementsCommandOutput,
+  BatchCreateSecurityRequirementsCommand,
+} from "./commands/BatchCreateSecurityRequirementsCommand";
+import {
   type BatchDeleteCodeReviewsCommandInput,
   type BatchDeleteCodeReviewsCommandOutput,
   BatchDeleteCodeReviewsCommand,
@@ -17,6 +22,16 @@ import {
   type BatchDeletePentestsCommandOutput,
   BatchDeletePentestsCommand,
 } from "./commands/BatchDeletePentestsCommand";
+import {
+  type BatchDeleteSecurityRequirementsCommandInput,
+  type BatchDeleteSecurityRequirementsCommandOutput,
+  BatchDeleteSecurityRequirementsCommand,
+} from "./commands/BatchDeleteSecurityRequirementsCommand";
+import {
+  type BatchDeleteThreatModelsCommandInput,
+  type BatchDeleteThreatModelsCommandOutput,
+  BatchDeleteThreatModelsCommand,
+} from "./commands/BatchDeleteThreatModelsCommand";
 import {
   type BatchGetAgentSpacesCommandInput,
   type BatchGetAgentSpacesCommandOutput,
@@ -63,10 +78,40 @@ import {
   BatchGetPentestsCommand,
 } from "./commands/BatchGetPentestsCommand";
 import {
+  type BatchGetSecurityRequirementsCommandInput,
+  type BatchGetSecurityRequirementsCommandOutput,
+  BatchGetSecurityRequirementsCommand,
+} from "./commands/BatchGetSecurityRequirementsCommand";
+import {
   type BatchGetTargetDomainsCommandInput,
   type BatchGetTargetDomainsCommandOutput,
   BatchGetTargetDomainsCommand,
 } from "./commands/BatchGetTargetDomainsCommand";
+import {
+  type BatchGetThreatModelJobsCommandInput,
+  type BatchGetThreatModelJobsCommandOutput,
+  BatchGetThreatModelJobsCommand,
+} from "./commands/BatchGetThreatModelJobsCommand";
+import {
+  type BatchGetThreatModelJobTasksCommandInput,
+  type BatchGetThreatModelJobTasksCommandOutput,
+  BatchGetThreatModelJobTasksCommand,
+} from "./commands/BatchGetThreatModelJobTasksCommand";
+import {
+  type BatchGetThreatModelsCommandInput,
+  type BatchGetThreatModelsCommandOutput,
+  BatchGetThreatModelsCommand,
+} from "./commands/BatchGetThreatModelsCommand";
+import {
+  type BatchGetThreatsCommandInput,
+  type BatchGetThreatsCommandOutput,
+  BatchGetThreatsCommand,
+} from "./commands/BatchGetThreatsCommand";
+import {
+  type BatchUpdateSecurityRequirementsCommandInput,
+  type BatchUpdateSecurityRequirementsCommandOutput,
+  BatchUpdateSecurityRequirementsCommand,
+} from "./commands/BatchUpdateSecurityRequirementsCommand";
 import {
   type CreateAgentSpaceCommandInput,
   type CreateAgentSpaceCommandOutput,
@@ -98,10 +143,30 @@ import {
   CreatePentestCommand,
 } from "./commands/CreatePentestCommand";
 import {
+  type CreatePrivateConnectionCommandInput,
+  type CreatePrivateConnectionCommandOutput,
+  CreatePrivateConnectionCommand,
+} from "./commands/CreatePrivateConnectionCommand";
+import {
+  type CreateSecurityRequirementPackCommandInput,
+  type CreateSecurityRequirementPackCommandOutput,
+  CreateSecurityRequirementPackCommand,
+} from "./commands/CreateSecurityRequirementPackCommand";
+import {
   type CreateTargetDomainCommandInput,
   type CreateTargetDomainCommandOutput,
   CreateTargetDomainCommand,
 } from "./commands/CreateTargetDomainCommand";
+import {
+  type CreateThreatCommandInput,
+  type CreateThreatCommandOutput,
+  CreateThreatCommand,
+} from "./commands/CreateThreatCommand";
+import {
+  type CreateThreatModelCommandInput,
+  type CreateThreatModelCommandOutput,
+  CreateThreatModelCommand,
+} from "./commands/CreateThreatModelCommand";
 import {
   type DeleteAgentSpaceCommandInput,
   type DeleteAgentSpaceCommandOutput,
@@ -128,10 +193,25 @@ import {
   DeleteMembershipCommand,
 } from "./commands/DeleteMembershipCommand";
 import {
+  type DeletePrivateConnectionCommandInput,
+  type DeletePrivateConnectionCommandOutput,
+  DeletePrivateConnectionCommand,
+} from "./commands/DeletePrivateConnectionCommand";
+import {
+  type DeleteSecurityRequirementPackCommandInput,
+  type DeleteSecurityRequirementPackCommandOutput,
+  DeleteSecurityRequirementPackCommand,
+} from "./commands/DeleteSecurityRequirementPackCommand";
+import {
   type DeleteTargetDomainCommandInput,
   type DeleteTargetDomainCommandOutput,
   DeleteTargetDomainCommand,
 } from "./commands/DeleteTargetDomainCommand";
+import {
+  type DescribePrivateConnectionCommandInput,
+  type DescribePrivateConnectionCommandOutput,
+  DescribePrivateConnectionCommand,
+} from "./commands/DescribePrivateConnectionCommand";
 import {
   type GetApplicationCommandInput,
   type GetApplicationCommandOutput,
@@ -147,6 +227,16 @@ import {
   type GetIntegrationCommandOutput,
   GetIntegrationCommand,
 } from "./commands/GetIntegrationCommand";
+import {
+  type GetSecurityRequirementPackCommandInput,
+  type GetSecurityRequirementPackCommandOutput,
+  GetSecurityRequirementPackCommand,
+} from "./commands/GetSecurityRequirementPackCommand";
+import {
+  type ImportSecurityRequirementsCommandInput,
+  type ImportSecurityRequirementsCommandOutput,
+  ImportSecurityRequirementsCommand,
+} from "./commands/ImportSecurityRequirementsCommand";
 import {
   type InitiateProviderRegistrationCommandInput,
   type InitiateProviderRegistrationCommandOutput,
@@ -223,6 +313,21 @@ import {
   ListPentestsCommand,
 } from "./commands/ListPentestsCommand";
 import {
+  type ListPrivateConnectionsCommandInput,
+  type ListPrivateConnectionsCommandOutput,
+  ListPrivateConnectionsCommand,
+} from "./commands/ListPrivateConnectionsCommand";
+import {
+  type ListSecurityRequirementPacksCommandInput,
+  type ListSecurityRequirementPacksCommandOutput,
+  ListSecurityRequirementPacksCommand,
+} from "./commands/ListSecurityRequirementPacksCommand";
+import {
+  type ListSecurityRequirementsCommandInput,
+  type ListSecurityRequirementsCommandOutput,
+  ListSecurityRequirementsCommand,
+} from "./commands/ListSecurityRequirementsCommand";
+import {
   type ListTagsForResourceCommandInput,
   type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
@@ -232,6 +337,26 @@ import {
   type ListTargetDomainsCommandOutput,
   ListTargetDomainsCommand,
 } from "./commands/ListTargetDomainsCommand";
+import {
+  type ListThreatModelJobsCommandInput,
+  type ListThreatModelJobsCommandOutput,
+  ListThreatModelJobsCommand,
+} from "./commands/ListThreatModelJobsCommand";
+import {
+  type ListThreatModelJobTasksCommandInput,
+  type ListThreatModelJobTasksCommandOutput,
+  ListThreatModelJobTasksCommand,
+} from "./commands/ListThreatModelJobTasksCommand";
+import {
+  type ListThreatModelsCommandInput,
+  type ListThreatModelsCommandOutput,
+  ListThreatModelsCommand,
+} from "./commands/ListThreatModelsCommand";
+import {
+  type ListThreatsCommandInput,
+  type ListThreatsCommandOutput,
+  ListThreatsCommand,
+} from "./commands/ListThreatsCommand";
 import {
   type StartCodeRemediationCommandInput,
   type StartCodeRemediationCommandOutput,
@@ -248,6 +373,11 @@ import {
   StartPentestJobCommand,
 } from "./commands/StartPentestJobCommand";
 import {
+  type StartThreatModelJobCommandInput,
+  type StartThreatModelJobCommandOutput,
+  StartThreatModelJobCommand,
+} from "./commands/StartThreatModelJobCommand";
+import {
   type StopCodeReviewJobCommandInput,
   type StopCodeReviewJobCommandOutput,
   StopCodeReviewJobCommand,
@@ -257,6 +387,11 @@ import {
   type StopPentestJobCommandOutput,
   StopPentestJobCommand,
 } from "./commands/StopPentestJobCommand";
+import {
+  type StopThreatModelJobCommandInput,
+  type StopThreatModelJobCommandOutput,
+  StopThreatModelJobCommand,
+} from "./commands/StopThreatModelJobCommand";
 import {
   type TagResourceCommandInput,
   type TagResourceCommandOutput,
@@ -298,10 +433,30 @@ import {
   UpdatePentestCommand,
 } from "./commands/UpdatePentestCommand";
 import {
+  type UpdatePrivateConnectionCertificateCommandInput,
+  type UpdatePrivateConnectionCertificateCommandOutput,
+  UpdatePrivateConnectionCertificateCommand,
+} from "./commands/UpdatePrivateConnectionCertificateCommand";
+import {
+  type UpdateSecurityRequirementPackCommandInput,
+  type UpdateSecurityRequirementPackCommandOutput,
+  UpdateSecurityRequirementPackCommand,
+} from "./commands/UpdateSecurityRequirementPackCommand";
+import {
   type UpdateTargetDomainCommandInput,
   type UpdateTargetDomainCommandOutput,
   UpdateTargetDomainCommand,
 } from "./commands/UpdateTargetDomainCommand";
+import {
+  type UpdateThreatCommandInput,
+  type UpdateThreatCommandOutput,
+  UpdateThreatCommand,
+} from "./commands/UpdateThreatCommand";
+import {
+  type UpdateThreatModelCommandInput,
+  type UpdateThreatModelCommandOutput,
+  UpdateThreatModelCommand,
+} from "./commands/UpdateThreatModelCommand";
 import {
   type VerifyTargetDomainCommandInput,
   type VerifyTargetDomainCommandOutput,
@@ -321,13 +476,23 @@ import { paginateListMemberships } from "./pagination/ListMembershipsPaginator";
 import { paginateListPentestJobsForPentest } from "./pagination/ListPentestJobsForPentestPaginator";
 import { paginateListPentestJobTasks } from "./pagination/ListPentestJobTasksPaginator";
 import { paginateListPentests } from "./pagination/ListPentestsPaginator";
+import { paginateListPrivateConnections } from "./pagination/ListPrivateConnectionsPaginator";
+import { paginateListSecurityRequirementPacks } from "./pagination/ListSecurityRequirementPacksPaginator";
+import { paginateListSecurityRequirements } from "./pagination/ListSecurityRequirementsPaginator";
 import { paginateListTargetDomains } from "./pagination/ListTargetDomainsPaginator";
+import { paginateListThreatModelJobs } from "./pagination/ListThreatModelJobsPaginator";
+import { paginateListThreatModelJobTasks } from "./pagination/ListThreatModelJobTasksPaginator";
+import { paginateListThreatModels } from "./pagination/ListThreatModelsPaginator";
+import { paginateListThreats } from "./pagination/ListThreatsPaginator";
 import { SecurityAgentClient } from "./SecurityAgentClient";
 
 const commands = {
   AddArtifactCommand,
+  BatchCreateSecurityRequirementsCommand,
   BatchDeleteCodeReviewsCommand,
   BatchDeletePentestsCommand,
+  BatchDeleteSecurityRequirementsCommand,
+  BatchDeleteThreatModelsCommand,
   BatchGetAgentSpacesCommand,
   BatchGetArtifactMetadataCommand,
   BatchGetCodeReviewJobsCommand,
@@ -337,23 +502,38 @@ const commands = {
   BatchGetPentestJobsCommand,
   BatchGetPentestJobTasksCommand,
   BatchGetPentestsCommand,
+  BatchGetSecurityRequirementsCommand,
   BatchGetTargetDomainsCommand,
+  BatchGetThreatModelJobsCommand,
+  BatchGetThreatModelJobTasksCommand,
+  BatchGetThreatModelsCommand,
+  BatchGetThreatsCommand,
+  BatchUpdateSecurityRequirementsCommand,
   CreateAgentSpaceCommand,
   CreateApplicationCommand,
   CreateCodeReviewCommand,
   CreateIntegrationCommand,
   CreateMembershipCommand,
   CreatePentestCommand,
+  CreatePrivateConnectionCommand,
+  CreateSecurityRequirementPackCommand,
   CreateTargetDomainCommand,
+  CreateThreatCommand,
+  CreateThreatModelCommand,
   DeleteAgentSpaceCommand,
   DeleteApplicationCommand,
   DeleteArtifactCommand,
   DeleteIntegrationCommand,
   DeleteMembershipCommand,
+  DeletePrivateConnectionCommand,
+  DeleteSecurityRequirementPackCommand,
   DeleteTargetDomainCommand,
+  DescribePrivateConnectionCommand,
   GetApplicationCommand,
   GetArtifactCommand,
   GetIntegrationCommand,
+  GetSecurityRequirementPackCommand,
+  ImportSecurityRequirementsCommand,
   InitiateProviderRegistrationCommand,
   ListAgentSpacesCommand,
   ListApplicationsCommand,
@@ -369,13 +549,22 @@ const commands = {
   ListPentestJobsForPentestCommand,
   ListPentestJobTasksCommand,
   ListPentestsCommand,
+  ListPrivateConnectionsCommand,
+  ListSecurityRequirementPacksCommand,
+  ListSecurityRequirementsCommand,
   ListTagsForResourceCommand,
   ListTargetDomainsCommand,
+  ListThreatModelJobsCommand,
+  ListThreatModelJobTasksCommand,
+  ListThreatModelsCommand,
+  ListThreatsCommand,
   StartCodeRemediationCommand,
   StartCodeReviewJobCommand,
   StartPentestJobCommand,
+  StartThreatModelJobCommand,
   StopCodeReviewJobCommand,
   StopPentestJobCommand,
+  StopThreatModelJobCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateAgentSpaceCommand,
@@ -384,7 +573,11 @@ const commands = {
   UpdateFindingCommand,
   UpdateIntegratedResourcesCommand,
   UpdatePentestCommand,
+  UpdatePrivateConnectionCertificateCommand,
+  UpdateSecurityRequirementPackCommand,
   UpdateTargetDomainCommand,
+  UpdateThreatCommand,
+  UpdateThreatModelCommand,
   VerifyTargetDomainCommand,
 };
 const paginators = {
@@ -402,7 +595,14 @@ const paginators = {
   paginateListPentestJobsForPentest,
   paginateListPentestJobTasks,
   paginateListPentests,
+  paginateListPrivateConnections,
+  paginateListSecurityRequirementPacks,
+  paginateListSecurityRequirements,
   paginateListTargetDomains,
+  paginateListThreatModelJobs,
+  paginateListThreatModelJobTasks,
+  paginateListThreatModels,
+  paginateListThreats,
 };
 
 export interface SecurityAgent {
@@ -421,6 +621,23 @@ export interface SecurityAgent {
     args: AddArtifactCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AddArtifactCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchCreateSecurityRequirementsCommand}
+   */
+  batchCreateSecurityRequirements(
+    args: BatchCreateSecurityRequirementsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchCreateSecurityRequirementsCommandOutput>;
+  batchCreateSecurityRequirements(
+    args: BatchCreateSecurityRequirementsCommandInput,
+    cb: (err: any, data?: BatchCreateSecurityRequirementsCommandOutput) => void
+  ): void;
+  batchCreateSecurityRequirements(
+    args: BatchCreateSecurityRequirementsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchCreateSecurityRequirementsCommandOutput) => void
   ): void;
 
   /**
@@ -455,6 +672,40 @@ export interface SecurityAgent {
     args: BatchDeletePentestsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchDeletePentestsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchDeleteSecurityRequirementsCommand}
+   */
+  batchDeleteSecurityRequirements(
+    args: BatchDeleteSecurityRequirementsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchDeleteSecurityRequirementsCommandOutput>;
+  batchDeleteSecurityRequirements(
+    args: BatchDeleteSecurityRequirementsCommandInput,
+    cb: (err: any, data?: BatchDeleteSecurityRequirementsCommandOutput) => void
+  ): void;
+  batchDeleteSecurityRequirements(
+    args: BatchDeleteSecurityRequirementsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchDeleteSecurityRequirementsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchDeleteThreatModelsCommand}
+   */
+  batchDeleteThreatModels(
+    args: BatchDeleteThreatModelsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchDeleteThreatModelsCommandOutput>;
+  batchDeleteThreatModels(
+    args: BatchDeleteThreatModelsCommandInput,
+    cb: (err: any, data?: BatchDeleteThreatModelsCommandOutput) => void
+  ): void;
+  batchDeleteThreatModels(
+    args: BatchDeleteThreatModelsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchDeleteThreatModelsCommandOutput) => void
   ): void;
 
   /**
@@ -611,6 +862,23 @@ export interface SecurityAgent {
   ): void;
 
   /**
+   * @see {@link BatchGetSecurityRequirementsCommand}
+   */
+  batchGetSecurityRequirements(
+    args: BatchGetSecurityRequirementsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetSecurityRequirementsCommandOutput>;
+  batchGetSecurityRequirements(
+    args: BatchGetSecurityRequirementsCommandInput,
+    cb: (err: any, data?: BatchGetSecurityRequirementsCommandOutput) => void
+  ): void;
+  batchGetSecurityRequirements(
+    args: BatchGetSecurityRequirementsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetSecurityRequirementsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link BatchGetTargetDomainsCommand}
    */
   batchGetTargetDomains(
@@ -625,6 +893,91 @@ export interface SecurityAgent {
     args: BatchGetTargetDomainsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchGetTargetDomainsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetThreatModelJobsCommand}
+   */
+  batchGetThreatModelJobs(
+    args: BatchGetThreatModelJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetThreatModelJobsCommandOutput>;
+  batchGetThreatModelJobs(
+    args: BatchGetThreatModelJobsCommandInput,
+    cb: (err: any, data?: BatchGetThreatModelJobsCommandOutput) => void
+  ): void;
+  batchGetThreatModelJobs(
+    args: BatchGetThreatModelJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetThreatModelJobsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetThreatModelJobTasksCommand}
+   */
+  batchGetThreatModelJobTasks(
+    args: BatchGetThreatModelJobTasksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetThreatModelJobTasksCommandOutput>;
+  batchGetThreatModelJobTasks(
+    args: BatchGetThreatModelJobTasksCommandInput,
+    cb: (err: any, data?: BatchGetThreatModelJobTasksCommandOutput) => void
+  ): void;
+  batchGetThreatModelJobTasks(
+    args: BatchGetThreatModelJobTasksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetThreatModelJobTasksCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetThreatModelsCommand}
+   */
+  batchGetThreatModels(
+    args: BatchGetThreatModelsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetThreatModelsCommandOutput>;
+  batchGetThreatModels(
+    args: BatchGetThreatModelsCommandInput,
+    cb: (err: any, data?: BatchGetThreatModelsCommandOutput) => void
+  ): void;
+  batchGetThreatModels(
+    args: BatchGetThreatModelsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetThreatModelsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetThreatsCommand}
+   */
+  batchGetThreats(
+    args: BatchGetThreatsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetThreatsCommandOutput>;
+  batchGetThreats(
+    args: BatchGetThreatsCommandInput,
+    cb: (err: any, data?: BatchGetThreatsCommandOutput) => void
+  ): void;
+  batchGetThreats(
+    args: BatchGetThreatsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetThreatsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchUpdateSecurityRequirementsCommand}
+   */
+  batchUpdateSecurityRequirements(
+    args: BatchUpdateSecurityRequirementsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchUpdateSecurityRequirementsCommandOutput>;
+  batchUpdateSecurityRequirements(
+    args: BatchUpdateSecurityRequirementsCommandInput,
+    cb: (err: any, data?: BatchUpdateSecurityRequirementsCommandOutput) => void
+  ): void;
+  batchUpdateSecurityRequirements(
+    args: BatchUpdateSecurityRequirementsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchUpdateSecurityRequirementsCommandOutput) => void
   ): void;
 
   /**
@@ -731,6 +1084,40 @@ export interface SecurityAgent {
   ): void;
 
   /**
+   * @see {@link CreatePrivateConnectionCommand}
+   */
+  createPrivateConnection(
+    args: CreatePrivateConnectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePrivateConnectionCommandOutput>;
+  createPrivateConnection(
+    args: CreatePrivateConnectionCommandInput,
+    cb: (err: any, data?: CreatePrivateConnectionCommandOutput) => void
+  ): void;
+  createPrivateConnection(
+    args: CreatePrivateConnectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePrivateConnectionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateSecurityRequirementPackCommand}
+   */
+  createSecurityRequirementPack(
+    args: CreateSecurityRequirementPackCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSecurityRequirementPackCommandOutput>;
+  createSecurityRequirementPack(
+    args: CreateSecurityRequirementPackCommandInput,
+    cb: (err: any, data?: CreateSecurityRequirementPackCommandOutput) => void
+  ): void;
+  createSecurityRequirementPack(
+    args: CreateSecurityRequirementPackCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateSecurityRequirementPackCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateTargetDomainCommand}
    */
   createTargetDomain(
@@ -745,6 +1132,40 @@ export interface SecurityAgent {
     args: CreateTargetDomainCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateTargetDomainCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateThreatCommand}
+   */
+  createThreat(
+    args: CreateThreatCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateThreatCommandOutput>;
+  createThreat(
+    args: CreateThreatCommandInput,
+    cb: (err: any, data?: CreateThreatCommandOutput) => void
+  ): void;
+  createThreat(
+    args: CreateThreatCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateThreatCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateThreatModelCommand}
+   */
+  createThreatModel(
+    args: CreateThreatModelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateThreatModelCommandOutput>;
+  createThreatModel(
+    args: CreateThreatModelCommandInput,
+    cb: (err: any, data?: CreateThreatModelCommandOutput) => void
+  ): void;
+  createThreatModel(
+    args: CreateThreatModelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateThreatModelCommandOutput) => void
   ): void;
 
   /**
@@ -833,6 +1254,40 @@ export interface SecurityAgent {
   ): void;
 
   /**
+   * @see {@link DeletePrivateConnectionCommand}
+   */
+  deletePrivateConnection(
+    args: DeletePrivateConnectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePrivateConnectionCommandOutput>;
+  deletePrivateConnection(
+    args: DeletePrivateConnectionCommandInput,
+    cb: (err: any, data?: DeletePrivateConnectionCommandOutput) => void
+  ): void;
+  deletePrivateConnection(
+    args: DeletePrivateConnectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePrivateConnectionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteSecurityRequirementPackCommand}
+   */
+  deleteSecurityRequirementPack(
+    args: DeleteSecurityRequirementPackCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSecurityRequirementPackCommandOutput>;
+  deleteSecurityRequirementPack(
+    args: DeleteSecurityRequirementPackCommandInput,
+    cb: (err: any, data?: DeleteSecurityRequirementPackCommandOutput) => void
+  ): void;
+  deleteSecurityRequirementPack(
+    args: DeleteSecurityRequirementPackCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteSecurityRequirementPackCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteTargetDomainCommand}
    */
   deleteTargetDomain(
@@ -847,6 +1302,23 @@ export interface SecurityAgent {
     args: DeleteTargetDomainCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteTargetDomainCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribePrivateConnectionCommand}
+   */
+  describePrivateConnection(
+    args: DescribePrivateConnectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribePrivateConnectionCommandOutput>;
+  describePrivateConnection(
+    args: DescribePrivateConnectionCommandInput,
+    cb: (err: any, data?: DescribePrivateConnectionCommandOutput) => void
+  ): void;
+  describePrivateConnection(
+    args: DescribePrivateConnectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribePrivateConnectionCommandOutput) => void
   ): void;
 
   /**
@@ -898,6 +1370,40 @@ export interface SecurityAgent {
     args: GetIntegrationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetIntegrationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetSecurityRequirementPackCommand}
+   */
+  getSecurityRequirementPack(
+    args: GetSecurityRequirementPackCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSecurityRequirementPackCommandOutput>;
+  getSecurityRequirementPack(
+    args: GetSecurityRequirementPackCommandInput,
+    cb: (err: any, data?: GetSecurityRequirementPackCommandOutput) => void
+  ): void;
+  getSecurityRequirementPack(
+    args: GetSecurityRequirementPackCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSecurityRequirementPackCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ImportSecurityRequirementsCommand}
+   */
+  importSecurityRequirements(
+    args: ImportSecurityRequirementsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ImportSecurityRequirementsCommandOutput>;
+  importSecurityRequirements(
+    args: ImportSecurityRequirementsCommandInput,
+    cb: (err: any, data?: ImportSecurityRequirementsCommandOutput) => void
+  ): void;
+  importSecurityRequirements(
+    args: ImportSecurityRequirementsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ImportSecurityRequirementsCommandOutput) => void
   ): void;
 
   /**
@@ -1159,6 +1665,59 @@ export interface SecurityAgent {
   ): void;
 
   /**
+   * @see {@link ListPrivateConnectionsCommand}
+   */
+  listPrivateConnections(): Promise<ListPrivateConnectionsCommandOutput>;
+  listPrivateConnections(
+    args: ListPrivateConnectionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPrivateConnectionsCommandOutput>;
+  listPrivateConnections(
+    args: ListPrivateConnectionsCommandInput,
+    cb: (err: any, data?: ListPrivateConnectionsCommandOutput) => void
+  ): void;
+  listPrivateConnections(
+    args: ListPrivateConnectionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPrivateConnectionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSecurityRequirementPacksCommand}
+   */
+  listSecurityRequirementPacks(): Promise<ListSecurityRequirementPacksCommandOutput>;
+  listSecurityRequirementPacks(
+    args: ListSecurityRequirementPacksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSecurityRequirementPacksCommandOutput>;
+  listSecurityRequirementPacks(
+    args: ListSecurityRequirementPacksCommandInput,
+    cb: (err: any, data?: ListSecurityRequirementPacksCommandOutput) => void
+  ): void;
+  listSecurityRequirementPacks(
+    args: ListSecurityRequirementPacksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSecurityRequirementPacksCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSecurityRequirementsCommand}
+   */
+  listSecurityRequirements(
+    args: ListSecurityRequirementsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSecurityRequirementsCommandOutput>;
+  listSecurityRequirements(
+    args: ListSecurityRequirementsCommandInput,
+    cb: (err: any, data?: ListSecurityRequirementsCommandOutput) => void
+  ): void;
+  listSecurityRequirements(
+    args: ListSecurityRequirementsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSecurityRequirementsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListTagsForResourceCommand}
    */
   listTagsForResource(
@@ -1191,6 +1750,74 @@ export interface SecurityAgent {
     args: ListTargetDomainsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTargetDomainsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListThreatModelJobsCommand}
+   */
+  listThreatModelJobs(
+    args: ListThreatModelJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListThreatModelJobsCommandOutput>;
+  listThreatModelJobs(
+    args: ListThreatModelJobsCommandInput,
+    cb: (err: any, data?: ListThreatModelJobsCommandOutput) => void
+  ): void;
+  listThreatModelJobs(
+    args: ListThreatModelJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListThreatModelJobsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListThreatModelJobTasksCommand}
+   */
+  listThreatModelJobTasks(
+    args: ListThreatModelJobTasksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListThreatModelJobTasksCommandOutput>;
+  listThreatModelJobTasks(
+    args: ListThreatModelJobTasksCommandInput,
+    cb: (err: any, data?: ListThreatModelJobTasksCommandOutput) => void
+  ): void;
+  listThreatModelJobTasks(
+    args: ListThreatModelJobTasksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListThreatModelJobTasksCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListThreatModelsCommand}
+   */
+  listThreatModels(
+    args: ListThreatModelsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListThreatModelsCommandOutput>;
+  listThreatModels(
+    args: ListThreatModelsCommandInput,
+    cb: (err: any, data?: ListThreatModelsCommandOutput) => void
+  ): void;
+  listThreatModels(
+    args: ListThreatModelsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListThreatModelsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListThreatsCommand}
+   */
+  listThreats(
+    args: ListThreatsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListThreatsCommandOutput>;
+  listThreats(
+    args: ListThreatsCommandInput,
+    cb: (err: any, data?: ListThreatsCommandOutput) => void
+  ): void;
+  listThreats(
+    args: ListThreatsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListThreatsCommandOutput) => void
   ): void;
 
   /**
@@ -1245,6 +1872,23 @@ export interface SecurityAgent {
   ): void;
 
   /**
+   * @see {@link StartThreatModelJobCommand}
+   */
+  startThreatModelJob(
+    args: StartThreatModelJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartThreatModelJobCommandOutput>;
+  startThreatModelJob(
+    args: StartThreatModelJobCommandInput,
+    cb: (err: any, data?: StartThreatModelJobCommandOutput) => void
+  ): void;
+  startThreatModelJob(
+    args: StartThreatModelJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartThreatModelJobCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StopCodeReviewJobCommand}
    */
   stopCodeReviewJob(
@@ -1276,6 +1920,23 @@ export interface SecurityAgent {
     args: StopPentestJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StopPentestJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopThreatModelJobCommand}
+   */
+  stopThreatModelJob(
+    args: StopThreatModelJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopThreatModelJobCommandOutput>;
+  stopThreatModelJob(
+    args: StopThreatModelJobCommandInput,
+    cb: (err: any, data?: StopThreatModelJobCommandOutput) => void
+  ): void;
+  stopThreatModelJob(
+    args: StopThreatModelJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopThreatModelJobCommandOutput) => void
   ): void;
 
   /**
@@ -1415,6 +2076,40 @@ export interface SecurityAgent {
   ): void;
 
   /**
+   * @see {@link UpdatePrivateConnectionCertificateCommand}
+   */
+  updatePrivateConnectionCertificate(
+    args: UpdatePrivateConnectionCertificateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePrivateConnectionCertificateCommandOutput>;
+  updatePrivateConnectionCertificate(
+    args: UpdatePrivateConnectionCertificateCommandInput,
+    cb: (err: any, data?: UpdatePrivateConnectionCertificateCommandOutput) => void
+  ): void;
+  updatePrivateConnectionCertificate(
+    args: UpdatePrivateConnectionCertificateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePrivateConnectionCertificateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateSecurityRequirementPackCommand}
+   */
+  updateSecurityRequirementPack(
+    args: UpdateSecurityRequirementPackCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSecurityRequirementPackCommandOutput>;
+  updateSecurityRequirementPack(
+    args: UpdateSecurityRequirementPackCommandInput,
+    cb: (err: any, data?: UpdateSecurityRequirementPackCommandOutput) => void
+  ): void;
+  updateSecurityRequirementPack(
+    args: UpdateSecurityRequirementPackCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSecurityRequirementPackCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateTargetDomainCommand}
    */
   updateTargetDomain(
@@ -1429,6 +2124,40 @@ export interface SecurityAgent {
     args: UpdateTargetDomainCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateTargetDomainCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateThreatCommand}
+   */
+  updateThreat(
+    args: UpdateThreatCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateThreatCommandOutput>;
+  updateThreat(
+    args: UpdateThreatCommandInput,
+    cb: (err: any, data?: UpdateThreatCommandOutput) => void
+  ): void;
+  updateThreat(
+    args: UpdateThreatCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateThreatCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateThreatModelCommand}
+   */
+  updateThreatModel(
+    args: UpdateThreatModelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateThreatModelCommandOutput>;
+  updateThreatModel(
+    args: UpdateThreatModelCommandInput,
+    cb: (err: any, data?: UpdateThreatModelCommandOutput) => void
+  ): void;
+  updateThreatModel(
+    args: UpdateThreatModelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateThreatModelCommandOutput) => void
   ): void;
 
   /**
@@ -1603,6 +2332,39 @@ export interface SecurityAgent {
   ): Paginator<ListPentestsCommandOutput>;
 
   /**
+   * @see {@link ListPrivateConnectionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPrivateConnectionsCommandOutput}.
+   */
+  paginateListPrivateConnections(
+    args?: ListPrivateConnectionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPrivateConnectionsCommandOutput>;
+
+  /**
+   * @see {@link ListSecurityRequirementPacksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSecurityRequirementPacksCommandOutput}.
+   */
+  paginateListSecurityRequirementPacks(
+    args?: ListSecurityRequirementPacksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSecurityRequirementPacksCommandOutput>;
+
+  /**
+   * @see {@link ListSecurityRequirementsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSecurityRequirementsCommandOutput}.
+   */
+  paginateListSecurityRequirements(
+    args: ListSecurityRequirementsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSecurityRequirementsCommandOutput>;
+
+  /**
    * @see {@link ListTargetDomainsCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -1612,6 +2374,50 @@ export interface SecurityAgent {
     args?: ListTargetDomainsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListTargetDomainsCommandOutput>;
+
+  /**
+   * @see {@link ListThreatModelJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListThreatModelJobsCommandOutput}.
+   */
+  paginateListThreatModelJobs(
+    args: ListThreatModelJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListThreatModelJobsCommandOutput>;
+
+  /**
+   * @see {@link ListThreatModelJobTasksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListThreatModelJobTasksCommandOutput}.
+   */
+  paginateListThreatModelJobTasks(
+    args: ListThreatModelJobTasksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListThreatModelJobTasksCommandOutput>;
+
+  /**
+   * @see {@link ListThreatModelsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListThreatModelsCommandOutput}.
+   */
+  paginateListThreatModels(
+    args: ListThreatModelsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListThreatModelsCommandOutput>;
+
+  /**
+   * @see {@link ListThreatsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListThreatsCommandOutput}.
+   */
+  paginateListThreats(
+    args: ListThreatsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListThreatsCommandOutput>;
 }
 
 /**

@@ -46,11 +46,39 @@ export interface UpdateIntegratedResourcesCommandOutput extends UpdateIntegrated
  *           name: "STRING_VALUE", // required
  *           owner: "STRING_VALUE", // required
  *         },
+ *         gitlabRepository: { // GitLabRepositoryResource
+ *           name: "STRING_VALUE", // required
+ *           namespace: "STRING_VALUE", // required
+ *         },
+ *         bitbucketRepository: { // BitbucketRepositoryResource
+ *           name: "STRING_VALUE", // required
+ *           workspace: "STRING_VALUE", // required
+ *         },
+ *         confluenceDocument: { // ConfluenceDocumentResource
+ *           name: "STRING_VALUE", // required
+ *           spaceKey: "STRING_VALUE", // required
+ *           pageId: "STRING_VALUE", // required
+ *           title: "STRING_VALUE",
+ *           spaceTitle: "STRING_VALUE",
+ *         },
  *       },
  *       capabilities: { // ProviderResourceCapabilities Union: only one key present
  *         github: { // GitHubResourceCapabilities
  *           leaveComments: true || false,
  *           remediateCode: true || false,
+ *         },
+ *         gitlab: { // GitLabResourceCapabilities
+ *           leaveComments: true || false,
+ *           remediateCode: true || false,
+ *         },
+ *         bitbucket: { // BitbucketResourceCapabilities
+ *           leaveComments: true || false,
+ *           remediateCode: true || false,
+ *         },
+ *         confluence: { // ConfluenceResourceCapabilities
+ *           fetchDocument: true || false,
+ *           createDocument: true || false,
+ *           updateDocument: true || false,
  *         },
  *       },
  *     },

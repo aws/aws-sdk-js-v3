@@ -63,6 +63,10 @@ export interface UpdateCodeReviewCommandOutput extends UpdateCodeReviewOutput, _
  *       { // DocumentInfo
  *         s3Location: "STRING_VALUE",
  *         artifactId: "STRING_VALUE",
+ *         integratedDocument: { // IntegratedDocument
+ *           integrationId: "STRING_VALUE", // required
+ *           resourceId: "STRING_VALUE", // required
+ *         },
  *       },
  *     ],
  *     sourceCode: [ // SourceCodeRepositoryList
@@ -83,6 +87,7 @@ export interface UpdateCodeReviewCommandOutput extends UpdateCodeReviewOutput, _
  *     logStream: "STRING_VALUE",
  *   },
  *   codeRemediationStrategy: "AUTOMATIC" || "DISABLED",
+ *   validationMode: "DISABLED" || "SIMULATED",
  * };
  * const command = new UpdateCodeReviewCommand(input);
  * const response = await client.send(command);
@@ -114,6 +119,10 @@ export interface UpdateCodeReviewCommandOutput extends UpdateCodeReviewOutput, _
  * //       { // DocumentInfo
  * //         s3Location: "STRING_VALUE",
  * //         artifactId: "STRING_VALUE",
+ * //         integratedDocument: { // IntegratedDocument
+ * //           integrationId: "STRING_VALUE", // required
+ * //           resourceId: "STRING_VALUE", // required
+ * //         },
  * //       },
  * //     ],
  * //     sourceCode: [ // SourceCodeRepositoryList
@@ -135,6 +144,7 @@ export interface UpdateCodeReviewCommandOutput extends UpdateCodeReviewOutput, _
  * //   },
  * //   agentSpaceId: "STRING_VALUE",
  * //   codeRemediationStrategy: "AUTOMATIC" || "DISABLED",
+ * //   validationMode: "DISABLED" || "SIMULATED",
  * // };
  *
  * ```

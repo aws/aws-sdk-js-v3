@@ -56,6 +56,10 @@ export interface BatchGetCodeReviewJobsCommandOutput extends BatchGetCodeReviewJ
  * //         { // DocumentInfo
  * //           s3Location: "STRING_VALUE",
  * //           artifactId: "STRING_VALUE",
+ * //           integratedDocument: { // IntegratedDocument
+ * //             integrationId: "STRING_VALUE", // required
+ * //             resourceId: "STRING_VALUE", // required
+ * //           },
  * //         },
  * //       ],
  * //       sourceCode: [ // SourceCodeRepositoryList
@@ -65,7 +69,7 @@ export interface BatchGetCodeReviewJobsCommandOutput extends BatchGetCodeReviewJ
  * //       ],
  * //       steps: [ // StepList
  * //         { // Step
- * //           name: "PREFLIGHT" || "STATIC_ANALYSIS" || "PENTEST" || "FINALIZING",
+ * //           name: "PREFLIGHT" || "STATIC_ANALYSIS" || "PENTEST" || "FINALIZING" || "VALIDATION",
  * //           status: "NOT_STARTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOPPED",
  * //           createdAt: new Date("TIMESTAMP"),
  * //           updatedAt: new Date("TIMESTAMP"),

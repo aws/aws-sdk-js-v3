@@ -39,6 +39,9 @@ export interface StartCodeReviewJobCommandOutput extends StartCodeReviewJobOutpu
  * const input = { // StartCodeReviewJobInput
  *   agentSpaceId: "STRING_VALUE", // required
  *   codeReviewId: "STRING_VALUE", // required
+ *   diffSource: { // DiffSource Union: only one key present
+ *     s3Uri: "STRING_VALUE",
+ *   },
  * };
  * const command = new StartCodeReviewJobCommand(input);
  * const response = await client.send(command);

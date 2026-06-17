@@ -39,7 +39,7 @@ export interface ListIntegratedResourcesCommandOutput extends ListIntegratedReso
  * const input = { // ListIntegratedResourcesInput
  *   agentSpaceId: "STRING_VALUE", // required
  *   integrationId: "STRING_VALUE",
- *   resourceType: "CODE_REPOSITORY",
+ *   resourceType: "CODE_REPOSITORY" || "DOCUMENT",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };
@@ -56,11 +56,44 @@ export interface ListIntegratedResourcesCommandOutput extends ListIntegratedReso
  * //           owner: "STRING_VALUE", // required
  * //           accessType: "PRIVATE" || "PUBLIC",
  * //         },
+ * //         gitlabRepository: { // GitLabRepositoryMetadata
+ * //           name: "STRING_VALUE", // required
+ * //           providerResourceId: "STRING_VALUE", // required
+ * //           namespace: "STRING_VALUE", // required
+ * //           accessType: "PRIVATE" || "PUBLIC",
+ * //         },
+ * //         bitbucketRepository: { // BitbucketRepositoryMetadata
+ * //           name: "STRING_VALUE", // required
+ * //           providerResourceId: "STRING_VALUE", // required
+ * //           workspace: "STRING_VALUE", // required
+ * //           accessType: "PRIVATE" || "PUBLIC",
+ * //         },
+ * //         confluenceDocument: { // ConfluenceDocumentMetadata
+ * //           name: "STRING_VALUE", // required
+ * //           providerResourceId: "STRING_VALUE", // required
+ * //           spaceKey: "STRING_VALUE", // required
+ * //           pageId: "STRING_VALUE", // required
+ * //           title: "STRING_VALUE",
+ * //           spaceTitle: "STRING_VALUE",
+ * //         },
  * //       },
  * //       capabilities: { // ProviderResourceCapabilities Union: only one key present
  * //         github: { // GitHubResourceCapabilities
  * //           leaveComments: true || false,
  * //           remediateCode: true || false,
+ * //         },
+ * //         gitlab: { // GitLabResourceCapabilities
+ * //           leaveComments: true || false,
+ * //           remediateCode: true || false,
+ * //         },
+ * //         bitbucket: { // BitbucketResourceCapabilities
+ * //           leaveComments: true || false,
+ * //           remediateCode: true || false,
+ * //         },
+ * //         confluence: { // ConfluenceResourceCapabilities
+ * //           fetchDocument: true || false,
+ * //           createDocument: true || false,
+ * //           updateDocument: true || false,
  * //         },
  * //       },
  * //     },

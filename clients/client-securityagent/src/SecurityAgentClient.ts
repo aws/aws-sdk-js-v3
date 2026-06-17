@@ -56,6 +56,10 @@ import {
 } from "./auth/httpAuthSchemeProvider";
 import type { AddArtifactCommandInput, AddArtifactCommandOutput } from "./commands/AddArtifactCommand";
 import type {
+  BatchCreateSecurityRequirementsCommandInput,
+  BatchCreateSecurityRequirementsCommandOutput,
+} from "./commands/BatchCreateSecurityRequirementsCommand";
+import type {
   BatchDeleteCodeReviewsCommandInput,
   BatchDeleteCodeReviewsCommandOutput,
 } from "./commands/BatchDeleteCodeReviewsCommand";
@@ -63,6 +67,14 @@ import type {
   BatchDeletePentestsCommandInput,
   BatchDeletePentestsCommandOutput,
 } from "./commands/BatchDeletePentestsCommand";
+import type {
+  BatchDeleteSecurityRequirementsCommandInput,
+  BatchDeleteSecurityRequirementsCommandOutput,
+} from "./commands/BatchDeleteSecurityRequirementsCommand";
+import type {
+  BatchDeleteThreatModelsCommandInput,
+  BatchDeleteThreatModelsCommandOutput,
+} from "./commands/BatchDeleteThreatModelsCommand";
 import type {
   BatchGetAgentSpacesCommandInput,
   BatchGetAgentSpacesCommandOutput,
@@ -94,9 +106,30 @@ import type {
 } from "./commands/BatchGetPentestJobTasksCommand";
 import type { BatchGetPentestsCommandInput, BatchGetPentestsCommandOutput } from "./commands/BatchGetPentestsCommand";
 import type {
+  BatchGetSecurityRequirementsCommandInput,
+  BatchGetSecurityRequirementsCommandOutput,
+} from "./commands/BatchGetSecurityRequirementsCommand";
+import type {
   BatchGetTargetDomainsCommandInput,
   BatchGetTargetDomainsCommandOutput,
 } from "./commands/BatchGetTargetDomainsCommand";
+import type {
+  BatchGetThreatModelJobsCommandInput,
+  BatchGetThreatModelJobsCommandOutput,
+} from "./commands/BatchGetThreatModelJobsCommand";
+import type {
+  BatchGetThreatModelJobTasksCommandInput,
+  BatchGetThreatModelJobTasksCommandOutput,
+} from "./commands/BatchGetThreatModelJobTasksCommand";
+import type {
+  BatchGetThreatModelsCommandInput,
+  BatchGetThreatModelsCommandOutput,
+} from "./commands/BatchGetThreatModelsCommand";
+import type { BatchGetThreatsCommandInput, BatchGetThreatsCommandOutput } from "./commands/BatchGetThreatsCommand";
+import type {
+  BatchUpdateSecurityRequirementsCommandInput,
+  BatchUpdateSecurityRequirementsCommandOutput,
+} from "./commands/BatchUpdateSecurityRequirementsCommand";
 import type { CreateAgentSpaceCommandInput, CreateAgentSpaceCommandOutput } from "./commands/CreateAgentSpaceCommand";
 import type {
   CreateApplicationCommandInput,
@@ -110,9 +143,22 @@ import type {
 import type { CreateMembershipCommandInput, CreateMembershipCommandOutput } from "./commands/CreateMembershipCommand";
 import type { CreatePentestCommandInput, CreatePentestCommandOutput } from "./commands/CreatePentestCommand";
 import type {
+  CreatePrivateConnectionCommandInput,
+  CreatePrivateConnectionCommandOutput,
+} from "./commands/CreatePrivateConnectionCommand";
+import type {
+  CreateSecurityRequirementPackCommandInput,
+  CreateSecurityRequirementPackCommandOutput,
+} from "./commands/CreateSecurityRequirementPackCommand";
+import type {
   CreateTargetDomainCommandInput,
   CreateTargetDomainCommandOutput,
 } from "./commands/CreateTargetDomainCommand";
+import type { CreateThreatCommandInput, CreateThreatCommandOutput } from "./commands/CreateThreatCommand";
+import type {
+  CreateThreatModelCommandInput,
+  CreateThreatModelCommandOutput,
+} from "./commands/CreateThreatModelCommand";
 import type { DeleteAgentSpaceCommandInput, DeleteAgentSpaceCommandOutput } from "./commands/DeleteAgentSpaceCommand";
 import type {
   DeleteApplicationCommandInput,
@@ -125,12 +171,32 @@ import type {
 } from "./commands/DeleteIntegrationCommand";
 import type { DeleteMembershipCommandInput, DeleteMembershipCommandOutput } from "./commands/DeleteMembershipCommand";
 import type {
+  DeletePrivateConnectionCommandInput,
+  DeletePrivateConnectionCommandOutput,
+} from "./commands/DeletePrivateConnectionCommand";
+import type {
+  DeleteSecurityRequirementPackCommandInput,
+  DeleteSecurityRequirementPackCommandOutput,
+} from "./commands/DeleteSecurityRequirementPackCommand";
+import type {
   DeleteTargetDomainCommandInput,
   DeleteTargetDomainCommandOutput,
 } from "./commands/DeleteTargetDomainCommand";
+import type {
+  DescribePrivateConnectionCommandInput,
+  DescribePrivateConnectionCommandOutput,
+} from "./commands/DescribePrivateConnectionCommand";
 import type { GetApplicationCommandInput, GetApplicationCommandOutput } from "./commands/GetApplicationCommand";
 import type { GetArtifactCommandInput, GetArtifactCommandOutput } from "./commands/GetArtifactCommand";
 import type { GetIntegrationCommandInput, GetIntegrationCommandOutput } from "./commands/GetIntegrationCommand";
+import type {
+  GetSecurityRequirementPackCommandInput,
+  GetSecurityRequirementPackCommandOutput,
+} from "./commands/GetSecurityRequirementPackCommand";
+import type {
+  ImportSecurityRequirementsCommandInput,
+  ImportSecurityRequirementsCommandOutput,
+} from "./commands/ImportSecurityRequirementsCommand";
 import type {
   InitiateProviderRegistrationCommandInput,
   InitiateProviderRegistrationCommandOutput,
@@ -168,6 +234,18 @@ import type {
 } from "./commands/ListPentestJobTasksCommand";
 import type { ListPentestsCommandInput, ListPentestsCommandOutput } from "./commands/ListPentestsCommand";
 import type {
+  ListPrivateConnectionsCommandInput,
+  ListPrivateConnectionsCommandOutput,
+} from "./commands/ListPrivateConnectionsCommand";
+import type {
+  ListSecurityRequirementPacksCommandInput,
+  ListSecurityRequirementPacksCommandOutput,
+} from "./commands/ListSecurityRequirementPacksCommand";
+import type {
+  ListSecurityRequirementsCommandInput,
+  ListSecurityRequirementsCommandOutput,
+} from "./commands/ListSecurityRequirementsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
@@ -175,6 +253,16 @@ import type {
   ListTargetDomainsCommandInput,
   ListTargetDomainsCommandOutput,
 } from "./commands/ListTargetDomainsCommand";
+import type {
+  ListThreatModelJobsCommandInput,
+  ListThreatModelJobsCommandOutput,
+} from "./commands/ListThreatModelJobsCommand";
+import type {
+  ListThreatModelJobTasksCommandInput,
+  ListThreatModelJobTasksCommandOutput,
+} from "./commands/ListThreatModelJobTasksCommand";
+import type { ListThreatModelsCommandInput, ListThreatModelsCommandOutput } from "./commands/ListThreatModelsCommand";
+import type { ListThreatsCommandInput, ListThreatsCommandOutput } from "./commands/ListThreatsCommand";
 import type {
   StartCodeRemediationCommandInput,
   StartCodeRemediationCommandOutput,
@@ -185,10 +273,18 @@ import type {
 } from "./commands/StartCodeReviewJobCommand";
 import type { StartPentestJobCommandInput, StartPentestJobCommandOutput } from "./commands/StartPentestJobCommand";
 import type {
+  StartThreatModelJobCommandInput,
+  StartThreatModelJobCommandOutput,
+} from "./commands/StartThreatModelJobCommand";
+import type {
   StopCodeReviewJobCommandInput,
   StopCodeReviewJobCommandOutput,
 } from "./commands/StopCodeReviewJobCommand";
 import type { StopPentestJobCommandInput, StopPentestJobCommandOutput } from "./commands/StopPentestJobCommand";
+import type {
+  StopThreatModelJobCommandInput,
+  StopThreatModelJobCommandOutput,
+} from "./commands/StopThreatModelJobCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import type { UpdateAgentSpaceCommandInput, UpdateAgentSpaceCommandOutput } from "./commands/UpdateAgentSpaceCommand";
@@ -204,9 +300,22 @@ import type {
 } from "./commands/UpdateIntegratedResourcesCommand";
 import type { UpdatePentestCommandInput, UpdatePentestCommandOutput } from "./commands/UpdatePentestCommand";
 import type {
+  UpdatePrivateConnectionCertificateCommandInput,
+  UpdatePrivateConnectionCertificateCommandOutput,
+} from "./commands/UpdatePrivateConnectionCertificateCommand";
+import type {
+  UpdateSecurityRequirementPackCommandInput,
+  UpdateSecurityRequirementPackCommandOutput,
+} from "./commands/UpdateSecurityRequirementPackCommand";
+import type {
   UpdateTargetDomainCommandInput,
   UpdateTargetDomainCommandOutput,
 } from "./commands/UpdateTargetDomainCommand";
+import type { UpdateThreatCommandInput, UpdateThreatCommandOutput } from "./commands/UpdateThreatCommand";
+import type {
+  UpdateThreatModelCommandInput,
+  UpdateThreatModelCommandOutput,
+} from "./commands/UpdateThreatModelCommand";
 import type {
   VerifyTargetDomainCommandInput,
   VerifyTargetDomainCommandOutput,
@@ -227,8 +336,11 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | AddArtifactCommandInput
+  | BatchCreateSecurityRequirementsCommandInput
   | BatchDeleteCodeReviewsCommandInput
   | BatchDeletePentestsCommandInput
+  | BatchDeleteSecurityRequirementsCommandInput
+  | BatchDeleteThreatModelsCommandInput
   | BatchGetAgentSpacesCommandInput
   | BatchGetArtifactMetadataCommandInput
   | BatchGetCodeReviewJobTasksCommandInput
@@ -238,23 +350,38 @@ export type ServiceInputTypes =
   | BatchGetPentestJobTasksCommandInput
   | BatchGetPentestJobsCommandInput
   | BatchGetPentestsCommandInput
+  | BatchGetSecurityRequirementsCommandInput
   | BatchGetTargetDomainsCommandInput
+  | BatchGetThreatModelJobTasksCommandInput
+  | BatchGetThreatModelJobsCommandInput
+  | BatchGetThreatModelsCommandInput
+  | BatchGetThreatsCommandInput
+  | BatchUpdateSecurityRequirementsCommandInput
   | CreateAgentSpaceCommandInput
   | CreateApplicationCommandInput
   | CreateCodeReviewCommandInput
   | CreateIntegrationCommandInput
   | CreateMembershipCommandInput
   | CreatePentestCommandInput
+  | CreatePrivateConnectionCommandInput
+  | CreateSecurityRequirementPackCommandInput
   | CreateTargetDomainCommandInput
+  | CreateThreatCommandInput
+  | CreateThreatModelCommandInput
   | DeleteAgentSpaceCommandInput
   | DeleteApplicationCommandInput
   | DeleteArtifactCommandInput
   | DeleteIntegrationCommandInput
   | DeleteMembershipCommandInput
+  | DeletePrivateConnectionCommandInput
+  | DeleteSecurityRequirementPackCommandInput
   | DeleteTargetDomainCommandInput
+  | DescribePrivateConnectionCommandInput
   | GetApplicationCommandInput
   | GetArtifactCommandInput
   | GetIntegrationCommandInput
+  | GetSecurityRequirementPackCommandInput
+  | ImportSecurityRequirementsCommandInput
   | InitiateProviderRegistrationCommandInput
   | ListAgentSpacesCommandInput
   | ListApplicationsCommandInput
@@ -270,13 +397,22 @@ export type ServiceInputTypes =
   | ListPentestJobTasksCommandInput
   | ListPentestJobsForPentestCommandInput
   | ListPentestsCommandInput
+  | ListPrivateConnectionsCommandInput
+  | ListSecurityRequirementPacksCommandInput
+  | ListSecurityRequirementsCommandInput
   | ListTagsForResourceCommandInput
   | ListTargetDomainsCommandInput
+  | ListThreatModelJobTasksCommandInput
+  | ListThreatModelJobsCommandInput
+  | ListThreatModelsCommandInput
+  | ListThreatsCommandInput
   | StartCodeRemediationCommandInput
   | StartCodeReviewJobCommandInput
   | StartPentestJobCommandInput
+  | StartThreatModelJobCommandInput
   | StopCodeReviewJobCommandInput
   | StopPentestJobCommandInput
+  | StopThreatModelJobCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAgentSpaceCommandInput
@@ -285,7 +421,11 @@ export type ServiceInputTypes =
   | UpdateFindingCommandInput
   | UpdateIntegratedResourcesCommandInput
   | UpdatePentestCommandInput
+  | UpdatePrivateConnectionCertificateCommandInput
+  | UpdateSecurityRequirementPackCommandInput
   | UpdateTargetDomainCommandInput
+  | UpdateThreatCommandInput
+  | UpdateThreatModelCommandInput
   | VerifyTargetDomainCommandInput;
 
 /**
@@ -293,8 +433,11 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | AddArtifactCommandOutput
+  | BatchCreateSecurityRequirementsCommandOutput
   | BatchDeleteCodeReviewsCommandOutput
   | BatchDeletePentestsCommandOutput
+  | BatchDeleteSecurityRequirementsCommandOutput
+  | BatchDeleteThreatModelsCommandOutput
   | BatchGetAgentSpacesCommandOutput
   | BatchGetArtifactMetadataCommandOutput
   | BatchGetCodeReviewJobTasksCommandOutput
@@ -304,23 +447,38 @@ export type ServiceOutputTypes =
   | BatchGetPentestJobTasksCommandOutput
   | BatchGetPentestJobsCommandOutput
   | BatchGetPentestsCommandOutput
+  | BatchGetSecurityRequirementsCommandOutput
   | BatchGetTargetDomainsCommandOutput
+  | BatchGetThreatModelJobTasksCommandOutput
+  | BatchGetThreatModelJobsCommandOutput
+  | BatchGetThreatModelsCommandOutput
+  | BatchGetThreatsCommandOutput
+  | BatchUpdateSecurityRequirementsCommandOutput
   | CreateAgentSpaceCommandOutput
   | CreateApplicationCommandOutput
   | CreateCodeReviewCommandOutput
   | CreateIntegrationCommandOutput
   | CreateMembershipCommandOutput
   | CreatePentestCommandOutput
+  | CreatePrivateConnectionCommandOutput
+  | CreateSecurityRequirementPackCommandOutput
   | CreateTargetDomainCommandOutput
+  | CreateThreatCommandOutput
+  | CreateThreatModelCommandOutput
   | DeleteAgentSpaceCommandOutput
   | DeleteApplicationCommandOutput
   | DeleteArtifactCommandOutput
   | DeleteIntegrationCommandOutput
   | DeleteMembershipCommandOutput
+  | DeletePrivateConnectionCommandOutput
+  | DeleteSecurityRequirementPackCommandOutput
   | DeleteTargetDomainCommandOutput
+  | DescribePrivateConnectionCommandOutput
   | GetApplicationCommandOutput
   | GetArtifactCommandOutput
   | GetIntegrationCommandOutput
+  | GetSecurityRequirementPackCommandOutput
+  | ImportSecurityRequirementsCommandOutput
   | InitiateProviderRegistrationCommandOutput
   | ListAgentSpacesCommandOutput
   | ListApplicationsCommandOutput
@@ -336,13 +494,22 @@ export type ServiceOutputTypes =
   | ListPentestJobTasksCommandOutput
   | ListPentestJobsForPentestCommandOutput
   | ListPentestsCommandOutput
+  | ListPrivateConnectionsCommandOutput
+  | ListSecurityRequirementPacksCommandOutput
+  | ListSecurityRequirementsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListTargetDomainsCommandOutput
+  | ListThreatModelJobTasksCommandOutput
+  | ListThreatModelJobsCommandOutput
+  | ListThreatModelsCommandOutput
+  | ListThreatsCommandOutput
   | StartCodeRemediationCommandOutput
   | StartCodeReviewJobCommandOutput
   | StartPentestJobCommandOutput
+  | StartThreatModelJobCommandOutput
   | StopCodeReviewJobCommandOutput
   | StopPentestJobCommandOutput
+  | StopThreatModelJobCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAgentSpaceCommandOutput
@@ -351,7 +518,11 @@ export type ServiceOutputTypes =
   | UpdateFindingCommandOutput
   | UpdateIntegratedResourcesCommandOutput
   | UpdatePentestCommandOutput
+  | UpdatePrivateConnectionCertificateCommandOutput
+  | UpdateSecurityRequirementPackCommandOutput
   | UpdateTargetDomainCommandOutput
+  | UpdateThreatCommandOutput
+  | UpdateThreatModelCommandOutput
   | VerifyTargetDomainCommandOutput;
 
 /**

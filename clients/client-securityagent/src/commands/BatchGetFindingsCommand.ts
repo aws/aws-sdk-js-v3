@@ -62,6 +62,7 @@ export interface BatchGetFindingsCommandOutput extends BatchGetFindingsOutput, _
  * //       riskScore: "STRING_VALUE",
  * //       reasoning: "STRING_VALUE",
  * //       confidence: "FALSE_POSITIVE" || "UNCONFIRMED" || "LOW" || "MEDIUM" || "HIGH",
+ * //       validationStatus: "CONFIRMED" || "NOT_REPRODUCED" || "VALIDATION_FAILED" || "VALIDATING" || "NOT_VALIDATED",
  * //       attackScript: "STRING_VALUE",
  * //       codeRemediationTask: { // CodeRemediationTask
  * //         status: "IN_PROGRESS" || "COMPLETED" || "FAILED", // required
@@ -75,6 +76,7 @@ export interface BatchGetFindingsCommandOutput extends BatchGetFindingsOutput, _
  * //         ],
  * //       },
  * //       lastUpdatedBy: "STRING_VALUE",
+ * //       customerNote: "STRING_VALUE",
  * //       codeLocations: [ // CodeLocationList
  * //         { // CodeLocation
  * //           filePath: "STRING_VALUE", // required
@@ -94,6 +96,7 @@ export interface BatchGetFindingsCommandOutput extends BatchGetFindingsOutput, _
  * //           },
  * //         ],
  * //       },
+ * //       alignmentRationale: "STRING_VALUE",
  * //       createdAt: new Date("TIMESTAMP"),
  * //       updatedAt: new Date("TIMESTAMP"),
  * //     },

@@ -37,12 +37,32 @@ export interface CreateIntegrationCommandOutput extends CreateIntegrationOutput,
  * const config = {}; // type is SecurityAgentClientConfig
  * const client = new SecurityAgentClient(config);
  * const input = { // CreateIntegrationInput
- *   provider: "GITHUB", // required
+ *   provider: "GITHUB" || "GITLAB" || "BITBUCKET" || "CONFLUENCE", // required
  *   input: { // ProviderInput Union: only one key present
  *     github: { // GitHubIntegrationInput
  *       code: "STRING_VALUE", // required
  *       state: "STRING_VALUE", // required
  *       organizationName: "STRING_VALUE",
+ *       targetUrl: "STRING_VALUE",
+ *       installationId: "STRING_VALUE",
+ *     },
+ *     gitlab: { // GitLabIntegrationInput
+ *       accessToken: "STRING_VALUE", // required
+ *       targetUrl: "STRING_VALUE",
+ *       tokenType: "PERSONAL" || "GROUP", // required
+ *       groupId: "STRING_VALUE",
+ *     },
+ *     bitbucket: { // BitbucketIntegrationInput
+ *       installationId: "STRING_VALUE", // required
+ *       workspace: "STRING_VALUE", // required
+ *       code: "STRING_VALUE", // required
+ *       state: "STRING_VALUE", // required
+ *     },
+ *     confluence: { // ConfluenceIntegrationInput
+ *       installationId: "STRING_VALUE", // required
+ *       code: "STRING_VALUE", // required
+ *       state: "STRING_VALUE", // required
+ *       siteUrl: "STRING_VALUE", // required
  *     },
  *   },
  *   integrationDisplayName: "STRING_VALUE", // required
@@ -50,6 +70,7 @@ export interface CreateIntegrationCommandOutput extends CreateIntegrationOutput,
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   privateConnectionName: "STRING_VALUE",
  * };
  * const command = new CreateIntegrationCommand(input);
  * const response = await client.send(command);

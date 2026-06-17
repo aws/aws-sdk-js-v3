@@ -40,7 +40,7 @@ export interface ListCodeReviewJobTasksCommandOutput extends ListCodeReviewJobTa
  *   agentSpaceId: "STRING_VALUE", // required
  *   maxResults: Number("int"),
  *   codeReviewJobId: "STRING_VALUE",
- *   stepName: "PREFLIGHT" || "STATIC_ANALYSIS" || "PENTEST" || "FINALIZING",
+ *   stepName: "PREFLIGHT" || "STATIC_ANALYSIS" || "PENTEST" || "FINALIZING" || "VALIDATION",
  *   categoryName: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",
  * };

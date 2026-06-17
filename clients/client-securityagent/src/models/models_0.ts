@@ -3,6 +3,7 @@ import type {
   AccessType,
   ArtifactType,
   AuthenticationProviderType,
+  CleanUpStrategy,
   CodeRemediationStrategy,
   CodeRemediationTaskStatus,
   ConfidenceLevel,
@@ -11,22 +12,38 @@ import type {
   DomainVerificationMethod,
   ErrorCode,
   FindingStatus,
+  GitLabTokenType,
+  IpAddressType,
   JobStatus,
   LogType,
+  ManagementType,
   MembershipType,
   MembershipTypeFilter,
   NetworkTrafficRuleEffect,
   NetworkTrafficRuleType,
+  PrivateConnectionStatus,
+  PrivateConnectionType,
   Provider,
   ProviderType,
+  ResourceConfigDnsResolution,
   ResourceType,
   RiskLevel,
   RiskType,
+  SecurityRequirementArtifactFormat,
+  SecurityRequirementPackImportStatus,
+  SecurityRequirementPackStatus,
+  SkillType,
   StepName,
   StepStatus,
+  StrideCategory,
   TargetDomainStatus,
   TaskExecutionStatus,
+  ThreatActor,
+  ThreatSeverity,
+  ThreatStatus,
   UserRole,
+  ValidationMode,
+  ValidationStatus,
 } from "./enums";
 
 /**
@@ -895,6 +912,24 @@ export interface ArtifactSummary {
 }
 
 /**
+ * <p>A reference to a document in a third-party provider, such as a Confluence page linked via an integration.</p>
+ * @public
+ */
+export interface IntegratedDocument {
+  /**
+   * <p>The identifier of the integration that provides access to the document.</p>
+   * @public
+   */
+  integrationId: string | undefined;
+
+  /**
+   * <p>The provider-specific resource identifier for the document.</p>
+   * @public
+   */
+  resourceId: string | undefined;
+}
+
+/**
  * <p>Represents a document that provides context for security testing.</p>
  * @public
  */
@@ -910,6 +945,12 @@ export interface DocumentInfo {
    * @public
    */
   artifactId?: string | undefined;
+
+  /**
+   * <p>A reference to a document in an integrated third-party provider.</p>
+   * @public
+   */
+  integratedDocument?: IntegratedDocument | undefined;
 }
 
 /**
@@ -988,6 +1029,154 @@ export interface Assets {
    * @public
    */
   integratedRepositories?: IntegratedRepository[] | undefined;
+}
+
+/**
+ * <p>Contains information about a successfully created security requirement.</p>
+ * @public
+ */
+export interface BatchCreateSecurityRequirementResult {
+  /**
+   * <p>The unique identifier of the pack containing the security requirement.</p>
+   * @public
+   */
+  packId: string | undefined;
+
+  /**
+   * <p>The name of the security requirement.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A description of the security requirement.</p>
+   * @public
+   */
+  description: string | undefined;
+
+  /**
+   * <p>The security domain the requirement belongs to.</p>
+   * @public
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>The evaluation criteria used to assess compliance with this requirement.</p>
+   * @public
+   */
+  evaluation: string | undefined;
+
+  /**
+   * <p>The recommended remediation steps when the requirement is not met.</p>
+   * @public
+   */
+  remediation?: string | undefined;
+
+  /**
+   * <p>The date and time the security requirement was created, in UTC format.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The date and time the security requirement was last updated, in UTC format.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * <p>Contains the details for a security requirement to create within a pack.</p>
+ * @public
+ */
+export interface CreateSecurityRequirementEntry {
+  /**
+   * <p>The name of the security requirement.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A description of the security requirement.</p>
+   * @public
+   */
+  description: string | undefined;
+
+  /**
+   * <p>The security domain the requirement belongs to.</p>
+   * @public
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>The evaluation criteria used to assess compliance with this requirement.</p>
+   * @public
+   */
+  evaluation: string | undefined;
+
+  /**
+   * <p>The recommended remediation steps when the requirement is not met.</p>
+   * @public
+   */
+  remediation?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchCreateSecurityRequirementsInput {
+  /**
+   * <p>The unique identifier of the security requirement pack to add requirements to.</p>
+   * @public
+   */
+  packId: string | undefined;
+
+  /**
+   * <p>The list of security requirements to create.</p>
+   * @public
+   */
+  securityRequirements: CreateSecurityRequirementEntry[] | undefined;
+}
+
+/**
+ * <p>Contains information about an error that occurred for a specific security requirement during a batch operation.</p>
+ * @public
+ */
+export interface BatchSecurityRequirementError {
+  /**
+   * <p>The name of the security requirement that caused the error.</p>
+   * @public
+   */
+  securityRequirementName: string | undefined;
+
+  /**
+   * <p>The error code.</p>
+   * @public
+   */
+  code: string | undefined;
+
+  /**
+   * <p>The error message.</p>
+   * @public
+   */
+  message: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchCreateSecurityRequirementsOutput {
+  /**
+   * <p>The list of security requirements that were successfully created.</p>
+   * @public
+   */
+  securityRequirements: BatchCreateSecurityRequirementResult[] | undefined;
+
+  /**
+   * <p>The list of errors for security requirements that failed to be created.</p>
+   * @public
+   */
+  errors: BatchSecurityRequirementError[] | undefined;
 }
 
 /**
@@ -1206,6 +1395,18 @@ export interface Pentest {
   codeRemediationStrategy?: CodeRemediationStrategy | undefined;
 
   /**
+   * <p>Strategy for cleaning up resources after pentest job completion.</p>
+   * @public
+   */
+  cleanUpStrategy?: CleanUpStrategy | undefined;
+
+  /**
+   * <p>A list of managed skills to disable for this pentest. Valid values include FINDING_PERSONALIZATION and LOGIN_OPTIMIZATION.</p>
+   * @public
+   */
+  disableManagedSkills?: SkillType[] | undefined;
+
+  /**
    * <p>The date and time the pentest was created, in UTC format.</p>
    * @public
    */
@@ -1252,6 +1453,94 @@ export interface BatchDeletePentestsOutput {
    * @public
    */
   failed?: DeletePentestFailure[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchDeleteSecurityRequirementsInput {
+  /**
+   * <p>The unique identifier of the security requirement pack to remove requirements from.</p>
+   * @public
+   */
+  packId: string | undefined;
+
+  /**
+   * <p>The list of security requirement names to delete.</p>
+   * @public
+   */
+  securityRequirementNames: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchDeleteSecurityRequirementsOutput {
+  /**
+   * <p>The list of security requirement names that were successfully deleted.</p>
+   * @public
+   */
+  deletedSecurityRequirementNames: string[] | undefined;
+
+  /**
+   * <p>The list of errors for security requirements that failed to be deleted.</p>
+   * @public
+   */
+  errors: BatchSecurityRequirementError[] | undefined;
+}
+
+/**
+ * <p>Input for deleting multiple threat models.</p>
+ * @public
+ */
+export interface BatchDeleteThreatModelsInput {
+  /**
+   * <p>The list of threat model identifiers to delete.</p>
+   * @public
+   */
+  threatModelIds: string[] | undefined;
+
+  /**
+   * <p>The unique identifier of the agent space that contains the threat models to delete.</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+}
+
+/**
+ * <p>Contains information about a threat model that failed to delete.</p>
+ * @public
+ */
+export interface DeleteThreatModelFailure {
+  /**
+   * <p>The unique identifier of the threat model that failed to delete.</p>
+   * @public
+   */
+  threatModelId?: string | undefined;
+
+  /**
+   * <p>The reason the threat model failed to delete.</p>
+   * @public
+   */
+  reason?: string | undefined;
+}
+
+/**
+ * <p>Output for the BatchDeleteThreatModels operation.</p>
+ * @public
+ */
+export interface BatchDeleteThreatModelsOutput {
+  /**
+   * <p>The list of threat model identifiers that were successfully deleted.</p>
+   * @public
+   */
+  deleted?: string[] | undefined;
+
+  /**
+   * <p>The list of threat models that failed to delete, including the reason for each failure.</p>
+   * @public
+   */
+  failed?: DeleteThreatModelFailure[] | undefined;
 }
 
 /**
@@ -1348,7 +1637,7 @@ export interface ExecutionContext {
  */
 export interface Step {
   /**
-   * <p>The name of the step. Valid values include PREFLIGHT, STATIC_ANALYSIS, PENTEST, and FINALIZING.</p>
+   * <p>The name of the step. Valid values include PREFLIGHT, STATIC_ANALYSIS, PENTEST, VALIDATION, and FINALIZING.</p>
    * @public
    */
   name?: StepName | undefined;
@@ -1708,6 +1997,12 @@ export interface CodeReview {
   codeRemediationStrategy?: CodeRemediationStrategy | undefined;
 
   /**
+   * <p>The validation mode for the code review. Valid values are SIMULATED and DISABLED.</p>
+   * @public
+   */
+  validationMode?: ValidationMode | undefined;
+
+  /**
    * <p>The date and time the code review was created, in UTC format.</p>
    * @public
    */
@@ -1978,6 +2273,12 @@ export interface Finding {
   confidence?: ConfidenceLevel | undefined;
 
   /**
+   * <p>The simulated validation status of the finding. Valid values are NOT_VALIDATED, VALIDATING, CONFIRMED, NOT_REPRODUCED, and VALIDATION_FAILED.</p>
+   * @public
+   */
+  validationStatus?: ValidationStatus | undefined;
+
+  /**
    * <p>The attack script used to reproduce the finding.</p>
    * @public
    */
@@ -1996,6 +2297,12 @@ export interface Finding {
   lastUpdatedBy?: string | undefined;
 
   /**
+   * <p>A customer-provided note on the finding.</p>
+   * @public
+   */
+  customerNote?: string | undefined;
+
+  /**
    * <p>The file locations involved in the vulnerability, as reported by the code scanner.</p>
    * @public
    */
@@ -2006,6 +2313,12 @@ export interface Finding {
    * @public
    */
   verificationScript?: VerificationScript | undefined;
+
+  /**
+   * <p>The rationale provided by the alignment agent explaining how the finding was adjusted based on customer preferences.</p>
+   * @public
+   */
+  alignmentRationale?: string | undefined;
 
   /**
    * <p>The date and time the finding was created, in UTC format.</p>
@@ -2186,6 +2499,18 @@ export interface PentestJob {
    * @public
    */
   codeRemediationStrategy?: CodeRemediationStrategy | undefined;
+
+  /**
+   * <p>Strategy for cleaning up resources after pentest job completion.</p>
+   * @public
+   */
+  cleanUpStrategy?: CleanUpStrategy | undefined;
+
+  /**
+   * <p>A list of managed skills disabled for this pentest job. Valid values include FINDING_PERSONALIZATION and LOGIN_OPTIMIZATION.</p>
+   * @public
+   */
+  disableManagedSkills?: SkillType[] | undefined;
 
   /**
    * <p>The date and time the pentest job was created, in UTC format.</p>
@@ -2375,6 +2700,94 @@ export interface BatchGetPentestsOutput {
 }
 
 /**
+ * <p>Contains information about a successfully retrieved security requirement.</p>
+ * @public
+ */
+export interface BatchGetSecurityRequirementResult {
+  /**
+   * <p>The unique identifier of the pack containing the security requirement.</p>
+   * @public
+   */
+  packId: string | undefined;
+
+  /**
+   * <p>The name of the security requirement.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A description of the security requirement.</p>
+   * @public
+   */
+  description: string | undefined;
+
+  /**
+   * <p>The security domain the requirement belongs to.</p>
+   * @public
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>The evaluation criteria used to assess compliance with this requirement.</p>
+   * @public
+   */
+  evaluation: string | undefined;
+
+  /**
+   * <p>The recommended remediation steps when the requirement is not met.</p>
+   * @public
+   */
+  remediation?: string | undefined;
+
+  /**
+   * <p>The date and time the security requirement was created, in UTC format.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The date and time the security requirement was last updated, in UTC format.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetSecurityRequirementsInput {
+  /**
+   * <p>The unique identifier of the security requirement pack to retrieve requirements from.</p>
+   * @public
+   */
+  packId: string | undefined;
+
+  /**
+   * <p>The list of security requirement names to retrieve.</p>
+   * @public
+   */
+  securityRequirementNames: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetSecurityRequirementsOutput {
+  /**
+   * <p>The list of security requirements that were successfully retrieved.</p>
+   * @public
+   */
+  securityRequirements: BatchGetSecurityRequirementResult[] | undefined;
+
+  /**
+   * <p>The list of errors for security requirements that failed to be retrieved.</p>
+   * @public
+   */
+  errors: BatchSecurityRequirementError[] | undefined;
+}
+
+/**
  * <p>Input for batch retrieving target domains.</p>
  * @public
  */
@@ -2519,6 +2932,718 @@ export interface BatchGetTargetDomainsOutput {
 }
 
 /**
+ * <p>Input for BatchGetThreatModelJobs operation.</p>
+ * @public
+ */
+export interface BatchGetThreatModelJobsInput {
+  /**
+   * <p>The list of threat model job identifiers to retrieve.</p>
+   * @public
+   */
+  threatModelJobIds: string[] | undefined;
+
+  /**
+   * <p>The unique identifier of the agent space that contains the threat model jobs.</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+}
+
+/**
+ * <p>Represents a threat model job, which is an execution instance of a threat model.</p>
+ * @public
+ */
+export interface ThreatModelJob {
+  /**
+   * <p>The unique identifier of the threat model job.</p>
+   * @public
+   */
+  threatModelJobId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the threat model associated with the job.</p>
+   * @public
+   */
+  threatModelId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the agent space.</p>
+   * @public
+   */
+  agentSpaceId?: string | undefined;
+
+  /**
+   * <p>The title of the threat model job.</p>
+   * @public
+   */
+  title?: string | undefined;
+
+  /**
+   * <p>The current status of the threat model job.</p>
+   * @public
+   */
+  status?: JobStatus | undefined;
+
+  /**
+   * <p>The date and time the threat model job was created, in UTC format.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the threat model job was last updated, in UTC format.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the threat model job execution started, in UTC format.</p>
+   * @public
+   */
+  executionStartTime?: Date | undefined;
+
+  /**
+   * <p>The date and time the threat model job execution ended, in UTC format.</p>
+   * @public
+   */
+  executionEndTime?: Date | undefined;
+
+  /**
+   * <p>The list of source code repositories used for threat modeling.</p>
+   * @public
+   */
+  sourceCode?: SourceCodeRepository[] | undefined;
+
+  /**
+   * <p>The list of integrated repositories used for threat modeling.</p>
+   * @public
+   */
+  integratedRepositories?: IntegratedRepository[] | undefined;
+
+  /**
+   * <p>The list of documents used for threat modeling.</p>
+   * @public
+   */
+  documents?: DocumentInfo[] | undefined;
+
+  /**
+   * <p>The scoped documents for the agent to focus on during threat modeling.</p>
+   * @public
+   */
+  scopeDocs?: DocumentInfo[] | undefined;
+
+  /**
+   * <p>Error information if the threat model job encountered an error.</p>
+   * @public
+   */
+  errorInformation?: ErrorInformation | undefined;
+
+  /**
+   * <p>The system overview generated during threat modeling.</p>
+   * @public
+   */
+  systemOverview?: string | undefined;
+}
+
+/**
+ * <p>Output for the BatchGetThreatModelJobs operation.</p>
+ * @public
+ */
+export interface BatchGetThreatModelJobsOutput {
+  /**
+   * <p>The list of threat model jobs that were found.</p>
+   * @public
+   */
+  threatModelJobs?: ThreatModelJob[] | undefined;
+
+  /**
+   * <p>The list of threat model job identifiers that were not found.</p>
+   * @public
+   */
+  notFound?: string[] | undefined;
+}
+
+/**
+ * <p>Input for retrieving multiple tasks associated with a threat model job.</p>
+ * @public
+ */
+export interface BatchGetThreatModelJobTasksInput {
+  /**
+   * <p>The unique identifier of the agent space that contains the tasks.</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>The list of task identifiers to retrieve.</p>
+   * @public
+   */
+  threatModelJobTaskIds: string[] | undefined;
+}
+
+/**
+ * <p>Represents an individual task within a threat model job.</p>
+ * @public
+ */
+export interface ThreatModelJobTask {
+  /**
+   * <p>The unique identifier of the task.</p>
+   * @public
+   */
+  taskId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the threat model associated with the task.</p>
+   * @public
+   */
+  threatModelId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the threat model job that contains the task.</p>
+   * @public
+   */
+  threatModelJobId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the agent space.</p>
+   * @public
+   */
+  agentSpaceId?: string | undefined;
+
+  /**
+   * <p>The title of the task.</p>
+   * @public
+   */
+  title?: string | undefined;
+
+  /**
+   * <p>A description of the task.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The current execution status of the task.</p>
+   * @public
+   */
+  executionStatus?: TaskExecutionStatus | undefined;
+
+  /**
+   * <p>The location of the task execution logs.</p>
+   * @public
+   */
+  logsLocation?: LogLocation | undefined;
+
+  /**
+   * <p>The date and time the task was created, in UTC format.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the task was last updated, in UTC format.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
+
+/**
+ * <p>Output for the BatchGetThreatModelJobTasks operation.</p>
+ * @public
+ */
+export interface BatchGetThreatModelJobTasksOutput {
+  /**
+   * <p>The list of threat model job tasks that were found.</p>
+   * @public
+   */
+  threatModelJobTasks?: ThreatModelJobTask[] | undefined;
+
+  /**
+   * <p>The list of task identifiers that were not found.</p>
+   * @public
+   */
+  notFound?: string[] | undefined;
+}
+
+/**
+ * <p>Input for retrieving multiple threat models by their IDs.</p>
+ * @public
+ */
+export interface BatchGetThreatModelsInput {
+  /**
+   * <p>The list of threat model identifiers to retrieve.</p>
+   * @public
+   */
+  threatModelIds: string[] | undefined;
+
+  /**
+   * <p>The unique identifier of the agent space that contains the threat models.</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+}
+
+/**
+ * <p>Represents a threat model configuration that defines the parameters for automated threat analysis, including target assets and logging configuration.</p>
+ * @public
+ */
+export interface ThreatModel {
+  /**
+   * <p>The unique identifier of the threat model.</p>
+   * @public
+   */
+  threatModelId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the agent space that contains the threat model.</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>The title of the threat model.</p>
+   * @public
+   */
+  title: string | undefined;
+
+  /**
+   * <p>A description of the application or system being threat modeled.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The assets included in the threat model.</p>
+   * @public
+   */
+  assets: Assets | undefined;
+
+  /**
+   * <p>The scoped documents for the agent to focus on during threat modeling.</p>
+   * @public
+   */
+  scopeDocs?: DocumentInfo[] | undefined;
+
+  /**
+   * <p>The IAM service role used for the threat model.</p>
+   * @public
+   */
+  serviceRole?: string | undefined;
+
+  /**
+   * <p>The CloudWatch Logs configuration for the threat model.</p>
+   * @public
+   */
+  logConfig?: CloudWatchLog | undefined;
+
+  /**
+   * <p>The date and time the threat model was created, in UTC format.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the threat model was last updated, in UTC format.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
+
+/**
+ * <p>Output for the BatchGetThreatModels operation.</p>
+ * @public
+ */
+export interface BatchGetThreatModelsOutput {
+  /**
+   * <p>The list of threat models that were found.</p>
+   * @public
+   */
+  threatModels?: ThreatModel[] | undefined;
+
+  /**
+   * <p>The list of threat model identifiers that were not found.</p>
+   * @public
+   */
+  notFound?: string[] | undefined;
+}
+
+/**
+ * <p>Input for retrieving multiple threats.</p>
+ * @public
+ */
+export interface BatchGetThreatsInput {
+  /**
+   * <p>The list of threat identifiers to retrieve.</p>
+   * @public
+   */
+  threatIds: string[] | undefined;
+
+  /**
+   * <p>The unique identifier of the agent space.</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+}
+
+/**
+ * <p>DFD element that a threat is anchored to.</p>
+ * @public
+ */
+export interface ThreatAnchorShape {
+  /**
+   * <p>The kind of DFD element.</p>
+   * @public
+   */
+  kind?: string | undefined;
+
+  /**
+   * <p>The identifier of the DFD element.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The package identifier containing the DFD element.</p>
+   * @public
+   */
+  packageId?: string | undefined;
+}
+
+/**
+ * <p>Source code file supporting a threat.</p>
+ * @public
+ */
+export interface ThreatEvidenceShape {
+  /**
+   * <p>The package identifier containing the evidence file.</p>
+   * @public
+   */
+  packageId?: string | undefined;
+
+  /**
+   * <p>The file path of the evidence.</p>
+   * @public
+   */
+  path?: string | undefined;
+}
+
+/**
+ * <p>Represents a threat identified during threat modeling.</p>
+ * @public
+ */
+export interface Threat {
+  /**
+   * <p>The unique identifier of the threat.</p>
+   * @public
+   */
+  threatId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the threat model job that produced the threat.</p>
+   * @public
+   */
+  threatJobId?: string | undefined;
+
+  /**
+   * <p>A short title summarizing the threat.</p>
+   * @public
+   */
+  title?: string | undefined;
+
+  /**
+   * <p>The natural-language threat statement.</p>
+   * @public
+   */
+  statement?: string | undefined;
+
+  /**
+   * <p>The severity level of the threat.</p>
+   * @public
+   */
+  severity?: ThreatSeverity | undefined;
+
+  /**
+   * <p>The current status of the threat.</p>
+   * @public
+   */
+  status?: ThreatStatus | undefined;
+
+  /**
+   * <p>Optional customer comment on the threat.</p>
+   * @public
+   */
+  comments?: string | undefined;
+
+  /**
+   * <p>The actor or origin of the threat.</p>
+   * @public
+   */
+  threatSource?: string | undefined;
+
+  /**
+   * <p>The conditions required for the threat to be exploitable.</p>
+   * @public
+   */
+  prerequisites?: string | undefined;
+
+  /**
+   * <p>What the threat source can do.</p>
+   * @public
+   */
+  threatAction?: string | undefined;
+
+  /**
+   * <p>The direct consequence of the threat action.</p>
+   * @public
+   */
+  threatImpact?: string | undefined;
+
+  /**
+   * <p>The security goals affected by the threat.</p>
+   * @public
+   */
+  impactedGoal?: string[] | undefined;
+
+  /**
+   * <p>The specific assets affected by the threat.</p>
+   * @public
+   */
+  impactedAssets?: string[] | undefined;
+
+  /**
+   * <p>The DFD element this threat is anchored to.</p>
+   * @public
+   */
+  anchor?: ThreatAnchorShape | undefined;
+
+  /**
+   * <p>The source code files supporting the threat.</p>
+   * @public
+   */
+  evidence?: ThreatEvidenceShape[] | undefined;
+
+  /**
+   * <p>The STRIDE categories applicable to this threat.</p>
+   * @public
+   */
+  stride?: StrideCategory[] | undefined;
+
+  /**
+   * <p>The recommended mitigation guidance for this threat.</p>
+   * @public
+   */
+  recommendation?: string | undefined;
+
+  /**
+   * <p>Who created this threat.</p>
+   * @public
+   */
+  createdBy?: ThreatActor | undefined;
+
+  /**
+   * <p>Who last updated this threat.</p>
+   * @public
+   */
+  updatedBy?: ThreatActor | undefined;
+
+  /**
+   * <p>The date and time the threat was created, in UTC format.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the threat was last updated, in UTC format.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
+
+/**
+ * <p>Output for the BatchGetThreats operation.</p>
+ * @public
+ */
+export interface BatchGetThreatsOutput {
+  /**
+   * <p>The list of threats that were found.</p>
+   * @public
+   */
+  threats?: Threat[] | undefined;
+
+  /**
+   * <p>The list of threat identifiers that were not found.</p>
+   * @public
+   */
+  notFound?: string[] | undefined;
+}
+
+/**
+ * <p>Contains the details for updating an existing security requirement within a pack. The name is an immutable identifier used to locate the requirement and cannot be modified.</p>
+ * @public
+ */
+export interface UpdateSecurityRequirementEntry {
+  /**
+   * <p>The name of the security requirement to update. This is an immutable identifier and cannot be changed once the requirement is created.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The updated description of the security requirement.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The updated security domain the requirement belongs to.</p>
+   * @public
+   */
+  domain?: string | undefined;
+
+  /**
+   * <p>The updated evaluation criteria used to assess compliance with this requirement.</p>
+   * @public
+   */
+  evaluation?: string | undefined;
+
+  /**
+   * <p>The updated remediation steps when the requirement is not met.</p>
+   * @public
+   */
+  remediation?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchUpdateSecurityRequirementsInput {
+  /**
+   * <p>The unique identifier of the security requirement pack containing the requirements to update.</p>
+   * @public
+   */
+  packId: string | undefined;
+
+  /**
+   * <p>The list of security requirement updates to apply.</p>
+   * @public
+   */
+  securityRequirements: UpdateSecurityRequirementEntry[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchUpdateSecurityRequirementsOutput {
+  /**
+   * <p>The list of security requirement names that were successfully updated.</p>
+   * @public
+   */
+  updatedSecurityRequirementNames: string[] | undefined;
+
+  /**
+   * <p>The list of errors for security requirements that failed to be updated.</p>
+   * @public
+   */
+  errors: BatchSecurityRequirementError[] | undefined;
+}
+
+/**
+ * <p>The configuration for creating a Bitbucket integration.</p>
+ * @public
+ */
+export interface BitbucketIntegrationInput {
+  /**
+   * <p>The Atlassian installation identifier, available from the Atlassian administration console.</p>
+   * @public
+   */
+  installationId: string | undefined;
+
+  /**
+   * <p>The Bitbucket workspace slug that identifies the workspace to integrate, for example acme-corp.</p>
+   * @public
+   */
+  workspace: string | undefined;
+
+  /**
+   * <p>The OAuth 2.0 authorization code returned from the consent redirect.</p>
+   * @public
+   */
+  code: string | undefined;
+
+  /**
+   * <p>The CSRF state token echoed back from the OAuth redirect.</p>
+   * @public
+   */
+  state: string | undefined;
+}
+
+/**
+ * <p>Metadata for an integrated Bitbucket repository.</p>
+ * @public
+ */
+export interface BitbucketRepositoryMetadata {
+  /**
+   * <p>Name of the resource e.g. repository name, etc.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Provider Id of the resource e.g. GitHub repository id, etc.</p>
+   * @public
+   */
+  providerResourceId: string | undefined;
+
+  /**
+   * <p>The workspace slug that owns the repository.</p>
+   * @public
+   */
+  workspace: string | undefined;
+
+  /**
+   * <p>Defines the visibility level of provider resources. PRIVATE indicates restricted access, while PUBLIC indicates open access.</p>
+   * @public
+   */
+  accessType?: AccessType | undefined;
+}
+
+/**
+ * <p>A Bitbucket repository integrated as a resource.</p>
+ * @public
+ */
+export interface BitbucketRepositoryResource {
+  /**
+   * <p>Name of the resource e.g. repository name, etc.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The workspace slug that owns the repository.</p>
+   * @public
+   */
+  workspace: string | undefined;
+}
+
+/**
+ * <p>Capabilities for an integrated Bitbucket repository.</p>
+ * @public
+ */
+export interface BitbucketResourceCapabilities {
+  /**
+   * <p>Whether to post code review comments on pull requests.</p>
+   * @public
+   */
+  leaveComments?: boolean | undefined;
+
+  /**
+   * <p>Whether to create pull requests with automated fixes.</p>
+   * @public
+   */
+  remediateCode?: boolean | undefined;
+}
+
+/**
  * <p>Contains summary information about a code review job.</p>
  * @public
  */
@@ -2657,6 +3782,138 @@ export interface CodeReviewSummary {
 }
 
 /**
+ * <p>Metadata for an integrated Confluence document.</p>
+ * @public
+ */
+export interface ConfluenceDocumentMetadata {
+  /**
+   * <p>Name of the resource e.g. repository name, etc.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Provider Id of the resource e.g. GitHub repository id, etc.</p>
+   * @public
+   */
+  providerResourceId: string | undefined;
+
+  /**
+   * <p>The Confluence space key containing the document.</p>
+   * @public
+   */
+  spaceKey: string | undefined;
+
+  /**
+   * <p>The Confluence page identifier.</p>
+   * @public
+   */
+  pageId: string | undefined;
+
+  /**
+   * <p>The display title of the Confluence page.</p>
+   * @public
+   */
+  title?: string | undefined;
+
+  /**
+   * <p>The display title of the Confluence space.</p>
+   * @public
+   */
+  spaceTitle?: string | undefined;
+}
+
+/**
+ * <p>A Confluence document (page) integrated as a resource.</p>
+ * @public
+ */
+export interface ConfluenceDocumentResource {
+  /**
+   * <p>Name of the resource e.g. repository name, etc.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The Confluence space key containing the document.</p>
+   * @public
+   */
+  spaceKey: string | undefined;
+
+  /**
+   * <p>The Confluence page identifier.</p>
+   * @public
+   */
+  pageId: string | undefined;
+
+  /**
+   * <p>The display title of the Confluence page.</p>
+   * @public
+   */
+  title?: string | undefined;
+
+  /**
+   * <p>The display title of the Confluence space.</p>
+   * @public
+   */
+  spaceTitle?: string | undefined;
+}
+
+/**
+ * <p>The configuration for creating a Confluence integration.</p>
+ * @public
+ */
+export interface ConfluenceIntegrationInput {
+  /**
+   * <p>The Atlassian installation identifier, available from the Atlassian administration console.</p>
+   * @public
+   */
+  installationId: string | undefined;
+
+  /**
+   * <p>The OAuth 2.0 authorization code returned from the consent redirect.</p>
+   * @public
+   */
+  code: string | undefined;
+
+  /**
+   * <p>The CSRF state token echoed back from the OAuth redirect.</p>
+   * @public
+   */
+  state: string | undefined;
+
+  /**
+   * <p>The Confluence Cloud site URL, for example https://mysite.atlassian.net.</p>
+   * @public
+   */
+  siteUrl: string | undefined;
+}
+
+/**
+ * <p>Capabilities for an integrated Confluence space.</p>
+ * @public
+ */
+export interface ConfluenceResourceCapabilities {
+  /**
+   * <p>Whether to fetch documents from this space.</p>
+   * @public
+   */
+  fetchDocument?: boolean | undefined;
+
+  /**
+   * <p>Whether to create documents in this space.</p>
+   * @public
+   */
+  createDocument?: boolean | undefined;
+
+  /**
+   * <p>Whether to update documents in this space.</p>
+   * @public
+   */
+  updateDocument?: boolean | undefined;
+}
+
+/**
  * <p>Input for creating a new code review.</p>
  * @public
  */
@@ -2696,6 +3953,12 @@ export interface CreateCodeReviewInput {
    * @public
    */
   codeRemediationStrategy?: CodeRemediationStrategy | undefined;
+
+  /**
+   * <p>The validation mode for the code review. Valid values are SIMULATED and DISABLED.</p>
+   * @public
+   */
+  validationMode?: ValidationMode | undefined;
 }
 
 /**
@@ -2756,6 +4019,12 @@ export interface CreateCodeReviewOutput {
    * @public
    */
   codeRemediationStrategy?: CodeRemediationStrategy | undefined;
+
+  /**
+   * <p>The validation mode for the code review.</p>
+   * @public
+   */
+  validationMode?: ValidationMode | undefined;
 }
 
 /**
@@ -2780,6 +4049,48 @@ export interface GitHubIntegrationInput {
    * @public
    */
   organizationName?: string | undefined;
+
+  /**
+   * <p>The HTTPS URL of a self-hosted GitHub Enterprise Server instance. Omit this value for GitHub.com.</p>
+   * @public
+   */
+  targetUrl?: string | undefined;
+
+  /**
+   * <p>The installation identifier provided by GitHub Enterprise Server on the install callback. Required for GitHub Enterprise Server integrations and ignored for GitHub.com.</p>
+   * @public
+   */
+  installationId?: string | undefined;
+}
+
+/**
+ * <p>The configuration for creating a GitLab integration.</p>
+ * @public
+ */
+export interface GitLabIntegrationInput {
+  /**
+   * <p>The GitLab access token used to authenticate. This can be a personal access token or a group access token.</p>
+   * @public
+   */
+  accessToken: string | undefined;
+
+  /**
+   * <p>The HTTPS URL of a self-managed GitLab instance. Omit this value for GitLab SaaS (gitlab.com).</p>
+   * @public
+   */
+  targetUrl?: string | undefined;
+
+  /**
+   * <p>The type of GitLab access token provided in accessToken.</p>
+   * @public
+   */
+  tokenType: GitLabTokenType | undefined;
+
+  /**
+   * <p>The identifier of the GitLab group. Required when tokenType is group and ignored for personal tokens.</p>
+   * @public
+   */
+  groupId?: string | undefined;
 }
 
 /**
@@ -2787,7 +4098,10 @@ export interface GitHubIntegrationInput {
  * @public
  */
 export type ProviderInput =
+  | ProviderInput.BitbucketMember
+  | ProviderInput.ConfluenceMember
   | ProviderInput.GithubMember
+  | ProviderInput.GitlabMember
   | ProviderInput.$UnknownMember;
 
 /**
@@ -2800,6 +4114,45 @@ export namespace ProviderInput {
    */
   export interface GithubMember {
     github: GitHubIntegrationInput;
+    gitlab?: never;
+    bitbucket?: never;
+    confluence?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration for a GitLab integration.</p>
+   * @public
+   */
+  export interface GitlabMember {
+    github?: never;
+    gitlab: GitLabIntegrationInput;
+    bitbucket?: never;
+    confluence?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration for a Bitbucket integration.</p>
+   * @public
+   */
+  export interface BitbucketMember {
+    github?: never;
+    gitlab?: never;
+    bitbucket: BitbucketIntegrationInput;
+    confluence?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration for a Confluence integration.</p>
+   * @public
+   */
+  export interface ConfluenceMember {
+    github?: never;
+    gitlab?: never;
+    bitbucket?: never;
+    confluence: ConfluenceIntegrationInput;
     $unknown?: never;
   }
 
@@ -2808,6 +4161,9 @@ export namespace ProviderInput {
    */
   export interface $UnknownMember {
     github?: never;
+    gitlab?: never;
+    bitbucket?: never;
+    confluence?: never;
     $unknown: [string, any];
   }
 
@@ -2817,6 +4173,9 @@ export namespace ProviderInput {
    */
   export interface Visitor<T> {
     github: (value: GitHubIntegrationInput) => T;
+    gitlab: (value: GitLabIntegrationInput) => T;
+    bitbucket: (value: BitbucketIntegrationInput) => T;
+    confluence: (value: ConfluenceIntegrationInput) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -2854,6 +4213,12 @@ export interface CreateIntegrationInput {
    * @public
    */
   tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The name of an active private connection used to reach a self-hosted provider instance over private networking. Specify this when the instance is not publicly reachable.</p>
+   * @public
+   */
+  privateConnectionName?: string | undefined;
 }
 
 /**
@@ -3018,6 +4383,12 @@ export interface CreatePentestInput {
    * @public
    */
   codeRemediationStrategy?: CodeRemediationStrategy | undefined;
+
+  /**
+   * <p>A list of managed skills to disable for this pentest. Valid values include FINDING_PERSONALIZATION and LOGIN_OPTIMIZATION.</p>
+   * @public
+   */
+  disableManagedSkills?: SkillType[] | undefined;
 }
 
 /**
@@ -3078,6 +4449,289 @@ export interface CreatePentestOutput {
    * @public
    */
   agentSpaceId?: string | undefined;
+}
+
+/**
+ * <p>The configuration for a self-managed private connection.</p>
+ * @public
+ */
+export interface SelfManagedInput {
+  /**
+   * <p>The identifier or ARN of the resource configuration.</p>
+   * @public
+   */
+  resourceConfigurationId: string | undefined;
+
+  /**
+   * <p>The certificate for the private connection.</p>
+   * @public
+   */
+  certificate?: string | undefined;
+}
+
+/**
+ * <p>The configuration for a service-managed private connection.</p>
+ * @public
+ */
+export interface ServiceManagedInput {
+  /**
+   * <p>The IP address or DNS name of the target resource.</p>
+   * @public
+   */
+  hostAddress: string | undefined;
+
+  /**
+   * <p>The VPC to create the service-managed resource gateway in.</p>
+   * @public
+   */
+  vpcId: string | undefined;
+
+  /**
+   * <p>The subnets that the service-managed resource gateway spans.</p>
+   * @public
+   */
+  subnetIds: string[] | undefined;
+
+  /**
+   * <p>The security groups to attach to the service-managed resource gateway.</p>
+   * @public
+   */
+  securityGroupIds?: string[] | undefined;
+
+  /**
+   * <p>The IP address type of the service-managed resource gateway.</p>
+   * @public
+   */
+  ipAddressType?: IpAddressType | undefined;
+
+  /**
+   * <p>The number of IPv4 addresses in each elastic network interface for the service-managed resource gateway.</p>
+   * @public
+   */
+  ipv4AddressesPerEni?: number | undefined;
+
+  /**
+   * <p>The TCP port ranges that a consumer can use to access the resource.</p>
+   * @public
+   */
+  portRanges?: string[] | undefined;
+
+  /**
+   * <p>The certificate for the private connection.</p>
+   * @public
+   */
+  certificate?: string | undefined;
+
+  /**
+   * <p>The DNS resolution mode for the resource gateway. Defaults to PUBLIC when not set.</p>
+   * @public
+   */
+  dnsResolution?: ResourceConfigDnsResolution | undefined;
+}
+
+/**
+ * <p>The configuration for a private connection. Specify either a service-managed or a self-managed mode.</p>
+ * @public
+ */
+export type PrivateConnectionMode =
+  | PrivateConnectionMode.SelfManagedMember
+  | PrivateConnectionMode.ServiceManagedMember
+  | PrivateConnectionMode.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace PrivateConnectionMode {
+  /**
+   * <p>The configuration for a service-managed private connection, where the service manages the resource gateway lifecycle.</p>
+   * @public
+   */
+  export interface ServiceManagedMember {
+    serviceManaged: ServiceManagedInput;
+    selfManaged?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration for a self-managed private connection, where you manage your own resource configuration.</p>
+   * @public
+   */
+  export interface SelfManagedMember {
+    serviceManaged?: never;
+    selfManaged: SelfManagedInput;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    serviceManaged?: never;
+    selfManaged?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    serviceManaged: (value: ServiceManagedInput) => T;
+    selfManaged: (value: SelfManagedInput) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreatePrivateConnectionInput {
+  /**
+   * <p>A unique name for the private connection within your account.</p>
+   * @public
+   */
+  privateConnectionName: string | undefined;
+
+  /**
+   * <p>The configuration for the private connection. Specify either a service-managed or a self-managed mode.</p>
+   * @public
+   */
+  mode: PrivateConnectionMode | undefined;
+
+  /**
+   * <p>The tags to attach to the private connection.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreatePrivateConnectionOutput {
+  /**
+   * <p>The name of the private connection.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of the private connection, indicating whether it is service-managed or self-managed.</p>
+   * @public
+   */
+  type: PrivateConnectionType | undefined;
+
+  /**
+   * <p>The current status of the private connection.</p>
+   * @public
+   */
+  status: PrivateConnectionStatus | undefined;
+
+  /**
+   * <p>The identifier or ARN of the VPC Lattice resource gateway.</p>
+   * @public
+   */
+  resourceGatewayId?: string | undefined;
+
+  /**
+   * <p>The IP address or DNS name of the target resource.</p>
+   * @public
+   */
+  hostAddress?: string | undefined;
+
+  /**
+   * <p>The identifier of the VPC the resource gateway is created in.</p>
+   * @public
+   */
+  vpcId?: string | undefined;
+
+  /**
+   * <p>The identifier or ARN of the VPC Lattice resource configuration.</p>
+   * @public
+   */
+  resourceConfigurationId?: string | undefined;
+
+  /**
+   * <p>The date and time the connection's certificate expires, in UTC format.</p>
+   * @public
+   */
+  certificateExpiryTime?: Date | undefined;
+
+  /**
+   * <p>The DNS resolution mode for the resource gateway.</p>
+   * @public
+   */
+  dnsResolution?: ResourceConfigDnsResolution | undefined;
+
+  /**
+   * <p>A message describing why the private connection entered a failed state, if applicable.</p>
+   * @public
+   */
+  failureMessage?: string | undefined;
+
+  /**
+   * <p>The tags attached to the private connection.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateSecurityRequirementPackInput {
+  /**
+   * <p>The name of the security requirement pack.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A description of the security requirement pack.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The status of the pack. Defaults to ENABLED if not provided.</p>
+   * @public
+   */
+  status?: SecurityRequirementPackStatus | undefined;
+
+  /**
+   * <p>The identifier of the AWS KMS key used to encrypt pack contents.</p>
+   * @public
+   */
+  kmsKeyId?: string | undefined;
+
+  /**
+   * <p>The tags to associate with the security requirement pack.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateSecurityRequirementPackOutput {
+  /**
+   * <p>The unique identifier of the created security requirement pack.</p>
+   * @public
+   */
+  packId: string | undefined;
+
+  /**
+   * <p>The status of the created security requirement pack.</p>
+   * @public
+   */
+  status: SecurityRequirementPackStatus | undefined;
+
+  /**
+   * <p>The identifier of the AWS KMS key used to encrypt pack contents.</p>
+   * @public
+   */
+  kmsKeyId?: string | undefined;
 }
 
 /**
@@ -3150,6 +4804,390 @@ export interface CreateTargetDomainOutput {
    * @public
    */
   verifiedAt?: Date | undefined;
+}
+
+/**
+ * <p>Input for creating a new threat.</p>
+ * @public
+ */
+export interface CreateThreatInput {
+  /**
+   * <p>The unique identifier of the agent space.</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the threat model job the threat belongs to.</p>
+   * @public
+   */
+  threatJobId: string | undefined;
+
+  /**
+   * <p>A short title summarizing the threat.</p>
+   * @public
+   */
+  title?: string | undefined;
+
+  /**
+   * <p>The natural-language threat statement.</p>
+   * @public
+   */
+  statement?: string | undefined;
+
+  /**
+   * <p>The severity level of the threat.</p>
+   * @public
+   */
+  severity?: ThreatSeverity | undefined;
+
+  /**
+   * <p>Optional customer comment on the threat.</p>
+   * @public
+   */
+  comments?: string | undefined;
+
+  /**
+   * <p>The STRIDE categories applicable to this threat.</p>
+   * @public
+   */
+  stride?: StrideCategory[] | undefined;
+
+  /**
+   * <p>The actor or origin of the threat.</p>
+   * @public
+   */
+  threatSource?: string | undefined;
+
+  /**
+   * <p>The conditions required for the threat to be exploitable.</p>
+   * @public
+   */
+  prerequisites?: string | undefined;
+
+  /**
+   * <p>What the threat source can do.</p>
+   * @public
+   */
+  threatAction?: string | undefined;
+
+  /**
+   * <p>The direct consequence of the threat action.</p>
+   * @public
+   */
+  threatImpact?: string | undefined;
+
+  /**
+   * <p>The security goals affected by the threat.</p>
+   * @public
+   */
+  impactedGoal?: string[] | undefined;
+
+  /**
+   * <p>The specific assets affected by the threat.</p>
+   * @public
+   */
+  impactedAssets?: string[] | undefined;
+
+  /**
+   * <p>The DFD element this threat is anchored to.</p>
+   * @public
+   */
+  anchor?: ThreatAnchorShape | undefined;
+
+  /**
+   * <p>The source code files supporting the threat.</p>
+   * @public
+   */
+  evidence?: ThreatEvidenceShape[] | undefined;
+
+  /**
+   * <p>The recommended mitigation guidance for this threat.</p>
+   * @public
+   */
+  recommendation?: string | undefined;
+}
+
+/**
+ * <p>Output for the CreateThreat operation.</p>
+ * @public
+ */
+export interface CreateThreatOutput {
+  /**
+   * <p>The unique identifier of the created threat.</p>
+   * @public
+   */
+  threatId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the threat model job the threat belongs to.</p>
+   * @public
+   */
+  threatJobId: string | undefined;
+
+  /**
+   * <p>A short title summarizing the threat.</p>
+   * @public
+   */
+  title?: string | undefined;
+
+  /**
+   * <p>The natural-language threat statement.</p>
+   * @public
+   */
+  statement?: string | undefined;
+
+  /**
+   * <p>The severity level of the threat.</p>
+   * @public
+   */
+  severity?: ThreatSeverity | undefined;
+
+  /**
+   * <p>The current status of the threat.</p>
+   * @public
+   */
+  status?: ThreatStatus | undefined;
+
+  /**
+   * <p>Optional customer comment on the threat.</p>
+   * @public
+   */
+  comments?: string | undefined;
+
+  /**
+   * <p>The STRIDE categories applicable to this threat.</p>
+   * @public
+   */
+  stride?: StrideCategory[] | undefined;
+
+  /**
+   * <p>The actor or origin of the threat.</p>
+   * @public
+   */
+  threatSource?: string | undefined;
+
+  /**
+   * <p>The conditions required for the threat to be exploitable.</p>
+   * @public
+   */
+  prerequisites?: string | undefined;
+
+  /**
+   * <p>What the threat source can do.</p>
+   * @public
+   */
+  threatAction?: string | undefined;
+
+  /**
+   * <p>The direct consequence of the threat action.</p>
+   * @public
+   */
+  threatImpact?: string | undefined;
+
+  /**
+   * <p>The security goals affected by the threat.</p>
+   * @public
+   */
+  impactedGoal?: string[] | undefined;
+
+  /**
+   * <p>The specific assets affected by the threat.</p>
+   * @public
+   */
+  impactedAssets?: string[] | undefined;
+
+  /**
+   * <p>The DFD element this threat is anchored to.</p>
+   * @public
+   */
+  anchor?: ThreatAnchorShape | undefined;
+
+  /**
+   * <p>The source code files supporting the threat.</p>
+   * @public
+   */
+  evidence?: ThreatEvidenceShape[] | undefined;
+
+  /**
+   * <p>The recommended mitigation guidance for this threat.</p>
+   * @public
+   */
+  recommendation?: string | undefined;
+
+  /**
+   * <p>Who created this threat.</p>
+   * @public
+   */
+  createdBy?: ThreatActor | undefined;
+
+  /**
+   * <p>Who last updated this threat.</p>
+   * @public
+   */
+  updatedBy?: ThreatActor | undefined;
+
+  /**
+   * <p>The date and time the threat was created, in UTC format.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the threat was last updated, in UTC format.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
+
+/**
+ * <p>Destination for publishing scan reports to an integrated document provider.</p>
+ * @public
+ */
+export interface ReportDestination {
+  /**
+   * <p>The integration identifier for the document provider.</p>
+   * @public
+   */
+  integrationId: string | undefined;
+
+  /**
+   * <p>The container identifier where the report will be published.</p>
+   * @public
+   */
+  containerId: string | undefined;
+
+  /**
+   * <p>The parent document identifier under which the report will be created.</p>
+   * @public
+   */
+  parentId?: string | undefined;
+
+  /**
+   * <p>The existing document identifier to update instead of creating a new document.</p>
+   * @public
+   */
+  documentId?: string | undefined;
+}
+
+/**
+ * <p>Input for creating a new threat model.</p>
+ * @public
+ */
+export interface CreateThreatModelInput {
+  /**
+   * <p>The title of the threat model.</p>
+   * @public
+   */
+  title: string | undefined;
+
+  /**
+   * <p>The unique identifier of the agent space to create the threat model in.</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>A description of the application or system being threat modeled.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The assets to include in the threat model.</p>
+   * @public
+   */
+  assets?: Assets | undefined;
+
+  /**
+   * <p>The scoped documents for the agent to focus on during threat modeling.</p>
+   * @public
+   */
+  scopeDocs?: DocumentInfo[] | undefined;
+
+  /**
+   * <p>The IAM service role to use for the threat model.</p>
+   * @public
+   */
+  serviceRole: string | undefined;
+
+  /**
+   * <p>The CloudWatch Logs configuration for the threat model.</p>
+   * @public
+   */
+  logConfig?: CloudWatchLog | undefined;
+
+  /**
+   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * @public
+   */
+  reportDestination?: ReportDestination | undefined;
+}
+
+/**
+ * <p>Output for the CreateThreatModel operation.</p>
+ * @public
+ */
+export interface CreateThreatModelOutput {
+  /**
+   * <p>The unique identifier of the created threat model.</p>
+   * @public
+   */
+  threatModelId: string | undefined;
+
+  /**
+   * <p>The title of the threat model.</p>
+   * @public
+   */
+  title?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the agent space that contains the threat model.</p>
+   * @public
+   */
+  agentSpaceId?: string | undefined;
+
+  /**
+   * <p>A description of the application or system being threat modeled.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The assets included in the threat model.</p>
+   * @public
+   */
+  assets?: Assets | undefined;
+
+  /**
+   * <p>The scoped documents for the agent to focus on during threat modeling.</p>
+   * @public
+   */
+  scopeDocs?: DocumentInfo[] | undefined;
+
+  /**
+   * <p>The IAM service role used for the threat model.</p>
+   * @public
+   */
+  serviceRole?: string | undefined;
+
+  /**
+   * <p>The CloudWatch Logs configuration for the threat model.</p>
+   * @public
+   */
+  logConfig?: CloudWatchLog | undefined;
+
+  /**
+   * <p>The date and time the threat model was created, in UTC format.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the threat model was last updated, in UTC format.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
 }
 
 /**
@@ -3227,6 +5265,104 @@ export interface DeleteMembershipRequest {
 export interface DeleteMembershipResponse {}
 
 /**
+ * @public
+ */
+export interface DeletePrivateConnectionInput {
+  /**
+   * <p>The name of the private connection to delete.</p>
+   * @public
+   */
+  privateConnectionName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeletePrivateConnectionOutput {
+  /**
+   * <p>The name of the private connection.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of the private connection, indicating whether it is service-managed or self-managed.</p>
+   * @public
+   */
+  type: PrivateConnectionType | undefined;
+
+  /**
+   * <p>The current status of the private connection.</p>
+   * @public
+   */
+  status: PrivateConnectionStatus | undefined;
+
+  /**
+   * <p>The identifier or ARN of the VPC Lattice resource gateway.</p>
+   * @public
+   */
+  resourceGatewayId?: string | undefined;
+
+  /**
+   * <p>The IP address or DNS name of the target resource.</p>
+   * @public
+   */
+  hostAddress?: string | undefined;
+
+  /**
+   * <p>The identifier of the VPC the resource gateway is created in.</p>
+   * @public
+   */
+  vpcId?: string | undefined;
+
+  /**
+   * <p>The identifier or ARN of the VPC Lattice resource configuration.</p>
+   * @public
+   */
+  resourceConfigurationId?: string | undefined;
+
+  /**
+   * <p>The date and time the connection's certificate expires, in UTC format.</p>
+   * @public
+   */
+  certificateExpiryTime?: Date | undefined;
+
+  /**
+   * <p>The DNS resolution mode for the resource gateway.</p>
+   * @public
+   */
+  dnsResolution?: ResourceConfigDnsResolution | undefined;
+
+  /**
+   * <p>A message describing why the private connection entered a failed state, if applicable.</p>
+   * @public
+   */
+  failureMessage?: string | undefined;
+
+  /**
+   * <p>The tags attached to the private connection.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSecurityRequirementPackInput {
+  /**
+   * <p>The unique identifier of the security requirement pack to delete.</p>
+   * @public
+   */
+  packId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSecurityRequirementPackOutput {}
+
+/**
  * <p>Input for deleting a target domain.</p>
  * @public
  */
@@ -3248,6 +5384,127 @@ export interface DeleteTargetDomainOutput {
    * @public
    */
   targetDomainId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribePrivateConnectionInput {
+  /**
+   * <p>The name of the private connection to describe.</p>
+   * @public
+   */
+  privateConnectionName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribePrivateConnectionOutput {
+  /**
+   * <p>The name of the private connection.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of the private connection, indicating whether it is service-managed or self-managed.</p>
+   * @public
+   */
+  type: PrivateConnectionType | undefined;
+
+  /**
+   * <p>The current status of the private connection.</p>
+   * @public
+   */
+  status: PrivateConnectionStatus | undefined;
+
+  /**
+   * <p>The identifier or ARN of the VPC Lattice resource gateway.</p>
+   * @public
+   */
+  resourceGatewayId?: string | undefined;
+
+  /**
+   * <p>The IP address or DNS name of the target resource.</p>
+   * @public
+   */
+  hostAddress?: string | undefined;
+
+  /**
+   * <p>The identifier of the VPC the resource gateway is created in.</p>
+   * @public
+   */
+  vpcId?: string | undefined;
+
+  /**
+   * <p>The identifier or ARN of the VPC Lattice resource configuration.</p>
+   * @public
+   */
+  resourceConfigurationId?: string | undefined;
+
+  /**
+   * <p>The date and time the connection's certificate expires, in UTC format.</p>
+   * @public
+   */
+  certificateExpiryTime?: Date | undefined;
+
+  /**
+   * <p>The DNS resolution mode for the resource gateway.</p>
+   * @public
+   */
+  dnsResolution?: ResourceConfigDnsResolution | undefined;
+
+  /**
+   * <p>A message describing why the private connection entered a failed state, if applicable.</p>
+   * @public
+   */
+  failureMessage?: string | undefined;
+
+  /**
+   * <p>The tags attached to the private connection.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Source of the diff for a differential code scan.</p>
+ * @public
+ */
+export type DiffSource =
+  | DiffSource.S3UriMember
+  | DiffSource.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace DiffSource {
+  /**
+   * <p>S3 URI pointing to a unified diff file. The file must be in standard unified diff format and stored in an S3 bucket connected to your Agent Space.</p>
+   * @public
+   */
+  export interface S3UriMember {
+    s3Uri: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3Uri?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    s3Uri: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
 }
 
 /**
@@ -3370,6 +5627,12 @@ export interface FindingSummary {
   confidence?: ConfidenceLevel | undefined;
 
   /**
+   * <p>The simulated validation status of the finding.</p>
+   * @public
+   */
+  validationStatus?: ValidationStatus | undefined;
+
+  /**
    * <p>The date and time the finding was created, in UTC format.</p>
    * @public
    */
@@ -3484,6 +5747,94 @@ export interface GetIntegrationOutput {
    * @public
    */
   kmsKeyId?: string | undefined;
+
+  /**
+   * <p>The HTTPS URL of the customer self-hosted instance, such as a GitHub Enterprise Server or self-managed GitLab instance. This value is absent for SaaS integrations.</p>
+   * @public
+   */
+  targetUrl?: string | undefined;
+
+  /**
+   * <p>The name of the private connection used to reach the integration's self-hosted instance over private networking, if one is configured.</p>
+   * @public
+   */
+  privateConnectionName?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSecurityRequirementPackInput {
+  /**
+   * <p>The unique identifier of the security requirement pack to retrieve.</p>
+   * @public
+   */
+  packId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSecurityRequirementPackOutput {
+  /**
+   * <p>The unique identifier of the security requirement pack.</p>
+   * @public
+   */
+  packId: string | undefined;
+
+  /**
+   * <p>The name of the security requirement pack.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A description of the security requirement pack.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The vendor name for AWS managed packs, such as ISO or NIST.</p>
+   * @public
+   */
+  vendorName?: string | undefined;
+
+  /**
+   * <p>The management type of the pack. Valid values are AWS_MANAGED and CUSTOMER_MANAGED.</p>
+   * @public
+   */
+  managementType: ManagementType | undefined;
+
+  /**
+   * <p>The status of the security requirement pack.</p>
+   * @public
+   */
+  status: SecurityRequirementPackStatus | undefined;
+
+  /**
+   * <p>The status of the security requirements import workflow for this pack.</p>
+   * @public
+   */
+  importStatus?: SecurityRequirementPackImportStatus | undefined;
+
+  /**
+   * <p>The date and time the security requirement pack was created, in UTC format.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The date and time the security requirement pack was last updated, in UTC format.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The identifier of the AWS KMS key used to encrypt pack contents.</p>
+   * @public
+   */
+  kmsKeyId?: string | undefined;
 }
 
 /**
@@ -3553,6 +5904,169 @@ export interface GitHubResourceCapabilities {
 }
 
 /**
+ * <p>Metadata for an integrated GitLab repository.</p>
+ * @public
+ */
+export interface GitLabRepositoryMetadata {
+  /**
+   * <p>Name of the resource e.g. repository name, etc.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Provider Id of the resource e.g. GitHub repository id, etc.</p>
+   * @public
+   */
+  providerResourceId: string | undefined;
+
+  /**
+   * <p>The namespace (group or user path) that owns the project.</p>
+   * @public
+   */
+  namespace: string | undefined;
+
+  /**
+   * <p>Defines the visibility level of provider resources. PRIVATE indicates restricted access, while PUBLIC indicates open access.</p>
+   * @public
+   */
+  accessType?: AccessType | undefined;
+}
+
+/**
+ * <p>A GitLab repository integrated as a resource.</p>
+ * @public
+ */
+export interface GitLabRepositoryResource {
+  /**
+   * <p>Name of the resource e.g. repository name, etc.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The namespace (group or user path) that owns the project.</p>
+   * @public
+   */
+  namespace: string | undefined;
+}
+
+/**
+ * <p>Capabilities for an integrated GitLab repository.</p>
+ * @public
+ */
+export interface GitLabResourceCapabilities {
+  /**
+   * <p>Whether to post code review comments on merge request discussions.</p>
+   * @public
+   */
+  leaveComments?: boolean | undefined;
+
+  /**
+   * <p>Whether to create merge requests with automated fixes.</p>
+   * @public
+   */
+  remediateCode?: boolean | undefined;
+}
+
+/**
+ * <p>A document used as source material for importing security requirements.</p>
+ * @public
+ */
+export interface SecurityRequirementArtifact {
+  /**
+   * <p>The file name of the document.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The format of the document. Valid values are MD, PDF, TXT, DOCX, and DOC.</p>
+   * @public
+   */
+  format: SecurityRequirementArtifactFormat | undefined;
+
+  /**
+   * <p>The binary content of the document.</p>
+   * @public
+   */
+  content: Uint8Array | undefined;
+}
+
+/**
+ * <p>The source from which to import security requirements. Currently supports document uploads.</p>
+ * @public
+ */
+export type ImportSource =
+  | ImportSource.DocumentsMember
+  | ImportSource.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ImportSource {
+  /**
+   * <p>The list of documents to extract security requirements from.</p>
+   * @public
+   */
+  export interface DocumentsMember {
+    documents: SecurityRequirementArtifact[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    documents?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    documents: (value: SecurityRequirementArtifact[]) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface ImportSecurityRequirementsInput {
+  /**
+   * <p>The unique identifier of the security requirement pack to import requirements into.</p>
+   * @public
+   */
+  packId: string | undefined;
+
+  /**
+   * <p>The import source containing the documents to extract security requirements from.</p>
+   * @public
+   */
+  input: ImportSource | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ImportSecurityRequirementsOutput {
+  /**
+   * <p>The unique identifier of the security requirement pack.</p>
+   * @public
+   */
+  packId: string | undefined;
+
+  /**
+   * <p>The status of the import workflow.</p>
+   * @public
+   */
+  importStatus: SecurityRequirementPackImportStatus | undefined;
+}
+
+/**
  * @public
  */
 export interface InitiateProviderRegistrationInput {
@@ -3585,7 +6099,10 @@ export interface InitiateProviderRegistrationOutput {
  * @public
  */
 export type IntegratedResource =
+  | IntegratedResource.BitbucketRepositoryMember
+  | IntegratedResource.ConfluenceDocumentMember
   | IntegratedResource.GithubRepositoryMember
+  | IntegratedResource.GitlabRepositoryMember
   | IntegratedResource.$UnknownMember;
 
 /**
@@ -3598,6 +6115,45 @@ export namespace IntegratedResource {
    */
   export interface GithubRepositoryMember {
     githubRepository: GitHubRepositoryResource;
+    gitlabRepository?: never;
+    bitbucketRepository?: never;
+    confluenceDocument?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A GitLab repository integrated as a resource.</p>
+   * @public
+   */
+  export interface GitlabRepositoryMember {
+    githubRepository?: never;
+    gitlabRepository: GitLabRepositoryResource;
+    bitbucketRepository?: never;
+    confluenceDocument?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A Bitbucket repository integrated as a resource.</p>
+   * @public
+   */
+  export interface BitbucketRepositoryMember {
+    githubRepository?: never;
+    gitlabRepository?: never;
+    bitbucketRepository: BitbucketRepositoryResource;
+    confluenceDocument?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A Confluence document (page) integrated as a resource.</p>
+   * @public
+   */
+  export interface ConfluenceDocumentMember {
+    githubRepository?: never;
+    gitlabRepository?: never;
+    bitbucketRepository?: never;
+    confluenceDocument: ConfluenceDocumentResource;
     $unknown?: never;
   }
 
@@ -3606,6 +6162,9 @@ export namespace IntegratedResource {
    */
   export interface $UnknownMember {
     githubRepository?: never;
+    gitlabRepository?: never;
+    bitbucketRepository?: never;
+    confluenceDocument?: never;
     $unknown: [string, any];
   }
 
@@ -3615,6 +6174,9 @@ export namespace IntegratedResource {
    */
   export interface Visitor<T> {
     githubRepository: (value: GitHubRepositoryResource) => T;
+    gitlabRepository: (value: GitLabRepositoryResource) => T;
+    bitbucketRepository: (value: BitbucketRepositoryResource) => T;
+    confluenceDocument: (value: ConfluenceDocumentResource) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -3624,7 +6186,10 @@ export namespace IntegratedResource {
  * @public
  */
 export type ProviderResourceCapabilities =
+  | ProviderResourceCapabilities.BitbucketMember
+  | ProviderResourceCapabilities.ConfluenceMember
   | ProviderResourceCapabilities.GithubMember
+  | ProviderResourceCapabilities.GitlabMember
   | ProviderResourceCapabilities.$UnknownMember;
 
 /**
@@ -3637,6 +6202,45 @@ export namespace ProviderResourceCapabilities {
    */
   export interface GithubMember {
     github: GitHubResourceCapabilities;
+    gitlab?: never;
+    bitbucket?: never;
+    confluence?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Capabilities for an integrated GitLab repository.</p>
+   * @public
+   */
+  export interface GitlabMember {
+    github?: never;
+    gitlab: GitLabResourceCapabilities;
+    bitbucket?: never;
+    confluence?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Capabilities for an integrated Bitbucket repository.</p>
+   * @public
+   */
+  export interface BitbucketMember {
+    github?: never;
+    gitlab?: never;
+    bitbucket: BitbucketResourceCapabilities;
+    confluence?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Capabilities for an integrated Confluence space.</p>
+   * @public
+   */
+  export interface ConfluenceMember {
+    github?: never;
+    gitlab?: never;
+    bitbucket?: never;
+    confluence: ConfluenceResourceCapabilities;
     $unknown?: never;
   }
 
@@ -3645,6 +6249,9 @@ export namespace ProviderResourceCapabilities {
    */
   export interface $UnknownMember {
     github?: never;
+    gitlab?: never;
+    bitbucket?: never;
+    confluence?: never;
     $unknown: [string, any];
   }
 
@@ -3654,6 +6261,9 @@ export namespace ProviderResourceCapabilities {
    */
   export interface Visitor<T> {
     github: (value: GitHubResourceCapabilities) => T;
+    gitlab: (value: GitLabResourceCapabilities) => T;
+    bitbucket: (value: BitbucketResourceCapabilities) => T;
+    confluence: (value: ConfluenceResourceCapabilities) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -3681,7 +6291,10 @@ export interface IntegratedResourceInputItem {
  * @public
  */
 export type IntegratedResourceMetadata =
+  | IntegratedResourceMetadata.BitbucketRepositoryMember
+  | IntegratedResourceMetadata.ConfluenceDocumentMember
   | IntegratedResourceMetadata.GithubRepositoryMember
+  | IntegratedResourceMetadata.GitlabRepositoryMember
   | IntegratedResourceMetadata.$UnknownMember;
 
 /**
@@ -3694,6 +6307,45 @@ export namespace IntegratedResourceMetadata {
    */
   export interface GithubRepositoryMember {
     githubRepository: GitHubRepositoryMetadata;
+    gitlabRepository?: never;
+    bitbucketRepository?: never;
+    confluenceDocument?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Metadata for an integrated GitLab repository.</p>
+   * @public
+   */
+  export interface GitlabRepositoryMember {
+    githubRepository?: never;
+    gitlabRepository: GitLabRepositoryMetadata;
+    bitbucketRepository?: never;
+    confluenceDocument?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Metadata for an integrated Bitbucket repository.</p>
+   * @public
+   */
+  export interface BitbucketRepositoryMember {
+    githubRepository?: never;
+    gitlabRepository?: never;
+    bitbucketRepository: BitbucketRepositoryMetadata;
+    confluenceDocument?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Metadata for an integrated Confluence document.</p>
+   * @public
+   */
+  export interface ConfluenceDocumentMember {
+    githubRepository?: never;
+    gitlabRepository?: never;
+    bitbucketRepository?: never;
+    confluenceDocument: ConfluenceDocumentMetadata;
     $unknown?: never;
   }
 
@@ -3702,6 +6354,9 @@ export namespace IntegratedResourceMetadata {
    */
   export interface $UnknownMember {
     githubRepository?: never;
+    gitlabRepository?: never;
+    bitbucketRepository?: never;
+    confluenceDocument?: never;
     $unknown: [string, any];
   }
 
@@ -3711,6 +6366,9 @@ export namespace IntegratedResourceMetadata {
    */
   export interface Visitor<T> {
     githubRepository: (value: GitHubRepositoryMetadata) => T;
+    gitlabRepository: (value: GitLabRepositoryMetadata) => T;
+    bitbucketRepository: (value: BitbucketRepositoryMetadata) => T;
+    confluenceDocument: (value: ConfluenceDocumentMetadata) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -3849,6 +6507,18 @@ export interface IntegrationSummary {
    * @public
    */
   displayName: string | undefined;
+
+  /**
+   * <p>The HTTPS URL of the customer self-hosted instance, such as a GitHub Enterprise Server or self-managed GitLab instance. This value is absent for SaaS integrations.</p>
+   * @public
+   */
+  targetUrl?: string | undefined;
+
+  /**
+   * <p>The name of the private connection used to reach the integration's self-hosted instance over private networking, if one is configured.</p>
+   * @public
+   */
+  privateConnectionName?: string | undefined;
 }
 
 /**
@@ -4539,7 +7209,7 @@ export interface ListPentestJobTasksInput {
   pentestJobId?: string | undefined;
 
   /**
-   * <p>Filter tasks by step name. Valid values include PREFLIGHT, STATIC_ANALYSIS, PENTEST, and FINALIZING.</p>
+   * <p>Filter tasks by step name. Valid values include PREFLIGHT, STATIC_ANALYSIS, PENTEST, VALIDATION, and FINALIZING.</p>
    * @public
    */
   stepName?: StepName | undefined;
@@ -4714,6 +7384,300 @@ export interface ListPentestsOutput {
 }
 
 /**
+ * @public
+ */
+export interface ListPrivateConnectionsInput {
+  /**
+   * <p>The maximum number of private connections to return in a single response.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Summarizes a private connection.</p>
+ * @public
+ */
+export interface PrivateConnectionSummary {
+  /**
+   * <p>The name of the private connection.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of the private connection, indicating whether it is service-managed or self-managed.</p>
+   * @public
+   */
+  type: PrivateConnectionType | undefined;
+
+  /**
+   * <p>The current status of the private connection.</p>
+   * @public
+   */
+  status: PrivateConnectionStatus | undefined;
+
+  /**
+   * <p>The identifier or ARN of the VPC Lattice resource gateway.</p>
+   * @public
+   */
+  resourceGatewayId?: string | undefined;
+
+  /**
+   * <p>The IP address or DNS name of the target resource.</p>
+   * @public
+   */
+  hostAddress?: string | undefined;
+
+  /**
+   * <p>The identifier of the VPC the resource gateway is created in.</p>
+   * @public
+   */
+  vpcId?: string | undefined;
+
+  /**
+   * <p>The identifier or ARN of the VPC Lattice resource configuration.</p>
+   * @public
+   */
+  resourceConfigurationId?: string | undefined;
+
+  /**
+   * <p>The date and time the connection's certificate expires, in UTC format.</p>
+   * @public
+   */
+  certificateExpiryTime?: Date | undefined;
+
+  /**
+   * <p>The DNS resolution mode for the resource gateway.</p>
+   * @public
+   */
+  dnsResolution?: ResourceConfigDnsResolution | undefined;
+
+  /**
+   * <p>A message describing why the private connection entered a failed state, if applicable.</p>
+   * @public
+   */
+  failureMessage?: string | undefined;
+
+  /**
+   * <p>The tags attached to the private connection.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPrivateConnectionsOutput {
+  /**
+   * <p>The list of private connections.</p>
+   * @public
+   */
+  privateConnections: PrivateConnectionSummary[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results, if more results are available.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Filter criteria for listing security requirement packs.</p>
+ * @public
+ */
+export interface ListSecurityRequirementPackFilter {
+  /**
+   * <p>Filter packs by management type. Valid values are AWS_MANAGED and CUSTOMER_MANAGED.</p>
+   * @public
+   */
+  managementType?: ManagementType | undefined;
+
+  /**
+   * <p>Filter packs by status. Valid values are ENABLED and DISABLED.</p>
+   * @public
+   */
+  status?: SecurityRequirementPackStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSecurityRequirementPacksInput {
+  /**
+   * <p>The filter criteria for listing security requirement packs.</p>
+   * @public
+   */
+  filter?: ListSecurityRequirementPackFilter | undefined;
+
+  /**
+   * <p>The pagination token from a previous request to retrieve the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single request.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Contains summary information about a security requirement pack.</p>
+ * @public
+ */
+export interface SecurityRequirementPackSummary {
+  /**
+   * <p>The unique identifier of the security requirement pack.</p>
+   * @public
+   */
+  packId: string | undefined;
+
+  /**
+   * <p>The name of the security requirement pack.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A description of the security requirement pack.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The vendor name for AWS managed packs.</p>
+   * @public
+   */
+  vendorName?: string | undefined;
+
+  /**
+   * <p>The management type of the pack.</p>
+   * @public
+   */
+  managementType: ManagementType | undefined;
+
+  /**
+   * <p>The status of the security requirement pack.</p>
+   * @public
+   */
+  status: SecurityRequirementPackStatus | undefined;
+
+  /**
+   * <p>The date and time the security requirement pack was created, in UTC format.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The date and time the security requirement pack was last updated, in UTC format.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSecurityRequirementPacksOutput {
+  /**
+   * <p>The list of security requirement pack summaries.</p>
+   * @public
+   */
+  securityRequirementPackSummaries: SecurityRequirementPackSummary[] | undefined;
+
+  /**
+   * <p>The pagination token to use in a subsequent request to retrieve the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSecurityRequirementsInput {
+  /**
+   * <p>The unique identifier of the security requirement pack to list requirements for.</p>
+   * @public
+   */
+  packId: string | undefined;
+
+  /**
+   * <p>The pagination token from a previous request to retrieve the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single request.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Contains summary information about a security requirement.</p>
+ * @public
+ */
+export interface SecurityRequirementSummary {
+  /**
+   * <p>The unique identifier of the pack containing the security requirement.</p>
+   * @public
+   */
+  packId: string | undefined;
+
+  /**
+   * <p>The name of the security requirement.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A description of the security requirement.</p>
+   * @public
+   */
+  description: string | undefined;
+
+  /**
+   * <p>The date and time the security requirement was created, in UTC format.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The date and time the security requirement was last updated, in UTC format.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSecurityRequirementsOutput {
+  /**
+   * <p>The list of security requirement summaries.</p>
+   * @public
+   */
+  securityRequirementSummaries: SecurityRequirementSummary[] | undefined;
+
+  /**
+   * <p>The pagination token to use in a subsequent request to retrieve the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
  * <p>Input for ListTagsForResource operation.</p>
  * @public
  */
@@ -4798,6 +7762,548 @@ export interface ListTargetDomainsOutput {
 }
 
 /**
+ * <p>Input for ListThreatModelJobs operation.</p>
+ * @public
+ */
+export interface ListThreatModelJobsInput {
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The unique identifier of the threat model to list jobs for.</p>
+   * @public
+   */
+  threatModelId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the agent space.</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>A token to use for paginating results that are returned in the response.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Contains summary information about a threat model job.</p>
+ * @public
+ */
+export interface ThreatModelJobSummary {
+  /**
+   * <p>The unique identifier of the threat model job.</p>
+   * @public
+   */
+  threatModelJobId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the threat model associated with the job.</p>
+   * @public
+   */
+  threatModelId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the agent space.</p>
+   * @public
+   */
+  agentSpaceId?: string | undefined;
+
+  /**
+   * <p>The title of the threat model job.</p>
+   * @public
+   */
+  title?: string | undefined;
+
+  /**
+   * <p>The current status of the threat model job.</p>
+   * @public
+   */
+  status?: JobStatus | undefined;
+
+  /**
+   * <p>The date and time the threat model job was created, in UTC format.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the threat model job was last updated, in UTC format.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
+
+/**
+ * <p>Output for the ListThreatModelJobs operation.</p>
+ * @public
+ */
+export interface ListThreatModelJobsOutput {
+  /**
+   * <p>The list of threat model job summaries.</p>
+   * @public
+   */
+  threatModelJobSummaries?: ThreatModelJobSummary[] | undefined;
+
+  /**
+   * <p>A token to use for paginating results that are returned in the response.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Input for listing tasks associated with a threat model job.</p>
+ * @public
+ */
+export interface ListThreatModelJobTasksInput {
+  /**
+   * <p>The unique identifier of the agent space.</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The unique identifier of the threat model job to list tasks for.</p>
+   * @public
+   */
+  threatModelJobId: string | undefined;
+
+  /**
+   * <p>A token to use for paginating results that are returned in the response.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Contains summary information about a threat model job task.</p>
+ * @public
+ */
+export interface ThreatModelJobTaskSummary {
+  /**
+   * <p>The unique identifier of the task.</p>
+   * @public
+   */
+  taskId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the threat model associated with the task.</p>
+   * @public
+   */
+  threatModelId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the threat model job that contains the task.</p>
+   * @public
+   */
+  threatModelJobId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the agent space.</p>
+   * @public
+   */
+  agentSpaceId?: string | undefined;
+
+  /**
+   * <p>The title of the task.</p>
+   * @public
+   */
+  title?: string | undefined;
+
+  /**
+   * <p>The current execution status of the task.</p>
+   * @public
+   */
+  executionStatus?: TaskExecutionStatus | undefined;
+
+  /**
+   * <p>The date and time the task was created, in UTC format.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the task was last updated, in UTC format.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
+
+/**
+ * <p>Output for the ListThreatModelJobTasks operation.</p>
+ * @public
+ */
+export interface ListThreatModelJobTasksOutput {
+  /**
+   * <p>The list of threat model job task summaries.</p>
+   * @public
+   */
+  threatModelJobTaskSummaries?: ThreatModelJobTaskSummary[] | undefined;
+
+  /**
+   * <p>A token to use for paginating results that are returned in the response.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Input for listing threat models.</p>
+ * @public
+ */
+export interface ListThreatModelsInput {
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>A token to use for paginating results that are returned in the response.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the agent space to list threat models for.</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+}
+
+/**
+ * <p>Contains summary information about a threat model.</p>
+ * @public
+ */
+export interface ThreatModelSummary {
+  /**
+   * <p>The unique identifier of the threat model.</p>
+   * @public
+   */
+  threatModelId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the agent space that contains the threat model.</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>The title of the threat model.</p>
+   * @public
+   */
+  title: string | undefined;
+
+  /**
+   * <p>The date and time the threat model was created, in UTC format.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the threat model was last updated, in UTC format.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
+
+/**
+ * <p>Output for the ListThreatModels operation.</p>
+ * @public
+ */
+export interface ListThreatModelsOutput {
+  /**
+   * <p>The list of threat model summaries.</p>
+   * @public
+   */
+  threatModelSummaries?: ThreatModelSummary[] | undefined;
+
+  /**
+   * <p>A token to use for paginating results that are returned in the response.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Input for listing threats.</p>
+ * @public
+ */
+export interface ListThreatsInput {
+  /**
+   * <p>The unique identifier of the threat model job to list threats for.</p>
+   * @public
+   */
+  threatJobId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the agent space.</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>A token to use for paginating results that are returned in the response.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Contains summary information about a threat.</p>
+ * @public
+ */
+export interface ThreatSummary {
+  /**
+   * <p>The unique identifier of the threat.</p>
+   * @public
+   */
+  threatId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the threat model job that produced the threat.</p>
+   * @public
+   */
+  threatJobId?: string | undefined;
+
+  /**
+   * <p>A short title summarizing the threat.</p>
+   * @public
+   */
+  title?: string | undefined;
+
+  /**
+   * <p>The natural-language threat statement.</p>
+   * @public
+   */
+  statement?: string | undefined;
+
+  /**
+   * <p>The severity level of the threat.</p>
+   * @public
+   */
+  severity?: ThreatSeverity | undefined;
+
+  /**
+   * <p>The current status of the threat.</p>
+   * @public
+   */
+  status?: ThreatStatus | undefined;
+
+  /**
+   * <p>The STRIDE categories applicable to this threat.</p>
+   * @public
+   */
+  stride?: StrideCategory[] | undefined;
+
+  /**
+   * <p>Who created this threat.</p>
+   * @public
+   */
+  createdBy?: ThreatActor | undefined;
+
+  /**
+   * <p>Who last updated this threat.</p>
+   * @public
+   */
+  updatedBy?: ThreatActor | undefined;
+
+  /**
+   * <p>The date and time the threat was created, in UTC format.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the threat was last updated, in UTC format.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
+
+/**
+ * <p>Output for the ListThreats operation.</p>
+ * @public
+ */
+export interface ListThreatsOutput {
+  /**
+   * <p>The list of threat summaries.</p>
+   * @public
+   */
+  threats?: ThreatSummary[] | undefined;
+
+  /**
+   * <p>A token to use for paginating results that are returned in the response.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePrivateConnectionCertificateInput {
+  /**
+   * <p>The name of the private connection to update.</p>
+   * @public
+   */
+  privateConnectionName: string | undefined;
+
+  /**
+   * <p>The PEM-encoded certificate chain for the private connection.</p>
+   * @public
+   */
+  certificate: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePrivateConnectionCertificateOutput {
+  /**
+   * <p>The name of the private connection.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of the private connection, indicating whether it is service-managed or self-managed.</p>
+   * @public
+   */
+  type: PrivateConnectionType | undefined;
+
+  /**
+   * <p>The current status of the private connection.</p>
+   * @public
+   */
+  status: PrivateConnectionStatus | undefined;
+
+  /**
+   * <p>The identifier or ARN of the VPC Lattice resource gateway.</p>
+   * @public
+   */
+  resourceGatewayId?: string | undefined;
+
+  /**
+   * <p>The IP address or DNS name of the target resource.</p>
+   * @public
+   */
+  hostAddress?: string | undefined;
+
+  /**
+   * <p>The identifier of the VPC the resource gateway is created in.</p>
+   * @public
+   */
+  vpcId?: string | undefined;
+
+  /**
+   * <p>The identifier or ARN of the VPC Lattice resource configuration.</p>
+   * @public
+   */
+  resourceConfigurationId?: string | undefined;
+
+  /**
+   * <p>The date and time the connection's certificate expires, in UTC format.</p>
+   * @public
+   */
+  certificateExpiryTime?: Date | undefined;
+
+  /**
+   * <p>The DNS resolution mode for the resource gateway.</p>
+   * @public
+   */
+  dnsResolution?: ResourceConfigDnsResolution | undefined;
+
+  /**
+   * <p>A message describing why the private connection entered a failed state, if applicable.</p>
+   * @public
+   */
+  failureMessage?: string | undefined;
+
+  /**
+   * <p>The tags attached to the private connection.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSecurityRequirementPackInput {
+  /**
+   * <p>The unique identifier of the security requirement pack to update.</p>
+   * @public
+   */
+  packId: string | undefined;
+
+  /**
+   * <p>The updated name of the security requirement pack.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The updated description of the security requirement pack.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The updated status of the security requirement pack.</p>
+   * @public
+   */
+  status?: SecurityRequirementPackStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSecurityRequirementPackOutput {
+  /**
+   * <p>The unique identifier of the security requirement pack.</p>
+   * @public
+   */
+  packId: string | undefined;
+
+  /**
+   * <p>The name of the security requirement pack.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The description of the security requirement pack.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The status of the security requirement pack.</p>
+   * @public
+   */
+  status?: SecurityRequirementPackStatus | undefined;
+}
+
+/**
  * <p>Input for the StartCodeRemediation operation.</p>
  * @public
  */
@@ -4849,6 +8355,12 @@ export interface StartCodeReviewJobInput {
    * @public
    */
   codeReviewId: string | undefined;
+
+  /**
+   * <p>Source of the diff for a differential scan. When present, the job analyzes only the changed lines instead of performing a full scan.</p>
+   * @public
+   */
+  diffSource?: DiffSource | undefined;
 }
 
 /**
@@ -4966,6 +8478,72 @@ export interface StartPentestJobOutput {
 }
 
 /**
+ * <p>Input for starting a threat model job.</p>
+ * @public
+ */
+export interface StartThreatModelJobInput {
+  /**
+   * <p>The unique identifier of the agent space.</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the threat model to start a job for.</p>
+   * @public
+   */
+  threatModelId: string | undefined;
+}
+
+/**
+ * <p>Output for the StartThreatModelJob operation.</p>
+ * @public
+ */
+export interface StartThreatModelJobOutput {
+  /**
+   * <p>The title of the threat model job.</p>
+   * @public
+   */
+  title?: string | undefined;
+
+  /**
+   * <p>The current status of the threat model job.</p>
+   * @public
+   */
+  status?: JobStatus | undefined;
+
+  /**
+   * <p>The date and time the threat model job was created, in UTC format.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the threat model job was last updated, in UTC format.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The unique identifier of the threat model.</p>
+   * @public
+   */
+  threatModelId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the started threat model job.</p>
+   * @public
+   */
+  threatModelJobId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the agent space.</p>
+   * @public
+   */
+  agentSpaceId?: string | undefined;
+}
+
+/**
  * <p>Input for stopping the execution of a code review job.</p>
  * @public
  */
@@ -5012,6 +8590,30 @@ export interface StopPentestJobInput {
  * @public
  */
 export interface StopPentestJobOutput {}
+
+/**
+ * <p>Input for stopping a threat model job.</p>
+ * @public
+ */
+export interface StopThreatModelJobInput {
+  /**
+   * <p>The unique identifier of the agent space.</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the threat model job to stop.</p>
+   * @public
+   */
+  threatModelJobId: string | undefined;
+}
+
+/**
+ * <p>Output for the StopThreatModelJob operation.</p>
+ * @public
+ */
+export interface StopThreatModelJobOutput {}
 
 /**
  * <p>Input for TagResource operation.</p>
@@ -5173,6 +8775,12 @@ export interface UpdateCodeReviewInput {
    * @public
    */
   codeRemediationStrategy?: CodeRemediationStrategy | undefined;
+
+  /**
+   * <p>The updated validation mode for the code review. Valid values are SIMULATED and DISABLED.</p>
+   * @public
+   */
+  validationMode?: ValidationMode | undefined;
 }
 
 /**
@@ -5233,6 +8841,12 @@ export interface UpdateCodeReviewOutput {
    * @public
    */
   codeRemediationStrategy?: CodeRemediationStrategy | undefined;
+
+  /**
+   * <p>The validation mode for the code review.</p>
+   * @public
+   */
+  validationMode?: ValidationMode | undefined;
 }
 
 /**
@@ -5253,16 +8867,58 @@ export interface UpdateFindingInput {
   agentSpaceId: string | undefined;
 
   /**
+   * <p>The updated name for the finding.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The updated description for the finding.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The updated risk type for the finding.</p>
+   * @public
+   */
+  riskType?: string | undefined;
+
+  /**
    * <p>The updated risk level for the finding.</p>
    * @public
    */
   riskLevel?: RiskLevel | undefined;
 
   /**
+   * <p>The updated numerical risk score for the finding.</p>
+   * @public
+   */
+  riskScore?: string | undefined;
+
+  /**
+   * <p>The updated attack script for the finding.</p>
+   * @public
+   */
+  attackScript?: string | undefined;
+
+  /**
+   * <p>The updated reasoning for the finding.</p>
+   * @public
+   */
+  reasoning?: string | undefined;
+
+  /**
    * <p>The updated status for the finding.</p>
    * @public
    */
   status?: FindingStatus | undefined;
+
+  /**
+   * <p>A customer-provided note on the finding.</p>
+   * @public
+   */
+  customerNote?: string | undefined;
 }
 
 /**
@@ -5363,6 +9019,12 @@ export interface UpdatePentestInput {
    * @public
    */
   codeRemediationStrategy?: CodeRemediationStrategy | undefined;
+
+  /**
+   * <p>The updated list of managed skills to disable for this pentest. Valid values include FINDING_PERSONALIZATION and LOGIN_OPTIMIZATION.</p>
+   * @public
+   */
+  disableManagedSkills?: SkillType[] | undefined;
 }
 
 /**
@@ -5423,6 +9085,360 @@ export interface UpdatePentestOutput {
    * @public
    */
   agentSpaceId?: string | undefined;
+}
+
+/**
+ * <p>Input for updating an existing threat.</p>
+ * @public
+ */
+export interface UpdateThreatInput {
+  /**
+   * <p>The unique identifier of the threat to update.</p>
+   * @public
+   */
+  threatId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the agent space.</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>A short title summarizing the threat.</p>
+   * @public
+   */
+  title?: string | undefined;
+
+  /**
+   * <p>The updated status of the threat.</p>
+   * @public
+   */
+  status?: ThreatStatus | undefined;
+
+  /**
+   * <p>Optional customer comment.</p>
+   * @public
+   */
+  comments?: string | undefined;
+
+  /**
+   * <p>The updated natural-language threat statement.</p>
+   * @public
+   */
+  statement?: string | undefined;
+
+  /**
+   * <p>The updated severity level of the threat.</p>
+   * @public
+   */
+  severity?: ThreatSeverity | undefined;
+
+  /**
+   * <p>The updated actor or origin of the threat.</p>
+   * @public
+   */
+  threatSource?: string | undefined;
+
+  /**
+   * <p>The updated conditions required for the threat to be exploitable.</p>
+   * @public
+   */
+  prerequisites?: string | undefined;
+
+  /**
+   * <p>The updated description of what the threat source can do.</p>
+   * @public
+   */
+  threatAction?: string | undefined;
+
+  /**
+   * <p>The updated direct consequence of the threat action.</p>
+   * @public
+   */
+  threatImpact?: string | undefined;
+
+  /**
+   * <p>The updated security goals affected by the threat.</p>
+   * @public
+   */
+  impactedGoal?: string[] | undefined;
+
+  /**
+   * <p>The updated list of specific assets affected by the threat.</p>
+   * @public
+   */
+  impactedAssets?: string[] | undefined;
+
+  /**
+   * <p>The updated DFD element this threat is anchored to.</p>
+   * @public
+   */
+  anchor?: ThreatAnchorShape | undefined;
+
+  /**
+   * <p>The updated source code files supporting the threat.</p>
+   * @public
+   */
+  evidence?: ThreatEvidenceShape[] | undefined;
+
+  /**
+   * <p>The updated recommended mitigation guidance for this threat.</p>
+   * @public
+   */
+  recommendation?: string | undefined;
+}
+
+/**
+ * <p>Output for the UpdateThreat operation.</p>
+ * @public
+ */
+export interface UpdateThreatOutput {
+  /**
+   * <p>The unique identifier of the threat.</p>
+   * @public
+   */
+  threatId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the threat model job the threat belongs to.</p>
+   * @public
+   */
+  threatJobId: string | undefined;
+
+  /**
+   * <p>A short title summarizing the threat.</p>
+   * @public
+   */
+  title?: string | undefined;
+
+  /**
+   * <p>The natural-language threat statement.</p>
+   * @public
+   */
+  statement?: string | undefined;
+
+  /**
+   * <p>The severity level of the threat.</p>
+   * @public
+   */
+  severity?: ThreatSeverity | undefined;
+
+  /**
+   * <p>The current status of the threat.</p>
+   * @public
+   */
+  status?: ThreatStatus | undefined;
+
+  /**
+   * <p>Optional customer comment on the threat.</p>
+   * @public
+   */
+  comments?: string | undefined;
+
+  /**
+   * <p>The STRIDE categories applicable to this threat.</p>
+   * @public
+   */
+  stride?: StrideCategory[] | undefined;
+
+  /**
+   * <p>The actor or origin of the threat.</p>
+   * @public
+   */
+  threatSource?: string | undefined;
+
+  /**
+   * <p>The conditions required for the threat to be exploitable.</p>
+   * @public
+   */
+  prerequisites?: string | undefined;
+
+  /**
+   * <p>What the threat source can do.</p>
+   * @public
+   */
+  threatAction?: string | undefined;
+
+  /**
+   * <p>The direct consequence of the threat action.</p>
+   * @public
+   */
+  threatImpact?: string | undefined;
+
+  /**
+   * <p>The security goals affected by the threat.</p>
+   * @public
+   */
+  impactedGoal?: string[] | undefined;
+
+  /**
+   * <p>The specific assets affected by the threat.</p>
+   * @public
+   */
+  impactedAssets?: string[] | undefined;
+
+  /**
+   * <p>The DFD element this threat is anchored to.</p>
+   * @public
+   */
+  anchor?: ThreatAnchorShape | undefined;
+
+  /**
+   * <p>The source code files supporting the threat.</p>
+   * @public
+   */
+  evidence?: ThreatEvidenceShape[] | undefined;
+
+  /**
+   * <p>The recommended mitigation guidance for this threat.</p>
+   * @public
+   */
+  recommendation?: string | undefined;
+
+  /**
+   * <p>Who created this threat.</p>
+   * @public
+   */
+  createdBy?: ThreatActor | undefined;
+
+  /**
+   * <p>Who last updated this threat.</p>
+   * @public
+   */
+  updatedBy?: ThreatActor | undefined;
+
+  /**
+   * <p>The date and time the threat was created, in UTC format.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the threat was last updated, in UTC format.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
+
+/**
+ * <p>Input for updating an existing threat model.</p>
+ * @public
+ */
+export interface UpdateThreatModelInput {
+  /**
+   * <p>The unique identifier of the threat model to update.</p>
+   * @public
+   */
+  threatModelId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the agent space that contains the threat model.</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>The updated title of the threat model.</p>
+   * @public
+   */
+  title?: string | undefined;
+
+  /**
+   * <p>The updated description of the application or system being threat modeled.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The updated assets for the threat model.</p>
+   * @public
+   */
+  assets?: Assets | undefined;
+
+  /**
+   * <p>The updated scoped documents for the agent to focus on during threat modeling.</p>
+   * @public
+   */
+  scopeDocs?: DocumentInfo[] | undefined;
+
+  /**
+   * <p>The updated IAM service role for the threat model.</p>
+   * @public
+   */
+  serviceRole?: string | undefined;
+
+  /**
+   * <p>The updated CloudWatch Logs configuration for the threat model.</p>
+   * @public
+   */
+  logConfig?: CloudWatchLog | undefined;
+}
+
+/**
+ * <p>Output for the UpdateThreatModel operation.</p>
+ * @public
+ */
+export interface UpdateThreatModelOutput {
+  /**
+   * <p>The unique identifier of the threat model.</p>
+   * @public
+   */
+  threatModelId: string | undefined;
+
+  /**
+   * <p>The title of the threat model.</p>
+   * @public
+   */
+  title?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the agent space that contains the threat model.</p>
+   * @public
+   */
+  agentSpaceId?: string | undefined;
+
+  /**
+   * <p>A description of the application or system being threat modeled.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The assets included in the threat model.</p>
+   * @public
+   */
+  assets?: Assets | undefined;
+
+  /**
+   * <p>The scoped documents for the agent to focus on during threat modeling.</p>
+   * @public
+   */
+  scopeDocs?: DocumentInfo[] | undefined;
+
+  /**
+   * <p>The IAM service role used for the threat model.</p>
+   * @public
+   */
+  serviceRole?: string | undefined;
+
+  /**
+   * <p>The CloudWatch Logs configuration for the threat model.</p>
+   * @public
+   */
+  logConfig?: CloudWatchLog | undefined;
+
+  /**
+   * <p>The date and time the threat model was created, in UTC format.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the threat model was last updated, in UTC format.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
 }
 
 /**

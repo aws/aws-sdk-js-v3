@@ -73,6 +73,10 @@ export interface BatchGetCodeReviewsCommandOutput extends BatchGetCodeReviewsOut
  * //           { // DocumentInfo
  * //             s3Location: "STRING_VALUE",
  * //             artifactId: "STRING_VALUE",
+ * //             integratedDocument: { // IntegratedDocument
+ * //               integrationId: "STRING_VALUE", // required
+ * //               resourceId: "STRING_VALUE", // required
+ * //             },
  * //           },
  * //         ],
  * //         sourceCode: [ // SourceCodeRepositoryList
@@ -93,6 +97,7 @@ export interface BatchGetCodeReviewsCommandOutput extends BatchGetCodeReviewsOut
  * //         logStream: "STRING_VALUE",
  * //       },
  * //       codeRemediationStrategy: "AUTOMATIC" || "DISABLED",
+ * //       validationMode: "DISABLED" || "SIMULATED",
  * //       createdAt: new Date("TIMESTAMP"),
  * //       updatedAt: new Date("TIMESTAMP"),
  * //     },

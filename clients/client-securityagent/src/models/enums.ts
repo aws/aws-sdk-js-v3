@@ -69,6 +69,25 @@ export type ArtifactType = (typeof ArtifactType)[keyof typeof ArtifactType];
  * @public
  * @enum
  */
+export const CleanUpStrategy = {
+  /**
+   * <p>Attempt to delete resources created during the pentest on a best-effort basis.</p>
+   */
+  BEST_EFFORT_DELETE: "BEST_EFFORT_DELETE",
+  /**
+   * <p>Retain all resources created during the pentest.</p>
+   */
+  RETAIN_ALL: "RETAIN_ALL",
+} as const;
+/**
+ * @public
+ */
+export type CleanUpStrategy = (typeof CleanUpStrategy)[keyof typeof CleanUpStrategy];
+
+/**
+ * @public
+ * @enum
+ */
 export const CodeRemediationStrategy = {
   /**
    * <p>Automatically generate code remediation for findings.</p>
@@ -83,6 +102,25 @@ export const CodeRemediationStrategy = {
  * @public
  */
 export type CodeRemediationStrategy = (typeof CodeRemediationStrategy)[keyof typeof CodeRemediationStrategy];
+
+/**
+ * @public
+ * @enum
+ */
+export const SkillType = {
+  /**
+   * <p>The finding personalization skill learns customer preferences from finding edits and aligns future findings accordingly.</p>
+   */
+  FINDING_PERSONALIZATION: "FINDING_PERSONALIZATION",
+  /**
+   * <p>The login optimization skill learns application login flows to improve authentication success across runs.</p>
+   */
+  LOGIN_OPTIMIZATION: "LOGIN_OPTIMIZATION",
+} as const;
+/**
+ * @public
+ */
+export type SkillType = (typeof SkillType)[keyof typeof SkillType];
 
 /**
  * @public
@@ -343,6 +381,10 @@ export const StepName = {
    * <p>Static code and network scan analysis step.</p>
    */
   STATIC_ANALYSIS: "STATIC_ANALYSIS",
+  /**
+   * <p>Simulated validation step that dynamically confirms vulnerability exploitability.</p>
+   */
+  VALIDATION: "VALIDATION",
 } as const;
 /**
  * @public
@@ -430,6 +472,19 @@ export type LogType = (typeof LogType)[keyof typeof LogType];
  * @public
  * @enum
  */
+export const ValidationMode = {
+  DISABLED: "DISABLED",
+  SIMULATED: "SIMULATED",
+} as const;
+/**
+ * @public
+ */
+export type ValidationMode = (typeof ValidationMode)[keyof typeof ValidationMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const CodeRemediationTaskStatus = {
   COMPLETED: "COMPLETED",
   FAILED: "FAILED",
@@ -487,6 +542,22 @@ export const FindingStatus = {
  * @public
  */
 export type FindingStatus = (typeof FindingStatus)[keyof typeof FindingStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ValidationStatus = {
+  CONFIRMED: "CONFIRMED",
+  NOT_REPRODUCED: "NOT_REPRODUCED",
+  NOT_VALIDATED: "NOT_VALIDATED",
+  VALIDATING: "VALIDATING",
+  VALIDATION_FAILED: "VALIDATION_FAILED",
+} as const;
+/**
+ * @public
+ */
+export type ValidationStatus = (typeof ValidationStatus)[keyof typeof ValidationStatus];
 
 /**
  * @public
@@ -557,8 +628,90 @@ export type TargetDomainStatus = (typeof TargetDomainStatus)[keyof typeof Target
  * @public
  * @enum
  */
+export const ThreatActor = {
+  /**
+   * <p>Threat was created or updated by an agent.</p>
+   */
+  AGENT: "AGENT",
+  /**
+   * <p>Threat was created or updated by a customer.</p>
+   */
+  CUSTOMER: "CUSTOMER",
+} as const;
+/**
+ * @public
+ */
+export type ThreatActor = (typeof ThreatActor)[keyof typeof ThreatActor];
+
+/**
+ * @public
+ * @enum
+ */
+export const ThreatSeverity = {
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+  INFO: "INFO",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+} as const;
+/**
+ * @public
+ */
+export type ThreatSeverity = (typeof ThreatSeverity)[keyof typeof ThreatSeverity];
+
+/**
+ * @public
+ * @enum
+ */
+export const ThreatStatus = {
+  DISMISSED: "DISMISSED",
+  OPEN: "OPEN",
+  RESOLVED: "RESOLVED",
+} as const;
+/**
+ * @public
+ */
+export type ThreatStatus = (typeof ThreatStatus)[keyof typeof ThreatStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const StrideCategory = {
+  DENIAL_OF_SERVICE: "DENIAL_OF_SERVICE",
+  ELEVATION_OF_PRIVILEGE: "ELEVATION_OF_PRIVILEGE",
+  INFORMATION_DISCLOSURE: "INFORMATION_DISCLOSURE",
+  REPUDIATION: "REPUDIATION",
+  SPOOFING: "SPOOFING",
+  TAMPERING: "TAMPERING",
+} as const;
+/**
+ * @public
+ */
+export type StrideCategory = (typeof StrideCategory)[keyof typeof StrideCategory];
+
+/**
+ * @public
+ * @enum
+ */
+export const GitLabTokenType = {
+  GROUP: "GROUP",
+  PERSONAL: "PERSONAL",
+} as const;
+/**
+ * @public
+ */
+export type GitLabTokenType = (typeof GitLabTokenType)[keyof typeof GitLabTokenType];
+
+/**
+ * @public
+ * @enum
+ */
 export const Provider = {
+  BITBUCKET: "BITBUCKET",
+  CONFLUENCE: "CONFLUENCE",
   GITHUB: "GITHUB",
+  GITLAB: "GITLAB",
 } as const;
 /**
  * @public
@@ -599,6 +752,77 @@ export type MembershipType = (typeof MembershipType)[keyof typeof MembershipType
  * @public
  * @enum
  */
+export const ResourceConfigDnsResolution = {
+  IN_VPC: "IN_VPC",
+  PUBLIC: "PUBLIC",
+} as const;
+/**
+ * @public
+ */
+export type ResourceConfigDnsResolution =
+  (typeof ResourceConfigDnsResolution)[keyof typeof ResourceConfigDnsResolution];
+
+/**
+ * @public
+ * @enum
+ */
+export const IpAddressType = {
+  DUAL_STACK: "DUAL_STACK",
+  IPV4: "IPV4",
+  IPV6: "IPV6",
+} as const;
+/**
+ * @public
+ */
+export type IpAddressType = (typeof IpAddressType)[keyof typeof IpAddressType];
+
+/**
+ * @public
+ * @enum
+ */
+export const PrivateConnectionStatus = {
+  ACTIVE: "ACTIVE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+} as const;
+/**
+ * @public
+ */
+export type PrivateConnectionStatus = (typeof PrivateConnectionStatus)[keyof typeof PrivateConnectionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const PrivateConnectionType = {
+  SELF_MANAGED: "SELF_MANAGED",
+  SERVICE_MANAGED: "SERVICE_MANAGED",
+} as const;
+/**
+ * @public
+ */
+export type PrivateConnectionType = (typeof PrivateConnectionType)[keyof typeof PrivateConnectionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SecurityRequirementPackStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type SecurityRequirementPackStatus =
+  (typeof SecurityRequirementPackStatus)[keyof typeof SecurityRequirementPackStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const ProviderType = {
   DOCUMENTATION: "DOCUMENTATION",
   SOURCE_CODE: "SOURCE_CODE",
@@ -612,8 +836,55 @@ export type ProviderType = (typeof ProviderType)[keyof typeof ProviderType];
  * @public
  * @enum
  */
+export const SecurityRequirementPackImportStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+} as const;
+/**
+ * @public
+ */
+export type SecurityRequirementPackImportStatus =
+  (typeof SecurityRequirementPackImportStatus)[keyof typeof SecurityRequirementPackImportStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ManagementType = {
+  AWS_MANAGED: "AWS_MANAGED",
+  CUSTOMER_MANAGED: "CUSTOMER_MANAGED",
+} as const;
+/**
+ * @public
+ */
+export type ManagementType = (typeof ManagementType)[keyof typeof ManagementType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SecurityRequirementArtifactFormat = {
+  DOC: "DOC",
+  DOCX: "DOCX",
+  MD: "MD",
+  PDF: "PDF",
+  TXT: "TXT",
+} as const;
+/**
+ * @public
+ */
+export type SecurityRequirementArtifactFormat =
+  (typeof SecurityRequirementArtifactFormat)[keyof typeof SecurityRequirementArtifactFormat];
+
+/**
+ * @public
+ * @enum
+ */
 export const ResourceType = {
   CODE_REPOSITORY: "CODE_REPOSITORY",
+  DOCUMENT: "DOCUMENT",
 } as const;
 /**
  * @public

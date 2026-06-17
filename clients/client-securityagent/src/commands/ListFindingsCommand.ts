@@ -64,6 +64,7 @@ export interface ListFindingsCommandOutput extends ListFindingsOutput, __Metadat
  * //       riskType: "STRING_VALUE",
  * //       riskLevel: "UNKNOWN" || "INFORMATIONAL" || "LOW" || "MEDIUM" || "HIGH" || "CRITICAL",
  * //       confidence: "FALSE_POSITIVE" || "UNCONFIRMED" || "LOW" || "MEDIUM" || "HIGH",
+ * //       validationStatus: "CONFIRMED" || "NOT_REPRODUCED" || "VALIDATION_FAILED" || "VALIDATING" || "NOT_VALIDATED",
  * //       createdAt: new Date("TIMESTAMP"),
  * //       updatedAt: new Date("TIMESTAMP"),
  * //     },

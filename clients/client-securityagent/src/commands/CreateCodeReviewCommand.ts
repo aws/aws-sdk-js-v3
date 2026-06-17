@@ -62,6 +62,10 @@ export interface CreateCodeReviewCommandOutput extends CreateCodeReviewOutput, _
  *       { // DocumentInfo
  *         s3Location: "STRING_VALUE",
  *         artifactId: "STRING_VALUE",
+ *         integratedDocument: { // IntegratedDocument
+ *           integrationId: "STRING_VALUE", // required
+ *           resourceId: "STRING_VALUE", // required
+ *         },
  *       },
  *     ],
  *     sourceCode: [ // SourceCodeRepositoryList
@@ -82,6 +86,7 @@ export interface CreateCodeReviewCommandOutput extends CreateCodeReviewOutput, _
  *     logStream: "STRING_VALUE",
  *   },
  *   codeRemediationStrategy: "AUTOMATIC" || "DISABLED",
+ *   validationMode: "DISABLED" || "SIMULATED",
  * };
  * const command = new CreateCodeReviewCommand(input);
  * const response = await client.send(command);
@@ -113,6 +118,10 @@ export interface CreateCodeReviewCommandOutput extends CreateCodeReviewOutput, _
  * //       { // DocumentInfo
  * //         s3Location: "STRING_VALUE",
  * //         artifactId: "STRING_VALUE",
+ * //         integratedDocument: { // IntegratedDocument
+ * //           integrationId: "STRING_VALUE", // required
+ * //           resourceId: "STRING_VALUE", // required
+ * //         },
  * //       },
  * //     ],
  * //     sourceCode: [ // SourceCodeRepositoryList
@@ -134,6 +143,7 @@ export interface CreateCodeReviewCommandOutput extends CreateCodeReviewOutput, _
  * //   },
  * //   agentSpaceId: "STRING_VALUE",
  * //   codeRemediationStrategy: "AUTOMATIC" || "DISABLED",
+ * //   validationMode: "DISABLED" || "SIMULATED",
  * // };
  *
  * ```
