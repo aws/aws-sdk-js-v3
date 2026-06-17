@@ -1,5 +1,4 @@
 import type {
-  _Object as S3Object,
   AbortMultipartUploadCommandInput,
   CompletedPart,
   CompleteMultipartUploadCommandInput,
@@ -22,12 +21,20 @@ import {
 } from "@aws-sdk/client-s3";
 import type { Logger } from "@smithy/types";
 import { type StreamingBlobPayloadOutputTypes } from "@smithy/types";
+import { createReadStream } from "node:fs";
+import { opendir, realpath, stat } from "node:fs/promises";
+import { join, relative, sep } from "node:path";
 
 import { type RawDataPart, byteLength, getChunk } from "./chunker";
+import { handleFailure, Semaphore, validateDirectory } from "./directory-transfer-utils";
 import type { AddEventListenerOptions, EventListener, RemoveEventListenerOptions } from "./event-listener-types";
 import { joinStreams } from "./join-streams";
 import { LogLevel } from "./log-level";
 import type {
+  CannedFailurePolicy,
+  DirectoryTransferFailureContext,
+  DownloadDirectoryRequest,
+  DownloadDirectoryResponse,
   DownloadRequest,
   DownloadResponse,
   IS3TransferManager,
@@ -36,6 +43,8 @@ import type {
   TransferEvent,
   TransferEventListeners,
   TransferOptions,
+  UploadDirectoryRequest,
+  UploadDirectoryResponse,
   UploadRequest,
   UploadResponse,
 } from "./types";
@@ -444,28 +453,94 @@ export class S3TransferManager implements IS3TransferManager {
   }
 
   /**
-   * Uploads all files in a directory recursively to an S3 bucket.
-   * Automatically maps local file paths to S3 object keys using prefix and delimiter configuration.
+   * Uploads files in a directory to an S3 bucket.
+   * By default, it does not recurse into subdirectories. To upload recursively, set recursive: true.
    *
-   * @param options - Configuration including bucket, source directory, filtering, failure handling, and transfer settings.
+   * @param request - Configuration including bucket, source directory, filtering, failure handling, and transfer settings.
+   * @param transferOptions - Allows users to specify cancel functions for the request and a collection of callbacks for monitoring transfer lifecycle events.
    *
    * @returns the number of objects that have been uploaded and the number of objects that have failed.
    *
    * @alpha
    */
-  public uploadAll(options: {
-    bucket: string;
-    source: string;
-    followSymbolicLinks?: boolean;
-    recursive?: boolean;
-    s3Prefix?: string;
-    filter?: (filepath: string) => boolean;
-    s3Delimiter?: string;
-    putObjectRequestCallback?: (putObjectRequest: PutObjectCommandInput) => Promise<void>;
-    failurePolicy?: (error?: unknown) => Promise<void>;
-    transferOptions?: TransferOptions;
-  }): Promise<{ objectsUploaded: number; objectsFailed: number }> {
-    throw new Error("Method not implemented.");
+  public async uploadDirectory(request: UploadDirectoryRequest, transferOptions?: TransferOptions): Promise<UploadDirectoryResponse> {
+    const absoluteSource = await validateDirectory(request.source);
+    const maxConcurrency = request.maxConcurrency ?? 100;
+    const failurePolicy = request.failurePolicy ?? ("terminate" as CannedFailurePolicy);
+    const semaphore = new Semaphore(maxConcurrency);
+    const abortController = new AbortController();
+    const inFlight = new Set<Promise<void>>();
+
+    let objectsUploaded = 0;
+    let objectsFailed = 0;
+    let terminated = false;
+    let terminationError: unknown;
+
+    this.checkAborted(transferOptions);
+
+    for await (const filePath of this.traverseDirectory(absoluteSource, {
+      recursive: request.recursive ?? false,
+      followSymbolicLinks: request.followSymbolicLinks ?? false,
+    })) {
+      if (terminated || abortController.signal.aborted) break;
+      this.checkAborted(transferOptions);
+
+      if (request.filter && !request.filter(filePath)) continue;
+
+      await semaphore.acquire();
+
+      if (terminated || abortController.signal.aborted) {
+        semaphore.release();
+        break;
+      }
+
+      const task = (async () => {
+        try {
+          const fileStat = await stat(filePath);
+          const key = this.deriveS3Key(absoluteSource, filePath, request.s3Prefix);
+
+          let putRequest: PutObjectCommandInput = {
+            Bucket: request.bucket,
+            Key: key,
+            Body: createReadStream(filePath),
+            ContentLength: fileStat.size,
+          };
+
+          if (request.uploadObjectRequestModifier) {
+            putRequest = request.uploadObjectRequestModifier(putRequest);
+          }
+
+          await this.upload(putRequest, transferOptions);
+          objectsUploaded++;
+        } catch (error) {
+          const context: DirectoryTransferFailureContext = {
+            request,
+            objectRequest: { Bucket: request.bucket, Key: this.deriveS3Key(absoluteSource, filePath, request.s3Prefix) },
+            error,
+          };
+          const result = await handleFailure(failurePolicy, context, abortController);
+          if (result === "terminate") {
+            terminated = true;
+            terminationError = error;
+          } else {
+            objectsFailed++;
+          }
+        } finally {
+          semaphore.release();
+        }
+      })();
+
+      inFlight.add(task);
+      task.finally(() => inFlight.delete(task));
+    }
+
+    await Promise.allSettled([...inFlight]);
+
+    if (terminated && terminationError) {
+      throw terminationError;
+    }
+
+    return { objectsUploaded, objectsFailed };
   }
 
   /**
@@ -478,17 +553,7 @@ export class S3TransferManager implements IS3TransferManager {
    *
    * @alpha
    */
-  public downloadAll(options: {
-    bucket: string;
-    destination: string;
-    s3Prefix?: string;
-    s3Delimiter?: string;
-    recursive?: boolean;
-    filter?: (object?: S3Object) => boolean;
-    getObjectRequestCallback?: (getObjectRequest: GetObjectCommandInput) => Promise<void>;
-    failurePolicy?: (error?: unknown) => Promise<void>;
-    transferOptions?: TransferOptions;
-  }): Promise<{ objectsDownloaded: number; objectsFailed: number }> {
+  public downloadDirectory(request: DownloadDirectoryRequest, transferOptions?: TransferOptions): Promise<DownloadDirectoryResponse> {
     throw new Error("Method not implemented.");
   }
 
@@ -1520,6 +1585,60 @@ export class S3TransferManager implements IS3TransferManager {
       }
       throw error;
     }
+  }
+
+  /**
+   * Async generator that yields file paths from the source directory.
+   * Uses fs.opendir with recursive option (Node 20+).
+   * Handles symlink cycle detection when followSymbolicLinks is true.
+   *
+   * @internal
+   */
+  private async *traverseDirectory(
+    source: string,
+    options: { recursive: boolean; followSymbolicLinks: boolean }
+  ): AsyncGenerator<string> {
+    const visited = new Set<string>();
+    const dir = await opendir(source, { recursive: options.recursive });
+    for await (const entry of dir) {
+      const fullPath = join((entry as any).parentPath ?? (entry as any).path ?? source, entry.name);
+
+      if (entry.isSymbolicLink()) {
+        if (!options.followSymbolicLinks) continue;
+        const realPath = await realpath(fullPath);
+        const linkStat = await stat(realPath);
+        if (linkStat.isDirectory()) {
+          if (visited.has(realPath)) {
+            throw new Error(`Circular symbolic link detected: ${fullPath} -> ${realPath}`);
+          }
+          visited.add(realPath);
+          yield* this.traverseDirectory(realPath, options);
+          continue;
+        }
+        if (!linkStat.isFile()) continue;
+      } else if (!entry.isFile()) {
+        continue;
+      }
+
+      yield fullPath;
+    }
+  }
+
+  /**
+   * Derives the S3 object key from local file path.
+   * Computes relative path from source, normalizes separators to "/",
+   * and prepends s3Prefix if provided.
+   *
+   * @internal
+   */
+  private deriveS3Key(source: string, filePath: string, s3Prefix?: string): string {
+    let relativePath = relative(source, filePath);
+    if (sep !== "/") {
+      relativePath = relativePath.split(sep).join("/");
+    }
+    if (!s3Prefix) return relativePath;
+    const normalizedPrefix = s3Prefix.endsWith("/") ? s3Prefix : s3Prefix + "/";
+    return normalizedPrefix + relativePath;
   }
 
   /**
