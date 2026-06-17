@@ -72,6 +72,10 @@ import {
   DescribeConfigurationRevisionCommand,
   DescribeConfigurationRevisionRequest$,
   DescribeConfigurationRevisionResponse$,
+  DescribeSharedResources$,
+  DescribeSharedResourcesCommand,
+  DescribeSharedResourcesRequest$,
+  DescribeSharedResourcesResponse$,
   DescribeUser$,
   DescribeUserCommand,
   DescribeUserRequest$,
@@ -112,6 +116,7 @@ import {
   MqServiceException,
   NotFoundException,
   NotFoundException$,
+  paginateDescribeSharedResources,
   paginateListBrokers,
   PendingLogs$,
   Promote$,
@@ -123,8 +128,14 @@ import {
   RebootBrokerCommand,
   RebootBrokerRequest$,
   RebootBrokerResponse$,
+  ResourceShareError$,
   SanitizationWarning$,
   SanitizationWarningReason,
+  SharedResource$,
+  SharedResourceError$,
+  SharedResourceErrorCode,
+  SharedResourceStatus,
+  SharedResourceType,
   UnauthorizedException,
   UnauthorizedException$,
   UpdateBroker$,
@@ -175,6 +186,8 @@ assert(typeof DescribeConfigurationCommand === "function");
 assert(typeof DescribeConfiguration$ === "object");
 assert(typeof DescribeConfigurationRevisionCommand === "function");
 assert(typeof DescribeConfigurationRevision$ === "object");
+assert(typeof DescribeSharedResourcesCommand === "function");
+assert(typeof DescribeSharedResources$ === "object");
 assert(typeof DescribeUserCommand === "function");
 assert(typeof DescribeUser$ === "object");
 assert(typeof ListBrokersCommand === "function");
@@ -234,6 +247,8 @@ assert(typeof DescribeConfigurationRequest$ === "object");
 assert(typeof DescribeConfigurationResponse$ === "object");
 assert(typeof DescribeConfigurationRevisionRequest$ === "object");
 assert(typeof DescribeConfigurationRevisionResponse$ === "object");
+assert(typeof DescribeSharedResourcesRequest$ === "object");
+assert(typeof DescribeSharedResourcesResponse$ === "object");
 assert(typeof DescribeUserRequest$ === "object");
 assert(typeof DescribeUserResponse$ === "object");
 assert(typeof EncryptionOptions$ === "object");
@@ -257,7 +272,10 @@ assert(typeof PromoteRequest$ === "object");
 assert(typeof PromoteResponse$ === "object");
 assert(typeof RebootBrokerRequest$ === "object");
 assert(typeof RebootBrokerResponse$ === "object");
+assert(typeof ResourceShareError$ === "object");
 assert(typeof SanitizationWarning$ === "object");
+assert(typeof SharedResource$ === "object");
+assert(typeof SharedResourceError$ === "object");
 assert(typeof UpdateBrokerRequest$ === "object");
 assert(typeof UpdateBrokerResponse$ === "object");
 assert(typeof UpdateConfigurationRequest$ === "object");
@@ -279,6 +297,9 @@ assert(typeof DeploymentMode === "object");
 assert(typeof EngineType === "object");
 assert(typeof PromoteMode === "object");
 assert(typeof SanitizationWarningReason === "object");
+assert(typeof SharedResourceErrorCode === "object");
+assert(typeof SharedResourceStatus === "object");
+assert(typeof SharedResourceType === "object");
 // errors
 assert(BadRequestException.prototype instanceof MqServiceException);
 assert(typeof BadRequestException$ === "object");
@@ -294,5 +315,6 @@ assert(UnauthorizedException.prototype instanceof MqServiceException);
 assert(typeof UnauthorizedException$ === "object");
 assert(MqServiceException.prototype instanceof Error);
 // paginators
+assert(typeof paginateDescribeSharedResources === "function");
 assert(typeof paginateListBrokers === "function");
 console.log(`Mq index test passed.`);

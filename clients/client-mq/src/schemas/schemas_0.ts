@@ -42,6 +42,7 @@ const _CUR = "CreateUserRequest";
 const _CURL = "ConsoleURL";
 const _CURr = "CreateUserResponse";
 const _Co = "Configuration";
+const _Cod = "Code";
 const _Con = "Configurations";
 const _Cu = "Current";
 const _D = "Description";
@@ -67,6 +68,7 @@ const _DCResc = "DescribeConfigurationResponse";
 const _DCRescr = "DescribeConfigurationRevision";
 const _DCe = "DescribeConfiguration";
 const _DM = "DeploymentMode";
+const _DN = "DnsNames";
 const _DOW = "DayOfWeek";
 const _DRC = "DataReplicationCounterpart";
 const _DRM = "DataReplicationMode";
@@ -74,6 +76,9 @@ const _DRMO = "DataReplicationMetadataOutput";
 const _DRMa = "DataReplicationMetadata";
 const _DRPBA = "DataReplicationPrimaryBrokerArn";
 const _DRR = "DataReplicationRole";
+const _DSR = "DescribeSharedResources";
+const _DSRR = "DescribeSharedResourcesRequest";
+const _DSRRe = "DescribeSharedResourcesResponse";
 const _DT = "DeleteTags";
 const _DTR = "DeleteTagsRequest";
 const _DU = "DeleteUser";
@@ -85,11 +90,13 @@ const _DUe = "DescribeUser";
 const _Da = "Data";
 const _E = "Endpoints";
 const _EA = "ErrorAttribute";
+const _EC = "ErrorCode";
 const _EN = "ElementName";
 const _EO = "EncryptionOptions";
 const _ET = "EngineType";
 const _EV = "EngineVersions";
 const _EVn = "EngineVersion";
+const _Er = "Error";
 const _FE = "ForbiddenException";
 const _G = "Groups";
 const _GLG = "GeneralLogGroup";
@@ -151,24 +158,33 @@ const _RBR = "RebootBrokerRequest";
 const _RBRe = "RebootBrokerResponse";
 const _RBe = "RebootBroker";
 const _RN = "RoleName";
+const _RSA = "ResourceShareArn";
+const _RSAe = "ResourceShareArns";
+const _RSE = "ResourceShareErrors";
+const _RSEe = "ResourceShareError";
 const _RSM = "RoleSearchMatching";
 const _RSS = "RoleSearchSubtree";
 const _RU = "ReplicationUser";
 const _Re = "Region";
 const _Rea = "Reason";
 const _Rev = "Revisions";
+const _S = "Status";
 const _SAP = "ServiceAccountPassword";
 const _SAU = "ServiceAccountUsername";
 const _SDM = "SupportedDeploymentModes";
 const _SEV = "SupportedEngineVersions";
 const _SG = "SecurityGroups";
 const _SI = "SubnetIds";
+const _SR = "SharedResources";
+const _SRE = "SharedResourceError";
+const _SRh = "SharedResource";
 const _ST = "StorageType";
 const _SW = "SanitizationWarning";
 const _T = "Tags";
 const _TK = "TagKeys";
 const _TOD = "TimeOfDay";
 const _TZ = "TimeZone";
+const _Ty = "Type";
 const _U = "Users";
 const _UAOK = "UseAwsOwnedKey";
 const _UB = "UserBase";
@@ -215,11 +231,13 @@ const _cI = "configurationId";
 const _cRI = "creatorRequestId";
 const _cURL = "consoleURL";
 const _co = "configuration";
+const _cod = "code";
 const _con = "configurations";
 const _cr = "created";
 const _cu = "current";
 const _d = "description";
 const _dM = "deploymentMode";
+const _dN = "dnsNames";
 const _dOW = "dayOfWeek";
 const _dRC = "dataReplicationCounterpart";
 const _dRM = "dataReplicationMode";
@@ -229,6 +247,7 @@ const _dRR = "dataReplicationRole";
 const _da = "data";
 const _e = "error";
 const _eA = "errorAttribute";
+const _eC = "errorCode";
 const _eN = "elementName";
 const _eO = "encryptionOptions";
 const _eT = "engineType";
@@ -260,6 +279,8 @@ const _lOC = "__listOfConfiguration";
 const _lOCI = "__listOfConfigurationId";
 const _lOCR = "__listOfConfigurationRevision";
 const _lOEV = "__listOfEngineVersion";
+const _lORSE = "__listOfResourceShareError";
+const _lOSR = "__listOfSharedResource";
 const _lOSW = "__listOfSanitizationWarning";
 const _lOU = "__listOfUser";
 const _lOUS = "__listOfUserSummary";
@@ -283,8 +304,12 @@ const _pLSM = "pendingLdapServerMetadata";
 const _pSG = "pendingSecurityGroups";
 const _pa = "password";
 const _r = "revision";
+const _rA = "resourceArn";
 const _rB = "roleBase";
 const _rN = "roleName";
+const _rSA = "resourceShareArn";
+const _rSAe = "resourceShareArns";
+const _rSE = "resourceShareErrors";
 const _rSM = "roleSearchMatching";
 const _rSS = "roleSearchSubtree";
 const _rU = "replicationUser";
@@ -298,12 +323,15 @@ const _sDM = "supportedDeploymentModes";
 const _sEV = "supportedEngineVersions";
 const _sG = "securityGroups";
 const _sI = "subnetIds";
+const _sR = "sharedResources";
 const _sT = "storageType";
 const _se = "server";
+const _st = "status";
 const _t = "tags";
 const _tK = "tagKeys";
 const _tOD = "timeOfDay";
 const _tZ = "timeZone";
+const _ty = "type";
 const _u = "users";
 const _uAOK = "useAwsOwnedKey";
 const _uB = "userBase";
@@ -341,38 +369,38 @@ _s_registry.registerError(MqServiceException$, MqServiceException);
 const n0_registry = TypeRegistry.for(n0);
 export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
   { [_e]: _c, [_hE]: 400 },
-  [_EA, _M],
-  [[0, { [_jN]: _eA }], [0, { [_jN]: _m }]]
+  [_EA, _M, _RSE],
+  [[0, { [_jN]: _eA }], [0, { [_jN]: _m }], [() => __listOfResourceShareError, { [_jN]: _rSE }]]
 ];
 n0_registry.registerError(BadRequestException$, BadRequestException);
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
-  [_EA, _M],
-  [[0, { [_jN]: _eA }], [0, { [_jN]: _m }]]
+  [_EA, _M, _RSE],
+  [[0, { [_jN]: _eA }], [0, { [_jN]: _m }], [() => __listOfResourceShareError, { [_jN]: _rSE }]]
 ];
 n0_registry.registerError(ConflictException$, ConflictException);
 export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
   { [_e]: _c, [_hE]: 403 },
-  [_EA, _M],
-  [[0, { [_jN]: _eA }], [0, { [_jN]: _m }]]
+  [_EA, _M, _RSE],
+  [[0, { [_jN]: _eA }], [0, { [_jN]: _m }], [() => __listOfResourceShareError, { [_jN]: _rSE }]]
 ];
 n0_registry.registerError(ForbiddenException$, ForbiddenException);
 export var InternalServerErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
   { [_e]: _se, [_hE]: 500 },
-  [_EA, _M],
-  [[0, { [_jN]: _eA }], [0, { [_jN]: _m }]]
+  [_EA, _M, _RSE],
+  [[0, { [_jN]: _eA }], [0, { [_jN]: _m }], [() => __listOfResourceShareError, { [_jN]: _rSE }]]
 ];
 n0_registry.registerError(InternalServerErrorException$, InternalServerErrorException);
 export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
   { [_e]: _c, [_hE]: 404 },
-  [_EA, _M],
-  [[0, { [_jN]: _eA }], [0, { [_jN]: _m }]]
+  [_EA, _M, _RSE],
+  [[0, { [_jN]: _eA }], [0, { [_jN]: _m }], [() => __listOfResourceShareError, { [_jN]: _rSE }]]
 ];
 n0_registry.registerError(NotFoundException$, NotFoundException);
 export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
   { [_e]: _c, [_hE]: 401 },
-  [_EA, _M],
-  [[0, { [_jN]: _eA }], [0, { [_jN]: _m }]]
+  [_EA, _M, _RSE],
+  [[0, { [_jN]: _eA }], [0, { [_jN]: _m }], [() => __listOfResourceShareError, { [_jN]: _rSE }]]
 ];
 n0_registry.registerError(UnauthorizedException$, UnauthorizedException);
 /**
@@ -564,6 +592,16 @@ export var DescribeConfigurationRevisionResponse$: StaticStructureSchema = [3, n
   [_CI, _C, _Da, _D],
   [[0, { [_jN]: _cI }], [5, { [_jN]: _cr }], [0, { [_jN]: _da }], [0, { [_jN]: _d }]]
 ];
+export var DescribeSharedResourcesRequest$: StaticStructureSchema = [3, n0, _DSRR,
+  0,
+  [_BIr, _MR, _NT],
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
+];
+export var DescribeSharedResourcesResponse$: StaticStructureSchema = [3, n0, _DSRRe,
+  0,
+  [_NT, _SR],
+  [[0, { [_jN]: _nT }], [() => __listOfSharedResource, { [_jN]: _sR }]]
+];
 export var DescribeUserRequest$: StaticStructureSchema = [3, n0, _DURes,
   0,
   [_BIr, _Us],
@@ -679,20 +717,35 @@ export var RebootBrokerResponse$: StaticStructureSchema = [3, n0, _RBRe,
   [],
   []
 ];
+export var ResourceShareError$: StaticStructureSchema = [3, n0, _RSEe,
+  0,
+  [_EC, _RSA, _S],
+  [[0, { [_jN]: _eC }], [0, { [_jN]: _rSA }], [0, { [_jN]: _st }]]
+];
 export var SanitizationWarning$: StaticStructureSchema = [3, n0, _SW,
   0,
   [_Rea, _AN, _EN],
   [[0, { [_jN]: _rea }], [0, { [_jN]: _aN }], [0, { [_jN]: _eN }]], 1
 ];
+export var SharedResource$: StaticStructureSchema = [3, n0, _SRh,
+  0,
+  [_RA, _S, _Ty, _DN, _Er, _RSAe],
+  [[0, { [_jN]: _rA }], [0, { [_jN]: _st }], [0, { [_jN]: _ty }], [64 | 0, { [_jN]: _dN }], [() => SharedResourceError$, { [_jN]: _e }], [64 | 0, { [_jN]: _rSAe }]], 3
+];
+export var SharedResourceError$: StaticStructureSchema = [3, n0, _SRE,
+  0,
+  [_Cod, _M],
+  [[0, { [_jN]: _cod }], [0, { [_jN]: _m }]], 2
+];
 export var UpdateBrokerRequest$: StaticStructureSchema = [3, n0, _UBR,
   0,
-  [_BIr, _AS, _AMVU, _Co, _EVn, _HIT, _LSM, _L, _MWST, _SG, _DRM],
-  [[0, 1], [0, { [_jN]: _aS }], [2, { [_jN]: _aMVU }], [() => ConfigurationId$, { [_jN]: _co }], [0, { [_jN]: _eVn }], [0, { [_jN]: _hIT }], [() => LdapServerMetadataInput$, { [_jN]: _lSM }], [() => Logs$, { [_jN]: _l }], [() => WeeklyStartTime$, { [_jN]: _mWST }], [64 | 0, { [_jN]: _sG }], [0, { [_jN]: _dRM }]], 1
+  [_BIr, _AS, _AMVU, _Co, _EVn, _HIT, _LSM, _L, _MWST, _RSAe, _SG, _DRM],
+  [[0, 1], [0, { [_jN]: _aS }], [2, { [_jN]: _aMVU }], [() => ConfigurationId$, { [_jN]: _co }], [0, { [_jN]: _eVn }], [0, { [_jN]: _hIT }], [() => LdapServerMetadataInput$, { [_jN]: _lSM }], [() => Logs$, { [_jN]: _l }], [() => WeeklyStartTime$, { [_jN]: _mWST }], [64 | 0, { [_jN]: _rSAe }], [64 | 0, { [_jN]: _sG }], [0, { [_jN]: _dRM }]], 1
 ];
 export var UpdateBrokerResponse$: StaticStructureSchema = [3, n0, _UBRp,
   0,
-  [_AS, _AMVU, _BIr, _Co, _EVn, _HIT, _LSM, _L, _MWST, _SG, _DRMa, _DRM, _PDRM, _PDRMe],
-  [[0, { [_jN]: _aS }], [2, { [_jN]: _aMVU }], [0, { [_jN]: _bI }], [() => ConfigurationId$, { [_jN]: _co }], [0, { [_jN]: _eVn }], [0, { [_jN]: _hIT }], [() => LdapServerMetadataOutput$, { [_jN]: _lSM }], [() => Logs$, { [_jN]: _l }], [() => WeeklyStartTime$, { [_jN]: _mWST }], [64 | 0, { [_jN]: _sG }], [() => DataReplicationMetadataOutput$, { [_jN]: _dRMa }], [0, { [_jN]: _dRM }], [() => DataReplicationMetadataOutput$, { [_jN]: _pDRM }], [0, { [_jN]: _pDRMe }]]
+  [_AS, _AMVU, _BIr, _Co, _EVn, _HIT, _LSM, _L, _MWST, _RSAe, _SG, _DRMa, _DRM, _PDRM, _PDRMe],
+  [[0, { [_jN]: _aS }], [2, { [_jN]: _aMVU }], [0, { [_jN]: _bI }], [() => ConfigurationId$, { [_jN]: _co }], [0, { [_jN]: _eVn }], [0, { [_jN]: _hIT }], [() => LdapServerMetadataOutput$, { [_jN]: _lSM }], [() => Logs$, { [_jN]: _l }], [() => WeeklyStartTime$, { [_jN]: _mWST }], [64 | 0, { [_jN]: _rSAe }], [64 | 0, { [_jN]: _sG }], [() => DataReplicationMetadataOutput$, { [_jN]: _dRMa }], [0, { [_jN]: _dRM }], [() => DataReplicationMetadataOutput$, { [_jN]: _pDRM }], [0, { [_jN]: _pDRMe }]]
 ];
 export var UpdateConfigurationRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
@@ -777,8 +830,16 @@ var __listOfEngineVersion: StaticListSchema = [1, n0, _lOEV,
   0, [() => EngineVersion$,
     0]
 ];
+var __listOfResourceShareError: StaticListSchema = [1, n0, _lORSE,
+  0, [() => ResourceShareError$,
+    0]
+];
 var __listOfSanitizationWarning: StaticListSchema = [1, n0, _lOSW,
   0, [() => SanitizationWarning$,
+    0]
+];
+var __listOfSharedResource: StaticListSchema = [1, n0, _lOSR,
+  0, [() => SharedResource$,
     0]
 ];
 var __listOfUser: StaticListSchema = [1, n0, _lOU,
@@ -828,6 +889,9 @@ export var DescribeConfiguration$: StaticOperationSchema = [9, n0, _DCe,
 ];
 export var DescribeConfigurationRevision$: StaticOperationSchema = [9, n0, _DCRescr,
   { [_ht]: ["GET", "/v1/configurations/{ConfigurationId}/revisions/{ConfigurationRevision}", 200] }, () => DescribeConfigurationRevisionRequest$, () => DescribeConfigurationRevisionResponse$
+];
+export var DescribeSharedResources$: StaticOperationSchema = [9, n0, _DSR,
+  { [_ht]: ["GET", "/v1/brokers/{BrokerId}/shared-resources", 200] }, () => DescribeSharedResourcesRequest$, () => DescribeSharedResourcesResponse$
 ];
 export var DescribeUser$: StaticOperationSchema = [9, n0, _DUe,
   { [_ht]: ["GET", "/v1/brokers/{BrokerId}/users/{Username}", 200] }, () => DescribeUserRequest$, () => DescribeUserResponse$

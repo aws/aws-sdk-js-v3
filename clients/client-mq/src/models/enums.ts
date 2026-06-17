@@ -89,6 +89,54 @@ export type SanitizationWarningReason = (typeof SanitizationWarningReason)[keyof
  * @public
  * @enum
  */
+export const SharedResourceErrorCode = {
+  AZ_MISMATCH: "AZ_MISMATCH",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  INVITE_FAILED: "INVITE_FAILED",
+  QUOTA_EXCEEDED: "QUOTA_EXCEEDED",
+  RESOURCE_CONFIGURATION_NOT_FOUND: "RESOURCE_CONFIGURATION_NOT_FOUND",
+  SETUP_INCOMPLETE: "SETUP_INCOMPLETE",
+  SHARE_NOT_FOUND: "SHARE_NOT_FOUND",
+} as const;
+/**
+ * @public
+ */
+export type SharedResourceErrorCode = (typeof SharedResourceErrorCode)[keyof typeof SharedResourceErrorCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const SharedResourceStatus = {
+  AVAILABLE: "AVAILABLE",
+  DELETION_IN_PROGRESS: "DELETION_IN_PROGRESS",
+  ERROR: "ERROR",
+  PENDING_CREATE: "PENDING_CREATE",
+  PENDING_DELETE: "PENDING_DELETE",
+  SETUP_IN_PROGRESS: "SETUP_IN_PROGRESS",
+} as const;
+/**
+ * @public
+ */
+export type SharedResourceStatus = (typeof SharedResourceStatus)[keyof typeof SharedResourceStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const SharedResourceType = {
+  RESOURCE: "RESOURCE",
+  RESOURCE_SHARE: "RESOURCE_SHARE",
+} as const;
+/**
+ * @public
+ */
+export type SharedResourceType = (typeof SharedResourceType)[keyof typeof SharedResourceType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ChangeType = {
   CREATE: "CREATE",
   DELETE: "DELETE",

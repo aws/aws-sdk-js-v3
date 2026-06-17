@@ -12,6 +12,7 @@ export * from "./DescribeBrokerEngineTypesCommand";
 export * from "./DescribeBrokerInstanceOptionsCommand";
 export * from "./DescribeConfigurationCommand";
 export * from "./DescribeConfigurationRevisionCommand";
+export * from "./DescribeSharedResourcesCommand";
 export * from "./DescribeUserCommand";
 export * from "./ListBrokersCommand";
 export * from "./ListConfigurationRevisionsCommand";

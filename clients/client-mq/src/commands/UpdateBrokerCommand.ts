@@ -70,6 +70,9 @@ export interface UpdateBrokerCommandOutput extends UpdateBrokerResponse, __Metad
  *     TimeOfDay: "STRING_VALUE", // required
  *     TimeZone: "STRING_VALUE",
  *   },
+ *   ResourceShareArns: [
+ *     "STRING_VALUE",
+ *   ],
  *   SecurityGroups: [
  *     "STRING_VALUE",
  *   ],
@@ -110,6 +113,9 @@ export interface UpdateBrokerCommandOutput extends UpdateBrokerResponse, __Metad
  * //     TimeOfDay: "STRING_VALUE", // required
  * //     TimeZone: "STRING_VALUE",
  * //   },
+ * //   ResourceShareArns: [
+ * //     "STRING_VALUE",
+ * //   ],
  * //   SecurityGroups: [
  * //     "STRING_VALUE",
  * //   ],

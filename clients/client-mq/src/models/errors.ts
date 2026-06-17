@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/client";
 
+import type { ResourceShareError } from "./models_0";
 import { MqServiceException as __BaseException } from "./MqServiceException";
 
 /**
@@ -21,6 +22,12 @@ export class BadRequestException extends __BaseException {
    * @public
    */
   Message?: string | undefined;
+
+  /**
+   * <p>The list of resource share errors.</p>
+   * @public
+   */
+  ResourceShareErrors?: ResourceShareError[] | undefined;
   /**
    * @internal
    */
@@ -33,6 +40,7 @@ export class BadRequestException extends __BaseException {
     Object.setPrototypeOf(this, BadRequestException.prototype);
     this.ErrorAttribute = opts.ErrorAttribute;
     this.Message = opts.Message;
+    this.ResourceShareErrors = opts.ResourceShareErrors;
   }
 }
 
@@ -54,6 +62,12 @@ export class ConflictException extends __BaseException {
    * @public
    */
   Message?: string | undefined;
+
+  /**
+   * <p>The list of resource share errors.</p>
+   * @public
+   */
+  ResourceShareErrors?: ResourceShareError[] | undefined;
   /**
    * @internal
    */
@@ -66,6 +80,7 @@ export class ConflictException extends __BaseException {
     Object.setPrototypeOf(this, ConflictException.prototype);
     this.ErrorAttribute = opts.ErrorAttribute;
     this.Message = opts.Message;
+    this.ResourceShareErrors = opts.ResourceShareErrors;
   }
 }
 
@@ -87,6 +102,12 @@ export class ForbiddenException extends __BaseException {
    * @public
    */
   Message?: string | undefined;
+
+  /**
+   * <p>The list of resource share errors.</p>
+   * @public
+   */
+  ResourceShareErrors?: ResourceShareError[] | undefined;
   /**
    * @internal
    */
@@ -99,6 +120,7 @@ export class ForbiddenException extends __BaseException {
     Object.setPrototypeOf(this, ForbiddenException.prototype);
     this.ErrorAttribute = opts.ErrorAttribute;
     this.Message = opts.Message;
+    this.ResourceShareErrors = opts.ResourceShareErrors;
   }
 }
 
@@ -120,6 +142,12 @@ export class InternalServerErrorException extends __BaseException {
    * @public
    */
   Message?: string | undefined;
+
+  /**
+   * <p>The list of resource share errors.</p>
+   * @public
+   */
+  ResourceShareErrors?: ResourceShareError[] | undefined;
   /**
    * @internal
    */
@@ -132,6 +160,7 @@ export class InternalServerErrorException extends __BaseException {
     Object.setPrototypeOf(this, InternalServerErrorException.prototype);
     this.ErrorAttribute = opts.ErrorAttribute;
     this.Message = opts.Message;
+    this.ResourceShareErrors = opts.ResourceShareErrors;
   }
 }
 
@@ -153,6 +182,12 @@ export class UnauthorizedException extends __BaseException {
    * @public
    */
   Message?: string | undefined;
+
+  /**
+   * <p>The list of resource share errors.</p>
+   * @public
+   */
+  ResourceShareErrors?: ResourceShareError[] | undefined;
   /**
    * @internal
    */
@@ -165,6 +200,7 @@ export class UnauthorizedException extends __BaseException {
     Object.setPrototypeOf(this, UnauthorizedException.prototype);
     this.ErrorAttribute = opts.ErrorAttribute;
     this.Message = opts.Message;
+    this.ResourceShareErrors = opts.ResourceShareErrors;
   }
 }
 
@@ -186,6 +222,12 @@ export class NotFoundException extends __BaseException {
    * @public
    */
   Message?: string | undefined;
+
+  /**
+   * <p>The list of resource share errors.</p>
+   * @public
+   */
+  ResourceShareErrors?: ResourceShareError[] | undefined;
   /**
    * @internal
    */
@@ -198,5 +240,6 @@ export class NotFoundException extends __BaseException {
     Object.setPrototypeOf(this, NotFoundException.prototype);
     this.ErrorAttribute = opts.ErrorAttribute;
     this.Message = opts.Message;
+    this.ResourceShareErrors = opts.ResourceShareErrors;
   }
 }

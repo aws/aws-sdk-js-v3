@@ -85,6 +85,10 @@ import type {
   DescribeConfigurationRevisionCommandInput,
   DescribeConfigurationRevisionCommandOutput,
 } from "./commands/DescribeConfigurationRevisionCommand";
+import type {
+  DescribeSharedResourcesCommandInput,
+  DescribeSharedResourcesCommandOutput,
+} from "./commands/DescribeSharedResourcesCommand";
 import type { DescribeUserCommandInput, DescribeUserCommandOutput } from "./commands/DescribeUserCommand";
 import type { ListBrokersCommandInput, ListBrokersCommandOutput } from "./commands/ListBrokersCommand";
 import type {
@@ -133,6 +137,7 @@ export type ServiceInputTypes =
   | DescribeBrokerInstanceOptionsCommandInput
   | DescribeConfigurationCommandInput
   | DescribeConfigurationRevisionCommandInput
+  | DescribeSharedResourcesCommandInput
   | DescribeUserCommandInput
   | ListBrokersCommandInput
   | ListConfigurationRevisionsCommandInput
@@ -162,6 +167,7 @@ export type ServiceOutputTypes =
   | DescribeBrokerInstanceOptionsCommandOutput
   | DescribeConfigurationCommandOutput
   | DescribeConfigurationRevisionCommandOutput
+  | DescribeSharedResourcesCommandOutput
   | DescribeUserCommandOutput
   | ListBrokersCommandOutput
   | ListConfigurationRevisionsCommandOutput

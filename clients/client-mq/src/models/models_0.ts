@@ -10,6 +10,9 @@ import type {
   EngineType,
   PromoteMode,
   SanitizationWarningReason,
+  SharedResourceErrorCode,
+  SharedResourceStatus,
+  SharedResourceType,
 } from "./enums";
 
 /**
@@ -301,6 +304,30 @@ export interface ConfigurationId {
 }
 
 /**
+ * <p>Returns info about the resource share error after updating the broker.</p>
+ * @public
+ */
+export interface ResourceShareError {
+  /**
+   * <p>The error code of the resource share.</p>
+   * @public
+   */
+  ErrorCode?: string | undefined;
+
+  /**
+   * <p>The ARN of the resource share.</p>
+   * @public
+   */
+  ResourceShareArn?: string | undefined;
+
+  /**
+   * <p>The status of the resource share.</p>
+   * @public
+   */
+  Status?: string | undefined;
+}
+
+/**
  * <p>Returns information about the configuration element or attribute that was sanitized in the configuration.</p>
  * @public
  */
@@ -322,6 +349,66 @@ export interface SanitizationWarning {
    * @public
    */
   Reason: SanitizationWarningReason | undefined;
+}
+
+/**
+ * <p>Information on the error encountered by the resource.</p>
+ * @public
+ */
+export interface SharedResourceError {
+  /**
+   * <p>The error code associated with the error.</p>
+   * @public
+   */
+  Code: SharedResourceErrorCode | undefined;
+
+  /**
+   * <p>The error message.</p>
+   * @public
+   */
+  Message: string | undefined;
+}
+
+/**
+ * <p>Represents a resource that is shared with the broker, including its type, ARN, and current status.</p>
+ * @public
+ */
+export interface SharedResource {
+  /**
+   * <p>The DNS names accessible by the broker.</p>
+   * @public
+   */
+  DnsNames?: string[] | undefined;
+
+  /**
+   * <p>Information on the error encountered by the resource.</p>
+   * @public
+   */
+  Error?: SharedResourceError | undefined;
+
+  /**
+   * <p>The ARN of the shared resource.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The resource share ARNs to which the resource belongs.</p>
+   * @public
+   */
+  ResourceShareArns?: string[] | undefined;
+
+  /**
+   * <p>The status of the shared resource.</p>
+   * @public
+   */
+  Status: SharedResourceStatus | undefined;
+
+  /**
+   * <p>The type of shared resource.</p>
+   * @public
+   */
+  Type: SharedResourceType | undefined;
 }
 
 /**
@@ -1516,6 +1603,46 @@ export interface DescribeConfigurationRevisionResponse {
 /**
  * @public
  */
+export interface DescribeSharedResourcesRequest {
+  /**
+   * <p>The unique ID that Amazon MQ generates for the broker.</p>
+   * @public
+   */
+  BrokerId: string | undefined;
+
+  /**
+   * <p>The maximum number of resources that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeSharedResourcesResponse {
+  /**
+   * <p>The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>A list of resources shared to the broker.</p>
+   * @public
+   */
+  SharedResources?: SharedResource[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeUserRequest {
   /**
    * <p>The unique ID that Amazon MQ generates for the broker.</p>
@@ -1900,6 +2027,12 @@ export interface UpdateBrokerRequest {
   MaintenanceWindowStartTime?: WeeklyStartTime | undefined;
 
   /**
+   * <p>The list of resource shares to update on the broker</p>
+   * @public
+   */
+  ResourceShareArns?: string[] | undefined;
+
+  /**
    * <p>The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.</p>
    * @public
    */
@@ -1969,6 +2102,12 @@ export interface UpdateBrokerResponse {
    * @public
    */
   MaintenanceWindowStartTime?: WeeklyStartTime | undefined;
+
+  /**
+   * <p>The pending broker's target list of resource shares</p>
+   * @public
+   */
+  ResourceShareArns?: string[] | undefined;
 
   /**
    * <p>The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.</p>

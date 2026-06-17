@@ -68,6 +68,11 @@ import {
   DescribeConfigurationRevisionCommand,
 } from "./commands/DescribeConfigurationRevisionCommand";
 import {
+  type DescribeSharedResourcesCommandInput,
+  type DescribeSharedResourcesCommandOutput,
+  DescribeSharedResourcesCommand,
+} from "./commands/DescribeSharedResourcesCommand";
+import {
   type DescribeUserCommandInput,
   type DescribeUserCommandOutput,
   DescribeUserCommand,
@@ -111,6 +116,7 @@ import {
   UpdateUserCommand,
 } from "./commands/UpdateUserCommand";
 import { MqClient } from "./MqClient";
+import { paginateDescribeSharedResources } from "./pagination/DescribeSharedResourcesPaginator";
 import { paginateListBrokers } from "./pagination/ListBrokersPaginator";
 
 const commands = {
@@ -127,6 +133,7 @@ const commands = {
   DescribeBrokerInstanceOptionsCommand,
   DescribeConfigurationCommand,
   DescribeConfigurationRevisionCommand,
+  DescribeSharedResourcesCommand,
   DescribeUserCommand,
   ListBrokersCommand,
   ListConfigurationRevisionsCommand,
@@ -140,6 +147,7 @@ const commands = {
   UpdateUserCommand,
 };
 const paginators = {
+  paginateDescribeSharedResources,
   paginateListBrokers,
 };
 
@@ -368,6 +376,23 @@ export interface Mq {
   ): void;
 
   /**
+   * @see {@link DescribeSharedResourcesCommand}
+   */
+  describeSharedResources(
+    args: DescribeSharedResourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeSharedResourcesCommandOutput>;
+  describeSharedResources(
+    args: DescribeSharedResourcesCommandInput,
+    cb: (err: any, data?: DescribeSharedResourcesCommandOutput) => void
+  ): void;
+  describeSharedResources(
+    args: DescribeSharedResourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeSharedResourcesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeUserCommand}
    */
   describeUser(
@@ -555,6 +580,17 @@ export interface Mq {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateUserCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeSharedResourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeSharedResourcesCommandOutput}.
+   */
+  paginateDescribeSharedResources(
+    args: DescribeSharedResourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeSharedResourcesCommandOutput>;
 
   /**
    * @see {@link ListBrokersCommand}
