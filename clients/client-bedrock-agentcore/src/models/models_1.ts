@@ -26,8 +26,47 @@ import type {
   LeftExpression,
   MemoryContent,
   MemoryRecordMetadataValue,
-  RightExpression,
+  MetadataValue,
 } from "./models_0";
+
+/**
+ * <p>Right expression of the <code>eventMetadata</code>filter.</p>
+ * @public
+ */
+export type RightExpression =
+  | RightExpression.MetadataValueMember
+  | RightExpression.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RightExpression {
+  /**
+   * <p>Value associated with the key in <code>eventMetadata</code>.</p>
+   * @public
+   */
+  export interface MetadataValueMember {
+    metadataValue: MetadataValue;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    metadataValue?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    metadataValue: (value: MetadataValue) => T;
+    _: (name: string, value: any) => T;
+  }
+}
 
 /**
  * <p>Filter expression for retrieving events based on metadata associated with an event.</p>

@@ -72,7 +72,7 @@ export interface StartBatchEvaluationCommandOutput extends StartBatchEvaluationR
  *     },
  *     onlineEvaluationConfigSource: { // OnlineEvaluationConfigSource
  *       onlineEvaluationConfigArn: "STRING_VALUE", // required
- *       sessionFilterConfig: {
+ *       timeRange: {
  *         startTime: new Date("TIMESTAMP"),
  *         endTime: new Date("TIMESTAMP"),
  *       },

@@ -425,6 +425,7 @@ export type {
   HarnessReasoningTextBlock,
   HarnessRemoteMcpConfig,
   HarnessSkill,
+  HarnessSkillAwsSkillsSource,
   HarnessSkillGitAuth,
   HarnessSkillGitSource,
   HarnessSkillS3Source,

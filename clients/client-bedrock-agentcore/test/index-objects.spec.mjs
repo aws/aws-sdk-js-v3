@@ -272,6 +272,7 @@ import {
   HarnessReasoningTextBlock$,
   HarnessRemoteMcpConfig$,
   HarnessSkill$,
+  HarnessSkillAwsSkillsSource$,
   HarnessSkillGitAuth$,
   HarnessSkillGitSource$,
   HarnessSkillS3Source$,
@@ -910,6 +911,7 @@ assert(typeof HarnessReasoningContentBlockDelta$ === "object");
 assert(typeof HarnessReasoningTextBlock$ === "object");
 assert(typeof HarnessRemoteMcpConfig$ === "object");
 assert(typeof HarnessSkill$ === "object");
+assert(typeof HarnessSkillAwsSkillsSource$ === "object");
 assert(typeof HarnessSkillGitAuth$ === "object");
 assert(typeof HarnessSkillGitSource$ === "object");
 assert(typeof HarnessSkillS3Source$ === "object");

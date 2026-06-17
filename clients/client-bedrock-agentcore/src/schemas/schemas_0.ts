@@ -257,6 +257,7 @@ const _HRMC = "HarnessRemoteMcpConfig";
 const _HRMU = "HarnessRemoteMcpUrl";
 const _HRTB = "HarnessReasoningTextBlock";
 const _HS = "HarnessSkills";
+const _HSASS = "HarnessSkillAwsSkillsSource";
 const _HSCB = "HarnessSystemContentBlock";
 const _HSGA = "HarnessSkillGitAuth";
 const _HSGS = "HarnessSkillGitSource";
@@ -585,6 +586,7 @@ const _aSf = "affectedSessions";
 const _aSg = "agentSkills";
 const _aSu = "authorizationSignature";
 const _aSv = "averageScore";
+const _aSw = "awsSkills";
 const _aT = "analysisTimestamp";
 const _aTA = "abTestArn";
 const _aTI = "abTestId";
@@ -879,8 +881,8 @@ const _pTRa = "paymentTokenResponse";
 const _pV = "protocolVersion";
 const _pVOEC = "perVariantOnlineEvaluationConfig";
 const _pVa = "pValue";
-const _pa = "path";
-const _pat = "paths";
+const _pa = "paths";
+const _pat = "path";
 const _po = "port";
 const _pr = "presses";
 const _pre = "prefix";
@@ -944,7 +946,6 @@ const _sCu = "subCategories";
 const _sD = "skillDefinition";
 const _sE = "streamEndpoint";
 const _sF = "statusFilter";
-const _sFC = "sessionFilterConfig";
 const _sI = "sessionId";
 const _sIe = "sessionIds";
 const _sIp = "spanId";
@@ -1997,6 +1998,11 @@ export var HarnessRemoteMcpConfig$: StaticStructureSchema = [3, n0, _HRMC,
   [_url, _h],
   [[() => HarnessRemoteMcpUrl, 0], [() => HttpHeadersMap, 0]], 1
 ];
+export var HarnessSkillAwsSkillsSource$: StaticStructureSchema = [3, n0, _HSASS,
+  0,
+  [_pa],
+  [64 | 0]
+];
 export var HarnessSkillGitAuth$: StaticStructureSchema = [3, n0, _HSGA,
   0,
   [_cAr, _use],
@@ -2004,7 +2010,7 @@ export var HarnessSkillGitAuth$: StaticStructureSchema = [3, n0, _HSGA,
 ];
 export var HarnessSkillGitSource$: StaticStructureSchema = [3, n0, _HSGS,
   0,
-  [_url, _pa, _aut],
+  [_url, _pat, _aut],
   [0, 0, () => HarnessSkillGitAuth$], 1
 ];
 export var HarnessSkillS3Source$: StaticStructureSchema = [3, n0, _HSSS,
@@ -2059,7 +2065,7 @@ export var InlineGroundTruth$: StaticStructureSchema = [3, n0, _IGT,
 ];
 export var InputContentBlock$: StaticStructureSchema = [3, n0, _ICB,
   0,
-  [_pa, _te, _bl],
+  [_pat, _te, _bl],
   [0, 0, [() => Body, 0]], 1
 ];
 export var Insight$: StaticStructureSchema = [3, n0, _I,
@@ -2119,8 +2125,8 @@ export var InvokeCodeInterpreterResponse$: StaticStructureSchema = [3, n0, _ICIR
 ];
 export var InvokeHarnessRequest$: StaticStructureSchema = [3, n0, _IHR,
   0,
-  [_hA, _rSI, _mes, _rUI, _mo, _sP, _too, _sk, _aTl, _mIa, _mTa, _tSi, _aI],
-  [[0, { [_hQ]: _hA }], [0, { [_hH]: _XABARSI }], [() => HarnessMessages, 0], [0, { [_hH]: _XABARUI }], [() => HarnessModelConfiguration$, 0], [() => HarnessSystemPrompt, 0], [() => HarnessTools, 0], () => HarnessSkills, 64 | 0, 1, 1, 1, 0], 3
+  [_hA, _rSI, _mes, _q, _rUI, _mo, _sP, _too, _sk, _aTl, _mIa, _mTa, _tSi, _aI],
+  [[0, { [_hQ]: _hA }], [0, { [_hH]: _XABARSI }], [() => HarnessMessages, 0], [0, { [_hQ]: _q }], [0, { [_hH]: _XABARUI }], [() => HarnessModelConfiguration$, 0], [() => HarnessSystemPrompt, 0], [() => HarnessTools, 0], () => HarnessSkills, 64 | 0, 1, 1, 1, 0], 3
 ];
 export var InvokeHarnessResponse$: StaticStructureSchema = [3, n0, _IHRn,
   0,
@@ -2394,7 +2400,7 @@ export var OAuthCredentialProvider$: StaticStructureSchema = [3, n0, _OACP,
 ];
 export var OnlineEvaluationConfigSource$: StaticStructureSchema = [3, n0, _OECS,
   0,
-  [_oECA, _sFC],
+  [_oECA, _tR],
   [0, () => SessionFilterConfig$], 1
 ];
 export var PaymentInstrument$: StaticStructureSchema = [3, n0, _PI,
@@ -2714,7 +2720,7 @@ export var TokenUsage$: StaticStructureSchema = [3, n0, _TU,
 ];
 export var ToolArguments$: StaticStructureSchema = [3, n0, _TA,
   0,
-  [_cod, _lan, _cCl, _com, _pa, _pat, _co, _dPi, _tIa, _run],
+  [_cod, _lan, _cCl, _com, _pat, _pa, _co, _dPi, _tIa, _run],
   [0, 0, 2, 0, 0, 64 | 0, [() => InputContentBlockList, 0], 0, 0, 0]
 ];
 export var ToolDescriptionConfigurationBundle$: StaticStructureSchema = [3, n0, _TDCB,
@@ -2907,6 +2913,7 @@ var GroundTruthTurnList: StaticListSchema = [1, n0, _GTTL,
   0, () => GroundTruthTurn$
 ];
 var HarnessAllowedTools = 64 | 0;
+var HarnessAwsSkillPaths = 64 | 0;
 var HarnessContentBlocks: StaticListSchema = [1, n0, _HCB,
   0, [() => HarnessContentBlock$,
     0]
@@ -3193,8 +3200,8 @@ export var HarnessReasoningContentBlockDelta$: StaticUnionSchema = [4, n0, _HRCB
 ];
 export var HarnessSkill$: StaticUnionSchema = [4, n0, _HSa,
   0,
-  [_pa, _s_, _g],
-  [0, () => HarnessSkillS3Source$, () => HarnessSkillGitSource$]
+  [_pat, _s_, _g, _aSw],
+  [0, () => HarnessSkillS3Source$, () => HarnessSkillGitSource$, () => HarnessSkillAwsSkillsSource$]
 ];
 export var HarnessSystemContentBlock$: StaticUnionSchema = [4, n0, _HSCB,
   0,

@@ -365,9 +365,7 @@ export interface ActorSummary {
  */
 export interface InsightsFailureSignal {
   /**
-   * Failure category taxonomy for agent session insights.
-   * Values must stay in sync with the category registry in AgentCoreLens
-   * (amzn_agentcore_lens.config.failure_detection.FAILURE_CATEGORIES).
+   * <p>The failure category classification for this signal.</p>
    * @public
    */
   category: InsightsFailureCategory | undefined;
@@ -4242,7 +4240,7 @@ export interface OnlineEvaluationConfigSource {
    * <p>Optional session filter configuration to narrow down which sessions from the online evaluation configuration to include.</p>
    * @public
    */
-  sessionFilterConfig?: SessionFilterConfig | undefined;
+  timeRange?: SessionFilterConfig | undefined;
 }
 
 /**
@@ -4383,7 +4381,7 @@ export interface EvaluationJobResults {
 }
 
 /**
- * An evaluator to run against sessions
+ * <p>An evaluator to run against sessions during batch evaluation.</p>
  * @public
  */
 export interface Evaluator {
@@ -4455,7 +4453,7 @@ export interface ExecutionSummaryCluster {
 }
 
 /**
- * Customer-facing execution summary clustering result written to S3.
+ * <p>The execution summary clustering result containing grouped execution patterns identified across evaluated sessions.</p>
  * @public
  */
 export interface ExecutionSummaryClusteringResultContent {
@@ -4581,7 +4579,7 @@ export interface FailureCategoryCluster {
 }
 
 /**
- * Unified customer-facing clustering result written to S3.
+ * <p>The failure analysis clustering result containing categorized failure clusters with root causes and remediation recommendations.</p>
  * @public
  */
 export interface FailureAnalysisResultContent {
@@ -4593,13 +4591,12 @@ export interface FailureAnalysisResultContent {
 }
 
 /**
- * A reference to an insight analysis to run against sessions.
+ * <p>A reference to an insight analysis to run against sessions during batch evaluation. Insights provide deeper analysis beyond individual evaluator scores, including failure detection, user intent clustering, and execution summarization.</p>
  * @public
  */
 export interface Insight {
   /**
-   * Canonical insight identifiers using the Builtin.Insight.* naming convention.
-   * Used by BatchEvaluate, InternalEvaluate, and ServiceEngineEvaluate flows.
+   * <p>The unique identifier of the insight to run.</p>
    * @public
    */
   insightId: string | undefined;
@@ -4717,7 +4714,7 @@ export interface UserIntentCluster {
 }
 
 /**
- * Customer-facing user intent clustering result written to S3.
+ * <p>The user intent clustering result containing grouped user intents identified across evaluated sessions.</p>
  * @public
  */
 export interface UserIntentClusteringResultContent {
@@ -4793,19 +4790,19 @@ export interface GetBatchEvaluationResponse {
   evaluationResults?: EvaluationJobResults | undefined;
 
   /**
-   * Unified customer-facing clustering result written to S3.
+   * <p>The failure analysis results from insights, containing categorized failure clusters with root causes and recommendations.</p>
    * @public
    */
   failureAnalysisResult?: FailureAnalysisResultContent | undefined;
 
   /**
-   * Customer-facing user intent clustering result written to S3.
+   * <p>The user intent clustering results from insights, containing grouped user intents across evaluated sessions.</p>
    * @public
    */
   userIntentResult?: UserIntentClusteringResultContent | undefined;
 
   /**
-   * Customer-facing execution summary clustering result written to S3.
+   * <p>The execution summary clustering results from insights, containing grouped execution patterns across evaluated sessions.</p>
    * @public
    */
   executionSummaryResult?: ExecutionSummaryClusteringResultContent | undefined;
@@ -7749,6 +7746,18 @@ export namespace HarnessModelConfiguration {
 }
 
 /**
+ * <p>Passed to show that AWS Skills should be included.</p>
+ * @public
+ */
+export interface HarnessSkillAwsSkillsSource {
+  /**
+   * <p>Optionally filter allowed skills with glob syntax, e.g., ['core-skills/*'].</p>
+   * @public
+   */
+  paths?: string[] | undefined;
+}
+
+/**
  * <p>Authentication configuration for accessing a private git repository.</p>
  * @public
  */
@@ -7807,6 +7816,7 @@ export interface HarnessSkillS3Source {
  * @public
  */
 export type HarnessSkill =
+  | HarnessSkill.AwsSkillsMember
   | HarnessSkill.GitMember
   | HarnessSkill.PathMember
   | HarnessSkill.S3Member
@@ -7824,6 +7834,7 @@ export namespace HarnessSkill {
     path: string;
     s3?: never;
     git?: never;
+    awsSkills?: never;
     $unknown?: never;
   }
 
@@ -7835,6 +7846,7 @@ export namespace HarnessSkill {
     path?: never;
     s3: HarnessSkillS3Source;
     git?: never;
+    awsSkills?: never;
     $unknown?: never;
   }
 
@@ -7846,6 +7858,19 @@ export namespace HarnessSkill {
     path?: never;
     s3?: never;
     git: HarnessSkillGitSource;
+    awsSkills?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>AWS Skills baked into the Harness's underlying Runtime.</p>
+   * @public
+   */
+  export interface AwsSkillsMember {
+    path?: never;
+    s3?: never;
+    git?: never;
+    awsSkills: HarnessSkillAwsSkillsSource;
     $unknown?: never;
   }
 
@@ -7856,6 +7881,7 @@ export namespace HarnessSkill {
     path?: never;
     s3?: never;
     git?: never;
+    awsSkills?: never;
     $unknown: [string, any];
   }
 
@@ -7867,6 +7893,7 @@ export namespace HarnessSkill {
     path: (value: string) => T;
     s3: (value: HarnessSkillS3Source) => T;
     git: (value: HarnessSkillGitSource) => T;
+    awsSkills: (value: HarnessSkillAwsSkillsSource) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -8238,6 +8265,12 @@ export interface InvokeHarnessRequest {
    * @public
    */
   harnessArn: string | undefined;
+
+  /**
+   * <p>The endpoint name to invoke. If omitted, the DEFAULT endpoint is used.</p>
+   * @public
+   */
+  qualifier?: string | undefined;
 
   /**
    * <p>The session ID for the invocation. Use the same session ID across requests to continue a conversation.</p>
@@ -9912,45 +9945,6 @@ export namespace LeftExpression {
    */
   export interface Visitor<T> {
     metadataKey: (value: string) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Right expression of the <code>eventMetadata</code>filter.</p>
- * @public
- */
-export type RightExpression =
-  | RightExpression.MetadataValueMember
-  | RightExpression.$UnknownMember;
-
-/**
- * @public
- */
-export namespace RightExpression {
-  /**
-   * <p>Value associated with the key in <code>eventMetadata</code>.</p>
-   * @public
-   */
-  export interface MetadataValueMember {
-    metadataValue: MetadataValue;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    metadataValue?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    metadataValue: (value: MetadataValue) => T;
     _: (name: string, value: any) => T;
   }
 }

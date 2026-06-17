@@ -42,6 +42,7 @@ export interface InvokeHarnessCommandOutput extends InvokeHarnessResponse, __Met
  * const client = new BedrockAgentCoreClient(config);
  * const input = { // InvokeHarnessRequest
  *   harnessArn: "STRING_VALUE", // required
+ *   qualifier: "STRING_VALUE",
  *   runtimeSessionId: "STRING_VALUE", // required
  *   runtimeUserId: "STRING_VALUE",
  *   messages: [ // HarnessMessages // required
@@ -176,6 +177,11 @@ export interface InvokeHarnessCommandOutput extends InvokeHarnessResponse, __Met
  *           username: "STRING_VALUE",
  *         },
  *       },
+ *       awsSkills: { // HarnessSkillAwsSkillsSource
+ *         paths: [ // HarnessAwsSkillPaths
+ *           "STRING_VALUE",
+ *         ],
+ *       },
  *     },
  *   ],
  *   allowedTools: [ // HarnessAllowedTools
@@ -284,6 +290,9 @@ export interface InvokeHarnessCommandOutput extends InvokeHarnessResponse, __Met
  *
  * @throws {@link RuntimeClientError} (client fault)
  *  <p>The exception that occurs when there is an error in the runtime client. This can happen due to network issues, invalid configuration, or other client-side problems. Check the error message for specific details about the error.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The exception that occurs when the request was denied due to request throttling. This happens when you exceed the allowed request rate for an operation. Reduce the frequency of requests or implement exponential backoff retry logic in your application.</p>

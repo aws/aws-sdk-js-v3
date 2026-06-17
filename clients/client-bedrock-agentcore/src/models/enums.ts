@@ -66,6 +66,7 @@ export const InsightsFailureCategory = {
   ORCHESTRATION_PREMATURE_TERMINATION: "orchestration-related-errors-category-premature-termination",
   ORCHESTRATION_REASONING_MISMATCH: "orchestration-related-errors-category-reasoning-mismatch",
   ORCHESTRATION_UNAWARE_TERMINATION: "orchestration-related-errors-category-unaware-termination",
+  OTHER: "other",
   REPETITIVE_BEHAVIOR_INFO: "repetitive-behavior-category-repetition-info",
   REPETITIVE_BEHAVIOR_STEP: "repetitive-behavior-category-step-repetition",
   REPETITIVE_BEHAVIOR_TOOL: "repetitive-behavior-category-repetition-tool",
