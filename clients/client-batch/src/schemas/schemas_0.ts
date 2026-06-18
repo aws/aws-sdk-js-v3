@@ -755,8 +755,8 @@ export var ComputeEnvironmentOrder$: StaticStructureSchema = [3, n0, _CEO,
 ];
 export var ComputeResource$: StaticStructureSchema = [3, n0, _CR,
   0,
-  [_ty, _mCa, _su, _aS, _mCi, _dC, _iT, _iI, _sGI, _eKP, _iR, _t, _pG, _bP, _sIFR, _lT, _eCc, _sP],
-  [0, 1, 64 | 0, 0, 1, 1, 64 | 0, 0, 64 | 0, 0, 0, 128 | 0, 0, 1, 0, () => LaunchTemplateSpecification$, () => Ec2ConfigurationList, () => ComputeScalingPolicy$], 3
+  [_ty, _mCa, _aS, _mCi, _dC, _iT, _iI, _su, _sGI, _eKP, _iR, _t, _pG, _bP, _sIFR, _lT, _eCc, _sP],
+  [0, 1, 0, 1, 1, 64 | 0, 0, 64 | 0, 64 | 0, 0, 0, 128 | 0, 0, 1, 0, () => LaunchTemplateSpecification$, () => Ec2ConfigurationList, () => ComputeScalingPolicy$], 2
 ];
 export var ComputeResourceUpdate$: StaticStructureSchema = [3, n0, _CRU,
   0,

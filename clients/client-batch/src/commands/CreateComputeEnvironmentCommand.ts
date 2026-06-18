@@ -67,7 +67,7 @@ export interface CreateComputeEnvironmentCommandOutput extends CreateComputeEnvi
  *   unmanagedvCpus: Number("int"),
  *   computeResources: { // ComputeResource
  *     type: "EC2" || "SPOT" || "FARGATE" || "FARGATE_SPOT", // required
- *     allocationStrategy: "BEST_FIT" || "BEST_FIT_PROGRESSIVE" || "SPOT_CAPACITY_OPTIMIZED" || "SPOT_PRICE_CAPACITY_OPTIMIZED",
+ *     allocationStrategy: "BEST_FIT" || "BEST_FIT_PROGRESSIVE" || "BEST_FIT_PROGRESSIVE_ORDERED" || "SPOT_CAPACITY_OPTIMIZED" || "SPOT_PRICE_CAPACITY_OPTIMIZED" || "SPOT_CAPACITY_OPTIMIZED_PRIORITIZED",
  *     minvCpus: Number("int"),
  *     maxvCpus: Number("int"), // required
  *     desiredvCpus: Number("int"),
@@ -75,7 +75,7 @@ export interface CreateComputeEnvironmentCommandOutput extends CreateComputeEnvi
  *       "STRING_VALUE",
  *     ],
  *     imageId: "STRING_VALUE",
- *     subnets: [ // required
+ *     subnets: [
  *       "STRING_VALUE",
  *     ],
  *     securityGroupIds: [
