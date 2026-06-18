@@ -47,6 +47,42 @@ export interface CreateVpcPeeringConnectionCommandOutput extends CreateVpcPeerin
  *             is asynchronous. If successful, a connection request is created. You can use continuous
  *             polling to track the request's status using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeVpcPeeringConnections.html">DescribeVpcPeeringConnections</a> , or by monitoring fleet events for success
  *             or failure using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetEvents.html">DescribeFleetEvents</a> . </p>
+ *          <note>
+ *             <p>Amazon GameLift Servers uses the caller's credentials to update peer-VPC resources. The IAM user
+ *                 that calls this operation must have the following Amazon EC2 permissions enabled:</p>
+ *             <ul>
+ *                <li>
+ *                   <p>
+ *                      <code>ec2:AcceptVpcPeeringConnection</code>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <code>ec2:AuthorizeSecurityGroupEgress</code>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <code>ec2:AuthorizeSecurityGroupIngress</code>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <code>ec2:CreateRoute</code>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <code>ec2:DescribeRouteTables</code>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <code>ec2:DescribeSecurityGroups</code>
+ *                   </p>
+ *                </li>
+ *             </ul>
+ *          </note>
  *          <p>
  *             <b>Related actions</b>
  *          </p>
@@ -87,7 +123,7 @@ export interface CreateVpcPeeringConnectionCommandOutput extends CreateVpcPeerin
  *             values before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resource was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>

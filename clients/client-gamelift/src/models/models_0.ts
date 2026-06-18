@@ -41,6 +41,7 @@ import type {
   InstanceRoleCredentialsProvider,
   InstanceStatus,
   IpProtocol,
+  LinuxCapability,
   ListComputeInputStatus,
   LocationFilter,
   LocationUpdateStatus,
@@ -1256,6 +1257,42 @@ export interface ContainerFleet {
 }
 
 /**
+ * <p>A set of Linux capabilities that are added to a container's default Docker configuration
+ *       for a container defined in the <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ContainerGroupDefinition.html">ContainerGroupDefinition</a>. For more detailed information about these Linux
+ *       capabilities, see the <a href="https://man7.org/linux/man-pages/man7/capabilities.7.html">capabilities(7)</a> Linux manual page.</p>
+ *          <p>
+ *             <b>Modifying capabilities on an existing container:</b> To
+ *       remove a capability, update the <code>Include</code> list with only the needed capabilities.
+ *       To revert back to default capabilities, omit <code>LinuxCapabilities</code> within the
+ *       ContainerDefinition.</p>
+ *          <p>
+ *             <b>Part of: </b>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_GameServerContainerDefinition.html">GameServerContainerDefinition</a>,
+ *       <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_GameServerContainerDefinitionInput.html">GameServerContainerDefinitionInput</a>,
+ *       <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_SupportContainerDefinition.html">SupportContainerDefinition</a>,
+ *       <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_SupportContainerDefinitionInput.html">SupportContainerDefinitionInput</a>
+ *          </p>
+ *          <p>
+ *             <b>Returned by: </b>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateContainerGroupDefinition.html">CreateContainerGroupDefinition</a>,
+ *       <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeContainerGroupDefinition.html">DescribeContainerGroupDefinition</a>,
+ *       <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListContainerGroupDefinitions.html">ListContainerGroupDefinitions</a>,
+ *       <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListContainerGroupDefinitionVersions.html">ListContainerGroupDefinitionVersions</a>,
+ *       <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateContainerGroupDefinition.html">UpdateContainerGroupDefinition</a>
+ *          </p>
+ * @public
+ */
+export interface LinuxCapabilities {
+  /**
+   * <p>The list of Linux capabilities to add to the container's default configuration.
+   *       Specify each capability as a string from the set of supported capability names (for example,
+   *       <code>NET_BIND_SERVICE</code> or <code>SYS_PTRACE</code>).</p>
+   * @public
+   */
+  Include?: LinuxCapability[] | undefined;
+}
+
+/**
  * <p>A mount point that binds a container to a file or directory on the host system. </p>
  *          <p>
  *             <b>Part of:</b>
@@ -1365,8 +1402,10 @@ export interface ContainerPortConfiguration {
  *          </p>
  *          <p>
  *             <b>Returned by:</b>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeContainerGroupDefinition.html">DescribeContainerGroupDefinition</a>,
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateContainerGroupDefinition.html">CreateContainerGroupDefinition</a>,
+ *       <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeContainerGroupDefinition.html">DescribeContainerGroupDefinition</a>,
  *       <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListContainerGroupDefinitions.html">ListContainerGroupDefinitions</a>,
+ *       <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListContainerGroupDefinitionVersions.html">ListContainerGroupDefinitionVersions</a>,
  *       <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateContainerGroupDefinition.html">UpdateContainerGroupDefinition</a>
  *          </p>
  * @public
@@ -1431,6 +1470,12 @@ export interface GameServerContainerDefinition {
    * @public
    */
   ServerSdkVersion?: string | undefined;
+
+  /**
+   * <p>Linux-specific modifications that are applied to the default Docker container configuration, such as Linux capabilities. For more information see <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_LinuxCapabilities.html">LinuxCapabilities</a>.</p>
+   * @public
+   */
+  LinuxCapabilities?: LinuxCapabilities | undefined;
 }
 
 /**
@@ -1502,8 +1547,10 @@ export interface ContainerHealthCheck {
  *          </p>
  *          <p>
  *             <b>Returned by:</b>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeContainerGroupDefinition.html">DescribeContainerGroupDefinition</a>,
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateContainerGroupDefinition.html">CreateContainerGroupDefinition</a>,
+ *       <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeContainerGroupDefinition.html">DescribeContainerGroupDefinition</a>,
  *       <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListContainerGroupDefinitions.html">ListContainerGroupDefinitions</a>,
+ *       <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListContainerGroupDefinitionVersions.html">ListContainerGroupDefinitionVersions</a>,
  *       <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateContainerGroupDefinition.html">UpdateContainerGroupDefinition</a>
  *          </p>
  * @public
@@ -1598,6 +1645,12 @@ export interface SupportContainerDefinition {
    * @public
    */
   Vcpu?: number | undefined;
+
+  /**
+   * <p>Linux-specific modifications that are applied to the default Docker container configuration, such as Linux capabilities. For more information see <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_LinuxCapabilities.html">LinuxCapabilities</a>.</p>
+   * @public
+   */
+  LinuxCapabilities?: LinuxCapabilities | undefined;
 }
 
 /**
@@ -2166,7 +2219,7 @@ export interface CreateContainerFleetInput {
    *                <p>Port range: 4192 to a number calculated based on your fleet configuration.
    *                     Amazon GameLift Servers uses the following formula: <code>4192 + [# of game server container
    *                         groups per fleet instance] * [# of container ports in the game server
-   *                         container group definition] + [# of container ports in the game server
+   *                         container group definition] + [# of container ports in the per instance
    *                         container group definition]</code>
    *                </p>
    *             </li>
@@ -2201,7 +2254,7 @@ export interface CreateContainerFleetInput {
    *                <p>Port range: 4192 to a number calculated based on your fleet configuration. Amazon GameLift Servers uses the
    *                     following formula: <code>4192 + [# of game server container groups per fleet
    *                         instance] * [# of container ports in the game server container group
-   *                         definition] + [# of container ports in the game server container group
+   *                         definition] + [# of container ports in the per instance container group
    *                         definition]</code>
    *                </p>
    *             </li>
@@ -2238,10 +2291,10 @@ export interface CreateContainerFleetInput {
    *             Instance type determines the computing resources and processing power that's available
    *             to host your game servers. This includes including CPU, memory, storage, and networking
    *             capacity. </p>
-   *          <p>By default, Amazon GameLift Servers selects an instance type that fits the needs of your container
-   *             groups and is available in all selected fleet locations. You can also choose to manually
-   *             set this parameter. See <a href="http://aws.amazon.com/ec2/instance-types/">Amazon Elastic Compute Cloud
-   *                 Instance Types</a> for detailed descriptions of Amazon EC2 instance types.</p>
+   *          <p>By default, Amazon GameLift Servers uses the <code>c5.large</code> instance type. If this instance
+   *             type does not have sufficient resources for your container groups, you can choose a
+   *             different instance type that better fits your needs. See <a href="http://aws.amazon.com/ec2/instance-types/">Amazon Elastic Compute Cloud Instance Types</a> for detailed descriptions
+   *             of Amazon EC2 instance types.</p>
    *          <p>You can't update this fleet property later.</p>
    * @public
    */
@@ -2472,6 +2525,12 @@ export interface GameServerContainerDefinitionInput {
    * @public
    */
   ServerSdkVersion: string | undefined;
+
+  /**
+   * <p>Linux-specific modifications that are applied to the default Docker container configuration, such as Linux capabilities. For more information see <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_LinuxCapabilities.html">LinuxCapabilities</a>.</p>
+   * @public
+   */
+  LinuxCapabilities?: LinuxCapabilities | undefined;
 }
 
 /**
@@ -2606,6 +2665,12 @@ export interface SupportContainerDefinitionInput {
    * @public
    */
   Vcpu?: number | undefined;
+
+  /**
+   * <p>Linux-specific modifications that are applied to the default Docker container configuration, such as Linux capabilities. For more information see <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_LinuxCapabilities.html">LinuxCapabilities</a>.</p>
+   * @public
+   */
+  LinuxCapabilities?: LinuxCapabilities | undefined;
 }
 
 /**
@@ -2727,6 +2792,12 @@ export interface PlayerGatewayConfiguration {
  *             a <code>CreateGameSession</code> request, Amazon GameLift Servers checks that the player (identified by
  *                 <code>CreatorId</code>) has created fewer than game session limit in the specified
  *             time period.</p>
+ *          <p>The purpose of this policy is to prevent a single player from consuming a large share of
+ *             available hosting resources. For example, setting <code>NewGameSessionsPerCreator</code> to
+ *             <code>4</code> and <code>PolicyPeriodInMinutes</code> to <code>10</code> limits each player
+ *             to creating 4 game sessions every 10 minutes. Setting these values too high (for example,
+ *             200 game sessions every 1000 minutes) still allows a single player to rapidly consume
+ *             resources. We recommend keeping these values small.</p>
  * @public
  */
 export interface ResourceCreationLimitPolicy {
@@ -3328,6 +3399,12 @@ export interface FleetAttributes {
    *             a <code>CreateGameSession</code> request, Amazon GameLift Servers checks that the player (identified by
    *                 <code>CreatorId</code>) has created fewer than game session limit in the specified
    *             time period.</p>
+   *          <p>The purpose of this policy is to prevent a single player from consuming a large share of
+   *             available hosting resources. For example, setting <code>NewGameSessionsPerCreator</code> to
+   *             <code>4</code> and <code>PolicyPeriodInMinutes</code> to <code>10</code> limits each player
+   *             to creating 4 game sessions every 10 minutes. Setting these values too high (for example,
+   *             200 game sessions every 1000 minutes) still allows a single player to rapidly consume
+   *             resources. We recommend keeping these values small.</p>
    * @public
    */
   ResourceCreationLimitPolicy?: ResourceCreationLimitPolicy | undefined;
@@ -4090,8 +4167,7 @@ export interface CreateGameSessionInput {
    *             only once. Subsequent requests with the same string return the original
    *                 <code>GameSession</code> object, with an updated status. Maximum token length is 48
    *             characters. If provided, this string is included in the new game session's ID.
-   *             The value is always a full ARN in the following format:
-   *     <code>arn:aws:gamelift:<location>::gamesession/<fleet ID>/<ID string></code>. Idempotency tokens remain in use for 30 days after a game session has ended;
+   *             The value is always a full ARN in the following format: For Home Region game session - <code>arn:aws:gamelift:<home_region>::gamesession/<fleet ID>/<ID string></code>. For Remote Location game session - <code>arn:aws:gamelift:<home_region>::gamesession/<fleet ID>/<location>/<ID string></code>. Idempotency tokens remain in use for 30 days after a game session has ended;
    *             game session objects are retained for this time period and then deleted.</p>
    * @public
    */
@@ -4128,8 +4204,7 @@ export interface CreateGameSessionInput {
  */
 export interface GameSession {
   /**
-   * <p>An identifier for the game session that is unique across all regions. The value is always a full ARN in the following format:
-   *     <code>arn:aws:gamelift:<location>::gamesession/<fleet ID>/<ID string></code>.</p>
+   * <p>An identifier for the game session that is unique across all regions. The value is always a full ARN in the following format: For Home Region game session - <code>arn:aws:gamelift:<home_region>::gamesession/<fleet ID>/<ID string></code>. For Remote Location game session - <code>arn:aws:gamelift:<home_region>::gamesession/<fleet ID>/<location>/<ID string></code>.</p>
    * @public
    */
   GameSessionId?: string | undefined;
@@ -5139,8 +5214,7 @@ export interface CreateMatchmakingRuleSetOutput {
  */
 export interface CreatePlayerSessionInput {
   /**
-   * <p>An identifier for the game session that is unique across all regions to add a player to. The value is always a full ARN in the following format:
-   *     <code>arn:aws:gamelift:<location>::gamesession/<fleet ID>/<ID string></code>.</p>
+   * <p>An identifier for the game session that is unique across all regions to add a player to. The value is always a full ARN in the following format: For Home Region game session - <code>arn:aws:gamelift:<home_region>::gamesession/<fleet ID>/<ID string></code>. For Remote Location game session - <code>arn:aws:gamelift:<home_region>::gamesession/<fleet ID>/<location>/<ID string></code>.</p>
    * @public
    */
   GameSessionId: string | undefined;
@@ -5189,8 +5263,7 @@ export interface PlayerSession {
   PlayerId?: string | undefined;
 
   /**
-   * <p>An identifier for the game session that is unique across all regions that the player session is connected to. The value is always a full ARN in the following format:
-   *     <code>arn:aws:gamelift:<location>::gamesession/<fleet ID>/<ID string></code>.</p>
+   * <p>An identifier for the game session that is unique across all regions that the player session is connected to. The value is always a full ARN in the following format: For Home Region game session - <code>arn:aws:gamelift:<home_region>::gamesession/<fleet ID>/<ID string></code>. For Remote Location game session - <code>arn:aws:gamelift:<home_region>::gamesession/<fleet ID>/<location>/<ID string></code>.</p>
    * @public
    */
   GameSessionId?: string | undefined;
@@ -5304,8 +5377,7 @@ export interface CreatePlayerSessionOutput {
  */
 export interface CreatePlayerSessionsInput {
   /**
-   * <p>An identifier for the game session that is unique across all regions to add players to. The value is always a full ARN in the following format:
-   *     <code>arn:aws:gamelift:<location>::gamesession/<fleet ID>/<ID string></code>.</p>
+   * <p>An identifier for the game session that is unique across all regions to add players to. The value is always a full ARN in the following format: For Home Region game session - <code>arn:aws:gamelift:<home_region>::gamesession/<fleet ID>/<ID string></code>. For Remote Location game session - <code>arn:aws:gamelift:<home_region>::gamesession/<fleet ID>/<location>/<ID string></code>.</p>
    * @public
    */
   GameSessionId: string | undefined;
@@ -6204,6 +6276,13 @@ export interface DescribeContainerGroupPortMappingsOutput {
    * @public
    */
   FleetId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) that is assigned to a Amazon GameLift Servers fleet resource and uniquely identifies it. ARNs are unique across all Regions. Format is <code>arn:aws:gamelift:<region>::fleet/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912</code>. In a GameLift fleet ARN, the resource ID matches the <code>FleetId</code>
+   *             value.</p>
+   * @public
+   */
+  FleetArn?: string | undefined;
 
   /**
    * <p>The location of the fleet instance, expressed as an Amazon Web Services Region code, such as
@@ -7575,8 +7654,7 @@ export interface DescribeGameSessionDetailsInput {
   FleetId?: string | undefined;
 
   /**
-   * <p>An identifier for the game session that is unique across all regions to retrieve. The value is always a full ARN in the following format:
-   *     <code>arn:aws:gamelift:<location>::gamesession/<fleet ID>/<ID string></code>.</p>
+   * <p>An identifier for the game session that is unique across all regions to retrieve. The value is always a full ARN in the following format: For Home Region game session - <code>arn:aws:gamelift:<home_region>::gamesession/<fleet ID>/<ID string></code>. For Remote Location game session - <code>arn:aws:gamelift:<home_region>::gamesession/<fleet ID>/<location>/<ID string></code>.</p>
    * @public
    */
   GameSessionId?: string | undefined;
@@ -7698,8 +7776,8 @@ export interface PlacedPlayerSession {
 /**
  * <p>Regional latency information for a player, used when requesting a new game session.
  *             This value indicates the amount of time lag that exists when the player is connected to
- *             a fleet in the specified Region. The relative difference between a player's latency
- *             values for multiple Regions are used to determine which fleets are best suited to place
+ *             a fleet in the specified location (an Amazon Web Services Region or a custom location for Amazon GameLift Servers Anywhere fleets). The relative difference between a player's latency
+ *             values for multiple locations are used to determine which fleets are best suited to place
  *             a new game session for the player. </p>
  * @public
  */
@@ -7711,7 +7789,8 @@ export interface PlayerLatency {
   PlayerId?: string | undefined;
 
   /**
-   * <p>Name of the Region that is associated with the latency value.</p>
+   * <p>Name of the Region or custom location that is associated with the latency value. For
+   *             Amazon GameLift Servers Anywhere fleets, use the custom location name.</p>
    * @public
    */
   RegionIdentifier?: string | undefined;
@@ -7866,16 +7945,14 @@ export interface GameSessionPlacement {
   GameSessionName?: string | undefined;
 
   /**
-   * <p>An identifier for the game session that is unique across all regions. The value is always a full ARN in the following format:
-   *     <code>arn:aws:gamelift:<location>::gamesession/<fleet ID>/<ID string></code>. This value is the same as <code>GameSessionArn</code>. This value isn't final until placement status is
+   * <p>An identifier for the game session that is unique across all regions. The value is always a full ARN in the following format: For Home Region game session - <code>arn:aws:gamelift:<home_region>::gamesession/<fleet ID>/<ID string></code>. For Remote Location game session - <code>arn:aws:gamelift:<home_region>::gamesession/<fleet ID>/<location>/<ID string></code>. This value is the same as <code>GameSessionArn</code>. This value isn't final until placement status is
    *             <code>FULFILLED</code>.</p>
    * @public
    */
   GameSessionId?: string | undefined;
 
   /**
-   * <p>An identifier for the game session that is unique across all regions. The value is always a full ARN in the following format:
-   *     <code>arn:aws:gamelift:<location>::gamesession/<fleet ID>/<ID string></code>. This value is the same as <code>GameSessionId</code>. This value isn't final until placement status is
+   * <p>An identifier for the game session that is unique across all regions. The value is always a full ARN in the following format: For Home Region game session - <code>arn:aws:gamelift:<home_region>::gamesession/<fleet ID>/<ID string></code>. For Remote Location game session - <code>arn:aws:gamelift:<home_region>::gamesession/<fleet ID>/<location>/<ID string></code>. This value is the same as <code>GameSessionId</code>. This value isn't final until placement status is
    *                 <code>FULFILLED</code>.</p>
    * @public
    */
@@ -7889,7 +7966,7 @@ export interface GameSessionPlacement {
   GameSessionRegion?: string | undefined;
 
   /**
-   * <p>A set of values, expressed in milliseconds, that indicates the amount of latency that a player experiences when connected to Amazon Web Services Regions.</p>
+   * <p>A set of values, expressed in milliseconds, that indicates the amount of latency that a player experiences when connected to a fleet location (Amazon Web Services Regions or custom locations for Amazon GameLift Servers Anywhere fleets).</p>
    * @public
    */
   PlayerLatencies?: PlayerLatency[] | undefined;
@@ -8054,8 +8131,7 @@ export interface DescribeGameSessionsInput {
   FleetId?: string | undefined;
 
   /**
-   * <p>An identifier for the game session that is unique across all regions to retrieve. The value is always a full ARN in the following format:
-   *     <code>arn:aws:gamelift:<location>::gamesession/<fleet ID>/<ID string></code>.</p>
+   * <p>An identifier for the game session that is unique across all regions to retrieve. The value is always a full ARN in the following format: For Home Region game session - <code>arn:aws:gamelift:<home_region>::gamesession/<fleet ID>/<ID string></code>. For Remote Location game session - <code>arn:aws:gamelift:<home_region>::gamesession/<fleet ID>/<location>/<ID string></code>.</p>
    * @public
    */
   GameSessionId?: string | undefined;
@@ -8322,8 +8398,7 @@ export interface MatchedPlayerSession {
  */
 export interface GameSessionConnectionInfo {
   /**
-   * <p>An identifier for the game session that is unique across all regions. The value is always a full ARN in the following format:
-   *     <code>arn:aws:gamelift:<location>::gamesession/<fleet ID>/<ID string></code>.</p>
+   * <p>An identifier for the game session that is unique across all regions. The value is always a full ARN in the following format: For Home Region game session - <code>arn:aws:gamelift:<home_region>::gamesession/<fleet ID>/<ID string></code>. For Remote Location game session - <code>arn:aws:gamelift:<home_region>::gamesession/<fleet ID>/<location>/<ID string></code>.</p>
    * @public
    */
   GameSessionArn?: string | undefined;
@@ -8413,7 +8488,7 @@ export interface Player {
   Team?: string | undefined;
 
   /**
-   * <p>A set of values, expressed in milliseconds, that indicates the amount of latency that a player experiences when connected to Amazon Web Services Regions. If this property is present, FlexMatch considers placing the match only in
+   * <p>A set of values, expressed in milliseconds, that indicates the amount of latency that a player experiences when connected to a fleet location (Amazon Web Services Regions or custom locations for Amazon GameLift Servers Anywhere fleets). If this property is present, FlexMatch considers placing the match only in
    *             Regions for which latency is reported. </p>
    *          <p>If a matchmaker has a rule that evaluates player latency, players must report latency
    *             in order to be matched. If no latency is reported in this scenario, FlexMatch assumes that
@@ -8667,8 +8742,7 @@ export interface DescribeMatchmakingRuleSetsOutput {
  */
 export interface DescribePlayerSessionsInput {
   /**
-   * <p>An identifier for the game session that is unique across all regions to retrieve player sessions for. The value is always a full ARN in the following format:
-   *     <code>arn:aws:gamelift:<location>::gamesession/<fleet ID>/<ID string></code>.</p>
+   * <p>An identifier for the game session that is unique across all regions to retrieve player sessions for. The value is always a full ARN in the following format: For Home Region game session - <code>arn:aws:gamelift:<home_region>::gamesession/<fleet ID>/<ID string></code>. For Remote Location game session - <code>arn:aws:gamelift:<home_region>::gamesession/<fleet ID>/<location>/<ID string></code>.</p>
    * @public
    */
   GameSessionId?: string | undefined;
@@ -9414,8 +9488,7 @@ export interface GetComputeAuthTokenOutput {
  */
 export interface GetGameSessionLogUrlInput {
   /**
-   * <p>An identifier for the game session that is unique across all regions to get logs for. The value is always a full ARN in the following format:
-   *     <code>arn:aws:gamelift:<location>::gamesession/<fleet ID>/<ID string></code>.</p>
+   * <p>An identifier for the game session that is unique across all regions to get logs for. The value is always a full ARN in the following format: For Home Region game session - <code>arn:aws:gamelift:<home_region>::gamesession/<fleet ID>/<ID string></code>. For Remote Location game session - <code>arn:aws:gamelift:<home_region>::gamesession/<fleet ID>/<location>/<ID string></code>.</p>
    * @public
    */
   GameSessionId: string | undefined;
@@ -9533,8 +9606,7 @@ export interface GetInstanceAccessOutput {
  */
 export interface GetPlayerConnectionDetailsInput {
   /**
-   * <p>An identifier for the game session that is unique across all regions for which to retrieve player connection details. The value is always a full ARN in the following format:
-   *     <code>arn:aws:gamelift:<location>::gamesession/<fleet ID>/<ID string></code>.</p>
+   * <p>An identifier for the game session that is unique across all regions for which to retrieve player connection details. The value is always a full ARN in the following format: For Home Region game session - <code>arn:aws:gamelift:<home_region>::gamesession/<fleet ID>/<ID string></code>. For Remote Location game session - <code>arn:aws:gamelift:<home_region>::gamesession/<fleet ID>/<location>/<ID string></code>.</p>
    * @public
    */
   GameSessionId: string | undefined;
@@ -9606,8 +9678,7 @@ export interface PlayerConnectionDetail {
  */
 export interface GetPlayerConnectionDetailsOutput {
   /**
-   * <p>An identifier for the game session that is unique across all regions for which the player connection details were retrieved. The value is always a full ARN in the following format:
-   *     <code>arn:aws:gamelift:<location>::gamesession/<fleet ID>/<ID string></code>.</p>
+   * <p>An identifier for the game session that is unique across all regions for which the player connection details were retrieved. The value is always a full ARN in the following format: For Home Region game session - <code>arn:aws:gamelift:<home_region>::gamesession/<fleet ID>/<ID string></code>. For Remote Location game session - <code>arn:aws:gamelift:<home_region>::gamesession/<fleet ID>/<location>/<ID string></code>.</p>
    * @public
    */
   GameSessionId?: string | undefined;
@@ -10829,7 +10900,7 @@ export interface StartGameSessionPlacementInput {
   GameSessionName?: string | undefined;
 
   /**
-   * <p>A set of values, expressed in milliseconds, that indicates the amount of latency that a player experiences when connected to Amazon Web Services Regions. This information is used to try to place the new game session where it
+   * <p>A set of values, expressed in milliseconds, that indicates the amount of latency that a player experiences when connected to a fleet location (Amazon Web Services Regions or custom locations for Amazon GameLift Servers Anywhere fleets). This information is used to try to place the new game session where it
    *             can offer the best possible gameplay experience for the players.
    *             </p>
    * @public
@@ -10897,8 +10968,7 @@ export interface StartMatchBackfillInput {
   ConfigurationName: string | undefined;
 
   /**
-   * <p>An identifier for the game session that is unique across all regions. The value is always a full ARN in the following format:
-   *     <code>arn:aws:gamelift:<location>::gamesession/<fleet ID>/<ID string></code>. When using FlexMatch as a standalone matchmaking
+   * <p>An identifier for the game session that is unique across all regions. The value is always a full ARN in the following format: For Home Region game session - <code>arn:aws:gamelift:<home_region>::gamesession/<fleet ID>/<ID string></code>. For Remote Location game session - <code>arn:aws:gamelift:<home_region>::gamesession/<fleet ID>/<location>/<ID string></code>. When using FlexMatch as a standalone matchmaking
    *             solution, this parameter is not needed. </p>
    * @public
    */
@@ -11132,8 +11202,7 @@ export interface TagResourceResponse {}
  */
 export interface TerminateGameSessionInput {
   /**
-   * <p>An identifier for the game session that is unique across all regions to be terminated. The value is always a full ARN in the following format:
-   *     <code>arn:aws:gamelift:<location>::gamesession/<fleet ID>/<ID string></code>.</p>
+   * <p>An identifier for the game session that is unique across all regions to be terminated. The value is always a full ARN in the following format: For Home Region game session - <code>arn:aws:gamelift:<home_region>::gamesession/<fleet ID>/<ID string></code>. For Remote Location game session - <code>arn:aws:gamelift:<home_region>::gamesession/<fleet ID>/<location>/<ID string></code>.</p>
    * @public
    */
   GameSessionId: string | undefined;
@@ -11278,15 +11347,4 @@ export interface UpdateBuildInput {
    * @public
    */
   Version?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateBuildOutput {
-  /**
-   * <p>The updated build resource.</p>
-   * @public
-   */
-  Build?: Build | undefined;
 }

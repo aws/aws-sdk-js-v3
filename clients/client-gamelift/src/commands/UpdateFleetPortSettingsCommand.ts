@@ -36,7 +36,7 @@ export interface UpdateFleetPortSettingsCommandOutput extends UpdateFleetPortSet
  *                 <code>InboundPermissionAuthorizations</code>, and permissions you want to remove in
  *                 <code>InboundPermissionRevocations</code>. Permissions to be removed must match
  *             existing fleet permissions. </p>
- *          <p>If successful, the fleet ID for the updated fleet is returned. For fleets with remote
+ *          <p>If successful, the fleet identifiers for the updated fleet are returned. For fleets with remote
  *             locations, port setting updates can take time to propagate across all locations. You can
  *             check the status of updates in each location by calling
  *                 <code>DescribeFleetPortSettings</code> with a location name.</p>
@@ -113,7 +113,7 @@ export interface UpdateFleetPortSettingsCommandOutput extends UpdateFleetPortSet
  *             Resolve the issue before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resource was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>

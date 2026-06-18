@@ -13,6 +13,7 @@ import type {
 } from "./enums";
 import type {
   AnywhereConfiguration,
+  Build,
   ConnectionPortRange,
   ContainerFleet,
   ContainerGroupDefinition,
@@ -39,6 +40,17 @@ import type {
   Script,
   SupportContainerDefinitionInput,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface UpdateBuildOutput {
+  /**
+   * <p>The updated build resource.</p>
+   * @public
+   */
+  Build?: Build | undefined;
+}
 
 /**
  * @public
@@ -608,8 +620,7 @@ export interface UpdateGameServerGroupOutput {
  */
 export interface UpdateGameSessionInput {
   /**
-   * <p>An identifier for the game session that is unique across all regions to update. The value is always a full ARN in the following format:
-   *     <code>arn:aws:gamelift:<location>::gamesession/<fleet ID>/<ID string></code>.</p>
+   * <p>An identifier for the game session that is unique across all regions to update. The value is always a full ARN in the following format: For Home Region game session - <code>arn:aws:gamelift:<home_region>::gamesession/<fleet ID>/<ID string></code>. For Remote Location game session - <code>arn:aws:gamelift:<home_region>::gamesession/<fleet ID>/<location>/<ID string></code>.</p>
    * @public
    */
   GameSessionId: string | undefined;

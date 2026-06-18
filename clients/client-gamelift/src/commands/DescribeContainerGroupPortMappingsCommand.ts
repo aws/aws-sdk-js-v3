@@ -58,7 +58,7 @@ export interface DescribeContainerGroupPortMappingsCommandOutput extends Describ
  *          <p>
  *             <b>Results</b>
  *          </p>
- *          <p>This operation returns the fleet ID, location, container group definition
+ *          <p>This operation returns the fleet ID, fleet ARN, location, container group definition
  *             ARN, container group type, compute name (for game server container groups), instance ID,
  *             and a list of <code>ContainerGroupPortMapping</code> objects. Each object contains the
  *             container name, runtime ID, and a list of port mappings that show how container ports map
@@ -93,6 +93,7 @@ export interface DescribeContainerGroupPortMappingsCommandOutput extends Describ
  * const response = await client.send(command);
  * // { // DescribeContainerGroupPortMappingsOutput
  * //   FleetId: "STRING_VALUE",
+ * //   FleetArn: "STRING_VALUE",
  * //   Location: "STRING_VALUE",
  * //   ContainerGroupDefinitionArn: "STRING_VALUE",
  * //   ContainerGroupType: "GAME_SERVER" || "PER_INSTANCE",
@@ -134,7 +135,7 @@ export interface DescribeContainerGroupPortMappingsCommandOutput extends Describ
  *             Resolve the issue before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resource was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>

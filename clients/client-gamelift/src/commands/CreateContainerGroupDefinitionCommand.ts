@@ -93,15 +93,18 @@ export interface CreateContainerGroupDefinitionCommandOutput extends CreateConta
  *                   </li>
  *                   <li>
  *                      <p>
- *                         <code>OperatingSystem</code> (omit to use default value)</p>
+ *                         <code>OperatingSystem</code>
+ *                      </p>
  *                   </li>
  *                   <li>
  *                      <p>
- *                         <code>TotalMemoryLimitMebibytes</code> (omit to use default value)</p>
+ *                         <code>TotalMemoryLimitMebibytes</code>
+ *                      </p>
  *                   </li>
  *                   <li>
  *                      <p>
- *                         <code>TotalVcpuLimit </code>(omit to use default value)</p>
+ *                         <code>TotalVcpuLimit</code>
+ *                      </p>
  *                   </li>
  *                   <li>
  *                      <p>At least one <code>GameServerContainerDefinition</code>
@@ -124,7 +127,8 @@ export interface CreateContainerGroupDefinitionCommandOutput extends CreateConta
  *                         </li>
  *                         <li>
  *                            <p>
- *                               <code>ServerSdkVersion</code> (omit to use default value)</p>
+ *                               <code>ServerSdkVersion</code>
+ *                            </p>
  *                         </li>
  *                      </ul>
  *                   </li>
@@ -145,15 +149,18 @@ export interface CreateContainerGroupDefinitionCommandOutput extends CreateConta
  *                   </li>
  *                   <li>
  *                      <p>
- *                         <code>OperatingSystem</code> (omit to use default value)</p>
+ *                         <code>OperatingSystem</code>
+ *                      </p>
  *                   </li>
  *                   <li>
  *                      <p>
- *                         <code>TotalMemoryLimitMebibytes</code> (omit to use default value)</p>
+ *                         <code>TotalMemoryLimitMebibytes</code>
+ *                      </p>
  *                   </li>
  *                   <li>
  *                      <p>
- *                         <code>TotalVcpuLimit </code>(omit to use default value)</p>
+ *                         <code>TotalVcpuLimit</code>
+ *                      </p>
  *                   </li>
  *                   <li>
  *                      <p>At least one <code>SupportContainerDefinition</code>
@@ -225,6 +232,11 @@ export interface CreateContainerGroupDefinitionCommandOutput extends CreateConta
  *       ],
  *     },
  *     ServerSdkVersion: "STRING_VALUE", // required
+ *     LinuxCapabilities: { // LinuxCapabilities
+ *       Include: [ // LinuxCapabilityList
+ *         "AUDIT_CONTROL" || "AUDIT_WRITE" || "BLOCK_SUSPEND" || "CHOWN" || "DAC_OVERRIDE" || "DAC_READ_SEARCH" || "FOWNER" || "FSETID" || "IPC_LOCK" || "IPC_OWNER" || "KILL" || "LEASE" || "LINUX_IMMUTABLE" || "MAC_ADMIN" || "MAC_OVERRIDE" || "MKNOD" || "NET_ADMIN" || "NET_BIND_SERVICE" || "NET_BROADCAST" || "NET_RAW" || "SETFCAP" || "SETGID" || "SETPCAP" || "SETUID" || "SYS_ADMIN" || "SYS_BOOT" || "SYS_CHROOT" || "SYS_MODULE" || "SYS_NICE" || "SYS_PACCT" || "SYS_PTRACE" || "SYS_RAWIO" || "SYS_RESOURCE" || "SYS_TIME" || "SYS_TTY_CONFIG" || "SYSLOG" || "WAKE_ALARM",
+ *       ],
+ *     },
  *   },
  *   SupportContainerDefinitions: [ // SupportContainerDefinitionInputList
  *     { // SupportContainerDefinitionInput
@@ -270,6 +282,11 @@ export interface CreateContainerGroupDefinitionCommandOutput extends CreateConta
  *         ],
  *       },
  *       Vcpu: Number("double"),
+ *       LinuxCapabilities: {
+ *         Include: [
+ *           "AUDIT_CONTROL" || "AUDIT_WRITE" || "BLOCK_SUSPEND" || "CHOWN" || "DAC_OVERRIDE" || "DAC_READ_SEARCH" || "FOWNER" || "FSETID" || "IPC_LOCK" || "IPC_OWNER" || "KILL" || "LEASE" || "LINUX_IMMUTABLE" || "MAC_ADMIN" || "MAC_OVERRIDE" || "MKNOD" || "NET_ADMIN" || "NET_BIND_SERVICE" || "NET_BROADCAST" || "NET_RAW" || "SETFCAP" || "SETGID" || "SETPCAP" || "SETUID" || "SYS_ADMIN" || "SYS_BOOT" || "SYS_CHROOT" || "SYS_MODULE" || "SYS_NICE" || "SYS_PACCT" || "SYS_PTRACE" || "SYS_RAWIO" || "SYS_RESOURCE" || "SYS_TIME" || "SYS_TTY_CONFIG" || "SYSLOG" || "WAKE_ALARM",
+ *         ],
+ *       },
  *     },
  *   ],
  *   OperatingSystem: "AMAZON_LINUX_2023", // required
@@ -325,6 +342,11 @@ export interface CreateContainerGroupDefinitionCommandOutput extends CreateConta
  * //       },
  * //       ResolvedImageDigest: "STRING_VALUE",
  * //       ServerSdkVersion: "STRING_VALUE",
+ * //       LinuxCapabilities: { // LinuxCapabilities
+ * //         Include: [ // LinuxCapabilityList
+ * //           "AUDIT_CONTROL" || "AUDIT_WRITE" || "BLOCK_SUSPEND" || "CHOWN" || "DAC_OVERRIDE" || "DAC_READ_SEARCH" || "FOWNER" || "FSETID" || "IPC_LOCK" || "IPC_OWNER" || "KILL" || "LEASE" || "LINUX_IMMUTABLE" || "MAC_ADMIN" || "MAC_OVERRIDE" || "MKNOD" || "NET_ADMIN" || "NET_BIND_SERVICE" || "NET_BROADCAST" || "NET_RAW" || "SETFCAP" || "SETGID" || "SETPCAP" || "SETUID" || "SYS_ADMIN" || "SYS_BOOT" || "SYS_CHROOT" || "SYS_MODULE" || "SYS_NICE" || "SYS_PACCT" || "SYS_PTRACE" || "SYS_RAWIO" || "SYS_RESOURCE" || "SYS_TIME" || "SYS_TTY_CONFIG" || "SYSLOG" || "WAKE_ALARM",
+ * //         ],
+ * //       },
  * //     },
  * //     SupportContainerDefinitions: [ // SupportContainerDefinitionList
  * //       { // SupportContainerDefinition
@@ -371,6 +393,11 @@ export interface CreateContainerGroupDefinitionCommandOutput extends CreateConta
  * //         },
  * //         ResolvedImageDigest: "STRING_VALUE",
  * //         Vcpu: Number("double"),
+ * //         LinuxCapabilities: {
+ * //           Include: [
+ * //             "AUDIT_CONTROL" || "AUDIT_WRITE" || "BLOCK_SUSPEND" || "CHOWN" || "DAC_OVERRIDE" || "DAC_READ_SEARCH" || "FOWNER" || "FSETID" || "IPC_LOCK" || "IPC_OWNER" || "KILL" || "LEASE" || "LINUX_IMMUTABLE" || "MAC_ADMIN" || "MAC_OVERRIDE" || "MKNOD" || "NET_ADMIN" || "NET_BIND_SERVICE" || "NET_BROADCAST" || "NET_RAW" || "SETFCAP" || "SETGID" || "SETPCAP" || "SETUID" || "SYS_ADMIN" || "SYS_BOOT" || "SYS_CHROOT" || "SYS_MODULE" || "SYS_NICE" || "SYS_PACCT" || "SYS_PTRACE" || "SYS_RAWIO" || "SYS_RESOURCE" || "SYS_TIME" || "SYS_TTY_CONFIG" || "SYSLOG" || "WAKE_ALARM",
+ * //           ],
+ * //         },
  * //       },
  * //     ],
  * //     VersionNumber: Number("int"),

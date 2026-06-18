@@ -118,7 +118,7 @@ export interface CreateFleetLocationsCommandOutput extends CreateFleetLocationsO
  *             Resolve the issue before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resource was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link NotReadyException} (client fault)
  *  <p> The operation failed because Amazon GameLift Servers has not yet finished validating this compute. We

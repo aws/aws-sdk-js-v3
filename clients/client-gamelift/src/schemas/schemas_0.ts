@@ -462,6 +462,7 @@ const _ITd = "IdempotencyToken";
 const _IU = "ImageUri";
 const _IVCB = "IpV4CidrBlock";
 const _In = "Instances";
+const _Inc = "Include";
 const _Ins = "Instance";
 const _K = "Key";
 const _L = "Location";
@@ -488,7 +489,8 @@ const _LCI = "ListComputeInput";
 const _LCL = "LocationConfigurationList";
 const _LCO = "ListComputeOutput";
 const _LCT = "LastClaimTime";
-const _LCi = "ListCompute";
+const _LCi = "LinuxCapabilities";
+const _LCis = "ListCompute";
 const _LCo = "LocationConfiguration";
 const _LD = "LocationalDeployments";
 const _LDI = "LatestDeploymentId";
@@ -1505,8 +1507,8 @@ export var DescribeContainerGroupPortMappingsInput$: StaticStructureSchema = [3,
 ];
 export var DescribeContainerGroupPortMappingsOutput$: StaticStructureSchema = [3, n0, _DCGPMO,
   0,
-  [_FI, _L, _CGDA, _CGT, _CN, _II, _CGPMo],
-  [0, 0, 0, 0, 0, 0, [() => ContainerGroupPortMappingList, 0]]
+  [_FI, _FA, _L, _CGDA, _CGT, _CN, _II, _CGPMo],
+  [0, 0, 0, 0, 0, 0, 0, [() => ContainerGroupPortMappingList, 0]]
 ];
 export var DescribeEC2InstanceLimitsInput$: StaticStructureSchema = [3, n0, _DECILI,
   0,
@@ -1835,13 +1837,13 @@ export var GameServer$: StaticStructureSchema = [3, n0, _GS,
 ];
 export var GameServerContainerDefinition$: StaticStructureSchema = [3, n0, _GSCD,
   0,
-  [_CNo, _DOe, _MP, _EO, _IU, _PCo, _RID, _SSV],
-  [0, () => ContainerDependencyList, () => ContainerMountPointList, () => ContainerEnvironmentList, 0, [() => ContainerPortConfiguration$, 0], 0, 0]
+  [_CNo, _DOe, _MP, _EO, _IU, _PCo, _RID, _SSV, _LCi],
+  [0, () => ContainerDependencyList, () => ContainerMountPointList, () => ContainerEnvironmentList, 0, [() => ContainerPortConfiguration$, 0], 0, 0, () => LinuxCapabilities$]
 ];
 export var GameServerContainerDefinitionInput$: StaticStructureSchema = [3, n0, _GSCDI,
   0,
-  [_CNo, _IU, _PCo, _SSV, _DOe, _MP, _EO],
-  [0, 0, [() => ContainerPortConfiguration$, 0], 0, () => ContainerDependencyList, () => ContainerMountPointList, () => ContainerEnvironmentList], 4
+  [_CNo, _IU, _PCo, _SSV, _DOe, _MP, _EO, _LCi],
+  [0, 0, [() => ContainerPortConfiguration$, 0], 0, () => ContainerDependencyList, () => ContainerMountPointList, () => ContainerEnvironmentList, () => LinuxCapabilities$], 4
 ];
 export var GameServerContainerGroupCounts$: StaticStructureSchema = [3, n0, _GSCGC,
   0,
@@ -1977,6 +1979,11 @@ export var LaunchTemplateSpecification$: StaticStructureSchema = [3, n0, _LTS,
   0,
   [_LTI, _LTN, _V],
   [0, 0, 0]
+];
+export var LinuxCapabilities$: StaticStructureSchema = [3, n0, _LCi,
+  0,
+  [_Inc],
+  [64 | 0]
 ];
 export var ListAliasesInput$: StaticStructureSchema = [3, n0, _LAI,
   0,
@@ -2395,13 +2402,13 @@ export var StopMatchmakingOutput$: StaticStructureSchema = [3, n0, _SMOt,
 ];
 export var SupportContainerDefinition$: StaticStructureSchema = [3, n0, _SCDu,
   0,
-  [_CNo, _DOe, _MP, _EO, _Es, _HC, _IU, _MHLM, _PCo, _RID, _Vc],
-  [0, () => ContainerDependencyList, () => ContainerMountPointList, () => ContainerEnvironmentList, 2, () => ContainerHealthCheck$, 0, 1, [() => ContainerPortConfiguration$, 0], 0, 1]
+  [_CNo, _DOe, _MP, _EO, _Es, _HC, _IU, _MHLM, _PCo, _RID, _Vc, _LCi],
+  [0, () => ContainerDependencyList, () => ContainerMountPointList, () => ContainerEnvironmentList, 2, () => ContainerHealthCheck$, 0, 1, [() => ContainerPortConfiguration$, 0], 0, 1, () => LinuxCapabilities$]
 ];
 export var SupportContainerDefinitionInput$: StaticStructureSchema = [3, n0, _SCDI,
   0,
-  [_CNo, _IU, _DOe, _MP, _EO, _Es, _HC, _MHLM, _PCo, _Vc],
-  [0, 0, () => ContainerDependencyList, () => ContainerMountPointList, () => ContainerEnvironmentList, 2, () => ContainerHealthCheck$, 1, [() => ContainerPortConfiguration$, 0], 1], 2
+  [_CNo, _IU, _DOe, _MP, _EO, _Es, _HC, _MHLM, _PCo, _Vc, _LCi],
+  [0, 0, () => ContainerDependencyList, () => ContainerMountPointList, () => ContainerEnvironmentList, 2, () => ContainerHealthCheck$, 1, [() => ContainerPortConfiguration$, 0], 1, () => LinuxCapabilities$], 2
 ];
 export var SuspendGameServerGroupInput$: StaticStructureSchema = [3, n0, _SGSGI,
   0,
@@ -2745,6 +2752,7 @@ var IpPermissionsList: StaticListSchema = [1, n0, _IPL,
   0, [() => IpPermission$,
     0]
 ];
+var LinuxCapabilityList = 64 | 0;
 var LocationAttributesList: StaticListSchema = [1, n0, _LAL,
   0, () => LocationAttributes$
 ];
@@ -3082,7 +3090,7 @@ export var ListAliases$: StaticOperationSchema = [9, n0, _LAi,
 export var ListBuilds$: StaticOperationSchema = [9, n0, _LB,
   0, () => ListBuildsInput$, () => ListBuildsOutput$
 ];
-export var ListCompute$: StaticOperationSchema = [9, n0, _LCi,
+export var ListCompute$: StaticOperationSchema = [9, n0, _LCis,
   0, () => ListComputeInput$, () => ListComputeOutput$
 ];
 export var ListContainerFleets$: StaticOperationSchema = [9, n0, _LCF,

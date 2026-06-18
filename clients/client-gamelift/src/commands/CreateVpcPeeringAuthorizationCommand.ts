@@ -50,6 +50,42 @@ export interface CreateVpcPeeringAuthorizationCommandOutput extends CreateVpcPee
  *             Amazon Web Services account that you use to manage Amazon GameLift Servers. </p>
  *          <p>The authorization remains valid for 24 hours unless it is canceled. You must create or
  *             delete the peering connection while the authorization is valid. </p>
+ *          <note>
+ *             <p>Amazon GameLift Servers uses the caller's credentials to update peer-VPC resources. The IAM user
+ *                 that calls this operation must have the following Amazon EC2 permissions enabled:</p>
+ *             <ul>
+ *                <li>
+ *                   <p>
+ *                      <code>ec2:AcceptVpcPeeringConnection</code>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <code>ec2:AuthorizeSecurityGroupEgress</code>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <code>ec2:AuthorizeSecurityGroupIngress</code>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <code>ec2:CreateRoute</code>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <code>ec2:DescribeRouteTables</code>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <code>ec2:DescribeSecurityGroups</code>
+ *                   </p>
+ *                </li>
+ *             </ul>
+ *          </note>
  *          <p>
  *             <b>Related actions</b>
  *          </p>
@@ -97,7 +133,7 @@ export interface CreateVpcPeeringAuthorizationCommandOutput extends CreateVpcPee
  *             values before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resource was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>

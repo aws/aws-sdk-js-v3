@@ -46,8 +46,7 @@ export interface DescribeFleetLocationAttributesCommandOutput extends DescribeFl
  *             retrieve results as a set of sequential pages. </p>
  *          <p>If successful, a <code>LocationAttributes</code> object is returned for each requested
  *             location. If the fleet does not have a requested location, no information is returned.
- *             This operation does not return the home Region. To get information on a fleet's home
- *             Region, call <code>DescribeFleetAttributes</code>.</p>
+ *             </p>
  *          <p>
  *             <b>Learn more</b>
  *          </p>
@@ -112,7 +111,7 @@ export interface DescribeFleetLocationAttributesCommandOutput extends DescribeFl
  *             values before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resource was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>

@@ -5,7 +5,8 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import type { UpdateBuildInput, UpdateBuildOutput } from "../models/models_0";
+import type { UpdateBuildInput } from "../models/models_0";
+import type { UpdateBuildOutput } from "../models/models_1";
 import { UpdateBuild$ } from "../schemas/schemas_0";
 
 /**
@@ -88,7 +89,7 @@ export interface UpdateBuildCommandOutput extends UpdateBuildOutput, __MetadataB
  *             values before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resource was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>

@@ -37,6 +37,13 @@ export interface UpdateGameServerGroupCommandOutput extends UpdateGameServerGrou
  *             updated values. Before applying the updates, the new values are validated to ensure that
  *             Amazon GameLift Servers FleetIQ can continue to perform instance balancing activity. If successful, a
  *                 <code>GameServerGroup</code> object is returned.</p>
+ *          <note>
+ *             <p>Target tracking Auto Scaling policies on the Auto Scaling group cannot be
+ *                 updated through the Amazon Web Services Management Console. Instead, use the Amazon Elastic Compute Cloud Auto Scaling
+ *                 <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PutScalingPolicy.html">
+ *                   <code>PutScalingPolicy</code>
+ *                </a> API action to update these policies.</p>
+ *          </note>
  *          <p>
  *             <b>Learn more</b>
  *          </p>
@@ -107,7 +114,7 @@ export interface UpdateGameServerGroupCommandOutput extends UpdateGameServerGrou
  *             values before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resource was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>

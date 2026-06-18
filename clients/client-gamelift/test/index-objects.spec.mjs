@@ -407,6 +407,8 @@ import {
   LaunchTemplateSpecification$,
   LimitExceededException,
   LimitExceededException$,
+  LinuxCapabilities$,
+  LinuxCapability,
   ListAliases$,
   ListAliasesCommand,
   ListAliasesInput$,
@@ -1134,6 +1136,7 @@ assert(typeof InstanceCredentials$ === "object");
 assert(typeof InstanceDefinition$ === "object");
 assert(typeof IpPermission$ === "object");
 assert(typeof LaunchTemplateSpecification$ === "object");
+assert(typeof LinuxCapabilities$ === "object");
 assert(typeof ListAliasesInput$ === "object");
 assert(typeof ListAliasesOutput$ === "object");
 assert(typeof ListBuildsInput$ === "object");
@@ -1308,6 +1311,7 @@ assert(typeof GameSessionStatusReason === "object");
 assert(typeof InstanceRoleCredentialsProvider === "object");
 assert(typeof InstanceStatus === "object");
 assert(typeof IpProtocol === "object");
+assert(typeof LinuxCapability === "object");
 assert(typeof ListComputeInputStatus === "object");
 assert(typeof LocationFilter === "object");
 assert(typeof LocationUpdateStatus === "object");

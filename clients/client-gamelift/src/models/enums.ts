@@ -857,6 +857,54 @@ export type ContainerGroupType = (typeof ContainerGroupType)[keyof typeof Contai
  * @public
  * @enum
  */
+export const LinuxCapability = {
+  AUDIT_CONTROL: "AUDIT_CONTROL",
+  AUDIT_WRITE: "AUDIT_WRITE",
+  BLOCK_SUSPEND: "BLOCK_SUSPEND",
+  CHOWN: "CHOWN",
+  DAC_OVERRIDE: "DAC_OVERRIDE",
+  DAC_READ_SEARCH: "DAC_READ_SEARCH",
+  FOWNER: "FOWNER",
+  FSETID: "FSETID",
+  IPC_LOCK: "IPC_LOCK",
+  IPC_OWNER: "IPC_OWNER",
+  KILL: "KILL",
+  LEASE: "LEASE",
+  LINUX_IMMUTABLE: "LINUX_IMMUTABLE",
+  MAC_ADMIN: "MAC_ADMIN",
+  MAC_OVERRIDE: "MAC_OVERRIDE",
+  MKNOD: "MKNOD",
+  NET_ADMIN: "NET_ADMIN",
+  NET_BIND_SERVICE: "NET_BIND_SERVICE",
+  NET_BROADCAST: "NET_BROADCAST",
+  NET_RAW: "NET_RAW",
+  SETFCAP: "SETFCAP",
+  SETGID: "SETGID",
+  SETPCAP: "SETPCAP",
+  SETUID: "SETUID",
+  SYSLOG: "SYSLOG",
+  SYS_ADMIN: "SYS_ADMIN",
+  SYS_BOOT: "SYS_BOOT",
+  SYS_CHROOT: "SYS_CHROOT",
+  SYS_MODULE: "SYS_MODULE",
+  SYS_NICE: "SYS_NICE",
+  SYS_PACCT: "SYS_PACCT",
+  SYS_PTRACE: "SYS_PTRACE",
+  SYS_RAWIO: "SYS_RAWIO",
+  SYS_RESOURCE: "SYS_RESOURCE",
+  SYS_TIME: "SYS_TIME",
+  SYS_TTY_CONFIG: "SYS_TTY_CONFIG",
+  WAKE_ALARM: "WAKE_ALARM",
+} as const;
+/**
+ * @public
+ */
+export type LinuxCapability = (typeof LinuxCapability)[keyof typeof LinuxCapability];
+
+/**
+ * @public
+ * @enum
+ */
 export const ContainerMountPointAccessLevel = {
   READ_AND_WRITE: "READ_AND_WRITE",
   READ_ONLY: "READ_ONLY",

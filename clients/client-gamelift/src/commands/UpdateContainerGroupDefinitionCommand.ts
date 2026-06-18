@@ -50,8 +50,8 @@ export interface UpdateContainerGroupDefinitionCommandOutput extends UpdateConta
  *           All other values remain the same as the source version.</p>
  *             </li>
  *             <li>
- *                <p>Change a game server container definition. Provide the updated container
- *           definition.</p>
+ *                <p>Change a game server container definition. Provide a complete set of container
+ *           definitions, including the updated definition.</p>
  *             </li>
  *             <li>
  *                <p>Add or change a support container definition. Provide a complete set of container
@@ -113,6 +113,11 @@ export interface UpdateContainerGroupDefinitionCommandOutput extends UpdateConta
  *       ],
  *     },
  *     ServerSdkVersion: "STRING_VALUE", // required
+ *     LinuxCapabilities: { // LinuxCapabilities
+ *       Include: [ // LinuxCapabilityList
+ *         "AUDIT_CONTROL" || "AUDIT_WRITE" || "BLOCK_SUSPEND" || "CHOWN" || "DAC_OVERRIDE" || "DAC_READ_SEARCH" || "FOWNER" || "FSETID" || "IPC_LOCK" || "IPC_OWNER" || "KILL" || "LEASE" || "LINUX_IMMUTABLE" || "MAC_ADMIN" || "MAC_OVERRIDE" || "MKNOD" || "NET_ADMIN" || "NET_BIND_SERVICE" || "NET_BROADCAST" || "NET_RAW" || "SETFCAP" || "SETGID" || "SETPCAP" || "SETUID" || "SYS_ADMIN" || "SYS_BOOT" || "SYS_CHROOT" || "SYS_MODULE" || "SYS_NICE" || "SYS_PACCT" || "SYS_PTRACE" || "SYS_RAWIO" || "SYS_RESOURCE" || "SYS_TIME" || "SYS_TTY_CONFIG" || "SYSLOG" || "WAKE_ALARM",
+ *       ],
+ *     },
  *   },
  *   SupportContainerDefinitions: [ // SupportContainerDefinitionInputList
  *     { // SupportContainerDefinitionInput
@@ -158,6 +163,11 @@ export interface UpdateContainerGroupDefinitionCommandOutput extends UpdateConta
  *         ],
  *       },
  *       Vcpu: Number("double"),
+ *       LinuxCapabilities: {
+ *         Include: [
+ *           "AUDIT_CONTROL" || "AUDIT_WRITE" || "BLOCK_SUSPEND" || "CHOWN" || "DAC_OVERRIDE" || "DAC_READ_SEARCH" || "FOWNER" || "FSETID" || "IPC_LOCK" || "IPC_OWNER" || "KILL" || "LEASE" || "LINUX_IMMUTABLE" || "MAC_ADMIN" || "MAC_OVERRIDE" || "MKNOD" || "NET_ADMIN" || "NET_BIND_SERVICE" || "NET_BROADCAST" || "NET_RAW" || "SETFCAP" || "SETGID" || "SETPCAP" || "SETUID" || "SYS_ADMIN" || "SYS_BOOT" || "SYS_CHROOT" || "SYS_MODULE" || "SYS_NICE" || "SYS_PACCT" || "SYS_PTRACE" || "SYS_RAWIO" || "SYS_RESOURCE" || "SYS_TIME" || "SYS_TTY_CONFIG" || "SYSLOG" || "WAKE_ALARM",
+ *         ],
+ *       },
  *     },
  *   ],
  *   TotalMemoryLimitMebibytes: Number("int"),
@@ -210,6 +220,11 @@ export interface UpdateContainerGroupDefinitionCommandOutput extends UpdateConta
  * //       },
  * //       ResolvedImageDigest: "STRING_VALUE",
  * //       ServerSdkVersion: "STRING_VALUE",
+ * //       LinuxCapabilities: { // LinuxCapabilities
+ * //         Include: [ // LinuxCapabilityList
+ * //           "AUDIT_CONTROL" || "AUDIT_WRITE" || "BLOCK_SUSPEND" || "CHOWN" || "DAC_OVERRIDE" || "DAC_READ_SEARCH" || "FOWNER" || "FSETID" || "IPC_LOCK" || "IPC_OWNER" || "KILL" || "LEASE" || "LINUX_IMMUTABLE" || "MAC_ADMIN" || "MAC_OVERRIDE" || "MKNOD" || "NET_ADMIN" || "NET_BIND_SERVICE" || "NET_BROADCAST" || "NET_RAW" || "SETFCAP" || "SETGID" || "SETPCAP" || "SETUID" || "SYS_ADMIN" || "SYS_BOOT" || "SYS_CHROOT" || "SYS_MODULE" || "SYS_NICE" || "SYS_PACCT" || "SYS_PTRACE" || "SYS_RAWIO" || "SYS_RESOURCE" || "SYS_TIME" || "SYS_TTY_CONFIG" || "SYSLOG" || "WAKE_ALARM",
+ * //         ],
+ * //       },
  * //     },
  * //     SupportContainerDefinitions: [ // SupportContainerDefinitionList
  * //       { // SupportContainerDefinition
@@ -256,6 +271,11 @@ export interface UpdateContainerGroupDefinitionCommandOutput extends UpdateConta
  * //         },
  * //         ResolvedImageDigest: "STRING_VALUE",
  * //         Vcpu: Number("double"),
+ * //         LinuxCapabilities: {
+ * //           Include: [
+ * //             "AUDIT_CONTROL" || "AUDIT_WRITE" || "BLOCK_SUSPEND" || "CHOWN" || "DAC_OVERRIDE" || "DAC_READ_SEARCH" || "FOWNER" || "FSETID" || "IPC_LOCK" || "IPC_OWNER" || "KILL" || "LEASE" || "LINUX_IMMUTABLE" || "MAC_ADMIN" || "MAC_OVERRIDE" || "MKNOD" || "NET_ADMIN" || "NET_BIND_SERVICE" || "NET_BROADCAST" || "NET_RAW" || "SETFCAP" || "SETGID" || "SETPCAP" || "SETUID" || "SYS_ADMIN" || "SYS_BOOT" || "SYS_CHROOT" || "SYS_MODULE" || "SYS_NICE" || "SYS_PACCT" || "SYS_PTRACE" || "SYS_RAWIO" || "SYS_RESOURCE" || "SYS_TIME" || "SYS_TTY_CONFIG" || "SYSLOG" || "WAKE_ALARM",
+ * //           ],
+ * //         },
  * //       },
  * //     ],
  * //     VersionNumber: Number("int"),
@@ -286,7 +306,7 @@ export interface UpdateContainerGroupDefinitionCommandOutput extends UpdateConta
  *             Resolve the issue before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resource was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>

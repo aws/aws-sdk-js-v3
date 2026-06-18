@@ -50,7 +50,7 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
- * <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+ * <p>The requested resource was not found. The resource was either not created yet or deleted.</p>
  * @public
  */
 export class NotFoundException extends __BaseException {

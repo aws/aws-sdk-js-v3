@@ -100,7 +100,7 @@ export interface AcceptMatchCommandOutput extends AcceptMatchOutput, __MetadataB
  *             values before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resource was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link UnsupportedRegionException} (client fault)
  *  <p>The requested operation is not supported in the Region specified.</p>
