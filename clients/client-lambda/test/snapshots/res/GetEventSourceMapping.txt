@@ -42,6 +42,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       {}
     ]
   },
+  "FilterCriteriaError": {
+    "ErrorCode": "__ErrorCode__",
+    "Message": "__Message__"
+  },
+  "KMSKeyArn": "__KMSKeyArn__",
+  "MetricsConfig": {
+    "Metrics": []
+  },
+  "LoggingConfig": {
+    "SystemLogLevel": "__SystemLogLevel__"
+  },
+  "ScalingConfig": {
+    "MaximumConcurrency": 0
+  },
   "FunctionArn": "__FunctionArn__",
   "LastModified": 946702799.999,
   "LastProcessingResult": "__LastProcessingResult__",
@@ -171,26 +185,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ]
     }
   },
-  "ScalingConfig": {
-    "MaximumConcurrency": 0
-  },
   "DocumentDBEventSourceConfig": {
     "DatabaseName": "__DatabaseName__",
     "CollectionName": "__CollectionName__",
     "FullDocument": "__FullDocument__"
   },
-  "KMSKeyArn": "__KMSKeyArn__",
-  "FilterCriteriaError": {
-    "ErrorCode": "__ErrorCode__",
-    "Message": "__Message__"
-  },
   "EventSourceMappingArn": "__EventSourceMappingArn__",
-  "MetricsConfig": {
-    "Metrics": []
-  },
-  "LoggingConfig": {
-    "SystemLogLevel": "__SystemLogLevel__"
-  },
   "ProvisionedPollerConfig": {
     "MinimumPollers": 0,
     "MaximumPollers": 0,
@@ -214,6 +214,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       {},
       {}
     ]
+  },
+  FilterCriteriaError: {
+    ErrorCode: "__ErrorCode__",
+    Message: "__Message__"
+  },
+  KMSKeyArn: "__KMSKeyArn__",
+  MetricsConfig: {
+    Metrics: []
+  },
+  LoggingConfig: {
+    SystemLogLevel: "__SystemLogLevel__"
+  },
+  ScalingConfig: {
+    MaximumConcurrency: (number) 0
   },
   FunctionArn: "__FunctionArn__",
   LastModified: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
@@ -344,26 +358,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ]
     }
   },
-  ScalingConfig: {
-    MaximumConcurrency: (number) 0
-  },
   DocumentDBEventSourceConfig: {
     DatabaseName: "__DatabaseName__",
     CollectionName: "__CollectionName__",
     FullDocument: "__FullDocument__"
   },
-  KMSKeyArn: "__KMSKeyArn__",
-  FilterCriteriaError: {
-    ErrorCode: "__ErrorCode__",
-    Message: "__Message__"
-  },
   EventSourceMappingArn: "__EventSourceMappingArn__",
-  MetricsConfig: {
-    Metrics: []
-  },
-  LoggingConfig: {
-    SystemLogLevel: "__SystemLogLevel__"
-  },
   ProvisionedPollerConfig: {
     MinimumPollers: (number) 0,
     MaximumPollers: (number) 0,

@@ -48,8 +48,8 @@ export interface PutProvisionedConcurrencyConfigCommandOutput extends PutProvisi
  * const response = await client.send(command);
  * // { // PutProvisionedConcurrencyConfigResponse
  * //   RequestedProvisionedConcurrentExecutions: Number("int"),
- * //   AvailableProvisionedConcurrentExecutions: Number("int"),
  * //   AllocatedProvisionedConcurrentExecutions: Number("int"),
+ * //   AvailableProvisionedConcurrentExecutions: Number("int"),
  * //   Status: "IN_PROGRESS" || "READY" || "FAILED",
  * //   StatusReason: "STRING_VALUE",
  * //   LastModified: "STRING_VALUE",

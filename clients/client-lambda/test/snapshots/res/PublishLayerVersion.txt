@@ -40,17 +40,17 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   "Description": "__Description__",
   "CreatedDate": "__CreatedDate__",
   "Version": 0,
+  "CompatibleArchitectures": [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
   "CompatibleRuntimes": [
     "__member__",
     "__member__",
     "__member__"
   ],
-  "LicenseInfo": "__LicenseInfo__",
-  "CompatibleArchitectures": [
-    "__member__",
-    "__member__",
-    "__member__"
-  ]
+  "LicenseInfo": "__LicenseInfo__"
 }
 
 
@@ -68,17 +68,17 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   Description: "__Description__",
   CreatedDate: "__CreatedDate__",
   Version: (number) 0,
+  CompatibleArchitectures: [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
   CompatibleRuntimes: [
     "__member__",
     "__member__",
     "__member__"
   ],
   LicenseInfo: "__LicenseInfo__",
-  CompatibleArchitectures: [
-    "__member__",
-    "__member__",
-    "__member__"
-  ],
   $metadata: {
     httpStatusCode: (number) 200,
     requestId: "1111amzn-requ-stid-uuid-000000001111",

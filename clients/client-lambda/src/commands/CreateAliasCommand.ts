@@ -70,6 +70,9 @@ export interface CreateAliasCommandOutput extends AliasConfiguration, __Metadata
  * @see {@link CreateAliasCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
  *
+ * @throws {@link AliasLimitExceededException} (client fault)
+ *  <p>Lambda couldn't create the alias because your Amazon Web Services account has exceeded the maximum number of aliases allowed per Lambda function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>.</p>
+ *
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>One of the parameters in the request is not valid.</p>
  *

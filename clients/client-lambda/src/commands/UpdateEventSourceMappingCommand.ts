@@ -48,7 +48,20 @@ export interface UpdateEventSourceMappingCommandOutput extends EventSourceMappin
  *       },
  *     ],
  *   },
+ *   KMSKeyArn: "STRING_VALUE",
+ *   MetricsConfig: { // EventSourceMappingMetricsConfig
+ *     Metrics: [ // EventSourceMappingMetricList
+ *       "EventCount" || "ErrorCount" || "KafkaMetrics",
+ *     ],
+ *   },
+ *   LoggingConfig: { // EventSourceMappingLoggingConfig
+ *     SystemLogLevel: "DEBUG" || "INFO" || "WARN",
+ *   },
+ *   ScalingConfig: { // ScalingConfig
+ *     MaximumConcurrency: Number("int"),
+ *   },
  *   MaximumBatchingWindowInSeconds: Number("int"),
+ *   ParallelizationFactor: Number("int"),
  *   DestinationConfig: { // DestinationConfig
  *     OnSuccess: { // OnSuccess
  *       Destination: "STRING_VALUE",
@@ -60,20 +73,16 @@ export interface UpdateEventSourceMappingCommandOutput extends EventSourceMappin
  *   MaximumRecordAgeInSeconds: Number("int"),
  *   BisectBatchOnFunctionError: true || false,
  *   MaximumRetryAttempts: Number("int"),
- *   ParallelizationFactor: Number("int"),
+ *   TumblingWindowInSeconds: Number("int"),
  *   SourceAccessConfigurations: [ // SourceAccessConfigurations
  *     { // SourceAccessConfiguration
  *       Type: "BASIC_AUTH" || "VPC_SUBNET" || "VPC_SECURITY_GROUP" || "SASL_SCRAM_512_AUTH" || "SASL_SCRAM_256_AUTH" || "VIRTUAL_HOST" || "CLIENT_CERTIFICATE_TLS_AUTH" || "SERVER_ROOT_CA_CERTIFICATE",
  *       URI: "STRING_VALUE",
  *     },
  *   ],
- *   TumblingWindowInSeconds: Number("int"),
  *   FunctionResponseTypes: [ // FunctionResponseTypeList
  *     "ReportBatchItemFailures",
  *   ],
- *   ScalingConfig: { // ScalingConfig
- *     MaximumConcurrency: Number("int"),
- *   },
  *   AmazonManagedKafkaEventSourceConfig: { // AmazonManagedKafkaEventSourceConfig
  *     ConsumerGroupId: "STRING_VALUE",
  *     SchemaRegistryConfig: { // KafkaSchemaRegistryConfig
@@ -115,15 +124,6 @@ export interface UpdateEventSourceMappingCommandOutput extends EventSourceMappin
  *     CollectionName: "STRING_VALUE",
  *     FullDocument: "UpdateLookup" || "Default",
  *   },
- *   KMSKeyArn: "STRING_VALUE",
- *   MetricsConfig: { // EventSourceMappingMetricsConfig
- *     Metrics: [ // EventSourceMappingMetricList
- *       "EventCount" || "ErrorCount" || "KafkaMetrics",
- *     ],
- *   },
- *   LoggingConfig: { // EventSourceMappingLoggingConfig
- *     SystemLogLevel: "DEBUG" || "INFO" || "WARN",
- *   },
  *   ProvisionedPollerConfig: { // ProvisionedPollerConfig
  *     MinimumPollers: Number("int"),
  *     MaximumPollers: Number("int"),
@@ -146,6 +146,22 @@ export interface UpdateEventSourceMappingCommandOutput extends EventSourceMappin
  * //         Pattern: "STRING_VALUE",
  * //       },
  * //     ],
+ * //   },
+ * //   FilterCriteriaError: { // FilterCriteriaError
+ * //     ErrorCode: "STRING_VALUE",
+ * //     Message: "STRING_VALUE",
+ * //   },
+ * //   KMSKeyArn: "STRING_VALUE",
+ * //   MetricsConfig: { // EventSourceMappingMetricsConfig
+ * //     Metrics: [ // EventSourceMappingMetricList
+ * //       "EventCount" || "ErrorCount" || "KafkaMetrics",
+ * //     ],
+ * //   },
+ * //   LoggingConfig: { // EventSourceMappingLoggingConfig
+ * //     SystemLogLevel: "DEBUG" || "INFO" || "WARN",
+ * //   },
+ * //   ScalingConfig: { // ScalingConfig
+ * //     MaximumConcurrency: Number("int"),
  * //   },
  * //   FunctionArn: "STRING_VALUE",
  * //   LastModified: new Date("TIMESTAMP"),
@@ -222,28 +238,12 @@ export interface UpdateEventSourceMappingCommandOutput extends EventSourceMappin
  * //       ],
  * //     },
  * //   },
- * //   ScalingConfig: { // ScalingConfig
- * //     MaximumConcurrency: Number("int"),
- * //   },
  * //   DocumentDBEventSourceConfig: { // DocumentDBEventSourceConfig
  * //     DatabaseName: "STRING_VALUE",
  * //     CollectionName: "STRING_VALUE",
  * //     FullDocument: "UpdateLookup" || "Default",
  * //   },
- * //   KMSKeyArn: "STRING_VALUE",
- * //   FilterCriteriaError: { // FilterCriteriaError
- * //     ErrorCode: "STRING_VALUE",
- * //     Message: "STRING_VALUE",
- * //   },
  * //   EventSourceMappingArn: "STRING_VALUE",
- * //   MetricsConfig: { // EventSourceMappingMetricsConfig
- * //     Metrics: [ // EventSourceMappingMetricList
- * //       "EventCount" || "ErrorCount" || "KafkaMetrics",
- * //     ],
- * //   },
- * //   LoggingConfig: { // EventSourceMappingLoggingConfig
- * //     SystemLogLevel: "DEBUG" || "INFO" || "WARN",
- * //   },
  * //   ProvisionedPollerConfig: { // ProvisionedPollerConfig
  * //     MinimumPollers: Number("int"),
  * //     MaximumPollers: Number("int"),
@@ -288,7 +288,7 @@ export interface UpdateEventSourceMappingCommandOutput extends EventSourceMappin
  *   BatchSize: 123,
  *   Enabled: true,
  *   FunctionName: "myFunction",
- *   UUID: "1234xCy789012"
+ *   UUID: "a1b2c3d4-5678-90ab-cdef-11111EXAMPLE"
  * };
  * const command = new UpdateEventSourceMappingCommand(input);
  * const response = await client.send(command);
@@ -301,7 +301,7 @@ export interface UpdateEventSourceMappingCommandOutput extends EventSourceMappin
  *   LastProcessingResult: "",
  *   State: "",
  *   StateTransitionReason: "",
- *   UUID: "1234xCy789012"
+ *   UUID: "a1b2c3d4-5678-90ab-cdef-11111EXAMPLE"
  * }
  * *\/
  * ```

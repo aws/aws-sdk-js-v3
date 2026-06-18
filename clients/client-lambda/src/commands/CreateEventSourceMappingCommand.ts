@@ -48,6 +48,18 @@ export interface CreateEventSourceMappingCommandOutput extends EventSourceMappin
  *       },
  *     ],
  *   },
+ *   KMSKeyArn: "STRING_VALUE",
+ *   MetricsConfig: { // EventSourceMappingMetricsConfig
+ *     Metrics: [ // EventSourceMappingMetricList
+ *       "EventCount" || "ErrorCount" || "KafkaMetrics",
+ *     ],
+ *   },
+ *   LoggingConfig: { // EventSourceMappingLoggingConfig
+ *     SystemLogLevel: "DEBUG" || "INFO" || "WARN",
+ *   },
+ *   ScalingConfig: { // ScalingConfig
+ *     MaximumConcurrency: Number("int"),
+ *   },
  *   MaximumBatchingWindowInSeconds: Number("int"),
  *   ParallelizationFactor: Number("int"),
  *   StartingPosition: "TRIM_HORIZON" || "LATEST" || "AT_TIMESTAMP",
@@ -125,22 +137,10 @@ export interface CreateEventSourceMappingCommandOutput extends EventSourceMappin
  *       ],
  *     },
  *   },
- *   ScalingConfig: { // ScalingConfig
- *     MaximumConcurrency: Number("int"),
- *   },
  *   DocumentDBEventSourceConfig: { // DocumentDBEventSourceConfig
  *     DatabaseName: "STRING_VALUE",
  *     CollectionName: "STRING_VALUE",
  *     FullDocument: "UpdateLookup" || "Default",
- *   },
- *   KMSKeyArn: "STRING_VALUE",
- *   MetricsConfig: { // EventSourceMappingMetricsConfig
- *     Metrics: [ // EventSourceMappingMetricList
- *       "EventCount" || "ErrorCount" || "KafkaMetrics",
- *     ],
- *   },
- *   LoggingConfig: { // EventSourceMappingLoggingConfig
- *     SystemLogLevel: "DEBUG" || "INFO" || "WARN",
  *   },
  *   ProvisionedPollerConfig: { // ProvisionedPollerConfig
  *     MinimumPollers: Number("int"),
@@ -164,6 +164,22 @@ export interface CreateEventSourceMappingCommandOutput extends EventSourceMappin
  * //         Pattern: "STRING_VALUE",
  * //       },
  * //     ],
+ * //   },
+ * //   FilterCriteriaError: { // FilterCriteriaError
+ * //     ErrorCode: "STRING_VALUE",
+ * //     Message: "STRING_VALUE",
+ * //   },
+ * //   KMSKeyArn: "STRING_VALUE",
+ * //   MetricsConfig: { // EventSourceMappingMetricsConfig
+ * //     Metrics: [ // EventSourceMappingMetricList
+ * //       "EventCount" || "ErrorCount" || "KafkaMetrics",
+ * //     ],
+ * //   },
+ * //   LoggingConfig: { // EventSourceMappingLoggingConfig
+ * //     SystemLogLevel: "DEBUG" || "INFO" || "WARN",
+ * //   },
+ * //   ScalingConfig: { // ScalingConfig
+ * //     MaximumConcurrency: Number("int"),
  * //   },
  * //   FunctionArn: "STRING_VALUE",
  * //   LastModified: new Date("TIMESTAMP"),
@@ -240,28 +256,12 @@ export interface CreateEventSourceMappingCommandOutput extends EventSourceMappin
  * //       ],
  * //     },
  * //   },
- * //   ScalingConfig: { // ScalingConfig
- * //     MaximumConcurrency: Number("int"),
- * //   },
  * //   DocumentDBEventSourceConfig: { // DocumentDBEventSourceConfig
  * //     DatabaseName: "STRING_VALUE",
  * //     CollectionName: "STRING_VALUE",
  * //     FullDocument: "UpdateLookup" || "Default",
  * //   },
- * //   KMSKeyArn: "STRING_VALUE",
- * //   FilterCriteriaError: { // FilterCriteriaError
- * //     ErrorCode: "STRING_VALUE",
- * //     Message: "STRING_VALUE",
- * //   },
  * //   EventSourceMappingArn: "STRING_VALUE",
- * //   MetricsConfig: { // EventSourceMappingMetricsConfig
- * //     Metrics: [ // EventSourceMappingMetricList
- * //       "EventCount" || "ErrorCount" || "KafkaMetrics",
- * //     ],
- * //   },
- * //   LoggingConfig: { // EventSourceMappingLoggingConfig
- * //     SystemLogLevel: "DEBUG" || "INFO" || "WARN",
- * //   },
  * //   ProvisionedPollerConfig: { // ProvisionedPollerConfig
  * //     MinimumPollers: Number("int"),
  * //     MaximumPollers: Number("int"),

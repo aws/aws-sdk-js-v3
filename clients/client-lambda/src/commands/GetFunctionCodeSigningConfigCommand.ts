@@ -54,6 +54,9 @@ export interface GetFunctionCodeSigningConfigCommandOutput extends GetFunctionCo
  * @see {@link GetFunctionCodeSigningConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
  *
+ * @throws {@link CodeSigningConfigNotFoundException} (client fault)
+ *  <p>The specified code signing configuration does not exist.</p>
+ *
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>One of the parameters in the request is not valid.</p>
  *

@@ -9,7 +9,7 @@ host: lambda.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: 3f36eb960b9ad2597ca062f135e97be918676f2f07589c12304d212009e36bd8
+x-amz-content-sha256: 8503fcdea25f8a552c8f021875ca40d4025c3f9dab90cb4d1ca21ed32644f843
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/lambda/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
 
 [string (json)]
@@ -21,15 +21,15 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/lambda/aws4_re
     "ZipFile": "AQAAAQ=="
   },
   "Description": "__Description__",
+  "CompatibleArchitectures": [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
   "CompatibleRuntimes": [
     "__member__",
     "__member__",
     "__member__"
   ],
-  "LicenseInfo": "__LicenseInfo__",
-  "CompatibleArchitectures": [
-    "__member__",
-    "__member__",
-    "__member__"
-  ]
+  "LicenseInfo": "__LicenseInfo__"
 }

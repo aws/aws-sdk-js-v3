@@ -80,6 +80,15 @@ export interface InvokeCommandOutput extends InvokeCommandOutputType, __Metadata
  * @see {@link InvokeCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
  *
+ * @throws {@link CodeArtifactUserDeletedException} (client fault)
+ *  <p>The Lambda function couldn't be invoked because its code artifact user has been deleted. Wait for Lambda to provision a new code artifact user, or update the function's code package to recreate it.</p>
+ *
+ * @throws {@link CodeArtifactUserFailedException} (client fault)
+ *  <p>The Lambda function couldn't be invoked because provisioning of its code artifact user failed. Update the function's code package or check the Lambda function's <code>State</code> and <code>StateReasonCode</code> for additional context.</p>
+ *
+ * @throws {@link CodeArtifactUserPendingException} (client fault)
+ *  <p>The Lambda function couldn't be invoked because its code artifact user is still being provisioned. Wait for the function's <code>State</code> to become <code>Active</code> and try the request again.</p>
+ *
  * @throws {@link DurableExecutionAlreadyStartedException} (client fault)
  *  <p>The durable execution with the specified name has already been started. Each durable execution name must be unique within the function. Use a different name or check the status of the existing execution.</p>
  *
@@ -106,6 +115,9 @@ export interface InvokeCommandOutput extends InvokeCommandOutputType, __Metadata
  *
  * @throws {@link ENILimitReachedException} (server fault)
  *  <p>Lambda couldn't create an elastic network interface in the VPC, specified as part of Lambda function configuration, because the limit for network interfaces has been reached. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>.</p>
+ *
+ * @throws {@link ENINotReadyException} (server fault)
+ *  <p>Lambda couldn't invoke the Lambda function because the elastic network interface (ENI) configured for its VPC connection isn't ready yet. Wait a few moments and try the request again. For more information about VPC configuration, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">Configuring a Lambda function to access resources in a VPC</a>.</p>
  *
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>One of the parameters in the request is not valid.</p>
@@ -136,6 +148,9 @@ export interface InvokeCommandOutput extends InvokeCommandOutputType, __Metadata
  *
  * @throws {@link KMSNotFoundException} (server fault)
  *  <p>Lambda couldn't decrypt the environment variables because the KMS key was not found. Check the function's KMS key settings.</p>
+ *
+ * @throws {@link ModeNotSupportedException} (client fault)
+ *  <p>The Lambda function doesn't support the invocation mode requested. For example, calling <code>Invoke</code> with <code>InvocationType=RequestResponse</code> on a function configured for asynchronous-only invocation, or vice versa. For more information about invocation types, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-options.html">Invoking Lambda functions</a>.</p>
  *
  * @throws {@link NoPublishedVersionException} (client fault)
  *  <p>The function has no published versions available.</p>
@@ -170,11 +185,17 @@ export interface InvokeCommandOutput extends InvokeCommandOutputType, __Metadata
  * @throws {@link ServiceException} (server fault)
  *  <p>The Lambda service encountered an internal error.</p>
  *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request would exceed a service quota. For more information about Lambda service quotas, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>. To request a quota increase, see <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html">Requesting a quota increase</a> in the <i>Service Quotas User Guide</i>.</p>
+ *
  * @throws {@link SnapStartException} (client fault)
  *  <p>The <code>afterRestore()</code> <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart-runtime-hooks.html">runtime hook</a> encountered an error. For more information, check the Amazon CloudWatch logs.</p>
  *
  * @throws {@link SnapStartNotReadyException} (client fault)
  *  <p>Lambda is initializing your function. You can invoke the function when the <a href="https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html">function state</a> becomes <code>Active</code>.</p>
+ *
+ * @throws {@link SnapStartRegenerationFailureException} (client fault)
+ *  <p>Lambda couldn't regenerate the SnapStart snapshot for the function. SnapStart-enabled functions periodically regenerate snapshots when their underlying runtime or dependencies change; this regeneration failed. Wait for Lambda to retry, or update the function's configuration to trigger a new snapshot. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">Lambda SnapStart</a>.</p>
  *
  * @throws {@link SnapStartTimeoutException} (client fault)
  *  <p>Lambda couldn't restore the snapshot within the timeout limit.</p>

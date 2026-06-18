@@ -187,6 +187,66 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
+ * <p>The resource-based policy you tried to add to the Lambda function would grant public access to it, and your account's <code>BlockPublicAccess</code> setting prevents public access. For more information about blocking public access to Lambda functions, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#access-control-block-public-access">Block public access to Lambda resources</a>.</p>
+ * @public
+ */
+export class PublicPolicyException extends __BaseException {
+  readonly name = "PublicPolicyException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>The exception type.</p>
+   * @public
+   */
+  Type?: string | undefined;
+
+  /**
+   * <p>The exception message.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PublicPolicyException, __BaseException>) {
+    super({
+      name: "PublicPolicyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PublicPolicyException.prototype);
+    this.Type = opts.Type;
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>Lambda couldn't create the alias because your Amazon Web Services account has exceeded the maximum number of aliases allowed per Lambda function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>.</p>
+ * @public
+ */
+export class AliasLimitExceededException extends __BaseException {
+  readonly name = "AliasLimitExceededException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>The exception type.</p>
+   * @public
+   */
+  Type?: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AliasLimitExceededException, __BaseException>) {
+    super({
+      name: "AliasLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AliasLimitExceededException.prototype);
+    this.Type = opts.Type;
+  }
+}
+
+/**
  * <p>The maximum number of capacity providers for your account has been exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a> </p>
  * @public
  */
@@ -360,6 +420,87 @@ export class InvalidCodeSignatureException extends __BaseException {
     Object.setPrototypeOf(this, InvalidCodeSignatureException.prototype);
     this.Type = opts.Type;
     this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The Lambda function couldn't be invoked because its code artifact user has been deleted. Wait for Lambda to provision a new code artifact user, or update the function's code package to recreate it.</p>
+ * @public
+ */
+export class CodeArtifactUserDeletedException extends __BaseException {
+  readonly name = "CodeArtifactUserDeletedException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>The exception type.</p>
+   * @public
+   */
+  Type?: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CodeArtifactUserDeletedException, __BaseException>) {
+    super({
+      name: "CodeArtifactUserDeletedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CodeArtifactUserDeletedException.prototype);
+    this.Type = opts.Type;
+  }
+}
+
+/**
+ * <p>The Lambda function couldn't be invoked because provisioning of its code artifact user failed. Update the function's code package or check the Lambda function's <code>State</code> and <code>StateReasonCode</code> for additional context.</p>
+ * @public
+ */
+export class CodeArtifactUserFailedException extends __BaseException {
+  readonly name = "CodeArtifactUserFailedException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>The exception type.</p>
+   * @public
+   */
+  Type?: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CodeArtifactUserFailedException, __BaseException>) {
+    super({
+      name: "CodeArtifactUserFailedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CodeArtifactUserFailedException.prototype);
+    this.Type = opts.Type;
+  }
+}
+
+/**
+ * <p>The Lambda function couldn't be invoked because its code artifact user is still being provisioned. Wait for the function's <code>State</code> to become <code>Active</code> and try the request again.</p>
+ * @public
+ */
+export class CodeArtifactUserPendingException extends __BaseException {
+  readonly name = "CodeArtifactUserPendingException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>The exception type.</p>
+   * @public
+   */
+  Type?: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CodeArtifactUserPendingException, __BaseException>) {
+    super({
+      name: "CodeArtifactUserPendingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CodeArtifactUserPendingException.prototype);
+    this.Type = opts.Type;
   }
 }
 
@@ -587,6 +728,39 @@ export class ENILimitReachedException extends __BaseException {
 }
 
 /**
+ * <p>Lambda couldn't invoke the Lambda function because the elastic network interface (ENI) configured for its VPC connection isn't ready yet. Wait a few moments and try the request again. For more information about VPC configuration, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">Configuring a Lambda function to access resources in a VPC</a>.</p>
+ * @public
+ */
+export class ENINotReadyException extends __BaseException {
+  readonly name = "ENINotReadyException" as const;
+  readonly $fault = "server" as const;
+  /**
+   * <p>The exception type.</p>
+   * @public
+   */
+  Type?: string | undefined;
+
+  /**
+   * <p>The exception message.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ENINotReadyException, __BaseException>) {
+    super({
+      name: "ENINotReadyException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ENINotReadyException.prototype);
+    this.Type = opts.Type;
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>The request body could not be parsed as JSON, or a request header is invalid. For example, the 'x-amzn-RequestId' header is not a valid UUID string.</p>
  * @public
  */
@@ -802,6 +976,33 @@ export class KMSNotFoundException extends __BaseException {
     Object.setPrototypeOf(this, KMSNotFoundException.prototype);
     this.Type = opts.Type;
     this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The Lambda function doesn't support the invocation mode requested. For example, calling <code>Invoke</code> with <code>InvocationType=RequestResponse</code> on a function configured for asynchronous-only invocation, or vice versa. For more information about invocation types, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-options.html">Invoking Lambda functions</a>.</p>
+ * @public
+ */
+export class ModeNotSupportedException extends __BaseException {
+  readonly name = "ModeNotSupportedException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>The exception type.</p>
+   * @public
+   */
+  Type?: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ModeNotSupportedException, __BaseException>) {
+    super({
+      name: "ModeNotSupportedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ModeNotSupportedException.prototype);
+    this.Type = opts.Type;
   }
 }
 
@@ -1043,6 +1244,39 @@ export class SerializedRequestEntityTooLargeException extends __BaseException {
 }
 
 /**
+ * <p>The request would exceed a service quota. For more information about Lambda service quotas, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>. To request a quota increase, see <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html">Requesting a quota increase</a> in the <i>Service Quotas User Guide</i>.</p>
+ * @public
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name = "ServiceQuotaExceededException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>The exception type.</p>
+   * @public
+   */
+  Type?: string | undefined;
+
+  /**
+   * <p>The exception message.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.Type = opts.Type;
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>The <code>afterRestore()</code> <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart-runtime-hooks.html">runtime hook</a> encountered an error. For more information, check the Amazon CloudWatch logs.</p>
  * @public
  */
@@ -1085,6 +1319,39 @@ export class SnapStartNotReadyException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, SnapStartNotReadyException.prototype);
+    this.Type = opts.Type;
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>Lambda couldn't regenerate the SnapStart snapshot for the function. SnapStart-enabled functions periodically regenerate snapshots when their underlying runtime or dependencies change; this regeneration failed. Wait for Lambda to retry, or update the function's configuration to trigger a new snapshot. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">Lambda SnapStart</a>.</p>
+ * @public
+ */
+export class SnapStartRegenerationFailureException extends __BaseException {
+  readonly name = "SnapStartRegenerationFailureException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>The exception type.</p>
+   * @public
+   */
+  Type?: string | undefined;
+
+  /**
+   * <p>The exception message.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SnapStartRegenerationFailureException, __BaseException>) {
+    super({
+      name: "SnapStartRegenerationFailureException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SnapStartRegenerationFailureException.prototype);
     this.Type = opts.Type;
     this.Message = opts.Message;
   }

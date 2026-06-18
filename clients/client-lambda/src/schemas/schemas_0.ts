@@ -7,6 +7,7 @@ const _AFSC = "AppliedFunctionScalingConfig";
 const _AH = "AllowHeaders";
 const _AIT = "AllowedInstanceTypes";
 const _AL = "AccountLimit";
+const _ALEE = "AliasLimitExceededException";
 const _ALL = "ApplicationLogLevel";
 const _ALVP = "AddLayerVersionPermission";
 const _ALVPR = "AddLayerVersionPermissionRequest";
@@ -39,6 +40,9 @@ const _BSa = "BatchSize";
 const _C = "Concurrency";
 const _CA = "CompatibleArchitectures";
 const _CAR = "CreateAliasRequest";
+const _CAUDE = "CodeArtifactUserDeletedException";
+const _CAUFE = "CodeArtifactUserFailedException";
+const _CAUPE = "CodeArtifactUserPendingException";
 const _CAo = "CompatibleArchitecture";
 const _CAr = "CreateAlias";
 const _CAu = "CurrentAttempt";
@@ -182,6 +186,7 @@ const _EIT = "ExcludedInstanceTypes";
 const _EIv = "EventInput";
 const _EM = "ErrorMessage";
 const _ENILRE = "ENILimitReachedException";
+const _ENINRE = "ENINotReadyException";
 const _EO = "ErrorObject";
 const _EP = "EntryPoint";
 const _ER = "EnvironmentResponse";
@@ -351,6 +356,7 @@ const _IWRSRn = "InvokeWithResponseStreamResponse";
 const _IZFE = "InvalidZipFileException";
 const _Id = "Id";
 const _In = "Invoke";
+const _K = "Key";
 const _KKA = "KmsKeyArn";
 const _KMSADE = "KMSAccessDeniedException";
 const _KMSDE = "KMSDisabledException";
@@ -446,6 +452,7 @@ const _MEAIS = "MaximumEventAgeInSeconds";
 const _MEE = "MinExecutionEnvironments";
 const _MEEa = "MaxExecutionEnvironments";
 const _MI = "MaxItems";
+const _MNSE = "ModeNotSupportedException";
 const _MP = "MinimumPollers";
 const _MPa = "MaximumPollers";
 const _MR = "MasterRegion";
@@ -508,6 +515,7 @@ const _PPC = "ProvisionedPollerConfig";
 const _PPCC = "PutProvisionedConcurrencyConfig";
 const _PPCCR = "PutProvisionedConcurrencyConfigRequest";
 const _PPCCRu = "PutProvisionedConcurrencyConfigResponse";
+const _PPE = "PublicPolicyException";
 const _PRMC = "PutRuntimeManagementConfig";
 const _PRMCR = "PutRuntimeManagementConfigRequest";
 const _PRMCRu = "PutRuntimeManagementConfigResponse";
@@ -602,6 +610,7 @@ const _SPT = "StartingPositionTimestamp";
 const _SPVA = "SigningProfileVersionArns";
 const _SPVAi = "SigningProfileVersionArn";
 const _SPt = "StartingPosition";
+const _SQEE = "ServiceQuotaExceededException";
 const _SR = "StateReason";
 const _SRC = "SchemaRegistryConfig";
 const _SRCt = "StateReasonCode";
@@ -614,6 +623,7 @@ const _SSDt = "StepSucceededDetails";
 const _SSE = "SnapStartException";
 const _SSNRE = "SnapStartNotReadyException";
 const _SSR = "SnapStartResponse";
+const _SSRFE = "SnapStartRegenerationFailureException";
 const _SSTE = "SnapStartTimeoutException";
 const _SSn = "SnapStart";
 const _ST = "StackTrace";
@@ -639,6 +649,7 @@ const _TH = "TraceHeader";
 const _TI = "TenantId";
 const _TIM = "TenantIsolationMode";
 const _TK = "TagKeys";
+const _TKL = "TagKeyList";
 const _TMRE = "TooManyRequestsException";
 const _TR = "TagResource";
 const _TRR = "TagResourceRequest";
@@ -716,6 +727,7 @@ const _s = "smithy.ts.sdk.synthetic.com.amazonaws.lambda";
 const _se = "server";
 const _st = "streaming";
 const _tK = "tagKeys";
+const _xN = "xmlName";
 const n0 = "com.amazonaws.lambda";
 
 // smithy-typescript generated code
@@ -731,8 +743,12 @@ import type {
 } from "@smithy/types";
 
 import {
+  AliasLimitExceededException,
   CallbackTimeoutException,
   CapacityProviderLimitExceededException,
+  CodeArtifactUserDeletedException,
+  CodeArtifactUserFailedException,
+  CodeArtifactUserPendingException,
   CodeSigningConfigNotFoundException,
   CodeStorageExceededException,
   CodeVerificationFailedException,
@@ -745,6 +761,7 @@ import {
   EFSMountFailureException,
   EFSMountTimeoutException,
   ENILimitReachedException,
+  ENINotReadyException,
   FunctionVersionsPerCapacityProviderLimitExceededException,
   InvalidCodeSignatureException,
   InvalidParameterValueException,
@@ -757,10 +774,12 @@ import {
   KMSDisabledException,
   KMSInvalidStateException,
   KMSNotFoundException,
+  ModeNotSupportedException,
   NoPublishedVersionException,
   PolicyLengthExceededException,
   PreconditionFailedException,
   ProvisionedConcurrencyConfigNotFoundException,
+  PublicPolicyException,
   RecursiveInvocationException,
   RequestTooLargeException,
   ResourceConflictException,
@@ -772,8 +791,10 @@ import {
   S3FilesMountTimeoutException,
   SerializedRequestEntityTooLargeException,
   ServiceException,
+  ServiceQuotaExceededException,
   SnapStartException,
   SnapStartNotReadyException,
+  SnapStartRegenerationFailureException,
   SnapStartTimeoutException,
   SubnetIPAddressLimitReachedException,
   TooManyRequestsException,
@@ -786,6 +807,12 @@ const _s_registry = TypeRegistry.for(_s);
 export var LambdaServiceException$: StaticErrorSchema = [-3, _s, "LambdaServiceException", 0, [], []];
 _s_registry.registerError(LambdaServiceException$, LambdaServiceException);
 const n0_registry = TypeRegistry.for(n0);
+export var AliasLimitExceededException$: StaticErrorSchema = [-3, n0, _ALEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_T, _m],
+  [0, 0]
+];
+n0_registry.registerError(AliasLimitExceededException$, AliasLimitExceededException);
 export var CallbackTimeoutException$: StaticErrorSchema = [-3, n0, _CTE,
   { [_e]: _c, [_hE]: 400 },
   [_T, _M],
@@ -798,6 +825,24 @@ export var CapacityProviderLimitExceededException$: StaticErrorSchema = [-3, n0,
   [0, 0]
 ];
 n0_registry.registerError(CapacityProviderLimitExceededException$, CapacityProviderLimitExceededException);
+export var CodeArtifactUserDeletedException$: StaticErrorSchema = [-3, n0, _CAUDE,
+  { [_e]: _c, [_hE]: 409 },
+  [_T, _m],
+  [0, 0]
+];
+n0_registry.registerError(CodeArtifactUserDeletedException$, CodeArtifactUserDeletedException);
+export var CodeArtifactUserFailedException$: StaticErrorSchema = [-3, n0, _CAUFE,
+  { [_e]: _c, [_hE]: 409 },
+  [_T, _m],
+  [0, 0]
+];
+n0_registry.registerError(CodeArtifactUserFailedException$, CodeArtifactUserFailedException);
+export var CodeArtifactUserPendingException$: StaticErrorSchema = [-3, n0, _CAUPE,
+  { [_e]: _c, [_hE]: 409 },
+  [_T, _m],
+  [0, 0]
+];
+n0_registry.registerError(CodeArtifactUserPendingException$, CodeArtifactUserPendingException);
 export var CodeSigningConfigNotFoundException$: StaticErrorSchema = [-3, n0, _CSCNFE,
   { [_e]: _c, [_hE]: 404 },
   [_T, _M],
@@ -870,6 +915,12 @@ export var ENILimitReachedException$: StaticErrorSchema = [-3, n0, _ENILRE,
   [0, 0]
 ];
 n0_registry.registerError(ENILimitReachedException$, ENILimitReachedException);
+export var ENINotReadyException$: StaticErrorSchema = [-3, n0, _ENINRE,
+  { [_e]: _se, [_hE]: 502 },
+  [_T, _M],
+  [0, 0]
+];
+n0_registry.registerError(ENINotReadyException$, ENINotReadyException);
 export var FunctionVersionsPerCapacityProviderLimitExceededException$: StaticErrorSchema = [-3, n0, _FVPCPLEE,
   { [_e]: _c, [_hE]: 400 },
   [_T, _m],
@@ -942,6 +993,12 @@ export var KMSNotFoundException$: StaticErrorSchema = [-3, n0, _KMSNFE,
   [0, 0]
 ];
 n0_registry.registerError(KMSNotFoundException$, KMSNotFoundException);
+export var ModeNotSupportedException$: StaticErrorSchema = [-3, n0, _MNSE,
+  { [_e]: _c, [_hE]: 400 },
+  [_T, _m],
+  [0, 0]
+];
+n0_registry.registerError(ModeNotSupportedException$, ModeNotSupportedException);
 export var NoPublishedVersionException$: StaticErrorSchema = [-3, n0, _NPVE,
   { [_e]: _c, [_hE]: 400 },
   [_T, _M],
@@ -966,6 +1023,12 @@ export var ProvisionedConcurrencyConfigNotFoundException$: StaticErrorSchema = [
   [0, 0]
 ];
 n0_registry.registerError(ProvisionedConcurrencyConfigNotFoundException$, ProvisionedConcurrencyConfigNotFoundException);
+export var PublicPolicyException$: StaticErrorSchema = [-3, n0, _PPE,
+  { [_e]: _c, [_hE]: 400 },
+  [_T, _M],
+  [0, 0]
+];
+n0_registry.registerError(PublicPolicyException$, PublicPolicyException);
 export var RecursiveInvocationException$: StaticErrorSchema = [-3, n0, _RIE,
   { [_e]: _c, [_hE]: 400 },
   [_T, _M],
@@ -1032,6 +1095,12 @@ export var ServiceException$: StaticErrorSchema = [-3, n0, _SE,
   [0, 0]
 ];
 n0_registry.registerError(ServiceException$, ServiceException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_T, _M],
+  [0, 0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SnapStartException$: StaticErrorSchema = [-3, n0, _SSE,
   { [_e]: _c, [_hE]: 400 },
   [_T, _M],
@@ -1044,6 +1113,12 @@ export var SnapStartNotReadyException$: StaticErrorSchema = [-3, n0, _SSNRE,
   [0, 0]
 ];
 n0_registry.registerError(SnapStartNotReadyException$, SnapStartNotReadyException);
+export var SnapStartRegenerationFailureException$: StaticErrorSchema = [-3, n0, _SSRFE,
+  { [_e]: _c, [_hE]: 409 },
+  [_T, _M],
+  [0, 0]
+];
+n0_registry.registerError(SnapStartRegenerationFailureException$, SnapStartRegenerationFailureException);
 export var SnapStartTimeoutException$: StaticErrorSchema = [-3, n0, _SSTE,
   { [_e]: _c, [_hE]: 408 },
   [_T, _M],
@@ -1112,8 +1187,8 @@ export var AddLayerVersionPermissionResponse$: StaticStructureSchema = [3, n0, _
 ];
 export var AddPermissionRequest$: StaticStructureSchema = [3, n0, _APR,
   0,
-  [_FN, _SI, _A, _P, _SA, _SAo, _EST, _Q, _RI, _POID, _FUAT, _IVFU],
-  [[0, 1], 0, 0, 0, 0, 0, 0, [0, { [_hQ]: _Q }], 0, 0, 0, 2], 4
+  [_FN, _SI, _A, _P, _SA, _FUAT, _IVFU, _SAo, _EST, _Q, _RI, _POID],
+  [[0, 1], 0, 0, 0, 0, 0, 2, 0, 0, [0, { [_hQ]: _Q }], 0, 0], 4
 ];
 export var AddPermissionResponse$: StaticStructureSchema = [3, n0, _APRd,
   0,
@@ -1317,13 +1392,13 @@ export var CreateCodeSigningConfigResponse$: StaticStructureSchema = [3, n0, _CC
 ];
 export var CreateEventSourceMappingRequest$: StaticStructureSchema = [3, n0, _CESMR,
   0,
-  [_FN, _ESA, _En, _BSa, _FCi, _MBWIS, _PF, _SPt, _SPT, _DC, _MRAIS, _BBOFE, _MRA, _Ta, _TWIS, _To, _Qu, _SAC, _SMES, _FRT, _AMKESC, _SMKESC, _SC, _DDBESC, _KMSKA, _MC, _LC, _PPC],
-  [0, 0, 2, 1, () => FilterCriteria$, 1, 1, 0, 4, () => DestinationConfig$, 1, 2, 1, 128 | 0, 1, 64 | 0, 64 | 0, () => SourceAccessConfigurations, () => SelfManagedEventSource$, 64 | 0, () => AmazonManagedKafkaEventSourceConfig$, () => SelfManagedKafkaEventSourceConfig$, () => ScalingConfig$, () => DocumentDBEventSourceConfig$, 0, () => EventSourceMappingMetricsConfig$, () => EventSourceMappingLoggingConfig$, () => ProvisionedPollerConfig$], 1
+  [_FN, _ESA, _En, _BSa, _FCi, _KMSKA, _MC, _LC, _SC, _MBWIS, _PF, _SPt, _SPT, _DC, _MRAIS, _BBOFE, _MRA, _Ta, _TWIS, _To, _Qu, _SAC, _SMES, _FRT, _AMKESC, _SMKESC, _DDBESC, _PPC],
+  [0, 0, 2, 1, () => FilterCriteria$, 0, () => EventSourceMappingMetricsConfig$, () => EventSourceMappingLoggingConfig$, () => ScalingConfig$, 1, 1, 0, 4, () => DestinationConfig$, 1, 2, 1, 128 | 0, 1, 64 | 0, 64 | 0, () => SourceAccessConfigurations, () => SelfManagedEventSource$, 64 | 0, () => AmazonManagedKafkaEventSourceConfig$, () => SelfManagedKafkaEventSourceConfig$, () => DocumentDBEventSourceConfig$, () => ProvisionedPollerConfig$], 1
 ];
 export var CreateFunctionRequest$: StaticStructureSchema = [3, n0, _CFR,
   0,
-  [_FN, _Ro, _Cod, _Ru, _H, _D, _Ti, _MS, _Pu, _VC, _PTa, _DLC, _Env, _KMSKA, _TC, _Ta, _L, _FSC, _IC, _CSCA, _Ar, _ES, _SSn, _LC, _CPC, _PTu, _DCu, _TCe],
-  [0, 0, [() => FunctionCode$, 0], 0, 0, 0, 1, 1, 2, () => VpcConfig$, 0, () => DeadLetterConfig$, [() => Environment$, 0], 0, () => TracingConfig$, 128 | 0, 64 | 0, () => FileSystemConfigList, () => ImageConfig$, 0, 64 | 0, () => EphemeralStorage$, () => SnapStart$, () => LoggingConfig$, () => CapacityProviderConfig$, 0, () => DurableConfig$, () => TenancyConfig$], 3
+  [_FN, _Ro, _Cod, _Ru, _H, _D, _Ti, _MS, _Pu, _PTu, _VC, _PTa, _DLC, _Env, _KMSKA, _TC, _Ta, _L, _FSC, _CSCA, _IC, _Ar, _ES, _SSn, _LC, _TCe, _CPC, _DCu],
+  [0, 0, [() => FunctionCode$, 0], 0, 0, 0, 1, 1, 2, 0, () => VpcConfig$, 0, () => DeadLetterConfig$, [() => Environment$, 0], 0, () => TracingConfig$, 128 | 0, 64 | 0, () => FileSystemConfigList, 0, () => ImageConfig$, 64 | 0, () => EphemeralStorage$, () => SnapStart$, () => LoggingConfig$, () => TenancyConfig$, () => CapacityProviderConfig$, () => DurableConfig$], 3
 ];
 export var CreateFunctionUrlConfigRequest$: StaticStructureSchema = [3, n0, _CFUCR,
   0,
@@ -1472,8 +1547,8 @@ export var EventResult$: StaticStructureSchema = [3, n0, _ERv,
 ];
 export var EventSourceMappingConfiguration$: StaticStructureSchema = [3, n0, _ESMC,
   0,
-  [_UUID, _SPt, _SPT, _BSa, _MBWIS, _PF, _ESA, _FCi, _FA, _LM, _LPR, _St, _STR, _DC, _To, _Qu, _SAC, _SMES, _MRAIS, _BBOFE, _MRA, _TWIS, _FRT, _AMKESC, _SMKESC, _SC, _DDBESC, _KMSKA, _FCE, _ESMA, _MC, _LC, _PPC],
-  [0, 0, 4, 1, 1, 1, 0, () => FilterCriteria$, 0, 4, 0, 0, 0, () => DestinationConfig$, 64 | 0, 64 | 0, () => SourceAccessConfigurations, () => SelfManagedEventSource$, 1, 2, 1, 1, 64 | 0, () => AmazonManagedKafkaEventSourceConfig$, () => SelfManagedKafkaEventSourceConfig$, () => ScalingConfig$, () => DocumentDBEventSourceConfig$, 0, () => FilterCriteriaError$, 0, () => EventSourceMappingMetricsConfig$, () => EventSourceMappingLoggingConfig$, () => ProvisionedPollerConfig$]
+  [_UUID, _SPt, _SPT, _BSa, _MBWIS, _PF, _ESA, _FCi, _FCE, _KMSKA, _MC, _LC, _SC, _FA, _LM, _LPR, _St, _STR, _DC, _To, _Qu, _SAC, _SMES, _MRAIS, _BBOFE, _MRA, _TWIS, _FRT, _AMKESC, _SMKESC, _DDBESC, _ESMA, _PPC],
+  [0, 0, 4, 1, 1, 1, 0, () => FilterCriteria$, () => FilterCriteriaError$, 0, () => EventSourceMappingMetricsConfig$, () => EventSourceMappingLoggingConfig$, () => ScalingConfig$, 0, 4, 0, 0, 0, () => DestinationConfig$, 64 | 0, 64 | 0, () => SourceAccessConfigurations, () => SelfManagedEventSource$, 1, 2, 1, 1, 64 | 0, () => AmazonManagedKafkaEventSourceConfig$, () => SelfManagedKafkaEventSourceConfig$, () => DocumentDBEventSourceConfig$, 0, () => ProvisionedPollerConfig$]
 ];
 export var EventSourceMappingLoggingConfig$: StaticStructureSchema = [3, n0, _ESMLC,
   0,
@@ -1552,8 +1627,8 @@ export var FunctionCodeLocation$: StaticStructureSchema = [3, n0, _FCL,
 ];
 export var FunctionConfiguration$: StaticStructureSchema = [3, n0, _FCun,
   0,
-  [_FN, _FA, _Ru, _Ro, _H, _CS, _D, _Ti, _MS, _LM, _CSo, _Ve, _VC, _DLC, _Env, _KMSKA, _TC, _MAa, _RI, _L, _St, _SR, _SRCt, _LUS, _LUSR, _LUSRC, _FSC, _PTa, _ICR, _SPVAi, _SJA, _Ar, _ES, _SSn, _RVC, _LC, _CPC, _CSon, _DCu, _TCe],
-  [0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, () => VpcConfigResponse$, () => DeadLetterConfig$, [() => EnvironmentResponse$, 0], 0, () => TracingConfigResponse$, 0, 0, () => LayersReferenceList, 0, 0, 0, 0, 0, 0, () => FileSystemConfigList, 0, [() => ImageConfigResponse$, 0], 0, 0, 64 | 0, () => EphemeralStorage$, () => SnapStartResponse$, [() => RuntimeVersionConfig$, 0], () => LoggingConfig$, () => CapacityProviderConfig$, 0, () => DurableConfig$, () => TenancyConfig$]
+  [_FN, _FA, _Ru, _Ro, _H, _CS, _D, _Ti, _MS, _LM, _CSo, _Ve, _VC, _DLC, _Env, _KMSKA, _TC, _MAa, _RI, _L, _St, _SR, _SRCt, _LUS, _LUSR, _LUSRC, _FSC, _SPVAi, _SJA, _PTa, _ICR, _Ar, _ES, _SSn, _RVC, _LC, _TCe, _CPC, _CSon, _DCu],
+  [0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, () => VpcConfigResponse$, () => DeadLetterConfig$, [() => EnvironmentResponse$, 0], 0, () => TracingConfigResponse$, 0, 0, () => LayersReferenceList, 0, 0, 0, 0, 0, 0, () => FileSystemConfigList, 0, 0, 0, [() => ImageConfigResponse$, 0], 64 | 0, () => EphemeralStorage$, () => SnapStartResponse$, [() => RuntimeVersionConfig$, 0], () => LoggingConfig$, () => TenancyConfig$, () => CapacityProviderConfig$, 0, () => DurableConfig$]
 ];
 export var FunctionEventInvokeConfig$: StaticStructureSchema = [3, n0, _FEIC,
   0,
@@ -1737,8 +1812,8 @@ export var GetLayerVersionRequest$: StaticStructureSchema = [3, n0, _GLVR,
 ];
 export var GetLayerVersionResponse$: StaticStructureSchema = [3, n0, _GLVRe,
   0,
-  [_Cont, _LA, _LVA, _D, _CDr, _Ve, _CR, _LI, _CA],
-  [() => LayerVersionContentOutput$, 0, 0, 0, 0, 1, 64 | 0, 0, 64 | 0]
+  [_Cont, _LA, _LVA, _D, _CDr, _Ve, _CA, _CR, _LI],
+  [() => LayerVersionContentOutput$, 0, 0, 0, 0, 1, 64 | 0, 64 | 0, 0]
 ];
 export var GetPolicyRequest$: StaticStructureSchema = [3, n0, _GPR,
   0,
@@ -1767,7 +1842,7 @@ export var GetRuntimeManagementConfigRequest$: StaticStructureSchema = [3, n0, _
 ];
 export var GetRuntimeManagementConfigResponse$: StaticStructureSchema = [3, n0, _GRMCRe,
   0,
-  [_URO, _RVA, _FA],
+  [_URO, _FA, _RVA],
   [0, 0, 0]
 ];
 export var ImageConfig$: StaticStructureSchema = [3, n0, _IC,
@@ -1877,8 +1952,8 @@ export var LayerVersionContentOutput$: StaticStructureSchema = [3, n0, _LVCO,
 ];
 export var LayerVersionsListItem$: StaticStructureSchema = [3, n0, _LVLI,
   0,
-  [_LVA, _Ve, _D, _CDr, _CR, _LI, _CA],
-  [0, 1, 0, 0, 64 | 0, 0, 64 | 0]
+  [_LVA, _Ve, _D, _CDr, _CA, _CR, _LI],
+  [0, 1, 0, 0, 64 | 0, 64 | 0, 0]
 ];
 export var ListAliasesRequest$: StaticStructureSchema = [3, n0, _LAR,
   0,
@@ -1982,8 +2057,8 @@ export var ListFunctionVersionsByCapacityProviderResponse$: StaticStructureSchem
 ];
 export var ListLayersRequest$: StaticStructureSchema = [3, n0, _LLR,
   0,
-  [_CRo, _Ma, _MI, _CAo],
-  [[0, { [_hQ]: _CRo }], [0, { [_hQ]: _Ma }], [1, { [_hQ]: _MI }], [0, { [_hQ]: _CAo }]]
+  [_CAo, _CRo, _Ma, _MI],
+  [[0, { [_hQ]: _CAo }], [0, { [_hQ]: _CRo }], [0, { [_hQ]: _Ma }], [1, { [_hQ]: _MI }]]
 ];
 export var ListLayersResponse$: StaticStructureSchema = [3, n0, _LLRi,
   0,
@@ -1992,8 +2067,8 @@ export var ListLayersResponse$: StaticStructureSchema = [3, n0, _LLRi,
 ];
 export var ListLayerVersionsRequest$: StaticStructureSchema = [3, n0, _LLVR,
   0,
-  [_LN, _CRo, _Ma, _MI, _CAo],
-  [[0, 1], [0, { [_hQ]: _CRo }], [0, { [_hQ]: _Ma }], [1, { [_hQ]: _MI }], [0, { [_hQ]: _CAo }]], 1
+  [_LN, _CAo, _CRo, _Ma, _MI],
+  [[0, 1], [0, { [_hQ]: _CAo }], [0, { [_hQ]: _CRo }], [0, { [_hQ]: _Ma }], [1, { [_hQ]: _MI }]], 1
 ];
 export var ListLayerVersionsResponse$: StaticStructureSchema = [3, n0, _LLVRi,
   0,
@@ -2072,13 +2147,13 @@ export var ProvisionedPollerConfig$: StaticStructureSchema = [3, n0, _PPC,
 ];
 export var PublishLayerVersionRequest$: StaticStructureSchema = [3, n0, _PLVR,
   0,
-  [_LN, _Cont, _D, _CR, _LI, _CA],
-  [[0, 1], [() => LayerVersionContentInput$, 0], 0, 64 | 0, 0, 64 | 0], 2
+  [_LN, _Cont, _D, _CA, _CR, _LI],
+  [[0, 1], [() => LayerVersionContentInput$, 0], 0, 64 | 0, 64 | 0, 0], 2
 ];
 export var PublishLayerVersionResponse$: StaticStructureSchema = [3, n0, _PLVRu,
   0,
-  [_Cont, _LA, _LVA, _D, _CDr, _Ve, _CR, _LI, _CA],
-  [() => LayerVersionContentOutput$, 0, 0, 0, 0, 1, 64 | 0, 0, 64 | 0]
+  [_Cont, _LA, _LVA, _D, _CDr, _Ve, _CA, _CR, _LI],
+  [() => LayerVersionContentOutput$, 0, 0, 0, 0, 1, 64 | 0, 64 | 0, 0]
 ];
 export var PublishVersionRequest$: StaticStructureSchema = [3, n0, _PVR,
   0,
@@ -2132,7 +2207,7 @@ export var PutProvisionedConcurrencyConfigRequest$: StaticStructureSchema = [3, 
 ];
 export var PutProvisionedConcurrencyConfigResponse$: StaticStructureSchema = [3, n0, _PPCCRu,
   0,
-  [_RPCE, _APCE, _APCEl, _Sta, _SRt, _LM],
+  [_RPCE, _APCEl, _APCE, _Sta, _SRt, _LM],
   [1, 1, 1, 0, 0, 0]
 ];
 export var PutRuntimeManagementConfigRequest$: StaticStructureSchema = [3, n0, _PRMCR,
@@ -2303,7 +2378,7 @@ export var TracingConfigResponse$: StaticStructureSchema = [3, n0, _TCR,
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_Res, _TK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
+  [[0, 1], [() => TagKeyList, { [_hQ]: _tK }]], 2
 ];
 export var UpdateAliasRequest$: StaticStructureSchema = [3, n0, _UAR,
   0,
@@ -2332,13 +2407,13 @@ export var UpdateCodeSigningConfigResponse$: StaticStructureSchema = [3, n0, _UC
 ];
 export var UpdateEventSourceMappingRequest$: StaticStructureSchema = [3, n0, _UESMR,
   0,
-  [_UUID, _FN, _En, _BSa, _FCi, _MBWIS, _DC, _MRAIS, _BBOFE, _MRA, _PF, _SAC, _TWIS, _FRT, _SC, _AMKESC, _SMKESC, _DDBESC, _KMSKA, _MC, _LC, _PPC],
-  [[0, 1], 0, 2, 1, () => FilterCriteria$, 1, () => DestinationConfig$, 1, 2, 1, 1, () => SourceAccessConfigurations, 1, 64 | 0, () => ScalingConfig$, () => AmazonManagedKafkaEventSourceConfig$, () => SelfManagedKafkaEventSourceConfig$, () => DocumentDBEventSourceConfig$, 0, () => EventSourceMappingMetricsConfig$, () => EventSourceMappingLoggingConfig$, () => ProvisionedPollerConfig$], 1
+  [_UUID, _FN, _En, _BSa, _FCi, _KMSKA, _MC, _LC, _SC, _MBWIS, _PF, _DC, _MRAIS, _BBOFE, _MRA, _TWIS, _SAC, _FRT, _AMKESC, _SMKESC, _DDBESC, _PPC],
+  [[0, 1], 0, 2, 1, () => FilterCriteria$, 0, () => EventSourceMappingMetricsConfig$, () => EventSourceMappingLoggingConfig$, () => ScalingConfig$, 1, 1, () => DestinationConfig$, 1, 2, 1, 1, () => SourceAccessConfigurations, 64 | 0, () => AmazonManagedKafkaEventSourceConfig$, () => SelfManagedKafkaEventSourceConfig$, () => DocumentDBEventSourceConfig$, () => ProvisionedPollerConfig$], 1
 ];
 export var UpdateFunctionCodeRequest$: StaticStructureSchema = [3, n0, _UFCR,
   0,
-  [_FN, _ZF, _SB, _SK, _SOV, _IU, _Pu, _DR, _RI, _Ar, _SKMSKA, _PTu],
-  [[0, 1], [() => _Blob, 0], 0, 0, 0, 0, 2, 2, 0, 64 | 0, 0, 0], 1
+  [_FN, _ZF, _SB, _SK, _SOV, _IU, _Ar, _Pu, _PTu, _DR, _RI, _SKMSKA],
+  [[0, 1], [() => _Blob, 0], 0, 0, 0, 0, 64 | 0, 2, 0, 2, 0, 0], 1
 ];
 export var UpdateFunctionConfigurationRequest$: StaticStructureSchema = [3, n0, _UFCRp,
   0,
@@ -2490,7 +2565,10 @@ var StackTraceEntries: StaticListSchema = [1, n0, _STEt,
 ];
 var StringList = 64 | 0;
 var SubnetIds = 64 | 0;
-var TagKeyList = 64 | 0;
+var TagKeyList: StaticListSchema = [1, n0, _TKL,
+  0, [0,
+    { [_xN]: _K }]
+];
 var Topics = 64 | 0;
 var AdditionalVersionWeights = 128 | 1;
 var Endpoints: StaticMapSchema = [2, n0, _End,

@@ -56,6 +56,22 @@ export interface GetEventSourceMappingCommandOutput extends EventSourceMappingCo
  * //       },
  * //     ],
  * //   },
+ * //   FilterCriteriaError: { // FilterCriteriaError
+ * //     ErrorCode: "STRING_VALUE",
+ * //     Message: "STRING_VALUE",
+ * //   },
+ * //   KMSKeyArn: "STRING_VALUE",
+ * //   MetricsConfig: { // EventSourceMappingMetricsConfig
+ * //     Metrics: [ // EventSourceMappingMetricList
+ * //       "EventCount" || "ErrorCount" || "KafkaMetrics",
+ * //     ],
+ * //   },
+ * //   LoggingConfig: { // EventSourceMappingLoggingConfig
+ * //     SystemLogLevel: "DEBUG" || "INFO" || "WARN",
+ * //   },
+ * //   ScalingConfig: { // ScalingConfig
+ * //     MaximumConcurrency: Number("int"),
+ * //   },
  * //   FunctionArn: "STRING_VALUE",
  * //   LastModified: new Date("TIMESTAMP"),
  * //   LastProcessingResult: "STRING_VALUE",
@@ -131,28 +147,12 @@ export interface GetEventSourceMappingCommandOutput extends EventSourceMappingCo
  * //       ],
  * //     },
  * //   },
- * //   ScalingConfig: { // ScalingConfig
- * //     MaximumConcurrency: Number("int"),
- * //   },
  * //   DocumentDBEventSourceConfig: { // DocumentDBEventSourceConfig
  * //     DatabaseName: "STRING_VALUE",
  * //     CollectionName: "STRING_VALUE",
  * //     FullDocument: "UpdateLookup" || "Default",
  * //   },
- * //   KMSKeyArn: "STRING_VALUE",
- * //   FilterCriteriaError: { // FilterCriteriaError
- * //     ErrorCode: "STRING_VALUE",
- * //     Message: "STRING_VALUE",
- * //   },
  * //   EventSourceMappingArn: "STRING_VALUE",
- * //   MetricsConfig: { // EventSourceMappingMetricsConfig
- * //     Metrics: [ // EventSourceMappingMetricList
- * //       "EventCount" || "ErrorCount" || "KafkaMetrics",
- * //     ],
- * //   },
- * //   LoggingConfig: { // EventSourceMappingLoggingConfig
- * //     SystemLogLevel: "DEBUG" || "INFO" || "WARN",
- * //   },
  * //   ProvisionedPollerConfig: { // ProvisionedPollerConfig
  * //     MinimumPollers: Number("int"),
  * //     MaximumPollers: Number("int"),

@@ -10,6 +10,8 @@ import {
   AddPermissionRequest$,
   AddPermissionResponse$,
   AliasConfiguration$,
+  AliasLimitExceededException,
+  AliasLimitExceededException$,
   AliasRoutingConfiguration$,
   AllowedPublishers$,
   AmazonManagedKafkaEventSourceConfig$,
@@ -45,6 +47,12 @@ import {
   CheckpointDurableExecutionRequest$,
   CheckpointDurableExecutionResponse$,
   CheckpointUpdatedExecutionState$,
+  CodeArtifactUserDeletedException,
+  CodeArtifactUserDeletedException$,
+  CodeArtifactUserFailedException,
+  CodeArtifactUserFailedException$,
+  CodeArtifactUserPendingException,
+  CodeArtifactUserPendingException$,
   CodeSigningConfig$,
   CodeSigningConfigNotFoundException,
   CodeSigningConfigNotFoundException$,
@@ -141,6 +149,8 @@ import {
   EndPointType,
   ENILimitReachedException,
   ENILimitReachedException$,
+  ENINotReadyException,
+  ENINotReadyException$,
   Environment$,
   EnvironmentError$,
   EnvironmentResponse$,
@@ -389,6 +399,8 @@ import {
   LogFormat,
   LoggingConfig$,
   LogType,
+  ModeNotSupportedException,
+  ModeNotSupportedException$,
   NoPublishedVersionException,
   NoPublishedVersionException$,
   OnFailure$,
@@ -426,6 +438,8 @@ import {
   ProvisionedConcurrencyConfigNotFoundException$,
   ProvisionedConcurrencyStatusEnum,
   ProvisionedPollerConfig$,
+  PublicPolicyException,
+  PublicPolicyException$,
   PublishLayerVersion$,
   PublishLayerVersionCommand,
   PublishLayerVersionRequest$,
@@ -509,6 +523,8 @@ import {
   SerializedRequestEntityTooLargeException$,
   ServiceException,
   ServiceException$,
+  ServiceQuotaExceededException,
+  ServiceQuotaExceededException$,
   SnapStart$,
   SnapStartApplyOn,
   SnapStartException,
@@ -516,6 +532,8 @@ import {
   SnapStartNotReadyException,
   SnapStartNotReadyException$,
   SnapStartOptimizationStatus,
+  SnapStartRegenerationFailureException,
+  SnapStartRegenerationFailureException$,
   SnapStartResponse$,
   SnapStartTimeoutException,
   SnapStartTimeoutException$,
@@ -1087,10 +1105,18 @@ assert(typeof ThrottleReason === "object");
 assert(typeof TracingMode === "object");
 assert(typeof UpdateRuntimeOn === "object");
 // errors
+assert(AliasLimitExceededException.prototype instanceof LambdaServiceException);
+assert(typeof AliasLimitExceededException$ === "object");
 assert(CallbackTimeoutException.prototype instanceof LambdaServiceException);
 assert(typeof CallbackTimeoutException$ === "object");
 assert(CapacityProviderLimitExceededException.prototype instanceof LambdaServiceException);
 assert(typeof CapacityProviderLimitExceededException$ === "object");
+assert(CodeArtifactUserDeletedException.prototype instanceof LambdaServiceException);
+assert(typeof CodeArtifactUserDeletedException$ === "object");
+assert(CodeArtifactUserFailedException.prototype instanceof LambdaServiceException);
+assert(typeof CodeArtifactUserFailedException$ === "object");
+assert(CodeArtifactUserPendingException.prototype instanceof LambdaServiceException);
+assert(typeof CodeArtifactUserPendingException$ === "object");
 assert(CodeSigningConfigNotFoundException.prototype instanceof LambdaServiceException);
 assert(typeof CodeSigningConfigNotFoundException$ === "object");
 assert(CodeStorageExceededException.prototype instanceof LambdaServiceException);
@@ -1115,6 +1141,8 @@ assert(EFSMountTimeoutException.prototype instanceof LambdaServiceException);
 assert(typeof EFSMountTimeoutException$ === "object");
 assert(ENILimitReachedException.prototype instanceof LambdaServiceException);
 assert(typeof ENILimitReachedException$ === "object");
+assert(ENINotReadyException.prototype instanceof LambdaServiceException);
+assert(typeof ENINotReadyException$ === "object");
 assert(FunctionVersionsPerCapacityProviderLimitExceededException.prototype instanceof LambdaServiceException);
 assert(typeof FunctionVersionsPerCapacityProviderLimitExceededException$ === "object");
 assert(InvalidCodeSignatureException.prototype instanceof LambdaServiceException);
@@ -1139,6 +1167,8 @@ assert(KMSInvalidStateException.prototype instanceof LambdaServiceException);
 assert(typeof KMSInvalidStateException$ === "object");
 assert(KMSNotFoundException.prototype instanceof LambdaServiceException);
 assert(typeof KMSNotFoundException$ === "object");
+assert(ModeNotSupportedException.prototype instanceof LambdaServiceException);
+assert(typeof ModeNotSupportedException$ === "object");
 assert(NoPublishedVersionException.prototype instanceof LambdaServiceException);
 assert(typeof NoPublishedVersionException$ === "object");
 assert(PolicyLengthExceededException.prototype instanceof LambdaServiceException);
@@ -1147,6 +1177,8 @@ assert(PreconditionFailedException.prototype instanceof LambdaServiceException);
 assert(typeof PreconditionFailedException$ === "object");
 assert(ProvisionedConcurrencyConfigNotFoundException.prototype instanceof LambdaServiceException);
 assert(typeof ProvisionedConcurrencyConfigNotFoundException$ === "object");
+assert(PublicPolicyException.prototype instanceof LambdaServiceException);
+assert(typeof PublicPolicyException$ === "object");
 assert(RecursiveInvocationException.prototype instanceof LambdaServiceException);
 assert(typeof RecursiveInvocationException$ === "object");
 assert(RequestTooLargeException.prototype instanceof LambdaServiceException);
@@ -1169,10 +1201,14 @@ assert(SerializedRequestEntityTooLargeException.prototype instanceof LambdaServi
 assert(typeof SerializedRequestEntityTooLargeException$ === "object");
 assert(ServiceException.prototype instanceof LambdaServiceException);
 assert(typeof ServiceException$ === "object");
+assert(ServiceQuotaExceededException.prototype instanceof LambdaServiceException);
+assert(typeof ServiceQuotaExceededException$ === "object");
 assert(SnapStartException.prototype instanceof LambdaServiceException);
 assert(typeof SnapStartException$ === "object");
 assert(SnapStartNotReadyException.prototype instanceof LambdaServiceException);
 assert(typeof SnapStartNotReadyException$ === "object");
+assert(SnapStartRegenerationFailureException.prototype instanceof LambdaServiceException);
+assert(typeof SnapStartRegenerationFailureException$ === "object");
 assert(SnapStartTimeoutException.prototype instanceof LambdaServiceException);
 assert(typeof SnapStartTimeoutException$ === "object");
 assert(SubnetIPAddressLimitReachedException.prototype instanceof LambdaServiceException);

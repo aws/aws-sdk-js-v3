@@ -29,16 +29,16 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
 [Uint8Array (json)]
 {
   "UpdateRuntimeOn": "__UpdateRuntimeOn__",
-  "RuntimeVersionArn": "__RuntimeVersionArn__",
-  "FunctionArn": "__FunctionArn__"
+  "FunctionArn": "__FunctionArn__",
+  "RuntimeVersionArn": "__RuntimeVersionArn__"
 }
 
 
 --- [output object] ---
 {
   UpdateRuntimeOn: "__UpdateRuntimeOn__",
-  RuntimeVersionArn: "__RuntimeVersionArn__",
   FunctionArn: "__FunctionArn__",
+  RuntimeVersionArn: "__RuntimeVersionArn__",
   $metadata: {
     httpStatusCode: (number) 200,
     requestId: "1111amzn-requ-stid-uuid-000000001111",

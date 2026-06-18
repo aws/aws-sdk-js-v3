@@ -9,7 +9,7 @@ host: lambda.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: ca832a6e037f7744af5171b4cf3658fdf0857cb2e8cc66efdf6d483b1e208090
+x-amz-content-sha256: ad04d3cbaff30ce28c9011f3a8a76e71c2399ae16e3aba891e894fb9d9e73d75
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/lambda/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
 
 [string (json)]
@@ -24,7 +24,18 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/lambda/aws4_re
       {}
     ]
   },
+  "KMSKeyArn": "__KMSKeyArn__",
+  "MetricsConfig": {
+    "Metrics": []
+  },
+  "LoggingConfig": {
+    "SystemLogLevel": "__SystemLogLevel__"
+  },
+  "ScalingConfig": {
+    "MaximumConcurrency": 0
+  },
   "MaximumBatchingWindowInSeconds": 0,
+  "ParallelizationFactor": 0,
   "DestinationConfig": {
     "OnSuccess": {
       "Destination": "__Destination__"
@@ -36,7 +47,7 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/lambda/aws4_re
   "MaximumRecordAgeInSeconds": 0,
   "BisectBatchOnFunctionError": false,
   "MaximumRetryAttempts": 0,
-  "ParallelizationFactor": 0,
+  "TumblingWindowInSeconds": 0,
   "SourceAccessConfigurations": [
     {
       "Type": "__Type__",
@@ -51,15 +62,11 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/lambda/aws4_re
       "URI": "__URI__"
     }
   ],
-  "TumblingWindowInSeconds": 0,
   "FunctionResponseTypes": [
     "__member__",
     "__member__",
     "__member__"
   ],
-  "ScalingConfig": {
-    "MaximumConcurrency": 0
-  },
   "AmazonManagedKafkaEventSourceConfig": {
     "ConsumerGroupId": "__ConsumerGroupId__",
     "SchemaRegistryConfig": {
@@ -128,13 +135,6 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/lambda/aws4_re
     "DatabaseName": "__DatabaseName__",
     "CollectionName": "__CollectionName__",
     "FullDocument": "__FullDocument__"
-  },
-  "KMSKeyArn": "__KMSKeyArn__",
-  "MetricsConfig": {
-    "Metrics": []
-  },
-  "LoggingConfig": {
-    "SystemLogLevel": "__SystemLogLevel__"
   },
   "ProvisionedPollerConfig": {
     "MinimumPollers": 0,

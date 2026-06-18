@@ -9,7 +9,7 @@ host: lambda.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: 0554dde6df1b8b707646ff405b81f809769199c87926b4e1399011d928bd4362
+x-amz-content-sha256: 9a244a8f4ac45795b7e7a19b6c22265a9ad1a5a91cf115f6ca07db639a548904
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/lambda/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
 
 [string (json)]
@@ -30,6 +30,7 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/lambda/aws4_re
   "Timeout": 0,
   "MemorySize": 0,
   "Publish": false,
+  "PublishTo": "__PublishTo__",
   "VpcConfig": {
     "SubnetIds": [
       "__member__",
@@ -82,6 +83,7 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/lambda/aws4_re
       "LocalMountPath": "__LocalMountPath__"
     }
   ],
+  "CodeSigningConfigArn": "__CodeSigningConfigArn__",
   "ImageConfig": {
     "EntryPoint": [
       "__member__",
@@ -95,7 +97,6 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/lambda/aws4_re
     ],
     "WorkingDirectory": "__WorkingDirectory__"
   },
-  "CodeSigningConfigArn": "__CodeSigningConfigArn__",
   "Architectures": [
     "__member__",
     "__member__",
@@ -113,6 +114,9 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/lambda/aws4_re
     "SystemLogLevel": "__SystemLogLevel__",
     "LogGroup": "__LogGroup__"
   },
+  "TenancyConfig": {
+    "TenantIsolationMode": "__TenantIsolationMode__"
+  },
   "CapacityProviderConfig": {
     "LambdaManagedInstancesCapacityProviderConfig": {
       "CapacityProviderArn": "__CapacityProviderArn__",
@@ -120,12 +124,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/lambda/aws4_re
       "ExecutionEnvironmentMemoryGiBPerVCpu": 0
     }
   },
-  "PublishTo": "__PublishTo__",
   "DurableConfig": {
     "RetentionPeriodInDays": 0,
     "ExecutionTimeout": 0
-  },
-  "TenancyConfig": {
-    "TenantIsolationMode": "__TenantIsolationMode__"
   }
 }

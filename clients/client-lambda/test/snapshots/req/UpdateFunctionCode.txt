@@ -9,7 +9,7 @@ host: lambda.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: 52935fad3cefe967c5f6bc6bafee42336ed1cc02cacf3be8c5c770a0d6d2d7dc
+x-amz-content-sha256: ec6a1c7862767b47ca0da6c1e56b6909a2d768316561ace821cdca6dcca6e2c6
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/lambda/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
 
 [string (json)]
@@ -19,14 +19,14 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/lambda/aws4_re
   "S3Key": "__S3Key__",
   "S3ObjectVersion": "__S3ObjectVersion__",
   "ImageUri": "__ImageUri__",
-  "Publish": false,
-  "DryRun": false,
-  "RevisionId": "__RevisionId__",
   "Architectures": [
     "__member__",
     "__member__",
     "__member__"
   ],
-  "SourceKMSKeyArn": "__SourceKMSKeyArn__",
-  "PublishTo": "__PublishTo__"
+  "Publish": false,
+  "PublishTo": "__PublishTo__",
+  "DryRun": false,
+  "RevisionId": "__RevisionId__",
+  "SourceKMSKeyArn": "__SourceKMSKeyArn__"
 }

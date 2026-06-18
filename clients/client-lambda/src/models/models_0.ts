@@ -201,6 +201,18 @@ export interface AddPermissionRequest {
   SourceArn?: string | undefined;
 
   /**
+   * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Control access to Lambda function URLs</a>.</p>
+   * @public
+   */
+  FunctionUrlAuthType?: FunctionUrlAuthType | undefined;
+
+  /**
+   * <p>Indicates whether the permission applies when the function is invoked through a function URL. </p>
+   * @public
+   */
+  InvokedViaFunctionUrl?: boolean | undefined;
+
+  /**
    * <p>For Amazon Web Services service, the ID of the Amazon Web Services account that owns the resource. Use this together with <code>SourceArn</code> to ensure that the specified account owns the resource. It is possible for an Amazon S3 bucket to be deleted by its owner and recreated by another account.</p>
    * @public
    */
@@ -229,18 +241,6 @@ export interface AddPermissionRequest {
    * @public
    */
   PrincipalOrgID?: string | undefined;
-
-  /**
-   * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Control access to Lambda function URLs</a>.</p>
-   * @public
-   */
-  FunctionUrlAuthType?: FunctionUrlAuthType | undefined;
-
-  /**
-   * <p>Indicates whether the permission applies when the function is invoked through a function URL. </p>
-   * @public
-   */
-  InvokedViaFunctionUrl?: boolean | undefined;
 }
 
 /**
@@ -962,7 +962,7 @@ export interface OperationUpdate {
   Action: OperationAction | undefined;
 
   /**
-   * <p>The payload for successful operations.</p>
+   * <p>The payload for successful operations. The maximum payload size is 6 MB for synchronous <code>EXECUTION</code> operations (RequestResponse invocationType), 1 MB for asynchronous <code>EXECUTION</code> (Event invocationType) and <code>CHAINED_INVOKE</code> operations, and 256 KB for <code>CONTEXT</code>, <code>STEP</code>, <code>WAIT</code>, and <code>CALLBACK</code> operations.</p>
    * @public
    */
   Payload?: string | undefined;
@@ -1803,6 +1803,30 @@ export interface CreateEventSourceMappingRequest {
   FilterCriteria?: FilterCriteria | undefined;
 
   /**
+   * <p> The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics">filter criteria</a>. By default, Lambda does not encrypt your filter criteria object. Specify this property to encrypt data using your own customer managed key. </p>
+   * @public
+   */
+  KMSKeyArn?: string | undefined;
+
+  /**
+   * <p>The metrics configuration for your event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics">Event source mapping metrics</a>.</p>
+   * @public
+   */
+  MetricsConfig?: EventSourceMappingMetricsConfig | undefined;
+
+  /**
+   * <p>(Amazon MSK, and self-managed Apache Kafka only) The logging configuration for your event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/esm-logging.html">Event source mapping logging</a>.</p>
+   * @public
+   */
+  LoggingConfig?: EventSourceMappingLoggingConfig | undefined;
+
+  /**
+   * <p>(Amazon SQS only) The scaling configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency">Configuring maximum concurrency for Amazon SQS event sources</a>.</p>
+   * @public
+   */
+  ScalingConfig?: ScalingConfig | undefined;
+
+  /**
    * <p>The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function. You can configure <code>MaximumBatchingWindowInSeconds</code> to any value from 0 seconds to 300 seconds in increments of seconds.</p> <p>For Kinesis, DynamoDB, and Amazon SQS event sources, the default batching window is 0 seconds. For Amazon MSK, Self-managed Apache Kafka, Amazon MQ, and DocumentDB event sources, the default batching window is 500 ms. Note that because you can only change <code>MaximumBatchingWindowInSeconds</code> in increments of seconds, you cannot revert back to the 500 ms default batching window after you have changed it. To restore the default batching window, you must create a new event source mapping.</p> <p>Related setting: For Kinesis, DynamoDB, and Amazon SQS event sources, when you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
    * @public
    */
@@ -1905,34 +1929,10 @@ export interface CreateEventSourceMappingRequest {
   SelfManagedKafkaEventSourceConfig?: SelfManagedKafkaEventSourceConfig | undefined;
 
   /**
-   * <p>(Amazon SQS only) The scaling configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency">Configuring maximum concurrency for Amazon SQS event sources</a>.</p>
-   * @public
-   */
-  ScalingConfig?: ScalingConfig | undefined;
-
-  /**
    * <p>Specific configuration settings for a DocumentDB event source.</p>
    * @public
    */
   DocumentDBEventSourceConfig?: DocumentDBEventSourceConfig | undefined;
-
-  /**
-   * <p> The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics">filter criteria</a>. By default, Lambda does not encrypt your filter criteria object. Specify this property to encrypt data using your own customer managed key. </p>
-   * @public
-   */
-  KMSKeyArn?: string | undefined;
-
-  /**
-   * <p>The metrics configuration for your event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics">Event source mapping metrics</a>.</p>
-   * @public
-   */
-  MetricsConfig?: EventSourceMappingMetricsConfig | undefined;
-
-  /**
-   * <p>(Amazon MSK, and self-managed Apache Kafka only) The logging configuration for your event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/esm-logging.html">Event source mapping logging</a>.</p>
-   * @public
-   */
-  LoggingConfig?: EventSourceMappingLoggingConfig | undefined;
 
   /**
    * <p>(Amazon SQS, Amazon MSK, and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode">provisioned mode</a>.</p>
@@ -2011,6 +2011,36 @@ export interface EventSourceMappingConfiguration {
    * @public
    */
   FilterCriteria?: FilterCriteria | undefined;
+
+  /**
+   * <p>An object that contains details about an error related to filter criteria encryption.</p>
+   * @public
+   */
+  FilterCriteriaError?: FilterCriteriaError | undefined;
+
+  /**
+   * <p> The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics">filter criteria</a>.</p>
+   * @public
+   */
+  KMSKeyArn?: string | undefined;
+
+  /**
+   * <p>The metrics configuration for your event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics">Event source mapping metrics</a>.</p>
+   * @public
+   */
+  MetricsConfig?: EventSourceMappingMetricsConfig | undefined;
+
+  /**
+   * <p>(Amazon MSK, and self-managed Apache Kafka only) The logging configuration for your event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/esm-logging.html">Event source mapping logging</a>.</p>
+   * @public
+   */
+  LoggingConfig?: EventSourceMappingLoggingConfig | undefined;
+
+  /**
+   * <p>(Amazon SQS only) The scaling configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency">Configuring maximum concurrency for Amazon SQS event sources</a>.</p>
+   * @public
+   */
+  ScalingConfig?: ScalingConfig | undefined;
 
   /**
    * <p>The ARN of the Lambda function.</p>
@@ -2115,46 +2145,16 @@ export interface EventSourceMappingConfiguration {
   SelfManagedKafkaEventSourceConfig?: SelfManagedKafkaEventSourceConfig | undefined;
 
   /**
-   * <p>(Amazon SQS only) The scaling configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency">Configuring maximum concurrency for Amazon SQS event sources</a>.</p>
-   * @public
-   */
-  ScalingConfig?: ScalingConfig | undefined;
-
-  /**
    * <p>Specific configuration settings for a DocumentDB event source.</p>
    * @public
    */
   DocumentDBEventSourceConfig?: DocumentDBEventSourceConfig | undefined;
 
   /**
-   * <p> The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics">filter criteria</a>.</p>
-   * @public
-   */
-  KMSKeyArn?: string | undefined;
-
-  /**
-   * <p>An object that contains details about an error related to filter criteria encryption.</p>
-   * @public
-   */
-  FilterCriteriaError?: FilterCriteriaError | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the event source mapping.</p>
    * @public
    */
   EventSourceMappingArn?: string | undefined;
-
-  /**
-   * <p>The metrics configuration for your event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics">Event source mapping metrics</a>.</p>
-   * @public
-   */
-  MetricsConfig?: EventSourceMappingMetricsConfig | undefined;
-
-  /**
-   * <p>(Amazon MSK, and self-managed Apache Kafka only) The logging configuration for your event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/esm-logging.html">Event source mapping logging</a>.</p>
-   * @public
-   */
-  LoggingConfig?: EventSourceMappingLoggingConfig | undefined;
 
   /**
    * <p>(Amazon SQS, Amazon MSK, and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode">provisioned mode</a>.</p>
@@ -2266,10 +2266,40 @@ export interface UpdateEventSourceMappingRequest {
   FilterCriteria?: FilterCriteria | undefined;
 
   /**
+   * <p> The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics">filter criteria</a>. By default, Lambda does not encrypt your filter criteria object. Specify this property to encrypt data using your own customer managed key. </p>
+   * @public
+   */
+  KMSKeyArn?: string | undefined;
+
+  /**
+   * <p>The metrics configuration for your event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics">Event source mapping metrics</a>.</p>
+   * @public
+   */
+  MetricsConfig?: EventSourceMappingMetricsConfig | undefined;
+
+  /**
+   * <p>(Amazon MSK, and self-managed Apache Kafka only) The logging configuration for your event source. Use this configuration object to define the level of logs for your event source mapping. </p>
+   * @public
+   */
+  LoggingConfig?: EventSourceMappingLoggingConfig | undefined;
+
+  /**
+   * <p>(Amazon SQS only) The scaling configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency">Configuring maximum concurrency for Amazon SQS event sources</a>.</p>
+   * @public
+   */
+  ScalingConfig?: ScalingConfig | undefined;
+
+  /**
    * <p>The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function. You can configure <code>MaximumBatchingWindowInSeconds</code> to any value from 0 seconds to 300 seconds in increments of seconds.</p> <p>For Kinesis, DynamoDB, and Amazon SQS event sources, the default batching window is 0 seconds. For Amazon MSK, Self-managed Apache Kafka, Amazon MQ, and DocumentDB event sources, the default batching window is 500 ms. Note that because you can only change <code>MaximumBatchingWindowInSeconds</code> in increments of seconds, you cannot revert back to the 500 ms default batching window after you have changed it. To restore the default batching window, you must create a new event source mapping.</p> <p>Related setting: For Kinesis, DynamoDB, and Amazon SQS event sources, when you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
    * @public
    */
   MaximumBatchingWindowInSeconds?: number | undefined;
+
+  /**
+   * <p>(Kinesis and DynamoDB Streams only) The number of batches to process from each shard concurrently.</p>
+   * @public
+   */
+  ParallelizationFactor?: number | undefined;
 
   /**
    * <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) A configuration object that specifies the destination of an event after Lambda processes it.</p>
@@ -2296,10 +2326,10 @@ export interface UpdateEventSourceMappingRequest {
   MaximumRetryAttempts?: number | undefined;
 
   /**
-   * <p>(Kinesis and DynamoDB Streams only) The number of batches to process from each shard concurrently.</p>
+   * <p>(Kinesis and DynamoDB Streams only) The duration in seconds of a processing window for DynamoDB and Kinesis Streams event sources. A value of 0 seconds indicates no tumbling window.</p>
    * @public
    */
-  ParallelizationFactor?: number | undefined;
+  TumblingWindowInSeconds?: number | undefined;
 
   /**
    * <p>An array of authentication protocols or VPC components required to secure your event source.</p>
@@ -2308,22 +2338,10 @@ export interface UpdateEventSourceMappingRequest {
   SourceAccessConfigurations?: SourceAccessConfiguration[] | undefined;
 
   /**
-   * <p>(Kinesis and DynamoDB Streams only) The duration in seconds of a processing window for DynamoDB and Kinesis Streams event sources. A value of 0 seconds indicates no tumbling window.</p>
-   * @public
-   */
-  TumblingWindowInSeconds?: number | undefined;
-
-  /**
    * <p>(Kinesis, DynamoDB Streams, Amazon MSK, self-managed Apache Kafka, and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
    * @public
    */
   FunctionResponseTypes?: FunctionResponseType[] | undefined;
-
-  /**
-   * <p>(Amazon SQS only) The scaling configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency">Configuring maximum concurrency for Amazon SQS event sources</a>.</p>
-   * @public
-   */
-  ScalingConfig?: ScalingConfig | undefined;
 
   /**
    * <p>Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.</p>
@@ -2342,24 +2360,6 @@ export interface UpdateEventSourceMappingRequest {
    * @public
    */
   DocumentDBEventSourceConfig?: DocumentDBEventSourceConfig | undefined;
-
-  /**
-   * <p> The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics">filter criteria</a>. By default, Lambda does not encrypt your filter criteria object. Specify this property to encrypt data using your own customer managed key. </p>
-   * @public
-   */
-  KMSKeyArn?: string | undefined;
-
-  /**
-   * <p>The metrics configuration for your event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics">Event source mapping metrics</a>.</p>
-   * @public
-   */
-  MetricsConfig?: EventSourceMappingMetricsConfig | undefined;
-
-  /**
-   * <p>(Amazon MSK, and self-managed Apache Kafka only) The logging configuration for your event source. Use this configuration object to define the level of logs for your event source mapping. </p>
-   * @public
-   */
-  LoggingConfig?: EventSourceMappingLoggingConfig | undefined;
 
   /**
    * <p>(Amazon SQS, Amazon MSK, and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode">provisioned mode</a>.</p>
@@ -2691,6 +2691,12 @@ export interface CreateFunctionRequest {
   Publish?: boolean | undefined;
 
   /**
+   * <p>Specifies where to publish the function version or configuration.</p>
+   * @public
+   */
+  PublishTo?: FunctionVersionLatestPublished | undefined;
+
+  /**
    * <p>For network connectivity to Amazon Web Services resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can access resources and the internet only through that VPC. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">Configuring a Lambda function to access resources in a VPC</a>.</p>
    * @public
    */
@@ -2745,16 +2751,16 @@ export interface CreateFunctionRequest {
   FileSystemConfigs?: FileSystemConfig[] | undefined;
 
   /**
-   * <p>Container image <a href="https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms">configuration values</a> that override the values in the container image Dockerfile.</p>
-   * @public
-   */
-  ImageConfig?: ImageConfig | undefined;
-
-  /**
    * <p>To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.</p>
    * @public
    */
   CodeSigningConfigArn?: string | undefined;
+
+  /**
+   * <p>Container image <a href="https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms">configuration values</a> that override the values in the container image Dockerfile.</p>
+   * @public
+   */
+  ImageConfig?: ImageConfig | undefined;
 
   /**
    * <p>The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is <code>x86_64</code>.</p>
@@ -2781,28 +2787,22 @@ export interface CreateFunctionRequest {
   LoggingConfig?: LoggingConfig | undefined;
 
   /**
+   * <p>Configuration for multi-tenant applications that use Lambda functions. Defines tenant isolation settings and resource allocations. Required for functions supporting multiple tenants.</p>
+   * @public
+   */
+  TenancyConfig?: TenancyConfig | undefined;
+
+  /**
    * <p>Configuration for the capacity provider that manages compute resources for Lambda functions.</p>
    * @public
    */
   CapacityProviderConfig?: CapacityProviderConfig | undefined;
 
   /**
-   * <p>Specifies where to publish the function version or configuration.</p>
-   * @public
-   */
-  PublishTo?: FunctionVersionLatestPublished | undefined;
-
-  /**
    * <p>Configuration settings for durable functions. Enables creating functions with durability that can remember their state and continue execution even after interruptions.</p>
    * @public
    */
   DurableConfig?: DurableConfig | undefined;
-
-  /**
-   * <p>Configuration for multi-tenant applications that use Lambda functions. Defines tenant isolation settings and resource allocations. Required for functions supporting multiple tenants.</p>
-   * @public
-   */
-  TenancyConfig?: TenancyConfig | undefined;
 }
 
 /**
@@ -3171,18 +3171,6 @@ export interface FunctionConfiguration {
   FileSystemConfigs?: FileSystemConfig[] | undefined;
 
   /**
-   * <p>The type of deployment package. Set to <code>Image</code> for container image and set <code>Zip</code> for .zip file archive.</p>
-   * @public
-   */
-  PackageType?: PackageType | undefined;
-
-  /**
-   * <p>The function's image configuration values.</p>
-   * @public
-   */
-  ImageConfigResponse?: ImageConfigResponse | undefined;
-
-  /**
    * <p>The ARN of the signing profile version.</p>
    * @public
    */
@@ -3193,6 +3181,18 @@ export interface FunctionConfiguration {
    * @public
    */
   SigningJobArn?: string | undefined;
+
+  /**
+   * <p>The type of deployment package. Set to <code>Image</code> for container image and set <code>Zip</code> for .zip file archive.</p>
+   * @public
+   */
+  PackageType?: PackageType | undefined;
+
+  /**
+   * <p>The function's image configuration values.</p>
+   * @public
+   */
+  ImageConfigResponse?: ImageConfigResponse | undefined;
 
   /**
    * <p>The instruction set architecture that the function supports. Architecture is a string array with one of the valid values. The default architecture value is <code>x86_64</code>.</p>
@@ -3225,6 +3225,12 @@ export interface FunctionConfiguration {
   LoggingConfig?: LoggingConfig | undefined;
 
   /**
+   * <p>The function's tenant isolation configuration settings. Determines whether the Lambda function runs on a shared or dedicated infrastructure per unique tenant.</p>
+   * @public
+   */
+  TenancyConfig?: TenancyConfig | undefined;
+
+  /**
    * <p>Configuration for the capacity provider that manages compute resources for Lambda functions.</p>
    * @public
    */
@@ -3241,12 +3247,6 @@ export interface FunctionConfiguration {
    * @public
    */
   DurableConfig?: DurableConfig | undefined;
-
-  /**
-   * <p>The function's tenant isolation configuration settings. Determines whether the Lambda function runs on a shared or dedicated infrastructure per unique tenant.</p>
-   * @public
-   */
-  TenancyConfig?: TenancyConfig | undefined;
 }
 
 /**
@@ -3796,16 +3796,16 @@ export interface GetRuntimeManagementConfigResponse {
   UpdateRuntimeOn?: UpdateRuntimeOn | undefined;
 
   /**
-   * <p>The ARN of the runtime the function is configured to use. If the runtime update mode is <b>Manual</b>, the ARN is returned, otherwise <code>null</code> is returned.</p>
-   * @public
-   */
-  RuntimeVersionArn?: string | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of your function.</p>
    * @public
    */
   FunctionArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the runtime the function is configured to use. If the runtime update mode is <b>Manual</b>, the ARN is returned, otherwise <code>null</code> is returned.</p>
+   * @public
+   */
+  RuntimeVersionArn?: string | undefined;
 }
 
 /**
@@ -4528,10 +4528,22 @@ export interface UpdateFunctionCodeRequest {
   ImageUri?: string | undefined;
 
   /**
+   * <p>The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is <code>x86_64</code>.</p>
+   * @public
+   */
+  Architectures?: Architecture[] | undefined;
+
+  /**
    * <p>Set to true to publish a new version of the function after updating the code. This has the same effect as calling <a>PublishVersion</a> separately.</p>
    * @public
    */
   Publish?: boolean | undefined;
+
+  /**
+   * <p>Specifies where to publish the function version or configuration.</p>
+   * @public
+   */
+  PublishTo?: FunctionVersionLatestPublished | undefined;
 
   /**
    * <p>Set to true to validate the request parameters and access permissions without modifying the function code.</p>
@@ -4546,22 +4558,10 @@ export interface UpdateFunctionCodeRequest {
   RevisionId?: string | undefined;
 
   /**
-   * <p>The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is <code>x86_64</code>.</p>
-   * @public
-   */
-  Architectures?: Architecture[] | undefined;
-
-  /**
    * <p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt your function's .zip deployment package. If you don't provide a customer managed key, Lambda uses an Amazon Web Services managed key.</p>
    * @public
    */
   SourceKMSKeyArn?: string | undefined;
-
-  /**
-   * <p>Specifies where to publish the function version or configuration.</p>
-   * @public
-   */
-  PublishTo?: FunctionVersionLatestPublished | undefined;
 }
 
 /**
@@ -5900,6 +5900,12 @@ export interface GetFunctionEventInvokeConfigRequest {
  */
 export interface ListLayersRequest {
   /**
+   * <p>The compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architecture</a>.</p>
+   * @public
+   */
+  CompatibleArchitecture?: Architecture | undefined;
+
+  /**
    * <p>A runtime identifier.</p> <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p> <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
    * @public
    */
@@ -5916,12 +5922,6 @@ export interface ListLayersRequest {
    * @public
    */
   MaxItems?: number | undefined;
-
-  /**
-   * <p>The compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architecture</a>.</p>
-   * @public
-   */
-  CompatibleArchitecture?: Architecture | undefined;
 }
 
 /**
@@ -5954,6 +5954,12 @@ export interface LayerVersionsListItem {
   CreatedDate?: string | undefined;
 
   /**
+   * <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
+   * @public
+   */
+  CompatibleArchitectures?: Architecture[] | undefined;
+
+  /**
    * <p>The layer's compatible runtimes.</p> <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p> <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
    * @public
    */
@@ -5964,12 +5970,6 @@ export interface LayerVersionsListItem {
    * @public
    */
   LicenseInfo?: string | undefined;
-
-  /**
-   * <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
-   * @public
-   */
-  CompatibleArchitectures?: Architecture[] | undefined;
 }
 
 /**
@@ -6124,6 +6124,12 @@ export interface GetLayerVersionResponse {
   Version?: number | undefined;
 
   /**
+   * <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
+   * @public
+   */
+  CompatibleArchitectures?: Architecture[] | undefined;
+
+  /**
    * <p>The layer's compatible runtimes.</p> <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p> <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
    * @public
    */
@@ -6134,12 +6140,6 @@ export interface GetLayerVersionResponse {
    * @public
    */
   LicenseInfo?: string | undefined;
-
-  /**
-   * <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
-   * @public
-   */
-  CompatibleArchitectures?: Architecture[] | undefined;
 }
 
 /**
@@ -6192,6 +6192,12 @@ export interface GetLayerVersionPolicyResponse {
  */
 export interface ListLayerVersionsRequest {
   /**
+   * <p>The compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architecture</a>.</p>
+   * @public
+   */
+  CompatibleArchitecture?: Architecture | undefined;
+
+  /**
    * <p>A runtime identifier.</p> <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p> <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
    * @public
    */
@@ -6214,12 +6220,6 @@ export interface ListLayerVersionsRequest {
    * @public
    */
   MaxItems?: number | undefined;
-
-  /**
-   * <p>The compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architecture</a>.</p>
-   * @public
-   */
-  CompatibleArchitecture?: Architecture | undefined;
 }
 
 /**
@@ -6292,6 +6292,12 @@ export interface PublishLayerVersionRequest {
   Content: LayerVersionContentInput | undefined;
 
   /**
+   * <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
+   * @public
+   */
+  CompatibleArchitectures?: Architecture[] | undefined;
+
+  /**
    * <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">function runtimes</a>. Used for filtering with <a>ListLayers</a> and <a>ListLayerVersions</a>.</p> <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy">Runtime deprecation policy</a>.</p>
    * @public
    */
@@ -6302,12 +6308,6 @@ export interface PublishLayerVersionRequest {
    * @public
    */
   LicenseInfo?: string | undefined;
-
-  /**
-   * <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
-   * @public
-   */
-  CompatibleArchitectures?: Architecture[] | undefined;
 }
 
 /**
@@ -6351,6 +6351,12 @@ export interface PublishLayerVersionResponse {
   Version?: number | undefined;
 
   /**
+   * <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
+   * @public
+   */
+  CompatibleArchitectures?: Architecture[] | undefined;
+
+  /**
    * <p>The layer's compatible runtimes.</p> <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p> <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
    * @public
    */
@@ -6361,12 +6367,6 @@ export interface PublishLayerVersionResponse {
    * @public
    */
   LicenseInfo?: string | undefined;
-
-  /**
-   * <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
-   * @public
-   */
-  CompatibleArchitectures?: Architecture[] | undefined;
 }
 
 /**
@@ -6439,7 +6439,7 @@ export interface ListDurableExecutionsByFunctionRequest {
   StartedBefore?: Date | undefined;
 
   /**
-   * <p>Set to true to return results in reverse chronological order (newest first). Default is false.</p>
+   * <p>Set to true to return results in chronological order (oldest first). Default is false.</p>
    * @public
    */
   ReverseOrder?: boolean | undefined;
@@ -6717,16 +6717,16 @@ export interface PutProvisionedConcurrencyConfigResponse {
   RequestedProvisionedConcurrentExecutions?: number | undefined;
 
   /**
-   * <p>The amount of provisioned concurrency available.</p>
-   * @public
-   */
-  AvailableProvisionedConcurrentExecutions?: number | undefined;
-
-  /**
    * <p>The amount of provisioned concurrency allocated. When a weighted alias is used during linear and canary deployments, this value fluctuates depending on the amount of concurrency that is provisioned for the function versions.</p>
    * @public
    */
   AllocatedProvisionedConcurrentExecutions?: number | undefined;
+
+  /**
+   * <p>The amount of provisioned concurrency available.</p>
+   * @public
+   */
+  AvailableProvisionedConcurrentExecutions?: number | undefined;
 
   /**
    * <p>The status of the allocation process.</p>

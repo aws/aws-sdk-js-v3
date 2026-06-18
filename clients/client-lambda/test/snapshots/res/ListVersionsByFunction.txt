@@ -117,6 +117,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "LocalMountPath": "__LocalMountPath__"
         }
       ],
+      "SigningProfileVersionArn": "__SigningProfileVersionArn__",
+      "SigningJobArn": "__SigningJobArn__",
       "PackageType": "__PackageType__",
       "ImageConfigResponse": {
         "ImageConfig": {
@@ -137,8 +139,6 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "Message": "__Message__"
         }
       },
-      "SigningProfileVersionArn": "__SigningProfileVersionArn__",
-      "SigningJobArn": "__SigningJobArn__",
       "Architectures": [
         "__member__",
         "__member__",
@@ -164,6 +164,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "SystemLogLevel": "__SystemLogLevel__",
         "LogGroup": "__LogGroup__"
       },
+      "TenancyConfig": {
+        "TenantIsolationMode": "__TenantIsolationMode__"
+      },
       "CapacityProviderConfig": {
         "LambdaManagedInstancesCapacityProviderConfig": {
           "CapacityProviderArn": "__CapacityProviderArn__",
@@ -175,9 +178,6 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "DurableConfig": {
         "RetentionPeriodInDays": 0,
         "ExecutionTimeout": 0
-      },
-      "TenancyConfig": {
-        "TenantIsolationMode": "__TenantIsolationMode__"
       }
     },
     {
@@ -267,6 +267,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "LocalMountPath": "__LocalMountPath__"
         }
       ],
+      "SigningProfileVersionArn": "__SigningProfileVersionArn__",
+      "SigningJobArn": "__SigningJobArn__",
       "PackageType": "__PackageType__",
       "ImageConfigResponse": {
         "ImageConfig": {
@@ -287,8 +289,6 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "Message": "__Message__"
         }
       },
-      "SigningProfileVersionArn": "__SigningProfileVersionArn__",
-      "SigningJobArn": "__SigningJobArn__",
       "Architectures": [
         "__member__",
         "__member__",
@@ -314,6 +314,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "SystemLogLevel": "__SystemLogLevel__",
         "LogGroup": "__LogGroup__"
       },
+      "TenancyConfig": {
+        "TenantIsolationMode": "__TenantIsolationMode__"
+      },
       "CapacityProviderConfig": {
         "LambdaManagedInstancesCapacityProviderConfig": {
           "CapacityProviderArn": "__CapacityProviderArn__",
@@ -325,9 +328,6 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "DurableConfig": {
         "RetentionPeriodInDays": 0,
         "ExecutionTimeout": 0
-      },
-      "TenancyConfig": {
-        "TenantIsolationMode": "__TenantIsolationMode__"
       }
     },
     {
@@ -417,6 +417,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "LocalMountPath": "__LocalMountPath__"
         }
       ],
+      "SigningProfileVersionArn": "__SigningProfileVersionArn__",
+      "SigningJobArn": "__SigningJobArn__",
       "PackageType": "__PackageType__",
       "ImageConfigResponse": {
         "ImageConfig": {
@@ -437,8 +439,6 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "Message": "__Message__"
         }
       },
-      "SigningProfileVersionArn": "__SigningProfileVersionArn__",
-      "SigningJobArn": "__SigningJobArn__",
       "Architectures": [
         "__member__",
         "__member__",
@@ -464,6 +464,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "SystemLogLevel": "__SystemLogLevel__",
         "LogGroup": "__LogGroup__"
       },
+      "TenancyConfig": {
+        "TenantIsolationMode": "__TenantIsolationMode__"
+      },
       "CapacityProviderConfig": {
         "LambdaManagedInstancesCapacityProviderConfig": {
           "CapacityProviderArn": "__CapacityProviderArn__",
@@ -475,9 +478,6 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "DurableConfig": {
         "RetentionPeriodInDays": 0,
         "ExecutionTimeout": 0
-      },
-      "TenancyConfig": {
-        "TenantIsolationMode": "__TenantIsolationMode__"
       }
     }
   ]
@@ -575,6 +575,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           LocalMountPath: "__LocalMountPath__"
         }
       ],
+      SigningProfileVersionArn: "__SigningProfileVersionArn__",
+      SigningJobArn: "__SigningJobArn__",
       PackageType: "__PackageType__",
       ImageConfigResponse: {
         ImageConfig: {
@@ -595,8 +597,6 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           Message: "__Message__"
         }
       },
-      SigningProfileVersionArn: "__SigningProfileVersionArn__",
-      SigningJobArn: "__SigningJobArn__",
       Architectures: [
         "__member__",
         "__member__",
@@ -622,6 +622,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         SystemLogLevel: "__SystemLogLevel__",
         LogGroup: "__LogGroup__"
       },
+      TenancyConfig: {
+        TenantIsolationMode: "__TenantIsolationMode__"
+      },
       CapacityProviderConfig: {
         LambdaManagedInstancesCapacityProviderConfig: {
           CapacityProviderArn: "__CapacityProviderArn__",
@@ -633,9 +636,6 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       DurableConfig: {
         RetentionPeriodInDays: (number) 0,
         ExecutionTimeout: (number) 0
-      },
-      TenancyConfig: {
-        TenantIsolationMode: "__TenantIsolationMode__"
       }
     },
     {
@@ -725,6 +725,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           LocalMountPath: "__LocalMountPath__"
         }
       ],
+      SigningProfileVersionArn: "__SigningProfileVersionArn__",
+      SigningJobArn: "__SigningJobArn__",
       PackageType: "__PackageType__",
       ImageConfigResponse: {
         ImageConfig: {
@@ -745,8 +747,6 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           Message: "__Message__"
         }
       },
-      SigningProfileVersionArn: "__SigningProfileVersionArn__",
-      SigningJobArn: "__SigningJobArn__",
       Architectures: [
         "__member__",
         "__member__",
@@ -772,6 +772,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         SystemLogLevel: "__SystemLogLevel__",
         LogGroup: "__LogGroup__"
       },
+      TenancyConfig: {
+        TenantIsolationMode: "__TenantIsolationMode__"
+      },
       CapacityProviderConfig: {
         LambdaManagedInstancesCapacityProviderConfig: {
           CapacityProviderArn: "__CapacityProviderArn__",
@@ -783,9 +786,6 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       DurableConfig: {
         RetentionPeriodInDays: (number) 0,
         ExecutionTimeout: (number) 0
-      },
-      TenancyConfig: {
-        TenantIsolationMode: "__TenantIsolationMode__"
       }
     },
     {
@@ -875,6 +875,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           LocalMountPath: "__LocalMountPath__"
         }
       ],
+      SigningProfileVersionArn: "__SigningProfileVersionArn__",
+      SigningJobArn: "__SigningJobArn__",
       PackageType: "__PackageType__",
       ImageConfigResponse: {
         ImageConfig: {
@@ -895,8 +897,6 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           Message: "__Message__"
         }
       },
-      SigningProfileVersionArn: "__SigningProfileVersionArn__",
-      SigningJobArn: "__SigningJobArn__",
       Architectures: [
         "__member__",
         "__member__",
@@ -922,6 +922,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         SystemLogLevel: "__SystemLogLevel__",
         LogGroup: "__LogGroup__"
       },
+      TenancyConfig: {
+        TenantIsolationMode: "__TenantIsolationMode__"
+      },
       CapacityProviderConfig: {
         LambdaManagedInstancesCapacityProviderConfig: {
           CapacityProviderArn: "__CapacityProviderArn__",
@@ -933,9 +936,6 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       DurableConfig: {
         RetentionPeriodInDays: (number) 0,
         ExecutionTimeout: (number) 0
-      },
-      TenancyConfig: {
-        TenantIsolationMode: "__TenantIsolationMode__"
       }
     }
   ],

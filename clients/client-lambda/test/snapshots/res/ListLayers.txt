@@ -38,17 +38,17 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "Version": 0,
         "Description": "__Description__",
         "CreatedDate": "__CreatedDate__",
+        "CompatibleArchitectures": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
         "CompatibleRuntimes": [
           "__member__",
           "__member__",
           "__member__"
         ],
-        "LicenseInfo": "__LicenseInfo__",
-        "CompatibleArchitectures": [
-          "__member__",
-          "__member__",
-          "__member__"
-        ]
+        "LicenseInfo": "__LicenseInfo__"
       }
     },
     {
@@ -59,17 +59,17 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "Version": 0,
         "Description": "__Description__",
         "CreatedDate": "__CreatedDate__",
+        "CompatibleArchitectures": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
         "CompatibleRuntimes": [
           "__member__",
           "__member__",
           "__member__"
         ],
-        "LicenseInfo": "__LicenseInfo__",
-        "CompatibleArchitectures": [
-          "__member__",
-          "__member__",
-          "__member__"
-        ]
+        "LicenseInfo": "__LicenseInfo__"
       }
     },
     {
@@ -80,17 +80,17 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "Version": 0,
         "Description": "__Description__",
         "CreatedDate": "__CreatedDate__",
+        "CompatibleArchitectures": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
         "CompatibleRuntimes": [
           "__member__",
           "__member__",
           "__member__"
         ],
-        "LicenseInfo": "__LicenseInfo__",
-        "CompatibleArchitectures": [
-          "__member__",
-          "__member__",
-          "__member__"
-        ]
+        "LicenseInfo": "__LicenseInfo__"
       }
     }
   ]
@@ -109,17 +109,17 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         Version: (number) 0,
         Description: "__Description__",
         CreatedDate: "__CreatedDate__",
+        CompatibleArchitectures: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
         CompatibleRuntimes: [
           "__member__",
           "__member__",
           "__member__"
         ],
-        LicenseInfo: "__LicenseInfo__",
-        CompatibleArchitectures: [
-          "__member__",
-          "__member__",
-          "__member__"
-        ]
+        LicenseInfo: "__LicenseInfo__"
       }
     },
     {
@@ -130,17 +130,17 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         Version: (number) 0,
         Description: "__Description__",
         CreatedDate: "__CreatedDate__",
+        CompatibleArchitectures: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
         CompatibleRuntimes: [
           "__member__",
           "__member__",
           "__member__"
         ],
-        LicenseInfo: "__LicenseInfo__",
-        CompatibleArchitectures: [
-          "__member__",
-          "__member__",
-          "__member__"
-        ]
+        LicenseInfo: "__LicenseInfo__"
       }
     },
     {
@@ -151,17 +151,17 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         Version: (number) 0,
         Description: "__Description__",
         CreatedDate: "__CreatedDate__",
+        CompatibleArchitectures: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
         CompatibleRuntimes: [
           "__member__",
           "__member__",
           "__member__"
         ],
-        LicenseInfo: "__LicenseInfo__",
-        CompatibleArchitectures: [
-          "__member__",
-          "__member__",
-          "__member__"
-        ]
+        LicenseInfo: "__LicenseInfo__"
       }
     }
   ],

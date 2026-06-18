@@ -1,5 +1,5 @@
 GET https://lambda.us-east-1.amazonaws.com 
-/2018-10-31/layers/__LayerName__/versions?CompatibleRuntime=__CompatibleRuntime__&Marker=__Marker__&MaxItems=0&CompatibleArchitecture=__CompatibleArchitecture__
+/2018-10-31/layers/__LayerName__/versions?CompatibleArchitecture=__CompatibleArchitecture__&CompatibleRuntime=__CompatibleRuntime__&Marker=__Marker__&MaxItems=0
 
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/lambda#_.__ m/E,e

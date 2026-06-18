@@ -545,6 +545,7 @@ export const LastUpdateStatusReasonCode = {
   InvalidZipFileException: "InvalidZipFileException",
   KMSKeyAccessDenied: "KMSKeyAccessDenied",
   KMSKeyNotFound: "KMSKeyNotFound",
+  ServiceQuotaExceededException: "ServiceQuotaExceededException",
   SubnetOutOfIPAddresses: "SubnetOutOfIPAddresses",
   VcpuLimitExceeded: "VcpuLimitExceeded",
 } as const;
@@ -608,6 +609,7 @@ export const StateReasonCode = {
   KMSKeyAccessDenied: "KMSKeyAccessDenied",
   KMSKeyNotFound: "KMSKeyNotFound",
   Restoring: "Restoring",
+  ServiceQuotaExceededException: "ServiceQuotaExceededException",
   SubnetOutOfIPAddresses: "SubnetOutOfIPAddresses",
   VcpuLimitExceeded: "VcpuLimitExceeded",
 } as const;
