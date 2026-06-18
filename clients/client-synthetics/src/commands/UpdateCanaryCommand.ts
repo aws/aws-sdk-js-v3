@@ -137,6 +137,23 @@ export interface UpdateCanaryCommandOutput extends UpdateCanaryResponse, __Metad
  *       BrowserType: "CHROME" || "FIREFOX",
  *     },
  *   ],
+ *   AddReplicaLocations: [ // AddReplicaLocations
+ *     { // AddReplicaLocationInput
+ *       Location: "STRING_VALUE", // required
+ *       VpcConfig: {
+ *         SubnetIds: [
+ *           "STRING_VALUE",
+ *         ],
+ *         SecurityGroupIds: [
+ *           "STRING_VALUE",
+ *         ],
+ *         Ipv6AllowedForDualStack: true || false,
+ *       },
+ *     },
+ *   ],
+ *   RemoveReplicaLocations: [ // RemoveReplicaLocations
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new UpdateCanaryCommand(input);
  * const response = await client.send(command);

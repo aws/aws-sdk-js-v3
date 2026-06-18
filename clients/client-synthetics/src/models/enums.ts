@@ -41,15 +41,14 @@ export type DependencyType = (typeof DependencyType)[keyof typeof DependencyType
  * @public
  * @enum
  */
-export const ProvisionedResourceCleanupSetting = {
-  AUTOMATIC: "AUTOMATIC",
-  OFF: "OFF",
+export const LocationType = {
+  Primary: "Primary",
+  Replica: "Replica",
 } as const;
 /**
  * @public
  */
-export type ProvisionedResourceCleanupSetting =
-  (typeof ProvisionedResourceCleanupSetting)[keyof typeof ProvisionedResourceCleanupSetting];
+export type LocationType = (typeof LocationType)[keyof typeof LocationType];
 
 /**
  * @public
@@ -70,6 +69,34 @@ export const CanaryState = {
  * @public
  */
 export type CanaryState = (typeof CanaryState)[keyof typeof CanaryState];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReplicationState = {
+  InProgress: "InProgress",
+  InSync: "InSync",
+  Inconsistent: "Inconsistent",
+} as const;
+/**
+ * @public
+ */
+export type ReplicationState = (typeof ReplicationState)[keyof typeof ReplicationState];
+
+/**
+ * @public
+ * @enum
+ */
+export const ProvisionedResourceCleanupSetting = {
+  AUTOMATIC: "AUTOMATIC",
+  OFF: "OFF",
+} as const;
+/**
+ * @public
+ */
+export type ProvisionedResourceCleanupSetting =
+  (typeof ProvisionedResourceCleanupSetting)[keyof typeof ProvisionedResourceCleanupSetting];
 
 /**
  * @public

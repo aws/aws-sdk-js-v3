@@ -1,6 +1,7 @@
 import {
   AccessDeniedException,
   AccessDeniedException$,
+  AddReplicaLocationInput$,
   ArtifactConfigInput$,
   ArtifactConfigOutput$,
   AssociateResource$,
@@ -104,6 +105,8 @@ import {
   ListTagsForResourceCommand,
   ListTagsForResourceRequest$,
   ListTagsForResourceResponse$,
+  LocationType,
+  MultiLocationConfig$,
   NotFoundException,
   NotFoundException$,
   paginateDescribeCanaries,
@@ -114,6 +117,9 @@ import {
   paginateListGroupResources,
   paginateListGroups,
   ProvisionedResourceCleanupSetting,
+  Replica$,
+  ReplicationState,
+  ReplicationStatus$,
   RequestEntityTooLargeException,
   RequestEntityTooLargeException$,
   ResourceNotFoundException,
@@ -212,6 +218,7 @@ assert(typeof UntagResource$ === "object");
 assert(typeof UpdateCanaryCommand === "function");
 assert(typeof UpdateCanary$ === "object");
 // structural schemas
+assert(typeof AddReplicaLocationInput$ === "object");
 assert(typeof ArtifactConfigInput$ === "object");
 assert(typeof ArtifactConfigOutput$ === "object");
 assert(typeof AssociateResourceRequest$ === "object");
@@ -267,6 +274,9 @@ assert(typeof ListGroupsRequest$ === "object");
 assert(typeof ListGroupsResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
+assert(typeof MultiLocationConfig$ === "object");
+assert(typeof Replica$ === "object");
+assert(typeof ReplicationStatus$ === "object");
 assert(typeof RetryConfigInput$ === "object");
 assert(typeof RetryConfigOutput$ === "object");
 assert(typeof RuntimeVersion$ === "object");
@@ -296,7 +306,9 @@ assert(typeof CanaryState === "object");
 assert(typeof CanaryStateReasonCode === "object");
 assert(typeof DependencyType === "object");
 assert(typeof EncryptionMode === "object");
+assert(typeof LocationType === "object");
 assert(typeof ProvisionedResourceCleanupSetting === "object");
+assert(typeof ReplicationState === "object");
 assert(typeof ResourceToTag === "object");
 assert(typeof RunType === "object");
 // errors

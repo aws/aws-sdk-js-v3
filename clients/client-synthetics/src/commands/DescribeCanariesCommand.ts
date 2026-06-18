@@ -150,6 +150,33 @@ export interface DescribeCanariesCommandOutput extends DescribeCanariesResponse,
  * //           BrowserType: "CHROME" || "FIREFOX",
  * //         },
  * //       ],
+ * //       MultiLocationConfig: { // MultiLocationConfig
+ * //         LocationType: "Primary" || "Replica",
+ * //         PrimaryLocation: "STRING_VALUE",
+ * //         Replicas: [ // Replicas
+ * //           { // Replica
+ * //             Location: "STRING_VALUE",
+ * //             ReplicationStatus: { // ReplicationStatus
+ * //               State: "InProgress" || "InSync" || "Inconsistent",
+ * //               StateReason: "STRING_VALUE",
+ * //               StateReasonCode: "STRING_VALUE",
+ * //             },
+ * //             CanaryState: "CREATING" || "READY" || "STARTING" || "RUNNING" || "UPDATING" || "STOPPING" || "STOPPED" || "ERROR" || "DELETING",
+ * //             LastModified: new Date("TIMESTAMP"),
+ * //             VpcConfig: {
+ * //               VpcId: "STRING_VALUE",
+ * //               SubnetIds: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               SecurityGroupIds: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               Ipv6AllowedForDualStack: true || false,
+ * //             },
+ * //           },
+ * //         ],
+ * //         ReplicationState: "InProgress" || "InSync" || "Inconsistent",
+ * //       },
  * //       Tags: { // TagMap
  * //         "<keys>": "STRING_VALUE",
  * //       },

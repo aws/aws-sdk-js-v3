@@ -79,6 +79,7 @@ export interface DescribeCanariesLastRunCommandOutput extends DescribeCanariesLa
  * //           DryRunId: "STRING_VALUE",
  * //         },
  * //         BrowserType: "CHROME" || "FIREFOX",
+ * //         Location: "STRING_VALUE",
  * //       },
  * //     },
  * //   ],

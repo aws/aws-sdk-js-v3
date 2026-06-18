@@ -4,6 +4,8 @@ const _ACI = "ArtifactConfigInput";
 const _ACO = "ArtifactConfigOutput";
 const _ADE = "AccessDeniedException";
 const _AR = "AssociateResource";
+const _ARL = "AddReplicaLocations";
+const _ARLI = "AddReplicaLocationInput";
 const _ARR = "AssociateResourceRequest";
 const _ARRs = "AssociateResourceResponse";
 const _ASL = "ArtifactS3Location";
@@ -39,6 +41,7 @@ const _CRa = "CanaryRuns";
 const _CS = "CanaryStatus";
 const _CSI = "CanaryScheduleInput";
 const _CSO = "CanaryScheduleOutput";
+const _CSa = "CanaryState";
 const _CT = "CanaryTimeline";
 const _CTr = "CreatedTime";
 const _Ca = "Canaries";
@@ -102,6 +105,7 @@ const _IC = "IgnoreCoordinates";
 const _IFE = "InternalFailureException";
 const _ISE = "InternalServerException";
 const _KKA = "KmsKeyArn";
+const _L = "Location";
 const _LAG = "ListAssociatedGroups";
 const _LAGR = "ListAssociatedGroupsRequest";
 const _LAGRi = "ListAssociatedGroupsResponse";
@@ -117,11 +121,13 @@ const _LMT = "LastModifiedTime";
 const _LR = "LastRun";
 const _LS = "LastStarted";
 const _LSa = "LastStopped";
+const _LT = "LocationType";
 const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
 const _M = "Message";
 const _MIMB = "MemoryInMB";
+const _MLC = "MultiLocationConfig";
 const _MR = "MaxResults";
 const _MRa = "MaxRetries";
 const _MTFRAR = "MetricTimestampForRunAndRetries";
@@ -129,6 +135,7 @@ const _N = "Name";
 const _NFE = "NotFoundException";
 const _NT = "NextToken";
 const _Na = "Names";
+const _PL = "PrimaryLocation";
 const _PRC = "ProvisionedResourceCleanup";
 const _R = "Reference";
 const _RA = "ResourceArn";
@@ -140,12 +147,17 @@ const _RCe = "RetryConfig";
 const _RD = "ReleaseDate";
 const _RETLE = "RequestEntityTooLargeException";
 const _RNFE = "ResourceNotFoundException";
+const _RRL = "RemoveReplicaLocations";
+const _RS = "ReplicationState";
+const _RSe = "ReplicationStatus";
 const _RT = "RunType";
 const _RTRT = "ResourcesToReplicateTags";
 const _RV = "RuntimeVersion";
 const _RVL = "RuntimeVersionList";
 const _RVu = "RuntimeVersions";
 const _Re = "Resources";
+const _Rep = "Replicas";
+const _Repl = "Replica";
 const _S = "Schedule";
 const _SB = "S3Bucket";
 const _SC = "StartCanary";
@@ -318,6 +330,11 @@ export const errorTypeRegistries = [
   _s_registry,
   n0_registry,
 ]
+export var AddReplicaLocationInput$: StaticStructureSchema = [3, n0, _ARLI,
+  0,
+  [_L, _VC],
+  [0, () => VpcConfigInput$], 1
+];
 export var ArtifactConfigInput$: StaticStructureSchema = [3, n0, _ACI,
   0,
   [_SE],
@@ -350,8 +367,8 @@ export var BrowserConfig$: StaticStructureSchema = [3, n0, _BC,
 ];
 export var Canary$: StaticStructureSchema = [3, n0, _C,
   0,
-  [_I, _N, _Co, _ERA, _S, _RC, _SRPID, _FRPID, _St, _T, _ASL, _EA, _RV, _VC, _VR, _PRC, _BCr, _EC, _VRi, _Ta, _AC, _DRC],
-  [0, 0, () => CanaryCodeOutput$, 0, () => CanaryScheduleOutput$, () => CanaryRunConfigOutput$, 1, 1, () => CanaryStatus$, () => CanaryTimeline$, 0, 0, 0, () => VpcConfigOutput$, () => VisualReferenceOutput$, 0, () => BrowserConfigs, () => EngineConfigs, () => VisualReferencesOutput, 128 | 0, () => ArtifactConfigOutput$, () => DryRunConfigOutput$]
+  [_I, _N, _Co, _ERA, _S, _RC, _SRPID, _FRPID, _St, _T, _ASL, _EA, _RV, _VC, _VR, _PRC, _BCr, _EC, _VRi, _MLC, _Ta, _AC, _DRC],
+  [0, 0, () => CanaryCodeOutput$, 0, () => CanaryScheduleOutput$, () => CanaryRunConfigOutput$, 1, 1, () => CanaryStatus$, () => CanaryTimeline$, 0, 0, 0, () => VpcConfigOutput$, () => VisualReferenceOutput$, 0, () => BrowserConfigs, () => EngineConfigs, () => VisualReferencesOutput, () => MultiLocationConfig$, 128 | 0, () => ArtifactConfigOutput$, () => DryRunConfigOutput$]
 ];
 export var CanaryCodeInput$: StaticStructureSchema = [3, n0, _CCI,
   0,
@@ -375,8 +392,8 @@ export var CanaryLastRun$: StaticStructureSchema = [3, n0, _CLR,
 ];
 export var CanaryRun$: StaticStructureSchema = [3, n0, _CR,
   0,
-  [_I, _SRI, _RAe, _N, _St, _T, _ASL, _DRC, _BT],
-  [0, 0, 1, 0, () => CanaryRunStatus$, () => CanaryRunTimeline$, 0, () => CanaryDryRunConfigOutput$, 0]
+  [_I, _SRI, _RAe, _N, _St, _T, _ASL, _DRC, _BT, _L],
+  [0, 0, 1, 0, () => CanaryRunStatus$, () => CanaryRunTimeline$, 0, () => CanaryDryRunConfigOutput$, 0, 0]
 ];
 export var CanaryRunConfigInput$: StaticStructureSchema = [3, n0, _CRCI,
   0,
@@ -420,8 +437,8 @@ export var CanaryTimeline$: StaticStructureSchema = [3, n0, _CT,
 ];
 export var CreateCanaryRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
-  [_N, _Co, _ASL, _ERA, _S, _RV, _RC, _SRPID, _FRPID, _VC, _RTRT, _PRC, _BCr, _Ta, _AC],
-  [0, () => CanaryCodeInput$, 0, 0, () => CanaryScheduleInput$, 0, () => CanaryRunConfigInput$, 1, 1, () => VpcConfigInput$, 64 | 0, 0, () => BrowserConfigs, 128 | 0, () => ArtifactConfigInput$], 6
+  [_N, _Co, _ASL, _ERA, _S, _RV, _RC, _SRPID, _FRPID, _VC, _RTRT, _PRC, _BCr, _ARL, _Ta, _AC],
+  [0, () => CanaryCodeInput$, 0, 0, () => CanaryScheduleInput$, 0, () => CanaryRunConfigInput$, 1, 1, () => VpcConfigInput$, 64 | 0, 0, () => BrowserConfigs, () => AddReplicaLocations, 128 | 0, () => ArtifactConfigInput$], 6
 ];
 export var CreateCanaryResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
@@ -593,6 +610,21 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
   [_Ta],
   [128 | 0]
 ];
+export var MultiLocationConfig$: StaticStructureSchema = [3, n0, _MLC,
+  0,
+  [_LT, _PL, _Rep, _RS],
+  [0, 0, () => Replicas, 0]
+];
+export var Replica$: StaticStructureSchema = [3, n0, _Repl,
+  0,
+  [_L, _RSe, _CSa, _LM, _VC],
+  [0, () => ReplicationStatus$, 0, 4, () => VpcConfigOutput$]
+];
+export var ReplicationStatus$: StaticStructureSchema = [3, n0, _RSe,
+  0,
+  [_Sta, _SR, _SRC],
+  [0, 0, 0]
+];
 export var RetryConfigInput$: StaticStructureSchema = [3, n0, _RCI,
   0,
   [_MRa],
@@ -665,8 +697,8 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateCanaryRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
-  [_N, _Co, _ERA, _RV, _S, _RC, _SRPID, _FRPID, _VC, _VR, _ASL, _AC, _PRC, _DRI, _VRi, _BCr],
-  [[0, 1], () => CanaryCodeInput$, 0, 0, () => CanaryScheduleInput$, () => CanaryRunConfigInput$, 1, 1, () => VpcConfigInput$, () => VisualReferenceInput$, 0, () => ArtifactConfigInput$, 0, 0, () => VisualReferences, () => BrowserConfigs], 1
+  [_N, _Co, _ERA, _RV, _S, _RC, _SRPID, _FRPID, _VC, _VR, _ASL, _AC, _PRC, _DRI, _VRi, _BCr, _ARL, _RRL],
+  [[0, 1], () => CanaryCodeInput$, 0, 0, () => CanaryScheduleInput$, () => CanaryRunConfigInput$, 1, 1, () => VpcConfigInput$, () => VisualReferenceInput$, 0, () => ArtifactConfigInput$, 0, 0, () => VisualReferences, () => BrowserConfigs, () => AddReplicaLocations, 64 | 0], 1
 ];
 export var UpdateCanaryResponse$: StaticStructureSchema = [3, n0, _UCRp,
   0,
@@ -692,6 +724,9 @@ export var VpcConfigOutput$: StaticStructureSchema = [3, n0, _VCO,
   0,
   [_VI, _SI, _SGI, _IAFDS],
   [0, 64 | 0, 64 | 0, 2]
+];
+var AddReplicaLocations: StaticListSchema = [1, n0, _ARL,
+  0, () => AddReplicaLocationInput$
 ];
 var BaseScreenshotIgnoreCoordinates = 64 | 0;
 var BaseScreenshots: StaticListSchema = [1, n0, _BSa,
@@ -720,6 +755,10 @@ var EngineConfigs: StaticListSchema = [1, n0, _EC,
 ];
 var GroupSummaryList: StaticListSchema = [1, n0, _GSL,
   0, () => GroupSummary$
+];
+var RemoveReplicaLocations = 64 | 0;
+var Replicas: StaticListSchema = [1, n0, _Rep,
+  0, () => Replica$
 ];
 var ResourceList = 64 | 0;
 var RuntimeVersionList: StaticListSchema = [1, n0, _RVL,

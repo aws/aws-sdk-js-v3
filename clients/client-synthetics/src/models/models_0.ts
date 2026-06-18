@@ -8,10 +8,58 @@ import type {
   CanaryStateReasonCode,
   DependencyType,
   EncryptionMode,
+  LocationType,
   ProvisionedResourceCleanupSetting,
+  ReplicationState,
   ResourceToTag,
   RunType,
 } from "./enums";
+
+/**
+ * <p>If this canary is to test an endpoint in a VPC, this structure contains
+ *          information about the subnets and security groups of the VPC endpoint.
+ *          For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_VPC.html">
+ *             Running a Canary in a VPC</a>.</p>
+ * @public
+ */
+export interface VpcConfigInput {
+  /**
+   * <p>The IDs of the subnets where this canary is to run.</p>
+   * @public
+   */
+  SubnetIds?: string[] | undefined;
+
+  /**
+   * <p>The IDs of the security groups for this canary.</p>
+   * @public
+   */
+  SecurityGroupIds?: string[] | undefined;
+
+  /**
+   * <p>Set this to <code>true</code> to allow outbound IPv6 traffic on VPC canaries that are connected to dual-stack subnets. The default is <code>false</code>
+   *          </p>
+   * @public
+   */
+  Ipv6AllowedForDualStack?: boolean | undefined;
+}
+
+/**
+ * <p>A structure that specifies a replica location for a canary, including the Region and optional VPC configuration.</p>
+ * @public
+ */
+export interface AddReplicaLocationInput {
+  /**
+   * <p>The Amazon Web Services Region where the canary replica should be created, for example <code>us-east-1</code>.</p>
+   * @public
+   */
+  Location: string | undefined;
+
+  /**
+   * <p>The VPC configuration to use for the canary replica in this location. If not specified, the replica runs without VPC connectivity.</p>
+   * @public
+   */
+  VpcConfig?: VpcConfigInput | undefined;
+}
 
 /**
  * <p>A structure that contains the configuration of encryption-at-rest settings for canary artifacts that the canary
@@ -173,7 +221,7 @@ export interface CanaryCodeOutput {
   /**
    * <p>
    *             <code>BlueprintTypes</code> is a list of templates that enable simplified canary creation. You can create canaries for common monitoring scenarios by providing only a JSON configuration file instead of writing custom scripts. The only supported value is <code>multi-checks</code>.</p>
-   *          <p>Multi-checks monitors HTTP/DNS/SSL/TCP endpoints with built-in authentication schemes (Basic, API Key, OAuth, SigV4) and assertion capabilities. When you specify <code>BlueprintTypes</code>, the Handler field cannot be specified since the blueprint provides a pre-defined entry point.</p>
+   *          <p>Multi-checks monitors HTTP/DNS/SSL/TCP endpoints with built-in authentication schemes (Basic, API Key, OAuth, SigV4) and assertion capabilities. When you specify <code>BlueprintTypes</code>, the <code>Handler</code> field cannot be specified since the blueprint provides a pre-defined entry point.</p>
    *          <p>
    *             <code>BlueprintTypes</code> is supported only on canaries for syn-nodejs-3.0 runtime or later.</p>
    * @public
@@ -222,6 +270,129 @@ export interface EngineConfig {
    * @public
    */
   BrowserType?: BrowserType | undefined;
+}
+
+/**
+ * <p>A structure that contains information about the replication status of a canary replica.</p>
+ * @public
+ */
+export interface ReplicationStatus {
+  /**
+   * <p>The replication state of the replica. Valid values are <code>InProgress</code>, <code>InSync</code>, and <code>Inconsistent</code>.</p>
+   * @public
+   */
+  State?: ReplicationState | undefined;
+
+  /**
+   * <p>A description that provides more detail about the current replication state.</p>
+   * @public
+   */
+  StateReason?: string | undefined;
+
+  /**
+   * <p>A code that provides more detail about the current replication state.</p>
+   * @public
+   */
+  StateReasonCode?: string | undefined;
+}
+
+/**
+ * <p>If this canary is to test an endpoint in a VPC, this structure contains
+ *          information about the subnets and security groups of the VPC endpoint.
+ *          For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_VPC.html">
+ *             Running a Canary in a VPC</a>.</p>
+ * @public
+ */
+export interface VpcConfigOutput {
+  /**
+   * <p>The IDs of the VPC where this canary is to run.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+
+  /**
+   * <p>The IDs of the subnets where this canary is to run.</p>
+   * @public
+   */
+  SubnetIds?: string[] | undefined;
+
+  /**
+   * <p>The IDs of the security groups for this canary.</p>
+   * @public
+   */
+  SecurityGroupIds?: string[] | undefined;
+
+  /**
+   * <p>Indicates whether this canary allows outbound IPv6 traffic if it is connected to dual-stack subnets.</p>
+   * @public
+   */
+  Ipv6AllowedForDualStack?: boolean | undefined;
+}
+
+/**
+ * <p>A structure that contains information about a canary replica in a specific location.</p>
+ * @public
+ */
+export interface Replica {
+  /**
+   * <p>The Amazon Web Services Region where this replica is located.</p>
+   * @public
+   */
+  Location?: string | undefined;
+
+  /**
+   * <p>A structure that contains information about the replication status of this replica.</p>
+   * @public
+   */
+  ReplicationStatus?: ReplicationStatus | undefined;
+
+  /**
+   * <p>The current state of the canary in this replica location.</p>
+   * @public
+   */
+  CanaryState?: CanaryState | undefined;
+
+  /**
+   * <p>The date and time that the replica was last modified.</p>
+   * @public
+   */
+  LastModified?: Date | undefined;
+
+  /**
+   * <p>The VPC configuration for the canary replica in this location.</p>
+   * @public
+   */
+  VpcConfig?: VpcConfigOutput | undefined;
+}
+
+/**
+ * <p>A structure that contains information about the multi-location configuration of a canary, including whether it is a primary or replica, the primary location, and the list of replicas.</p>
+ * @public
+ */
+export interface MultiLocationConfig {
+  /**
+   * <p>Indicates whether this canary is the <code>Primary</code> or a <code>Replica</code> in the multi-location configuration.</p>
+   * @public
+   */
+  LocationType?: LocationType | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where the primary canary is located.</p>
+   * @public
+   */
+  PrimaryLocation?: string | undefined;
+
+  /**
+   * <p>A list of replicas for this canary. This field is present only for the primary location canary.</p>
+   * @public
+   */
+  Replicas?: Replica[] | undefined;
+
+  /**
+   * <p>The overall replication state of the canary across all replica locations. This field is present only for the primary location canary. Valid values are <code>InProgress</code>, <code>InSync</code>, and <code>Inconsistent</code>.</p>
+   * @public
+   */
+  ReplicationState?: ReplicationState | undefined;
 }
 
 /**
@@ -389,39 +560,6 @@ export interface VisualReferenceOutput {
 }
 
 /**
- * <p>If this canary is to test an endpoint in a VPC, this structure contains
- *          information about the subnets and security groups of the VPC endpoint.
- *          For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_VPC.html">
- *             Running a Canary in a VPC</a>.</p>
- * @public
- */
-export interface VpcConfigOutput {
-  /**
-   * <p>The IDs of the VPC where this canary is to run.</p>
-   * @public
-   */
-  VpcId?: string | undefined;
-
-  /**
-   * <p>The IDs of the subnets where this canary is to run.</p>
-   * @public
-   */
-  SubnetIds?: string[] | undefined;
-
-  /**
-   * <p>The IDs of the security groups for this canary.</p>
-   * @public
-   */
-  SecurityGroupIds?: string[] | undefined;
-
-  /**
-   * <p>Indicates whether this canary allows outbound IPv6 traffic if it is connected to dual-stack subnets.</p>
-   * @public
-   */
-  Ipv6AllowedForDualStack?: boolean | undefined;
-}
-
-/**
  * <p>This structure contains all information about one canary in your account.</p>
  * @public
  */
@@ -574,6 +712,12 @@ export interface Canary {
   VisualReferences?: VisualReferenceOutput[] | undefined;
 
   /**
+   * <p>If this canary is part of a multi-location configuration, this structure contains information about the canary's location type, primary location, and replicas.</p>
+   * @public
+   */
+  MultiLocationConfig?: MultiLocationConfig | undefined;
+
+  /**
    * <p>The list of key-value pairs that are associated with the canary.</p>
    * @public
    */
@@ -722,6 +866,12 @@ export interface CanaryRun {
    * @public
    */
   BrowserType?: BrowserType | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where this canary run was executed.</p>
+   * @public
+   */
+  Location?: string | undefined;
 }
 
 /**
@@ -819,7 +969,7 @@ export interface CanaryCodeInput {
   /**
    * <p>
    *             <code>BlueprintTypes</code> is a list of templates that enable simplified canary creation. You can create canaries for common monitoring scenarios by providing only a JSON configuration file instead of writing custom scripts. The only supported value is <code>multi-checks</code>.</p>
-   *          <p>Multi-checks monitors HTTP/DNS/SSL/TCP endpoints with built-in authentication schemes (Basic, API Key, OAuth, SigV4) and assertion capabilities. When you specify <code>BlueprintTypes</code>, the Handler field cannot be specified since the blueprint provides a pre-defined entry point.</p>
+   *          <p>Multi-checks monitors HTTP/DNS/SSL/TCP endpoints with built-in authentication schemes (Basic, API Key, OAuth, SigV4) and assertion capabilities. When you specify <code>BlueprintTypes</code>, the <code>Handler</code> field cannot be specified since the blueprint provides a pre-defined entry point.</p>
    *          <p>
    *             <code>BlueprintTypes</code> is supported only on canaries for syn-nodejs-3.0 runtime or later.</p>
    * @public
@@ -948,34 +1098,6 @@ export interface CanaryScheduleInput {
    * @public
    */
   RetryConfig?: RetryConfigInput | undefined;
-}
-
-/**
- * <p>If this canary is to test an endpoint in a VPC, this structure contains
- *          information about the subnets and security groups of the VPC endpoint.
- *          For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_VPC.html">
- *             Running a Canary in a VPC</a>.</p>
- * @public
- */
-export interface VpcConfigInput {
-  /**
-   * <p>The IDs of the subnets where this canary is to run.</p>
-   * @public
-   */
-  SubnetIds?: string[] | undefined;
-
-  /**
-   * <p>The IDs of the security groups for this canary.</p>
-   * @public
-   */
-  SecurityGroupIds?: string[] | undefined;
-
-  /**
-   * <p>Set this to <code>true</code> to allow outbound IPv6 traffic on VPC canaries that are connected to dual-stack subnets. The default is <code>false</code>
-   *          </p>
-   * @public
-   */
-  Ipv6AllowedForDualStack?: boolean | undefined;
 }
 
 /**
@@ -1141,6 +1263,13 @@ export interface CreateCanaryRequest {
    * @public
    */
   BrowserConfigs?: BrowserConfig[] | undefined;
+
+  /**
+   * <p>A list of locations (Amazon Web Services Regions) to add as replicas for the canary. Each location specifies a Region and optional VPC configuration for the replica.
+   *          You can add up to 50 replica locations.</p>
+   * @public
+   */
+  AddReplicaLocations?: AddReplicaLocationInput[] | undefined;
 
   /**
    * <p>A list of key-value pairs to associate with the canary.
@@ -2296,6 +2425,20 @@ export interface UpdateCanaryRequest {
    * @public
    */
   BrowserConfigs?: BrowserConfig[] | undefined;
+
+  /**
+   * <p>A list of locations (Amazon Web Services Regions) to add as replicas for the canary. Each location specifies a Region and optional VPC configuration for the replica.
+   *          You can add up to 50 replica locations.</p>
+   * @public
+   */
+  AddReplicaLocations?: AddReplicaLocationInput[] | undefined;
+
+  /**
+   * <p>A list of locations (Amazon Web Services Regions) to remove as replicas for the canary. You must specify at least one location to remove. All replicas can be removed in a single API
+   *  call and you cannot remove the primary location.</p>
+   * @public
+   */
+  RemoveReplicaLocations?: string[] | undefined;
 }
 
 /**
