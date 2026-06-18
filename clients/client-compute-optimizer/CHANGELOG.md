@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1072.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1071.0...v3.1072.0) (2026-06-18)
+
+
+### Features
+
+* **client-compute-optimizer:** This release surfaces two new metrics Volume IOPS Exceeded and Volume Throughput Exceeded into EBS volume rightsizing recommendations. ([ded6618](https://github.com/aws/aws-sdk-js-v3/commit/ded6618d5249ab413bd90b26d4cea91d5f4b9b8f))
+
+
+
+
+
 # [3.1071.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1070.0...v3.1071.0) (2026-06-17)
 
 **Note:** Version bump only for package @aws-sdk/client-compute-optimizer

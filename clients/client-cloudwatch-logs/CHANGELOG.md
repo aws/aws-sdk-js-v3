@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1072.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1071.0...v3.1072.0) (2026-06-18)
+
+
+### Features
+
+* **client-cloudwatch-logs:** Added optional startFromHead parameter to FilterLogEvents enabling descending timestamp order (newest first) when set to false. Default true preserves existing ascending order. Reverse sorting requires a startTime on or after Jan 1, 2024. ([1be63ed](https://github.com/aws/aws-sdk-js-v3/commit/1be63ed942af46df978e55df4bec6fb6c9d16e60))
+
+
+
+
+
 # [3.1071.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1070.0...v3.1071.0) (2026-06-17)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudwatch-logs

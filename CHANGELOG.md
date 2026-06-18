@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1072.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1071.0...v3.1072.0) (2026-06-18)
+
+
+### Features
+
+* **client-application-auto-scaling:** Adds support for ECS high-resolution predefined scaling metrics (ECSServiceAverageCPUUtilizationHighResolution, ECSServiceAverageMemoryUtilizationHighResolution) enabling 20-second metric periods for faster scaling ([95b3513](https://github.com/aws/aws-sdk-js-v3/commit/95b3513a224a678fb92dc623f149d24adb96ae7b))
+* **client-batch:** Adds Support for ordered allocation strategies- BEST-FIT-PROGRESSIVE-ORDERED or SPOT-CAPACITY-OPTIMIZED-PRIORITIZED ([0e57e53](https://github.com/aws/aws-sdk-js-v3/commit/0e57e53b1e0914a03b5b7c7d346245a1e6b6da11))
+* **client-cloudwatch-logs:** Added optional startFromHead parameter to FilterLogEvents enabling descending timestamp order (newest first) when set to false. Default true preserves existing ascending order. Reverse sorting requires a startTime on or after Jan 1, 2024. ([1be63ed](https://github.com/aws/aws-sdk-js-v3/commit/1be63ed942af46df978e55df4bec6fb6c9d16e60))
+* **client-cognito-identity-provider:** In order to support the new TLS Self-Service feature, this change adds SecurityPolicyType to CustomDomainConfigType. During CreateUserPoolDomain and UpdateUserPoolDomain this is used to select a custom domain's TLS enforcement, and for DescribeUserPoolDomain it informs users about the current TLS. ([e893778](https://github.com/aws/aws-sdk-js-v3/commit/e89377876aa392ea403636b6821cdb3df253648b))
+* **client-compute-optimizer:** This release surfaces two new metrics Volume IOPS Exceeded and Volume Throughput Exceeded into EBS volume rightsizing recommendations. ([ded6618](https://github.com/aws/aws-sdk-js-v3/commit/ded6618d5249ab413bd90b26d4cea91d5f4b9b8f))
+* **client-ecs:** Amazon ECS services now support high resolution (20 second) CloudWatch metrics for CPUUtilization and MemoryUtilization. Use these metrics for faster service auto scaling. ([93055ac](https://github.com/aws/aws-sdk-js-v3/commit/93055ac93bffca3e2957b2d67cb24ecdc784457a))
+* **client-eks:** Adds support for configurable control plane egress routing in Amazon EKS, allowing you to route control plane egress traffic through your VPC and control how the control plane reaches resources in your network such as webhook servers and OIDC providers. ([693db62](https://github.com/aws/aws-sdk-js-v3/commit/693db62958c6818b4cb847887b8e36a66347c119))
+* **client-gamelift:** Amazon GameLift Servers has launched support for customizing Linux capabilities in container fleets. You can now specify additional Linux capabilities for containers in a container group definition, giving you finer control over the default Docker capabilities available to your containers. ([93cefd9](https://github.com/aws/aws-sdk-js-v3/commit/93cefd905d4fc0c649b1d7ed69f4c8f0d79d3371))
+* **client-healthlake:** Adding New Configurations to the FHIR Create Datastore. The new configurations include NLP Configuration, AnalyticsConfiguration, ProfileConfiguration ([494fa59](https://github.com/aws/aws-sdk-js-v3/commit/494fa59f48705e23ab79da259046966831183c71))
+* **client-lambda:** Converging and fixing existing documentation gaps in Lambda SDK ([6555a56](https://github.com/aws/aws-sdk-js-v3/commit/6555a565348a308dad7a51c85457c2bcee87feb8))
+* **client-sagemaker:** Adds support for automatic AMI patching on HyperPod clusters. Customers can configure patching strategies to automatically apply security patch with zero job termination. Customers can also specify an AMI version at instance group level and update cluster software to a certain AMI version. ([fd33a5e](https://github.com/aws/aws-sdk-js-v3/commit/fd33a5e46ca314f064b9149900abe4e451661b5e))
+* **client-synthetics:** CloudWatch Synthetics adds support for multi-location canaries. Customers can now monitor their endpoints from multiple locations with centralized management from a primary location. The SDK includes new parameters for configuring multiple locations and tracking their state. ([f2c8b48](https://github.com/aws/aws-sdk-js-v3/commit/f2c8b480812b5ba2d1e173a8a074df6d72654239))
+
+
+
+
+
 # [3.1071.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1070.0...v3.1071.0) (2026-06-17)
 
 
