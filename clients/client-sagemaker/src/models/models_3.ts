@@ -52,7 +52,6 @@ import type {
   ImageVersionStatus,
   IncludedData,
   InferenceComponentCapacitySizeType,
-  InferenceComponentSortKey,
   InferenceComponentStatus,
   InferenceExperimentStatus,
   InferenceExperimentType,
@@ -122,7 +121,6 @@ import type {
   SortClusterSchedulerConfigBy,
   SortContextsBy,
   SortExperimentsBy,
-  SortInferenceExperimentsBy,
   SortOrder,
   SortQuotaBy,
   SpaceStatus,
@@ -159,6 +157,7 @@ import type {
   AutoMLCandidate,
   AutoMLJobSummary,
   AutoRollbackConfig,
+  Autotune,
   AvailableUpgrade,
   BatchDataCaptureConfig,
   CfnTemplateProviderDetail,
@@ -170,7 +169,6 @@ import type {
   ClusterSummary,
   CodeRepositorySummary,
   CognitoConfig,
-  CompilationJobSummary,
   InferenceSpecification,
   OutputDataConfig,
   OutputParameter,
@@ -185,6 +183,7 @@ import type {
   VpcConfig,
 } from "./models_0";
 import type {
+  CompilationJobSummary,
   ComputeQuotaSummary,
   ContainerDefinition,
   ContainerMetricsConfig,
@@ -237,7 +236,6 @@ import type {
   NotebookInstanceLifecycleHook,
   OfflineStoreConfig,
   OnlineStoreConfig,
-  OptimizationJobModelSource,
   ProductionVariantServerlessConfig,
   RecommendationJobInputConfig,
   RecommendationJobStoppingConditions,
@@ -262,7 +260,6 @@ import type {
   ExperimentSource,
   FeatureParameter,
   HyperParameterTrainingJobSummary,
-  HyperParameterTuningJobCompletionDetails,
   HyperParameterTuningJobConsumedResources,
   InfraCheckConfig,
   LastUpdateStatus,
@@ -275,6 +272,7 @@ import type {
   ObjectiveStatusCounters,
   OfflineStoreStatus,
   OptimizationConfig,
+  OptimizationJobModelSource,
   OptimizationJobOutputConfig,
   OptimizationVpcConfig,
   OwnershipSettings,
@@ -301,6 +299,207 @@ import type {
   TrialComponentStatus,
   WorkerAccessConfiguration,
 } from "./models_2";
+
+/**
+ * <p>A structure that contains runtime information about both current and completed hyperparameter tuning jobs.</p>
+ * @public
+ */
+export interface HyperParameterTuningJobCompletionDetails {
+  /**
+   * <p>The number of training jobs launched by a tuning job that are not improving (1% or less) as measured by model performance evaluated against an objective function.</p>
+   * @public
+   */
+  NumberOfTrainingJobsObjectiveNotImproving?: number | undefined;
+
+  /**
+   * <p>The time in timestamp format that AMT detected model convergence, as defined by a lack of significant improvement over time based on criteria developed over a wide range of diverse benchmarking tests.</p>
+   * @public
+   */
+  ConvergenceDetectedTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeHyperParameterTuningJobResponse {
+  /**
+   * <p>The name of the hyperparameter tuning job.</p>
+   * @public
+   */
+  HyperParameterTuningJobName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the tuning job.</p>
+   * @public
+   */
+  HyperParameterTuningJobArn: string | undefined;
+
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html">HyperParameterTuningJobConfig</a> object that specifies the configuration of the tuning job.</p>
+   * @public
+   */
+  HyperParameterTuningJobConfig: HyperParameterTuningJobConfig | undefined;
+
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html">HyperParameterTrainingJobDefinition</a> object that specifies the definition of the training jobs that this tuning job launches.</p>
+   * @public
+   */
+  TrainingJobDefinition?: HyperParameterTrainingJobDefinition | undefined;
+
+  /**
+   * <p>A list of the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html">HyperParameterTrainingJobDefinition</a> objects launched for this tuning job.</p>
+   * @public
+   */
+  TrainingJobDefinitions?: HyperParameterTrainingJobDefinition[] | undefined;
+
+  /**
+   * <p>The status of the tuning job.</p>
+   * @public
+   */
+  HyperParameterTuningJobStatus: HyperParameterTuningJobStatus | undefined;
+
+  /**
+   * <p>The date and time that the tuning job started.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The date and time that the tuning job ended.</p>
+   * @public
+   */
+  HyperParameterTuningEndTime?: Date | undefined;
+
+  /**
+   * <p>The date and time that the status of the tuning job was modified. </p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TrainingJobStatusCounters.html">TrainingJobStatusCounters</a> object that specifies the number of training jobs, categorized by status, that this tuning job launched.</p>
+   * @public
+   */
+  TrainingJobStatusCounters: TrainingJobStatusCounters | undefined;
+
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ObjectiveStatusCounters.html">ObjectiveStatusCounters</a> object that specifies the number of training jobs, categorized by the status of their final objective metric, that this tuning job launched.</p>
+   * @public
+   */
+  ObjectiveStatusCounters: ObjectiveStatusCounters | undefined;
+
+  /**
+   * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TrainingJobSummary.html">TrainingJobSummary</a> object that describes the training job that completed with the best current <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobObjective.html">HyperParameterTuningJobObjective</a>.</p>
+   * @public
+   */
+  BestTrainingJob?: HyperParameterTrainingJobSummary | undefined;
+
+  /**
+   * <p>If the hyperparameter tuning job is an warm start tuning job with a <code>WarmStartType</code> of <code>IDENTICAL_DATA_AND_ALGORITHM</code>, this is the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TrainingJobSummary.html">TrainingJobSummary</a> for the training job with the best objective metric value of all training jobs launched by this tuning job and all parent jobs specified for the warm start tuning job.</p>
+   * @public
+   */
+  OverallBestTrainingJob?: HyperParameterTrainingJobSummary | undefined;
+
+  /**
+   * <p>The configuration for starting the hyperparameter parameter tuning job using one or more previous tuning jobs as a starting point. The results of previous tuning jobs are used to inform which combinations of hyperparameters to search over in the new tuning job.</p>
+   * @public
+   */
+  WarmStartConfig?: HyperParameterTuningJobWarmStartConfig | undefined;
+
+  /**
+   * <p>A flag to indicate if autotune is enabled for the hyperparameter tuning job.</p>
+   * @public
+   */
+  Autotune?: Autotune | undefined;
+
+  /**
+   * <p>If the tuning job failed, the reason it failed.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+
+  /**
+   * <p>Tuning job completion information returned as the response from a hyperparameter tuning job. This information tells if your tuning job has or has not converged. It also includes the number of training jobs that have not improved model performance as evaluated against the objective function.</p>
+   * @public
+   */
+  TuningJobCompletionDetails?: HyperParameterTuningJobCompletionDetails | undefined;
+
+  /**
+   * <p>The total resources consumed by your hyperparameter tuning job.</p>
+   * @public
+   */
+  ConsumedResources?: HyperParameterTuningJobConsumedResources | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeImageRequest {
+  /**
+   * <p>The name of the image to describe.</p>
+   * @public
+   */
+  ImageName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeImageResponse {
+  /**
+   * <p>When the image was created.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>The description of the image.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The name of the image as displayed.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>When a create, update, or delete operation fails, the reason for the failure.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+
+  /**
+   * <p>The ARN of the image.</p>
+   * @public
+   */
+  ImageArn?: string | undefined;
+
+  /**
+   * <p>The name of the image.</p>
+   * @public
+   */
+  ImageName?: string | undefined;
+
+  /**
+   * <p>The status of the image.</p>
+   * @public
+   */
+  ImageStatus?: ImageStatus | undefined;
+
+  /**
+   * <p>When the image was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The ARN of the IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+}
 
 /**
  * @public
@@ -11625,188 +11824,6 @@ export interface ListImageVersionsResponse {
 
   /**
    * <p>A token for getting the next set of versions, if there are any.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListInferenceComponentsInput {
-  /**
-   * <p>The field by which to sort the inference components in the response. The default is <code>CreationTime</code>.</p>
-   * @public
-   */
-  SortBy?: InferenceComponentSortKey | undefined;
-
-  /**
-   * <p>The sort order for results. The default is <code>Descending</code>.</p>
-   * @public
-   */
-  SortOrder?: OrderKey | undefined;
-
-  /**
-   * <p>A token that you use to get the next set of results following a truncated response. If the response to the previous request was truncated, that response provides the value for this token.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of inference components to return in the response. This value defaults to 10.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Filters the results to only those inference components with a name that contains the specified string.</p>
-   * @public
-   */
-  NameContains?: string | undefined;
-
-  /**
-   * <p>Filters the results to only those inference components that were created before the specified time.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>Filters the results to only those inference components that were created after the specified time.</p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-
-  /**
-   * <p>Filters the results to only those inference components that were updated before the specified time.</p>
-   * @public
-   */
-  LastModifiedTimeBefore?: Date | undefined;
-
-  /**
-   * <p>Filters the results to only those inference components that were updated after the specified time.</p>
-   * @public
-   */
-  LastModifiedTimeAfter?: Date | undefined;
-
-  /**
-   * <p>Filters the results to only those inference components with the specified status.</p>
-   * @public
-   */
-  StatusEquals?: InferenceComponentStatus | undefined;
-
-  /**
-   * <p>An endpoint name to filter the listed inference components. The response includes only those inference components that are hosted at the specified endpoint.</p>
-   * @public
-   */
-  EndpointNameEquals?: string | undefined;
-
-  /**
-   * <p>A production variant name to filter the listed inference components. The response includes only those inference components that are hosted at the specified variant.</p>
-   * @public
-   */
-  VariantNameEquals?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListInferenceComponentsOutput {
-  /**
-   * <p>A list of inference components and their properties that matches any of the filters you specified in the request.</p>
-   * @public
-   */
-  InferenceComponents: InferenceComponentSummary[] | undefined;
-
-  /**
-   * <p>The token to use in a subsequent request to get the next set of results following a truncated response.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListInferenceExperimentsRequest {
-  /**
-   * <p>Selects inference experiments whose names contain this name.</p>
-   * @public
-   */
-  NameContains?: string | undefined;
-
-  /**
-   * <p> Selects inference experiments of this type. For the possible types of inference experiments, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateInferenceExperiment.html">CreateInferenceExperiment</a>. </p>
-   * @public
-   */
-  Type?: InferenceExperimentType | undefined;
-
-  /**
-   * <p> Selects inference experiments which are in this status. For the possible statuses, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeInferenceExperiment.html">DescribeInferenceExperiment</a>. </p>
-   * @public
-   */
-  StatusEquals?: InferenceExperimentStatus | undefined;
-
-  /**
-   * <p>Selects inference experiments which were created after this timestamp.</p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-
-  /**
-   * <p>Selects inference experiments which were created before this timestamp.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>Selects inference experiments which were last modified after this timestamp.</p>
-   * @public
-   */
-  LastModifiedTimeAfter?: Date | undefined;
-
-  /**
-   * <p>Selects inference experiments which were last modified before this timestamp.</p>
-   * @public
-   */
-  LastModifiedTimeBefore?: Date | undefined;
-
-  /**
-   * <p>The column by which to sort the listed inference experiments.</p>
-   * @public
-   */
-  SortBy?: SortInferenceExperimentsBy | undefined;
-
-  /**
-   * <p>The direction of sorting (ascending or descending).</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p> The response from the last list when returning a list large enough to need tokening. </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to select.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListInferenceExperimentsResponse {
-  /**
-   * <p>List of inference experiments.</p>
-   * @public
-   */
-  InferenceExperiments?: InferenceExperimentSummary[] | undefined;
-
-  /**
-   * <p>The token to use when calling the next page of results.</p>
    * @public
    */
   NextToken?: string | undefined;

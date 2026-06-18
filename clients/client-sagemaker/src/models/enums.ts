@@ -2367,6 +2367,19 @@ export type ClarifyTextLanguage = (typeof ClarifyTextLanguage)[keyof typeof Clar
  * @public
  * @enum
  */
+export const ClusterPatchingStrategy = {
+  WHEN_ALL_IDLE: "WhenAllIdle",
+  WHEN_IDLE: "WhenIdle",
+} as const;
+/**
+ * @public
+ */
+export type ClusterPatchingStrategy = (typeof ClusterPatchingStrategy)[keyof typeof ClusterPatchingStrategy];
+
+/**
+ * @public
+ * @enum
+ */
 export const ClusterAutoScalerType = {
   KARPENTER: "Karpenter",
 } as const;
@@ -2476,6 +2489,8 @@ export type ClusterFSxLustreDeletionPolicy =
  * @enum
  */
 export const ClusterImageVersionStatus = {
+  END_OF_LIFE: "EndOfLife",
+  SECURITY_UPDATE_REQUIRED: "SecurityUpdateRequired",
   UPDATE_AVAILABLE: "UpdateAvailable",
   UP_TO_DATE: "UpToDate",
 } as const;

@@ -16,7 +16,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "__member__",
         "__member__",
         "__member__"
-      ]
+      ],
+      "ImageVersionStatus": "__ImageVersionStatus__"
     },
     {
       "ClusterArn": "__ClusterArn__",
@@ -27,7 +28,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "__member__",
         "__member__",
         "__member__"
-      ]
+      ],
+      "ImageVersionStatus": "__ImageVersionStatus__"
     },
     {
       "ClusterArn": "__ClusterArn__",
@@ -38,7 +40,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "__member__",
         "__member__",
         "__member__"
-      ]
+      ],
+      "ImageVersionStatus": "__ImageVersionStatus__"
     }
   ],
   "NextToken": "__NextToken__"
@@ -57,7 +60,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "__member__",
         "__member__",
         "__member__"
-      ]
+      ],
+      ImageVersionStatus: "__ImageVersionStatus__"
     },
     {
       ClusterArn: "__ClusterArn__",
@@ -68,7 +72,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "__member__",
         "__member__",
         "__member__"
-      ]
+      ],
+      ImageVersionStatus: "__ImageVersionStatus__"
     },
     {
       ClusterArn: "__ClusterArn__",
@@ -79,7 +84,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "__member__",
         "__member__",
         "__member__"
-      ]
+      ],
+      ImageVersionStatus: "__ImageVersionStatus__"
     }
   ],
   NextToken: "__NextToken__",
@@ -111,7 +117,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "__member__",
         "__member__",
         "__member__"
-      ]
+      ],
+      "ImageVersionStatus": "__ImageVersionStatus__"
     },
     {
       "ClusterArn": "__ClusterArn__",
@@ -122,7 +129,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "__member__",
         "__member__",
         "__member__"
-      ]
+      ],
+      "ImageVersionStatus": "__ImageVersionStatus__"
     },
     {
       "ClusterArn": "__ClusterArn__",
@@ -133,7 +141,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "__member__",
         "__member__",
         "__member__"
-      ]
+      ],
+      "ImageVersionStatus": "__ImageVersionStatus__"
     }
   ],
   "NextToken": "__NextToken__"
@@ -152,7 +161,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "__member__",
         "__member__",
         "__member__"
-      ]
+      ],
+      ImageVersionStatus: "__ImageVersionStatus__"
     },
     {
       ClusterArn: "__ClusterArn__",
@@ -163,7 +173,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "__member__",
         "__member__",
         "__member__"
-      ]
+      ],
+      ImageVersionStatus: "__ImageVersionStatus__"
     },
     {
       ClusterArn: "__ClusterArn__",
@@ -174,7 +185,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "__member__",
         "__member__",
         "__member__"
-      ]
+      ],
+      ImageVersionStatus: "__ImageVersionStatus__"
     }
   ],
   NextToken: "__NextToken__",

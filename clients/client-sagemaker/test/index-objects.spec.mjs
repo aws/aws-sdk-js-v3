@@ -241,6 +241,8 @@ import {
   ClarifyTextConfig$,
   ClarifyTextGranularity,
   ClarifyTextLanguage,
+  ClusterAutoPatchConfig$,
+  ClusterAutoPatchConfigDetails$,
   ClusterAutoScalerType,
   ClusterAutoScalingConfig$,
   ClusterAutoScalingConfigOutput$,
@@ -286,6 +288,9 @@ import {
   ClusterOrchestrator$,
   ClusterOrchestratorEksConfig$,
   ClusterOrchestratorSlurmConfig$,
+  ClusterPatchingStrategy,
+  ClusterPatchSchedule$,
+  ClusterPatchScheduleDetails$,
   ClusterRestrictedInstanceGroupDetails$,
   ClusterRestrictedInstanceGroupsConfig$,
   ClusterRestrictedInstanceGroupsConfigOutput$,
@@ -3805,6 +3810,8 @@ assert(typeof ClarifyInferenceConfig$ === "object");
 assert(typeof ClarifyShapBaselineConfig$ === "object");
 assert(typeof ClarifyShapConfig$ === "object");
 assert(typeof ClarifyTextConfig$ === "object");
+assert(typeof ClusterAutoPatchConfig$ === "object");
+assert(typeof ClusterAutoPatchConfigDetails$ === "object");
 assert(typeof ClusterAutoScalingConfig$ === "object");
 assert(typeof ClusterAutoScalingConfigOutput$ === "object");
 assert(typeof ClusterCapacityRequirements$ === "object");
@@ -3835,6 +3842,8 @@ assert(typeof ClusterOnDemandOptions$ === "object");
 assert(typeof ClusterOrchestrator$ === "object");
 assert(typeof ClusterOrchestratorEksConfig$ === "object");
 assert(typeof ClusterOrchestratorSlurmConfig$ === "object");
+assert(typeof ClusterPatchSchedule$ === "object");
+assert(typeof ClusterPatchScheduleDetails$ === "object");
 assert(typeof ClusterRestrictedInstanceGroupDetails$ === "object");
 assert(typeof ClusterRestrictedInstanceGroupsConfig$ === "object");
 assert(typeof ClusterRestrictedInstanceGroupsConfigOutput$ === "object");
@@ -5257,6 +5266,7 @@ assert(typeof ClusterInterfaceType === "object");
 assert(typeof ClusterKubernetesTaintEffect === "object");
 assert(typeof ClusterNodeProvisioningMode === "object");
 assert(typeof ClusterNodeRecovery === "object");
+assert(typeof ClusterPatchingStrategy === "object");
 assert(typeof ClusterSlurmConfigStrategy === "object");
 assert(typeof ClusterSlurmNodeType === "object");
 assert(typeof ClusterSortBy === "object");

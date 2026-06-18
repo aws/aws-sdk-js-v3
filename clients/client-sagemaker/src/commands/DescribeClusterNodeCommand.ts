@@ -96,7 +96,9 @@ export interface DescribeClusterNodeCommandOutput extends DescribeClusterNodeRes
  * //     },
  * //     CurrentImageId: "STRING_VALUE",
  * //     DesiredImageId: "STRING_VALUE",
- * //     ImageVersionStatus: "UpToDate" || "UpdateAvailable",
+ * //     CurrentImageReleaseVersion: "STRING_VALUE",
+ * //     DesiredImageReleaseVersion: "STRING_VALUE",
+ * //     ImageVersionStatus: "UpToDate" || "UpdateAvailable" || "SecurityUpdateRequired" || "EndOfLife",
  * //     UltraServerInfo: { // UltraServerInfo
  * //       Id: "STRING_VALUE",
  * //       Type: "STRING_VALUE",

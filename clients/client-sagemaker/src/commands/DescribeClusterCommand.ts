@@ -129,9 +129,38 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * //           ],
  * //         },
  * //       },
+ * //       AutoPatchConfig: { // ClusterAutoPatchConfigDetails
+ * //         PatchingStrategy: "WhenIdle" || "WhenAllIdle",
+ * //         CurrentPatchSchedule: { // ClusterPatchScheduleDetails
+ * //           NextPatchDate: new Date("TIMESTAMP"),
+ * //         },
+ * //         DesiredPatchSchedule: {
+ * //           NextPatchDate: new Date("TIMESTAMP"),
+ * //         },
+ * //         DeploymentConfig: {
+ * //           RollingUpdatePolicy: {
+ * //             MaximumBatchSize: {
+ * //               Type: "INSTANCE_COUNT" || "CAPACITY_PERCENTAGE", // required
+ * //               Value: Number("int"), // required
+ * //             },
+ * //             RollbackMaximumBatchSize: {
+ * //               Type: "INSTANCE_COUNT" || "CAPACITY_PERCENTAGE", // required
+ * //               Value: Number("int"), // required
+ * //             },
+ * //           },
+ * //           WaitIntervalInSeconds: Number("int"),
+ * //           AutoRollbackConfiguration: [
+ * //             {
+ * //               AlarmName: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
  * //       CurrentImageId: "STRING_VALUE",
  * //       DesiredImageId: "STRING_VALUE",
- * //       ImageVersionStatus: "UpToDate" || "UpdateAvailable",
+ * //       CurrentImageReleaseVersion: "STRING_VALUE",
+ * //       DesiredImageReleaseVersion: "STRING_VALUE",
+ * //       ImageVersionStatus: "UpToDate" || "UpdateAvailable" || "SecurityUpdateRequired" || "EndOfLife",
  * //       ActiveOperations: { // ActiveOperations
  * //         "<keys>": Number("int"),
  * //       },
@@ -169,10 +198,7 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * //             Type: "INSTANCE_COUNT" || "CAPACITY_PERCENTAGE", // required
  * //             Value: Number("int"), // required
  * //           },
- * //           RollbackMaximumBatchSize: {
- * //             Type: "INSTANCE_COUNT" || "CAPACITY_PERCENTAGE", // required
- * //             Value: Number("int"), // required
- * //           },
+ * //           RollbackMaximumBatchSize: "<CapacitySizeConfig>",
  * //         },
  * //         WaitIntervalInSeconds: Number("int"),
  * //         AutoRollbackConfiguration: [
@@ -236,10 +262,7 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * //         ScheduleExpression: "STRING_VALUE", // required
  * //         DeploymentConfig: {
  * //           RollingUpdatePolicy: {
- * //             MaximumBatchSize: {
- * //               Type: "INSTANCE_COUNT" || "CAPACITY_PERCENTAGE", // required
- * //               Value: Number("int"), // required
- * //             },
+ * //             MaximumBatchSize: "<CapacitySizeConfig>", // required
  * //             RollbackMaximumBatchSize: "<CapacitySizeConfig>",
  * //           },
  * //           WaitIntervalInSeconds: Number("int"),

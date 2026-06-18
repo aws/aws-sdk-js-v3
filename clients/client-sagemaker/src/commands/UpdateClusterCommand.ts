@@ -108,6 +108,31 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  *         },
  *       },
  *       ImageId: "STRING_VALUE",
+ *       AutoPatchConfig: { // ClusterAutoPatchConfig
+ *         PatchingStrategy: "WhenIdle" || "WhenAllIdle", // required
+ *         PatchSchedule: { // ClusterPatchSchedule
+ *           NextPatchDate: new Date("TIMESTAMP"),
+ *         },
+ *         DeploymentConfig: {
+ *           RollingUpdatePolicy: {
+ *             MaximumBatchSize: {
+ *               Type: "INSTANCE_COUNT" || "CAPACITY_PERCENTAGE", // required
+ *               Value: Number("int"), // required
+ *             },
+ *             RollbackMaximumBatchSize: {
+ *               Type: "INSTANCE_COUNT" || "CAPACITY_PERCENTAGE", // required
+ *               Value: Number("int"), // required
+ *             },
+ *           },
+ *           WaitIntervalInSeconds: Number("int"),
+ *           AutoRollbackConfiguration: [
+ *             {
+ *               AlarmName: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
+ *       },
+ *       ImageReleaseVersion: "STRING_VALUE",
  *       KubernetesConfig: { // ClusterKubernetesConfig
  *         Labels: { // ClusterKubernetesLabels
  *           "<keys>": "STRING_VALUE",
@@ -180,10 +205,7 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  *               Type: "INSTANCE_COUNT" || "CAPACITY_PERCENTAGE", // required
  *               Value: Number("int"), // required
  *             },
- *             RollbackMaximumBatchSize: {
- *               Type: "INSTANCE_COUNT" || "CAPACITY_PERCENTAGE", // required
- *               Value: Number("int"), // required
- *             },
+ *             RollbackMaximumBatchSize: "<CapacitySizeConfig>",
  *           },
  *           WaitIntervalInSeconds: Number("int"),
  *           AutoRollbackConfiguration: [

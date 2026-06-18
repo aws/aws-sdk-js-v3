@@ -231,8 +231,43 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           ]
         }
       },
+      "AutoPatchConfig": {
+        "PatchingStrategy": "__PatchingStrategy__",
+        "CurrentPatchSchedule": {
+          "NextPatchDate": 946702799.999
+        },
+        "DesiredPatchSchedule": {
+          "NextPatchDate": 946702799.999
+        },
+        "DeploymentConfig": {
+          "RollingUpdatePolicy": {
+            "MaximumBatchSize": {
+              "Type": "__Type__",
+              "Value": 0
+            },
+            "RollbackMaximumBatchSize": {
+              "Type": "__Type__",
+              "Value": 0
+            }
+          },
+          "WaitIntervalInSeconds": 0,
+          "AutoRollbackConfiguration": [
+            {
+              "AlarmName": "__AlarmName__"
+            },
+            {
+              "AlarmName": "__AlarmName__"
+            },
+            {
+              "AlarmName": "__AlarmName__"
+            }
+          ]
+        }
+      },
       "CurrentImageId": "__CurrentImageId__",
       "DesiredImageId": "__DesiredImageId__",
+      "CurrentImageReleaseVersion": "__CurrentImageReleaseVersion__",
+      "DesiredImageReleaseVersion": "__DesiredImageReleaseVersion__",
       "ImageVersionStatus": "__ImageVersionStatus__",
       "ActiveOperations": {
         "key1": 0,
@@ -438,8 +473,43 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           ]
         }
       },
+      "AutoPatchConfig": {
+        "PatchingStrategy": "__PatchingStrategy__",
+        "CurrentPatchSchedule": {
+          "NextPatchDate": 946702799.999
+        },
+        "DesiredPatchSchedule": {
+          "NextPatchDate": 946702799.999
+        },
+        "DeploymentConfig": {
+          "RollingUpdatePolicy": {
+            "MaximumBatchSize": {
+              "Type": "__Type__",
+              "Value": 0
+            },
+            "RollbackMaximumBatchSize": {
+              "Type": "__Type__",
+              "Value": 0
+            }
+          },
+          "WaitIntervalInSeconds": 0,
+          "AutoRollbackConfiguration": [
+            {
+              "AlarmName": "__AlarmName__"
+            },
+            {
+              "AlarmName": "__AlarmName__"
+            },
+            {
+              "AlarmName": "__AlarmName__"
+            }
+          ]
+        }
+      },
       "CurrentImageId": "__CurrentImageId__",
       "DesiredImageId": "__DesiredImageId__",
+      "CurrentImageReleaseVersion": "__CurrentImageReleaseVersion__",
+      "DesiredImageReleaseVersion": "__DesiredImageReleaseVersion__",
       "ImageVersionStatus": "__ImageVersionStatus__",
       "ActiveOperations": {
         "key1": 0,
@@ -645,8 +715,43 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           ]
         }
       },
+      "AutoPatchConfig": {
+        "PatchingStrategy": "__PatchingStrategy__",
+        "CurrentPatchSchedule": {
+          "NextPatchDate": 946702799.999
+        },
+        "DesiredPatchSchedule": {
+          "NextPatchDate": 946702799.999
+        },
+        "DeploymentConfig": {
+          "RollingUpdatePolicy": {
+            "MaximumBatchSize": {
+              "Type": "__Type__",
+              "Value": 0
+            },
+            "RollbackMaximumBatchSize": {
+              "Type": "__Type__",
+              "Value": 0
+            }
+          },
+          "WaitIntervalInSeconds": 0,
+          "AutoRollbackConfiguration": [
+            {
+              "AlarmName": "__AlarmName__"
+            },
+            {
+              "AlarmName": "__AlarmName__"
+            },
+            {
+              "AlarmName": "__AlarmName__"
+            }
+          ]
+        }
+      },
       "CurrentImageId": "__CurrentImageId__",
       "DesiredImageId": "__DesiredImageId__",
+      "CurrentImageReleaseVersion": "__CurrentImageReleaseVersion__",
+      "DesiredImageReleaseVersion": "__DesiredImageReleaseVersion__",
       "ImageVersionStatus": "__ImageVersionStatus__",
       "ActiveOperations": {
         "key1": 0,
@@ -1165,8 +1270,43 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           ]
         }
       },
+      AutoPatchConfig: {
+        PatchingStrategy: "__PatchingStrategy__",
+        CurrentPatchSchedule: {
+          NextPatchDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        DesiredPatchSchedule: {
+          NextPatchDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        DeploymentConfig: {
+          RollingUpdatePolicy: {
+            MaximumBatchSize: {
+              Type: "__Type__",
+              Value: (number) 0
+            },
+            RollbackMaximumBatchSize: {
+              Type: "__Type__",
+              Value: (number) 0
+            }
+          },
+          WaitIntervalInSeconds: (number) 0,
+          AutoRollbackConfiguration: [
+            {
+              AlarmName: "__AlarmName__"
+            },
+            {
+              AlarmName: "__AlarmName__"
+            },
+            {
+              AlarmName: "__AlarmName__"
+            }
+          ]
+        }
+      },
       CurrentImageId: "__CurrentImageId__",
       DesiredImageId: "__DesiredImageId__",
+      CurrentImageReleaseVersion: "__CurrentImageReleaseVersion__",
+      DesiredImageReleaseVersion: "__DesiredImageReleaseVersion__",
       ImageVersionStatus: "__ImageVersionStatus__",
       ActiveOperations: {
         key1: (number) 0,
@@ -1372,8 +1512,43 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           ]
         }
       },
+      AutoPatchConfig: {
+        PatchingStrategy: "__PatchingStrategy__",
+        CurrentPatchSchedule: {
+          NextPatchDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        DesiredPatchSchedule: {
+          NextPatchDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        DeploymentConfig: {
+          RollingUpdatePolicy: {
+            MaximumBatchSize: {
+              Type: "__Type__",
+              Value: (number) 0
+            },
+            RollbackMaximumBatchSize: {
+              Type: "__Type__",
+              Value: (number) 0
+            }
+          },
+          WaitIntervalInSeconds: (number) 0,
+          AutoRollbackConfiguration: [
+            {
+              AlarmName: "__AlarmName__"
+            },
+            {
+              AlarmName: "__AlarmName__"
+            },
+            {
+              AlarmName: "__AlarmName__"
+            }
+          ]
+        }
+      },
       CurrentImageId: "__CurrentImageId__",
       DesiredImageId: "__DesiredImageId__",
+      CurrentImageReleaseVersion: "__CurrentImageReleaseVersion__",
+      DesiredImageReleaseVersion: "__DesiredImageReleaseVersion__",
       ImageVersionStatus: "__ImageVersionStatus__",
       ActiveOperations: {
         key1: (number) 0,
@@ -1579,8 +1754,43 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           ]
         }
       },
+      AutoPatchConfig: {
+        PatchingStrategy: "__PatchingStrategy__",
+        CurrentPatchSchedule: {
+          NextPatchDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        DesiredPatchSchedule: {
+          NextPatchDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        DeploymentConfig: {
+          RollingUpdatePolicy: {
+            MaximumBatchSize: {
+              Type: "__Type__",
+              Value: (number) 0
+            },
+            RollbackMaximumBatchSize: {
+              Type: "__Type__",
+              Value: (number) 0
+            }
+          },
+          WaitIntervalInSeconds: (number) 0,
+          AutoRollbackConfiguration: [
+            {
+              AlarmName: "__AlarmName__"
+            },
+            {
+              AlarmName: "__AlarmName__"
+            },
+            {
+              AlarmName: "__AlarmName__"
+            }
+          ]
+        }
+      },
       CurrentImageId: "__CurrentImageId__",
       DesiredImageId: "__DesiredImageId__",
+      CurrentImageReleaseVersion: "__CurrentImageReleaseVersion__",
+      DesiredImageReleaseVersion: "__DesiredImageReleaseVersion__",
       ImageVersionStatus: "__ImageVersionStatus__",
       ActiveOperations: {
         key1: (number) 0,

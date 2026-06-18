@@ -41,6 +41,7 @@ export interface UpdateClusterSoftwareCommandOutput extends UpdateClusterSoftwar
  *   InstanceGroups: [ // UpdateClusterSoftwareInstanceGroups
  *     { // UpdateClusterSoftwareInstanceGroupSpecification
  *       InstanceGroupName: "STRING_VALUE", // required
+ *       ImageReleaseVersion: "STRING_VALUE",
  *     },
  *   ],
  *   DeploymentConfig: { // DeploymentConfiguration

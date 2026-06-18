@@ -18,7 +18,11 @@ import type {
   HomeEfsFileSystemCreation,
   HubContentSupportStatus,
   HubContentType,
+  InferenceComponentSortKey,
+  InferenceComponentStatus,
+  InferenceExperimentStatus,
   InferenceExperimentStopDesiredState,
+  InferenceExperimentType,
   IsTrackingServerActive,
   JobCategory,
   JobStatus,
@@ -85,6 +89,7 @@ import type {
   SharingType,
   SkipModelValidation,
   SortBy,
+  SortInferenceExperimentsBy,
   SortLineageGroupsBy,
   SortMlflowAppBy,
   SortOrder,
@@ -139,7 +144,6 @@ import type {
   ClusterRestrictedInstanceGroupSpecification,
   ClusterTieredStorageConfig,
   CodeEditorAppImageConfig,
-  ComputeQuotaConfig,
   DeploymentConfiguration,
   InferenceSpecification,
   JupyterLabAppImageConfig,
@@ -156,6 +160,7 @@ import type {
   VpcConfig,
 } from "./models_0";
 import type {
+  ComputeQuotaConfig,
   ComputeQuotaTarget,
   ConditionStepMetadata,
   ContainerDefinition,
@@ -233,6 +238,8 @@ import type {
   HyperParameterTuningJobSearchEntity,
   InferenceComponentDeploymentConfig,
   InferenceComponentMetadata,
+  InferenceComponentSummary,
+  InferenceExperimentSummary,
   InferenceRecommendationsJob,
   InferenceRecommendationsJobStep,
   Job,
@@ -262,6 +269,188 @@ import type {
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface ListInferenceComponentsInput {
+  /**
+   * <p>The field by which to sort the inference components in the response. The default is <code>CreationTime</code>.</p>
+   * @public
+   */
+  SortBy?: InferenceComponentSortKey | undefined;
+
+  /**
+   * <p>The sort order for results. The default is <code>Descending</code>.</p>
+   * @public
+   */
+  SortOrder?: OrderKey | undefined;
+
+  /**
+   * <p>A token that you use to get the next set of results following a truncated response. If the response to the previous request was truncated, that response provides the value for this token.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of inference components to return in the response. This value defaults to 10.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Filters the results to only those inference components with a name that contains the specified string.</p>
+   * @public
+   */
+  NameContains?: string | undefined;
+
+  /**
+   * <p>Filters the results to only those inference components that were created before the specified time.</p>
+   * @public
+   */
+  CreationTimeBefore?: Date | undefined;
+
+  /**
+   * <p>Filters the results to only those inference components that were created after the specified time.</p>
+   * @public
+   */
+  CreationTimeAfter?: Date | undefined;
+
+  /**
+   * <p>Filters the results to only those inference components that were updated before the specified time.</p>
+   * @public
+   */
+  LastModifiedTimeBefore?: Date | undefined;
+
+  /**
+   * <p>Filters the results to only those inference components that were updated after the specified time.</p>
+   * @public
+   */
+  LastModifiedTimeAfter?: Date | undefined;
+
+  /**
+   * <p>Filters the results to only those inference components with the specified status.</p>
+   * @public
+   */
+  StatusEquals?: InferenceComponentStatus | undefined;
+
+  /**
+   * <p>An endpoint name to filter the listed inference components. The response includes only those inference components that are hosted at the specified endpoint.</p>
+   * @public
+   */
+  EndpointNameEquals?: string | undefined;
+
+  /**
+   * <p>A production variant name to filter the listed inference components. The response includes only those inference components that are hosted at the specified variant.</p>
+   * @public
+   */
+  VariantNameEquals?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListInferenceComponentsOutput {
+  /**
+   * <p>A list of inference components and their properties that matches any of the filters you specified in the request.</p>
+   * @public
+   */
+  InferenceComponents: InferenceComponentSummary[] | undefined;
+
+  /**
+   * <p>The token to use in a subsequent request to get the next set of results following a truncated response.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListInferenceExperimentsRequest {
+  /**
+   * <p>Selects inference experiments whose names contain this name.</p>
+   * @public
+   */
+  NameContains?: string | undefined;
+
+  /**
+   * <p> Selects inference experiments of this type. For the possible types of inference experiments, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateInferenceExperiment.html">CreateInferenceExperiment</a>. </p>
+   * @public
+   */
+  Type?: InferenceExperimentType | undefined;
+
+  /**
+   * <p> Selects inference experiments which are in this status. For the possible statuses, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeInferenceExperiment.html">DescribeInferenceExperiment</a>. </p>
+   * @public
+   */
+  StatusEquals?: InferenceExperimentStatus | undefined;
+
+  /**
+   * <p>Selects inference experiments which were created after this timestamp.</p>
+   * @public
+   */
+  CreationTimeAfter?: Date | undefined;
+
+  /**
+   * <p>Selects inference experiments which were created before this timestamp.</p>
+   * @public
+   */
+  CreationTimeBefore?: Date | undefined;
+
+  /**
+   * <p>Selects inference experiments which were last modified after this timestamp.</p>
+   * @public
+   */
+  LastModifiedTimeAfter?: Date | undefined;
+
+  /**
+   * <p>Selects inference experiments which were last modified before this timestamp.</p>
+   * @public
+   */
+  LastModifiedTimeBefore?: Date | undefined;
+
+  /**
+   * <p>The column by which to sort the listed inference experiments.</p>
+   * @public
+   */
+  SortBy?: SortInferenceExperimentsBy | undefined;
+
+  /**
+   * <p>The direction of sorting (ascending or descending).</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+
+  /**
+   * <p> The response from the last list when returning a list large enough to need tokening. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to select.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListInferenceExperimentsResponse {
+  /**
+   * <p>List of inference experiments.</p>
+   * @public
+   */
+  InferenceExperiments?: InferenceExperimentSummary[] | undefined;
+
+  /**
+   * <p>The token to use when calling the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -9097,6 +9286,12 @@ export interface UpdateClusterSoftwareInstanceGroupSpecification {
    * @public
    */
   InstanceGroupName: string | undefined;
+
+  /**
+   * <p>The version of the HyperPod-managed AMI to update to for the instance group. Uses semantic versioning in the format <code>MAJOR.MINOR.PATCH</code>.</p>
+   * @public
+   */
+  ImageReleaseVersion?: string | undefined;
 }
 
 /**
@@ -10265,78 +10460,4 @@ export interface UpdateModelPackageInput {
    * @public
    */
   ClientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateModelPackageOutput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model.</p>
-   * @public
-   */
-  ModelPackageArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateMonitoringAlertRequest {
-  /**
-   * <p>The name of a monitoring schedule.</p>
-   * @public
-   */
-  MonitoringScheduleName: string | undefined;
-
-  /**
-   * <p>The name of a monitoring alert.</p>
-   * @public
-   */
-  MonitoringAlertName: string | undefined;
-
-  /**
-   * <p>Within <code>EvaluationPeriod</code>, how many execution failures will raise an alert.</p>
-   * @public
-   */
-  DatapointsToAlert: number | undefined;
-
-  /**
-   * <p>The number of most recent monitoring executions to consider when evaluating alert status.</p>
-   * @public
-   */
-  EvaluationPeriod: number | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateMonitoringAlertResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the monitoring schedule.</p>
-   * @public
-   */
-  MonitoringScheduleArn: string | undefined;
-
-  /**
-   * <p>The name of a monitoring alert.</p>
-   * @public
-   */
-  MonitoringAlertName?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateMonitoringScheduleRequest {
-  /**
-   * <p>The name of the monitoring schedule. The name must be unique within an Amazon Web Services Region within an Amazon Web Services account.</p>
-   * @public
-   */
-  MonitoringScheduleName: string | undefined;
-
-  /**
-   * <p>The configuration object that specifies the monitoring schedule and defines the monitoring job.</p>
-   * @public
-   */
-  MonitoringScheduleConfig: MonitoringScheduleConfig | undefined;
 }

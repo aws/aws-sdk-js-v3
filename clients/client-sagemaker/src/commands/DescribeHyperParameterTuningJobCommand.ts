@@ -4,10 +4,8 @@ import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  DescribeHyperParameterTuningJobRequest,
-  DescribeHyperParameterTuningJobResponse,
-} from "../models/models_2";
+import type { DescribeHyperParameterTuningJobRequest } from "../models/models_2";
+import type { DescribeHyperParameterTuningJobResponse } from "../models/models_3";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { DescribeHyperParameterTuningJob$ } from "../schemas/schemas_0";
 

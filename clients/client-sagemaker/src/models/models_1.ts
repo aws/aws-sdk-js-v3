@@ -18,6 +18,7 @@ import type {
   ClusterNodeProvisioningMode,
   ClusterNodeRecovery,
   CollectionType,
+  CompilationJobStatus,
   CompleteOnConvergence,
   ConditionOutcome,
   ContainerMode,
@@ -63,6 +64,7 @@ import type {
   NotebookInstanceAcceleratorType,
   NotebookOutputOption,
   ParameterType,
+  PreemptTeamTasks,
   ProblemType,
   ProcessingInstanceType,
   ProcessingS3DataDistributionType,
@@ -75,6 +77,7 @@ import type {
   RecommendationJobSupportedEndpointType,
   RecommendationJobType,
   RepositoryAccessMode,
+  ResourceSharingStrategy,
   RootAccess,
   RoutingStrategy,
   RStudioServerProAccessStatus,
@@ -158,7 +161,7 @@ import type {
   CodeEditorAppSettings,
   CodeRepository,
   CollectionConfig,
-  ComputeQuotaConfig,
+  ComputeQuotaResourceConfig,
   CustomImage,
   GitConfig,
   InferenceSpecification,
@@ -175,6 +178,144 @@ import type {
   TransformJobDefinition,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * <p>Configuration information for the Amazon SageMaker Debugger output tensor collections.</p>
+ * @public
+ */
+export interface CollectionConfiguration {
+  /**
+   * <p>The name of the tensor collection. The name must be unique relative to other rule configuration names.</p>
+   * @public
+   */
+  CollectionName?: string | undefined;
+
+  /**
+   * <p>Parameter values for the tensor collection. The allowed parameters are <code>"name"</code>, <code>"include_regex"</code>, <code>"reduction_config"</code>, <code>"save_config"</code>, <code>"tensor_names"</code>, and <code>"save_histogram"</code>.</p>
+   * @public
+   */
+  CollectionParameters?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>A summary of a model compilation job.</p>
+ * @public
+ */
+export interface CompilationJobSummary {
+  /**
+   * <p>The name of the model compilation job that you want a summary for.</p>
+   * @public
+   */
+  CompilationJobName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model compilation job.</p>
+   * @public
+   */
+  CompilationJobArn: string | undefined;
+
+  /**
+   * <p>The time when the model compilation job was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The time when the model compilation job started.</p>
+   * @public
+   */
+  CompilationStartTime?: Date | undefined;
+
+  /**
+   * <p>The time when the model compilation job completed.</p>
+   * @public
+   */
+  CompilationEndTime?: Date | undefined;
+
+  /**
+   * <p>The type of device that the model will run on after the compilation job has completed.</p>
+   * @public
+   */
+  CompilationTargetDevice?: TargetDevice | undefined;
+
+  /**
+   * <p>The type of OS that the model will run on after the compilation job has completed.</p>
+   * @public
+   */
+  CompilationTargetPlatformOs?: TargetPlatformOs | undefined;
+
+  /**
+   * <p>The type of architecture that the model will run on after the compilation job has completed.</p>
+   * @public
+   */
+  CompilationTargetPlatformArch?: TargetPlatformArch | undefined;
+
+  /**
+   * <p>The type of accelerator that the model will run on after the compilation job has completed.</p>
+   * @public
+   */
+  CompilationTargetPlatformAccelerator?: TargetPlatformAccelerator | undefined;
+
+  /**
+   * <p>The time when the model compilation job was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The status of the model compilation job.</p>
+   * @public
+   */
+  CompilationJobStatus: CompilationJobStatus | undefined;
+}
+
+/**
+ * <p>Resource sharing configuration.</p>
+ * @public
+ */
+export interface ResourceSharingConfig {
+  /**
+   * <p>The strategy of how idle compute is shared within the cluster. The following are the options of strategies.</p> <ul> <li> <p> <code>DontLend</code>: entities do not lend idle compute.</p> </li> <li> <p> <code>Lend</code>: entities can lend idle compute to entities that can borrow.</p> </li> <li> <p> <code>LendandBorrow</code>: entities can lend idle compute and borrow idle compute from other entities.</p> </li> </ul> <p>Default is <code>LendandBorrow</code>.</p>
+   * @public
+   */
+  Strategy: ResourceSharingStrategy | undefined;
+
+  /**
+   * <p>The limit on how much idle compute can be borrowed.The values can be 1 - 500 percent of idle compute that the team is allowed to borrow.</p> <p>Default is <code>50</code>.</p>
+   * @public
+   */
+  BorrowLimit?: number | undefined;
+
+  /**
+   * <p>The absolute limits on compute resources that can be borrowed from idle compute. When specified, these limits define the maximum amount of specific resource types (such as accelerators, vCPU, or memory) that an entity can borrow, regardless of the percentage-based <code>BorrowLimit</code>.</p>
+   * @public
+   */
+  AbsoluteBorrowLimits?: ComputeQuotaResourceConfig[] | undefined;
+}
+
+/**
+ * <p>Configuration of the compute allocation definition for an entity. This includes the resource sharing option and the setting to preempt low priority tasks.</p>
+ * @public
+ */
+export interface ComputeQuotaConfig {
+  /**
+   * <p>Allocate compute resources by instance types.</p>
+   * @public
+   */
+  ComputeQuotaResources?: ComputeQuotaResourceConfig[] | undefined;
+
+  /**
+   * <p>Resource sharing configuration. This defines how an entity can lend and borrow idle compute with other entities within the cluster.</p>
+   * @public
+   */
+  ResourceSharingConfig?: ResourceSharingConfig | undefined;
+
+  /**
+   * <p>Allows workloads from within an entity to preempt same-team workloads. When set to <code>LowerPriority</code>, the entity's lower priority tasks are preempted by their own higher priority tasks.</p> <p>Default is <code>LowerPriority</code>.</p>
+   * @public
+   */
+  PreemptTeamTasks?: PreemptTeamTasks | undefined;
+}
 
 /**
  * <p>The target entity to allocate compute resources to.</p>
@@ -8400,64 +8541,4 @@ export interface CreateNotebookInstanceLifecycleConfigOutput {
    * @public
    */
   NotebookInstanceLifecycleConfigArn?: string | undefined;
-}
-
-/**
- * <p>The access configuration settings for the source ML model for an optimization job, where you can accept the model end-user license agreement (EULA).</p>
- * @public
- */
-export interface OptimizationModelAccessConfig {
-  /**
-   * <p>Specifies agreement to the model end-user license agreement (EULA). The <code>AcceptEula</code> value must be explicitly defined as <code>True</code> in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.</p>
-   * @public
-   */
-  AcceptEula: boolean | undefined;
-}
-
-/**
- * <p>The Amazon S3 location of a source model to optimize with an optimization job.</p>
- * @public
- */
-export interface OptimizationJobModelSourceS3 {
-  /**
-   * <p>An Amazon S3 URI that locates a source model to optimize with an optimization job.</p>
-   * @public
-   */
-  S3Uri?: string | undefined;
-
-  /**
-   * <p>The access configuration settings for the source ML model for an optimization job, where you can accept the model end-user license agreement (EULA).</p>
-   * @public
-   */
-  ModelAccessConfig?: OptimizationModelAccessConfig | undefined;
-}
-
-/**
- * <p>A SageMaker model to use as the source or destination for an optimization job.</p>
- * @public
- */
-export interface OptimizationSageMakerModel {
-  /**
-   * <p>The name of a SageMaker model.</p>
-   * @public
-   */
-  ModelName?: string | undefined;
-}
-
-/**
- * <p>The location of the source model to optimize with an optimization job.</p>
- * @public
- */
-export interface OptimizationJobModelSource {
-  /**
-   * <p>The Amazon S3 location of a source model to optimize with an optimization job.</p>
-   * @public
-   */
-  S3?: OptimizationJobModelSourceS3 | undefined;
-
-  /**
-   * <p>The name of an existing SageMaker model to optimize with an optimization job.</p>
-   * @public
-   */
-  SageMakerModel?: OptimizationSageMakerModel | undefined;
 }

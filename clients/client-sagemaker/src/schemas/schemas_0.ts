@@ -168,6 +168,7 @@ const _AO = "ActiveOperations";
 const _AOm = "AmiOverride";
 const _AP = "AutoParameter";
 const _APC = "AcceleratorPartitionConfig";
+const _APCu = "AutoPatchConfig";
 const _APc = "AcceleratorPartition";
 const _APu = "AutoParameters";
 const _AQS = "AmazonQSettings";
@@ -346,6 +347,8 @@ const _CAMLJVR = "CreateAutoMLJobV2Request";
 const _CAMLJVRr = "CreateAutoMLJobV2Response";
 const _CAMRRA = "CrossAccountModelRegisterRoleArn";
 const _CAO = "CreateAlgorithmOutput";
+const _CAPC = "ClusterAutoPatchConfig";
+const _CAPCD = "ClusterAutoPatchConfigDetails";
 const _CAR = "CreateActionRequest";
 const _CARr = "CreateActionResponse";
 const _CARre = "CreateAppRequest";
@@ -510,6 +513,7 @@ const _CIRD = "ClusterInstanceRequirementDetails";
 const _CIRJ = "CreateInferenceRecommendationsJob";
 const _CIRJR = "CreateInferenceRecommendationsJobRequest";
 const _CIRJRr = "CreateInferenceRecommendationsJobResponse";
+const _CIRV = "CurrentImageReleaseVersion";
 const _CIRr = "CreateImageRequest";
 const _CIRre = "CreateImageResponse";
 const _CISC = "ClusterInstanceStorageConfigs";
@@ -651,6 +655,9 @@ const _CPRo = "ContinuousParameterRange";
 const _CPRon = "ContinuousParameterRanges";
 const _CPRr = "CreatePipelineRequest";
 const _CPRre = "CreatePipelineResponse";
+const _CPS = "CurrentPatchSchedule";
+const _CPSD = "ClusterPatchScheduleDetails";
+const _CPSl = "ClusterPatchSchedule";
 const _CPUC = "CustomPosixUserConfig";
 const _CPa = "CategoricalParameter";
 const _CPat = "CategoricalParameters";
@@ -1073,6 +1080,7 @@ const _DIR = "DeleteImageRequest";
 const _DIRJ = "DescribeInferenceRecommendationsJob";
 const _DIRJR = "DescribeInferenceRecommendationsJobRequest";
 const _DIRJRe = "DescribeInferenceRecommendationsJobResponse";
+const _DIRV = "DesiredImageReleaseVersion";
 const _DIRe = "DeleteImageResponse";
 const _DIRes = "DescribeImageRequest";
 const _DIResc = "DescribeImageResponse";
@@ -1217,6 +1225,7 @@ const _DPR = "DeletePipelineRequest";
 const _DPRe = "DeletePipelineResponse";
 const _DPRes = "DescribePipelineRequest";
 const _DPResc = "DescribePipelineResponse";
+const _DPS = "DesiredPatchSchedule";
 const _DPe = "DeleteProperties";
 const _DPel = "DeletePipeline";
 const _DPele = "DeleteProject";
@@ -1814,6 +1823,7 @@ const _IRJS = "InferenceRecommendationsJobStep";
 const _IRJSn = "InferenceRecommendationsJobSteps";
 const _IRJn = "InferenceRecommendationsJobs";
 const _IRS = "IdleResourceSharing";
+const _IRV = "ImageReleaseVersion";
 const _IRn = "InstanceRequirements";
 const _IRnf = "InferenceRecommendations";
 const _IRnfe = "InferenceRecommendation";
@@ -2573,6 +2583,7 @@ const _NOO = "NotebookOutputOption";
 const _NOS = "NumberOfSamples";
 const _NOSu = "NumberOfSteps";
 const _NOTJONI = "NumberOfTrainingJobsObjectiveNotImproving";
+const _NPD = "NextPatchDate";
 const _NPM = "NodeProvisioningMode";
 const _NPN = "NestedPropertyName";
 const _NR = "NodeRecovery";
@@ -2762,7 +2773,7 @@ const _PRESr = "ProfilerRuleEvaluationStatus";
 const _PRa = "ParameterRanges";
 const _PRar = "ParameterRange";
 const _PRara = "ParameterRemovals";
-const _PS = "PipelineStatus";
+const _PS = "PatchingStrategy";
 const _PSC = "ProcessingStoppingCondition";
 const _PSI = "ProcessingS3Input";
 const _PSL = "ProjectSummaryList";
@@ -2770,9 +2781,11 @@ const _PSLi = "PipelineSummaryList";
 const _PSO = "ProcessingS3Output";
 const _PSP = "ProjectS3Path";
 const _PST = "ProcessingStartTime";
-const _PSa = "PaymentStatus";
-const _PSi = "PipelineSummaries";
-const _PSip = "PipelineSummary";
+const _PSa = "PatchSchedule";
+const _PSay = "PaymentStatus";
+const _PSi = "PipelineStatus";
+const _PSip = "PipelineSummaries";
+const _PSipe = "PipelineSummary";
 const _PSl = "PlacementStatus";
 const _PSla = "PlacementStrategy";
 const _PSlac = "PlacementSpecifications";
@@ -4534,6 +4547,16 @@ export var ClarifyTextConfig$: StaticStructureSchema = [3, n0, _CTC,
   [_L, _G],
   [0, 0], 2
 ];
+export var ClusterAutoPatchConfig$: StaticStructureSchema = [3, n0, _CAPC,
+  0,
+  [_PS, _PSa, _DCe],
+  [0, () => ClusterPatchSchedule$, () => DeploymentConfiguration$], 1
+];
+export var ClusterAutoPatchConfigDetails$: StaticStructureSchema = [3, n0, _CAPCD,
+  0,
+  [_PS, _CPS, _DPS, _DCe],
+  [0, () => ClusterPatchScheduleDetails$, () => ClusterPatchScheduleDetails$, () => DeploymentConfiguration$]
+];
 export var ClusterAutoScalingConfig$: StaticStructureSchema = [3, n0, _CASC,
   0,
   [_Mo, _ASTu],
@@ -4576,13 +4599,13 @@ export var ClusterFsxOpenZfsConfig$: StaticStructureSchema = [3, n0, _CFOZC,
 ];
 export var ClusterInstanceGroupDetails$: StaticStructureSchema = [3, n0, _CIGD,
   0,
-  [_CCu, _TCa, _MCi, _IGN, _ITn, _IRn, _ITD, _LCC, _ERx, _TPC, _ISC, _OSDHC, _St, _TPA, _TPS, _OVC, _SUC, _CII, _DII, _IVS, _AO, _KC, _CRa, _TSC, _SUS, _ASUC, _SCl, _NIe],
-  [1, 1, 1, 0, 0, () => ClusterInstanceRequirementDetails$, () => ClusterInstanceTypeDetails, () => ClusterLifeCycleConfig$, 0, 1, () => ClusterInstanceStorageConfigs, 64 | 0, 0, 0, 0, () => VpcConfig$, () => ScheduledUpdateConfig$, 0, 0, 0, 128 | 1, () => ClusterKubernetesConfigDetails$, () => ClusterCapacityRequirements$, 1, 0, () => DeploymentConfiguration$, () => ClusterSlurmConfigDetails$, () => ClusterNetworkInterfaceDetails$]
+  [_CCu, _TCa, _MCi, _IGN, _ITn, _IRn, _ITD, _LCC, _ERx, _TPC, _ISC, _OSDHC, _St, _TPA, _TPS, _OVC, _SUC, _APCu, _CII, _DII, _CIRV, _DIRV, _IVS, _AO, _KC, _CRa, _TSC, _SUS, _ASUC, _SCl, _NIe],
+  [1, 1, 1, 0, 0, () => ClusterInstanceRequirementDetails$, () => ClusterInstanceTypeDetails, () => ClusterLifeCycleConfig$, 0, 1, () => ClusterInstanceStorageConfigs, 64 | 0, 0, 0, 0, () => VpcConfig$, () => ScheduledUpdateConfig$, () => ClusterAutoPatchConfigDetails$, 0, 0, 0, 0, 0, 128 | 1, () => ClusterKubernetesConfigDetails$, () => ClusterCapacityRequirements$, 1, 0, () => DeploymentConfiguration$, () => ClusterSlurmConfigDetails$, () => ClusterNetworkInterfaceDetails$]
 ];
 export var ClusterInstanceGroupSpecification$: StaticStructureSchema = [3, n0, _CIGS,
   0,
-  [_ICn, _IGN, _ERx, _MIC, _ITn, _IRn, _LCC, _TPC, _ISC, _OSDHC, _TPA, _OVC, _SUC, _IIm, _KC, _SCl, _CRa, _NIe],
-  [1, 0, 0, 1, 0, () => ClusterInstanceRequirements$, () => ClusterLifeCycleConfig$, 1, () => ClusterInstanceStorageConfigs, 64 | 0, 0, () => VpcConfig$, () => ScheduledUpdateConfig$, 0, () => ClusterKubernetesConfig$, () => ClusterSlurmConfig$, () => ClusterCapacityRequirements$, () => ClusterNetworkInterface$], 3
+  [_ICn, _IGN, _ERx, _MIC, _ITn, _IRn, _LCC, _TPC, _ISC, _OSDHC, _TPA, _OVC, _SUC, _IIm, _APCu, _IRV, _KC, _SCl, _CRa, _NIe],
+  [1, 0, 0, 1, 0, () => ClusterInstanceRequirements$, () => ClusterLifeCycleConfig$, 1, () => ClusterInstanceStorageConfigs, 64 | 0, 0, () => VpcConfig$, () => ScheduledUpdateConfig$, 0, () => ClusterAutoPatchConfig$, 0, () => ClusterKubernetesConfig$, () => ClusterSlurmConfig$, () => ClusterCapacityRequirements$, () => ClusterNetworkInterface$], 3
 ];
 export var ClusterInstancePlacement$: StaticStructureSchema = [3, n0, _CIP,
   0,
@@ -4651,13 +4674,13 @@ export var ClusterNetworkInterfaceDetails$: StaticStructureSchema = [3, n0, _CNI
 ];
 export var ClusterNodeDetails$: StaticStructureSchema = [3, n0, _CND,
   0,
-  [_IGN, _II, _NLI, _ISns, _ITn, _LT, _LSUT, _LCC, _OVC, _TPC, _ISC, _PPI, _PPIr, _PDH, _Pl, _CII, _DII, _IVS, _USI, _KC, _CTap, _NIe],
-  [0, 0, 0, () => ClusterInstanceStatusDetails$, 0, 4, 4, () => ClusterLifeCycleConfig$, () => VpcConfig$, 1, () => ClusterInstanceStorageConfigs, 0, 0, 0, () => ClusterInstancePlacement$, 0, 0, 0, () => UltraServerInfo$, () => ClusterKubernetesConfigNodeDetails$, 0, () => ClusterNetworkInterfaceDetails$]
+  [_IGN, _II, _NLI, _ISns, _ITn, _LT, _LSUT, _LCC, _OVC, _TPC, _ISC, _PPI, _PPIr, _PDH, _Pl, _CII, _DII, _CIRV, _DIRV, _IVS, _USI, _KC, _CTap, _NIe],
+  [0, 0, 0, () => ClusterInstanceStatusDetails$, 0, 4, 4, () => ClusterLifeCycleConfig$, () => VpcConfig$, 1, () => ClusterInstanceStorageConfigs, 0, 0, 0, () => ClusterInstancePlacement$, 0, 0, 0, 0, 0, () => UltraServerInfo$, () => ClusterKubernetesConfigNodeDetails$, 0, () => ClusterNetworkInterfaceDetails$]
 ];
 export var ClusterNodeSummary$: StaticStructureSchema = [3, n0, _CNS,
   0,
-  [_IGN, _II, _ITn, _LT, _ISns, _NLI, _LSUT, _USI, _PDH, _IVS],
-  [0, 0, 0, 4, () => ClusterInstanceStatusDetails$, 0, 4, () => UltraServerInfo$, 0, 0], 5
+  [_IGN, _II, _ITn, _LT, _ISns, _NLI, _LSUT, _USI, _PDH, _CIRV, _IVS],
+  [0, 0, 0, 4, () => ClusterInstanceStatusDetails$, 0, 4, () => UltraServerInfo$, 0, 0, 0], 5
 ];
 export var ClusterOnDemandOptions$: StaticStructureSchema = [3, n0, _CODO,
   0,
@@ -4678,6 +4701,16 @@ export var ClusterOrchestratorSlurmConfig$: StaticStructureSchema = [3, n0, _COS
   0,
   [_SCS],
   [0]
+];
+export var ClusterPatchSchedule$: StaticStructureSchema = [3, n0, _CPSl,
+  0,
+  [_NPD],
+  [4]
+];
+export var ClusterPatchScheduleDetails$: StaticStructureSchema = [3, n0, _CPSD,
+  0,
+  [_NPD],
+  [4]
 ];
 export var ClusterRestrictedInstanceGroupDetails$: StaticStructureSchema = [3, n0, _CRIGD,
   0,
@@ -4731,8 +4764,8 @@ export var ClusterSpotOptions$: StaticStructureSchema = [3, n0, _CSO,
 ];
 export var ClusterSummary$: StaticStructureSchema = [3, n0, _CSl,
   0,
-  [_CAl, _CNl, _CT, _CSlu, _TPAr],
-  [0, 0, 4, 0, 64 | 0], 4
+  [_CAl, _CNl, _CT, _CSlu, _TPAr, _IVS],
+  [0, 0, 4, 0, 64 | 0, 0], 4
 ];
 export var ClusterTieredStorageConfig$: StaticStructureSchema = [3, n0, _CTSC,
   0,
@@ -6726,7 +6759,7 @@ export var DescribePipelineRequest$: StaticStructureSchema = [3, n0, _DPRes,
 ];
 export var DescribePipelineResponse$: StaticStructureSchema = [3, n0, _DPResc,
   0,
-  [_PAi, _PNi, _PDN, _PD, _PDi, _RAo, _PS, _CT, _LMT, _LRT, _CB, _LMB, _PCa, _PVDN, _PVD],
+  [_PAi, _PNi, _PDN, _PD, _PDi, _RAo, _PSi, _CT, _LMT, _LRT, _CB, _LMB, _PCa, _PVDN, _PVD],
   [0, 0, 0, 0, 0, 0, 0, 4, 4, 4, () => UserContext$, () => UserContext$, () => ParallelismConfiguration$, 0, 0]
 ];
 export var DescribeProcessingJobRequest$: StaticStructureSchema = [3, n0, _DPJRe,
@@ -8646,7 +8679,7 @@ export var ListPipelinesRequest$: StaticStructureSchema = [3, n0, _LPR,
 ];
 export var ListPipelinesResponse$: StaticStructureSchema = [3, n0, _LPRi,
   0,
-  [_PSi, _NTe],
+  [_PSip, _NTe],
   [() => PipelineSummaryList, 0]
 ];
 export var ListPipelineVersionsRequest$: StaticStructureSchema = [3, n0, _LPVR,
@@ -9561,7 +9594,7 @@ export var Phase$: StaticStructureSchema = [3, n0, _Ph,
 ];
 export var Pipeline$: StaticStructureSchema = [3, n0, _Pi,
   0,
-  [_PAi, _PNi, _PDN, _PDi, _RAo, _PS, _CT, _LMT, _LRT, _CB, _LMB, _PCa, _Ta],
+  [_PAi, _PNi, _PDN, _PDi, _RAo, _PSi, _CT, _LMT, _LRT, _CB, _LMB, _PCa, _Ta],
   [0, 0, 0, 0, 0, 0, 4, 4, 4, () => UserContext$, () => UserContext$, () => ParallelismConfiguration$, () => TagList]
 ];
 export var PipelineDefinitionS3Location$: StaticStructureSchema = [3, n0, _PDSL,
@@ -9594,7 +9627,7 @@ export var PipelineExperimentConfig$: StaticStructureSchema = [3, n0, _PEC,
   [_ENx, _TN],
   [0, 0]
 ];
-export var PipelineSummary$: StaticStructureSchema = [3, n0, _PSip,
+export var PipelineSummary$: StaticStructureSchema = [3, n0, _PSipe,
   0,
   [_PAi, _PNi, _PDN, _PDi, _RAo, _CT, _LMT, _LET],
   [0, 0, 0, 0, 0, 4, 4, 4]
@@ -10631,7 +10664,7 @@ export var TrainingJobSummary$: StaticStructureSchema = [3, n0, _TJSrai,
 ];
 export var TrainingPlanExtension$: StaticStructureSchema = [3, n0, _TPEr,
   0,
-  [_TPEOI, _EAxt, _SDtar, _EDn, _St, _PSa, _AZv, _AZI, _DH, _UF, _CCur],
+  [_TPEOI, _EAxt, _SDtar, _EDn, _St, _PSay, _AZv, _AZI, _DH, _UF, _CCur],
   [0, 4, 4, 4, 0, 0, 0, 0, 1, 0, 0], 1
 ];
 export var TrainingPlanExtensionOffering$: StaticStructureSchema = [3, n0, _TPEOr,
@@ -10876,8 +10909,8 @@ export var UpdateClusterSchedulerConfigResponse$: StaticStructureSchema = [3, n0
 ];
 export var UpdateClusterSoftwareInstanceGroupSpecification$: StaticStructureSchema = [3, n0, _UCSIGS,
   0,
-  [_IGN],
-  [0], 1
+  [_IGN, _IRV],
+  [0, 0], 1
 ];
 export var UpdateClusterSoftwareRequest$: StaticStructureSchema = [3, n0, _UCSR,
   0,

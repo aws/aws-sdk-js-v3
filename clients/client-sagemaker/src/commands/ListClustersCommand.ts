@@ -59,6 +59,7 @@ export interface ListClustersCommandOutput extends ListClustersResponse, __Metad
  * //       TrainingPlanArns: [ // TrainingPlanArns
  * //         "STRING_VALUE",
  * //       ],
+ * //       ImageVersionStatus: "UpToDate" || "UpdateAvailable" || "SecurityUpdateRequired" || "EndOfLife",
  * //     },
  * //   ],
  * // };

@@ -41,8 +41,6 @@ import type {
   HubStatus,
   HumanTaskUiStatus,
   HyperParameterTuningJobObjectiveType,
-  HyperParameterTuningJobStatus,
-  ImageStatus,
   InputMode,
   JobCategory,
   JoinSource,
@@ -117,7 +115,6 @@ import type {
   AutoMLProblemTypeConfig,
   AutoMLResolvedAttributes,
   AutoMLSecurityConfig,
-  Autotune,
   BatchDataCaptureConfig,
   CfnCreateTemplateProvider,
   Channel,
@@ -134,8 +131,6 @@ import type {
   CodeRepository,
   CognitoConfig,
   CognitoMemberDefinition,
-  CollectionConfiguration,
-  ComputeQuotaConfig,
   GitConfig,
   InferenceSpecification,
   JupyterLabAppImageConfig,
@@ -152,6 +147,8 @@ import type {
   VpcConfig,
 } from "./models_0";
 import type {
+  CollectionConfiguration,
+  ComputeQuotaConfig,
   ComputeQuotaTarget,
   ContextSource,
   DataCaptureConfig,
@@ -172,9 +169,6 @@ import type {
   HumanLoopActivationConfig,
   HumanLoopConfig,
   HumanLoopRequestSource,
-  HyperParameterTrainingJobDefinition,
-  HyperParameterTuningJobConfig,
-  HyperParameterTuningJobWarmStartConfig,
   InputConfig,
   JupyterServerAppSettings,
   KernelGatewayAppSettings,
@@ -189,8 +183,6 @@ import type {
   NetworkConfig,
   OfflineStoreConfig,
   OnlineStoreConfig,
-  OptimizationJobModelSource,
-  OptimizationSageMakerModel,
   OutputConfig,
   ProductionVariant,
   ProductionVariantManagedInstanceScaling,
@@ -201,6 +193,66 @@ import type {
   TrainingSpecification,
   UserSettings,
 } from "./models_1";
+
+/**
+ * <p>The access configuration settings for the source ML model for an optimization job, where you can accept the model end-user license agreement (EULA).</p>
+ * @public
+ */
+export interface OptimizationModelAccessConfig {
+  /**
+   * <p>Specifies agreement to the model end-user license agreement (EULA). The <code>AcceptEula</code> value must be explicitly defined as <code>True</code> in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.</p>
+   * @public
+   */
+  AcceptEula: boolean | undefined;
+}
+
+/**
+ * <p>The Amazon S3 location of a source model to optimize with an optimization job.</p>
+ * @public
+ */
+export interface OptimizationJobModelSourceS3 {
+  /**
+   * <p>An Amazon S3 URI that locates a source model to optimize with an optimization job.</p>
+   * @public
+   */
+  S3Uri?: string | undefined;
+
+  /**
+   * <p>The access configuration settings for the source ML model for an optimization job, where you can accept the model end-user license agreement (EULA).</p>
+   * @public
+   */
+  ModelAccessConfig?: OptimizationModelAccessConfig | undefined;
+}
+
+/**
+ * <p>A SageMaker model to use as the source or destination for an optimization job.</p>
+ * @public
+ */
+export interface OptimizationSageMakerModel {
+  /**
+   * <p>The name of a SageMaker model.</p>
+   * @public
+   */
+  ModelName?: string | undefined;
+}
+
+/**
+ * <p>The location of the source model to optimize with an optimization job.</p>
+ * @public
+ */
+export interface OptimizationJobModelSource {
+  /**
+   * <p>The Amazon S3 location of a source model to optimize with an optimization job.</p>
+   * @public
+   */
+  S3?: OptimizationJobModelSourceS3 | undefined;
+
+  /**
+   * <p>The name of an existing SageMaker model to optimize with an optimization job.</p>
+   * @public
+   */
+  SageMakerModel?: OptimizationSageMakerModel | undefined;
+}
 
 /**
  * <p>Settings for the model compilation technique that's applied by a model optimization job.</p>
@@ -8233,205 +8285,4 @@ export interface TrainingJobStatusCounters {
    * @public
    */
   Stopped?: number | undefined;
-}
-
-/**
- * <p>A structure that contains runtime information about both current and completed hyperparameter tuning jobs.</p>
- * @public
- */
-export interface HyperParameterTuningJobCompletionDetails {
-  /**
-   * <p>The number of training jobs launched by a tuning job that are not improving (1% or less) as measured by model performance evaluated against an objective function.</p>
-   * @public
-   */
-  NumberOfTrainingJobsObjectiveNotImproving?: number | undefined;
-
-  /**
-   * <p>The time in timestamp format that AMT detected model convergence, as defined by a lack of significant improvement over time based on criteria developed over a wide range of diverse benchmarking tests.</p>
-   * @public
-   */
-  ConvergenceDetectedTime?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeHyperParameterTuningJobResponse {
-  /**
-   * <p>The name of the hyperparameter tuning job.</p>
-   * @public
-   */
-  HyperParameterTuningJobName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the tuning job.</p>
-   * @public
-   */
-  HyperParameterTuningJobArn: string | undefined;
-
-  /**
-   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html">HyperParameterTuningJobConfig</a> object that specifies the configuration of the tuning job.</p>
-   * @public
-   */
-  HyperParameterTuningJobConfig: HyperParameterTuningJobConfig | undefined;
-
-  /**
-   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html">HyperParameterTrainingJobDefinition</a> object that specifies the definition of the training jobs that this tuning job launches.</p>
-   * @public
-   */
-  TrainingJobDefinition?: HyperParameterTrainingJobDefinition | undefined;
-
-  /**
-   * <p>A list of the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html">HyperParameterTrainingJobDefinition</a> objects launched for this tuning job.</p>
-   * @public
-   */
-  TrainingJobDefinitions?: HyperParameterTrainingJobDefinition[] | undefined;
-
-  /**
-   * <p>The status of the tuning job.</p>
-   * @public
-   */
-  HyperParameterTuningJobStatus: HyperParameterTuningJobStatus | undefined;
-
-  /**
-   * <p>The date and time that the tuning job started.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The date and time that the tuning job ended.</p>
-   * @public
-   */
-  HyperParameterTuningEndTime?: Date | undefined;
-
-  /**
-   * <p>The date and time that the status of the tuning job was modified. </p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TrainingJobStatusCounters.html">TrainingJobStatusCounters</a> object that specifies the number of training jobs, categorized by status, that this tuning job launched.</p>
-   * @public
-   */
-  TrainingJobStatusCounters: TrainingJobStatusCounters | undefined;
-
-  /**
-   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ObjectiveStatusCounters.html">ObjectiveStatusCounters</a> object that specifies the number of training jobs, categorized by the status of their final objective metric, that this tuning job launched.</p>
-   * @public
-   */
-  ObjectiveStatusCounters: ObjectiveStatusCounters | undefined;
-
-  /**
-   * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TrainingJobSummary.html">TrainingJobSummary</a> object that describes the training job that completed with the best current <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobObjective.html">HyperParameterTuningJobObjective</a>.</p>
-   * @public
-   */
-  BestTrainingJob?: HyperParameterTrainingJobSummary | undefined;
-
-  /**
-   * <p>If the hyperparameter tuning job is an warm start tuning job with a <code>WarmStartType</code> of <code>IDENTICAL_DATA_AND_ALGORITHM</code>, this is the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TrainingJobSummary.html">TrainingJobSummary</a> for the training job with the best objective metric value of all training jobs launched by this tuning job and all parent jobs specified for the warm start tuning job.</p>
-   * @public
-   */
-  OverallBestTrainingJob?: HyperParameterTrainingJobSummary | undefined;
-
-  /**
-   * <p>The configuration for starting the hyperparameter parameter tuning job using one or more previous tuning jobs as a starting point. The results of previous tuning jobs are used to inform which combinations of hyperparameters to search over in the new tuning job.</p>
-   * @public
-   */
-  WarmStartConfig?: HyperParameterTuningJobWarmStartConfig | undefined;
-
-  /**
-   * <p>A flag to indicate if autotune is enabled for the hyperparameter tuning job.</p>
-   * @public
-   */
-  Autotune?: Autotune | undefined;
-
-  /**
-   * <p>If the tuning job failed, the reason it failed.</p>
-   * @public
-   */
-  FailureReason?: string | undefined;
-
-  /**
-   * <p>Tuning job completion information returned as the response from a hyperparameter tuning job. This information tells if your tuning job has or has not converged. It also includes the number of training jobs that have not improved model performance as evaluated against the objective function.</p>
-   * @public
-   */
-  TuningJobCompletionDetails?: HyperParameterTuningJobCompletionDetails | undefined;
-
-  /**
-   * <p>The total resources consumed by your hyperparameter tuning job.</p>
-   * @public
-   */
-  ConsumedResources?: HyperParameterTuningJobConsumedResources | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeImageRequest {
-  /**
-   * <p>The name of the image to describe.</p>
-   * @public
-   */
-  ImageName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeImageResponse {
-  /**
-   * <p>When the image was created.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>The description of the image.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The name of the image as displayed.</p>
-   * @public
-   */
-  DisplayName?: string | undefined;
-
-  /**
-   * <p>When a create, update, or delete operation fails, the reason for the failure.</p>
-   * @public
-   */
-  FailureReason?: string | undefined;
-
-  /**
-   * <p>The ARN of the image.</p>
-   * @public
-   */
-  ImageArn?: string | undefined;
-
-  /**
-   * <p>The name of the image.</p>
-   * @public
-   */
-  ImageName?: string | undefined;
-
-  /**
-   * <p>The status of the image.</p>
-   * @public
-   */
-  ImageStatus?: ImageStatus | undefined;
-
-  /**
-   * <p>When the image was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>The ARN of the IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.</p>
-   * @public
-   */
-  RoleArn?: string | undefined;
 }

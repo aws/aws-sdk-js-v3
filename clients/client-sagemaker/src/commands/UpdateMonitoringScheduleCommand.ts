@@ -4,8 +4,7 @@ import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { UpdateMonitoringScheduleRequest } from "../models/models_4";
-import type { UpdateMonitoringScheduleResponse } from "../models/models_5";
+import type { UpdateMonitoringScheduleRequest, UpdateMonitoringScheduleResponse } from "../models/models_5";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { UpdateMonitoringSchedule$ } from "../schemas/schemas_0";
 

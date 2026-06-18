@@ -11,7 +11,12 @@ import type {
   WorkforceIpAddressType,
 } from "./enums";
 import type { CfnUpdateTemplateProvider, Tag } from "./models_0";
-import type { InstanceMetadataServiceConfiguration, NotebookInstanceLifecycleHook, UserSettings } from "./models_1";
+import type {
+  InstanceMetadataServiceConfiguration,
+  MonitoringScheduleConfig,
+  NotebookInstanceLifecycleHook,
+  UserSettings,
+} from "./models_1";
 import type {
   MemberDefinition,
   NotificationConfiguration,
@@ -38,6 +43,80 @@ import type {
   ResourceConfigForUpdate,
   VisibilityConditions,
 } from "./models_4";
+
+/**
+ * @public
+ */
+export interface UpdateModelPackageOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model.</p>
+   * @public
+   */
+  ModelPackageArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateMonitoringAlertRequest {
+  /**
+   * <p>The name of a monitoring schedule.</p>
+   * @public
+   */
+  MonitoringScheduleName: string | undefined;
+
+  /**
+   * <p>The name of a monitoring alert.</p>
+   * @public
+   */
+  MonitoringAlertName: string | undefined;
+
+  /**
+   * <p>Within <code>EvaluationPeriod</code>, how many execution failures will raise an alert.</p>
+   * @public
+   */
+  DatapointsToAlert: number | undefined;
+
+  /**
+   * <p>The number of most recent monitoring executions to consider when evaluating alert status.</p>
+   * @public
+   */
+  EvaluationPeriod: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateMonitoringAlertResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the monitoring schedule.</p>
+   * @public
+   */
+  MonitoringScheduleArn: string | undefined;
+
+  /**
+   * <p>The name of a monitoring alert.</p>
+   * @public
+   */
+  MonitoringAlertName?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateMonitoringScheduleRequest {
+  /**
+   * <p>The name of the monitoring schedule. The name must be unique within an Amazon Web Services Region within an Amazon Web Services account.</p>
+   * @public
+   */
+  MonitoringScheduleName: string | undefined;
+
+  /**
+   * <p>The configuration object that specifies the monitoring schedule and defines the monitoring job.</p>
+   * @public
+   */
+  MonitoringScheduleConfig: MonitoringScheduleConfig | undefined;
+}
 
 /**
  * @public

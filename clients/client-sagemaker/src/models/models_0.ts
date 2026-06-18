@@ -58,10 +58,10 @@ import type {
   ClusterInstanceType,
   ClusterInterfaceType,
   ClusterKubernetesTaintEffect,
+  ClusterPatchingStrategy,
   ClusterSlurmConfigStrategy,
   ClusterSlurmNodeType,
   ClusterStatus,
-  CompilationJobStatus,
   CompressionType,
   DataSourceName,
   DeepHealthCheckType,
@@ -81,23 +81,17 @@ import type {
   NodeUnavailabilityType,
   ObjectiveStatus,
   OutputCompressionType,
-  PreemptTeamTasks,
   ProblemType,
   ProcessingS3DataDistributionType,
   ProcessingS3InputMode,
   ProductionVariantInstanceType,
   RecordWrapper,
-  ResourceSharingStrategy,
   S3DataDistribution,
   S3DataType,
   S3ModelDataType,
   SchedulerResourceStatus,
   SoftwareUpdateStatus,
   SplitType,
-  TargetDevice,
-  TargetPlatformAccelerator,
-  TargetPlatformArch,
-  TargetPlatformOs,
   TrafficRoutingConfigType,
   TrainingInputMode,
   TrainingInstanceType,
@@ -5967,6 +5961,126 @@ export interface ClarifyExplainerConfig {
 }
 
 /**
+ * <p>The configurations that SageMaker uses when updating the AMI versions.</p>
+ * @public
+ */
+export interface RollingDeploymentPolicy {
+  /**
+   * <p>The maximum amount of instances in the cluster that SageMaker can update at a time.</p>
+   * @public
+   */
+  MaximumBatchSize: CapacitySizeConfig | undefined;
+
+  /**
+   * <p>The maximum amount of instances in the cluster that SageMaker can roll back at a time.</p>
+   * @public
+   */
+  RollbackMaximumBatchSize?: CapacitySizeConfig | undefined;
+}
+
+/**
+ * <p>The configuration to use when updating the AMI versions.</p>
+ * @public
+ */
+export interface DeploymentConfiguration {
+  /**
+   * <p>The policy that SageMaker uses when updating the AMI versions of the cluster. </p>
+   * @public
+   */
+  RollingUpdatePolicy?: RollingDeploymentPolicy | undefined;
+
+  /**
+   * <p>The duration in seconds that SageMaker waits before updating more instances in the cluster.</p>
+   * @public
+   */
+  WaitIntervalInSeconds?: number | undefined;
+
+  /**
+   * <p>An array that contains the alarms that SageMaker monitors to know whether to roll back the AMI update.</p>
+   * @public
+   */
+  AutoRollbackConfiguration?: AlarmDetails[] | undefined;
+}
+
+/**
+ * <p>The schedule configuration for automatic patching.</p>
+ * @public
+ */
+export interface ClusterPatchSchedule {
+  /**
+   * <p>The date and time of the next scheduled automatic patch. The system sets this automatically when a patch is detected. Use this field to reschedule the patch to a different date.</p>
+   * @public
+   */
+  NextPatchDate?: Date | undefined;
+}
+
+/**
+ * <p>The configuration for automatic patching of the instance group. When configured, the system automatically applies security patch AMI updates to the instance group.</p>
+ * @public
+ */
+export interface ClusterAutoPatchConfig {
+  /**
+   * <p>The strategy for applying patches to instances in the group.</p>
+   * @public
+   */
+  PatchingStrategy: ClusterPatchingStrategy | undefined;
+
+  /**
+   * <p>The schedule for automatic patching, including the next patch date.</p>
+   * @public
+   */
+  PatchSchedule?: ClusterPatchSchedule | undefined;
+
+  /**
+   * <p>The deployment configuration for rolling patch updates, including rollback settings and batch sizes. Only applicable when using a rolling patching strategy.</p>
+   * @public
+   */
+  DeploymentConfig?: DeploymentConfiguration | undefined;
+}
+
+/**
+ * <p>The schedule details for automatic patching, including the next scheduled patch date.</p>
+ * @public
+ */
+export interface ClusterPatchScheduleDetails {
+  /**
+   * <p>The date and time of the next scheduled automatic patch.</p>
+   * @public
+   */
+  NextPatchDate?: Date | undefined;
+}
+
+/**
+ * <p>The auto-patching configuration details for the instance group, including the patching strategy and schedule.</p>
+ * @public
+ */
+export interface ClusterAutoPatchConfigDetails {
+  /**
+   * <p>The strategy used for applying patches to instances in the group.</p>
+   * @public
+   */
+  PatchingStrategy?: ClusterPatchingStrategy | undefined;
+
+  /**
+   * <p>The currently active patch schedule that the system will execute.</p>
+   * @public
+   */
+  CurrentPatchSchedule?: ClusterPatchScheduleDetails | undefined;
+
+  /**
+   * <p>The requested patch schedule. Differs from CurrentPatchSchedule when a reschedule request is pending.</p>
+   * @public
+   */
+  DesiredPatchSchedule?: ClusterPatchScheduleDetails | undefined;
+
+  /**
+   * <p>The deployment configuration for rolling patch updates.</p>
+   * @public
+   */
+  DeploymentConfig?: DeploymentConfiguration | undefined;
+}
+
+/**
  * <p>Specifies the autoscaling configuration for a HyperPod cluster.</p>
  * @public
  */
@@ -6498,48 +6612,6 @@ export interface ClusterFsxOpenZfsConfig {
 }
 
 /**
- * <p>The configurations that SageMaker uses when updating the AMI versions.</p>
- * @public
- */
-export interface RollingDeploymentPolicy {
-  /**
-   * <p>The maximum amount of instances in the cluster that SageMaker can update at a time.</p>
-   * @public
-   */
-  MaximumBatchSize: CapacitySizeConfig | undefined;
-
-  /**
-   * <p>The maximum amount of instances in the cluster that SageMaker can roll back at a time.</p>
-   * @public
-   */
-  RollbackMaximumBatchSize?: CapacitySizeConfig | undefined;
-}
-
-/**
- * <p>The configuration to use when updating the AMI versions.</p>
- * @public
- */
-export interface DeploymentConfiguration {
-  /**
-   * <p>The policy that SageMaker uses when updating the AMI versions of the cluster. </p>
-   * @public
-   */
-  RollingUpdatePolicy?: RollingDeploymentPolicy | undefined;
-
-  /**
-   * <p>The duration in seconds that SageMaker waits before updating more instances in the cluster.</p>
-   * @public
-   */
-  WaitIntervalInSeconds?: number | undefined;
-
-  /**
-   * <p>An array that contains the alarms that SageMaker monitors to know whether to roll back the AMI update.</p>
-   * @public
-   */
-  AutoRollbackConfiguration?: AlarmDetails[] | undefined;
-}
-
-/**
  * <p>The instance requirement details for a flexible instance group, including the current and desired instance types.</p>
  * @public
  */
@@ -6884,6 +6956,12 @@ export interface ClusterInstanceGroupDetails {
   ScheduledUpdateConfig?: ScheduledUpdateConfig | undefined;
 
   /**
+   * <p>The auto-patching configuration for the instance group, including the current patching strategy and next scheduled patch date.</p>
+   * @public
+   */
+  AutoPatchConfig?: ClusterAutoPatchConfigDetails | undefined;
+
+  /**
    * <p>The ID of the Amazon Machine Image (AMI) currently in use by the instance group.</p>
    * @public
    */
@@ -6894,6 +6972,18 @@ export interface ClusterInstanceGroupDetails {
    * @public
    */
   DesiredImageId?: string | undefined;
+
+  /**
+   * <p>The version of the HyperPod-managed AMI currently running on the instance group.</p>
+   * @public
+   */
+  CurrentImageReleaseVersion?: string | undefined;
+
+  /**
+   * <p>The desired version of the HyperPod-managed AMI for the instance group. This may differ from the current version when an update is pending.</p>
+   * @public
+   */
+  DesiredImageReleaseVersion?: string | undefined;
 
   /**
    * <p>The status of the image version for the instance group. Indicates whether the instance group is running the latest image version or if an update is available.</p>
@@ -7098,6 +7188,18 @@ export interface ClusterInstanceGroupSpecification {
    * @public
    */
   ImageId?: string | undefined;
+
+  /**
+   * <p>The configuration for automatic OS security patching. If present, the system automatically applies PATCH AMI updates to this instance group.</p>
+   * @public
+   */
+  AutoPatchConfig?: ClusterAutoPatchConfig | undefined;
+
+  /**
+   * <p>The version of the HyperPod-managed AMI to use for the instance group. Uses semantic versioning in the format <code>MAJOR.MINOR.PATCH</code> (for example, <code>1.2.3</code>). If omitted, the latest available version is used.</p>
+   * @public
+   */
+  ImageReleaseVersion?: string | undefined;
 
   /**
    * <p>Specifies the Kubernetes configuration for the instance group. You describe what you want the labels and taints to look like, and the cluster works to reconcile the actual state with the declared state for nodes in this instance group. </p>
@@ -7316,6 +7418,18 @@ export interface ClusterNodeDetails {
   DesiredImageId?: string | undefined;
 
   /**
+   * <p>The version of the HyperPod-managed AMI currently running on the node.</p>
+   * @public
+   */
+  CurrentImageReleaseVersion?: string | undefined;
+
+  /**
+   * <p>The desired version of the HyperPod-managed AMI for the node. This may differ from the current version when an update is pending.</p>
+   * @public
+   */
+  DesiredImageReleaseVersion?: string | undefined;
+
+  /**
    * <p>The status of the image version for the cluster node.</p>
    * @public
    */
@@ -7404,6 +7518,12 @@ export interface ClusterNodeSummary {
    * @public
    */
   PrivateDnsHostname?: string | undefined;
+
+  /**
+   * <p>The version of the HyperPod-managed AMI currently running on the node.</p>
+   * @public
+   */
+  CurrentImageReleaseVersion?: string | undefined;
 
   /**
    * <p>The status of the image version for the cluster node.</p>
@@ -7824,6 +7944,12 @@ export interface ClusterSummary {
    * @public
    */
   TrainingPlanArns?: string[] | undefined;
+
+  /**
+   * <p>The aggregate status of the image version across the cluster's instance groups.</p>
+   * @public
+   */
+  ImageVersionStatus?: ClusterImageVersionStatus | undefined;
 }
 
 /**
@@ -8067,142 +8193,4 @@ export namespace CollectionConfig {
     VectorConfig: (value: VectorConfig) => T;
     _: (name: string, value: any) => T;
   }
-}
-
-/**
- * <p>Configuration information for the Amazon SageMaker Debugger output tensor collections.</p>
- * @public
- */
-export interface CollectionConfiguration {
-  /**
-   * <p>The name of the tensor collection. The name must be unique relative to other rule configuration names.</p>
-   * @public
-   */
-  CollectionName?: string | undefined;
-
-  /**
-   * <p>Parameter values for the tensor collection. The allowed parameters are <code>"name"</code>, <code>"include_regex"</code>, <code>"reduction_config"</code>, <code>"save_config"</code>, <code>"tensor_names"</code>, and <code>"save_histogram"</code>.</p>
-   * @public
-   */
-  CollectionParameters?: Record<string, string> | undefined;
-}
-
-/**
- * <p>A summary of a model compilation job.</p>
- * @public
- */
-export interface CompilationJobSummary {
-  /**
-   * <p>The name of the model compilation job that you want a summary for.</p>
-   * @public
-   */
-  CompilationJobName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model compilation job.</p>
-   * @public
-   */
-  CompilationJobArn: string | undefined;
-
-  /**
-   * <p>The time when the model compilation job was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The time when the model compilation job started.</p>
-   * @public
-   */
-  CompilationStartTime?: Date | undefined;
-
-  /**
-   * <p>The time when the model compilation job completed.</p>
-   * @public
-   */
-  CompilationEndTime?: Date | undefined;
-
-  /**
-   * <p>The type of device that the model will run on after the compilation job has completed.</p>
-   * @public
-   */
-  CompilationTargetDevice?: TargetDevice | undefined;
-
-  /**
-   * <p>The type of OS that the model will run on after the compilation job has completed.</p>
-   * @public
-   */
-  CompilationTargetPlatformOs?: TargetPlatformOs | undefined;
-
-  /**
-   * <p>The type of architecture that the model will run on after the compilation job has completed.</p>
-   * @public
-   */
-  CompilationTargetPlatformArch?: TargetPlatformArch | undefined;
-
-  /**
-   * <p>The type of accelerator that the model will run on after the compilation job has completed.</p>
-   * @public
-   */
-  CompilationTargetPlatformAccelerator?: TargetPlatformAccelerator | undefined;
-
-  /**
-   * <p>The time when the model compilation job was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>The status of the model compilation job.</p>
-   * @public
-   */
-  CompilationJobStatus: CompilationJobStatus | undefined;
-}
-
-/**
- * <p>Resource sharing configuration.</p>
- * @public
- */
-export interface ResourceSharingConfig {
-  /**
-   * <p>The strategy of how idle compute is shared within the cluster. The following are the options of strategies.</p> <ul> <li> <p> <code>DontLend</code>: entities do not lend idle compute.</p> </li> <li> <p> <code>Lend</code>: entities can lend idle compute to entities that can borrow.</p> </li> <li> <p> <code>LendandBorrow</code>: entities can lend idle compute and borrow idle compute from other entities.</p> </li> </ul> <p>Default is <code>LendandBorrow</code>.</p>
-   * @public
-   */
-  Strategy: ResourceSharingStrategy | undefined;
-
-  /**
-   * <p>The limit on how much idle compute can be borrowed.The values can be 1 - 500 percent of idle compute that the team is allowed to borrow.</p> <p>Default is <code>50</code>.</p>
-   * @public
-   */
-  BorrowLimit?: number | undefined;
-
-  /**
-   * <p>The absolute limits on compute resources that can be borrowed from idle compute. When specified, these limits define the maximum amount of specific resource types (such as accelerators, vCPU, or memory) that an entity can borrow, regardless of the percentage-based <code>BorrowLimit</code>.</p>
-   * @public
-   */
-  AbsoluteBorrowLimits?: ComputeQuotaResourceConfig[] | undefined;
-}
-
-/**
- * <p>Configuration of the compute allocation definition for an entity. This includes the resource sharing option and the setting to preempt low priority tasks.</p>
- * @public
- */
-export interface ComputeQuotaConfig {
-  /**
-   * <p>Allocate compute resources by instance types.</p>
-   * @public
-   */
-  ComputeQuotaResources?: ComputeQuotaResourceConfig[] | undefined;
-
-  /**
-   * <p>Resource sharing configuration. This defines how an entity can lend and borrow idle compute with other entities within the cluster.</p>
-   * @public
-   */
-  ResourceSharingConfig?: ResourceSharingConfig | undefined;
-
-  /**
-   * <p>Allows workloads from within an entity to preempt same-team workloads. When set to <code>LowerPriority</code>, the entity's lower priority tasks are preempted by their own higher priority tasks.</p> <p>Default is <code>LowerPriority</code>.</p>
-   * @public
-   */
-  PreemptTeamTasks?: PreemptTeamTasks | undefined;
 }

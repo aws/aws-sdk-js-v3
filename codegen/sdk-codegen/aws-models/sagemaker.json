@@ -9768,6 +9768,65 @@
         "smithy.api#pattern": "^arn:aws[a-z\\-]*:sagemaker:[a-z0-9\\-]*:[0-9]{12}:cluster/[a-z0-9]{12}$"
       }
     },
+    "com.amazonaws.sagemaker#ClusterAutoPatchConfig": {
+      "type": "structure",
+      "members": {
+        "PatchingStrategy": {
+          "target": "com.amazonaws.sagemaker#ClusterPatchingStrategy",
+          "traits": {
+            "smithy.api#documentation": "<p>The strategy for applying patches to instances in the group.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "PatchSchedule": {
+          "target": "com.amazonaws.sagemaker#ClusterPatchSchedule",
+          "traits": {
+            "smithy.api#documentation": "<p>The schedule for automatic patching, including the next patch date.</p>"
+          }
+        },
+        "DeploymentConfig": {
+          "target": "com.amazonaws.sagemaker#DeploymentConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The deployment configuration for rolling patch updates, including rollback settings and batch sizes. Only applicable when using a rolling patching strategy.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The configuration for automatic patching of the instance group. When configured, the system automatically applies security patch AMI updates to the instance group.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#ClusterAutoPatchConfigDetails": {
+      "type": "structure",
+      "members": {
+        "PatchingStrategy": {
+          "target": "com.amazonaws.sagemaker#ClusterPatchingStrategy",
+          "traits": {
+            "smithy.api#documentation": "<p>The strategy used for applying patches to instances in the group.</p>"
+          }
+        },
+        "CurrentPatchSchedule": {
+          "target": "com.amazonaws.sagemaker#ClusterPatchScheduleDetails",
+          "traits": {
+            "smithy.api#documentation": "<p>The currently active patch schedule that the system will execute.</p>"
+          }
+        },
+        "DesiredPatchSchedule": {
+          "target": "com.amazonaws.sagemaker#ClusterPatchScheduleDetails",
+          "traits": {
+            "smithy.api#documentation": "<p>The requested patch schedule. Differs from CurrentPatchSchedule when a reschedule request is pending.</p>"
+          }
+        },
+        "DeploymentConfig": {
+          "target": "com.amazonaws.sagemaker#DeploymentConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The deployment configuration for rolling patch updates.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The auto-patching configuration details for the instance group, including the patching strategy and schedule.</p>"
+      }
+    },
     "com.amazonaws.sagemaker#ClusterAutoScalerType": {
       "type": "enum",
       "members": {
@@ -10320,10 +10379,22 @@
           "traits": {
             "smithy.api#enumValue": "UpdateAvailable"
           }
+        },
+        "SECURITY_UPDATE_REQUIRED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SecurityUpdateRequired"
+          }
+        },
+        "END_OF_LIFE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EndOfLife"
+          }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The status of the Amazon Machine Image (AMI) version for the HyperPod cluster instance group, node, or cluster. The AMI version is determined at the instance group level, and all nodes within an instance group run the same AMI. The cluster-level status is aggregated across all instance groups.</p> <ul> <li> <p> <code>UpToDate</code>: The resource is running the latest available AMI version.</p> </li> <li> <p> <code>UpdateAvailable</code>: A newer AMI version is available for the resource.</p> </li> </ul>"
+        "smithy.api#documentation": "<p>The status of the Amazon Machine Image (AMI) version for the HyperPod cluster instance group, node, or cluster. The AMI version is determined at the instance group level, and all nodes within an instance group run the same AMI. The cluster-level status is aggregated across all instance groups.</p> <ul> <li> <p> <code>UpToDate</code>: The resource is running the latest available AMI version.</p> </li> <li> <p> <code>UpdateAvailable</code>: A newer AMI version is available for the resource.</p> </li> <li> <p> <code>SecurityUpdateRequired</code>: The current AMI has known security vulnerabilities, and a patched version is available.</p> </li> <li> <p> <code>EndOfLife</code>: The AMI variant has reached end of support and an upgrade is required.</p> </li> </ul>"
       }
     },
     "com.amazonaws.sagemaker#ClusterInstanceCount": {
@@ -10440,6 +10511,12 @@
             "smithy.api#documentation": "<p>The configuration object of the schedule that SageMaker follows when updating the AMI.</p>"
           }
         },
+        "AutoPatchConfig": {
+          "target": "com.amazonaws.sagemaker#ClusterAutoPatchConfigDetails",
+          "traits": {
+            "smithy.api#documentation": "<p>The auto-patching configuration for the instance group, including the current patching strategy and next scheduled patch date.</p>"
+          }
+        },
         "CurrentImageId": {
           "target": "com.amazonaws.sagemaker#ImageId",
           "traits": {
@@ -10450,6 +10527,18 @@
           "target": "com.amazonaws.sagemaker#ImageId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the Amazon Machine Image (AMI) desired for the instance group.</p>"
+          }
+        },
+        "CurrentImageReleaseVersion": {
+          "target": "com.amazonaws.sagemaker#ImageReleaseVersion",
+          "traits": {
+            "smithy.api#documentation": "<p>The version of the HyperPod-managed AMI currently running on the instance group.</p>"
+          }
+        },
+        "DesiredImageReleaseVersion": {
+          "target": "com.amazonaws.sagemaker#ImageReleaseVersion",
+          "traits": {
+            "smithy.api#documentation": "<p>The desired version of the HyperPod-managed AMI for the instance group. This may differ from the current version when an update is pending.</p>"
           }
         },
         "ImageVersionStatus": {
@@ -10615,6 +10704,18 @@
           "target": "com.amazonaws.sagemaker#ImageId",
           "traits": {
             "smithy.api#documentation": "<p>When configuring your HyperPod cluster, you can specify an image ID using one of the following options:</p> <ul> <li> <p> <code>HyperPodPublicAmiId</code>: Use a HyperPod public AMI</p> </li> <li> <p> <code>CustomAmiId</code>: Use your custom AMI</p> </li> <li> <p> <code>default</code>: Use the default latest system image</p> </li> </ul> <p>If you choose to use a custom AMI (<code>CustomAmiId</code>), ensure it meets the following requirements:</p> <ul> <li> <p>Encryption: The custom AMI must be unencrypted.</p> </li> <li> <p>Ownership: The custom AMI must be owned by the same Amazon Web Services account that is creating the HyperPod cluster.</p> </li> <li> <p>Volume support: Only the primary AMI snapshot volume is supported; additional AMI volumes are not supported.</p> </li> </ul> <p>When updating the instance group's AMI through the <code>UpdateClusterSoftware</code> operation, if an instance group uses a custom AMI, you must provide an <code>ImageId</code> or use the default as input. Note that if you don't specify an instance group in your <code>UpdateClusterSoftware</code> request, then all of the instance groups are patched with the specified image.</p>"
+          }
+        },
+        "AutoPatchConfig": {
+          "target": "com.amazonaws.sagemaker#ClusterAutoPatchConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration for automatic OS security patching. If present, the system automatically applies PATCH AMI updates to this instance group.</p>"
+          }
+        },
+        "ImageReleaseVersion": {
+          "target": "com.amazonaws.sagemaker#ImageReleaseVersion",
+          "traits": {
+            "smithy.api#documentation": "<p>The version of the HyperPod-managed AMI to use for the instance group. Uses semantic versioning in the format <code>MAJOR.MINOR.PATCH</code> (for example, <code>1.2.3</code>). If omitted, the latest available version is used.</p>"
           }
         },
         "KubernetesConfig": {
@@ -12078,6 +12179,18 @@
             "smithy.api#documentation": "<p>The ID of the Amazon Machine Image (AMI) desired for the node.</p>"
           }
         },
+        "CurrentImageReleaseVersion": {
+          "target": "com.amazonaws.sagemaker#ImageReleaseVersion",
+          "traits": {
+            "smithy.api#documentation": "<p>The version of the HyperPod-managed AMI currently running on the node.</p>"
+          }
+        },
+        "DesiredImageReleaseVersion": {
+          "target": "com.amazonaws.sagemaker#ImageReleaseVersion",
+          "traits": {
+            "smithy.api#documentation": "<p>The desired version of the HyperPod-managed AMI for the node. This may differ from the current version when an update is pending.</p>"
+          }
+        },
         "ImageVersionStatus": {
           "target": "com.amazonaws.sagemaker#ClusterImageVersionStatus",
           "traits": {
@@ -12262,6 +12375,12 @@
             "smithy.api#documentation": "<p>The private DNS hostname of the SageMaker HyperPod cluster node.</p>"
           }
         },
+        "CurrentImageReleaseVersion": {
+          "target": "com.amazonaws.sagemaker#ImageReleaseVersion",
+          "traits": {
+            "smithy.api#documentation": "<p>The version of the HyperPod-managed AMI currently running on the node.</p>"
+          }
+        },
         "ImageVersionStatus": {
           "target": "com.amazonaws.sagemaker#ClusterImageVersionStatus",
           "traits": {
@@ -12357,6 +12476,54 @@
         "smithy.api#length": {
           "max": 1
         }
+      }
+    },
+    "com.amazonaws.sagemaker#ClusterPatchSchedule": {
+      "type": "structure",
+      "members": {
+        "NextPatchDate": {
+          "target": "com.amazonaws.sagemaker#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time of the next scheduled automatic patch. The system sets this automatically when a patch is detected. Use this field to reschedule the patch to a different date.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The schedule configuration for automatic patching.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#ClusterPatchScheduleDetails": {
+      "type": "structure",
+      "members": {
+        "NextPatchDate": {
+          "target": "com.amazonaws.sagemaker#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time of the next scheduled automatic patch.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The schedule details for automatic patching, including the next scheduled patch date.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#ClusterPatchingStrategy": {
+      "type": "enum",
+      "members": {
+        "WHEN_IDLE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WhenIdle"
+          }
+        },
+        "WHEN_ALL_IDLE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WhenAllIdle"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The strategy for applying automatic patches to instances.</p> <ul> <li> <p> <code>WhenIdle</code>: Cordons all instances and patches each instance as it becomes idle (no running jobs). Each instance is uncordoned immediately after patching and becomes available for new jobs. If instances do not become idle, they remain on the previous AMI version. You can then use UpdateClusterSoftware with the desired ImageReleaseVersion to manually update the remaining instances.</p> </li> <li> <p> <code>WhenAllIdle</code>: Cordons all instances and waits for all to become idle before patching. All instances are uncordoned after patching completes. If not all instances become idle, no patching occurs and all instances remain on the previous AMI version.</p> </li> </ul>"
       }
     },
     "com.amazonaws.sagemaker#ClusterPrivateDnsHostname": {
@@ -12950,6 +13117,12 @@
           "target": "com.amazonaws.sagemaker#TrainingPlanArns",
           "traits": {
             "smithy.api#documentation": "<p>A list of Amazon Resource Names (ARNs) of the training plans associated with this cluster.</p> <p>For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see <code> <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingPlan.html\">CreateTrainingPlan</a> </code>.</p>"
+          }
+        },
+        "ImageVersionStatus": {
+          "target": "com.amazonaws.sagemaker#ClusterImageVersionStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The aggregate status of the image version across the cluster's instance groups.</p>"
           }
         }
       },
@@ -42690,6 +42863,15 @@
           "max": 63
         },
         "smithy.api#pattern": "^[a-zA-Z0-9\\-.]+$"
+      }
+    },
+    "com.amazonaws.sagemaker#ImageReleaseVersion": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "max": 64
+        },
+        "smithy.api#pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
       }
     },
     "com.amazonaws.sagemaker#ImageSortBy": {
@@ -86823,6 +87005,12 @@
             "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The name of the instance group to update.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "ImageReleaseVersion": {
+          "target": "com.amazonaws.sagemaker#ImageReleaseVersion",
+          "traits": {
+            "smithy.api#documentation": "<p>The version of the HyperPod-managed AMI to update to for the instance group. Uses semantic versioning in the format <code>MAJOR.MINOR.PATCH</code>.</p>"
           }
         }
       },

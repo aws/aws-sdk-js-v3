@@ -4,7 +4,7 @@ import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { DescribeImageRequest, DescribeImageResponse } from "../models/models_2";
+import type { DescribeImageRequest, DescribeImageResponse } from "../models/models_3";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { DescribeImage$ } from "../schemas/schemas_0";
 
