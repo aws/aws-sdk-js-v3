@@ -27,7 +27,7 @@ export interface UpdateFHIRDatastoreCommandInput extends UpdateFHIRDatastoreRequ
 export interface UpdateFHIRDatastoreCommandOutput extends UpdateFHIRDatastoreResponse, __MetadataBearer {}
 
 /**
- * <para>Update the properties of a FHIR-enabled data store.</para>
+ * <p>Update the properties of a FHIR-enabled data store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -39,11 +39,11 @@ export interface UpdateFHIRDatastoreCommandOutput extends UpdateFHIRDatastoreRes
  * const input = { // UpdateFHIRDatastoreRequest
  *   DatastoreId: "STRING_VALUE", // required
  *   DatastoreName: "STRING_VALUE",
- *   AnalyticsConfiguration: { // AnalyticsConfiguration
- *     Status: "ENABLED" || "ENABLING" || "DISABLED" || "DISABLING" || "PAUSING" || "PAUSED",
- *   },
  *   NlpConfiguration: { // NlpConfiguration
  *     Status: "ENABLED" || "DISABLED" || "ENABLING" || "DISABLING",
+ *   },
+ *   AnalyticsConfiguration: { // AnalyticsConfiguration
+ *     Status: "ENABLED" || "ENABLING" || "DISABLED" || "DISABLING" || "PAUSING" || "PAUSED",
  *   },
  *   ProfileConfiguration: { // ProfileConfiguration
  *     DefaultProfiles: [ // DefaultProfiles

@@ -29,7 +29,7 @@ export interface StartFHIRImportJobCommandOutput extends StartFHIRImportJobRespo
 /**
  * <p>Start importing bulk FHIR data into an ACTIVE data store. The import job imports FHIR
  *          data found in the <code>InputDataConfig</code> object and stores processing results in the
- *             <code>JobOutputDataConfig</code> object.</p>
+ *          <code>JobOutputDataConfig</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

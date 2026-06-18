@@ -61,6 +61,17 @@ export interface CreateFHIRDatastoreCommandOutput extends CreateFHIRDatastoreRes
  *     Metadata: "STRING_VALUE",
  *     IdpLambdaArn: "STRING_VALUE",
  *   },
+ *   AnalyticsConfiguration: { // AnalyticsConfiguration
+ *     Status: "ENABLED" || "ENABLING" || "DISABLED" || "DISABLING" || "PAUSING" || "PAUSED",
+ *   },
+ *   NlpConfiguration: { // NlpConfiguration
+ *     Status: "ENABLED" || "DISABLED" || "ENABLING" || "DISABLING",
+ *   },
+ *   ProfileConfiguration: { // ProfileConfiguration
+ *     DefaultProfiles: [ // DefaultProfiles
+ *       "STRING_VALUE",
+ *     ],
+ *   },
  * };
  * const command = new CreateFHIRDatastoreCommand(input);
  * const response = await client.send(command);

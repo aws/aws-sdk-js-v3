@@ -13,12 +13,12 @@ import type {
 } from "./enums";
 
 /**
- * <para>The analytics configuration for a data store.</para>
+ * <p>The analytics configuration for a data store.</p>
  * @public
  */
 export interface AnalyticsConfiguration {
   /**
-   * <para>The status of the analytics configuration.</para>
+   * <p>The status of the analytics configuration.</p>
    * @public
    */
   Status?: AnalyticsStatus | undefined;
@@ -44,7 +44,7 @@ export interface IdentityProviderConfiguration {
    *                   <p>
    *                      <code>SMART_ON_FHIR</code> – Support for both SMART on FHIR V1 and V2,
    *                   which includes <code>create</code>, <code>read</code>, <code>update</code>,
-   *                      <code>delete</code>, and <code>search</code> permissions.</p>
+   *                   <code>delete</code>, and <code>search</code> permissions.</p>
    *                </li>
    *                <li>
    *                   <p>
@@ -74,7 +74,7 @@ export interface IdentityProviderConfiguration {
    *          <p>
    *             <code>grant_types_supported</code>: An array of grant types that are supported at the
    *          token endpoint. You must provide at least one grant type option. Valid options are
-   *             <code>authorization_code</code> and <code>client_credentials</code>.</p>
+   *          <code>authorization_code</code> and <code>client_credentials</code>.</p>
    *          <p>
    *             <code>token_endpoint</code>: The URL to the OAuth2 token endpoint.</p>
    *          <p>
@@ -97,6 +97,18 @@ export interface IdentityProviderConfiguration {
 }
 
 /**
+ * <p>The natural language processing (NLP) configuration for a data store.</p>
+ * @public
+ */
+export interface NlpConfiguration {
+  /**
+   * <p>The status of the NLP configuration.</p>
+   * @public
+   */
+  Status?: NlpStatus | undefined;
+}
+
+/**
  * <p>The input properties for the preloaded (Synthea) data store.</p>
  * @public
  */
@@ -106,6 +118,18 @@ export interface PreloadDataConfig {
    * @public
    */
   PreloadDataType: PreloadDataType | undefined;
+}
+
+/**
+ * <p>The profile configuration for a data store.</p>
+ * @public
+ */
+export interface ProfileConfiguration {
+  /**
+   * <p>The list of default profiles for the data store.</p>
+   * @public
+   */
+  DefaultProfiles?: string[] | undefined;
 }
 
 /**
@@ -173,7 +197,7 @@ export interface CreateFHIRDatastoreRequest {
 
   /**
    * <p>The FHIR release version supported by the data store. Current support is for version
-   *             <code>R4</code>.</p>
+   *          <code>R4</code>.</p>
    * @public
    */
   DatastoreTypeVersion: FHIRVersion | undefined;
@@ -209,6 +233,24 @@ export interface CreateFHIRDatastoreRequest {
    * @public
    */
   IdentityProviderConfiguration?: IdentityProviderConfiguration | undefined;
+
+  /**
+   * <p>The analytics configuration for the data store.</p>
+   * @public
+   */
+  AnalyticsConfiguration?: AnalyticsConfiguration | undefined;
+
+  /**
+   * <p>The natural language processing (NLP) configuration for the data store.</p>
+   * @public
+   */
+  NlpConfiguration?: NlpConfiguration | undefined;
+
+  /**
+   * <p>The profile configuration for the data store.</p>
+   * @public
+   */
+  ProfileConfiguration?: ProfileConfiguration | undefined;
 }
 
 /**
@@ -274,7 +316,7 @@ export interface DatastoreFilter {
 
 /**
  * <p>The error information for <code>CreateFHIRDatastore</code> and
- *             <code>DeleteFHIRDatastore</code> actions.</p>
+ *          <code>DeleteFHIRDatastore</code> actions.</p>
  * @public
  */
 export interface ErrorCause {
@@ -289,30 +331,6 @@ export interface ErrorCause {
    * @public
    */
   ErrorCategory?: ErrorCategory | undefined;
-}
-
-/**
- * <para>The natural language processing (NLP) configuration for a data store.</para>
- * @public
- */
-export interface NlpConfiguration {
-  /**
-   * <para>The status of the NLP configuration.</para>
-   * @public
-   */
-  Status?: NlpStatus | undefined;
-}
-
-/**
- * <para>The profile configuration for a data store.</para>
- * @public
- */
-export interface ProfileConfiguration {
-  /**
-   * <para>The list of default profiles for the data store.</para>
-   * @public
-   */
-  DefaultProfiles?: string[] | undefined;
 }
 
 /**
@@ -352,7 +370,7 @@ export interface DatastoreProperties {
 
   /**
    * <p>The FHIR release version supported by the data store. Current support is for version
-   *             <code>R4</code>.</p>
+   *          <code>R4</code>.</p>
    * @public
    */
   DatastoreTypeVersion: FHIRVersion | undefined;
@@ -389,19 +407,19 @@ export interface DatastoreProperties {
   ErrorCause?: ErrorCause | undefined;
 
   /**
-   * <para>The natural language processing (NLP) configuration for the data store.</para>
+   * <p>The natural language processing (NLP) configuration for the data store.</p>
    * @public
    */
   NlpConfiguration?: NlpConfiguration | undefined;
 
   /**
-   * <para>The analytics configuration for the data store.</para>
+   * <p>The analytics configuration for the data store.</p>
    * @public
    */
   AnalyticsConfiguration?: AnalyticsConfiguration | undefined;
 
   /**
-   * <para>The profile configuration for the data store.</para>
+   * <p>The profile configuration for the data store.</p>
    * @public
    */
   ProfileConfiguration?: ProfileConfiguration | undefined;
@@ -1188,37 +1206,37 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateFHIRDatastoreRequest {
   /**
-   * <para>The data store identifier.</para>
+   * <p>The data store identifier.</p>
    * @public
    */
   DatastoreId: string | undefined;
 
   /**
-   * <para>The data store name.</para>
+   * <p>The data store name.</p>
    * @public
    */
   DatastoreName?: string | undefined;
 
   /**
-   * <para>The analytics configuration for the data store.</para>
-   * @public
-   */
-  AnalyticsConfiguration?: AnalyticsConfiguration | undefined;
-
-  /**
-   * <para>The NLP configuration for the data store.</para>
+   * <p>The natural language processing (NLP) configuration for the data store.</p>
    * @public
    */
   NlpConfiguration?: NlpConfiguration | undefined;
 
   /**
-   * <para>The profile configuration for the data store.</para>
+   * <p>The analytics configuration for the data store.</p>
+   * @public
+   */
+  AnalyticsConfiguration?: AnalyticsConfiguration | undefined;
+
+  /**
+   * <p>The profile configuration for the data store.</p>
    * @public
    */
   ProfileConfiguration?: ProfileConfiguration | undefined;
 
   /**
-   * <para>The identity provider configuration for the data store.</para>
+   * <p>The identity provider configuration for the data store.</p>
    * @public
    */
   IdentityProviderConfiguration?: IdentityProviderConfiguration | undefined;
@@ -1229,7 +1247,7 @@ export interface UpdateFHIRDatastoreRequest {
  */
 export interface UpdateFHIRDatastoreResponse {
   /**
-   * <para>The data store properties.</para>
+   * <p>The data store properties.</p>
    * @public
    */
   DatastoreProperties: DatastoreProperties | undefined;

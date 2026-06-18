@@ -200,8 +200,8 @@ export var AnalyticsConfiguration$: StaticStructureSchema = [3, n0, _AC,
 ];
 export var CreateFHIRDatastoreRequest$: StaticStructureSchema = [3, n0, _CFHIRDR,
   0,
-  [_DTV, _DN, _SC, _PDC, _CT, _T, _IPC],
-  [0, 0, () => SseConfiguration$, () => PreloadDataConfig$, [0, 4], () => TagList, () => IdentityProviderConfiguration$], 1
+  [_DTV, _DN, _SC, _PDC, _CT, _T, _IPC, _AC, _NC, _PC],
+  [0, 0, () => SseConfiguration$, () => PreloadDataConfig$, [0, 4], () => TagList, () => IdentityProviderConfiguration$, () => AnalyticsConfiguration$, () => NlpConfiguration$, () => ProfileConfiguration$], 1
 ];
 export var CreateFHIRDatastoreResponse$: StaticStructureSchema = [3, n0, _CFHIRDRr,
   0,
@@ -400,8 +400,8 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateFHIRDatastoreRequest$: StaticStructureSchema = [3, n0, _UFHIRDR,
   0,
-  [_DI, _DN, _AC, _NC, _PC, _IPC],
-  [0, 0, () => AnalyticsConfiguration$, () => NlpConfiguration$, () => ProfileConfiguration$, () => IdentityProviderConfiguration$], 1
+  [_DI, _DN, _NC, _AC, _PC, _IPC],
+  [0, 0, () => NlpConfiguration$, () => AnalyticsConfiguration$, () => ProfileConfiguration$, () => IdentityProviderConfiguration$], 1
 ];
 export var UpdateFHIRDatastoreResponse$: StaticStructureSchema = [3, n0, _UFHIRDRp,
   0,

@@ -59,6 +59,21 @@ export type FHIRVersion = (typeof FHIRVersion)[keyof typeof FHIRVersion];
  * @public
  * @enum
  */
+export const NlpStatus = {
+  DISABLED: "DISABLED",
+  DISABLING: "DISABLING",
+  ENABLED: "ENABLED",
+  ENABLING: "ENABLING",
+} as const;
+/**
+ * @public
+ */
+export type NlpStatus = (typeof NlpStatus)[keyof typeof NlpStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const PreloadDataType = {
   SYNTHEA: "SYNTHEA",
 } as const;
@@ -97,21 +112,6 @@ export const ErrorCategory = {
  * @public
  */
 export type ErrorCategory = (typeof ErrorCategory)[keyof typeof ErrorCategory];
-
-/**
- * @public
- * @enum
- */
-export const NlpStatus = {
-  DISABLED: "DISABLED",
-  DISABLING: "DISABLING",
-  ENABLED: "ENABLED",
-  ENABLING: "ENABLING",
-} as const;
-/**
- * @public
- */
-export type NlpStatus = (typeof NlpStatus)[keyof typeof NlpStatus];
 
 /**
  * @public
