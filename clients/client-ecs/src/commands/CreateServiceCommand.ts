@@ -240,6 +240,16 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *       portName: "STRING_VALUE", // required
  *     },
  *   ],
+ *   monitoring: { // MonitoringConfiguration
+ *     metricConfigurations: [ // MetricConfigurationList
+ *       { // MetricConfiguration
+ *         metricNames: [ // MetricNamesList // required
+ *           "STRING_VALUE",
+ *         ],
+ *         resolutionSeconds: Number("int"), // required
+ *       },
+ *     ],
+ *   },
  * };
  * const command = new CreateServiceCommand(input);
  * const response = await client.send(command);
@@ -807,6 +817,47 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *     serviceName: "ecs-service-with-pause-hook",
  *     status: "ACTIVE",
  *     taskDefinition: "arn:aws:ecs:us-east-1:012345678910:task-definition/ecs-demo:1"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
+ * @example To create a service with a monitoring configuration
+ * ```javascript
+ * // This example creates a service with a monitoring configuration that sets 20-second resolution for CPUUtilization and MemoryUtilization CloudWatch metrics. The monitoring configuration is not returned in the CreateService response. Use DescribeServiceRevisions to view the monitoring configuration.
+ * const input = {
+ *   desiredCount: 2,
+ *   monitoring: {
+ *     metricConfigurations: [
+ *       {
+ *         metricNames: [
+ *           "CPUUtilization",
+ *           "MemoryUtilization"
+ *         ],
+ *         resolutionSeconds: 20
+ *       }
+ *     ]
+ *   },
+ *   serviceName: "ecs-monitored-service",
+ *   taskDefinition: "my-app:1"
+ * };
+ * const command = new CreateServiceCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   service: {
+ *     clusterArn: "arn:aws:ecs:us-east-1:012345678910:cluster/default",
+ *     deploymentConfiguration: {
+ *       maximumPercent: 200,
+ *       minimumHealthyPercent: 100
+ *     },
+ *     desiredCount: 2,
+ *     pendingCount: 0,
+ *     runningCount: 0,
+ *     serviceArn: "arn:aws:ecs:us-east-1:012345678910:service/default/ecs-monitored-service",
+ *     serviceName: "ecs-monitored-service",
+ *     status: "ACTIVE",
+ *     taskDefinition: "arn:aws:ecs:us-east-1:012345678910:task-definition/my-app:1"
  *   }
  * }
  * *\/

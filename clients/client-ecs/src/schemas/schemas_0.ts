@@ -327,6 +327,9 @@ const _MASC = "ManagedAgentStateChange";
 const _MASCa = "ManagedAgentStateChanges";
 const _MAa = "ManagedAgents";
 const _MC = "ManagedCertificate";
+const _MCL = "MetricConfigurationList";
+const _MCe = "MetricConfiguration";
+const _MCo = "MonitoringConfiguration";
 const _MGBPVCR = "MemoryGiBPerVCpuRequest";
 const _MILSC = "ManagedInstancesLocalStorageConfiguration";
 const _MINC = "ManagedInstancesNetworkConfiguration";
@@ -856,12 +859,14 @@ const _mAN = "managedAgentName";
 const _mAe = "metricAlarms";
 const _mC = "minCapacity";
 const _mCa = "maxCapacity";
+const _mCe = "metricConfigurations";
 const _mD = "managedDraining";
 const _mEBSV = "managedEBSVolume";
 const _mGBPVC = "memoryGiBPerVCpu";
 const _mHP = "minimumHealthyPercent";
 const _mIP = "managedInstancesProvider";
 const _mMB = "memoryMiB";
+const _mN = "metricNames";
 const _mO = "mountOptions";
 const _mP = "mountPoints";
 const _mPa = "maximumPercent";
@@ -959,6 +964,7 @@ const _rRe = "remainingResources";
 const _rReg = "registeredResources";
 const _rS = "rolloutState";
 const _rSR = "rolloutStateReason";
+const _rSe = "resolutionSeconds";
 const _rT = "resourceType";
 const _rTC = "runningTasksCount";
 const _rTCe = "requestedTaskCount";
@@ -1567,8 +1573,8 @@ export var CreateManagedInstancesProviderConfiguration$: StaticStructureSchema =
 ];
 export var CreateServiceRequest$: StaticStructureSchema = [3, n0, _CSR,
   0,
-  [_sN, _cl, _tD, _aZR, _lB, _sRe, _dCe, _cT, _lT, _cPS, _pV, _ro, _dC, _pCl, _pS, _nC, _hCGPS, _sS, _dCep, _ta, _eECSMT, _pTr, _eEC, _sCC, _vCo, _vLC],
-  [0, 0, 0, 0, () => LoadBalancers, () => ServiceRegistries, 1, 0, 0, () => CapacityProviderStrategy, 0, 0, () => DeploymentConfiguration$, () => PlacementConstraints, () => PlacementStrategies, () => NetworkConfiguration$, 1, 0, () => DeploymentController$, () => Tags, 2, 0, 2, () => ServiceConnectConfiguration$, () => ServiceVolumeConfigurations, () => VpcLatticeConfigurations], 1
+  [_sN, _cl, _tD, _aZR, _lB, _sRe, _dCe, _cT, _lT, _cPS, _pV, _ro, _dC, _pCl, _pS, _nC, _hCGPS, _sS, _dCep, _ta, _eECSMT, _pTr, _eEC, _sCC, _vCo, _vLC, _mo],
+  [0, 0, 0, 0, () => LoadBalancers, () => ServiceRegistries, 1, 0, 0, () => CapacityProviderStrategy, 0, 0, () => DeploymentConfiguration$, () => PlacementConstraints, () => PlacementStrategies, () => NetworkConfiguration$, 1, 0, () => DeploymentController$, () => Tags, 2, 0, 2, () => ServiceConnectConfiguration$, () => ServiceVolumeConfigurations, () => VpcLatticeConfigurations, () => MonitoringConfiguration$], 1
 ];
 export var CreateServiceResponse$: StaticStructureSchema = [3, n0, _CSRr,
   0,
@@ -2465,6 +2471,16 @@ export var MemoryMiBRequest$: StaticStructureSchema = [3, n0, _MMBR,
   [_mi, _ma],
   [1, 1], 1
 ];
+export var MetricConfiguration$: StaticStructureSchema = [3, n0, _MCe,
+  0,
+  [_mN, _rSe],
+  [64 | 0, 1], 2
+];
+export var MonitoringConfiguration$: StaticStructureSchema = [3, n0, _MCo,
+  0,
+  [_mCe],
+  [() => MetricConfigurationList]
+];
 export var MountPoint$: StaticStructureSchema = [3, n0, _MP,
   0,
   [_sV, _cPo, _rO],
@@ -2747,8 +2763,8 @@ export var ServiceRegistry$: StaticStructureSchema = [3, n0, _SR,
 ];
 export var ServiceRevision$: StaticStructureSchema = [3, n0, _SRe,
   0,
-  [_sRAe, _sAe, _cA, _tD, _cPS, _lT, _pV, _pF, _lB, _sRe, _nC, _cI, _gDE, _sCC, _vCo, _fES, _cAr, _vLC, _rCes, _eMR],
-  [0, 0, 0, 0, () => CapacityProviderStrategy, 0, 0, 0, () => LoadBalancers, () => ServiceRegistries, () => NetworkConfiguration$, () => ContainerImages, 2, () => ServiceConnectConfiguration$, () => ServiceVolumeConfigurations, () => DeploymentEphemeralStorage$, 4, () => VpcLatticeConfigurations, () => ResolvedConfiguration$, () => ECSManagedResources$]
+  [_sRAe, _sAe, _cA, _tD, _cPS, _lT, _pV, _pF, _lB, _sRe, _nC, _cI, _gDE, _sCC, _vCo, _fES, _cAr, _vLC, _rCes, _eMR, _mo],
+  [0, 0, 0, 0, () => CapacityProviderStrategy, 0, 0, 0, () => LoadBalancers, () => ServiceRegistries, () => NetworkConfiguration$, () => ContainerImages, 2, () => ServiceConnectConfiguration$, () => ServiceVolumeConfigurations, () => DeploymentEphemeralStorage$, 4, () => VpcLatticeConfigurations, () => ResolvedConfiguration$, () => ECSManagedResources$, () => MonitoringConfiguration$]
 ];
 export var ServiceRevisionLoadBalancer$: StaticStructureSchema = [3, n0, _SRLB,
   0,
@@ -3022,8 +3038,8 @@ export var UpdateServicePrimaryTaskSetResponse$: StaticStructureSchema = [3, n0,
 ];
 export var UpdateServiceRequest$: StaticStructureSchema = [3, n0, _USR,
   0,
-  [_ser, _cl, _dCe, _tD, _cPS, _dC, _aZR, _nC, _pCl, _pS, _pV, _fND, _hCGPS, _dCep, _eEC, _eECSMT, _lB, _pTr, _sRe, _sCC, _vCo, _vLC],
-  [0, 0, 1, 0, () => CapacityProviderStrategy, () => DeploymentConfiguration$, 0, () => NetworkConfiguration$, () => PlacementConstraints, () => PlacementStrategies, 0, 2, 1, () => DeploymentController$, 2, 2, () => LoadBalancers, 0, () => ServiceRegistries, () => ServiceConnectConfiguration$, () => ServiceVolumeConfigurations, () => VpcLatticeConfigurations], 1
+  [_ser, _cl, _dCe, _tD, _cPS, _dC, _aZR, _nC, _pCl, _pS, _pV, _fND, _hCGPS, _dCep, _eEC, _eECSMT, _lB, _pTr, _sRe, _sCC, _vCo, _vLC, _mo],
+  [0, 0, 1, 0, () => CapacityProviderStrategy, () => DeploymentConfiguration$, 0, () => NetworkConfiguration$, () => PlacementConstraints, () => PlacementStrategies, 0, 2, 1, () => DeploymentController$, 2, 2, () => LoadBalancers, 0, () => ServiceRegistries, () => ServiceConnectConfiguration$, () => ServiceVolumeConfigurations, () => VpcLatticeConfigurations, () => MonitoringConfiguration$], 1
 ];
 export var UpdateServiceResponse$: StaticStructureSchema = [3, n0, _USRp,
   0,
@@ -3272,6 +3288,10 @@ var ManagedSecurityGroups: StaticListSchema = [1, n0, _MSGa,
 var ManagedTargetGroups: StaticListSchema = [1, n0, _MTGa,
   0, () => ManagedTargetGroup$
 ];
+var MetricConfigurationList: StaticListSchema = [1, n0, _MCL,
+  0, () => MetricConfiguration$
+];
+var MetricNamesList = 64 | 0;
 var MountPointList: StaticListSchema = [1, n0, _MPL,
   0, () => MountPoint$
 ];

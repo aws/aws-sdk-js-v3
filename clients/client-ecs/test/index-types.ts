@@ -559,6 +559,8 @@ export type {
   ManagedTargetGroup,
   MemoryGiBPerVCpuRequest,
   MemoryMiBRequest,
+  MetricConfiguration,
+  MonitoringConfiguration,
   MountPoint,
   NetworkBandwidthGbpsRequest,
   NetworkBinding,

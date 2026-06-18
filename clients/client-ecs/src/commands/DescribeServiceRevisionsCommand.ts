@@ -307,6 +307,16 @@ export interface DescribeServiceRevisionsCommandOutput extends DescribeServiceRe
  * //           },
  * //         ],
  * //       },
+ * //       monitoring: { // MonitoringConfiguration
+ * //         metricConfigurations: [ // MetricConfigurationList
+ * //           { // MetricConfiguration
+ * //             metricNames: [ // MetricNamesList // required
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             resolutionSeconds: Number("int"), // required
+ * //           },
+ * //         ],
+ * //       },
  * //     },
  * //   ],
  * //   failures: [ // Failures
@@ -385,6 +395,46 @@ export interface DescribeServiceRevisionsCommandOutput extends DescribeServiceRe
  *       serviceArn: "arn:aws:ecs:us-west-2:123456789012:service/example/sd-example",
  *       serviceRevisionArn: "arn:aws:ecs:us-west-2:123456789012:service-revision/example/sd-example/4980306466373577095",
  *       taskDefinition: "arn:aws:ecs:us-west-2:123456789012:task-definition/large-ngingx:1"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ * @example To describe a service revision with a monitoring configuration
+ * ```javascript
+ * // This example describes a service revision that has a monitoring configuration with 20-second resolution for CPUUtilization and MemoryUtilization CloudWatch metrics.
+ * const input = {
+ *   serviceRevisionArns: [
+ *     "arn:aws:ecs:us-east-1:012345678910:service-revision/default/ecs-monitored-service/8675309012345678901"
+ *   ]
+ * };
+ * const command = new DescribeServiceRevisionsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   failures:   [],
+ *   serviceRevisions: [
+ *     {
+ *       clusterArn: "arn:aws:ecs:us-east-1:012345678910:cluster/default",
+ *       createdAt: "2026-06-10T12:00:00.00Z",
+ *       launchType: "FARGATE",
+ *       monitoring: {
+ *         metricConfigurations: [
+ *           {
+ *             metricNames: [
+ *               "CPUUtilization",
+ *               "MemoryUtilization"
+ *             ],
+ *             resolutionSeconds: 20
+ *           }
+ *         ]
+ *       },
+ *       platformFamily: "DockerLinux",
+ *       platformVersion: "1.4.0",
+ *       serviceArn: "arn:aws:ecs:us-east-1:012345678910:service/default/ecs-monitored-service",
+ *       serviceRevisionArn: "arn:aws:ecs:us-east-1:012345678910:service-revision/default/ecs-monitored-service/8675309012345678901",
+ *       taskDefinition: "arn:aws:ecs:us-east-1:012345678910:task-definition/my-app:1"
  *     }
  *   ]
  * }

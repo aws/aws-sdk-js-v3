@@ -6912,6 +6912,36 @@ export interface LoadBalancer {
 }
 
 /**
+ * <p>The configuration for a specific set of metrics to collect for a service.</p>
+ * @public
+ */
+export interface MetricConfiguration {
+  /**
+   * <p>The list of metric names to configure. The supported metric names are <code>CPUUtilization</code> and <code>MemoryUtilization</code>.</p>
+   * @public
+   */
+  metricNames: string[] | undefined;
+
+  /**
+   * <p>The resolution, in seconds, at which to collect the metrics. The valid values are <code>20</code> and <code>60</code>.</p>
+   * @public
+   */
+  resolutionSeconds: number | undefined;
+}
+
+/**
+ * <p>The optional monitoring configuration for a service, which defines the resolution for the service-level <code>CPUUtilization</code> and <code>MemoryUtilization</code> Amazon CloudWatch metrics. When not specified, Amazon ECS uses the default resolution of <code>60</code> seconds.</p>
+ * @public
+ */
+export interface MonitoringConfiguration {
+  /**
+   * <p>The list of metric configurations for the service monitoring.</p>
+   * @public
+   */
+  metricConfigurations?: MetricConfiguration[] | undefined;
+}
+
+/**
  * <p>An object representing the networking details for a task or service. For example <code>awsVpcConfiguration=\{subnets=["subnet-12344321"],securityGroups=["sg-12344321"]\}</code>.</p>
  * @public
  */
@@ -7527,6 +7557,12 @@ export interface CreateServiceRequest {
    * @public
    */
   vpcLatticeConfigurations?: VpcLatticeConfiguration[] | undefined;
+
+  /**
+   * <p>The optional monitoring configuration for the service, which defines the resolution for the service-level <code>CPUUtilization</code> and <code>MemoryUtilization</code> Amazon CloudWatch metrics. When not specified, Amazon ECS uses the default resolution of <code>60</code> seconds.</p>
+   * @public
+   */
+  monitoring?: MonitoringConfiguration | undefined;
 }
 
 /**
@@ -8741,6 +8777,12 @@ export interface UpdateServiceRequest {
    * @public
    */
   vpcLatticeConfigurations?: VpcLatticeConfiguration[] | undefined;
+
+  /**
+   * <p>The optional monitoring configuration for the service, which defines the resolution for the service-level <code>CPUUtilization</code> and <code>MemoryUtilization</code> Amazon CloudWatch metrics. When not specified, Amazon ECS uses the default resolution of <code>60</code> seconds.</p>
+   * @public
+   */
+  monitoring?: MonitoringConfiguration | undefined;
 }
 
 /**
@@ -9326,142 +9368,4 @@ export interface ServiceRevisionLoadBalancer {
    * @public
    */
   productionListenerRule?: string | undefined;
-}
-
-/**
- * <p>The resolved configuration for a service revision, which contains the actual resources your service revision uses, such as which target groups serve traffic.</p>
- * @public
- */
-export interface ResolvedConfiguration {
-  /**
-   * <p>The resolved load balancer configuration for the service revision. This includes information about which target groups serve traffic and which listener rules direct traffic to them.</p>
-   * @public
-   */
-  loadBalancers?: ServiceRevisionLoadBalancer[] | undefined;
-}
-
-/**
- * <p>Information about the service revision.</p> <p>A service revision contains a record of the workload configuration Amazon ECS is attempting to deploy. Whenever you create or deploy a service, Amazon ECS automatically creates and captures the configuration that you're trying to deploy in the service revision. For information about service revisions, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-revision.html">Amazon ECS service revisions</a> in the <i> <i>Amazon Elastic Container Service Developer Guide</i> </i>.</p>
- * @public
- */
-export interface ServiceRevision {
-  /**
-   * <p>The ARN of the service revision.</p>
-   * @public
-   */
-  serviceRevisionArn?: string | undefined;
-
-  /**
-   * <p>The ARN of the service for the service revision.</p>
-   * @public
-   */
-  serviceArn?: string | undefined;
-
-  /**
-   * <p>The ARN of the cluster that hosts the service.</p>
-   * @public
-   */
-  clusterArn?: string | undefined;
-
-  /**
-   * <p>The task definition the service revision uses.</p>
-   * @public
-   */
-  taskDefinition?: string | undefined;
-
-  /**
-   * <p>The capacity provider strategy the service revision uses.</p>
-   * @public
-   */
-  capacityProviderStrategy?: CapacityProviderStrategyItem[] | undefined;
-
-  /**
-   * <p>The launch type the service revision uses.</p>
-   * @public
-   */
-  launchType?: LaunchType | undefined;
-
-  /**
-   * <p>For the Fargate launch type, the platform version the service revision uses.</p>
-   * @public
-   */
-  platformVersion?: string | undefined;
-
-  /**
-   * <p>The platform family the service revision uses.</p>
-   * @public
-   */
-  platformFamily?: string | undefined;
-
-  /**
-   * <p>The load balancers the service revision uses.</p>
-   * @public
-   */
-  loadBalancers?: LoadBalancer[] | undefined;
-
-  /**
-   * <p>The service registries (for Service Discovery) the service revision uses.</p>
-   * @public
-   */
-  serviceRegistries?: ServiceRegistry[] | undefined;
-
-  /**
-   * <p>The network configuration for a task or service.</p>
-   * @public
-   */
-  networkConfiguration?: NetworkConfiguration | undefined;
-
-  /**
-   * <p>The container images the service revision uses.</p>
-   * @public
-   */
-  containerImages?: ContainerImage[] | undefined;
-
-  /**
-   * <p>Indicates whether Runtime Monitoring is turned on.</p>
-   * @public
-   */
-  guardDutyEnabled?: boolean | undefined;
-
-  /**
-   * <p>The Service Connect configuration of your Amazon ECS service. The configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace.</p> <p>Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html">Service Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
-   * @public
-   */
-  serviceConnectConfiguration?: ServiceConnectConfiguration | undefined;
-
-  /**
-   * <p>The volumes that are configured at deployment that the service revision uses.</p>
-   * @public
-   */
-  volumeConfigurations?: ServiceVolumeConfiguration[] | undefined;
-
-  /**
-   * <p>The amount of ephemeral storage to allocate for the deployment.</p>
-   * @public
-   */
-  fargateEphemeralStorage?: DeploymentEphemeralStorage | undefined;
-
-  /**
-   * <p>The time that the service revision was created. The format is yyyy-mm-dd HH:mm:ss.SSSSS.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>The VPC Lattice configuration for the service revision.</p>
-   * @public
-   */
-  vpcLatticeConfigurations?: VpcLatticeConfiguration[] | undefined;
-
-  /**
-   * <p>The resolved configuration for the service revision which contains the actual resources your service revision uses, such as which target groups serve traffic.</p>
-   * @public
-   */
-  resolvedConfiguration?: ResolvedConfiguration | undefined;
-
-  /**
-   * <p>The resources created and managed by Amazon ECS when you create an Express service for Amazon ECS.</p>
-   * @public
-   */
-  ecsManagedResources?: ECSManagedResources | undefined;
 }

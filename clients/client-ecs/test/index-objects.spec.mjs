@@ -419,8 +419,10 @@ import {
   ManagedTerminationProtection,
   MemoryGiBPerVCpuRequest$,
   MemoryMiBRequest$,
+  MetricConfiguration$,
   MissingVersionException,
   MissingVersionException$,
+  MonitoringConfiguration$,
   MountPoint$,
   NamespaceNotFoundException,
   NamespaceNotFoundException$,
@@ -1073,6 +1075,8 @@ assert(typeof ManagedStorageConfiguration$ === "object");
 assert(typeof ManagedTargetGroup$ === "object");
 assert(typeof MemoryGiBPerVCpuRequest$ === "object");
 assert(typeof MemoryMiBRequest$ === "object");
+assert(typeof MetricConfiguration$ === "object");
+assert(typeof MonitoringConfiguration$ === "object");
 assert(typeof MountPoint$ === "object");
 assert(typeof NetworkBandwidthGbpsRequest$ === "object");
 assert(typeof NetworkBinding$ === "object");

@@ -231,6 +231,16 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *       portName: "STRING_VALUE", // required
  *     },
  *   ],
+ *   monitoring: { // MonitoringConfiguration
+ *     metricConfigurations: [ // MetricConfigurationList
+ *       { // MetricConfiguration
+ *         metricNames: [ // MetricNamesList // required
+ *           "STRING_VALUE",
+ *         ],
+ *         resolutionSeconds: Number("int"), // required
+ *       },
+ *     ],
+ *   },
  * };
  * const command = new UpdateServiceCommand(input);
  * const response = await client.send(command);
@@ -669,6 +679,30 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *     strategy: "BLUE_GREEN"
  *   },
  *   service: "my-blue-green-service"
+ * };
+ * const command = new UpdateServiceCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
+ * @example To update a service with a monitoring configuration
+ * ```javascript
+ * // This example updates a service to add a monitoring configuration that sets 20-second resolution for CPUUtilization and MemoryUtilization CloudWatch metrics. The monitoring configuration is not returned in the UpdateService response. Use DescribeServiceRevisions to view the monitoring configuration.
+ * const input = {
+ *   monitoring: {
+ *     metricConfigurations: [
+ *       {
+ *         metricNames: [
+ *           "CPUUtilization",
+ *           "MemoryUtilization"
+ *         ],
+ *         resolutionSeconds: 20
+ *       }
+ *     ]
+ *   },
+ *   service: "ecs-monitored-service"
  * };
  * const command = new UpdateServiceCommand(input);
  * const response = await client.send(command);
