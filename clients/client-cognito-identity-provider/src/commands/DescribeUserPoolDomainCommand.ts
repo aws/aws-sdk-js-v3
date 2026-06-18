@@ -77,6 +77,7 @@ export interface DescribeUserPoolDomainCommandOutput extends DescribeUserPoolDom
  * //     Status: "CREATING" || "DELETING" || "UPDATING" || "ACTIVE" || "FAILED",
  * //     CustomDomainConfig: { // CustomDomainConfigType
  * //       CertificateArn: "STRING_VALUE", // required
+ * //       SecurityPolicy: "TLS_V1" || "TLS_V1_2_2021" || "TLS_V1_3_2025",
  * //     },
  * //     ManagedLoginVersion: Number("int"),
  * //     Routing: { // RoutingType

@@ -423,6 +423,7 @@ export type {
   ReplicaStatusType,
   RiskDecisionType,
   RiskLevelType,
+  SecurityPolicyType,
   StatusType,
   TermsEnforcementType,
   TermsSourceType,

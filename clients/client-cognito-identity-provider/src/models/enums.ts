@@ -684,6 +684,20 @@ export type TimeUnitsType = (typeof TimeUnitsType)[keyof typeof TimeUnitsType];
  * @public
  * @enum
  */
+export const SecurityPolicyType = {
+  TLS_V1: "TLS_V1",
+  TLS_V1_2_2021: "TLS_V1_2_2021",
+  TLS_V1_3_2025: "TLS_V1_3_2025",
+} as const;
+/**
+ * @public
+ */
+export type SecurityPolicyType = (typeof SecurityPolicyType)[keyof typeof SecurityPolicyType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ReplicaRoleType = {
   PRIMARY: "PRIMARY",
   SECONDARY: "SECONDARY",

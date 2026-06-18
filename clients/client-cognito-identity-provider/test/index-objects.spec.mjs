@@ -570,6 +570,7 @@ import {
   SchemaAttributeType$,
   ScopeDoesNotExistException,
   ScopeDoesNotExistException$,
+  SecurityPolicyType,
   SetLogDeliveryConfiguration$,
   SetLogDeliveryConfigurationCommand,
   SetLogDeliveryConfigurationRequest$,
@@ -1397,6 +1398,7 @@ assert(typeof ReplicaRoleType === "object");
 assert(typeof ReplicaStatusType === "object");
 assert(typeof RiskDecisionType === "object");
 assert(typeof RiskLevelType === "object");
+assert(typeof SecurityPolicyType === "object");
 assert(typeof StatusType === "object");
 assert(typeof TermsEnforcementType === "object");
 assert(typeof TermsSourceType === "object");

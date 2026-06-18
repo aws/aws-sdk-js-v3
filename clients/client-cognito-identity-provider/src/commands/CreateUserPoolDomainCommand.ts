@@ -75,6 +75,7 @@ export interface CreateUserPoolDomainCommandOutput extends CreateUserPoolDomainR
  *   ManagedLoginVersion: Number("int"),
  *   CustomDomainConfig: { // CustomDomainConfigType
  *     CertificateArn: "STRING_VALUE", // required
+ *     SecurityPolicy: "TLS_V1" || "TLS_V1_2_2021" || "TLS_V1_3_2025",
  *   },
  *   Routing: { // RoutingType
  *     Failover: { // FailoverType

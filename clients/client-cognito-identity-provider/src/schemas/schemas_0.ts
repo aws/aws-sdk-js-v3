@@ -722,6 +722,7 @@ const _SMSMST = "SMSMfaSettingsType";
 const _SN = "ServerName";
 const _SNc = "ScopeName";
 const _SP = "ServerPath";
+const _SPe = "SecurityPolicy";
 const _SR = "SecondaryRegion";
 const _SRC = "SetRiskConfiguration";
 const _SRCR = "SetRiskConfigurationRequest";
@@ -1899,8 +1900,8 @@ export var CreateUserPoolResponse$: StaticStructureSchema = [3, n0, _CUPRr,
 ];
 export var CustomDomainConfigType$: StaticStructureSchema = [3, n0, _CDCT,
   0,
-  [_CAe],
-  [0], 1
+  [_CAe, _SPe],
+  [0, 0], 1
 ];
 export var CustomEmailLambdaVersionConfigType$: StaticStructureSchema = [3, n0, _CELVCT,
   0,
