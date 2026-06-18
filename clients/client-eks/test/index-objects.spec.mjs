@@ -75,6 +75,7 @@ import {
   ConnectorConfigProvider,
   ConnectorConfigRequest$,
   ConnectorConfigResponse$,
+  ControlPlaneEgressModeType,
   ControlPlanePlacementRequest$,
   ControlPlanePlacementResponse$,
   ControlPlaneScalingConfig$,
@@ -868,6 +869,7 @@ assert(typeof ClusterStatus === "object");
 assert(typeof ClusterVersionStatus === "object");
 assert(typeof ConfigStatus === "object");
 assert(typeof ConnectorConfigProvider === "object");
+assert(typeof ControlPlaneEgressModeType === "object");
 assert(typeof EksAnywhereSubscriptionLicenseType === "object");
 assert(typeof EksAnywhereSubscriptionStatus === "object");
 assert(typeof EksAnywhereSubscriptionTermUnit === "object");

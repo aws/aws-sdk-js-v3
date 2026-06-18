@@ -90,6 +90,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *     publicAccessCidrs: [
  *       "STRING_VALUE",
  *     ],
+ *     controlPlaneEgressMode: "AWS_MANAGED" || "CUSTOMER_ROUTED" || "CUSTOMER_ISOLATED",
  *   },
  *   kubernetesNetworkConfig: { // KubernetesNetworkConfigRequest
  *     serviceIpv4Cidr: "STRING_VALUE",
@@ -198,6 +199,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * //       publicAccessCidrs: [
  * //         "STRING_VALUE",
  * //       ],
+ * //       controlPlaneEgressMode: "AWS_MANAGED" || "CUSTOMER_ROUTED" || "CUSTOMER_ISOLATED",
  * //     },
  * //     kubernetesNetworkConfig: { // KubernetesNetworkConfigResponse
  * //       serviceIpv4Cidr: "STRING_VALUE",

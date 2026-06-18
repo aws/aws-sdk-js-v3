@@ -17,6 +17,7 @@ import type {
   ClusterVersionStatus,
   ConfigStatus,
   ConnectorConfigProvider,
+  ControlPlaneEgressModeType,
   EksAnywhereSubscriptionLicenseType,
   EksAnywhereSubscriptionStatus,
   EksAnywhereSubscriptionTermUnit,
@@ -2231,6 +2232,24 @@ export interface VpcConfigRequest {
    * @public
    */
   publicAccessCidrs?: string[] | undefined;
+
+  /**
+   * <p>Specifies the control plane egress routing mode for the cluster. If the cluster is set
+   *             to <code>AWS_MANAGED</code>, Amazon EKS manages the egress path from the control plane
+   *             and you don't need to configure NAT gateways or other routing infrastructure for control
+   *             plane traffic. If the cluster is set to <code>CUSTOMER_ROUTED</code>, you manage the
+   *             egress path from the control plane in your VPC subnets. You are responsible for ensuring
+   *             that the control plane can reach required endpoints such as webhook servers and OIDC
+   *             providers. The default value is <code>AWS_MANAGED</code>. Once set to
+   *             <code>CUSTOMER_ROUTED</code>, this setting cannot be changed back to
+   *             <code>AWS_MANAGED</code> on the same cluster.</p>
+   *          <p>
+   *             <a href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-egress.html">Learn more about control plane
+   *                 egress routing in the <i>Amazon EKS User Guide</i>.</a>
+   *          </p>
+   * @public
+   */
+  controlPlaneEgressMode?: ControlPlaneEgressModeType | undefined;
 }
 
 /**
@@ -2836,6 +2855,19 @@ export interface VpcConfigResponse {
    * @public
    */
   publicAccessCidrs?: string[] | undefined;
+
+  /**
+   * <p>The current control plane egress routing mode for the cluster. If the cluster is set
+   *             to <code>AWS_MANAGED</code>, Amazon EKS manages the egress path from the control plane.
+   *             If the cluster is set to <code>CUSTOMER_ROUTED</code>, you manage the egress path from
+   *             the control plane in your VPC subnets.</p>
+   *          <p>
+   *             <a href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-egress.html">Learn more about control plane
+   *                 egress routing in the <i>Amazon EKS User Guide</i>.</a>
+   *          </p>
+   * @public
+   */
+  controlPlaneEgressMode?: ControlPlaneEgressModeType | undefined;
 }
 
 /**
@@ -7439,7 +7471,9 @@ export interface UpdateClusterConfigRequest {
   name: string | undefined;
 
   /**
-   * <p>An object representing the VPC configuration to use for an Amazon EKS cluster.</p>
+   * <p>An object representing the VPC configuration to use for the cluster update. You can
+   *             use this parameter to update the control plane egress mode, the subnets used by the
+   *             cluster, the security groups, and the endpoint access settings.</p>
    * @public
    */
   resourcesVpcConfig?: VpcConfigRequest | undefined;

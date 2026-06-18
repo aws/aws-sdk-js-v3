@@ -71,6 +71,7 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * //       publicAccessCidrs: [
  * //         "STRING_VALUE",
  * //       ],
+ * //       controlPlaneEgressMode: "AWS_MANAGED" || "CUSTOMER_ROUTED" || "CUSTOMER_ISOLATED",
  * //     },
  * //     kubernetesNetworkConfig: { // KubernetesNetworkConfigResponse
  * //       serviceIpv4Cidr: "STRING_VALUE",

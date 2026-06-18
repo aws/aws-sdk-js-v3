@@ -165,6 +165,7 @@ export const UpdateParamType = {
   CLUSTER_LOGGING: "ClusterLogging",
   COMPUTE_CONFIG: "ComputeConfig",
   CONFIGURATION_VALUES: "ConfigurationValues",
+  CONTROL_PLANE_EGRESS_MODE: "ControlPlaneEgressMode",
   DELETION_PROTECTION: "DeletionProtection",
   DESIRED_SIZE: "DesiredSize",
   ENCRYPTION_CONFIG: "EncryptionConfig",
@@ -243,6 +244,7 @@ export const UpdateType = {
   AUTO_MODE_UPDATE: "AutoModeUpdate",
   CAPABILITY_UPDATE: "CapabilityUpdate",
   CONFIG_UPDATE: "ConfigUpdate",
+  CONTROL_PLANE_EGRESS_UPDATE: "ControlPlaneEgressUpdate",
   CONTROL_PLANE_SCALING_CONFIG_UPDATE: "ControlPlaneScalingConfigUpdate",
   DELETION_PROTECTION_UPDATE: "DeletionProtectionUpdate",
   DISASSOCIATE_IDENTITY_PROVIDER_CONFIG: "DisassociateIdentityProviderConfig",
@@ -390,6 +392,20 @@ export const SpreadLevel = {
  * @public
  */
 export type SpreadLevel = (typeof SpreadLevel)[keyof typeof SpreadLevel];
+
+/**
+ * @public
+ * @enum
+ */
+export const ControlPlaneEgressModeType = {
+  AWS_MANAGED: "AWS_MANAGED",
+  CUSTOMER_ISOLATED: "CUSTOMER_ISOLATED",
+  CUSTOMER_ROUTED: "CUSTOMER_ROUTED",
+} as const;
+/**
+ * @public
+ */
+export type ControlPlaneEgressModeType = (typeof ControlPlaneEgressModeType)[keyof typeof ControlPlaneEgressModeType];
 
 /**
  * @public

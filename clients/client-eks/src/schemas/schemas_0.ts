@@ -400,6 +400,7 @@ const _cI = "clientId";
 const _cL = "clusterLogging";
 const _cN = "clusterName";
 const _cNa = "capabilityName";
+const _cPEM = "controlPlaneEgressMode";
 const _cPIT = "controlPlaneInstanceType";
 const _cPP = "controlPlanePlacement";
 const _cPSC = "controlPlaneScalingConfig";
@@ -1963,13 +1964,13 @@ export var UpgradePolicyResponse$: StaticStructureSchema = [3, n0, _UPRp,
 ];
 export var VpcConfigRequest$: StaticStructureSchema = [3, n0, _VCR,
   0,
-  [_sIu, _sGI, _ePA, _ePAn, _pAC],
-  [64 | 0, 64 | 0, 2, 2, 64 | 0]
+  [_sIu, _sGI, _ePA, _ePAn, _pAC, _cPEM],
+  [64 | 0, 64 | 0, 2, 2, 64 | 0, 0]
 ];
 export var VpcConfigResponse$: StaticStructureSchema = [3, n0, _VCRp,
   0,
-  [_sIu, _sGI, _cSGI, _vIp, _ePA, _ePAn, _pAC],
-  [64 | 0, 64 | 0, 0, 0, 2, 2, 64 | 0]
+  [_sIu, _sGI, _cSGI, _vIp, _ePA, _ePAn, _pAC, _cPEM],
+  [64 | 0, 64 | 0, 0, 0, 2, 2, 64 | 0, 0]
 ];
 export var WarmPoolConfig$: StaticStructureSchema = [3, n0, _WPC,
   0,

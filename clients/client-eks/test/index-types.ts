@@ -211,6 +211,7 @@ export type {
   ClusterVersionStatus,
   ConfigStatus,
   ConnectorConfigProvider,
+  ControlPlaneEgressModeType,
   EksAnywhereSubscriptionLicenseType,
   EksAnywhereSubscriptionStatus,
   EksAnywhereSubscriptionTermUnit,

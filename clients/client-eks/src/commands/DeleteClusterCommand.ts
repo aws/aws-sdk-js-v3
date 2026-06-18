@@ -71,6 +71,7 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * //       publicAccessCidrs: [
  * //         "STRING_VALUE",
  * //       ],
+ * //       controlPlaneEgressMode: "AWS_MANAGED" || "CUSTOMER_ROUTED" || "CUSTOMER_ISOLATED",
  * //     },
  * //     kubernetesNetworkConfig: { // KubernetesNetworkConfigResponse
  * //       serviceIpv4Cidr: "STRING_VALUE",

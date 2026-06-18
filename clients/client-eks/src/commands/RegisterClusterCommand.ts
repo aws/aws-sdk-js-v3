@@ -84,6 +84,7 @@ export interface RegisterClusterCommandOutput extends RegisterClusterResponse, _
  * //       publicAccessCidrs: [
  * //         "STRING_VALUE",
  * //       ],
+ * //       controlPlaneEgressMode: "AWS_MANAGED" || "CUSTOMER_ROUTED" || "CUSTOMER_ISOLATED",
  * //     },
  * //     kubernetesNetworkConfig: { // KubernetesNetworkConfigResponse
  * //       serviceIpv4Cidr: "STRING_VALUE",

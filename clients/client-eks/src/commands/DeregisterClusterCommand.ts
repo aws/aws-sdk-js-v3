@@ -65,6 +65,7 @@ export interface DeregisterClusterCommandOutput extends DeregisterClusterRespons
  * //       publicAccessCidrs: [
  * //         "STRING_VALUE",
  * //       ],
+ * //       controlPlaneEgressMode: "AWS_MANAGED" || "CUSTOMER_ROUTED" || "CUSTOMER_ISOLATED",
  * //     },
  * //     kubernetesNetworkConfig: { // KubernetesNetworkConfigResponse
  * //       serviceIpv4Cidr: "STRING_VALUE",
