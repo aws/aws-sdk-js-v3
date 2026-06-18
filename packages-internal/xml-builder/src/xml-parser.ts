@@ -17,7 +17,9 @@ class AwsXmlParser {
   private readonly z: number;
 
   public constructor(private readonly x: string) {
-    this.z = x.length;
+    // XML spec §2.11: normalize \r\n → \n, lone \r → \n.
+    this.x = x.replace(/\r\n?/g, "\n");
+    this.z = this.x.length;
   }
 
   public parse(): any {

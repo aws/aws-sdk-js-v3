@@ -1,0 +1,90 @@
+name: XML Parser Fuzz Testing
+
+on:
+  pull_request:
+    paths:
+      - "packages-internal/xml-builder/src/xml-parser*"
+      - "packages-internal/xml-builder/tests/xml-parser*"
+  push:
+    branches: [main]
+    paths:
+      - "packages-internal/xml-builder/src/xml-parser*"
+      - "packages-internal/xml-builder/tests/xml-parser*"
+
+permissions:
+  contents: read
+
+jobs:
+  fuzz-property:
+    runs-on: ubuntu-latest
+    name: Property-based fuzz (fast-check)
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Install dependencies
+        working-directory: packages-internal/xml-builder
+        run: yarn install
+
+      - name: Run fuzz tests
+        working-directory: packages-internal/xml-builder
+        run: npx vitest run tests/xml-parser.fuzz.spec.ts --reporter=verbose
+
+  fuzz-coverage-guided:
+    runs-on: ubuntu-latest
+    name: Coverage-guided fuzz (jazzer.js)
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Install dependencies
+        working-directory: packages-internal/xml-builder
+        run: yarn install
+
+      - name: Build parser
+        working-directory: packages-internal/xml-builder
+        run: yarn build:cjs
+
+      - name: Restore fuzz corpus
+        uses: actions/cache/restore@v4
+        with:
+          key: xml-fuzz-corpus-${{ github.run_id }}
+          restore-keys: xml-fuzz-corpus-
+          path: packages-internal/xml-builder/corpus
+
+      - name: Run coverage-guided fuzzer (5 min)
+        working-directory: packages-internal/xml-builder
+        run: |
+          mkdir -p corpus
+          npx jazzer tests/xml-parser.fuzz.js corpus --sync -i xml-parser -- -max_total_time=300
+
+      - name: Save fuzz corpus
+        uses: actions/cache/save@v4
+        if: always()
+        with:
+          key: xml-fuzz-corpus-${{ github.run_id }}
+          path: packages-internal/xml-builder/corpus
+
+      - name: Upload crash artifacts
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: jazzer-crashes
+          path: |
+            packages-internal/xml-builder/crash-*
+            packages-internal/xml-builder/leak-*
+            packages-internal/xml-builder/timeout-*
