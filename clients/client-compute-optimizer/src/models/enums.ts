@@ -540,8 +540,10 @@ export const ExportableVolumeField = {
   RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE: "RecommendationOptionsSavingsOpportunityPercentage",
   ROOT_VOLUME: "RootVolume",
   TAGS: "Tags",
+  UTILIZATION_METRICS_VOLUME_IOPS_EXCEEDED_MAXIMUM: "UtilizationMetricsVolumeIOPSExceededMaximum",
   UTILIZATION_METRICS_VOLUME_READ_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsVolumeReadBytesPerSecondMaximum",
   UTILIZATION_METRICS_VOLUME_READ_OPS_PER_SECOND_MAXIMUM: "UtilizationMetricsVolumeReadOpsPerSecondMaximum",
+  UTILIZATION_METRICS_VOLUME_THROUGHPUT_EXCEEDED_MAXIMUM: "UtilizationMetricsVolumeThroughputExceededMaximum",
   UTILIZATION_METRICS_VOLUME_WRITE_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsVolumeWriteBytesPerSecondMaximum",
   UTILIZATION_METRICS_VOLUME_WRITE_OPS_PER_SECOND_MAXIMUM: "UtilizationMetricsVolumeWriteOpsPerSecondMaximum",
   VOLUME_ARN: "VolumeArn",
@@ -1010,8 +1012,10 @@ export type EBSFinding = (typeof EBSFinding)[keyof typeof EBSFinding];
  * @enum
  */
 export const EBSMetricName = {
+  VOLUME_IOPS_EXCEEDED: "VolumeIOPSExceeded",
   VOLUME_READ_BYTES_PER_SECOND: "VolumeReadBytesPerSecond",
   VOLUME_READ_OPS_PER_SECOND: "VolumeReadOpsPerSecond",
+  VOLUME_THROUGHPUT_EXCEEDED: "VolumeThroughputExceeded",
   VOLUME_WRITE_BYTES_PER_SECOND: "VolumeWriteBytesPerSecond",
   VOLUME_WRITE_OPS_PER_SECOND: "VolumeWriteOpsPerSecond",
 } as const;

@@ -2907,6 +2907,22 @@ export interface EBSUtilizationMetric {
    *                     specified period of time.</p>
    *                <p>Unit: Bytes</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VolumeIOPSExceeded</code> - Indicates whether the volume's
+   *                     provisioned IOPS performance was exceeded in a specified period of time.
+   *                     A value of <code>1</code> means the provisioned IOPS were exceeded; a value of
+   *                     <code>0</code> means they were not.</p>
+   *                <p>Unit: None</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VolumeThroughputExceeded</code> - Indicates whether the volume's
+   *                     provisioned throughput performance was exceeded in a specified period of
+   *                     time. A value of <code>1</code> means the provisioned throughput was exceeded;
+   *                     a value of <code>0</code> means it was not.</p>
+   *                <p>Unit: None</p>
+   *             </li>
    *          </ul>
    * @public
    */

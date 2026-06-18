@@ -82,7 +82,7 @@ export interface GetEBSVolumeRecommendationsCommandOutput extends GetEBSVolumeRe
  * //       finding: "Optimized" || "NotOptimized",
  * //       utilizationMetrics: [ // EBSUtilizationMetrics
  * //         { // EBSUtilizationMetric
- * //           name: "VolumeReadOpsPerSecond" || "VolumeWriteOpsPerSecond" || "VolumeReadBytesPerSecond" || "VolumeWriteBytesPerSecond",
+ * //           name: "VolumeReadOpsPerSecond" || "VolumeWriteOpsPerSecond" || "VolumeReadBytesPerSecond" || "VolumeWriteBytesPerSecond" || "VolumeIOPSExceeded" || "VolumeThroughputExceeded",
  * //           statistic: "Maximum" || "Average",
  * //           value: Number("double"),
  * //         },
