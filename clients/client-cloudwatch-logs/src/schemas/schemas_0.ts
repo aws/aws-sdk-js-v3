@@ -1665,8 +1665,8 @@ export var FilteredLogEvent$: StaticStructureSchema = [3, n0, _FLE,
 ];
 export var FilterLogEventsRequest$: StaticStructureSchema = [3, n0, _FLER,
   0,
-  [_lGN, _lGIo, _lSNo, _lSNP, _sTt, _eTn, _fP, _nT, _li, _in, _u],
-  [0, 0, 64 | 0, 0, 1, 1, 0, 0, 1, 2, 2]
+  [_lGN, _lGIo, _lSNo, _lSNP, _sTt, _eTn, _fP, _nT, _li, _sFH, _in, _u],
+  [0, 0, 64 | 0, 0, 1, 1, 0, 0, 1, 2, 2, 2]
 ];
 export var FilterLogEventsResponse$: StaticStructureSchema = [3, n0, _FLERi,
   0,

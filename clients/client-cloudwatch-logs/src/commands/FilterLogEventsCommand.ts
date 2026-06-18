@@ -64,7 +64,10 @@ export interface FilterLogEventsCommandOutput extends FilterLogEventsResponse, _
  *       return more log events than the specified limit, but it might return fewer events than the
  *       limit. This is the expected API behavior.</p>
  *          <p>The returned log events are sorted by event timestamp, the timestamp when the event was
- *       ingested by CloudWatch Logs, and the ID of the <code>PutLogEvents</code> request.</p>
+ *       ingested by CloudWatch Logs, and the ID of the <code>PutLogEvents</code> request. By default,
+ *       the events are returned in ascending timestamp order (oldest first). To return events in
+ *       descending timestamp order (newest first), set the <code>startFromHead</code> parameter to
+ *         <code>false</code>.</p>
  *          <p>If you are using CloudWatch cross-account observability, you can use this operation
  *       in a monitoring account and view data from the linked source accounts. For more information,
  *       see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch cross-account observability</a>.</p>
@@ -96,6 +99,7 @@ export interface FilterLogEventsCommandOutput extends FilterLogEventsResponse, _
  *   filterPattern: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",
  *   limit: Number("int"),
+ *   startFromHead: true || false,
  *   interleaved: true || false,
  *   unmask: true || false,
  * };

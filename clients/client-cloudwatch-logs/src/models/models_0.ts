@@ -4420,6 +4420,24 @@ export interface FilterLogEventsRequest {
   limit?: number | undefined;
 
   /**
+   * <p>If the value is true, the earliest log events are returned first. If the value is
+   *       false, the latest log events are returned first. The default value is true.</p>
+   *          <p>The <code>startFromHead</code> parameter sets the sort direction on the first request.
+   *       On subsequent requests, the <code>nextToken</code> determines the sort direction. To continue
+   *       paginating in the same direction, provide the returned <code>nextToken</code>. If you provide
+   *       both <code>nextToken</code> and <code>startFromHead</code>, the direction of the
+   *         <code>nextToken</code> is used.</p>
+   *          <note>
+   *             <p>Setting <code>startFromHead</code> to <code>false</code> is supported only when
+   *           <code>startTime</code> is on or after <code>Jan 1, 2024 00:00:00 UTC</code>. A request with
+   *           <code>startFromHead</code> set to <code>false</code> and a <code>startTime</code> before
+   *         this date returns an <code>InvalidParameterException</code>.</p>
+   *          </note>
+   * @public
+   */
+  startFromHead?: boolean | undefined;
+
+  /**
    * <p>If the value is true, the operation attempts to provide responses that contain events
    *       from multiple log streams within the log group, interleaved in a single response. If the value
    *       is false, all the matched log events in the first log stream are searched first, then those in
@@ -4483,7 +4501,8 @@ export interface FilterLogEventsResponse {
   searchedLogStreams?: SearchedLogStream[] | undefined;
 
   /**
-   * <p>The token to use when requesting the next set of items. The token expires after 24
+   * <p>The token for the next set of items in the sorting direction specified by the
+   *         <code>startFromHead</code> parameter in the first request. The token expires after 24
    *       hours.</p>
    *          <p>If the results don't include a <code>nextToken</code>, then pagination is finished.
    *     </p>
