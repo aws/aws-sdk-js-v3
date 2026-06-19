@@ -288,6 +288,7 @@ import {
   HierarchicalChunkingConfiguration$,
   HierarchicalChunkingLevelConfiguration$,
   ImageExtractionConfiguration$,
+  IncludedData,
   IncludeExclude,
   IncompatibleConnectionDataTypeFlowValidationDetails$,
   IncompatibleLoopNodeType,
@@ -1243,6 +1244,7 @@ assert(typeof FlowNodeType === "object");
 assert(typeof FlowStatus === "object");
 assert(typeof FlowValidationSeverity === "object");
 assert(typeof FlowValidationType === "object");
+assert(typeof IncludedData === "object");
 assert(typeof IncludeExclude === "object");
 assert(typeof IncompatibleLoopNodeType === "object");
 assert(typeof IngestionJobFilterAttribute === "object");

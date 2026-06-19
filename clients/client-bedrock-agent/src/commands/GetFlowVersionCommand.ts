@@ -40,6 +40,7 @@ export interface GetFlowVersionCommandOutput extends GetFlowVersionResponse, __M
  * const input = { // GetFlowVersionRequest
  *   flowIdentifier: "STRING_VALUE", // required
  *   flowVersion: "STRING_VALUE", // required
+ *   includedData: "ALL_DATA" || "METADATA_ONLY",
  * };
  * const command = new GetFlowVersionCommand(input);
  * const response = await client.send(command);

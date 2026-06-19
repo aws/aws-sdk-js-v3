@@ -39,6 +39,7 @@ export interface GetPromptCommandOutput extends GetPromptResponse, __MetadataBea
  * const input = { // GetPromptRequest
  *   promptIdentifier: "STRING_VALUE", // required
  *   promptVersion: "STRING_VALUE",
+ *   includedData: "ALL_DATA" || "METADATA_ONLY",
  * };
  * const command = new GetPromptCommand(input);
  * const response = await client.send(command);

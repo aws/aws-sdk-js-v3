@@ -675,6 +675,19 @@ export type ConcurrencyType = (typeof ConcurrencyType)[keyof typeof ConcurrencyT
  * @public
  * @enum
  */
+export const IncludedData = {
+  ALL_DATA: "ALL_DATA",
+  METADATA_ONLY: "METADATA_ONLY",
+} as const;
+/**
+ * @public
+ */
+export type IncludedData = (typeof IncludedData)[keyof typeof IncludedData];
+
+/**
+ * @public
+ * @enum
+ */
 export const IncompatibleLoopNodeType = {
   COLLECTOR: "Collector",
   CONDITION: "Condition",

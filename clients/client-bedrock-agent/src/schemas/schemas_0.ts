@@ -743,6 +743,7 @@ const _iCDT = "incompatibleConnectionDataType";
 const _iCn = "inferenceConfiguration";
 const _iCnf = "inferenceConfig";
 const _iCnl = "inlineCode";
+const _iD = "includedData";
 const _iEC = "imageExtractionConfiguration";
 const _iES = "imageExtractionStatus";
 const _iF = "inclusionFilters";
@@ -1825,8 +1826,8 @@ export var GetFlowAliasResponse$: StaticStructureSchema = [3, n0, _GFARe,
 ];
 export var GetFlowRequest$: StaticStructureSchema = [3, n0, _GFR,
   0,
-  [_fI],
-  [[0, 1]], 1
+  [_fI, _iD],
+  [[0, 1], [0, { [_hQ]: _iD }]], 1
 ];
 export var GetFlowResponse$: StaticStructureSchema = [3, n0, _GFRe,
   0,
@@ -1835,8 +1836,8 @@ export var GetFlowResponse$: StaticStructureSchema = [3, n0, _GFRe,
 ];
 export var GetFlowVersionRequest$: StaticStructureSchema = [3, n0, _GFVR,
   0,
-  [_fI, _fV],
-  [[0, 1], [0, 1]], 2
+  [_fI, _fV, _iD],
+  [[0, 1], [0, 1], [0, { [_hQ]: _iD }]], 2
 ];
 export var GetFlowVersionResponse$: StaticStructureSchema = [3, n0, _GFVRe,
   0,
@@ -1875,8 +1876,8 @@ export var GetKnowledgeBaseResponse$: StaticStructureSchema = [3, n0, _GKBRe,
 ];
 export var GetPromptRequest$: StaticStructureSchema = [3, n0, _GPR,
   0,
-  [_pI, _pV],
-  [[0, 1], [0, { [_hQ]: _pV }]], 1
+  [_pI, _pV, _iD],
+  [[0, 1], [0, { [_hQ]: _pV }], [0, { [_hQ]: _iD }]], 1
 ];
 export var GetPromptResponse$: StaticStructureSchema = [3, n0, _GPRe,
   0,

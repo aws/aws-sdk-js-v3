@@ -39,6 +39,7 @@ export interface GetFlowCommandOutput extends GetFlowResponse, __MetadataBearer 
  * const client = new BedrockAgentClient(config);
  * const input = { // GetFlowRequest
  *   flowIdentifier: "STRING_VALUE", // required
+ *   includedData: "ALL_DATA" || "METADATA_ONLY",
  * };
  * const command = new GetFlowCommand(input);
  * const response = await client.send(command);

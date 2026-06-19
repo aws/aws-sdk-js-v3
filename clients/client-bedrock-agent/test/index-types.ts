@@ -262,6 +262,7 @@ export type {
   FlowStatus,
   FlowValidationSeverity,
   FlowValidationType,
+  IncludedData,
   IncludeExclude,
   IncompatibleLoopNodeType,
   IngestionJobFilterAttribute,

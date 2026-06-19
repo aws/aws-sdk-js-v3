@@ -6,6 +6,7 @@ import type {
   AgentStatus,
   FlowNodeType,
   FlowStatus,
+  IncludedData,
   IncludeExclude,
   KnowledgeBaseState,
   KnowledgeBaseStatus,
@@ -1725,6 +1726,12 @@ export interface GetPromptRequest {
    * @public
    */
   promptVersion?: string | undefined;
+
+  /**
+   * <p>Controls the scope of data returned. Set to <code>METADATA_ONLY</code> to return only resource metadata. Set to <code>ALL_DATA</code> or omit this field to return the full response.</p>
+   * @public
+   */
+  includedData?: IncludedData | undefined;
 }
 
 /**
