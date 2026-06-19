@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1073.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1072.0...v3.1073.0) (2026-06-19)
+
+
+### Features
+
+* **client-appstream:** Amazon WorkSpaces Agent Access now supports domain-joined fleets for enterprise identity integration, real-time agent observation with instant stop controls, and MCP tool forwarding for lower-latency, cost-effective desktop tool access. ([d9c25f0](https://github.com/aws/aws-sdk-js-v3/commit/d9c25f0b3f641fdc1999f0d4377140c0f3476ede))
+
+
+
+
+
 # [3.1072.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1071.0...v3.1072.0) (2026-06-18)
 
 **Note:** Version bump only for package @aws-sdk/client-appstream

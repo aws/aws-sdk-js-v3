@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1073.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1072.0...v3.1073.0) (2026-06-19)
+
+
+### Features
+
+* **client-appstream:** Amazon WorkSpaces Agent Access now supports domain-joined fleets for enterprise identity integration, real-time agent observation with instant stop controls, and MCP tool forwarding for lower-latency, cost-effective desktop tool access. ([d9c25f0](https://github.com/aws/aws-sdk-js-v3/commit/d9c25f0b3f641fdc1999f0d4377140c0f3476ede))
+* **client-bedrock-agent:** Add support for metadata-only retrieval on GetFlow, GetFlowVersion, and GetPrompt APIs. ([c9d5fb3](https://github.com/aws/aws-sdk-js-v3/commit/c9d5fb3378ba0d1c7ab7d3fe7bec0296491c6bbc))
+* **client-connect:** This is the release for point based scoring system and the evaluation form validation project ([b19c162](https://github.com/aws/aws-sdk-js-v3/commit/b19c162a2e22094c09d77d484ba0dfcfd3a5ecff))
+* **client-glue:** Adds the SearchAssets operation for discovering assets in the AWS Glue Data Catalog using full-text search and filters. Minor naming refinements across the Glossary Terms and Attachment APIs for consistency. ([ef20465](https://github.com/aws/aws-sdk-js-v3/commit/ef204650ce46482b8b2bfeeb9c539244b59a848e))
+* **client-opensearch:** This release introduces data source attachment APIs, enabling users to attach and detach Amazon OpenSearch Service domains and Amazon OpenSearch Serverless collections to an OpenSearch application. ([6cce3d6](https://github.com/aws/aws-sdk-js-v3/commit/6cce3d69dc550fb64245fa1eae1b4e74d6d23607))
+
+
+
+
+
 # [3.1072.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1071.0...v3.1072.0) (2026-06-18)
 
 

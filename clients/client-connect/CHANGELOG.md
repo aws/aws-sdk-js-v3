@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1073.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1072.0...v3.1073.0) (2026-06-19)
+
+
+### Features
+
+* **client-connect:** This is the release for point based scoring system and the evaluation form validation project ([b19c162](https://github.com/aws/aws-sdk-js-v3/commit/b19c162a2e22094c09d77d484ba0dfcfd3a5ecff))
+
+
+
+
+
 # [3.1072.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1071.0...v3.1072.0) (2026-06-18)
 
 **Note:** Version bump only for package @aws-sdk/client-connect

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1073.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1072.0...v3.1073.0) (2026-06-19)
+
+
+### Features
+
+* **client-opensearch:** This release introduces data source attachment APIs, enabling users to attach and detach Amazon OpenSearch Service domains and Amazon OpenSearch Serverless collections to an OpenSearch application. ([6cce3d6](https://github.com/aws/aws-sdk-js-v3/commit/6cce3d69dc550fb64245fa1eae1b4e74d6d23607))
+
+
+
+
+
 # [3.1072.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1071.0...v3.1072.0) (2026-06-18)
 
 **Note:** Version bump only for package @aws-sdk/client-opensearch
