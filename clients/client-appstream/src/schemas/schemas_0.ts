@@ -546,6 +546,7 @@ const _UAR = "UpdateApplicationRequest";
 const _UARp = "UpdateApplicationResult";
 const _UAV = "UserAttributeValue";
 const _UAp = "UpdateApplication";
+const _UCM = "UserControlMode";
 const _UDC = "UpdateDirectoryConfig";
 const _UDCR = "UpdateDirectoryConfigRequest";
 const _UDCRp = "UpdateDirectoryConfigResult";
@@ -766,13 +767,13 @@ export var AdminAppLicenseUsageRecord$: StaticStructureSchema = [3, n0, _AALUR,
 ];
 export var AgentAccessConfig$: StaticStructureSchema = [3, n0, _AAC,
   0,
-  [_S, _SR, _SIF, _SBA, _SUE],
-  [() => AgentAccessSettingList, 0, 0, 0, 2], 3
+  [_S, _SR, _SIF, _SBA, _SUE, _UCM],
+  [() => AgentAccessSettingList, 0, 0, 0, 2, 0], 3
 ];
 export var AgentAccessConfigForUpdate$: StaticStructureSchema = [3, n0, _AACFU,
   0,
-  [_S, _SBA, _SUE, _SR, _SIF],
-  [() => AgentAccessSettingList, 0, 2, 0, 0]
+  [_S, _SBA, _SUE, _SR, _SIF, _UCM],
+  [() => AgentAccessSettingList, 0, 2, 0, 0, 0]
 ];
 export var AgentAccessSetting$: StaticStructureSchema = [3, n0, _AAS,
   0,

@@ -315,6 +315,7 @@ export type {
   ThemeStyling,
   UsageReportExecutionErrorCode,
   UsageReportSchedule,
+  UserControlMode,
   UserStackAssociationErrorCode,
   VisibilityType,
   AccessEndpoint,

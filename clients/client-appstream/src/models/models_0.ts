@@ -46,6 +46,7 @@ import type {
   ThemeStyling,
   UsageReportExecutionErrorCode,
   UsageReportSchedule,
+  UserControlMode,
   UserStackAssociationErrorCode,
   VisibilityType,
 } from "./enums";
@@ -122,7 +123,7 @@ export interface AdminAppLicenseUsageRecord {
  */
 export interface AgentAccessSetting {
   /**
-   * <p>The agent action to configure. Valid values are COMPUTER_VISION and COMPUTER_INPUT. If you enable COMPUTER_INPUT, you must also enable COMPUTER_VISION.</p>
+   * <p>The agent action to configure. Valid values are COMPUTER_VISION, COMPUTER_INPUT, and FORWARD_MCP_TOOLS. If you enable COMPUTER_INPUT, you must also enable COMPUTER_VISION.</p>
    * @public
    */
   AgentAction: AgentAction | undefined;
@@ -168,6 +169,12 @@ export interface AgentAccessConfig {
    * @public
    */
   ScreenImageFormat: ScreenImageFormat | undefined;
+
+  /**
+   * <p>The user control mode for agent sessions. This setting determines how users can interact with agent sessions.</p>
+   * @public
+   */
+  UserControlMode?: UserControlMode | undefined;
 }
 
 /**
@@ -204,6 +211,12 @@ export interface AgentAccessConfigForUpdate {
    * @public
    */
   ScreenImageFormat?: ScreenImageFormat | undefined;
+
+  /**
+   * <p>The user control mode for agent sessions. This setting determines how users can interact with agent sessions.</p>
+   * @public
+   */
+  UserControlMode?: UserControlMode | undefined;
 }
 
 /**

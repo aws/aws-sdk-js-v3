@@ -95,7 +95,7 @@ export interface UpdateStackCommandOutput extends UpdateStackResult, __MetadataB
  *   AgentAccessConfig: { // AgentAccessConfigForUpdate
  *     Settings: [ // AgentAccessSettingList
  *       { // AgentAccessSetting
- *         AgentAction: "COMPUTER_VISION" || "COMPUTER_INPUT", // required
+ *         AgentAction: "COMPUTER_VISION" || "COMPUTER_INPUT" || "FORWARD_MCP_TOOLS", // required
  *         Permission: "ENABLED" || "DISABLED", // required
  *       },
  *     ],
@@ -103,6 +103,7 @@ export interface UpdateStackCommandOutput extends UpdateStackResult, __MetadataB
  *     ScreenshotsUploadEnabled: true || false,
  *     ScreenResolution: "W_1280xH_720",
  *     ScreenImageFormat: "PNG" || "JPEG",
+ *     UserControlMode: "VIEW_ONLY" || "VIEW_STOP" || "DISABLED",
  *   },
  * };
  * const command = new UpdateStackCommand(input);
@@ -172,7 +173,7 @@ export interface UpdateStackCommandOutput extends UpdateStackResult, __MetadataB
  * //     AgentAccessConfig: { // AgentAccessConfig
  * //       Settings: [ // AgentAccessSettingList // required
  * //         { // AgentAccessSetting
- * //           AgentAction: "COMPUTER_VISION" || "COMPUTER_INPUT", // required
+ * //           AgentAction: "COMPUTER_VISION" || "COMPUTER_INPUT" || "FORWARD_MCP_TOOLS", // required
  * //           Permission: "ENABLED" || "DISABLED", // required
  * //         },
  * //       ],
@@ -180,6 +181,7 @@ export interface UpdateStackCommandOutput extends UpdateStackResult, __MetadataB
  * //       ScreenshotsUploadEnabled: true || false,
  * //       ScreenResolution: "W_1280xH_720", // required
  * //       ScreenImageFormat: "PNG" || "JPEG", // required
+ * //       UserControlMode: "VIEW_ONLY" || "VIEW_STOP" || "DISABLED",
  * //     },
  * //   },
  * // };

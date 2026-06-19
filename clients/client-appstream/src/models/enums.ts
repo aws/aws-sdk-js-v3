@@ -62,6 +62,7 @@ export type ScreenResolution = (typeof ScreenResolution)[keyof typeof ScreenReso
 export const AgentAction = {
   COMPUTER_INPUT: "COMPUTER_INPUT",
   COMPUTER_VISION: "COMPUTER_VISION",
+  FORWARD_MCP_TOOLS: "FORWARD_MCP_TOOLS",
 } as const;
 /**
  * @public
@@ -80,6 +81,20 @@ export const Permission = {
  * @public
  */
 export type Permission = (typeof Permission)[keyof typeof Permission];
+
+/**
+ * @public
+ * @enum
+ */
+export const UserControlMode = {
+  DISABLED: "DISABLED",
+  VIEW_ONLY: "VIEW_ONLY",
+  VIEW_STOP: "VIEW_STOP",
+} as const;
+/**
+ * @public
+ */
+export type UserControlMode = (typeof UserControlMode)[keyof typeof UserControlMode];
 
 /**
  * @public

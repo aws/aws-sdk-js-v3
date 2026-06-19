@@ -490,6 +490,7 @@ import {
   UsageReportSchedule,
   UsageReportSubscription$,
   User$,
+  UserControlMode,
   UserSetting$,
   UserStackAssociation$,
   UserStackAssociationError$,
@@ -968,6 +969,7 @@ assert(typeof ThemeState === "object");
 assert(typeof ThemeStyling === "object");
 assert(typeof UsageReportExecutionErrorCode === "object");
 assert(typeof UsageReportSchedule === "object");
+assert(typeof UserControlMode === "object");
 assert(typeof UserStackAssociationErrorCode === "object");
 assert(typeof VisibilityType === "object");
 // errors
