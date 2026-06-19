@@ -602,6 +602,10 @@ import type {
   GetEffectiveHoursOfOperationsCommandOutput,
 } from "./commands/GetEffectiveHoursOfOperationsCommand";
 import type {
+  GetEvaluationFormValidationCommandInput,
+  GetEvaluationFormValidationCommandOutput,
+} from "./commands/GetEvaluationFormValidationCommand";
+import type {
   GetFederationTokenCommandInput,
   GetFederationTokenCommandOutput,
 } from "./commands/GetFederationTokenCommand";
@@ -986,6 +990,10 @@ import type {
   StartEmailContactCommandInput,
   StartEmailContactCommandOutput,
 } from "./commands/StartEmailContactCommand";
+import type {
+  StartEvaluationFormValidationCommandInput,
+  StartEvaluationFormValidationCommandOutput,
+} from "./commands/StartEvaluationFormValidationCommand";
 import type {
   StartOutboundChatContactCommandInput,
   StartOutboundChatContactCommandOutput,
@@ -1460,6 +1468,7 @@ export type ServiceInputTypes =
   | GetCurrentMetricDataCommandInput
   | GetCurrentUserDataCommandInput
   | GetEffectiveHoursOfOperationsCommandInput
+  | GetEvaluationFormValidationCommandInput
   | GetFederationTokenCommandInput
   | GetFlowAssociationCommandInput
   | GetMetricDataCommandInput
@@ -1581,6 +1590,7 @@ export type ServiceInputTypes =
   | StartContactRecordingCommandInput
   | StartContactStreamingCommandInput
   | StartEmailContactCommandInput
+  | StartEvaluationFormValidationCommandInput
   | StartOutboundChatContactCommandInput
   | StartOutboundEmailContactCommandInput
   | StartOutboundVoiceContactCommandInput
@@ -1835,6 +1845,7 @@ export type ServiceOutputTypes =
   | GetCurrentMetricDataCommandOutput
   | GetCurrentUserDataCommandOutput
   | GetEffectiveHoursOfOperationsCommandOutput
+  | GetEvaluationFormValidationCommandOutput
   | GetFederationTokenCommandOutput
   | GetFlowAssociationCommandOutput
   | GetMetricDataCommandOutput
@@ -1956,6 +1967,7 @@ export type ServiceOutputTypes =
   | StartContactRecordingCommandOutput
   | StartContactStreamingCommandOutput
   | StartEmailContactCommandOutput
+  | StartEvaluationFormValidationCommandOutput
   | StartOutboundChatContactCommandOutput
   | StartOutboundEmailContactCommandOutput
   | StartOutboundVoiceContactCommandOutput

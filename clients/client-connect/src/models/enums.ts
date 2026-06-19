@@ -817,6 +817,19 @@ export type EvaluationFormSingleSelectQuestionDisplayMode =
  * @public
  * @enum
  */
+export const PerformanceCategoryName = {
+  EXCEEDS_EXPECTATIONS: "EXCEEDS_EXPECTATIONS",
+  NEEDS_IMPROVEMENT: "NEEDS_IMPROVEMENT",
+} as const;
+/**
+ * @public
+ */
+export type PerformanceCategoryName = (typeof PerformanceCategoryName)[keyof typeof PerformanceCategoryName];
+
+/**
+ * @public
+ * @enum
+ */
 export const EvaluationFormLanguageCode = {
   DE_DE: "de-DE",
   EN_US: "en-US",
@@ -851,6 +864,7 @@ export type EvaluationReviewNotificationRecipientType =
  * @enum
  */
 export const EvaluationFormScoringMode = {
+  POINTS_BASED: "POINTS_BASED",
   QUESTION_ONLY: "QUESTION_ONLY",
   SECTION_ONLY: "SECTION_ONLY",
 } as const;
@@ -1694,6 +1708,21 @@ export type ContactFlowModuleStatus = (typeof ContactFlowModuleStatus)[keyof typ
  * @public
  * @enum
  */
+export const EvaluationFormValidationStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+/**
+ * @public
+ */
+export type EvaluationFormValidationStatus =
+  (typeof EvaluationFormValidationStatus)[keyof typeof EvaluationFormValidationStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const EvaluationFormVersionStatus = {
   ACTIVE: "ACTIVE",
   DRAFT: "DRAFT",
@@ -2198,6 +2227,20 @@ export type OperationalStatus = (typeof OperationalStatus)[keyof typeof Operatio
  * @public
  * @enum
  */
+export const EvaluationFormValidationFindingSeverity = {
+  ERROR: "ERROR",
+  WARNING: "WARNING",
+} as const;
+/**
+ * @public
+ */
+export type EvaluationFormValidationFindingSeverity =
+  (typeof EvaluationFormValidationFindingSeverity)[keyof typeof EvaluationFormValidationFindingSeverity];
+
+/**
+ * @public
+ * @enum
+ */
 export const HistoricalMetricName = {
   ABANDON_TIME: "ABANDON_TIME",
   AFTER_CONTACT_WORK_TIME: "AFTER_CONTACT_WORK_TIME",
@@ -2571,6 +2614,32 @@ export const NumberComparisonType = {
  * @public
  */
 export type NumberComparisonType = (typeof NumberComparisonType)[keyof typeof NumberComparisonType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ContactEvaluationAttributeKey = {
+  CONTACT_AGENT_ID: "ContactAgentId",
+} as const;
+/**
+ * @public
+ */
+export type ContactEvaluationAttributeKey =
+  (typeof ContactEvaluationAttributeKey)[keyof typeof ContactEvaluationAttributeKey];
+
+/**
+ * @public
+ * @enum
+ */
+export const ContactEvaluationAttributeComparisonType = {
+  EXACT: "EXACT",
+} as const;
+/**
+ * @public
+ */
+export type ContactEvaluationAttributeComparisonType =
+  (typeof ContactEvaluationAttributeComparisonType)[keyof typeof ContactEvaluationAttributeComparisonType];
 
 /**
  * @public

@@ -222,6 +222,12 @@ import {
   ContactDataRequest$,
   ContactDetails$,
   ContactEvaluation$,
+  ContactEvaluationAttributeAndCondition$,
+  ContactEvaluationAttributeComparisonType,
+  ContactEvaluationAttributeCondition$,
+  ContactEvaluationAttributeFilter$,
+  ContactEvaluationAttributeKey,
+  ContactEvaluationAttributeValue$,
   ContactFilter$,
   ContactFlow$,
   ContactFlowAttributeAndCondition$,
@@ -854,8 +860,10 @@ import {
   EvaluationFormQuestion$,
   EvaluationFormQuestionAutomationAnswerSource$,
   EvaluationFormQuestionAutomationAnswerSourceType,
+  EvaluationFormQuestionScoringConfiguration$,
   EvaluationFormQuestionType,
   EvaluationFormQuestionTypeProperties$,
+  EvaluationFormScoreThreshold$,
   EvaluationFormScoringMode,
   EvaluationFormScoringStatus,
   EvaluationFormScoringStrategy$,
@@ -872,6 +880,10 @@ import {
   EvaluationFormTargetConfiguration$,
   EvaluationFormTextQuestionAutomation$,
   EvaluationFormTextQuestionProperties$,
+  EvaluationFormValidationFinding$,
+  EvaluationFormValidationFindingItem$,
+  EvaluationFormValidationFindingSeverity,
+  EvaluationFormValidationStatus,
   EvaluationFormVersionStatus,
   EvaluationFormVersionSummary$,
   EvaluationGenAIAnswerAnalysisDetails$,
@@ -949,6 +961,10 @@ import {
   GetEffectiveHoursOfOperationsCommand,
   GetEffectiveHoursOfOperationsRequest$,
   GetEffectiveHoursOfOperationsResponse$,
+  GetEvaluationFormValidation$,
+  GetEvaluationFormValidationCommand,
+  GetEvaluationFormValidationRequest$,
+  GetEvaluationFormValidationResponse$,
   GetFederationToken$,
   GetFederationTokenCommand,
   GetFederationTokenRequest$,
@@ -1517,6 +1533,7 @@ import {
   PauseContactCommand,
   PauseContactRequest$,
   PauseContactResponse$,
+  PerformanceCategoryName,
   PersistentChat$,
   PersistentConnectionConfig$,
   PhoneNumberConfig$,
@@ -1553,6 +1570,8 @@ import {
   PutUserStatusRequest$,
   PutUserStatusResponse$,
   QualityMetrics$,
+  QuestionOptionPointsConfiguration$,
+  QuestionPointsConfiguration$,
   QuestionRuleCategoryAutomationCondition,
   Queue$,
   QueueInfo$,
@@ -1837,6 +1856,10 @@ import {
   StartEmailContactCommand,
   StartEmailContactRequest$,
   StartEmailContactResponse$,
+  StartEvaluationFormValidation$,
+  StartEvaluationFormValidationCommand,
+  StartEvaluationFormValidationRequest$,
+  StartEvaluationFormValidationResponse$,
   StartOutboundChatContact$,
   StartOutboundChatContactCommand,
   StartOutboundChatContactRequest$,
@@ -2590,6 +2613,8 @@ assert(typeof GetCurrentUserDataCommand === "function");
 assert(typeof GetCurrentUserData$ === "object");
 assert(typeof GetEffectiveHoursOfOperationsCommand === "function");
 assert(typeof GetEffectiveHoursOfOperations$ === "object");
+assert(typeof GetEvaluationFormValidationCommand === "function");
+assert(typeof GetEvaluationFormValidation$ === "object");
 assert(typeof GetFederationTokenCommand === "function");
 assert(typeof GetFederationToken$ === "object");
 assert(typeof GetFlowAssociationCommand === "function");
@@ -2832,6 +2857,8 @@ assert(typeof StartContactStreamingCommand === "function");
 assert(typeof StartContactStreaming$ === "object");
 assert(typeof StartEmailContactCommand === "function");
 assert(typeof StartEmailContact$ === "object");
+assert(typeof StartEvaluationFormValidationCommand === "function");
+assert(typeof StartEvaluationFormValidation$ === "object");
 assert(typeof StartOutboundChatContactCommand === "function");
 assert(typeof StartOutboundChatContact$ === "object");
 assert(typeof StartOutboundEmailContactCommand === "function");
@@ -3129,6 +3156,10 @@ assert(typeof ContactConfiguration$ === "object");
 assert(typeof ContactDataRequest$ === "object");
 assert(typeof ContactDetails$ === "object");
 assert(typeof ContactEvaluation$ === "object");
+assert(typeof ContactEvaluationAttributeAndCondition$ === "object");
+assert(typeof ContactEvaluationAttributeCondition$ === "object");
+assert(typeof ContactEvaluationAttributeFilter$ === "object");
+assert(typeof ContactEvaluationAttributeValue$ === "object");
 assert(typeof ContactFilter$ === "object");
 assert(typeof ContactFlow$ === "object");
 assert(typeof ContactFlowAttributeAndCondition$ === "object");
@@ -3463,7 +3494,9 @@ assert(typeof EvaluationFormNumericQuestionOption$ === "object");
 assert(typeof EvaluationFormNumericQuestionProperties$ === "object");
 assert(typeof EvaluationFormQuestion$ === "object");
 assert(typeof EvaluationFormQuestionAutomationAnswerSource$ === "object");
+assert(typeof EvaluationFormQuestionScoringConfiguration$ === "object");
 assert(typeof EvaluationFormQuestionTypeProperties$ === "object");
+assert(typeof EvaluationFormScoreThreshold$ === "object");
 assert(typeof EvaluationFormScoringStrategy$ === "object");
 assert(typeof EvaluationFormSearchCriteria$ === "object");
 assert(typeof EvaluationFormSearchFilter$ === "object");
@@ -3477,6 +3510,8 @@ assert(typeof EvaluationFormSummary$ === "object");
 assert(typeof EvaluationFormTargetConfiguration$ === "object");
 assert(typeof EvaluationFormTextQuestionAutomation$ === "object");
 assert(typeof EvaluationFormTextQuestionProperties$ === "object");
+assert(typeof EvaluationFormValidationFinding$ === "object");
+assert(typeof EvaluationFormValidationFindingItem$ === "object");
 assert(typeof EvaluationFormVersionSummary$ === "object");
 assert(typeof EvaluationGenAIAnswerAnalysisDetails$ === "object");
 assert(typeof EvaluationMetadata$ === "object");
@@ -3527,6 +3562,8 @@ assert(typeof GetCurrentUserDataRequest$ === "object");
 assert(typeof GetCurrentUserDataResponse$ === "object");
 assert(typeof GetEffectiveHoursOfOperationsRequest$ === "object");
 assert(typeof GetEffectiveHoursOfOperationsResponse$ === "object");
+assert(typeof GetEvaluationFormValidationRequest$ === "object");
+assert(typeof GetEvaluationFormValidationResponse$ === "object");
 assert(typeof GetFederationTokenRequest$ === "object");
 assert(typeof GetFederationTokenResponse$ === "object");
 assert(typeof GetFlowAssociationRequest$ === "object");
@@ -3811,6 +3848,8 @@ assert(typeof PropertyValidationExceptionProperty$ === "object");
 assert(typeof PutUserStatusRequest$ === "object");
 assert(typeof PutUserStatusResponse$ === "object");
 assert(typeof QualityMetrics$ === "object");
+assert(typeof QuestionOptionPointsConfiguration$ === "object");
+assert(typeof QuestionPointsConfiguration$ === "object");
 assert(typeof Queue$ === "object");
 assert(typeof QueueInfo$ === "object");
 assert(typeof QueueInfoInput$ === "object");
@@ -3976,6 +4015,8 @@ assert(typeof StartContactStreamingRequest$ === "object");
 assert(typeof StartContactStreamingResponse$ === "object");
 assert(typeof StartEmailContactRequest$ === "object");
 assert(typeof StartEmailContactResponse$ === "object");
+assert(typeof StartEvaluationFormValidationRequest$ === "object");
+assert(typeof StartEvaluationFormValidationResponse$ === "object");
 assert(typeof StartOutboundChatContactRequest$ === "object");
 assert(typeof StartOutboundChatContactResponse$ === "object");
 assert(typeof StartOutboundEmailContactRequest$ === "object");
@@ -4216,6 +4257,8 @@ assert(typeof Channel === "object");
 assert(typeof ChatEventType === "object");
 assert(typeof Comparison === "object");
 assert(typeof ConfigurableNotificationPriority === "object");
+assert(typeof ContactEvaluationAttributeComparisonType === "object");
+assert(typeof ContactEvaluationAttributeKey === "object");
 assert(typeof ContactFlowModuleState === "object");
 assert(typeof ContactFlowModuleStatus === "object");
 assert(typeof ContactFlowState === "object");
@@ -4254,6 +4297,8 @@ assert(typeof EvaluationFormQuestionType === "object");
 assert(typeof EvaluationFormScoringMode === "object");
 assert(typeof EvaluationFormScoringStatus === "object");
 assert(typeof EvaluationFormSingleSelectQuestionDisplayMode === "object");
+assert(typeof EvaluationFormValidationFindingSeverity === "object");
+assert(typeof EvaluationFormValidationStatus === "object");
 assert(typeof EvaluationFormVersionStatus === "object");
 assert(typeof EvaluationQuestionAnswerAnalysisType === "object");
 assert(typeof EvaluationReviewNotificationRecipientType === "object");
@@ -4308,6 +4353,7 @@ assert(typeof ParticipantState === "object");
 assert(typeof ParticipantTimerAction === "object");
 assert(typeof ParticipantTimerType === "object");
 assert(typeof ParticipantType === "object");
+assert(typeof PerformanceCategoryName === "object");
 assert(typeof PhoneNumberCountryCode === "object");
 assert(typeof PhoneNumberType === "object");
 assert(typeof PhoneNumberWorkflowStatus === "object");

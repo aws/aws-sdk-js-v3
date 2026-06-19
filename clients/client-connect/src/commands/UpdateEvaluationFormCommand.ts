@@ -5,7 +5,8 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { UpdateEvaluationFormRequest, UpdateEvaluationFormResponse } from "../models/models_3";
+import type { UpdateEvaluationFormResponse } from "../models/models_3";
+import type { UpdateEvaluationFormRequest } from "../models/models_4";
 import { UpdateEvaluationForm$ } from "../schemas/schemas_0";
 
 /**
@@ -60,6 +61,14 @@ export interface UpdateEvaluationFormCommandOutput extends UpdateEvaluationFormR
  *               Instructions: "STRING_VALUE",
  *               Items: "<EvaluationFormItemsList>", // required
  *               Weight: Number("double"),
+ *               IsExcludedFromScoring: true || false,
+ *               ScoreThresholds: [ // EvaluationFormScoreThresholdList
+ *                 { // EvaluationFormScoreThreshold
+ *                   PerformanceCategory: "NEEDS_IMPROVEMENT" || "EXCEEDS_EXPECTATIONS", // required
+ *                   MinScorePercentage: Number("double"),
+ *                   MaxScorePercentage: Number("double"),
+ *                 },
+ *               ],
  *             },
  *             Question: { // EvaluationFormQuestion
  *               Title: "STRING_VALUE", // required
@@ -79,6 +88,10 @@ export interface UpdateEvaluationFormCommandOutput extends UpdateEvaluationFormR
  *                       AutomaticFail: true || false,
  *                       AutomaticFailConfiguration: { // AutomaticFailConfiguration
  *                         TargetSection: "STRING_VALUE",
+ *                       },
+ *                       PointsConfiguration: { // QuestionOptionPointsConfiguration
+ *                         PointValue: Number("int"), // required
+ *                         IsBonus: true || false,
  *                       },
  *                     },
  *                   ],
@@ -100,6 +113,10 @@ export interface UpdateEvaluationFormCommandOutput extends UpdateEvaluationFormR
  *                       AutomaticFail: true || false,
  *                       AutomaticFailConfiguration: {
  *                         TargetSection: "STRING_VALUE",
+ *                       },
+ *                       PointsConfiguration: {
+ *                         PointValue: Number("int"), // required
+ *                         IsBonus: true || false,
  *                       },
  *                     },
  *                   ],
@@ -132,6 +149,15 @@ export interface UpdateEvaluationFormCommandOutput extends UpdateEvaluationFormR
  *                     { // EvaluationFormMultiSelectQuestionOption
  *                       RefId: "STRING_VALUE", // required
  *                       Text: "STRING_VALUE", // required
+ *                       Score: Number("int"),
+ *                       AutomaticFail: true || false,
+ *                       AutomaticFailConfiguration: {
+ *                         TargetSection: "STRING_VALUE",
+ *                       },
+ *                       PointsConfiguration: {
+ *                         PointValue: Number("int"), // required
+ *                         IsBonus: true || false,
+ *                       },
  *                     },
  *                   ],
  *                   DisplayAs: "DROPDOWN" || "CHECKBOX",
@@ -202,10 +228,27 @@ export interface UpdateEvaluationFormCommandOutput extends UpdateEvaluationFormR
  *                 DefaultAction: "DISABLE" || "ENABLE",
  *               },
  *               Weight: Number("double"),
+ *               ScoringConfiguration: { // EvaluationFormQuestionScoringConfiguration
+ *                 PointsConfiguration: { // QuestionPointsConfiguration
+ *                   MaxPointValue: Number("int"),
+ *                   MinPointValue: Number("int"),
+ *                   IsBonus: true || false,
+ *                 },
+ *                 IsExcludedFromScoring: true || false,
+ *                 ScoreThresholds: [
+ *                   {
+ *                     PerformanceCategory: "NEEDS_IMPROVEMENT" || "EXCEEDS_EXPECTATIONS", // required
+ *                     MinScorePercentage: Number("double"),
+ *                     MaxScorePercentage: Number("double"),
+ *                   },
+ *                 ],
+ *               },
  *             },
  *           },
  *         ],
  *         Weight: Number("double"),
+ *         IsExcludedFromScoring: true || false,
+ *         ScoreThresholds: "<EvaluationFormScoreThresholdList>",
  *       },
  *       Question: {
  *         Title: "STRING_VALUE", // required
@@ -225,6 +268,10 @@ export interface UpdateEvaluationFormCommandOutput extends UpdateEvaluationFormR
  *                 AutomaticFail: true || false,
  *                 AutomaticFailConfiguration: {
  *                   TargetSection: "STRING_VALUE",
+ *                 },
+ *                 PointsConfiguration: {
+ *                   PointValue: Number("int"), // required
+ *                   IsBonus: true || false,
  *                 },
  *               },
  *             ],
@@ -246,6 +293,10 @@ export interface UpdateEvaluationFormCommandOutput extends UpdateEvaluationFormR
  *                 AutomaticFail: true || false,
  *                 AutomaticFailConfiguration: {
  *                   TargetSection: "STRING_VALUE",
+ *                 },
+ *                 PointsConfiguration: {
+ *                   PointValue: Number("int"), // required
+ *                   IsBonus: true || false,
  *                 },
  *               },
  *             ],
@@ -274,6 +325,10 @@ export interface UpdateEvaluationFormCommandOutput extends UpdateEvaluationFormR
  *               {
  *                 RefId: "STRING_VALUE", // required
  *                 Text: "STRING_VALUE", // required
+ *                 Score: Number("int"),
+ *                 AutomaticFail: true || false,
+ *                 AutomaticFailConfiguration: "<AutomaticFailConfiguration>",
+ *                 PointsConfiguration: "<QuestionOptionPointsConfiguration>",
  *               },
  *             ],
  *             DisplayAs: "DROPDOWN" || "CHECKBOX",
@@ -300,12 +355,22 @@ export interface UpdateEvaluationFormCommandOutput extends UpdateEvaluationFormR
  *           DefaultAction: "DISABLE" || "ENABLE",
  *         },
  *         Weight: Number("double"),
+ *         ScoringConfiguration: {
+ *           PointsConfiguration: {
+ *             MaxPointValue: Number("int"),
+ *             MinPointValue: Number("int"),
+ *             IsBonus: true || false,
+ *           },
+ *           IsExcludedFromScoring: true || false,
+ *           ScoreThresholds: "<EvaluationFormScoreThresholdList>",
+ *         },
  *       },
  *     },
  *   ],
  *   ScoringStrategy: { // EvaluationFormScoringStrategy
- *     Mode: "QUESTION_ONLY" || "SECTION_ONLY", // required
+ *     Mode: "QUESTION_ONLY" || "SECTION_ONLY" || "POINTS_BASED", // required
  *     Status: "ENABLED" || "DISABLED", // required
+ *     ScoreThresholds: "<EvaluationFormScoreThresholdList>",
  *   },
  *   AutoEvaluationConfiguration: { // EvaluationFormAutoEvaluationConfiguration
  *     Enabled: true || false, // required

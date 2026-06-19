@@ -56,6 +56,7 @@ import type {
   OverrideType,
   ParticipantRole,
   ParticipantState,
+  PerformanceCategoryName,
   PhoneType,
   PropertyValidationExceptionReason,
   QuickConnectType,
@@ -4330,6 +4331,36 @@ export interface EvaluationFormMultiSelectQuestionAutomation {
 }
 
 /**
+ * <p>Information about automatic fail configuration for an evaluation form.</p>
+ * @public
+ */
+export interface AutomaticFailConfiguration {
+  /**
+   * <p>The referenceId of the target section for auto failure.</p>
+   * @public
+   */
+  TargetSection?: string | undefined;
+}
+
+/**
+ * <p>Information about the points configuration for an answer option.</p>
+ * @public
+ */
+export interface QuestionOptionPointsConfiguration {
+  /**
+   * <p>The point value assigned to the answer option.</p>
+   * @public
+   */
+  PointValue: number | undefined;
+
+  /**
+   * <p>The flag to mark the option as a bonus option.</p>
+   * @public
+   */
+  IsBonus?: boolean | undefined;
+}
+
+/**
  * <p>An option for a multi-select question in an evaluation form.</p>
  * @public
  */
@@ -4345,6 +4376,31 @@ export interface EvaluationFormMultiSelectQuestionOption {
    * @public
    */
   Text: string | undefined;
+
+  /**
+   * <p>The score assigned to the answer option.</p>
+   * @public
+   */
+  Score?: number | undefined;
+
+  /**
+   * <p>The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation
+   *    gets a score of 0.</p>
+   * @public
+   */
+  AutomaticFail?: boolean | undefined;
+
+  /**
+   * <p>Information about automatic fail configuration for an evaluation form.</p>
+   * @public
+   */
+  AutomaticFailConfiguration?: AutomaticFailConfiguration | undefined;
+
+  /**
+   * <p>The points configuration for point-based scoring.</p>
+   * @public
+   */
+  PointsConfiguration?: QuestionOptionPointsConfiguration | undefined;
 }
 
 /**
@@ -4455,18 +4511,6 @@ export namespace EvaluationFormNumericQuestionAutomation {
 }
 
 /**
- * <p>Information about automatic fail configuration for an evaluation form.</p>
- * @public
- */
-export interface AutomaticFailConfiguration {
-  /**
-   * <p>The referenceId of the target section for auto failure.</p>
-   * @public
-   */
-  TargetSection?: string | undefined;
-}
-
-/**
  * <p>Information about the option range used for scoring in numeric questions.</p>
  * @public
  */
@@ -4501,6 +4545,12 @@ export interface EvaluationFormNumericQuestionOption {
    * @public
    */
   AutomaticFailConfiguration?: AutomaticFailConfiguration | undefined;
+
+  /**
+   * <p>The points configuration for point-based scoring.</p>
+   * @public
+   */
+  PointsConfiguration?: QuestionOptionPointsConfiguration | undefined;
 }
 
 /**
@@ -4659,6 +4709,12 @@ export interface EvaluationFormSingleSelectQuestionOption {
    * @public
    */
   AutomaticFailConfiguration?: AutomaticFailConfiguration | undefined;
+
+  /**
+   * <p>The points configuration for point-based scoring.</p>
+   * @public
+   */
+  PointsConfiguration?: QuestionOptionPointsConfiguration | undefined;
 }
 
 /**
@@ -4798,6 +4854,78 @@ export namespace EvaluationFormQuestionTypeProperties {
 }
 
 /**
+ * <p>Information about the points configuration for a question.</p>
+ * @public
+ */
+export interface QuestionPointsConfiguration {
+  /**
+   * <p>The maximum point value.</p>
+   * @public
+   */
+  MaxPointValue?: number | undefined;
+
+  /**
+   * <p>The minimum point value.</p>
+   * @public
+   */
+  MinPointValue?: number | undefined;
+
+  /**
+   * <p>The flag to mark the question as a bonus question.</p>
+   * @public
+   */
+  IsBonus?: boolean | undefined;
+}
+
+/**
+ * <p>Information about a score threshold for a performance category.</p>
+ * @public
+ */
+export interface EvaluationFormScoreThreshold {
+  /**
+   * <p>The performance category name.</p>
+   * @public
+   */
+  PerformanceCategory: PerformanceCategoryName | undefined;
+
+  /**
+   * <p>The minimum score percentage for the performance category.</p>
+   * @public
+   */
+  MinScorePercentage?: number | undefined;
+
+  /**
+   * <p>The maximum score percentage for the performance category.</p>
+   * @public
+   */
+  MaxScorePercentage?: number | undefined;
+}
+
+/**
+ * <p>Scoring configuration for a question in an evaluation form.</p>
+ * @public
+ */
+export interface EvaluationFormQuestionScoringConfiguration {
+  /**
+   * <p>The points configuration for point-based scoring.</p>
+   * @public
+   */
+  PointsConfiguration?: QuestionPointsConfiguration | undefined;
+
+  /**
+   * <p>The flag to exclude the question from scoring.</p>
+   * @public
+   */
+  IsExcludedFromScoring?: boolean | undefined;
+
+  /**
+   * <p>The score thresholds for performance categories.</p>
+   * @public
+   */
+  ScoreThresholds?: EvaluationFormScoreThreshold[] | undefined;
+}
+
+/**
  * <p>Language configuration for an evaluation form.</p>
  * @public
  */
@@ -4873,6 +5001,12 @@ export interface EvaluationFormScoringStrategy {
    * @public
    */
   Status: EvaluationFormScoringStatus | undefined;
+
+  /**
+   * <p>The score thresholds for performance categories.</p>
+   * @public
+   */
+  ScoreThresholds?: EvaluationFormScoreThreshold[] | undefined;
 }
 
 /**
@@ -7934,107 +8068,4 @@ export interface View {
    * @public
    */
   ViewContentSha256?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateViewResponse {
-  /**
-   * <p>A view resource object. Contains metadata and content necessary to render the view.</p>
-   * @public
-   */
-  View?: View | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateViewVersionRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the
-   *    instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be used.</p>
-   * @public
-   */
-  ViewId: string | undefined;
-
-  /**
-   * <p>The description for the version being published.</p>
-   * @public
-   */
-  VersionDescription?: string | undefined;
-
-  /**
-   * <p>Indicates the checksum value of the latest published view content.</p>
-   * @public
-   */
-  ViewContentSha256?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateViewVersionResponse {
-  /**
-   * <p>All view data is contained within the View object.</p>
-   * @public
-   */
-  View?: View | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateVocabularyRequest {
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>. If a create request is received more than once with same client token, subsequent requests return
-   *    the previous response without creating a vocabulary again.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>A unique name of the custom vocabulary.</p>
-   * @public
-   */
-  VocabularyName: string | undefined;
-
-  /**
-   * <p>The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see
-   * <a href="https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html">What is Amazon Transcribe?</a>
-   *          </p>
-   * @public
-   */
-  LanguageCode: VocabularyLanguageCode | undefined;
-
-  /**
-   * <p>The content of the custom vocabulary in plain-text format with a table of values. Each row in the table
-   *    represents a word or a phrase, described with <code>Phrase</code>, <code>IPA</code>, <code>SoundsLike</code>, and
-   *     <code>DisplayAs</code> fields. Separate the fields with TAB characters. The size limit is 50KB. For more
-   *    information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html#create-vocabulary-table">Create a custom vocabulary using a
-   *     table</a>.</p>
-   * @public
-   */
-  Content: string | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
 }

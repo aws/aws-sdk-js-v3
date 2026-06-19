@@ -45,5 +45,6 @@ export * from "./models/models_0";
 export * from "./models/models_1";
 export * from "./models/models_2";
 export * from "./models/models_3";
+export * from "./models/models_4";
 
 export { ConnectServiceException } from "./models/ConnectServiceException";

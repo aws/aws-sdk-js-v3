@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { CreateViewVersionRequest, CreateViewVersionResponse } from "../models/models_0";
+import type { CreateViewVersionRequest, CreateViewVersionResponse } from "../models/models_1";
 import { CreateViewVersion$ } from "../schemas/schemas_0";
 
 /**

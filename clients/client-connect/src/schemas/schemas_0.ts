@@ -54,7 +54,8 @@ const _ACll = "AllowedCapabilities";
 const _ACn = "AndConditions";
 const _ACnd = "AndCondition";
 const _ACt = "AttributeCondition";
-const _ACtt = "AttributeConfiguration";
+const _ACtt = "AttributeConditions";
+const _ACttr = "AttributeConfiguration";
 const _AD = "AliasDescription";
 const _ADAR = "AnalyticsDataAssociationResult";
 const _ADARn = "AnalyticsDataAssociationResults";
@@ -127,6 +128,7 @@ const _AIt = "AttendeeId";
 const _AItt = "AttributeId";
 const _AItta = "AttachmentId";
 const _AIttr = "AttributeIds";
+const _AK = "AttributeKey";
 const _AL = "AttributeList";
 const _ALB = "AssociateLexBot";
 const _ALBR = "AssociateLexBotRequest";
@@ -212,8 +214,8 @@ const _AUA = "AllowedUserActions";
 const _AUC = "AiUseCase";
 const _AUP = "AssociateUserProficiencies";
 const _AUPR = "AssociateUserProficienciesRequest";
-const _AV = "ActiveVersion";
-const _AVt = "AttributeValue";
+const _AV = "AttributeValue";
+const _AVc = "ActiveVersion";
 const _AW = "AppliedWeight";
 const _AWR = "AssociateWorkspaceRequest";
 const _AWRs = "AssociateWorkspaceResponse";
@@ -351,8 +353,14 @@ const _CDTRr = "CreateDataTableResponse";
 const _CDo = "ContactDetails";
 const _CE = "ConflictException";
 const _CEA = "CcEmailAddresses";
+const _CEAAC = "ContactEvaluationAttributeAndCondition";
+const _CEAC = "ContactEvaluationAttributeCondition";
+const _CEACL = "ContactEvaluationAttributeConditionList";
+const _CEAF = "ContactEvaluationAttributeFilter";
+const _CEAOCL = "ContactEvaluationAttributeOrConditionList";
 const _CEAR = "CreateEmailAddressRequest";
 const _CEARr = "CreateEmailAddressResponse";
+const _CEAV = "ContactEvaluationAttributeValue";
 const _CEAr = "CreateEmailAddress";
 const _CEF = "CreateEvaluationForm";
 const _CEFR = "CreateEvaluationFormRequest";
@@ -975,6 +983,7 @@ const _EFNQOL = "EvaluationFormNumericQuestionOptionList";
 const _EFNQP = "EvaluationFormNumericQuestionProperties";
 const _EFQ = "EvaluationFormQuestion";
 const _EFQAAS = "EvaluationFormQuestionAutomationAnswerSource";
+const _EFQSC = "EvaluationFormQuestionScoringConfiguration";
 const _EFQTP = "EvaluationFormQuestionTypeProperties";
 const _EFS = "EvaluationFormSection";
 const _EFSC = "EvaluationFormSearchCriteria";
@@ -990,12 +999,18 @@ const _EFSSQO = "EvaluationFormSingleSelectQuestionOption";
 const _EFSSQOL = "EvaluationFormSingleSelectQuestionOptionList";
 const _EFSSQP = "EvaluationFormSingleSelectQuestionProperties";
 const _EFSSv = "EvaluationFormSearchSummary";
+const _EFST = "EvaluationFormScoreThreshold";
+const _EFSTL = "EvaluationFormScoreThresholdList";
 const _EFSv = "EvaluationFormSummary";
 const _EFT = "EvaluationFormTitle";
 const _EFTC = "EvaluationFormTargetConfiguration";
 const _EFTQA = "EvaluationFormTextQuestionAutomation";
 const _EFTQP = "EvaluationFormTextQuestionProperties";
 const _EFV = "EvaluationFormVersion";
+const _EFVF = "EvaluationFormValidationFinding";
+const _EFVFI = "EvaluationFormValidationFindingItem";
+const _EFVFIL = "EvaluationFormValidationFindingItemList";
+const _EFVFL = "EvaluationFormValidationFindingList";
 const _EFVS = "EvaluationFormVersionSummary";
 const _EFVSL = "EvaluationFormVersionSummaryList";
 const _EFVm = "EmptyFieldValue";
@@ -1023,6 +1038,7 @@ const _EOC = "EndOffsetChar";
 const _EOH = "EffectiveOverrideHours";
 const _EOHL = "EffectiveOverrideHoursList";
 const _EP = "EntryPoint";
+const _EPa = "EarnedPoints";
 const _EQAAD = "EvaluationQuestionAnswerAnalysisDetails";
 const _EQID = "EvaluationQuestionInputDetails";
 const _ER = "EchoReduction";
@@ -1136,6 +1152,7 @@ const _Fa = "Favicon";
 const _Fi = "Files";
 const _Fie = "Fields";
 const _Fil = "Filters";
+const _Fin = "Findings";
 const _Fo = "Found";
 const _Fr = "Frequency";
 const _Fu = "Function";
@@ -1157,6 +1174,9 @@ const _GCMRe = "GetContactMetricsResponse";
 const _GCUD = "GetCurrentUserData";
 const _GCUDR = "GetCurrentUserDataRequest";
 const _GCUDRe = "GetCurrentUserDataResponse";
+const _GEFV = "GetEvaluationFormValidation";
+const _GEFVR = "GetEvaluationFormValidationRequest";
+const _GEFVRe = "GetEvaluationFormValidationResponse";
 const _GEHOO = "GetEffectiveHoursOfOperations";
 const _GEHOOR = "GetEffectiveHoursOfOperationsRequest";
 const _GEHOORe = "GetEffectiveHoursOfOperationsResponse";
@@ -1249,11 +1269,13 @@ const _IAU = "InstanceAccessUrl";
 const _IAn = "InstanceAlias";
 const _IAns = "InstanceArn";
 const _IAnt = "IntegrationArn";
-const _IC = "IgnoreCase";
+const _IB = "IsBonus";
+const _IC = "IssueCode";
 const _ICE = "InboundCallsEnabled";
 const _ICFE = "InvalidContactFlowException";
 const _ICFME = "InvalidContactFlowModuleException";
 const _ICI = "InitialContactId";
+const _ICg = "IgnoreCase";
 const _ID = "IsDefault";
 const _IDOE = "IsDefaultOutboundEmail";
 const _IDn = "InitializationData";
@@ -1262,6 +1284,7 @@ const _IDnt = "IntervalDetails";
 const _IDs = "IssuesDetected";
 const _IE = "IdempotencyException";
 const _IEC = "InboundEmailContent";
+const _IEFS = "IsExcludedFromScoring";
 const _IF = "InvisibleFields";
 const _IFI = "InvisibleFieldInfo";
 const _II = "InstanceId";
@@ -1550,6 +1573,8 @@ const _LV = "LockVersion";
 const _LVB = "LexV2Bot";
 const _LVR = "ListViewsRequest";
 const _LVRi = "ListViewsResponse";
+const _LVS = "LatestValidationStatus";
+const _LVT = "LastValidationTime";
 const _LVV = "ListViewVersions";
 const _LVVR = "ListViewVersionsRequest";
 const _LVVRi = "ListViewVersionsResponse";
@@ -1578,6 +1603,7 @@ const _Log = "Logo";
 const _M = "Message";
 const _MAQC = "ManualAssignmentQueueConfigs";
 const _MAQR = "ManualAssignmentQueueReferences";
+const _MBP = "MaxBasePoint";
 const _MC = "MatchCriteria";
 const _MCR = "MonitorContactRequest";
 const _MCRo = "MonitorContactResponse";
@@ -1608,6 +1634,8 @@ const _MOu = "MultipleOf";
 const _MP = "MultiParty";
 const _MPL = "MinProficiencyLevel";
 const _MPLa = "MaxProficiencyLevel";
+const _MPV = "MaxPointValue";
+const _MPVi = "MinPointValue";
 const _MPe = "MediaPlacement";
 const _MR = "MaxResults";
 const _MRC = "MatchedRuleCategories";
@@ -1621,6 +1649,8 @@ const _MS = "MediaSource";
 const _MSBC = "MaxSlotsByChannel";
 const _MSD = "MaxSessionDuration";
 const _MSLIB = "MaximumSizeLimitInBytes";
+const _MSP = "MinScorePercentage";
+const _MSPa = "MaxScorePercentage";
 const _MSQRCA = "MultiSelectQuestionRuleCategoryAutomation";
 const _MST = "MessageSourceType";
 const _MSTe = "MediaStreamType";
@@ -1762,9 +1792,11 @@ const _PCa = "PaletteCanvas";
 const _PCar = "ParticipantCapabilities";
 const _PCart = "ParticipantConfiguration";
 const _PCau = "PauseContact";
-const _PCe = "PersistentChat";
-const _PCer = "PersistentConnection";
+const _PCe = "PerformanceCategory";
+const _PCer = "PersistentChat";
+const _PCers = "PersistentConnection";
 const _PCh = "PhoneConfig";
+const _PCo = "PointsConfiguration";
 const _PD = "ParticipantDetails";
 const _PDI = "PotentialDisconnectIssue";
 const _PDTA = "ParticipantDetailsToAdd";
@@ -1836,6 +1868,7 @@ const _PVR = "PrimaryValueResponse";
 const _PVRS = "PrimaryValuesResponseSet";
 const _PVS = "PrimaryValuesSet";
 const _PVl = "PlatformVersion";
+const _PVo = "PointValue";
 const _PVr = "PrimaryValue";
 const _PVro = "PropertyValue";
 const _Pa = "Password";
@@ -1849,6 +1882,7 @@ const _Pri = "Primary";
 const _Prio = "Priority";
 const _Pro = "Prompt";
 const _Prom = "Prompts";
+const _Prop = "Property";
 const _Pu = "Purposes";
 const _Q = "Queue";
 const _QA = "QueueArn";
@@ -1876,7 +1910,9 @@ const _QIu = "QueueInfo";
 const _QIue = "QueueIds";
 const _QM = "QualityMetrics";
 const _QN = "QueueName";
+const _QOPC = "QuestionOptionPointsConfiguration";
 const _QP = "QueuePriority";
+const _QPC = "QuestionPointsConfiguration";
 const _QQCC = "QueueQuickConnectConfig";
 const _QR = "QueueReferences";
 const _QRu = "QueueReference";
@@ -2125,6 +2161,7 @@ const _SCSRtop = "StopContactStreamingResponse";
 const _SCSt = "StopContactStreaming";
 const _SCTC = "SearchContactsTimestampCondition";
 const _SCTR = "SearchContactsTimeRange";
+const _SCc = "ScoringConfiguration";
 const _SCe = "SearchCriteria";
 const _SCea = "SearchContacts";
 const _SCo = "SortCriteria";
@@ -2150,6 +2187,9 @@ const _SECRt = "StartEmailContactResponse";
 const _SEF = "SearchEvaluationForms";
 const _SEFR = "SearchEvaluationFormsRequest";
 const _SEFRe = "SearchEvaluationFormsResponse";
+const _SEFV = "StartEvaluationFormValidation";
+const _SEFVR = "StartEvaluationFormValidationRequest";
+const _SEFVRt = "StartEvaluationFormValidationResponse";
 const _SET = "StateEndTimestamp";
 const _SEe = "SecondaryEmail";
 const _SEo = "SourceEndpoint";
@@ -2280,12 +2320,14 @@ const _STCt = "StartTaskContact";
 const _STL = "SearchTextList";
 const _STc = "ScheduledTimestamp";
 const _STch = "ScheduledTime";
+const _STco = "ScoreThresholds";
 const _STe = "SecurityToken";
 const _STeg = "SegmentTypes";
 const _STo = "SourceType";
 const _STt = "StateTransitions";
 const _STta = "StartTimestamp";
-const _STtar = "StartTime";
+const _STtar = "StartedTime";
+const _STtart = "StartTime";
 const _STtat = "StateTransition";
 const _STto = "StorageType";
 const _STtop = "StopTimestamp";
@@ -2322,6 +2364,7 @@ const _Se = "Settings";
 const _Sec = "Section";
 const _Seg = "Segments";
 const _Sen = "Sentiment";
+const _Sev = "Severity";
 const _Sl = "Slug";
 const _So = "Source";
 const _Sor = "Sort";
@@ -2336,6 +2379,7 @@ const _Su = "Successful";
 const _Sub = "Subtype";
 const _Subj = "Subject";
 const _Subt = "Subtypes";
+const _Sug = "Suggestion";
 const _T = "Type";
 const _TA = "TargetArn";
 const _TACL = "TagAndConditionList";
@@ -3715,6 +3759,26 @@ export var ContactEvaluation$: StaticStructureSchema = [3, n0, _CEon,
   [_FIo, _EAv, _St, _STta, _ETn, _DTe, _EL],
   [0, 0, 0, 4, 4, 4, 0]
 ];
+export var ContactEvaluationAttributeAndCondition$: StaticStructureSchema = [3, n0, _CEAAC,
+  0,
+  [_TC, _ACtt],
+  [() => TagAndConditionList, () => ContactEvaluationAttributeConditionList]
+];
+export var ContactEvaluationAttributeCondition$: StaticStructureSchema = [3, n0, _CEAC,
+  0,
+  [_AK, _AV, _CTo],
+  [0, () => ContactEvaluationAttributeValue$, 0]
+];
+export var ContactEvaluationAttributeFilter$: StaticStructureSchema = [3, n0, _CEAF,
+  0,
+  [_OC, _ACnd, _TCa, _CEAC],
+  [() => ContactEvaluationAttributeOrConditionList, () => ContactEvaluationAttributeAndCondition$, () => TagCondition$, () => ContactEvaluationAttributeCondition$]
+];
+export var ContactEvaluationAttributeValue$: StaticStructureSchema = [3, n0, _CEAV,
+  0,
+  [_SV],
+  [0]
+];
 export var ContactFilter$: StaticStructureSchema = [3, n0, _CF,
   0,
   [_CS],
@@ -4032,7 +4096,7 @@ export var CreatePersistentContactAssociationResponse$: StaticStructureSchema = 
 ];
 export var CreatePredefinedAttributeRequest$: StaticStructureSchema = [3, n0, _CPAR,
   0,
-  [_II, _N, _Va, _Pu, _ACtt],
+  [_II, _N, _Va, _Pu, _ACttr],
   [[0, 1], 0, () => PredefinedAttributeValues$, 64 | 0, () => InputPredefinedAttributeConfiguration$], 2
 ];
 export var CreatePromptRequest$: StaticStructureSchema = [3, n0, _CPRre,
@@ -5272,8 +5336,8 @@ export var EvaluationContactParticipant$: StaticStructureSchema = [3, n0, _ECP,
 ];
 export var EvaluationForm$: StaticStructureSchema = [3, n0, _EFv,
   0,
-  [_EFI, _EFV, _L, _EFA, _Ti, _St, _It, _CTre, _CB, _LMT, _LMB, _D, _SS, _AEC, _RCe, _Ta, _TCar, _LCa],
-  [0, 1, 2, 0, 0, 0, () => EvaluationFormItemsList, 4, 0, 4, 0, 0, () => EvaluationFormScoringStrategy$, () => EvaluationFormAutoEvaluationConfiguration$, () => EvaluationReviewConfiguration$, 128 | 0, () => EvaluationFormTargetConfiguration$, () => EvaluationFormLanguageConfiguration$], 11
+  [_EFI, _EFV, _L, _EFA, _Ti, _St, _It, _CTre, _CB, _LMT, _LMB, _D, _SS, _AEC, _RCe, _Ta, _TCar, _LCa, _LVS, _LVT],
+  [0, 1, 2, 0, 0, 0, () => EvaluationFormItemsList, 4, 0, 4, 0, 0, () => EvaluationFormScoringStrategy$, () => EvaluationFormAutoEvaluationConfiguration$, () => EvaluationReviewConfiguration$, 128 | 0, () => EvaluationFormTargetConfiguration$, () => EvaluationFormLanguageConfiguration$, 0, 4], 11
 ];
 export var EvaluationFormAutoEvaluationConfiguration$: StaticStructureSchema = [3, n0, _EFAEC,
   0,
@@ -5322,8 +5386,8 @@ export var EvaluationFormMultiSelectQuestionAutomation$: StaticStructureSchema =
 ];
 export var EvaluationFormMultiSelectQuestionOption$: StaticStructureSchema = [3, n0, _EFMSQO,
   0,
-  [_RIef, _Te],
-  [0, 0], 2
+  [_RIef, _Te, _Sco, _AFut, _AFCu, _PCo],
+  [0, 0, 1, 2, () => AutomaticFailConfiguration$, () => QuestionOptionPointsConfiguration$], 2
 ];
 export var EvaluationFormMultiSelectQuestionProperties$: StaticStructureSchema = [3, n0, _EFMSQP,
   0,
@@ -5332,8 +5396,8 @@ export var EvaluationFormMultiSelectQuestionProperties$: StaticStructureSchema =
 ];
 export var EvaluationFormNumericQuestionOption$: StaticStructureSchema = [3, n0, _EFNQO,
   0,
-  [_MV, _MVa, _Sco, _AFut, _AFCu],
-  [1, 1, 1, 2, () => AutomaticFailConfiguration$], 2
+  [_MV, _MVa, _Sco, _AFut, _AFCu, _PCo],
+  [1, 1, 1, 2, () => AutomaticFailConfiguration$, () => QuestionOptionPointsConfiguration$], 2
 ];
 export var EvaluationFormNumericQuestionProperties$: StaticStructureSchema = [3, n0, _EFNQP,
   0,
@@ -5342,18 +5406,28 @@ export var EvaluationFormNumericQuestionProperties$: StaticStructureSchema = [3,
 ];
 export var EvaluationFormQuestion$: StaticStructureSchema = [3, n0, _EFQ,
   0,
-  [_Ti, _RIef, _QT, _Ins, _NAE, _QTP, _Ena, _We],
-  [0, 0, 0, 0, 2, () => EvaluationFormQuestionTypeProperties$, () => EvaluationFormItemEnablementConfiguration$, 1], 3
+  [_Ti, _RIef, _QT, _Ins, _NAE, _QTP, _Ena, _We, _SCc],
+  [0, 0, 0, 0, 2, () => EvaluationFormQuestionTypeProperties$, () => EvaluationFormItemEnablementConfiguration$, 1, () => EvaluationFormQuestionScoringConfiguration$], 3
 ];
 export var EvaluationFormQuestionAutomationAnswerSource$: StaticStructureSchema = [3, n0, _EFQAAS,
   0,
   [_STo],
   [0], 1
 ];
+export var EvaluationFormQuestionScoringConfiguration$: StaticStructureSchema = [3, n0, _EFQSC,
+  0,
+  [_PCo, _IEFS, _STco],
+  [() => QuestionPointsConfiguration$, 2, () => EvaluationFormScoreThresholdList]
+];
+export var EvaluationFormScoreThreshold$: StaticStructureSchema = [3, n0, _EFST,
+  0,
+  [_PCe, _MSP, _MSPa],
+  [0, 1, 1], 1
+];
 export var EvaluationFormScoringStrategy$: StaticStructureSchema = [3, n0, _EFSS,
   0,
-  [_Mo, _St],
-  [0, 0], 2
+  [_Mo, _St, _STco],
+  [0, 0, () => EvaluationFormScoreThresholdList], 2
 ];
 export var EvaluationFormSearchCriteria$: StaticStructureSchema = [3, n0, _EFSC,
   0,
@@ -5367,13 +5441,13 @@ export var EvaluationFormSearchFilter$: StaticStructureSchema = [3, n0, _EFSF,
 ];
 export var EvaluationFormSearchSummary$: StaticStructureSchema = [3, n0, _EFSSv,
   0,
-  [_EFI, _EFA, _Ti, _St, _CTre, _CB, _LMT, _LMB, _LVa, _D, _LAT, _LAB, _AV, _AEE, _EFL, _CIT, _Ta],
+  [_EFI, _EFA, _Ti, _St, _CTre, _CB, _LMT, _LMB, _LVa, _D, _LAT, _LAB, _AVc, _AEE, _EFL, _CIT, _Ta],
   [0, 0, 0, 0, 4, 0, 4, 0, 1, 0, 4, 0, 1, 2, 0, 0, 128 | 0], 9
 ];
 export var EvaluationFormSection$: StaticStructureSchema = [3, n0, _EFS,
   0,
-  [_Ti, _RIef, _It, _Ins, _We],
-  [0, 0, () => EvaluationFormItemsList, 0, 1], 3
+  [_Ti, _RIef, _It, _Ins, _We, _IEFS, _STco],
+  [0, 0, () => EvaluationFormItemsList, 0, 1, 2, () => EvaluationFormScoreThresholdList], 3
 ];
 export var EvaluationFormSingleSelectQuestionAutomation$: StaticStructureSchema = [3, n0, _EFSSQA,
   0,
@@ -5382,8 +5456,8 @@ export var EvaluationFormSingleSelectQuestionAutomation$: StaticStructureSchema 
 ];
 export var EvaluationFormSingleSelectQuestionOption$: StaticStructureSchema = [3, n0, _EFSSQO,
   0,
-  [_RIef, _Te, _Sco, _AFut, _AFCu],
-  [0, 0, 1, 2, () => AutomaticFailConfiguration$], 2
+  [_RIef, _Te, _Sco, _AFut, _AFCu, _PCo],
+  [0, 0, 1, 2, () => AutomaticFailConfiguration$, () => QuestionOptionPointsConfiguration$], 2
 ];
 export var EvaluationFormSingleSelectQuestionProperties$: StaticStructureSchema = [3, n0, _EFSSQP,
   0,
@@ -5392,7 +5466,7 @@ export var EvaluationFormSingleSelectQuestionProperties$: StaticStructureSchema 
 ];
 export var EvaluationFormSummary$: StaticStructureSchema = [3, n0, _EFSv,
   0,
-  [_EFI, _EFA, _Ti, _CTre, _CB, _LMT, _LMB, _LVa, _LAT, _LAB, _AV],
+  [_EFI, _EFA, _Ti, _CTre, _CB, _LMT, _LMB, _LVa, _LAT, _LAB, _AVc],
   [0, 0, 0, 4, 0, 4, 0, 1, 4, 0, 1], 8
 ];
 export var EvaluationFormTargetConfiguration$: StaticStructureSchema = [3, n0, _EFTC,
@@ -5409,6 +5483,16 @@ export var EvaluationFormTextQuestionProperties$: StaticStructureSchema = [3, n0
   0,
   [_Aut],
   [() => EvaluationFormTextQuestionAutomation$]
+];
+export var EvaluationFormValidationFinding$: StaticStructureSchema = [3, n0, _EFVF,
+  0,
+  [_IC, _D, _Sev, _It, _Sug],
+  [0, 0, 0, () => EvaluationFormValidationFindingItemList, 0], 3
+];
+export var EvaluationFormValidationFindingItem$: StaticStructureSchema = [3, n0, _EFVFI,
+  0,
+  [_RIef, _Prop],
+  [0, 0]
 ];
 export var EvaluationFormVersionSummary$: StaticStructureSchema = [3, n0, _EFVS,
   0,
@@ -5462,8 +5546,8 @@ export var EvaluationReviewRequestComment$: StaticStructureSchema = [3, n0, _ERR
 ];
 export var EvaluationScore$: StaticStructureSchema = [3, n0, _ES,
   0,
-  [_Per, _NAo, _AFut, _AW],
-  [1, 2, 2, 1]
+  [_Per, _NAo, _AFut, _AW, _EPa, _MBP, _PCe],
+  [1, 2, 2, 1, 1, 1, 0]
 ];
 export var EvaluationSearchCriteria$: StaticStructureSchema = [3, n0, _ESC,
   0,
@@ -5472,13 +5556,13 @@ export var EvaluationSearchCriteria$: StaticStructureSchema = [3, n0, _ESC,
 ];
 export var EvaluationSearchFilter$: StaticStructureSchema = [3, n0, _ESF,
   0,
-  [_AFt],
-  [() => ControlPlaneAttributeFilter$]
+  [_AFt, _CEAF],
+  [() => ControlPlaneAttributeFilter$, () => ContactEvaluationAttributeFilter$]
 ];
 export var EvaluationSearchMetadata$: StaticStructureSchema = [3, n0, _ESM,
   0,
-  [_CI, _EAval, _CAIo, _CSI, _SPc, _SAF, _SNA, _AEE, _AES, _ATck, _AB, _ACc, _SJI, _RIev, _CPRo, _CPI],
-  [0, 0, 0, 0, 1, 2, 2, 2, 0, 4, 0, 0, 0, 0, 0, 0], 2
+  [_CI, _EAval, _CAIo, _CSI, _SPc, _SAF, _SNA, _AEE, _AES, _ATck, _AB, _ACc, _SJI, _RIev, _CPRo, _CPI, _EPa, _MBP, _PCe],
+  [0, 0, 0, 0, 1, 2, 2, 2, 0, 4, 0, 0, 0, 0, 0, 0, 1, 1, 0], 2
 ];
 export var EvaluationSearchSummary$: StaticStructureSchema = [3, n0, _ESS,
   0,
@@ -5650,6 +5734,16 @@ export var GetEffectiveHoursOfOperationsResponse$: StaticStructureSchema = [3, n
   [_EHOOL, _EOHL, _TZ],
   [() => EffectiveHoursOfOperationList, () => EffectiveOverrideHoursList, 0]
 ];
+export var GetEvaluationFormValidationRequest$: StaticStructureSchema = [3, n0, _GEFVR,
+  0,
+  [_II, _EFI, _EFV],
+  [[0, 1], [0, 1], [1, { [_hQ]: _v }]], 2
+];
+export var GetEvaluationFormValidationResponse$: StaticStructureSchema = [3, n0, _GEFVRe,
+  0,
+  [_St, _EFI, _EFV, _STtar, _FRa, _Fin],
+  [0, 0, 1, 4, 0, () => EvaluationFormValidationFindingList], 4
+];
 export var GetFederationTokenRequest$: StaticStructureSchema = [3, n0, _GFTR,
   0,
   [_II],
@@ -5672,7 +5766,7 @@ export var GetFlowAssociationResponse$: StaticStructureSchema = [3, n0, _GFARe,
 ];
 export var GetMetricDataRequest$: StaticStructureSchema = [3, n0, _GMDR,
   0,
-  [_II, _STtar, _ETnd, _Fil, _HM, _G, _NT, _MR],
+  [_II, _STtart, _ETnd, _Fil, _HM, _G, _NT, _MR],
   [[0, 1], 4, 4, () => Filters$, () => HistoricalMetrics, 64 | 0, 0, 1], 5
 ];
 export var GetMetricDataResponse$: StaticStructureSchema = [3, n0, _GMDRe,
@@ -5682,7 +5776,7 @@ export var GetMetricDataResponse$: StaticStructureSchema = [3, n0, _GMDRe,
 ];
 export var GetMetricDataV2Request$: StaticStructureSchema = [3, n0, _GMDVR,
   0,
-  [_RAe, _STtar, _ETnd, _Fil, _Metr, _Int, _G, _NT, _MR],
+  [_RAe, _STtart, _ETnd, _Fil, _Metr, _Int, _G, _NT, _MR],
   [0, 4, 4, () => FiltersV2List, () => MetricsV2, () => IntervalDetails$, 64 | 0, 0, 1], 5
 ];
 export var GetMetricDataV2Response$: StaticStructureSchema = [3, n0, _GMDVRe,
@@ -5717,7 +5811,7 @@ export var GetTestCaseExecutionSummaryRequest$: StaticStructureSchema = [3, n0, 
 ];
 export var GetTestCaseExecutionSummaryResponse$: StaticStructureSchema = [3, n0, _GTCESRe,
   0,
-  [_STtar, _ETnd, _St, _OSb],
+  [_STtart, _ETnd, _St, _OSb],
   [4, 4, 0, () => ObservationSummary$]
 ];
 export var GetTrafficDistributionRequest$: StaticStructureSchema = [3, n0, _GTDR,
@@ -5817,7 +5911,7 @@ export var HoursOfOperation$: StaticStructureSchema = [3, n0, _HOO,
 ];
 export var HoursOfOperationConfig$: StaticStructureSchema = [3, n0, _HOOC,
   0,
-  [_Day, _STtar, _ETnd],
+  [_Day, _STtart, _ETnd],
   [0, () => HoursOfOperationTimeSlice$, () => HoursOfOperationTimeSlice$], 3
 ];
 export var HoursOfOperationOverride$: StaticStructureSchema = [3, n0, _HOOO,
@@ -5827,7 +5921,7 @@ export var HoursOfOperationOverride$: StaticStructureSchema = [3, n0, _HOOO,
 ];
 export var HoursOfOperationOverrideConfig$: StaticStructureSchema = [3, n0, _HOOOC,
   0,
-  [_Day, _STtar, _ETnd],
+  [_Day, _STtart, _ETnd],
   [0, () => OverrideTimeSlice$, () => OverrideTimeSlice$]
 ];
 export var HoursOfOperationOverrideSearchCriteria$: StaticStructureSchema = [3, n0, _HOOOSC,
@@ -6532,7 +6626,7 @@ export var ListTestCaseExecutionRecordsResponse$: StaticStructureSchema = [3, n0
 ];
 export var ListTestCaseExecutionsRequest$: StaticStructureSchema = [3, n0, _LTCER,
   0,
-  [_II, _TCI, _TCN, _STtar, _ETnd, _St, _NT, _MR],
+  [_II, _TCI, _TCN, _STtart, _ETnd, _St, _NT, _MR],
   [[0, 1], [0, { [_hQ]: _tCI }], [0, { [_hQ]: _tCN }], [1, { [_hQ]: _sT }], [1, { [_hQ]: _eT }], [0, { [_hQ]: _st }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListTestCaseExecutionsResponse$: StaticStructureSchema = [3, n0, _LTCERi,
@@ -6712,7 +6806,7 @@ export var MetricFilterV2$: StaticStructureSchema = [3, n0, _MFV,
 ];
 export var MetricInterval$: StaticStructureSchema = [3, n0, _MIet,
   0,
-  [_Int, _STtar, _ETnd],
+  [_Int, _STtart, _ETnd],
   [0, 4, 4]
 ];
 export var MetricResultV2$: StaticStructureSchema = [3, n0, _MRV,
@@ -6920,14 +7014,14 @@ export var PauseContactResponse$: StaticStructureSchema = [3, n0, _PCRa,
   [],
   []
 ];
-export var PersistentChat$: StaticStructureSchema = [3, n0, _PCe,
+export var PersistentChat$: StaticStructureSchema = [3, n0, _PCer,
   0,
   [_RTe, _SCI],
   [0, 0]
 ];
 export var PersistentConnectionConfig$: StaticStructureSchema = [3, n0, _PCCe,
   0,
-  [_C, _PCer],
+  [_C, _PCers],
   [0, 2], 2
 ];
 export var PhoneNumberConfig$: StaticStructureSchema = [3, n0, _PNCh,
@@ -6957,7 +7051,7 @@ export var PostAcceptTimeoutConfig$: StaticStructureSchema = [3, n0, _PATC,
 ];
 export var PredefinedAttribute$: StaticStructureSchema = [3, n0, _PA,
   0,
-  [_N, _Va, _Pu, _ACtt, _LMT, _LMR],
+  [_N, _Va, _Pu, _ACttr, _LMT, _LMR],
   [0, () => PredefinedAttributeValues$, 64 | 0, () => PredefinedAttributeConfiguration$, 4, 0]
 ];
 export var PredefinedAttributeConfiguration$: StaticStructureSchema = [3, n0, _PAC,
@@ -7049,6 +7143,16 @@ export var QualityMetrics$: StaticStructureSchema = [3, n0, _QM,
   0,
   [_Ag, _Cu],
   [() => AgentQualityMetrics$, () => CustomerQualityMetrics$]
+];
+export var QuestionOptionPointsConfiguration$: StaticStructureSchema = [3, n0, _QOPC,
+  0,
+  [_PVo, _IB],
+  [1, 2], 1
+];
+export var QuestionPointsConfiguration$: StaticStructureSchema = [3, n0, _QPC,
+  0,
+  [_MPV, _MPVi, _IB],
+  [1, 1, 2]
 ];
 export var Queue$: StaticStructureSchema = [3, n0, _Q,
   0,
@@ -7482,7 +7586,7 @@ export var SearchContactsResponse$: StaticStructureSchema = [3, n0, _SCRe,
 ];
 export var SearchContactsTimeRange$: StaticStructureSchema = [3, n0, _SCTR,
   0,
-  [_T, _STtar, _ETnd],
+  [_T, _STtart, _ETnd],
   [0, 4, 4], 3
 ];
 export var SearchContactsTimestampCondition$: StaticStructureSchema = [3, n0, _SCTC,
@@ -7797,7 +7901,7 @@ export var StartAttachedFileUploadResponse$: StaticStructureSchema = [3, n0, _SA
 ];
 export var StartChatContactRequest$: StaticStructureSchema = [3, n0, _SCCR,
   0,
-  [_II, _CFI, _PD, _Attr, _PCart, _IMni, _CT, _CDIM, _SMCT, _PCe, _RCI, _SAe, _CIu, _DOCE],
+  [_II, _CFI, _PD, _Attr, _PCart, _IMni, _CT, _CDIM, _SMCT, _PCer, _RCI, _SAe, _CIu, _DOCE],
   [0, 0, () => ParticipantDetails$, 128 | 0, () => ParticipantConfiguration$, () => ChatMessage$, [0, 4], 1, 64 | 0, () => PersistentChat$, 0, () => SegmentAttributes, [() => CustomerIdNonEmpty, 0], 64 | 0], 3
 ];
 export var StartChatContactResponse$: StaticStructureSchema = [3, n0, _SCCRt,
@@ -7854,6 +7958,16 @@ export var StartEmailContactResponse$: StaticStructureSchema = [3, n0, _SECRt,
   0,
   [_CI],
   [0]
+];
+export var StartEvaluationFormValidationRequest$: StaticStructureSchema = [3, n0, _SEFVR,
+  0,
+  [_II, _EFI, _EFV],
+  [[0, 1], [0, 1], 1], 3
+];
+export var StartEvaluationFormValidationResponse$: StaticStructureSchema = [3, n0, _SEFVRt,
+  0,
+  [_EFI, _EFA, _EFV],
+  [0, 0, 1], 3
 ];
 export var StartOutboundChatContactRequest$: StaticStructureSchema = [3, n0, _SOCCR,
   0,
@@ -8132,7 +8246,7 @@ export var TestCaseEntryPoint$: StaticStructureSchema = [3, n0, _TCEP,
 ];
 export var TestCaseExecution$: StaticStructureSchema = [3, n0, _TCEe,
   0,
-  [_STtar, _ETnd, _TCEI, _TCI, _TCES, _Ta],
+  [_STtart, _ETnd, _TCEI, _TCI, _TCES, _Ta],
   [4, 4, 0, 0, 0, 128 | 0]
 ];
 export var TestCaseSearchCriteria$: StaticStructureSchema = [3, n0, _TCSC,
@@ -8462,7 +8576,7 @@ export var UpdatePhoneNumberResponse$: StaticStructureSchema = [3, n0, _UPNRp,
 ];
 export var UpdatePredefinedAttributeRequest$: StaticStructureSchema = [3, n0, _UPARpd,
   0,
-  [_II, _N, _Va, _Pu, _ACtt],
+  [_II, _N, _Va, _Pu, _ACttr],
   [[0, 1], [0, 1], () => PredefinedAttributeValues$, 64 | 0, () => InputPredefinedAttributeConfiguration$], 2
 ];
 export var UpdatePromptRequest$: StaticStructureSchema = [3, n0, _UPR,
@@ -8757,17 +8871,17 @@ export var UserNotificationSummary$: StaticStructureSchema = [3, n0, _UNS,
 ];
 export var UserPhoneConfig$: StaticStructureSchema = [3, n0, _UPC,
   0,
-  [_PTh, _AA, _ACWTL, _DPNe, _PCer],
+  [_PTh, _AA, _ACWTL, _DPNe, _PCers],
   [0, 2, 1, [() => SensitivePhoneNumber, 0], 2]
 ];
 export var UserProficiency$: StaticStructureSchema = [3, n0, _UPs,
   0,
-  [_AN, _AVt, _Level__],
+  [_AN, _AV, _Level__],
   [0, 0, 1], 3
 ];
 export var UserProficiencyDisassociate$: StaticStructureSchema = [3, n0, _UPD,
   0,
-  [_AN, _AVt],
+  [_AN, _AV],
   [0, 0], 2
 ];
 export var UserQuickConnectConfig$: StaticStructureSchema = [3, n0, _UQCC,
@@ -8802,7 +8916,7 @@ export var UserSummary$: StaticStructureSchema = [3, n0, _US,
 ];
 export var Validation$: StaticStructureSchema = [3, n0, _Val,
   0,
-  [_ML, _MLa, _MVi, _MVax, _IC, _Min, _Ma, _EMx, _EMxc, _MOu, _Enu],
+  [_ML, _MLa, _MVi, _MVax, _ICg, _Min, _Ma, _EMx, _EMxc, _MOu, _Enu],
   [1, 1, 1, 1, 2, 1, 1, 1, 1, 1, () => ValidationEnum$]
 ];
 export var ValidationEnum$: StaticStructureSchema = [3, n0, _VE,
@@ -9068,6 +9182,12 @@ var Conditions: StaticListSchema = [1, n0, _Cond,
 var ContactDataRequestList: StaticListSchema = [1, n0, _CDRL,
   0, () => ContactDataRequest$
 ];
+var ContactEvaluationAttributeConditionList: StaticListSchema = [1, n0, _CEACL,
+  0, () => ContactEvaluationAttributeCondition$
+];
+var ContactEvaluationAttributeOrConditionList: StaticListSchema = [1, n0, _CEAOCL,
+  0, () => ContactEvaluationAttributeAndCondition$
+];
 var ContactFlowAttributeOrConditionList: StaticListSchema = [1, n0, _CFAOCL,
   0, () => ContactFlowAttributeAndCondition$
 ];
@@ -9216,6 +9336,9 @@ var EvaluationFormMultiSelectQuestionOptionList: StaticListSchema = [1, n0, _EFM
 var EvaluationFormNumericQuestionOptionList: StaticListSchema = [1, n0, _EFNQOL,
   0, () => EvaluationFormNumericQuestionOption$
 ];
+var EvaluationFormScoreThresholdList: StaticListSchema = [1, n0, _EFSTL,
+  0, () => EvaluationFormScoreThreshold$
+];
 var EvaluationFormSearchConditionList: StaticListSchema = [1, n0, _EFSCL,
   0, () => EvaluationFormSearchCriteria$
 ];
@@ -9230,6 +9353,12 @@ var EvaluationFormSingleSelectQuestionOptionList: StaticListSchema = [1, n0, _EF
 ];
 var EvaluationFormSummaryList: StaticListSchema = [1, n0, _EFSL,
   0, () => EvaluationFormSummary$
+];
+var EvaluationFormValidationFindingItemList: StaticListSchema = [1, n0, _EFVFIL,
+  0, () => EvaluationFormValidationFindingItem$
+];
+var EvaluationFormValidationFindingList: StaticListSchema = [1, n0, _EFVFL,
+  0, () => EvaluationFormValidationFinding$
 ];
 var EvaluationFormVersionSummaryList: StaticListSchema = [1, n0, _EFVSL,
   0, () => EvaluationFormVersionSummary$
@@ -10383,6 +10512,9 @@ export var GetCurrentUserData$: StaticOperationSchema = [9, n0, _GCUD,
 export var GetEffectiveHoursOfOperations$: StaticOperationSchema = [9, n0, _GEHOO,
   { [_h]: ["GET", "/effective-hours-of-operations/{InstanceId}/{HoursOfOperationId}", 200] }, () => GetEffectiveHoursOfOperationsRequest$, () => GetEffectiveHoursOfOperationsResponse$
 ];
+export var GetEvaluationFormValidation$: StaticOperationSchema = [9, n0, _GEFV,
+  { [_h]: ["GET", "/evaluation-forms/{InstanceId}/{EvaluationFormId}/validation-results", 200] }, () => GetEvaluationFormValidationRequest$, () => GetEvaluationFormValidationResponse$
+];
 export var GetFederationToken$: StaticOperationSchema = [9, n0, _GFT,
   { [_h]: ["GET", "/user/federate/{InstanceId}", 200] }, () => GetFederationTokenRequest$, () => GetFederationTokenResponse$
 ];
@@ -10745,6 +10877,9 @@ export var StartContactStreaming$: StaticOperationSchema = [9, n0, _SCS,
 ];
 export var StartEmailContact$: StaticOperationSchema = [9, n0, _SEC,
   { [_h]: ["PUT", "/contact/email", 200] }, () => StartEmailContactRequest$, () => StartEmailContactResponse$
+];
+export var StartEvaluationFormValidation$: StaticOperationSchema = [9, n0, _SEFV,
+  { [_h]: ["POST", "/evaluation-forms/{InstanceId}/{EvaluationFormId}/validate", 200] }, () => StartEvaluationFormValidationRequest$, () => StartEvaluationFormValidationResponse$
 ];
 export var StartOutboundChatContact$: StaticOperationSchema = [9, n0, _SOCC,
   { [_h]: ["PUT", "/contact/outbound-chat", 200] }, () => StartOutboundChatContactRequest$, () => StartOutboundChatContactResponse$

@@ -833,6 +833,11 @@ import {
   GetEffectiveHoursOfOperationsCommand,
 } from "./commands/GetEffectiveHoursOfOperationsCommand";
 import {
+  type GetEvaluationFormValidationCommandInput,
+  type GetEvaluationFormValidationCommandOutput,
+  GetEvaluationFormValidationCommand,
+} from "./commands/GetEvaluationFormValidationCommand";
+import {
   type GetFederationTokenCommandInput,
   type GetFederationTokenCommandOutput,
   GetFederationTokenCommand,
@@ -1421,6 +1426,11 @@ import {
   type StartEmailContactCommandOutput,
   StartEmailContactCommand,
 } from "./commands/StartEmailContactCommand";
+import {
+  type StartEvaluationFormValidationCommandInput,
+  type StartEvaluationFormValidationCommandOutput,
+  StartEvaluationFormValidationCommand,
+} from "./commands/StartEvaluationFormValidationCommand";
 import {
   type StartOutboundChatContactCommandInput,
   type StartOutboundChatContactCommandOutput,
@@ -2095,6 +2105,7 @@ const commands = {
   GetCurrentMetricDataCommand,
   GetCurrentUserDataCommand,
   GetEffectiveHoursOfOperationsCommand,
+  GetEvaluationFormValidationCommand,
   GetFederationTokenCommand,
   GetFlowAssociationCommand,
   GetMetricDataCommand,
@@ -2216,6 +2227,7 @@ const commands = {
   StartContactRecordingCommand,
   StartContactStreamingCommand,
   StartEmailContactCommand,
+  StartEvaluationFormValidationCommand,
   StartOutboundChatContactCommand,
   StartOutboundEmailContactCommand,
   StartOutboundVoiceContactCommand,
@@ -5213,6 +5225,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link GetEvaluationFormValidationCommand}
+   */
+  getEvaluationFormValidation(
+    args: GetEvaluationFormValidationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetEvaluationFormValidationCommandOutput>;
+  getEvaluationFormValidation(
+    args: GetEvaluationFormValidationCommandInput,
+    cb: (err: any, data?: GetEvaluationFormValidationCommandOutput) => void
+  ): void;
+  getEvaluationFormValidation(
+    args: GetEvaluationFormValidationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetEvaluationFormValidationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetFederationTokenCommand}
    */
   getFederationToken(
@@ -7271,6 +7300,23 @@ export interface Connect {
     args: StartEmailContactCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartEmailContactCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartEvaluationFormValidationCommand}
+   */
+  startEvaluationFormValidation(
+    args: StartEvaluationFormValidationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartEvaluationFormValidationCommandOutput>;
+  startEvaluationFormValidation(
+    args: StartEvaluationFormValidationCommandInput,
+    cb: (err: any, data?: StartEvaluationFormValidationCommandOutput) => void
+  ): void;
+  startEvaluationFormValidation(
+    args: StartEvaluationFormValidationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartEvaluationFormValidationCommandOutput) => void
   ): void;
 
   /**

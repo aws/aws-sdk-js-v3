@@ -60,6 +60,9 @@ export interface ListContactEvaluationsCommandOutput extends ListContactEvaluati
  * //         NotApplicable: true || false,
  * //         AutomaticFail: true || false,
  * //         AppliedWeight: Number("double"),
+ * //         EarnedPoints: Number("int"),
+ * //         MaxBasePoint: Number("int"),
+ * //         PerformanceCategory: "NEEDS_IMPROVEMENT" || "EXCEEDS_EXPECTATIONS",
  * //       },
  * //       Acknowledgement: { // EvaluationAcknowledgementSummary
  * //         AcknowledgedTime: new Date("TIMESTAMP"),

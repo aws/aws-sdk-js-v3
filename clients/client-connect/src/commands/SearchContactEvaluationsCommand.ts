@@ -156,6 +156,40 @@ export interface SearchContactEvaluationsCommandOutput extends SearchContactEval
  *       },
  *       TagCondition: "<TagCondition>",
  *     },
+ *     ContactEvaluationAttributeFilter: { // ContactEvaluationAttributeFilter
+ *       OrConditions: [ // ContactEvaluationAttributeOrConditionList
+ *         { // ContactEvaluationAttributeAndCondition
+ *           TagConditions: [
+ *             "<TagCondition>",
+ *           ],
+ *           AttributeConditions: [ // ContactEvaluationAttributeConditionList
+ *             { // ContactEvaluationAttributeCondition
+ *               AttributeKey: "ContactAgentId",
+ *               AttributeValue: { // ContactEvaluationAttributeValue
+ *                 StringValue: "STRING_VALUE",
+ *               },
+ *               ComparisonType: "EXACT",
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       AndCondition: {
+ *         TagConditions: [
+ *           "<TagCondition>",
+ *         ],
+ *         AttributeConditions: [
+ *           {
+ *             AttributeKey: "ContactAgentId",
+ *             AttributeValue: {
+ *               StringValue: "STRING_VALUE",
+ *             },
+ *             ComparisonType: "EXACT",
+ *           },
+ *         ],
+ *       },
+ *       TagCondition: "<TagCondition>",
+ *       ContactEvaluationAttributeCondition: "<ContactEvaluationAttributeCondition>",
+ *     },
  *   },
  * };
  * const command = new SearchContactEvaluationsCommand(input);
@@ -185,6 +219,9 @@ export interface SearchContactEvaluationsCommandOutput extends SearchContactEval
  * //         ReviewId: "STRING_VALUE",
  * //         ContactParticipantRole: "AGENT" || "SYSTEM" || "CUSTOM_BOT" || "CUSTOMER",
  * //         ContactParticipantId: "STRING_VALUE",
+ * //         EarnedPoints: Number("int"),
+ * //         MaxBasePoint: Number("int"),
+ * //         PerformanceCategory: "NEEDS_IMPROVEMENT" || "EXCEEDS_EXPECTATIONS",
  * //       },
  * //       Status: "DRAFT" || "SUBMITTED" || "REVIEW_REQUESTED" || "UNDER_REVIEW", // required
  * //       EvaluationType: "STANDARD" || "CALIBRATION",
