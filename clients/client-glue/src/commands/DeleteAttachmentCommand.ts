@@ -37,13 +37,15 @@ export interface DeleteAttachmentCommandOutput extends DeleteAttachmentResponse,
  * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // DeleteAttachmentRequest
- *   Identifier: "STRING_VALUE", // required
+ *   AssetIdentifier: "STRING_VALUE", // required
+ *   IterableFormName: "STRING_VALUE",
+ *   ItemIdentifier: "STRING_VALUE",
  *   AttachmentName: "STRING_VALUE", // required
  * };
  * const command = new DeleteAttachmentCommand(input);
  * const response = await client.send(command);
  * // { // DeleteAttachmentResponse
- * //   Identifier: "STRING_VALUE",
+ * //   AssetIdentifier: "STRING_VALUE",
  * // };
  *
  * ```

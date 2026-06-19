@@ -5,9 +5,9 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import type { SearchOutput } from "../models/models_2";
-import type { SearchInput } from "../models/models_3";
-import { Search$ } from "../schemas/schemas_0";
+import type { SearchAssetsOutput } from "../models/models_2";
+import type { SearchAssetsInput } from "../models/models_3";
+import { SearchAssets$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -17,27 +17,27 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link SearchCommand}.
+ * The input for {@link SearchAssetsCommand}.
  */
-export interface SearchCommandInput extends SearchInput {}
+export interface SearchAssetsCommandInput extends SearchAssetsInput {}
 /**
  * @public
  *
- * The output of {@link SearchCommand}.
+ * The output of {@link SearchAssetsCommand}.
  */
-export interface SearchCommandOutput extends SearchOutput, __MetadataBearer {}
+export interface SearchAssetsCommandOutput extends SearchAssetsOutput, __MetadataBearer {}
 
 /**
  * <p>Searches for assets in Glue Data Catalog using full-text search, filters, sorting, and aggregations. Returns matching assets with relevance-ranked results.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, SearchCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, SearchCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, SearchAssetsCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, SearchAssetsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
  * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
- * const input = { // SearchInput
+ * const input = { // SearchAssetsInput
  *   SearchText: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
@@ -91,9 +91,9 @@ export interface SearchCommandOutput extends SearchOutput, __MetadataBearer {}
  *     },
  *   },
  * };
- * const command = new SearchCommand(input);
+ * const command = new SearchAssetsCommand(input);
  * const response = await client.send(command);
- * // { // SearchOutput
+ * // { // SearchAssetsOutput
  * //   Items: [ // SearchResultItemList
  * //     { // SearchResultItem
  * //       Id: "STRING_VALUE",
@@ -108,10 +108,10 @@ export interface SearchCommandOutput extends SearchOutput, __MetadataBearer {}
  *
  * ```
  *
- * @param SearchCommandInput - {@link SearchCommandInput}
- * @returns {@link SearchCommandOutput}
- * @see {@link SearchCommandInput} for command's `input` shape.
- * @see {@link SearchCommandOutput} for command's `response` shape.
+ * @param SearchAssetsCommandInput - {@link SearchAssetsCommandInput}
+ * @returns {@link SearchAssetsCommandOutput}
+ * @see {@link SearchAssetsCommandInput} for command's `input` shape.
+ * @see {@link SearchAssetsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -132,10 +132,10 @@ export interface SearchCommandOutput extends SearchOutput, __MetadataBearer {}
  *
  * @public
  */
-export class SearchCommand extends $Command
+export class SearchAssetsCommand extends $Command
   .classBuilder<
-    SearchCommandInput,
-    SearchCommandOutput,
+    SearchAssetsCommandInput,
+    SearchAssetsCommandOutput,
     GlueClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -144,19 +144,19 @@ export class SearchCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("AWSGlue", "Search", {})
-  .n("GlueClient", "SearchCommand")
-  .sc(Search$)
+  .s("AWSGlue", "SearchAssets", {})
+  .n("GlueClient", "SearchAssetsCommand")
+  .sc(SearchAssets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: SearchInput;
-      output: SearchOutput;
+      input: SearchAssetsInput;
+      output: SearchAssetsOutput;
     };
     sdk: {
-      input: SearchCommandInput;
-      output: SearchCommandOutput;
+      input: SearchAssetsCommandInput;
+      output: SearchAssetsCommandOutput;
     };
   };
 }

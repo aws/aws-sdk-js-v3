@@ -37,7 +37,7 @@ export interface DisassociateGlossaryTermsCommandOutput extends DisassociateGlos
  * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // DisassociateGlossaryTermsRequest
- *   Identifier: "STRING_VALUE", // required
+ *   AssetIdentifier: "STRING_VALUE", // required
  *   GlossaryTermIdentifiers: [ // GlossaryTermIdList // required
  *     "STRING_VALUE",
  *   ],
@@ -46,7 +46,7 @@ export interface DisassociateGlossaryTermsCommandOutput extends DisassociateGlos
  * const command = new DisassociateGlossaryTermsCommand(input);
  * const response = await client.send(command);
  * // { // DisassociateGlossaryTermsResponse
- * //   Identifier: "STRING_VALUE",
+ * //   AssetIdentifier: "STRING_VALUE",
  * //   GlossaryTerms: [ // GlossaryTermIdList
  * //     "STRING_VALUE",
  * //   ],

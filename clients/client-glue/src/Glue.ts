@@ -1135,7 +1135,11 @@ import {
   type RunStatementCommandOutput,
   RunStatementCommand,
 } from "./commands/RunStatementCommand";
-import { type SearchCommandInput, type SearchCommandOutput, SearchCommand } from "./commands/SearchCommand";
+import {
+  type SearchAssetsCommandInput,
+  type SearchAssetsCommandOutput,
+  SearchAssetsCommand,
+} from "./commands/SearchAssetsCommand";
 import {
   type SearchTablesCommandInput,
   type SearchTablesCommandOutput,
@@ -1472,7 +1476,7 @@ import { paginateListTableOptimizerRuns } from "./pagination/ListTableOptimizerR
 import { paginateListTriggers } from "./pagination/ListTriggersPaginator";
 import { paginateListUsageProfiles } from "./pagination/ListUsageProfilesPaginator";
 import { paginateListWorkflows } from "./pagination/ListWorkflowsPaginator";
-import { paginateSearch } from "./pagination/SearchPaginator";
+import { paginateSearchAssets } from "./pagination/SearchAssetsPaginator";
 import { paginateSearchTables } from "./pagination/SearchTablesPaginator";
 
 const commands = {
@@ -1713,7 +1717,7 @@ const commands = {
   ResetJobBookmarkCommand,
   ResumeWorkflowRunCommand,
   RunStatementCommand,
-  SearchCommand,
+  SearchAssetsCommand,
   SearchTablesCommand,
   StartBlueprintRunCommand,
   StartColumnStatisticsTaskRunCommand,
@@ -1823,7 +1827,7 @@ const paginators = {
   paginateListTriggers,
   paginateListUsageProfiles,
   paginateListWorkflows,
-  paginateSearch,
+  paginateSearchAssets,
   paginateSearchTables,
 };
 
@@ -5909,21 +5913,21 @@ export interface Glue {
   ): void;
 
   /**
-   * @see {@link SearchCommand}
+   * @see {@link SearchAssetsCommand}
    */
-  search(): Promise<SearchCommandOutput>;
-  search(
-    args: SearchCommandInput,
+  searchAssets(): Promise<SearchAssetsCommandOutput>;
+  searchAssets(
+    args: SearchAssetsCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<SearchCommandOutput>;
-  search(
-    args: SearchCommandInput,
-    cb: (err: any, data?: SearchCommandOutput) => void
+  ): Promise<SearchAssetsCommandOutput>;
+  searchAssets(
+    args: SearchAssetsCommandInput,
+    cb: (err: any, data?: SearchAssetsCommandOutput) => void
   ): void;
-  search(
-    args: SearchCommandInput,
+  searchAssets(
+    args: SearchAssetsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: SearchCommandOutput) => void
+    cb: (err: any, data?: SearchAssetsCommandOutput) => void
   ): void;
 
   /**
@@ -7452,15 +7456,15 @@ export interface Glue {
   ): Paginator<ListWorkflowsCommandOutput>;
 
   /**
-   * @see {@link SearchCommand}
+   * @see {@link SearchAssetsCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
-   * @returns AsyncIterable of {@link SearchCommandOutput}.
+   * @returns AsyncIterable of {@link SearchAssetsCommandOutput}.
    */
-  paginateSearch(
-    args?: SearchCommandInput,
+  paginateSearchAssets(
+    args?: SearchAssetsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
-  ): Paginator<SearchCommandOutput>;
+  ): Paginator<SearchAssetsCommandOutput>;
 
   /**
    * @see {@link SearchTablesCommand}

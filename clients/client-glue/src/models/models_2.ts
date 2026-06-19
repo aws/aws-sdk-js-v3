@@ -7302,7 +7302,7 @@ export interface PutAttachmentResponse {
    * <p>The unique identifier of the asset.</p>
    * @public
    */
-  AssetId?: string | undefined;
+  AssetIdentifier?: string | undefined;
 
   /**
    * <p>The name of the iterable form, if the attachment targets an item.</p>
@@ -8472,7 +8472,7 @@ export interface SearchResultItem {
 /**
  * @public
  */
-export interface SearchOutput {
+export interface SearchAssetsOutput {
   /**
    * <p>The list of assets matching the search criteria.</p>
    * @public

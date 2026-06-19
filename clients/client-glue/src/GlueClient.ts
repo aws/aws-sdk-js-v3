@@ -651,7 +651,7 @@ import type {
   ResumeWorkflowRunCommandOutput,
 } from "./commands/ResumeWorkflowRunCommand";
 import type { RunStatementCommandInput, RunStatementCommandOutput } from "./commands/RunStatementCommand";
-import type { SearchCommandInput, SearchCommandOutput } from "./commands/SearchCommand";
+import type { SearchAssetsCommandInput, SearchAssetsCommandOutput } from "./commands/SearchAssetsCommand";
 import type { SearchTablesCommandInput, SearchTablesCommandOutput } from "./commands/SearchTablesCommand";
 import type {
   StartBlueprintRunCommandInput,
@@ -1054,7 +1054,7 @@ export type ServiceInputTypes =
   | ResetJobBookmarkCommandInput
   | ResumeWorkflowRunCommandInput
   | RunStatementCommandInput
-  | SearchCommandInput
+  | SearchAssetsCommandInput
   | SearchTablesCommandInput
   | StartBlueprintRunCommandInput
   | StartColumnStatisticsTaskRunCommandInput
@@ -1354,7 +1354,7 @@ export type ServiceOutputTypes =
   | ResetJobBookmarkCommandOutput
   | ResumeWorkflowRunCommandOutput
   | RunStatementCommandOutput
-  | SearchCommandOutput
+  | SearchAssetsCommandOutput
   | SearchTablesCommandOutput
   | StartBlueprintRunCommandOutput
   | StartColumnStatisticsTaskRunCommandOutput

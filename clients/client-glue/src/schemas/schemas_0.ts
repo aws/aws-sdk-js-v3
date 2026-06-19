@@ -41,7 +41,6 @@ const _AI = "AssetIdentifier";
 const _AIO = "AdditionalIcebergOptions";
 const _AITBR = "AddIdleTimeBetweenReads";
 const _AIc = "AccountId";
-const _AIs = "AssetId";
 const _AKKI = "AwsKmsKeyId";
 const _AL = "AverageLength";
 const _ALc = "ActionList";
@@ -1965,11 +1964,14 @@ const _Runt = "Runtime";
 const _S = "Schema";
 const _SA = "SecretArn";
 const _SAF = "SearchAttributeFilter";
+const _SAI = "SearchAssetsInput";
 const _SAKKI = "SseAwsKmsKeyId";
+const _SAO = "SearchAssetsOutput";
 const _SASD = "StoredAsSubDirectories";
 const _SAT = "SupportedAuthenticationTypes";
 const _SAc = "SchemaArn";
 const _SAca = "ScanAll";
+const _SAe = "SearchAssets";
 const _SAk = "SkipArchive";
 const _SAo = "SourceArn";
 const _SAq = "SqlAliases";
@@ -2099,7 +2101,6 @@ const _SILTRR = "StartImportLabelsTaskRunRequest";
 const _SILTRRt = "StartImportLabelsTaskRunResponse";
 const _SIc = "SchemaId";
 const _SIe = "SessionId";
-const _SIea = "SearchInput";
 const _SIer = "SerdeInfo";
 const _SIk = "SkewedInfo";
 const _SIo = "SourceId";
@@ -2144,7 +2145,6 @@ const _SO = "StartedOn";
 const _SOC = "StartOnCreation";
 const _SOD = "StatementOutputData";
 const _SOVI = "SubObjectVersionIds";
-const _SOe = "SearchOutput";
 const _SOo = "SortOrders";
 const _SOor = "SortOrder";
 const _SOt = "StreamingOptions";
@@ -2235,7 +2235,6 @@ const _Sche = "Schemas";
 const _Sco = "Scopes";
 const _Scor = "Score";
 const _Se = "Serde";
-const _Sea = "Search";
 const _Seg = "Segment";
 const _Sep = "Separator";
 const _Ses = "Session";
@@ -2574,6 +2573,8 @@ const _h = "http";
 const _hE = "httpError";
 const _hQ = "httpQuery";
 const _iC = "icebergConfiguration";
+const _iFN = "iterableFormName";
+const _iI = "itemIdentifier";
 const _jN = "jsonName";
 const _k = "key";
 const _l = "location";
@@ -3055,12 +3056,12 @@ export var AssetTypeItem$: StaticStructureSchema = [3, n0, _ATI,
 ];
 export var AssociateGlossaryTermsRequest$: StaticStructureSchema = [3, n0, _AGTR,
   0,
-  [_Ide, _GTI, _CTl],
+  [_AI, _GTI, _CTl],
   [[0, 1], 64 | 0, [0, 4]], 2
 ];
 export var AssociateGlossaryTermsResponse$: StaticStructureSchema = [3, n0, _AGTRs,
   0,
-  [_Ide, _GT],
+  [_AI, _GT],
   [0, 64 | 0]
 ];
 export var AthenaConnectorSource$: StaticStructureSchema = [3, n0, _ACS,
@@ -4255,12 +4256,12 @@ export var DeleteAssetTypeResponse$: StaticStructureSchema = [3, n0, _DATRe,
 ];
 export var DeleteAttachmentRequest$: StaticStructureSchema = [3, n0, _DARel,
   0,
-  [_Ide, _AN],
-  [[0, 1], [0, 1]], 2
+  [_AI, _AN, _IFN, _IIt],
+  [[0, 1], [0, 1], [0, { [_hQ]: _iFN }], [0, { [_hQ]: _iI }]], 2
 ];
 export var DeleteAttachmentResponse$: StaticStructureSchema = [3, n0, _DARele,
   0,
-  [_Ide],
+  [_AI],
   [0]
 ];
 export var DeleteBlueprintRequest$: StaticStructureSchema = [3, n0, _DBR,
@@ -4710,12 +4711,12 @@ export var DirectSchemaChangePolicy$: StaticStructureSchema = [3, n0, _DSCP,
 ];
 export var DisassociateGlossaryTermsRequest$: StaticStructureSchema = [3, n0, _DGTRi,
   0,
-  [_Ide, _GTI, _CTl],
+  [_AI, _GTI, _CTl],
   [[0, 1], 64 | 0, [0, 4]], 2
 ];
 export var DisassociateGlossaryTermsResponse$: StaticStructureSchema = [3, n0, _DGTRis,
   0,
-  [_Ide, _GT],
+  [_AI, _GT],
   [0, 64 | 0]
 ];
 export var DoubleColumnStatisticsData$: StaticStructureSchema = [3, n0, _DCSDo,
@@ -6720,7 +6721,7 @@ export var PutAttachmentRequest$: StaticStructureSchema = [3, n0, _PARut,
 ];
 export var PutAttachmentResponse$: StaticStructureSchema = [3, n0, _PARutt,
   0,
-  [_AIs, _IFN, _IIt, _AN, _FTI],
+  [_AI, _IFN, _IIt, _AN, _FTI],
   [0, 0, 0, 0, 0]
 ];
 export var PutDataCatalogEncryptionSettingsRequest$: StaticStructureSchema = [3, n0, _PDCESR,
@@ -7123,25 +7124,25 @@ export var SchemaVersionNumber$: StaticStructureSchema = [3, n0, _SVN,
   [_LV, _VN],
   [2, 1]
 ];
+export var SearchAssetsInput$: StaticStructureSchema = [3, n0, _SAI,
+  0,
+  [_STea, _MRax, _NTe, _Sor, _FCi],
+  [0, 1, 0, () => SearchSort$, () => SearchFilterClause$]
+];
+export var SearchAssetsOutput$: StaticStructureSchema = [3, n0, _SAO,
+  0,
+  [_It, _NTe],
+  [() => SearchResultItemList, 0]
+];
 export var SearchAttributeFilter$: StaticStructureSchema = [3, n0, _SAF,
   0,
   [_Attr, _Ope, _V],
   [0, 0, () => SearchFilterValue$], 2
 ];
-export var SearchInput$: StaticStructureSchema = [3, n0, _SIea,
-  0,
-  [_STea, _MRax, _NTe, _Sor, _FCi],
-  [0, 1, 0, () => SearchSort$, () => SearchFilterClause$]
-];
 export var SearchMapFilter$: StaticStructureSchema = [3, n0, _SMF,
   0,
   [_Attr, _K, _V],
   [0, 0, () => SearchMapFilterValue$], 3
-];
-export var SearchOutput$: StaticStructureSchema = [3, n0, _SOe,
-  0,
-  [_It, _NTe],
-  [() => SearchResultItemList, 0]
 ];
 export var SearchResultItem$: StaticStructureSchema = [3, n0, _SRI,
   0,
@@ -8796,7 +8797,7 @@ export var TableOptimizerVpcConfiguration$: StaticUnionSchema = [4, n0, _TOVC,
   [0]
 ];
 export var AssociateGlossaryTerms$: StaticOperationSchema = [9, n0, _AGT,
-  { [_h]: ["POST", "/assets/{Identifier}/associate-glossary-terms", 200] }, () => AssociateGlossaryTermsRequest$, () => AssociateGlossaryTermsResponse$
+  { [_h]: ["POST", "/assets/{AssetIdentifier}/associate-glossary-terms", 200] }, () => AssociateGlossaryTermsRequest$, () => AssociateGlossaryTermsResponse$
 ];
 export var BatchCreatePartition$: StaticOperationSchema = [9, n0, _BCP,
   0, () => BatchCreatePartitionRequest$, () => BatchCreatePartitionResponse$
@@ -8970,7 +8971,7 @@ export var DeleteAssetType$: StaticOperationSchema = [9, n0, _DAT,
   { [_h]: ["DELETE", "/asset-types/{Identifier}", 200] }, () => DeleteAssetTypeRequest$, () => DeleteAssetTypeResponse$
 ];
 export var DeleteAttachment$: StaticOperationSchema = [9, n0, _DAele,
-  { [_h]: ["DELETE", "/assets/{Identifier}/attachments/{AttachmentName}", 200] }, () => DeleteAttachmentRequest$, () => DeleteAttachmentResponse$
+  { [_h]: ["DELETE", "/assets/{AssetIdentifier}/attachments/{AttachmentName}", 200] }, () => DeleteAttachmentRequest$, () => DeleteAttachmentResponse$
 ];
 export var DeleteBlueprint$: StaticOperationSchema = [9, n0, _DBe,
   0, () => DeleteBlueprintRequest$, () => DeleteBlueprintResponse$
@@ -9096,7 +9097,7 @@ export var DescribeIntegrations$: StaticOperationSchema = [9, n0, _DIes,
   0, () => DescribeIntegrationsRequest$, () => DescribeIntegrationsResponse$
 ];
 export var DisassociateGlossaryTerms$: StaticOperationSchema = [9, n0, _DGTi,
-  { [_h]: ["POST", "/assets/{Identifier}/disassociate-glossary-terms", 200] }, () => DisassociateGlossaryTermsRequest$, () => DisassociateGlossaryTermsResponse$
+  { [_h]: ["POST", "/assets/{AssetIdentifier}/disassociate-glossary-terms", 200] }, () => DisassociateGlossaryTermsRequest$, () => DisassociateGlossaryTermsResponse$
 ];
 export var GetAsset$: StaticOperationSchema = [9, n0, _GA,
   { [_h]: ["GET", "/assets/{Identifier}", 200] }, () => GetAssetInput$, () => GetAssetOutput$
@@ -9506,8 +9507,8 @@ export var ResumeWorkflowRun$: StaticOperationSchema = [9, n0, _RWR,
 export var RunStatement$: StaticOperationSchema = [9, n0, _RSu,
   0, () => RunStatementRequest$, () => RunStatementResponse$
 ];
-export var Search$: StaticOperationSchema = [9, n0, _Sea,
-  { [_h]: ["POST", "/search", 200] }, () => SearchInput$, () => SearchOutput$
+export var SearchAssets$: StaticOperationSchema = [9, n0, _SAe,
+  { [_h]: ["POST", "/search-assets", 200] }, () => SearchAssetsInput$, () => SearchAssetsOutput$
 ];
 export var SearchTables$: StaticOperationSchema = [9, n0, _STear,
   0, () => SearchTablesRequest$, () => SearchTablesResponse$

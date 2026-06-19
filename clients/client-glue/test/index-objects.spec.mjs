@@ -1378,7 +1378,7 @@ import {
   paginateListTriggers,
   paginateListUsageProfiles,
   paginateListWorkflows,
-  paginateSearch,
+  paginateSearchAssets,
   paginateSearchTables,
   PaginationConfiguration$,
   ParamType,
@@ -1551,16 +1551,16 @@ import {
   SchemaVersionListItem$,
   SchemaVersionNumber$,
   SchemaVersionStatus,
-  Search$,
+  SearchAssets$,
+  SearchAssetsCommand,
+  SearchAssetsInput$,
+  SearchAssetsOutput$,
   SearchAttributeFilter$,
-  SearchCommand,
   SearchFilterClause$,
   SearchFilterOperator,
   SearchFilterValue$,
-  SearchInput$,
   SearchMapFilter$,
   SearchMapFilterValue$,
-  SearchOutput$,
   SearchResultItem$,
   SearchSort$,
   SearchSortOrder,
@@ -2401,8 +2401,8 @@ assert(typeof ResumeWorkflowRunCommand === "function");
 assert(typeof ResumeWorkflowRun$ === "object");
 assert(typeof RunStatementCommand === "function");
 assert(typeof RunStatement$ === "object");
-assert(typeof SearchCommand === "function");
-assert(typeof Search$ === "object");
+assert(typeof SearchAssetsCommand === "function");
+assert(typeof SearchAssets$ === "object");
 assert(typeof SearchTablesCommand === "function");
 assert(typeof SearchTables$ === "object");
 assert(typeof StartBlueprintRunCommand === "function");
@@ -3345,13 +3345,13 @@ assert(typeof SchemaReference$ === "object");
 assert(typeof SchemaVersionErrorItem$ === "object");
 assert(typeof SchemaVersionListItem$ === "object");
 assert(typeof SchemaVersionNumber$ === "object");
+assert(typeof SearchAssetsInput$ === "object");
+assert(typeof SearchAssetsOutput$ === "object");
 assert(typeof SearchAttributeFilter$ === "object");
 assert(typeof SearchFilterClause$ === "object");
 assert(typeof SearchFilterValue$ === "object");
-assert(typeof SearchInput$ === "object");
 assert(typeof SearchMapFilter$ === "object");
 assert(typeof SearchMapFilterValue$ === "object");
-assert(typeof SearchOutput$ === "object");
 assert(typeof SearchResultItem$ === "object");
 assert(typeof SearchSort$ === "object");
 assert(typeof SearchTablesRequest$ === "object");
@@ -3849,6 +3849,6 @@ assert(typeof paginateListTableOptimizerRuns === "function");
 assert(typeof paginateListTriggers === "function");
 assert(typeof paginateListUsageProfiles === "function");
 assert(typeof paginateListWorkflows === "function");
-assert(typeof paginateSearch === "function");
+assert(typeof paginateSearchAssets === "function");
 assert(typeof paginateSearchTables === "function");
 console.log(`Glue index test passed.`);

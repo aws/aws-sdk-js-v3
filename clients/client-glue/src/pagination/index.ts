@@ -50,5 +50,5 @@ export * from "./ListTableOptimizerRunsPaginator";
 export * from "./ListTriggersPaginator";
 export * from "./ListUsageProfilesPaginator";
 export * from "./ListWorkflowsPaginator";
-export * from "./SearchPaginator";
+export * from "./SearchAssetsPaginator";
 export * from "./SearchTablesPaginator";

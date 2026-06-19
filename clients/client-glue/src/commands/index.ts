@@ -236,7 +236,7 @@ export * from "./RemoveSchemaVersionMetadataCommand";
 export * from "./ResetJobBookmarkCommand";
 export * from "./ResumeWorkflowRunCommand";
 export * from "./RunStatementCommand";
-export * from "./SearchCommand";
+export * from "./SearchAssetsCommand";
 export * from "./SearchTablesCommand";
 export * from "./StartBlueprintRunCommand";
 export * from "./StartColumnStatisticsTaskRunCommand";

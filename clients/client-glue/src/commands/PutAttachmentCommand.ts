@@ -48,7 +48,7 @@ export interface PutAttachmentCommandOutput extends PutAttachmentResponse, __Met
  * const command = new PutAttachmentCommand(input);
  * const response = await client.send(command);
  * // { // PutAttachmentResponse
- * //   AssetId: "STRING_VALUE",
+ * //   AssetIdentifier: "STRING_VALUE",
  * //   IterableFormName: "STRING_VALUE",
  * //   ItemIdentifier: "STRING_VALUE",
  * //   AttachmentName: "STRING_VALUE",

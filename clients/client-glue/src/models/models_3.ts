@@ -4600,7 +4600,7 @@ export interface JobUpdate {
 /**
  * @public
  */
-export interface SearchInput {
+export interface SearchAssetsInput {
   /**
    * <p>The text to search for. At least one of <code>searchText</code> or <code>filterClause</code> must be provided.</p>
    * @public

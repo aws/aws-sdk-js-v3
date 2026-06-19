@@ -3366,7 +3366,19 @@ export interface DeleteAttachmentRequest {
    * <p>The unique identifier of the asset from which to delete the attachment.</p>
    * @public
    */
-  Identifier: string | undefined;
+  AssetIdentifier: string | undefined;
+
+  /**
+   * <p>The name of the iterable form. When specified along with <code>itemIdentifier</code>, the attachment is deleted from an item within the iterable form rather than from the asset itself.</p>
+   * @public
+   */
+  IterableFormName?: string | undefined;
+
+  /**
+   * <p>The identifier of the item within the iterable form. Required when <code>iterableFormName</code> is specified.</p>
+   * @public
+   */
+  ItemIdentifier?: string | undefined;
 
   /**
    * <p>The name of the attachment to delete.</p>
@@ -3383,7 +3395,7 @@ export interface DeleteAttachmentResponse {
    * <p>The unique identifier of the asset.</p>
    * @public
    */
-  Identifier?: string | undefined;
+  AssetIdentifier?: string | undefined;
 }
 
 /**
@@ -5296,7 +5308,7 @@ export interface DisassociateGlossaryTermsRequest {
    * <p>The unique identifier of the asset to disassociate glossary terms from.</p>
    * @public
    */
-  Identifier: string | undefined;
+  AssetIdentifier: string | undefined;
 
   /**
    * <p>The list of glossary term identifiers to disassociate from the asset.</p>
@@ -5319,7 +5331,7 @@ export interface DisassociateGlossaryTermsResponse {
    * <p>The unique identifier of the asset.</p>
    * @public
    */
-  Identifier?: string | undefined;
+  AssetIdentifier?: string | undefined;
 
   /**
    * <p>The remaining glossary terms associated with the asset.</p>

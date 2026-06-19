@@ -37,7 +37,7 @@ export interface AssociateGlossaryTermsCommandOutput extends AssociateGlossaryTe
  * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // AssociateGlossaryTermsRequest
- *   Identifier: "STRING_VALUE", // required
+ *   AssetIdentifier: "STRING_VALUE", // required
  *   GlossaryTermIdentifiers: [ // GlossaryTermIdList // required
  *     "STRING_VALUE",
  *   ],
@@ -46,7 +46,7 @@ export interface AssociateGlossaryTermsCommandOutput extends AssociateGlossaryTe
  * const command = new AssociateGlossaryTermsCommand(input);
  * const response = await client.send(command);
  * // { // AssociateGlossaryTermsResponse
- * //   Identifier: "STRING_VALUE",
+ * //   AssetIdentifier: "STRING_VALUE",
  * //   GlossaryTerms: [ // GlossaryTermIdList
  * //     "STRING_VALUE",
  * //   ],

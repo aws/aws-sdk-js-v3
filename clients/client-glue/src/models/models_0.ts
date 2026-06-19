@@ -579,7 +579,7 @@ export interface AssociateGlossaryTermsRequest {
    * <p>The unique identifier of the asset to associate glossary terms with.</p>
    * @public
    */
-  Identifier: string | undefined;
+  AssetIdentifier: string | undefined;
 
   /**
    * <p>The list of glossary term identifiers to associate with the asset.</p>
@@ -602,7 +602,7 @@ export interface AssociateGlossaryTermsResponse {
    * <p>The unique identifier of the asset.</p>
    * @public
    */
-  Identifier?: string | undefined;
+  AssetIdentifier?: string | undefined;
 
   /**
    * <p>The glossary terms now associated with the asset.</p>
