@@ -29,6 +29,11 @@ import {
   AssociatePackagesCommand,
 } from "./commands/AssociatePackagesCommand";
 import {
+  type AttachDataSourceCommandInput,
+  type AttachDataSourceCommandOutput,
+  AttachDataSourceCommand,
+} from "./commands/AttachDataSourceCommand";
+import {
   type AuthorizeVpcEndpointAccessCommandInput,
   type AuthorizeVpcEndpointAccessCommandOutput,
   AuthorizeVpcEndpointAccessCommand,
@@ -124,6 +129,11 @@ import {
   DeregisterCapabilityCommand,
 } from "./commands/DeregisterCapabilityCommand";
 import {
+  type DescribeDataSourceAttachmentCommandInput,
+  type DescribeDataSourceAttachmentCommandOutput,
+  DescribeDataSourceAttachmentCommand,
+} from "./commands/DescribeDataSourceAttachmentCommand";
+import {
   type DescribeDomainAutoTunesCommandInput,
   type DescribeDomainAutoTunesCommandOutput,
   DescribeDomainAutoTunesCommand,
@@ -204,6 +214,11 @@ import {
   DescribeVpcEndpointsCommand,
 } from "./commands/DescribeVpcEndpointsCommand";
 import {
+  type DetachDataSourceCommandInput,
+  type DetachDataSourceCommandOutput,
+  DetachDataSourceCommand,
+} from "./commands/DetachDataSourceCommand";
+import {
   type DissociatePackageCommandInput,
   type DissociatePackageCommandOutput,
   DissociatePackageCommand,
@@ -269,6 +284,11 @@ import {
   type ListApplicationsCommandOutput,
   ListApplicationsCommand,
 } from "./commands/ListApplicationsCommand";
+import {
+  type ListDataSourceAttachmentsCommandInput,
+  type ListDataSourceAttachmentsCommandOutput,
+  ListDataSourceAttachmentsCommand,
+} from "./commands/ListDataSourceAttachmentsCommand";
 import {
   type ListDataSourcesCommandInput,
   type ListDataSourcesCommandOutput,
@@ -454,6 +474,7 @@ const commands = {
   AddTagsCommand,
   AssociatePackageCommand,
   AssociatePackagesCommand,
+  AttachDataSourceCommand,
   AuthorizeVpcEndpointAccessCommand,
   CancelDomainConfigChangeCommand,
   CancelServiceSoftwareUpdateCommand,
@@ -473,6 +494,7 @@ const commands = {
   DeletePackageCommand,
   DeleteVpcEndpointCommand,
   DeregisterCapabilityCommand,
+  DescribeDataSourceAttachmentCommand,
   DescribeDomainCommand,
   DescribeDomainAutoTunesCommand,
   DescribeDomainChangeProgressCommand,
@@ -489,6 +511,7 @@ const commands = {
   DescribeReservedInstanceOfferingsCommand,
   DescribeReservedInstancesCommand,
   DescribeVpcEndpointsCommand,
+  DetachDataSourceCommand,
   DissociatePackageCommand,
   DissociatePackagesCommand,
   GetApplicationCommand,
@@ -503,6 +526,7 @@ const commands = {
   GetUpgradeHistoryCommand,
   GetUpgradeStatusCommand,
   ListApplicationsCommand,
+  ListDataSourceAttachmentsCommand,
   ListDataSourcesCommand,
   ListDirectQueryDataSourcesCommand,
   ListDomainMaintenancesCommand,
@@ -656,6 +680,23 @@ export interface OpenSearch {
     args: AssociatePackagesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociatePackagesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AttachDataSourceCommand}
+   */
+  attachDataSource(
+    args: AttachDataSourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AttachDataSourceCommandOutput>;
+  attachDataSource(
+    args: AttachDataSourceCommandInput,
+    cb: (err: any, data?: AttachDataSourceCommandOutput) => void
+  ): void;
+  attachDataSource(
+    args: AttachDataSourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AttachDataSourceCommandOutput) => void
   ): void;
 
   /**
@@ -982,6 +1023,23 @@ export interface OpenSearch {
   ): void;
 
   /**
+   * @see {@link DescribeDataSourceAttachmentCommand}
+   */
+  describeDataSourceAttachment(
+    args: DescribeDataSourceAttachmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDataSourceAttachmentCommandOutput>;
+  describeDataSourceAttachment(
+    args: DescribeDataSourceAttachmentCommandInput,
+    cb: (err: any, data?: DescribeDataSourceAttachmentCommandOutput) => void
+  ): void;
+  describeDataSourceAttachment(
+    args: DescribeDataSourceAttachmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDataSourceAttachmentCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeDomainCommand}
    */
   describeDomain(
@@ -1259,6 +1317,23 @@ export interface OpenSearch {
   ): void;
 
   /**
+   * @see {@link DetachDataSourceCommand}
+   */
+  detachDataSource(
+    args: DetachDataSourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DetachDataSourceCommandOutput>;
+  detachDataSource(
+    args: DetachDataSourceCommandInput,
+    cb: (err: any, data?: DetachDataSourceCommandOutput) => void
+  ): void;
+  detachDataSource(
+    args: DetachDataSourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DetachDataSourceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DissociatePackageCommand}
    */
   dissociatePackage(
@@ -1497,6 +1572,23 @@ export interface OpenSearch {
     args: ListApplicationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListApplicationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDataSourceAttachmentsCommand}
+   */
+  listDataSourceAttachments(
+    args: ListDataSourceAttachmentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDataSourceAttachmentsCommandOutput>;
+  listDataSourceAttachments(
+    args: ListDataSourceAttachmentsCommandInput,
+    cb: (err: any, data?: ListDataSourceAttachmentsCommandOutput) => void
+  ): void;
+  listDataSourceAttachments(
+    args: ListDataSourceAttachmentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDataSourceAttachmentsCommandOutput) => void
   ): void;
 
   /**

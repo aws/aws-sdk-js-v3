@@ -69,6 +69,7 @@ import type {
   AssociatePackagesCommandInput,
   AssociatePackagesCommandOutput,
 } from "./commands/AssociatePackagesCommand";
+import type { AttachDataSourceCommandInput, AttachDataSourceCommandOutput } from "./commands/AttachDataSourceCommand";
 import type {
   AuthorizeVpcEndpointAccessCommandInput,
   AuthorizeVpcEndpointAccessCommandOutput,
@@ -125,6 +126,10 @@ import type {
   DeregisterCapabilityCommandOutput,
 } from "./commands/DeregisterCapabilityCommand";
 import type {
+  DescribeDataSourceAttachmentCommandInput,
+  DescribeDataSourceAttachmentCommandOutput,
+} from "./commands/DescribeDataSourceAttachmentCommand";
+import type {
   DescribeDomainAutoTunesCommandInput,
   DescribeDomainAutoTunesCommandOutput,
 } from "./commands/DescribeDomainAutoTunesCommand";
@@ -179,6 +184,7 @@ import type {
   DescribeVpcEndpointsCommandInput,
   DescribeVpcEndpointsCommandOutput,
 } from "./commands/DescribeVpcEndpointsCommand";
+import type { DetachDataSourceCommandInput, DetachDataSourceCommandOutput } from "./commands/DetachDataSourceCommand";
 import type {
   DissociatePackageCommandInput,
   DissociatePackageCommandOutput,
@@ -217,6 +223,10 @@ import type {
 } from "./commands/GetUpgradeHistoryCommand";
 import type { GetUpgradeStatusCommandInput, GetUpgradeStatusCommandOutput } from "./commands/GetUpgradeStatusCommand";
 import type { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
+import type {
+  ListDataSourceAttachmentsCommandInput,
+  ListDataSourceAttachmentsCommandOutput,
+} from "./commands/ListDataSourceAttachmentsCommand";
 import type { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "./commands/ListDataSourcesCommand";
 import type {
   ListDirectQueryDataSourcesCommandInput,
@@ -337,6 +347,7 @@ export type ServiceInputTypes =
   | AddTagsCommandInput
   | AssociatePackageCommandInput
   | AssociatePackagesCommandInput
+  | AttachDataSourceCommandInput
   | AuthorizeVpcEndpointAccessCommandInput
   | CancelDomainConfigChangeCommandInput
   | CancelServiceSoftwareUpdateCommandInput
@@ -356,6 +367,7 @@ export type ServiceInputTypes =
   | DeletePackageCommandInput
   | DeleteVpcEndpointCommandInput
   | DeregisterCapabilityCommandInput
+  | DescribeDataSourceAttachmentCommandInput
   | DescribeDomainAutoTunesCommandInput
   | DescribeDomainChangeProgressCommandInput
   | DescribeDomainCommandInput
@@ -372,6 +384,7 @@ export type ServiceInputTypes =
   | DescribeReservedInstanceOfferingsCommandInput
   | DescribeReservedInstancesCommandInput
   | DescribeVpcEndpointsCommandInput
+  | DetachDataSourceCommandInput
   | DissociatePackageCommandInput
   | DissociatePackagesCommandInput
   | GetApplicationCommandInput
@@ -386,6 +399,7 @@ export type ServiceInputTypes =
   | GetUpgradeHistoryCommandInput
   | GetUpgradeStatusCommandInput
   | ListApplicationsCommandInput
+  | ListDataSourceAttachmentsCommandInput
   | ListDataSourcesCommandInput
   | ListDirectQueryDataSourcesCommandInput
   | ListDomainMaintenancesCommandInput
@@ -430,6 +444,7 @@ export type ServiceOutputTypes =
   | AddTagsCommandOutput
   | AssociatePackageCommandOutput
   | AssociatePackagesCommandOutput
+  | AttachDataSourceCommandOutput
   | AuthorizeVpcEndpointAccessCommandOutput
   | CancelDomainConfigChangeCommandOutput
   | CancelServiceSoftwareUpdateCommandOutput
@@ -449,6 +464,7 @@ export type ServiceOutputTypes =
   | DeletePackageCommandOutput
   | DeleteVpcEndpointCommandOutput
   | DeregisterCapabilityCommandOutput
+  | DescribeDataSourceAttachmentCommandOutput
   | DescribeDomainAutoTunesCommandOutput
   | DescribeDomainChangeProgressCommandOutput
   | DescribeDomainCommandOutput
@@ -465,6 +481,7 @@ export type ServiceOutputTypes =
   | DescribeReservedInstanceOfferingsCommandOutput
   | DescribeReservedInstancesCommandOutput
   | DescribeVpcEndpointsCommandOutput
+  | DetachDataSourceCommandOutput
   | DissociatePackageCommandOutput
   | DissociatePackagesCommandOutput
   | GetApplicationCommandOutput
@@ -479,6 +496,7 @@ export type ServiceOutputTypes =
   | GetUpgradeHistoryCommandOutput
   | GetUpgradeStatusCommandOutput
   | ListApplicationsCommandOutput
+  | ListDataSourceAttachmentsCommandOutput
   | ListDataSourcesCommandOutput
   | ListDirectQueryDataSourcesCommandOutput
   | ListDomainMaintenancesCommandOutput

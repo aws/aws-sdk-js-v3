@@ -15,6 +15,7 @@ import type {
   CapabilityStatus,
   ConfigChangeStatus,
   ConnectionMode,
+  DataSourceAttachmentStatus,
   DataSourceStatus,
   DeploymentStatus,
   DeploymentStrategy,
@@ -1421,6 +1422,100 @@ export interface AssociatePackagesResponse {
    * @public
    */
   DomainPackageDetailsList?: DomainPackageDetails[] | undefined;
+}
+
+/**
+ * <p>Configuration for creating a new workspace when attaching a data source to an OpenSearch application. The workspace is created after the data source is successfully attached.</p>
+ * @public
+ */
+export interface WorkspaceConfigurationInput {
+  /**
+   * <p>The name of the workspace to create. Must be between 1 and 40 characters and can contain alphanumeric characters, parentheses, brackets, hyphens, underscores, and spaces.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of workspace to create, which determines the use-case features enabled for the workspace. Valid values are <code>OBSERVABILITY</code>, <code>SECURITY_ANALYTICS</code>, and <code>SEARCH</code>.</p>
+   * @public
+   */
+  workspaceType: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AttachDataSourceRequest {
+  /**
+   * <p>The unique identifier or name of the OpenSearch application to attach the data source to. This is the same identifier used with <code>UpdateApplication</code>, <code>GetApplication</code>, and <code>DeleteApplication</code>.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the domain. See <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html">Identifiers for IAM Entities </a> in
+   *                 <i>Using Amazon Web Services Identity and Access Management</i> for
+   *             more information. </p>
+   * @public
+   */
+  dataSourceArn: string | undefined;
+
+  /**
+   * <p>The identifier of an existing workspace to update with the new data source. Mutually exclusive with <code>workspaceConfiguration</code>.</p>
+   * @public
+   */
+  workspaceId?: string | undefined;
+
+  /**
+   * <p>Configuration for creating a new workspace during the attachment. If specified, a workspace is created and linked to the data source after the attachment completes. Mutually exclusive with <code>workspaceId</code>.</p>
+   * @public
+   */
+  workspaceConfiguration?: WorkspaceConfigurationInput | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure idempotency of the request. If you retry a request with the same client token and the same parameters, the retry succeeds without performing any further actions.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AttachDataSourceResponse {
+  /**
+   * <p>The unique identifier assigned to the data source attachment.</p>
+   * @public
+   */
+  attachmentId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the OpenSearch application.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the domain. See <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html">Identifiers for IAM Entities </a> in
+   *                 <i>Using Amazon Web Services Identity and Access Management</i> for
+   *             more information. </p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the domain. See <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html">Identifiers for IAM Entities </a> in
+   *                 <i>Using Amazon Web Services Identity and Access Management</i> for
+   *             more information. </p>
+   * @public
+   */
+  dataSourceArn?: string | undefined;
+
+  /**
+   * <p>The status of the data source attachment. Valid values are <code>PENDING</code> (waiting for resources to become active), <code>ATTACHED</code> (successfully attached), and <code>FAILED</code> (attachment timed out or encountered a non-retryable error).</p>
+   * @public
+   */
+  status?: DataSourceAttachmentStatus | undefined;
 }
 
 /**
@@ -4161,6 +4256,64 @@ export interface DeregisterCapabilityResponse {
 }
 
 /**
+ * @public
+ */
+export interface DescribeDataSourceAttachmentRequest {
+  /**
+   * <p>The unique identifier or name of the OpenSearch application.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the domain. See <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html">Identifiers for IAM Entities </a> in
+   *                 <i>Using Amazon Web Services Identity and Access Management</i> for
+   *             more information. </p>
+   * @public
+   */
+  dataSourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDataSourceAttachmentResponse {
+  /**
+   * <p>The unique identifier assigned to the data source attachment.</p>
+   * @public
+   */
+  attachmentId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the OpenSearch application.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the domain. See <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html">Identifiers for IAM Entities </a> in
+   *                 <i>Using Amazon Web Services Identity and Access Management</i> for
+   *             more information. </p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the domain. See <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html">Identifiers for IAM Entities </a> in
+   *                 <i>Using Amazon Web Services Identity and Access Management</i> for
+   *             more information. </p>
+   * @public
+   */
+  dataSourceArn?: string | undefined;
+
+  /**
+   * <p>The status of the data source attachment. Valid values are <code>PENDING</code>, <code>ATTACHED</code>, and <code>FAILED</code>.</p>
+   * @public
+   */
+  status?: DataSourceAttachmentStatus | undefined;
+}
+
+/**
  * <p>Container for the parameters to the <code>DescribeDomain</code> operation.</p>
  * @public
  */
@@ -6247,6 +6400,52 @@ export interface DescribeVpcEndpointsResponse {
 }
 
 /**
+ * @public
+ */
+export interface DetachDataSourceRequest {
+  /**
+   * <p>The unique identifier or name of the OpenSearch application to detach the data source from.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the domain. See <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html">Identifiers for IAM Entities </a> in
+   *                 <i>Using Amazon Web Services Identity and Access Management</i> for
+   *             more information. </p>
+   * @public
+   */
+  dataSourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DetachDataSourceResponse {
+  /**
+   * <p>The unique identifier of the OpenSearch application.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the domain. See <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html">Identifiers for IAM Entities </a> in
+   *                 <i>Using Amazon Web Services Identity and Access Management</i> for
+   *             more information. </p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the domain. See <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html">Identifiers for IAM Entities </a> in
+   *                 <i>Using Amazon Web Services Identity and Access Management</i> for
+   *             more information. </p>
+   * @public
+   */
+  dataSourceArn?: string | undefined;
+}
+
+/**
  * <p>Container for the request parameters to the <code>DissociatePackage</code>
  *             operation.</p>
  * @public
@@ -7140,6 +7339,72 @@ export interface ListApplicationsResponse {
    * <p>When <code>nextToken</code> is returned, there are more results available. The value
    *             of <code>nextToken</code> is a unique pagination token for each page. Send the request
    *             again using the returned token to retrieve the next page.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDataSourceAttachmentsRequest {
+  /**
+   * <p>The unique identifier or name of the OpenSearch application to list attachments for.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The pagination token from a previous call to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page. The default is 50.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Summary information about a data source attachment, including its identifier, data source ARN, and current status.</p>
+ * @public
+ */
+export interface DataSourceAttachmentSummary {
+  /**
+   * <p>The unique identifier assigned to the data source attachment.</p>
+   * @public
+   */
+  attachmentId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the domain. See <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html">Identifiers for IAM Entities </a> in
+   *                 <i>Using Amazon Web Services Identity and Access Management</i> for
+   *             more information. </p>
+   * @public
+   */
+  dataSourceArn?: string | undefined;
+
+  /**
+   * <p>The current status of the data source attachment. Valid values are <code>PENDING</code>, <code>ATTACHED</code>, and <code>FAILED</code>.</p>
+   * @public
+   */
+  status?: DataSourceAttachmentStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDataSourceAttachmentsResponse {
+  /**
+   * <p>A list of data source attachment summaries for the specified application.</p>
+   * @public
+   */
+  attachments?: DataSourceAttachmentSummary[] | undefined;
+
+  /**
+   * <p>The pagination token to use in a subsequent call to retrieve the next set of results.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -8233,207 +8498,4 @@ export interface RegisterCapabilityRequest {
    * @public
    */
   capabilityConfig: CapabilityBaseRequestConfig | undefined;
-}
-
-/**
- * <p>The base configuration returned for a registered capability.</p>
- * @public
- */
-export type CapabilityBaseResponseConfig =
-  | CapabilityBaseResponseConfig.AiConfigMember
-  | CapabilityBaseResponseConfig.$UnknownMember;
-
-/**
- * @public
- */
-export namespace CapabilityBaseResponseConfig {
-  /**
-   * <p>Configuration settings for AI-powered capabilities.</p>
-   * @public
-   */
-  export interface AiConfigMember {
-    aiConfig: AIConfig;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    aiConfig?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    aiConfig: (value: AIConfig) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>The result of a <code>RegisterCapability</code> request. Contains details about the registered capability.</p>
- * @public
- */
-export interface RegisterCapabilityResponse {
-  /**
-   * <p>The name of the registered capability.</p>
-   * @public
-   */
-  capabilityName?: string | undefined;
-
-  /**
-   * <p>The unique identifier of the OpenSearch UI application.</p>
-   * @public
-   */
-  applicationId?: string | undefined;
-
-  /**
-   * <p>The current status of the capability. Possible values: <code>creating</code>, <code>create_failed</code>, <code>active</code>, <code>updating</code>, <code>update_failed</code>, <code>deleting</code>, <code>delete_failed</code>.</p>
-   * @public
-   */
-  status?: CapabilityStatus | undefined;
-
-  /**
-   * <p>The configuration settings for the registered capability.</p>
-   * @public
-   */
-  capabilityConfig?: CapabilityBaseResponseConfig | undefined;
-}
-
-/**
- * <p>Container for the request parameters to the <code>RejectInboundConnection</code>
- *             operation.</p>
- * @public
- */
-export interface RejectInboundConnectionRequest {
-  /**
-   * <p>The unique identifier of the inbound connection to reject.</p>
-   * @public
-   */
-  ConnectionId: string | undefined;
-}
-
-/**
- * <p>Represents the output of a <code>RejectInboundConnection</code> operation.</p>
- * @public
- */
-export interface RejectInboundConnectionResponse {
-  /**
-   * <p>Contains details about the rejected inbound connection.</p>
-   * @public
-   */
-  Connection?: InboundConnection | undefined;
-}
-
-/**
- * <p>Container for the request parameters to the <code>RemoveTags</code> operation.</p>
- * @public
- */
-export interface RemoveTagsRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the domain, data source, or application from which
-   *             you want to delete the specified tags.</p>
-   * @public
-   */
-  ARN: string | undefined;
-
-  /**
-   * <p>The list of tag keys to remove from the domain, data source, or application.</p>
-   * @public
-   */
-  TagKeys: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface RevokeVpcEndpointAccessRequest {
-  /**
-   * <p>The name of the OpenSearch Service domain.</p>
-   * @public
-   */
-  DomainName: string | undefined;
-
-  /**
-   * <p>The account ID to revoke access from.</p>
-   * @public
-   */
-  Account?: string | undefined;
-
-  /**
-   * <p>The service SP to revoke access from.</p>
-   * @public
-   */
-  Service?: AWSServicePrincipal | undefined;
-
-  /**
-   * <p>The options for the service, including the supported Regions for the endpoint
-   *             access.</p>
-   * @public
-   */
-  ServiceOptions?: ServiceOptions | undefined;
-}
-
-/**
- * @public
- */
-export interface RevokeVpcEndpointAccessResponse {}
-
-/**
- * <p>Container for the request parameters to the
- *                 <code>RollbackServiceSoftwareUpdate</code> operation.</p>
- * @public
- */
-export interface RollbackServiceSoftwareUpdateRequest {
-  /**
-   * <p>The name of the domain to roll back the service software update on.</p>
-   * @public
-   */
-  DomainName: string | undefined;
-}
-
-/**
- * <p>Details about the rollback options for a service software update.</p>
- * @public
- */
-export interface RollbackServiceSoftwareOptions {
-  /**
-   * <p>The current service software version on the domain.</p>
-   * @public
-   */
-  CurrentVersion?: string | undefined;
-
-  /**
-   * <p>The service software version that the domain will roll back to.</p>
-   * @public
-   */
-  NewVersion?: string | undefined;
-
-  /**
-   * <p>Whether a service software rollback is available for the domain.</p>
-   * @public
-   */
-  RollbackAvailable?: boolean | undefined;
-
-  /**
-   * <p>A description of the rollback status.</p>
-   * @public
-   */
-  Description?: string | undefined;
-}
-
-/**
- * <p>Contains details about the rolled-back service software update.</p>
- * @public
- */
-export interface RollbackServiceSoftwareUpdateResponse {
-  /**
-   * <p>The rollback options for the service software update.</p>
-   * @public
-   */
-  RollbackServiceSoftwareOptions?: RollbackServiceSoftwareOptions | undefined;
 }

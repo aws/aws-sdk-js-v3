@@ -41,6 +41,10 @@ import {
   AssociatePackagesCommand,
   AssociatePackagesRequest$,
   AssociatePackagesResponse$,
+  AttachDataSource$,
+  AttachDataSourceCommand,
+  AttachDataSourceRequest$,
+  AttachDataSourceResponse$,
   AuthorizedPrincipal$,
   AuthorizeVpcEndpointAccess$,
   AuthorizeVpcEndpointAccessCommand,
@@ -121,6 +125,8 @@ import {
   CreateVpcEndpointResponse$,
   CrossClusterSearchConnectionProperties$,
   DataSource$,
+  DataSourceAttachmentStatus,
+  DataSourceAttachmentSummary$,
   DataSourceDetails$,
   DataSourceStatus,
   DataSourceType$,
@@ -169,6 +175,10 @@ import {
   DeregisterCapabilityCommand,
   DeregisterCapabilityRequest$,
   DeregisterCapabilityResponse$,
+  DescribeDataSourceAttachment$,
+  DescribeDataSourceAttachmentCommand,
+  DescribeDataSourceAttachmentRequest$,
+  DescribeDataSourceAttachmentResponse$,
   DescribeDomain$,
   DescribeDomainAutoTunes$,
   DescribeDomainAutoTunesCommand,
@@ -235,6 +245,10 @@ import {
   DescribeVpcEndpointsCommand,
   DescribeVpcEndpointsRequest$,
   DescribeVpcEndpointsResponse$,
+  DetachDataSource$,
+  DetachDataSourceCommand,
+  DetachDataSourceRequest$,
+  DetachDataSourceResponse$,
   DirectQueryDataSource$,
   DirectQueryDataSourceType$,
   DisabledOperationException,
@@ -359,6 +373,10 @@ import {
   ListApplicationsCommand,
   ListApplicationsRequest$,
   ListApplicationsResponse$,
+  ListDataSourceAttachments$,
+  ListDataSourceAttachmentsCommand,
+  ListDataSourceAttachmentsRequest$,
+  ListDataSourceAttachmentsResponse$,
   ListDataSources$,
   ListDataSourcesCommand,
   ListDataSourcesRequest$,
@@ -616,6 +634,7 @@ import {
   VpcEndpointSummary$,
   VPCOptions$,
   WindowStartTime$,
+  WorkspaceConfigurationInput$,
   ZoneAwarenessConfig$,
   ZoneStatus,
 } from "../dist-cjs/index.js";
@@ -636,6 +655,8 @@ assert(typeof AssociatePackageCommand === "function");
 assert(typeof AssociatePackage$ === "object");
 assert(typeof AssociatePackagesCommand === "function");
 assert(typeof AssociatePackages$ === "object");
+assert(typeof AttachDataSourceCommand === "function");
+assert(typeof AttachDataSource$ === "object");
 assert(typeof AuthorizeVpcEndpointAccessCommand === "function");
 assert(typeof AuthorizeVpcEndpointAccess$ === "object");
 assert(typeof CancelDomainConfigChangeCommand === "function");
@@ -674,6 +695,8 @@ assert(typeof DeleteVpcEndpointCommand === "function");
 assert(typeof DeleteVpcEndpoint$ === "object");
 assert(typeof DeregisterCapabilityCommand === "function");
 assert(typeof DeregisterCapability$ === "object");
+assert(typeof DescribeDataSourceAttachmentCommand === "function");
+assert(typeof DescribeDataSourceAttachment$ === "object");
 assert(typeof DescribeDomainCommand === "function");
 assert(typeof DescribeDomain$ === "object");
 assert(typeof DescribeDomainAutoTunesCommand === "function");
@@ -706,6 +729,8 @@ assert(typeof DescribeReservedInstancesCommand === "function");
 assert(typeof DescribeReservedInstances$ === "object");
 assert(typeof DescribeVpcEndpointsCommand === "function");
 assert(typeof DescribeVpcEndpoints$ === "object");
+assert(typeof DetachDataSourceCommand === "function");
+assert(typeof DetachDataSource$ === "object");
 assert(typeof DissociatePackageCommand === "function");
 assert(typeof DissociatePackage$ === "object");
 assert(typeof DissociatePackagesCommand === "function");
@@ -734,6 +759,8 @@ assert(typeof GetUpgradeStatusCommand === "function");
 assert(typeof GetUpgradeStatus$ === "object");
 assert(typeof ListApplicationsCommand === "function");
 assert(typeof ListApplications$ === "object");
+assert(typeof ListDataSourceAttachmentsCommand === "function");
+assert(typeof ListDataSourceAttachments$ === "object");
 assert(typeof ListDataSourcesCommand === "function");
 assert(typeof ListDataSources$ === "object");
 assert(typeof ListDirectQueryDataSourcesCommand === "function");
@@ -824,6 +851,8 @@ assert(typeof AssociatePackageRequest$ === "object");
 assert(typeof AssociatePackageResponse$ === "object");
 assert(typeof AssociatePackagesRequest$ === "object");
 assert(typeof AssociatePackagesResponse$ === "object");
+assert(typeof AttachDataSourceRequest$ === "object");
+assert(typeof AttachDataSourceResponse$ === "object");
 assert(typeof AuthorizedPrincipal$ === "object");
 assert(typeof AuthorizeVpcEndpointAccessRequest$ === "object");
 assert(typeof AuthorizeVpcEndpointAccessResponse$ === "object");
@@ -874,6 +903,7 @@ assert(typeof CreateVpcEndpointRequest$ === "object");
 assert(typeof CreateVpcEndpointResponse$ === "object");
 assert(typeof CrossClusterSearchConnectionProperties$ === "object");
 assert(typeof DataSource$ === "object");
+assert(typeof DataSourceAttachmentSummary$ === "object");
 assert(typeof DataSourceDetails$ === "object");
 assert(typeof DataSourceType$ === "object");
 assert(typeof DeleteApplicationRequest$ === "object");
@@ -897,6 +927,8 @@ assert(typeof DeploymentStrategyOptions$ === "object");
 assert(typeof DeploymentStrategyOptionsStatus$ === "object");
 assert(typeof DeregisterCapabilityRequest$ === "object");
 assert(typeof DeregisterCapabilityResponse$ === "object");
+assert(typeof DescribeDataSourceAttachmentRequest$ === "object");
+assert(typeof DescribeDataSourceAttachmentResponse$ === "object");
 assert(typeof DescribeDomainAutoTunesRequest$ === "object");
 assert(typeof DescribeDomainAutoTunesResponse$ === "object");
 assert(typeof DescribeDomainChangeProgressRequest$ === "object");
@@ -930,6 +962,8 @@ assert(typeof DescribeReservedInstancesRequest$ === "object");
 assert(typeof DescribeReservedInstancesResponse$ === "object");
 assert(typeof DescribeVpcEndpointsRequest$ === "object");
 assert(typeof DescribeVpcEndpointsResponse$ === "object");
+assert(typeof DetachDataSourceRequest$ === "object");
+assert(typeof DetachDataSourceResponse$ === "object");
 assert(typeof DirectQueryDataSource$ === "object");
 assert(typeof DirectQueryDataSourceType$ === "object");
 assert(typeof DissociatePackageRequest$ === "object");
@@ -1000,6 +1034,8 @@ assert(typeof KeyStoreAccessOption$ === "object");
 assert(typeof Limits$ === "object");
 assert(typeof ListApplicationsRequest$ === "object");
 assert(typeof ListApplicationsResponse$ === "object");
+assert(typeof ListDataSourceAttachmentsRequest$ === "object");
+assert(typeof ListDataSourceAttachmentsResponse$ === "object");
 assert(typeof ListDataSourcesRequest$ === "object");
 assert(typeof ListDataSourcesResponse$ === "object");
 assert(typeof ListDirectQueryDataSourcesRequest$ === "object");
@@ -1124,6 +1160,7 @@ assert(typeof VpcEndpointError$ === "object");
 assert(typeof VpcEndpointSummary$ === "object");
 assert(typeof VPCOptions$ === "object");
 assert(typeof WindowStartTime$ === "object");
+assert(typeof WorkspaceConfigurationInput$ === "object");
 assert(typeof ZoneAwarenessConfig$ === "object");
 // enums
 assert(typeof ActionSeverity === "object");
@@ -1139,6 +1176,7 @@ assert(typeof CapabilityFailureReason === "object");
 assert(typeof CapabilityStatus === "object");
 assert(typeof ConfigChangeStatus === "object");
 assert(typeof ConnectionMode === "object");
+assert(typeof DataSourceAttachmentStatus === "object");
 assert(typeof DataSourceStatus === "object");
 assert(typeof DeploymentStatus === "object");
 assert(typeof DeploymentStrategy === "object");

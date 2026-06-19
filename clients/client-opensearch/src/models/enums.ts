@@ -159,6 +159,20 @@ export type PackageType = (typeof PackageType)[keyof typeof PackageType];
  * @public
  * @enum
  */
+export const DataSourceAttachmentStatus = {
+  ATTACHED: "ATTACHED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+} as const;
+/**
+ * @public
+ */
+export type DataSourceAttachmentStatus = (typeof DataSourceAttachmentStatus)[keyof typeof DataSourceAttachmentStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const AWSServicePrincipal = {
   application_opensearchservice_amazonaws_com: "application.opensearchservice.amazonaws.com",
 } as const;

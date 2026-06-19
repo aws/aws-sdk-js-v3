@@ -3,6 +3,8 @@ import type { DocumentType as __DocumentType } from "@smithy/types";
 
 import type {
   ActionType,
+  AWSServicePrincipal,
+  CapabilityStatus,
   DataSourceStatus,
   DryRunMode,
   IndexStatus,
@@ -14,6 +16,7 @@ import type {
 } from "./enums";
 import type {
   AdvancedSecurityOptionsInput,
+  AIConfig,
   AIMLOptionsInput,
   AppConfig,
   AutomatedSnapshotPauseRequestOptions,
@@ -34,6 +37,7 @@ import type {
   IamIdentityCenterOptions,
   IamIdentityCenterOptionsInput,
   IdentityCenterOptionsInput,
+  InboundConnection,
   LogPublishingOption,
   NodeToNodeEncryptionOptions,
   OffPeakWindowOptions,
@@ -42,12 +46,216 @@ import type {
   PackageEncryptionOptions,
   PackageSource,
   ScheduledAction,
+  ServiceOptions,
   ServiceSoftwareOptions,
   SnapshotOptions,
   SoftwareUpdateOptions,
   VpcEndpoint,
   VPCOptions,
 } from "./models_0";
+
+/**
+ * <p>The base configuration returned for a registered capability.</p>
+ * @public
+ */
+export type CapabilityBaseResponseConfig =
+  | CapabilityBaseResponseConfig.AiConfigMember
+  | CapabilityBaseResponseConfig.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace CapabilityBaseResponseConfig {
+  /**
+   * <p>Configuration settings for AI-powered capabilities.</p>
+   * @public
+   */
+  export interface AiConfigMember {
+    aiConfig: AIConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    aiConfig?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    aiConfig: (value: AIConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The result of a <code>RegisterCapability</code> request. Contains details about the registered capability.</p>
+ * @public
+ */
+export interface RegisterCapabilityResponse {
+  /**
+   * <p>The name of the registered capability.</p>
+   * @public
+   */
+  capabilityName?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the OpenSearch UI application.</p>
+   * @public
+   */
+  applicationId?: string | undefined;
+
+  /**
+   * <p>The current status of the capability. Possible values: <code>creating</code>, <code>create_failed</code>, <code>active</code>, <code>updating</code>, <code>update_failed</code>, <code>deleting</code>, <code>delete_failed</code>.</p>
+   * @public
+   */
+  status?: CapabilityStatus | undefined;
+
+  /**
+   * <p>The configuration settings for the registered capability.</p>
+   * @public
+   */
+  capabilityConfig?: CapabilityBaseResponseConfig | undefined;
+}
+
+/**
+ * <p>Container for the request parameters to the <code>RejectInboundConnection</code>
+ *             operation.</p>
+ * @public
+ */
+export interface RejectInboundConnectionRequest {
+  /**
+   * <p>The unique identifier of the inbound connection to reject.</p>
+   * @public
+   */
+  ConnectionId: string | undefined;
+}
+
+/**
+ * <p>Represents the output of a <code>RejectInboundConnection</code> operation.</p>
+ * @public
+ */
+export interface RejectInboundConnectionResponse {
+  /**
+   * <p>Contains details about the rejected inbound connection.</p>
+   * @public
+   */
+  Connection?: InboundConnection | undefined;
+}
+
+/**
+ * <p>Container for the request parameters to the <code>RemoveTags</code> operation.</p>
+ * @public
+ */
+export interface RemoveTagsRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the domain, data source, or application from which
+   *             you want to delete the specified tags.</p>
+   * @public
+   */
+  ARN: string | undefined;
+
+  /**
+   * <p>The list of tag keys to remove from the domain, data source, or application.</p>
+   * @public
+   */
+  TagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RevokeVpcEndpointAccessRequest {
+  /**
+   * <p>The name of the OpenSearch Service domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The account ID to revoke access from.</p>
+   * @public
+   */
+  Account?: string | undefined;
+
+  /**
+   * <p>The service SP to revoke access from.</p>
+   * @public
+   */
+  Service?: AWSServicePrincipal | undefined;
+
+  /**
+   * <p>The options for the service, including the supported Regions for the endpoint
+   *             access.</p>
+   * @public
+   */
+  ServiceOptions?: ServiceOptions | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RevokeVpcEndpointAccessResponse {}
+
+/**
+ * <p>Container for the request parameters to the
+ *                 <code>RollbackServiceSoftwareUpdate</code> operation.</p>
+ * @public
+ */
+export interface RollbackServiceSoftwareUpdateRequest {
+  /**
+   * <p>The name of the domain to roll back the service software update on.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+}
+
+/**
+ * <p>Details about the rollback options for a service software update.</p>
+ * @public
+ */
+export interface RollbackServiceSoftwareOptions {
+  /**
+   * <p>The current service software version on the domain.</p>
+   * @public
+   */
+  CurrentVersion?: string | undefined;
+
+  /**
+   * <p>The service software version that the domain will roll back to.</p>
+   * @public
+   */
+  NewVersion?: string | undefined;
+
+  /**
+   * <p>Whether a service software rollback is available for the domain.</p>
+   * @public
+   */
+  RollbackAvailable?: boolean | undefined;
+
+  /**
+   * <p>A description of the rollback status.</p>
+   * @public
+   */
+  Description?: string | undefined;
+}
+
+/**
+ * <p>Contains details about the rolled-back service software update.</p>
+ * @public
+ */
+export interface RollbackServiceSoftwareUpdateResponse {
+  /**
+   * <p>The rollback options for the service software update.</p>
+   * @public
+   */
+  RollbackServiceSoftwareOptions?: RollbackServiceSoftwareOptions | undefined;
+}
 
 /**
  * <p>Container for the parameters to the <code>StartDomainMaintenance</code>

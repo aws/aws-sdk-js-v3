@@ -13,6 +13,9 @@ const _ADQDSRd = "AddDirectQueryDataSourceResponse";
 const _ADS = "AddDataSource";
 const _ADSR = "AddDataSourceRequest";
 const _ADSRd = "AddDataSourceResponse";
+const _ADSRt = "AttachDataSourceRequest";
+const _ADSRtt = "AttachDataSourceResponse";
+const _ADSt = "AttachDataSource";
 const _AIC = "AIConfig";
 const _AICR = "AcceptInboundConnectionRequest";
 const _AICRc = "AcceptInboundConnectionResponse";
@@ -207,8 +210,14 @@ const _DDResc = "DescribeDomainResponse";
 const _DDRescr = "DescribeDomainsRequest";
 const _DDRescri = "DescribeDomainsResponse";
 const _DDS = "DeleteDataSource";
+const _DDSA = "DescribeDataSourceAttachment";
+const _DDSAR = "DescribeDataSourceAttachmentRequest";
+const _DDSARe = "DescribeDataSourceAttachmentResponse";
 const _DDSR = "DeleteDataSourceRequest";
 const _DDSRe = "DeleteDataSourceResponse";
+const _DDSRet = "DetachDataSourceRequest";
+const _DDSReta = "DetachDataSourceResponse";
+const _DDSe = "DetachDataSource";
 const _DDe = "DescribeDomain";
 const _DDes = "DescribeDomains";
 const _DEO = "DomainEndpointOptions";
@@ -292,6 +301,8 @@ const _DRS = "DryRunStatus";
 const _DS = "DesiredState";
 const _DSA = "DataSourceArn";
 const _DSAP = "DataSourceAccessPolicy";
+const _DSAS = "DataSourceAttachmentSummary";
+const _DSASL = "DataSourceAttachmentSummaryList";
 const _DSD = "DataSourceDetails";
 const _DSL = "DomainStatusList";
 const _DSLa = "DataSourceList";
@@ -455,6 +466,9 @@ const _LDQDSR = "ListDirectQueryDataSourcesRequest";
 const _LDQDSRi = "ListDirectQueryDataSourcesResponse";
 const _LDRC = "LoadDryRunConfig";
 const _LDS = "ListDataSources";
+const _LDSA = "ListDataSourceAttachments";
+const _LDSAR = "ListDataSourceAttachmentsRequest";
+const _LDSARi = "ListDataSourceAttachmentsResponse";
 const _LDSR = "ListDataSourcesRequest";
 const _LDSRi = "ListDataSourcesResponse";
 const _LEE = "LimitExceededException";
@@ -785,6 +799,7 @@ const _Ve = "Versions";
 const _Ver = "Version";
 const _WA = "WorkspaceArn";
 const _WC = "WarmCount";
+const _WCI = "WorkspaceConfigurationInput";
 const _WE = "WarmEnabled";
 const _WNC = "WarmNodeCount";
 const _WST = "WindowStartTime";
@@ -796,8 +811,10 @@ const _a = "arn";
 const _aA = "applicationArn";
 const _aC = "appConfigs";
 const _aCi = "aiConfig";
-const _aI = "applicationId";
+const _aI = "attachmentId";
+const _aIp = "applicationId";
 const _ac = "action";
+const _at = "attachments";
 const _c = "client";
 const _cA = "createdAt";
 const _cC = "capabilityConfig";
@@ -846,6 +863,9 @@ const _st = "status";
 const _sta = "statuses";
 const _tL = "tagList";
 const _v = "value";
+const _wC = "workspaceConfiguration";
+const _wI = "workspaceId";
+const _wT = "workspaceType";
 const _xN = "xmlName";
 const n0 = "com.amazonaws.opensearch";
 
@@ -1101,6 +1121,16 @@ export var AssociatePackagesResponse$: StaticStructureSchema = [3, n0, _APRsso,
   [_DPDL],
   [() => DomainPackageDetailsList]
 ];
+export var AttachDataSourceRequest$: StaticStructureSchema = [3, n0, _ADSRt,
+  0,
+  [_i, _dSA, _wI, _wC, _cT],
+  [[0, 1], 0, 0, () => WorkspaceConfigurationInput$, 0], 2
+];
+export var AttachDataSourceResponse$: StaticStructureSchema = [3, n0, _ADSRtt,
+  0,
+  [_aI, _i, _a, _dSA, _st],
+  [0, 0, 0, 0, 0]
+];
 export var AuthorizedPrincipal$: StaticStructureSchema = [3, n0, _AP,
   0,
   [_PT, _Pr, _SO],
@@ -1336,6 +1366,11 @@ export var DataSource$: StaticStructureSchema = [3, n0, _DSa,
   [_dSA, _dSD, _iRFDSA],
   [0, 0, 0]
 ];
+export var DataSourceAttachmentSummary$: StaticStructureSchema = [3, n0, _DSAS,
+  0,
+  [_aI, _dSA, _st],
+  [0, 0, 0]
+];
 export var DataSourceDetails$: StaticStructureSchema = [3, n0, _DSD,
   0,
   [_DST, _N, _D, _S],
@@ -1438,13 +1473,23 @@ export var DeploymentStrategyOptionsStatus$: StaticStructureSchema = [3, n0, _DS
 ];
 export var DeregisterCapabilityRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
-  [_aI, _cN],
+  [_aIp, _cN],
   [[0, 1], [0, 1]], 2
 ];
 export var DeregisterCapabilityResponse$: StaticStructureSchema = [3, n0, _DCRe,
   0,
   [_st],
   [0]
+];
+export var DescribeDataSourceAttachmentRequest$: StaticStructureSchema = [3, n0, _DDSAR,
+  0,
+  [_i, _dSA],
+  [[0, 1], 0], 2
+];
+export var DescribeDataSourceAttachmentResponse$: StaticStructureSchema = [3, n0, _DDSARe,
+  0,
+  [_aI, _i, _a, _dSA, _st],
+  [0, 0, 0, 0, 0]
 ];
 export var DescribeDomainAutoTunesRequest$: StaticStructureSchema = [3, n0, _DDATR,
   0,
@@ -1611,6 +1656,16 @@ export var DescribeVpcEndpointsResponse$: StaticStructureSchema = [3, n0, _DVERe
   [_VEpc, _VEE],
   [() => VpcEndpoints, () => VpcEndpointErrorList], 2
 ];
+export var DetachDataSourceRequest$: StaticStructureSchema = [3, n0, _DDSRet,
+  0,
+  [_i, _dSA],
+  [[0, 1], 0], 2
+];
+export var DetachDataSourceResponse$: StaticStructureSchema = [3, n0, _DDSReta,
+  0,
+  [_i, _a, _dSA],
+  [0, 0, 0]
+];
 export var DirectQueryDataSource$: StaticStructureSchema = [3, n0, _DQDS,
   0,
   [_DSN, _DST, _D, _OSA, _DSA, _TL],
@@ -1743,12 +1798,12 @@ export var GetApplicationResponse$: StaticStructureSchema = [3, n0, _GARe,
 ];
 export var GetCapabilityRequest$: StaticStructureSchema = [3, n0, _GCR,
   0,
-  [_aI, _cN],
+  [_aIp, _cN],
   [[0, 1], [0, 1]], 2
 ];
 export var GetCapabilityResponse$: StaticStructureSchema = [3, n0, _GCRe,
   0,
-  [_cN, _aI, _st, _cC, _f],
+  [_cN, _aIp, _st, _cC, _f],
   [0, 0, 0, () => CapabilityExtendedResponseConfig$, () => CapabilityFailures]
 ];
 export var GetCompatibleVersionsRequest$: StaticStructureSchema = [3, n0, _GCVR,
@@ -1955,6 +2010,16 @@ export var ListApplicationsResponse$: StaticStructureSchema = [3, n0, _LARi,
   0,
   [_ASp, _nT],
   [() => ApplicationSummaries, 0]
+];
+export var ListDataSourceAttachmentsRequest$: StaticStructureSchema = [3, n0, _LDSAR,
+  0,
+  [_i, _nT, _mR],
+  [[0, 1], 0, 1], 1
+];
+export var ListDataSourceAttachmentsResponse$: StaticStructureSchema = [3, n0, _LDSARi,
+  0,
+  [_at, _nT],
+  [() => DataSourceAttachmentSummaryList, 0]
 ];
 export var ListDataSourcesRequest$: StaticStructureSchema = [3, n0, _LDSR,
   0,
@@ -2253,12 +2318,12 @@ export var RecurringCharge$: StaticStructureSchema = [3, n0, _RC,
 ];
 export var RegisterCapabilityRequest$: StaticStructureSchema = [3, n0, _RCR,
   0,
-  [_aI, _cN, _cC],
+  [_aIp, _cN, _cC],
   [[0, 1], 0, () => CapabilityBaseRequestConfig$], 3
 ];
 export var RegisterCapabilityResponse$: StaticStructureSchema = [3, n0, _RCRe,
   0,
-  [_cN, _aI, _st, _cC],
+  [_cN, _aIp, _st, _cC],
   [0, 0, 0, () => CapabilityBaseResponseConfig$]
 ];
 export var RejectInboundConnectionRequest$: StaticStructureSchema = [3, n0, _RICR,
@@ -2576,6 +2641,11 @@ export var WindowStartTime$: StaticStructureSchema = [3, n0, _WST,
   [_H, _Mi],
   [1, 1], 2
 ];
+export var WorkspaceConfigurationInput$: StaticStructureSchema = [3, n0, _WCI,
+  0,
+  [_n, _wT],
+  [0, 0], 2
+];
 export var ZoneAwarenessConfig$: StaticStructureSchema = [3, n0, _ZAC,
   0,
   [_AZC],
@@ -2616,6 +2686,9 @@ var ChangeProgressStageList: StaticListSchema = [1, n0, _CPSL,
 ];
 var CompatibleVersionsList: StaticListSchema = [1, n0, _CVL,
   0, () => CompatibleVersionsMap$
+];
+var DataSourceAttachmentSummaryList: StaticListSchema = [1, n0, _DSASL,
+  0, () => DataSourceAttachmentSummary$
 ];
 var DataSourceList: StaticListSchema = [1, n0, _DSLa,
   0, () => DataSourceDetails$
@@ -2788,6 +2861,9 @@ export var AssociatePackage$: StaticOperationSchema = [9, n0, _APs,
 export var AssociatePackages$: StaticOperationSchema = [9, n0, _APss,
   { [_h]: ["POST", "/2021-01-01/packages/associateMultiple", 200] }, () => AssociatePackagesRequest$, () => AssociatePackagesResponse$
 ];
+export var AttachDataSource$: StaticOperationSchema = [9, n0, _ADSt,
+  { [_h]: ["POST", "/2021-01-01/opensearch/application/{id}/attachDataSource", 200] }, () => AttachDataSourceRequest$, () => AttachDataSourceResponse$
+];
 export var AuthorizeVpcEndpointAccess$: StaticOperationSchema = [9, n0, _AVEA,
   { [_h]: ["POST", "/2021-01-01/opensearch/domain/{DomainName}/authorizeVpcEndpointAccess", 200] }, () => AuthorizeVpcEndpointAccessRequest$, () => AuthorizeVpcEndpointAccessResponse$
 ];
@@ -2845,6 +2921,9 @@ export var DeleteVpcEndpoint$: StaticOperationSchema = [9, n0, _DVE,
 export var DeregisterCapability$: StaticOperationSchema = [9, n0, _DCe,
   { [_h]: ["DELETE", "/2021-01-01/opensearch/application/{applicationId}/capability/deregister/{capabilityName}", 200] }, () => DeregisterCapabilityRequest$, () => DeregisterCapabilityResponse$
 ];
+export var DescribeDataSourceAttachment$: StaticOperationSchema = [9, n0, _DDSA,
+  { [_h]: ["POST", "/2021-01-01/opensearch/application/{id}/describeDataSourceAttachment", 200] }, () => DescribeDataSourceAttachmentRequest$, () => DescribeDataSourceAttachmentResponse$
+];
 export var DescribeDomain$: StaticOperationSchema = [9, n0, _DDe,
   { [_h]: ["GET", "/2021-01-01/opensearch/domain/{DomainName}", 200] }, () => DescribeDomainRequest$, () => DescribeDomainResponse$
 ];
@@ -2893,6 +2972,9 @@ export var DescribeReservedInstances$: StaticOperationSchema = [9, n0, _DRIe,
 export var DescribeVpcEndpoints$: StaticOperationSchema = [9, n0, _DVEe,
   { [_h]: ["POST", "/2021-01-01/opensearch/vpcEndpoints/describe", 200] }, () => DescribeVpcEndpointsRequest$, () => DescribeVpcEndpointsResponse$
 ];
+export var DetachDataSource$: StaticOperationSchema = [9, n0, _DDSe,
+  { [_h]: ["POST", "/2021-01-01/opensearch/application/{id}/detachDataSource", 200] }, () => DetachDataSourceRequest$, () => DetachDataSourceResponse$
+];
 export var DissociatePackage$: StaticOperationSchema = [9, n0, _DPi,
   { [_h]: ["POST", "/2021-01-01/packages/dissociate/{PackageID}/{DomainName}", 200] }, () => DissociatePackageRequest$, () => DissociatePackageResponse$
 ];
@@ -2934,6 +3016,9 @@ export var GetUpgradeStatus$: StaticOperationSchema = [9, n0, _GUS,
 ];
 export var ListApplications$: StaticOperationSchema = [9, n0, _LA,
   { [_h]: ["GET", "/2021-01-01/opensearch/list-applications", 200] }, () => ListApplicationsRequest$, () => ListApplicationsResponse$
+];
+export var ListDataSourceAttachments$: StaticOperationSchema = [9, n0, _LDSA,
+  { [_h]: ["POST", "/2021-01-01/opensearch/application/{id}/listDataSourceAttachments", 200] }, () => ListDataSourceAttachmentsRequest$, () => ListDataSourceAttachmentsResponse$
 ];
 export var ListDataSources$: StaticOperationSchema = [9, n0, _LDS,
   { [_h]: ["GET", "/2021-01-01/opensearch/domain/{DomainName}/dataSource", 200] }, () => ListDataSourcesRequest$, () => ListDataSourcesResponse$
