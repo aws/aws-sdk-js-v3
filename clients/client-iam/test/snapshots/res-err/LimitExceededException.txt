@@ -76,7 +76,7 @@ An unmodeled error occurred in a front end layer.
 
 
 --- [error name & message] ---
-Error: char 'A' is not expected.:1:1
+Error: @aws-sdk XML parse error: unexpected content.
   Deserialization error: to see the raw response, inspect the hidden field {error}.$response on this object.
 
 --- [error object] ---

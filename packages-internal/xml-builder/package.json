@@ -4,7 +4,6 @@
   "description": "XML utilities for the AWS SDK",
   "dependencies": {
     "@smithy/types": "^4.14.3",
-    "fast-xml-parser": "5.7.3",
     "tslib": "^2.6.2"
   },
   "scripts": {
@@ -15,8 +14,10 @@
     "build:types": "premove dist-types && tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "premove dist-cjs dist-es dist-types",
+    "profile": "node --inspect-brk ./scripts/benchmark",
     "test": "yarn g:vitest run",
-    "test:watch": "yarn g:vitest watch"
+    "test:watch": "yarn g:vitest watch",
+    "test:fuzz": "jazzer tests/xml-parser.fuzz.js corpus --sync -i xml-parser -- -max_total_time=300"
   },
   "sideEffects": false,
   "author": {
@@ -54,10 +55,12 @@
     "directory": "packages-internal/xml-builder"
   },
   "devDependencies": {
+    "@jazzer.js/core": "^4.0.0",
     "@nodable/entities": "2.1.0",
     "@tsconfig/recommended": "1.0.1",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
+    "fast-check": "^4.8.0",
     "premove": "4.0.0",
     "typescript": "~5.8.3"
   }
