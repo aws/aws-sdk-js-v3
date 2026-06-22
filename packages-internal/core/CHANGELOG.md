@@ -54,6 +54,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.974.23 (2026-06-22)
+### Chores
+* **core:** update dependencies.
+
+
+
 # 3.974.22 (2026-06-17)
 ### Tests
 * **core:** prebuild before integration and e2e ([#8111](https://github.com/aws/aws-sdk-js-v3/issues/8111)) ([363f3fb](https://github.com/aws/aws-sdk-js-v3/commit/363f3fb7165d327e3ca24b3d7beffb19cc528c31))

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1074.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1073.0...v3.1074.0) (2026-06-22)
+
+
+### Features
+
+* **client-application-signals:** Application Signals now supports dynamic instrumentation and Service Events telemetry. Add instrumentation at runtime without restarts, and use fine-grained profiling data to quickly pinpoint latency and error root causes. ([f93b1c0](https://github.com/aws/aws-sdk-js-v3/commit/f93b1c0333846b2d16c698f8c9b4034f93ab867c))
+
+
+
+
+
 # [3.1073.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1072.0...v3.1073.0) (2026-06-19)
 
 **Note:** Version bump only for package @aws-sdk/client-application-signals

@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1074.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1073.0...v3.1074.0) (2026-06-22)
+
+
+### Bug Fixes
+
+* **cloudfront-signer:** filename asterisk apostrophe encoding fix ([#8119](https://github.com/aws/aws-sdk-js-v3/issues/8119)) ([35acab4](https://github.com/aws/aws-sdk-js-v3/commit/35acab408b9bd5350928525c8a67563ae551580a))
+
+
+### Features
+
+* **client-application-signals:** Application Signals now supports dynamic instrumentation and Service Events telemetry. Add instrumentation at runtime without restarts, and use fine-grained profiling data to quickly pinpoint latency and error root causes. ([f93b1c0](https://github.com/aws/aws-sdk-js-v3/commit/f93b1c0333846b2d16c698f8c9b4034f93ab867c))
+* **client-bedrock-agentcore:** Adds an optional extractionMode field to CreateEvent. SKIP retains the event in short-term memory but excludes it from long-term memory extraction. ([749753a](https://github.com/aws/aws-sdk-js-v3/commit/749753adae395e3ab3ab494df119f8d6354ca562))
+* **client-cloudwatch-logs:** CloudWatch Logs Updates - New APIs introduced to support syslog ingestion to a log group. For more information, see CloudWatch Logs API documentation. ([01a3b51](https://github.com/aws/aws-sdk-js-v3/commit/01a3b513503169fb86db0bea0889f585c9004b55))
+* **client-direct-connect:** Added VIF rate limiting support for AWS Direct Connect, allowing customers to set bandwidth allocations on virtual interfaces to manage traffic on dedicated connections. ([228a95d](https://github.com/aws/aws-sdk-js-v3/commit/228a95dc0c11cbcc1f007718faf93181c014a854))
+* **client-ec2:** This release adds support for AMI Watermark and Allowed AMIs integration ([d1698be](https://github.com/aws/aws-sdk-js-v3/commit/d1698bed3961295343fdd86d0a57820538023bc7))
+* **client-guardduty:** Added AI-powered investigations that automatically analyze security findings, correlate related activity, and produce structured summaries with risk assessment, confidence scoring, MITRE technique classification, and actionable next steps. ([83c2983](https://github.com/aws/aws-sdk-js-v3/commit/83c2983945db4a54b004feed8d2d18935a3df431))
+* **client-kafka:** Amazon MSK Replicator now supports mTLS authentication when connecting to external Apache Kafka clusters, enabling customers to replicate data from clusters that require mutual TLS for client authentication. This capability is supported when replicating to Amazon MSK Express brokers. ([ce7d1bf](https://github.com/aws/aws-sdk-js-v3/commit/ce7d1bf501fe6f7d6a454f96c1befc3829e23385))
+* **client-lambda-core:** Initial release of the AWS Lambda Core SDK with APIs to create, manage, and tag network connectors that enable Lambda compute resources to access private resources in your Amazon VPC. ([e35cdab](https://github.com/aws/aws-sdk-js-v3/commit/e35cdab89fcf7ca679f37776418cb8d8e1269c14))
+* **client-lambda-microvms:** Lambda MicroVMs GA launch. Lambda MicroVMs enable isolated and highly responsive execution of user-supplied or LLM-generated code. ([5519a7e](https://github.com/aws/aws-sdk-js-v3/commit/5519a7e28fae4f57dd852109244b6370ff79f8bb))
+* **client-lambda:** Add support for tagging Network Connector resources in AWS Lambda. ([fbfc407](https://github.com/aws/aws-sdk-js-v3/commit/fbfc40785e024fe2564e4be02ef425280693fce6))
+* **client-mediaconnect:** AWS MediaConnect now supports Content Quality Analysis for Router Inputs, enabling detection of black frames, frozen frames, and silent audio with configurable thresholds. ([0505485](https://github.com/aws/aws-sdk-js-v3/commit/05054853a5aa6e740597c3932b5e2491b15e3a12))
+* **client-omics:** Adds support for scratch ephemeral storage mounted at tmp ([331e302](https://github.com/aws/aws-sdk-js-v3/commit/331e3023c1049c5188dc4cec3adabae0c62e84f2))
+* **client-quicksight:** Updated the Amazon Quick Spaces API to remove unsupported SPACE and ARTIFACT values from the SpaceQuickSightResourceType enum. ([e1b325d](https://github.com/aws/aws-sdk-js-v3/commit/e1b325d42e491ceb75742bbdb56bfc3b98767ff1))
+* **clients:** update client endpoints as of 2026-06-22 ([3a55a33](https://github.com/aws/aws-sdk-js-v3/commit/3a55a3338792f712baf2e97d3f3c597fc28707c1))
+
+
+
+
+
 # [3.1073.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1072.0...v3.1073.0) (2026-06-19)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1074.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1073.0...v3.1074.0) (2026-06-22)
+
+
+### Features
+
+* **client-kafka:** Amazon MSK Replicator now supports mTLS authentication when connecting to external Apache Kafka clusters, enabling customers to replicate data from clusters that require mutual TLS for client authentication. This capability is supported when replicating to Amazon MSK Express brokers. ([ce7d1bf](https://github.com/aws/aws-sdk-js-v3/commit/ce7d1bf501fe6f7d6a454f96c1befc3829e23385))
+
+
+
+
+
 # [3.1073.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1072.0...v3.1073.0) (2026-06-19)
 
 **Note:** Version bump only for package @aws-sdk/client-kafka

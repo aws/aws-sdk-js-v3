@@ -8,6 +8,13 @@
 
 
 
+
+# 3.1000.8 (2026-06-22)
+### Chores
+* **checksums:** update dependencies.
+
+
+
 # 3.1000.7 (2026-06-17)
 ### Chores
 * **checksums:** update dependencies.

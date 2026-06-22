@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1074.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1073.0...v3.1074.0) (2026-06-22)
+
+
+### Bug Fixes
+
+* **cloudfront-signer:** filename asterisk apostrophe encoding fix ([#8119](https://github.com/aws/aws-sdk-js-v3/issues/8119)) ([35acab4](https://github.com/aws/aws-sdk-js-v3/commit/35acab408b9bd5350928525c8a67563ae551580a))
+
+
+
+
+
 # [3.1069.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1068.0...v3.1069.0) (2026-06-15)
 
 **Note:** Version bump only for package @aws-sdk/cloudfront-signer

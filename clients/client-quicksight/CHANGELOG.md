@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1074.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1073.0...v3.1074.0) (2026-06-22)
+
+
+### Features
+
+* **client-quicksight:** Updated the Amazon Quick Spaces API to remove unsupported SPACE and ARTIFACT values from the SpaceQuickSightResourceType enum. ([e1b325d](https://github.com/aws/aws-sdk-js-v3/commit/e1b325d42e491ceb75742bbdb56bfc3b98767ff1))
+
+
+
+
+
 # [3.1073.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1072.0...v3.1073.0) (2026-06-19)
 
 **Note:** Version bump only for package @aws-sdk/client-quicksight

@@ -14,6 +14,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.31 (2026-06-22)
+### Chores
+* **xml-builder:** move testing devDeps to root, remove unused nodable dep ([#8118](https://github.com/aws/aws-sdk-js-v3/issues/8118)) ([ed82880](https://github.com/aws/aws-sdk-js-v3/commit/ed82880d26cac439d808eca5760da899cf449899))
+* **xml-builder:** parse XML internally ([#7863](https://github.com/aws/aws-sdk-js-v3/issues/7863)) ([74d0a07](https://github.com/aws/aws-sdk-js-v3/commit/74d0a071437c84a14396dbcc7f07f8480c369c58))
+
+
+
 # 3.972.30 (2026-06-13)
 ### Chores
 * **scripts:** tuning the build graph ([#8095](https://github.com/aws/aws-sdk-js-v3/issues/8095)) ([67981c5](https://github.com/aws/aws-sdk-js-v3/commit/67981c5a65d6dd797a065df034a8d0fcdaa9b7bd))

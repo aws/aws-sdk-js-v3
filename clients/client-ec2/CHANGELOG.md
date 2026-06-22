@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1074.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1073.0...v3.1074.0) (2026-06-22)
+
+
+### Features
+
+* **client-ec2:** This release adds support for AMI Watermark and Allowed AMIs integration ([d1698be](https://github.com/aws/aws-sdk-js-v3/commit/d1698bed3961295343fdd86d0a57820538023bc7))
+
+
+
+
+
 # [3.1073.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1072.0...v3.1073.0) (2026-06-19)
 
 **Note:** Version bump only for package @aws-sdk/client-ec2

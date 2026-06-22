@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1074.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1073.0...v3.1074.0) (2026-06-22)
+
+
+### Features
+
+* **client-lambda:** Add support for tagging Network Connector resources in AWS Lambda. ([fbfc407](https://github.com/aws/aws-sdk-js-v3/commit/fbfc40785e024fe2564e4be02ef425280693fce6))
+
+
+
+
+
 # [3.1073.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1072.0...v3.1073.0) (2026-06-19)
 
 **Note:** Version bump only for package @aws-sdk/client-lambda
