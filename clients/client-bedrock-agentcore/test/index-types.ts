@@ -214,6 +214,7 @@ export type {
   DescriptorType,
   EventFilterCondition,
   ExtractionJobStatus,
+  ExtractionMode,
   HarnessBedrockApiFormat,
   HarnessConversationRole,
   HarnessOpenAiApiFormat,

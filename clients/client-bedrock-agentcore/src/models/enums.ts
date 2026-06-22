@@ -557,6 +557,18 @@ export type MemoryRecordStatus = (typeof MemoryRecordStatus)[keyof typeof Memory
  * @public
  * @enum
  */
+export const ExtractionMode = {
+  SKIP: "SKIP",
+} as const;
+/**
+ * @public
+ */
+export type ExtractionMode = (typeof ExtractionMode)[keyof typeof ExtractionMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const Role = {
   ASSISTANT: "ASSISTANT",
   OTHER: "OTHER",

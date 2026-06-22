@@ -166,6 +166,7 @@ import {
   ExtractionJobMessages$,
   ExtractionJobMetadata$,
   ExtractionJobStatus,
+  ExtractionMode,
   FailureAnalysisResultContent$,
   FailureCategoryCluster$,
   FailureSpanDetail$,
@@ -1126,6 +1127,7 @@ assert(typeof Currency === "object");
 assert(typeof DescriptorType === "object");
 assert(typeof EventFilterCondition === "object");
 assert(typeof ExtractionJobStatus === "object");
+assert(typeof ExtractionMode === "object");
 assert(typeof HarnessBedrockApiFormat === "object");
 assert(typeof HarnessConversationRole === "object");
 assert(typeof HarnessOpenAiApiFormat === "object");

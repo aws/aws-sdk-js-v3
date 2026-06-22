@@ -66,6 +66,7 @@ export interface CreateEventCommandOutput extends CreateEventOutput, __MetadataB
  *       stringValue: "STRING_VALUE",
  *     },
  *   },
+ *   extractionMode: "SKIP",
  * };
  * const command = new CreateEventCommand(input);
  * const response = await client.send(command);

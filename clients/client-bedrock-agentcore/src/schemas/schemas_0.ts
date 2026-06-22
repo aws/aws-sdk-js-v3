@@ -703,6 +703,7 @@ const _eM = "evaluatorMetrics";
 const _eMr = "errorMessage";
 const _eMv = "eventMetadata";
 const _eMva = "evaluationMetadata";
+const _eMx = "extractionMode";
 const _eN = "evaluatorName";
 const _eOC = "enableOnCreate";
 const _eP = "enterprisePolicies";
@@ -1490,8 +1491,8 @@ export var CreateABTestResponse$: StaticStructureSchema = [3, n0, _CABTRr,
 ];
 export var CreateEventInput$: StaticStructureSchema = [3, n0, _CEI,
   0,
-  [_mI, _aI, _eTv, _p, _sI, _b, _cT, _met],
-  [[0, 1], 0, 4, [() => PayloadTypeList, 0], 0, () => Branch$, [0, 4], () => MetadataMap], 4
+  [_mI, _aI, _eTv, _p, _sI, _b, _cT, _met, _eMx],
+  [[0, 1], 0, 4, [() => PayloadTypeList, 0], 0, () => Branch$, [0, 4], () => MetadataMap, 0], 4
 ];
 export var CreateEventOutput$: StaticStructureSchema = [3, n0, _CEO,
   0,

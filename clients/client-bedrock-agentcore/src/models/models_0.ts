@@ -13,6 +13,7 @@ import type {
   CodeInterpreterSessionStatus,
   CommandExecutionStatus,
   ContentBlockType,
+  ExtractionMode,
   HarnessBedrockApiFormat,
   HarnessConversationRole,
   HarnessOpenAiApiFormat,
@@ -9607,6 +9608,12 @@ export interface CreateEventInput {
    * @public
    */
   metadata?: Record<string, MetadataValue> | undefined;
+
+  /**
+   * <p>Controls long-term memory extraction for this event. When set to <code>SKIP</code>, the event is stored in short-term memory but is excluded from long-term memory extraction. If not specified, the event is processed for extraction as usual.</p>
+   * @public
+   */
+  extractionMode?: ExtractionMode | undefined;
 }
 
 /**
