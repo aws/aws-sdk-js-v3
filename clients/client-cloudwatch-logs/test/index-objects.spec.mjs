@@ -131,6 +131,9 @@ import {
   DeleteSubscriptionFilter$,
   DeleteSubscriptionFilterCommand,
   DeleteSubscriptionFilterRequest$,
+  DeleteSyslogConfiguration$,
+  DeleteSyslogConfigurationCommand,
+  DeleteSyslogConfigurationRequest$,
   DeleteTransformer$,
   DeleteTransformerCommand,
   DeleteTransformerRequest$,
@@ -376,6 +379,10 @@ import {
   ListSourcesForS3TableIntegrationCommand,
   ListSourcesForS3TableIntegrationRequest$,
   ListSourcesForS3TableIntegrationResponse$,
+  ListSyslogConfigurations$,
+  ListSyslogConfigurationsCommand,
+  ListSyslogConfigurationsRequest$,
+  ListSyslogConfigurationsResponse$,
   ListTagsForResource$,
   ListTagsForResourceCommand,
   ListTagsForResourceRequest$,
@@ -517,6 +524,9 @@ import {
   PutSubscriptionFilter$,
   PutSubscriptionFilterCommand,
   PutSubscriptionFilterRequest$,
+  PutSyslogConfiguration$,
+  PutSyslogConfigurationCommand,
+  PutSyslogConfigurationRequest$,
   PutTransformer$,
   PutTransformerCommand,
   PutTransformerRequest$,
@@ -584,6 +594,8 @@ import {
   SuppressionState,
   SuppressionType,
   SuppressionUnit,
+  SyslogConfiguration$,
+  SyslogSourceType,
   TagFilter$,
   TagLogGroup$,
   TagLogGroupCommand,
@@ -706,6 +718,8 @@ assert(typeof DeleteScheduledQueryCommand === "function");
 assert(typeof DeleteScheduledQuery$ === "object");
 assert(typeof DeleteSubscriptionFilterCommand === "function");
 assert(typeof DeleteSubscriptionFilter$ === "object");
+assert(typeof DeleteSyslogConfigurationCommand === "function");
+assert(typeof DeleteSyslogConfiguration$ === "object");
 assert(typeof DeleteTransformerCommand === "function");
 assert(typeof DeleteTransformer$ === "object");
 assert(typeof DescribeAccountPoliciesCommand === "function");
@@ -802,6 +816,8 @@ assert(typeof ListScheduledQueriesCommand === "function");
 assert(typeof ListScheduledQueries$ === "object");
 assert(typeof ListSourcesForS3TableIntegrationCommand === "function");
 assert(typeof ListSourcesForS3TableIntegration$ === "object");
+assert(typeof ListSyslogConfigurationsCommand === "function");
+assert(typeof ListSyslogConfigurations$ === "object");
 assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
 assert(typeof ListTagsLogGroupCommand === "function");
@@ -840,6 +856,8 @@ assert(typeof PutRetentionPolicyCommand === "function");
 assert(typeof PutRetentionPolicy$ === "object");
 assert(typeof PutSubscriptionFilterCommand === "function");
 assert(typeof PutSubscriptionFilter$ === "object");
+assert(typeof PutSyslogConfigurationCommand === "function");
+assert(typeof PutSyslogConfiguration$ === "object");
 assert(typeof PutTransformerCommand === "function");
 assert(typeof PutTransformer$ === "object");
 assert(typeof StartLiveTailCommand === "function");
@@ -929,6 +947,7 @@ assert(typeof DeleteRetentionPolicyRequest$ === "object");
 assert(typeof DeleteScheduledQueryRequest$ === "object");
 assert(typeof DeleteScheduledQueryResponse$ === "object");
 assert(typeof DeleteSubscriptionFilterRequest$ === "object");
+assert(typeof DeleteSyslogConfigurationRequest$ === "object");
 assert(typeof DeleteTransformerRequest$ === "object");
 assert(typeof Delivery$ === "object");
 assert(typeof DeliveryDestination$ === "object");
@@ -1048,6 +1067,8 @@ assert(typeof ListScheduledQueriesRequest$ === "object");
 assert(typeof ListScheduledQueriesResponse$ === "object");
 assert(typeof ListSourcesForS3TableIntegrationRequest$ === "object");
 assert(typeof ListSourcesForS3TableIntegrationResponse$ === "object");
+assert(typeof ListSyslogConfigurationsRequest$ === "object");
+assert(typeof ListSyslogConfigurationsResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof ListTagsLogGroupRequest$ === "object");
@@ -1122,6 +1143,7 @@ assert(typeof PutResourcePolicyRequest$ === "object");
 assert(typeof PutResourcePolicyResponse$ === "object");
 assert(typeof PutRetentionPolicyRequest$ === "object");
 assert(typeof PutSubscriptionFilterRequest$ === "object");
+assert(typeof PutSyslogConfigurationRequest$ === "object");
 assert(typeof PutTransformerRequest$ === "object");
 assert(typeof QueryCompileError$ === "object");
 assert(typeof QueryCompileErrorLocation$ === "object");
@@ -1157,6 +1179,7 @@ assert(typeof SubscriptionFilter$ === "object");
 assert(typeof SubstituteString$ === "object");
 assert(typeof SubstituteStringEntry$ === "object");
 assert(typeof SuppressionPeriod$ === "object");
+assert(typeof SyslogConfiguration$ === "object");
 assert(typeof TagFilter$ === "object");
 assert(typeof TagLogGroupRequest$ === "object");
 assert(typeof TagResourceRequest$ === "object");
@@ -1221,6 +1244,7 @@ assert(typeof State === "object");
 assert(typeof SuppressionState === "object");
 assert(typeof SuppressionType === "object");
 assert(typeof SuppressionUnit === "object");
+assert(typeof SyslogSourceType === "object");
 assert(typeof Type === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof CloudWatchLogsServiceException);

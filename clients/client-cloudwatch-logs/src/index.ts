@@ -6,6 +6,8 @@
  *       log data from CloudWatch Logs using the CloudWatch console. Alternatively, you can use
  *       CloudWatch Logs commands in the Amazon Web Services CLI, CloudWatch Logs API, or CloudWatch
  *       Logs SDK.</p>
+ *          <p>For more information about CloudWatch Logs features, see the
+ *       <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html">Amazon CloudWatch Logs User Guide</a>.</p>
  *          <p>You can use CloudWatch Logs to:</p>
  *          <ul>
  *             <li>
@@ -36,6 +38,11 @@
  *           into the log service. You can then access the raw log data when you need it.</p>
  *             </li>
  *          </ul>
+ *          <note>
+ *             <p>CloudWatch Logs might log request contents for fields that aren't considered
+ *         sensitive, such as API request parameters for CloudWatch Logs actions. This provides
+ *         debugging information for failed API requests.</p>
+ *          </note>
  *
  * @packageDocumentation
  */

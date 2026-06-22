@@ -159,6 +159,11 @@ import {
   DeleteSubscriptionFilterCommand,
 } from "./commands/DeleteSubscriptionFilterCommand";
 import {
+  type DeleteSyslogConfigurationCommandInput,
+  type DeleteSyslogConfigurationCommandOutput,
+  DeleteSyslogConfigurationCommand,
+} from "./commands/DeleteSyslogConfigurationCommand";
+import {
   type DeleteTransformerCommandInput,
   type DeleteTransformerCommandOutput,
   DeleteTransformerCommand,
@@ -399,6 +404,11 @@ import {
   ListSourcesForS3TableIntegrationCommand,
 } from "./commands/ListSourcesForS3TableIntegrationCommand";
 import {
+  type ListSyslogConfigurationsCommandInput,
+  type ListSyslogConfigurationsCommandOutput,
+  ListSyslogConfigurationsCommand,
+} from "./commands/ListSyslogConfigurationsCommand";
+import {
   type ListTagsForResourceCommandInput,
   type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
@@ -493,6 +503,11 @@ import {
   type PutSubscriptionFilterCommandOutput,
   PutSubscriptionFilterCommand,
 } from "./commands/PutSubscriptionFilterCommand";
+import {
+  type PutSyslogConfigurationCommandInput,
+  type PutSyslogConfigurationCommandOutput,
+  PutSyslogConfigurationCommand,
+} from "./commands/PutSyslogConfigurationCommand";
 import {
   type PutTransformerCommandInput,
   type PutTransformerCommandOutput,
@@ -615,6 +630,7 @@ const commands = {
   DeleteRetentionPolicyCommand,
   DeleteScheduledQueryCommand,
   DeleteSubscriptionFilterCommand,
+  DeleteSyslogConfigurationCommand,
   DeleteTransformerCommand,
   DescribeAccountPoliciesCommand,
   DescribeConfigurationTemplatesCommand,
@@ -663,6 +679,7 @@ const commands = {
   ListLogGroupsForQueryCommand,
   ListScheduledQueriesCommand,
   ListSourcesForS3TableIntegrationCommand,
+  ListSyslogConfigurationsCommand,
   ListTagsForResourceCommand,
   ListTagsLogGroupCommand,
   PutAccountPolicyCommand,
@@ -682,6 +699,7 @@ const commands = {
   PutResourcePolicyCommand,
   PutRetentionPolicyCommand,
   PutSubscriptionFilterCommand,
+  PutSyslogConfigurationCommand,
   PutTransformerCommand,
   StartLiveTailCommand,
   StartQueryCommand,
@@ -1246,6 +1264,23 @@ export interface CloudWatchLogs {
     args: DeleteSubscriptionFilterCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteSubscriptionFilterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteSyslogConfigurationCommand}
+   */
+  deleteSyslogConfiguration(
+    args: DeleteSyslogConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSyslogConfigurationCommandOutput>;
+  deleteSyslogConfiguration(
+    args: DeleteSyslogConfigurationCommandInput,
+    cb: (err: any, data?: DeleteSyslogConfigurationCommandOutput) => void
+  ): void;
+  deleteSyslogConfiguration(
+    args: DeleteSyslogConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteSyslogConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -2087,6 +2122,24 @@ export interface CloudWatchLogs {
   ): void;
 
   /**
+   * @see {@link ListSyslogConfigurationsCommand}
+   */
+  listSyslogConfigurations(): Promise<ListSyslogConfigurationsCommandOutput>;
+  listSyslogConfigurations(
+    args: ListSyslogConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSyslogConfigurationsCommandOutput>;
+  listSyslogConfigurations(
+    args: ListSyslogConfigurationsCommandInput,
+    cb: (err: any, data?: ListSyslogConfigurationsCommandOutput) => void
+  ): void;
+  listSyslogConfigurations(
+    args: ListSyslogConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSyslogConfigurationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListTagsForResourceCommand}
    */
   listTagsForResource(
@@ -2408,6 +2461,23 @@ export interface CloudWatchLogs {
     args: PutSubscriptionFilterCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutSubscriptionFilterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutSyslogConfigurationCommand}
+   */
+  putSyslogConfiguration(
+    args: PutSyslogConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutSyslogConfigurationCommandOutput>;
+  putSyslogConfiguration(
+    args: PutSyslogConfigurationCommandInput,
+    cb: (err: any, data?: PutSyslogConfigurationCommandOutput) => void
+  ): void;
+  putSyslogConfiguration(
+    args: PutSyslogConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutSyslogConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -2870,6 +2940,8 @@ export interface CloudWatchLogs {
  *       log data from CloudWatch Logs using the CloudWatch console. Alternatively, you can use
  *       CloudWatch Logs commands in the Amazon Web Services CLI, CloudWatch Logs API, or CloudWatch
  *       Logs SDK.</p>
+ *          <p>For more information about CloudWatch Logs features, see the
+ *       <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html">Amazon CloudWatch Logs User Guide</a>.</p>
  *          <p>You can use CloudWatch Logs to:</p>
  *          <ul>
  *             <li>
@@ -2900,6 +2972,11 @@ export interface CloudWatchLogs {
  *           into the log service. You can then access the raw log data when you need it.</p>
  *             </li>
  *          </ul>
+ *          <note>
+ *             <p>CloudWatch Logs might log request contents for fields that aren't considered
+ *         sensitive, such as API request parameters for CloudWatch Logs actions. This provides
+ *         debugging information for failed API requests.</p>
+ *          </note>
  * @public
  */
 export class CloudWatchLogs extends CloudWatchLogsClient implements CloudWatchLogs {}

@@ -153,6 +153,8 @@ const _DRPResc = "DescribeResourcePoliciesResponse";
 const _DRPe = "DeleteRetentionPolicy";
 const _DRPes = "DescribeResourcePolicies";
 const _DS = "DataSource";
+const _DSC = "DeleteSyslogConfiguration";
+const _DSCR = "DeleteSyslogConfigurationRequest";
 const _DSCS = "DeliverySourceConfigurationSchema";
 const _DSCSe = "DeliverySourceConfigurationSchemas";
 const _DSF = "DataSourceFilter";
@@ -293,6 +295,9 @@ const _LLGFQRi = "ListLogGroupsForQueryResponse";
 const _LLGR = "ListLogGroupsRequest";
 const _LLGRi = "ListLogGroupsResponse";
 const _LS = "LogStream";
+const _LSC = "ListSyslogConfigurations";
+const _LSCR = "ListSyslogConfigurationsRequest";
+const _LSCRi = "ListSyslogConfigurationsResponse";
 const _LSFSTI = "ListSourcesForS3TableIntegration";
 const _LSFSTIR = "ListSourcesForS3TableIntegrationRequest";
 const _LSFSTIRi = "ListSourcesForS3TableIntegrationResponse";
@@ -388,6 +393,8 @@ const _PRPR = "PutResourcePolicyRequest";
 const _PRPRu = "PutResourcePolicyResponse";
 const _PRPRut = "PutRetentionPolicyRequest";
 const _PRPu = "PutRetentionPolicy";
+const _PSC = "PutSyslogConfiguration";
+const _PSCR = "PutSyslogConfigurationRequest";
 const _PSF = "PutSubscriptionFilter";
 const _PSFR = "PutSubscriptionFilterRequest";
 const _PT = "PatternToken";
@@ -423,6 +430,8 @@ const _RP = "ResourcePolicy";
 const _RPe = "ResourcePolicies";
 const _RR = "ResultRows";
 const _SC = "S3Configuration";
+const _SCy = "SyslogConfiguration";
+const _SCys = "SyslogConfigurations";
 const _SDC = "S3DeliveryConfiguration";
 const _SF = "SubscriptionFilter";
 const _SFu = "SubscriptionFilters";
@@ -833,6 +842,7 @@ const _sCO = "startCharOffset";
 const _sCe = "searchedCompletely";
 const _sCo = "s3Configuration";
 const _sCt = "statusCode";
+const _sCy = "syslogConfigurations";
 const _sD = "suppressedDate";
 const _sDC = "s3DeliveryConfiguration";
 const _sE = "scheduleExpression";
@@ -860,6 +870,7 @@ const _sTI = "s3TablesIntegration";
 const _sTO = "startTimeOffset";
 const _sTc = "scheduleType";
 const _sTe = "sequenceToken";
+const _sTo = "sourceType";
 const _sTt = "startTime";
 const _sTu = "suppressionType";
 const _sU = "suppressedUntil";
@@ -909,6 +920,7 @@ const _uI = "userIdentity";
 const _uST = "uploadSequenceToken";
 const _un = "unit";
 const _v = "value";
+const _vEI = "vpcEndpointId";
 const _vK = "valueKey";
 const _vT = "valueType";
 const _va = "values";
@@ -1382,6 +1394,11 @@ export var DeleteSubscriptionFilterRequest$: StaticStructureSchema = [3, n0, _DS
   0,
   [_lGN, _fN],
   [0, 0], 2
+];
+export var DeleteSyslogConfigurationRequest$: StaticStructureSchema = [3, n0, _DSCR,
+  0,
+  [_lGIo, _vEI],
+  [0, 0], 1
 ];
 export var DeleteTransformerRequest$: StaticStructureSchema = [3, n0, _DTR,
   0,
@@ -1968,6 +1985,16 @@ export var ListSourcesForS3TableIntegrationResponse$: StaticStructureSchema = [3
   [_sou, _nT],
   [() => S3TableIntegrationSources, 0]
 ];
+export var ListSyslogConfigurationsRequest$: StaticStructureSchema = [3, n0, _LSCR,
+  0,
+  [_lGIo, _vEI, _nT, _mR],
+  [0, 0, 0, 1]
+];
+export var ListSyslogConfigurationsResponse$: StaticStructureSchema = [3, n0, _LSCRi,
+  0,
+  [_sCy, _nT],
+  [() => SyslogConfigurations, 0]
+];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rA],
@@ -2338,6 +2365,11 @@ export var PutSubscriptionFilterRequest$: StaticStructureSchema = [3, n0, _PSFR,
   [_lGN, _fN, _fP, _dA, _rAo, _dis, _aOTL, _fSC, _eSF],
   [0, 0, 0, 0, 0, 0, 2, 0, 64 | 0], 4
 ];
+export var PutSyslogConfigurationRequest$: StaticStructureSchema = [3, n0, _PSCR,
+  0,
+  [_lGIo, _vEI],
+  [0, 0], 1
+];
 export var PutTransformerRequest$: StaticStructureSchema = [3, n0, _PTR,
   0,
   [_lGIo, _tC],
@@ -2502,6 +2534,11 @@ export var SuppressionPeriod$: StaticStructureSchema = [3, n0, _SP,
   0,
   [_v, _sUu],
   [1, 0]
+];
+export var SyslogConfiguration$: StaticStructureSchema = [3, n0, _SCy,
+  0,
+  [_lGA, _sTo, _vEI, _cA],
+  [0, 0, 0, 1]
 ];
 export var TagFilter$: StaticStructureSchema = [3, n0, _TF,
   0,
@@ -2803,6 +2840,9 @@ var SubscriptionFilters: StaticListSchema = [1, n0, _SFu,
 var SubstituteStringEntries: StaticListSchema = [1, n0, _SSEub,
   0, () => SubstituteStringEntry$
 ];
+var SyslogConfigurations: StaticListSchema = [1, n0, _SCys,
+  0, () => SyslogConfiguration$
+];
 var TableFields = 64 | 0;
 var TagFilters: StaticListSchema = [1, n0, _TFa,
   0, () => TagFilter$
@@ -2943,6 +2983,9 @@ export var DeleteScheduledQuery$: StaticOperationSchema = [9, n0, _DSQ,
 ];
 export var DeleteSubscriptionFilter$: StaticOperationSchema = [9, n0, _DSFe,
   0, () => DeleteSubscriptionFilterRequest$, () => __Unit
+];
+export var DeleteSyslogConfiguration$: StaticOperationSchema = [9, n0, _DSC,
+  0, () => DeleteSyslogConfigurationRequest$, () => __Unit
 ];
 export var DeleteTransformer$: StaticOperationSchema = [9, n0, _DT,
   0, () => DeleteTransformerRequest$, () => __Unit
@@ -3088,6 +3131,9 @@ export var ListScheduledQueries$: StaticOperationSchema = [9, n0, _LSQ,
 export var ListSourcesForS3TableIntegration$: StaticOperationSchema = [9, n0, _LSFSTI,
   0, () => ListSourcesForS3TableIntegrationRequest$, () => ListSourcesForS3TableIntegrationResponse$
 ];
+export var ListSyslogConfigurations$: StaticOperationSchema = [9, n0, _LSC,
+  0, () => ListSyslogConfigurationsRequest$, () => ListSyslogConfigurationsResponse$
+];
 export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
   0, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
 ];
@@ -3144,6 +3190,9 @@ export var PutRetentionPolicy$: StaticOperationSchema = [9, n0, _PRPu,
 ];
 export var PutSubscriptionFilter$: StaticOperationSchema = [9, n0, _PSF,
   0, () => PutSubscriptionFilterRequest$, () => __Unit
+];
+export var PutSyslogConfiguration$: StaticOperationSchema = [9, n0, _PSC,
+  0, () => PutSyslogConfigurationRequest$, () => __Unit
 ];
 export var PutTransformer$: StaticOperationSchema = [9, n0, _PTu,
   0, () => PutTransformerRequest$, () => __Unit

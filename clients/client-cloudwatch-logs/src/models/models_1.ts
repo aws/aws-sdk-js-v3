@@ -1,6 +1,164 @@
 // smithy-typescript generated code
-import type { EvaluationFrequency, ExecutionStatus, QueryLanguage, ScheduledQueryState, ScheduleType } from "./enums";
-import type { DestinationConfiguration } from "./models_0";
+import type {
+  EvaluationFrequency,
+  ExecutionStatus,
+  QueryLanguage,
+  ScheduledQueryState,
+  ScheduleType,
+  SuppressionType,
+  SuppressionUnit,
+} from "./enums";
+import type { DestinationConfiguration, S3DeliveryConfiguration } from "./models_0";
+
+/**
+ * @deprecated Please use the generic tagging API model UntagResourceRequest.
+ * @public
+ */
+export interface UntagLogGroupRequest {
+  /**
+   * <p>The name of the log group.</p>
+   * @public
+   */
+  logGroupName: string | undefined;
+
+  /**
+   * <p>The tag keys. The corresponding tags are removed from the log group.</p>
+   * @public
+   */
+  tags: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagResourceRequest {
+  /**
+   * <p>The ARN of the CloudWatch Logs resource that you're removing tags from.</p>
+   *          <p>The ARN format of a log group is
+   *           <code>arn:aws:logs:<i>Region</i>:<i>account-id</i>:log-group:<i>log-group-name</i>
+   *             </code>
+   *          </p>
+   *          <p>The ARN format of a destination is
+   *           <code>arn:aws:logs:<i>Region</i>:<i>account-id</i>:destination:<i>destination-name</i>
+   *             </code>
+   *          </p>
+   *          <p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html">CloudWatch Logs
+   *         resources and operations</a>.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>The list of tag keys to remove from the resource.</p>
+   * @public
+   */
+  tagKeys: string[] | undefined;
+}
+
+/**
+ * <p>If you are suppressing an anomaly temporariliy, this structure defines how long the
+ *       suppression period is to be.</p>
+ * @public
+ */
+export interface SuppressionPeriod {
+  /**
+   * <p>Specifies the number of seconds, minutes or hours to suppress this anomaly. There is no
+   *       maximum.</p>
+   * @public
+   */
+  value?: number | undefined;
+
+  /**
+   * <p>Specifies whether the value of <code>value</code> is in seconds, minutes, or hours.</p>
+   * @public
+   */
+  suppressionUnit?: SuppressionUnit | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAnomalyRequest {
+  /**
+   * <p>If you are suppressing or unsuppressing an anomaly, specify its unique ID here. You can
+   *       find anomaly IDs by using the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListAnomalies.html">ListAnomalies</a>
+   *       operation.</p>
+   * @public
+   */
+  anomalyId?: string | undefined;
+
+  /**
+   * <p>If you are suppressing or unsuppressing an pattern, specify its unique ID here. You can
+   *       find pattern IDs by using the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListAnomalies.html">ListAnomalies</a>
+   *       operation.</p>
+   * @public
+   */
+  patternId?: string | undefined;
+
+  /**
+   * <p>The ARN of the anomaly detector that this operation is to act on.</p>
+   * @public
+   */
+  anomalyDetectorArn: string | undefined;
+
+  /**
+   * <p>Use this to specify whether the suppression to be temporary or infinite. If you specify
+   *         <code>LIMITED</code>, you must also specify a <code>suppressionPeriod</code>. If you specify
+   *         <code>INFINITE</code>, any value for <code>suppressionPeriod</code> is ignored. </p>
+   * @public
+   */
+  suppressionType?: SuppressionType | undefined;
+
+  /**
+   * <p>If you are temporarily suppressing an anomaly or pattern, use this structure to specify
+   *       how long the suppression is to last.</p>
+   * @public
+   */
+  suppressionPeriod?: SuppressionPeriod | undefined;
+
+  /**
+   * <p>Set this to <code>true</code> to prevent CloudWatch Logs from displaying this behavior
+   *       as an anomaly in the future. The behavior is then treated as baseline behavior. However, if
+   *       similar but more severe occurrences of this behavior occur in the future, those will still be
+   *       reported as anomalies. </p>
+   *          <p>The default is <code>false</code>
+   *          </p>
+   * @public
+   */
+  baseline?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDeliveryConfigurationRequest {
+  /**
+   * <p>The ID of the delivery to be updated by this request.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The list of record fields to be delivered to the destination, in order. If the delivery's
+   *       log source has mandatory fields, they must be included in this list.</p>
+   * @public
+   */
+  recordFields?: string[] | undefined;
+
+  /**
+   * <p>The field delimiter to use between record fields when the final output format of a
+   *       delivery is in <code>Plain</code>, <code>W3C</code>, or <code>Raw</code> format.</p>
+   * @public
+   */
+  fieldDelimiter?: string | undefined;
+
+  /**
+   * <p>This structure contains parameters that are valid only when the delivery's delivery
+   *       destination is an S3 bucket.</p>
+   * @public
+   */
+  s3DeliveryConfiguration?: S3DeliveryConfiguration | undefined;
+}
 
 /**
  * @public

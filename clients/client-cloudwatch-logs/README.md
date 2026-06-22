@@ -11,6 +11,8 @@ EC2 instances, CloudTrail, and other sources. You can then retrieve the associat
 log data from CloudWatch Logs using the CloudWatch console. Alternatively, you can use
 CloudWatch Logs commands in the Amazon Web Services CLI, CloudWatch Logs API, or CloudWatch
 Logs SDK.</p>
+<p>For more information about CloudWatch Logs features, see the
+<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html">Amazon CloudWatch Logs User Guide</a>.</p>
 <p>You can use CloudWatch Logs to:</p>
 <ul>
 <li>
@@ -41,6 +43,11 @@ Logs agent helps to quickly send both rotated and non-rotated log data off of a 
 into the log service. You can then access the raw log data when you need it.</p>
 </li>
 </ul>
+<note>
+<p>CloudWatch Logs might log request contents for fields that aren't considered
+sensitive, such as API request parameters for CloudWatch Logs actions. This provides
+debugging information for failed API requests.</p>
+</note>
 
 ## Installing
 
@@ -432,6 +439,13 @@ DeleteSubscriptionFilter
 </details>
 <details>
 <summary>
+DeleteSyslogConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DeleteSyslogConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DeleteSyslogConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DeleteSyslogConfigurationCommandOutput/)
+</details>
+<details>
+<summary>
 DeleteTransformer
 </summary>
 
@@ -768,6 +782,13 @@ ListSourcesForS3TableIntegration
 </details>
 <details>
 <summary>
+ListSyslogConfigurations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/ListSyslogConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/ListSyslogConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/ListSyslogConfigurationsCommandOutput/)
+</details>
+<details>
+<summary>
 ListTagsForResource
 </summary>
 
@@ -898,6 +919,13 @@ PutSubscriptionFilter
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/PutSubscriptionFilterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/PutSubscriptionFilterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/PutSubscriptionFilterCommandOutput/)
+</details>
+<details>
+<summary>
+PutSyslogConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/PutSyslogConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/PutSyslogConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/PutSyslogConfigurationCommandOutput/)
 </details>
 <details>
 <summary>

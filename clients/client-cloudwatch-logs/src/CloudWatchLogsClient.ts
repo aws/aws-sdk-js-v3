@@ -152,6 +152,10 @@ import type {
   DeleteSubscriptionFilterCommandOutput,
 } from "./commands/DeleteSubscriptionFilterCommand";
 import type {
+  DeleteSyslogConfigurationCommandInput,
+  DeleteSyslogConfigurationCommandOutput,
+} from "./commands/DeleteSyslogConfigurationCommand";
+import type {
   DeleteTransformerCommandInput,
   DeleteTransformerCommandOutput,
 } from "./commands/DeleteTransformerCommand";
@@ -302,6 +306,10 @@ import type {
   ListSourcesForS3TableIntegrationCommandOutput,
 } from "./commands/ListSourcesForS3TableIntegrationCommand";
 import type {
+  ListSyslogConfigurationsCommandInput,
+  ListSyslogConfigurationsCommandOutput,
+} from "./commands/ListSyslogConfigurationsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
@@ -356,6 +364,10 @@ import type {
   PutSubscriptionFilterCommandInput,
   PutSubscriptionFilterCommandOutput,
 } from "./commands/PutSubscriptionFilterCommand";
+import type {
+  PutSyslogConfigurationCommandInput,
+  PutSyslogConfigurationCommandOutput,
+} from "./commands/PutSyslogConfigurationCommand";
 import type { PutTransformerCommandInput, PutTransformerCommandOutput } from "./commands/PutTransformerCommand";
 import type { StartLiveTailCommandInput, StartLiveTailCommandOutput } from "./commands/StartLiveTailCommand";
 import type { StartQueryCommandInput, StartQueryCommandOutput } from "./commands/StartQueryCommand";
@@ -429,6 +441,7 @@ export type ServiceInputTypes =
   | DeleteRetentionPolicyCommandInput
   | DeleteScheduledQueryCommandInput
   | DeleteSubscriptionFilterCommandInput
+  | DeleteSyslogConfigurationCommandInput
   | DeleteTransformerCommandInput
   | DescribeAccountPoliciesCommandInput
   | DescribeConfigurationTemplatesCommandInput
@@ -477,6 +490,7 @@ export type ServiceInputTypes =
   | ListLogGroupsForQueryCommandInput
   | ListScheduledQueriesCommandInput
   | ListSourcesForS3TableIntegrationCommandInput
+  | ListSyslogConfigurationsCommandInput
   | ListTagsForResourceCommandInput
   | ListTagsLogGroupCommandInput
   | PutAccountPolicyCommandInput
@@ -496,6 +510,7 @@ export type ServiceInputTypes =
   | PutResourcePolicyCommandInput
   | PutRetentionPolicyCommandInput
   | PutSubscriptionFilterCommandInput
+  | PutSyslogConfigurationCommandInput
   | PutTransformerCommandInput
   | StartLiveTailCommandInput
   | StartQueryCommandInput
@@ -547,6 +562,7 @@ export type ServiceOutputTypes =
   | DeleteRetentionPolicyCommandOutput
   | DeleteScheduledQueryCommandOutput
   | DeleteSubscriptionFilterCommandOutput
+  | DeleteSyslogConfigurationCommandOutput
   | DeleteTransformerCommandOutput
   | DescribeAccountPoliciesCommandOutput
   | DescribeConfigurationTemplatesCommandOutput
@@ -595,6 +611,7 @@ export type ServiceOutputTypes =
   | ListLogGroupsForQueryCommandOutput
   | ListScheduledQueriesCommandOutput
   | ListSourcesForS3TableIntegrationCommandOutput
+  | ListSyslogConfigurationsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListTagsLogGroupCommandOutput
   | PutAccountPolicyCommandOutput
@@ -614,6 +631,7 @@ export type ServiceOutputTypes =
   | PutResourcePolicyCommandOutput
   | PutRetentionPolicyCommandOutput
   | PutSubscriptionFilterCommandOutput
+  | PutSyslogConfigurationCommandOutput
   | PutTransformerCommandOutput
   | StartLiveTailCommandOutput
   | StartQueryCommandOutput
@@ -833,6 +851,8 @@ export interface CloudWatchLogsClientResolvedConfig extends CloudWatchLogsClient
  *       log data from CloudWatch Logs using the CloudWatch console. Alternatively, you can use
  *       CloudWatch Logs commands in the Amazon Web Services CLI, CloudWatch Logs API, or CloudWatch
  *       Logs SDK.</p>
+ *          <p>For more information about CloudWatch Logs features, see the
+ *       <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html">Amazon CloudWatch Logs User Guide</a>.</p>
  *          <p>You can use CloudWatch Logs to:</p>
  *          <ul>
  *             <li>
@@ -863,6 +883,11 @@ export interface CloudWatchLogsClientResolvedConfig extends CloudWatchLogsClient
  *           into the log service. You can then access the raw log data when you need it.</p>
  *             </li>
  *          </ul>
+ *          <note>
+ *             <p>CloudWatch Logs might log request contents for fields that aren't considered
+ *         sensitive, such as API request parameters for CloudWatch Logs actions. This provides
+ *         debugging information for failed API requests.</p>
+ *          </note>
  * @public
  */
 export class CloudWatchLogsClient extends __Client<

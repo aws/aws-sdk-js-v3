@@ -9,7 +9,7 @@ import type {
   ServiceOutputTypes,
 } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { UntagLogGroupRequest } from "../models/models_0";
+import type { UntagLogGroupRequest } from "../models/models_1";
 import { UntagLogGroup$ } from "../schemas/schemas_0";
 
 /**

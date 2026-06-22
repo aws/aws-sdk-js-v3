@@ -589,6 +589,18 @@ export type S3TableIntegrationSourceStatus =
  * @public
  * @enum
  */
+export const SyslogSourceType = {
+  VPCE: "VPCE",
+} as const;
+/**
+ * @public
+ */
+export type SyslogSourceType = (typeof SyslogSourceType)[keyof typeof SyslogSourceType];
+
+/**
+ * @public
+ * @enum
+ */
 export const SuppressionUnit = {
   HOURS: "HOURS",
   MINUTES: "MINUTES",

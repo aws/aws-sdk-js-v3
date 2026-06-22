@@ -9,7 +9,7 @@ import type {
   ServiceOutputTypes,
 } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { UpdateAnomalyRequest } from "../models/models_0";
+import type { UpdateAnomalyRequest } from "../models/models_1";
 import { UpdateAnomaly$ } from "../schemas/schemas_0";
 
 /**
