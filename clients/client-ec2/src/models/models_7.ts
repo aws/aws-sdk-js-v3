@@ -99,6 +99,7 @@ import type {
   ConnectionTrackingSpecificationRequest,
   CreditSpecificationRequest,
   ElasticGpuSpecification,
+  ExternalAuthorityConfiguration,
   IcmpTypeCode,
   InstanceIpv6Address,
   IpamScope,
@@ -173,6 +174,44 @@ import type {
   ManagedResourceVisibilitySettings,
   Purchase,
 } from "./models_6";
+
+/**
+ * @public
+ */
+export interface ModifyIpamScopeRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the scope you want to modify.</p>
+   * @public
+   */
+  IpamScopeId: string | undefined;
+
+  /**
+   * <p>The description of the scope you want to modify.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The configuration that links an Amazon VPC IPAM scope to an external authority system. It specifies the type of external system and the external resource identifier that identifies your account or instance in that system.</p>
+   *          <p>In IPAM, an external authority is a third-party IP address management system that provides CIDR blocks when you provision address space for top-level IPAM pools. This allows you to use your existing IP management system to control which address ranges are allocated to Amazon Web Services while using Amazon VPC IPAM to manage subnets within those ranges.</p>
+   * @public
+   */
+  ExternalAuthorityConfiguration?: ExternalAuthorityConfiguration | undefined;
+
+  /**
+   * <p>Remove the external authority configuration. <code>true</code> to remove.</p>
+   * @public
+   */
+  RemoveExternalAuthorityConfiguration?: boolean | undefined;
+}
 
 /**
  * @public
@@ -1455,6 +1494,12 @@ export interface ModifyTransitGatewayOptions {
    *             </li>
    *             <li>
    *                <p>Connect</p>
+   *             </li>
+   *             <li>
+   *                <p>VPN Concentrator</p>
+   *             </li>
+   *             <li>
+   *                <p>Client VPN</p>
    *             </li>
    *          </ul>
    *          <p>You must first delete all transit gateway attachments configured prior to modifying the ASN on
@@ -5251,6 +5296,43 @@ export interface DeprecationTimeConditionRequest {
 }
 
 /**
+ * <p>The watermark filter criteria for an allowed image. Each entry can specify one or more
+ *       fields. All specified fields must match the same watermark on the image.</p>
+ * @public
+ */
+export interface ImageWatermarkFilterRequest {
+  /**
+   * <p>The <code>accountId:name</code> of the watermark. Supports wildcards (<code>*</code>,
+   *       <code>?</code>).</p>
+   * @public
+   */
+  WatermarkKey?: string | undefined;
+
+  /**
+   * <p>The Region where the watermark was originally created. Supports wildcards (<code>*</code>,
+   *       <code>?</code>).</p>
+   * @public
+   */
+  SourceImageRegion?: string | undefined;
+
+  /**
+   * <p>The maximum number of days that have elapsed since the source image was
+   *       created.</p>
+   *          <p>Constraints: Minimum value of 0. Maximum value of 2147483647.</p>
+   * @public
+   */
+  MaximumDaysSinceSourceImageCreated?: number | undefined;
+
+  /**
+   * <p>The maximum number of days that have elapsed since the watermark was attached to the
+   *       image.</p>
+   *          <p>Constraints: Minimum value of 0. Maximum value of 2147483647.</p>
+   * @public
+   */
+  MaximumDaysSinceWatermarkCreated?: number | undefined;
+}
+
+/**
  * <p>The criteria that are evaluated to determine which AMIs are discoverable and usable in
  *       your account for the specified Amazon Web Services Region.</p>
  *          <p>The <code>ImageCriteria</code> can include up to:</p>
@@ -5272,6 +5354,10 @@ export interface DeprecationTimeConditionRequest {
  *             </li>
  *             <li>
  *                <p>50 values for <code>MarketplaceProductCodes</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>50 values for <code>ImageWatermarks</code>
  *                </p>
  *             </li>
  *          </ul>
@@ -5359,6 +5445,16 @@ export interface ImageCriterionRequest {
    * @public
    */
   CreationDateCondition?: CreationDateConditionRequest | undefined;
+
+  /**
+   * <p>The watermark criteria that an AMI must match to be allowed. An AMI is allowed if it
+   *       carries at least one watermark that satisfies an ImageWatermarkFilter. A watermark satisfies a
+   *       filter when all specified fields in the ImageWatermarkFilter match the corresponding values on
+   *       the watermark of the AMI.</p>
+   *          <p>Maximum: 50 values</p>
+   * @public
+   */
+  ImageWatermarks?: ImageWatermarkFilterRequest[] | undefined;
 }
 
 /**

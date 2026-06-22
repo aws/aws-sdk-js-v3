@@ -69,6 +69,14 @@ export interface GetAllowedImagesSettingsCommandOutput extends GetAllowedImagesS
  * //       CreationDateCondition: { // CreationDateCondition
  * //         MaximumDaysSinceCreated: Number("int"),
  * //       },
+ * //       ImageWatermarks: [ // ImageWatermarkFilterResponseList
+ * //         { // ImageWatermarkFilterResponse
+ * //           WatermarkKey: "STRING_VALUE",
+ * //           SourceImageRegion: "STRING_VALUE",
+ * //           MaximumDaysSinceSourceImageCreated: Number("int"),
+ * //           MaximumDaysSinceWatermarkCreated: Number("int"),
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   ManagedBy: "account" || "declarative-policy",

@@ -4225,6 +4225,8 @@ export type {
   ImageUsageResourceTypeOptionRequest,
   ImageUsageResourceTypeRequest,
   ImageWatermark,
+  ImageWatermarkFilterRequest,
+  ImageWatermarkFilterResponse,
   ImportClientVpnClientCertificateRevocationListRequest,
   ImportClientVpnClientCertificateRevocationListResult,
   ImportImageLicenseConfigurationRequest,

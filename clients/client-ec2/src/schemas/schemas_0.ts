@@ -3520,6 +3520,10 @@ const _IVTD = "ImportVolumeTaskDetails";
 const _IVk = "IkeVersions";
 const _IVm = "ImportVolume";
 const _IW = "ImageWatermarks";
+const _IWFR = "ImageWatermarkFilterRequest";
+const _IWFRL = "ImageWatermarkFilterRequestList";
+const _IWFRLm = "ImageWatermarkFilterResponseList";
+const _IWFRm = "ImageWatermarkFilterResponse";
 const _IWL = "ImageWatermarkList";
 const _IWm = "ImageWatermark";
 const _Ic = "Icmp";
@@ -3850,6 +3854,8 @@ const _MDRe = "MetricDimensionResults";
 const _MDRet = "MetricDataResult";
 const _MDSC = "MaximumDaysSinceCreated";
 const _MDSD = "MaximumDaysSinceDeprecated";
+const _MDSSIC = "MaximumDaysSinceSourceImageCreated";
+const _MDSWC = "MaximumDaysSinceWatermarkCreated";
 const _MDV = "MetaDataValue";
 const _MDa = "MaintenanceDetails";
 const _MDe = "MetaData";
@@ -7213,6 +7219,8 @@ const _mDRS = "metricDataResultSet";
 const _mDRSe = "metricDimensionResultSet";
 const _mDSC = "maximumDaysSinceCreated";
 const _mDSD = "maximumDaysSinceDeprecated";
+const _mDSSIC = "maximumDaysSinceSourceImageCreated";
+const _mDSWC = "maximumDaysSinceWatermarkCreated";
 const _mDV = "metaDataValue";
 const _mDe = "metaData";
 const _mE = "maxEntries";
@@ -17934,18 +17942,19 @@ export var ImageAttribute$: StaticStructureSchema = [3, n0, _IAma,
 ];
 export var ImageCriterion$: StaticStructureSchema = [3, n0, _ICma,
   0,
-  [_IPm, _MPC, _INm, _DTC, _CDC],
+  [_IPm, _MPC, _INm, _DTC, _CDC, _IW],
   [[() => ImageProviderList, { [_eQN]: `ImageProviderSet`
   , [_xN]: _iPSm }], [() => MarketplaceProductCodeList, { [_eQN]: `MarketplaceProductCodeSet`
   , [_xN]: _mPCS }], [() => ImageNameList, { [_eQN]: `ImageNameSet`
   , [_xN]: _iNS }], [() => DeprecationTimeCondition$, { [_eQN]: `DeprecationTimeCondition`
   , [_xN]: _dTC }], [() => CreationDateCondition$, { [_eQN]: `CreationDateCondition`
-  , [_xN]: _cDC }]]
+  , [_xN]: _cDC }], [() => ImageWatermarkFilterResponseList, { [_eQN]: `ImageWatermarkSet`
+  , [_xN]: _iWS }]]
 ];
 export var ImageCriterionRequest$: StaticStructureSchema = [3, n0, _ICR,
   0,
-  [_IPm, _MPC, _INm, _DTC, _CDC],
-  [[() => ImageProviderRequestList, { [_xN]: _IPma }], [() => MarketplaceProductCodeRequestList, { [_xN]: _MPCa }], [() => ImageNameCriteriaRequestList, { [_xN]: _INma }], () => DeprecationTimeConditionRequest$, () => CreationDateConditionRequest$]
+  [_IPm, _MPC, _INm, _DTC, _CDC, _IW],
+  [[() => ImageProviderRequestList, { [_xN]: _IPma }], [() => MarketplaceProductCodeRequestList, { [_xN]: _MPCa }], [() => ImageNameCriteriaRequestList, { [_xN]: _INma }], () => DeprecationTimeConditionRequest$, () => CreationDateConditionRequest$, [() => ImageWatermarkFilterRequestList, { [_xN]: _IWm }]]
 ];
 export var ImageDiskContainer$: StaticStructureSchema = [3, n0, _IDC,
   0,
@@ -18043,6 +18052,20 @@ export var ImageWatermark$: StaticStructureSchema = [3, n0, _IWm,
   , [_xN]: _sIIo }], [4, { [_eQN]: `SourceImageCreationTime`
   , [_xN]: _sICT }], [4, { [_eQN]: `WatermarkCreationTime`
   , [_xN]: _wCT }]]
+];
+export var ImageWatermarkFilterRequest$: StaticStructureSchema = [3, n0, _IWFR,
+  0,
+  [_WK, _SIRo, _MDSSIC, _MDSWC],
+  [0, 0, 1, 1]
+];
+export var ImageWatermarkFilterResponse$: StaticStructureSchema = [3, n0, _IWFRm,
+  0,
+  [_WK, _SIRo, _MDSSIC, _MDSWC],
+  [[0, { [_eQN]: `WatermarkKey`
+  , [_xN]: _wK }], [0, { [_eQN]: `SourceImageRegion`
+  , [_xN]: _sIR }], [1, { [_eQN]: `MaximumDaysSinceSourceImageCreated`
+  , [_xN]: _mDSSIC }], [1, { [_eQN]: `MaximumDaysSinceWatermarkCreated`
+  , [_xN]: _mDSWC }]]
 ];
 export var ImportClientVpnClientCertificateRevocationListRequest$: StaticStructureSchema = [3, n0, _ICVCCRLR,
   0,
@@ -26750,6 +26773,14 @@ var ImageUsageResourceTypeOptionValuesList: StaticListSchema = [1, n0, _IURTOVL,
 var ImageUsageResourceTypeRequestList: StaticListSchema = [1, n0, _IURTRL,
   0, [() => ImageUsageResourceTypeRequest$,
     0]
+];
+var ImageWatermarkFilterRequestList: StaticListSchema = [1, n0, _IWFRL,
+  0, [() => ImageWatermarkFilterRequest$,
+    { [_xN]: _it }]
+];
+var ImageWatermarkFilterResponseList: StaticListSchema = [1, n0, _IWFRLm,
+  0, [() => ImageWatermarkFilterResponse$,
+    { [_xN]: _it }]
 ];
 var ImageWatermarkList: StaticListSchema = [1, n0, _IWL,
   0, [() => ImageWatermark$,

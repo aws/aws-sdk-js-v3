@@ -29,9 +29,8 @@ export interface AttachImageWatermarkCommandOutput extends AttachImageWatermarkR
 /**
  * <p>Attaches a watermark to a non-public AMI. The watermark is a structured identifier that
  *       automatically propagates to all derivative images created through
- *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html">CreateImage</a>,
- *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CopyImage.html">CopyImage</a>,
- *         and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateRestoreImageTask.html">CreateRestoreImageTask</a>.</p>
+ *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html">CreateImage</a>, and
+ *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CopyImage.html">CopyImage</a>.</p>
  *          <p>Only the AMI owner can attach watermarks. Watermarks cannot be added to public
  *       AMIs.</p>
  * @example

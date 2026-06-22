@@ -76,6 +76,50 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     0
                 </maximumDaysSinceCreated>
             </creationDateCondition>
+            <imageWatermarkSet>
+                <item>
+                    <watermarkKey>
+                        __WatermarkKey__
+                    </watermarkKey>
+                    <sourceImageRegion>
+                        __SourceImageRegion__
+                    </sourceImageRegion>
+                    <maximumDaysSinceSourceImageCreated>
+                        0
+                    </maximumDaysSinceSourceImageCreated>
+                    <maximumDaysSinceWatermarkCreated>
+                        0
+                    </maximumDaysSinceWatermarkCreated>
+                </item>
+                <item>
+                    <watermarkKey>
+                        __WatermarkKey__
+                    </watermarkKey>
+                    <sourceImageRegion>
+                        __SourceImageRegion__
+                    </sourceImageRegion>
+                    <maximumDaysSinceSourceImageCreated>
+                        0
+                    </maximumDaysSinceSourceImageCreated>
+                    <maximumDaysSinceWatermarkCreated>
+                        0
+                    </maximumDaysSinceWatermarkCreated>
+                </item>
+                <item>
+                    <watermarkKey>
+                        __WatermarkKey__
+                    </watermarkKey>
+                    <sourceImageRegion>
+                        __SourceImageRegion__
+                    </sourceImageRegion>
+                    <maximumDaysSinceSourceImageCreated>
+                        0
+                    </maximumDaysSinceSourceImageCreated>
+                    <maximumDaysSinceWatermarkCreated>
+                        0
+                    </maximumDaysSinceWatermarkCreated>
+                </item>
+            </imageWatermarkSet>
         </item>
         <item>
             <imageProviderSet>
@@ -121,6 +165,50 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     0
                 </maximumDaysSinceCreated>
             </creationDateCondition>
+            <imageWatermarkSet>
+                <item>
+                    <watermarkKey>
+                        __WatermarkKey__
+                    </watermarkKey>
+                    <sourceImageRegion>
+                        __SourceImageRegion__
+                    </sourceImageRegion>
+                    <maximumDaysSinceSourceImageCreated>
+                        0
+                    </maximumDaysSinceSourceImageCreated>
+                    <maximumDaysSinceWatermarkCreated>
+                        0
+                    </maximumDaysSinceWatermarkCreated>
+                </item>
+                <item>
+                    <watermarkKey>
+                        __WatermarkKey__
+                    </watermarkKey>
+                    <sourceImageRegion>
+                        __SourceImageRegion__
+                    </sourceImageRegion>
+                    <maximumDaysSinceSourceImageCreated>
+                        0
+                    </maximumDaysSinceSourceImageCreated>
+                    <maximumDaysSinceWatermarkCreated>
+                        0
+                    </maximumDaysSinceWatermarkCreated>
+                </item>
+                <item>
+                    <watermarkKey>
+                        __WatermarkKey__
+                    </watermarkKey>
+                    <sourceImageRegion>
+                        __SourceImageRegion__
+                    </sourceImageRegion>
+                    <maximumDaysSinceSourceImageCreated>
+                        0
+                    </maximumDaysSinceSourceImageCreated>
+                    <maximumDaysSinceWatermarkCreated>
+                        0
+                    </maximumDaysSinceWatermarkCreated>
+                </item>
+            </imageWatermarkSet>
         </item>
         <item>
             <imageProviderSet>
@@ -166,6 +254,50 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     0
                 </maximumDaysSinceCreated>
             </creationDateCondition>
+            <imageWatermarkSet>
+                <item>
+                    <watermarkKey>
+                        __WatermarkKey__
+                    </watermarkKey>
+                    <sourceImageRegion>
+                        __SourceImageRegion__
+                    </sourceImageRegion>
+                    <maximumDaysSinceSourceImageCreated>
+                        0
+                    </maximumDaysSinceSourceImageCreated>
+                    <maximumDaysSinceWatermarkCreated>
+                        0
+                    </maximumDaysSinceWatermarkCreated>
+                </item>
+                <item>
+                    <watermarkKey>
+                        __WatermarkKey__
+                    </watermarkKey>
+                    <sourceImageRegion>
+                        __SourceImageRegion__
+                    </sourceImageRegion>
+                    <maximumDaysSinceSourceImageCreated>
+                        0
+                    </maximumDaysSinceSourceImageCreated>
+                    <maximumDaysSinceWatermarkCreated>
+                        0
+                    </maximumDaysSinceWatermarkCreated>
+                </item>
+                <item>
+                    <watermarkKey>
+                        __WatermarkKey__
+                    </watermarkKey>
+                    <sourceImageRegion>
+                        __SourceImageRegion__
+                    </sourceImageRegion>
+                    <maximumDaysSinceSourceImageCreated>
+                        0
+                    </maximumDaysSinceSourceImageCreated>
+                    <maximumDaysSinceWatermarkCreated>
+                        0
+                    </maximumDaysSinceWatermarkCreated>
+                </item>
+            </imageWatermarkSet>
         </item>
     </imageCriterionSet>
     <managedBy>
@@ -199,7 +331,27 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       },
       CreationDateCondition: {
         MaximumDaysSinceCreated: (number) 0
-      }
+      },
+      ImageWatermarks: [
+        {
+          WatermarkKey: "__WatermarkKey__",
+          SourceImageRegion: "__SourceImageRegion__",
+          MaximumDaysSinceSourceImageCreated: (number) 0,
+          MaximumDaysSinceWatermarkCreated: (number) 0
+        },
+        {
+          WatermarkKey: "__WatermarkKey__",
+          SourceImageRegion: "__SourceImageRegion__",
+          MaximumDaysSinceSourceImageCreated: (number) 0,
+          MaximumDaysSinceWatermarkCreated: (number) 0
+        },
+        {
+          WatermarkKey: "__WatermarkKey__",
+          SourceImageRegion: "__SourceImageRegion__",
+          MaximumDaysSinceSourceImageCreated: (number) 0,
+          MaximumDaysSinceWatermarkCreated: (number) 0
+        }
+      ]
     },
     {
       ImageProviders: [
@@ -222,7 +374,27 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       },
       CreationDateCondition: {
         MaximumDaysSinceCreated: (number) 0
-      }
+      },
+      ImageWatermarks: [
+        {
+          WatermarkKey: "__WatermarkKey__",
+          SourceImageRegion: "__SourceImageRegion__",
+          MaximumDaysSinceSourceImageCreated: (number) 0,
+          MaximumDaysSinceWatermarkCreated: (number) 0
+        },
+        {
+          WatermarkKey: "__WatermarkKey__",
+          SourceImageRegion: "__SourceImageRegion__",
+          MaximumDaysSinceSourceImageCreated: (number) 0,
+          MaximumDaysSinceWatermarkCreated: (number) 0
+        },
+        {
+          WatermarkKey: "__WatermarkKey__",
+          SourceImageRegion: "__SourceImageRegion__",
+          MaximumDaysSinceSourceImageCreated: (number) 0,
+          MaximumDaysSinceWatermarkCreated: (number) 0
+        }
+      ]
     },
     {
       ImageProviders: [
@@ -245,7 +417,27 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       },
       CreationDateCondition: {
         MaximumDaysSinceCreated: (number) 0
-      }
+      },
+      ImageWatermarks: [
+        {
+          WatermarkKey: "__WatermarkKey__",
+          SourceImageRegion: "__SourceImageRegion__",
+          MaximumDaysSinceSourceImageCreated: (number) 0,
+          MaximumDaysSinceWatermarkCreated: (number) 0
+        },
+        {
+          WatermarkKey: "__WatermarkKey__",
+          SourceImageRegion: "__SourceImageRegion__",
+          MaximumDaysSinceSourceImageCreated: (number) 0,
+          MaximumDaysSinceWatermarkCreated: (number) 0
+        },
+        {
+          WatermarkKey: "__WatermarkKey__",
+          SourceImageRegion: "__SourceImageRegion__",
+          MaximumDaysSinceSourceImageCreated: (number) 0,
+          MaximumDaysSinceWatermarkCreated: (number) 0
+        }
+      ]
     }
   ],
   ManagedBy: "__ManagedBy__",

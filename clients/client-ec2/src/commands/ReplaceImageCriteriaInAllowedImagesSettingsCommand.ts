@@ -31,6 +31,13 @@ export interface ReplaceImageCriteriaInAllowedImagesSettingsCommandOutput extend
 
 /**
  * <p>Sets or replaces the criteria for Allowed AMIs.</p>
+ *          <p>The <code>ImageCriteria</code> can include up to:</p>
+ *          <ul>
+ *             <li>
+ *                <p>10 <code>ImageCriterion</code>
+ *                </p>
+ *             </li>
+ *          </ul>
  *          <note>
  *             <p>The Allowed AMIs feature does not restrict the AMIs owned by your account. Regardless of
  *         the criteria you set, the AMIs created by your account will always be discoverable and
@@ -65,6 +72,14 @@ export interface ReplaceImageCriteriaInAllowedImagesSettingsCommandOutput extend
  *       CreationDateCondition: { // CreationDateConditionRequest
  *         MaximumDaysSinceCreated: Number("int"),
  *       },
+ *       ImageWatermarks: [ // ImageWatermarkFilterRequestList
+ *         { // ImageWatermarkFilterRequest
+ *           WatermarkKey: "STRING_VALUE",
+ *           SourceImageRegion: "STRING_VALUE",
+ *           MaximumDaysSinceSourceImageCreated: Number("int"),
+ *           MaximumDaysSinceWatermarkCreated: Number("int"),
+ *         },
+ *       ],
  *     },
  *   ],
  *   DryRun: true || false,

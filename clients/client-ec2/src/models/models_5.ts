@@ -8740,6 +8740,43 @@ export interface DeprecationTimeCondition {
 }
 
 /**
+ * <p>The watermark filter criteria for an allowed image. Each entry can specify one or more
+ *       fields. All specified fields must match the same watermark on the image.</p>
+ * @public
+ */
+export interface ImageWatermarkFilterResponse {
+  /**
+   * <p>The <code>accountId:name</code> of the watermark. Supports wildcards (<code>*</code>,
+   *       <code>?</code>).</p>
+   * @public
+   */
+  WatermarkKey?: string | undefined;
+
+  /**
+   * <p>The Region where the watermark was originally created. Supports wildcards (<code>*</code>,
+   *       <code>?</code>).</p>
+   * @public
+   */
+  SourceImageRegion?: string | undefined;
+
+  /**
+   * <p>The maximum number of days that have elapsed since the source image was
+   *       created.</p>
+   *          <p>Constraints: Minimum value of 0. Maximum value of 2147483647.</p>
+   * @public
+   */
+  MaximumDaysSinceSourceImageCreated?: number | undefined;
+
+  /**
+   * <p>The maximum number of days that have elapsed since the watermark was attached to the
+   *       image.</p>
+   *          <p>Constraints: Minimum value of 0. Maximum value of 2147483647.</p>
+   * @public
+   */
+  MaximumDaysSinceWatermarkCreated?: number | undefined;
+}
+
+/**
  * <p>The criteria that are evaluated to determine which AMIs are discoverable and usable in
  *       your account for the specified Amazon Web Services Region.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html#how-allowed-amis-works">How Allowed AMIs
@@ -8825,6 +8862,16 @@ export interface ImageCriterion {
    * @public
    */
   CreationDateCondition?: CreationDateCondition | undefined;
+
+  /**
+   * <p>The watermark criteria that an AMI must match to be allowed. An AMI is allowed if it
+   *       carries at least one watermark that satisfies an ImageWatermarkFilter. A watermark satisfies a
+   *       filter when all specified fields in the ImageWatermarkFilter match the corresponding values on
+   *       the watermark of the AMI.</p>
+   *          <p>Maximum: 50 values</p>
+   * @public
+   */
+  ImageWatermarks?: ImageWatermarkFilterResponse[] | undefined;
 }
 
 /**
@@ -9170,21 +9217,4 @@ export interface DataResponse {
    * @public
    */
   MetricPoints?: MetricPoint[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetAwsNetworkPerformanceDataResult {
-  /**
-   * <p>The list of data responses.</p>
-   * @public
-   */
-  DataResponses?: DataResponse[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
 }

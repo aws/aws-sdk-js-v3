@@ -115,7 +115,6 @@ import type {
 import type {
   AttributeValue,
   CapacityReservationTarget,
-  ExternalAuthorityConfiguration,
   FleetLaunchTemplateConfigRequest,
   InstanceEventWindowTimeRangeRequest,
   InstanceRequirementsRequest,
@@ -152,7 +151,24 @@ import type {
   InstanceStatusEvent,
   SnapshotTaskDetail,
 } from "./models_4";
-import type { RouteServerPropagation } from "./models_5";
+import type { DataResponse, RouteServerPropagation } from "./models_5";
+
+/**
+ * @public
+ */
+export interface GetAwsNetworkPerformanceDataResult {
+  /**
+   * <p>The list of data responses.</p>
+   * @public
+   */
+  DataResponses?: DataResponse[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -10113,42 +10129,4 @@ export interface ModifyIpamResourceDiscoveryResult {
    * @public
    */
   IpamResourceDiscovery?: IpamResourceDiscovery | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyIpamScopeRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the scope you want to modify.</p>
-   * @public
-   */
-  IpamScopeId: string | undefined;
-
-  /**
-   * <p>The description of the scope you want to modify.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The configuration that links an Amazon VPC IPAM scope to an external authority system. It specifies the type of external system and the external resource identifier that identifies your account or instance in that system.</p>
-   *          <p>In IPAM, an external authority is a third-party IP address management system that provides CIDR blocks when you provision address space for top-level IPAM pools. This allows you to use your existing IP management system to control which address ranges are allocated to Amazon Web Services while using Amazon VPC IPAM to manage subnets within those ranges.</p>
-   * @public
-   */
-  ExternalAuthorityConfiguration?: ExternalAuthorityConfiguration | undefined;
-
-  /**
-   * <p>Remove the external authority configuration. <code>true</code> to remove.</p>
-   * @public
-   */
-  RemoveExternalAuthorityConfiguration?: boolean | undefined;
 }

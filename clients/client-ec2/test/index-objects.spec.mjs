@@ -2828,6 +2828,8 @@ import {
   ImageUsageResourceTypeOptionRequest$,
   ImageUsageResourceTypeRequest$,
   ImageWatermark$,
+  ImageWatermarkFilterRequest$,
+  ImageWatermarkFilterResponse$,
   ImdsSupportValues,
   ImportClientVpnClientCertificateRevocationList$,
   ImportClientVpnClientCertificateRevocationListCommand,
@@ -7652,6 +7654,8 @@ assert(typeof ImageUsageResourceTypeOption$ === "object");
 assert(typeof ImageUsageResourceTypeOptionRequest$ === "object");
 assert(typeof ImageUsageResourceTypeRequest$ === "object");
 assert(typeof ImageWatermark$ === "object");
+assert(typeof ImageWatermarkFilterRequest$ === "object");
+assert(typeof ImageWatermarkFilterResponse$ === "object");
 assert(typeof ImportClientVpnClientCertificateRevocationListRequest$ === "object");
 assert(typeof ImportClientVpnClientCertificateRevocationListResult$ === "object");
 assert(typeof ImportImageLicenseConfigurationRequest$ === "object");
