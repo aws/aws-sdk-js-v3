@@ -7,6 +7,7 @@ export * from "./ListCoveragePaginator";
 export * from "./ListDetectorsPaginator";
 export * from "./ListFiltersPaginator";
 export * from "./ListFindingsPaginator";
+export * from "./ListInvestigationsPaginator";
 export * from "./ListInvitationsPaginator";
 export * from "./ListIPSetsPaginator";
 export * from "./ListMalwareScansPaginator";

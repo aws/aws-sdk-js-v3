@@ -102,10 +102,11 @@ const _CBS = "CountBySeverity";
 const _CC = "CountryCode";
 const _CCI = "CoveredContainerInstances";
 const _CCIo = "CompatibleContainerInstances";
-const _CD = "ConnectionDirection";
+const _CD = "CloudDetails";
 const _CDR = "CreateDetectorRequest";
 const _CDRr = "CreateDetectorResponse";
-const _CDo = "ContainerDetails";
+const _CDo = "ConnectionDirection";
+const _CDon = "ContainerDetails";
 const _CDr = "CreateDetector";
 const _CE = "ConflictException";
 const _CECD = "CoverageEcsClusterDetails";
@@ -119,10 +120,13 @@ const _CFCov = "CoverageFilterCriterion";
 const _CFR = "ContainerFindingResource";
 const _CFRr = "CreateFilterRequest";
 const _CFRre = "CreateFilterResponse";
+const _CI = "CreateInvestigation";
 const _CID = "ContainerInstanceDetails";
 const _CIPS = "CreateIPSet";
 const _CIPSR = "CreateIPSetRequest";
 const _CIPSRr = "CreateIPSetResponse";
+const _CIR = "CreateInvestigationRequest";
+const _CIRr = "CreateInvestigationResponse";
 const _CK = "CriterionKey";
 const _CLE = "CommandLineExample";
 const _CM = "CreateMembers";
@@ -170,6 +174,7 @@ const _CTlo = "CloudTrail";
 const _CTr = "CreatedTime";
 const _CU = "ContainerUids";
 const _CUr = "CredentialUid";
+const _Cl = "Cloud";
 const _Co = "Condition";
 const _Cod = "Code";
 const _Com = "Comments";
@@ -329,6 +334,7 @@ const _End = "Endpoints";
 const _Eng = "Engine";
 const _Eq = "Eq";
 const _Equ = "Equals";
+const _Er = "Error";
 const _Eu = "Euid";
 const _Ev = "Evidence";
 const _Ex = "Exclude";
@@ -368,8 +374,8 @@ const _FTFCRr = "FreeTrialFeatureConfigurationsResults";
 const _FTS = "FindingTypeStatistics";
 const _FTi = "FindingType";
 const _FV = "FunctionVersion";
-const _Fe = "Feedback";
-const _Fea = "Feature";
+const _Fe = "Feature";
+const _Fee = "Feedback";
 const _Fi = "Finding";
 const _Fil = "Files";
 const _Fin = "Findings";
@@ -408,6 +414,9 @@ const _GICRe = "GetInvitationsCountResponse";
 const _GIPS = "GetIPSet";
 const _GIPSR = "GetIPSetRequest";
 const _GIPSRe = "GetIPSetResponse";
+const _GIR = "GetInvestigationRequest";
+const _GIRe = "GetInvestigationResponse";
+const _GIe = "GetInvestigation";
 const _GL = "GeoLocation";
 const _GM = "GetMembers";
 const _GMA = "GetMasterAccount";
@@ -475,27 +484,34 @@ const _IIP = "IamInstanceProfile";
 const _IIPV = "IamInstanceProfileV2";
 const _IIm = "ImageId";
 const _IIn = "InstanceId";
-const _IM = "InviteMembers";
+const _IInv = "InvestigationId";
+const _IM = "InvestigationMetadata";
 const _IMR = "InviteMembersRequest";
 const _IMRn = "InviteMembersResponse";
+const _IMn = "InviteMembers";
 const _IP = "ImagePrefix";
 const _IPA = "IgnorePublicAcls";
 const _IPN = "IanaProtocolNumber";
 const _IPt = "ItemPath";
 const _IPte = "ItemPaths";
 const _IS = "InstanceState";
+const _ISC = "InvestigationSortCriteria";
 const _ISD = "IncrementalScanDetails";
 const _ISEE = "InternalServerErrorException";
 const _ISI = "IpSetId";
 const _ISIp = "IpSetIds";
+const _ISn = "InvestigationSummary";
+const _ISnv = "InvestigationSummaries";
 const _IT = "InstanceType";
 const _IU = "ImageUid";
 const _IUm = "ImpersonatedUser";
 const _Im = "Image";
-const _In = "Indicator";
+const _In = "Investigation";
 const _Inc = "Include";
-const _Ind = "Indicators";
+const _Ind = "Indicator";
+const _Indi = "Indicators";
 const _Inv = "Invitation";
+const _Inve = "Investigations";
 const _Invi = "Invitations";
 const _Ip = "Ip";
 const _Is = "Issue";
@@ -538,13 +554,16 @@ const _LFRis = "ListFindingsRequest";
 const _LFRist = "ListFindingsResponse";
 const _LFi = "ListFindings";
 const _LGA = "LastGeneratedAt";
-const _LI = "ListInvitations";
+const _LI = "ListInvestigations";
 const _LID = "LocalIpDetails";
 const _LIPS = "ListIPSets";
 const _LIPSR = "ListIPSetsRequest";
 const _LIPSRi = "ListIPSetsResponse";
-const _LIR = "ListInvitationsRequest";
-const _LIRi = "ListInvitationsResponse";
+const _LIR = "ListInvestigationsRequest";
+const _LIRi = "ListInvestigationsResponse";
+const _LIRis = "ListInvitationsRequest";
+const _LIRist = "ListInvitationsResponse";
+const _LIi = "ListInvitations";
 const _LM = "ListMembers";
 const _LMA = "LastModifiedAt";
 const _LMPP = "ListMalwareProtectionPlans";
@@ -641,6 +660,7 @@ const _Ma = "Matches";
 const _Mas = "Master";
 const _Me = "Members";
 const _Mem = "Member";
+const _Met = "Metadata";
 const _N = "Name";
 const _NC = "NetworkConnection";
 const _NCA = "NetworkConnectionAction";
@@ -734,9 +754,11 @@ const _Pl = "Platform";
 const _Po = "Port";
 const _Pr = "Profiles";
 const _Pri = "Privileged";
-const _Pro = "Protocol";
+const _Pro = "Provider";
+const _Prod = "Product";
+const _Prot = "Protocol";
 const _Pw = "Pwd";
-const _R = "Rank";
+const _R = "Region";
 const _RA = "ResourceArn";
 const _RAD = "RemoteAccountDetails";
 const _RAP = "ReleaseAgentPath";
@@ -752,6 +774,7 @@ const _RFP = "RelatedFilePaths";
 const _RI = "ResourceId";
 const _RID = "RemoteIpDetails";
 const _RIe = "RevisionId";
+const _RL = "RiskLevel";
 const _RLAA = "RdsLoginAttemptAction";
 const _RLDD = "RdsLimitlessDbDetails";
 const _RN = "ResourceName";
@@ -771,11 +794,12 @@ const _RTC = "RunningTasksCount";
 const _RU = "RequestUri";
 const _RUe = "ResourceUids";
 const _RV = "ResourceV2";
+const _Ra = "Rank";
 const _Re = "Reason";
-const _Reg = "Region";
 const _Res = "Resource";
 const _Reso = "Resources";
 const _Resu = "Result";
+const _Ri = "Risk";
 const _Ro = "Role";
 const _S = "Session";
 const _SA = "SnapshotArn";
@@ -887,11 +911,13 @@ const _So = "Sources";
 const _Sou = "Source";
 const _Ss = "Ssl";
 const _St = "Status";
-const _Su = "Subresource";
+const _Su = "Summary";
+const _Sub = "Subresource";
 const _T = "Type";
 const _TABF = "TopAccountsByFeature";
 const _TAC = "TotalAccountsCount";
 const _TB = "TotalBytes";
+const _TBr = "TriggeredBy";
 const _TC = "ToolCategory";
 const _TCA = "TaskCreatedAt";
 const _TD = "TaskDetails";
@@ -919,7 +945,8 @@ const _TLN = "ThreatListName";
 const _TN = "ThreatName";
 const _TNh = "ThreatNames";
 const _TNo = "ToolName";
-const _TP = "TargetProcess";
+const _TP = "TriggerPrompt";
+const _TPa = "TargetProcess";
 const _TR = "TopResources";
 const _TRR = "TagResourceRequest";
 const _TRRa = "TagResourceResponse";
@@ -1129,6 +1156,7 @@ const _cTr = "createdTime";
 const _cU = "containerUids";
 const _cUr = "credentialUid";
 const _ci = "city";
+const _cl = "cloud";
 const _co = "containers";
 const _cod = "code";
 const _com = "comments";
@@ -1247,8 +1275,8 @@ const _fT = "findingTypes";
 const _fTDR = "freeTrialDaysRemaining";
 const _fTi = "findingType";
 const _fV = "functionVersion";
-const _fe = "feedback";
-const _fea = "feature";
+const _fe = "feature";
+const _fee = "feedback";
 const _fi = "findings";
 const _fil = "files";
 const _fl = "flags";
@@ -1294,6 +1322,7 @@ const _iI = "invitationId";
 const _iIP = "iamInstanceProfile";
 const _iIm = "imageId";
 const _iIn = "instanceId";
+const _iInv = "investigationId";
 const _iP = "imagePrefix";
 const _iPA = "ignorePublicAcls";
 const _iPN = "ianaProtocolNumber";
@@ -1308,8 +1337,10 @@ const _iTd = "idempotencyToken";
 const _iU = "imageUid";
 const _iUm = "impersonatedUser";
 const _im = "image";
-const _in = "invitations";
+const _in = "investigation";
 const _inc = "include";
+const _inv = "investigations";
+const _invi = "invitations";
 const _ip = "ip";
 const _is = "issue";
 const _isp = "isp";
@@ -1372,6 +1403,7 @@ const _mTo = "mountTarget";
 const _ma = "matches";
 const _mas = "master";
 const _me = "members";
+const _met = "metadata";
 const _n = "name";
 const _nCA = "networkConnectionAction";
 const _nE = "notEquals";
@@ -1430,9 +1462,11 @@ const _pl = "platform";
 const _po = "port";
 const _pr = "profiles";
 const _pri = "privileged";
-const _pro = "protocol";
+const _pro = "provider";
+const _prod = "product";
+const _prot = "protocol";
 const _pw = "pwd";
-const _r = "rank";
+const _r = "region";
 const _rA = "resourceArn";
 const _rAD = "remoteAccountDetails";
 const _rAP = "releaseAgentPath";
@@ -1446,6 +1480,7 @@ const _rFP = "relatedFilePaths";
 const _rI = "resourceId";
 const _rID = "remoteIpDetails";
 const _rIe = "revisionId";
+const _rL = "riskLevel";
 const _rLAA = "rdsLoginAttemptAction";
 const _rLDD = "rdsLimitlessDbDetails";
 const _rN = "resourceName";
@@ -1462,11 +1497,12 @@ const _rT = "resourceType";
 const _rTC = "runningTasksCount";
 const _rU = "requestUri";
 const _rUe = "resourceUids";
+const _ra = "rank";
 const _re = "reason";
-const _reg = "region";
 const _res = "resource";
 const _reso = "resources";
 const _resu = "result";
+const _ri = "risk";
 const _ro = "role";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.guardduty";
 const _sA = "snapshotArn";
@@ -1543,11 +1579,13 @@ const _so = "sources";
 const _sou = "source";
 const _ss = "ssl";
 const _st = "status";
-const _su = "subresource";
+const _su = "summary";
+const _sub = "subresource";
 const _t = "type";
 const _tABF = "topAccountsByFeature";
 const _tAC = "totalAccountsCount";
 const _tB = "totalBytes";
+const _tBr = "triggeredBy";
 const _tC = "toolCategory";
 const _tD = "taskDetails";
 const _tDA = "taskDefinitionArn";
@@ -1573,7 +1611,8 @@ const _tLN = "threatListName";
 const _tN = "threatName";
 const _tNh = "threatNames";
 const _tNo = "toolName";
-const _tP = "targetProcess";
+const _tP = "triggerPrompt";
+const _tPa = "targetProcess";
 const _tR = "topResources";
 const _tT = "triggerType";
 const _ta = "tags";
@@ -1842,6 +1881,11 @@ export var City$: StaticStructureSchema = [3, n0, _C,
   [_CN],
   [[0, { [_jN]: _cN }]]
 ];
+export var CloudDetails$: StaticStructureSchema = [3, n0, _CD,
+  0,
+  [_Pro, _R, _A],
+  [[0, { [_jN]: _pro }], [0, { [_jN]: _r }], [0, { [_jN]: _a }]], 3
+];
 export var CloudformationStack$: StaticStructureSchema = [3, n0, _CS,
   0,
   [_EIU],
@@ -1944,13 +1988,23 @@ export var CreateDetectorResponse$: StaticStructureSchema = [3, n0, _CDRr,
 ];
 export var CreateFilterRequest$: StaticStructureSchema = [3, n0, _CFRr,
   0,
-  [_DI, _N, _FCin, _D, _Ac, _R, _CTl, _Ta],
-  [[0, 1], [0, { [_jN]: _n }], [() => FindingCriteria$, { [_jN]: _fCin }], [0, { [_jN]: _d }], [0, { [_jN]: _ac }], [1, { [_jN]: _r }], [0, { [_iTd]: 1, [_jN]: _cTl }], [128 | 0, { [_jN]: _ta }]], 3
+  [_DI, _N, _FCin, _D, _Ac, _Ra, _CTl, _Ta],
+  [[0, 1], [0, { [_jN]: _n }], [() => FindingCriteria$, { [_jN]: _fCin }], [0, { [_jN]: _d }], [0, { [_jN]: _ac }], [1, { [_jN]: _ra }], [0, { [_iTd]: 1, [_jN]: _cTl }], [128 | 0, { [_jN]: _ta }]], 3
 ];
 export var CreateFilterResponse$: StaticStructureSchema = [3, n0, _CFRre,
   0,
   [_N],
   [[0, { [_jN]: _n }]], 1
+];
+export var CreateInvestigationRequest$: StaticStructureSchema = [3, n0, _CIR,
+  0,
+  [_DI, _TP, _CTl],
+  [[0, 1], [0, { [_jN]: _tP }], [0, { [_iTd]: 1, [_jN]: _cTl }]], 2
+];
+export var CreateInvestigationResponse$: StaticStructureSchema = [3, n0, _CIRr,
+  0,
+  [_IInv],
+  [[0, { [_jN]: _iInv }]], 1
 ];
 export var CreateIPSetRequest$: StaticStructureSchema = [3, n0, _CIPSR,
   0,
@@ -2289,8 +2343,8 @@ export var DNSLogsConfigurationResult$: StaticStructureSchema = [3, n0, _DNSLCR,
 ];
 export var DnsRequestAction$: StaticStructureSchema = [3, n0, _DRA,
   0,
-  [_Do, _Pro, _Bl, _DWS, _VOAI],
-  [[0, { [_jN]: _do }], [0, { [_jN]: _pro }], [2, { [_jN]: _bl }], [0, { [_jN]: _dWS }], [0, { [_jN]: _vOAI }]]
+  [_Do, _Prot, _Bl, _DWS, _VOAI],
+  [[0, { [_jN]: _do }], [0, { [_jN]: _prot }], [2, { [_jN]: _bl }], [0, { [_jN]: _dWS }], [0, { [_jN]: _vOAI }]]
 ];
 export var DomainDetails$: StaticStructureSchema = [3, n0, _DD,
   0,
@@ -2419,8 +2473,8 @@ export var FilterCriterion$: StaticStructureSchema = [3, n0, _FC,
 ];
 export var Finding$: StaticStructureSchema = [3, n0, _Fi,
   0,
-  [_AIc, _Ar, _CAr, _I, _Reg, _Res, _SV, _Se, _T, _UAp, _Conf, _D, _Par, _Ser, _Ti, _AASA],
-  [[0, { [_jN]: _aIc }], [0, { [_jN]: _ar }], [0, { [_jN]: _cAr }], [0, { [_jN]: _i }], [0, { [_jN]: _reg }], [() => Resource$, { [_jN]: _res }], [0, { [_jN]: _sV }], [1, { [_jN]: _sev }], [0, { [_jN]: _t }], [0, { [_jN]: _uAp }], [1, { [_jN]: _con }], [0, { [_jN]: _d }], [0, { [_jN]: _par }], [() => Service$, { [_jN]: _ser }], [0, { [_jN]: _ti }], [0, { [_jN]: _aASA }]], 10
+  [_AIc, _Ar, _CAr, _I, _R, _Res, _SV, _Se, _T, _UAp, _Conf, _D, _Par, _Ser, _Ti, _AASA],
+  [[0, { [_jN]: _aIc }], [0, { [_jN]: _ar }], [0, { [_jN]: _cAr }], [0, { [_jN]: _i }], [0, { [_jN]: _r }], [() => Resource$, { [_jN]: _res }], [0, { [_jN]: _sV }], [1, { [_jN]: _sev }], [0, { [_jN]: _t }], [0, { [_jN]: _uAp }], [1, { [_jN]: _con }], [0, { [_jN]: _d }], [0, { [_jN]: _par }], [() => Service$, { [_jN]: _ser }], [0, { [_jN]: _ti }], [0, { [_jN]: _aASA }]], 10
 ];
 export var FindingCriteria$: StaticStructureSchema = [3, n0, _FCin,
   0,
@@ -2489,8 +2543,8 @@ export var GetFilterRequest$: StaticStructureSchema = [3, n0, _GFR,
 ];
 export var GetFilterResponse$: StaticStructureSchema = [3, n0, _GFRe,
   0,
-  [_N, _Ac, _FCin, _D, _R, _Ta],
-  [[0, { [_jN]: _n }], [0, { [_jN]: _ac }], [() => FindingCriteria$, { [_jN]: _fCin }], [0, { [_jN]: _d }], [1, { [_jN]: _r }], [128 | 0, { [_jN]: _ta }]], 3
+  [_N, _Ac, _FCin, _D, _Ra, _Ta],
+  [[0, { [_jN]: _n }], [0, { [_jN]: _ac }], [() => FindingCriteria$, { [_jN]: _fCin }], [0, { [_jN]: _d }], [1, { [_jN]: _ra }], [128 | 0, { [_jN]: _ta }]], 3
 ];
 export var GetFindingsRequest$: StaticStructureSchema = [3, n0, _GFRet,
   0,
@@ -2511,6 +2565,16 @@ export var GetFindingsStatisticsResponse$: StaticStructureSchema = [3, n0, _GFSR
   0,
   [_FS, _NT],
   [[() => FindingStatistics$, { [_jN]: _fS }], [0, { [_jN]: _nT }]], 1
+];
+export var GetInvestigationRequest$: StaticStructureSchema = [3, n0, _GIR,
+  0,
+  [_DI, _IInv],
+  [[0, 1], [0, 1]], 2
+];
+export var GetInvestigationResponse$: StaticStructureSchema = [3, n0, _GIRe,
+  0,
+  [_In],
+  [[() => Investigation$, { [_jN]: _in }]], 1
 ];
 export var GetInvitationsCountRequest$: StaticStructureSchema = [3, n0, _GICR,
   0,
@@ -2682,7 +2746,7 @@ export var IncrementalScanDetails$: StaticStructureSchema = [3, n0, _ISD,
   [_BRA],
   [[0, { [_jN]: _bRA }]], 1
 ];
-export var Indicator$: StaticStructureSchema = [3, n0, _In,
+export var Indicator$: StaticStructureSchema = [3, n0, _Ind,
   0,
   [_Ke, _Va, _Ti],
   [[0, { [_jN]: _ke }], [64 | 0, { [_jN]: _va }], [0, { [_jN]: _ti }]], 1
@@ -2691,6 +2755,26 @@ export var InstanceDetails$: StaticStructureSchema = [3, n0, _IDn,
   0,
   [_AZ, _IIP, _ID, _IIm, _IIn, _IS, _IT, _OA, _LTau, _NI, _Pl, _PC, _Ta],
   [[0, { [_jN]: _aZ }], [() => IamInstanceProfile$, { [_jN]: _iIP }], [0, { [_jN]: _iD }], [0, { [_jN]: _iIm }], [0, { [_jN]: _iIn }], [0, { [_jN]: _iS }], [0, { [_jN]: _iT }], [0, { [_jN]: _oA }], [0, { [_jN]: _lTau }], [() => NetworkInterfaces, { [_jN]: _nI }], [0, { [_jN]: _pl }], [() => ProductCodes, { [_jN]: _pC }], [() => Tags, { [_jN]: _ta }]]
+];
+export var Investigation$: StaticStructureSchema = [3, n0, _In,
+  0,
+  [_IInv, _St, _TP, _TBr, _Met, _Cl, _RL, _Ri, _Conf, _Su, _ST, _ET, _Er],
+  [[0, { [_jN]: _iInv }], [0, { [_jN]: _st }], [0, { [_jN]: _tP }], [0, { [_jN]: _tBr }], [() => InvestigationMetadata$, { [_jN]: _met }], [() => CloudDetails$, { [_jN]: _cl }], [0, { [_jN]: _rL }], [0, { [_jN]: _ri }], [0, { [_jN]: _con }], [0, { [_jN]: _su }], [4, { [_jN]: _sT }], [4, { [_jN]: _eT }], [0, { [_jN]: _e }]], 4
+];
+export var InvestigationMetadata$: StaticStructureSchema = [3, n0, _IM,
+  0,
+  [_V, _Prod],
+  [[0, { [_jN]: _v }], [() => Product$, { [_jN]: _prod }]], 2
+];
+export var InvestigationSortCriteria$: StaticStructureSchema = [3, n0, _ISC,
+  0,
+  [_AN, _OB],
+  [[0, { [_jN]: _aN }], [0, { [_jN]: _oB }]]
+];
+export var InvestigationSummary$: StaticStructureSchema = [3, n0, _ISn,
+  0,
+  [_IInv, _St, _TP, _RL, _Conf, _Ti, _AIc, _ST, _ET],
+  [[0, { [_jN]: _iInv }], [0, { [_jN]: _st }], [0, { [_jN]: _tP }], [0, { [_jN]: _rL }], [0, { [_jN]: _con }], [0, { [_jN]: _ti }], [0, { [_jN]: _aIc }], [4, { [_jN]: _sT }], [4, { [_jN]: _eT }]]
 ];
 export var Invitation$: StaticStructureSchema = [3, n0, _Inv,
   0,
@@ -2719,8 +2803,8 @@ export var ItemPath$: StaticStructureSchema = [3, n0, _IPt,
 ];
 export var KubernetesApiCallAction$: StaticStructureSchema = [3, n0, _KACA,
   0,
-  [_RU, _Ve, _Res, _Su, _Na, _RN, _SIo, _UA, _RID, _SCt, _Para],
-  [[0, { [_jN]: _rU }], [0, { [_jN]: _ve }], [0, { [_jN]: _res }], [0, { [_jN]: _su }], [0, { [_jN]: _na }], [0, { [_jN]: _rN }], [64 | 0, { [_jN]: _sIP }], [0, { [_jN]: _uA }], [() => RemoteIpDetails$, { [_jN]: _rID }], [1, { [_jN]: _sCt }], [0, { [_jN]: _para }]]
+  [_RU, _Ve, _Res, _Sub, _Na, _RN, _SIo, _UA, _RID, _SCt, _Para],
+  [[0, { [_jN]: _rU }], [0, { [_jN]: _ve }], [0, { [_jN]: _res }], [0, { [_jN]: _sub }], [0, { [_jN]: _na }], [0, { [_jN]: _rN }], [64 | 0, { [_jN]: _sIP }], [0, { [_jN]: _uA }], [() => RemoteIpDetails$, { [_jN]: _rID }], [1, { [_jN]: _sCt }], [0, { [_jN]: _para }]]
 ];
 export var KubernetesAuditLogsConfiguration$: StaticStructureSchema = [3, n0, _KALC,
   0,
@@ -2832,15 +2916,25 @@ export var ListFindingsResponse$: StaticStructureSchema = [3, n0, _LFRist,
   [_FI, _NT],
   [[64 | 0, { [_jN]: _fI }], [0, { [_jN]: _nT }]], 1
 ];
-export var ListInvitationsRequest$: StaticStructureSchema = [3, n0, _LIR,
+export var ListInvestigationsRequest$: StaticStructureSchema = [3, n0, _LIR,
+  0,
+  [_DI, _SCo, _MR, _NT],
+  [[0, 1], [() => InvestigationSortCriteria$, { [_jN]: _sCo }], [1, { [_jN]: _mR }], [0, { [_jN]: _nT }]], 1
+];
+export var ListInvestigationsResponse$: StaticStructureSchema = [3, n0, _LIRi,
+  0,
+  [_Inve, _NT],
+  [[() => InvestigationSummaries, { [_jN]: _inv }], [0, { [_jN]: _nT }]], 1
+];
+export var ListInvitationsRequest$: StaticStructureSchema = [3, n0, _LIRis,
   0,
   [_MR, _NT],
   [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
 ];
-export var ListInvitationsResponse$: StaticStructureSchema = [3, n0, _LIRi,
+export var ListInvitationsResponse$: StaticStructureSchema = [3, n0, _LIRist,
   0,
   [_Invi, _NT],
-  [[() => Invitations, { [_jN]: _in }], [0, { [_jN]: _nT }]]
+  [[() => Invitations, { [_jN]: _invi }], [0, { [_jN]: _nT }]]
 ];
 export var ListIPSetsRequest$: StaticStructureSchema = [3, n0, _LIPSR,
   0,
@@ -3059,8 +3153,8 @@ export var NetworkConnection$: StaticStructureSchema = [3, n0, _NC,
 ];
 export var NetworkConnectionAction$: StaticStructureSchema = [3, n0, _NCA,
   0,
-  [_Bl, _CD, _LPD, _Pro, _LID, _LNI, _RID, _RPD],
-  [[2, { [_jN]: _bl }], [0, { [_jN]: _cD }], [() => LocalPortDetails$, { [_jN]: _lPD }], [0, { [_jN]: _pro }], [() => LocalIpDetails$, { [_jN]: _lID }], [0, { [_jN]: _lNI }], [() => RemoteIpDetails$, { [_jN]: _rID }], [() => RemotePortDetails$, { [_jN]: _rPD }]]
+  [_Bl, _CDo, _LPD, _Prot, _LID, _LNI, _RID, _RPD],
+  [[2, { [_jN]: _bl }], [0, { [_jN]: _cD }], [() => LocalPortDetails$, { [_jN]: _lPD }], [0, { [_jN]: _prot }], [() => LocalIpDetails$, { [_jN]: _lID }], [0, { [_jN]: _lNI }], [() => RemoteIpDetails$, { [_jN]: _rID }], [() => RemotePortDetails$, { [_jN]: _rPD }]]
 ];
 export var NetworkEndpoint$: StaticStructureSchema = [3, n0, _NEe,
   0,
@@ -3227,6 +3321,11 @@ export var ProcessDetails$: StaticStructureSchema = [3, n0, _PD,
   [_N, _EP, _ESx, _NP, _Pw, _Pi, _ST, _Uu, _PU, _Us, _UI, _Eu, _Li],
   [[0, { [_jN]: _n }], [0, { [_jN]: _eP }], [0, { [_jN]: _eS }], [1, { [_jN]: _nP }], [0, { [_jN]: _pw }], [1, { [_jN]: _pi }], [4, { [_jN]: _sT }], [0, { [_jN]: _uu }], [0, { [_jN]: _pU }], [0, { [_jN]: _us }], [1, { [_jN]: _uI }], [1, { [_jN]: _eu }], [() => Lineage, { [_jN]: _li }]]
 ];
+export var Product$: StaticStructureSchema = [3, n0, _Prod,
+  0,
+  [_N, _Fe],
+  [[0, { [_jN]: _n }], [0, { [_jN]: _fe }]], 1
+];
 export var ProductCode$: StaticStructureSchema = [3, n0, _PCr,
   0,
   [_Cod, _PTr],
@@ -3289,7 +3388,7 @@ export var RemotePortDetails$: StaticStructureSchema = [3, n0, _RPD,
 ];
 export var Resource$: StaticStructureSchema = [3, n0, _Res,
   0,
-  [_AKD, _SBD, _IDn, _ECD, _KD, _RT, _EVD, _ECDc, _CDo, _LD, _RDID, _RLDD, _RDUD, _ESD, _EIDc, _RPDe],
+  [_AKD, _SBD, _IDn, _ECD, _KD, _RT, _EVD, _ECDc, _CDon, _LD, _RDID, _RLDD, _RDUD, _ESD, _EIDc, _RPDe],
   [[() => AccessKeyDetails$, { [_jN]: _aKD }], [() => S3BucketDetails, { [_jN]: _sBD }], [() => InstanceDetails$, { [_jN]: _iDn }], [() => EksClusterDetails$, { [_jN]: _eCD }], [() => KubernetesDetails$, { [_jN]: _kD }], [0, { [_jN]: _rT }], [() => EbsVolumeDetails$, { [_jN]: _eVD }], [() => EcsClusterDetails$, { [_jN]: _eCDc }], [() => Container$, { [_jN]: _cDo }], [() => LambdaDetails$, { [_jN]: _lD }], [() => RdsDbInstanceDetails$, { [_jN]: _rDID }], [() => RdsLimitlessDbDetails$, { [_jN]: _rLDD }], [() => RdsDbUserDetails$, { [_jN]: _rDUD }], [() => EbsSnapshotDetails$, { [_jN]: _eSD }], [() => Ec2ImageDetails$, { [_jN]: _eIDc }], [() => RecoveryPointDetails$, { [_jN]: _rPDe }]]
 ];
 export var ResourceData$: StaticStructureSchema = [3, n0, _RDe,
@@ -3309,13 +3408,13 @@ export var ResourceStatistics$: StaticStructureSchema = [3, n0, _RSe,
 ];
 export var ResourceV2$: StaticStructureSchema = [3, n0, _RV,
   0,
-  [_U, _RT, _N, _AIc, _Reg, _Ser, _CP, _Ta, _Data],
-  [[0, { [_jN]: _u }], [0, { [_jN]: _rT }], [0, { [_jN]: _n }], [0, { [_jN]: _aIc }], [0, { [_jN]: _reg }], [0, { [_jN]: _ser }], [0, { [_jN]: _cP }], [() => Tags, { [_jN]: _ta }], [() => ResourceData$, { [_jN]: _data }]], 2
+  [_U, _RT, _N, _AIc, _R, _Ser, _CP, _Ta, _Data],
+  [[0, { [_jN]: _u }], [0, { [_jN]: _rT }], [0, { [_jN]: _n }], [0, { [_jN]: _aIc }], [0, { [_jN]: _r }], [0, { [_jN]: _ser }], [0, { [_jN]: _cP }], [() => Tags, { [_jN]: _ta }], [() => ResourceData$, { [_jN]: _data }]], 2
 ];
 export var RuntimeContext$: StaticStructureSchema = [3, n0, _RC,
   0,
-  [_MPo, _MA, _SP, _LP, _LPV, _SPo, _RBP, _RAP, _MSo, _MTo, _FSTi, _Fl, _MN, _MFP, _MSod, _SHFP, _TP, _AF, _IPN, _MRe, _TNo, _TC, _SN, _CLE, _TFP, _FO, _FP, _RFP],
-  [[() => ProcessDetails$, { [_jN]: _mPo }], [4, { [_jN]: _mA }], [0, { [_jN]: _sP }], [0, { [_jN]: _lP }], [0, { [_jN]: _lPV }], [0, { [_jN]: _sPo }], [0, { [_jN]: _rBP }], [0, { [_jN]: _rAP }], [0, { [_jN]: _mS }], [0, { [_jN]: _mTo }], [0, { [_jN]: _fSTi }], [64 | 0, { [_jN]: _fl }], [0, { [_jN]: _mN }], [0, { [_jN]: _mFP }], [0, { [_jN]: _mSo }], [0, { [_jN]: _sHFP }], [() => ProcessDetails$, { [_jN]: _tP }], [0, { [_jN]: _aF }], [1, { [_jN]: _iPN }], [64 | 0, { [_jN]: _mRe }], [0, { [_jN]: _tNo }], [0, { [_jN]: _tC }], [0, { [_jN]: _sN }], [0, { [_jN]: _cLE }], [0, { [_jN]: _tFP }], [0, { [_jN]: _fO }], [0, { [_jN]: _fP }], [64 | 0, { [_jN]: _rFP }]]
+  [_MPo, _MA, _SP, _LP, _LPV, _SPo, _RBP, _RAP, _MSo, _MTo, _FSTi, _Fl, _MN, _MFP, _MSod, _SHFP, _TPa, _AF, _IPN, _MRe, _TNo, _TC, _SN, _CLE, _TFP, _FO, _FP, _RFP],
+  [[() => ProcessDetails$, { [_jN]: _mPo }], [4, { [_jN]: _mA }], [0, { [_jN]: _sP }], [0, { [_jN]: _lP }], [0, { [_jN]: _lPV }], [0, { [_jN]: _sPo }], [0, { [_jN]: _rBP }], [0, { [_jN]: _rAP }], [0, { [_jN]: _mS }], [0, { [_jN]: _mTo }], [0, { [_jN]: _fSTi }], [64 | 0, { [_jN]: _fl }], [0, { [_jN]: _mN }], [0, { [_jN]: _mFP }], [0, { [_jN]: _mSo }], [0, { [_jN]: _sHFP }], [() => ProcessDetails$, { [_jN]: _tPa }], [0, { [_jN]: _aF }], [1, { [_jN]: _iPN }], [64 | 0, { [_jN]: _mRe }], [0, { [_jN]: _tNo }], [0, { [_jN]: _tC }], [0, { [_jN]: _sN }], [0, { [_jN]: _cLE }], [0, { [_jN]: _tFP }], [0, { [_jN]: _fO }], [0, { [_jN]: _fP }], [64 | 0, { [_jN]: _rFP }]]
 ];
 export var RuntimeDetails$: StaticStructureSchema = [3, n0, _RDu,
   0,
@@ -3619,8 +3718,8 @@ export var UpdateDetectorResponse$: StaticStructureSchema = [3, n0, _UDRp,
 ];
 export var UpdateFilterRequest$: StaticStructureSchema = [3, n0, _UFRp,
   0,
-  [_DI, _FN, _D, _Ac, _R, _FCin],
-  [[0, 1], [0, 1], [0, { [_jN]: _d }], [0, { [_jN]: _ac }], [1, { [_jN]: _r }], [() => FindingCriteria$, { [_jN]: _fCin }]], 2
+  [_DI, _FN, _D, _Ac, _Ra, _FCin],
+  [[0, 1], [0, 1], [0, { [_jN]: _d }], [0, { [_jN]: _ac }], [1, { [_jN]: _ra }], [() => FindingCriteria$, { [_jN]: _fCin }]], 2
 ];
 export var UpdateFilterResponse$: StaticStructureSchema = [3, n0, _UFRpd,
   0,
@@ -3629,8 +3728,8 @@ export var UpdateFilterResponse$: StaticStructureSchema = [3, n0, _UFRpd,
 ];
 export var UpdateFindingsFeedbackRequest$: StaticStructureSchema = [3, n0, _UFFR,
   0,
-  [_DI, _FI, _Fe, _Com],
-  [[0, 1], [64 | 0, { [_jN]: _fI }], [0, { [_jN]: _fe }], [() => SensitiveString, { [_jN]: _com }]], 3
+  [_DI, _FI, _Fee, _Com],
+  [[0, 1], [64 | 0, { [_jN]: _fI }], [0, { [_jN]: _fee }], [() => SensitiveString, { [_jN]: _com }]], 3
 ];
 export var UpdateFindingsFeedbackResponse$: StaticStructureSchema = [3, n0, _UFFRp,
   0,
@@ -3749,8 +3848,8 @@ export var UsageDataSourceResult$: StaticStructureSchema = [3, n0, _UDSRs,
 ];
 export var UsageFeatureResult$: StaticStructureSchema = [3, n0, _UFRs,
   0,
-  [_Fea, _To],
-  [[0, { [_jN]: _fea }], [() => Total$, { [_jN]: _to }]]
+  [_Fe, _To],
+  [[0, { [_jN]: _fe }], [() => Total$, { [_jN]: _to }]]
 ];
 export var UsageResourceResult$: StaticStructureSchema = [3, n0, _URRs,
   0,
@@ -3769,8 +3868,8 @@ export var UsageTopAccountResult$: StaticStructureSchema = [3, n0, _UTAR,
 ];
 export var UsageTopAccountsResult$: StaticStructureSchema = [3, n0, _UTARs,
   0,
-  [_Fea, _Acc],
-  [[0, { [_jN]: _fea }], [() => UsageTopAccountsByFeatureList, { [_jN]: _acc }]]
+  [_Fe, _Acc],
+  [[0, { [_jN]: _fe }], [() => UsageTopAccountsByFeatureList, { [_jN]: _acc }]]
 ];
 export var User$: StaticStructureSchema = [3, n0, _Us,
   0,
@@ -3904,11 +4003,15 @@ var GroupedBySeverity: StaticListSchema = [1, n0, _GBS,
     0]
 ];
 var Groups = 64 | 0;
-var Indicators: StaticListSchema = [1, n0, _Ind,
+var Indicators: StaticListSchema = [1, n0, _Indi,
   0, [() => Indicator$,
     0]
 ];
 var IndicatorValues = 64 | 0;
+var InvestigationSummaries: StaticListSchema = [1, n0, _ISnv,
+  0, [() => InvestigationSummary$,
+    0]
+];
 var Invitations: StaticListSchema = [1, n0, _Invi,
   0, [() => Invitation$,
     0]
@@ -4185,6 +4288,9 @@ export var CreateDetector$: StaticOperationSchema = [9, n0, _CDr,
 export var CreateFilter$: StaticOperationSchema = [9, n0, _CF,
   { [_ht]: ["POST", "/detector/{DetectorId}/filter", 200] }, () => CreateFilterRequest$, () => CreateFilterResponse$
 ];
+export var CreateInvestigation$: StaticOperationSchema = [9, n0, _CI,
+  { [_ht]: ["POST", "/detector/{DetectorId}/investigation", 202] }, () => CreateInvestigationRequest$, () => CreateInvestigationResponse$
+];
 export var CreateIPSet$: StaticOperationSchema = [9, n0, _CIPS,
   { [_ht]: ["POST", "/detector/{DetectorId}/ipset", 200] }, () => CreateIPSetRequest$, () => CreateIPSetResponse$
 ];
@@ -4284,6 +4390,9 @@ export var GetFindings$: StaticOperationSchema = [9, n0, _GFe,
 export var GetFindingsStatistics$: StaticOperationSchema = [9, n0, _GFS,
   { [_ht]: ["POST", "/detector/{DetectorId}/findings/statistics", 200] }, () => GetFindingsStatisticsRequest$, () => GetFindingsStatisticsResponse$
 ];
+export var GetInvestigation$: StaticOperationSchema = [9, n0, _GIe,
+  { [_ht]: ["GET", "/detector/{DetectorId}/investigation/{InvestigationId}", 200] }, () => GetInvestigationRequest$, () => GetInvestigationResponse$
+];
 export var GetInvitationsCount$: StaticOperationSchema = [9, n0, _GIC,
   { [_ht]: ["GET", "/invitation/count", 200] }, () => GetInvitationsCountRequest$, () => GetInvitationsCountResponse$
 ];
@@ -4326,7 +4435,7 @@ export var GetTrustedEntitySet$: StaticOperationSchema = [9, n0, _GTESe,
 export var GetUsageStatistics$: StaticOperationSchema = [9, n0, _GUS,
   { [_ht]: ["POST", "/detector/{DetectorId}/usage/statistics", 200] }, () => GetUsageStatisticsRequest$, () => GetUsageStatisticsResponse$
 ];
-export var InviteMembers$: StaticOperationSchema = [9, n0, _IM,
+export var InviteMembers$: StaticOperationSchema = [9, n0, _IMn,
   { [_ht]: ["POST", "/detector/{DetectorId}/member/invite", 200] }, () => InviteMembersRequest$, () => InviteMembersResponse$
 ];
 export var ListCoverage$: StaticOperationSchema = [9, n0, _LC,
@@ -4341,7 +4450,10 @@ export var ListFilters$: StaticOperationSchema = [9, n0, _LF,
 export var ListFindings$: StaticOperationSchema = [9, n0, _LFi,
   { [_ht]: ["POST", "/detector/{DetectorId}/findings", 200] }, () => ListFindingsRequest$, () => ListFindingsResponse$
 ];
-export var ListInvitations$: StaticOperationSchema = [9, n0, _LI,
+export var ListInvestigations$: StaticOperationSchema = [9, n0, _LI,
+  { [_ht]: ["POST", "/detector/{DetectorId}/investigation/list", 200] }, () => ListInvestigationsRequest$, () => ListInvestigationsResponse$
+];
+export var ListInvitations$: StaticOperationSchema = [9, n0, _LIi,
   { [_ht]: ["GET", "/invitation", 200] }, () => ListInvitationsRequest$, () => ListInvitationsResponse$
 ];
 export var ListIPSets$: StaticOperationSchema = [9, n0, _LIPS,

@@ -92,6 +92,18 @@ export type AutoEnableMembers = (typeof AutoEnableMembers)[keyof typeof AutoEnab
  * @public
  * @enum
  */
+export const CloudProvider = {
+  AWS: "AWS",
+} as const;
+/**
+ * @public
+ */
+export type CloudProvider = (typeof CloudProvider)[keyof typeof CloudProvider];
+
+/**
+ * @public
+ * @enum
+ */
 export const DataSourceStatus = {
   DISABLED: "DISABLED",
   ENABLED: "ENABLED",
@@ -117,6 +129,21 @@ export const ClusterStatus = {
  * @public
  */
 export type ClusterStatus = (typeof ClusterStatus)[keyof typeof ClusterStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const Confidence = {
+  HIGH: "High",
+  LOW: "Low",
+  MEDIUM: "Medium",
+  UNKNOWN: "Unknown",
+} as const;
+/**
+ * @public
+ */
+export type Confidence = (typeof Confidence)[keyof typeof Confidence];
 
 /**
  * @public
@@ -856,6 +883,36 @@ export type GroupByType = (typeof GroupByType)[keyof typeof GroupByType];
  * @public
  * @enum
  */
+export const RiskLevel = {
+  CRITICAL: "Critical",
+  HIGH: "High",
+  INFO: "Info",
+  LOW: "Low",
+  MEDIUM: "Medium",
+} as const;
+/**
+ * @public
+ */
+export type RiskLevel = (typeof RiskLevel)[keyof typeof RiskLevel];
+
+/**
+ * @public
+ * @enum
+ */
+export const InvestigationStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+} as const;
+/**
+ * @public
+ */
+export type InvestigationStatus = (typeof InvestigationStatus)[keyof typeof InvestigationStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const IpSetStatus = {
   ACTIVATING: "ACTIVATING",
   ACTIVE: "ACTIVE",
@@ -1070,6 +1127,22 @@ export const UsageStatisticType = {
  * @public
  */
 export type UsageStatisticType = (typeof UsageStatisticType)[keyof typeof UsageStatisticType];
+
+/**
+ * @public
+ * @enum
+ */
+export const InvestigationSortField = {
+  CONFIDENCE: "CONFIDENCE",
+  END_TIME: "END_TIME",
+  RISK_LEVEL: "RISK_LEVEL",
+  START_TIME: "START_TIME",
+  STATUS: "STATUS",
+} as const;
+/**
+ * @public
+ */
+export type InvestigationSortField = (typeof InvestigationSortField)[keyof typeof InvestigationSortField];
 
 /**
  * @public

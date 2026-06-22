@@ -43,10 +43,13 @@ import {
   BucketLevelPermissions$,
   BucketPolicy$,
   City$,
+  CloudDetails$,
   CloudformationStack$,
+  CloudProvider,
   CloudTrailConfigurationResult$,
   ClusterStatus,
   Condition$,
+  Confidence,
   ConflictException,
   ConflictException$,
   Container$,
@@ -76,6 +79,10 @@ import {
   CreateFilterCommand,
   CreateFilterRequest$,
   CreateFilterResponse$,
+  CreateInvestigation$,
+  CreateInvestigationCommand,
+  CreateInvestigationRequest$,
+  CreateInvestigationResponse$,
   CreateIPSet$,
   CreateIPSetCommand,
   CreateIPSetRequest$,
@@ -273,6 +280,10 @@ import {
   GetFindingsStatisticsCommand,
   GetFindingsStatisticsRequest$,
   GetFindingsStatisticsResponse$,
+  GetInvestigation$,
+  GetInvestigationCommand,
+  GetInvestigationRequest$,
+  GetInvestigationResponse$,
   GetInvitationsCount$,
   GetInvitationsCountCommand,
   GetInvitationsCountRequest$,
@@ -344,6 +355,12 @@ import {
   InstanceDetails$,
   InternalServerErrorException,
   InternalServerErrorException$,
+  Investigation$,
+  InvestigationMetadata$,
+  InvestigationSortCriteria$,
+  InvestigationSortField,
+  InvestigationStatus,
+  InvestigationSummary$,
   Invitation$,
   InviteMembers$,
   InviteMembersCommand,
@@ -385,6 +402,10 @@ import {
   ListFindingsCommand,
   ListFindingsRequest$,
   ListFindingsResponse$,
+  ListInvestigations$,
+  ListInvestigationsCommand,
+  ListInvestigationsRequest$,
+  ListInvestigationsResponse$,
   ListInvitations$,
   ListInvitationsCommand,
   ListInvitationsRequest$,
@@ -501,6 +522,7 @@ import {
   paginateListDetectors,
   paginateListFilters,
   paginateListFindings,
+  paginateListInvestigations,
   paginateListInvitations,
   paginateListIPSets,
   paginateListMalwareScans,
@@ -515,6 +537,7 @@ import {
   PortProbeDetail$,
   PrivateIpAddressDetails$,
   ProcessDetails$,
+  Product$,
   ProductCode$,
   ProfileSubtype,
   ProfileType,
@@ -541,6 +564,7 @@ import {
   ResourceStatistics$,
   ResourceType,
   ResourceV2$,
+  RiskLevel,
   RuntimeContext$,
   RuntimeDetails$,
   S3Bucket$,
@@ -709,6 +733,8 @@ assert(typeof CreateDetectorCommand === "function");
 assert(typeof CreateDetector$ === "object");
 assert(typeof CreateFilterCommand === "function");
 assert(typeof CreateFilter$ === "object");
+assert(typeof CreateInvestigationCommand === "function");
+assert(typeof CreateInvestigation$ === "object");
 assert(typeof CreateIPSetCommand === "function");
 assert(typeof CreateIPSet$ === "object");
 assert(typeof CreateMalwareProtectionPlanCommand === "function");
@@ -775,6 +801,8 @@ assert(typeof GetFindingsCommand === "function");
 assert(typeof GetFindings$ === "object");
 assert(typeof GetFindingsStatisticsCommand === "function");
 assert(typeof GetFindingsStatistics$ === "object");
+assert(typeof GetInvestigationCommand === "function");
+assert(typeof GetInvestigation$ === "object");
 assert(typeof GetInvitationsCountCommand === "function");
 assert(typeof GetInvitationsCount$ === "object");
 assert(typeof GetIPSetCommand === "function");
@@ -813,6 +841,8 @@ assert(typeof ListFiltersCommand === "function");
 assert(typeof ListFilters$ === "object");
 assert(typeof ListFindingsCommand === "function");
 assert(typeof ListFindings$ === "object");
+assert(typeof ListInvestigationsCommand === "function");
+assert(typeof ListInvestigations$ === "object");
 assert(typeof ListInvitationsCommand === "function");
 assert(typeof ListInvitations$ === "object");
 assert(typeof ListIPSetsCommand === "function");
@@ -906,6 +936,7 @@ assert(typeof BlockPublicAccess$ === "object");
 assert(typeof BucketLevelPermissions$ === "object");
 assert(typeof BucketPolicy$ === "object");
 assert(typeof City$ === "object");
+assert(typeof CloudDetails$ === "object");
 assert(typeof CloudformationStack$ === "object");
 assert(typeof CloudTrailConfigurationResult$ === "object");
 assert(typeof Condition$ === "object");
@@ -928,6 +959,8 @@ assert(typeof CreateDetectorRequest$ === "object");
 assert(typeof CreateDetectorResponse$ === "object");
 assert(typeof CreateFilterRequest$ === "object");
 assert(typeof CreateFilterResponse$ === "object");
+assert(typeof CreateInvestigationRequest$ === "object");
+assert(typeof CreateInvestigationResponse$ === "object");
 assert(typeof CreateIPSetRequest$ === "object");
 assert(typeof CreateIPSetResponse$ === "object");
 assert(typeof CreateMalwareProtectionPlanRequest$ === "object");
@@ -1040,6 +1073,8 @@ assert(typeof GetFindingsRequest$ === "object");
 assert(typeof GetFindingsResponse$ === "object");
 assert(typeof GetFindingsStatisticsRequest$ === "object");
 assert(typeof GetFindingsStatisticsResponse$ === "object");
+assert(typeof GetInvestigationRequest$ === "object");
+assert(typeof GetInvestigationResponse$ === "object");
 assert(typeof GetInvitationsCountRequest$ === "object");
 assert(typeof GetInvitationsCountResponse$ === "object");
 assert(typeof GetIPSetRequest$ === "object");
@@ -1076,6 +1111,10 @@ assert(typeof ImpersonatedUser$ === "object");
 assert(typeof IncrementalScanDetails$ === "object");
 assert(typeof Indicator$ === "object");
 assert(typeof InstanceDetails$ === "object");
+assert(typeof Investigation$ === "object");
+assert(typeof InvestigationMetadata$ === "object");
+assert(typeof InvestigationSortCriteria$ === "object");
+assert(typeof InvestigationSummary$ === "object");
 assert(typeof Invitation$ === "object");
 assert(typeof InviteMembersRequest$ === "object");
 assert(typeof InviteMembersResponse$ === "object");
@@ -1104,6 +1143,8 @@ assert(typeof ListFiltersRequest$ === "object");
 assert(typeof ListFiltersResponse$ === "object");
 assert(typeof ListFindingsRequest$ === "object");
 assert(typeof ListFindingsResponse$ === "object");
+assert(typeof ListInvestigationsRequest$ === "object");
+assert(typeof ListInvestigationsResponse$ === "object");
 assert(typeof ListInvitationsRequest$ === "object");
 assert(typeof ListInvitationsResponse$ === "object");
 assert(typeof ListIPSetsRequest$ === "object");
@@ -1183,6 +1224,7 @@ assert(typeof PortProbeAction$ === "object");
 assert(typeof PortProbeDetail$ === "object");
 assert(typeof PrivateIpAddressDetails$ === "object");
 assert(typeof ProcessDetails$ === "object");
+assert(typeof Product$ === "object");
 assert(typeof ProductCode$ === "object");
 assert(typeof PublicAccess$ === "object");
 assert(typeof PublicAccessConfiguration$ === "object");
@@ -1300,7 +1342,9 @@ assert(typeof VpcConfig$ === "object");
 // enums
 assert(typeof AdminStatus === "object");
 assert(typeof AutoEnableMembers === "object");
+assert(typeof CloudProvider === "object");
 assert(typeof ClusterStatus === "object");
+assert(typeof Confidence === "object");
 assert(typeof CoverageFilterCriterionKey === "object");
 assert(typeof CoverageSortKey === "object");
 assert(typeof CoverageStatisticsType === "object");
@@ -1326,6 +1370,8 @@ assert(typeof FindingStatisticType === "object");
 assert(typeof FreeTrialFeatureResult === "object");
 assert(typeof GroupByType === "object");
 assert(typeof IndicatorType === "object");
+assert(typeof InvestigationSortField === "object");
+assert(typeof InvestigationStatus === "object");
 assert(typeof IpSetFormat === "object");
 assert(typeof IpSetStatus === "object");
 assert(typeof KubernetesResourcesTypes === "object");
@@ -1349,6 +1395,7 @@ assert(typeof PublicAclIgnoreBehavior === "object");
 assert(typeof PublicBucketRestrictBehavior === "object");
 assert(typeof PublishingStatus === "object");
 assert(typeof ResourceType === "object");
+assert(typeof RiskLevel === "object");
 assert(typeof ScanCategory === "object");
 assert(typeof ScanCriterionKey === "object");
 assert(typeof ScanResult === "object");
@@ -1387,6 +1434,7 @@ assert(typeof paginateListDetectors === "function");
 assert(typeof paginateListFilters === "function");
 assert(typeof paginateListFindings === "function");
 assert(typeof paginateListIPSets === "function");
+assert(typeof paginateListInvestigations === "function");
 assert(typeof paginateListInvitations === "function");
 assert(typeof paginateListMalwareScans === "function");
 assert(typeof paginateListMembers === "function");

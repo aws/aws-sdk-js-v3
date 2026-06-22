@@ -1,20 +1,28 @@
 // smithy-typescript generated code
 import type {
   AutoEnableMembers,
+  Confidence,
   DataSource,
   EbsSnapshotPreservation,
   FeatureStatus,
   Feedback,
   FilterAction,
   FindingPublishingFrequency,
+  InvestigationSortField,
+  InvestigationStatus,
   ListMalwareScansCriterionKey,
   MalwareProtectionResourceType,
   MalwareProtectionScanStatus,
   MalwareProtectionScanType,
+  OrderBy,
   OrgFeature,
   OrgFeatureAdditionalConfiguration,
   OrgFeatureStatus,
+  RiskLevel,
+  ScanCategory,
+  ScanCriterionKey,
   ScanResultStatus,
+  ScanStatusReason,
   ThreatEntitySetFormat,
   ThreatEntitySetStatus,
   ThreatIntelSetFormat,
@@ -38,13 +46,239 @@ import type {
   DetectorFeatureConfiguration,
   FilterCondition,
   FindingCriteria,
+  GetMalwareScanResultDetails,
   IncrementalScanDetails,
   MalwareProtectionPlanActions,
-  Master,
-  ScanResourceCriteria,
+  ScanConfiguration,
+  ScannedResource,
   SortCriteria,
   UnprocessedAccount,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface GetMalwareScanResponse {
+  /**
+   * <p>A unique identifier associated with the malware scan. Each malware scan has a corresponding scan ID. Using this scan ID, you can monitor the status of your malware scan.</p>
+   * @public
+   */
+  ScanId?: string | undefined;
+
+  /**
+   * <p>The unique ID of the detector that is associated with the request, if it belongs to an account which is a GuardDuty customer.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * @public
+   */
+  DetectorId?: string | undefined;
+
+  /**
+   * <p>The unique detector ID of the administrator account that the request is associated with. If the account is an administrator, the <code>AdminDetectorId</code> will be the same as the one used for <code>DetectorId. If the customer is not a GuardDuty customer, this field will not be present.</code>.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * @public
+   */
+  AdminDetectorId?: string | undefined;
+
+  /**
+   * <p>Amazon Resource Name (ARN) of the resource on which a malware scan was invoked.</p>
+   * @public
+   */
+  ResourceArn?: string | undefined;
+
+  /**
+   * <p>The type of resource that was scanned for malware.</p>
+   * @public
+   */
+  ResourceType?: MalwareProtectionResourceType | undefined;
+
+  /**
+   * <p>The total number of resources that were successfully scanned. This is dependent on the resource type.</p>
+   * @public
+   */
+  ScannedResourcesCount?: number | undefined;
+
+  /**
+   * <p>The total number of resources that were skipped during the scan.</p>
+   * @public
+   */
+  SkippedResourcesCount?: number | undefined;
+
+  /**
+   * <p>The total number of resources that failed to be scanned.</p>
+   * @public
+   */
+  FailedResourcesCount?: number | undefined;
+
+  /**
+   * <p>A list of resources along with their metadata that were scanned as part of the malware scan operation.</p>
+   * @public
+   */
+  ScannedResources?: ScannedResource[] | undefined;
+
+  /**
+   * <p>Information about the scan configuration used for the malware scan.</p>
+   * @public
+   */
+  ScanConfiguration?: ScanConfiguration | undefined;
+
+  /**
+   * <p>The category of the malware scan, indicating the type of scan performed.</p>
+   * @public
+   */
+  ScanCategory?: ScanCategory | undefined;
+
+  /**
+   * <p>A value representing the current status of the malware scan.</p>
+   * @public
+   */
+  ScanStatus?: MalwareProtectionScanStatus | undefined;
+
+  /**
+   * <p>Represents the reason for the current scan status, if applicable.</p>
+   * @public
+   */
+  ScanStatusReason?: ScanStatusReason | undefined;
+
+  /**
+   * <p>A value representing the initiator of the scan.</p>
+   * @public
+   */
+  ScanType?: MalwareProtectionScanType | undefined;
+
+  /**
+   * <p>The timestamp representing when the malware scan was started.</p>
+   * @public
+   */
+  ScanStartedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp representing when the malware scan was completed.</p>
+   * @public
+   */
+  ScanCompletedAt?: Date | undefined;
+
+  /**
+   * <p>Detailed information about the results of the malware scan, if the scan completed.</p>
+   * @public
+   */
+  ScanResultDetails?: GetMalwareScanResultDetails | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMalwareScanSettingsRequest {
+  /**
+   * <p>The unique ID of the detector that is associated with this scan.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * @public
+   */
+  DetectorId: string | undefined;
+}
+
+/**
+ * <p>Represents the <code>key:value</code> pair to be matched against given resource property.</p>
+ * @public
+ */
+export interface ScanConditionPair {
+  /**
+   * <p>Represents the <b>key</b> in the map condition.</p>
+   * @public
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>Represents optional <b>value</b> in the map condition. If not specified, only the <b>key</b> will be matched.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * <p>Contains information about the condition.</p>
+ * @public
+ */
+export interface ScanCondition {
+  /**
+   * <p>Represents an <i>mapEqual</i> <b/> condition to be applied to a single field when triggering for malware scan.</p>
+   * @public
+   */
+  MapEquals: ScanConditionPair[] | undefined;
+}
+
+/**
+ * <p>Contains information about criteria used to filter resources before triggering malware scan.</p>
+ * @public
+ */
+export interface ScanResourceCriteria {
+  /**
+   * <p>Represents condition that when matched will allow a malware scan for a certain resource.</p>
+   * @public
+   */
+  Include?: Partial<Record<ScanCriterionKey, ScanCondition>> | undefined;
+
+  /**
+   * <p>Represents condition that when matched will prevent a malware scan for a certain resource.</p>
+   * @public
+   */
+  Exclude?: Partial<Record<ScanCriterionKey, ScanCondition>> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMalwareScanSettingsResponse {
+  /**
+   * <p>Represents the criteria to be used in the filter for scanning resources.</p>
+   * @public
+   */
+  ScanResourceCriteria?: ScanResourceCriteria | undefined;
+
+  /**
+   * <p>An enum value representing possible snapshot preservation settings.</p>
+   * @public
+   */
+  EbsSnapshotPreservation?: EbsSnapshotPreservation | undefined;
+}
+
+/**
+ * @deprecated This input is deprecated, use GetAdministratorAccountRequest instead.
+ * @public
+ */
+export interface GetMasterAccountRequest {
+  /**
+   * <p>The unique ID of the detector of the GuardDuty member account.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * @public
+   */
+  DetectorId: string | undefined;
+}
+
+/**
+ * <p>Contains information about the administrator account and invitation.</p>
+ * @public
+ */
+export interface Master {
+  /**
+   * <p>The ID of the account used as the administrator account.</p>
+   * @public
+   */
+  AccountId?: string | undefined;
+
+  /**
+   * <p>The value used to validate the administrator account to the member account.</p>
+   * @public
+   */
+  InvitationId?: string | undefined;
+
+  /**
+   * <p>The status of the relationship between the administrator and member accounts.</p>
+   * @public
+   */
+  RelationshipStatus?: string | undefined;
+
+  /**
+   * <p>The timestamp when the invitation was sent.</p>
+   * @public
+   */
+  InvitedAt?: string | undefined;
+}
 
 /**
  * @deprecated This output is deprecated, use GetAdministratorAccountResponse instead.
@@ -1079,6 +1313,130 @@ export interface ListFindingsResponse {
    * @public
    */
   FindingIds: string[] | undefined;
+
+  /**
+   * <p>The pagination parameter to be used on the next list operation to retrieve more items.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Contains information about the criteria used for sorting investigations.</p>
+ * @public
+ */
+export interface InvestigationSortCriteria {
+  /**
+   * <p>The attribute by which to sort investigations.</p>
+   * @public
+   */
+  AttributeName?: InvestigationSortField | undefined;
+
+  /**
+   * <p>The order in which the sorted results are to be displayed.</p>
+   * @public
+   */
+  OrderBy?: OrderBy | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListInvestigationsRequest {
+  /**
+   * <p>The unique ID of the GuardDuty detector whose investigations you want to list.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * @public
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * <p>Represents the criteria used for sorting investigations.</p>
+   * @public
+   */
+  SortCriteria?: InvestigationSortCriteria | undefined;
+
+  /**
+   * <p>You can use this parameter to indicate the maximum number of items you want in the response. The default value is 50.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Contains summary information about a GuardDuty investigation.</p>
+ * @public
+ */
+export interface InvestigationSummary {
+  /**
+   * <p>The unique identifier of the investigation.</p>
+   * @public
+   */
+  InvestigationId?: string | undefined;
+
+  /**
+   * <p>The current status of the investigation.</p>
+   * @public
+   */
+  Status?: InvestigationStatus | undefined;
+
+  /**
+   * <p>The natural-language prompt that initiated this investigation.</p>
+   * @public
+   */
+  TriggerPrompt?: string | undefined;
+
+  /**
+   * <p>The assessed risk level of the investigated threat.</p>
+   * @public
+   */
+  RiskLevel?: RiskLevel | undefined;
+
+  /**
+   * <p>The confidence level of the investigation's assessment.</p>
+   * @public
+   */
+  Confidence?: Confidence | undefined;
+
+  /**
+   * <p>A short title summarizing the investigation.</p>
+   * @public
+   */
+  Title?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID associated with the investigation.</p>
+   * @public
+   */
+  AccountId?: string | undefined;
+
+  /**
+   * <p>The timestamp at which the investigation started.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The timestamp at which the investigation completed.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListInvestigationsResponse {
+  /**
+   * <p>A list of investigation summaries associated with the specified detector.</p>
+   * @public
+   */
+  Investigations: InvestigationSummary[] | undefined;
 
   /**
    * <p>The pagination parameter to be used on the next list operation to retrieve more items.</p>

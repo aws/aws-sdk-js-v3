@@ -28,6 +28,11 @@ import {
   CreateFilterCommand,
 } from "./commands/CreateFilterCommand";
 import {
+  type CreateInvestigationCommandInput,
+  type CreateInvestigationCommandOutput,
+  CreateInvestigationCommand,
+} from "./commands/CreateInvestigationCommand";
+import {
   type CreateIPSetCommandInput,
   type CreateIPSetCommandOutput,
   CreateIPSetCommand,
@@ -189,6 +194,11 @@ import {
   GetFindingsStatisticsCommand,
 } from "./commands/GetFindingsStatisticsCommand";
 import {
+  type GetInvestigationCommandInput,
+  type GetInvestigationCommandOutput,
+  GetInvestigationCommand,
+} from "./commands/GetInvestigationCommand";
+import {
   type GetInvitationsCountCommandInput,
   type GetInvitationsCountCommandOutput,
   GetInvitationsCountCommand,
@@ -279,6 +289,11 @@ import {
   type ListFindingsCommandOutput,
   ListFindingsCommand,
 } from "./commands/ListFindingsCommand";
+import {
+  type ListInvestigationsCommandInput,
+  type ListInvestigationsCommandOutput,
+  ListInvestigationsCommand,
+} from "./commands/ListInvestigationsCommand";
 import {
   type ListInvitationsCommandInput,
   type ListInvitationsCommandOutput,
@@ -437,6 +452,7 @@ import { paginateListCoverage } from "./pagination/ListCoveragePaginator";
 import { paginateListDetectors } from "./pagination/ListDetectorsPaginator";
 import { paginateListFilters } from "./pagination/ListFiltersPaginator";
 import { paginateListFindings } from "./pagination/ListFindingsPaginator";
+import { paginateListInvestigations } from "./pagination/ListInvestigationsPaginator";
 import { paginateListInvitations } from "./pagination/ListInvitationsPaginator";
 import { paginateListIPSets } from "./pagination/ListIPSetsPaginator";
 import { paginateListMalwareScans } from "./pagination/ListMalwareScansPaginator";
@@ -453,6 +469,7 @@ const commands = {
   ArchiveFindingsCommand,
   CreateDetectorCommand,
   CreateFilterCommand,
+  CreateInvestigationCommand,
   CreateIPSetCommand,
   CreateMalwareProtectionPlanCommand,
   CreateMembersCommand,
@@ -486,6 +503,7 @@ const commands = {
   GetFilterCommand,
   GetFindingsCommand,
   GetFindingsStatisticsCommand,
+  GetInvestigationCommand,
   GetInvitationsCountCommand,
   GetIPSetCommand,
   GetMalwareProtectionPlanCommand,
@@ -505,6 +523,7 @@ const commands = {
   ListDetectorsCommand,
   ListFiltersCommand,
   ListFindingsCommand,
+  ListInvestigationsCommand,
   ListInvitationsCommand,
   ListIPSetsCommand,
   ListMalwareProtectionPlansCommand,
@@ -544,6 +563,7 @@ const paginators = {
   paginateListDetectors,
   paginateListFilters,
   paginateListFindings,
+  paginateListInvestigations,
   paginateListInvitations,
   paginateListIPSets,
   paginateListMalwareScans,
@@ -639,6 +659,23 @@ export interface GuardDuty {
     args: CreateFilterCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateFilterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateInvestigationCommand}
+   */
+  createInvestigation(
+    args: CreateInvestigationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateInvestigationCommandOutput>;
+  createInvestigation(
+    args: CreateInvestigationCommandInput,
+    cb: (err: any, data?: CreateInvestigationCommandOutput) => void
+  ): void;
+  createInvestigation(
+    args: CreateInvestigationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateInvestigationCommandOutput) => void
   ): void;
 
   /**
@@ -1203,6 +1240,23 @@ export interface GuardDuty {
   ): void;
 
   /**
+   * @see {@link GetInvestigationCommand}
+   */
+  getInvestigation(
+    args: GetInvestigationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetInvestigationCommandOutput>;
+  getInvestigation(
+    args: GetInvestigationCommandInput,
+    cb: (err: any, data?: GetInvestigationCommandOutput) => void
+  ): void;
+  getInvestigation(
+    args: GetInvestigationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetInvestigationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetInvitationsCountCommand}
    */
   getInvitationsCount(): Promise<GetInvitationsCountCommandOutput>;
@@ -1526,6 +1580,23 @@ export interface GuardDuty {
     args: ListFindingsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListFindingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListInvestigationsCommand}
+   */
+  listInvestigations(
+    args: ListInvestigationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListInvestigationsCommandOutput>;
+  listInvestigations(
+    args: ListInvestigationsCommandInput,
+    cb: (err: any, data?: ListInvestigationsCommandOutput) => void
+  ): void;
+  listInvestigations(
+    args: ListInvestigationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListInvestigationsCommandOutput) => void
   ): void;
 
   /**
@@ -2119,6 +2190,17 @@ export interface GuardDuty {
     args: ListFindingsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListFindingsCommandOutput>;
+
+  /**
+   * @see {@link ListInvestigationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInvestigationsCommandOutput}.
+   */
+  paginateListInvestigations(
+    args: ListInvestigationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInvestigationsCommandOutput>;
 
   /**
    * @see {@link ListInvitationsCommand}

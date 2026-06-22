@@ -62,6 +62,10 @@ import type { AcceptInvitationCommandInput, AcceptInvitationCommandOutput } from
 import type { ArchiveFindingsCommandInput, ArchiveFindingsCommandOutput } from "./commands/ArchiveFindingsCommand";
 import type { CreateDetectorCommandInput, CreateDetectorCommandOutput } from "./commands/CreateDetectorCommand";
 import type { CreateFilterCommandInput, CreateFilterCommandOutput } from "./commands/CreateFilterCommand";
+import type {
+  CreateInvestigationCommandInput,
+  CreateInvestigationCommandOutput,
+} from "./commands/CreateInvestigationCommand";
 import type { CreateIPSetCommandInput, CreateIPSetCommandOutput } from "./commands/CreateIPSetCommand";
 import type {
   CreateMalwareProtectionPlanCommandInput,
@@ -167,6 +171,7 @@ import type {
   GetFindingsStatisticsCommandInput,
   GetFindingsStatisticsCommandOutput,
 } from "./commands/GetFindingsStatisticsCommand";
+import type { GetInvestigationCommandInput, GetInvestigationCommandOutput } from "./commands/GetInvestigationCommand";
 import type {
   GetInvitationsCountCommandInput,
   GetInvitationsCountCommandOutput,
@@ -216,6 +221,10 @@ import type { ListCoverageCommandInput, ListCoverageCommandOutput } from "./comm
 import type { ListDetectorsCommandInput, ListDetectorsCommandOutput } from "./commands/ListDetectorsCommand";
 import type { ListFiltersCommandInput, ListFiltersCommandOutput } from "./commands/ListFiltersCommand";
 import type { ListFindingsCommandInput, ListFindingsCommandOutput } from "./commands/ListFindingsCommand";
+import type {
+  ListInvestigationsCommandInput,
+  ListInvestigationsCommandOutput,
+} from "./commands/ListInvestigationsCommand";
 import type { ListInvitationsCommandInput, ListInvitationsCommandOutput } from "./commands/ListInvitationsCommand";
 import type { ListIPSetsCommandInput, ListIPSetsCommandOutput } from "./commands/ListIPSetsCommand";
 import type {
@@ -327,6 +336,7 @@ export type ServiceInputTypes =
   | CreateDetectorCommandInput
   | CreateFilterCommandInput
   | CreateIPSetCommandInput
+  | CreateInvestigationCommandInput
   | CreateMalwareProtectionPlanCommandInput
   | CreateMembersCommandInput
   | CreatePublishingDestinationCommandInput
@@ -360,6 +370,7 @@ export type ServiceInputTypes =
   | GetFindingsCommandInput
   | GetFindingsStatisticsCommandInput
   | GetIPSetCommandInput
+  | GetInvestigationCommandInput
   | GetInvitationsCountCommandInput
   | GetMalwareProtectionPlanCommandInput
   | GetMalwareScanCommandInput
@@ -379,6 +390,7 @@ export type ServiceInputTypes =
   | ListFiltersCommandInput
   | ListFindingsCommandInput
   | ListIPSetsCommandInput
+  | ListInvestigationsCommandInput
   | ListInvitationsCommandInput
   | ListMalwareProtectionPlansCommandInput
   | ListMalwareScansCommandInput
@@ -419,6 +431,7 @@ export type ServiceOutputTypes =
   | CreateDetectorCommandOutput
   | CreateFilterCommandOutput
   | CreateIPSetCommandOutput
+  | CreateInvestigationCommandOutput
   | CreateMalwareProtectionPlanCommandOutput
   | CreateMembersCommandOutput
   | CreatePublishingDestinationCommandOutput
@@ -452,6 +465,7 @@ export type ServiceOutputTypes =
   | GetFindingsCommandOutput
   | GetFindingsStatisticsCommandOutput
   | GetIPSetCommandOutput
+  | GetInvestigationCommandOutput
   | GetInvitationsCountCommandOutput
   | GetMalwareProtectionPlanCommandOutput
   | GetMalwareScanCommandOutput
@@ -471,6 +485,7 @@ export type ServiceOutputTypes =
   | ListFiltersCommandOutput
   | ListFindingsCommandOutput
   | ListIPSetsCommandOutput
+  | ListInvestigationsCommandOutput
   | ListInvitationsCommandOutput
   | ListMalwareProtectionPlansCommandOutput
   | ListMalwareScansCommandOutput
