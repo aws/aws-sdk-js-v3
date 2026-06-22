@@ -287,4 +287,25 @@ describe("@aws-sdk/cloudfront-signer e2e", () => {
     const response = await fetch(signedUrl);
     expect(response.status).toBe(403);
   });
+
+  // https://github.com/aws/aws-sdk-js-v3/issues/8113
+  it("should access content when URL contains filename*=UTF-8'' with single quotes", async () => {
+    const encodedFilename = encodeURIComponent("テスト");
+    const signedUrl = getSignedUrl({
+      url: `https://${domain}/${OBJECT_KEY}?response-content-disposition=${encodeURIComponent(
+        `attachment;filename=test;filename*=UTF-8''${encodedFilename}`
+      )}`,
+      keyPairId,
+      privateKey,
+      dateLessThan: new Date(Date.now() + 60_000).toISOString(),
+    });
+
+    // Single quotes must be percent-encoded as %27 for CloudFront signature verification
+    expect(signedUrl).toContain("%27%27");
+    expect(signedUrl).not.toContain("UTF-8''");
+
+    const response = await fetch(signedUrl);
+    expect(response.status).toBe(200);
+    expect(await response.text()).toBe(OBJECT_BODY);
+  });
 }, 660_000);

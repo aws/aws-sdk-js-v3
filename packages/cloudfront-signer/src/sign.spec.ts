@@ -968,9 +968,43 @@ describe("url component encoding", () => {
     });
 
     const target =
-      "https://d111111abcdef8.cloudfront.net/private-content/private.jpeg?q=!%40%23%24%25%5E&*()=&image-description=aws's%20image&'''=&!()=5";
+      "https://d111111abcdef8.cloudfront.net/private-content/private.jpeg?q=!%40%23%24%25%5E&*()=&image-description=aws%27s%20image&%27%27%27=&!()=5";
 
     expect(signedUrl.slice(0, target.length)).toBe(target);
+  });
+
+  // https://github.com/aws/aws-sdk-js-v3/issues/8113
+  it("should encode single quotes in filename*=UTF-8'' query values", () => {
+    const encodedFilename = encodeURIComponent("文件");
+    const urlWithFilename = `https://d111111abcdef8.cloudfront.net/path?response-content-disposition=attachment;filename=test;filename*=UTF-8''${encodedFilename}`;
+    const signedUrl = getSignedUrl({
+      url: urlWithFilename,
+      keyPairId,
+      privateKey,
+      dateLessThan: "2026-01-01",
+    });
+
+    // Single quotes in the query value must be encoded as %27 so the signature
+    // matches what CloudFront normalizes the URL to before verification.
+    expect(signedUrl).toContain("UTF-8%27%27%E6%96%87%E4%BB%B6");
+    expect(signedUrl).not.toContain("UTF-8''");
+
+    // Verify the signature is valid against the policy containing the encoded URL
+    const parsedUrl = parseUrl(signedUrl);
+    const policyStr = JSON.stringify({
+      Statement: [
+        {
+          Resource: `https://d111111abcdef8.cloudfront.net/path?response-content-disposition=attachment%3Bfilename%3Dtest%3Bfilename*%3DUTF-8%27%27%E6%96%87%E4%BB%B6`,
+          Condition: {
+            DateLessThan: {
+              "AWS:EpochTime": Math.round(new Date("2026-01-01").getTime() / 1000),
+            },
+          },
+        },
+      ],
+    });
+    const signatureQueryParam = denormalizeBase64(parsedUrl.query!["Signature"] as string);
+    expect(verifySignature(signatureQueryParam, policyStr)).toBeTruthy();
   });
 });
 
