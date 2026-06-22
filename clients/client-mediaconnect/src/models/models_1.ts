@@ -11,6 +11,8 @@ import type {
 import type {
   MaintenanceConfiguration,
   MaintenanceSchedule,
+  Reservation,
+  RouterContentQualityAnalysisConfiguration,
   RouterInput,
   RouterInputConfiguration,
   RouterInputTransitEncryption,
@@ -19,6 +21,73 @@ import type {
   RouterOutput,
   RouterOutputConfiguration,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListTagsForGlobalResourceResponse {
+  /**
+   * <p>A map of tag keys and values associated with the global resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceRequest {
+  /**
+   * <p> The Amazon Resource Name (ARN) that identifies the MediaConnect resource for which to list the tags.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * <p> A map from tag keys to values. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PurchaseOfferingRequest {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the offering.</p>
+   * @public
+   */
+  OfferingArn: string | undefined;
+
+  /**
+   * <p> The name that you want to use for the reservation.</p>
+   * @public
+   */
+  ReservationName: string | undefined;
+
+  /**
+   * <p> The date and time that you want the reservation to begin, in Coordinated Universal Time (UTC). </p> <p>You can specify any date and time between 12:00am on the first day of the current month to the current time on today's date, inclusive. Specify the start in a 24-hour notation. Use the following format: <code>YYYY-MM-DDTHH:mm:SSZ</code>, where <code>T</code> and <code>Z</code> are literal characters. For example, to specify 11:30pm on March 5, 2020, enter <code>2020-03-05T23:30:00Z</code>.</p>
+   * @public
+   */
+  Start: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PurchaseOfferingResponse {
+  /**
+   * <p>The details of the reservation that you just created when you purchased the offering. </p>
+   * @public
+   */
+  Reservation?: Reservation | undefined;
+}
 
 /**
  * @public
@@ -185,6 +254,12 @@ export interface UpdateRouterInputRequest {
    * @public
    */
   MaintenanceConfiguration?: MaintenanceConfiguration | undefined;
+
+  /**
+   * <p>The content quality analysis configuration for the router input.</p>
+   * @public
+   */
+  ContentQualityAnalysisConfiguration?: RouterContentQualityAnalysisConfiguration | undefined;
 }
 
 /**

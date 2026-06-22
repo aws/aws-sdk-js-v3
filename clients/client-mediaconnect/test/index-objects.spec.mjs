@@ -56,6 +56,7 @@ import {
   BatchGetRouterOutputRequest$,
   BatchGetRouterOutputResponse$,
   BlackFrames$,
+  BlackFramesConfiguration$,
   Bridge$,
   BridgeFlowOutput$,
   BridgeFlowSource$,
@@ -69,6 +70,7 @@ import {
   ConflictException,
   ConflictException$,
   ConnectionStatus,
+  ContentQualityAnalysisFeatureConfiguration$,
   ContentQualityAnalysisState,
   CreateBridge$,
   CreateBridge420Exception,
@@ -195,6 +197,7 @@ import {
   ForwardErrorCorrectionState,
   FrameResolution$,
   FrozenFrames$,
+  FrozenFramesConfiguration$,
   Gateway$,
   GatewayBridgeSource$,
   GatewayInstance$,
@@ -407,6 +410,8 @@ import {
   RevokeFlowEntitlementResponse$,
   RistRouterInputConfiguration$,
   RistRouterOutputConfiguration$,
+  RouterContentQualityAnalysisConfiguration$,
+  RouterContentQualityAnalysisType,
   RouterInput$,
   RouterInputConfiguration$,
   RouterInputFilter$,
@@ -455,6 +460,7 @@ import {
   SetGatewayBridgeSourceRequest$,
   SetSourceRequest$,
   SilentAudio$,
+  SilentAudioConfiguration$,
   Source$,
   SourcePriority$,
   SourceType,
@@ -813,6 +819,7 @@ assert(typeof BatchGetRouterOutputError$ === "object");
 assert(typeof BatchGetRouterOutputRequest$ === "object");
 assert(typeof BatchGetRouterOutputResponse$ === "object");
 assert(typeof BlackFrames$ === "object");
+assert(typeof BlackFramesConfiguration$ === "object");
 assert(typeof Bridge$ === "object");
 assert(typeof BridgeFlowOutput$ === "object");
 assert(typeof BridgeFlowSource$ === "object");
@@ -820,6 +827,7 @@ assert(typeof BridgeNetworkOutput$ === "object");
 assert(typeof BridgeNetworkSource$ === "object");
 assert(typeof BridgeOutput$ === "object");
 assert(typeof BridgeSource$ === "object");
+assert(typeof ContentQualityAnalysisFeatureConfiguration$ === "object");
 assert(typeof CreateBridgeRequest$ === "object");
 assert(typeof CreateBridgeResponse$ === "object");
 assert(typeof CreateFlowRequest$ === "object");
@@ -883,6 +891,7 @@ assert(typeof Fmtp$ === "object");
 assert(typeof FmtpRequest$ === "object");
 assert(typeof FrameResolution$ === "object");
 assert(typeof FrozenFrames$ === "object");
+assert(typeof FrozenFramesConfiguration$ === "object");
 assert(typeof Gateway$ === "object");
 assert(typeof GatewayBridgeSource$ === "object");
 assert(typeof GatewayInstance$ === "object");
@@ -1001,6 +1010,7 @@ assert(typeof RevokeFlowEntitlementRequest$ === "object");
 assert(typeof RevokeFlowEntitlementResponse$ === "object");
 assert(typeof RistRouterInputConfiguration$ === "object");
 assert(typeof RistRouterOutputConfiguration$ === "object");
+assert(typeof RouterContentQualityAnalysisConfiguration$ === "object");
 assert(typeof RouterInput$ === "object");
 assert(typeof RouterInputConfiguration$ === "object");
 assert(typeof RouterInputFilter$ === "object");
@@ -1027,6 +1037,7 @@ assert(typeof SecretsManagerEncryptionKeyConfiguration$ === "object");
 assert(typeof SetGatewayBridgeSourceRequest$ === "object");
 assert(typeof SetSourceRequest$ === "object");
 assert(typeof SilentAudio$ === "object");
+assert(typeof SilentAudioConfiguration$ === "object");
 assert(typeof Source$ === "object");
 assert(typeof SourcePriority$ === "object");
 assert(typeof SrtCallerRouterInputConfiguration$ === "object");
@@ -1141,6 +1152,7 @@ assert(typeof Protocol === "object");
 assert(typeof Range === "object");
 assert(typeof ReservationState === "object");
 assert(typeof ResourceType === "object");
+assert(typeof RouterContentQualityAnalysisType === "object");
 assert(typeof RouterInputProtocol === "object");
 assert(typeof RouterInputState === "object");
 assert(typeof RouterInputTier === "object");

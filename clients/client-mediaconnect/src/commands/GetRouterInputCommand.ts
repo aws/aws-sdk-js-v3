@@ -230,6 +230,23 @@ export interface GetRouterInputCommandOutput extends GetRouterInputResponse, __M
  * //         ScheduledTime: new Date("TIMESTAMP"), // required
  * //       },
  * //     },
+ * //     ContentQualityAnalysisType: "CONTENT_LEVEL", // required
+ * //     ContentQualityAnalysisConfiguration: { // RouterContentQualityAnalysisConfiguration Union: only one key present
+ * //       ContentLevel: { // ContentQualityAnalysisFeatureConfiguration
+ * //         BlackFrames: { // BlackFramesConfiguration
+ * //           State: "ENABLED" || "DISABLED", // required
+ * //           ThresholdSeconds: Number("int"), // required
+ * //         },
+ * //         FrozenFrames: { // FrozenFramesConfiguration
+ * //           State: "ENABLED" || "DISABLED", // required
+ * //           ThresholdSeconds: Number("int"), // required
+ * //         },
+ * //         SilentAudio: { // SilentAudioConfiguration
+ * //           State: "ENABLED" || "DISABLED", // required
+ * //           ThresholdSeconds: Number("int"), // required
+ * //         },
+ * //       },
+ * //     },
  * //   },
  * // };
  *

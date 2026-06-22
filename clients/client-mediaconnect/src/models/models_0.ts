@@ -37,6 +37,7 @@ import type {
   Range,
   ReservationState,
   ResourceType,
+  RouterContentQualityAnalysisType,
   RouterInputProtocol,
   RouterInputState,
   RouterInputTier,
@@ -2295,13 +2296,13 @@ export interface Source {
   Name: string | undefined;
 
   /**
-   * <p> The IP address that the flow communicates with to initiate connection with the sender.</p>
+   * <p> The port that the flow uses to send outbound requests to initiate connection with the sender.</p>
    * @public
    */
   SenderControlPort?: number | undefined;
 
   /**
-   * <p> The port that the flow uses to send outbound requests to initiate connection with the sender.</p>
+   * <p> The IP address that the flow communicates with to initiate connection with the sender.</p>
    * @public
    */
   SenderIpAddress?: string | undefined;
@@ -2457,7 +2458,7 @@ export interface TransportStreamProgram {
  */
 export interface BlackFrames {
   /**
-   * <p> Indicates whether the <code>BlackFrames</code> metric is enabled or disabled..</p>
+   * <p> Indicates whether the <code>BlackFrames</code> metric is enabled or disabled.</p>
    * @public
    */
   State?: State | undefined;
@@ -3522,6 +3523,123 @@ export namespace RouterInputConfiguration {
 }
 
 /**
+ * <p>Detects black frames in the router input's source content and reports them through a CloudWatch metric, an EventBridge event, and a router input message.</p>
+ * @public
+ */
+export interface BlackFramesConfiguration {
+  /**
+   * <p>Indicates whether black frames detection is enabled or disabled.</p>
+   * @public
+   */
+  State: ContentQualityAnalysisState | undefined;
+
+  /**
+   * <p>The number of consecutive seconds of black frames that MediaConnect must detect before it reports an issue.</p>
+   * @public
+   */
+  ThresholdSeconds: number | undefined;
+}
+
+/**
+ * <p>Detects frozen video frames in the router input's source content and reports them through a CloudWatch metric, an EventBridge event, and a router input message.</p>
+ * @public
+ */
+export interface FrozenFramesConfiguration {
+  /**
+   * <p>Indicates whether frozen frames detection is enabled or disabled.</p>
+   * @public
+   */
+  State: ContentQualityAnalysisState | undefined;
+
+  /**
+   * <p>The number of consecutive seconds of a frozen frame that MediaConnect must detect before it reports an issue.</p>
+   * @public
+   */
+  ThresholdSeconds: number | undefined;
+}
+
+/**
+ * <p>Detects silent audio in the router input's source content and reports it through a CloudWatch metric, an EventBridge event, and a router input message.</p>
+ * @public
+ */
+export interface SilentAudioConfiguration {
+  /**
+   * <p>Indicates whether silent audio detection is enabled or disabled.</p>
+   * @public
+   */
+  State: ContentQualityAnalysisState | undefined;
+
+  /**
+   * <p>The number of consecutive seconds of silence that MediaConnect must detect before it reports an issue.</p>
+   * @public
+   */
+  ThresholdSeconds: number | undefined;
+}
+
+/**
+ * <p>Configures the content quality analysis features for the router input.</p>
+ * @public
+ */
+export interface ContentQualityAnalysisFeatureConfiguration {
+  /**
+   * <p>Settings for black frames detection.</p>
+   * @public
+   */
+  BlackFrames?: BlackFramesConfiguration | undefined;
+
+  /**
+   * <p>Settings for frozen frames detection.</p>
+   * @public
+   */
+  FrozenFrames?: FrozenFramesConfiguration | undefined;
+
+  /**
+   * <p>Settings for silent audio detection.</p>
+   * @public
+   */
+  SilentAudio?: SilentAudioConfiguration | undefined;
+}
+
+/**
+ * <p>The content quality analysis configuration for the router input.</p> <important> <p>The content quality analysis feature only monitors the first video stream and the first audio stream it encounters within the router input source.</p> </important>
+ * @public
+ */
+export type RouterContentQualityAnalysisConfiguration =
+  | RouterContentQualityAnalysisConfiguration.ContentLevelMember
+  | RouterContentQualityAnalysisConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RouterContentQualityAnalysisConfiguration {
+  /**
+   * <p>The content quality analysis configuration.</p>
+   * @public
+   */
+  export interface ContentLevelMember {
+    ContentLevel: ContentQualityAnalysisFeatureConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    ContentLevel?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    ContentLevel: (value: ContentQualityAnalysisFeatureConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p>Configuration settings for default maintenance scheduling.</p>
  * @public
  */
@@ -4101,6 +4219,18 @@ export interface RouterInput {
    * @public
    */
   MaintenanceSchedule?: MaintenanceSchedule | undefined;
+
+  /**
+   * <p>The type of content quality analysis applied to the router input.</p>
+   * @public
+   */
+  ContentQualityAnalysisType: RouterContentQualityAnalysisType | undefined;
+
+  /**
+   * <p>The content quality analysis configuration for the router input.</p>
+   * @public
+   */
+  ContentQualityAnalysisConfiguration: RouterContentQualityAnalysisConfiguration | undefined;
 }
 
 /**
@@ -6101,6 +6231,12 @@ export interface CreateRouterInputRequest {
    * @public
    */
   ClientToken?: string | undefined;
+
+  /**
+   * <p>The content quality analysis configuration for the router input.</p>
+   * @public
+   */
+  ContentQualityAnalysisConfiguration?: RouterContentQualityAnalysisConfiguration | undefined;
 }
 
 /**
@@ -8811,71 +8947,4 @@ export interface ListTagsForGlobalResourceRequest {
    * @public
    */
   ResourceArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTagsForGlobalResourceResponse {
-  /**
-   * <p>A map of tag keys and values associated with the global resource.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceRequest {
-  /**
-   * <p> The Amazon Resource Name (ARN) that identifies the MediaConnect resource for which to list the tags.</p>
-   * @public
-   */
-  ResourceArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceResponse {
-  /**
-   * <p> A map from tag keys to values. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface PurchaseOfferingRequest {
-  /**
-   * <p> The Amazon Resource Name (ARN) of the offering.</p>
-   * @public
-   */
-  OfferingArn: string | undefined;
-
-  /**
-   * <p> The name that you want to use for the reservation.</p>
-   * @public
-   */
-  ReservationName: string | undefined;
-
-  /**
-   * <p> The date and time that you want the reservation to begin, in Coordinated Universal Time (UTC). </p> <p>You can specify any date and time between 12:00am on the first day of the current month to the current time on today's date, inclusive. Specify the start in a 24-hour notation. Use the following format: <code>YYYY-MM-DDTHH:mm:SSZ</code>, where <code>T</code> and <code>Z</code> are literal characters. For example, to specify 11:30pm on March 5, 2020, enter <code>2020-03-05T23:30:00Z</code>.</p>
-   * @public
-   */
-  Start: string | undefined;
-}
-
-/**
- * @public
- */
-export interface PurchaseOfferingResponse {
-  /**
-   * <p>The details of the reservation that you just created when you purchased the offering. </p>
-   * @public
-   */
-  Reservation?: Reservation | undefined;
 }

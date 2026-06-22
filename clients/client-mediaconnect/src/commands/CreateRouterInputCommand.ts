@@ -174,6 +174,22 @@ export interface CreateRouterInputCommandOutput extends CreateRouterInputRespons
  *     "<keys>": "STRING_VALUE",
  *   },
  *   ClientToken: "STRING_VALUE",
+ *   ContentQualityAnalysisConfiguration: { // RouterContentQualityAnalysisConfiguration Union: only one key present
+ *     ContentLevel: { // ContentQualityAnalysisFeatureConfiguration
+ *       BlackFrames: { // BlackFramesConfiguration
+ *         State: "ENABLED" || "DISABLED", // required
+ *         ThresholdSeconds: Number("int"), // required
+ *       },
+ *       FrozenFrames: { // FrozenFramesConfiguration
+ *         State: "ENABLED" || "DISABLED", // required
+ *         ThresholdSeconds: Number("int"), // required
+ *       },
+ *       SilentAudio: { // SilentAudioConfiguration
+ *         State: "ENABLED" || "DISABLED", // required
+ *         ThresholdSeconds: Number("int"), // required
+ *       },
+ *     },
+ *   },
  * };
  * const command = new CreateRouterInputCommand(input);
  * const response = await client.send(command);
@@ -364,6 +380,23 @@ export interface CreateRouterInputCommandOutput extends CreateRouterInputRespons
  * //         Start: new Date("TIMESTAMP"), // required
  * //         End: new Date("TIMESTAMP"), // required
  * //         ScheduledTime: new Date("TIMESTAMP"), // required
+ * //       },
+ * //     },
+ * //     ContentQualityAnalysisType: "CONTENT_LEVEL", // required
+ * //     ContentQualityAnalysisConfiguration: { // RouterContentQualityAnalysisConfiguration Union: only one key present
+ * //       ContentLevel: { // ContentQualityAnalysisFeatureConfiguration
+ * //         BlackFrames: { // BlackFramesConfiguration
+ * //           State: "ENABLED" || "DISABLED", // required
+ * //           ThresholdSeconds: Number("int"), // required
+ * //         },
+ * //         FrozenFrames: { // FrozenFramesConfiguration
+ * //           State: "ENABLED" || "DISABLED", // required
+ * //           ThresholdSeconds: Number("int"), // required
+ * //         },
+ * //         SilentAudio: { // SilentAudioConfiguration
+ * //           State: "ENABLED" || "DISABLED", // required
+ * //           ThresholdSeconds: Number("int"), // required
+ * //         },
  * //       },
  * //     },
  * //   },

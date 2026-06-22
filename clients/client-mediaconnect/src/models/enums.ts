@@ -468,6 +468,33 @@ export type RouterInputProtocol = (typeof RouterInputProtocol)[keyof typeof Rout
  * @public
  * @enum
  */
+export const ContentQualityAnalysisState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type ContentQualityAnalysisState =
+  (typeof ContentQualityAnalysisState)[keyof typeof ContentQualityAnalysisState];
+
+/**
+ * @public
+ * @enum
+ */
+export const RouterContentQualityAnalysisType = {
+  CONTENT_LEVEL: "CONTENT_LEVEL",
+} as const;
+/**
+ * @public
+ */
+export type RouterContentQualityAnalysisType =
+  (typeof RouterContentQualityAnalysisType)[keyof typeof RouterContentQualityAnalysisType];
+
+/**
+ * @public
+ * @enum
+ */
 export const RouterInputType = {
   FAILOVER: "FAILOVER",
   MEDIACONNECT_FLOW: "MEDIACONNECT_FLOW",
@@ -759,20 +786,6 @@ export const ConnectionStatus = {
  * @public
  */
 export type ConnectionStatus = (typeof ConnectionStatus)[keyof typeof ConnectionStatus];
-
-/**
- * @public
- * @enum
- */
-export const ContentQualityAnalysisState = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-/**
- * @public
- */
-export type ContentQualityAnalysisState =
-  (typeof ContentQualityAnalysisState)[keyof typeof ContentQualityAnalysisState];
 
 /**
  * @public

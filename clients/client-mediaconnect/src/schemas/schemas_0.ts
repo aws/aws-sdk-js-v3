@@ -43,6 +43,7 @@ const _Au = "Automatic";
 const _B = "Bridge";
 const _BA = "BridgeArn";
 const _BF = "BlackFrames";
+const _BFC = "BlackFramesConfiguration";
 const _BFO = "BridgeFlowOutput";
 const _BFS = "BridgeFlowSource";
 const _BGRI = "BatchGetRouterInput";
@@ -91,8 +92,12 @@ const _CGE = "CreateGateway420Exception";
 const _CGR = "CreateGatewayRequest";
 const _CGRr = "CreateGatewayResponse";
 const _CIV = "ConstantInitializationVector";
+const _CL = "ContentLevel";
 const _CO = "ChannelOrder";
+const _CQAC = "ContentQualityAnalysisConfiguration";
+const _CQAFC = "ContentQualityAnalysisFeatureConfiguration";
 const _CQAS = "ContentQualityAnalysisState";
+const _CQAT = "ContentQualityAnalysisType";
 const _CR = "ClockRate";
 const _CRI = "CreateRouterInput";
 const _CRIA = "ConnectedRouterInputArn";
@@ -210,6 +215,7 @@ const _FC = "FailoverConfig";
 const _FE = "ForbiddenException";
 const _FEC = "ForwardErrorCorrection";
 const _FF = "FrozenFrames";
+const _FFC = "FrozenFramesConfiguration";
 const _FH = "FrameHeight";
 const _FM = "FailoverMode";
 const _FO = "FlowOutput";
@@ -478,6 +484,7 @@ const _RBORe = "RemoveBridgeOutputResponse";
 const _RBS = "RemoveBridgeSource";
 const _RBSR = "RemoveBridgeSourceRequest";
 const _RBSRe = "RemoveBridgeSourceResponse";
+const _RCQAC = "RouterContentQualityAnalysisConfiguration";
 const _RFE = "RevokeFlowEntitlement";
 const _RFER = "RevokeFlowEntitlementRequest";
 const _RFERe = "RevokeFlowEntitlementResponse";
@@ -568,6 +575,7 @@ const _Ri = "Rist";
 const _Rt = "Rtp";
 const _S = "Sources";
 const _SA = "SilentAudio";
+const _SAC = "SilentAudioConfiguration";
 const _SAe = "SecretArn";
 const _SAo = "SourceArn";
 const _SAou = "SourceAddress";
@@ -766,8 +774,11 @@ const _cB = "cidrBlock";
 const _cC = "currencyCode";
 const _cF = "compressionFactor";
 const _cIV = "constantInitializationVector";
+const _cL = "contentLevel";
 const _cO = "channelOrder";
+const _cQAC = "contentQualityAnalysisConfiguration";
 const _cQAS = "contentQualityAnalysisState";
+const _cQAT = "contentQualityAnalysisType";
 const _cR = "clockRate";
 const _cRIA = "connectedRouterInputArn";
 const _cROA = "connectedRouterOutputArn";
@@ -1433,6 +1444,11 @@ export var BlackFrames$: StaticStructureSchema = [3, n0, _BF,
   [_St, _TS],
   [[0, { [_jN]: _st }], [1, { [_jN]: _tS }]]
 ];
+export var BlackFramesConfiguration$: StaticStructureSchema = [3, n0, _BFC,
+  0,
+  [_St, _TS],
+  [[0, { [_jN]: _st }], [1, { [_jN]: _tS }]], 2
+];
 export var Bridge$: StaticStructureSchema = [3, n0, _B,
   0,
   [_BA, _BS, _N, _PA, _BM, _EGB, _IGB, _O, _SFC, _S],
@@ -1468,6 +1484,11 @@ export var BridgeSource$: StaticStructureSchema = [3, n0, _BSr,
   [_FS, _NS],
   [[() => BridgeFlowSource$, { [_jN]: _fS }], [() => BridgeNetworkSource$, { [_jN]: _nS }]]
 ];
+export var ContentQualityAnalysisFeatureConfiguration$: StaticStructureSchema = [3, n0, _CQAFC,
+  0,
+  [_BF, _FF, _SA],
+  [[() => BlackFramesConfiguration$, { [_jN]: _bF }], [() => FrozenFramesConfiguration$, { [_jN]: _fF }], [() => SilentAudioConfiguration$, { [_jN]: _sA }]]
+];
 export var CreateBridgeRequest$: StaticStructureSchema = [3, n0, _CBR,
   0,
   [_N, _PA, _S, _EGB, _IGB, _O, _SFC],
@@ -1500,8 +1521,8 @@ export var CreateGatewayResponse$: StaticStructureSchema = [3, n0, _CGRr,
 ];
 export var CreateRouterInputRequest$: StaticStructureSchema = [3, n0, _CRIR,
   0,
-  [_N, _Co, _MBa, _RS, _Ti, _RN, _AZ, _TE, _MC, _Ta, _CT],
-  [[0, { [_jN]: _n }], [() => RouterInputConfiguration$, { [_jN]: _con }], [1, { [_jN]: _mBa }], [0, { [_jN]: _rS }], [0, { [_jN]: _ti }], [0, { [_jN]: _rN }], [0, { [_jN]: _aZ }], [() => RouterInputTransitEncryption$, { [_jN]: _tE }], [() => MaintenanceConfiguration$, { [_jN]: _mC }], [128 | 0, { [_jN]: _ta }], [0, { [_iT]: 1, [_jN]: _cT }]], 5
+  [_N, _Co, _MBa, _RS, _Ti, _RN, _AZ, _TE, _MC, _Ta, _CT, _CQAC],
+  [[0, { [_jN]: _n }], [() => RouterInputConfiguration$, { [_jN]: _con }], [1, { [_jN]: _mBa }], [0, { [_jN]: _rS }], [0, { [_jN]: _ti }], [0, { [_jN]: _rN }], [0, { [_jN]: _aZ }], [() => RouterInputTransitEncryption$, { [_jN]: _tE }], [() => MaintenanceConfiguration$, { [_jN]: _mC }], [128 | 0, { [_jN]: _ta }], [0, { [_iT]: 1, [_jN]: _cT }], [() => RouterContentQualityAnalysisConfiguration$, { [_jN]: _cQAC }]], 5
 ];
 export var CreateRouterInputResponse$: StaticStructureSchema = [3, n0, _CRIRr,
   0,
@@ -1772,6 +1793,11 @@ export var FrozenFrames$: StaticStructureSchema = [3, n0, _FF,
   0,
   [_St, _TS],
   [[0, { [_jN]: _st }], [1, { [_jN]: _tS }]]
+];
+export var FrozenFramesConfiguration$: StaticStructureSchema = [3, n0, _FFC,
+  0,
+  [_St, _TS],
+  [[0, { [_jN]: _st }], [1, { [_jN]: _tS }]], 2
 ];
 export var Gateway$: StaticStructureSchema = [3, n0, _G,
   0,
@@ -2345,8 +2371,8 @@ export var RistRouterOutputConfiguration$: StaticStructureSchema = [3, n0, _RROC
 ];
 export var RouterInput$: StaticStructureSchema = [3, n0, _RIou,
   0,
-  [_N, _Ar, _Id, _St, _IT, _Co, _ROou, _RN, _AZ, _MBa, _Ti, _RS, _CA, _UA, _Me, _TE, _Ta, _SD, _MT, _MC, _MRO, _IA, _MSTa, _MSa],
-  [[0, { [_jN]: _n }], [0, { [_jN]: _ar }], [0, { [_jN]: _id }], [0, { [_jN]: _st }], [0, { [_jN]: _iTn }], [() => RouterInputConfiguration$, { [_jN]: _con }], [1, { [_jN]: _rOou }], [0, { [_jN]: _rN }], [0, { [_jN]: _aZ }], [1, { [_jN]: _mBa }], [0, { [_jN]: _ti }], [0, { [_jN]: _rS }], [5, { [_jN]: _cA }], [5, { [_jN]: _uA }], [() => RouterInputMessages, { [_jN]: _me }], [() => RouterInputTransitEncryption$, { [_jN]: _tE }], [128 | 0, { [_jN]: _ta }], [() => RouterInputStreamDetails$, { [_jN]: _sD }], [0, { [_jN]: _mT }], [() => MaintenanceConfiguration$, { [_jN]: _mC }], [1, { [_jN]: _mRO }], [0, { [_jN]: _iA }], [0, { [_jN]: _mSTa }], [() => MaintenanceSchedule$, { [_jN]: _mSa }]], 20
+  [_N, _Ar, _Id, _St, _IT, _Co, _ROou, _RN, _AZ, _MBa, _Ti, _RS, _CA, _UA, _Me, _TE, _Ta, _SD, _MT, _MC, _CQAT, _CQAC, _MRO, _IA, _MSTa, _MSa],
+  [[0, { [_jN]: _n }], [0, { [_jN]: _ar }], [0, { [_jN]: _id }], [0, { [_jN]: _st }], [0, { [_jN]: _iTn }], [() => RouterInputConfiguration$, { [_jN]: _con }], [1, { [_jN]: _rOou }], [0, { [_jN]: _rN }], [0, { [_jN]: _aZ }], [1, { [_jN]: _mBa }], [0, { [_jN]: _ti }], [0, { [_jN]: _rS }], [5, { [_jN]: _cA }], [5, { [_jN]: _uA }], [() => RouterInputMessages, { [_jN]: _me }], [() => RouterInputTransitEncryption$, { [_jN]: _tE }], [128 | 0, { [_jN]: _ta }], [() => RouterInputStreamDetails$, { [_jN]: _sD }], [0, { [_jN]: _mT }], [() => MaintenanceConfiguration$, { [_jN]: _mC }], [0, { [_jN]: _cQAT }], [() => RouterContentQualityAnalysisConfiguration$, { [_jN]: _cQAC }], [1, { [_jN]: _mRO }], [0, { [_jN]: _iA }], [0, { [_jN]: _mSTa }], [() => MaintenanceSchedule$, { [_jN]: _mSa }]], 22
 ];
 export var RouterInputMessage$: StaticStructureSchema = [3, n0, _RIM,
   0,
@@ -2412,6 +2438,11 @@ export var SilentAudio$: StaticStructureSchema = [3, n0, _SA,
   0,
   [_St, _TS],
   [[0, { [_jN]: _st }], [1, { [_jN]: _tS }]]
+];
+export var SilentAudioConfiguration$: StaticStructureSchema = [3, n0, _SAC,
+  0,
+  [_St, _TS],
+  [[0, { [_jN]: _st }], [1, { [_jN]: _tS }]], 2
 ];
 export var Source$: StaticStructureSchema = [3, n0, _So,
   0,
@@ -2735,8 +2766,8 @@ export var UpdateMaintenance$: StaticStructureSchema = [3, n0, _UM,
 ];
 export var UpdateRouterInputRequest$: StaticStructureSchema = [3, n0, _URIR,
   0,
-  [_Ar, _N, _Co, _MBa, _RS, _Ti, _TE, _MC],
-  [[0, 1], [0, { [_jN]: _n }], [() => RouterInputConfiguration$, { [_jN]: _con }], [1, { [_jN]: _mBa }], [0, { [_jN]: _rS }], [0, { [_jN]: _ti }], [() => RouterInputTransitEncryption$, { [_jN]: _tE }], [() => MaintenanceConfiguration$, { [_jN]: _mC }]], 1
+  [_Ar, _N, _Co, _MBa, _RS, _Ti, _TE, _MC, _CQAC],
+  [[0, 1], [0, { [_jN]: _n }], [() => RouterInputConfiguration$, { [_jN]: _con }], [1, { [_jN]: _mBa }], [0, { [_jN]: _rS }], [0, { [_jN]: _ti }], [() => RouterInputTransitEncryption$, { [_jN]: _tE }], [() => MaintenanceConfiguration$, { [_jN]: _mC }], [() => RouterContentQualityAnalysisConfiguration$, { [_jN]: _cQAC }]], 1
 ];
 export var UpdateRouterInputResponse$: StaticStructureSchema = [3, n0, _URIRp,
   0,
@@ -3055,6 +3086,11 @@ export var MergeRouterInputProtocolConfiguration$: StaticUnionSchema = [4, n0, _
   0,
   [_Rt, _Ri],
   [[() => RtpRouterInputConfiguration$, { [_jN]: _rt }], [() => RistRouterInputConfiguration$, { [_jN]: _ri }]]
+];
+export var RouterContentQualityAnalysisConfiguration$: StaticUnionSchema = [4, n0, _RCQAC,
+  0,
+  [_CL],
+  [[() => ContentQualityAnalysisFeatureConfiguration$, { [_jN]: _cL }]]
 ];
 export var RouterInputConfiguration$: StaticUnionSchema = [4, n0, _RIC,
   0,
