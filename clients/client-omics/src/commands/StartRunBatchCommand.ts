@@ -66,6 +66,7 @@ export interface StartRunBatchCommandOutput extends StartRunBatchResponse, __Met
  *     networkingMode: "STRING_VALUE",
  *     configurationName: "STRING_VALUE",
  *     engineSettings: "DOCUMENT_VALUE",
+ *     scratchStorageMode: "STRING_VALUE",
  *   },
  *   batchRunSettings: { // BatchRunSettings Union: only one key present
  *     inlineSettings: [ // InlineSettings

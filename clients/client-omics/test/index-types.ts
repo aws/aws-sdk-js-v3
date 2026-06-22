@@ -357,6 +357,7 @@ export type {
   RunRetentionMode,
   RunStatus,
   SchemaValueType,
+  ScratchStorageMode,
   SequenceStoreStatus,
   ShareResourceType,
   ShareStatus,

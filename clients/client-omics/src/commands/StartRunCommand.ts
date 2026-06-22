@@ -59,6 +59,7 @@ export interface StartRunCommandOutput extends StartRunResponse, __MetadataBeare
  *   workflowOwnerId: "STRING_VALUE",
  *   workflowVersionName: "STRING_VALUE",
  *   networkingMode: "STRING_VALUE",
+ *   scratchStorageMode: "STRING_VALUE",
  *   configurationName: "STRING_VALUE",
  *   engineSettings: "DOCUMENT_VALUE",
  * };

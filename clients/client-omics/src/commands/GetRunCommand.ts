@@ -90,6 +90,7 @@ export interface GetRunCommandOutput extends GetRunResponse, __MetadataBearer {}
  * //   workflowVersionName: "STRING_VALUE",
  * //   workflowUuid: "STRING_VALUE",
  * //   networkingMode: "STRING_VALUE",
+ * //   scratchStorageMode: "STRING_VALUE",
  * //   configuration: { // ConfigurationDetails
  * //     name: "STRING_VALUE",
  * //     arn: "STRING_VALUE",

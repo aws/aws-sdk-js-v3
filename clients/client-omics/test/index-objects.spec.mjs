@@ -483,6 +483,7 @@ import {
   RunSummary$,
   S3AccessConfig$,
   SchemaValueType,
+  ScratchStorageMode,
   SequenceInformation$,
   SequenceStoreDetail$,
   SequenceStoreFilter$,
@@ -1192,6 +1193,7 @@ assert(typeof RunLogLevel === "object");
 assert(typeof RunRetentionMode === "object");
 assert(typeof RunStatus === "object");
 assert(typeof SchemaValueType === "object");
+assert(typeof ScratchStorageMode === "object");
 assert(typeof SequenceStoreStatus === "object");
 assert(typeof ShareResourceType === "object");
 assert(typeof ShareStatus === "object");

@@ -546,6 +546,19 @@ export type RunRetentionMode = (typeof RunRetentionMode)[keyof typeof RunRetenti
  * @public
  * @enum
  */
+export const ScratchStorageMode = {
+  LOCAL: "LOCAL",
+  SHARED: "SHARED",
+} as const;
+/**
+ * @public
+ */
+export type ScratchStorageMode = (typeof ScratchStorageMode)[keyof typeof ScratchStorageMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const WorkflowType = {
   PRIVATE: "PRIVATE",
   READY2RUN: "READY2RUN",

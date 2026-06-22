@@ -37,6 +37,7 @@ import type {
   RunRetentionMode,
   RunStatus,
   SchemaValueType,
+  ScratchStorageMode,
   SequenceStoreStatus,
   ShareResourceType,
   ShareStatus,
@@ -3593,6 +3594,12 @@ export interface DefaultRunSetting {
    * @public
    */
   engineSettings?: __DocumentType | undefined;
+
+  /**
+   * <p>Optional configuration for enabling scratch ephemeral storage mounted at /tmp. If not specified, this will default to SHARED. This configuration is applicable only for CPU tasks. For tasks using GPUs, scratch storage is always LOCAL.</p>
+   * @public
+   */
+  scratchStorageMode?: ScratchStorageMode | undefined;
 }
 
 /**
@@ -5351,6 +5358,12 @@ export interface GetRunResponse {
    * @public
    */
   networkingMode?: NetworkingMode | undefined;
+
+  /**
+   * <p>Optional configuration for enabling scratch ephemeral storage mounted at /tmp. If absent, this will default to SHARED. This configuration is applicable only for CPU tasks. For tasks using GPUs, scratch storage is always LOCAL.</p>
+   * @public
+   */
+  scratchStorageMode?: ScratchStorageMode | undefined;
 
   /**
    * <p>Configuration details for the workflow run.</p>
@@ -9142,6 +9155,12 @@ export interface StartRunRequest {
    * @public
    */
   networkingMode?: NetworkingMode | undefined;
+
+  /**
+   * <p>Optional configuration for enabling scratch ephemeral storage mounted at /tmp. If not specified, this will default to SHARED. This configuration is applicable only for CPU tasks. For tasks using GPUs, scratch storage is always LOCAL.</p>
+   * @public
+   */
+  scratchStorageMode?: ScratchStorageMode | undefined;
 
   /**
    * <p>Optional configuration name to use for the workflow run.</p>

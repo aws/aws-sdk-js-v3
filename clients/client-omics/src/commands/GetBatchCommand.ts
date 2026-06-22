@@ -75,6 +75,7 @@ export interface GetBatchCommandOutput extends GetBatchResponse, __MetadataBeare
  * //     networkingMode: "STRING_VALUE",
  * //     configurationName: "STRING_VALUE",
  * //     engineSettings: "DOCUMENT_VALUE",
+ * //     scratchStorageMode: "STRING_VALUE",
  * //   },
  * //   submissionSummary: { // SubmissionSummary
  * //     successfulStartSubmissionCount: Number("int"),
