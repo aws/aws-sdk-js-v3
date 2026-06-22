@@ -1489,6 +1489,18 @@ export interface ApacheKafkaCluster {
 }
 
 /**
+ * <p>Details for mTLS client authentication.</p>
+ * @public
+ */
+export interface KafkaClusterMTLSAuthentication {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Secrets Manager secret.</p>
+   * @public
+   */
+  SecretArn: string | undefined;
+}
+
+/**
  * <p>Details for SASL/SCRAM client authentication.</p>
  * @public
  */
@@ -1516,6 +1528,12 @@ export interface KafkaClusterClientAuthentication {
    * @public
    */
   SaslScram: KafkaClusterSaslScramAuthentication | undefined;
+
+  /**
+   * <p>Details for mTLS client authentication.</p>
+   * @public
+   */
+  MTLS?: KafkaClusterMTLSAuthentication | undefined;
 }
 
 /**

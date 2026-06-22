@@ -297,6 +297,7 @@ export type {
   KafkaClusterClientVpcConfig,
   KafkaClusterDescription,
   KafkaClusterEncryptionInTransit,
+  KafkaClusterMTLSAuthentication,
   KafkaClusterSaslScramAuthentication,
   KafkaClusterSummary,
   KafkaVersion,

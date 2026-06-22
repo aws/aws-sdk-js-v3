@@ -205,6 +205,7 @@ const _KCCA = "KafkaClusterClientAuthentication";
 const _KCCVC = "KafkaClusterClientVpcConfig";
 const _KCD = "KafkaClusterDescription";
 const _KCEIT = "KafkaClusterEncryptionInTransit";
+const _KCMTLSA = "KafkaClusterMTLSAuthentication";
 const _KCS = "KafkaClusterSummary";
 const _KCSSA = "KafkaClusterSaslScramAuthentication";
 const _KCSa = "KafkaClustersSummary";
@@ -264,6 +265,7 @@ const _M = "Message";
 const _MCA = "MskClusterArn";
 const _MCI = "MutableClusterInfo";
 const _MR = "MaxResults";
+const _MTLS = "MTLS";
 const _Me = "Mechanism";
 const _N = "Name";
 const _NARN = "NodeARN";
@@ -612,6 +614,7 @@ const _lR = "latestRevision";
 const _m = "message";
 const _mCA = "mskClusterArn";
 const _mR = "maxResults";
+const _mTLS = "mTLS";
 const _me = "mechanism";
 const _n = "name";
 const _nARN = "nodeARN";
@@ -1340,8 +1343,8 @@ export var KafkaCluster$: StaticStructureSchema = [3, n0, _KCa,
 ];
 export var KafkaClusterClientAuthentication$: StaticStructureSchema = [3, n0, _KCCA,
   0,
-  [_SSa],
-  [[() => KafkaClusterSaslScramAuthentication$, { [_jN]: _sSa }]], 1
+  [_SSa, _MTLS],
+  [[() => KafkaClusterSaslScramAuthentication$, { [_jN]: _sSa }], [() => KafkaClusterMTLSAuthentication$, { [_jN]: _mTLS }]], 1
 ];
 export var KafkaClusterClientVpcConfig$: StaticStructureSchema = [3, n0, _KCCVC,
   0,
@@ -1357,6 +1360,11 @@ export var KafkaClusterEncryptionInTransit$: StaticStructureSchema = [3, n0, _KC
   0,
   [_ETn, _RCC],
   [[0, { [_jN]: _eTn }], [0, { [_jN]: _rCC }]], 1
+];
+export var KafkaClusterMTLSAuthentication$: StaticStructureSchema = [3, n0, _KCMTLSA,
+  0,
+  [_SA],
+  [[0, { [_jN]: _sA }]], 1
 ];
 export var KafkaClusterSaslScramAuthentication$: StaticStructureSchema = [3, n0, _KCSSA,
   0,

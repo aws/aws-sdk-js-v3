@@ -174,6 +174,7 @@ import {
   KafkaClusterDescription$,
   KafkaClusterEncryptionInTransit$,
   KafkaClusterEncryptionInTransitType,
+  KafkaClusterMTLSAuthentication$,
   KafkaClusterSaslScramAuthentication$,
   KafkaClusterSaslScramMechanism,
   KafkaClusterSummary$,
@@ -628,6 +629,7 @@ assert(typeof KafkaClusterClientAuthentication$ === "object");
 assert(typeof KafkaClusterClientVpcConfig$ === "object");
 assert(typeof KafkaClusterDescription$ === "object");
 assert(typeof KafkaClusterEncryptionInTransit$ === "object");
+assert(typeof KafkaClusterMTLSAuthentication$ === "object");
 assert(typeof KafkaClusterSaslScramAuthentication$ === "object");
 assert(typeof KafkaClusterSummary$ === "object");
 assert(typeof KafkaVersion$ === "object");

@@ -60,6 +60,9 @@ export interface CreateReplicatorCommandOutput extends CreateReplicatorResponse,
  *           Mechanism: "SHA256" || "SHA512", // required
  *           SecretArn: "STRING_VALUE", // required
  *         },
+ *         MTLS: { // KafkaClusterMTLSAuthentication
+ *           SecretArn: "STRING_VALUE", // required
+ *         },
  *       },
  *       EncryptionInTransit: { // KafkaClusterEncryptionInTransit
  *         EncryptionType: "TLS", // required
