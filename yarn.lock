@@ -5947,6 +5947,52 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@aws-sdk/client-lambda-core@workspace:clients/client-lambda-core":
+  version: 0.0.0-use.local
+  resolution: "@aws-sdk/client-lambda-core@workspace:clients/client-lambda-core"
+  dependencies:
+    "@aws-crypto/sha256-browser": "npm:5.2.0"
+    "@aws-crypto/sha256-js": "npm:5.2.0"
+    "@aws-sdk/core": "workspace:^3.974.22"
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.57"
+    "@aws-sdk/types": "workspace:^3.973.13"
+    "@smithy/core": "npm:^3.24.6"
+    "@smithy/fetch-http-handler": "npm:^5.4.6"
+    "@smithy/node-http-handler": "npm:^4.7.6"
+    "@smithy/types": "npm:^4.14.3"
+    "@tsconfig/node20": "npm:20.1.8"
+    "@types/node": "npm:^20.14.8"
+    concurrently: "npm:7.0.0"
+    downlevel-dts: "npm:0.10.1"
+    premove: "npm:4.0.0"
+    tslib: "npm:^2.6.2"
+    typescript: "npm:~5.8.3"
+  languageName: unknown
+  linkType: soft
+
+"@aws-sdk/client-lambda-microvms@workspace:clients/client-lambda-microvms":
+  version: 0.0.0-use.local
+  resolution: "@aws-sdk/client-lambda-microvms@workspace:clients/client-lambda-microvms"
+  dependencies:
+    "@aws-crypto/sha256-browser": "npm:5.2.0"
+    "@aws-crypto/sha256-js": "npm:5.2.0"
+    "@aws-sdk/core": "workspace:^3.974.22"
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.57"
+    "@aws-sdk/types": "workspace:^3.973.13"
+    "@smithy/core": "npm:^3.24.6"
+    "@smithy/fetch-http-handler": "npm:^5.4.6"
+    "@smithy/node-http-handler": "npm:^4.7.6"
+    "@smithy/types": "npm:^4.14.3"
+    "@tsconfig/node20": "npm:20.1.8"
+    "@types/node": "npm:^20.14.8"
+    concurrently: "npm:7.0.0"
+    downlevel-dts: "npm:0.10.1"
+    premove: "npm:4.0.0"
+    tslib: "npm:^2.6.2"
+    typescript: "npm:~5.8.3"
+  languageName: unknown
+  linkType: soft
+
 "@aws-sdk/client-lambda@workspace:3.1073.0, @aws-sdk/client-lambda@workspace:clients/client-lambda":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/client-lambda@workspace:clients/client-lambda"
