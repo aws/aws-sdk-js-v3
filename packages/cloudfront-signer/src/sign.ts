@@ -307,11 +307,16 @@ function encodeUrlPath(url: string): string {
     }
   });
 
-  // Re-encode query parameters if present
+  // Re-encode query parameters if present.
+  // Single quotes must be encoded as %27 because CloudFront normalizes them
+  // before verifying signatures. encodeURIComponent does not encode quotes,
+  // so we replace them explicitly.
   let encodedQuery = "";
   if (rawQuery) {
     for (const [key, value] of new URLSearchParams(rawQuery.slice(1)).entries()) {
-      encodedQuery += `${encodedQuery ? "&" : "?"}${encodeURIComponent(key)}=${encodeURIComponent(value)}`;
+      encodedQuery += `${encodedQuery ? "&" : "?"}${encodeURIComponent(key).replace(/'/g, "%27")}=${encodeURIComponent(
+        value
+      ).replace(/'/g, "%27")}`;
     }
   }
 
