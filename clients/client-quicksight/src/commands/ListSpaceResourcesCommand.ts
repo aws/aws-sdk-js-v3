@@ -47,7 +47,7 @@ export interface ListSpaceResourcesCommandOutput extends ListSpaceResourcesRespo
  * //   spaceArn: "STRING_VALUE",
  * //   SpaceResources: [ // SpaceResourceSummaries // required
  * //     { // SpaceResourceSummary
- * //       ResourceType: "TOPIC" || "DASHBOARD" || "KNOWLEDGE_BASE" || "SPACE" || "ACTION_CONNECTOR" || "DATA_SET" || "ARTIFACT", // required
+ * //       ResourceType: "TOPIC" || "DASHBOARD" || "KNOWLEDGE_BASE" || "ACTION_CONNECTOR" || "DATA_SET", // required
  * //       ResourceDetails: { // SpaceQuickSightResourceDetails Union: only one key present
  * //         resourceArn: "STRING_VALUE",
  * //       },

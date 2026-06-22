@@ -41,7 +41,7 @@ export interface UpdateSpaceResourcesCommandOutput extends UpdateSpaceResourcesR
  *   SpaceId: "STRING_VALUE", // required
  *   AddResources: [ // SpaceResourceOperations
  *     { // SpaceResourceOperation
- *       ResourceType: "TOPIC" || "DASHBOARD" || "KNOWLEDGE_BASE" || "SPACE" || "ACTION_CONNECTOR" || "DATA_SET" || "ARTIFACT", // required
+ *       ResourceType: "TOPIC" || "DASHBOARD" || "KNOWLEDGE_BASE" || "ACTION_CONNECTOR" || "DATA_SET", // required
  *       ResourceDetails: { // SpaceQuickSightResourceDetails Union: only one key present
  *         resourceArn: "STRING_VALUE",
  *       },
@@ -49,7 +49,7 @@ export interface UpdateSpaceResourcesCommandOutput extends UpdateSpaceResourcesR
  *   ],
  *   RemoveResources: [
  *     {
- *       ResourceType: "TOPIC" || "DASHBOARD" || "KNOWLEDGE_BASE" || "SPACE" || "ACTION_CONNECTOR" || "DATA_SET" || "ARTIFACT", // required
+ *       ResourceType: "TOPIC" || "DASHBOARD" || "KNOWLEDGE_BASE" || "ACTION_CONNECTOR" || "DATA_SET", // required
  *       ResourceDetails: {//  Union: only one key present
  *         resourceArn: "STRING_VALUE",
  *       },
@@ -63,7 +63,7 @@ export interface UpdateSpaceResourcesCommandOutput extends UpdateSpaceResourcesR
  * //   spaceArn: "STRING_VALUE",
  * //   FailedResourceOperations: [ // FailedSpaceResourceOperations
  * //     { // FailedSpaceResourceOperation
- * //       ResourceType: "TOPIC" || "DASHBOARD" || "KNOWLEDGE_BASE" || "SPACE" || "ACTION_CONNECTOR" || "DATA_SET" || "ARTIFACT", // required
+ * //       ResourceType: "TOPIC" || "DASHBOARD" || "KNOWLEDGE_BASE" || "ACTION_CONNECTOR" || "DATA_SET", // required
  * //       ResourceDetails: { // SpaceQuickSightResourceDetails Union: only one key present
  * //         resourceArn: "STRING_VALUE",
  * //       },

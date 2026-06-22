@@ -4141,11 +4141,9 @@ export type SelfUpgradeStatus = (typeof SelfUpgradeStatus)[keyof typeof SelfUpgr
  */
 export const SpaceQuickSightResourceType = {
   ACTION_CONNECTOR: "ACTION_CONNECTOR",
-  ARTIFACT: "ARTIFACT",
   DASHBOARD: "DASHBOARD",
   DATA_SET: "DATA_SET",
   KNOWLEDGE_BASE: "KNOWLEDGE_BASE",
-  SPACE: "SPACE",
   TOPIC: "TOPIC",
 } as const;
 /**

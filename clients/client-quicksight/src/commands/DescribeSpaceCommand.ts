@@ -51,7 +51,7 @@ export interface DescribeSpaceCommandOutput extends DescribeSpaceResponse, __Met
  * //     description: "STRING_VALUE",
  * //     resources: [ // SpaceQuickSightResources
  * //       { // SpaceQuickSightResource
- * //         resourceType: "TOPIC" || "DASHBOARD" || "KNOWLEDGE_BASE" || "SPACE" || "ACTION_CONNECTOR" || "DATA_SET" || "ARTIFACT", // required
+ * //         resourceType: "TOPIC" || "DASHBOARD" || "KNOWLEDGE_BASE" || "ACTION_CONNECTOR" || "DATA_SET", // required
  * //         resourceDetails: { // SpaceQuickSightResourceDetails Union: only one key present
  * //           resourceArn: "STRING_VALUE",
  * //         },
