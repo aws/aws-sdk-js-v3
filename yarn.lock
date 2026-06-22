@@ -12160,13 +12160,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/xml-builder@workspace:packages-internal/xml-builder"
   dependencies:
-    "@jazzer.js/core": "npm:^4.0.0"
-    "@nodable/entities": "npm:2.1.0"
     "@smithy/types": "npm:^4.14.3"
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    fast-check: "npm:^4.8.0"
     premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
@@ -15514,7 +15511,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nodable/entities@npm:2.1.0, @nodable/entities@npm:^2.1.0":
+"@nodable/entities@npm:^2.1.0":
   version: 2.1.0
   resolution: "@nodable/entities@npm:2.1.0"
   checksum: 10c0/5a4cba2b61a5b6c726328b18b1de6d033cae4a658a118644bf31e0bcbda126ea7b69385043dc556cf1ed859b9ca220e82b81b5e5c48ef1b519fb8ec104575dee
@@ -18476,6 +18473,7 @@ __metadata:
     "@commitlint/cli": "npm:17.0.2"
     "@commitlint/config-conventional": "npm:17.0.2"
     "@fastify/formbody": "npm:^7.4.0"
+    "@jazzer.js/core": "npm:^4.0.0"
     "@microsoft/api-extractor": "npm:7.52.7"
     "@mixer/parallel-prettier": "npm:2.0.3"
     "@rollup/plugin-json": "npm:^6.1.0"
@@ -18500,6 +18498,7 @@ __metadata:
     eslint-plugin-sort-export-all: "npm:1.2.2"
     eslint-plugin-tsdoc: "npm:0.2.17"
     esprint: "npm:3.6.0"
+    fast-check: "npm:^4.8.0"
     fast-xml-parser: "npm:5.7.3"
     fastify: "npm:^4.11.0"
     figlet: "npm:^1.5.0"
