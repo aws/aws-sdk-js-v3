@@ -1,18 +1,208 @@
 // smithy-typescript generated code
 import type {
+  BatchDeleteErrorCode,
   ChangeEventType,
   ConnectionType,
   DetailLevel,
   DurationUnit,
+  DynamicInstrumentationDeletionStatus,
+  DynamicInstrumentationSignalType,
   EvaluationType,
+  InstrumentationConfigurationStatus,
+  InstrumentationErrorCause,
+  InstrumentationType,
   MetricSourceType,
+  ProgrammingLanguage,
   SelectionType,
   ServiceLevelIndicatorComparisonOperator,
   ServiceLevelIndicatorMetricType,
   ServiceLevelObjectiveBudgetStatus,
   Severity,
   StandardUnit,
+  UnprocessedStatusEventFailureReason,
 } from "./enums";
+
+/**
+ * Parameters for targeted delete by ARN list.
+ * @public
+ */
+export interface BatchDeleteByResourceArns {
+  /**
+   * List of resource ARNs to delete.
+   * @public
+   */
+  ResourceArns: string[] | undefined;
+
+  /**
+   * Instrumentation type: BREAKPOINT or PROBE.
+   * @public
+   */
+  InstrumentationType: InstrumentationType | undefined;
+}
+
+/**
+ * Scope parameters for bulk delete by scope.
+ * @public
+ */
+export interface BatchDeleteScope {
+  /**
+   * Service name for the instrumentation configurations.
+   * @public
+   */
+  Service: string | undefined;
+
+  /**
+   * Environment identifier for the instrumentation configurations.
+   * @public
+   */
+  Environment: string | undefined;
+
+  /**
+   * Instrumentation type: BREAKPOINT or PROBE.
+   * @public
+   */
+  InstrumentationType: InstrumentationType | undefined;
+}
+
+/**
+ * Union type for batch delete target selection.
+ * Exactly one of the two modes must be specified.
+ * @public
+ */
+export type BatchDeleteDeletionTarget =
+  | BatchDeleteDeletionTarget.ResourceArnsMember
+  | BatchDeleteDeletionTarget.ScopeMember
+  | BatchDeleteDeletionTarget.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace BatchDeleteDeletionTarget {
+  /**
+   * Delete all configurations matching the specified scope.
+   * @public
+   */
+  export interface ScopeMember {
+    Scope: BatchDeleteScope;
+    ResourceArns?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * Delete specific configurations by ARN list.
+   * @public
+   */
+  export interface ResourceArnsMember {
+    Scope?: never;
+    ResourceArns: BatchDeleteByResourceArns;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Scope?: never;
+    ResourceArns?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Scope: (value: BatchDeleteScope) => T;
+    ResourceArns: (value: BatchDeleteByResourceArns) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface BatchDeleteInstrumentationConfigurationsRequest {
+  /**
+   * The deletion target - either bulk by scope or targeted by ARN list.
+   * @public
+   */
+  DeletionTarget: BatchDeleteDeletionTarget | undefined;
+}
+
+/**
+ * Represents an error that occurred when attempting to delete a configuration.
+ * @public
+ */
+export interface BatchDeleteError {
+  /**
+   * ARN of the configuration that failed to delete.
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * Error code indicating the type of failure.
+   * @public
+   */
+  Code: BatchDeleteErrorCode | undefined;
+
+  /**
+   * Descriptive error message.
+   * @public
+   */
+  Message: string | undefined;
+}
+
+/**
+ * Represents a successfully deleted instrumentation configuration.
+ * @public
+ */
+export interface BatchDeleteSuccessfulDeletion {
+  /**
+   * ARN of the deleted configuration (populated only when deleting by ARN list).
+   * @public
+   */
+  ResourceArn?: string | undefined;
+
+  /**
+   * Signal type of the deleted configuration (populated only when deleting by scope).
+   * @public
+   */
+  SignalType?: string | undefined;
+
+  /**
+   * Location hash of the deleted configuration (populated only when deleting by scope).
+   * @public
+   */
+  LocationHash?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchDeleteInstrumentationConfigurationsResponse {
+  /**
+   * Number of configurations successfully deleted.
+   * When deleting by scope, this is the total count of deleted items.
+   * When deleting by ARN list, this equals the length of SuccessfulDeletions.
+   * @public
+   */
+  DeletedCount: number | undefined;
+
+  /**
+   * List of successfully deleted configurations.
+   * Deleting by scope populates SignalType and LocationHash per item.
+   * Deleting by ARN list populates ResourceArn per item.
+   * @public
+   */
+  SuccessfulDeletions: BatchDeleteSuccessfulDeletion[] | undefined;
+
+  /**
+   * List of configurations that failed to delete.
+   * @public
+   */
+  Errors: BatchDeleteError[] | undefined;
+}
 
 /**
  * @public
@@ -840,9 +1030,737 @@ export interface BatchUpdateExclusionWindowsOutput {
 }
 
 /**
+ * <p>Guardrails that prevent instrumentation from impacting application performance by limiting how much data is captured.</p>
+ * @public
+ */
+export interface CaptureLimitsConfig {
+  /**
+   * <p>The maximum number of times the instrumentation point can be hit before it is automatically disabled. Defaults to 100.</p>
+   * @public
+   */
+  MaxHits?: number | undefined;
+
+  /**
+   * <p>The maximum length of captured string values in characters. Strings longer than this are truncated. Defaults to 128.</p>
+   * @public
+   */
+  MaxStringLength?: number | undefined;
+
+  /**
+   * <p>The maximum number of items to capture from any collection to prevent large payloads. Defaults to 10.</p>
+   * @public
+   */
+  MaxCollectionWidth?: number | undefined;
+
+  /**
+   * <p>The maximum nesting depth to traverse inside collections. Defaults to 3.</p>
+   * @public
+   */
+  MaxCollectionDepth?: number | undefined;
+
+  /**
+   * <p>The maximum number of stack frames to capture in stack traces. Defaults to 2.</p>
+   * @public
+   */
+  MaxStackFrames?: number | undefined;
+
+  /**
+   * <p>The maximum total size, in bytes, of a captured stack trace. Defaults to 1000.</p>
+   * @public
+   */
+  MaxStackTraceSize?: number | undefined;
+
+  /**
+   * <p>The maximum depth for nested object traversal when capturing structured data. Defaults to 3.</p>
+   * @public
+   */
+  MaxObjectDepth?: number | undefined;
+
+  /**
+   * <p>The maximum number of fields to capture for any object. Defaults to 10.</p>
+   * @public
+   */
+  MaxFieldsPerObject?: number | undefined;
+}
+
+/**
+ * <p>Defines what data to capture for code-level instrumentation, including arguments, return values, stack traces, local variables, and safety limits.</p>
+ * @public
+ */
+export interface CodeCaptureConfiguration {
+  /**
+   * <p>The function arguments to capture. Omit to capture defaults, use an empty list to capture none, use <code>["*"]</code> to capture all arguments, or specify argument names to capture selectively (up to 10 entries).</p>
+   * @public
+   */
+  CaptureArguments?: string[] | undefined;
+
+  /**
+   * <p>Whether to capture the return value. Defaults to false.</p>
+   * @public
+   */
+  CaptureReturn?: boolean | undefined;
+
+  /**
+   * <p>Whether to capture a stack trace when the instrumentation point is hit. Defaults to true.</p>
+   * @public
+   */
+  CaptureStackTrace?: boolean | undefined;
+
+  /**
+   * <p>The local variables to capture by name. Omit or pass an empty list to capture none. You can specify up to 20 names.</p>
+   * @public
+   */
+  CaptureLocals?: string[] | undefined;
+
+  /**
+   * <p>Safety limits that bound what is captured, including hit counts, string length, collection depth, and stack trace size.</p>
+   * @public
+   */
+  CaptureLimits: CaptureLimitsConfig | undefined;
+}
+
+/**
+ * <p>A union that defines what data to capture when the instrumentation point is hit. Specify <code>CodeCapture</code> for code-level capture settings.</p>
+ * @public
+ */
+export type CaptureConfiguration =
+  | CaptureConfiguration.CodeCaptureMember
+  | CaptureConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace CaptureConfiguration {
+  /**
+   * <p>Capture settings for code-level instrumentation, including arguments, return values, stack traces, local variables, and safety limits.</p>
+   * @public
+   */
+  export interface CodeCaptureMember {
+    CodeCapture: CodeCaptureConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    CodeCapture?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    CodeCapture: (value: CodeCaptureConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Identifies a code location to instrument, including the programming language, code unit, class, method, file path, and optional line number.</p>
+ * @public
+ */
+export interface CodeLocation {
+  /**
+   * <p>The programming language for this instrumentation point, such as Java, Python, or JavaScript.</p>
+   * @public
+   */
+  Language: ProgrammingLanguage | undefined;
+
+  /**
+   * <p>The package, module, or namespace that contains the target code, for example <code>com.amazon.payment</code> or <code>payment_service</code>.</p>
+   * @public
+   */
+  CodeUnit?: string | undefined;
+
+  /**
+   * <p>The class or type name that contains the method. This is required for Java and optional for Python module-level functions.</p>
+   * @public
+   */
+  ClassName?: string | undefined;
+
+  /**
+   * <p>The method or function name to instrument, such as <code>validateCreditCard</code> or <code>__init__</code>.</p>
+   * @public
+   */
+  MethodName?: string | undefined;
+
+  /**
+   * <p>The source file path relative to the project or source root, such as <code>src/payment/PaymentProcessor.java</code> or <code>src/payment/PaymentProcessor.py</code>.</p>
+   * @public
+   */
+  FilePath: string | undefined;
+
+  /**
+   * <p>The line number to instrument. Provide this to disambiguate overloaded methods and to target a specific line when needed.</p>
+   * @public
+   */
+  LineNumber?: number | undefined;
+}
+
+/**
+ * <p>A union that identifies the location to instrument. Specify a <code>CodeLocation</code> for code-level instrumentation.</p>
+ * @public
+ */
+export type Location =
+  | Location.CodeLocationMember
+  | Location.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace Location {
+  /**
+   * <p>A code location for code-level instrumentation, including language, code unit, class, method, file path, and optional line number.</p>
+   * @public
+   */
+  export interface CodeLocationMember {
+    CodeLocation: CodeLocation;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    CodeLocation?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    CodeLocation: (value: CodeLocation) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A key-value pair associated with a resource. Tags can help you organize and categorize your resources.</p>
+ * @public
+ */
+export interface Tag {
+  /**
+   * <p>A string that you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.</p>
+   * @public
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The value for the specified tag key.</p>
+   * @public
+   */
+  Value: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateInstrumentationConfigurationRequest {
+  /**
+   * Type of instrumentation: BREAKPOINT (temporary) or PROBE (permanent)
+   * @public
+   */
+  InstrumentationType: InstrumentationType | undefined;
+
+  /**
+   * <p>The name of the service to instrument. This should match the <code>service.name</code> resource attribute reported by the application.</p>
+   * @public
+   */
+  Service: string | undefined;
+
+  /**
+   * <p>The environment that the service is running in, such as <code>eks:cluster-prod/namespace</code> or <code>ec2:production</code>.</p>
+   * @public
+   */
+  Environment: string | undefined;
+
+  /**
+   * <p>The telemetry signal type to emit for this instrumentation. The supported value is <code>SNAPSHOT</code>.</p>
+   * @public
+   */
+  SignalType: DynamicInstrumentationSignalType | undefined;
+
+  /**
+   * <p>The location where instrumentation should be applied. Specify a <code>CodeLocation</code> for code-level instrumentation.</p>
+   * @public
+   */
+  Location: Location | undefined;
+
+  /**
+   * <p>An optional short description (up to 50 characters) that explains the purpose of this instrumentation.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * For BREAKPOINT: optional, defaults to 24 hours, must be between 5 min and 24 hours.
+   * For PROBE: not supported. PROBE configurations are permanent and persist until explicitly deleted.
+   * @public
+   */
+  ExpiresAt?: Date | undefined;
+
+  /**
+   * <p>Client-side filters that target specific instances. Each object in the array is AND-matched on its keys, and multiple objects are OR-matched to decide where to apply the instrumentation.</p>
+   * @public
+   */
+  AttributeFilters?: Record<string, string>[] | undefined;
+
+  /**
+   * <p>Specifies what to capture when the instrumentation point is hit. Specify <code>CodeCapture</code> for code-level capture settings.</p>
+   * @public
+   */
+  CaptureConfiguration: CaptureConfiguration | undefined;
+
+  /**
+   * <p>An optional list of key-value pairs to associate with the instrumentation configuration. Tags can help you organize and categorize your resources.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateInstrumentationConfigurationResponse {
+  /**
+   * <p>The type of instrumentation that was created, echoed from the request.</p>
+   * @public
+   */
+  InstrumentationType: InstrumentationType | undefined;
+
+  /**
+   * <p>The service name for the instrumentation configuration, echoed from the request.</p>
+   * @public
+   */
+  Service: string | undefined;
+
+  /**
+   * <p>The environment for the instrumentation configuration, echoed from the request.</p>
+   * @public
+   */
+  Environment: string | undefined;
+
+  /**
+   * <p>The telemetry signal type for the instrumentation configuration, echoed from the request.</p>
+   * @public
+   */
+  SignalType: DynamicInstrumentationSignalType | undefined;
+
+  /**
+   * <p>The location where instrumentation is applied, echoed from the request.</p>
+   * @public
+   */
+  Location: Location | undefined;
+
+  /**
+   * <p>A stable hash computed from the location that uniquely identifies this instrumentation point within the service, environment, and signal type.</p>
+   * @public
+   */
+  LocationHash: string | undefined;
+
+  /**
+   * <p>The optional description that was stored with the instrumentation configuration.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The timestamp after which this configuration is no longer served to clients. Present only for <code>BREAKPOINT</code> configurations; <code>PROBE</code> configurations do not expire.</p>
+   * @public
+   */
+  ExpiresAt?: Date | undefined;
+
+  /**
+   * <p>The attribute filters returned with the configuration so SDKs can perform client-side targeting.</p>
+   * @public
+   */
+  AttributeFilters?: Record<string, string>[] | undefined;
+
+  /**
+   * <p>The capture settings that were stored for this instrumentation configuration.</p>
+   * @public
+   */
+  CaptureConfiguration: CaptureConfiguration | undefined;
+
+  /**
+   * <p>The server-generated creation timestamp for this instrumentation configuration.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * ARN for the created instrumentation configuration
+   * @public
+   */
+  ARN: string | undefined;
+}
+
+/**
  * @public
  */
 export interface DeleteGroupingConfigurationOutput {}
+
+/**
+ * Union type for identifying an instrumentation configuration by code location or locationHash.
+ * Used in Get/Delete/GetStatus operations to allow flexible identification.
+ * @public
+ */
+export type LocationIdentifier =
+  | LocationIdentifier.CodeLocationMember
+  | LocationIdentifier.LocationHashMember
+  | LocationIdentifier.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace LocationIdentifier {
+  /**
+   * The full code location specification (will be hashed internally)
+   * @public
+   */
+  export interface CodeLocationMember {
+    CodeLocation: CodeLocation;
+    LocationHash?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * The pre-computed location hash (16-character hex string)
+   * @public
+   */
+  export interface LocationHashMember {
+    CodeLocation?: never;
+    LocationHash: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    CodeLocation?: never;
+    LocationHash?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    CodeLocation: (value: CodeLocation) => T;
+    LocationHash: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface DeleteInstrumentationConfigurationRequest {
+  /**
+   * Type of instrumentation configuration (BREAKPOINT or PROBE).
+   * Required to identify the configuration to delete.
+   * @public
+   */
+  InstrumentationType: InstrumentationType | undefined;
+
+  /**
+   * Service name for the instrumentation configuration.
+   * @public
+   */
+  Service: string | undefined;
+
+  /**
+   * Environment name for the instrumentation configuration.
+   * @public
+   */
+  Environment: string | undefined;
+
+  /**
+   * Signal type for the instrumentation configuration.
+   * @public
+   */
+  SignalType: DynamicInstrumentationSignalType | undefined;
+
+  /**
+   * Location identifier - either full code location or a pre-computed hash.
+   * @public
+   */
+  LocationIdentifier: LocationIdentifier | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteInstrumentationConfigurationResponse {
+  /**
+   * <p>The result of the delete request. The value is <code>DELETED</code> when the configuration has been removed.</p>
+   * @public
+   */
+  DeletionStatus: DynamicInstrumentationDeletionStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetInstrumentationConfigurationRequest {
+  /**
+   * Type of instrumentation configuration (BREAKPOINT or PROBE).
+   * Required to identify the configuration to retrieve.
+   * @public
+   */
+  InstrumentationType: InstrumentationType | undefined;
+
+  /**
+   * Service name for the instrumentation configuration.
+   * @public
+   */
+  Service: string | undefined;
+
+  /**
+   * Environment name for the instrumentation configuration.
+   * @public
+   */
+  Environment: string | undefined;
+
+  /**
+   * Signal type for the instrumentation configuration.
+   * @public
+   */
+  SignalType: DynamicInstrumentationSignalType | undefined;
+
+  /**
+   * Location identifier - either full code location or a pre-computed hash.
+   * @public
+   */
+  LocationIdentifier: LocationIdentifier | undefined;
+}
+
+/**
+ * <p>The full instrumentation configuration, including the instrumentation type, service, environment, signal type, location details, stable location hash, capture settings, filters, expiration, creation time, and ARN.</p>
+ * @public
+ */
+export interface InstrumentationConfiguration {
+  /**
+   * <p>The type of instrumentation for this configuration.</p>
+   * @public
+   */
+  InstrumentationType: InstrumentationType | undefined;
+
+  /**
+   * <p>The service that this instrumentation configuration targets.</p>
+   * @public
+   */
+  Service: string | undefined;
+
+  /**
+   * <p>The environment where the service is running.</p>
+   * @public
+   */
+  Environment: string | undefined;
+
+  /**
+   * <p>The telemetry signal type for this instrumentation configuration.</p>
+   * @public
+   */
+  SignalType: DynamicInstrumentationSignalType | undefined;
+
+  /**
+   * <p>The location where this instrumentation is applied.</p>
+   * @public
+   */
+  Location: Location | undefined;
+
+  /**
+   * <p>The stable hash derived from the location that uniquely identifies this instrumentation point within the service and environment.</p>
+   * @public
+   */
+  LocationHash: string | undefined;
+
+  /**
+   * <p>An optional short description of the instrumentation configuration.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The timestamp when this configuration expires.</p>
+   * @public
+   */
+  ExpiresAt?: Date | undefined;
+
+  /**
+   * <p>Client-side filters that determine which instances apply this instrumentation.</p>
+   * @public
+   */
+  AttributeFilters?: Record<string, string>[] | undefined;
+
+  /**
+   * <p>The capture settings for this instrumentation configuration.</p>
+   * @public
+   */
+  CaptureConfiguration: CaptureConfiguration | undefined;
+
+  /**
+   * <p>The timestamp when this instrumentation configuration was created.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * ARN for the instrumentation configuration
+   * @public
+   */
+  ARN: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetInstrumentationConfigurationResponse {
+  /**
+   * <p>The complete instrumentation configuration, including its location hash, capture settings, filters, expiration, and creation time.</p>
+   * @public
+   */
+  Configuration: InstrumentationConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetInstrumentationConfigurationStatusRequest {
+  /**
+   * Type of instrumentation configuration (BREAKPOINT or PROBE).
+   * Required to identify the configuration to retrieve.
+   * @public
+   */
+  InstrumentationType: InstrumentationType | undefined;
+
+  /**
+   * Service name for the instrumentation configuration.
+   * @public
+   */
+  Service: string | undefined;
+
+  /**
+   * Environment name for the instrumentation configuration.
+   * @public
+   */
+  Environment: string | undefined;
+
+  /**
+   * Signal type for the instrumentation configuration.
+   * @public
+   */
+  SignalType: DynamicInstrumentationSignalType | undefined;
+
+  /**
+   * Location identifier - either full code location or a pre-computed hash.
+   * @public
+   */
+  LocationIdentifier: LocationIdentifier | undefined;
+
+  /**
+   * <p>The single status to query for. If omitted, only <code>ACTIVE</code> status events are returned.</p>
+   * @public
+   */
+  Status?: InstrumentationConfigurationStatus | undefined;
+
+  /**
+   * <p>The start of the time range to retrieve status events for. <code>StartTime</code> and <code>EndTime</code> must both be provided together or both be omitted. When both are omitted, the time range defaults to the last hour.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The end of the time range to retrieve status events for. <code>StartTime</code> and <code>EndTime</code> must both be provided together or both be omitted. When both are omitted, the time range defaults to the last hour.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>The maximum number of status events to return in one call. The default is 60.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Use the token returned by a previous call to retrieve the next page of status events.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>A status event for an instrumentation configuration returned by <code>GetInstrumentationConfigurationStatus</code>. Events include the timestamp and, for errors, an error cause.</p>
+ * @public
+ */
+export interface InstrumentationStatusEvent {
+  /**
+   * <p>The time when the status was reported, rounded to the nearest minute.</p>
+   * @public
+   */
+  Time: Date | undefined;
+
+  /**
+   * <p>The error cause when the status is <code>ERROR</code>.</p>
+   * @public
+   */
+  ErrorCause?: InstrumentationErrorCause | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetInstrumentationConfigurationStatusResponse {
+  /**
+   * <p>The service name echoed from the request.</p>
+   * @public
+   */
+  Service: string | undefined;
+
+  /**
+   * <p>The environment echoed from the request.</p>
+   * @public
+   */
+  Environment: string | undefined;
+
+  /**
+   * <p>The telemetry signal type echoed from the request.</p>
+   * @public
+   */
+  SignalType: DynamicInstrumentationSignalType | undefined;
+
+  /**
+   * <p>The code location echoed from the request.</p>
+   * @public
+   */
+  Location: Location | undefined;
+
+  /**
+   * <p>The status that was queried. If not specified in the request, this is <code>ACTIVE</code>.</p>
+   * @public
+   */
+  Status: InstrumentationConfigurationStatus | undefined;
+
+  /**
+   * <p>The list of status events within the requested time window, sorted with the most recent first. Error events include an error cause.</p>
+   * @public
+   */
+  Events: InstrumentationStatusEvent[] | undefined;
+
+  /**
+   * <p>Pagination token to continue retrieving status events.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -1644,6 +2562,161 @@ export interface ListGroupingAttributeDefinitionsOutput {
 }
 
 /**
+ * <p>An instrumentation configuration that omits service and environment because they are provided at a higher level, such as in a list response.</p>
+ * @public
+ */
+export interface InstrumentationConfigurationWithoutServiceEnv {
+  /**
+   * <p>The type of instrumentation for this configuration.</p>
+   * @public
+   */
+  InstrumentationType: InstrumentationType | undefined;
+
+  /**
+   * <p>The telemetry signal type for this instrumentation configuration.</p>
+   * @public
+   */
+  SignalType: DynamicInstrumentationSignalType | undefined;
+
+  /**
+   * <p>The location where this instrumentation is applied.</p>
+   * @public
+   */
+  Location: Location | undefined;
+
+  /**
+   * <p>The stable hash derived from the location that identifies this instrumentation point.</p>
+   * @public
+   */
+  LocationHash: string | undefined;
+
+  /**
+   * <p>An optional short description of the instrumentation configuration.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The timestamp when this configuration expires.</p>
+   * @public
+   */
+  ExpiresAt?: Date | undefined;
+
+  /**
+   * <p>Client-side filters that determine which instances apply this instrumentation.</p>
+   * @public
+   */
+  AttributeFilters?: Record<string, string>[] | undefined;
+
+  /**
+   * <p>The capture settings for this instrumentation configuration.</p>
+   * @public
+   */
+  CaptureConfiguration: CaptureConfiguration | undefined;
+
+  /**
+   * <p>The timestamp when this instrumentation configuration was created.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * ARN for the instrumentation configuration
+   * @public
+   */
+  ARN: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface InstrumentationConfigurationsPage {
+  /**
+   * <p>The service name associated with the returned configurations.</p>
+   * @public
+   */
+  Service: string | undefined;
+
+  /**
+   * <p>The environment associated with the returned configurations.</p>
+   * @public
+   */
+  Environment: string | undefined;
+
+  /**
+   * <p>Indicates whether there are configuration changes since the provided <code>SyncedAt</code> timestamp.</p>
+   * @public
+   */
+  Changed: boolean | undefined;
+
+  /**
+   * <p>The current set of active instrumentation configurations for the service and environment. Items omit service and environment because they are provided in the request.</p>
+   * @public
+   */
+  LatestConfigurations?: InstrumentationConfigurationWithoutServiceEnv[] | undefined;
+
+  /**
+   * <p>The server timestamp to supply on the next sync call.</p>
+   * @public
+   */
+  SyncedAt: Date | undefined;
+
+  /**
+   * <p>The suggested number of seconds to wait before the next sync request. This is at least 60 seconds to prevent excessive polling.</p>
+   * @public
+   */
+  SyncInterval: number | undefined;
+
+  /**
+   * <p>Pagination token to continue listing configurations when more results are available.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListInstrumentationConfigurationsRequest {
+  /**
+   * <p>The name of the service to retrieve instrumentation configurations for.</p>
+   * @public
+   */
+  Service: string | undefined;
+
+  /**
+   * <p>The environment that the service is running in.</p>
+   * @public
+   */
+  Environment: string | undefined;
+
+  /**
+   * Type of instrumentation configuration (BREAKPOINT or PROBE).
+   * Required to determine which backing store to query.
+   * @public
+   */
+  InstrumentationType: InstrumentationType | undefined;
+
+  /**
+   * <p>The timestamp from the last successful sync. When provided, the response returns <code>Changed</code> as <code>false</code> if nothing is new since this time, or returns the latest configurations when changes exist.</p>
+   * @public
+   */
+  SyncedAt?: Date | undefined;
+
+  /**
+   * <p>The maximum number of configurations to return in one call. The default is 50 and the maximum is 100.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Use the token returned by a previous call to retrieve the next page of configurations.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface ListServiceDependenciesInput {
@@ -2183,24 +3256,6 @@ export interface ListTagsForResourceRequest {
 }
 
 /**
- * <p>A key-value pair associated with a resource. Tags can help you organize and categorize your resources.</p>
- * @public
- */
-export interface Tag {
-  /**
-   * <p>A string that you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.</p>
-   * @public
-   */
-  Key: string | undefined;
-
-  /**
-   * <p>The value for the specified tag key.</p>
-   * @public
-   */
-  Value: string | undefined;
-}
-
-/**
  * @public
  */
 export interface ListTagsForResourceResponse {
@@ -2249,6 +3304,136 @@ export interface PutGroupingConfigurationOutput {
    * @public
    */
   GroupingConfiguration: GroupingConfiguration | undefined;
+}
+
+/**
+ * <p>The status of a single instrumentation configuration reported by an SDK instance.</p>
+ * @public
+ */
+export interface InstrumentationConfigurationStatusReport {
+  /**
+   * <p>The type of instrumentation configuration being reported.</p>
+   * @public
+   */
+  InstrumentationType: InstrumentationType | undefined;
+
+  /**
+   * <p>The telemetry signal type for this instrumentation configuration.</p>
+   * @public
+   */
+  SignalType: DynamicInstrumentationSignalType | undefined;
+
+  /**
+   * <p>The stable hash of the instrumentation location that identifies the configuration being reported.</p>
+   * @public
+   */
+  LocationHash: string | undefined;
+
+  /**
+   * <p>The status of the instrumentation configuration: <code>READY</code>, <code>ERROR</code>, <code>ACTIVE</code>, or <code>DISABLED</code>.</p>
+   * @public
+   */
+  Status: InstrumentationConfigurationStatus | undefined;
+
+  /**
+   * <p>The timestamp when the status event occurred.</p>
+   * @public
+   */
+  Time: Date | undefined;
+
+  /**
+   * <p>The error cause when the status is <code>ERROR</code>, such as the file or method not being found.</p>
+   * @public
+   */
+  ErrorCause?: InstrumentationErrorCause | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ReportInstrumentationConfigurationStatusRequest {
+  /**
+   * <p>The service that the reported configurations belong to.</p>
+   * @public
+   */
+  Service: string | undefined;
+
+  /**
+   * <p>The environment that the service is running in.</p>
+   * @public
+   */
+  Environment: string | undefined;
+
+  /**
+   * <p>An array of configuration status reports (up to 100) that include the instrumentation type, signal type, location hash, status, timestamp, and optional error cause.</p>
+   * @public
+   */
+  Configurations: InstrumentationConfigurationStatusReport[] | undefined;
+}
+
+/**
+ * <p>A status event that could not be processed by the service.</p>
+ * @public
+ */
+export interface UnprocessedStatusEvent {
+  /**
+   * <p>The type of instrumentation configuration for the unprocessed status event.</p>
+   * @public
+   */
+  InstrumentationType: InstrumentationType | undefined;
+
+  /**
+   * <p>The telemetry signal type for the unprocessed status event.</p>
+   * @public
+   */
+  SignalType: DynamicInstrumentationSignalType | undefined;
+
+  /**
+   * <p>The stable hash of the instrumentation location for the unprocessed event.</p>
+   * @public
+   */
+  LocationHash: string | undefined;
+
+  /**
+   * <p>The status that failed to be processed.</p>
+   * @public
+   */
+  Status: InstrumentationConfigurationStatus | undefined;
+
+  /**
+   * <p>The timestamp of the status event that failed to be processed.</p>
+   * @public
+   */
+  Time: Date | undefined;
+
+  /**
+   * <p>The reason why this status event could not be processed, such as throttling or validation errors.</p>
+   * @public
+   */
+  FailedReason: UnprocessedStatusEventFailureReason | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ReportInstrumentationConfigurationStatusResponse {
+  /**
+   * <p>The service name echoed from the request.</p>
+   * @public
+   */
+  Service: string | undefined;
+
+  /**
+   * <p>The environment echoed from the request.</p>
+   * @public
+   */
+  Environment: string | undefined;
+
+  /**
+   * <p>Status events that failed to be processed. Each entry includes the configuration identifiers, status, timestamp, and a reason for the failure.</p>
+   * @public
+   */
+  UnprocessedStatusEvents: UnprocessedStatusEvent[] | undefined;
 }
 
 /**

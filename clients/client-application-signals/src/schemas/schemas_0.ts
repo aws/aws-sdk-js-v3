@@ -13,6 +13,7 @@ const _AI = "AccountId";
 const _AIE = "AutoInvestigationEnabled";
 const _AM = "AttributeMaps";
 const _AR = "AuditorResults";
+const _ARN = "ARN";
 const _ARu = "AuditorResult";
 const _AT = "AuditTarget";
 const _ATE = "AuditTargetEntity";
@@ -21,6 +22,16 @@ const _Ar = "Arn";
 const _At = "Attainment";
 const _Au = "Auditors";
 const _BCM = "BadCountMetric";
+const _BDBRA = "BatchDeleteByResourceArns";
+const _BDDT = "BatchDeleteDeletionTarget";
+const _BDE = "BatchDeleteError";
+const _BDEL = "BatchDeleteErrorList";
+const _BDIC = "BatchDeleteInstrumentationConfigurations";
+const _BDICR = "BatchDeleteInstrumentationConfigurationsRequest";
+const _BDICRa = "BatchDeleteInstrumentationConfigurationsResponse";
+const _BDS = "BatchDeleteScope";
+const _BDSD = "BatchDeleteSuccessfulDeletion";
+const _BDSDL = "BatchDeleteSuccessfulDeletionList";
 const _BGSLOBR = "BatchGetServiceLevelObjectiveBudgetReport";
 const _BGSLOBRI = "BatchGetServiceLevelObjectiveBudgetReportInput";
 const _BGSLOBRO = "BatchGetServiceLevelObjectiveBudgetReportOutput";
@@ -34,15 +45,29 @@ const _BUEWE = "BatchUpdateExclusionWindowsError";
 const _BUEWEa = "BatchUpdateExclusionWindowsErrors";
 const _BUEWI = "BatchUpdateExclusionWindowsInput";
 const _BUEWO = "BatchUpdateExclusionWindowsOutput";
-const _C = "Components";
+const _C = "Code";
+const _CA = "CaptureArguments";
+const _CAr = "CreatedAt";
+const _CC = "CaptureConfiguration";
+const _CCC = "CodeCaptureConfiguration";
+const _CCo = "CodeCapture";
 const _CE = "ConflictException";
 const _CET = "ChangeEventType";
 const _CEa = "CanaryEntity";
 const _CEh = "ChangeEvent";
 const _CEha = "ChangeEvents";
 const _CI = "CalendarInterval";
+const _CIC = "CreateInstrumentationConfiguration";
+const _CICR = "CreateInstrumentationConfigurationRequest";
+const _CICRr = "CreateInstrumentationConfigurationResponse";
+const _CL = "CaptureLimits";
+const _CLC = "CaptureLimitsConfig";
+const _CLa = "CaptureLocals";
+const _CLo = "CodeLocation";
 const _CN = "CanaryName";
+const _CNl = "ClassName";
 const _CO = "ComparisonOperator";
+const _CR = "CaptureReturn";
 const _CRS = "CreateRecommendedSlo";
 const _CSC = "CompositeSliConfig";
 const _CSCo = "CompositeSliComponents";
@@ -50,31 +75,46 @@ const _CSCom = "CompositeSliComponent";
 const _CSLO = "CreateServiceLevelObjective";
 const _CSLOI = "CreateServiceLevelObjectiveInput";
 const _CSLOO = "CreateServiceLevelObjectiveOutput";
+const _CST = "CaptureStackTrace";
 const _CT = "ConnectionType";
 const _CTr = "CreatedTime";
+const _CU = "CodeUnit";
 const _Ca = "Canary";
+const _Ch = "Changed";
+const _Co = "Components";
+const _Con = "Configuration";
+const _Conf = "Configurations";
 const _D = "Description";
-const _DC = "DependencyConfig";
+const _DC = "DeletedCount";
+const _DCe = "DependencyConfig";
 const _DG = "DependencyGraph";
 const _DGC = "DeleteGroupingConfiguration";
 const _DGCO = "DeleteGroupingConfigurationOutput";
 const _DGV = "DefaultGroupingValue";
+const _DIAF = "DynamicInstrumentationAttributeFilters";
+const _DIC = "DeleteInstrumentationConfiguration";
+const _DICR = "DeleteInstrumentationConfigurationRequest";
+const _DICRe = "DeleteInstrumentationConfigurationResponse";
 const _DKA = "DependencyKeyAttributes";
 const _DKAe = "DependentKeyAttributes";
 const _DL = "DetailLevel";
 const _DNI = "DestinationNodeId";
 const _DON = "DependencyOperationName";
 const _DONe = "DependentOperationName";
+const _DS = "DeletionStatus";
 const _DSLO = "DeleteServiceLevelObjective";
 const _DSLOI = "DeleteServiceLevelObjectiveInput";
 const _DSLOO = "DeleteServiceLevelObjectiveOutput";
+const _DT = "DeletionTarget";
 const _DU = "DurationUnit";
 const _Da = "Data";
 const _Di = "Dimension";
 const _Dim = "Dimensions";
 const _Du = "Duration";
 const _E = "Errors";
+const _EA = "ExpiresAt";
 const _EC = "ErrorCode";
+const _ECr = "ErrorCause";
 const _EI = "EventId";
 const _EM = "ErrorMessage";
 const _EN = "EventName";
@@ -84,15 +124,24 @@ const _EW = "ExclusionWindow";
 const _EWx = "ExclusionWindows";
 const _Ed = "Edges";
 const _Edg = "Edge";
-const _En = "Entity";
-const _Env = "Environment";
+const _En = "Environment";
+const _Ent = "Entity";
+const _Ev = "Events";
 const _Ex = "Expression";
+const _FP = "FilePath";
+const _FR = "FailedReason";
 const _G = "Goal";
 const _GAD = "GroupingAttributeDefinition";
 const _GADr = "GroupingAttributeDefinitions";
 const _GC = "GroupingConfiguration";
 const _GCM = "GoodCountMetric";
 const _GI = "GroupIdentifier";
+const _GIC = "GetInstrumentationConfiguration";
+const _GICR = "GetInstrumentationConfigurationRequest";
+const _GICRe = "GetInstrumentationConfigurationResponse";
+const _GICS = "GetInstrumentationConfigurationStatus";
+const _GICSR = "GetInstrumentationConfigurationStatusRequest";
+const _GICSRe = "GetInstrumentationConfigurationStatusResponse";
 const _GN = "GroupingName";
 const _GNr = "GroupName";
 const _GS = "GroupSource";
@@ -105,15 +154,25 @@ const _GSO = "GetServiceOutput";
 const _GSe = "GetService";
 const _GV = "GroupValue";
 const _I = "Id";
+const _IC = "InstrumentationConfiguration";
+const _ICP = "InstrumentationConfigurationsPage";
+const _ICSL = "InstrumentationConfigurationStatusList";
+const _ICSR = "InstrumentationConfigurationStatusReport";
+const _ICWSE = "InstrumentationConfigurationWithoutServiceEnv";
+const _ICWSEn = "InstrumentationConfigurationsWithoutServiceEnv";
 const _ILA = "IncludeLinkedAccounts";
+const _ISE = "InstrumentationStatusEvent";
+const _ISEL = "InstrumentationStatusEventList";
+const _IT = "InstrumentationType";
 const _In = "Interval";
 const _K = "Key";
 const _KA = "KeyAttributes";
-const _L = "Label";
+const _L = "Language";
 const _LAF = "ListAuditFindings";
 const _LAFI = "ListAuditFindingsInput";
 const _LAFO = "ListAuditFindingsOutput";
 const _LBWM = "LookBackWindowMinutes";
+const _LC = "LatestConfigurations";
 const _LCE = "LatestChangeEvents";
 const _LEE = "ListEntityEvents";
 const _LEEI = "ListEntityEventsInput";
@@ -122,6 +181,11 @@ const _LGAD = "ListGroupingAttributeDefinitions";
 const _LGADI = "ListGroupingAttributeDefinitionsInput";
 const _LGADO = "ListGroupingAttributeDefinitionsOutput";
 const _LGR = "LogGroupReferences";
+const _LH = "LocationHash";
+const _LI = "LocationIdentifier";
+const _LIC = "ListInstrumentationConfigurations";
+const _LICR = "ListInstrumentationConfigurationsRequest";
+const _LN = "LineNumber";
 const _LS = "ListServices";
 const _LSD = "ListServiceDependencies";
 const _LSDI = "ListServiceDependenciesInput";
@@ -147,11 +211,19 @@ const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
 const _LUT = "LastUpdatedTime";
+const _La = "Label";
+const _Lo = "Location";
 const _M = "Message";
+const _MCD = "MaxCollectionDepth";
+const _MCW = "MaxCollectionWidth";
 const _MDQ = "MetricDataQuery";
 const _MDQe = "MetricDataQueries";
+const _MFPO = "MaxFieldsPerObject";
 const _MG = "MetricGraph";
-const _MN = "MetricName";
+const _MH = "MaxHits";
+const _MN = "MethodName";
+const _MNe = "MetricName";
+const _MOD = "MaxObjectDepth";
 const _MR = "MaxResults";
 const _MRCM = "MonitoredRequestCountMetric";
 const _MRCMDQ = "MonitoredRequestCountMetricDataQueries";
@@ -159,8 +231,11 @@ const _MRe = "MetricReference";
 const _MRet = "MetricReferences";
 const _MS = "MetricSource";
 const _MSA = "MetricSourceAttributes";
+const _MSF = "MaxStackFrames";
 const _MSKA = "MetricSourceKeyAttributes";
+const _MSL = "MaxStringLength";
 const _MST = "MetricSourceTypes";
+const _MSTS = "MaxStackTraceSize";
 const _MSTe = "MetricSourceType";
 const _MSe = "MetricStat";
 const _MT = "MetricType";
@@ -181,7 +256,8 @@ const _PGCO = "PutGroupingConfigurationOutput";
 const _PS = "PeriodSeconds";
 const _Pa = "Pattern";
 const _R = "Reports";
-const _RA = "ResourceArn";
+const _RA = "ResourceArns";
+const _RAe = "ResourceArn";
 const _RBS = "RequestBasedSli";
 const _RBSC = "RequestBasedSliConfig";
 const _RBSLI = "RequestBasedServiceLevelIndicator";
@@ -193,6 +269,9 @@ const _RBSMC = "RequestBasedSliMetricConfig";
 const _RD = "ReturnData";
 const _REW = "RemoveExclusionWindows";
 const _RI = "ResourceId";
+const _RICS = "ReportInstrumentationConfigurationStatus";
+const _RICSR = "ReportInstrumentationConfigurationStatusRequest";
+const _RICSRe = "ReportInstrumentationConfigurationStatusResponse";
 const _RIo = "RollingInterval";
 const _RNFE = "ResourceNotFoundException";
 const _RR = "RecurrenceRule";
@@ -200,21 +279,24 @@ const _RT = "ResourceType";
 const _Re = "Region";
 const _Rea = "Reason";
 const _S = "Severity";
-const _SA = "SloArn";
+const _SA = "SyncedAt";
+const _SAl = "SloArn";
 const _SC = "SelectionConfig";
 const _SCl = "SliConfig";
-const _SD = "ServiceDependencies";
+const _SD = "SuccessfulDeletions";
 const _SDI = "StartDiscoveryInput";
 const _SDO = "StartDiscoveryOutput";
-const _SDe = "ServiceDependents";
-const _SDer = "ServiceDependency";
-const _SDerv = "ServiceDependent";
+const _SDe = "ServiceDependencies";
+const _SDer = "ServiceDependents";
+const _SDerv = "ServiceDependency";
+const _SDervi = "ServiceDependent";
 const _SDt = "StartDiscovery";
 const _SE = "ServiceEntity";
 const _SG = "ServiceGroups";
 const _SGe = "ServiceGroup";
 const _SI = "SloIds";
 const _SIl = "SloId";
+const _SIy = "SyncInterval";
 const _SLI = "ServiceLevelIndicator";
 const _SLIC = "ServiceLevelIndicatorConfig";
 const _SLIM = "ServiceLevelIndicatorMetric";
@@ -241,12 +323,14 @@ const _SSe = "ServiceSummaries";
 const _SSer = "ServiceStates";
 const _SServ = "ServiceState";
 const _SServi = "ServiceSummary";
-const _ST = "StartTime";
+const _ST = "SignalType";
+const _STt = "StartTime";
+const _Sc = "Scope";
 const _Se = "Service";
 const _Sl = "Slo";
 const _Sli = "Sli";
-const _St = "Stat";
-const _Sta = "Status";
+const _St = "Status";
+const _Sta = "Stat";
 const _Stat = "Statistic";
 const _T = "Type";
 const _TBR = "TotalBudgetRequests";
@@ -261,12 +345,16 @@ const _TRRa = "TagResourceResponse";
 const _Ta = "Tags";
 const _Tag = "Tag";
 const _Ti = "Timestamp";
+const _Tim = "Time";
 const _U = "Unit";
 const _UA = "UpdatedAt";
 const _UN = "UserName";
 const _UR = "UntagResource";
 const _URR = "UntagResourceRequest";
 const _URRn = "UntagResourceResponse";
+const _USE = "UnprocessedStatusEvents";
+const _USEL = "UnprocessedStatusEventList";
+const _USEn = "UnprocessedStatusEvent";
 const _USLO = "UpdateServiceLevelObjective";
 const _USLOI = "UpdateServiceLevelObjectiveInput";
 const _USLOO = "UpdateServiceLevelObjectiveOutput";
@@ -375,6 +463,36 @@ export var AuditTarget$: StaticStructureSchema = [3, n0, _AT,
   [_T, _Da],
   [0, () => AuditTargetEntity$], 2
 ];
+export var BatchDeleteByResourceArns$: StaticStructureSchema = [3, n0, _BDBRA,
+  0,
+  [_RA, _IT],
+  [64 | 0, 0], 2
+];
+export var BatchDeleteError$: StaticStructureSchema = [3, n0, _BDE,
+  0,
+  [_RAe, _C, _M],
+  [0, 0, 0], 3
+];
+export var BatchDeleteInstrumentationConfigurationsRequest$: StaticStructureSchema = [3, n0, _BDICR,
+  0,
+  [_DT],
+  [() => BatchDeleteDeletionTarget$], 1
+];
+export var BatchDeleteInstrumentationConfigurationsResponse$: StaticStructureSchema = [3, n0, _BDICRa,
+  0,
+  [_DC, _SD, _E],
+  [1, () => BatchDeleteSuccessfulDeletionList, () => BatchDeleteErrorList], 3
+];
+export var BatchDeleteScope$: StaticStructureSchema = [3, n0, _BDS,
+  0,
+  [_Se, _En, _IT],
+  [0, 0, 0], 3
+];
+export var BatchDeleteSuccessfulDeletion$: StaticStructureSchema = [3, n0, _BDSD,
+  0,
+  [_RAe, _ST, _LH],
+  [0, 0, 0]
+];
 export var BatchGetServiceLevelObjectiveBudgetReportInput$: StaticStructureSchema = [3, n0, _BGSLOBRI,
   0,
   [_Ti, _SI],
@@ -407,7 +525,7 @@ export var BurnRateConfiguration$: StaticStructureSchema = [3, n0, _BRC,
 ];
 export var CalendarInterval$: StaticStructureSchema = [3, n0, _CI,
   0,
-  [_ST, _DU, _Du],
+  [_STt, _DU, _Du],
   [4, 0, 1], 3
 ];
 export var CanaryEntity$: StaticStructureSchema = [3, n0, _CEa,
@@ -415,15 +533,40 @@ export var CanaryEntity$: StaticStructureSchema = [3, n0, _CEa,
   [_CN],
   [0], 1
 ];
+export var CaptureLimitsConfig$: StaticStructureSchema = [3, n0, _CLC,
+  0,
+  [_MH, _MSL, _MCW, _MCD, _MSF, _MSTS, _MOD, _MFPO],
+  [1, 1, 1, 1, 1, 1, 1, 1]
+];
 export var ChangeEvent$: StaticStructureSchema = [3, n0, _CEh,
   0,
-  [_Ti, _AI, _Re, _En, _CET, _EI, _UN, _EN],
+  [_Ti, _AI, _Re, _Ent, _CET, _EI, _UN, _EN],
   [4, 0, 0, 128 | 0, 0, 0, 0, 0], 6
+];
+export var CodeCaptureConfiguration$: StaticStructureSchema = [3, n0, _CCC,
+  0,
+  [_CL, _CA, _CR, _CST, _CLa],
+  [() => CaptureLimitsConfig$, 64 | 0, 2, 2, 64 | 0], 1
+];
+export var CodeLocation$: StaticStructureSchema = [3, n0, _CLo,
+  0,
+  [_L, _FP, _CU, _CNl, _MN, _LN],
+  [0, 0, 0, 0, 0, 1], 2
 ];
 export var CompositeSliConfig$: StaticStructureSchema = [3, n0, _CSC,
   0,
-  [_SC, _C],
+  [_SC, _Co],
   [() => SelectionConfig$, () => CompositeSliComponents], 1
+];
+export var CreateInstrumentationConfigurationRequest$: StaticStructureSchema = [3, n0, _CICR,
+  0,
+  [_IT, _Se, _En, _ST, _Lo, _CC, _D, _EA, _AFt, _Ta],
+  [0, 0, 0, 0, () => Location$, () => CaptureConfiguration$, 0, 4, [1, n0, _DIAF, 0, 128 | 0], () => TagList], 6
+];
+export var CreateInstrumentationConfigurationResponse$: StaticStructureSchema = [3, n0, _CICRr,
+  0,
+  [_IT, _Se, _En, _ST, _Lo, _LH, _CC, _CAr, _ARN, _D, _EA, _AFt],
+  [0, 0, 0, 0, () => Location$, 0, () => CaptureConfiguration$, 4, 0, 0, 4, [1, n0, _DIAF, 0, 128 | 0]], 9
 ];
 export var CreateServiceLevelObjectiveInput$: StaticStructureSchema = [3, n0, _CSLOI,
   0,
@@ -440,6 +583,16 @@ export var DeleteGroupingConfigurationOutput$: StaticStructureSchema = [3, n0, _
   [],
   []
 ];
+export var DeleteInstrumentationConfigurationRequest$: StaticStructureSchema = [3, n0, _DICR,
+  0,
+  [_IT, _Se, _En, _ST, _LI],
+  [0, 0, 0, 0, () => LocationIdentifier$], 5
+];
+export var DeleteInstrumentationConfigurationResponse$: StaticStructureSchema = [3, n0, _DICRe,
+  0,
+  [_DS],
+  [0], 1
+];
 export var DeleteServiceLevelObjectiveInput$: StaticStructureSchema = [3, n0, _DSLOI,
   0,
   [_I],
@@ -450,7 +603,7 @@ export var DeleteServiceLevelObjectiveOutput$: StaticStructureSchema = [3, n0, _
   [],
   []
 ];
-export var DependencyConfig$: StaticStructureSchema = [3, n0, _DC,
+export var DependencyConfig$: StaticStructureSchema = [3, n0, _DCe,
   0,
   [_DKA, _DON],
   [128 | 0, 0], 2
@@ -472,13 +625,33 @@ export var Edge$: StaticStructureSchema = [3, n0, _Edg,
 ];
 export var ExclusionWindow$: StaticStructureSchema = [3, n0, _EW,
   0,
-  [_W, _ST, _RR, _Rea],
+  [_W, _STt, _RR, _Rea],
   [() => Window$, 4, () => RecurrenceRule$, 0], 1
+];
+export var GetInstrumentationConfigurationRequest$: StaticStructureSchema = [3, n0, _GICR,
+  0,
+  [_IT, _Se, _En, _ST, _LI],
+  [0, 0, 0, 0, () => LocationIdentifier$], 5
+];
+export var GetInstrumentationConfigurationResponse$: StaticStructureSchema = [3, n0, _GICRe,
+  0,
+  [_Con],
+  [() => InstrumentationConfiguration$], 1
+];
+export var GetInstrumentationConfigurationStatusRequest$: StaticStructureSchema = [3, n0, _GICSR,
+  0,
+  [_IT, _Se, _En, _ST, _LI, _St, _STt, _ET, _MR, _NT],
+  [0, 0, 0, 0, () => LocationIdentifier$, 0, 4, 4, 1, 0], 5
+];
+export var GetInstrumentationConfigurationStatusResponse$: StaticStructureSchema = [3, n0, _GICSRe,
+  0,
+  [_Se, _En, _ST, _Lo, _St, _Ev, _NT],
+  [0, 0, 0, () => Location$, 0, () => InstrumentationStatusEventList, 0], 6
 ];
 export var GetServiceInput$: StaticStructureSchema = [3, n0, _GSI,
   0,
-  [_ST, _ET, _KA],
-  [[4, { [_hQ]: _ST }], [4, { [_hQ]: _ET }], 128 | 0], 3
+  [_STt, _ET, _KA],
+  [[4, { [_hQ]: _STt }], [4, { [_hQ]: _ET }], 128 | 0], 3
 ];
 export var GetServiceLevelObjectiveInput$: StaticStructureSchema = [3, n0, _GSLOI,
   0,
@@ -492,7 +665,7 @@ export var GetServiceLevelObjectiveOutput$: StaticStructureSchema = [3, n0, _GSL
 ];
 export var GetServiceOutput$: StaticStructureSchema = [3, n0, _GSO,
   0,
-  [_Se, _ST, _ET, _LGR],
+  [_Se, _STt, _ET, _LGR],
   [() => Service$, 4, 4, [1, n0, _LGR, 0, 128 | 0]], 3
 ];
 export var Goal$: StaticStructureSchema = [3, n0, _G,
@@ -510,24 +683,49 @@ export var GroupingConfiguration$: StaticStructureSchema = [3, n0, _GC,
   [_GADr, _UA],
   [() => GroupingAttributeDefinitions, 4], 2
 ];
+export var InstrumentationConfiguration$: StaticStructureSchema = [3, n0, _IC,
+  0,
+  [_IT, _Se, _En, _ST, _Lo, _LH, _CC, _CAr, _ARN, _D, _EA, _AFt],
+  [0, 0, 0, 0, () => Location$, 0, () => CaptureConfiguration$, 4, 0, 0, 4, [1, n0, _DIAF, 0, 128 | 0]], 9
+];
+export var InstrumentationConfigurationsPage$: StaticStructureSchema = [3, n0, _ICP,
+  0,
+  [_Se, _En, _Ch, _SA, _SIy, _LC, _NT],
+  [0, 0, 2, 4, 1, () => InstrumentationConfigurationsWithoutServiceEnv, 0], 5
+];
+export var InstrumentationConfigurationStatusReport$: StaticStructureSchema = [3, n0, _ICSR,
+  0,
+  [_IT, _ST, _LH, _St, _Tim, _ECr],
+  [0, 0, 0, 0, 4, 0], 5
+];
+export var InstrumentationConfigurationWithoutServiceEnv$: StaticStructureSchema = [3, n0, _ICWSE,
+  0,
+  [_IT, _ST, _Lo, _LH, _CC, _CAr, _ARN, _D, _EA, _AFt],
+  [0, 0, () => Location$, 0, () => CaptureConfiguration$, 4, 0, 0, 4, [1, n0, _DIAF, 0, 128 | 0]], 7
+];
+export var InstrumentationStatusEvent$: StaticStructureSchema = [3, n0, _ISE,
+  0,
+  [_Tim, _ECr],
+  [4, 0], 1
+];
 export var ListAuditFindingsInput$: StaticStructureSchema = [3, n0, _LAFI,
   0,
-  [_ST, _ET, _ATu, _Au, _DL, _NT, _MR],
-  [[4, { [_hQ]: _ST }], [4, { [_hQ]: _ET }], () => AuditTargets, 64 | 0, 0, 0, 1], 3
+  [_STt, _ET, _ATu, _Au, _DL, _NT, _MR],
+  [[4, { [_hQ]: _STt }], [4, { [_hQ]: _ET }], () => AuditTargets, 64 | 0, 0, 0, 1], 3
 ];
 export var ListAuditFindingsOutput$: StaticStructureSchema = [3, n0, _LAFO,
   0,
-  [_AFud, _ST, _ET, _NT],
+  [_AFud, _STt, _ET, _NT],
   [() => AuditFindings, 4, 4, 0], 1
 ];
 export var ListEntityEventsInput$: StaticStructureSchema = [3, n0, _LEEI,
   0,
-  [_En, _ST, _ET, _MR, _NT],
+  [_Ent, _STt, _ET, _MR, _NT],
   [128 | 0, 4, 4, [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]], 3
 ];
 export var ListEntityEventsOutput$: StaticStructureSchema = [3, n0, _LEEO,
   0,
-  [_ST, _ET, _CEha, _NT],
+  [_STt, _ET, _CEha, _NT],
   [4, 4, () => ChangeEvents, 0], 3
 ];
 export var ListGroupingAttributeDefinitionsInput$: StaticStructureSchema = [3, n0, _LGADI,
@@ -540,24 +738,29 @@ export var ListGroupingAttributeDefinitionsOutput$: StaticStructureSchema = [3, 
   [_GADr, _UA, _NT],
   [() => GroupingAttributeDefinitions, 4, 0], 1
 ];
+export var ListInstrumentationConfigurationsRequest$: StaticStructureSchema = [3, n0, _LICR,
+  0,
+  [_Se, _En, _IT, _SA, _MR, _NT],
+  [0, 0, 0, 4, 1, 0], 3
+];
 export var ListServiceDependenciesInput$: StaticStructureSchema = [3, n0, _LSDI,
   0,
-  [_ST, _ET, _KA, _MR, _NT],
-  [[4, { [_hQ]: _ST }], [4, { [_hQ]: _ET }], 128 | 0, [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]], 3
+  [_STt, _ET, _KA, _MR, _NT],
+  [[4, { [_hQ]: _STt }], [4, { [_hQ]: _ET }], 128 | 0, [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]], 3
 ];
 export var ListServiceDependenciesOutput$: StaticStructureSchema = [3, n0, _LSDO,
   0,
-  [_ST, _ET, _SD, _NT],
+  [_STt, _ET, _SDe, _NT],
   [4, 4, () => ServiceDependencies, 0], 3
 ];
 export var ListServiceDependentsInput$: StaticStructureSchema = [3, n0, _LSDIi,
   0,
-  [_ST, _ET, _KA, _MR, _NT],
-  [[4, { [_hQ]: _ST }], [4, { [_hQ]: _ET }], 128 | 0, [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]], 3
+  [_STt, _ET, _KA, _MR, _NT],
+  [[4, { [_hQ]: _STt }], [4, { [_hQ]: _ET }], 128 | 0, [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]], 3
 ];
 export var ListServiceDependentsOutput$: StaticStructureSchema = [3, n0, _LSDOi,
   0,
-  [_ST, _ET, _SDe, _NT],
+  [_STt, _ET, _SDer, _NT],
   [4, 4, () => ServiceDependents, 0], 3
 ];
 export var ListServiceLevelObjectiveExclusionWindowsInput$: StaticStructureSchema = [3, n0, _LSLOEWI,
@@ -572,7 +775,7 @@ export var ListServiceLevelObjectiveExclusionWindowsOutput$: StaticStructureSche
 ];
 export var ListServiceLevelObjectivesInput$: StaticStructureSchema = [3, n0, _LSLOI,
   0,
-  [_KA, _ON, _DC, _MR, _NT, _MST, _ILA, _SOAAI, _MS],
+  [_KA, _ON, _DCe, _MR, _NT, _MST, _ILA, _SOAAI, _MS],
   [128 | 0, [0, { [_hQ]: _ON }], () => DependencyConfig$, [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }], 64 | 0, [2, { [_hQ]: _ILA }], [0, { [_hQ]: _SOAAI }], () => MetricSource$]
 ];
 export var ListServiceLevelObjectivesOutput$: StaticStructureSchema = [3, n0, _LSLOO,
@@ -582,38 +785,38 @@ export var ListServiceLevelObjectivesOutput$: StaticStructureSchema = [3, n0, _L
 ];
 export var ListServiceOperationsInput$: StaticStructureSchema = [3, n0, _LSOI,
   0,
-  [_ST, _ET, _KA, _MR, _NT],
-  [[4, { [_hQ]: _ST }], [4, { [_hQ]: _ET }], 128 | 0, [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]], 3
+  [_STt, _ET, _KA, _MR, _NT],
+  [[4, { [_hQ]: _STt }], [4, { [_hQ]: _ET }], 128 | 0, [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]], 3
 ];
 export var ListServiceOperationsOutput$: StaticStructureSchema = [3, n0, _LSOO,
   0,
-  [_ST, _ET, _SO, _NT],
+  [_STt, _ET, _SO, _NT],
   [4, 4, () => ServiceOperations, 0], 3
 ];
 export var ListServicesInput$: StaticStructureSchema = [3, n0, _LSI,
   0,
-  [_ST, _ET, _MR, _NT, _ILA, _AAI],
-  [[4, { [_hQ]: _ST }], [4, { [_hQ]: _ET }], [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }], [2, { [_hQ]: _ILA }], [0, { [_hQ]: _AAI }]], 2
+  [_STt, _ET, _MR, _NT, _ILA, _AAI],
+  [[4, { [_hQ]: _STt }], [4, { [_hQ]: _ET }], [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }], [2, { [_hQ]: _ILA }], [0, { [_hQ]: _AAI }]], 2
 ];
 export var ListServicesOutput$: StaticStructureSchema = [3, n0, _LSO,
   0,
-  [_ST, _ET, _SSe, _NT],
+  [_STt, _ET, _SSe, _NT],
   [4, 4, () => ServiceSummaries, 0], 3
 ];
 export var ListServiceStatesInput$: StaticStructureSchema = [3, n0, _LSSI,
   0,
-  [_ST, _ET, _MR, _NT, _ILA, _AAI, _AFt],
+  [_STt, _ET, _MR, _NT, _ILA, _AAI, _AFt],
   [4, 4, 1, 0, 2, 0, () => AttributeFilters], 2
 ];
 export var ListServiceStatesOutput$: StaticStructureSchema = [3, n0, _LSSO,
   0,
-  [_ST, _ET, _SSer, _NT],
+  [_STt, _ET, _SSer, _NT],
   [4, 4, () => ServiceStates, 0], 3
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
-  [_RA],
-  [[0, { [_hQ]: _RA }]], 1
+  [_RAe],
+  [[0, { [_hQ]: _RAe }]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -622,22 +825,22 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 ];
 export var Metric$: StaticStructureSchema = [3, n0, _Me,
   0,
-  [_Na, _MN, _Dim],
+  [_Na, _MNe, _Dim],
   [0, 0, () => Dimensions]
 ];
 export var MetricDataQuery$: StaticStructureSchema = [3, n0, _MDQ,
   0,
-  [_I, _MSe, _Ex, _L, _RD, _P, _AI],
+  [_I, _MSe, _Ex, _La, _RD, _P, _AI],
   [0, () => MetricStat$, 0, 0, 2, 1, 0], 1
 ];
 export var MetricGraph$: StaticStructureSchema = [3, n0, _MG,
   0,
-  [_MDQe, _ST, _ET],
+  [_MDQe, _STt, _ET],
   [() => MetricDataQueries, 4, 4]
 ];
 export var MetricReference$: StaticStructureSchema = [3, n0, _MRe,
   0,
-  [_Na, _MT, _MN, _Dim, _AI],
+  [_Na, _MT, _MNe, _Dim, _AI],
   [0, 0, 0, () => Dimensions, 0], 3
 ];
 export var MetricSource$: StaticStructureSchema = [3, n0, _MS,
@@ -647,12 +850,12 @@ export var MetricSource$: StaticStructureSchema = [3, n0, _MS,
 ];
 export var MetricStat$: StaticStructureSchema = [3, n0, _MSe,
   0,
-  [_Me, _P, _St, _U],
+  [_Me, _P, _Sta, _U],
   [() => Metric$, 1, 0, 0], 3
 ];
 export var Node$: StaticStructureSchema = [3, n0, _Nod,
   0,
-  [_KA, _N, _NI, _O, _T, _Du, _Sta],
+  [_KA, _N, _NI, _O, _T, _Du, _St],
   [128 | 0, 0, 0, 0, 0, 1, 0], 3
 ];
 export var PutGroupingConfigurationInput$: StaticStructureSchema = [3, n0, _PGCI,
@@ -670,6 +873,16 @@ export var RecurrenceRule$: StaticStructureSchema = [3, n0, _RR,
   [_Ex],
   [0], 1
 ];
+export var ReportInstrumentationConfigurationStatusRequest$: StaticStructureSchema = [3, n0, _RICSR,
+  0,
+  [_Se, _En, _Conf],
+  [0, 0, () => InstrumentationConfigurationStatusList], 3
+];
+export var ReportInstrumentationConfigurationStatusResponse$: StaticStructureSchema = [3, n0, _RICSRe,
+  0,
+  [_Se, _En, _USE],
+  [0, 0, () => UnprocessedStatusEventList], 3
+];
 export var RequestBasedServiceLevelIndicator$: StaticStructureSchema = [3, n0, _RBSLI,
   0,
   [_RBSM, _MTe, _CO],
@@ -682,12 +895,12 @@ export var RequestBasedServiceLevelIndicatorConfig$: StaticStructureSchema = [3,
 ];
 export var RequestBasedServiceLevelIndicatorMetric$: StaticStructureSchema = [3, n0, _RBSLIM,
   0,
-  [_TRCM, _MRCM, _KA, _ON, _MT, _DC, _MS, _CSC],
+  [_TRCM, _MRCM, _KA, _ON, _MT, _DCe, _MS, _CSC],
   [() => MetricDataQueries, () => MonitoredRequestCountMetricDataQueries$, 128 | 0, 0, 0, () => DependencyConfig$, () => MetricSource$, () => CompositeSliConfig$], 2
 ];
 export var RequestBasedServiceLevelIndicatorMetricConfig$: StaticStructureSchema = [3, n0, _RBSLIMC,
   0,
-  [_KA, _ON, _MT, _TRCM, _MRCM, _DC, _MS, _MN, _CSC],
+  [_KA, _ON, _MT, _TRCM, _MRCM, _DCe, _MS, _MNe, _CSC],
   [128 | 0, 0, 0, () => MetricDataQueries, () => MonitoredRequestCountMetricDataQueries$, () => DependencyConfig$, () => MetricSource$, 0, () => CompositeSliConfig$]
 ];
 export var RollingInterval$: StaticStructureSchema = [3, n0, _RIo,
@@ -705,19 +918,19 @@ export var Service$: StaticStructureSchema = [3, n0, _Se,
   [_KA, _MRet, _AM, _SG, _LGR],
   [128 | 0, () => MetricReferences, [1, n0, _AM, 0, 128 | 0], () => ServiceGroups, [1, n0, _LGR, 0, 128 | 0]], 2
 ];
-export var ServiceDependency$: StaticStructureSchema = [3, n0, _SDer,
+export var ServiceDependency$: StaticStructureSchema = [3, n0, _SDerv,
   0,
   [_ON, _DKA, _DON, _MRet],
   [0, 128 | 0, 0, () => MetricReferences], 4
 ];
-export var ServiceDependent$: StaticStructureSchema = [3, n0, _SDerv,
+export var ServiceDependent$: StaticStructureSchema = [3, n0, _SDervi,
   0,
   [_DKAe, _MRet, _ON, _DONe],
   [128 | 0, () => MetricReferences, 0, 0], 2
 ];
 export var ServiceEntity$: StaticStructureSchema = [3, n0, _SE,
   0,
-  [_T, _N, _Env, _AAI],
+  [_T, _N, _En, _AAI],
   [0, 0, 0, 0]
 ];
 export var ServiceGroup$: StaticStructureSchema = [3, n0, _SGe,
@@ -737,12 +950,12 @@ export var ServiceLevelIndicatorConfig$: StaticStructureSchema = [3, n0, _SLIC,
 ];
 export var ServiceLevelIndicatorMetric$: StaticStructureSchema = [3, n0, _SLIM,
   0,
-  [_MDQe, _KA, _ON, _MT, _DC, _MS, _CSC],
+  [_MDQe, _KA, _ON, _MT, _DCe, _MS, _CSC],
   [() => MetricDataQueries, 128 | 0, 0, 0, () => DependencyConfig$, () => MetricSource$, () => CompositeSliConfig$], 1
 ];
 export var ServiceLevelIndicatorMetricConfig$: StaticStructureSchema = [3, n0, _SLIMC,
   0,
-  [_KA, _ON, _MT, _MN, _Stat, _PS, _MS, _MDQe, _DC, _CSC],
+  [_KA, _ON, _MT, _MNe, _Stat, _PS, _MS, _MDQe, _DCe, _CSC],
   [128 | 0, 0, 0, 0, 0, 1, () => MetricSource$, () => MetricDataQueries, () => DependencyConfig$, () => CompositeSliConfig$]
 ];
 export var ServiceLevelObjective$: StaticStructureSchema = [3, n0, _SLO,
@@ -762,12 +975,12 @@ export var ServiceLevelObjectiveBudgetReportError$: StaticStructureSchema = [3, 
 ];
 export var ServiceLevelObjectiveEntity$: StaticStructureSchema = [3, n0, _SLOE,
   0,
-  [_SN, _SA],
+  [_SN, _SAl],
   [0, 0]
 ];
 export var ServiceLevelObjectiveSummary$: StaticStructureSchema = [3, n0, _SLOS,
   0,
-  [_Ar, _N, _KA, _ON, _DC, _CTr, _ETv, _MSTe, _MS, _CSC],
+  [_Ar, _N, _KA, _ON, _DCe, _CTr, _ETv, _MSTe, _MS, _CSC],
   [0, 0, 128 | 0, 0, () => DependencyConfig$, 4, 0, 0, () => MetricSource$, () => CompositeSliConfig$], 2
 ];
 export var ServiceOperation$: StaticStructureSchema = [3, n0, _SOe,
@@ -807,7 +1020,7 @@ export var Tag$: StaticStructureSchema = [3, n0, _Tag,
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
-  [_RA, _Ta],
+  [_RAe, _Ta],
   [0, () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
@@ -815,9 +1028,14 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
+export var UnprocessedStatusEvent$: StaticStructureSchema = [3, n0, _USEn,
+  0,
+  [_IT, _ST, _LH, _St, _Tim, _FR],
+  [0, 0, 0, 0, 4, 0], 6
+];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
-  [_RA, _TK],
+  [_RAe, _TK],
   [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
@@ -858,6 +1076,13 @@ var Auditors = 64 | 0;
 var AuditTargets: StaticListSchema = [1, n0, _ATu,
   0, () => AuditTarget$
 ];
+var BatchDeleteErrorList: StaticListSchema = [1, n0, _BDEL,
+  0, () => BatchDeleteError$
+];
+var BatchDeleteResourceArnList = 64 | 0;
+var BatchDeleteSuccessfulDeletionList: StaticListSchema = [1, n0, _BDSDL,
+  0, () => BatchDeleteSuccessfulDeletion$
+];
 var BatchUpdateExclusionWindowsErrors: StaticListSchema = [1, n0, _BUEWEa,
   0, () => BatchUpdateExclusionWindowsError$
 ];
@@ -873,6 +1098,9 @@ var CompositeSliComponents: StaticListSchema = [1, n0, _CSCo,
 var Dimensions: StaticListSchema = [1, n0, _Dim,
   0, () => Dimension$
 ];
+var DynamicInstrumentationAttributeFilters: StaticListSchema = [1, n0, _DIAF,
+  0, 128 | 0
+];
 var Edges: StaticListSchema = [1, n0, _Ed,
   0, () => Edge$
 ];
@@ -883,6 +1111,15 @@ var GroupingAttributeDefinitions: StaticListSchema = [1, n0, _GADr,
   0, () => GroupingAttributeDefinition$
 ];
 var GroupingSourceKeyStringList = 64 | 0;
+var InstrumentationConfigurationStatusList: StaticListSchema = [1, n0, _ICSL,
+  0, () => InstrumentationConfigurationStatusReport$
+];
+var InstrumentationConfigurationsWithoutServiceEnv: StaticListSchema = [1, n0, _ICWSEn,
+  0, () => InstrumentationConfigurationWithoutServiceEnv$
+];
+var InstrumentationStatusEventList: StaticListSchema = [1, n0, _ISEL,
+  0, () => InstrumentationStatusEvent$
+];
 var LatestChangeEvents: StaticListSchema = [1, n0, _LCE,
   0, () => ChangeEvent$
 ];
@@ -899,10 +1136,10 @@ var MetricSourceTypes = 64 | 0;
 var Nodes: StaticListSchema = [1, n0, _No,
   0, () => Node$
 ];
-var ServiceDependencies: StaticListSchema = [1, n0, _SD,
+var ServiceDependencies: StaticListSchema = [1, n0, _SDe,
   0, () => ServiceDependency$
 ];
-var ServiceDependents: StaticListSchema = [1, n0, _SDe,
+var ServiceDependents: StaticListSchema = [1, n0, _SDer,
   0, () => ServiceDependent$
 ];
 var ServiceGroups: StaticListSchema = [1, n0, _SG,
@@ -927,17 +1164,32 @@ var ServiceStates: StaticListSchema = [1, n0, _SSer,
 var ServiceSummaries: StaticListSchema = [1, n0, _SSe,
   0, () => ServiceSummary$
 ];
+var StringList = 64 | 0;
 var TagKeyList = 64 | 0;
 var TagList: StaticListSchema = [1, n0, _TL,
   0, () => Tag$
 ];
+var UnprocessedStatusEventList: StaticListSchema = [1, n0, _USEL,
+  0, () => UnprocessedStatusEvent$
+];
 var AttributeMap = 128 | 0;
 var Attributes = 128 | 0;
 var DataMap = 128 | 0;
+var DynamicInstrumentationAttributeFilterGroup = 128 | 0;
 export var AuditTargetEntity$: StaticUnionSchema = [4, n0, _ATE,
   0,
   [_Se, _Sl, _SOe, _Ca],
   [() => ServiceEntity$, () => ServiceLevelObjectiveEntity$, () => ServiceOperationEntity$, () => CanaryEntity$]
+];
+export var BatchDeleteDeletionTarget$: StaticUnionSchema = [4, n0, _BDDT,
+  0,
+  [_Sc, _RA],
+  [() => BatchDeleteScope$, () => BatchDeleteByResourceArns$]
+];
+export var CaptureConfiguration$: StaticUnionSchema = [4, n0, _CC,
+  0,
+  [_CCo],
+  [() => CodeCaptureConfiguration$]
 ];
 export var CompositeSliComponent$: StaticUnionSchema = [4, n0, _CSCom,
   0,
@@ -949,10 +1201,23 @@ export var Interval$: StaticUnionSchema = [4, n0, _In,
   [_RIo, _CI],
   [() => RollingInterval$, () => CalendarInterval$]
 ];
+export var Location$: StaticUnionSchema = [4, n0, _Lo,
+  0,
+  [_CLo],
+  [() => CodeLocation$]
+];
+export var LocationIdentifier$: StaticUnionSchema = [4, n0, _LI,
+  0,
+  [_CLo, _LH],
+  [() => CodeLocation$, 0]
+];
 export var MonitoredRequestCountMetricDataQueries$: StaticUnionSchema = [4, n0, _MRCMDQ,
   0,
   [_GCM, _BCM],
   [() => MetricDataQueries, () => MetricDataQueries]
+];
+export var BatchDeleteInstrumentationConfigurations$: StaticOperationSchema = [9, n0, _BDIC,
+  { [_h]: ["POST", "/batch-delete-instrumentation-configurations", 200] }, () => BatchDeleteInstrumentationConfigurationsRequest$, () => BatchDeleteInstrumentationConfigurationsResponse$
 ];
 export var BatchGetServiceLevelObjectiveBudgetReport$: StaticOperationSchema = [9, n0, _BGSLOBR,
   { [_h]: ["POST", "/budget-report", 200] }, () => BatchGetServiceLevelObjectiveBudgetReportInput$, () => BatchGetServiceLevelObjectiveBudgetReportOutput$
@@ -960,14 +1225,26 @@ export var BatchGetServiceLevelObjectiveBudgetReport$: StaticOperationSchema = [
 export var BatchUpdateExclusionWindows$: StaticOperationSchema = [9, n0, _BUEW,
   { [_h]: ["PATCH", "/exclusion-windows", 200] }, () => BatchUpdateExclusionWindowsInput$, () => BatchUpdateExclusionWindowsOutput$
 ];
+export var CreateInstrumentationConfiguration$: StaticOperationSchema = [9, n0, _CIC,
+  { [_h]: ["POST", "/create-instrumentation-configuration", 200] }, () => CreateInstrumentationConfigurationRequest$, () => CreateInstrumentationConfigurationResponse$
+];
 export var CreateServiceLevelObjective$: StaticOperationSchema = [9, n0, _CSLO,
   { [_h]: ["POST", "/slo", 200] }, () => CreateServiceLevelObjectiveInput$, () => CreateServiceLevelObjectiveOutput$
 ];
 export var DeleteGroupingConfiguration$: StaticOperationSchema = [9, n0, _DGC,
   { [_h]: ["DELETE", "/grouping-configuration", 200] }, () => __Unit, () => DeleteGroupingConfigurationOutput$
 ];
+export var DeleteInstrumentationConfiguration$: StaticOperationSchema = [9, n0, _DIC,
+  { [_h]: ["POST", "/delete-instrumentation-configuration", 200] }, () => DeleteInstrumentationConfigurationRequest$, () => DeleteInstrumentationConfigurationResponse$
+];
 export var DeleteServiceLevelObjective$: StaticOperationSchema = [9, n0, _DSLO,
   { [_h]: ["DELETE", "/slo/{Id}", 200] }, () => DeleteServiceLevelObjectiveInput$, () => DeleteServiceLevelObjectiveOutput$
+];
+export var GetInstrumentationConfiguration$: StaticOperationSchema = [9, n0, _GIC,
+  { [_h]: ["POST", "/get-instrumentation-configuration", 200] }, () => GetInstrumentationConfigurationRequest$, () => GetInstrumentationConfigurationResponse$
+];
+export var GetInstrumentationConfigurationStatus$: StaticOperationSchema = [9, n0, _GICS,
+  { [_h]: ["POST", "/get-instrumentation-configuration-status", 200] }, () => GetInstrumentationConfigurationStatusRequest$, () => GetInstrumentationConfigurationStatusResponse$
 ];
 export var GetService$: StaticOperationSchema = [9, n0, _GSe,
   { [_h]: ["POST", "/service", 200] }, () => GetServiceInput$, () => GetServiceOutput$
@@ -983,6 +1260,9 @@ export var ListEntityEvents$: StaticOperationSchema = [9, n0, _LEE,
 ];
 export var ListGroupingAttributeDefinitions$: StaticOperationSchema = [9, n0, _LGAD,
   { [_h]: ["POST", "/grouping-attribute-definitions", 200] }, () => ListGroupingAttributeDefinitionsInput$, () => ListGroupingAttributeDefinitionsOutput$
+];
+export var ListInstrumentationConfigurations$: StaticOperationSchema = [9, n0, _LIC,
+  { [_h]: ["POST", "/list-instrumentation-configurations", 200] }, () => ListInstrumentationConfigurationsRequest$, () => InstrumentationConfigurationsPage$
 ];
 export var ListServiceDependencies$: StaticOperationSchema = [9, n0, _LSD,
   { [_h]: ["POST", "/service-dependencies", 200] }, () => ListServiceDependenciesInput$, () => ListServiceDependenciesOutput$
@@ -1010,6 +1290,9 @@ export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
 ];
 export var PutGroupingConfiguration$: StaticOperationSchema = [9, n0, _PGC,
   { [_h]: ["PUT", "/grouping-configuration", 200] }, () => PutGroupingConfigurationInput$, () => PutGroupingConfigurationOutput$
+];
+export var ReportInstrumentationConfigurationStatus$: StaticOperationSchema = [9, n0, _RICS,
+  { [_h]: ["POST", "/report-instrumentation-configuration-status", 200] }, () => ReportInstrumentationConfigurationStatusRequest$, () => ReportInstrumentationConfigurationStatusResponse$
 ];
 export var StartDiscovery$: StaticOperationSchema = [9, n0, _SDt,
   { [_h]: ["POST", "/start-discovery", 200] }, () => StartDiscoveryInput$, () => StartDiscoveryOutput$

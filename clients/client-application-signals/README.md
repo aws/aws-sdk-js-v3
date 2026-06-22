@@ -181,6 +181,13 @@ see LICENSE for more information.
 
 <details>
 <summary>
+BatchDeleteInstrumentationConfigurations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-signals/command/BatchDeleteInstrumentationConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-signals/Interface/BatchDeleteInstrumentationConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-signals/Interface/BatchDeleteInstrumentationConfigurationsCommandOutput/)
+</details>
+<details>
+<summary>
 BatchGetServiceLevelObjectiveBudgetReport
 </summary>
 
@@ -192,6 +199,13 @@ BatchUpdateExclusionWindows
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-signals/command/BatchUpdateExclusionWindowsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-signals/Interface/BatchUpdateExclusionWindowsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-signals/Interface/BatchUpdateExclusionWindowsCommandOutput/)
+</details>
+<details>
+<summary>
+CreateInstrumentationConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-signals/command/CreateInstrumentationConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-signals/Interface/CreateInstrumentationConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-signals/Interface/CreateInstrumentationConfigurationCommandOutput/)
 </details>
 <details>
 <summary>
@@ -209,10 +223,31 @@ DeleteGroupingConfiguration
 </details>
 <details>
 <summary>
+DeleteInstrumentationConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-signals/command/DeleteInstrumentationConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-signals/Interface/DeleteInstrumentationConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-signals/Interface/DeleteInstrumentationConfigurationCommandOutput/)
+</details>
+<details>
+<summary>
 DeleteServiceLevelObjective
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-signals/command/DeleteServiceLevelObjectiveCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-signals/Interface/DeleteServiceLevelObjectiveCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-signals/Interface/DeleteServiceLevelObjectiveCommandOutput/)
+</details>
+<details>
+<summary>
+GetInstrumentationConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-signals/command/GetInstrumentationConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-signals/Interface/GetInstrumentationConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-signals/Interface/GetInstrumentationConfigurationCommandOutput/)
+</details>
+<details>
+<summary>
+GetInstrumentationConfigurationStatus
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-signals/command/GetInstrumentationConfigurationStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-signals/Interface/GetInstrumentationConfigurationStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-signals/Interface/GetInstrumentationConfigurationStatusCommandOutput/)
 </details>
 <details>
 <summary>
@@ -248,6 +283,13 @@ ListGroupingAttributeDefinitions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-signals/command/ListGroupingAttributeDefinitionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-signals/Interface/ListGroupingAttributeDefinitionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-signals/Interface/ListGroupingAttributeDefinitionsCommandOutput/)
+</details>
+<details>
+<summary>
+ListInstrumentationConfigurations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-signals/command/ListInstrumentationConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-signals/Interface/ListInstrumentationConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-signals/Interface/ListInstrumentationConfigurationsCommandOutput/)
 </details>
 <details>
 <summary>
@@ -311,6 +353,13 @@ PutGroupingConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-signals/command/PutGroupingConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-signals/Interface/PutGroupingConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-signals/Interface/PutGroupingConfigurationCommandOutput/)
+</details>
+<details>
+<summary>
+ReportInstrumentationConfigurationStatus
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-signals/command/ReportInstrumentationConfigurationStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-signals/Interface/ReportInstrumentationConfigurationStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-signals/Interface/ReportInstrumentationConfigurationStatusCommandOutput/)
 </details>
 <details>
 <summary>

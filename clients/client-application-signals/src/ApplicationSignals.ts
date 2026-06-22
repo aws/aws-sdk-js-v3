@@ -4,6 +4,11 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { ApplicationSignalsClient } from "./ApplicationSignalsClient";
 import {
+  type BatchDeleteInstrumentationConfigurationsCommandInput,
+  type BatchDeleteInstrumentationConfigurationsCommandOutput,
+  BatchDeleteInstrumentationConfigurationsCommand,
+} from "./commands/BatchDeleteInstrumentationConfigurationsCommand";
+import {
   type BatchGetServiceLevelObjectiveBudgetReportCommandInput,
   type BatchGetServiceLevelObjectiveBudgetReportCommandOutput,
   BatchGetServiceLevelObjectiveBudgetReportCommand,
@@ -13,6 +18,11 @@ import {
   type BatchUpdateExclusionWindowsCommandOutput,
   BatchUpdateExclusionWindowsCommand,
 } from "./commands/BatchUpdateExclusionWindowsCommand";
+import {
+  type CreateInstrumentationConfigurationCommandInput,
+  type CreateInstrumentationConfigurationCommandOutput,
+  CreateInstrumentationConfigurationCommand,
+} from "./commands/CreateInstrumentationConfigurationCommand";
 import {
   type CreateServiceLevelObjectiveCommandInput,
   type CreateServiceLevelObjectiveCommandOutput,
@@ -24,10 +34,25 @@ import {
   DeleteGroupingConfigurationCommand,
 } from "./commands/DeleteGroupingConfigurationCommand";
 import {
+  type DeleteInstrumentationConfigurationCommandInput,
+  type DeleteInstrumentationConfigurationCommandOutput,
+  DeleteInstrumentationConfigurationCommand,
+} from "./commands/DeleteInstrumentationConfigurationCommand";
+import {
   type DeleteServiceLevelObjectiveCommandInput,
   type DeleteServiceLevelObjectiveCommandOutput,
   DeleteServiceLevelObjectiveCommand,
 } from "./commands/DeleteServiceLevelObjectiveCommand";
+import {
+  type GetInstrumentationConfigurationCommandInput,
+  type GetInstrumentationConfigurationCommandOutput,
+  GetInstrumentationConfigurationCommand,
+} from "./commands/GetInstrumentationConfigurationCommand";
+import {
+  type GetInstrumentationConfigurationStatusCommandInput,
+  type GetInstrumentationConfigurationStatusCommandOutput,
+  GetInstrumentationConfigurationStatusCommand,
+} from "./commands/GetInstrumentationConfigurationStatusCommand";
 import {
   type GetServiceCommandInput,
   type GetServiceCommandOutput,
@@ -53,6 +78,11 @@ import {
   type ListGroupingAttributeDefinitionsCommandOutput,
   ListGroupingAttributeDefinitionsCommand,
 } from "./commands/ListGroupingAttributeDefinitionsCommand";
+import {
+  type ListInstrumentationConfigurationsCommandInput,
+  type ListInstrumentationConfigurationsCommandOutput,
+  ListInstrumentationConfigurationsCommand,
+} from "./commands/ListInstrumentationConfigurationsCommand";
 import {
   type ListServiceDependenciesCommandInput,
   type ListServiceDependenciesCommandOutput,
@@ -99,6 +129,11 @@ import {
   PutGroupingConfigurationCommand,
 } from "./commands/PutGroupingConfigurationCommand";
 import {
+  type ReportInstrumentationConfigurationStatusCommandInput,
+  type ReportInstrumentationConfigurationStatusCommandOutput,
+  ReportInstrumentationConfigurationStatusCommand,
+} from "./commands/ReportInstrumentationConfigurationStatusCommand";
+import {
   type StartDiscoveryCommandInput,
   type StartDiscoveryCommandOutput,
   StartDiscoveryCommand,
@@ -118,7 +153,11 @@ import {
   type UpdateServiceLevelObjectiveCommandOutput,
   UpdateServiceLevelObjectiveCommand,
 } from "./commands/UpdateServiceLevelObjectiveCommand";
+import {
+  paginateGetInstrumentationConfigurationStatus,
+} from "./pagination/GetInstrumentationConfigurationStatusPaginator";
 import { paginateListEntityEvents } from "./pagination/ListEntityEventsPaginator";
+import { paginateListInstrumentationConfigurations } from "./pagination/ListInstrumentationConfigurationsPaginator";
 import { paginateListServiceDependencies } from "./pagination/ListServiceDependenciesPaginator";
 import { paginateListServiceDependents } from "./pagination/ListServiceDependentsPaginator";
 import {
@@ -130,16 +169,22 @@ import { paginateListServices } from "./pagination/ListServicesPaginator";
 import { paginateListServiceStates } from "./pagination/ListServiceStatesPaginator";
 
 const commands = {
+  BatchDeleteInstrumentationConfigurationsCommand,
   BatchGetServiceLevelObjectiveBudgetReportCommand,
   BatchUpdateExclusionWindowsCommand,
+  CreateInstrumentationConfigurationCommand,
   CreateServiceLevelObjectiveCommand,
   DeleteGroupingConfigurationCommand,
+  DeleteInstrumentationConfigurationCommand,
   DeleteServiceLevelObjectiveCommand,
+  GetInstrumentationConfigurationCommand,
+  GetInstrumentationConfigurationStatusCommand,
   GetServiceCommand,
   GetServiceLevelObjectiveCommand,
   ListAuditFindingsCommand,
   ListEntityEventsCommand,
   ListGroupingAttributeDefinitionsCommand,
+  ListInstrumentationConfigurationsCommand,
   ListServiceDependenciesCommand,
   ListServiceDependentsCommand,
   ListServiceLevelObjectiveExclusionWindowsCommand,
@@ -149,13 +194,16 @@ const commands = {
   ListServiceStatesCommand,
   ListTagsForResourceCommand,
   PutGroupingConfigurationCommand,
+  ReportInstrumentationConfigurationStatusCommand,
   StartDiscoveryCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateServiceLevelObjectiveCommand,
 };
 const paginators = {
+  paginateGetInstrumentationConfigurationStatus,
   paginateListEntityEvents,
+  paginateListInstrumentationConfigurations,
   paginateListServiceDependencies,
   paginateListServiceDependents,
   paginateListServiceLevelObjectiveExclusionWindows,
@@ -166,6 +214,23 @@ const paginators = {
 };
 
 export interface ApplicationSignals {
+  /**
+   * @see {@link BatchDeleteInstrumentationConfigurationsCommand}
+   */
+  batchDeleteInstrumentationConfigurations(
+    args: BatchDeleteInstrumentationConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchDeleteInstrumentationConfigurationsCommandOutput>;
+  batchDeleteInstrumentationConfigurations(
+    args: BatchDeleteInstrumentationConfigurationsCommandInput,
+    cb: (err: any, data?: BatchDeleteInstrumentationConfigurationsCommandOutput) => void
+  ): void;
+  batchDeleteInstrumentationConfigurations(
+    args: BatchDeleteInstrumentationConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchDeleteInstrumentationConfigurationsCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link BatchGetServiceLevelObjectiveBudgetReportCommand}
    */
@@ -198,6 +263,23 @@ export interface ApplicationSignals {
     args: BatchUpdateExclusionWindowsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchUpdateExclusionWindowsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateInstrumentationConfigurationCommand}
+   */
+  createInstrumentationConfiguration(
+    args: CreateInstrumentationConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateInstrumentationConfigurationCommandOutput>;
+  createInstrumentationConfiguration(
+    args: CreateInstrumentationConfigurationCommandInput,
+    cb: (err: any, data?: CreateInstrumentationConfigurationCommandOutput) => void
+  ): void;
+  createInstrumentationConfiguration(
+    args: CreateInstrumentationConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateInstrumentationConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -236,6 +318,23 @@ export interface ApplicationSignals {
   ): void;
 
   /**
+   * @see {@link DeleteInstrumentationConfigurationCommand}
+   */
+  deleteInstrumentationConfiguration(
+    args: DeleteInstrumentationConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteInstrumentationConfigurationCommandOutput>;
+  deleteInstrumentationConfiguration(
+    args: DeleteInstrumentationConfigurationCommandInput,
+    cb: (err: any, data?: DeleteInstrumentationConfigurationCommandOutput) => void
+  ): void;
+  deleteInstrumentationConfiguration(
+    args: DeleteInstrumentationConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteInstrumentationConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteServiceLevelObjectiveCommand}
    */
   deleteServiceLevelObjective(
@@ -250,6 +349,40 @@ export interface ApplicationSignals {
     args: DeleteServiceLevelObjectiveCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteServiceLevelObjectiveCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetInstrumentationConfigurationCommand}
+   */
+  getInstrumentationConfiguration(
+    args: GetInstrumentationConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetInstrumentationConfigurationCommandOutput>;
+  getInstrumentationConfiguration(
+    args: GetInstrumentationConfigurationCommandInput,
+    cb: (err: any, data?: GetInstrumentationConfigurationCommandOutput) => void
+  ): void;
+  getInstrumentationConfiguration(
+    args: GetInstrumentationConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetInstrumentationConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetInstrumentationConfigurationStatusCommand}
+   */
+  getInstrumentationConfigurationStatus(
+    args: GetInstrumentationConfigurationStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetInstrumentationConfigurationStatusCommandOutput>;
+  getInstrumentationConfigurationStatus(
+    args: GetInstrumentationConfigurationStatusCommandInput,
+    cb: (err: any, data?: GetInstrumentationConfigurationStatusCommandOutput) => void
+  ): void;
+  getInstrumentationConfigurationStatus(
+    args: GetInstrumentationConfigurationStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetInstrumentationConfigurationStatusCommandOutput) => void
   ): void;
 
   /**
@@ -336,6 +469,23 @@ export interface ApplicationSignals {
     args: ListGroupingAttributeDefinitionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListGroupingAttributeDefinitionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListInstrumentationConfigurationsCommand}
+   */
+  listInstrumentationConfigurations(
+    args: ListInstrumentationConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListInstrumentationConfigurationsCommandOutput>;
+  listInstrumentationConfigurations(
+    args: ListInstrumentationConfigurationsCommandInput,
+    cb: (err: any, data?: ListInstrumentationConfigurationsCommandOutput) => void
+  ): void;
+  listInstrumentationConfigurations(
+    args: ListInstrumentationConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListInstrumentationConfigurationsCommandOutput) => void
   ): void;
 
   /**
@@ -493,6 +643,23 @@ export interface ApplicationSignals {
   ): void;
 
   /**
+   * @see {@link ReportInstrumentationConfigurationStatusCommand}
+   */
+  reportInstrumentationConfigurationStatus(
+    args: ReportInstrumentationConfigurationStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ReportInstrumentationConfigurationStatusCommandOutput>;
+  reportInstrumentationConfigurationStatus(
+    args: ReportInstrumentationConfigurationStatusCommandInput,
+    cb: (err: any, data?: ReportInstrumentationConfigurationStatusCommandOutput) => void
+  ): void;
+  reportInstrumentationConfigurationStatus(
+    args: ReportInstrumentationConfigurationStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ReportInstrumentationConfigurationStatusCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartDiscoveryCommand}
    */
   startDiscovery(): Promise<StartDiscoveryCommandOutput>;
@@ -562,6 +729,17 @@ export interface ApplicationSignals {
   ): void;
 
   /**
+   * @see {@link GetInstrumentationConfigurationStatusCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetInstrumentationConfigurationStatusCommandOutput}.
+   */
+  paginateGetInstrumentationConfigurationStatus(
+    args: GetInstrumentationConfigurationStatusCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetInstrumentationConfigurationStatusCommandOutput>;
+
+  /**
    * @see {@link ListEntityEventsCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -571,6 +749,17 @@ export interface ApplicationSignals {
     args: ListEntityEventsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListEntityEventsCommandOutput>;
+
+  /**
+   * @see {@link ListInstrumentationConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInstrumentationConfigurationsCommandOutput}.
+   */
+  paginateListInstrumentationConfigurations(
+    args: ListInstrumentationConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInstrumentationConfigurationsCommandOutput>;
 
   /**
    * @see {@link ListServiceDependenciesCommand}

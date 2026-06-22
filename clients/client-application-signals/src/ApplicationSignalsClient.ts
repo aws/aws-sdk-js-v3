@@ -55,6 +55,10 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import type {
+  BatchDeleteInstrumentationConfigurationsCommandInput,
+  BatchDeleteInstrumentationConfigurationsCommandOutput,
+} from "./commands/BatchDeleteInstrumentationConfigurationsCommand";
+import type {
   BatchGetServiceLevelObjectiveBudgetReportCommandInput,
   BatchGetServiceLevelObjectiveBudgetReportCommandOutput,
 } from "./commands/BatchGetServiceLevelObjectiveBudgetReportCommand";
@@ -62,6 +66,10 @@ import type {
   BatchUpdateExclusionWindowsCommandInput,
   BatchUpdateExclusionWindowsCommandOutput,
 } from "./commands/BatchUpdateExclusionWindowsCommand";
+import type {
+  CreateInstrumentationConfigurationCommandInput,
+  CreateInstrumentationConfigurationCommandOutput,
+} from "./commands/CreateInstrumentationConfigurationCommand";
 import type {
   CreateServiceLevelObjectiveCommandInput,
   CreateServiceLevelObjectiveCommandOutput,
@@ -71,9 +79,21 @@ import type {
   DeleteGroupingConfigurationCommandOutput,
 } from "./commands/DeleteGroupingConfigurationCommand";
 import type {
+  DeleteInstrumentationConfigurationCommandInput,
+  DeleteInstrumentationConfigurationCommandOutput,
+} from "./commands/DeleteInstrumentationConfigurationCommand";
+import type {
   DeleteServiceLevelObjectiveCommandInput,
   DeleteServiceLevelObjectiveCommandOutput,
 } from "./commands/DeleteServiceLevelObjectiveCommand";
+import type {
+  GetInstrumentationConfigurationCommandInput,
+  GetInstrumentationConfigurationCommandOutput,
+} from "./commands/GetInstrumentationConfigurationCommand";
+import type {
+  GetInstrumentationConfigurationStatusCommandInput,
+  GetInstrumentationConfigurationStatusCommandOutput,
+} from "./commands/GetInstrumentationConfigurationStatusCommand";
 import type { GetServiceCommandInput, GetServiceCommandOutput } from "./commands/GetServiceCommand";
 import type {
   GetServiceLevelObjectiveCommandInput,
@@ -88,6 +108,10 @@ import type {
   ListGroupingAttributeDefinitionsCommandInput,
   ListGroupingAttributeDefinitionsCommandOutput,
 } from "./commands/ListGroupingAttributeDefinitionsCommand";
+import type {
+  ListInstrumentationConfigurationsCommandInput,
+  ListInstrumentationConfigurationsCommandOutput,
+} from "./commands/ListInstrumentationConfigurationsCommand";
 import type {
   ListServiceDependenciesCommandInput,
   ListServiceDependenciesCommandOutput,
@@ -121,6 +145,10 @@ import type {
   PutGroupingConfigurationCommandInput,
   PutGroupingConfigurationCommandOutput,
 } from "./commands/PutGroupingConfigurationCommand";
+import type {
+  ReportInstrumentationConfigurationStatusCommandInput,
+  ReportInstrumentationConfigurationStatusCommandOutput,
+} from "./commands/ReportInstrumentationConfigurationStatusCommand";
 import type { StartDiscoveryCommandInput, StartDiscoveryCommandOutput } from "./commands/StartDiscoveryCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
@@ -143,16 +171,22 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | BatchDeleteInstrumentationConfigurationsCommandInput
   | BatchGetServiceLevelObjectiveBudgetReportCommandInput
   | BatchUpdateExclusionWindowsCommandInput
+  | CreateInstrumentationConfigurationCommandInput
   | CreateServiceLevelObjectiveCommandInput
   | DeleteGroupingConfigurationCommandInput
+  | DeleteInstrumentationConfigurationCommandInput
   | DeleteServiceLevelObjectiveCommandInput
+  | GetInstrumentationConfigurationCommandInput
+  | GetInstrumentationConfigurationStatusCommandInput
   | GetServiceCommandInput
   | GetServiceLevelObjectiveCommandInput
   | ListAuditFindingsCommandInput
   | ListEntityEventsCommandInput
   | ListGroupingAttributeDefinitionsCommandInput
+  | ListInstrumentationConfigurationsCommandInput
   | ListServiceDependenciesCommandInput
   | ListServiceDependentsCommandInput
   | ListServiceLevelObjectiveExclusionWindowsCommandInput
@@ -162,6 +196,7 @@ export type ServiceInputTypes =
   | ListServicesCommandInput
   | ListTagsForResourceCommandInput
   | PutGroupingConfigurationCommandInput
+  | ReportInstrumentationConfigurationStatusCommandInput
   | StartDiscoveryCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -171,16 +206,22 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | BatchDeleteInstrumentationConfigurationsCommandOutput
   | BatchGetServiceLevelObjectiveBudgetReportCommandOutput
   | BatchUpdateExclusionWindowsCommandOutput
+  | CreateInstrumentationConfigurationCommandOutput
   | CreateServiceLevelObjectiveCommandOutput
   | DeleteGroupingConfigurationCommandOutput
+  | DeleteInstrumentationConfigurationCommandOutput
   | DeleteServiceLevelObjectiveCommandOutput
+  | GetInstrumentationConfigurationCommandOutput
+  | GetInstrumentationConfigurationStatusCommandOutput
   | GetServiceCommandOutput
   | GetServiceLevelObjectiveCommandOutput
   | ListAuditFindingsCommandOutput
   | ListEntityEventsCommandOutput
   | ListGroupingAttributeDefinitionsCommandOutput
+  | ListInstrumentationConfigurationsCommandOutput
   | ListServiceDependenciesCommandOutput
   | ListServiceDependentsCommandOutput
   | ListServiceLevelObjectiveExclusionWindowsCommandOutput
@@ -190,6 +231,7 @@ export type ServiceOutputTypes =
   | ListServicesCommandOutput
   | ListTagsForResourceCommandOutput
   | PutGroupingConfigurationCommandOutput
+  | ReportInstrumentationConfigurationStatusCommandOutput
   | StartDiscoveryCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
