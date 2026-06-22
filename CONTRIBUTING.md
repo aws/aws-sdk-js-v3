@@ -233,7 +233,7 @@ r dyn test
 ```
 
 ```sh
-npx esbuilder-runner ./workspace/dynamodb/test.ts # (if *.ts file)
+npx esbuild-runner ./workspace/dynamodb/test.ts # (if *.ts file)
 node ./workspace/dynamodb/test.mjs # (if *.mjs file)
 ```
 
