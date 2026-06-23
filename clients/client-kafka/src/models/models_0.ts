@@ -1527,7 +1527,7 @@ export interface KafkaClusterClientAuthentication {
    * <p>Details for SASL/SCRAM client authentication.</p>
    * @public
    */
-  SaslScram: KafkaClusterSaslScramAuthentication | undefined;
+  SaslScram?: KafkaClusterSaslScramAuthentication | undefined;
 
   /**
    * <p>Details for mTLS client authentication.</p>

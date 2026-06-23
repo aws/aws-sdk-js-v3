@@ -1344,7 +1344,7 @@ export var KafkaCluster$: StaticStructureSchema = [3, n0, _KCa,
 export var KafkaClusterClientAuthentication$: StaticStructureSchema = [3, n0, _KCCA,
   0,
   [_SSa, _MTLS],
-  [[() => KafkaClusterSaslScramAuthentication$, { [_jN]: _sSa }], [() => KafkaClusterMTLSAuthentication$, { [_jN]: _mTLS }]], 1
+  [[() => KafkaClusterSaslScramAuthentication$, { [_jN]: _sSa }], [() => KafkaClusterMTLSAuthentication$, { [_jN]: _mTLS }]]
 ];
 export var KafkaClusterClientVpcConfig$: StaticStructureSchema = [3, n0, _KCCVC,
   0,
