@@ -30,12 +30,23 @@ const ARROW_FUNCTION_EXPRESSION = "ArrowFunctionExpression";
  * @internal
  */
 function findGlobalBufferRefs(code) {
-  const ast = parse(code, {
-    ecmaVersion: 2022,
-    sourceType: MODULE,
-    allowHashBang: true,
-    locations: true,
-  });
+  let ast;
+  try {
+    ast = parse(code, {
+      ecmaVersion: 2022,
+      sourceType: MODULE,
+      allowHashBang: true,
+      locations: true,
+    });
+  } catch {
+    ast = parse(code, {
+      ecmaVersion: 2022,
+      sourceType: "script",
+      allowHashBang: true,
+      allowImportExportEverywhere: true,
+      locations: true,
+    });
+  }
 
   const polyfillRanges = collectPolyfillRanges(ast);
   const guardedRanges = collectGuardedRanges(ast);

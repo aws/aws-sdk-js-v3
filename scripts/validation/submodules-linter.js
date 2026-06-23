@@ -112,38 +112,70 @@ const submodulePackages = process.argv.includes("--all")
             fs.writeFileSync(path.join(root, `tsconfig.${kind}.json`), JSON.stringify(tsconfig, null, 2) + "\n");
           }
         }
+        // react-native condition in exports: must point to .native.js if it exists, else .browser.js.
+        const exportEntry = pkgJson.exports[`./${submodule}`];
+        const nativeEs = `./dist-es/submodules/${submodule}/index.native.js`;
+        const browserEs = `./dist-es/submodules/${submodule}/index.browser.js`;
+        const nativeCjs = `./dist-cjs/submodules/${submodule}/index.native.js`;
+        const browserCjs = `./dist-cjs/submodules/${submodule}/index.browser.js`;
+        const hasNative = fs.existsSync(path.join(root, nativeEs));
+        const hasBrowser = fs.existsSync(path.join(root, browserEs));
+        if (hasNative || hasBrowser) {
+          const expectedEs = hasNative ? nativeEs : browserEs;
+          const expectedCjs = hasNative ? nativeCjs : browserCjs;
+          const expected = { import: expectedEs, require: expectedCjs };
+          if (
+            !exportEntry["react-native"] ||
+            exportEntry["react-native"].import !== expectedEs ||
+            exportEntry["react-native"].require !== expectedCjs
+          ) {
+            errors.push(
+              `${submodule} exports "react-native" condition must point to ${hasNative ? ".native.js" : ".browser.js"}`
+            );
+            exportEntry["react-native"] = expected;
+            // reorder so react-native comes after types
+            const reordered = {};
+            if (exportEntry.types) {
+              reordered.types = exportEntry.types;
+            }
+            reordered["react-native"] = exportEntry["react-native"];
+            for (const [k, v] of Object.entries(exportEntry)) {
+              if (k !== "types" && k !== "react-native") {
+                reordered[k] = v;
+              }
+            }
+            pkgJson.exports[`./${submodule}`] = reordered;
+            pushPkgJson();
+          }
+        }
         // compatibility redirect file.
         const compatibilityRedirectFile = path.join(root, `${submodule}.js`);
         if (!fs.existsSync(compatibilityRedirectFile)) {
           errors.push(`${submodule} is missing compatibility redirect file in the package root folder.`);
-          fs.writeFileSync(
-            compatibilityRedirectFile,
-            `
-  /**
-   * Do not edit:
-   * This is a compatibility redirect for contexts that do not understand package.json exports field.
-   */
-  module.exports = require("./dist-cjs/submodules/${submodule}/index.js");
-  `
-          );
         }
+        fs.writeFileSync(
+          compatibilityRedirectFile,
+          `/**
+ * Do not edit:
+ * This is a compatibility redirect for contexts that do not understand package.json exports field.
+ */
+module.exports = require("./dist-cjs/submodules/${submodule}/index.js");
+`
+        );
         // compatibility types file.
         const compatibilityTypesFile = path.join(root, `${submodule}.d.ts`);
         if (!fs.existsSync(compatibilityTypesFile)) {
           errors.push(`${submodule} is missing compatibility types file in the package root folder.`);
-          fs.writeFileSync(
-            compatibilityTypesFile,
-            `
-  /**
-   * Do not edit:
-   * This is a compatibility redirect for contexts that do not understand package.json exports field.
-   */
-  declare module "@aws-sdk/${submodulePackage}/${submodule}" {
-    export * from "@aws-sdk/${submodulePackage}/dist-types/submodules/${submodule}/index.d";
-  }
-  `
-          );
         }
+        fs.writeFileSync(
+          compatibilityTypesFile,
+          `/**
+ * Do not edit:
+ * This is a compatibility redirect for contexts that do not understand package.json exports field.
+ */
+export * from "./dist-types/submodules/${submodule}/index";
+`
+        );
       }
     }
 

@@ -2,6 +2,4 @@
  * Do not edit:
  * This is a compatibility redirect for contexts that do not understand package.json exports field.
  */
-declare module "@aws-sdk/config/retryStrategy" {
-  export * from "@aws-sdk/config/dist-types/submodules/retryStrategy/index.d";
-}
+export * from "./dist-types/submodules/retryStrategy/index";

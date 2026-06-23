@@ -45,6 +45,14 @@
     },
     "./requestHandler": {
       "types": "./dist-types/submodules/requestHandler/index.d.ts",
+      "react-native": {
+        "import": "./dist-es/submodules/requestHandler/index.browser.js",
+        "require": "./dist-cjs/submodules/requestHandler/index.browser.js"
+      },
+      "browser": {
+        "import": "./dist-es/submodules/requestHandler/index.browser.js",
+        "require": "./dist-cjs/submodules/requestHandler/index.browser.js"
+      },
       "module": "./dist-es/submodules/requestHandler/index.js",
       "node": "./dist-cjs/submodules/requestHandler/index.js",
       "import": "./dist-es/submodules/requestHandler/index.js",
@@ -119,5 +127,12 @@
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
     "directory": "packages/config"
+  },
+  "browser": {
+    "./dist-es/submodules/requestHandler/index.js": "./dist-es/submodules/requestHandler/index.browser.js"
+  },
+  "react-native": {
+    "./dist-es/submodules/requestHandler/index.js": "./dist-es/submodules/requestHandler/index.browser.js",
+    "./dist-cjs/submodules/requestHandler/index.js": "./dist-cjs/submodules/requestHandler/index.browser.js"
   }
 }
