@@ -87,7 +87,7 @@ run("JS bundle (ESM)", () => {
 run("DTS bundle (all types inlined)", () => {
   execSync(
     "npx tsup --config tsup-dts.config.ts --silent",
-    { cwd: root, stdio: "pipe", env: { ...process.env, NODE_OPTIONS: "--max-old-space-size=4096" } }
+    { cwd: root, stdio: "pipe", env: { ...process.env, NODE_OPTIONS: "--max-old-space-size=8192" } }
   );
   const out = path.join(root, "dist/dts/dts-check.d.ts");
   if (!fs.existsSync(out)) {
