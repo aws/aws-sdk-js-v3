@@ -101,6 +101,7 @@ bundles: build-s3-browser-bundle build-signature-v4-multi-region-browser-bundle
 
 test-bundlers:
 	node ./tests/bundlers/bundler-canary.mjs
+	(cd ./tests/bundler-compat && npm install && node ./run.mjs)
 
 build-s3-browser-bundle:
 	node ./clients/client-s3/test/browser-build/esbuild

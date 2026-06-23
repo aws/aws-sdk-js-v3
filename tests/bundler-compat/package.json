@@ -1,0 +1,22 @@
+{
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "@aws-sdk/client-dynamodb": "file:../../clients/client-dynamodb",
+    "@aws-sdk/client-s3": "file:../../clients/client-s3",
+    "@aws-sdk/config": "file:../../packages/config",
+    "@aws-sdk/core": "file:../../packages-internal/core",
+    "@aws-sdk/lib-dynamodb": "file:../../lib/lib-dynamodb",
+    "@aws-sdk/lib-storage": "file:../../lib/lib-storage",
+    "@aws-sdk/middleware-sdk-s3": "file:../../packages-internal/middleware-sdk-s3",
+    "@aws-sdk/nested-clients": "file:../../packages-internal/nested-clients",
+    "@babel/preset-flow": "^7",
+    "@babel/preset-typescript": "^7",
+    "@types/node": "^22",
+    "@smithy/types": "latest",
+    "metro": "^0.82.0",
+    "metro-resolver": "^0.82.0",
+    "tsup": "^8",
+    "typescript": "~5.8.0"
+  }
+}
