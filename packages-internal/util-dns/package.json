@@ -66,9 +66,6 @@
   "react-native": {
     "./dist-es/index": "./dist-es/index.browser",
     "./dist-es/HostResolver": "./dist-es/HostResolver.browser",
-    "./dist-es/NodeDnsLookupHostResolver": false,
-    "./dist-cjs/index": "./dist-cjs/index.browser",
-    "./dist-cjs/HostResolver": "./dist-cjs/HostResolver.browser",
-    "./dist-cjs/NodeDnsLookupHostResolver": false
+    "./dist-es/NodeDnsLookupHostResolver": false
   }
 }

@@ -61,8 +61,7 @@
     "./dist-es/flexible-checksums/getCrc32ChecksumAlgorithmFunction": "./dist-es/flexible-checksums/getCrc32ChecksumAlgorithmFunction.browser"
   },
   "react-native": {
-    "./dist-es/flexible-checksums/getCrc32ChecksumAlgorithmFunction": "./dist-es/flexible-checksums/getCrc32ChecksumAlgorithmFunction.browser",
-    "./dist-cjs/flexible-checksums/getCrc32ChecksumAlgorithmFunction": "./dist-cjs/flexible-checksums/getCrc32ChecksumAlgorithmFunction.browser"
+    "./dist-es/flexible-checksums/getCrc32ChecksumAlgorithmFunction": "./dist-es/flexible-checksums/getCrc32ChecksumAlgorithmFunction.browser"
   },
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/checksums",
   "repository": {
