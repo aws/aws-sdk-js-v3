@@ -478,6 +478,11 @@ export class S3TransferManager implements IS3TransferManager {
 
     this.checkAborted(transferOptions);
 
+    const userSignal = transferOptions?.abortSignal as AbortSignal | undefined;
+    if (userSignal) {
+      userSignal.addEventListener("abort", () => abortController.abort(), { once: true });
+    }
+
     for await (const filePath of this.traverseDirectory(absoluteSource, {
       recursive: request.recursive ?? false,
       followSymbolicLinks: request.followSymbolicLinks ?? false,
@@ -510,9 +515,13 @@ export class S3TransferManager implements IS3TransferManager {
             putRequest = request.uploadObjectRequestModifier(putRequest);
           }
 
-          await this.upload(putRequest, transferOptions);
+          await this.upload(putRequest, { ...transferOptions, abortSignal: abortController.signal });
           objectsUploaded++;
         } catch (error) {
+          if (terminated || abortController.signal.aborted) {
+            objectsFailed++;
+            return;
+          }
           const context: DirectoryTransferFailureContext = {
             request,
             objectRequest: { Bucket: request.bucket, Key: this.deriveS3Key(absoluteSource, filePath, request.s3Prefix) },
@@ -521,10 +530,11 @@ export class S3TransferManager implements IS3TransferManager {
           const result = await handleFailure(failurePolicy, context, abortController);
           if (result === "terminate") {
             terminated = true;
-            terminationError = error;
-          } else {
-            objectsFailed++;
+            if (!terminationError) {
+              terminationError = error;
+            }
           }
+          objectsFailed++;
         } finally {
           semaphore.release();
         }

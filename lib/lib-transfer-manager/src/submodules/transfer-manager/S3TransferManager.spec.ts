@@ -1,7 +1,7 @@
 import { S3, S3Client } from "@aws-sdk/client-s3";
-import * as fs from "node:fs/promises";
-import * as os from "node:os";
-import * as path from "node:path";
+import { mkdir, mkdtemp, rm, writeFile } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import { Readable } from "node:stream";
 import { beforeAll, beforeEach, describe, expect, test as it, vi } from "vitest";
 
@@ -1337,12 +1337,12 @@ describe("S3TransferManager Unit Tests", () => {
     }
 
     it("should upload only root-level files when recursive is false", async () => {
-      const tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), "tm-uploadDir-test-"));
-      await fs.writeFile(path.join(tmpDir, "file1.txt"), "hello");
-      await fs.writeFile(path.join(tmpDir, "file2.txt"), "world");
-      await fs.mkdir(path.join(tmpDir, "subdir"));
-      await fs.writeFile(path.join(tmpDir, "subdir", "nested1.txt"), "nested1");
-      await fs.writeFile(path.join(tmpDir, "subdir", "nested2.txt"), "nested2");
+      const tmpDir = await mkdtemp(join(tmpdir(), "tm-uploadDir-test-"));
+      await writeFile(join(tmpDir, "file1.txt"), "hello");
+      await writeFile(join(tmpDir, "file2.txt"), "world");
+      await mkdir(join(tmpDir, "subdir"));
+      await writeFile(join(tmpDir, "subdir", "nested1.txt"), "nested1");
+      await writeFile(join(tmpDir, "subdir", "nested2.txt"), "nested2");
 
       try {
         const mockClient = createMockClient();
@@ -1356,17 +1356,17 @@ describe("S3TransferManager Unit Tests", () => {
 
         expect(result.objectsUploaded).toBe(2);
       } finally {
-        await fs.rm(tmpDir, { recursive: true });
+        await rm(tmpDir, { recursive: true });
       }
     });
 
     it("should upload all files including nested directories when recursive is true", async () => {
-      const tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), "tm-uploadDir-test-"));
-      await fs.writeFile(path.join(tmpDir, "file1.txt"), "hello");
-      await fs.writeFile(path.join(tmpDir, "file2.txt"), "world");
-      await fs.mkdir(path.join(tmpDir, "subdir"));
-      await fs.writeFile(path.join(tmpDir, "subdir", "nested1.txt"), "nested1");
-      await fs.writeFile(path.join(tmpDir, "subdir", "nested2.txt"), "nested2");
+      const tmpDir = await mkdtemp(join(tmpdir(), "tm-uploadDir-test-"));
+      await writeFile(join(tmpDir, "file1.txt"), "hello");
+      await writeFile(join(tmpDir, "file2.txt"), "world");
+      await mkdir(join(tmpDir, "subdir"));
+      await writeFile(join(tmpDir, "subdir", "nested1.txt"), "nested1");
+      await writeFile(join(tmpDir, "subdir", "nested2.txt"), "nested2");
 
       try {
         const mockClient = createMockClient();
@@ -1380,16 +1380,16 @@ describe("S3TransferManager Unit Tests", () => {
 
         expect(result.objectsUploaded).toBe(4);
       } finally {
-        await fs.rm(tmpDir, { recursive: true });
+        await rm(tmpDir, { recursive: true });
       }
     });
 
     it("should apply filter to skip files", async () => {
 
-      const tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), "tm-uploadDir-test-"));
-      await fs.writeFile(path.join(tmpDir, "file1.txt"), "file to include 1");
-      await fs.writeFile(path.join(tmpDir, "file2.log"), "don't include this file");
-      await fs.writeFile(path.join(tmpDir, "file3.txt"), "file to include 2"); 
+      const tmpDir = await mkdtemp(join(tmpdir(), "tm-uploadDir-test-"));
+      await writeFile(join(tmpDir, "file1.txt"), "file to include 1");
+      await writeFile(join(tmpDir, "file2.log"), "don't include this file");
+      await writeFile(join(tmpDir, "file3.txt"), "file to include 2"); 
       try {
         const mockClient = createMockClient();
         const tm = new S3TransferManager({ s3: mockClient });
@@ -1402,16 +1402,16 @@ describe("S3TransferManager Unit Tests", () => {
 
         expect(result.objectsUploaded).toBe(2);
       } finally {
-        await fs.rm(tmpDir, { recursive: true });
+        await rm(tmpDir, { recursive: true });
       }
     });
 
     it("should prepend s3Prefix to keys", async () => {
 
-      const tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), "tm-uploadDir-test-"));
-      await fs.writeFile(path.join(tmpDir, "root.txt"), "root content");
-      await fs.mkdir(path.join(tmpDir, "subdir"));
-      await fs.writeFile(path.join(tmpDir, "subdir", "nested.txt"), "nested content");
+      const tmpDir = await mkdtemp(join(tmpdir(), "tm-uploadDir-test-"));
+      await writeFile(join(tmpDir, "root.txt"), "root content");
+      await mkdir(join(tmpDir, "subdir"));
+      await writeFile(join(tmpDir, "subdir", "nested.txt"), "nested content");
 
       try {
         const mockClient = createMockClient();
@@ -1429,17 +1429,17 @@ describe("S3TransferManager Unit Tests", () => {
         expect(keys).toContain("uploadAll-prefix/root.txt");
         expect(keys).toContain("uploadAll-prefix/subdir/nested.txt");
       } finally {
-        await fs.rm(tmpDir, { recursive: true });
+        await rm(tmpDir, { recursive: true });
       }
     });
 
     it("should terminate on failure with terminate policy", async () => {
 
-      const tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), "tm-uploadDir-test-"));
-      await fs.writeFile(path.join(tmpDir, "file1.txt"), "content1");
-      await fs.writeFile(path.join(tmpDir, "file2.txt"), "content2");
-      await fs.writeFile(path.join(tmpDir, "file3.txt"), "content3");
-      await fs.writeFile(path.join(tmpDir, "file3.txt"), "content4");
+      const tmpDir = await mkdtemp(join(tmpdir(), "tm-uploadDir-test-"));
+      await writeFile(join(tmpDir, "file1.txt"), "content1");
+      await writeFile(join(tmpDir, "file2.txt"), "content2");
+      await writeFile(join(tmpDir, "file3.txt"), "content3");
+      await writeFile(join(tmpDir, "file3.txt"), "content4");
 
       try {
         const mockClient = {
@@ -1448,27 +1448,27 @@ describe("S3TransferManager Unit Tests", () => {
         } as any;
         const tm = new S3TransferManager({ s3: mockClient });
 
-        const result = await tm.uploadDirectory({
-          bucket: "test-bucket",
-          source: tmpDir,
-          failurePolicy: CannedFailurePolicy.Terminate,
-          maxConcurrency: 2,
-        });
+        await expect(
+          tm.uploadDirectory({
+            bucket: "test-bucket",
+            source: tmpDir,
+            failurePolicy: CannedFailurePolicy.Terminate,
+            maxConcurrency: 2,
+          })
+        ).rejects.toThrow("S3 error");
 
-        expect(result.objectsUploaded).toBe(0);
-        expect(result.objectsFailed).toBeGreaterThanOrEqual(1);
         // With maxConcurrency=2, at most 2 files are dispatched before terminate stops picking up new files.
         expect(mockClient.send.mock.calls.length).toBeLessThanOrEqual(2);
       } finally {
-        await fs.rm(tmpDir, { recursive: true });
+        await rm(tmpDir, { recursive: true });
       }
     });
 
     it("should continue on failure with continue policy", async () => {
 
-      const tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), "tm-test-"));
-      await fs.writeFile(path.join(tmpDir, "file1.txt"), "content1");
-      await fs.writeFile(path.join(tmpDir, "file2.txt"), "content2");
+      const tmpDir = await mkdtemp(join(tmpdir(), "tm-test-"));
+      await writeFile(join(tmpDir, "file1.txt"), "content1");
+      await writeFile(join(tmpDir, "file2.txt"), "content2");
 
       try {
         let callCount = 0;
@@ -1491,16 +1491,16 @@ describe("S3TransferManager Unit Tests", () => {
         expect(result.objectsFailed).toBe(1);
         expect(result.objectsUploaded).toBe(1);
       } finally {
-        await fs.rm(tmpDir, { recursive: true });
+        await rm(tmpDir, { recursive: true });
       }
     });
 
     it("should continue on transient errors and terminate on non-retryable errors with custom policy", async () => {
-      const tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), "tm-uploadDir-test-"));
-      await fs.writeFile(path.join(tmpDir, "file1.txt"), "content1");
-      await fs.writeFile(path.join(tmpDir, "file2.txt"), "content2");
-      await fs.writeFile(path.join(tmpDir, "file3.txt"), "content3");
-      await fs.writeFile(path.join(tmpDir, "file4.txt"), "content4");
+      const tmpDir = await mkdtemp(join(tmpdir(), "tm-uploadDir-test-"));
+      await writeFile(join(tmpDir, "file1.txt"), "content1");
+      await writeFile(join(tmpDir, "file2.txt"), "content2");
+      await writeFile(join(tmpDir, "file3.txt"), "content3");
+      await writeFile(join(tmpDir, "file4.txt"), "content4");
 
       try {
         let callCount = 0;
@@ -1544,17 +1544,17 @@ describe("S3TransferManager Unit Tests", () => {
         expect(result.objectsFailed).toBe(2);
         expect(result.objectsUploaded).toBe(2);
       } finally {
-        await fs.rm(tmpDir, { recursive: true });
+        await rm(tmpDir, { recursive: true });
       }
     });
 
     it("should terminate when custom policy encounters non-retryable error", async () => {
-      const tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), "tm-uploadDir-test-"));
-      await fs.writeFile(path.join(tmpDir, "file1.txt"), "content1");
-      await fs.writeFile(path.join(tmpDir, "file2.txt"), "content2");
-      await fs.writeFile(path.join(tmpDir, "file3.txt"), "content3");
-      await fs.writeFile(path.join(tmpDir, "file4.txt"), "content4");
-      await fs.writeFile(path.join(tmpDir, "file5.txt"), "content5");
+      const tmpDir = await mkdtemp(join(tmpdir(), "tm-uploadDir-test-"));
+      await writeFile(join(tmpDir, "file1.txt"), "content1");
+      await writeFile(join(tmpDir, "file2.txt"), "content2");
+      await writeFile(join(tmpDir, "file3.txt"), "content3");
+      await writeFile(join(tmpDir, "file4.txt"), "content4");
+      await writeFile(join(tmpDir, "file5.txt"), "content5");
 
       try {
         let callCount = 0;
@@ -1586,28 +1586,28 @@ describe("S3TransferManager Unit Tests", () => {
           return "terminate" as const;
         };
 
-        const result = await tm.uploadDirectory({
-          bucket: "test-bucket",
-          source: tmpDir,
-          failurePolicy: customPolicy,
-          maxConcurrency: 1,
-        });
+        await expect(
+          tm.uploadDirectory({
+            bucket: "test-bucket",
+            source: tmpDir,
+            failurePolicy: customPolicy,
+            maxConcurrency: 1,
+          })
+        ).rejects.toThrow("Access Denied");
 
-        expect(result.objectsUploaded).toBe(2);
-        expect(result.objectsFailed).toBe(1);
         // file1 and file2 succeeded, file3 failed with AccessDenied → terminate
         // file4 and file5 should not have been attempted
         expect(mockClient.send.mock.calls.length).toBeLessThanOrEqual(3);
       } finally {
-        await fs.rm(tmpDir, { recursive: true });
+        await rm(tmpDir, { recursive: true });
       }
     });
 
     it("should apply uploadObjectRequestModifier to override request fields", async () => {
 
-      const tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), "tm-uploadDir-test-"));
-      await fs.writeFile(path.join(tmpDir, "file1.txt"), "content1");
-      await fs.writeFile(path.join(tmpDir, "file2.txt"), "content2");
+      const tmpDir = await mkdtemp(join(tmpdir(), "tm-uploadDir-test-"));
+      await writeFile(join(tmpDir, "file1.txt"), "content1");
+      await writeFile(join(tmpDir, "file2.txt"), "content2");
 
       try {
         const mockClient = createMockClient();
@@ -1626,31 +1626,31 @@ describe("S3TransferManager Unit Tests", () => {
           expect(call.input.Bucket).toBe("override-bucket");
         }
       } finally {
-        await fs.rm(tmpDir, { recursive: true });
+        await rm(tmpDir, { recursive: true });
       }
     });
 
     it("should propagate exceptions thrown in uploadObjectRequestModifier", async () => {
-      const tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), "tm-uploadDir-test-"));
-      await fs.writeFile(path.join(tmpDir, "file1.txt"), "content1");
+      const tmpDir = await mkdtemp(join(tmpdir(), "tm-uploadDir-test-"));
+      await writeFile(join(tmpDir, "file1.txt"), "content1");
 
       try {
         const mockClient = createMockClient();
         const tm = new S3TransferManager({ s3: mockClient });
 
-        const result = await tm.uploadDirectory({
-          bucket: "test-bucket",
-          source: tmpDir,
-          uploadObjectRequestModifier: () => {
-            throw new Error("uploadObjectRequestModifier failed");
-          },
-        });
+        await expect(
+          tm.uploadDirectory({
+            bucket: "test-bucket",
+            source: tmpDir,
+            uploadObjectRequestModifier: () => {
+              throw new Error("uploadObjectRequestModifier failed");
+            },
+          })
+        ).rejects.toThrow("uploadObjectRequestModifier failed");
 
-        expect(result.objectsUploaded).toBe(0);
-        expect(result.objectsFailed).toBe(1);
         expect(mockClient.send).not.toHaveBeenCalled();
       } finally {
-        await fs.rm(tmpDir, { recursive: true });
+        await rm(tmpDir, { recursive: true });
       }
     });
 
@@ -1668,8 +1668,8 @@ describe("S3TransferManager Unit Tests", () => {
 
     it("should abort when transferOptions.abortSignal is triggered", async () => {
 
-      const tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), "tm-uploadDir-test-"));
-      await fs.writeFile(path.join(tmpDir, "file.txt"), "content");
+      const tmpDir = await mkdtemp(join(tmpdir(), "tm-uploadDir-test-"));
+      await writeFile(join(tmpDir, "file.txt"), "content");
 
       try {
         const ac = new AbortController();
@@ -1685,12 +1685,12 @@ describe("S3TransferManager Unit Tests", () => {
           }, { abortSignal: ac.signal })
         ).rejects.toThrow("Transfer aborted");
       } finally {
-        await fs.rm(tmpDir, { recursive: true });
+        await rm(tmpDir, { recursive: true });
       }
     });
 
     it("should return zero counts for empty directory", async () => {
-      const tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), "tm-uploadDir-test-"));
+      const tmpDir = await mkdtemp(join(tmpdir(), "tm-uploadDir-test-"));
 
       try {
         const mockClient = createMockClient();
@@ -1706,9 +1706,10 @@ describe("S3TransferManager Unit Tests", () => {
         expect(result.objectsFailed).toBe(0);
         expect(mockClient.send).not.toHaveBeenCalled();
       } finally {
-        await fs.rm(tmpDir, { recursive: true });
+        await rm(tmpDir, { recursive: true });
       }
     });
+
   });
 
 });

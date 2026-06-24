@@ -2,10 +2,13 @@ import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import type { GetObjectCommandOutput } from "@aws-sdk/client-s3";
 import { S3 } from "@aws-sdk/client-s3";
 import { Upload } from "@aws-sdk/lib-storage";
+import { mkdir, mkdtemp, rm, writeFile } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import { afterEach, beforeAll, describe, expect, test as it } from "vitest";
 
 import { internalEventHandler, S3TransferManager } from "./S3TransferManager";
-import type { S3TransferManagerConfig } from "./types";
+import { type S3TransferManagerConfig,CannedFailurePolicy } from "./types";
 
 describe(S3TransferManager.name, () => {
   const chunk = "01234567";
@@ -571,5 +574,227 @@ describe(S3TransferManager.name, () => {
 
       await client.deleteObject({ Bucket, Key });
     }, 60_000);
+  });
+
+  describe("uploadDirectory tests", () => {
+    const prefix = `upload-dir-e2e-${Date.now()}`;
+
+    async function cleanupS3Objects(s3Prefix: string) {
+      const listed = await client.listObjectsV2({ Bucket, Prefix: s3Prefix });
+      if (listed.Contents?.length) {
+        await Promise.all(
+          listed.Contents.map((obj) => client.deleteObject({ Bucket, Key: obj.Key! }))
+        );
+      }
+    }
+
+    it("should upload directory recursively", async () => {
+      const tmpDir = await mkdtemp(join(tmpdir(), "tm-e2e-uploaddir-"));
+      await writeFile(join(tmpDir, "photo1.jpg"), data(2048576));
+      await mkdir(join(tmpDir, "2023", "jan"), { recursive: true });
+      await writeFile(join(tmpDir, "2023", "jan", "photo2.jpg"), data(1048576));
+      await writeFile(join(tmpDir, "readme.txt"), data(1024));
+
+      const s3Prefix = `${prefix}/recursive`;
+      const tm = new S3TransferManager({ s3: client });
+
+      try {
+        const result = await tm.uploadDirectory({
+          bucket: Bucket,
+          source: tmpDir,
+          recursive: true,
+          s3Prefix,
+        });
+
+        expect(result.objectsUploaded).toBe(3);
+        expect(result.objectsFailed).toBe(0);
+      } finally {
+        await rm(tmpDir, { recursive: true });
+        await cleanupS3Objects(s3Prefix);
+      }
+    });
+
+    it("should upload directory with s3Prefix", async () => {
+      const tmpDir = await mkdtemp(join(tmpdir(), "tm-e2e-uploaddir-"));
+      await writeFile(join(tmpDir, "file1.txt"), data(1024));
+      await mkdir(join(tmpDir, "sub"));
+      await writeFile(join(tmpDir, "sub", "file2.txt"), data(1024));
+
+      const s3Prefix = `${prefix}/backup`;
+      const tm = new S3TransferManager({ s3: client });
+
+      try {
+        const result = await tm.uploadDirectory({
+          bucket: Bucket,
+          source: tmpDir,
+          recursive: true,
+          s3Prefix,
+        });
+
+        expect(result.objectsUploaded).toBe(2);
+      } finally {
+        await rm(tmpDir, { recursive: true });
+        await cleanupS3Objects(s3Prefix);
+      }
+    });
+
+    it("should upload only root-level files when non-recursive", async () => {
+      const tmpDir = await mkdtemp(join(tmpdir(), "tm-e2e-uploaddir-"));
+      await writeFile(join(tmpDir, "file1.txt"), data(1048576));
+      await mkdir(join(tmpDir, "subdir"));
+      await writeFile(join(tmpDir, "subdir", "file2.txt"), data(2048576));
+
+      const s3Prefix = `${prefix}/nonrecursive`;
+      const tm = new S3TransferManager({ s3: client });
+
+      try {
+        const result = await tm.uploadDirectory({
+          bucket: Bucket,
+          source: tmpDir,
+          recursive: false,
+          s3Prefix,
+        });
+
+        expect(result.objectsUploaded).toBe(1);
+        expect(result.objectsFailed).toBe(0);
+      } finally {
+        await rm(tmpDir, { recursive: true });
+        await cleanupS3Objects(s3Prefix);
+      }
+    });
+
+    it("should apply filter to only upload the files that match.", async () => {
+      const tmpDir = await mkdtemp(join(tmpdir(), "tm-e2e-uploaddir-"));
+      await writeFile(join(tmpDir, "image.jpg"), data(2048576));
+      await writeFile(join(tmpDir, "document.txt"), data(2048576));
+
+      const s3Prefix = `${prefix}/filtered`;
+      const tm = new S3TransferManager({ s3: client });
+
+      try {
+        const result = await tm.uploadDirectory({
+          bucket: Bucket,
+          source: tmpDir,
+          recursive: true,
+          s3Prefix,
+          filter: (filePath) => filePath.endsWith(".jpg"),
+        });
+
+        expect(result.objectsUploaded).toBe(1);
+        expect(result.objectsFailed).toBe(0);
+      } finally {
+        await rm(tmpDir, { recursive: true });
+        await cleanupS3Objects(s3Prefix);
+      }
+    });
+
+    it("test upload directory - failure handling with continue policy", async () => {
+      const tmpDir = await mkdtemp(join(tmpdir(), "tm-e2e-uploaddir-"));
+      await writeFile(join(tmpDir, "good.txt"), data(1024));
+      await writeFile(join(tmpDir, "bad.txt"), data(1024));
+
+      const s3Prefix = `${prefix}/continue-policy`;
+      const tm = new S3TransferManager({ s3: client });
+
+      try {
+        const result = await tm.uploadDirectory({
+          bucket: Bucket,
+          source: tmpDir,
+          recursive: true,
+          s3Prefix,
+          failurePolicy: CannedFailurePolicy.Continue,
+          uploadObjectRequestModifier: (req) => {
+            if (req.Key?.endsWith("bad.txt")) {
+              return { ...req, Bucket: "nonexistent-bucket-xyz-12345" };
+            }
+            return req;
+          },
+        });
+
+        expect(result.objectsUploaded).toBe(1);
+        expect(result.objectsFailed).toBe(1);
+      } finally {
+        await rm(tmpDir, { recursive: true });
+        await cleanupS3Objects(s3Prefix);
+      }
+    });
+
+    // waiting on some information form sep author
+    it.skip("should terminate on first failure with default policy", async () => {
+      const tmpDir = await mkdtemp(join(tmpdir(), "tm-e2e-uploaddir-"));
+      await writeFile(join(tmpDir, "file1.txt"), data(1024));
+      await writeFile(join(tmpDir, "file2.txt"), data(1024));
+
+      const s3Prefix = `${prefix}/terminate-policy`;
+      const tm = new S3TransferManager({ s3: client });
+
+      try {
+        await expect(
+          tm.uploadDirectory({
+            bucket: "nonexistent-bucket-xyz-12345",
+            source: tmpDir,
+            recursive: true,
+            s3Prefix,
+          })
+        ).rejects.toThrow();
+      } finally {
+        await rm(tmpDir, { recursive: true });
+      }
+    });
+
+    it("should handle empty directory", async () => {
+      const tmpDir = await mkdtemp(join(tmpdir(), "tm-e2e-uploaddir-"));
+
+      const tm = new S3TransferManager({ s3: client });
+
+      try {
+        const result = await tm.uploadDirectory({
+          bucket: Bucket,
+          source: tmpDir,
+          recursive: true,
+        });
+
+        expect(result.objectsUploaded).toBe(0);
+        expect(result.objectsFailed).toBe(0);
+      } finally {
+        await rm(tmpDir, { recursive: true });
+      }
+    });
+
+    it("should throw when source directory does not exist", async () => {
+      const tm = new S3TransferManager({ s3: client });
+
+      await expect(
+        tm.uploadDirectory({
+          bucket: Bucket,
+          source: "/nonexistent/path/e2e-test",
+          recursive: true,
+        })
+      ).rejects.toThrow("Directory does not exist");
+    });
+
+    it("should use multipart upload for large files in directory", async () => {
+      const tmpDir = await mkdtemp(join(tmpdir(), "tm-e2e-uploaddir-"));
+      await writeFile(join(tmpDir, "large-video.mp4"), data(20 * 1024 * 1024));
+      await writeFile(join(tmpDir, "metadata.txt"), data(2048));
+
+      const s3Prefix = `${prefix}/multipart`;
+      const tm = new S3TransferManager({ s3: client });
+
+      try {
+        const result = await tm.uploadDirectory({
+          bucket: Bucket,
+          source: tmpDir,
+          recursive: false,
+          s3Prefix,
+        });
+
+        expect(result.objectsUploaded).toBe(2);
+        expect(result.objectsFailed).toBe(0);
+      } finally {
+        await rm(tmpDir, { recursive: true });
+        await cleanupS3Objects(s3Prefix);
+      }
+    });
   });
 });
