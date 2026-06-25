@@ -1453,12 +1453,10 @@ describe("S3TransferManager Unit Tests", () => {
             bucket: "test-bucket",
             source: tmpDir,
             failurePolicy: CannedFailurePolicy.Terminate,
-            maxConcurrency: 2,
           })
         ).rejects.toThrow("S3 error");
 
-        // With maxConcurrency=2, at most 2 files are dispatched before terminate stops picking up new files.
-        expect(mockClient.send.mock.calls.length).toBeLessThanOrEqual(2);
+        expect(mockClient.send.mock.calls.length).toBeLessThanOrEqual(1);
       } finally {
         await rm(tmpDir, { recursive: true });
       }

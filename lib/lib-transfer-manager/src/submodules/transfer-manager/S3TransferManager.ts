@@ -477,11 +477,32 @@ export class S3TransferManager implements IS3TransferManager {
     let terminationError: unknown;
 
     this.checkAborted(transferOptions);
+    this.addEventListeners(transferOptions?.eventListeners);
+
+    let transferredBytes = 0;
+    let transferredFiles = 0;
+    let totalFiles: number | undefined = undefined;
+    let totalBytes: number | undefined = undefined;
+    let traversalComplete = false;
+
+    const removeLocalEventListeners = () => {
+      this.removeEventListeners(transferOptions?.eventListeners);
+    };
+
+    this.dispatchEvent(
+      Object.assign(new Event("transferInitiated"), {
+        request,
+        snapshot: { transferredBytes: 0, totalBytes: undefined, transferredFiles: 0, totalFiles: undefined },
+      })
+    );
 
     const userSignal = transferOptions?.abortSignal as AbortSignal | undefined;
     if (userSignal) {
       userSignal.addEventListener("abort", () => abortController.abort(), { once: true });
     }
+
+    let discoveredFiles = 0;
+    let discoveredBytes = 0;
 
     for await (const filePath of this.traverseDirectory(absoluteSource, {
       recursive: request.recursive ?? false,
@@ -492,6 +513,10 @@ export class S3TransferManager implements IS3TransferManager {
 
       if (request.filter && !request.filter(filePath)) continue;
 
+      const fileStat = await stat(filePath);
+      discoveredFiles++;
+      discoveredBytes += fileStat.size;
+
       await semaphore.acquire();
 
       if (terminated || abortController.signal.aborted) {
@@ -501,7 +526,6 @@ export class S3TransferManager implements IS3TransferManager {
 
       const task = (async () => {
         try {
-          const fileStat = await stat(filePath);
           const key = this.deriveS3Key(absoluteSource, filePath, request.s3Prefix);
 
           let putRequest: PutObjectCommandInput = {
@@ -515,8 +539,22 @@ export class S3TransferManager implements IS3TransferManager {
             putRequest = request.uploadObjectRequestModifier(putRequest);
           }
 
-          await this.upload(putRequest, { ...transferOptions, abortSignal: abortController.signal });
+          await this.upload(putRequest, { abortSignal: abortController.signal });
           objectsUploaded++;
+          transferredFiles++;
+          transferredBytes += fileStat.size;
+
+          this.dispatchEvent(
+            Object.assign(new Event("bytesTransferred"), {
+              request,
+              snapshot: {
+                transferredBytes,
+                totalBytes: traversalComplete ? totalBytes : undefined,
+                transferredFiles,
+                totalFiles: traversalComplete ? totalFiles : undefined,
+              },
+            })
+          );
         } catch (error) {
           if (terminated || abortController.signal.aborted) {
             objectsFailed++;
@@ -544,12 +582,31 @@ export class S3TransferManager implements IS3TransferManager {
       task.finally(() => inFlight.delete(task));
     }
 
+    traversalComplete = true;
+    totalFiles = discoveredFiles;
+    totalBytes = discoveredBytes;
+
     await Promise.allSettled([...inFlight]);
 
     if (terminated && terminationError) {
+      this.dispatchEvent(
+        Object.assign(new Event("transferFailed"), {
+          request,
+          snapshot: { transferredBytes, totalBytes, transferredFiles, totalFiles },
+        })
+      );
+      removeLocalEventListeners();
       throw terminationError;
     }
 
+    this.dispatchEvent(
+      Object.assign(new Event("transferComplete"), {
+        request,
+        response: { objectsUploaded, objectsFailed },
+        snapshot: { transferredBytes, totalBytes, transferredFiles, totalFiles },
+      })
+    );
+    removeLocalEventListeners();
     return { objectsUploaded, objectsFailed };
   }
 

@@ -8,7 +8,7 @@ import { join } from "node:path";
 import { afterEach, beforeAll, describe, expect, test as it } from "vitest";
 
 import { internalEventHandler, S3TransferManager } from "./S3TransferManager";
-import { type S3TransferManagerConfig,CannedFailurePolicy } from "./types";
+import { type DirectoryProgressSnapshot, type S3TransferManagerConfig, CannedFailurePolicy } from "./types";
 
 describe(S3TransferManager.name, () => {
   const chunk = "01234567";
@@ -719,8 +719,7 @@ describe(S3TransferManager.name, () => {
       }
     });
 
-    // waiting on some information form sep author
-    it.skip("should terminate on first failure with default policy", async () => {
+    it("should terminate on first failure with default policy", async () => {
       const tmpDir = await mkdtemp(join(tmpdir(), "tm-e2e-uploaddir-"));
       await writeFile(join(tmpDir, "file1.txt"), data(1024));
       await writeFile(join(tmpDir, "file2.txt"), data(1024));
@@ -760,6 +759,112 @@ describe(S3TransferManager.name, () => {
         await rm(tmpDir, { recursive: true });
       }
     });
+
+    it("should report directory upload transfer progress via event listeners", async () => {
+      const tmpDir = await mkdtemp(join(tmpdir(), "tm-e2e-uploaddir-"));
+      await writeFile(join(tmpDir, "file1.txt"), data(1024));
+      await writeFile(join(tmpDir, "file2.txt"), data(2048));
+      await mkdir(join(tmpDir, "sub"));
+      await writeFile(join(tmpDir, "sub", "file3.txt"), data(4096));
+
+      const s3Prefix = `${prefix}/progress`;
+      const tm = new S3TransferManager({ s3: client });
+
+      let initiated = false;
+      let completed = false;
+      const progressSnapshots: DirectoryProgressSnapshot[] = [];
+
+      try {
+        const result = await tm.uploadDirectory(
+          {
+            bucket: Bucket,
+            source: tmpDir,
+            recursive: true,
+            s3Prefix,
+          },
+          {
+            eventListeners: {
+              transferInitiated: [
+                (event) => {
+                  const snapshot = event.snapshot as DirectoryProgressSnapshot;
+                  if ("transferredFiles" in event.snapshot) {
+                    initiated = true;
+                    expect(snapshot.transferredBytes).toBe(0);
+                    expect(snapshot.transferredFiles).toBe(0);
+                    expect(snapshot.totalFiles).toBeUndefined();
+                  }
+                },
+              ],
+              bytesTransferred: [
+                (event) => {
+                  if ("transferredFiles" in event.snapshot) {
+                    progressSnapshots.push({ ...(event.snapshot as DirectoryProgressSnapshot) });
+                  }
+                },
+              ],
+              transferComplete: [
+                (event) => {
+                  if ("transferredFiles" in event.snapshot) {
+                    completed = true;
+                    const snapshot = event.snapshot as DirectoryProgressSnapshot;
+                    expect(snapshot.transferredFiles).toBe(3);
+                    expect(snapshot.totalFiles).toBe(3);
+                    expect(snapshot.transferredBytes).toBe(1024 + 2048 + 4096);
+                  }
+                },
+              ],
+            },
+          }
+        );
+
+        expect(initiated).toBe(true);
+        expect(completed).toBe(true);
+        expect(progressSnapshots.length).toBe(3);
+      } finally {
+        await rm(tmpDir, { recursive: true });
+        await cleanupS3Objects(s3Prefix);
+      }
+    }, 60_000);
+
+    it("should report transferFailed event on terminate policy", async () => {
+      const tmpDir = await mkdtemp(join(tmpdir(), "tm-e2e-uploaddir-"));
+      await writeFile(join(tmpDir, "file1.txt"), data(1024));
+
+      const s3Prefix = `${prefix}/progress-fail`;
+      const tm = new S3TransferManager({ s3: client });
+
+      let failedEvent = false;
+
+      try {
+        await tm.uploadDirectory(
+          {
+            bucket: "nonexistent-bucket-xyz-12345",
+            source: tmpDir,
+            recursive: true,
+            s3Prefix,
+          },
+          {
+            eventListeners: {
+              transferFailed: [
+                (event) => {
+                  if ("transferredFiles" in event.snapshot) {
+                    failedEvent = true;
+                    const snapshot = event.snapshot as DirectoryProgressSnapshot;
+                    expect(snapshot.transferredFiles).toBe(0);
+                    expect(snapshot.totalFiles).toBe(1);
+                  }
+                },
+              ],
+            },
+          }
+        );
+        expect.fail("Should have thrown");
+      } catch (error) {
+        expect(failedEvent).toBe(true);
+      } finally {
+        await rm(tmpDir, { recursive: true });
+      }
+    }, 60_000);
 
     it("should throw when source directory does not exist", async () => {
       const tm = new S3TransferManager({ s3: client });
