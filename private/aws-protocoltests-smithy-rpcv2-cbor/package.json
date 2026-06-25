@@ -23,10 +23,10 @@
     "@aws-crypto/sha256-browser": "5.2.0",
     "@aws-crypto/sha256-js": "5.2.0",
     "@aws-sdk/core": "workspace:^3.974.23",
-    "@smithy/core": "^3.24.6",
-    "@smithy/fetch-http-handler": "^5.4.6",
-    "@smithy/node-http-handler": "^4.7.6",
-    "@smithy/types": "^4.14.3",
+    "@smithy/core": "^3.26.0",
+    "@smithy/fetch-http-handler": "^5.5.2",
+    "@smithy/node-http-handler": "^4.8.2",
+    "@smithy/types": "^4.15.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
