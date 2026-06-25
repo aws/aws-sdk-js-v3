@@ -16,10 +16,10 @@ export {
   flexibleChecksumsMiddleware,
   getFlexibleChecksumsPlugin,
   resolveFlexibleChecksumsConfig,
-} from "@aws-sdk/checksums";
+} from "@aws-sdk/checksums/flexible-checksums";
 export type {
   FlexibleChecksumsRequestMiddlewareConfig,
   FlexibleChecksumsMiddlewareConfig,
   FlexibleChecksumsInputConfig,
   FlexibleChecksumsResolvedConfig,
-} from "@aws-sdk/checksums";
+} from "@aws-sdk/checksums/flexible-checksums";

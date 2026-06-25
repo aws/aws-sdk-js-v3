@@ -19,6 +19,7 @@
   "sideEffects": false,
   "dependencies": {
     "@aws-sdk/aws-protocoltests-ec2-schema": "workspace:3.1076.0",
+    "@aws-sdk/checksums": "workspace:^3.1000.9",
     "@aws-sdk/client-dynamodb": "workspace:3.1076.0",
     "@aws-sdk/client-ec2": "workspace:3.1076.0",
     "@aws-sdk/client-glacier": "workspace:3.1076.0",
@@ -32,7 +33,6 @@
     "@aws-sdk/core": "workspace:^3.974.24",
     "@aws-sdk/credential-provider-node": "workspace:^3.972.59",
     "@aws-sdk/middleware-bucket-endpoint": "workspace:^3.972.28",
-    "@aws-sdk/middleware-flexible-checksums": "workspace:^3.974.34",
     "@aws-sdk/middleware-sdk-s3": "workspace:^3.972.55",
     "@aws-sdk/signature-v4-multi-region": "workspace:^3.996.36",
     "@aws-sdk/weather": "workspace:3.1076.0",

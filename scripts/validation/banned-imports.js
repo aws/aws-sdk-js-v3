@@ -71,6 +71,13 @@ const BANNED_PACKAGES = new Set([
   "@aws-sdk/region-config-resolver",
   "@aws-sdk/util-arn-parser",
   "@aws-sdk/util-format-url",
+  "@aws-sdk/crc64-nvme",
+  "@aws-sdk/middleware-flexible-checksums",
+  "@aws-sdk/middleware-bucket-endpoint",
+  "@aws-sdk/middleware-expect-continue",
+  "@aws-sdk/middleware-location-constraint",
+  "@aws-sdk/middleware-ssec",
+  "@aws-sdk/middleware-sdk-s3-control",
 ]);
 
 /**
@@ -93,6 +100,16 @@ function checkBanned(specifier) {
   // Rule: @aws-sdk/core must use submodule
   if (specifier === "@aws-sdk/core") {
     return `"${specifier}" — import from a specific submodule like @aws-sdk/core/submodule instead`;
+  }
+
+  // Rule: @aws-sdk/checksums must use submodule
+  if (specifier === "@aws-sdk/checksums") {
+    return `"${specifier}" — import from a specific submodule like @aws-sdk/checksums/crc, @aws-sdk/checksums/sha, or @aws-sdk/checksums/flexible-checksums instead`;
+  }
+
+  // Rule: @aws-sdk/middleware-sdk-s3 must use submodule
+  if (specifier === "@aws-sdk/middleware-sdk-s3") {
+    return `"${specifier}" — import from a specific submodule like @aws-sdk/middleware-sdk-s3/s3 or @aws-sdk/middleware-sdk-s3/s3-control instead`;
   }
 
   // Rule: banned consolidated packages

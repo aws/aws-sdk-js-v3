@@ -181,10 +181,11 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
                             TypeScriptDependency.SMITHY_CORE,
                             SmithyCoreSubmodules.CONFIG
                         );
-                        writer.addImport(
+                        writer.addImportSubmodule(
                             "NODE_REQUEST_CHECKSUM_CALCULATION_CONFIG_OPTIONS",
                             null,
-                            AwsDependency.FLEXIBLE_CHECKSUMS_MIDDLEWARE
+                            AwsDependency.FLEXIBLE_CHECKSUMS_MIDDLEWARE,
+                            AwsSdkChecksumsSubmodules.FLEXIBLE_CHECKSUMS
                         );
                         writer.write("loadNodeConfig(NODE_REQUEST_CHECKSUM_CALCULATION_CONFIG_OPTIONS, loaderConfig)");
                     },
@@ -196,10 +197,11 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
                             TypeScriptDependency.SMITHY_CORE,
                             SmithyCoreSubmodules.CONFIG
                         );
-                        writer.addImport(
+                        writer.addImportSubmodule(
                             "NODE_RESPONSE_CHECKSUM_VALIDATION_CONFIG_OPTIONS",
                             null,
-                            AwsDependency.FLEXIBLE_CHECKSUMS_MIDDLEWARE
+                            AwsDependency.FLEXIBLE_CHECKSUMS_MIDDLEWARE,
+                            AwsSdkChecksumsSubmodules.FLEXIBLE_CHECKSUMS
                         );
                         writer.write("loadNodeConfig(NODE_RESPONSE_CHECKSUM_VALIDATION_CONFIG_OPTIONS, loaderConfig)");
                     }
@@ -242,7 +244,9 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
         return ListUtils.of(
             RuntimeClientPlugin.builder()
                 .withConventions(
-                    AwsDependency.FLEXIBLE_CHECKSUMS_MIDDLEWARE.dependency,
+                    AwsDependency.FLEXIBLE_CHECKSUMS_MIDDLEWARE.dependency.getPackageName()
+                        + AwsSdkChecksumsSubmodules.FLEXIBLE_CHECKSUMS,
+                    AwsDependency.FLEXIBLE_CHECKSUMS_MIDDLEWARE.dependency.getVersion(),
                     "FlexibleChecksums",
                     HAS_CONFIG
                 )
@@ -250,7 +254,9 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
                 .build(),
             RuntimeClientPlugin.builder()
                 .withConventions(
-                    AwsDependency.FLEXIBLE_CHECKSUMS_MIDDLEWARE.dependency,
+                    AwsDependency.FLEXIBLE_CHECKSUMS_MIDDLEWARE.dependency.getPackageName()
+                        + AwsSdkChecksumsSubmodules.FLEXIBLE_CHECKSUMS,
+                    AwsDependency.FLEXIBLE_CHECKSUMS_MIDDLEWARE.dependency.getVersion(),
                     "FlexibleChecksums",
                     HAS_MIDDLEWARE
                 )

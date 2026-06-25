@@ -12,6 +12,7 @@
     "CONFIG_RESPONSE_CHECKSUM_VALIDATION": "string",
     "Crc64Nvme": "function",
     "crc64NvmeCrtContainer": "object",
+    "Crc64NvmeJs": "function",
     "DEFAULT_CHECKSUM_ALGORITHM": "string",
     "DEFAULT_REQUEST_CHECKSUM_CALCULATION": "string",
     "DEFAULT_RESPONSE_CHECKSUM_VALIDATION": "string",
@@ -29,6 +30,54 @@
     "RequestChecksumCalculation": "object",
     "resolveFlexibleChecksumsConfig": "function",
     "ResponseChecksumValidation": "object"
+  },
+  "@aws-sdk/checksums/crc": {
+    "Crc32": "function",
+    "Crc32c": "function",
+    "Crc32cJs": "function",
+    "Crc32cNode": "function",
+    "Crc32Js": "function",
+    "Crc32Node": "function",
+    "Crc64Nvme": "function",
+    "crc64NvmeCrtContainer": "object",
+    "Crc64NvmeJs": "function"
+  },
+  "@aws-sdk/checksums/flexible-checksums": {
+    "ChecksumAlgorithm": "object",
+    "ChecksumLocation": "object",
+    "CONFIG_REQUEST_CHECKSUM_CALCULATION": "string",
+    "CONFIG_RESPONSE_CHECKSUM_VALIDATION": "string",
+    "DEFAULT_CHECKSUM_ALGORITHM": "string",
+    "DEFAULT_REQUEST_CHECKSUM_CALCULATION": "string",
+    "DEFAULT_RESPONSE_CHECKSUM_VALIDATION": "string",
+    "ENV_REQUEST_CHECKSUM_CALCULATION": "string",
+    "ENV_RESPONSE_CHECKSUM_VALIDATION": "string",
+    "FlexibleChecksumsInputConfig": "type(interface)",
+    "flexibleChecksumsMiddleware": "function",
+    "FlexibleChecksumsMiddlewareConfig": "type(interface)",
+    "flexibleChecksumsMiddlewareOptions": "object",
+    "FlexibleChecksumsRequestMiddlewareConfig": "type(interface)",
+    "FlexibleChecksumsResolvedConfig": "type(interface)",
+    "getFlexibleChecksumsPlugin": "function",
+    "NODE_REQUEST_CHECKSUM_CALCULATION_CONFIG_OPTIONS": "object",
+    "NODE_RESPONSE_CHECKSUM_VALIDATION_CONFIG_OPTIONS": "object",
+    "RequestChecksumCalculation": "object",
+    "resolveFlexibleChecksumsConfig": "function",
+    "ResponseChecksumValidation": "object"
+  },
+  "@aws-sdk/checksums/md5": {
+    "Md5": "function",
+    "Md5Js": "function",
+    "Md5Node": "function"
+  },
+  "@aws-sdk/checksums/sha": {
+    "Sha1": "function",
+    "Sha1Js": "function",
+    "Sha1Node": "function",
+    "Sha1WebCrypto": "function",
+    "Sha256": "function",
+    "Sha256Js": "function",
+    "Sha256Node": "function"
   },
   "@aws-sdk/chunked-stream-reader-node": {
     "streamReader": "function"

@@ -1,4 +1,8 @@
+import "@aws-sdk/crc64-nvme-crt";
+
 import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
+import { Crc32, Crc32c, Crc32cJs, Crc32Js, Crc32Node, Crc64Nvme, Crc64NvmeJs } from "@aws-sdk/checksums/crc";
+import { Sha1, Sha1Js, Sha1Node, Sha256, Sha256Js, Sha256Node } from "@aws-sdk/checksums/sha";
 import type { UploadPartCommandOutput } from "@aws-sdk/client-s3";
 import { ChecksumAlgorithm, S3 } from "@aws-sdk/client-s3";
 import { Upload } from "@aws-sdk/lib-storage";
@@ -259,38 +263,99 @@ describe("S3 checksums", () => {
   });
 
   describe("Checksum computation", () => {
-    it.each([
-      ["Hello world", ChecksumAlgorithm.CRC32, "i9aeUg=="],
-      ["Hello world", ChecksumAlgorithm.CRC32C, "crUfeA=="],
-      ["Hello world", ChecksumAlgorithm.CRC64NVME, "OOJZ0D8xKts="],
-      ["Hello world", ChecksumAlgorithm.SHA1, "e1AsOh9IyGCa4hLN+2Od7jlnP14="],
-      ["Hello world", ChecksumAlgorithm.SHA256, "ZOyIygCyaOW6GjVnihtTFtIS9PNmskdyMlNKiuyjfzw="],
-    ])(
-      "when body is '%s' with checksum algorithm '%s' the checksum is '%s'",
-      async (body, checksumAlgorithm, checksumValue) => {
-        const client = new S3();
-        client.middlewareStack.addRelativeTo(
-          (next: any) => async (args: any) => {
-            const request = args.request as HttpRequest;
-            expect(request.headers["x-amz-sdk-checksum-algorithm"]).toEqual(checksumAlgorithm);
-            expect(request.headers[`x-amz-checksum-${checksumAlgorithm.toLowerCase()}`]).toEqual(checksumValue);
-            return next(args);
-          },
-          {
-            relation: "after",
-            toMiddleware: "flexibleChecksumsMiddleware",
+    const implSpies = {
+      CRC32: vi.spyOn(Crc32Node.prototype, "update"),
+      CRC32C: vi.spyOn(Crc32c.prototype, "update"),
+      CRC64NVME: vi.spyOn(Crc64Nvme.prototype, "update"),
+      SHA1: vi.spyOn(Sha1Node.prototype, "update"),
+      SHA256: vi.spyOn(Sha256Node.prototype, "update"),
+    };
+
+    const implSpiesJs = {
+      CRC32: vi.spyOn(Crc32Js.prototype, "update"),
+      CRC32C: vi.spyOn(Crc32cJs.prototype, "update"),
+      CRC64NVME: vi.spyOn(Crc64NvmeJs.prototype, "update"),
+      SHA1: vi.spyOn(Sha1Js.prototype, "update"),
+      SHA256: vi.spyOn(Sha256Js.prototype, "update"),
+    };
+
+    const defaultChecksumAlgorithms = {
+      SHA1: Sha1,
+      SHA256: Sha256,
+      CRC32: Crc32,
+      CRC32C: Crc32c,
+      CRC64NVME: Crc64Nvme,
+    };
+
+    const jsChecksumAlgorithms = {
+      SHA1: Sha1Js,
+      SHA256: Sha256Js,
+      CRC32: Crc32Js,
+      CRC32C: Crc32cJs,
+      CRC64NVME: Crc64NvmeJs,
+    };
+
+    for (const checksumAlgorithms of [defaultChecksumAlgorithms, jsChecksumAlgorithms]) {
+      it.each([
+        ["Hello world", ChecksumAlgorithm.CRC32, "i9aeUg=="],
+        ["Hello world", ChecksumAlgorithm.CRC32C, "crUfeA=="],
+        ["Hello world", ChecksumAlgorithm.CRC64NVME, "OOJZ0D8xKts="],
+        ["Hello world", ChecksumAlgorithm.SHA1, "e1AsOh9IyGCa4hLN+2Od7jlnP14="],
+        ["Hello world", ChecksumAlgorithm.SHA256, "ZOyIygCyaOW6GjVnihtTFtIS9PNmskdyMlNKiuyjfzw="],
+      ])(
+        "when body is '%s' with checksum algorithm '%s' the checksum is '%s'" +
+          (checksumAlgorithms === jsChecksumAlgorithms ? ` (JS impl)` : ``),
+        async (body, checksumAlgorithm, checksumValue) => {
+          Object.values(implSpies).forEach((s) => s.mockClear());
+          Object.values(implSpiesJs).forEach((s) => s.mockClear());
+
+          const client = new S3({
+            checksumAlgorithms,
+          });
+          client.middlewareStack.addRelativeTo(
+            (next: any, context: any) => async (args: any) => {
+              const request = args.request as HttpRequest;
+              if (context.commandName === "PutObjectCommand") {
+                expect(request.headers["x-amz-sdk-checksum-algorithm"]).toEqual(checksumAlgorithm);
+                expect(request.headers[`x-amz-checksum-${checksumAlgorithm.toLowerCase()}`]).toEqual(checksumValue);
+              }
+              return next(args);
+            },
+            {
+              relation: "after",
+              toMiddleware: "flexibleChecksumsMiddleware",
+            }
+          );
+
+          await client.putObject({
+            Bucket,
+            Key: Key + "-checksum-" + checksumAlgorithm,
+            Body: body,
+            ChecksumAlgorithm: checksumAlgorithm,
+          });
+
+          const get = await client.getObject({
+            Bucket,
+            Key: Key + "-checksum-" + checksumAlgorithm,
+            ChecksumMode: "ENABLED",
+          });
+
+          expect(get.$metadata.httpStatusCode).toEqual(200);
+          const retrieved = await get.Body?.transformToString();
+          expect(retrieved).toEqual(body);
+          expect(get[`Checksum${checksumAlgorithm}`]).toEqual(checksumValue);
+
+          for (const [algo, spy] of Object.entries(
+            checksumAlgorithms === jsChecksumAlgorithms ? implSpiesJs : implSpies
+          )) {
+            if (algo === checksumAlgorithm) {
+              expect(spy).toHaveBeenCalled();
+            } else {
+              expect(spy).not.toHaveBeenCalled();
+            }
           }
-        );
-
-        await client.putObject({
-          Bucket,
-          Key: Key + "-checksum-" + checksumAlgorithm,
-          Body: body,
-          ChecksumAlgorithm: checksumAlgorithm,
-        });
-
-        expect.assertions(2);
-      }
-    );
+        }
+      );
+    }
   });
 }, 60_000);

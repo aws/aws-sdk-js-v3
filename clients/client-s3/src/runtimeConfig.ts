@@ -3,16 +3,16 @@
 import packageInfo from "../package.json"; // eslint-disable-line
 
 import {
+  NODE_REQUEST_CHECKSUM_CALCULATION_CONFIG_OPTIONS,
+  NODE_RESPONSE_CHECKSUM_VALIDATION_CONFIG_OPTIONS,
+} from "@aws-sdk/checksums/flexible-checksums";
+import {
   createDefaultUserAgentProvider,
   emitWarningIfUnsupportedVersion as awsCheckVersion,
   NODE_APP_ID_CONFIG_OPTIONS,
 } from "@aws-sdk/core/client";
 import { NODE_AUTH_SCHEME_PREFERENCE_OPTIONS, NODE_SIGV4A_CONFIG_OPTIONS } from "@aws-sdk/core/httpAuthSchemes";
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
-import {
-  NODE_REQUEST_CHECKSUM_CALCULATION_CONFIG_OPTIONS,
-  NODE_RESPONSE_CHECKSUM_VALIDATION_CONFIG_OPTIONS,
-} from "@aws-sdk/middleware-flexible-checksums";
 import {
   NODE_DISABLE_S3_EXPRESS_SESSION_AUTH_OPTIONS,
   NODE_USE_ARN_REGION_CONFIG_OPTIONS,

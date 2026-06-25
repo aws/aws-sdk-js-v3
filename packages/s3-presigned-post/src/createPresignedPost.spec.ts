@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-restricted-imports
 import { defaultEndpointResolver } from "@aws-sdk/client-s3/src/endpoint/endpointResolver";
 import { createScope, getSigningKey } from "@smithy/signature-v4";
 import type { HttpRequest, SourceData } from "@smithy/types";

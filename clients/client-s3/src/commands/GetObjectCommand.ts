@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksums";
+import { getFlexibleChecksumsPlugin } from "@aws-sdk/checksums/flexible-checksums";
 import { getS3ExpiresMiddlewarePlugin, getSsecPlugin } from "@aws-sdk/middleware-sdk-s3/s3";
 import { Command as $Command } from "@smithy/core/client";
 import { getEndpointPlugin } from "@smithy/core/endpoints";

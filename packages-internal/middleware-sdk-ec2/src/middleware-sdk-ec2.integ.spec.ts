@@ -1,7 +1,6 @@
+import { TestHttpHandler } from "@aws-sdk/aws-util-test/src";
 import { EC2 } from "@aws-sdk/client-ec2";
 import { describe, expect, test as it } from "vitest";
-
-import { TestHttpHandler } from "../../../private/aws-util-test/src";
 
 describe("EC2", () => {
   describe("middleware-sdk-ec2", () => {

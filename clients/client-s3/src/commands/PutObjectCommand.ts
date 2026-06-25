@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksums";
+import { getFlexibleChecksumsPlugin } from "@aws-sdk/checksums/flexible-checksums";
 import {
   getCheckContentLengthHeaderPlugin,
   getSsecPlugin,

@@ -4,9 +4,14 @@
     "declarationDir": "dist-types",
     "rootDir": "src",
     "paths": {
-      "@smithy/core/*": ["../../node_modules/@smithy/core/dist-types/submodules/*/index.d.ts"]
+      "@smithy/core/*": ["../../node_modules/@smithy/core/dist-types/submodules/*/index.d.ts"],
+      "@aws-sdk/checksums/crc": ["./src/submodules/crc/index.ts"],
+      "@aws-sdk/checksums/flexible-checksums": ["./src/submodules/flexible-checksums/index.ts"],
+      "@aws-sdk/checksums/sha": ["./src/submodules/sha/index.ts"],
+      "@aws-sdk/checksums/md5": ["./src/submodules/md5/index.ts"]
     }
   },
   "extends": "../../tsconfig.types.json",
-  "include": ["src/"]
+  "include": ["src/"],
+  "exclude": ["src/**/*.spec.ts", "src/**/*.fixture.ts"]
 }
