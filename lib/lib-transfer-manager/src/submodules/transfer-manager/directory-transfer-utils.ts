@@ -2,21 +2,18 @@ import { type Stats } from "node:fs";
 import { stat } from "node:fs/promises";
 import { resolve } from "node:path";
 
-import type {  DirectoryTransferFailureContext, FailurePolicy } from "./types";
+import type { CannedFailurePolicy, DirectoryTransferFailureContext, FailurePolicy } from "./types";
 
 /**
  * Simple counting semaphore for bounding concurrency.
  * @internal
  */
 export class Semaphore {
-  private slots: number;
   private queue: Array<() => void> = [];
 
-  constructor(slots: number) {
-    this.slots = slots;
-  }
+  public constructor(private slots: number) {}
 
-  async acquire(): Promise<void> {
+  public async acquire(): Promise<void> {
     if (this.slots > 0) {
       this.slots--;
       return;
@@ -24,7 +21,7 @@ export class Semaphore {
     return new Promise((resolve) => this.queue.push(resolve));
   }
 
-  release(): void {
+  public release(): void {
     const next = this.queue.shift();
     if (next) {
       next();
@@ -51,7 +48,7 @@ export async function validateDirectory(dirPath: string): Promise<string> {
   try {
     stats = await stat(absolutePath);
   } catch (error: any) {
-    throw new Error(`Directory does not exist at: ${absolutePath}`);
+    throw new Error(`Cannot access directory at: ${absolutePath}, ${error.message}`);
   }
   if (!stats.isDirectory()) {
     throw new Error(`Path is not a directory: ${absolutePath}`);
@@ -72,7 +69,7 @@ export async function handleFailure(
   policy: FailurePolicy,
   context: DirectoryTransferFailureContext,
   abortController: AbortController
-): Promise<"continue" | "terminate"> {
+): Promise<CannedFailurePolicy> {
   if (policy === "terminate") {
     abortController.abort();
     return "terminate";

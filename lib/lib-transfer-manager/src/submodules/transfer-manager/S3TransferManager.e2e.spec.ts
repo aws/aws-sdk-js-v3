@@ -8,7 +8,7 @@ import { join } from "node:path";
 import { afterEach, beforeAll, describe, expect, test as it } from "vitest";
 
 import { internalEventHandler, S3TransferManager } from "./S3TransferManager";
-import { type DirectoryProgressSnapshot, type S3TransferManagerConfig, CannedFailurePolicy } from "./types";
+import { type CannedFailurePolicy,type DirectoryProgressSnapshot, type S3TransferManagerConfig } from "./types";
 
 describe(S3TransferManager.name, () => {
   const chunk = "01234567";
@@ -702,7 +702,7 @@ describe(S3TransferManager.name, () => {
           source: tmpDir,
           recursive: true,
           s3Prefix,
-          failurePolicy: CannedFailurePolicy.Continue,
+          failurePolicy: "continue" as CannedFailurePolicy,
           uploadObjectRequestModifier: (req) => {
             if (req.Key?.endsWith("bad.txt")) {
               return { ...req, Bucket: "nonexistent-bucket-xyz-12345" };
@@ -875,7 +875,7 @@ describe(S3TransferManager.name, () => {
           source: "/nonexistent/path/e2e-test",
           recursive: true,
         })
-      ).rejects.toThrow("Directory does not exist");
+      ).rejects.toThrow("Cannot access directory at");
     });
 
     it("should use multipart upload for large files in directory", async () => {

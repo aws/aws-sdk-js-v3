@@ -327,18 +327,12 @@ export interface JoinStreamIterationEvents {
  * Canned failure policies for directory transfers.
  * Used to control behavior when an individual object fails during a multi-object transfer.
  *
+ * "terminate" - Cancel all ongoing requests, terminate the directory transfer, and throw the error. (Default)
+ * "continue" - Ignore the failure, increment failed count, and continue transferring remaining objects.
+ *
  * @alpha
  */
-export enum CannedFailurePolicy {
-  /**
-   * Cancel all ongoing requests, terminate the directory transfer, and throw the error. (Default)
-   */
-  Terminate = "terminate",
-  /**
-   * Ignore the failure, increment failed count, and continue transferring remaining objects.
-   */
-  Continue = "continue",
-}
+export type CannedFailurePolicy = "terminate" | "continue";
 
 /**
  * Context provided to a custom failure policy callback when an individual object transfer fails.
@@ -370,7 +364,7 @@ export interface DirectoryTransferFailureContext {
  */
 export type FailurePolicy =
   | CannedFailurePolicy
-  | ((context: DirectoryTransferFailureContext) => Promise<"continue" | "terminate">);
+  | ((context: DirectoryTransferFailureContext) => Promise<CannedFailurePolicy>);
 
 /**
  * Request parameters for uploadDirectory operation.
@@ -402,11 +396,11 @@ export interface UploadDirectoryRequest {
    */
   s3Prefix?: string;
   /**
-   * A callback to allow users to filter out unwanted files.
-   * Return true to include the file for upload, false to skip.
+   * Filter to control which files are uploaded.
+   * Can be a callback (return true to include, false to skip) or a RegExp (matches are included).
    * By default, if no filter is specified, all files will be uploaded.
    */
-  filter?: (filePath: string) => boolean;
+  filter?: ((filePath: string) => boolean) | RegExp;
   /**
    * Modifier invoked per upload request.
    * MUST return a new copy.

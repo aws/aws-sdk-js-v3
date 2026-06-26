@@ -511,7 +511,10 @@ export class S3TransferManager implements IS3TransferManager {
       if (terminated || abortController.signal.aborted) break;
       this.checkAborted(transferOptions);
 
-      if (request.filter && !request.filter(filePath)) continue;
+      if (request.filter) {
+        const include = request.filter instanceof RegExp ? request.filter.test(filePath) : request.filter(filePath);
+        if (!include) continue;
+      }
 
       const fileStat = await stat(filePath);
       discoveredFiles++;

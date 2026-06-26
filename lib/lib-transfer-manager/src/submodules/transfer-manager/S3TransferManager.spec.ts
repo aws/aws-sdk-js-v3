@@ -7,7 +7,7 @@ import { beforeAll, beforeEach, describe, expect, test as it, vi } from "vitest"
 
 import { S3TransferManager } from "./S3TransferManager";
 import type { TransferCompleteEvent, TransferEvent } from "./types";
-import { CannedFailurePolicy } from "./types";
+import type { CannedFailurePolicy } from "./types";
 import { WorkerHttpHandler } from "./worker-http-handler";
 
 describe("S3TransferManager Unit Tests", () => {
@@ -1406,6 +1406,29 @@ describe("S3TransferManager Unit Tests", () => {
       }
     });
 
+    it("should apply RegExp filter to skip files", async () => {
+
+      const tmpDir = await mkdtemp(join(tmpdir(), "tm-uploadDir-test-"));
+      await writeFile(join(tmpDir, "hello.txt"), "hello");
+      await writeFile(join(tmpDir, "world.txt"), "world");
+      await writeFile(join(tmpDir, "file123.txt"), "this is file123");
+      await writeFile(join(tmpDir, "data-file.txt"), "this is a data file");
+      try {
+        const mockClient = createMockClient();
+        const tm = new S3TransferManager({ s3: mockClient });
+
+        const result = await tm.uploadDirectory({
+          bucket: "test-bucket",
+          source: tmpDir,
+          filter: /\/[a-zA-Z]+\.txt$/,
+        });
+
+        expect(result.objectsUploaded).toBe(2);
+      } finally {
+        await rm(tmpDir, { recursive: true });
+      }
+    });
+
     it("should prepend s3Prefix to keys", async () => {
 
       const tmpDir = await mkdtemp(join(tmpdir(), "tm-uploadDir-test-"));
@@ -1452,7 +1475,7 @@ describe("S3TransferManager Unit Tests", () => {
           tm.uploadDirectory({
             bucket: "test-bucket",
             source: tmpDir,
-            failurePolicy: CannedFailurePolicy.Terminate,
+            failurePolicy: "terminate" as CannedFailurePolicy,
           })
         ).rejects.toThrow("S3 error");
 
@@ -1483,7 +1506,7 @@ describe("S3TransferManager Unit Tests", () => {
         const result = await tm.uploadDirectory({
           bucket: "test-bucket",
           source: tmpDir,
-          failurePolicy: CannedFailurePolicy.Continue,
+          failurePolicy: "continue" as CannedFailurePolicy,
         });
 
         expect(result.objectsFailed).toBe(1);
@@ -1661,7 +1684,7 @@ describe("S3TransferManager Unit Tests", () => {
           bucket: "test-bucket",
           source: "/nonexistent/path/abc123",
         })
-      ).rejects.toThrow("Directory does not exist");
+      ).rejects.toThrow("Cannot access directory at");
     });
 
     it("should abort when transferOptions.abortSignal is triggered", async () => {
