@@ -3,9 +3,10 @@ const _AC = "AgentlessConfig";
 const _ADE = "AccessDeniedException";
 const _AMDC = "AnswerMachineDetectionConfig";
 const _C = "Campaign";
-const _CC = "CreateCampaign";
+const _CC = "ChannelContext";
 const _CCR = "CreateCampaignRequest";
 const _CCRr = "CreateCampaignResponse";
+const _CCr = "CreateCampaign";
 const _CE = "ConflictException";
 const _CF = "CampaignFilters";
 const _CL = "CommunicationLimit";
@@ -50,6 +51,7 @@ const _ELC = "EntryLimitsConfig";
 const _EOC = "EmailOutboundConfig";
 const _EOM = "EmailOutboundMode";
 const _ET = "EventTrigger";
+const _ETC = "EventTriggerContext";
 const _FCSR = "FailedCampaignStateResponse";
 const _FCSRL = "FailedCampaignStateResponseList";
 const _FPOR = "FailedProfileOutboundRequest";
@@ -178,6 +180,7 @@ const _WACSC = "WhatsAppChannelSubtypeConfig";
 const _WACSP = "WhatsAppChannelSubtypeParameters";
 const _WAOC = "WhatsAppOutboundConfig";
 const _WAOM = "WhatsAppOutboundMode";
+const _WNC = "WebNotificationContext";
 const _a = "arn";
 const _aA = "agentActions";
 const _aAMP = "awaitAnswerMachinePrompt";
@@ -186,7 +189,9 @@ const _aMDC = "answerMachineDetectionConfig";
 const _ag = "agentless";
 const _at = "attributes";
 const _bA = "bandwidthAllocation";
+const _bI = "browserId";
 const _c = "client";
+const _cC = "channelContext";
 const _cCFA = "connectCampaignFlowArn";
 const _cCFI = "connectContactFlowId";
 const _cDP = "campaignDeletionPolicy";
@@ -228,6 +233,7 @@ const _eC = "encryptionConfig";
 const _eD = "endDate";
 const _eLC = "entryLimitsConfig";
 const _eT = "encryptionType";
+const _eTC = "eventTriggerContext";
 const _eTn = "endTime";
 const _eTv = "eventTrigger";
 const _eTx = "expirationTime";
@@ -278,7 +284,9 @@ const _rPL = "restrictedPeriodList";
 const _rT = "ringTimeout";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.connectcampaignsv2";
 const _sD = "startDate";
+const _sE = "sourceEvent";
 const _sEADN = "sourceEmailAddressDisplayName";
+const _sI = "sessionId";
 const _sLRA = "serviceLinkedRoleArn";
 const _sR = "successfulRequests";
 const _sT = "startTime";
@@ -298,6 +306,7 @@ const _te = "telephony";
 const _u = "unit";
 const _v = "value";
 const _wA = "whatsApp";
+const _wNC = "webNotificationContext";
 const _wTA = "wisdomTemplateArn";
 const _xAET = "xAmzErrorType";
 const _xaE = "x-amzn-ErrorType";
@@ -424,6 +433,11 @@ export var CampaignSummary$: StaticStructureSchema = [3, n0, _CS,
   [_i, _a, _n, _cII, _cS, _t, _sc, _eLC, _cCFA],
   [0, 0, 0, 0, 64 | 0, 0, () => Schedule$, () => EntryLimitsConfig$, 0], 5
 ];
+export var ChannelContext$: StaticStructureSchema = [3, n0, _CC,
+  0,
+  [_wNC],
+  [() => WebNotificationContext$]
+];
 export var ChannelSubtypeConfig$: StaticStructureSchema = [3, n0, _CSC,
   0,
   [_te, _sm, _em, _wA],
@@ -548,6 +562,11 @@ export var EventTrigger$: StaticStructureSchema = [3, n0, _ET,
   0,
   [_cPDA],
   [0]
+];
+export var EventTriggerContext$: StaticStructureSchema = [3, n0, _ETC,
+  0,
+  [_sE, _cC],
+  [0, () => ChannelContext$]
 ];
 export var FailedCampaignStateResponse$: StaticStructureSchema = [3, n0, _FCSR,
   0,
@@ -706,8 +725,8 @@ export var PreviewConfig$: StaticStructureSchema = [3, n0, _PCr,
 ];
 export var ProfileOutboundRequest$: StaticStructureSchema = [3, n0, _POR,
   0,
-  [_cT, _pI, _eTx],
-  [0, 0, 5], 2
+  [_cT, _pI, _eTx, _eTC],
+  [0, 0, 5, () => EventTriggerContext$], 2
 ];
 export var ProgressiveConfig$: StaticStructureSchema = [3, n0, _PCro,
   0,
@@ -904,6 +923,11 @@ export var UpdateCampaignSourceRequest$: StaticStructureSchema = [3, n0, _UCSRp,
   [_i, _so],
   [[0, 1], () => Source$], 2
 ];
+export var WebNotificationContext$: StaticStructureSchema = [3, n0, _WNC,
+  0,
+  [_sI, _bI],
+  [0, 0]
+];
 export var WhatsAppChannelSubtypeConfig$: StaticStructureSchema = [3, n0, _WACSC,
   0,
   [_oM, _dOC, _cap],
@@ -1033,7 +1057,7 @@ export var WhatsAppOutboundMode$: StaticUnionSchema = [4, n0, _WAOM,
   [_ag],
   [() => AgentlessConfig$]
 ];
-export var CreateCampaign$: StaticOperationSchema = [9, n0, _CC,
+export var CreateCampaign$: StaticOperationSchema = [9, n0, _CCr,
   { [_h]: ["PUT", "/v2/campaigns", 200] }, () => CreateCampaignRequest$, () => CreateCampaignResponse$
 ];
 export var DeleteCampaign$: StaticOperationSchema = [9, n0, _DC,

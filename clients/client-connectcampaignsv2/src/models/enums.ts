@@ -275,6 +275,7 @@ export const EventType = {
   CAMPAIGN_ORCHESTRATION: "Campaign-Orchestration",
   CAMPAIGN_SMS: "Campaign-SMS",
   CAMPAIGN_TELEPHONY: "Campaign-Telephony",
+  CAMPAIGN_WEB_NOTIFICATION: "Campaign-WebNotification",
   CAMPAIGN_WHATS_APP: "Campaign-WhatsApp",
 } as const;
 /**

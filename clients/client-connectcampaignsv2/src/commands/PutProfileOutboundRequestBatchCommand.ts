@@ -47,6 +47,15 @@ export interface PutProfileOutboundRequestBatchCommandOutput extends PutProfileO
  *       clientToken: "STRING_VALUE", // required
  *       profileId: "STRING_VALUE", // required
  *       expirationTime: new Date("TIMESTAMP"),
+ *       eventTriggerContext: { // EventTriggerContext
+ *         sourceEvent: "STRING_VALUE",
+ *         channelContext: { // ChannelContext
+ *           webNotificationContext: { // WebNotificationContext
+ *             sessionId: "STRING_VALUE",
+ *             browserId: "STRING_VALUE",
+ *           },
+ *         },
+ *       },
  *     },
  *   ],
  * };

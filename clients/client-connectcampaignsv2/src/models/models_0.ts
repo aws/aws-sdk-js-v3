@@ -2389,6 +2389,54 @@ export interface PutOutboundRequestBatchResponse {
 }
 
 /**
+ * Context metadata for the web notification type channel
+ * @public
+ */
+export interface WebNotificationContext {
+  /**
+   * Session Id for web notification event trigger
+   * @public
+   */
+  sessionId?: string | undefined;
+
+  /**
+   * Browser Id for web notification event trigger
+   * @public
+   */
+  browserId?: string | undefined;
+}
+
+/**
+ * Additional metadata related to the event trigger context
+ * @public
+ */
+export interface ChannelContext {
+  /**
+   * Context metadata for the web notification type channel
+   * @public
+   */
+  webNotificationContext?: WebNotificationContext | undefined;
+}
+
+/**
+ * Event trigger context data
+ * @public
+ */
+export interface EventTriggerContext {
+  /**
+   * Source event object for event triggers
+   * @public
+   */
+  sourceEvent?: string | undefined;
+
+  /**
+   * Additional metadata related to the event trigger context
+   * @public
+   */
+  channelContext?: ChannelContext | undefined;
+}
+
+/**
  * Information about a profile outbound request
  * @public
  */
@@ -2410,6 +2458,12 @@ export interface ProfileOutboundRequest {
    * @public
    */
   expirationTime?: Date | undefined;
+
+  /**
+   * Event trigger context data
+   * @public
+   */
+  eventTriggerContext?: EventTriggerContext | undefined;
 }
 
 /**

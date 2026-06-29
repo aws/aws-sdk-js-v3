@@ -9,6 +9,7 @@ import {
   CampaignFilters$,
   CampaignState,
   CampaignSummary$,
+  ChannelContext$,
   ChannelSubtype,
   ChannelSubtypeConfig$,
   ChannelSubtypeParameters$,
@@ -68,6 +69,7 @@ import {
   EncryptionType,
   EntryLimitsConfig$,
   EventTrigger$,
+  EventTriggerContext$,
   EventType,
   ExternalCampaignType,
   FailedCampaignStateResponse$,
@@ -228,6 +230,7 @@ import {
   UpdateCampaignSourceRequest$,
   ValidationException,
   ValidationException$,
+  WebNotificationContext$,
   WhatsAppChannelSubtypeConfig$,
   WhatsAppChannelSubtypeParameters$,
   WhatsAppOutboundConfig$,
@@ -318,6 +321,7 @@ assert(typeof AnswerMachineDetectionConfig$ === "object");
 assert(typeof Campaign$ === "object");
 assert(typeof CampaignFilters$ === "object");
 assert(typeof CampaignSummary$ === "object");
+assert(typeof ChannelContext$ === "object");
 assert(typeof ChannelSubtypeConfig$ === "object");
 assert(typeof ChannelSubtypeParameters$ === "object");
 assert(typeof CommunicationLimit$ === "object");
@@ -346,6 +350,7 @@ assert(typeof EmailOutboundMode$ === "object");
 assert(typeof EncryptionConfig$ === "object");
 assert(typeof EntryLimitsConfig$ === "object");
 assert(typeof EventTrigger$ === "object");
+assert(typeof EventTriggerContext$ === "object");
 assert(typeof FailedCampaignStateResponse$ === "object");
 assert(typeof FailedProfileOutboundRequest$ === "object");
 assert(typeof FailedRequest$ === "object");
@@ -425,6 +430,7 @@ assert(typeof UpdateCampaignFlowAssociationRequest$ === "object");
 assert(typeof UpdateCampaignNameRequest$ === "object");
 assert(typeof UpdateCampaignScheduleRequest$ === "object");
 assert(typeof UpdateCampaignSourceRequest$ === "object");
+assert(typeof WebNotificationContext$ === "object");
 assert(typeof WhatsAppChannelSubtypeConfig$ === "object");
 assert(typeof WhatsAppChannelSubtypeParameters$ === "object");
 assert(typeof WhatsAppOutboundConfig$ === "object");
