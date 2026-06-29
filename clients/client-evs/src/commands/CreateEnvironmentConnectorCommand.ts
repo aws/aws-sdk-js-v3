@@ -27,7 +27,7 @@ export interface CreateEnvironmentConnectorCommandInput extends CreateEnvironmen
 export interface CreateEnvironmentConnectorCommandOutput extends CreateEnvironmentConnectorResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a connector for an Amazon EVS environment. A connector establishes a connection to a VCF appliance, such as vCenter, using a fully qualified domain name and an Amazon Web Services Secrets Manager secret that stores the appliance credentials.</p>
+ * <p>Creates a connector for an Amazon EVS environment. A connector allows the Amazon EVS control plane to interface with VCF appliances using a fully qualified domain name.</p> <p>You can create only one connector of each type per environment. For environments where Amazon EVS installs VCF, the <code>SDDC_MANAGER</code> connector is created automatically.</p> <note> <p>Amazon EVS requires an active connector to SDDC Manager or VCF Operations Manager to monitor environment health and license compliance.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -39,7 +39,7 @@ export interface CreateEnvironmentConnectorCommandOutput extends CreateEnvironme
  * const input = { // CreateEnvironmentConnectorRequest
  *   clientToken: "STRING_VALUE",
  *   environmentId: "STRING_VALUE", // required
- *   type: "VCENTER", // required
+ *   type: "OPERATIONS_MANAGER" || "SDDC_MANAGER" || "VCENTER", // required
  *   applianceFqdn: "STRING_VALUE", // required
  *   secretIdentifier: "STRING_VALUE", // required
  * };
@@ -49,7 +49,7 @@ export interface CreateEnvironmentConnectorCommandOutput extends CreateEnvironme
  * //   connector: { // Connector
  * //     environmentId: "STRING_VALUE",
  * //     connectorId: "STRING_VALUE",
- * //     type: "VCENTER",
+ * //     type: "OPERATIONS_MANAGER" || "SDDC_MANAGER" || "VCENTER",
  * //     applianceFqdn: "STRING_VALUE",
  * //     secretArn: "STRING_VALUE",
  * //     state: "CREATING" || "CREATE_FAILED" || "ACTIVE" || "UPDATING" || "UPDATE_FAILED" || "DELETING" || "DELETED",
@@ -57,7 +57,7 @@ export interface CreateEnvironmentConnectorCommandOutput extends CreateEnvironme
  * //     status: "PASSED" || "FAILED" || "UNKNOWN",
  * //     checks: [ // ConnectorsChecksList
  * //       { // ConnectorCheck
- * //         type: "KEY_REUSE" || "KEY_COVERAGE" || "REACHABILITY" || "HOST_COUNT" || "VCENTER_REACHABILITY" || "VCENTER_VM_SYNC" || "VCENTER_VM_EVENT",
+ * //         type: "KEY_REUSE" || "KEY_COVERAGE" || "REACHABILITY" || "HOST_COUNT" || "VCENTER_REACHABILITY" || "VCENTER_VM_SYNC" || "VCENTER_VM_EVENT" || "OPERATIONS_MANAGER_REACHABILITY" || "SDDC_MANAGER_REACHABILITY" || "SDDC_MANAGER_HOST_COUNT" || "SDDC_MANAGER_KEY_COVERAGE" || "SDDC_MANAGER_KEY_REUSE" || "CONNECTOR_HEALTH",
  * //         result: "PASSED" || "FAILED" || "UNKNOWN",
  * //         lastCheckAttempt: new Date("TIMESTAMP"),
  * //         impairedSince: new Date("TIMESTAMP"),

@@ -47,7 +47,7 @@ export interface DeleteEnvironmentConnectorCommandOutput extends DeleteEnvironme
  * //   connector: { // Connector
  * //     environmentId: "STRING_VALUE",
  * //     connectorId: "STRING_VALUE",
- * //     type: "VCENTER",
+ * //     type: "OPERATIONS_MANAGER" || "SDDC_MANAGER" || "VCENTER",
  * //     applianceFqdn: "STRING_VALUE",
  * //     secretArn: "STRING_VALUE",
  * //     state: "CREATING" || "CREATE_FAILED" || "ACTIVE" || "UPDATING" || "UPDATE_FAILED" || "DELETING" || "DELETED",
@@ -55,7 +55,7 @@ export interface DeleteEnvironmentConnectorCommandOutput extends DeleteEnvironme
  * //     status: "PASSED" || "FAILED" || "UNKNOWN",
  * //     checks: [ // ConnectorsChecksList
  * //       { // ConnectorCheck
- * //         type: "KEY_REUSE" || "KEY_COVERAGE" || "REACHABILITY" || "HOST_COUNT" || "VCENTER_REACHABILITY" || "VCENTER_VM_SYNC" || "VCENTER_VM_EVENT",
+ * //         type: "KEY_REUSE" || "KEY_COVERAGE" || "REACHABILITY" || "HOST_COUNT" || "VCENTER_REACHABILITY" || "VCENTER_VM_SYNC" || "VCENTER_VM_EVENT" || "OPERATIONS_MANAGER_REACHABILITY" || "SDDC_MANAGER_REACHABILITY" || "SDDC_MANAGER_HOST_COUNT" || "SDDC_MANAGER_KEY_COVERAGE" || "SDDC_MANAGER_KEY_REUSE" || "CONNECTOR_HEALTH",
  * //         result: "PASSED" || "FAILED" || "UNKNOWN",
  * //         lastCheckAttempt: new Date("TIMESTAMP"),
  * //         impairedSince: new Date("TIMESTAMP"),
@@ -67,7 +67,7 @@ export interface DeleteEnvironmentConnectorCommandOutput extends DeleteEnvironme
  * //   environmentSummary: { // EnvironmentSummary
  * //     environmentId: "STRING_VALUE",
  * //     environmentName: "STRING_VALUE",
- * //     vcfVersion: "VCF-5.2.1" || "VCF-5.2.2",
+ * //     vcfVersion: "VCF-5.2.1" || "VCF-5.2.2" || "SELF_DEPLOYED",
  * //     environmentStatus: "PASSED" || "FAILED" || "UNKNOWN",
  * //     environmentState: "CREATING" || "CREATED" || "DELETING" || "DELETED" || "CREATE_FAILED",
  * //     createdAt: new Date("TIMESTAMP"),

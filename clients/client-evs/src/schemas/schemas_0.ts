@@ -163,6 +163,7 @@ const _hQ = "httpQuery";
 const _hS = "hostState";
 const _hc = "hcx";
 const _ho = "hosts";
+const _i = "id";
 const _iA = "ipAddress";
 const _iHP = "isHcxPublic";
 const _iP = "isPublic";
@@ -333,8 +334,8 @@ export var AssociateEipToVlanResponse$: StaticStructureSchema = [3, n0, _AETVRs,
 ];
 export var Check$: StaticStructureSchema = [3, n0, _C,
   0,
-  [_t, _re, _iS],
-  [0, 0, 4]
+  [_t, _i, _re, _iS],
+  [0, 0, 0, 4]
 ];
 export var ConnectivityInfo$: StaticStructureSchema = [3, n0, _CI,
   0,
@@ -383,8 +384,8 @@ export var CreateEnvironmentHostResponse$: StaticStructureSchema = [3, n0, _CEHR
 ];
 export var CreateEnvironmentRequest$: StaticStructureSchema = [3, n0, _CERre,
   0,
-  [_vIp, _sASI, _vV, _tA, _lI, _iV, _ho, _cIo, _vH, _sIi, _cT, _eN, _kKI, _ta, _sASG],
-  [0, 0, 0, 2, [() => LicenseInfoList, 0], () => InitialVlans$, () => HostInfoForCreateList, () => ConnectivityInfo$, () => VcfHostnames$, 0, [0, 4], 0, 0, 128 | 0, () => ServiceAccessSecurityGroups$], 10
+  [_vIp, _sASI, _vV, _tA, _iV, _cT, _eN, _kKI, _ta, _sASG, _cIo, _lI, _ho, _vH, _sIi],
+  [0, 0, 0, 2, () => InitialVlans$, [0, 4], 0, 0, 128 | 0, () => ServiceAccessSecurityGroups$, () => ConnectivityInfo$, [() => LicenseInfoList, 0], () => HostInfoForCreateList, () => VcfHostnames$, 0], 5
 ];
 export var CreateEnvironmentResponse$: StaticStructureSchema = [3, n0, _CERrea,
   0,

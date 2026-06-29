@@ -27,7 +27,7 @@ export interface CreateEnvironmentCommandInput extends CreateEnvironmentRequest 
 export interface CreateEnvironmentCommandOutput extends CreateEnvironmentResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an Amazon EVS environment that runs VCF software, such as SDDC Manager, NSX Manager, and vCenter Server.</p> <p>During environment creation, Amazon EVS performs validations on DNS settings, provisions VLAN subnets and hosts, and deploys the supplied version of VCF.</p> <p>It can take several hours to create an environment. After the deployment completes, you can configure VCF in the vSphere user interface according to your needs.</p> <important> <p>When creating a new environment, the default ESX version for the selected VCF version will be used, you cannot choose a specific ESX version in <code>CreateEnvironment</code> action. When a host has been added with a specific ESX version, it can only be upgraded using vCenter Lifecycle Manager.</p> </important> <note> <p>You cannot use the <code>dedicatedHostId</code> and <code>placementGroupId</code> parameters together in the same <code>CreateEnvironment</code> action. This results in a <code>ValidationException</code> response.</p> </note>
+ * <p>Creates an Amazon EVS environment that runs VCF software, such as SDDC Manager, NSX Manager, and vCenter Server.</p> <note> <p>When you specify <code>SELF_DEPLOYED</code> for <code>vcfVersion</code>, Amazon EVS provisions only the VLAN subnets; no hosts are added and no VCF installation is performed. After the environment is created, you can add hosts with <code>CreateEnvironmentHost</code> and install VCF yourself. The <code>licenseInfo</code>, <code>hosts</code>, <code>vcfHostnames</code>, <code>siteId</code>, and <code>connectivityInfo</code> parameters are not supported in this mode.</p> </note> <p>When you specify any other VCF version, Amazon EVS installs and configures VCF for you. For more information, see <a href="https://docs.aws.amazon.com/evs/latest/userguide/getting-started-self-deployed.html">Self-deployed mode</a> in the <i>Amazon EVS User Guide</i>.</p> <important> <p>When Amazon EVS installs VCF, the default ESX version for the selected VCF version will be used. After a host is added with a specific ESX version, it can only be upgraded using vCenter Lifecycle Manager.</p> </important> <note> <p>You cannot use the <code>dedicatedHostId</code> and <code>placementGroupId</code> parameters together in the same <code>CreateEnvironment</code> action. This results in a <code>ValidationException</code> response.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,14 +50,8 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  *   },
  *   vpcId: "STRING_VALUE", // required
  *   serviceAccessSubnetId: "STRING_VALUE", // required
- *   vcfVersion: "VCF-5.2.1" || "VCF-5.2.2", // required
+ *   vcfVersion: "VCF-5.2.1" || "VCF-5.2.2" || "SELF_DEPLOYED", // required
  *   termsAccepted: true || false, // required
- *   licenseInfo: [ // LicenseInfoList // required
- *     { // LicenseInfo
- *       solutionKey: "STRING_VALUE", // required
- *       vsanKey: "STRING_VALUE", // required
- *     },
- *   ],
  *   initialVlans: { // InitialVlans
  *     vmkManagement: { // InitialVlanInfo
  *       cidr: "STRING_VALUE", // required
@@ -82,7 +76,18 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  *     isHcxPublic: true || false,
  *     hcxNetworkAclId: "STRING_VALUE",
  *   },
- *   hosts: [ // HostInfoForCreateList // required
+ *   connectivityInfo: { // ConnectivityInfo
+ *     privateRouteServerPeerings: [ // RouteServerPeeringList // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   licenseInfo: [ // LicenseInfoList
+ *     { // LicenseInfo
+ *       solutionKey: "STRING_VALUE", // required
+ *       vsanKey: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   hosts: [ // HostInfoForCreateList
  *     { // HostInfoForCreate
  *       hostName: "STRING_VALUE", // required
  *       keyName: "STRING_VALUE", // required
@@ -91,11 +96,6 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  *       dedicatedHostId: "STRING_VALUE",
  *     },
  *   ],
- *   connectivityInfo: { // ConnectivityInfo
- *     privateRouteServerPeerings: [ // RouteServerPeeringList // required
- *       "STRING_VALUE",
- *     ],
- *   },
  *   vcfHostnames: { // VcfHostnames
  *     vCenter: "STRING_VALUE", // required
  *     nsx: "STRING_VALUE", // required
@@ -107,7 +107,7 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  *     sddcManager: "STRING_VALUE", // required
  *     cloudBuilder: "STRING_VALUE", // required
  *   },
- *   siteId: "STRING_VALUE", // required
+ *   siteId: "STRING_VALUE",
  * };
  * const command = new CreateEnvironmentCommand(input);
  * const response = await client.send(command);
@@ -122,7 +122,7 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  * //     environmentName: "STRING_VALUE",
  * //     vpcId: "STRING_VALUE",
  * //     serviceAccessSubnetId: "STRING_VALUE",
- * //     vcfVersion: "VCF-5.2.1" || "VCF-5.2.2",
+ * //     vcfVersion: "VCF-5.2.1" || "VCF-5.2.2" || "SELF_DEPLOYED",
  * //     termsAccepted: true || false,
  * //     licenseInfo: [ // LicenseInfoList
  * //       { // LicenseInfo
@@ -134,7 +134,8 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  * //     environmentStatus: "PASSED" || "FAILED" || "UNKNOWN",
  * //     checks: [ // ChecksList
  * //       { // Check
- * //         type: "KEY_REUSE" || "KEY_COVERAGE" || "REACHABILITY" || "HOST_COUNT" || "VCENTER_REACHABILITY" || "VCENTER_VM_SYNC" || "VCENTER_VM_EVENT",
+ * //         type: "KEY_REUSE" || "KEY_COVERAGE" || "REACHABILITY" || "HOST_COUNT" || "VCENTER_REACHABILITY" || "VCENTER_VM_SYNC" || "VCENTER_VM_EVENT" || "OPERATIONS_MANAGER_REACHABILITY" || "SDDC_MANAGER_REACHABILITY" || "SDDC_MANAGER_HOST_COUNT" || "SDDC_MANAGER_KEY_COVERAGE" || "SDDC_MANAGER_KEY_REUSE" || "CONNECTOR_HEALTH",
+ * //         id: "STRING_VALUE",
  * //         result: "PASSED" || "FAILED" || "UNKNOWN",
  * //         impairedSince: new Date("TIMESTAMP"),
  * //       },

@@ -49,7 +49,7 @@ export interface UpdateEnvironmentConnectorCommandOutput extends UpdateEnvironme
  * //   connector: { // Connector
  * //     environmentId: "STRING_VALUE",
  * //     connectorId: "STRING_VALUE",
- * //     type: "VCENTER",
+ * //     type: "OPERATIONS_MANAGER" || "SDDC_MANAGER" || "VCENTER",
  * //     applianceFqdn: "STRING_VALUE",
  * //     secretArn: "STRING_VALUE",
  * //     state: "CREATING" || "CREATE_FAILED" || "ACTIVE" || "UPDATING" || "UPDATE_FAILED" || "DELETING" || "DELETED",
@@ -57,7 +57,7 @@ export interface UpdateEnvironmentConnectorCommandOutput extends UpdateEnvironme
  * //     status: "PASSED" || "FAILED" || "UNKNOWN",
  * //     checks: [ // ConnectorsChecksList
  * //       { // ConnectorCheck
- * //         type: "KEY_REUSE" || "KEY_COVERAGE" || "REACHABILITY" || "HOST_COUNT" || "VCENTER_REACHABILITY" || "VCENTER_VM_SYNC" || "VCENTER_VM_EVENT",
+ * //         type: "KEY_REUSE" || "KEY_COVERAGE" || "REACHABILITY" || "HOST_COUNT" || "VCENTER_REACHABILITY" || "VCENTER_VM_SYNC" || "VCENTER_VM_EVENT" || "OPERATIONS_MANAGER_REACHABILITY" || "SDDC_MANAGER_REACHABILITY" || "SDDC_MANAGER_HOST_COUNT" || "SDDC_MANAGER_KEY_COVERAGE" || "SDDC_MANAGER_KEY_REUSE" || "CONNECTOR_HEALTH",
  * //         result: "PASSED" || "FAILED" || "UNKNOWN",
  * //         lastCheckAttempt: new Date("TIMESTAMP"),
  * //         impairedSince: new Date("TIMESTAMP"),

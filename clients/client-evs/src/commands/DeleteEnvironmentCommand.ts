@@ -53,7 +53,7 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentRespons
  * //     environmentName: "STRING_VALUE",
  * //     vpcId: "STRING_VALUE",
  * //     serviceAccessSubnetId: "STRING_VALUE",
- * //     vcfVersion: "VCF-5.2.1" || "VCF-5.2.2",
+ * //     vcfVersion: "VCF-5.2.1" || "VCF-5.2.2" || "SELF_DEPLOYED",
  * //     termsAccepted: true || false,
  * //     licenseInfo: [ // LicenseInfoList
  * //       { // LicenseInfo
@@ -65,7 +65,8 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentRespons
  * //     environmentStatus: "PASSED" || "FAILED" || "UNKNOWN",
  * //     checks: [ // ChecksList
  * //       { // Check
- * //         type: "KEY_REUSE" || "KEY_COVERAGE" || "REACHABILITY" || "HOST_COUNT" || "VCENTER_REACHABILITY" || "VCENTER_VM_SYNC" || "VCENTER_VM_EVENT",
+ * //         type: "KEY_REUSE" || "KEY_COVERAGE" || "REACHABILITY" || "HOST_COUNT" || "VCENTER_REACHABILITY" || "VCENTER_VM_SYNC" || "VCENTER_VM_EVENT" || "OPERATIONS_MANAGER_REACHABILITY" || "SDDC_MANAGER_REACHABILITY" || "SDDC_MANAGER_HOST_COUNT" || "SDDC_MANAGER_KEY_COVERAGE" || "SDDC_MANAGER_KEY_REUSE" || "CONNECTOR_HEALTH",
+ * //         id: "STRING_VALUE",
  * //         result: "PASSED" || "FAILED" || "UNKNOWN",
  * //         impairedSince: new Date("TIMESTAMP"),
  * //       },

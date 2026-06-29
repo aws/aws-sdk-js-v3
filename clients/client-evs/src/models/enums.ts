@@ -77,6 +77,7 @@ export type _InstanceType = (typeof _InstanceType)[keyof typeof _InstanceType];
  * @enum
  */
 export const VcfVersion = {
+  SELF_DEPLOYED: "SELF_DEPLOYED",
   VCF_5_2_1: "VCF-5.2.1",
   VCF_5_2_2: "VCF-5.2.2",
 } as const;
@@ -104,10 +105,16 @@ export type CheckResult = (typeof CheckResult)[keyof typeof CheckResult];
  * @enum
  */
 export const CheckType = {
+  CONNECTOR_HEALTH: "CONNECTOR_HEALTH",
   HOST_COUNT: "HOST_COUNT",
   KEY_COVERAGE: "KEY_COVERAGE",
   KEY_REUSE: "KEY_REUSE",
+  OPERATIONS_MANAGER_REACHABILITY: "OPERATIONS_MANAGER_REACHABILITY",
   REACHABILITY: "REACHABILITY",
+  SDDC_MANAGER_HOST_COUNT: "SDDC_MANAGER_HOST_COUNT",
+  SDDC_MANAGER_KEY_COVERAGE: "SDDC_MANAGER_KEY_COVERAGE",
+  SDDC_MANAGER_KEY_REUSE: "SDDC_MANAGER_KEY_REUSE",
+  SDDC_MANAGER_REACHABILITY: "SDDC_MANAGER_REACHABILITY",
   VCENTER_REACHABILITY: "VCENTER_REACHABILITY",
   VCENTER_VM_EVENT: "VCENTER_VM_EVENT",
   VCENTER_VM_SYNC: "VCENTER_VM_SYNC",
@@ -138,6 +145,8 @@ export type EnvironmentState = (typeof EnvironmentState)[keyof typeof Environmen
  * @enum
  */
 export const ConnectorType = {
+  OPERATIONS_MANAGER: "OPERATIONS_MANAGER",
+  SDDC_MANAGER: "SDDC_MANAGER",
   VCENTER: "VCENTER",
 } as const;
 /**

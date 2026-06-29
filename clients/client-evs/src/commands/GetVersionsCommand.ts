@@ -42,7 +42,7 @@ export interface GetVersionsCommandOutput extends GetVersionsResponse, __Metadat
  * // { // GetVersionsResponse
  * //   vcfVersions: [ // VcfVersionList // required
  * //     { // VcfVersionInfo
- * //       vcfVersion: "VCF-5.2.1" || "VCF-5.2.2", // required
+ * //       vcfVersion: "VCF-5.2.1" || "VCF-5.2.2" || "SELF_DEPLOYED", // required
  * //       status: "STRING_VALUE", // required
  * //       defaultEsxVersion: "STRING_VALUE", // required
  * //       instanceTypes: [ // InstanceTypeList // required
