@@ -1770,6 +1770,10 @@ import {
   UntagResourceCommand,
   UntagResourceRequest$,
   UntagResourceResponse$,
+  UpdateAsset$,
+  UpdateAssetCommand,
+  UpdateAssetRequest$,
+  UpdateAssetResponse$,
   UpdateBehavior,
   UpdateBlueprint$,
   UpdateBlueprintCommand,
@@ -2457,6 +2461,8 @@ assert(typeof TestConnectionCommand === "function");
 assert(typeof TestConnection$ === "object");
 assert(typeof UntagResourceCommand === "function");
 assert(typeof UntagResource$ === "object");
+assert(typeof UpdateAssetCommand === "function");
+assert(typeof UpdateAsset$ === "object");
 assert(typeof UpdateBlueprintCommand === "function");
 assert(typeof UpdateBlueprint$ === "object");
 assert(typeof UpdateCatalogCommand === "function");
@@ -3475,6 +3481,8 @@ assert(typeof UnfilteredPartition$ === "object");
 assert(typeof Union$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UntagResourceResponse$ === "object");
+assert(typeof UpdateAssetRequest$ === "object");
+assert(typeof UpdateAssetResponse$ === "object");
 assert(typeof UpdateBlueprintRequest$ === "object");
 assert(typeof UpdateBlueprintResponse$ === "object");
 assert(typeof UpdateCatalogRequest$ === "object");

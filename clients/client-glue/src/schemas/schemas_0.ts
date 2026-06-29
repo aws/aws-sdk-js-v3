@@ -2366,6 +2366,9 @@ const _Tri = "Trigger";
 const _Ty = "Type";
 const _U = "Upsert";
 const _UA = "UpdatedAt";
+const _UAR = "UpdateAssetRequest";
+const _UARp = "UpdateAssetResponse";
+const _UAp = "UpdateAsset";
 const _UB = "UpdateBehavior";
 const _UBR = "UpdateBlueprintRequest";
 const _UBRp = "UpdateBlueprintResponse";
@@ -7754,6 +7757,16 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   [],
   []
 ];
+export var UpdateAssetRequest$: StaticStructureSchema = [3, n0, _UAR,
+  0,
+  [_Ide, _N, _D, _CTl],
+  [[0, 1], 0, 0, [0, 4]], 1
+];
+export var UpdateAssetResponse$: StaticStructureSchema = [3, n0, _UARp,
+  0,
+  [_Id, _N, _D, _UA],
+  [0, 0, 0, 4], 1
+];
 export var UpdateBlueprintRequest$: StaticStructureSchema = [3, n0, _UBR,
   0,
   [_N, _BL, _D],
@@ -9590,6 +9603,9 @@ export var TestConnection$: StaticOperationSchema = [9, n0, _TCe,
 ];
 export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
   0, () => UntagResourceRequest$, () => UntagResourceResponse$
+];
+export var UpdateAsset$: StaticOperationSchema = [9, n0, _UAp,
+  { [_h]: ["PUT", "/assets/{Identifier}", 200] }, () => UpdateAssetRequest$, () => UpdateAssetResponse$
 ];
 export var UpdateBlueprint$: StaticOperationSchema = [9, n0, _UBpda,
   0, () => UpdateBlueprintRequest$, () => UpdateBlueprintResponse$

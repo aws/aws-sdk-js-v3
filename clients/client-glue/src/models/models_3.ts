@@ -949,6 +949,64 @@ export interface UntagResourceResponse {}
 /**
  * @public
  */
+export interface UpdateAssetRequest {
+  /**
+   * <p>The unique identifier of the asset to update.</p>
+   * @public
+   */
+  Identifier: string | undefined;
+
+  /**
+   * <p>The new name of the asset.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The new description of the asset.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAssetResponse {
+  /**
+   * <p>The unique identifier of the asset.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The name of the asset.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The description of the asset.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The timestamp at which the asset was last updated.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdateBlueprintRequest {
   /**
    * <p>The name of the blueprint.</p>

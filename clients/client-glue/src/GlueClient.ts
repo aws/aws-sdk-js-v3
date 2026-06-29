@@ -724,6 +724,7 @@ import type { StopWorkflowRunCommandInput, StopWorkflowRunCommandOutput } from "
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { TestConnectionCommandInput, TestConnectionCommandOutput } from "./commands/TestConnectionCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateAssetCommandInput, UpdateAssetCommandOutput } from "./commands/UpdateAssetCommand";
 import type { UpdateBlueprintCommandInput, UpdateBlueprintCommandOutput } from "./commands/UpdateBlueprintCommand";
 import type { UpdateCatalogCommandInput, UpdateCatalogCommandOutput } from "./commands/UpdateCatalogCommand";
 import type { UpdateClassifierCommandInput, UpdateClassifierCommandOutput } from "./commands/UpdateClassifierCommand";
@@ -1082,6 +1083,7 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | TestConnectionCommandInput
   | UntagResourceCommandInput
+  | UpdateAssetCommandInput
   | UpdateBlueprintCommandInput
   | UpdateCatalogCommandInput
   | UpdateClassifierCommandInput
@@ -1382,6 +1384,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | TestConnectionCommandOutput
   | UntagResourceCommandOutput
+  | UpdateAssetCommandOutput
   | UpdateBlueprintCommandOutput
   | UpdateCatalogCommandOutput
   | UpdateClassifierCommandOutput

@@ -264,6 +264,7 @@ export * from "./StopWorkflowRunCommand";
 export * from "./TagResourceCommand";
 export * from "./TestConnectionCommand";
 export * from "./UntagResourceCommand";
+export * from "./UpdateAssetCommand";
 export * from "./UpdateBlueprintCommand";
 export * from "./UpdateCatalogCommand";
 export * from "./UpdateClassifierCommand";

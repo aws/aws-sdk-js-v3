@@ -1276,6 +1276,11 @@ import {
   UntagResourceCommand,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateAssetCommandInput,
+  type UpdateAssetCommandOutput,
+  UpdateAssetCommand,
+} from "./commands/UpdateAssetCommand";
+import {
   type UpdateBlueprintCommandInput,
   type UpdateBlueprintCommandOutput,
   UpdateBlueprintCommand,
@@ -1745,6 +1750,7 @@ const commands = {
   TagResourceCommand,
   TestConnectionCommand,
   UntagResourceCommand,
+  UpdateAssetCommand,
   UpdateBlueprintCommand,
   UpdateCatalogCommand,
   UpdateClassifierCommand,
@@ -6389,6 +6395,23 @@ export interface Glue {
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAssetCommand}
+   */
+  updateAsset(
+    args: UpdateAssetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAssetCommandOutput>;
+  updateAsset(
+    args: UpdateAssetCommandInput,
+    cb: (err: any, data?: UpdateAssetCommandOutput) => void
+  ): void;
+  updateAsset(
+    args: UpdateAssetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAssetCommandOutput) => void
   ): void;
 
   /**
