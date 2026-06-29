@@ -49,6 +49,11 @@ export interface GetLayerVersionCommandOutput extends GetLayerVersionResponse, _
  * //     CodeSize: Number("long"),
  * //     SigningProfileVersionArn: "STRING_VALUE",
  * //     SigningJobArn: "STRING_VALUE",
+ * //     ResolvedS3Object: { // ResolvedS3Object
+ * //       S3Bucket: "STRING_VALUE",
+ * //       S3Key: "STRING_VALUE",
+ * //       S3ObjectVersion: "STRING_VALUE",
+ * //     },
  * //   },
  * //   LayerArn: "STRING_VALUE",
  * //   LayerVersionArn: "STRING_VALUE",

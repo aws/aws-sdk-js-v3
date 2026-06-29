@@ -36,6 +36,7 @@ import type {
   RecursiveLoop,
   ResponseStreamingInvocationType,
   Runtime,
+  S3ObjectStorageMode,
   SchemaRegistryEventRecordFormat,
   SnapStartApplyOn,
   SnapStartOptimizationStatus,
@@ -2434,6 +2435,12 @@ export interface FunctionCode {
   S3ObjectVersion?: string | undefined;
 
   /**
+   * <p>Specifies how the deployment package is stored. Use <code>COPY</code> (default) to upload a copy of your deployment package to Lambda. Use <code>REFERENCE</code> to have Lambda reference the deployment package from the specified Amazon S3 bucket.</p>
+   * @public
+   */
+  S3ObjectStorageMode?: S3ObjectStorageMode | undefined;
+
+  /**
    * <p>URI of a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html">container image</a> in the Amazon ECR registry.</p>
    * @public
    */
@@ -3424,6 +3431,48 @@ export interface GetFunctionRequest {
 }
 
 /**
+ * <p>Details about an error related to retrieving a function's deployment package.</p>
+ * @public
+ */
+export interface FunctionCodeLocationError {
+  /**
+   * <p>The error code for the failed retrieval.</p>
+   * @public
+   */
+  ErrorCode?: string | undefined;
+
+  /**
+   * <p>A description of the error.</p>
+   * @public
+   */
+  Message?: string | undefined;
+}
+
+/**
+ * <p>Details about the resolved Amazon S3 object that contains a function's deployment package.</p>
+ * @public
+ */
+export interface ResolvedS3Object {
+  /**
+   * <p>The Amazon S3 bucket that contains the deployment package.</p>
+   * @public
+   */
+  S3Bucket?: string | undefined;
+
+  /**
+   * <p>The Amazon S3 key of the deployment package.</p>
+   * @public
+   */
+  S3Key?: string | undefined;
+
+  /**
+   * <p>The version of the deployment package object.</p>
+   * @public
+   */
+  S3ObjectVersion?: string | undefined;
+}
+
+/**
  * <p>Details about a function's deployment package.</p>
  * @public
  */
@@ -3453,10 +3502,22 @@ export interface FunctionCodeLocation {
   ResolvedImageUri?: string | undefined;
 
   /**
+   * <p>The resolved Amazon S3 object that contains the deployment package.</p>
+   * @public
+   */
+  ResolvedS3Object?: ResolvedS3Object | undefined;
+
+  /**
    * <p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt your function's .zip deployment package. If you don't provide a customer managed key, Lambda uses an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk">Amazon Web Services owned key</a>.</p>
    * @public
    */
   SourceKMSKeyArn?: string | undefined;
+
+  /**
+   * <p>An object that contains details about an error related to function deployment package retrieval.</p>
+   * @public
+   */
+  Error?: FunctionCodeLocationError | undefined;
 }
 
 /**
@@ -4520,6 +4581,12 @@ export interface UpdateFunctionCodeRequest {
    * @public
    */
   S3ObjectVersion?: string | undefined;
+
+  /**
+   * <p>Specifies how the deployment package is stored. Use <code>COPY</code> (default) to upload a copy of your deployment package to Lambda. Use <code>REFERENCE</code> to have Lambda reference the deployment package from the specified Amazon S3 bucket.</p>
+   * @public
+   */
+  S3ObjectStorageMode?: S3ObjectStorageMode | undefined;
 
   /**
    * <p>URI of a container image in the Amazon ECR registry. Do not use for a function defined with a .zip file archive.</p>
@@ -6081,6 +6148,12 @@ export interface LayerVersionContentOutput {
    * @public
    */
   SigningJobArn?: string | undefined;
+
+  /**
+   * <p>Details about the resolved Amazon S3 object that contains a function's deployment package.</p>
+   * @public
+   */
+  ResolvedS3Object?: ResolvedS3Object | undefined;
 }
 
 /**
@@ -6261,6 +6334,12 @@ export interface LayerVersionContentInput {
    * @public
    */
   S3ObjectVersion?: string | undefined;
+
+  /**
+   * <p>The storage mode for a function's deployment package.</p>
+   * @public
+   */
+  S3ObjectStorageMode?: S3ObjectStorageMode | undefined;
 
   /**
    * <p>The base64-encoded contents of the layer archive. Amazon Web Services SDK and Amazon Web Services CLI clients handle the encoding for you.</p>

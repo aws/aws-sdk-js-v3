@@ -350,6 +350,25 @@ export type EventSourcePosition = (typeof EventSourcePosition)[keyof typeof Even
  * @public
  * @enum
  */
+export const S3ObjectStorageMode = {
+  /**
+   * <p> <code>COPY</code> (default) uploads a copy of your deployment package to Lambda.</p>
+   */
+  Copy: "COPY",
+  /**
+   * <p>Lambda references the deployment package from the specified Amazon S3 bucket.</p>
+   */
+  Reference: "REFERENCE",
+} as const;
+/**
+ * @public
+ */
+export type S3ObjectStorageMode = (typeof S3ObjectStorageMode)[keyof typeof S3ObjectStorageMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const LogFormat = {
   Json: "JSON",
   Text: "Text",

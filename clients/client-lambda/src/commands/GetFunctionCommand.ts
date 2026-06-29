@@ -166,7 +166,16 @@ export interface GetFunctionCommandOutput extends GetFunctionResponse, __Metadat
  * //     Location: "STRING_VALUE",
  * //     ImageUri: "STRING_VALUE",
  * //     ResolvedImageUri: "STRING_VALUE",
+ * //     ResolvedS3Object: { // ResolvedS3Object
+ * //       S3Bucket: "STRING_VALUE",
+ * //       S3Key: "STRING_VALUE",
+ * //       S3ObjectVersion: "STRING_VALUE",
+ * //     },
  * //     SourceKMSKeyArn: "STRING_VALUE",
+ * //     Error: { // FunctionCodeLocationError
+ * //       ErrorCode: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //     },
  * //   },
  * //   Tags: { // Tags
  * //     "<keys>": "STRING_VALUE",

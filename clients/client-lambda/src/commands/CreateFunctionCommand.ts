@@ -46,6 +46,7 @@ export interface CreateFunctionCommandOutput extends FunctionConfiguration, __Me
  *     S3Bucket: "STRING_VALUE",
  *     S3Key: "STRING_VALUE",
  *     S3ObjectVersion: "STRING_VALUE",
+ *     S3ObjectStorageMode: "COPY" || "REFERENCE",
  *     ImageUri: "STRING_VALUE",
  *     SourceKMSKeyArn: "STRING_VALUE",
  *   },

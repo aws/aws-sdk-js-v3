@@ -43,6 +43,7 @@ export interface PublishLayerVersionCommandOutput extends PublishLayerVersionRes
  *     S3Bucket: "STRING_VALUE",
  *     S3Key: "STRING_VALUE",
  *     S3ObjectVersion: "STRING_VALUE",
+ *     S3ObjectStorageMode: "COPY" || "REFERENCE",
  *     ZipFile: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *   },
  *   CompatibleArchitectures: [ // CompatibleArchitectures
@@ -62,6 +63,11 @@ export interface PublishLayerVersionCommandOutput extends PublishLayerVersionRes
  * //     CodeSize: Number("long"),
  * //     SigningProfileVersionArn: "STRING_VALUE",
  * //     SigningJobArn: "STRING_VALUE",
+ * //     ResolvedS3Object: { // ResolvedS3Object
+ * //       S3Bucket: "STRING_VALUE",
+ * //       S3Key: "STRING_VALUE",
+ * //       S3ObjectVersion: "STRING_VALUE",
+ * //     },
  * //   },
  * //   LayerArn: "STRING_VALUE",
  * //   LayerVersionArn: "STRING_VALUE",

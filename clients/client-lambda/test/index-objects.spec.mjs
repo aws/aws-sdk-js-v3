@@ -182,6 +182,7 @@ import {
   FullDocument,
   FunctionCode$,
   FunctionCodeLocation$,
+  FunctionCodeLocationError$,
   FunctionConfiguration$,
   FunctionEventInvokeConfig$,
   FunctionResponseType,
@@ -484,6 +485,7 @@ import {
   RemovePermissionRequest$,
   RequestTooLargeException,
   RequestTooLargeException$,
+  ResolvedS3Object$,
   ResourceConflictException,
   ResourceConflictException$,
   ResourceInUseException,
@@ -503,6 +505,7 @@ import {
   S3FilesMountFailureException$,
   S3FilesMountTimeoutException,
   S3FilesMountTimeoutException$,
+  S3ObjectStorageMode,
   ScalingConfig$,
   SchemaRegistryEventRecordFormat,
   SelfManagedEventSource$,
@@ -888,6 +891,7 @@ assert(typeof FilterCriteria$ === "object");
 assert(typeof FilterCriteriaError$ === "object");
 assert(typeof FunctionCode$ === "object");
 assert(typeof FunctionCodeLocation$ === "object");
+assert(typeof FunctionCodeLocationError$ === "object");
 assert(typeof FunctionConfiguration$ === "object");
 assert(typeof FunctionEventInvokeConfig$ === "object");
 assert(typeof FunctionScalingConfig$ === "object");
@@ -1010,6 +1014,7 @@ assert(typeof PutRuntimeManagementConfigRequest$ === "object");
 assert(typeof PutRuntimeManagementConfigResponse$ === "object");
 assert(typeof RemoveLayerVersionPermissionRequest$ === "object");
 assert(typeof RemovePermissionRequest$ === "object");
+assert(typeof ResolvedS3Object$ === "object");
 assert(typeof RetryDetails$ === "object");
 assert(typeof RuntimeVersionConfig$ === "object");
 assert(typeof RuntimeVersionError$ === "object");
@@ -1093,6 +1098,7 @@ assert(typeof ProvisionedConcurrencyStatusEnum === "object");
 assert(typeof RecursiveLoop === "object");
 assert(typeof ResponseStreamingInvocationType === "object");
 assert(typeof Runtime === "object");
+assert(typeof S3ObjectStorageMode === "object");
 assert(typeof SchemaRegistryEventRecordFormat === "object");
 assert(typeof SnapStartApplyOn === "object");
 assert(typeof SnapStartOptimizationStatus === "object");

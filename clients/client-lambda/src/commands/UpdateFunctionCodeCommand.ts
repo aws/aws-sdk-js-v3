@@ -42,6 +42,7 @@ export interface UpdateFunctionCodeCommandOutput extends FunctionConfiguration, 
  *   S3Bucket: "STRING_VALUE",
  *   S3Key: "STRING_VALUE",
  *   S3ObjectVersion: "STRING_VALUE",
+ *   S3ObjectStorageMode: "COPY" || "REFERENCE",
  *   ImageUri: "STRING_VALUE",
  *   Architectures: [ // ArchitecturesList
  *     "x86_64" || "arm64",

@@ -2,14 +2,14 @@ POST https://lambda.us-east-1.amazonaws.com
 /2015-03-31/functions
 
 content-type: application/json
-content-length: 1917
+content-length: 1965
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/lambda#_.__ m/E,e
 host: lambda.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: 9a244a8f4ac45795b7e7a19b6c22265a9ad1a5a91cf115f6ca07db639a548904
+x-amz-content-sha256: d373b3742d6870ccbda8f932d384d9f9d69122336ca40eabd91be83336f2ab15
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/lambda/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
 
 [string (json)]
@@ -21,6 +21,7 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/lambda/aws4_re
     "S3Bucket": "__S3Bucket__",
     "S3Key": "__S3Key__",
     "S3ObjectVersion": "__S3ObjectVersion__",
+    "S3ObjectStorageMode": "__S3ObjectStorageMode__",
     "ImageUri": "__ImageUri__",
     "SourceKMSKeyArn": "__SourceKMSKeyArn__"
   },

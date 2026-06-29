@@ -183,7 +183,16 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     "Location": "__Location__",
     "ImageUri": "__ImageUri__",
     "ResolvedImageUri": "__ResolvedImageUri__",
-    "SourceKMSKeyArn": "__SourceKMSKeyArn__"
+    "ResolvedS3Object": {
+      "S3Bucket": "__S3Bucket__",
+      "S3Key": "__S3Key__",
+      "S3ObjectVersion": "__S3ObjectVersion__"
+    },
+    "SourceKMSKeyArn": "__SourceKMSKeyArn__",
+    "Error": {
+      "ErrorCode": "__ErrorCode__",
+      "Message": "__Message__"
+    }
   },
   "Tags": {
     "key1": "__value__",
@@ -357,7 +366,16 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     Location: "__Location__",
     ImageUri: "__ImageUri__",
     ResolvedImageUri: "__ResolvedImageUri__",
-    SourceKMSKeyArn: "__SourceKMSKeyArn__"
+    ResolvedS3Object: {
+      S3Bucket: "__S3Bucket__",
+      S3Key: "__S3Key__",
+      S3ObjectVersion: "__S3ObjectVersion__"
+    },
+    SourceKMSKeyArn: "__SourceKMSKeyArn__",
+    Error: {
+      ErrorCode: "__ErrorCode__",
+      Message: "__Message__"
+    }
   },
   Tags: {
     key1: "__value__",

@@ -2,14 +2,14 @@ POST https://lambda.us-east-1.amazonaws.com
 /2018-10-31/layers/__LayerName__/versions
 
 content-type: application/json
-content-length: 313
+content-length: 361
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/lambda#_.__ m/E,e
 host: lambda.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: 8503fcdea25f8a552c8f021875ca40d4025c3f9dab90cb4d1ca21ed32644f843
+x-amz-content-sha256: e3df3c0f2474d54872026855073aeb9a0ca559df1c0fddb7f955591150784f43
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/lambda/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
 
 [string (json)]
@@ -18,6 +18,7 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/lambda/aws4_re
     "S3Bucket": "__S3Bucket__",
     "S3Key": "__S3Key__",
     "S3ObjectVersion": "__S3ObjectVersion__",
+    "S3ObjectStorageMode": "__S3ObjectStorageMode__",
     "ZipFile": "AQAAAQ=="
   },
   "Description": "__Description__",

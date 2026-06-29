@@ -228,6 +228,7 @@ const _FAu = "FunctionArns";
 const _FC = "FunctionCount";
 const _FCE = "FilterCriteriaError";
 const _FCL = "FunctionCodeLocation";
+const _FCLE = "FunctionCodeLocationError";
 const _FCi = "FilterCriteria";
 const _FCu = "FunctionCode";
 const _FCun = "FunctionConfiguration";
@@ -554,6 +555,7 @@ const _RPCE = "RequestedProvisionedConcurrentExecutions";
 const _RPID = "RetentionPeriodInDays";
 const _RPR = "RemovePermissionRequest";
 const _RSCT = "ResponseStreamContentType";
+const _RSO = "ResolvedS3Object";
 const _RT = "RepositoryType";
 const _RTLE = "RequestTooLargeException";
 const _RVA = "RuntimeVersionArn";
@@ -604,6 +606,7 @@ const _SM = "ScalingMode";
 const _SMES = "SelfManagedEventSource";
 const _SMKESC = "SelfManagedKafkaEventSourceConfig";
 const _SO = "StepOptions";
+const _SOSM = "S3ObjectStorageMode";
 const _SOV = "S3ObjectVersion";
 const _SP = "ScalingPolicies";
 const _SPT = "StartingPositionTimestamp";
@@ -1617,13 +1620,18 @@ export var FilterCriteriaError$: StaticStructureSchema = [3, n0, _FCE,
 ];
 export var FunctionCode$: StaticStructureSchema = [3, n0, _FCu,
   0,
-  [_ZF, _SB, _SK, _SOV, _IU, _SKMSKA],
-  [[() => _Blob, 0], 0, 0, 0, 0, 0]
+  [_ZF, _SB, _SK, _SOV, _SOSM, _IU, _SKMSKA],
+  [[() => _Blob, 0], 0, 0, 0, 0, 0, 0]
 ];
 export var FunctionCodeLocation$: StaticStructureSchema = [3, n0, _FCL,
   0,
-  [_RT, _Lo, _IU, _RIU, _SKMSKA],
-  [0, 0, 0, 0, 0]
+  [_RT, _Lo, _IU, _RIU, _RSO, _SKMSKA, _E],
+  [0, 0, 0, 0, () => ResolvedS3Object$, 0, [() => FunctionCodeLocationError$, 0]]
+];
+export var FunctionCodeLocationError$: StaticStructureSchema = [3, n0, _FCLE,
+  0,
+  [_EC, _M],
+  [0, [() => SensitiveString, 0]]
 ];
 export var FunctionConfiguration$: StaticStructureSchema = [3, n0, _FCun,
   0,
@@ -1768,7 +1776,7 @@ export var GetFunctionRequest$: StaticStructureSchema = [3, n0, _GFR,
 export var GetFunctionResponse$: StaticStructureSchema = [3, n0, _GFRe,
   0,
   [_Con, _Cod, _Ta, _TE, _C],
-  [[() => FunctionConfiguration$, 0], () => FunctionCodeLocation$, 128 | 0, () => TagsError$, () => Concurrency$]
+  [[() => FunctionConfiguration$, 0], [() => FunctionCodeLocation$, 0], 128 | 0, () => TagsError$, () => Concurrency$]
 ];
 export var GetFunctionScalingConfigRequest$: StaticStructureSchema = [3, n0, _GFSCR,
   0,
@@ -1942,13 +1950,13 @@ export var LayersListItem$: StaticStructureSchema = [3, n0, _LLI,
 ];
 export var LayerVersionContentInput$: StaticStructureSchema = [3, n0, _LVCI,
   0,
-  [_SB, _SK, _SOV, _ZF],
-  [0, 0, 0, [() => _Blob, 0]]
+  [_SB, _SK, _SOV, _SOSM, _ZF],
+  [0, 0, 0, 0, [() => _Blob, 0]]
 ];
 export var LayerVersionContentOutput$: StaticStructureSchema = [3, n0, _LVCO,
   0,
-  [_Lo, _CSo, _CS, _SPVAi, _SJA],
-  [0, 0, 1, 0, 0]
+  [_Lo, _CSo, _CS, _SPVAi, _SJA, _RSO],
+  [0, 0, 1, 0, 0, () => ResolvedS3Object$]
 ];
 export var LayerVersionsListItem$: StaticStructureSchema = [3, n0, _LVLI,
   0,
@@ -2230,6 +2238,11 @@ export var RemovePermissionRequest$: StaticStructureSchema = [3, n0, _RPR,
   [_FN, _SI, _Q, _RI],
   [[0, 1], [0, 1], [0, { [_hQ]: _Q }], [0, { [_hQ]: _RI }]], 2
 ];
+export var ResolvedS3Object$: StaticStructureSchema = [3, n0, _RSO,
+  0,
+  [_SB, _SK, _SOV],
+  [0, 0, 0]
+];
 export var RetryDetails$: StaticStructureSchema = [3, n0, _RD,
   0,
   [_CAu, _NADS],
@@ -2412,8 +2425,8 @@ export var UpdateEventSourceMappingRequest$: StaticStructureSchema = [3, n0, _UE
 ];
 export var UpdateFunctionCodeRequest$: StaticStructureSchema = [3, n0, _UFCR,
   0,
-  [_FN, _ZF, _SB, _SK, _SOV, _IU, _Ar, _Pu, _PTu, _DR, _RI, _SKMSKA],
-  [[0, 1], [() => _Blob, 0], 0, 0, 0, 0, 64 | 0, 2, 0, 2, 0, 0], 1
+  [_FN, _ZF, _SB, _SK, _SOV, _SOSM, _IU, _Ar, _Pu, _PTu, _DR, _RI, _SKMSKA],
+  [[0, 1], [() => _Blob, 0], 0, 0, 0, 0, 0, 64 | 0, 2, 0, 2, 0, 0], 1
 ];
 export var UpdateFunctionConfigurationRequest$: StaticStructureSchema = [3, n0, _UFCRp,
   0,
