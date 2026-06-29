@@ -149,66 +149,25 @@ export interface IS3TransferManager {
   download(request: DownloadRequest, transferOptions?: TransferOptions): Promise<DownloadResponse>;
 
   /**
-   * Represents an API to upload all files under the given directory to the provided S3 bucket.
+   * Uploads files in a directory to the provided S3 bucket.
+   * By default, it does not recurse into subdirectories. To upload recursively, set recursive: true.
    *
-   * @param options.bucket - The name of the bucket to upload objects to.
-   * @param options.source - The source directory to upload.
-   * @param options.followSymbolicLinks - Whether to follow symbolic links when traversing the file tree.
-   * @param options.recursive - Whether to upload directories recursively.
-   * @param options.s3Prefix - The S3 key prefix to use for each object. If not provided, files will be uploaded to the root of the bucket todo().
-   * @param options.filter - A callback to allow users to filter out unwanted S3 object. It is invoked for each S3 object. An example implementation is a predicate that takes an S3Object and returns a boolean indicating whether this S3Object should be uploaded.
-   * @param options.s3Delimiter - Default "/". The S3 delimiter. A delimiter causes a list operation to roll up all the keys that share a common prefix into a single summary list result.
-   * @param options.putObjectRequestCallback - A callback mechanism to allow customers to update individual putObjectRequest that the S3 Transfer Manager generates.
-   * @param options.failurePolicy - The failure policy to handle failed requests.
-   * @param options.transferOptions - Allows supplying an AbortSignal and/or transfer event listeners.
+   * @param request - Configuration for the directory upload operation.
+   * @param transferOptions - Allows users to specify cancel functions for the request and a collection of callbacks for monitoring transfer lifecycle events.
    *
    * @returns the number of objects that have been uploaded and the number of objects that have failed
    */
-  uploadAll(options: {
-    bucket: string;
-    source: string;
-    followSymbolicLinks?: boolean;
-    recursive?: boolean;
-    s3Prefix?: string;
-    filter?: (filepath: string) => boolean;
-    s3Delimiter?: string;
-    putObjectRequestCallback?: (putObjectRequest: PutObjectCommandInput) => Promise<void>;
-    failurePolicy?: (error?: unknown) => Promise<void>;
-    transferOptions?: TransferOptions;
-  }): Promise<{
-    objectsUploaded: number;
-    objectsFailed: number;
-  }>;
+  uploadDirectory(request: UploadDirectoryRequest, transferOptions?: TransferOptions): Promise<UploadDirectoryResponse>;
 
   /**
-   * Represents an API to download all objects under a bucket to the provided local directory.
+   * Downloads objects under a bucket to the provided local directory.
    *
-   * @param options.bucket - The name of the bucket.
-   * @param options.destination - The destination directory.
-   * @param options.s3Prefix - Specify the S3 prefix that limits the response to keys that begin with the specified prefix.
-   * @param options.s3Delimiter - Specify the S3 delimiter.
-   * @param options.recursive - Whether to upload directories recursively.
-   * @param options.filter - A callback to allow users to filter out unwanted S3 object. It is invoked for each S3 object. An example implementation is a predicate that takes an S3Object and returns a boolean indicating whether this S3Object should be downloaded.
-   * @param options.getObjectRequestCallback - A callback mechanism to allow customers to update individual getObjectRequest that the S3 Transfer Manager generates.
-   * @param options.failurePolicy - The failure policy to handle failed requests.
-   * @param options.transferOptions - Allows supplying an AbortSignal and/or transfer event listeners.
+   * @param request - Configuration for the directory download operation.
+   * @param transferOptions - Allows users to specify cancel functions for the request and a collection of callbacks for monitoring transfer lifecycle events.
    *
-   * @returns The number of objects that have been uploaded and the number of objects that have failed
+   * @returns the number of objects that have been downloaded and the number of objects that have failed
    */
-  downloadAll(options: {
-    bucket: string;
-    destination: string;
-    s3Prefix?: string;
-    s3Delimiter?: string;
-    recursive?: boolean;
-    filter?: (object?: S3Object) => boolean;
-    getObjectRequestCallback?: (getObjectRequest: GetObjectCommandInput) => Promise<void>;
-    failurePolicy?: (error?: unknown) => Promise<void>;
-    transferOptions?: TransferOptions;
-  }): Promise<{
-    objectsDownloaded: number;
-    objectsFailed: number;
-  }>;
+  downloadDirectory(request: DownloadDirectoryRequest, transferOptions?: TransferOptions): Promise<DownloadDirectoryResponse>;
 
   /**
    * Registers a callback function to be executed when a specific transfer event occurs.
@@ -362,4 +321,174 @@ export interface JoinStreamIterationEvents {
   onCompletion?: (byteLength: number, index: number) => void;
   onFailure?: (error: unknown, index: number) => void;
   onStreamConsumed?: (index: number) => void;
+}
+
+/**
+ * Canned failure policies for directory transfers.
+ * Used to control behavior when an individual object fails during a multi-object transfer.
+ *
+ * "terminate" - Cancel all ongoing requests, terminate the directory transfer, and throw the error. (Default)
+ * "continue" - Ignore the failure, increment failed count, and continue transferring remaining objects.
+ *
+ * @alpha
+ */
+export type CannedFailurePolicy = "terminate" | "continue";
+
+/**
+ * Context provided to a custom failure policy callback when an individual object transfer fails.
+ * Contains the directory transfer request, the specific failed object request, and the error.
+ *
+ * @alpha
+ */
+export interface DirectoryTransferFailureContext {
+  /**
+   * The original directory transfer request.
+   */
+  request: UploadDirectoryRequest | DownloadDirectoryRequest;
+  /**
+   * The individual object request that failed.
+   */
+  objectRequest: PutObjectCommandInput | GetObjectCommandInput;
+  /**
+   * The error that caused the failure.
+   */
+  error: unknown;
+}
+
+/**
+ * Failure policy for directory transfers.
+ * Either a canned policy enum value, or a custom callback invoked per failure.
+ * Custom callbacks return "continue" to skip the failure, or "terminate" to abort.
+ *
+ * @alpha
+ */
+export type FailurePolicy =
+  | CannedFailurePolicy
+  | ((context: DirectoryTransferFailureContext) => Promise<CannedFailurePolicy>);
+
+/**
+ * Request parameters for uploadDirectory operation.
+ *
+ * @alpha
+ */
+export interface UploadDirectoryRequest {
+  /**
+   * The name of the bucket to upload objects to.
+   */
+  bucket: string;
+  /**
+   * The source directory to upload.
+   */
+  source: string;
+  /**
+   * Whether to follow symbolic links when traversing.
+   * Default: false.
+   */
+  followSymbolicLinks?: boolean;
+  /**
+   * Whether to upload directories recursively.
+   * Default: false.
+   */
+  recursive?: boolean;
+  /**
+   * S3 key prefix prepended to each object key.
+   * By default, if no prefix is specified, objects are uploaded to the root of the bucket.
+   */
+  s3Prefix?: string;
+  /**
+   * Filter to control which files are uploaded.
+   * Can be a callback (return true to include, false to skip) or a RegExp (matches are included).
+   * By default, if no filter is specified, all files will be uploaded.
+   */
+  filter?: ((filePath: string) => boolean) | RegExp;
+  /**
+   * Modifier invoked per upload request.
+   * MUST return a new copy.
+   * By default, if no modifier is specified, requests are passed as-is.
+   */
+  uploadObjectRequestModifier?: (request: PutObjectCommandInput) => PutObjectCommandInput;
+  /**
+   * Failure policy for handling individual upload failures.
+   * Default: Terminate.
+   */
+  failurePolicy?: FailurePolicy;
+  /**
+   * Max concurrent file uploads for this directory operation.
+   * Default: 100.
+   */
+  maxConcurrency?: number;
+}
+
+/**
+ * Response from uploadDirectory operation.
+ *
+ * @alpha
+ */
+export interface UploadDirectoryResponse {
+  /**
+   * Number of objects successfully uploaded.
+   */
+  objectsUploaded: number;
+  /**
+   * Number of objects that failed to upload.
+   */
+  objectsFailed: number;
+}
+
+/**
+ * Request parameters for downloadDirectory operation.
+ *
+ * @alpha
+ */
+export interface DownloadDirectoryRequest {
+  /**
+   * The name of the bucket.
+   */
+  bucket: string;
+  /**
+   * The destination local directory.
+   */
+  destination: string;
+  /**
+   * S3 prefix to filter listed objects.
+   */
+  s3Prefix?: string;
+  /**
+   * A callback to allow users to filter out unwanted S3 objects.
+   * Return true to include the object for download, false to skip.
+   * By default, if no filter is specified, all objects will be downloaded.
+   */
+  filter?: (object: S3Object) => boolean;
+  /**
+   * Modifier invoked per download request.
+   * MUST return a new copy.
+   * By default, if no modifier is specified, requests are passed through as-is.
+   */
+  downloadObjectRequestModifier?: (request: GetObjectCommandInput) => GetObjectCommandInput;
+  /**
+   * Failure policy for handling individual download failures.
+   * Default: Terminate.
+   */
+  failurePolicy?: FailurePolicy;
+  /**
+   * Max concurrent file downloads for this directory operation.
+   * Default: 100.
+   */
+  maxConcurrency?: number;
+}
+
+/**
+ * Response from downloadDirectory operation.
+ *
+ * @alpha
+ */
+export interface DownloadDirectoryResponse {
+  /**
+   * Number of objects successfully downloaded.
+   */
+  objectsDownloaded: number;
+  /**
+   * Number of objects that failed to download.
+   */
+  objectsFailed: number;
 }

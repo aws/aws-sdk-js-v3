@@ -1,9 +1,13 @@
 import { S3, S3Client } from "@aws-sdk/client-s3";
+import { mkdir, mkdtemp, rm, writeFile } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import { Readable } from "node:stream";
 import { beforeAll, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { S3TransferManager } from "./S3TransferManager";
 import type { TransferCompleteEvent, TransferEvent } from "./types";
+import type { CannedFailurePolicy } from "./types";
 import { WorkerHttpHandler } from "./worker-http-handler";
 
 describe("S3TransferManager Unit Tests", () => {
@@ -1318,4 +1322,415 @@ describe("S3TransferManager Unit Tests", () => {
       expect(createCalls[0].input.ChecksumAlgorithm).toBe("CRC32");
     });
   });
+
+  describe("uploadDirectory", () => {
+    let mockSend: any;
+    let sendCalls: any[];
+
+    function createMockClient() {
+      sendCalls = [];
+      mockSend = vi.fn().mockImplementation((command: any) => {
+        sendCalls.push(command);
+        return Promise.resolve({ ETag: '"mock-etag"', $metadata: {} });
+      });
+      return { send: mockSend, config: {} } as any;
+    }
+
+    it("should upload only root-level files when recursive is false", async () => {
+      const tmpDir = await mkdtemp(join(tmpdir(), "tm-uploadDir-test-"));
+      await writeFile(join(tmpDir, "file1.txt"), "hello");
+      await writeFile(join(tmpDir, "file2.txt"), "world");
+      await mkdir(join(tmpDir, "subdir"));
+      await writeFile(join(tmpDir, "subdir", "nested1.txt"), "nested1");
+      await writeFile(join(tmpDir, "subdir", "nested2.txt"), "nested2");
+
+      try {
+        const mockClient = createMockClient();
+        const tm = new S3TransferManager({ s3: mockClient});
+
+        const result = await tm.uploadDirectory({
+          bucket: "test-bucket",
+          source: tmpDir,
+          recursive: false,
+        });
+
+        expect(result.objectsUploaded).toBe(2);
+      } finally {
+        await rm(tmpDir, { recursive: true });
+      }
+    });
+
+    it("should upload all files including nested directories when recursive is true", async () => {
+      const tmpDir = await mkdtemp(join(tmpdir(), "tm-uploadDir-test-"));
+      await writeFile(join(tmpDir, "file1.txt"), "hello");
+      await writeFile(join(tmpDir, "file2.txt"), "world");
+      await mkdir(join(tmpDir, "subdir"));
+      await writeFile(join(tmpDir, "subdir", "nested1.txt"), "nested1");
+      await writeFile(join(tmpDir, "subdir", "nested2.txt"), "nested2");
+
+      try {
+        const mockClient = createMockClient();
+        const tm = new S3TransferManager({ s3: mockClient});
+
+        const result = await tm.uploadDirectory({
+          bucket: "test-bucket",
+          source: tmpDir,
+          recursive: true,
+        });
+
+        expect(result.objectsUploaded).toBe(4);
+      } finally {
+        await rm(tmpDir, { recursive: true });
+      }
+    });
+
+    it("should apply filter to skip files", async () => {
+
+      const tmpDir = await mkdtemp(join(tmpdir(), "tm-uploadDir-test-"));
+      await writeFile(join(tmpDir, "file1.txt"), "file to include 1");
+      await writeFile(join(tmpDir, "file2.log"), "don't include this file");
+      await writeFile(join(tmpDir, "file3.txt"), "file to include 2"); 
+      try {
+        const mockClient = createMockClient();
+        const tm = new S3TransferManager({ s3: mockClient });
+
+        const result = await tm.uploadDirectory({
+          bucket: "test-bucket",
+          source: tmpDir,
+          filter: (filePath: string) => filePath.endsWith(".txt"),
+        });
+
+        expect(result.objectsUploaded).toBe(2);
+      } finally {
+        await rm(tmpDir, { recursive: true });
+      }
+    });
+
+    it("should apply RegExp filter to skip files", async () => {
+
+      const tmpDir = await mkdtemp(join(tmpdir(), "tm-uploadDir-test-"));
+      await writeFile(join(tmpDir, "hello.txt"), "hello");
+      await writeFile(join(tmpDir, "world.txt"), "world");
+      await writeFile(join(tmpDir, "file123.txt"), "this is file123");
+      await writeFile(join(tmpDir, "data-file.txt"), "this is a data file");
+      try {
+        const mockClient = createMockClient();
+        const tm = new S3TransferManager({ s3: mockClient });
+
+        const result = await tm.uploadDirectory({
+          bucket: "test-bucket",
+          source: tmpDir,
+          filter: /\/[a-zA-Z]+\.txt$/,
+        });
+
+        expect(result.objectsUploaded).toBe(2);
+      } finally {
+        await rm(tmpDir, { recursive: true });
+      }
+    });
+
+    it("should prepend s3Prefix to keys", async () => {
+
+      const tmpDir = await mkdtemp(join(tmpdir(), "tm-uploadDir-test-"));
+      await writeFile(join(tmpDir, "root.txt"), "root content");
+      await mkdir(join(tmpDir, "subdir"));
+      await writeFile(join(tmpDir, "subdir", "nested.txt"), "nested content");
+
+      try {
+        const mockClient = createMockClient();
+        const tm = new S3TransferManager({ s3: mockClient });
+
+        const result = await tm.uploadDirectory({
+          bucket: "test-bucket",
+          source: tmpDir,
+          s3Prefix: "uploadAll-prefix",
+          recursive: true,
+        });
+
+        expect(result.objectsUploaded).toBe(2);
+        const keys = sendCalls.map((c: any) => c.input.Key);
+        expect(keys).toContain("uploadAll-prefix/root.txt");
+        expect(keys).toContain("uploadAll-prefix/subdir/nested.txt");
+      } finally {
+        await rm(tmpDir, { recursive: true });
+      }
+    });
+
+    it("should terminate on failure with terminate policy", async () => {
+
+      const tmpDir = await mkdtemp(join(tmpdir(), "tm-uploadDir-test-"));
+      await writeFile(join(tmpDir, "file1.txt"), "content1");
+      await writeFile(join(tmpDir, "file2.txt"), "content2");
+      await writeFile(join(tmpDir, "file3.txt"), "content3");
+      await writeFile(join(tmpDir, "file3.txt"), "content4");
+
+      try {
+        const mockClient = {
+          send: vi.fn().mockRejectedValue(new Error("S3 error")),
+          config: {},
+        } as any;
+        const tm = new S3TransferManager({ s3: mockClient });
+
+        await expect(
+          tm.uploadDirectory({
+            bucket: "test-bucket",
+            source: tmpDir,
+            failurePolicy: "terminate" as CannedFailurePolicy,
+          })
+        ).rejects.toThrow("S3 error");
+
+        expect(mockClient.send.mock.calls.length).toBeLessThanOrEqual(1);
+      } finally {
+        await rm(tmpDir, { recursive: true });
+      }
+    });
+
+    it("should continue on failure with continue policy", async () => {
+
+      const tmpDir = await mkdtemp(join(tmpdir(), "tm-test-"));
+      await writeFile(join(tmpDir, "file1.txt"), "content1");
+      await writeFile(join(tmpDir, "file2.txt"), "content2");
+
+      try {
+        let callCount = 0;
+        const mockClient = {
+          send: vi.fn().mockImplementation(() => {
+            callCount++;
+            if (callCount === 1) return Promise.reject(new Error("S3 error"));
+            return Promise.resolve({ ETag: '"mock-etag"', $metadata: {} });
+          }),
+          config: {},
+        } as any;
+        const tm = new S3TransferManager({ s3: mockClient });
+
+        const result = await tm.uploadDirectory({
+          bucket: "test-bucket",
+          source: tmpDir,
+          failurePolicy: "continue" as CannedFailurePolicy,
+        });
+
+        expect(result.objectsFailed).toBe(1);
+        expect(result.objectsUploaded).toBe(1);
+      } finally {
+        await rm(tmpDir, { recursive: true });
+      }
+    });
+
+    it("should continue on transient errors and terminate on non-retryable errors with custom policy", async () => {
+      const tmpDir = await mkdtemp(join(tmpdir(), "tm-uploadDir-test-"));
+      await writeFile(join(tmpDir, "file1.txt"), "content1");
+      await writeFile(join(tmpDir, "file2.txt"), "content2");
+      await writeFile(join(tmpDir, "file3.txt"), "content3");
+      await writeFile(join(tmpDir, "file4.txt"), "content4");
+
+      try {
+        let callCount = 0;
+        const mockClient = {
+          send: vi.fn().mockImplementation(() => {
+            callCount++;
+            if (callCount === 1) {
+              const err = new Error("Request timed out");
+              err.name = "TimeoutError";
+              return Promise.reject(err);
+            }
+            if (callCount === 2) {
+              return Promise.resolve({ ETag: '"mock-etag"', $metadata: {} });
+            }
+            if (callCount === 3) {
+              const err = new Error("Service unavailable");
+              err.name = "ServiceUnavailable";
+              return Promise.reject(err);
+            }
+            return Promise.resolve({ ETag: '"mock-etag"', $metadata: {} });
+          }),
+          config: {},
+        } as any;
+        const tm = new S3TransferManager({ s3: mockClient });
+
+        const customPolicy = async (context: any) => {
+          const errorName = context.error?.name;
+          if (errorName === "TimeoutError" || errorName === "ServiceUnavailable" || errorName === "ThrottlingException") {
+            return "continue" as const;
+          }
+          return "terminate" as const;
+        };
+
+        const result = await tm.uploadDirectory({
+          bucket: "test-bucket",
+          source: tmpDir,
+          failurePolicy: customPolicy,
+          maxConcurrency: 1,
+        });
+
+        expect(result.objectsFailed).toBe(2);
+        expect(result.objectsUploaded).toBe(2);
+      } finally {
+        await rm(tmpDir, { recursive: true });
+      }
+    });
+
+    it("should terminate when custom policy encounters non-retryable error", async () => {
+      const tmpDir = await mkdtemp(join(tmpdir(), "tm-uploadDir-test-"));
+      await writeFile(join(tmpDir, "file1.txt"), "content1");
+      await writeFile(join(tmpDir, "file2.txt"), "content2");
+      await writeFile(join(tmpDir, "file3.txt"), "content3");
+      await writeFile(join(tmpDir, "file4.txt"), "content4");
+      await writeFile(join(tmpDir, "file5.txt"), "content5");
+
+      try {
+        let callCount = 0;
+        const mockClient = {
+          send: vi.fn().mockImplementation(() => {
+            callCount++;
+            if (callCount === 1) {
+              return Promise.resolve({ ETag: '"mock-etag"', $metadata: {} });
+            }
+            if (callCount === 2) {
+              return Promise.resolve({ ETag: '"mock-etag"', $metadata: {} });
+            }
+            if (callCount === 3) {
+              const err = new Error("Access Denied");
+              err.name = "AccessDenied";
+              return Promise.reject(err);
+            }
+            return Promise.resolve({ ETag: '"mock-etag"', $metadata: {} });
+          }),
+          config: {},
+        } as any;
+        const tm = new S3TransferManager({ s3: mockClient });
+
+        const customPolicy = async (context: any) => {
+          const errorName = context.error?.name;
+          if (errorName === "TimeoutError" || errorName === "ServiceUnavailable" || errorName === "ThrottlingException") {
+            return "continue" as const;
+          }
+          return "terminate" as const;
+        };
+
+        await expect(
+          tm.uploadDirectory({
+            bucket: "test-bucket",
+            source: tmpDir,
+            failurePolicy: customPolicy,
+            maxConcurrency: 1,
+          })
+        ).rejects.toThrow("Access Denied");
+
+        // file1 and file2 succeeded, file3 failed with AccessDenied → terminate
+        // file4 and file5 should not have been attempted
+        expect(mockClient.send.mock.calls.length).toBeLessThanOrEqual(3);
+      } finally {
+        await rm(tmpDir, { recursive: true });
+      }
+    });
+
+    it("should apply uploadObjectRequestModifier to override request fields", async () => {
+
+      const tmpDir = await mkdtemp(join(tmpdir(), "tm-uploadDir-test-"));
+      await writeFile(join(tmpDir, "file1.txt"), "content1");
+      await writeFile(join(tmpDir, "file2.txt"), "content2");
+
+      try {
+        const mockClient = createMockClient();
+        const tm = new S3TransferManager({ s3: mockClient });
+
+        await tm.uploadDirectory({
+          bucket: "test-bucket",
+          source: tmpDir,
+          uploadObjectRequestModifier: (req) => ({
+            ...req,
+            Bucket: "override-bucket"
+          }),
+        });
+
+        for (const call of sendCalls) {
+          expect(call.input.Bucket).toBe("override-bucket");
+        }
+      } finally {
+        await rm(tmpDir, { recursive: true });
+      }
+    });
+
+    it("should propagate exceptions thrown in uploadObjectRequestModifier", async () => {
+      const tmpDir = await mkdtemp(join(tmpdir(), "tm-uploadDir-test-"));
+      await writeFile(join(tmpDir, "file1.txt"), "content1");
+
+      try {
+        const mockClient = createMockClient();
+        const tm = new S3TransferManager({ s3: mockClient });
+
+        await expect(
+          tm.uploadDirectory({
+            bucket: "test-bucket",
+            source: tmpDir,
+            uploadObjectRequestModifier: () => {
+              throw new Error("uploadObjectRequestModifier failed");
+            },
+          })
+        ).rejects.toThrow("uploadObjectRequestModifier failed");
+
+        expect(mockClient.send).not.toHaveBeenCalled();
+      } finally {
+        await rm(tmpDir, { recursive: true });
+      }
+    });
+
+    it("should throw when source directory does not exist", async () => {
+      const mockClient = createMockClient();
+      const tm = new S3TransferManager({ s3: mockClient });
+
+      await expect(
+        tm.uploadDirectory({
+          bucket: "test-bucket",
+          source: "/nonexistent/path/abc123",
+        })
+      ).rejects.toThrow("Cannot access directory at");
+    });
+
+    it("should abort when transferOptions.abortSignal is triggered", async () => {
+
+      const tmpDir = await mkdtemp(join(tmpdir(), "tm-uploadDir-test-"));
+      await writeFile(join(tmpDir, "file.txt"), "content");
+
+      try {
+        const ac = new AbortController();
+        ac.abort();
+
+        const mockClient = createMockClient();
+        const tm = new S3TransferManager({ s3: mockClient });
+
+        await expect(
+          tm.uploadDirectory({
+            bucket: "test-bucket",
+            source: tmpDir,
+          }, { abortSignal: ac.signal })
+        ).rejects.toThrow("Transfer aborted");
+      } finally {
+        await rm(tmpDir, { recursive: true });
+      }
+    });
+
+    it("should return zero counts for empty directory", async () => {
+      const tmpDir = await mkdtemp(join(tmpdir(), "tm-uploadDir-test-"));
+
+      try {
+        const mockClient = createMockClient();
+        const tm = new S3TransferManager({ s3: mockClient });
+
+        const result = await tm.uploadDirectory({
+          bucket: "test-bucket",
+          source: tmpDir,
+          recursive: true,
+        });
+
+        expect(result.objectsUploaded).toBe(0);
+        expect(result.objectsFailed).toBe(0);
+        expect(mockClient.send).not.toHaveBeenCalled();
+      } finally {
+        await rm(tmpDir, { recursive: true });
+      }
+    });
+
+  });
+
 });
