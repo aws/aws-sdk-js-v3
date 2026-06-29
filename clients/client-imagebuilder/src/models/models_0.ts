@@ -2087,15 +2087,24 @@ export interface CreateImageResponse {
  */
 export interface PipelineLoggingConfiguration {
   /**
-   * <p>The log group name that Image Builder uses for image creation. If not specified, the log group
-   * 			name defaults to <code>/aws/imagebuilder/image-name</code>.</p>
+   * <p>Specifies the CloudWatch Logs log group name for image build logs.
+   * 			The log group name can contain alphanumeric characters, hyphens,
+   * 			underscores, forward slashes, and periods, up to 512 characters.
+   * 			Log group names not starting with <code>/aws/imagebuilder/</code>
+   * 			require an <code>executionRole</code> with CloudWatch Logs write
+   * 			permissions. If not specified, defaults to
+   * 			<code>/aws/imagebuilder/image-name</code>.</p>
    * @public
    */
   imageLogGroupName?: string | undefined;
 
   /**
-   * <p>The log group name that Image Builder uses for the log output during creation of a new pipeline.
-   * 			If not specified, the pipeline log group name defaults to
+   * <p>Specifies the CloudWatch Logs log group name for pipeline execution
+   * 			logs. The log group name can contain alphanumeric characters, hyphens,
+   * 			underscores, forward slashes, and periods, up to 512 characters.
+   * 			Log group names not starting with <code>/aws/imagebuilder/</code>
+   * 			require an <code>executionRole</code> with CloudWatch Logs write
+   * 			permissions. If not specified, defaults to
    * 			<code>/aws/imagebuilder/pipeline/pipeline-name</code>.</p>
    * @public
    */
@@ -2267,7 +2276,12 @@ export interface CreateImagePipelineRequest {
   executionRole?: string | undefined;
 
   /**
-   * <p>Define logging configuration for the image build process.</p>
+   * <p>Specifies the logging configuration for the image pipeline. Use this
+   * 			to define custom CloudWatch Logs log groups for your pipeline execution
+   * 			logs and image build logs. The service manages log groups with names
+   * 			starting with <code>/aws/imagebuilder/</code> using the service-linked
+   * 			role. For custom log group names outside of this prefix, you must also
+   * 			provide an <code>executionRole</code>.</p>
    * @public
    */
   loggingConfiguration?: PipelineLoggingConfiguration | undefined;
@@ -2392,6 +2406,19 @@ export interface CreateImageRecipeRequest {
    * @public
    */
   amiTags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The AMI watermark names to attach to the output AMI from this recipe.
+   * 			AMI watermarks are lineage markers. They automatically propagate to
+   * 			derivative AMIs when the source AMI is copied or distributed across
+   * 			Regions or accounts.</p>
+   *          <note>
+   *             <p>AMI watermarks are supported only for image recipes. AMIs with
+   * 				watermarks cannot be made public.</p>
+   *          </note>
+   * @public
+   */
+  amiWatermarks?: string[] | undefined;
 
   /**
    * <p>Unique, case-sensitive identifier you provide to ensure
@@ -3452,19 +3479,25 @@ export interface DeleteWorkflowResponse {
  */
 export interface DistributeImageRequest {
   /**
-   * <p>The source image Amazon Resource Name (ARN) to distribute.</p>
+   * <p>The source image to distribute. Specify an AMI identifier,
+   * 			SSM parameter path, or Image Builder image Amazon Resource Name (ARN). When you specify an
+   * 			Image Builder image Amazon Resource Name (ARN), the image must be in the <code>AVAILABLE</code>
+   * 			state.</p>
    * @public
    */
   sourceImage: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the distribution configuration to use.</p>
+   * <p>The Amazon Resource Name (ARN) of the distribution configuration. The configuration
+   * 			defines target Regions, accounts, and AMI settings. The distribution
+   * 			configuration must be in the same Region as this operation.</p>
    * @public
    */
   distributionConfigurationArn: string | undefined;
 
   /**
-   * <p>The IAM role to use for the distribution.</p>
+   * <p>The name or Amazon Resource Name (ARN) of the IAM role that Image Builder assumes to distribute
+   * 			the image.</p>
    * @public
    */
   executionRole: string | undefined;
@@ -3913,6 +3946,14 @@ export interface ImageRecipe {
    * @public
    */
   amiTags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The AMI watermark names attached to the output AMI from this recipe.
+   * 			AMI watermarks are lineage markers that automatically propagate to
+   * 			derivative AMIs when the source AMI is copied or distributed.</p>
+   * @public
+   */
+  amiWatermarks?: string[] | undefined;
 }
 
 /**
@@ -8557,20 +8598,26 @@ export interface SendWorkflowStepActionRequest {
   stepExecutionId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the image build version to send action for.</p>
+   * <p>The Amazon Resource Name (ARN) of the image build version associated with the workflow
+   * 			step execution. This value must match the image that owns the waiting step.
+   * 			If the ARN does not correspond to the image running the workflow,
+   * 			then the request fails with a validation error.</p>
    * @public
    */
   imageBuildVersionArn: string | undefined;
 
   /**
-   * <p>The action for the image creation process to take while a workflow
-   * 			<code>WaitForAction</code> step waits for an asynchronous action to complete.</p>
+   * <p>The action to perform on the paused workflow step. The workflow
+   * 			step must be in a waiting state to accept an action. The request
+   * 			fails if the step has already timed out or been actioned.</p>
    * @public
    */
   action: WorkflowStepActionType | undefined;
 
   /**
-   * <p>The reason why this action is sent.</p>
+   * <p>The reason for the action. This value is stored with the step
+   * 			execution record and is accessible in subsequent workflow steps
+   * 			via step output references.</p>
    * @public
    */
   reason?: string | undefined;
@@ -8711,14 +8758,22 @@ export interface ResourceState {
  */
 export interface StartResourceStateUpdateRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Image Builder resource that is updated. The state update might also
-   * 			impact associated resources.</p>
+   * <p>The Amazon Resource Name (ARN) of the image build version to update. The
+   * 			image must be in one of these terminal states: <code>AVAILABLE</code>,
+   * 			<code>DEPRECATED</code>, <code>DISABLED</code>,
+   * 			<code>FAILED</code>, or <code>CANCELLED</code>. Images with
+   * 			<code>FAILED</code> or <code>CANCELLED</code> status can transition only
+   * 			to <code>DELETED</code>.</p>
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>Indicates the lifecycle action to take for this request.</p>
+   * <p>Specifies the lifecycle action to take for this request. For AMI-based
+   * 			images, valid values are <code>AVAILABLE</code>,
+   * 			<code>DEPRECATED</code>, <code>DISABLED</code>, and
+   * 			<code>DELETED</code>. For container-based images, only
+   * 			<code>DELETED</code> is supported.</p>
    * @public
    */
   state: ResourceState | undefined;
@@ -8730,7 +8785,14 @@ export interface StartResourceStateUpdateRequest {
   executionRole?: string | undefined;
 
   /**
-   * <p>A list of image resources to update state for.</p>
+   * <p>Specifies which image resources to include in the state update.
+   * 			When specified, the lifecycle action applies to underlying resources.
+   * 			These resources include AMIs, snapshots, and containers in addition
+   * 			to the Image Builder image resource. Requires <code>executionRole</code> to
+   * 			also be specified. To delete an image and its underlying resources, you must
+   * 			specify <code>includeResources</code>. To delete only the Image Builder
+   * 			image record without affecting underlying resources, use the
+   * 			<code>DeleteImage</code> API instead.</p>
    * @public
    */
   includeResources?: ResourceStateUpdateIncludeResources | undefined;
@@ -8743,7 +8805,9 @@ export interface StartResourceStateUpdateRequest {
   exclusionRules?: ResourceStateUpdateExclusionRules | undefined;
 
   /**
-   * <p>The timestamp that indicates when resources are updated by a lifecycle action.</p>
+   * <p>Specifies the timestamp when the state transition takes
+   * 			effect. Use this parameter only when the target status is
+   * 			<code>DEPRECATED</code>. The value must be a future time.</p>
    * @public
    */
   updateAt?: Date | undefined;

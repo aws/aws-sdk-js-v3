@@ -406,6 +406,7 @@ const _aI = "accountId";
 const _aIC = "additionalInstanceConfiguration";
 const _aT = "amiTags";
 const _aTg = "aggregationType";
+const _aW = "amiWatermarks";
 const _aZ = "availabilityZone";
 const _ac = "action";
 const _ad = "adjustments";
@@ -1018,8 +1019,8 @@ export var CreateImagePipelineResponse$: StaticStructureSchema = [3, n0, _CIPRr,
 ];
 export var CreateImageRecipeRequest$: StaticStructureSchema = [3, n0, _CIRR,
   0,
-  [_n, _sV, _pI, _d, _co, _bDM, _ta, _wD, _aIC, _aT, _cT],
-  [0, 0, 0, 0, () => ComponentConfigurationList, () => InstanceBlockDeviceMappings, 128 | 0, 0, () => AdditionalInstanceConfiguration$, 128 | 0, [0, 4]], 3
+  [_n, _sV, _pI, _d, _co, _bDM, _ta, _wD, _aIC, _aT, _aW, _cT],
+  [0, 0, 0, 0, () => ComponentConfigurationList, () => InstanceBlockDeviceMappings, 128 | 0, 0, () => AdditionalInstanceConfiguration$, 128 | 0, 64 | 0, [0, 4]], 3
 ];
 export var CreateImageRecipeResponse$: StaticStructureSchema = [3, n0, _CIRRr,
   0,
@@ -1428,8 +1429,8 @@ export var ImagePipelineAggregation$: StaticStructureSchema = [3, n0, _IPA,
 ];
 export var ImageRecipe$: StaticStructureSchema = [3, n0, _IR,
   0,
-  [_a, _t, _n, _d, _p, _o, _v, _co, _pI, _bDM, _dC, _ta, _wD, _aIC, _aT],
-  [0, 0, 0, 0, 0, 0, 0, () => ComponentConfigurationList, 0, () => InstanceBlockDeviceMappings, 0, 128 | 0, 0, () => AdditionalInstanceConfiguration$, 128 | 0]
+  [_a, _t, _n, _d, _p, _o, _v, _co, _pI, _bDM, _dC, _ta, _wD, _aIC, _aT, _aW],
+  [0, 0, 0, 0, 0, 0, 0, () => ComponentConfigurationList, 0, () => InstanceBlockDeviceMappings, 0, 128 | 0, 0, () => AdditionalInstanceConfiguration$, 128 | 0, 64 | 0]
 ];
 export var ImageRecipeSummary$: StaticStructureSchema = [3, n0, _IRS,
   0,
@@ -2170,6 +2171,7 @@ var AccountList = 64 | 0;
 var AmiList: StaticListSchema = [1, n0, _AL,
   0, () => Ami$
 ];
+var AmiWatermarksList = 64 | 0;
 var ComponentConfigurationList: StaticListSchema = [1, n0, _CCL,
   0, () => ComponentConfiguration$
 ];

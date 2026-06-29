@@ -96,6 +96,9 @@ export interface GetImageRecipeCommandOutput extends GetImageRecipeResponse, __M
  * //     amiTags: {
  * //       "<keys>": "STRING_VALUE",
  * //     },
+ * //     amiWatermarks: [ // AmiWatermarksList
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * //   latestVersionReferences: { // LatestVersionReferences
  * //     latestVersionArn: "STRING_VALUE",

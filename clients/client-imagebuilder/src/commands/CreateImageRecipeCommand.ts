@@ -85,6 +85,9 @@ export interface CreateImageRecipeCommandOutput extends CreateImageRecipeRespons
  *   amiTags: {
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   amiWatermarks: [ // AmiWatermarksList
+ *     "STRING_VALUE",
+ *   ],
  *   clientToken: "STRING_VALUE", // required
  * };
  * const command = new CreateImageRecipeCommand(input);

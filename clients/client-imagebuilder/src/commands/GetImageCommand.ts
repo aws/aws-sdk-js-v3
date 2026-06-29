@@ -108,6 +108,9 @@ export interface GetImageCommandOutput extends GetImageResponse, __MetadataBeare
  * //       amiTags: {
  * //         "<keys>": "STRING_VALUE",
  * //       },
+ * //       amiWatermarks: [ // AmiWatermarksList
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //     containerRecipe: { // ContainerRecipe
  * //       arn: "STRING_VALUE",

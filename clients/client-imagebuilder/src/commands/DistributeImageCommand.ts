@@ -27,7 +27,9 @@ export interface DistributeImageCommandInput extends DistributeImageRequest {}
 export interface DistributeImageCommandOutput extends DistributeImageResponse, __MetadataBearer {}
 
 /**
- * <p>DistributeImage distributes existing AMIs to additional regions and accounts without rebuilding the image.</p>
+ * <p>Distributes an existing AMI to target Regions and accounts without running
+ * 			the full image build process. This operation only runs the distribution
+ * 			phase on an image that has already been built.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
