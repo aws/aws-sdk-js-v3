@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1076.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1075.0...v3.1076.0) (2026-06-29)
+
+
+### Features
+
+* **client-pinpoint-sms-voice-v2:** This launch is an expansion of our Q1 RCS for business launch where we will release an API that supports rich media and interactive messaging elements. ([46b1644](https://github.com/aws/aws-sdk-js-v3/commit/46b16440ad40f8ab26d01ff7c09a94c2c9521cfc))
+
+
+
+
+
 # [3.1075.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1074.0...v3.1075.0) (2026-06-23)
 
 **Note:** Version bump only for package @aws-sdk/client-pinpoint-sms-voice-v2

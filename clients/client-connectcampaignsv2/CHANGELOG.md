@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1076.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1075.0...v3.1076.0) (2026-06-29)
+
+
+### Features
+
+* **client-connectcampaignsv2:** Adding new attributes to PutProfileOutboundRequest API that will create an outbound request call for the customer's Web Notification outbound campaign. ([05f467f](https://github.com/aws/aws-sdk-js-v3/commit/05f467f78815884db3d8dcb4a99e1ab95679efe5))
+
+
+
+
+
 # [3.1075.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1074.0...v3.1075.0) (2026-06-23)
 
 **Note:** Version bump only for package @aws-sdk/client-connectcampaignsv2

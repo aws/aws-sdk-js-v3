@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1076.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1075.0...v3.1076.0) (2026-06-29)
+
+
+### Features
+
+* **client-sagemaker-featurestore-runtime:** Add support for ListRecords and BatchWriteRecord APIs to Feature Store. ([7a6ffe5](https://github.com/aws/aws-sdk-js-v3/commit/7a6ffe5ed4120d6637fc176a27efcaccc0752c95))
+
+
+
+
+
 # [3.1075.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1074.0...v3.1075.0) (2026-06-23)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker-featurestore-runtime

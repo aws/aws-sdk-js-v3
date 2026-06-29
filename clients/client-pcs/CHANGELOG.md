@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1076.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1075.0...v3.1076.0) (2026-06-29)
+
+
+### Features
+
+* **client-pcs:** Add support for in-place Slurm version upgrades on existing clusters by accepting scheduler.version in UpdateCluster. ([16469f6](https://github.com/aws/aws-sdk-js-v3/commit/16469f6b6af8a6f2968d2342213b8020529ec926))
+
+
+
+
+
 # [3.1075.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1074.0...v3.1075.0) (2026-06-23)
 
 **Note:** Version bump only for package @aws-sdk/client-pcs

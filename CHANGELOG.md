@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1076.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1075.0...v3.1076.0) (2026-06-29)
+
+
+### Features
+
+* **client-appconfig:** AWS AppConfig introduces Experimentation tools - enhanced capabilities within AWS AppConfig that enable you to run AB tests, multivariate tests, and gradual feature rollouts across your application stack. ([2b8591d](https://github.com/aws/aws-sdk-js-v3/commit/2b8591de5c93c50901b5ae1e7abe0f8c3e557fdb))
+* **client-cloudwatch:** This release adds the API (PutLogAlarm) to manage a new CloudWatch resource, Log Based Alarms. Log Based Alarms allows customers to alarm directly on CloudWatch Logs query results. ([14f023b](https://github.com/aws/aws-sdk-js-v3/commit/14f023badd34a78632b4792a4039c6f6faa7486b))
+* **client-connectcampaignsv2:** Adding new attributes to PutProfileOutboundRequest API that will create an outbound request call for the customer's Web Notification outbound campaign. ([05f467f](https://github.com/aws/aws-sdk-js-v3/commit/05f467f78815884db3d8dcb4a99e1ab95679efe5))
+* **client-connecthealth:** Expand input validation to support Unicode characters and markdown table syntax. ([a20832a](https://github.com/aws/aws-sdk-js-v3/commit/a20832a34042dc7a64fe27207d26e32950f04c92))
+* **client-ec2:** Adds support for the precision time strategy and a parentGroupId parameter on CreatePlacementGroup and DescribePlacementGroups. Precision time placement groups and cluster placement groups with a parent precision time placement group ensure instances launch on precision time capable hardware. ([3482937](https://github.com/aws/aws-sdk-js-v3/commit/3482937a47912a63508f7673372812c109e61578))
+* **client-ecs:** Amazon ECS now supports customizable deployment circuit breaker configurations. Customers can now define the failure threshold or control the failure counting mechanism. ([ff85bd3](https://github.com/aws/aws-sdk-js-v3/commit/ff85bd339bd4e5023feaef0559766015e3da9b40))
+* **client-evs:** Amazon EVS introduces a VMware Cloud Foundation (VCF) self-deployed mode, along with new connectors to VCF components such as the Operations and SDDC managers to monitor coverage and usage. ([2ae38fe](https://github.com/aws/aws-sdk-js-v3/commit/2ae38fea02b0248faaacee4fcd090d40865a8942))
+* **client-glue:** Added the UpdateAsset operation to set the business name and description for an existing AWS Glue Data Catalog asset. ([fe604af](https://github.com/aws/aws-sdk-js-v3/commit/fe604af0d8fb13aba0bd2829458e5d0476f47970))
+* **client-imagebuilder:** Adds support for AMI watermarks in Image Builder. ([17e643a](https://github.com/aws/aws-sdk-js-v3/commit/17e643a9fd646c648fece0738a2af282ac1edf23))
+* **client-lambda:** Lambda now supports self-managed S3 buckets for Lambda code storage giving you the option for Lambda to reference a copy of your source code from your own S3 buckets. This allows you to maintain a single copy of your source code and manage your own code storage limits. ([0268f93](https://github.com/aws/aws-sdk-js-v3/commit/0268f939a68bc042e376ab192a1bd9790750fa28))
+* **client-pcs:** Add support for in-place Slurm version upgrades on existing clusters by accepting scheduler.version in UpdateCluster. ([16469f6](https://github.com/aws/aws-sdk-js-v3/commit/16469f6b6af8a6f2968d2342213b8020529ec926))
+* **client-pinpoint-sms-voice-v2:** This launch is an expansion of our Q1 RCS for business launch where we will release an API that supports rich media and interactive messaging elements. ([46b1644](https://github.com/aws/aws-sdk-js-v3/commit/46b16440ad40f8ab26d01ff7c09a94c2c9521cfc))
+* **client-resource-explorer-2:** Added CFN resource type fields for Search and ListSupportedResourceTypes responses. Added SLRec field for ServiceView ([a377383](https://github.com/aws/aws-sdk-js-v3/commit/a3773832d2f12cd7376faab68ae92f90edde2313))
+* **client-sagemaker-featurestore-runtime:** Add support for ListRecords and BatchWriteRecord APIs to Feature Store. ([7a6ffe5](https://github.com/aws/aws-sdk-js-v3/commit/7a6ffe5ed4120d6637fc176a27efcaccc0752c95))
+* **client-vpc-lattice:** Amazon VPC Lattice now supports mutable idle timeout configuration on VPC Lattice Services ([217aaea](https://github.com/aws/aws-sdk-js-v3/commit/217aaea51e06d66991ddaecd204f0eb9b515838d))
+* **client-wafv2:** AWS WAF added support for associating AWS WAF web ACLs with Amazon Bedrock AgentCore Gateway resources. You can now use AssociateWebACL, DisassociateWebACL, GetWebACLForResource, and ListResourcesForWebACL to protect your AgentCore Gateways with AWS WAF. ([54ea321](https://github.com/aws/aws-sdk-js-v3/commit/54ea3212eb9c71f378ac801e94fa689efde0e2df))
+
+
+
+
+
 # [3.1075.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1074.0...v3.1075.0) (2026-06-23)
 
 

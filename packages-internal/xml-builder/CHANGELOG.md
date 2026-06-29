@@ -15,6 +15,16 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.32 (2026-06-29)
+### Chores
+* **scripts:** drop bundler support in dist-cjs (use dist-es instead) ([#8124](https://github.com/aws/aws-sdk-js-v3/issues/8124)) ([775bc03](https://github.com/aws/aws-sdk-js-v3/commit/775bc034fad8cb5587434718133ce592da4e1b3e))
+* **codegen:** sync for CBOR serde performance and retry fixes ([#8125](https://github.com/aws/aws-sdk-js-v3/issues/8125)) ([b6d6a75](https://github.com/aws/aws-sdk-js-v3/commit/b6d6a759f15f2c36745fb85905a90533998cae0e))
+### Tests
+* add tsup/dts and metro bundler compatibility tests ([#8122](https://github.com/aws/aws-sdk-js-v3/issues/8122)) ([88ae83f](https://github.com/aws/aws-sdk-js-v3/commit/88ae83fcff33d1554e5393d5ed4320f59896bb68))
+
+
+
 # 3.972.31 (2026-06-22)
 ### Chores
 * **xml-builder:** move testing devDeps to root, remove unused nodable dep ([#8118](https://github.com/aws/aws-sdk-js-v3/issues/8118)) ([ed82880](https://github.com/aws/aws-sdk-js-v3/commit/ed82880d26cac439d808eca5760da899cf449899))

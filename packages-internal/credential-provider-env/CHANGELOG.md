@@ -52,6 +52,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.50 (2026-06-29)
+### Chores
+* **codegen:** sync for checksum impls, hostLabel validation ([#8127](https://github.com/aws/aws-sdk-js-v3/issues/8127)) ([aa94fa0](https://github.com/aws/aws-sdk-js-v3/commit/aa94fa0469fa7e0933a4b36b4e6329fa88ee33ab))
+* **codegen:** sync for CBOR serde performance and retry fixes ([#8125](https://github.com/aws/aws-sdk-js-v3/issues/8125)) ([b6d6a75](https://github.com/aws/aws-sdk-js-v3/commit/b6d6a759f15f2c36745fb85905a90533998cae0e))
+
+
+
 # 3.972.49 (2026-06-22)
 ### Chores
 * **credential-provider-env:** update dependencies.

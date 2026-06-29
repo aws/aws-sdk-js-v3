@@ -19,6 +19,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.17 (2026-06-29)
+### Chores
+* **scripts:** drop bundler support in dist-cjs (use dist-es instead) ([#8124](https://github.com/aws/aws-sdk-js-v3/issues/8124)) ([775bc03](https://github.com/aws/aws-sdk-js-v3/commit/775bc034fad8cb5587434718133ce592da4e1b3e))
+
+
+
 # 3.972.16 (2026-06-13)
 ### Chores
 * **scripts:** tuning the build graph ([#8095](https://github.com/aws/aws-sdk-js-v3/issues/8095)) ([67981c5](https://github.com/aws/aws-sdk-js-v3/commit/67981c5a65d6dd797a065df034a8d0fcdaa9b7bd))

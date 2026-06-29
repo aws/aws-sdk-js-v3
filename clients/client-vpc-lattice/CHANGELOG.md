@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1076.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1075.0...v3.1076.0) (2026-06-29)
+
+
+### Features
+
+* **client-vpc-lattice:** Amazon VPC Lattice now supports mutable idle timeout configuration on VPC Lattice Services ([217aaea](https://github.com/aws/aws-sdk-js-v3/commit/217aaea51e06d66991ddaecd204f0eb9b515838d))
+
+
+
+
+
 # [3.1075.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1074.0...v3.1075.0) (2026-06-23)
 
 **Note:** Version bump only for package @aws-sdk/client-vpc-lattice

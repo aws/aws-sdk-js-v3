@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1076.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1075.0...v3.1076.0) (2026-06-29)
+
+
+### Features
+
+* **client-resource-explorer-2:** Added CFN resource type fields for Search and ListSupportedResourceTypes responses. Added SLRec field for ServiceView ([a377383](https://github.com/aws/aws-sdk-js-v3/commit/a3773832d2f12cd7376faab68ae92f90edde2313))
+
+
+
+
+
 # [3.1075.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1074.0...v3.1075.0) (2026-06-23)
 
 **Note:** Version bump only for package @aws-sdk/client-resource-explorer-2
