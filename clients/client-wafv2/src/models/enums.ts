@@ -527,6 +527,7 @@ export type SensitivityLevel = (typeof SensitivityLevel)[keyof typeof Sensitivit
  * @enum
  */
 export const AssociatedResourceType = {
+  AGENTCORE_GATEWAY: "AGENTCORE_GATEWAY",
   API_GATEWAY: "API_GATEWAY",
   APP_RUNNER_SERVICE: "APP_RUNNER_SERVICE",
   CLOUDFRONT: "CLOUDFRONT",
@@ -943,6 +944,7 @@ export type FailureReason = (typeof FailureReason)[keyof typeof FailureReason];
  * @enum
  */
 export const ResourceType = {
+  AGENTCORE_GATEWAY: "AGENTCORE_GATEWAY",
   AMPLIFY: "AMPLIFY",
   API_GATEWAY: "API_GATEWAY",
   APPLICATION_LOAD_BALANCER: "APPLICATION_LOAD_BALANCER",

@@ -3064,6 +3064,11 @@ export interface AssociateWebACLRequest {
    *                   </code>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>For an Amazon Bedrock AgentCore Gateway: <code>arn:<i>partition</i>:bedrock-agentcore:<i>region</i>:<i>account-id</i>:gateway/<i>gateway-id</i>
+   *                   </code>
+   *                </p>
+   *             </li>
    *          </ul>
    * @public
    */
@@ -4509,6 +4514,11 @@ export interface DisassociateWebACLRequest {
    *                   </code>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>For an Amazon Bedrock AgentCore Gateway: <code>arn:<i>partition</i>:bedrock-agentcore:<i>region</i>:<i>account-id</i>:gateway/<i>gateway-id</i>
+   *                   </code>
+   *                </p>
+   *             </li>
    *          </ul>
    * @public
    */
@@ -5691,7 +5701,7 @@ export interface SourceStatistics {
   Organization?: string | undefined;
 
   /**
-   * <p>Whether the AI bot's identity was verified.</p>
+   * <p>Indicates whether the AI bot's identity was verified — for example, through a cryptographically signed request (Web Bot Auth) or another published verification method. This value is meaningful only when GroupBy is NAME, where each result represents a single, identifiable bot. For all other GroupBy values (CATEGORY, INTENT, ORGANIZATION, or WEBACL), a result aggregates multiple bots that may have different verification states, so Verified is always returned as false and should be ignored. Type and required-ness are unchanged (Boolean, optional).</p>
    * @public
    */
   Verified?: boolean | undefined;
@@ -6550,6 +6560,11 @@ export interface GetWebACLForResourceRequest {
    *             </li>
    *             <li>
    *                <p>For an Amplify application: <code>arn:<i>partition</i>:amplify:<i>region</i>:<i>account-id</i>:apps/<i>app-id</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>For an Amazon Bedrock AgentCore Gateway: <code>arn:<i>partition</i>:bedrock-agentcore:<i>region</i>:<i>account-id</i>:gateway/<i>gateway-id</i>
    *                   </code>
    *                </p>
    *             </li>
