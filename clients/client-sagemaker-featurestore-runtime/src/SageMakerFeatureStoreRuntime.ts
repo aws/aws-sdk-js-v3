@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   type BatchGetRecordCommandInput,
@@ -8,19 +8,35 @@ import {
   BatchGetRecordCommand,
 } from "./commands/BatchGetRecordCommand";
 import {
+  type BatchWriteRecordCommandInput,
+  type BatchWriteRecordCommandOutput,
+  BatchWriteRecordCommand,
+} from "./commands/BatchWriteRecordCommand";
+import {
   type DeleteRecordCommandInput,
   type DeleteRecordCommandOutput,
   DeleteRecordCommand,
 } from "./commands/DeleteRecordCommand";
 import { type GetRecordCommandInput, type GetRecordCommandOutput, GetRecordCommand } from "./commands/GetRecordCommand";
+import {
+  type ListRecordsCommandInput,
+  type ListRecordsCommandOutput,
+  ListRecordsCommand,
+} from "./commands/ListRecordsCommand";
 import { type PutRecordCommandInput, type PutRecordCommandOutput, PutRecordCommand } from "./commands/PutRecordCommand";
+import { paginateListRecords } from "./pagination/ListRecordsPaginator";
 import { SageMakerFeatureStoreRuntimeClient } from "./SageMakerFeatureStoreRuntimeClient";
 
 const commands = {
   BatchGetRecordCommand,
+  BatchWriteRecordCommand,
   DeleteRecordCommand,
   GetRecordCommand,
+  ListRecordsCommand,
   PutRecordCommand,
+};
+const paginators = {
+  paginateListRecords,
 };
 
 export interface SageMakerFeatureStoreRuntime {
@@ -39,6 +55,23 @@ export interface SageMakerFeatureStoreRuntime {
     args: BatchGetRecordCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchGetRecordCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchWriteRecordCommand}
+   */
+  batchWriteRecord(
+    args: BatchWriteRecordCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchWriteRecordCommandOutput>;
+  batchWriteRecord(
+    args: BatchWriteRecordCommandInput,
+    cb: (err: any, data?: BatchWriteRecordCommandOutput) => void
+  ): void;
+  batchWriteRecord(
+    args: BatchWriteRecordCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchWriteRecordCommandOutput) => void
   ): void;
 
   /**
@@ -76,6 +109,23 @@ export interface SageMakerFeatureStoreRuntime {
   ): void;
 
   /**
+   * @see {@link ListRecordsCommand}
+   */
+  listRecords(
+    args: ListRecordsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRecordsCommandOutput>;
+  listRecords(
+    args: ListRecordsCommandInput,
+    cb: (err: any, data?: ListRecordsCommandOutput) => void
+  ): void;
+  listRecords(
+    args: ListRecordsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRecordsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link PutRecordCommand}
    */
   putRecord(
@@ -91,6 +141,17 @@ export interface SageMakerFeatureStoreRuntime {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutRecordCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListRecordsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRecordsCommandOutput}.
+   */
+  paginateListRecords(
+    args: ListRecordsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRecordsCommandOutput>;
 }
 
 /**
@@ -124,4 +185,4 @@ export interface SageMakerFeatureStoreRuntime {
  * @public
  */
 export class SageMakerFeatureStoreRuntime extends SageMakerFeatureStoreRuntimeClient implements SageMakerFeatureStoreRuntime {}
-createAggregatedClient(commands, SageMakerFeatureStoreRuntime);
+createAggregatedClient(commands, SageMakerFeatureStoreRuntime, { paginators });

@@ -64,7 +64,7 @@ export interface DeleteRecordCommandOutput extends __MetadataBearer {}
  *          your <code>OfflineStore</code>, you can remove all history of a record from the
  *             <code>OfflineStore</code> using Amazon Athena or Apache Spark. For information on how to
  *          hard delete a record from the <code>OfflineStore</code> with the Iceberg table format
- *          enabled, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/feature-store-delete-records-offline-store.html#feature-store-delete-records-offline-store">Delete records from the offline store</a>.</p>
+ *          enabled, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/feature-store-delete-records.html#feature-store-delete-records-offline-store">Delete records from the offline store</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

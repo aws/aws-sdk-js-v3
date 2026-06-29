@@ -55,8 +55,10 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import type { BatchGetRecordCommandInput, BatchGetRecordCommandOutput } from "./commands/BatchGetRecordCommand";
+import type { BatchWriteRecordCommandInput, BatchWriteRecordCommandOutput } from "./commands/BatchWriteRecordCommand";
 import type { DeleteRecordCommandInput, DeleteRecordCommandOutput } from "./commands/DeleteRecordCommand";
 import type { GetRecordCommandInput, GetRecordCommandOutput } from "./commands/GetRecordCommand";
+import type { ListRecordsCommandInput, ListRecordsCommandOutput } from "./commands/ListRecordsCommand";
 import type { PutRecordCommandInput, PutRecordCommandOutput } from "./commands/PutRecordCommand";
 import {
   type ClientInputEndpointParameters,
@@ -74,8 +76,10 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | BatchGetRecordCommandInput
+  | BatchWriteRecordCommandInput
   | DeleteRecordCommandInput
   | GetRecordCommandInput
+  | ListRecordsCommandInput
   | PutRecordCommandInput;
 
 /**
@@ -83,8 +87,10 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | BatchGetRecordCommandOutput
+  | BatchWriteRecordCommandOutput
   | DeleteRecordCommandOutput
   | GetRecordCommandOutput
+  | ListRecordsCommandOutput
   | PutRecordCommandOutput;
 
 /**

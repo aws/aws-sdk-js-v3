@@ -48,16 +48,16 @@ To install this package, use the CLI of your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SageMakerFeatureStoreRuntimeClient` and
-the commands you need, for example `GetRecordCommand`:
+the commands you need, for example `ListRecordsCommand`:
 
 ```js
 // ES5 example
-const { SageMakerFeatureStoreRuntimeClient, GetRecordCommand } = require("@aws-sdk/client-sagemaker-featurestore-runtime");
+const { SageMakerFeatureStoreRuntimeClient, ListRecordsCommand } = require("@aws-sdk/client-sagemaker-featurestore-runtime");
 ```
 
 ```ts
 // ES6+ example
-import { SageMakerFeatureStoreRuntimeClient, GetRecordCommand } from "@aws-sdk/client-sagemaker-featurestore-runtime";
+import { SageMakerFeatureStoreRuntimeClient, ListRecordsCommand } from "@aws-sdk/client-sagemaker-featurestore-runtime";
 ```
 
 ### Usage
@@ -74,7 +74,7 @@ To send a request:
 const client = new SageMakerFeatureStoreRuntimeClient({ region: "REGION" });
 
 const params = { /** input parameters */ };
-const command = new GetRecordCommand(params);
+const command = new ListRecordsCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new SageMakerFeatureStoreRuntime({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.getRecord(params);
+  const data = await client.listRecords(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .getRecord(params)
+  .listRecords(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks (not recommended).
-client.getRecord(params, (err, data) => {
+client.listRecords(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -214,6 +214,13 @@ BatchGetRecord
 </details>
 <details>
 <summary>
+BatchWriteRecord
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker-featurestore-runtime/command/BatchWriteRecordCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-featurestore-runtime/Interface/BatchWriteRecordCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-featurestore-runtime/Interface/BatchWriteRecordCommandOutput/)
+</details>
+<details>
+<summary>
 DeleteRecord
 </summary>
 
@@ -225,6 +232,13 @@ GetRecord
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker-featurestore-runtime/command/GetRecordCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-featurestore-runtime/Interface/GetRecordCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-featurestore-runtime/Interface/GetRecordCommandOutput/)
+</details>
+<details>
+<summary>
+ListRecords
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker-featurestore-runtime/command/ListRecordsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-featurestore-runtime/Interface/ListRecordsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-featurestore-runtime/Interface/ListRecordsCommandOutput/)
 </details>
 <details>
 <summary>

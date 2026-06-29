@@ -170,6 +170,125 @@ export interface BatchGetRecordResponse {
 }
 
 /**
+ * <p>Time to live duration, where the record is hard deleted after the expiration time is
+ *          reached; <code>ExpiresAt</code> = <code>EventTime</code> + <code>TtlDuration</code>. For
+ *          information on HardDelete, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_feature_store_DeleteRecord.html">DeleteRecord</a> API in the Amazon SageMaker API Reference guide.</p>
+ * @public
+ */
+export interface TtlDuration {
+  /**
+   * <p>
+   *             <code>TtlDuration</code> time unit.</p>
+   * @public
+   */
+  Unit: TtlDurationUnit | undefined;
+
+  /**
+   * <p>
+   *             <code>TtlDuration</code> time value.</p>
+   * @public
+   */
+  Value: number | undefined;
+}
+
+/**
+ * <p>An entry to write as part of a <code>BatchWriteRecord</code> request.</p>
+ * @public
+ */
+export interface BatchWriteRecordEntry {
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the <code>FeatureGroup</code> to write the
+   *          record to.</p>
+   * @public
+   */
+  FeatureGroupName: string | undefined;
+
+  /**
+   * <p>List of FeatureValues to be inserted. This will be a full over-write.</p>
+   * @public
+   */
+  Record: FeatureValue[] | undefined;
+
+  /**
+   * <p>A list of stores to which you're adding the record. By default, Feature Store adds the
+   *          record to all of the stores that you're using for the
+   *             <code>FeatureGroup</code>.</p>
+   * @public
+   */
+  TargetStores?: TargetStore[] | undefined;
+
+  /**
+   * <p>Time to live duration for this entry, where the record is hard deleted after the
+   *          expiration time is reached; <code>ExpiresAt</code> = <code>EventTime</code> +
+   *             <code>TtlDuration</code>. This overrides the request level
+   *          <code>TtlDuration</code>.</p>
+   * @public
+   */
+  TtlDuration?: TtlDuration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchWriteRecordRequest {
+  /**
+   * <p>A list of records to write. Each entry specifies the <code>FeatureGroup</code>, the
+   *          record data, and optionally target stores and a TTL duration.</p>
+   * @public
+   */
+  Entries: BatchWriteRecordEntry[] | undefined;
+
+  /**
+   * <p>Time to live duration applied to all entries in the batch that do not specify their own
+   *             <code>TtlDuration</code>; <code>ExpiresAt</code> = <code>EventTime</code> +
+   *             <code>TtlDuration</code>. For information on HardDelete, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_feature_store_DeleteRecord.html">DeleteRecord</a> API in the Amazon SageMaker API Reference guide.</p>
+   * @public
+   */
+  TtlDuration?: TtlDuration | undefined;
+}
+
+/**
+ * <p>The error that has occurred when attempting to write a record in a batch.</p>
+ * @public
+ */
+export interface BatchWriteRecordError {
+  /**
+   * <p>The entry that failed to be written.</p>
+   * @public
+   */
+  Entry: BatchWriteRecordEntry | undefined;
+
+  /**
+   * <p>The error code for the failed record write.</p>
+   * @public
+   */
+  ErrorCode: string | undefined;
+
+  /**
+   * <p>The error message for the failed record write.</p>
+   * @public
+   */
+  ErrorMessage: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchWriteRecordResponse {
+  /**
+   * <p>A list of errors that occurred when writing records in the batch.</p>
+   * @public
+   */
+  Errors: BatchWriteRecordError[] | undefined;
+
+  /**
+   * <p>A list of entries that were not processed. These entries can be retried.</p>
+   * @public
+   */
+  UnprocessedEntries: BatchWriteRecordEntry[] | undefined;
+}
+
+/**
  * @public
  */
 export interface DeleteRecordRequest {
@@ -262,25 +381,52 @@ export interface GetRecordResponse {
 }
 
 /**
- * <p>Time to live duration, where the record is hard deleted after the expiration time is
- *          reached; <code>ExpiresAt</code> = <code>EventTime</code> + <code>TtlDuration</code>. For
- *          information on HardDelete, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_feature_store_DeleteRecord.html">DeleteRecord</a> API in the Amazon SageMaker API Reference guide.</p>
  * @public
  */
-export interface TtlDuration {
+export interface ListRecordsRequest {
   /**
-   * <p>
-   *             <code>TtlDuration</code> time unit.</p>
+   * <p>The name or Amazon Resource Name (ARN) of the feature group to list records from.</p>
    * @public
    */
-  Unit: TtlDurationUnit | undefined;
+  FeatureGroupName: string | undefined;
 
   /**
-   * <p>
-   *             <code>TtlDuration</code> time value.</p>
+   * <p>The maximum number of record identifiers to return in a single page of results. For the <code>InMemory</code> tier, this value is a hint and not a strict requirement. The response may contain more or fewer results than the specified <code>MaxResults</code>.</p>
    * @public
    */
-  Value: number | undefined;
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A token to resume pagination of <code>ListRecords</code> results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>If set to <code>true</code>, the result includes records that have been soft
+   *          deleted.</p>
+   * @public
+   */
+  IncludeSoftDeletedRecords?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRecordsResponse {
+  /**
+   * <p>A list of record identifier values for the records stored in the
+   *             <code>OnlineStore</code>.</p>
+   * @public
+   */
+  RecordIdentifiers: string[] | undefined;
+
+  /**
+   * <p>A token to resume pagination if the response includes more record identifiers than
+   *             <code>MaxResults</code>.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }
 
 /**

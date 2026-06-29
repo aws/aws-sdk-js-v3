@@ -16,19 +16,6 @@ export type ExpirationTimeResponse = (typeof ExpirationTimeResponse)[keyof typeo
  * @public
  * @enum
  */
-export const DeletionMode = {
-  HARD_DELETE: "HardDelete",
-  SOFT_DELETE: "SoftDelete",
-} as const;
-/**
- * @public
- */
-export type DeletionMode = (typeof DeletionMode)[keyof typeof DeletionMode];
-
-/**
- * @public
- * @enum
- */
 export const TargetStore = {
   OFFLINE_STORE: "OfflineStore",
   ONLINE_STORE: "OnlineStore",
@@ -53,3 +40,16 @@ export const TtlDurationUnit = {
  * @public
  */
 export type TtlDurationUnit = (typeof TtlDurationUnit)[keyof typeof TtlDurationUnit];
+
+/**
+ * @public
+ * @enum
+ */
+export const DeletionMode = {
+  HARD_DELETE: "HardDelete",
+  SOFT_DELETE: "SoftDelete",
+} as const;
+/**
+ * @public
+ */
+export type DeletionMode = (typeof DeletionMode)[keyof typeof DeletionMode];
