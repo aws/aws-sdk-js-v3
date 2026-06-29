@@ -34,7 +34,9 @@ export interface CreatePlacementGroupCommandOutput extends CreatePlacementGroupR
  *             A <code>spread</code> placement group places instances on distinct hardware. A
  *                 <code>partition</code> placement group places groups of instances in different
  *             partitions, where instances in one partition do not share the same hardware with
- *             instances in another partition.</p>
+ *             instances in another partition. A <code>precision-time</code> placement group places
+ *             instances on supported hardware with direct access to high-precision time sources in
+ *             AWS infrastructure.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement groups</a> in the
  *                 <i>Amazon EC2 User Guide</i>.</p>
  * @example
@@ -63,9 +65,10 @@ export interface CreatePlacementGroupCommandOutput extends CreatePlacementGroupR
  *   Operator: { // OperatorRequest
  *     Principal: "STRING_VALUE",
  *   },
+ *   ParentGroupId: "STRING_VALUE",
  *   DryRun: true || false,
  *   GroupName: "STRING_VALUE",
- *   Strategy: "cluster" || "spread" || "partition",
+ *   Strategy: "cluster" || "spread" || "partition" || "precision-time",
  * };
  * const command = new CreatePlacementGroupCommand(input);
  * const response = await client.send(command);
@@ -73,7 +76,7 @@ export interface CreatePlacementGroupCommandOutput extends CreatePlacementGroupR
  * //   PlacementGroup: { // PlacementGroup
  * //     GroupName: "STRING_VALUE",
  * //     State: "pending" || "available" || "deleting" || "deleted",
- * //     Strategy: "cluster" || "spread" || "partition",
+ * //     Strategy: "cluster" || "spread" || "partition" || "precision-time",
  * //     PartitionCount: Number("int"),
  * //     GroupId: "STRING_VALUE",
  * //     Tags: [ // TagList
@@ -90,6 +93,7 @@ export interface CreatePlacementGroupCommandOutput extends CreatePlacementGroupR
  * //       Principal: "STRING_VALUE",
  * //       HiddenByDefault: true || false,
  * //     },
+ * //     ParentGroupId: "STRING_VALUE",
  * //   },
  * // };
  *

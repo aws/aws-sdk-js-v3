@@ -91,6 +91,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     false
                 </hiddenByDefault>
             </operator>
+            <parentGroupId>
+                __ParentGroupId__
+            </parentGroupId>
         </item>
         <item>
             <groupName>
@@ -154,6 +157,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     false
                 </hiddenByDefault>
             </operator>
+            <parentGroupId>
+                __ParentGroupId__
+            </parentGroupId>
         </item>
         <item>
             <groupName>
@@ -217,6 +223,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     false
                 </hiddenByDefault>
             </operator>
+            <parentGroupId>
+                __ParentGroupId__
+            </parentGroupId>
         </item>
     </placementGroupSet>
 </DescribePlacementGroupsResult>
@@ -252,7 +261,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         Managed: (boolean) false,
         Principal: "__Principal__",
         HiddenByDefault: (boolean) false
-      }
+      },
+      ParentGroupId: "__ParentGroupId__"
     },
     {
       GroupName: "__GroupName__",
@@ -281,7 +291,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         Managed: (boolean) false,
         Principal: "__Principal__",
         HiddenByDefault: (boolean) false
-      }
+      },
+      ParentGroupId: "__ParentGroupId__"
     },
     {
       GroupName: "__GroupName__",
@@ -310,7 +321,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         Managed: (boolean) false,
         Principal: "__Principal__",
         HiddenByDefault: (boolean) false
-      }
+      },
+      ParentGroupId: "__ParentGroupId__"
     }
   ],
   $metadata: {

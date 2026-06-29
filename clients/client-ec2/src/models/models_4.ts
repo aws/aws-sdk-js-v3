@@ -9204,7 +9204,7 @@ export interface DescribePlacementGroupsRequest {
    *                <p>
    *                   <code>strategy</code> - The strategy of the placement group
    *                         (<code>cluster</code> | <code>spread</code> |
-   *                     <code>partition</code>).</p>
+   *                     <code>partition</code> | <code>precision-time</code>).</p>
    *             </li>
    *             <li>
    *                <p>

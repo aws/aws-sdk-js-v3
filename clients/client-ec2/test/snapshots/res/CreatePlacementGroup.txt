@@ -90,6 +90,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 false
             </hiddenByDefault>
         </operator>
+        <parentGroupId>
+            __ParentGroupId__
+        </parentGroupId>
     </placementGroup>
 </CreatePlacementGroupResult>
 
@@ -123,7 +126,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       Managed: (boolean) false,
       Principal: "__Principal__",
       HiddenByDefault: (boolean) false
-    }
+    },
+    ParentGroupId: "__ParentGroupId__"
   },
   $metadata: {
     httpStatusCode: (number) 200,

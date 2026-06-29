@@ -4501,8 +4501,9 @@ const _PFS = "PreviousFleetState";
 const _PFa = "PathFilter";
 const _PG = "PlacementGroup";
 const _PGA = "PlacementGroupArn";
-const _PGI = "PlacementGroupInfo";
+const _PGI = "ParentGroupId";
 const _PGISL = "PlacementGroupIdStringList";
+const _PGIl = "PlacementGroupInfo";
 const _PGL = "PlacementGroupList";
 const _PGSL = "PlacementGroupStrategyList";
 const _PGl = "PlacementGroups";
@@ -7477,6 +7478,7 @@ const _pFS = "previousFleetState";
 const _pG = "placementGroup";
 const _pGA = "placementGroupArn";
 const _pGI = "placementGroupInfo";
+const _pGIa = "parentGroupId";
 const _pGS = "placementGroupSet";
 const _pHP = "perHourPartition";
 const _pHS = "packetHeaderStatement";
@@ -10905,8 +10907,8 @@ export var CreateNetworkInterfaceResult$: StaticStructureSchema = [3, n0, _CNIRr
 ];
 export var CreatePlacementGroupRequest$: StaticStructureSchema = [3, n0, _CPGR,
   0,
-  [_PCa, _TS, _SLp, _LGIi, _Op, _DR, _GN, _Str],
-  [1, [() => TagSpecificationList, { [_xN]: _TSa }], 0, 0, () => OperatorRequest$, [2, { [_eQN]: `DryRun`
+  [_PCa, _TS, _SLp, _LGIi, _Op, _PGI, _DR, _GN, _Str],
+  [1, [() => TagSpecificationList, { [_xN]: _TSa }], 0, 0, () => OperatorRequest$, 0, [2, { [_eQN]: `DryRun`
   , [_xN]: _dR }], [0, { [_eQN]: `GroupName`
   , [_xN]: _gN }], [0, { [_eQN]: `Strategy`
   , [_xN]: _str }]]
@@ -18858,7 +18860,7 @@ export var InstanceTopology$: StaticStructureSchema = [3, n0, _ITnstanc,
 ];
 export var InstanceTypeInfo$: StaticStructureSchema = [3, n0, _ITIn,
   0,
-  [_IT, _CGur, _FTE, _SUC, _SRDT, _SVT, _BMa, _Hy, _PIro, _VCIpu, _MIe, _ISSn, _ISIns, _EIb, _NIetw, _GIp, _FIpga, _PGI, _IAIn, _HS, _BPS, _DHS, _ARS, _SBM, _NES, _NTS, _NTI, _MAIe, _NIeu, _PSh, _RMS, _SIRu],
+  [_IT, _CGur, _FTE, _SUC, _SRDT, _SVT, _BMa, _Hy, _PIro, _VCIpu, _MIe, _ISSn, _ISIns, _EIb, _NIetw, _GIp, _FIpga, _PGIl, _IAIn, _HS, _BPS, _DHS, _ARS, _SBM, _NES, _NTS, _NTI, _MAIe, _NIeu, _PSh, _RMS, _SIRu],
   [[0, { [_eQN]: `InstanceType`
   , [_xN]: _iT }], [2, { [_eQN]: `CurrentGeneration`
   , [_xN]: _cGur }], [2, { [_eQN]: `FreeTierEligible`
@@ -21841,7 +21843,7 @@ export var Placement$: StaticStructureSchema = [3, n0, _Pla,
 ];
 export var PlacementGroup$: StaticStructureSchema = [3, n0, _PG,
   0,
-  [_GN, _St, _Str, _PCa, _GIr, _T, _GA, _SLp, _LGIi, _Op],
+  [_GN, _St, _Str, _PCa, _GIr, _T, _GA, _SLp, _LGIi, _Op, _PGI],
   [[0, { [_eQN]: `GroupName`
   , [_xN]: _gN }], [0, { [_eQN]: `State`
   , [_xN]: _st }], [0, { [_eQN]: `Strategy`
@@ -21852,9 +21854,10 @@ export var PlacementGroup$: StaticStructureSchema = [3, n0, _PG,
   , [_xN]: _gA }], [0, { [_eQN]: `SpreadLevel`
   , [_xN]: _sLp }], [0, { [_eQN]: `LinkedGroupId`
   , [_xN]: _lGIi }], [() => OperatorResponse$, { [_eQN]: `Operator`
-  , [_xN]: _ope }]]
+  , [_xN]: _ope }], [0, { [_eQN]: `ParentGroupId`
+  , [_xN]: _pGIa }]]
 ];
-export var PlacementGroupInfo$: StaticStructureSchema = [3, n0, _PGI,
+export var PlacementGroupInfo$: StaticStructureSchema = [3, n0, _PGIl,
   0,
   [_SSu],
   [[() => PlacementGroupStrategyList, { [_eQN]: `SupportedStrategies`

@@ -69,7 +69,7 @@ export interface DescribePlacementGroupsCommandOutput extends DescribePlacementG
  * //     { // PlacementGroup
  * //       GroupName: "STRING_VALUE",
  * //       State: "pending" || "available" || "deleting" || "deleted",
- * //       Strategy: "cluster" || "spread" || "partition",
+ * //       Strategy: "cluster" || "spread" || "partition" || "precision-time",
  * //       PartitionCount: Number("int"),
  * //       GroupId: "STRING_VALUE",
  * //       Tags: [ // TagList
@@ -86,6 +86,7 @@ export interface DescribePlacementGroupsCommandOutput extends DescribePlacementG
  * //         Principal: "STRING_VALUE",
  * //         HiddenByDefault: true || false,
  * //       },
+ * //       ParentGroupId: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

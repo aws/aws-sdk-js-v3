@@ -4303,6 +4303,7 @@ export type SpreadLevel = (typeof SpreadLevel)[keyof typeof SpreadLevel];
 export const PlacementStrategy = {
   cluster: "cluster",
   partition: "partition",
+  precision_time: "precision-time",
   spread: "spread",
 } as const;
 /**

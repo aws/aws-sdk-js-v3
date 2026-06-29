@@ -13131,6 +13131,13 @@ export interface CreatePlacementGroupRequest {
   Operator?: OperatorRequest | undefined;
 
   /**
+   * <p>The ID of a parent placement group. Valid only when <b>Strategy</b>
+   *             is set to <code>cluster</code>.</p>
+   * @public
+   */
+  ParentGroupId?: string | undefined;
+
+  /**
    * <p>Checks whether you have the required permissions for the operation, without actually making the
    *   request, and provides an error response. If you have the required permissions, the error response is
    *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -13219,6 +13226,12 @@ export interface PlacementGroup {
    * @public
    */
   Operator?: OperatorResponse | undefined;
+
+  /**
+   * <p>The ID of the parent placement group.</p>
+   * @public
+   */
+  ParentGroupId?: string | undefined;
 }
 
 /**
