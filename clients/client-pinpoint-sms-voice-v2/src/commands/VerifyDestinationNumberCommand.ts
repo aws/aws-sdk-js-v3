@@ -4,7 +4,7 @@ import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { VerifyDestinationNumberRequest, VerifyDestinationNumberResult } from "../models/models_0";
+import type { VerifyDestinationNumberRequest, VerifyDestinationNumberResult } from "../models/models_1";
 import type {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,

@@ -40,6 +40,7 @@ import type {
   ProtectStatus,
   RcsAgentFilterName,
   RcsAgentStatus,
+  RcsFallbackChannel,
   RegistrationAssociationBehavior,
   RegistrationAssociationFilterName,
   RegistrationAttachmentFilterName,
@@ -1157,6 +1158,30 @@ export interface CreateRcsAgentResult {
    * @public
    */
   TwoWayEnabled: boolean | undefined;
+
+  /**
+   * <p>The name of the S3 bucket where inbound RCS media files are stored.</p>
+   * @public
+   */
+  TwoWayMediaS3BucketName?: string | undefined;
+
+  /**
+   * <p>The key prefix used for inbound RCS media objects in the S3 bucket.</p>
+   * @public
+   */
+  TwoWayMediaS3KeyPrefix?: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role used to write inbound RCS media files to the S3 bucket. The role must have <code>s3:PutObject</code> permission on the bucket and a trust policy allowing <code>sms-voice.amazonaws.com</code> to assume it.</p>
+   * @public
+   */
+  TwoWayMediaS3Role?: string | undefined;
+
+  /**
+   * <p>The list of RCS event types enabled for two-way messaging on the agent.</p>
+   * @public
+   */
+  TwoWayRcsEventsEnabled?: string[] | undefined;
 
   /**
    * <p>An array of tags (key and value pairs) associated with the RCS agent.</p>
@@ -2287,6 +2312,28 @@ export interface DeleteRcsAgentResult {
    * @public
    */
   TwoWayEnabled: boolean | undefined;
+
+  /**
+   * <p>The list of RCS event types that were enabled for two-way messaging on the deleted agent.</p>
+   * @public
+   */
+  TwoWayRcsEventsEnabled?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRcsMessageSpendLimitOverrideRequest {}
+
+/**
+ * @public
+ */
+export interface DeleteRcsMessageSpendLimitOverrideResult {
+  /**
+   * <p>The current monthly limit to enforce on RCS message spending.</p>
+   * @public
+   */
+  MonthlyLimit?: number | undefined;
 }
 
 /**
@@ -3982,6 +4029,30 @@ export interface RcsAgentInformation {
    * @public
    */
   PoolId?: string | undefined;
+
+  /**
+   * <p>The name of the S3 bucket where inbound RCS media files are stored.</p>
+   * @public
+   */
+  TwoWayMediaS3BucketName?: string | undefined;
+
+  /**
+   * <p>The key prefix used for inbound RCS media objects in the S3 bucket.</p>
+   * @public
+   */
+  TwoWayMediaS3KeyPrefix?: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role used to write inbound RCS media files to the S3 bucket.</p>
+   * @public
+   */
+  TwoWayMediaS3Role?: string | undefined;
+
+  /**
+   * <p>The list of RCS event types enabled for two-way messaging on the agent.</p>
+   * @public
+   */
+  TwoWayRcsEventsEnabled?: string[] | undefined;
 
   /**
    * <p>The testing agent information associated with the RCS agent.</p>
@@ -6762,7 +6833,7 @@ export interface RequestPhoneNumberResult {
  */
 export interface RequestSenderIdRequest {
   /**
-   * <p>The sender ID string to request.</p>
+   * <p>The sender ID string to request. The sender ID can be 1-11 alphanumeric characters including letters (A-Z, a-z), numbers (0-9), or hyphens (-). The sender ID must contain at least one letter and cannot start or end with a hyphen.</p>
    * @public
    */
   SenderId: string | undefined;
@@ -7162,6 +7233,712 @@ export interface SendNotifyVoiceMessageResult {
 }
 
 /**
+ * <p>Configuration for SMS or MMS fallback when RCS delivery fails or the TimeToLive expires without delivery confirmation.</p>
+ * @public
+ */
+export interface RcsFallbackConfiguration {
+  /**
+   * <p>The fallback channel to use when RCS delivery fails. Valid values are SMS and MMS. SMS and MMS are mutually exclusive.</p>
+   * @public
+   */
+  Channel: RcsFallbackChannel | undefined;
+
+  /**
+   * <p>The text body of the fallback message. Required for SMS fallback. For MMS fallback, at least one of MessageBody or MediaUrls must be provided.</p>
+   * @public
+   */
+  MessageBody?: string | undefined;
+
+  /**
+   * <p>An array of S3 URIs to media files for MMS fallback. Only valid when Channel is MMS.</p>
+   * @public
+   */
+  MediaUrls?: string[] | undefined;
+
+  /**
+   * <p>The origination identity to use for the fallback message. This can be a PhoneNumber, PhoneNumberId, PhoneNumberArn, SenderId, or SenderIdArn. Pool IDs and pool ARNs are not accepted. If not specified and the original message was sent via a pool, the service selects a suitable number from the pool.</p>
+   * @public
+   */
+  OriginationIdentity?: string | undefined;
+}
+
+/**
+ * <p>The media content of a carousel card. Display height is restricted to SHORT or MEDIUM (TALL is not supported in carousels).</p>
+ * @public
+ */
+export interface RcsCarouselCardMedia {
+  /**
+   * <p>The S3 URI of the media file for the carousel card. Maximum 2000 characters.</p>
+   * @public
+   */
+  FileUrl: string | undefined;
+
+  /**
+   * <p>The S3 URI of an optional thumbnail image for the carousel card media. Maximum 2000 characters.</p>
+   * @public
+   */
+  ThumbnailUrl?: string | undefined;
+
+  /**
+   * <p>The display height of the media in the carousel card. Valid values are SHORT and MEDIUM.</p>
+   * @public
+   */
+  Height?: string | undefined;
+}
+
+/**
+ * <p>A suggested action that creates a calendar event on the recipient's device.</p>
+ * @public
+ */
+export interface RcsCreateCalendarEventAction {
+  /**
+   * <p>The display text of the action. Maximum 25 characters.</p>
+   * @public
+   */
+  Text: string | undefined;
+
+  /**
+   * <p>The postback data sent to your webhook when the user taps this action. Maximum 2048 characters.</p>
+   * @public
+   */
+  PostbackData: string | undefined;
+
+  /**
+   * <p>The title of the calendar event. Maximum 100 characters.</p>
+   * @public
+   */
+  Title: string | undefined;
+
+  /**
+   * <p>The start time of the calendar event in ISO 8601 format.</p>
+   * @public
+   */
+  StartTime: Date | undefined;
+
+  /**
+   * <p>The end time of the calendar event in ISO 8601 format.</p>
+   * @public
+   */
+  EndTime: Date | undefined;
+
+  /**
+   * <p>An optional description for the calendar event. Maximum 500 characters.</p>
+   * @public
+   */
+  Description?: string | undefined;
+}
+
+/**
+ * <p>A suggested action that initiates a phone call to a specified number when tapped by the recipient.</p>
+ * @public
+ */
+export interface RcsDialPhoneAction {
+  /**
+   * <p>The display text of the action. Maximum 25 characters.</p>
+   * @public
+   */
+  Text: string | undefined;
+
+  /**
+   * <p>The postback data sent to your webhook when the user taps this action. Maximum 2048 characters.</p>
+   * @public
+   */
+  PostbackData: string | undefined;
+
+  /**
+   * <p>The phone number to dial in E.164 format.</p>
+   * @public
+   */
+  PhoneNumber: string | undefined;
+}
+
+/**
+ * <p>A suggested action that opens a URL in the recipient's browser or an in-app webview.</p>
+ * @public
+ */
+export interface RcsOpenUrlAction {
+  /**
+   * <p>The display text of the action. Maximum 25 characters.</p>
+   * @public
+   */
+  Text: string | undefined;
+
+  /**
+   * <p>The postback data sent to your webhook when the user taps this action. Maximum 2048 characters.</p>
+   * @public
+   */
+  PostbackData: string | undefined;
+
+  /**
+   * <p>The URL to open. Must start with https://. Maximum 2048 characters.</p>
+   * @public
+   */
+  Url: string | undefined;
+
+  /**
+   * <p>How to open the URL. BROWSER opens in the device's default browser. WEBVIEW opens in an in-app webview.</p>
+   * @public
+   */
+  Application?: string | undefined;
+
+  /**
+   * <p>The display mode of the webview. Valid values are FULL, HALF, and TALL. Only applicable when Application is WEBVIEW.</p>
+   * @public
+   */
+  WebviewViewMode?: string | undefined;
+}
+
+/**
+ * <p>A suggested reply action that sends predefined text and postback data when tapped by the recipient.</p>
+ * @public
+ */
+export interface RcsReplyAction {
+  /**
+   * <p>The display text of the suggested reply. Maximum 25 characters.</p>
+   * @public
+   */
+  Text: string | undefined;
+
+  /**
+   * <p>The postback data sent to your webhook when the user taps this reply. Maximum 2048 characters.</p>
+   * @public
+   */
+  PostbackData: string | undefined;
+}
+
+/**
+ * <p>A suggested action that requests the recipient's current location.</p>
+ * @public
+ */
+export interface RcsRequestLocationAction {
+  /**
+   * <p>The display text of the action. Maximum 25 characters.</p>
+   * @public
+   */
+  Text: string | undefined;
+
+  /**
+   * <p>The postback data sent to your webhook when the user taps this action. Maximum 2048 characters.</p>
+   * @public
+   */
+  PostbackData: string | undefined;
+}
+
+/**
+ * <p>A suggested action that shows a location on a map when tapped by the recipient.</p>
+ * @public
+ */
+export interface RcsShowLocationAction {
+  /**
+   * <p>The display text of the action. Maximum 25 characters.</p>
+   * @public
+   */
+  Text: string | undefined;
+
+  /**
+   * <p>The postback data sent to your webhook when the user taps this action. Maximum 2048 characters.</p>
+   * @public
+   */
+  PostbackData: string | undefined;
+
+  /**
+   * <p>The latitude of the location. Valid values are -90 to 90.</p>
+   * @public
+   */
+  Latitude: number | undefined;
+
+  /**
+   * <p>The longitude of the location. Valid values are -180 to 180.</p>
+   * @public
+   */
+  Longitude: number | undefined;
+
+  /**
+   * <p>An optional label for the location pin. Maximum 100 characters.</p>
+   * @public
+   */
+  Label?: string | undefined;
+}
+
+/**
+ * <p>A suggested action displayed to the RCS message recipient. Can be a reply, open URL, dial phone, show location, request location, or create calendar event.</p>
+ * @public
+ */
+export type RcsSuggestedAction =
+  | RcsSuggestedAction.CreateCalendarEventMember
+  | RcsSuggestedAction.DialPhoneMember
+  | RcsSuggestedAction.OpenUrlMember
+  | RcsSuggestedAction.ReplyMember
+  | RcsSuggestedAction.RequestLocationMember
+  | RcsSuggestedAction.ShowLocationMember
+  | RcsSuggestedAction.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RcsSuggestedAction {
+  /**
+   * <p>A suggested reply that sends predefined text and postback data when tapped.</p>
+   * @public
+   */
+  export interface ReplyMember {
+    Reply: RcsReplyAction;
+    OpenUrl?: never;
+    DialPhone?: never;
+    ShowLocation?: never;
+    RequestLocation?: never;
+    CreateCalendarEvent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A suggested action that opens a URL in the user's browser or a webview.</p>
+   * @public
+   */
+  export interface OpenUrlMember {
+    Reply?: never;
+    OpenUrl: RcsOpenUrlAction;
+    DialPhone?: never;
+    ShowLocation?: never;
+    RequestLocation?: never;
+    CreateCalendarEvent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A suggested action that initiates a phone call to the specified number.</p>
+   * @public
+   */
+  export interface DialPhoneMember {
+    Reply?: never;
+    OpenUrl?: never;
+    DialPhone: RcsDialPhoneAction;
+    ShowLocation?: never;
+    RequestLocation?: never;
+    CreateCalendarEvent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A suggested action that shows a location on a map.</p>
+   * @public
+   */
+  export interface ShowLocationMember {
+    Reply?: never;
+    OpenUrl?: never;
+    DialPhone?: never;
+    ShowLocation: RcsShowLocationAction;
+    RequestLocation?: never;
+    CreateCalendarEvent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A suggested action that requests the user's current location.</p>
+   * @public
+   */
+  export interface RequestLocationMember {
+    Reply?: never;
+    OpenUrl?: never;
+    DialPhone?: never;
+    ShowLocation?: never;
+    RequestLocation: RcsRequestLocationAction;
+    CreateCalendarEvent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A suggested action that creates a calendar event on the user's device.</p>
+   * @public
+   */
+  export interface CreateCalendarEventMember {
+    Reply?: never;
+    OpenUrl?: never;
+    DialPhone?: never;
+    ShowLocation?: never;
+    RequestLocation?: never;
+    CreateCalendarEvent: RcsCreateCalendarEventAction;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Reply?: never;
+    OpenUrl?: never;
+    DialPhone?: never;
+    ShowLocation?: never;
+    RequestLocation?: never;
+    CreateCalendarEvent?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Reply: (value: RcsReplyAction) => T;
+    OpenUrl: (value: RcsOpenUrlAction) => T;
+    DialPhone: (value: RcsDialPhoneAction) => T;
+    ShowLocation: (value: RcsShowLocationAction) => T;
+    RequestLocation: (value: RcsRequestLocationAction) => T;
+    CreateCalendarEvent: (value: RcsCreateCalendarEventAction) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The content of a carousel card, including title, description, media, and card-level suggested actions. Media height is restricted to SHORT or MEDIUM.</p>
+ * @public
+ */
+export interface RcsCarouselCardContent {
+  /**
+   * <p>The title of the carousel card. Maximum 200 characters.</p>
+   * @public
+   */
+  Title?: string | undefined;
+
+  /**
+   * <p>The description text of the carousel card. Maximum 2000 characters.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The media content of the carousel card. Media height is restricted to SHORT or MEDIUM (TALL is not supported in carousels).</p>
+   * @public
+   */
+  Media?: RcsCarouselCardMedia | undefined;
+
+  /**
+   * <p>Card-level suggested actions for this carousel card. Maximum 4 suggestions per card.</p>
+   * @public
+   */
+  Suggestions?: RcsSuggestedAction[] | undefined;
+}
+
+/**
+ * <p>A carousel of 2 to 10 scrollable rich cards.</p>
+ * @public
+ */
+export interface RcsCarousel {
+  /**
+   * <p>The width of cards in the carousel. Valid values are SMALL and MEDIUM.</p>
+   * @public
+   */
+  CardWidth: string | undefined;
+
+  /**
+   * <p>The list of cards in the carousel. Minimum 2, maximum 10 cards.</p>
+   * @public
+   */
+  CardContents: RcsCarouselCardContent[] | undefined;
+}
+
+/**
+ * <p>A file message containing a media file (image, video, audio, or PDF) with an optional thumbnail.</p>
+ * @public
+ */
+export interface RcsFileMessage {
+  /**
+   * <p>The S3 URI of the media file to send, in the format <code>s3://bucket-name/key</code>. The service downloads the file from your S3 bucket, rehosts it, and generates a presigned URL for the aggregator. Maximum 2000 characters.</p>
+   * @public
+   */
+  FileUrl: string | undefined;
+
+  /**
+   * <p>The S3 URI of an optional thumbnail image for the media file, in the format <code>s3://bucket-name/key</code>. Maximum 2000 characters.</p>
+   * @public
+   */
+  ThumbnailUrl?: string | undefined;
+}
+
+/**
+ * <p>The media content of a rich card, including the file URL, optional thumbnail, and display height.</p>
+ * @public
+ */
+export interface RcsCardMedia {
+  /**
+   * <p>The S3 URI of the media file for the card, in the format <code>s3://bucket-name/key</code>. Maximum 2000 characters.</p>
+   * @public
+   */
+  FileUrl: string | undefined;
+
+  /**
+   * <p>The S3 URI of an optional thumbnail image for the card media. Maximum 2000 characters.</p>
+   * @public
+   */
+  ThumbnailUrl?: string | undefined;
+
+  /**
+   * <p>The display height of the media in the card. Valid values are SHORT, MEDIUM, and TALL.</p>
+   * @public
+   */
+  Height?: string | undefined;
+}
+
+/**
+ * <p>The content of a rich card, including title, description, media, and card-level suggested actions.</p>
+ * @public
+ */
+export interface RcsCardContent {
+  /**
+   * <p>The title of the card. Maximum 200 characters.</p>
+   * @public
+   */
+  Title?: string | undefined;
+
+  /**
+   * <p>The description text of the card. Maximum 2000 characters.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The media content of the card, including the file URL, optional thumbnail, and display height.</p>
+   * @public
+   */
+  Media?: RcsCardMedia | undefined;
+
+  /**
+   * <p>Card-level suggested actions. Maximum 4 suggestions per card.</p>
+   * @public
+   */
+  Suggestions?: RcsSuggestedAction[] | undefined;
+}
+
+/**
+ * <p>A standalone rich card with media, title, description, and suggested actions.</p>
+ * @public
+ */
+export interface RcsStandaloneCard {
+  /**
+   * <p>The orientation of the rich card. Valid values are HORIZONTAL and VERTICAL.</p>
+   * @public
+   */
+  CardOrientation: string | undefined;
+
+  /**
+   * <p>The alignment of the thumbnail image in a horizontal card. Valid values are LEFT and RIGHT. Only applicable when CardOrientation is HORIZONTAL.</p>
+   * @public
+   */
+  ThumbnailImageAlignment?: string | undefined;
+
+  /**
+   * <p>The content of the rich card, including title, description, media, and card-level suggested actions.</p>
+   * @public
+   */
+  CardContent: RcsCardContent | undefined;
+}
+
+/**
+ * <p>A plain text RCS message body.</p>
+ * @public
+ */
+export interface RcsTextMessage {
+  /**
+   * <p>The text body of the RCS message. Maximum 3072 characters.</p>
+   * @public
+   */
+  Body: string | undefined;
+}
+
+/**
+ * <p>The message body of an RCS message. Exactly one content type must be specified.</p>
+ * @public
+ */
+export type RcsContent =
+  | RcsContent.CarouselMember
+  | RcsContent.FileMessageMember
+  | RcsContent.RichCardMember
+  | RcsContent.TextMessageMember
+  | RcsContent.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RcsContent {
+  /**
+   * <p>A plain text RCS message.</p>
+   * @public
+   */
+  export interface TextMessageMember {
+    TextMessage: RcsTextMessage;
+    FileMessage?: never;
+    RichCard?: never;
+    Carousel?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A file message containing a media file (image, video, audio, or PDF) with an optional thumbnail.</p>
+   * @public
+   */
+  export interface FileMessageMember {
+    TextMessage?: never;
+    FileMessage: RcsFileMessage;
+    RichCard?: never;
+    Carousel?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A standalone rich card with media, title, description, and suggested actions.</p>
+   * @public
+   */
+  export interface RichCardMember {
+    TextMessage?: never;
+    FileMessage?: never;
+    RichCard: RcsStandaloneCard;
+    Carousel?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A carousel of 2 to 10 scrollable cards, each with media, title, description, and suggested actions.</p>
+   * @public
+   */
+  export interface CarouselMember {
+    TextMessage?: never;
+    FileMessage?: never;
+    RichCard?: never;
+    Carousel: RcsCarousel;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    TextMessage?: never;
+    FileMessage?: never;
+    RichCard?: never;
+    Carousel?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    TextMessage: (value: RcsTextMessage) => T;
+    FileMessage: (value: RcsFileMessage) => T;
+    RichCard: (value: RcsStandaloneCard) => T;
+    Carousel: (value: RcsCarousel) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The content of an RCS message, containing the message body (text, file, rich card, or carousel) and optional message-level suggested actions.</p>
+ * @public
+ */
+export interface RcsMessageContent {
+  /**
+   * <p>The content of the RCS message. Exactly one content type must be specified: TextMessage, FileMessage, RichCard, or Carousel.</p>
+   * @public
+   */
+  Content: RcsContent | undefined;
+
+  /**
+   * <p>Message-level suggested actions displayed to the recipient. Maximum 11 suggestions per message.</p>
+   * @public
+   */
+  Suggestions?: RcsSuggestedAction[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SendRcsMessageRequest {
+  /**
+   * <p>The destination phone number in E.164 format.</p>
+   * @public
+   */
+  DestinationPhoneNumber: string | undefined;
+
+  /**
+   * <p>The origination identity of the message. This can be either the RcsAgentId, RcsAgentArn, PoolId, or PoolArn.</p>
+   * @public
+   */
+  OriginationIdentity: string | undefined;
+
+  /**
+   * <p>The content of the RCS message. Contains the message content (text, file, rich card, or carousel) and optional message-level suggested actions.</p>
+   * @public
+   */
+  RcsMessageContent?: RcsMessageContent | undefined;
+
+  /**
+   * <p>The duration in seconds that the RCS message is valid for delivery. If the message cannot be delivered within this duration, it is considered expired. Valid values are 1 to 172800 (48 hours). If a FallbackConfiguration is provided, the fallback is triggered when the duration expires without delivery confirmation.</p>
+   * @public
+   */
+  TimeToLive?: number | undefined;
+
+  /**
+   * <p>The traffic type of the RCS message. Valid values are AUTHENTICATION, TRANSACTION, PROMOTION, SERVICE_REQUEST, and ACKNOWLEDGEMENT. This field is reserved for future use.</p>
+   * @public
+   */
+  MessageTrafficType?: string | undefined;
+
+  /**
+   * <p>Configuration for SMS or MMS fallback when RCS delivery fails. If provided, the service sends a fallback message via the specified channel when the RCS message fails or the TimeToLive expires.</p>
+   * @public
+   */
+  FallbackConfiguration?: RcsFallbackConfiguration | undefined;
+
+  /**
+   * <p>The unique identifier of the protect configuration to use.</p>
+   * @public
+   */
+  ProtectConfigurationId?: string | undefined;
+
+  /**
+   * <p>The name of the configuration set to use. This can be either the ConfigurationSetName or ConfigurationSetArn.</p>
+   * @public
+   */
+  ConfigurationSetName?: string | undefined;
+
+  /**
+   * <p>The maximum amount that you want to spend, in US dollars, per each RCS message.</p>
+   * @public
+   */
+  MaxPrice?: string | undefined;
+
+  /**
+   * <p>When set to true, the message is checked and validated, but isn't sent to the end recipient.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>You can specify custom data in this field. If you do, that data is logged to the event destination.</p>
+   * @public
+   */
+  Context?: Record<string, string> | undefined;
+
+  /**
+   * <p>Set to true to enable message feedback for the message. When a user receives the message you need to update the message status using <a>PutMessageFeedback</a>.</p>
+   * @public
+   */
+  MessageFeedbackEnabled?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SendRcsMessageResult {
+  /**
+   * <p>The unique identifier for the message.</p>
+   * @public
+   */
+  MessageId?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface SendTextMessageRequest {
@@ -7172,7 +7949,7 @@ export interface SendTextMessageRequest {
   DestinationPhoneNumber: string | undefined;
 
   /**
-   * <p>The origination identity of the message. This can be either the PhoneNumber, PhoneNumberId, PhoneNumberArn, SenderId, SenderIdArn, PoolId, or PoolArn.</p> <important> <p>If you are using a shared End User Messaging SMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
+   * <p>The origination identity of the message. This can be either the PhoneNumber, PhoneNumberId, PhoneNumberArn, RcsAgentId, RcsAgentArn, SenderId, SenderIdArn, PoolId, or PoolArn.</p> <important> <p>If you are using a shared End User Messaging SMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   OriginationIdentity?: string | undefined;
@@ -7538,6 +8315,28 @@ export interface SetNotifyMessageSpendLimitOverrideResult {
 /**
  * @public
  */
+export interface SetRcsMessageSpendLimitOverrideRequest {
+  /**
+   * <p>The new monthly limit to enforce on RCS message spending.</p>
+   * @public
+   */
+  MonthlyLimit: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SetRcsMessageSpendLimitOverrideResult {
+  /**
+   * <p>The current monthly limit to enforce on RCS message spending.</p>
+   * @public
+   */
+  MonthlyLimit?: number | undefined;
+}
+
+/**
+ * @public
+ */
 export interface SetTextMessageSpendLimitOverrideRequest {
   /**
    * <p>The new monthly limit to enforce on text messages.</p>
@@ -7762,15 +8561,13 @@ export interface UpdateNotifyConfigurationRequest {
   NotifyConfigurationId: string | undefined;
 
   /**
-   * The template ID to set as the default, or the special value
-   * UNSET_DEFAULT_TEMPLATE to clear the current default template.
+   * <p>The default template identifier to associate with the notify configuration. If specified, this template is used when sending messages without an explicit template identifier. Pass the special value <code>UNSET_DEFAULT_TEMPLATE</code> to clear the current default template from the notify configuration.</p>
    * @public
    */
   DefaultTemplateId?: string | undefined;
 
   /**
-   * The pool ID or ARN to associate, or the special value
-   * UNSET_DEFAULT_POOL_FOR_NOTIFY to clear the current default pool.
+   * <p>The pool identifier or Amazon Resource Name (ARN) to associate with the notify configuration. Pass the special value <code>UNSET_DEFAULT_POOL_FOR_NOTIFY</code> to clear the current default pool from the notify configuration.</p>
    * @public
    */
   PoolId?: string | undefined;
@@ -8328,6 +9125,30 @@ export interface UpdateRcsAgentRequest {
    * @public
    */
   TwoWayEnabled?: boolean | undefined;
+
+  /**
+   * <p>The name of the S3 bucket where inbound RCS media files are stored. Two-way messaging must be enabled on the agent. To remove the media configuration, pass the sentinel value <code>UNSET_RCS_MEDIA_CONFIGURATION</code> for both this field and TwoWayMediaS3Role.</p>
+   * @public
+   */
+  TwoWayMediaS3BucketName?: string | undefined;
+
+  /**
+   * <p>The key prefix used for inbound RCS media objects in the S3 bucket.</p>
+   * @public
+   */
+  TwoWayMediaS3KeyPrefix?: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role used to write inbound RCS media files to the S3 bucket. The role must have <code>s3:PutObject</code> permission on the bucket and a trust policy allowing <code>sms-voice.amazonaws.com</code> to assume it. To remove the media configuration, pass the sentinel value <code>UNSET_RCS_MEDIA_CONFIGURATION</code> for both this field and TwoWayMediaS3BucketName.</p>
+   * @public
+   */
+  TwoWayMediaS3Role?: string | undefined;
+
+  /**
+   * <p>The list of RCS event types to enable for two-way messaging. Pass an empty list to disable all event types. The special value <code>ALL</code> enables all current and future event types and must be the sole element if used.</p>
+   * @public
+   */
+  TwoWayRcsEventsEnabled?: string[] | undefined;
 }
 
 /**
@@ -8393,6 +9214,30 @@ export interface UpdateRcsAgentResult {
    * @public
    */
   TwoWayEnabled: boolean | undefined;
+
+  /**
+   * <p>The name of the S3 bucket where inbound RCS media files are stored.</p>
+   * @public
+   */
+  TwoWayMediaS3BucketName?: string | undefined;
+
+  /**
+   * <p>The key prefix used for inbound RCS media objects in the S3 bucket.</p>
+   * @public
+   */
+  TwoWayMediaS3KeyPrefix?: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role used to write inbound RCS media files to the S3 bucket.</p>
+   * @public
+   */
+  TwoWayMediaS3Role?: string | undefined;
+
+  /**
+   * <p>The list of RCS event types enabled for two-way messaging on the agent.</p>
+   * @public
+   */
+  TwoWayRcsEventsEnabled?: string[] | undefined;
 }
 
 /**
@@ -8469,56 +9314,4 @@ export interface UpdateSenderIdResult {
    * @public
    */
   RegistrationId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface VerifyDestinationNumberRequest {
-  /**
-   * <p>The unique identifier for the verififed destination phone number.</p>
-   * @public
-   */
-  VerifiedDestinationNumberId: string | undefined;
-
-  /**
-   * <p>The verification code that was received by the verified destination phone number.</p>
-   * @public
-   */
-  VerificationCode: string | undefined;
-}
-
-/**
- * @public
- */
-export interface VerifyDestinationNumberResult {
-  /**
-   * <p>The Amazon Resource Name (ARN) for the verified destination phone number.</p>
-   * @public
-   */
-  VerifiedDestinationNumberArn: string | undefined;
-
-  /**
-   * <p>The unique identifier for the verified destination phone number.</p>
-   * @public
-   */
-  VerifiedDestinationNumberId: string | undefined;
-
-  /**
-   * <p>The phone number in E.164 format.</p>
-   * @public
-   */
-  DestinationPhoneNumber: string | undefined;
-
-  /**
-   * <p>The status for being able to send messages to the phone number.</p>
-   * @public
-   */
-  Status: VerificationStatus | undefined;
-
-  /**
-   * <p>The time when the destination phone number was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
-   * @public
-   */
-  CreatedTimestamp: Date | undefined;
 }

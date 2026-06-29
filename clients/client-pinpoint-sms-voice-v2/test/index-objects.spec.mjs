@@ -141,6 +141,10 @@ import {
   DeleteRcsAgentCommand,
   DeleteRcsAgentRequest$,
   DeleteRcsAgentResult$,
+  DeleteRcsMessageSpendLimitOverride$,
+  DeleteRcsMessageSpendLimitOverrideCommand,
+  DeleteRcsMessageSpendLimitOverrideRequest$,
+  DeleteRcsMessageSpendLimitOverrideResult$,
   DeleteRegistration$,
   DeleteRegistrationAttachment$,
   DeleteRegistrationAttachmentCommand,
@@ -414,6 +418,25 @@ import {
   RcsAgentFilterName,
   RcsAgentInformation$,
   RcsAgentStatus,
+  RcsCardContent$,
+  RcsCardMedia$,
+  RcsCarousel$,
+  RcsCarouselCardContent$,
+  RcsCarouselCardMedia$,
+  RcsContent$,
+  RcsCreateCalendarEventAction$,
+  RcsDialPhoneAction$,
+  RcsFallbackChannel,
+  RcsFallbackConfiguration$,
+  RcsFileMessage$,
+  RcsMessageContent$,
+  RcsOpenUrlAction$,
+  RcsReplyAction$,
+  RcsRequestLocationAction$,
+  RcsShowLocationAction$,
+  RcsStandaloneCard$,
+  RcsSuggestedAction$,
+  RcsTextMessage$,
   RegistrationAssociationBehavior,
   RegistrationAssociationFilter$,
   RegistrationAssociationFilterName,
@@ -483,6 +506,10 @@ import {
   SendNotifyVoiceMessageCommand,
   SendNotifyVoiceMessageRequest$,
   SendNotifyVoiceMessageResult$,
+  SendRcsMessage$,
+  SendRcsMessageCommand,
+  SendRcsMessageRequest$,
+  SendRcsMessageResult$,
   SendTextMessage$,
   SendTextMessageCommand,
   SendTextMessageRequest$,
@@ -518,6 +545,10 @@ import {
   SetNotifyMessageSpendLimitOverrideCommand,
   SetNotifyMessageSpendLimitOverrideRequest$,
   SetNotifyMessageSpendLimitOverrideResult$,
+  SetRcsMessageSpendLimitOverride$,
+  SetRcsMessageSpendLimitOverrideCommand,
+  SetRcsMessageSpendLimitOverrideRequest$,
+  SetRcsMessageSpendLimitOverrideResult$,
   SetTextMessageSpendLimitOverride$,
   SetTextMessageSpendLimitOverrideCommand,
   SetTextMessageSpendLimitOverrideRequest$,
@@ -665,6 +696,8 @@ assert(typeof DeleteProtectConfigurationRuleSetNumberOverrideCommand === "functi
 assert(typeof DeleteProtectConfigurationRuleSetNumberOverride$ === "object");
 assert(typeof DeleteRcsAgentCommand === "function");
 assert(typeof DeleteRcsAgent$ === "object");
+assert(typeof DeleteRcsMessageSpendLimitOverrideCommand === "function");
+assert(typeof DeleteRcsMessageSpendLimitOverride$ === "object");
 assert(typeof DeleteRegistrationCommand === "function");
 assert(typeof DeleteRegistration$ === "object");
 assert(typeof DeleteRegistrationAttachmentCommand === "function");
@@ -773,6 +806,8 @@ assert(typeof SendNotifyTextMessageCommand === "function");
 assert(typeof SendNotifyTextMessage$ === "object");
 assert(typeof SendNotifyVoiceMessageCommand === "function");
 assert(typeof SendNotifyVoiceMessage$ === "object");
+assert(typeof SendRcsMessageCommand === "function");
+assert(typeof SendRcsMessage$ === "object");
 assert(typeof SendTextMessageCommand === "function");
 assert(typeof SendTextMessage$ === "object");
 assert(typeof SendVoiceMessageCommand === "function");
@@ -789,6 +824,8 @@ assert(typeof SetMediaMessageSpendLimitOverrideCommand === "function");
 assert(typeof SetMediaMessageSpendLimitOverride$ === "object");
 assert(typeof SetNotifyMessageSpendLimitOverrideCommand === "function");
 assert(typeof SetNotifyMessageSpendLimitOverride$ === "object");
+assert(typeof SetRcsMessageSpendLimitOverrideCommand === "function");
+assert(typeof SetRcsMessageSpendLimitOverride$ === "object");
 assert(typeof SetTextMessageSpendLimitOverrideCommand === "function");
 assert(typeof SetTextMessageSpendLimitOverride$ === "object");
 assert(typeof SetVoiceMessageSpendLimitOverrideCommand === "function");
@@ -886,6 +923,8 @@ assert(typeof DeleteProtectConfigurationRuleSetNumberOverrideRequest$ === "objec
 assert(typeof DeleteProtectConfigurationRuleSetNumberOverrideResult$ === "object");
 assert(typeof DeleteRcsAgentRequest$ === "object");
 assert(typeof DeleteRcsAgentResult$ === "object");
+assert(typeof DeleteRcsMessageSpendLimitOverrideRequest$ === "object");
+assert(typeof DeleteRcsMessageSpendLimitOverrideResult$ === "object");
 assert(typeof DeleteRegistrationAttachmentRequest$ === "object");
 assert(typeof DeleteRegistrationAttachmentResult$ === "object");
 assert(typeof DeleteRegistrationFieldValueRequest$ === "object");
@@ -1003,6 +1042,24 @@ assert(typeof PutResourcePolicyRequest$ === "object");
 assert(typeof PutResourcePolicyResult$ === "object");
 assert(typeof RcsAgentFilter$ === "object");
 assert(typeof RcsAgentInformation$ === "object");
+assert(typeof RcsCardContent$ === "object");
+assert(typeof RcsCardMedia$ === "object");
+assert(typeof RcsCarousel$ === "object");
+assert(typeof RcsCarouselCardContent$ === "object");
+assert(typeof RcsCarouselCardMedia$ === "object");
+assert(typeof RcsContent$ === "object");
+assert(typeof RcsCreateCalendarEventAction$ === "object");
+assert(typeof RcsDialPhoneAction$ === "object");
+assert(typeof RcsFallbackConfiguration$ === "object");
+assert(typeof RcsFileMessage$ === "object");
+assert(typeof RcsMessageContent$ === "object");
+assert(typeof RcsOpenUrlAction$ === "object");
+assert(typeof RcsReplyAction$ === "object");
+assert(typeof RcsRequestLocationAction$ === "object");
+assert(typeof RcsShowLocationAction$ === "object");
+assert(typeof RcsStandaloneCard$ === "object");
+assert(typeof RcsSuggestedAction$ === "object");
+assert(typeof RcsTextMessage$ === "object");
 assert(typeof RegistrationAssociationFilter$ === "object");
 assert(typeof RegistrationAssociationMetadata$ === "object");
 assert(typeof RegistrationAttachmentFilter$ === "object");
@@ -1042,6 +1099,8 @@ assert(typeof SendNotifyTextMessageRequest$ === "object");
 assert(typeof SendNotifyTextMessageResult$ === "object");
 assert(typeof SendNotifyVoiceMessageRequest$ === "object");
 assert(typeof SendNotifyVoiceMessageResult$ === "object");
+assert(typeof SendRcsMessageRequest$ === "object");
+assert(typeof SendRcsMessageResult$ === "object");
 assert(typeof SendTextMessageRequest$ === "object");
 assert(typeof SendTextMessageResult$ === "object");
 assert(typeof SendVoiceMessageRequest$ === "object");
@@ -1058,6 +1117,8 @@ assert(typeof SetMediaMessageSpendLimitOverrideRequest$ === "object");
 assert(typeof SetMediaMessageSpendLimitOverrideResult$ === "object");
 assert(typeof SetNotifyMessageSpendLimitOverrideRequest$ === "object");
 assert(typeof SetNotifyMessageSpendLimitOverrideResult$ === "object");
+assert(typeof SetRcsMessageSpendLimitOverrideRequest$ === "object");
+assert(typeof SetRcsMessageSpendLimitOverrideResult$ === "object");
 assert(typeof SetTextMessageSpendLimitOverrideRequest$ === "object");
 assert(typeof SetTextMessageSpendLimitOverrideResult$ === "object");
 assert(typeof SetVoiceMessageSpendLimitOverrideRequest$ === "object");
@@ -1139,6 +1200,7 @@ assert(typeof ProtectConfigurationRuleSetNumberOverrideFilterName === "object");
 assert(typeof ProtectStatus === "object");
 assert(typeof RcsAgentFilterName === "object");
 assert(typeof RcsAgentStatus === "object");
+assert(typeof RcsFallbackChannel === "object");
 assert(typeof RegistrationAssociationBehavior === "object");
 assert(typeof RegistrationAssociationFilterName === "object");
 assert(typeof RegistrationAttachmentFilterName === "object");

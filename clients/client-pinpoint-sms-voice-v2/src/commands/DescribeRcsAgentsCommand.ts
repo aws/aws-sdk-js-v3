@@ -72,6 +72,12 @@ export interface DescribeRcsAgentsCommandOutput extends DescribeRcsAgentsResult,
  * //       TwoWayChannelRole: "STRING_VALUE",
  * //       TwoWayEnabled: true || false, // required
  * //       PoolId: "STRING_VALUE",
+ * //       TwoWayMediaS3BucketName: "STRING_VALUE",
+ * //       TwoWayMediaS3KeyPrefix: "STRING_VALUE",
+ * //       TwoWayMediaS3Role: "STRING_VALUE",
+ * //       TwoWayRcsEventsEnabled: [ // RcsEventTypeList
+ * //         "STRING_VALUE",
+ * //       ],
  * //       TestingAgent: { // TestingAgentInformation
  * //         Status: "STRING_VALUE", // required
  * //         TestingAgentId: "STRING_VALUE",

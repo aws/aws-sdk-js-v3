@@ -153,6 +153,11 @@ import {
   DeleteRcsAgentCommand,
 } from "./commands/DeleteRcsAgentCommand";
 import {
+  type DeleteRcsMessageSpendLimitOverrideCommandInput,
+  type DeleteRcsMessageSpendLimitOverrideCommandOutput,
+  DeleteRcsMessageSpendLimitOverrideCommand,
+} from "./commands/DeleteRcsMessageSpendLimitOverrideCommand";
+import {
   type DeleteRegistrationAttachmentCommandInput,
   type DeleteRegistrationAttachmentCommandOutput,
   DeleteRegistrationAttachmentCommand,
@@ -423,6 +428,11 @@ import {
   SendNotifyVoiceMessageCommand,
 } from "./commands/SendNotifyVoiceMessageCommand";
 import {
+  type SendRcsMessageCommandInput,
+  type SendRcsMessageCommandOutput,
+  SendRcsMessageCommand,
+} from "./commands/SendRcsMessageCommand";
+import {
   type SendTextMessageCommandInput,
   type SendTextMessageCommandOutput,
   SendTextMessageCommand,
@@ -462,6 +472,11 @@ import {
   type SetNotifyMessageSpendLimitOverrideCommandOutput,
   SetNotifyMessageSpendLimitOverrideCommand,
 } from "./commands/SetNotifyMessageSpendLimitOverrideCommand";
+import {
+  type SetRcsMessageSpendLimitOverrideCommandInput,
+  type SetRcsMessageSpendLimitOverrideCommandOutput,
+  SetRcsMessageSpendLimitOverrideCommand,
+} from "./commands/SetRcsMessageSpendLimitOverrideCommand";
 import {
   type SetTextMessageSpendLimitOverrideCommandInput,
   type SetTextMessageSpendLimitOverrideCommandOutput,
@@ -598,6 +613,7 @@ const commands = {
   DeleteProtectConfigurationCommand,
   DeleteProtectConfigurationRuleSetNumberOverrideCommand,
   DeleteRcsAgentCommand,
+  DeleteRcsMessageSpendLimitOverrideCommand,
   DeleteRegistrationCommand,
   DeleteRegistrationAttachmentCommand,
   DeleteRegistrationFieldValueCommand,
@@ -652,6 +668,7 @@ const commands = {
   SendMediaMessageCommand,
   SendNotifyTextMessageCommand,
   SendNotifyVoiceMessageCommand,
+  SendRcsMessageCommand,
   SendTextMessageCommand,
   SendVoiceMessageCommand,
   SetAccountDefaultProtectConfigurationCommand,
@@ -660,6 +677,7 @@ const commands = {
   SetDefaultSenderIdCommand,
   SetMediaMessageSpendLimitOverrideCommand,
   SetNotifyMessageSpendLimitOverrideCommand,
+  SetRcsMessageSpendLimitOverrideCommand,
   SetTextMessageSpendLimitOverrideCommand,
   SetVoiceMessageSpendLimitOverrideCommand,
   SubmitRegistrationVersionCommand,
@@ -1220,6 +1238,24 @@ export interface PinpointSMSVoiceV2 {
     args: DeleteRcsAgentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteRcsAgentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteRcsMessageSpendLimitOverrideCommand}
+   */
+  deleteRcsMessageSpendLimitOverride(): Promise<DeleteRcsMessageSpendLimitOverrideCommandOutput>;
+  deleteRcsMessageSpendLimitOverride(
+    args: DeleteRcsMessageSpendLimitOverrideCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRcsMessageSpendLimitOverrideCommandOutput>;
+  deleteRcsMessageSpendLimitOverride(
+    args: DeleteRcsMessageSpendLimitOverrideCommandInput,
+    cb: (err: any, data?: DeleteRcsMessageSpendLimitOverrideCommandOutput) => void
+  ): void;
+  deleteRcsMessageSpendLimitOverride(
+    args: DeleteRcsMessageSpendLimitOverrideCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRcsMessageSpendLimitOverrideCommandOutput) => void
   ): void;
 
   /**
@@ -2160,6 +2196,23 @@ export interface PinpointSMSVoiceV2 {
   ): void;
 
   /**
+   * @see {@link SendRcsMessageCommand}
+   */
+  sendRcsMessage(
+    args: SendRcsMessageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendRcsMessageCommandOutput>;
+  sendRcsMessage(
+    args: SendRcsMessageCommandInput,
+    cb: (err: any, data?: SendRcsMessageCommandOutput) => void
+  ): void;
+  sendRcsMessage(
+    args: SendRcsMessageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SendRcsMessageCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link SendTextMessageCommand}
    */
   sendTextMessage(
@@ -2293,6 +2346,23 @@ export interface PinpointSMSVoiceV2 {
     args: SetNotifyMessageSpendLimitOverrideCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SetNotifyMessageSpendLimitOverrideCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SetRcsMessageSpendLimitOverrideCommand}
+   */
+  setRcsMessageSpendLimitOverride(
+    args: SetRcsMessageSpendLimitOverrideCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SetRcsMessageSpendLimitOverrideCommandOutput>;
+  setRcsMessageSpendLimitOverride(
+    args: SetRcsMessageSpendLimitOverrideCommandInput,
+    cb: (err: any, data?: SetRcsMessageSpendLimitOverrideCommandOutput) => void
+  ): void;
+  setRcsMessageSpendLimitOverride(
+    args: SetRcsMessageSpendLimitOverrideCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SetRcsMessageSpendLimitOverrideCommandOutput) => void
   ): void;
 
   /**

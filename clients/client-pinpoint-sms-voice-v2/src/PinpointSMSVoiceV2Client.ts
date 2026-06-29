@@ -151,6 +151,10 @@ import type {
 } from "./commands/DeleteProtectConfigurationRuleSetNumberOverrideCommand";
 import type { DeleteRcsAgentCommandInput, DeleteRcsAgentCommandOutput } from "./commands/DeleteRcsAgentCommand";
 import type {
+  DeleteRcsMessageSpendLimitOverrideCommandInput,
+  DeleteRcsMessageSpendLimitOverrideCommandOutput,
+} from "./commands/DeleteRcsMessageSpendLimitOverrideCommand";
+import type {
   DeleteRegistrationAttachmentCommandInput,
   DeleteRegistrationAttachmentCommandOutput,
 } from "./commands/DeleteRegistrationAttachmentCommand";
@@ -348,6 +352,7 @@ import type {
   SendNotifyVoiceMessageCommandInput,
   SendNotifyVoiceMessageCommandOutput,
 } from "./commands/SendNotifyVoiceMessageCommand";
+import type { SendRcsMessageCommandInput, SendRcsMessageCommandOutput } from "./commands/SendRcsMessageCommand";
 import type { SendTextMessageCommandInput, SendTextMessageCommandOutput } from "./commands/SendTextMessageCommand";
 import type { SendVoiceMessageCommandInput, SendVoiceMessageCommandOutput } from "./commands/SendVoiceMessageCommand";
 import type {
@@ -374,6 +379,10 @@ import type {
   SetNotifyMessageSpendLimitOverrideCommandInput,
   SetNotifyMessageSpendLimitOverrideCommandOutput,
 } from "./commands/SetNotifyMessageSpendLimitOverrideCommand";
+import type {
+  SetRcsMessageSpendLimitOverrideCommandInput,
+  SetRcsMessageSpendLimitOverrideCommandOutput,
+} from "./commands/SetRcsMessageSpendLimitOverrideCommand";
 import type {
   SetTextMessageSpendLimitOverrideCommandInput,
   SetTextMessageSpendLimitOverrideCommandOutput,
@@ -460,6 +469,7 @@ export type ServiceInputTypes =
   | DeleteProtectConfigurationCommandInput
   | DeleteProtectConfigurationRuleSetNumberOverrideCommandInput
   | DeleteRcsAgentCommandInput
+  | DeleteRcsMessageSpendLimitOverrideCommandInput
   | DeleteRegistrationAttachmentCommandInput
   | DeleteRegistrationCommandInput
   | DeleteRegistrationFieldValueCommandInput
@@ -514,6 +524,7 @@ export type ServiceInputTypes =
   | SendMediaMessageCommandInput
   | SendNotifyTextMessageCommandInput
   | SendNotifyVoiceMessageCommandInput
+  | SendRcsMessageCommandInput
   | SendTextMessageCommandInput
   | SendVoiceMessageCommandInput
   | SetAccountDefaultProtectConfigurationCommandInput
@@ -522,6 +533,7 @@ export type ServiceInputTypes =
   | SetDefaultSenderIdCommandInput
   | SetMediaMessageSpendLimitOverrideCommandInput
   | SetNotifyMessageSpendLimitOverrideCommandInput
+  | SetRcsMessageSpendLimitOverrideCommandInput
   | SetTextMessageSpendLimitOverrideCommandInput
   | SetVoiceMessageSpendLimitOverrideCommandInput
   | SubmitRegistrationVersionCommandInput
@@ -571,6 +583,7 @@ export type ServiceOutputTypes =
   | DeleteProtectConfigurationCommandOutput
   | DeleteProtectConfigurationRuleSetNumberOverrideCommandOutput
   | DeleteRcsAgentCommandOutput
+  | DeleteRcsMessageSpendLimitOverrideCommandOutput
   | DeleteRegistrationAttachmentCommandOutput
   | DeleteRegistrationCommandOutput
   | DeleteRegistrationFieldValueCommandOutput
@@ -625,6 +638,7 @@ export type ServiceOutputTypes =
   | SendMediaMessageCommandOutput
   | SendNotifyTextMessageCommandOutput
   | SendNotifyVoiceMessageCommandOutput
+  | SendRcsMessageCommandOutput
   | SendTextMessageCommandOutput
   | SendVoiceMessageCommandOutput
   | SetAccountDefaultProtectConfigurationCommandOutput
@@ -633,6 +647,7 @@ export type ServiceOutputTypes =
   | SetDefaultSenderIdCommandOutput
   | SetMediaMessageSpendLimitOverrideCommandOutput
   | SetNotifyMessageSpendLimitOverrideCommandOutput
+  | SetRcsMessageSpendLimitOverrideCommandOutput
   | SetTextMessageSpendLimitOverrideCommandOutput
   | SetVoiceMessageSpendLimitOverrideCommandOutput
   | SubmitRegistrationVersionCommandOutput

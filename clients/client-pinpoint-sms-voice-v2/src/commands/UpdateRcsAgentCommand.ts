@@ -48,6 +48,12 @@ export interface UpdateRcsAgentCommandOutput extends UpdateRcsAgentResult, __Met
  *   TwoWayChannelArn: "STRING_VALUE",
  *   TwoWayChannelRole: "STRING_VALUE",
  *   TwoWayEnabled: true || false,
+ *   TwoWayMediaS3BucketName: "STRING_VALUE",
+ *   TwoWayMediaS3KeyPrefix: "STRING_VALUE",
+ *   TwoWayMediaS3Role: "STRING_VALUE",
+ *   TwoWayRcsEventsEnabled: [ // RcsEventTypeList
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new UpdateRcsAgentCommand(input);
  * const response = await client.send(command);
@@ -62,6 +68,12 @@ export interface UpdateRcsAgentCommandOutput extends UpdateRcsAgentResult, __Met
  * //   TwoWayChannelArn: "STRING_VALUE",
  * //   TwoWayChannelRole: "STRING_VALUE",
  * //   TwoWayEnabled: true || false, // required
+ * //   TwoWayMediaS3BucketName: "STRING_VALUE",
+ * //   TwoWayMediaS3KeyPrefix: "STRING_VALUE",
+ * //   TwoWayMediaS3Role: "STRING_VALUE",
+ * //   TwoWayRcsEventsEnabled: [ // RcsEventTypeList
+ * //     "STRING_VALUE",
+ * //   ],
  * // };
  *
  * ```

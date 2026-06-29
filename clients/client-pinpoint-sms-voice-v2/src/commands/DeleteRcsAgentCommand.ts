@@ -56,6 +56,9 @@ export interface DeleteRcsAgentCommandOutput extends DeleteRcsAgentResult, __Met
  * //   TwoWayChannelArn: "STRING_VALUE",
  * //   TwoWayChannelRole: "STRING_VALUE",
  * //   TwoWayEnabled: true || false, // required
+ * //   TwoWayRcsEventsEnabled: [ // RcsEventTypeList
+ * //     "STRING_VALUE",
+ * //   ],
  * // };
  *
  * ```

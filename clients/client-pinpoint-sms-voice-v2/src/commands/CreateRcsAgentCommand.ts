@@ -64,6 +64,12 @@ export interface CreateRcsAgentCommandOutput extends CreateRcsAgentResult, __Met
  * //   TwoWayChannelArn: "STRING_VALUE",
  * //   TwoWayChannelRole: "STRING_VALUE",
  * //   TwoWayEnabled: true || false, // required
+ * //   TwoWayMediaS3BucketName: "STRING_VALUE",
+ * //   TwoWayMediaS3KeyPrefix: "STRING_VALUE",
+ * //   TwoWayMediaS3Role: "STRING_VALUE",
+ * //   TwoWayRcsEventsEnabled: [ // RcsEventTypeList
+ * //     "STRING_VALUE",
+ * //   ],
  * //   Tags: [ // TagList
  * //     { // Tag
  * //       Key: "STRING_VALUE", // required

@@ -391,6 +391,13 @@ DeleteRcsAgent
 </details>
 <details>
 <summary>
+DeleteRcsMessageSpendLimitOverride
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/DeleteRcsMessageSpendLimitOverrideCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/DeleteRcsMessageSpendLimitOverrideCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/DeleteRcsMessageSpendLimitOverrideCommandOutput/)
+</details>
+<details>
+<summary>
 DeleteRegistration
 </summary>
 
@@ -769,6 +776,13 @@ SendNotifyVoiceMessage
 </details>
 <details>
 <summary>
+SendRcsMessage
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/SendRcsMessageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/SendRcsMessageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/SendRcsMessageCommandOutput/)
+</details>
+<details>
+<summary>
 SendTextMessage
 </summary>
 
@@ -822,6 +836,13 @@ SetNotifyMessageSpendLimitOverride
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/SetNotifyMessageSpendLimitOverrideCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/SetNotifyMessageSpendLimitOverrideCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/SetNotifyMessageSpendLimitOverrideCommandOutput/)
+</details>
+<details>
+<summary>
+SetRcsMessageSpendLimitOverride
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/SetRcsMessageSpendLimitOverrideCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/SetRcsMessageSpendLimitOverrideCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/SetRcsMessageSpendLimitOverrideCommandOutput/)
 </details>
 <details>
 <summary>

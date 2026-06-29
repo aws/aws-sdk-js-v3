@@ -24,10 +24,15 @@ const _ATr = "ArchivedTimestamp";
 const _AU = "AttachmentUrl";
 const _AUER = "AttachmentUploadErrorReason";
 const _AVN = "ApprovedVersionNumber";
+const _Ap = "Application";
+const _B = "Body";
 const _C = "Country";
+const _CC = "CardContents";
+const _CCE = "CreateCalendarEvent";
 const _CCS = "CreateConfigurationSet";
 const _CCSR = "CreateConfigurationSetRequest";
 const _CCSRr = "CreateConfigurationSetResult";
+const _CCa = "CardContent";
 const _CE = "ConflictException";
 const _CED = "CreateEventDestination";
 const _CEDR = "CreateEventDestinationRequest";
@@ -45,6 +50,7 @@ const _CNC = "CreateNotifyConfiguration";
 const _CNCR = "CreateNotifyConfigurationRequest";
 const _CNCRr = "CreateNotifyConfigurationResult";
 const _CNo = "CountryName";
+const _CO = "CardOrientation";
 const _COIR = "CustomerOwnedIdentityRequired";
 const _COOL = "CreateOptOutList";
 const _COOLR = "CreateOptOutListRequest";
@@ -89,9 +95,12 @@ const _CVDN = "CreateVerifiedDestinationNumber";
 const _CVDNR = "CreateVerifiedDestinationNumberRequest";
 const _CVDNRr = "CreateVerifiedDestinationNumberResult";
 const _CVN = "CurrentVersionNumber";
+const _CW = "CardWidth";
 const _CWLD = "CloudWatchLogsDestination";
 const _Ca = "Carrier";
+const _Car = "Carousel";
 const _Ch = "Channels";
+const _Cha = "Channel";
 const _Co = "Content";
 const _Con = "Context";
 const _D = "Description";
@@ -163,7 +172,7 @@ const _DOONRe = "DeleteOptedOutNumberResult";
 const _DOONRes = "DescribeOptedOutNumbersRequest";
 const _DOONResc = "DescribeOptedOutNumbersResult";
 const _DOONe = "DescribeOptedOutNumbers";
-const _DP = "DeletePool";
+const _DP = "DialPhone";
 const _DPC = "DeleteProtectConfiguration";
 const _DPCA = "DefaultProtectConfigurationArn";
 const _DPCI = "DefaultProtectConfigurationId";
@@ -188,7 +197,8 @@ const _DPR = "DeletePoolRequest";
 const _DPRe = "DeletePoolResult";
 const _DPRes = "DescribePoolsRequest";
 const _DPResc = "DescribePoolsResult";
-const _DPe = "DescribePools";
+const _DPe = "DeletePool";
+const _DPes = "DescribePools";
 const _DR = "DeniedReason";
 const _DRA = "DeleteRcsAgent";
 const _DRACLS = "DescribeRcsAgentCountryLaunchStatus";
@@ -214,6 +224,9 @@ const _DRFVRe = "DeleteRegistrationFieldValueResult";
 const _DRFVRes = "DescribeRegistrationFieldValuesRequest";
 const _DRFVResc = "DescribeRegistrationFieldValuesResult";
 const _DRFVe = "DescribeRegistrationFieldValues";
+const _DRMSLO = "DeleteRcsMessageSpendLimitOverride";
+const _DRMSLOR = "DeleteRcsMessageSpendLimitOverrideRequest";
+const _DRMSLORe = "DeleteRcsMessageSpendLimitOverrideResult";
 const _DRP = "DeleteResourcePolicy";
 const _DRPR = "DeleteResourcePolicyRequest";
 const _DRPRe = "DeleteResourcePolicyResult";
@@ -274,12 +287,16 @@ const _EL = "EnforcedLimit";
 const _EPN = "E164PhoneNumber";
 const _ET = "ExpirationTimestamp";
 const _ETV = "ExampleTextValue";
+const _ETn = "EndTime";
 const _EUOO = "EndUserOptedOut";
 const _F = "Fields";
+const _FC = "FallbackConfiguration";
+const _FM = "FileMessage";
 const _FP = "FieldPath";
 const _FPi = "FieldPaths";
 const _FR = "FieldRequirement";
 const _FT = "FieldType";
+const _FU = "FileUrl";
 const _Fe = "Feedback";
 const _Fi = "Filters";
 const _GPCCRS = "GetProtectConfigurationCountryRuleSet";
@@ -288,6 +305,7 @@ const _GPCCRSRe = "GetProtectConfigurationCountryRuleSetResult";
 const _GRP = "GetResourcePolicy";
 const _GRPR = "GetResourcePolicyRequest";
 const _GRPRe = "GetResourcePolicyResult";
+const _H = "Height";
 const _ICC = "IsoCountryCode";
 const _ICCs = "IsoCountryCodes";
 const _IRA = "IamRoleArn";
@@ -303,6 +321,7 @@ const _KIL = "KeywordInformationList";
 const _KM = "KeywordMessage";
 const _Ke = "Keywords";
 const _Key = "Key";
+const _L = "Latitude";
 const _LC = "LanguageCode";
 const _LD = "LongDescription";
 const _LDVN = "LatestDeniedVersionNumber";
@@ -323,6 +342,8 @@ const _LRARi = "ListRegistrationAssociationsResult";
 const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResult";
+const _La = "Label";
+const _Lo = "Longitude";
 const _M = "Message";
 const _MB = "MessageBody";
 const _MBTT = "MessageBodyTextType";
@@ -343,11 +364,13 @@ const _MP = "MaxPrice";
 const _MPPM = "MaxPricePerMinute";
 const _MR = "MaxResults";
 const _MT = "MessageType";
+const _MTT = "MessageTrafficType";
 const _MTe = "MessageTypes";
 const _MU = "MediaUrls";
 const _MV = "MinValue";
 const _MVa = "MaxValue";
 const _Ma = "Max";
+const _Me = "Media";
 const _N = "Name";
 const _NC = "NotifyConfigurations";
 const _NCA = "NotifyConfigurationArn";
@@ -389,6 +412,7 @@ const _OONI = "OptedOutNumberInformation";
 const _OONIL = "OptedOutNumberInformationList";
 const _OONp = "OptedOutNumbers";
 const _OOT = "OptedOutTimestamp";
+const _OU = "OpenUrl";
 const _Op = "Option";
 const _Opt = "Options";
 const _Ov = "Overridden";
@@ -407,6 +431,7 @@ const _PCIro = "ProtectConfigurationInformation";
 const _PCRSNO = "ProtectConfigurationRuleSetNumberOverride";
 const _PCRSNOFI = "ProtectConfigurationRuleSetNumberOverrideFilterItem";
 const _PCRSNOL = "ProtectConfigurationRuleSetNumberOverrideList";
+const _PD = "PostbackData";
 const _PF = "PoolFilter";
 const _PFL = "PoolFilterList";
 const _PI = "PoolId";
@@ -471,14 +496,27 @@ const _RAc = "RcsAgents";
 const _RAe = "ResourceArn";
 const _RAeg = "RegistrationAttachments";
 const _RAegi = "RegistrationAssociations";
+const _RC = "RcsCarousel";
+const _RCC = "RcsCardContent";
+const _RCCC = "RcsCarouselCardContent";
+const _RCCCL = "RcsCarouselCardContentList";
+const _RCCEA = "RcsCreateCalendarEventAction";
+const _RCCM = "RcsCarouselCardMedia";
+const _RCM = "RcsCardMedia";
+const _RCSAL = "RcsCardSuggestedActionList";
+const _RCc = "RcsContent";
+const _RCi = "RichCard";
+const _RDPA = "RcsDialPhoneAction";
 const _RDRI = "RegistrationDeniedReasonInformation";
 const _RDRIL = "RegistrationDeniedReasonInformationList";
 const _RF = "RegistrationFilter";
+const _RFC = "RcsFallbackConfiguration";
 const _RFD = "RegistrationFieldDefinitions";
 const _RFDH = "RegistrationFieldDisplayHints";
 const _RFDL = "RegistrationFieldDefinitionList";
 const _RFDe = "RegistrationFieldDefinition";
 const _RFL = "RegistrationFilterList";
+const _RFM = "RcsFileMessage";
 const _RFV = "RegistrationFieldValues";
 const _RFVI = "RegistrationFieldValueInformation";
 const _RFVIL = "RegistrationFieldValueInformationList";
@@ -488,8 +526,11 @@ const _RIe = "RequestId";
 const _RIeg = "RegistrationId";
 const _RIegi = "RegistrationIds";
 const _RIegis = "RegistrationInformation";
+const _RL = "RequestLocation";
 const _RMB = "ResolvedMessageBody";
+const _RMC = "RcsMessageContent";
 const _RNFE = "ResourceNotFoundException";
+const _ROUA = "RcsOpenUrlAction";
 const _RPI = "RcsPlatformId";
 const _RPN = "ReleasePhoneNumber";
 const _RPNR = "ReleasePhoneNumberRequest";
@@ -498,7 +539,12 @@ const _RPNReq = "RequestPhoneNumberRequest";
 const _RPNRequ = "RequestPhoneNumberResult";
 const _RPNe = "RequestPhoneNumber";
 const _RR = "RejectionReason";
+const _RRA = "RcsReplyAction";
+const _RRLA = "RcsRequestLocationAction";
 const _RS = "RegistrationStatus";
+const _RSA = "RcsSuggestedAction";
+const _RSAL = "RcsSuggestedActionList";
+const _RSC = "RcsStandaloneCard";
 const _RSD = "RegistrationSectionDefinitions";
 const _RSDH = "RegistrationSectionDisplayHints";
 const _RSDL = "RegistrationSectionDefinitionList";
@@ -509,6 +555,7 @@ const _RSIRe = "ReleaseSenderIdResult";
 const _RSIReq = "RequestSenderIdRequest";
 const _RSIRequ = "RequestSenderIdResult";
 const _RSIe = "RequestSenderId";
+const _RSLA = "RcsShowLocationAction";
 const _RSNO = "RuleSetNumberOverrides";
 const _RT = "ResourceType";
 const _RTD = "RegistrationTypeDefinitions";
@@ -517,6 +564,7 @@ const _RTDL = "RegistrationTypeDefinitionList";
 const _RTDe = "RegistrationTypeDefinition";
 const _RTF = "RegistrationTypeFilter";
 const _RTFL = "RegistrationTypeFilterList";
+const _RTM = "RcsTextMessage";
 const _RTe = "RegistrationType";
 const _RTeg = "RegistrationTypes";
 const _RTev = "ReviewingTimestamp";
@@ -530,6 +578,7 @@ const _RVS = "RegistrationVersionStatus";
 const _RVSH = "RegistrationVersionStatusHistory";
 const _Re = "Registrations";
 const _Reg = "Registered";
+const _Rep = "Reply";
 const _Req = "Required";
 const _S = "Status";
 const _SA = "SupportedAssociations";
@@ -566,6 +615,7 @@ const _SIL = "SenderIdList";
 const _SIe = "SenderIds";
 const _SL = "SpendLimits";
 const _SLL = "SpendLimitList";
+const _SLh = "ShowLocation";
 const _SLp = "SpendLimit";
 const _SMM = "SendMediaMessage";
 const _SMMR = "SendMediaMessageRequest";
@@ -590,6 +640,12 @@ const _SP = "SectionPath";
 const _SPe = "SectionPaths";
 const _SQEE = "ServiceQuotaExceededException";
 const _SRE = "SharedRoutesEnabled";
+const _SRM = "SendRcsMessage";
+const _SRMR = "SendRcsMessageRequest";
+const _SRMRe = "SendRcsMessageResult";
+const _SRMSLO = "SetRcsMessageSpendLimitOverride";
+const _SRMSLOR = "SetRcsMessageSpendLimitOverrideRequest";
+const _SRMSLORe = "SetRcsMessageSpendLimitOverrideResult";
 const _SRV = "SubmitRegistrationVersion";
 const _SRVR = "SubmitRegistrationVersionRequest";
 const _SRVRu = "SubmitRegistrationVersionResult";
@@ -600,6 +656,7 @@ const _STMRe = "SendTextMessageResult";
 const _STMSLO = "SetTextMessageSpendLimitOverride";
 const _STMSLOR = "SetTextMessageSpendLimitOverrideRequest";
 const _STMSLORe = "SetTextMessageSpendLimitOverrideResult";
+const _STt = "StartTime";
 const _STu = "SubmittedTimestamp";
 const _SUC = "SupportedUseCases";
 const _SV = "SelectValidation";
@@ -612,6 +669,7 @@ const _SVMSLOR = "SetVoiceMessageSpendLimitOverrideRequest";
 const _SVMSLORe = "SetVoiceMessageSpendLimitOverrideResult";
 const _Sa = "Sample";
 const _So = "Source";
+const _Su = "Suggestions";
 const _T = "Tags";
 const _TA = "TierAccess";
 const _TAI = "TestingAgentInformation";
@@ -620,14 +678,17 @@ const _TAe = "TestingAgent";
 const _TAo = "TopicArn";
 const _TE = "ThrottlingException";
 const _TI = "TemplateIds";
+const _TIA = "ThumbnailImageAlignment";
 const _TIe = "TemplateId";
 const _TK = "TagKeys";
 const _TL = "TagList";
+const _TM = "TextMessage";
 const _TR = "TagResource";
 const _TRR = "TagResourceRequest";
 const _TRRa = "TagResourceResult";
 const _TT = "TemplateType";
 const _TTL = "TimeToLive";
+const _TU = "ThumbnailUrl";
 const _TUS = "TierUpgradeStatus";
 const _TV = "TextValue";
 const _TVD = "TextValidationDescription";
@@ -638,7 +699,12 @@ const _TVem = "TemplateVariables";
 const _TWCA = "TwoWayChannelArn";
 const _TWCR = "TwoWayChannelRole";
 const _TWE = "TwoWayEnabled";
+const _TWMSBN = "TwoWayMediaS3BucketName";
+const _TWMSKP = "TwoWayMediaS3KeyPrefix";
+const _TWMSR = "TwoWayMediaS3Role";
+const _TWREE = "TwoWayRcsEventsEnabled";
 const _Ta = "Tag";
+const _Te = "Text";
 const _Ti = "Tier";
 const _Tit = "Title";
 const _Ty = "Type";
@@ -672,6 +738,7 @@ const _URRn = "UntagResourceResult";
 const _USI = "UpdateSenderId";
 const _USIR = "UpdateSenderIdRequest";
 const _USIRp = "UpdateSenderIdResult";
+const _Ur = "Url";
 const _V = "Value";
 const _VC = "VerificationChannel";
 const _VCe = "VerificationCode";
@@ -695,6 +762,7 @@ const _VNe = "VersionNumbers";
 const _Va = "Values";
 const _Var = "Variables";
 const _Ve = "Version";
+const _WVM = "WebviewViewMode";
 const _c = "client";
 const _e = "error";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.pinpointsmsvoicev2";
@@ -709,6 +777,7 @@ import type {
   StaticMapSchema,
   StaticOperationSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -915,8 +984,8 @@ export var CreateRcsAgentRequest$: StaticStructureSchema = [3, n0, _CRAR,
 ];
 export var CreateRcsAgentResult$: StaticStructureSchema = [3, n0, _CRARr,
   0,
-  [_RAA, _RAI, _S, _DPE, _CTr, _SMOOE, _TWE, _OOLN, _TWCA, _TWCR, _T],
-  [0, 0, 0, 2, 4, 2, 2, 0, 0, 0, () => TagList], 7
+  [_RAA, _RAI, _S, _DPE, _CTr, _SMOOE, _TWE, _OOLN, _TWCA, _TWCR, _TWMSBN, _TWMSKP, _TWMSR, _TWREE, _T],
+  [0, 0, 0, 2, 4, 2, 2, 0, 0, 0, 0, 0, 0, 64 | 0, () => TagList], 7
 ];
 export var CreateRegistrationAssociationRequest$: StaticStructureSchema = [3, n0, _CRARre,
   0,
@@ -1115,8 +1184,18 @@ export var DeleteRcsAgentRequest$: StaticStructureSchema = [3, n0, _DRAR,
 ];
 export var DeleteRcsAgentResult$: StaticStructureSchema = [3, n0, _DRARe,
   0,
-  [_RAA, _RAI, _S, _CTr, _DPE, _SMOOE, _TWE, _OOLN, _TWCA, _TWCR],
-  [0, 0, 0, 4, 2, 2, 2, 0, 0, 0], 7
+  [_RAA, _RAI, _S, _CTr, _DPE, _SMOOE, _TWE, _OOLN, _TWCA, _TWCR, _TWREE],
+  [0, 0, 0, 4, 2, 2, 2, 0, 0, 0, 64 | 0], 7
+];
+export var DeleteRcsMessageSpendLimitOverrideRequest$: StaticStructureSchema = [3, n0, _DRMSLOR,
+  0,
+  [],
+  []
+];
+export var DeleteRcsMessageSpendLimitOverrideResult$: StaticStructureSchema = [3, n0, _DRMSLORe,
+  0,
+  [_ML],
+  [1]
 ];
 export var DeleteRegistrationAttachmentRequest$: StaticStructureSchema = [3, n0, _DRARel,
   0,
@@ -1700,8 +1779,88 @@ export var RcsAgentFilter$: StaticStructureSchema = [3, n0, _RAF,
 ];
 export var RcsAgentInformation$: StaticStructureSchema = [3, n0, _RAIcs,
   0,
-  [_RAA, _RAI, _S, _CTr, _DPE, _SMOOE, _TWE, _OOLN, _TWCA, _TWCR, _PI, _TAe],
-  [0, 0, 0, 4, 2, 2, 2, 0, 0, 0, 0, () => TestingAgentInformation$], 7
+  [_RAA, _RAI, _S, _CTr, _DPE, _SMOOE, _TWE, _OOLN, _TWCA, _TWCR, _PI, _TWMSBN, _TWMSKP, _TWMSR, _TWREE, _TAe],
+  [0, 0, 0, 4, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 64 | 0, () => TestingAgentInformation$], 7
+];
+export var RcsCardContent$: StaticStructureSchema = [3, n0, _RCC,
+  0,
+  [_Tit, _D, _Me, _Su],
+  [0, 0, () => RcsCardMedia$, () => RcsCardSuggestedActionList]
+];
+export var RcsCardMedia$: StaticStructureSchema = [3, n0, _RCM,
+  0,
+  [_FU, _TU, _H],
+  [0, 0, 0], 1
+];
+export var RcsCarousel$: StaticStructureSchema = [3, n0, _RC,
+  0,
+  [_CW, _CC],
+  [0, () => RcsCarouselCardContentList], 2
+];
+export var RcsCarouselCardContent$: StaticStructureSchema = [3, n0, _RCCC,
+  0,
+  [_Tit, _D, _Me, _Su],
+  [0, 0, () => RcsCarouselCardMedia$, () => RcsCardSuggestedActionList]
+];
+export var RcsCarouselCardMedia$: StaticStructureSchema = [3, n0, _RCCM,
+  0,
+  [_FU, _TU, _H],
+  [0, 0, 0], 1
+];
+export var RcsCreateCalendarEventAction$: StaticStructureSchema = [3, n0, _RCCEA,
+  0,
+  [_Te, _PD, _Tit, _STt, _ETn, _D],
+  [0, 0, 0, 4, 4, 0], 5
+];
+export var RcsDialPhoneAction$: StaticStructureSchema = [3, n0, _RDPA,
+  0,
+  [_Te, _PD, _PN],
+  [0, 0, 0], 3
+];
+export var RcsFallbackConfiguration$: StaticStructureSchema = [3, n0, _RFC,
+  0,
+  [_Cha, _MB, _MU, _OI],
+  [0, 0, 64 | 0, 0], 1
+];
+export var RcsFileMessage$: StaticStructureSchema = [3, n0, _RFM,
+  0,
+  [_FU, _TU],
+  [0, 0], 1
+];
+export var RcsMessageContent$: StaticStructureSchema = [3, n0, _RMC,
+  0,
+  [_Co, _Su],
+  [() => RcsContent$, () => RcsSuggestedActionList], 1
+];
+export var RcsOpenUrlAction$: StaticStructureSchema = [3, n0, _ROUA,
+  0,
+  [_Te, _PD, _Ur, _Ap, _WVM],
+  [0, 0, 0, 0, 0], 3
+];
+export var RcsReplyAction$: StaticStructureSchema = [3, n0, _RRA,
+  0,
+  [_Te, _PD],
+  [0, 0], 2
+];
+export var RcsRequestLocationAction$: StaticStructureSchema = [3, n0, _RRLA,
+  0,
+  [_Te, _PD],
+  [0, 0], 2
+];
+export var RcsShowLocationAction$: StaticStructureSchema = [3, n0, _RSLA,
+  0,
+  [_Te, _PD, _L, _Lo, _La],
+  [0, 0, 1, 1, 0], 4
+];
+export var RcsStandaloneCard$: StaticStructureSchema = [3, n0, _RSC,
+  0,
+  [_CO, _CCa, _TIA],
+  [0, () => RcsCardContent$, 0], 2
+];
+export var RcsTextMessage$: StaticStructureSchema = [3, n0, _RTM,
+  0,
+  [_B],
+  [0], 1
 ];
 export var RegistrationAssociationFilter$: StaticStructureSchema = [3, n0, _RAFe,
   0,
@@ -1898,6 +2057,16 @@ export var SendNotifyVoiceMessageResult$: StaticStructureSchema = [3, n0, _SNVMR
   [_MI, _TIe, _RMB],
   [0, 0, 0]
 ];
+export var SendRcsMessageRequest$: StaticStructureSchema = [3, n0, _SRMR,
+  0,
+  [_DPN, _OI, _RMC, _TTL, _MTT, _FC, _PCI, _CSN, _MP, _DRr, _Con, _MFE],
+  [0, 0, () => RcsMessageContent$, 1, 0, () => RcsFallbackConfiguration$, 0, 0, 0, 2, 128 | 0, 2], 2
+];
+export var SendRcsMessageResult$: StaticStructureSchema = [3, n0, _SRMRe,
+  0,
+  [_MI],
+  [0]
+];
 export var SendTextMessageRequest$: StaticStructureSchema = [3, n0, _STMR,
   0,
   [_DPN, _OI, _MB, _MT, _K, _CSN, _MP, _TTL, _Con, _DCP, _DRr, _PCI, _MFE],
@@ -1974,6 +2143,16 @@ export var SetNotifyMessageSpendLimitOverrideRequest$: StaticStructureSchema = [
   [1], 1
 ];
 export var SetNotifyMessageSpendLimitOverrideResult$: StaticStructureSchema = [3, n0, _SNMSLORe,
+  0,
+  [_ML],
+  [1]
+];
+export var SetRcsMessageSpendLimitOverrideRequest$: StaticStructureSchema = [3, n0, _SRMSLOR,
+  0,
+  [_ML],
+  [1], 1
+];
+export var SetRcsMessageSpendLimitOverrideResult$: StaticStructureSchema = [3, n0, _SRMSLORe,
   0,
   [_ML],
   [1]
@@ -2125,13 +2304,13 @@ export var UpdateProtectConfigurationResult$: StaticStructureSchema = [3, n0, _U
 ];
 export var UpdateRcsAgentRequest$: StaticStructureSchema = [3, n0, _URAR,
   0,
-  [_RAI, _DPE, _OOLN, _SMOOE, _TWCA, _TWCR, _TWE],
-  [0, 2, 0, 2, 0, 0, 2], 1
+  [_RAI, _DPE, _OOLN, _SMOOE, _TWCA, _TWCR, _TWE, _TWMSBN, _TWMSKP, _TWMSR, _TWREE],
+  [0, 2, 0, 2, 0, 0, 2, 0, 0, 0, 64 | 0], 1
 ];
 export var UpdateRcsAgentResult$: StaticStructureSchema = [3, n0, _URARp,
   0,
-  [_RAA, _RAI, _S, _CTr, _DPE, _SMOOE, _TWE, _OOLN, _TWCA, _TWCR],
-  [0, 0, 0, 4, 2, 2, 2, 0, 0, 0], 7
+  [_RAA, _RAI, _S, _CTr, _DPE, _SMOOE, _TWE, _OOLN, _TWCA, _TWCR, _TWMSBN, _TWMSKP, _TWMSR, _TWREE],
+  [0, 0, 0, 4, 2, 2, 2, 0, 0, 0, 0, 0, 0, 64 | 0], 7
 ];
 export var UpdateSenderIdRequest$: StaticStructureSchema = [3, n0, _USIR,
   0,
@@ -2283,6 +2462,16 @@ var RcsAgentIdList = 64 | 0;
 var RcsAgentInformationList: StaticListSchema = [1, n0, _RAIL,
   0, () => RcsAgentInformation$
 ];
+var RcsCardSuggestedActionList: StaticListSchema = [1, n0, _RCSAL,
+  0, () => RcsSuggestedAction$
+];
+var RcsCarouselCardContentList: StaticListSchema = [1, n0, _RCCCL,
+  0, () => RcsCarouselCardContent$
+];
+var RcsEventTypeList = 64 | 0;
+var RcsSuggestedActionList: StaticListSchema = [1, n0, _RSAL,
+  0, () => RcsSuggestedAction$
+];
 var RegistrationAssociationFilterList: StaticListSchema = [1, n0, _RAFLe,
   0, () => RegistrationAssociationFilter$
 ];
@@ -2375,6 +2564,16 @@ var TemplateVariablesMap: StaticMapSchema = [2, n0, _TVMe,
   0, 0, () => TemplateVariableMetadata$
 ];
 var TemplateVariableSubstitutionMap = 128 | 0;
+export var RcsContent$: StaticUnionSchema = [4, n0, _RCc,
+  0,
+  [_TM, _FM, _RCi, _Car],
+  [() => RcsTextMessage$, () => RcsFileMessage$, () => RcsStandaloneCard$, () => RcsCarousel$]
+];
+export var RcsSuggestedAction$: StaticUnionSchema = [4, n0, _RSA,
+  0,
+  [_Rep, _OU, _DP, _SLh, _RL, _CCE],
+  [() => RcsReplyAction$, () => RcsOpenUrlAction$, () => RcsDialPhoneAction$, () => RcsShowLocationAction$, () => RcsRequestLocationAction$, () => RcsCreateCalendarEventAction$]
+];
 export var AssociateOriginationIdentity$: StaticOperationSchema = [9, n0, _AOI,
   0, () => AssociateOriginationIdentityRequest$, () => AssociateOriginationIdentityResult$
 ];
@@ -2453,7 +2652,7 @@ export var DeleteOptedOutNumber$: StaticOperationSchema = [9, n0, _DOON,
 export var DeleteOptOutList$: StaticOperationSchema = [9, n0, _DOOL,
   0, () => DeleteOptOutListRequest$, () => DeleteOptOutListResult$
 ];
-export var DeletePool$: StaticOperationSchema = [9, n0, _DP,
+export var DeletePool$: StaticOperationSchema = [9, n0, _DPe,
   0, () => DeletePoolRequest$, () => DeletePoolResult$
 ];
 export var DeleteProtectConfiguration$: StaticOperationSchema = [9, n0, _DPC,
@@ -2464,6 +2663,9 @@ export var DeleteProtectConfigurationRuleSetNumberOverride$: StaticOperationSche
 ];
 export var DeleteRcsAgent$: StaticOperationSchema = [9, n0, _DRA,
   0, () => DeleteRcsAgentRequest$, () => DeleteRcsAgentResult$
+];
+export var DeleteRcsMessageSpendLimitOverride$: StaticOperationSchema = [9, n0, _DRMSLO,
+  0, () => DeleteRcsMessageSpendLimitOverrideRequest$, () => DeleteRcsMessageSpendLimitOverrideResult$
 ];
 export var DeleteRegistration$: StaticOperationSchema = [9, n0, _DRel,
   0, () => DeleteRegistrationRequest$, () => DeleteRegistrationResult$
@@ -2513,7 +2715,7 @@ export var DescribeOptOutLists$: StaticOperationSchema = [9, n0, _DOOLe,
 export var DescribePhoneNumbers$: StaticOperationSchema = [9, n0, _DPNes,
   0, () => DescribePhoneNumbersRequest$, () => DescribePhoneNumbersResult$
 ];
-export var DescribePools$: StaticOperationSchema = [9, n0, _DPe,
+export var DescribePools$: StaticOperationSchema = [9, n0, _DPes,
   0, () => DescribePoolsRequest$, () => DescribePoolsResult$
 ];
 export var DescribeProtectConfigurations$: StaticOperationSchema = [9, n0, _DPCe,
@@ -2627,6 +2829,9 @@ export var SendNotifyTextMessage$: StaticOperationSchema = [9, n0, _SNTM,
 export var SendNotifyVoiceMessage$: StaticOperationSchema = [9, n0, _SNVM,
   0, () => SendNotifyVoiceMessageRequest$, () => SendNotifyVoiceMessageResult$
 ];
+export var SendRcsMessage$: StaticOperationSchema = [9, n0, _SRM,
+  0, () => SendRcsMessageRequest$, () => SendRcsMessageResult$
+];
 export var SendTextMessage$: StaticOperationSchema = [9, n0, _STM,
   0, () => SendTextMessageRequest$, () => SendTextMessageResult$
 ];
@@ -2650,6 +2855,9 @@ export var SetMediaMessageSpendLimitOverride$: StaticOperationSchema = [9, n0, _
 ];
 export var SetNotifyMessageSpendLimitOverride$: StaticOperationSchema = [9, n0, _SNMSLO,
   0, () => SetNotifyMessageSpendLimitOverrideRequest$, () => SetNotifyMessageSpendLimitOverrideResult$
+];
+export var SetRcsMessageSpendLimitOverride$: StaticOperationSchema = [9, n0, _SRMSLO,
+  0, () => SetRcsMessageSpendLimitOverrideRequest$, () => SetRcsMessageSpendLimitOverrideResult$
 ];
 export var SetTextMessageSpendLimitOverride$: StaticOperationSchema = [9, n0, _STMSLO,
   0, () => SetTextMessageSpendLimitOverrideRequest$, () => SetTextMessageSpendLimitOverrideResult$
