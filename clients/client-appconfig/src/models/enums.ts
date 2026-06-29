@@ -89,6 +89,20 @@ export type EnvironmentState = (typeof EnvironmentState)[keyof typeof Environmen
  * @public
  * @enum
  */
+export const ExperimentDefinitionStatus = {
+  ACTIVE: "ACTIVE",
+  ARCHIVED: "ARCHIVED",
+  IDLE: "IDLE",
+} as const;
+/**
+ * @public
+ */
+export type ExperimentDefinitionStatus = (typeof ExperimentDefinitionStatus)[keyof typeof ExperimentDefinitionStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const BytesMeasure = {
   KILOBYTES: "KILOBYTES",
 } as const;
@@ -110,6 +124,19 @@ export const DeletionProtectionCheck = {
  * @public
  */
 export type DeletionProtectionCheck = (typeof DeletionProtectionCheck)[keyof typeof DeletionProtectionCheck];
+
+/**
+ * @public
+ * @enum
+ */
+export const DeleteType = {
+  ARCHIVE: "ARCHIVE",
+  DESTROY: "DESTROY",
+} as const;
+/**
+ * @public
+ */
+export type DeleteType = (typeof DeleteType)[keyof typeof DeleteType];
 
 /**
  * @public
@@ -161,3 +188,44 @@ export const DeploymentState = {
  * @public
  */
 export type DeploymentState = (typeof DeploymentState)[keyof typeof DeploymentState];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExperimentRunStatus = {
+  DONE: "DONE",
+  RUNNING: "RUNNING",
+} as const;
+/**
+ * @public
+ */
+export type ExperimentRunStatus = (typeof ExperimentRunStatus)[keyof typeof ExperimentRunStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const DeploymentType = {
+  MANAGED: "MANAGED",
+  USER: "USER",
+} as const;
+/**
+ * @public
+ */
+export type DeploymentType = (typeof DeploymentType)[keyof typeof DeploymentType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExperimentRunEventType = {
+  EXPOSURE_UPDATED: "EXPOSURE_UPDATED",
+  OVERRIDES_UPDATED: "OVERRIDES_UPDATED",
+  RUN_STARTED: "RUN_STARTED",
+  RUN_STOPPED: "RUN_STOPPED",
+} as const;
+/**
+ * @public
+ */
+export type ExperimentRunEventType = (typeof ExperimentRunEventType)[keyof typeof ExperimentRunEventType];

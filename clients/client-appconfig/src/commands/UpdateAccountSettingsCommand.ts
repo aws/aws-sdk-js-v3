@@ -41,6 +41,9 @@ export interface UpdateAccountSettingsCommandOutput extends AccountSettings, __M
  *     Enabled: true || false,
  *     ProtectionPeriodInMinutes: Number("int"),
  *   },
+ *   VendedMetrics: { // VendedMetricsSettings
+ *     Enabled: true || false,
+ *   },
  * };
  * const command = new UpdateAccountSettingsCommand(input);
  * const response = await client.send(command);
@@ -48,6 +51,9 @@ export interface UpdateAccountSettingsCommandOutput extends AccountSettings, __M
  * //   DeletionProtection: { // DeletionProtectionSettings
  * //     Enabled: true || false,
  * //     ProtectionPeriodInMinutes: Number("int"),
+ * //   },
+ * //   VendedMetrics: { // VendedMetricsSettings
+ * //     Enabled: true || false,
  * //   },
  * // };
  *

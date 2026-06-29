@@ -29,6 +29,11 @@ import {
   CreateEnvironmentCommand,
 } from "./commands/CreateEnvironmentCommand";
 import {
+  type CreateExperimentDefinitionCommandInput,
+  type CreateExperimentDefinitionCommandOutput,
+  CreateExperimentDefinitionCommand,
+} from "./commands/CreateExperimentDefinitionCommand";
+import {
   type CreateExtensionAssociationCommandInput,
   type CreateExtensionAssociationCommandOutput,
   CreateExtensionAssociationCommand,
@@ -63,6 +68,11 @@ import {
   type DeleteEnvironmentCommandOutput,
   DeleteEnvironmentCommand,
 } from "./commands/DeleteEnvironmentCommand";
+import {
+  type DeleteExperimentDefinitionCommandInput,
+  type DeleteExperimentDefinitionCommandOutput,
+  DeleteExperimentDefinitionCommand,
+} from "./commands/DeleteExperimentDefinitionCommand";
 import {
   type DeleteExtensionAssociationCommandInput,
   type DeleteExtensionAssociationCommandOutput,
@@ -114,6 +124,16 @@ import {
   GetEnvironmentCommand,
 } from "./commands/GetEnvironmentCommand";
 import {
+  type GetExperimentDefinitionCommandInput,
+  type GetExperimentDefinitionCommandOutput,
+  GetExperimentDefinitionCommand,
+} from "./commands/GetExperimentDefinitionCommand";
+import {
+  type GetExperimentRunCommandInput,
+  type GetExperimentRunCommandOutput,
+  GetExperimentRunCommand,
+} from "./commands/GetExperimentRunCommand";
+import {
   type GetExtensionAssociationCommandInput,
   type GetExtensionAssociationCommandOutput,
   GetExtensionAssociationCommand,
@@ -154,6 +174,21 @@ import {
   ListEnvironmentsCommand,
 } from "./commands/ListEnvironmentsCommand";
 import {
+  type ListExperimentDefinitionsCommandInput,
+  type ListExperimentDefinitionsCommandOutput,
+  ListExperimentDefinitionsCommand,
+} from "./commands/ListExperimentDefinitionsCommand";
+import {
+  type ListExperimentRunEventsCommandInput,
+  type ListExperimentRunEventsCommandOutput,
+  ListExperimentRunEventsCommand,
+} from "./commands/ListExperimentRunEventsCommand";
+import {
+  type ListExperimentRunsCommandInput,
+  type ListExperimentRunsCommandOutput,
+  ListExperimentRunsCommand,
+} from "./commands/ListExperimentRunsCommand";
+import {
   type ListExtensionAssociationsCommandInput,
   type ListExtensionAssociationsCommandOutput,
   ListExtensionAssociationsCommand,
@@ -179,10 +214,20 @@ import {
   StartDeploymentCommand,
 } from "./commands/StartDeploymentCommand";
 import {
+  type StartExperimentRunCommandInput,
+  type StartExperimentRunCommandOutput,
+  StartExperimentRunCommand,
+} from "./commands/StartExperimentRunCommand";
+import {
   type StopDeploymentCommandInput,
   type StopDeploymentCommandOutput,
   StopDeploymentCommand,
 } from "./commands/StopDeploymentCommand";
+import {
+  type StopExperimentRunCommandInput,
+  type StopExperimentRunCommandOutput,
+  StopExperimentRunCommand,
+} from "./commands/StopExperimentRunCommand";
 import {
   type TagResourceCommandInput,
   type TagResourceCommandOutput,
@@ -219,6 +264,16 @@ import {
   UpdateEnvironmentCommand,
 } from "./commands/UpdateEnvironmentCommand";
 import {
+  type UpdateExperimentDefinitionCommandInput,
+  type UpdateExperimentDefinitionCommandOutput,
+  UpdateExperimentDefinitionCommand,
+} from "./commands/UpdateExperimentDefinitionCommand";
+import {
+  type UpdateExperimentRunCommandInput,
+  type UpdateExperimentRunCommandOutput,
+  UpdateExperimentRunCommand,
+} from "./commands/UpdateExperimentRunCommand";
+import {
   type UpdateExtensionAssociationCommandInput,
   type UpdateExtensionAssociationCommandOutput,
   UpdateExtensionAssociationCommand,
@@ -239,6 +294,9 @@ import { paginateListConfigurationProfiles } from "./pagination/ListConfiguratio
 import { paginateListDeployments } from "./pagination/ListDeploymentsPaginator";
 import { paginateListDeploymentStrategies } from "./pagination/ListDeploymentStrategiesPaginator";
 import { paginateListEnvironments } from "./pagination/ListEnvironmentsPaginator";
+import { paginateListExperimentDefinitions } from "./pagination/ListExperimentDefinitionsPaginator";
+import { paginateListExperimentRunEvents } from "./pagination/ListExperimentRunEventsPaginator";
+import { paginateListExperimentRuns } from "./pagination/ListExperimentRunsPaginator";
 import { paginateListExtensionAssociations } from "./pagination/ListExtensionAssociationsPaginator";
 import { paginateListExtensions } from "./pagination/ListExtensionsPaginator";
 import { paginateListHostedConfigurationVersions } from "./pagination/ListHostedConfigurationVersionsPaginator";
@@ -250,6 +308,7 @@ const commands = {
   CreateConfigurationProfileCommand,
   CreateDeploymentStrategyCommand,
   CreateEnvironmentCommand,
+  CreateExperimentDefinitionCommand,
   CreateExtensionCommand,
   CreateExtensionAssociationCommand,
   CreateHostedConfigurationVersionCommand,
@@ -257,6 +316,7 @@ const commands = {
   DeleteConfigurationProfileCommand,
   DeleteDeploymentStrategyCommand,
   DeleteEnvironmentCommand,
+  DeleteExperimentDefinitionCommand,
   DeleteExtensionCommand,
   DeleteExtensionAssociationCommand,
   DeleteHostedConfigurationVersionCommand,
@@ -267,6 +327,8 @@ const commands = {
   GetDeploymentCommand,
   GetDeploymentStrategyCommand,
   GetEnvironmentCommand,
+  GetExperimentDefinitionCommand,
+  GetExperimentRunCommand,
   GetExtensionCommand,
   GetExtensionAssociationCommand,
   GetHostedConfigurationVersionCommand,
@@ -275,12 +337,17 @@ const commands = {
   ListDeploymentsCommand,
   ListDeploymentStrategiesCommand,
   ListEnvironmentsCommand,
+  ListExperimentDefinitionsCommand,
+  ListExperimentRunEventsCommand,
+  ListExperimentRunsCommand,
   ListExtensionAssociationsCommand,
   ListExtensionsCommand,
   ListHostedConfigurationVersionsCommand,
   ListTagsForResourceCommand,
   StartDeploymentCommand,
+  StartExperimentRunCommand,
   StopDeploymentCommand,
+  StopExperimentRunCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateAccountSettingsCommand,
@@ -288,6 +355,8 @@ const commands = {
   UpdateConfigurationProfileCommand,
   UpdateDeploymentStrategyCommand,
   UpdateEnvironmentCommand,
+  UpdateExperimentDefinitionCommand,
+  UpdateExperimentRunCommand,
   UpdateExtensionCommand,
   UpdateExtensionAssociationCommand,
   ValidateConfigurationCommand,
@@ -298,6 +367,9 @@ const paginators = {
   paginateListDeployments,
   paginateListDeploymentStrategies,
   paginateListEnvironments,
+  paginateListExperimentDefinitions,
+  paginateListExperimentRunEvents,
+  paginateListExperimentRuns,
   paginateListExtensionAssociations,
   paginateListExtensions,
   paginateListHostedConfigurationVersions,
@@ -374,6 +446,23 @@ export interface AppConfig {
     args: CreateEnvironmentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateEnvironmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateExperimentDefinitionCommand}
+   */
+  createExperimentDefinition(
+    args: CreateExperimentDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateExperimentDefinitionCommandOutput>;
+  createExperimentDefinition(
+    args: CreateExperimentDefinitionCommandInput,
+    cb: (err: any, data?: CreateExperimentDefinitionCommandOutput) => void
+  ): void;
+  createExperimentDefinition(
+    args: CreateExperimentDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateExperimentDefinitionCommandOutput) => void
   ): void;
 
   /**
@@ -493,6 +582,23 @@ export interface AppConfig {
     args: DeleteEnvironmentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteEnvironmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteExperimentDefinitionCommand}
+   */
+  deleteExperimentDefinition(
+    args: DeleteExperimentDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteExperimentDefinitionCommandOutput>;
+  deleteExperimentDefinition(
+    args: DeleteExperimentDefinitionCommandInput,
+    cb: (err: any, data?: DeleteExperimentDefinitionCommandOutput) => void
+  ): void;
+  deleteExperimentDefinition(
+    args: DeleteExperimentDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteExperimentDefinitionCommandOutput) => void
   ): void;
 
   /**
@@ -667,6 +773,40 @@ export interface AppConfig {
   ): void;
 
   /**
+   * @see {@link GetExperimentDefinitionCommand}
+   */
+  getExperimentDefinition(
+    args: GetExperimentDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetExperimentDefinitionCommandOutput>;
+  getExperimentDefinition(
+    args: GetExperimentDefinitionCommandInput,
+    cb: (err: any, data?: GetExperimentDefinitionCommandOutput) => void
+  ): void;
+  getExperimentDefinition(
+    args: GetExperimentDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetExperimentDefinitionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetExperimentRunCommand}
+   */
+  getExperimentRun(
+    args: GetExperimentRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetExperimentRunCommandOutput>;
+  getExperimentRun(
+    args: GetExperimentRunCommandInput,
+    cb: (err: any, data?: GetExperimentRunCommandOutput) => void
+  ): void;
+  getExperimentRun(
+    args: GetExperimentRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetExperimentRunCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetExtensionCommand}
    */
   getExtension(
@@ -805,6 +945,58 @@ export interface AppConfig {
   ): void;
 
   /**
+   * @see {@link ListExperimentDefinitionsCommand}
+   */
+  listExperimentDefinitions(): Promise<ListExperimentDefinitionsCommandOutput>;
+  listExperimentDefinitions(
+    args: ListExperimentDefinitionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListExperimentDefinitionsCommandOutput>;
+  listExperimentDefinitions(
+    args: ListExperimentDefinitionsCommandInput,
+    cb: (err: any, data?: ListExperimentDefinitionsCommandOutput) => void
+  ): void;
+  listExperimentDefinitions(
+    args: ListExperimentDefinitionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListExperimentDefinitionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListExperimentRunEventsCommand}
+   */
+  listExperimentRunEvents(
+    args: ListExperimentRunEventsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListExperimentRunEventsCommandOutput>;
+  listExperimentRunEvents(
+    args: ListExperimentRunEventsCommandInput,
+    cb: (err: any, data?: ListExperimentRunEventsCommandOutput) => void
+  ): void;
+  listExperimentRunEvents(
+    args: ListExperimentRunEventsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListExperimentRunEventsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListExperimentRunsCommand}
+   */
+  listExperimentRuns(
+    args: ListExperimentRunsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListExperimentRunsCommandOutput>;
+  listExperimentRuns(
+    args: ListExperimentRunsCommandInput,
+    cb: (err: any, data?: ListExperimentRunsCommandOutput) => void
+  ): void;
+  listExperimentRuns(
+    args: ListExperimentRunsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListExperimentRunsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListExtensionAssociationsCommand}
    */
   listExtensionAssociations(): Promise<ListExtensionAssociationsCommandOutput>;
@@ -892,6 +1084,23 @@ export interface AppConfig {
   ): void;
 
   /**
+   * @see {@link StartExperimentRunCommand}
+   */
+  startExperimentRun(
+    args: StartExperimentRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartExperimentRunCommandOutput>;
+  startExperimentRun(
+    args: StartExperimentRunCommandInput,
+    cb: (err: any, data?: StartExperimentRunCommandOutput) => void
+  ): void;
+  startExperimentRun(
+    args: StartExperimentRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartExperimentRunCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StopDeploymentCommand}
    */
   stopDeployment(
@@ -906,6 +1115,23 @@ export interface AppConfig {
     args: StopDeploymentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StopDeploymentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopExperimentRunCommand}
+   */
+  stopExperimentRun(
+    args: StopExperimentRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopExperimentRunCommandOutput>;
+  stopExperimentRun(
+    args: StopExperimentRunCommandInput,
+    cb: (err: any, data?: StopExperimentRunCommandOutput) => void
+  ): void;
+  stopExperimentRun(
+    args: StopExperimentRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopExperimentRunCommandOutput) => void
   ): void;
 
   /**
@@ -1029,6 +1255,40 @@ export interface AppConfig {
   ): void;
 
   /**
+   * @see {@link UpdateExperimentDefinitionCommand}
+   */
+  updateExperimentDefinition(
+    args: UpdateExperimentDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateExperimentDefinitionCommandOutput>;
+  updateExperimentDefinition(
+    args: UpdateExperimentDefinitionCommandInput,
+    cb: (err: any, data?: UpdateExperimentDefinitionCommandOutput) => void
+  ): void;
+  updateExperimentDefinition(
+    args: UpdateExperimentDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateExperimentDefinitionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateExperimentRunCommand}
+   */
+  updateExperimentRun(
+    args: UpdateExperimentRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateExperimentRunCommandOutput>;
+  updateExperimentRun(
+    args: UpdateExperimentRunCommandInput,
+    cb: (err: any, data?: UpdateExperimentRunCommandOutput) => void
+  ): void;
+  updateExperimentRun(
+    args: UpdateExperimentRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateExperimentRunCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateExtensionCommand}
    */
   updateExtension(
@@ -1135,6 +1395,39 @@ export interface AppConfig {
   ): Paginator<ListEnvironmentsCommandOutput>;
 
   /**
+   * @see {@link ListExperimentDefinitionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListExperimentDefinitionsCommandOutput}.
+   */
+  paginateListExperimentDefinitions(
+    args?: ListExperimentDefinitionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListExperimentDefinitionsCommandOutput>;
+
+  /**
+   * @see {@link ListExperimentRunEventsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListExperimentRunEventsCommandOutput}.
+   */
+  paginateListExperimentRunEvents(
+    args: ListExperimentRunEventsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListExperimentRunEventsCommandOutput>;
+
+  /**
+   * @see {@link ListExperimentRunsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListExperimentRunsCommandOutput}.
+   */
+  paginateListExperimentRuns(
+    args: ListExperimentRunsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListExperimentRunsCommandOutput>;
+
+  /**
    * @see {@link ListExtensionAssociationsCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -1189,47 +1482,24 @@ export interface AppConfig {
 }
 
 /**
- * <p>AppConfig feature flags and dynamic configurations help software builders
- *          quickly and securely adjust application behavior in production environments without full
- *          code deployments. AppConfig speeds up software release frequency, improves
- *          application resiliency, and helps you address emergent issues more quickly. With feature
- *          flags, you can gradually release new capabilities to users and measure the impact of those
- *          changes before fully deploying the new capabilities to all users. With operational flags
- *          and dynamic configurations, you can update block lists, allow lists, throttling limits,
- *          logging verbosity, and perform other operational tuning to quickly respond to issues in
- *          production environments.</p>
- *          <note>
- *             <p>AppConfig is a tool in Amazon Web Services Systems Manager.</p>
- *          </note>
- *          <p>Despite the fact that application configuration content can vary greatly from
- *          application to application, AppConfig supports the following use cases, which
- *          cover a broad spectrum of customer needs:</p>
+ * <p>AppConfig helps you safely change application behavior in production without redeploying code. Using feature flags and dynamic free-form configurations, you can control how your application runs in real time. This approach reduces risk, accelerates releases, and enables faster responses to issues. You can gradually roll out new features to specific users, monitor their impact, and expand availability with confidence. You can also update block lists, allow lists, throttling limits, and logging levels instantly, allowing you to mitigate issues and fine-tune performance without a deployment.</p>
+ *          <p>AppConfig supports a broad spectrum of use cases:</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <b>Feature flags and toggles</b> - Safely release new
- *                capabilities to your customers in a controlled environment. Instantly roll back
- *                changes if you experience a problem.</p>
+ *                   <b>Feature flags and toggles</b> – Gradually release new capabilities to targeted users, monitor impact, and instantly roll back changes if issues occur.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <b>Application tuning</b> - Carefully introduce
- *                application changes while testing the impact of those changes with users in
- *                production environments.</p>
+ *                   <b>Application tuning</b> – Introduce changes safely in production, measure their effects, and refine behavior without redeploying code.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <b>Allow list or block list</b> - Control access to
- *                premium features or instantly block specific users without deploying new code.
- *             </p>
+ *                   <b>Allow list or block list</b> – Control access to features or restrict specific users in real time, without modifying application code. </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <b>Centralized configuration storage</b> - Keep your
- *                configuration data organized and consistent across all of your workloads. You can use
- *                   AppConfig to deploy configuration data stored in the AppConfig
- *                hosted configuration store, Secrets Manager, Systems Manager, Parameter
- *                Store, or Amazon S3.</p>
+ *                   <b>Centralized configuration storage</b> – Manage configuration data consistently across workloads. AppConfig can deploy configuration from the AppConfig hosted configuration store, Secrets Manager, Systems Manager, Systems Manager Parameter Store, or Amazon S3.</p>
  *             </li>
  *          </ul>
  *          <p>
@@ -1238,103 +1508,50 @@ export interface AppConfig {
  *          <p>This section provides a high-level description of how AppConfig works and how
  *          you get started.</p>
  *          <dl>
- *             <dt>1. Identify configuration values in code you want to manage in the cloud</dt>
+ *             <dt>1. Identify configuration data to manage in AppConfig</dt>
  *             <dd>
- *                <p>Before you start creating AppConfig artifacts, we recommend you
- *                   identify configuration data in your code that you want to dynamically manage using
- *                      AppConfig. Good examples include feature flags or toggles, allow and
- *                   block lists, logging verbosity, service limits, and throttling rules, to name a
- *                   few.</p>
- *                <p>If your configuration data already exists in the cloud, you can take advantage
- *                   of AppConfig validation, deployment, and extension features to further
- *                   streamline configuration data management.</p>
+ *                <p>Before creating a configuration profile, identify the configuration data in your code that you want to manage dynamically using AppConfig. Common examples include feature flags, allow and block lists, logging levels, service limits, and throttling rules. These values tend to change frequently and can cause issues if misconfigured.</p>
+ *                <p>If your configuration data already exists in cloud services such as Systems Manager Parameter Store or Amazon S3, you can use AppConfig to validate, deploy, and manage that data more effectively.</p>
  *             </dd>
- *             <dt>2. Create an application namespace</dt>
+ *             <dt>2. Create a configuration profile in AppConfig</dt>
  *             <dd>
- *                <p>To create a namespace, you create an AppConfig artifact called an
- *                   application. An application is simply an organizational construct like a
- *                   folder.</p>
- *             </dd>
- *             <dt>3. Create environments</dt>
- *             <dd>
- *                <p>For each AppConfig application, you define one or more environments.
- *                   An environment is a logical grouping of targets, such as applications in a
- *                      <code>Beta</code> or <code>Production</code> environment, Lambda functions,
- *                   or containers. You can also define environments for application subcomponents,
- *                   such as the <code>Web</code>, <code>Mobile</code>, and
- *                   <code>Back-end</code>.</p>
- *                <p>You can configure Amazon CloudWatch alarms for each environment. The system monitors
- *                   alarms during a configuration deployment. If an alarm is triggered, the system
- *                   rolls back the configuration.</p>
- *             </dd>
- *             <dt>4. Create a configuration profile</dt>
- *             <dd>
- *                <p>A configuration profile includes, among other things, a URI that enables
- *                      AppConfig to locate your configuration data in its stored location
- *                   and a profile type. AppConfig supports two configuration profile types:
- *                   feature flags and freeform configurations. Feature flag configuration profiles
- *                   store their data in the AppConfig hosted configuration store and the URI
- *                   is simply <code>hosted</code>. For freeform configuration profiles, you can store
- *                   your data in the AppConfig hosted configuration store or any Amazon Web Services
- *                   service that integrates with AppConfig, as described in <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-free-form-configurations-creating.html">Creating
- *                      a free form configuration profile</a> in the the <i>AppConfig User Guide</i>.</p>
- *                <p>A configuration profile can also include optional validators to ensure your
- *                   configuration data is syntactically and semantically correct. AppConfig
- *                   performs a check using the validators when you start a deployment. If any errors
- *                   are detected, the deployment rolls back to the previous configuration data.</p>
- *             </dd>
- *             <dt>5. Deploy configuration data</dt>
- *             <dd>
- *                <p>When you create a new deployment, you specify the following:</p>
+ *                <p>A configuration profile defines how AppConfig locates and manages your configuration data. It includes a URI that points to the data source and a profile type.</p>
+ *                <p>AppConfig supports two profile types</p>
  *                <ul>
  *                   <li>
- *                      <p>An application ID</p>
+ *                      <p>
+ *                         <b>Feature flags</b> – Enable controlled feature releases, gradual rollouts, and testing in production.</p>
  *                   </li>
  *                   <li>
- *                      <p>A configuration profile ID</p>
- *                   </li>
- *                   <li>
- *                      <p>A configuration version</p>
- *                   </li>
- *                   <li>
- *                      <p>An environment ID where you want to deploy the configuration data</p>
- *                   </li>
- *                   <li>
- *                      <p>A deployment strategy ID that defines how fast you want the changes to
- *                         take effect</p>
+ *                      <p>
+ *                         <b>Free-form configurations</b> – Store and retrieve configuration data from external sources and update it without redeploying code.</p>
  *                   </li>
  *                </ul>
- *                <p>When you call the <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_StartDeployment.html">StartDeployment</a> API action, AppConfig performs the following
- *                   tasks:</p>
+ *                <p>Both profile types help decouple configuration from code, support continuous delivery, and reduce deployment risk.</p>
+ *                <p>You can also add optional validators to ensure that configuration data is syntactically and semantically correct. During deployment, AppConfig evaluates these validators and automatically rolls back changes if validation fails.</p>
+ *                <p>Each configuration profile is associated with an application, which acts as a logical container for your configuration resources. For more information about creating a configuration profile, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-configuration-profile.html">Creating a configuration profile in AppConfig</a> in the the <i>AppConfig User Guide</i>.</p>
+ *             </dd>
+ *             <dt>3. Deploy configuration data</dt>
+ *             <dd>
+ *                <p>When you start a deployment, AppConfig:</p>
  *                <ol>
  *                   <li>
- *                      <p>Retrieves the configuration data from the underlying data store by using
- *                         the location URI in the configuration profile.</p>
+ *                      <p>Retrieves configuration data from the source defined in the configuration profile</p>
  *                   </li>
  *                   <li>
- *                      <p>Verifies the configuration data is syntactically and semantically correct
- *                         by using the validators you specified when you created your configuration
- *                         profile.</p>
+ *                      <p>Validates the data using the configured validators</p>
  *                   </li>
  *                   <li>
- *                      <p>Caches a copy of the data so it is ready to be retrieved by your
- *                         application. This cached copy is called the <i>deployed
- *                            data</i>.</p>
+ *                      <p>Delivers the validated configuration to AppConfig Agent</p>
  *                   </li>
  *                </ol>
+ *                <p>The delivered configuration becomes the deployed version used by your application. For more information about deploying a configuration, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/deploying-feature-flags.html">Deploying feature flags and configuration data in AppConfig</a>.</p>
  *             </dd>
- *             <dt>6. Retrieve the configuration</dt>
+ *             <dt>4. Retrieve configuration data</dt>
  *             <dd>
- *                <p>You can configure AppConfig Agent as a local host and have the agent
- *                   poll AppConfig for configuration updates. The agent calls the <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.html">StartConfigurationSession</a> and <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html">GetLatestConfiguration</a> API actions and caches your configuration data
- *                   locally. To retrieve the data, your application makes an HTTP call to the
- *                   localhost server. AppConfig Agent supports several use cases, as
- *                   described in <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-simplified-methods.html">Simplified
- *                      retrieval methods</a> in the the <i>AppConfig User
- *                      Guide</i>.</p>
- *                <p>If AppConfig Agent isn't supported for your use case, you can
- *                   configure your application to poll AppConfig for configuration updates
- *                   by directly calling the <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.html">StartConfigurationSession</a> and <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html">GetLatestConfiguration</a> API actions. </p>
+ *                <p>Your application retrieves configuration data by calling a local endpoint exposed by AppConfig Agent, which caches the deployed configuration. Retrieving data is a metered event. AppConfig Agent supports a variety of use cases, as described in <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-agent-how-to-use.html">How to use AppConfig Agent to retrieve configuration data</a>.</p>
+ *                <p>If the agent is not suitable for your use case, your application can retrieve configuration data directly from AppConfig by calling the <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.html">StartConfigurationSession</a> and <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html">GetLatestConfiguration</a> API actions. </p>
+ *                <p>For more information about retrieving a configuration, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/retrieving-feature-flags.html">Retrieving feature flags and configuration data in AppConfig</a>.</p>
  *             </dd>
  *          </dl>
  *          <p>This reference is intended to be used with the <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html">AppConfig User

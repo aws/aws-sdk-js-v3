@@ -48,6 +48,7 @@ export interface ListDeploymentsCommandOutput extends Deployments, __MetadataBea
  * //   Items: [ // DeploymentList
  * //     { // DeploymentSummary
  * //       DeploymentNumber: Number("int"),
+ * //       ConfigurationProfileId: "STRING_VALUE",
  * //       ConfigurationName: "STRING_VALUE",
  * //       ConfigurationVersion: "STRING_VALUE",
  * //       DeploymentDurationInMinutes: Number("int"),
@@ -59,6 +60,7 @@ export interface ListDeploymentsCommandOutput extends Deployments, __MetadataBea
  * //       StartedAt: new Date("TIMESTAMP"),
  * //       CompletedAt: new Date("TIMESTAMP"),
  * //       VersionLabel: "STRING_VALUE",
+ * //       Type: "USER" || "MANAGED",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

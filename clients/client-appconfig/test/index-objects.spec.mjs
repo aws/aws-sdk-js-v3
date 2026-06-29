@@ -9,6 +9,7 @@ import {
   Application$,
   Applications$,
   AppliedExtension$,
+  AttributeValue$,
   BadRequestDetails$,
   BadRequestException,
   BadRequestException$,
@@ -32,6 +33,9 @@ import {
   CreateEnvironment$,
   CreateEnvironmentCommand,
   CreateEnvironmentRequest$,
+  CreateExperimentDefinition$,
+  CreateExperimentDefinitionCommand,
+  CreateExperimentDefinitionRequest$,
   CreateExtension$,
   CreateExtensionAssociation$,
   CreateExtensionAssociationCommand,
@@ -53,6 +57,9 @@ import {
   DeleteEnvironment$,
   DeleteEnvironmentCommand,
   DeleteEnvironmentRequest$,
+  DeleteExperimentDefinition$,
+  DeleteExperimentDefinitionCommand,
+  DeleteExperimentDefinitionRequest$,
   DeleteExtension$,
   DeleteExtensionAssociation$,
   DeleteExtensionAssociationCommand,
@@ -62,25 +69,42 @@ import {
   DeleteHostedConfigurationVersion$,
   DeleteHostedConfigurationVersionCommand,
   DeleteHostedConfigurationVersionRequest$,
+  DeleteType,
   DeletionProtectionCheck,
   DeletionProtectionSettings$,
   Deployment$,
   DeploymentEvent$,
   DeploymentEventType,
+  DeploymentParameters$,
   Deployments$,
   DeploymentState,
   DeploymentStrategies$,
   DeploymentStrategy$,
   DeploymentSummary$,
+  DeploymentType,
   Environment$,
   Environments$,
   EnvironmentState,
+  ExperimentDefinition$,
+  ExperimentDefinitions$,
+  ExperimentDefinitionSnapshot$,
+  ExperimentDefinitionStatus,
+  ExperimentDefinitionSummary$,
+  ExperimentRun$,
+  ExperimentRunEvent$,
+  ExperimentRunEvents$,
+  ExperimentRunEventType,
+  ExperimentRunResult$,
+  ExperimentRuns$,
+  ExperimentRunStatus,
+  ExperimentRunSummary$,
   Extension$,
   ExtensionAssociation$,
   ExtensionAssociations$,
   ExtensionAssociationSummary$,
   Extensions$,
   ExtensionSummary$,
+  FlagValue$,
   GetAccountSettings$,
   GetAccountSettingsCommand,
   GetApplication$,
@@ -101,6 +125,12 @@ import {
   GetEnvironment$,
   GetEnvironmentCommand,
   GetEnvironmentRequest$,
+  GetExperimentDefinition$,
+  GetExperimentDefinitionCommand,
+  GetExperimentDefinitionRequest$,
+  GetExperimentRun$,
+  GetExperimentRunCommand,
+  GetExperimentRunRequest$,
   GetExtension$,
   GetExtensionAssociation$,
   GetExtensionAssociationCommand,
@@ -132,6 +162,15 @@ import {
   ListEnvironments$,
   ListEnvironmentsCommand,
   ListEnvironmentsRequest$,
+  ListExperimentDefinitions$,
+  ListExperimentDefinitionsCommand,
+  ListExperimentDefinitionsRequest$,
+  ListExperimentRunEvents$,
+  ListExperimentRunEventsCommand,
+  ListExperimentRunEventsRequest$,
+  ListExperimentRuns$,
+  ListExperimentRunsCommand,
+  ListExperimentRunsRequest$,
   ListExtensionAssociations$,
   ListExtensionAssociationsCommand,
   ListExtensionAssociationsRequest$,
@@ -150,6 +189,9 @@ import {
   paginateListDeployments,
   paginateListDeploymentStrategies,
   paginateListEnvironments,
+  paginateListExperimentDefinitions,
+  paginateListExperimentRunEvents,
+  paginateListExperimentRuns,
   paginateListExtensionAssociations,
   paginateListExtensions,
   paginateListHostedConfigurationVersions,
@@ -165,12 +207,21 @@ import {
   StartDeployment$,
   StartDeploymentCommand,
   StartDeploymentRequest$,
+  StartExperimentRun$,
+  StartExperimentRunCommand,
+  StartExperimentRunRequest$,
   StopDeployment$,
   StopDeploymentCommand,
   StopDeploymentRequest$,
+  StopExperimentRun$,
+  StopExperimentRunCommand,
+  StopExperimentRunRequest$,
   TagResource$,
   TagResourceCommand,
   TagResourceRequest$,
+  Treatment$,
+  TreatmentInput$,
+  TreatmentOverrides$,
   TriggeredBy,
   UntagResource$,
   UntagResourceCommand,
@@ -190,6 +241,12 @@ import {
   UpdateEnvironment$,
   UpdateEnvironmentCommand,
   UpdateEnvironmentRequest$,
+  UpdateExperimentDefinition$,
+  UpdateExperimentDefinitionCommand,
+  UpdateExperimentDefinitionRequest$,
+  UpdateExperimentRun$,
+  UpdateExperimentRunCommand,
+  UpdateExperimentRunRequest$,
   UpdateExtension$,
   UpdateExtensionAssociation$,
   UpdateExtensionAssociationCommand,
@@ -201,6 +258,7 @@ import {
   ValidateConfigurationRequest$,
   Validator$,
   ValidatorType,
+  VendedMetricsSettings$,
   waitForDeploymentComplete,
   waitForEnvironmentReadyForDeployment,
   waitUntilDeploymentComplete,
@@ -219,6 +277,8 @@ assert(typeof CreateDeploymentStrategyCommand === "function");
 assert(typeof CreateDeploymentStrategy$ === "object");
 assert(typeof CreateEnvironmentCommand === "function");
 assert(typeof CreateEnvironment$ === "object");
+assert(typeof CreateExperimentDefinitionCommand === "function");
+assert(typeof CreateExperimentDefinition$ === "object");
 assert(typeof CreateExtensionCommand === "function");
 assert(typeof CreateExtension$ === "object");
 assert(typeof CreateExtensionAssociationCommand === "function");
@@ -233,6 +293,8 @@ assert(typeof DeleteDeploymentStrategyCommand === "function");
 assert(typeof DeleteDeploymentStrategy$ === "object");
 assert(typeof DeleteEnvironmentCommand === "function");
 assert(typeof DeleteEnvironment$ === "object");
+assert(typeof DeleteExperimentDefinitionCommand === "function");
+assert(typeof DeleteExperimentDefinition$ === "object");
 assert(typeof DeleteExtensionCommand === "function");
 assert(typeof DeleteExtension$ === "object");
 assert(typeof DeleteExtensionAssociationCommand === "function");
@@ -253,6 +315,10 @@ assert(typeof GetDeploymentStrategyCommand === "function");
 assert(typeof GetDeploymentStrategy$ === "object");
 assert(typeof GetEnvironmentCommand === "function");
 assert(typeof GetEnvironment$ === "object");
+assert(typeof GetExperimentDefinitionCommand === "function");
+assert(typeof GetExperimentDefinition$ === "object");
+assert(typeof GetExperimentRunCommand === "function");
+assert(typeof GetExperimentRun$ === "object");
 assert(typeof GetExtensionCommand === "function");
 assert(typeof GetExtension$ === "object");
 assert(typeof GetExtensionAssociationCommand === "function");
@@ -269,6 +335,12 @@ assert(typeof ListDeploymentStrategiesCommand === "function");
 assert(typeof ListDeploymentStrategies$ === "object");
 assert(typeof ListEnvironmentsCommand === "function");
 assert(typeof ListEnvironments$ === "object");
+assert(typeof ListExperimentDefinitionsCommand === "function");
+assert(typeof ListExperimentDefinitions$ === "object");
+assert(typeof ListExperimentRunEventsCommand === "function");
+assert(typeof ListExperimentRunEvents$ === "object");
+assert(typeof ListExperimentRunsCommand === "function");
+assert(typeof ListExperimentRuns$ === "object");
 assert(typeof ListExtensionAssociationsCommand === "function");
 assert(typeof ListExtensionAssociations$ === "object");
 assert(typeof ListExtensionsCommand === "function");
@@ -279,8 +351,12 @@ assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
 assert(typeof StartDeploymentCommand === "function");
 assert(typeof StartDeployment$ === "object");
+assert(typeof StartExperimentRunCommand === "function");
+assert(typeof StartExperimentRun$ === "object");
 assert(typeof StopDeploymentCommand === "function");
 assert(typeof StopDeployment$ === "object");
+assert(typeof StopExperimentRunCommand === "function");
+assert(typeof StopExperimentRun$ === "object");
 assert(typeof TagResourceCommand === "function");
 assert(typeof TagResource$ === "object");
 assert(typeof UntagResourceCommand === "function");
@@ -295,6 +371,10 @@ assert(typeof UpdateDeploymentStrategyCommand === "function");
 assert(typeof UpdateDeploymentStrategy$ === "object");
 assert(typeof UpdateEnvironmentCommand === "function");
 assert(typeof UpdateEnvironment$ === "object");
+assert(typeof UpdateExperimentDefinitionCommand === "function");
+assert(typeof UpdateExperimentDefinition$ === "object");
+assert(typeof UpdateExperimentRunCommand === "function");
+assert(typeof UpdateExperimentRun$ === "object");
 assert(typeof UpdateExtensionCommand === "function");
 assert(typeof UpdateExtension$ === "object");
 assert(typeof UpdateExtensionAssociationCommand === "function");
@@ -308,6 +388,7 @@ assert(typeof ActionInvocation$ === "object");
 assert(typeof Application$ === "object");
 assert(typeof Applications$ === "object");
 assert(typeof AppliedExtension$ === "object");
+assert(typeof AttributeValue$ === "object");
 assert(typeof BadRequestDetails$ === "object");
 assert(typeof Configuration$ === "object");
 assert(typeof ConfigurationProfile$ === "object");
@@ -317,6 +398,7 @@ assert(typeof CreateApplicationRequest$ === "object");
 assert(typeof CreateConfigurationProfileRequest$ === "object");
 assert(typeof CreateDeploymentStrategyRequest$ === "object");
 assert(typeof CreateEnvironmentRequest$ === "object");
+assert(typeof CreateExperimentDefinitionRequest$ === "object");
 assert(typeof CreateExtensionAssociationRequest$ === "object");
 assert(typeof CreateExtensionRequest$ === "object");
 assert(typeof CreateHostedConfigurationVersionRequest$ === "object");
@@ -324,30 +406,45 @@ assert(typeof DeleteApplicationRequest$ === "object");
 assert(typeof DeleteConfigurationProfileRequest$ === "object");
 assert(typeof DeleteDeploymentStrategyRequest$ === "object");
 assert(typeof DeleteEnvironmentRequest$ === "object");
+assert(typeof DeleteExperimentDefinitionRequest$ === "object");
 assert(typeof DeleteExtensionAssociationRequest$ === "object");
 assert(typeof DeleteExtensionRequest$ === "object");
 assert(typeof DeleteHostedConfigurationVersionRequest$ === "object");
 assert(typeof DeletionProtectionSettings$ === "object");
 assert(typeof Deployment$ === "object");
 assert(typeof DeploymentEvent$ === "object");
+assert(typeof DeploymentParameters$ === "object");
 assert(typeof Deployments$ === "object");
 assert(typeof DeploymentStrategies$ === "object");
 assert(typeof DeploymentStrategy$ === "object");
 assert(typeof DeploymentSummary$ === "object");
 assert(typeof Environment$ === "object");
 assert(typeof Environments$ === "object");
+assert(typeof ExperimentDefinition$ === "object");
+assert(typeof ExperimentDefinitions$ === "object");
+assert(typeof ExperimentDefinitionSnapshot$ === "object");
+assert(typeof ExperimentDefinitionSummary$ === "object");
+assert(typeof ExperimentRun$ === "object");
+assert(typeof ExperimentRunEvent$ === "object");
+assert(typeof ExperimentRunEvents$ === "object");
+assert(typeof ExperimentRunResult$ === "object");
+assert(typeof ExperimentRuns$ === "object");
+assert(typeof ExperimentRunSummary$ === "object");
 assert(typeof Extension$ === "object");
 assert(typeof ExtensionAssociation$ === "object");
 assert(typeof ExtensionAssociations$ === "object");
 assert(typeof ExtensionAssociationSummary$ === "object");
 assert(typeof Extensions$ === "object");
 assert(typeof ExtensionSummary$ === "object");
+assert(typeof FlagValue$ === "object");
 assert(typeof GetApplicationRequest$ === "object");
 assert(typeof GetConfigurationProfileRequest$ === "object");
 assert(typeof GetConfigurationRequest$ === "object");
 assert(typeof GetDeploymentRequest$ === "object");
 assert(typeof GetDeploymentStrategyRequest$ === "object");
 assert(typeof GetEnvironmentRequest$ === "object");
+assert(typeof GetExperimentDefinitionRequest$ === "object");
+assert(typeof GetExperimentRunRequest$ === "object");
 assert(typeof GetExtensionAssociationRequest$ === "object");
 assert(typeof GetExtensionRequest$ === "object");
 assert(typeof GetHostedConfigurationVersionRequest$ === "object");
@@ -360,6 +457,9 @@ assert(typeof ListConfigurationProfilesRequest$ === "object");
 assert(typeof ListDeploymentsRequest$ === "object");
 assert(typeof ListDeploymentStrategiesRequest$ === "object");
 assert(typeof ListEnvironmentsRequest$ === "object");
+assert(typeof ListExperimentDefinitionsRequest$ === "object");
+assert(typeof ListExperimentRunEventsRequest$ === "object");
+assert(typeof ListExperimentRunsRequest$ === "object");
 assert(typeof ListExtensionAssociationsRequest$ === "object");
 assert(typeof ListExtensionsRequest$ === "object");
 assert(typeof ListHostedConfigurationVersionsRequest$ === "object");
@@ -368,26 +468,39 @@ assert(typeof Monitor$ === "object");
 assert(typeof Parameter$ === "object");
 assert(typeof ResourceTags$ === "object");
 assert(typeof StartDeploymentRequest$ === "object");
+assert(typeof StartExperimentRunRequest$ === "object");
 assert(typeof StopDeploymentRequest$ === "object");
+assert(typeof StopExperimentRunRequest$ === "object");
 assert(typeof TagResourceRequest$ === "object");
+assert(typeof Treatment$ === "object");
+assert(typeof TreatmentInput$ === "object");
+assert(typeof TreatmentOverrides$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UpdateAccountSettingsRequest$ === "object");
 assert(typeof UpdateApplicationRequest$ === "object");
 assert(typeof UpdateConfigurationProfileRequest$ === "object");
 assert(typeof UpdateDeploymentStrategyRequest$ === "object");
 assert(typeof UpdateEnvironmentRequest$ === "object");
+assert(typeof UpdateExperimentDefinitionRequest$ === "object");
+assert(typeof UpdateExperimentRunRequest$ === "object");
 assert(typeof UpdateExtensionAssociationRequest$ === "object");
 assert(typeof UpdateExtensionRequest$ === "object");
 assert(typeof ValidateConfigurationRequest$ === "object");
 assert(typeof Validator$ === "object");
+assert(typeof VendedMetricsSettings$ === "object");
 // enums
 assert(typeof ActionPoint === "object");
 assert(typeof BadRequestReason === "object");
 assert(typeof BytesMeasure === "object");
+assert(typeof DeleteType === "object");
 assert(typeof DeletionProtectionCheck === "object");
 assert(typeof DeploymentEventType === "object");
 assert(typeof DeploymentState === "object");
+assert(typeof DeploymentType === "object");
 assert(typeof EnvironmentState === "object");
+assert(typeof ExperimentDefinitionStatus === "object");
+assert(typeof ExperimentRunEventType === "object");
+assert(typeof ExperimentRunStatus === "object");
 assert(typeof GrowthType === "object");
 assert(typeof ReplicateTo === "object");
 assert(typeof TriggeredBy === "object");
@@ -417,6 +530,9 @@ assert(typeof paginateListConfigurationProfiles === "function");
 assert(typeof paginateListDeploymentStrategies === "function");
 assert(typeof paginateListDeployments === "function");
 assert(typeof paginateListEnvironments === "function");
+assert(typeof paginateListExperimentDefinitions === "function");
+assert(typeof paginateListExperimentRunEvents === "function");
+assert(typeof paginateListExperimentRuns === "function");
 assert(typeof paginateListExtensionAssociations === "function");
 assert(typeof paginateListExtensions === "function");
 assert(typeof paginateListHostedConfigurationVersions === "function");

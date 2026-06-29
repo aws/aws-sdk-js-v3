@@ -44,7 +44,7 @@ export interface CreateHostedConfigurationVersionCommandOutput extends CreateHos
 /**
  * <p>Creates a new configuration in the AppConfig hosted configuration store. If
  *          you're creating a feature flag, we recommend you familiarize yourself with the JSON schema
- *          for feature flag data. For more information, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-configuration-and-profile-feature-flags.html#appconfig-type-reference-feature-flags">Type reference for AWS.AppConfig.FeatureFlags</a> in the
+ *          for feature flag data. For more information, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-type-reference-feature-flags.html">Type reference for AWS.AppConfig.FeatureFlags</a> in the
  *             <i>AppConfig User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -104,9 +104,6 @@ export interface CreateHostedConfigurationVersionCommandOutput extends CreateHos
  *  <p>The number of one more AppConfig resources exceeds the maximum allowed. Verify that your
  *          environment doesn't exceed the following service quotas:</p>
  *          <p>Applications: 100 max</p>
- *          <p>Deployment strategies: 20 max</p>
- *          <p>Configuration profiles: 100 max per application</p>
- *          <p>Environments: 20 max per application</p>
  *          <p>To resolve this issue, you can delete one or more resources and try again. Or, you can
  *          request a quota increase. For more information about quotas and to request an increase, see
  *             <a href="https://docs.aws.amazon.com/general/latest/gr/appconfig.html#limits_appconfig">Service quotas for AppConfig</a> in the Amazon Web Services General Reference.</p>

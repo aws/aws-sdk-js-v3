@@ -1,10 +1,15 @@
 // smithy-typescript generated code
 import type {
   ActionPoint,
+  DeleteType,
   DeletionProtectionCheck,
   DeploymentEventType,
   DeploymentState,
+  DeploymentType,
   EnvironmentState,
+  ExperimentDefinitionStatus,
+  ExperimentRunEventType,
+  ExperimentRunStatus,
   GrowthType,
   ReplicateTo,
   TriggeredBy,
@@ -41,6 +46,18 @@ export interface DeletionProtectionSettings {
 }
 
 /**
+ * <p>Configuration settings for vended metrics.</p>
+ * @public
+ */
+export interface VendedMetricsSettings {
+  /**
+   * <p>Whether vended metrics are enabled for the account.</p>
+   * @public
+   */
+  Enabled?: boolean | undefined;
+}
+
+/**
  * @public
  */
 export interface AccountSettings {
@@ -53,6 +70,12 @@ export interface AccountSettings {
    * @public
    */
   DeletionProtection?: DeletionProtectionSettings | undefined;
+
+  /**
+   * <p>Configuration for vended metrics in the account.</p>
+   * @public
+   */
+  VendedMetrics?: VendedMetricsSettings | undefined;
 }
 
 /**
@@ -545,6 +568,10 @@ export interface CreateDeploymentStrategyRequest {
 
   /**
    * <p>Total amount of time for a deployment to last.</p>
+   *          <note>
+   *             <p>AppConfig Agent supports deploying feature flag or free-form configuration data to specific segments or individual users during a gradual rollout. Entity-based gradual deployments ensure that once a user or segment receives a configuration version, they continue to receive that same version throughout the deployment period, regardless of which compute resource serves their requests. For more information, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-agent-how-to-use.html#appconfig-entity-based-gradual-deployments">Using AppConfig Agent for user-based or entity-based gradual deployments</a>
+   *             </p>
+   *          </note>
    * @public
    */
   DeploymentDurationInMinutes: number | undefined;
@@ -768,6 +795,364 @@ export interface Environment {
    * @public
    */
   Monitors?: Monitor[] | undefined;
+}
+
+/**
+ * <p>A value for a feature flag attribute. Only one of the members can be set.</p>
+ * @public
+ */
+export type AttributeValue =
+  | AttributeValue.BooleanValueMember
+  | AttributeValue.NumberArrayMember
+  | AttributeValue.NumberValueMember
+  | AttributeValue.StringArrayMember
+  | AttributeValue.StringValueMember
+  | AttributeValue.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AttributeValue {
+  /**
+   * <p>A string value for the attribute.</p>
+   * @public
+   */
+  export interface StringValueMember {
+    StringValue: string;
+    NumberValue?: never;
+    BooleanValue?: never;
+    StringArray?: never;
+    NumberArray?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A numeric value for the attribute.</p>
+   * @public
+   */
+  export interface NumberValueMember {
+    StringValue?: never;
+    NumberValue: number;
+    BooleanValue?: never;
+    StringArray?: never;
+    NumberArray?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A Boolean value for the attribute.</p>
+   * @public
+   */
+  export interface BooleanValueMember {
+    StringValue?: never;
+    NumberValue?: never;
+    BooleanValue: boolean;
+    StringArray?: never;
+    NumberArray?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An array of string values for the attribute.</p>
+   * @public
+   */
+  export interface StringArrayMember {
+    StringValue?: never;
+    NumberValue?: never;
+    BooleanValue?: never;
+    StringArray: string[];
+    NumberArray?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An array of numeric values for the attribute.</p>
+   * @public
+   */
+  export interface NumberArrayMember {
+    StringValue?: never;
+    NumberValue?: never;
+    BooleanValue?: never;
+    StringArray?: never;
+    NumberArray: number[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    StringValue?: never;
+    NumberValue?: never;
+    BooleanValue?: never;
+    StringArray?: never;
+    NumberArray?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    StringValue: (value: string) => T;
+    NumberValue: (value: number) => T;
+    BooleanValue: (value: boolean) => T;
+    StringArray: (value: string[]) => T;
+    NumberArray: (value: number[]) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The feature flag value configuration for a treatment, including the enabled state and attribute values.</p>
+ * @public
+ */
+export interface FlagValue {
+  /**
+   * <p>Whether the feature flag is enabled for this treatment.</p>
+   * @public
+   */
+  Enabled: boolean | undefined;
+
+  /**
+   * <p>The attribute values associated with this flag value.</p>
+   * @public
+   */
+  AttributeValues?: Record<string, AttributeValue> | undefined;
+}
+
+/**
+ * <p>Input structure for defining a treatment when creating or updating an experiment definition.</p>
+ * @public
+ */
+export interface TreatmentInput {
+  /**
+   * <p>The traffic allocation weight for this treatment.</p>
+   * @public
+   */
+  Weight: number | undefined;
+
+  /**
+   * <p>A description of the treatment.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The feature flag value to serve to users assigned to this treatment.</p>
+   * @public
+   */
+  FlagValue: FlagValue | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateExperimentDefinitionRequest {
+  /**
+   * <p>The application ID or name.</p>
+   * @public
+   */
+  ApplicationIdentifier: string | undefined;
+
+  /**
+   * <p>A name for the experiment definition.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The configuration profile ID or name that stores the feature flag.</p>
+   * @public
+   */
+  ConfigurationProfileIdentifier: string | undefined;
+
+  /**
+   * <p>The environment ID or name where the experiment will run.</p>
+   * @public
+   */
+  EnvironmentIdentifier: string | undefined;
+
+  /**
+   * <p>The key of the existing feature flag to use with the experiment.</p>
+   * @public
+   */
+  FlagKey: string | undefined;
+
+  /**
+   * <p>A list of treatments to evaluate during the experiment. Each treatment defines a distinct variation compared to the control.</p>
+   * @public
+   */
+  Treatments: TreatmentInput[] | undefined;
+
+  /**
+   * <p>The control treatment that represents the baseline experience for comparison.</p>
+   * @public
+   */
+  Control: TreatmentInput | undefined;
+
+  /**
+   * <p>A rule that defines which users are eligible to be assigned to treatments during the experiment.</p>
+   * @public
+   */
+  AudienceRule: string | undefined;
+
+  /**
+   * <p>A description of the goal or hypothesis the experiment is designed to validate.</p>
+   * @public
+   */
+  Hypothesis?: string | undefined;
+
+  /**
+   * <p>A description of the intended audience for the experiment.</p>
+   * @public
+   */
+  AudienceDescription?: string | undefined;
+
+  /**
+   * <p>Information about the conditions under which you would launch the winning treatment.</p>
+   * @public
+   */
+  LaunchCriteria?: string | undefined;
+
+  /**
+   * <p>The tags to assign to the experiment definition. Tags help organize and categorize your AppConfig resources.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Describes a treatment in an experiment, including its traffic allocation weight and feature flag value.</p>
+ * @public
+ */
+export interface Treatment {
+  /**
+   * <p>The unique key that identifies this treatment.</p>
+   * @public
+   */
+  Key?: string | undefined;
+
+  /**
+   * <p>The traffic allocation weight for this treatment.</p>
+   * @public
+   */
+  Weight: number | undefined;
+
+  /**
+   * <p>A description of the treatment.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The feature flag value served to users assigned to this treatment.</p>
+   * @public
+   */
+  FlagValue: FlagValue | undefined;
+}
+
+/**
+ * <p>Describes an experiment definition, including the target audience, feature flag, treatments, and current status.</p>
+ * @public
+ */
+export interface ExperimentDefinition {
+  /**
+   * <p>The application ID.</p>
+   * @public
+   */
+  ApplicationId?: string | undefined;
+
+  /**
+   * <p>The experiment definition ID.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The name of the experiment definition.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The hypothesis that the experiment is designed to validate.</p>
+   * @public
+   */
+  Hypothesis?: string | undefined;
+
+  /**
+   * <p>The current status of the experiment definition. Valid values: <code>ACTIVE</code>, <code>IDLE</code>, <code>ARCHIVED</code>.</p>
+   * @public
+   */
+  Status?: ExperimentDefinitionStatus | undefined;
+
+  /**
+   * <p>The configuration profile ID associated with the experiment.</p>
+   * @public
+   */
+  ConfigurationProfileId?: string | undefined;
+
+  /**
+   * <p>The environment ID where the experiment runs.</p>
+   * @public
+   */
+  EnvironmentId?: string | undefined;
+
+  /**
+   * <p>The key of the feature flag used by the experiment.</p>
+   * @public
+   */
+  FlagKey?: string | undefined;
+
+  /**
+   * <p>The rule that defines which users are eligible to be assigned to treatments.</p>
+   * @public
+   */
+  AudienceRule?: string | undefined;
+
+  /**
+   * <p>A description of the intended audience for the experiment.</p>
+   * @public
+   */
+  AudienceDescription?: string | undefined;
+
+  /**
+   * <p>The conditions under which the winning treatment should be launched.</p>
+   * @public
+   */
+  LaunchCriteria?: string | undefined;
+
+  /**
+   * <p>The list of treatments defined for the experiment.</p>
+   * @public
+   */
+  Treatments?: Treatment[] | undefined;
+
+  /**
+   * <p>The control treatment used as the baseline for comparison.</p>
+   * @public
+   */
+  Control?: Treatment | undefined;
+
+  /**
+   * <p>The date and time the experiment definition was created, in ISO 8601 format.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the experiment definition was last updated, in ISO 8601 format.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt experiment data.</p>
+   * @public
+   */
+  KmsKeyIdentifier?: string | undefined;
 }
 
 /**
@@ -998,6 +1383,9 @@ export interface CreateHostedConfigurationVersionRequest {
 
   /**
    * <p>A description of the configuration.</p>
+   *          <note>
+   *             <p>Due to HTTP limitations, this field only supports ASCII characters.</p>
+   *          </note>
    * @public
    */
   Description?: string | undefined;
@@ -1205,6 +1593,29 @@ export interface DeleteEnvironmentRequest {
    * @public
    */
   DeletionProtectionCheck?: DeletionProtectionCheck | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteExperimentDefinitionRequest {
+  /**
+   * <p>The application ID or name.</p>
+   * @public
+   */
+  ApplicationIdentifier: string | undefined;
+
+  /**
+   * <p>The experiment definition ID or name.</p>
+   * @public
+   */
+  ExperimentDefinitionIdentifier: string | undefined;
+
+  /**
+   * <p>The type of deletion to perform. Valid values include archive (hide but preserve) and permanent (delete permanently).</p>
+   * @public
+   */
+  DeleteType?: DeleteType | undefined;
 }
 
 /**
@@ -1658,6 +2069,265 @@ export interface GetEnvironmentRequest {
 /**
  * @public
  */
+export interface GetExperimentDefinitionRequest {
+  /**
+   * <p>The application ID or name.</p>
+   * @public
+   */
+  ApplicationIdentifier: string | undefined;
+
+  /**
+   * <p>The experiment definition ID or name.</p>
+   * @public
+   */
+  ExperimentDefinitionIdentifier: string | undefined;
+}
+
+/**
+ * <p>A snapshot of the experiment definition captured at the time an experiment run was started. This preserves the configuration that was active during the run.</p>
+ * @public
+ */
+export interface ExperimentDefinitionSnapshot {
+  /**
+   * <p>The application ID at the time the run was started.</p>
+   * @public
+   */
+  ApplicationId?: string | undefined;
+
+  /**
+   * <p>The experiment definition ID.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The name of the experiment definition at the time the run was started.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The hypothesis at the time the run was started.</p>
+   * @public
+   */
+  Hypothesis?: string | undefined;
+
+  /**
+   * <p>The configuration profile ID at the time the run was started.</p>
+   * @public
+   */
+  ConfigurationProfileId?: string | undefined;
+
+  /**
+   * <p>The environment ID at the time the run was started.</p>
+   * @public
+   */
+  EnvironmentId?: string | undefined;
+
+  /**
+   * <p>The feature flag key at the time the run was started.</p>
+   * @public
+   */
+  FlagKey?: string | undefined;
+
+  /**
+   * <p>The audience rule at the time the run was started.</p>
+   * @public
+   */
+  AudienceRule?: string | undefined;
+
+  /**
+   * <p>The audience description at the time the run was started.</p>
+   * @public
+   */
+  AudienceDescription?: string | undefined;
+
+  /**
+   * <p>The launch criteria at the time the run was started.</p>
+   * @public
+   */
+  LaunchCriteria?: string | undefined;
+
+  /**
+   * <p>The treatments at the time the run was started.</p>
+   * @public
+   */
+  Treatments?: Treatment[] | undefined;
+
+  /**
+   * <p>The control treatment at the time the run was started.</p>
+   * @public
+   */
+  Control?: Treatment | undefined;
+}
+
+/**
+ * <p>The result of an experiment run, including the executive summary and launch decision rationale.</p>
+ * @public
+ */
+export interface ExperimentRunResult {
+  /**
+   * <p>A summary of the experiment outcome and key findings.</p>
+   * @public
+   */
+  ExecutiveSummary?: string | undefined;
+
+  /**
+   * <p>Evidence in favor of launching the winning treatment.</p>
+   * @public
+   */
+  ReasonsToLaunch?: string | undefined;
+
+  /**
+   * <p>Evidence against launching the treatment.</p>
+   * @public
+   */
+  ReasonsNotToLaunch?: string | undefined;
+}
+
+/**
+ * <p>Treatment assignment overrides that assign specific entity IDs to treatments, bypassing random assignment.</p>
+ * @public
+ */
+export type TreatmentOverrides =
+  | TreatmentOverrides.InlineMember
+  | TreatmentOverrides.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace TreatmentOverrides {
+  /**
+   * <p>A map of entity IDs to treatment keys. Each entry assigns the specified entity to the specified treatment, bypassing random assignment.</p>
+   * @public
+   */
+  export interface InlineMember {
+    Inline: Record<string, string>;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Inline?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Inline: (value: Record<string, string>) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Describes an experiment run, including its status, exposure settings, and treatment overrides.</p>
+ * @public
+ */
+export interface ExperimentRun {
+  /**
+   * <p>The application ID.</p>
+   * @public
+   */
+  ApplicationId?: string | undefined;
+
+  /**
+   * <p>The experiment definition ID.</p>
+   * @public
+   */
+  ExperimentDefinitionId?: string | undefined;
+
+  /**
+   * <p>The experiment run number.</p>
+   * @public
+   */
+  Run?: number | undefined;
+
+  /**
+   * <p>A description of the experiment run.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The current status of the experiment run. Valid values: <code>RUNNING</code>, <code>DONE</code>.</p>
+   * @public
+   */
+  Status?: ExperimentRunStatus | undefined;
+
+  /**
+   * <p>The percentage of the target audience exposed to treatments.</p>
+   * @public
+   */
+  ExposurePercentage?: number | undefined;
+
+  /**
+   * <p>Treatment assignment overrides that assign specific entity IDs to treatments.</p>
+   * @public
+   */
+  TreatmentOverrides?: TreatmentOverrides | undefined;
+
+  /**
+   * <p>The result of the experiment run, including the executive summary and launch decision rationale.</p>
+   * @public
+   */
+  Result?: ExperimentRunResult | undefined;
+
+  /**
+   * <p>The date and time the experiment run started, in ISO 8601 format.</p>
+   * @public
+   */
+  StartedAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the experiment run was last updated, in ISO 8601 format.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the experiment run ended, in ISO 8601 format.</p>
+   * @public
+   */
+  EndedAt?: Date | undefined;
+
+  /**
+   * <p>A snapshot of the experiment definition at the time the run was started.</p>
+   * @public
+   */
+  ExperimentDefinitionSnapshot?: ExperimentDefinitionSnapshot | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetExperimentRunRequest {
+  /**
+   * <p>The application ID or name.</p>
+   * @public
+   */
+  ApplicationIdentifier: string | undefined;
+
+  /**
+   * <p>The experiment definition ID or name.</p>
+   * @public
+   */
+  ExperimentDefinitionIdentifier: string | undefined;
+
+  /**
+   * <p>The run number to retrieve.</p>
+   * @public
+   */
+  Run: number | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetExtensionRequest {
   /**
    * <p>The name, the ID, or the Amazon Resource Name (ARN) of the extension.</p>
@@ -1859,6 +2529,12 @@ export interface DeploymentSummary {
   DeploymentNumber?: number | undefined;
 
   /**
+   * <p>The ID of the configuration profile that was deployed.</p>
+   * @public
+   */
+  ConfigurationProfileId?: string | undefined;
+
+  /**
    * <p>The name of the configuration.</p>
    * @public
    */
@@ -1925,6 +2601,12 @@ export interface DeploymentSummary {
    * @public
    */
   VersionLabel?: string | undefined;
+
+  /**
+   * <p>The type of deployment.</p>
+   * @public
+   */
+  Type?: DeploymentType | undefined;
 }
 
 /**
@@ -2054,6 +2736,333 @@ export interface ListEnvironmentsRequest {
    * @public
    */
   NextToken?: string | undefined;
+}
+
+/**
+ * <p>Summary information about an experiment definition.</p>
+ * @public
+ */
+export interface ExperimentDefinitionSummary {
+  /**
+   * <p>The application ID.</p>
+   * @public
+   */
+  ApplicationId?: string | undefined;
+
+  /**
+   * <p>The experiment definition ID.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The name of the experiment definition.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The hypothesis that the experiment is designed to validate.</p>
+   * @public
+   */
+  Hypothesis?: string | undefined;
+
+  /**
+   * <p>The current status of the experiment definition.</p>
+   * @public
+   */
+  Status?: ExperimentDefinitionStatus | undefined;
+
+  /**
+   * <p>The configuration profile ID associated with the experiment.</p>
+   * @public
+   */
+  ConfigurationProfileId?: string | undefined;
+
+  /**
+   * <p>The environment ID where the experiment runs.</p>
+   * @public
+   */
+  EnvironmentId?: string | undefined;
+
+  /**
+   * <p>The key of the feature flag used by the experiment.</p>
+   * @public
+   */
+  FlagKey?: string | undefined;
+
+  /**
+   * <p>The date and time the experiment definition was created, in ISO 8601 format.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the experiment definition was last updated, in ISO 8601 format.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+}
+
+/**
+ * <p>The response for a list experiment definitions request.</p>
+ * @public
+ */
+export interface ExperimentDefinitions {
+  /**
+   * <p>The list of experiment definitions.</p>
+   * @public
+   */
+  Items?: ExperimentDefinitionSummary[] | undefined;
+
+  /**
+   * <p>A token to use for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListExperimentDefinitionsRequest {
+  /**
+   * <p>The application ID or name to filter results.</p>
+   * @public
+   */
+  ApplicationIdentifier?: string | undefined;
+
+  /**
+   * <p>The configuration profile ID or name to filter results.</p>
+   * @public
+   */
+  ConfigurationProfileIdentifier?: string | undefined;
+
+  /**
+   * <p>The environment ID or name to filter results.</p>
+   * @public
+   */
+  EnvironmentIdentifier?: string | undefined;
+
+  /**
+   * <p>A filter for the experiment definition status.</p>
+   * @public
+   */
+  Status?: ExperimentDefinitionStatus | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this call.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A token to start the list from a previously truncated response.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Describes an event that occurred during an experiment run.</p>
+ * @public
+ */
+export interface ExperimentRunEvent {
+  /**
+   * <p>A description of the event.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the deployment associated with this event.</p>
+   * @public
+   */
+  AssociatedDeployment?: string | undefined;
+
+  /**
+   * <p>The type of event. Valid values: <code>RUN_STARTED</code>, <code>EXPOSURE_UPDATED</code>, <code>OVERRIDES_UPDATED</code>, <code>RUN_STOPPED</code>.</p>
+   * @public
+   */
+  EventType?: ExperimentRunEventType | undefined;
+
+  /**
+   * <p>The date and time the event occurred, in ISO 8601 format.</p>
+   * @public
+   */
+  OccurredAt?: Date | undefined;
+
+  /**
+   * <p>The principal that triggered the event.</p>
+   * @public
+   */
+  TriggeredBy?: TriggeredBy | undefined;
+
+  /**
+   * <p>The exposure percentage at the time of the event.</p>
+   * @public
+   */
+  ExposurePercentage?: number | undefined;
+
+  /**
+   * <p>The treatment overrides at the time of the event.</p>
+   * @public
+   */
+  TreatmentOverrides?: TreatmentOverrides | undefined;
+}
+
+/**
+ * <p>The response for a list experiment run events request.</p>
+ * @public
+ */
+export interface ExperimentRunEvents {
+  /**
+   * <p>The list of experiment run events.</p>
+   * @public
+   */
+  Items?: ExperimentRunEvent[] | undefined;
+
+  /**
+   * <p>A token to use for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListExperimentRunEventsRequest {
+  /**
+   * <p>The application ID or name.</p>
+   * @public
+   */
+  ApplicationIdentifier: string | undefined;
+
+  /**
+   * <p>The experiment definition ID or name.</p>
+   * @public
+   */
+  ExperimentDefinitionIdentifier: string | undefined;
+
+  /**
+   * <p>The run number.</p>
+   * @public
+   */
+  Run: number | undefined;
+
+  /**
+   * <p>The maximum number of items to return.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A token to start the list from a previously truncated response.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Summary information about an experiment run.</p>
+ * @public
+ */
+export interface ExperimentRunSummary {
+  /**
+   * <p>The experiment definition ID.</p>
+   * @public
+   */
+  ExperimentDefinitionId?: string | undefined;
+
+  /**
+   * <p>The experiment run number.</p>
+   * @public
+   */
+  Run?: number | undefined;
+
+  /**
+   * <p>A description of the experiment run.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The current status of the experiment run.</p>
+   * @public
+   */
+  Status?: ExperimentRunStatus | undefined;
+
+  /**
+   * <p>The date and time the experiment run started, in ISO 8601 format.</p>
+   * @public
+   */
+  StartedAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the experiment run was last updated, in ISO 8601 format.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the experiment run ended, in ISO 8601 format.</p>
+   * @public
+   */
+  EndedAt?: Date | undefined;
+}
+
+/**
+ * <p>The response for a list experiment runs request.</p>
+ * @public
+ */
+export interface ExperimentRuns {
+  /**
+   * <p>The list of experiment runs.</p>
+   * @public
+   */
+  Items?: ExperimentRunSummary[] | undefined;
+
+  /**
+   * <p>A token to use for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListExperimentRunsRequest {
+  /**
+   * <p>The application ID or name.</p>
+   * @public
+   */
+  ApplicationIdentifier: string | undefined;
+
+  /**
+   * <p>The experiment definition ID or name.</p>
+   * @public
+   */
+  ExperimentDefinitionIdentifier: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A token to start the list from a previously truncated response.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>A filter for the experiment run status.</p>
+   * @public
+   */
+  Status?: ExperimentRunStatus | undefined;
 }
 
 /**
@@ -2415,6 +3424,77 @@ export interface StartDeploymentRequest {
    * @public
    */
   DynamicExtensionParameters?: Record<string, string> | undefined;
+
+  /**
+   * <p>The number of the latest deployment. Use this value to ensure that the deployment starts from the expected state and to prevent conflicting updates.</p>
+   * @public
+   */
+  LatestDeploymentNumber?: number | undefined;
+}
+
+/**
+ * <p>Optional deployment parameters for an experiment run, including extension parameters and tags.</p>
+ * @public
+ */
+export interface DeploymentParameters {
+  /**
+   * <p>A map of extension parameters for the deployment.</p>
+   * @public
+   */
+  DynamicExtensionParameters?: Record<string, string> | undefined;
+
+  /**
+   * <p>The tags to assign to the deployment.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartExperimentRunRequest {
+  /**
+   * <p>The application ID or name.</p>
+   * @public
+   */
+  ApplicationIdentifier: string | undefined;
+
+  /**
+   * <p>The experiment definition ID or name.</p>
+   * @public
+   */
+  ExperimentDefinitionIdentifier: string | undefined;
+
+  /**
+   * <p>A description of this experiment run.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The percentage of the target audience to expose to treatments. Set to 0 to validate the experiment before exposing production users.</p>
+   * @public
+   */
+  ExposurePercentage?: number | undefined;
+
+  /**
+   * <p>Treatment assignment overrides that assign specific entity IDs to treatments directly, bypassing random assignment.</p>
+   * @public
+   */
+  TreatmentOverrides?: TreatmentOverrides | undefined;
+
+  /**
+   * <p>The tags to assign to the experiment run.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>Optional deployment parameters including a KMS key for encryption.</p>
+   * @public
+   */
+  DeploymentParameters?: DeploymentParameters | undefined;
 }
 
 /**
@@ -2446,6 +3526,41 @@ export interface StopDeploymentRequest {
    * @public
    */
   AllowRevert?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopExperimentRunRequest {
+  /**
+   * <p>The application ID or name.</p>
+   * @public
+   */
+  ApplicationIdentifier: string | undefined;
+
+  /**
+   * <p>The experiment definition ID or name.</p>
+   * @public
+   */
+  ExperimentDefinitionIdentifier: string | undefined;
+
+  /**
+   * <p>The run number to stop.</p>
+   * @public
+   */
+  Run: number | undefined;
+
+  /**
+   * <p>The result of the experiment run, including an executive summary and reasons for or against launching.</p>
+   * @public
+   */
+  Result?: ExperimentRunResult | undefined;
+
+  /**
+   * <p>Optional deployment parameters for the stop operation.</p>
+   * @public
+   */
+  DeploymentParameters?: DeploymentParameters | undefined;
 }
 
 /**
@@ -2497,6 +3612,12 @@ export interface UpdateAccountSettingsRequest {
    * @public
    */
   DeletionProtection?: DeletionProtectionSettings | undefined;
+
+  /**
+   * <p>Configuration for vended metrics in the account.</p>
+   * @public
+   */
+  VendedMetrics?: VendedMetricsSettings | undefined;
 }
 
 /**
@@ -2681,6 +3802,106 @@ export interface UpdateEnvironmentRequest {
    * @public
    */
   Monitors?: Monitor[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateExperimentDefinitionRequest {
+  /**
+   * <p>The application ID or name.</p>
+   * @public
+   */
+  ApplicationIdentifier: string | undefined;
+
+  /**
+   * <p>The experiment definition ID or name.</p>
+   * @public
+   */
+  ExperimentDefinitionIdentifier: string | undefined;
+
+  /**
+   * <p>An updated list of treatments.</p>
+   * @public
+   */
+  Treatments?: TreatmentInput[] | undefined;
+
+  /**
+   * <p>An updated control treatment.</p>
+   * @public
+   */
+  Control?: TreatmentInput | undefined;
+
+  /**
+   * <p>An updated hypothesis.</p>
+   * @public
+   */
+  Hypothesis?: string | undefined;
+
+  /**
+   * <p>An updated audience rule.</p>
+   * @public
+   */
+  AudienceRule?: string | undefined;
+
+  /**
+   * <p>An updated audience description.</p>
+   * @public
+   */
+  AudienceDescription?: string | undefined;
+
+  /**
+   * <p>Updated launch criteria.</p>
+   * @public
+   */
+  LaunchCriteria?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateExperimentRunRequest {
+  /**
+   * <p>The application ID or name.</p>
+   * @public
+   */
+  ApplicationIdentifier: string | undefined;
+
+  /**
+   * <p>The experiment definition ID or name.</p>
+   * @public
+   */
+  ExperimentDefinitionIdentifier: string | undefined;
+
+  /**
+   * <p>The run number to update.</p>
+   * @public
+   */
+  Run: number | undefined;
+
+  /**
+   * <p>An updated description for the experiment run.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The new exposure percentage. This value can only be increased from the current setting.</p>
+   * @public
+   */
+  ExposurePercentage?: number | undefined;
+
+  /**
+   * <p>Updated treatment assignment overrides.</p>
+   * @public
+   */
+  TreatmentOverrides?: TreatmentOverrides | undefined;
+
+  /**
+   * <p>Updated deployment parameters.</p>
+   * @public
+   */
+  DeploymentParameters?: DeploymentParameters | undefined;
 }
 
 /**

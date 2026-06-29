@@ -6,47 +6,24 @@
 
 AWS SDK for JavaScript AppConfig Client for Node.js, Browser and React Native.
 
-<p>AppConfig feature flags and dynamic configurations help software builders
-quickly and securely adjust application behavior in production environments without full
-code deployments. AppConfig speeds up software release frequency, improves
-application resiliency, and helps you address emergent issues more quickly. With feature
-flags, you can gradually release new capabilities to users and measure the impact of those
-changes before fully deploying the new capabilities to all users. With operational flags
-and dynamic configurations, you can update block lists, allow lists, throttling limits,
-logging verbosity, and perform other operational tuning to quickly respond to issues in
-production environments.</p>
-<note>
-<p>AppConfig is a tool in Amazon Web Services Systems Manager.</p>
-</note>
-<p>Despite the fact that application configuration content can vary greatly from
-application to application, AppConfig supports the following use cases, which
-cover a broad spectrum of customer needs:</p>
+<p>AppConfig helps you safely change application behavior in production without redeploying code. Using feature flags and dynamic free-form configurations, you can control how your application runs in real time. This approach reduces risk, accelerates releases, and enables faster responses to issues. You can gradually roll out new features to specific users, monitor their impact, and expand availability with confidence. You can also update block lists, allow lists, throttling limits, and logging levels instantly, allowing you to mitigate issues and fine-tune performance without a deployment.</p>
+<p>AppConfig supports a broad spectrum of use cases:</p>
 <ul>
 <li>
 <p>
-<b>Feature flags and toggles</b> - Safely release new
-capabilities to your customers in a controlled environment. Instantly roll back
-changes if you experience a problem.</p>
+<b>Feature flags and toggles</b> – Gradually release new capabilities to targeted users, monitor impact, and instantly roll back changes if issues occur.</p>
 </li>
 <li>
 <p>
-<b>Application tuning</b> - Carefully introduce
-application changes while testing the impact of those changes with users in
-production environments.</p>
+<b>Application tuning</b> – Introduce changes safely in production, measure their effects, and refine behavior without redeploying code.</p>
 </li>
 <li>
 <p>
-<b>Allow list or block list</b> - Control access to
-premium features or instantly block specific users without deploying new code.
-</p>
+<b>Allow list or block list</b> – Control access to features or restrict specific users in real time, without modifying application code. </p>
 </li>
 <li>
 <p>
-<b>Centralized configuration storage</b> - Keep your
-configuration data organized and consistent across all of your workloads. You can use
-AppConfig to deploy configuration data stored in the AppConfig
-hosted configuration store, Secrets Manager, Systems Manager, Parameter
-Store, or Amazon S3.</p>
+<b>Centralized configuration storage</b> – Manage configuration data consistently across workloads. AppConfig can deploy configuration from the AppConfig hosted configuration store, Secrets Manager, Systems Manager, Systems Manager Parameter Store, or Amazon S3.</p>
 </li>
 </ul>
 <p>
@@ -55,103 +32,50 @@ Store, or Amazon S3.</p>
 <p>This section provides a high-level description of how AppConfig works and how
 you get started.</p>
 <dl>
-<dt>1. Identify configuration values in code you want to manage in the cloud</dt>
+<dt>1. Identify configuration data to manage in AppConfig</dt>
 <dd>
-<p>Before you start creating AppConfig artifacts, we recommend you
-identify configuration data in your code that you want to dynamically manage using
-AppConfig. Good examples include feature flags or toggles, allow and
-block lists, logging verbosity, service limits, and throttling rules, to name a
-few.</p>
-<p>If your configuration data already exists in the cloud, you can take advantage
-of AppConfig validation, deployment, and extension features to further
-streamline configuration data management.</p>
+<p>Before creating a configuration profile, identify the configuration data in your code that you want to manage dynamically using AppConfig. Common examples include feature flags, allow and block lists, logging levels, service limits, and throttling rules. These values tend to change frequently and can cause issues if misconfigured.</p>
+<p>If your configuration data already exists in cloud services such as Systems Manager Parameter Store or Amazon S3, you can use AppConfig to validate, deploy, and manage that data more effectively.</p>
 </dd>
-<dt>2. Create an application namespace</dt>
+<dt>2. Create a configuration profile in AppConfig</dt>
 <dd>
-<p>To create a namespace, you create an AppConfig artifact called an
-application. An application is simply an organizational construct like a
-folder.</p>
-</dd>
-<dt>3. Create environments</dt>
-<dd>
-<p>For each AppConfig application, you define one or more environments.
-An environment is a logical grouping of targets, such as applications in a
-<code>Beta</code> or <code>Production</code> environment, Lambda functions,
-or containers. You can also define environments for application subcomponents,
-such as the <code>Web</code>, <code>Mobile</code>, and
-<code>Back-end</code>.</p>
-<p>You can configure Amazon CloudWatch alarms for each environment. The system monitors
-alarms during a configuration deployment. If an alarm is triggered, the system
-rolls back the configuration.</p>
-</dd>
-<dt>4. Create a configuration profile</dt>
-<dd>
-<p>A configuration profile includes, among other things, a URI that enables
-AppConfig to locate your configuration data in its stored location
-and a profile type. AppConfig supports two configuration profile types:
-feature flags and freeform configurations. Feature flag configuration profiles
-store their data in the AppConfig hosted configuration store and the URI
-is simply <code>hosted</code>. For freeform configuration profiles, you can store
-your data in the AppConfig hosted configuration store or any Amazon Web Services
-service that integrates with AppConfig, as described in <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-free-form-configurations-creating.html">Creating
-a free form configuration profile</a> in the the <i>AppConfig User Guide</i>.</p>
-<p>A configuration profile can also include optional validators to ensure your
-configuration data is syntactically and semantically correct. AppConfig
-performs a check using the validators when you start a deployment. If any errors
-are detected, the deployment rolls back to the previous configuration data.</p>
-</dd>
-<dt>5. Deploy configuration data</dt>
-<dd>
-<p>When you create a new deployment, you specify the following:</p>
+<p>A configuration profile defines how AppConfig locates and manages your configuration data. It includes a URI that points to the data source and a profile type.</p>
+<p>AppConfig supports two profile types</p>
 <ul>
 <li>
-<p>An application ID</p>
+<p>
+<b>Feature flags</b> – Enable controlled feature releases, gradual rollouts, and testing in production.</p>
 </li>
 <li>
-<p>A configuration profile ID</p>
-</li>
-<li>
-<p>A configuration version</p>
-</li>
-<li>
-<p>An environment ID where you want to deploy the configuration data</p>
-</li>
-<li>
-<p>A deployment strategy ID that defines how fast you want the changes to
-take effect</p>
+<p>
+<b>Free-form configurations</b> – Store and retrieve configuration data from external sources and update it without redeploying code.</p>
 </li>
 </ul>
-<p>When you call the <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_StartDeployment.html">StartDeployment</a> API action, AppConfig performs the following
-tasks:</p>
+<p>Both profile types help decouple configuration from code, support continuous delivery, and reduce deployment risk.</p>
+<p>You can also add optional validators to ensure that configuration data is syntactically and semantically correct. During deployment, AppConfig evaluates these validators and automatically rolls back changes if validation fails.</p>
+<p>Each configuration profile is associated with an application, which acts as a logical container for your configuration resources. For more information about creating a configuration profile, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-configuration-profile.html">Creating a configuration profile in AppConfig</a> in the the <i>AppConfig User Guide</i>.</p>
+</dd>
+<dt>3. Deploy configuration data</dt>
+<dd>
+<p>When you start a deployment, AppConfig:</p>
 <ol>
 <li>
-<p>Retrieves the configuration data from the underlying data store by using
-the location URI in the configuration profile.</p>
+<p>Retrieves configuration data from the source defined in the configuration profile</p>
 </li>
 <li>
-<p>Verifies the configuration data is syntactically and semantically correct
-by using the validators you specified when you created your configuration
-profile.</p>
+<p>Validates the data using the configured validators</p>
 </li>
 <li>
-<p>Caches a copy of the data so it is ready to be retrieved by your
-application. This cached copy is called the <i>deployed
-data</i>.</p>
+<p>Delivers the validated configuration to AppConfig Agent</p>
 </li>
 </ol>
+<p>The delivered configuration becomes the deployed version used by your application. For more information about deploying a configuration, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/deploying-feature-flags.html">Deploying feature flags and configuration data in AppConfig</a>.</p>
 </dd>
-<dt>6. Retrieve the configuration</dt>
+<dt>4. Retrieve configuration data</dt>
 <dd>
-<p>You can configure AppConfig Agent as a local host and have the agent
-poll AppConfig for configuration updates. The agent calls the <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.html">StartConfigurationSession</a> and <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html">GetLatestConfiguration</a> API actions and caches your configuration data
-locally. To retrieve the data, your application makes an HTTP call to the
-localhost server. AppConfig Agent supports several use cases, as
-described in <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-simplified-methods.html">Simplified
-retrieval methods</a> in the the <i>AppConfig User
-Guide</i>.</p>
-<p>If AppConfig Agent isn't supported for your use case, you can
-configure your application to poll AppConfig for configuration updates
-by directly calling the <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.html">StartConfigurationSession</a> and <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html">GetLatestConfiguration</a> API actions. </p>
+<p>Your application retrieves configuration data by calling a local endpoint exposed by AppConfig Agent, which caches the deployed configuration. Retrieving data is a metered event. AppConfig Agent supports a variety of use cases, as described in <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-agent-how-to-use.html">How to use AppConfig Agent to retrieve configuration data</a>.</p>
+<p>If the agent is not suitable for your use case, your application can retrieve configuration data directly from AppConfig by calling the <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.html">StartConfigurationSession</a> and <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html">GetLatestConfiguration</a> API actions. </p>
+<p>For more information about retrieving a configuration, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/retrieving-feature-flags.html">Retrieving feature flags and configuration data in AppConfig</a>.</p>
 </dd>
 </dl>
 <p>This reference is intended to be used with the <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html">AppConfig User
@@ -358,6 +282,13 @@ CreateEnvironment
 </details>
 <details>
 <summary>
+CreateExperimentDefinition
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appconfig/command/CreateExperimentDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appconfig/Interface/CreateExperimentDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appconfig/Interface/CreateExperimentDefinitionCommandOutput/)
+</details>
+<details>
+<summary>
 CreateExtension
 </summary>
 
@@ -404,6 +335,13 @@ DeleteEnvironment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appconfig/command/DeleteEnvironmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appconfig/Interface/DeleteEnvironmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appconfig/Interface/DeleteEnvironmentCommandOutput/)
+</details>
+<details>
+<summary>
+DeleteExperimentDefinition
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appconfig/command/DeleteExperimentDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appconfig/Interface/DeleteExperimentDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appconfig/Interface/DeleteExperimentDefinitionCommandOutput/)
 </details>
 <details>
 <summary>
@@ -477,6 +415,20 @@ GetEnvironment
 </details>
 <details>
 <summary>
+GetExperimentDefinition
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appconfig/command/GetExperimentDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appconfig/Interface/GetExperimentDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appconfig/Interface/GetExperimentDefinitionCommandOutput/)
+</details>
+<details>
+<summary>
+GetExperimentRun
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appconfig/command/GetExperimentRunCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appconfig/Interface/GetExperimentRunCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appconfig/Interface/GetExperimentRunCommandOutput/)
+</details>
+<details>
+<summary>
 GetExtension
 </summary>
 
@@ -533,6 +485,27 @@ ListEnvironments
 </details>
 <details>
 <summary>
+ListExperimentDefinitions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appconfig/command/ListExperimentDefinitionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appconfig/Interface/ListExperimentDefinitionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appconfig/Interface/ListExperimentDefinitionsCommandOutput/)
+</details>
+<details>
+<summary>
+ListExperimentRunEvents
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appconfig/command/ListExperimentRunEventsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appconfig/Interface/ListExperimentRunEventsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appconfig/Interface/ListExperimentRunEventsCommandOutput/)
+</details>
+<details>
+<summary>
+ListExperimentRuns
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appconfig/command/ListExperimentRunsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appconfig/Interface/ListExperimentRunsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appconfig/Interface/ListExperimentRunsCommandOutput/)
+</details>
+<details>
+<summary>
 ListExtensionAssociations
 </summary>
 
@@ -568,10 +541,24 @@ StartDeployment
 </details>
 <details>
 <summary>
+StartExperimentRun
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appconfig/command/StartExperimentRunCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appconfig/Interface/StartExperimentRunCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appconfig/Interface/StartExperimentRunCommandOutput/)
+</details>
+<details>
+<summary>
 StopDeployment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appconfig/command/StopDeploymentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appconfig/Interface/StopDeploymentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appconfig/Interface/StopDeploymentCommandOutput/)
+</details>
+<details>
+<summary>
+StopExperimentRun
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appconfig/command/StopExperimentRunCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appconfig/Interface/StopExperimentRunCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appconfig/Interface/StopExperimentRunCommandOutput/)
 </details>
 <details>
 <summary>
@@ -621,6 +608,20 @@ UpdateEnvironment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appconfig/command/UpdateEnvironmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appconfig/Interface/UpdateEnvironmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appconfig/Interface/UpdateEnvironmentCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateExperimentDefinition
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appconfig/command/UpdateExperimentDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appconfig/Interface/UpdateExperimentDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appconfig/Interface/UpdateExperimentDefinitionCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateExperimentRun
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appconfig/command/UpdateExperimentRunCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appconfig/Interface/UpdateExperimentRunCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appconfig/Interface/UpdateExperimentRunCommandOutput/)
 </details>
 <details>
 <summary>

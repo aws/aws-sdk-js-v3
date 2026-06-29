@@ -45,6 +45,9 @@ export interface GetAccountSettingsCommandOutput extends AccountSettings, __Meta
  * //     Enabled: true || false,
  * //     ProtectionPeriodInMinutes: Number("int"),
  * //   },
+ * //   VendedMetrics: { // VendedMetricsSettings
+ * //     Enabled: true || false,
+ * //   },
  * // };
  *
  * ```
