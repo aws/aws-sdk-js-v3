@@ -15,6 +15,7 @@ export const setup = () => {
     PredictEndpoint: "https://localhost",
     ChecksumAlgorithm: "CRC64NVME",
     AccountId: "123456789012",
+    accountId: "123456789012",
     OutpostId: "OutpostId",
     QueueUrl: "https://sqs.us-east-1.amazonaws.com/012345678901/MyQueue",
 
@@ -22,6 +23,10 @@ export const setup = () => {
     MD5OfMessageBody: "07261c767f72c87a6c6e6e62c93c2664", // md5 of "__Body__"
     MD5OfBody: "07261c767f72c87a6c6e6e62c93c2664", // md5 of "__Body__"
     MessageBody: "__Body__",
+
+    // host label validation
+    RequestRoute: "request-route",
+    label: "label",
   });
 
   const [ec2, rpc10, rpc11, query, restJson, restXml] = [

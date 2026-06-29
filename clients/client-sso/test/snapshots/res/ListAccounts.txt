@@ -31,17 +31,17 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   "nextToken": "__nextToken__",
   "accountList": [
     {
-      "accountId": "__accountId__",
+      "accountId": "123456789012",
       "accountName": "__accountName__",
       "emailAddress": "__emailAddress__"
     },
     {
-      "accountId": "__accountId__",
+      "accountId": "123456789012",
       "accountName": "__accountName__",
       "emailAddress": "__emailAddress__"
     },
     {
-      "accountId": "__accountId__",
+      "accountId": "123456789012",
       "accountName": "__accountName__",
       "emailAddress": "__emailAddress__"
     }
@@ -54,17 +54,17 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   nextToken: "__nextToken__",
   accountList: [
     {
-      accountId: "__accountId__",
+      accountId: "123456789012",
       accountName: "__accountName__",
       emailAddress: "__emailAddress__"
     },
     {
-      accountId: "__accountId__",
+      accountId: "123456789012",
       accountName: "__accountName__",
       emailAddress: "__emailAddress__"
     },
     {
-      accountId: "__accountId__",
+      accountId: "123456789012",
       accountName: "__accountName__",
       emailAddress: "__emailAddress__"
     }

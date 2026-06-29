@@ -107,8 +107,8 @@
     "@aws-sdk/types": "workspace:^3.973.13",
     "@aws-sdk/xml-builder": "workspace:^3.972.31",
     "@aws/lambda-invoke-store": "^0.2.2",
-    "@smithy/core": "^3.26.0",
-    "@smithy/signature-v4": "^5.5.2",
+    "@smithy/core": "^3.27.0",
+    "@smithy/signature-v4": "^5.5.3",
     "@smithy/types": "^4.15.0",
     "bowser": "^2.11.0",
     "tslib": "^2.6.2"

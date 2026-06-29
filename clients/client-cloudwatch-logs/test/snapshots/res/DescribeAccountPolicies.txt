@@ -36,7 +36,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "policyType": "__policyType__",
       "scope": "__scope__",
       "selectionCriteria": "__selectionCriteria__",
-      "accountId": "__accountId__"
+      "accountId": "123456789012"
     },
     {
       "policyName": "__policyName__",
@@ -45,7 +45,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "policyType": "__policyType__",
       "scope": "__scope__",
       "selectionCriteria": "__selectionCriteria__",
-      "accountId": "__accountId__"
+      "accountId": "123456789012"
     },
     {
       "policyName": "__policyName__",
@@ -54,7 +54,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "policyType": "__policyType__",
       "scope": "__scope__",
       "selectionCriteria": "__selectionCriteria__",
-      "accountId": "__accountId__"
+      "accountId": "123456789012"
     }
   ],
   "nextToken": "__nextToken__"
@@ -71,7 +71,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       policyType: "__policyType__",
       scope: "__scope__",
       selectionCriteria: "__selectionCriteria__",
-      accountId: "__accountId__"
+      accountId: "123456789012"
     },
     {
       policyName: "__policyName__",
@@ -80,7 +80,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       policyType: "__policyType__",
       scope: "__scope__",
       selectionCriteria: "__selectionCriteria__",
-      accountId: "__accountId__"
+      accountId: "123456789012"
     },
     {
       policyName: "__policyName__",
@@ -89,7 +89,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       policyType: "__policyType__",
       scope: "__scope__",
       selectionCriteria: "__selectionCriteria__",
-      accountId: "__accountId__"
+      accountId: "123456789012"
     }
   ],
   nextToken: "__nextToken__",

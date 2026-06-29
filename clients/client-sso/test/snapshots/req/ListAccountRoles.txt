@@ -1,5 +1,5 @@
 GET https://portal.sso.us-east-1.amazonaws.com 
-/assignment/roles?account_id=__accountId__&next_token=__nextToken__&max_result=0
+/assignment/roles?account_id=123456789012&next_token=__nextToken__&max_result=0
 
 x-amz-sso_bearer_token: __accessToken__
 x-amz-user-agent: aws-sdk-js/3.___._

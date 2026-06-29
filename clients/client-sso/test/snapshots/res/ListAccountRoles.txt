@@ -32,15 +32,15 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   "roleList": [
     {
       "roleName": "__roleName__",
-      "accountId": "__accountId__"
+      "accountId": "123456789012"
     },
     {
       "roleName": "__roleName__",
-      "accountId": "__accountId__"
+      "accountId": "123456789012"
     },
     {
       "roleName": "__roleName__",
-      "accountId": "__accountId__"
+      "accountId": "123456789012"
     }
   ]
 }
@@ -52,15 +52,15 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   roleList: [
     {
       roleName: "__roleName__",
-      accountId: "__accountId__"
+      accountId: "123456789012"
     },
     {
       roleName: "__roleName__",
-      accountId: "__accountId__"
+      accountId: "123456789012"
     },
     {
       roleName: "__roleName__",
-      accountId: "__accountId__"
+      accountId: "123456789012"
     }
   ],
   $metadata: {

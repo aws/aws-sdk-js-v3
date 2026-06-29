@@ -19,7 +19,7 @@
   "sideEffects": false,
   "dependencies": {
     "@aws-sdk/client-lambda": "workspace:3.1075.0",
-    "@smithy/core": "^3.26.0",
+    "@smithy/core": "^3.27.0",
     "@smithy/types": "^4.15.0",
     "tslib": "^2.6.2"
   },

@@ -1,21 +1,21 @@
-POST https://foo.__label__.restxml.us-east-1.amazonaws.com 
+POST https://foo.label.restxml.us-east-1.amazonaws.com 
 /EndpointWithHostLabelOperation
 
 content-type: application/xml
-content-length: 141
+content-length: 137
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/rest-xml-protocol#_.__ m/E,e
-host: foo.__label__.restxml.us-east-1.amazonaws.com
+host: foo.label.restxml.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: 19e4b0633909f2cc966b5c3873b7bbe74a5f4ba80b89e4f5c1932a6b586e08f7
+x-amz-content-sha256: 211015ef93ccbcff4d0e9b5eb75230281c21ed45bd35e72d40cbf9ef41e04abc
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/restxml/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
 
 [string (xml)]
 <?xml version="1.0" encoding="UTF-8"?>
 <EndpointWithHostLabelOperationRequest>
     <label>
-        __label__
+        label
     </label>
 </EndpointWithHostLabelOperationRequest>
