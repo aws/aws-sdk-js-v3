@@ -1,5 +1,9 @@
 // smithy-typescript generated code
 import {
+  AuthScheme as __AuthScheme,
+  Caller as __Caller,
+  ExecutionHook as __ExecutionHook,
+  FrameworkSteps as __FrameworkSteps,
   generateValidationMessage as __generateValidationMessage,
   generateValidationSummary as __generateValidationSummary,
   httpbinding,
@@ -7,14 +11,14 @@ import {
   isFrameworkException as __isFrameworkException,
   Mux as __Mux,
   Operation as __Operation,
-  OperationInput as __OperationInput,
-  OperationOutput as __OperationOutput,
   OperationSerializer as __OperationSerializer,
   SerializationException as __SerializationException,
+  ServerInterceptor as __ServerInterceptor,
   ServerSerdeContext as __ServerSerdeContext,
   ServiceException as __ServiceException,
   ServiceHandler as __ServiceHandler,
   SmithyFrameworkException as __SmithyFrameworkException,
+  UnauthenticatedException as __UnauthenticatedException,
   UnknownOperationException as __UnknownOperationException,
   ValidationCustomizer as __ValidationCustomizer,
   ValidationFailure as __ValidationFailure,
@@ -97,51 +101,28 @@ const serdeContextBase = {
   requestHandler: new NodeHttpHandler(),
   disableHostPrefix: true
 };
-async function handle<S, O extends keyof S & string, Context>(
-  request: __HttpRequest,
-  context: Context,
-  operationName: O,
-  serializer: __OperationSerializer<S, O, __ServiceException>,
-  operation: __Operation<__OperationInput<S[O]>, __OperationOutput<S[O]>, Context>,
-  serializeFrameworkException: (e: __SmithyFrameworkException, ctx: __ServerSerdeContext) => Promise<__HttpResponse>,
-  validationFn: (input: __OperationInput<S[O]>) => __ValidationFailure[],
-  validationCustomizer: __ValidationCustomizer<O>
-): Promise<__HttpResponse> {
-  let input;
-  try {
-    input = await serializer.deserialize(request, {
-      endpoint: () => Promise.resolve(request), ...serdeContextBase
-    });
-  } catch (error: unknown) {
-    if (__isFrameworkException(error)) {
-      return serializeFrameworkException(error, serdeContextBase);
-    };
-    return serializeFrameworkException(new __SerializationException(), serdeContextBase);
-  }
-  try {
-    let validationFailures = validationFn(input);
-    if (validationFailures && validationFailures.length > 0) {
-      let validationException = validationCustomizer({ operation: operationName }, validationFailures);
-      if (validationException) {
-        return serializer.serializeError(validationException, serdeContextBase);
-      }
-    }
-    let output = await operation(input, context);
-    return serializer.serialize(output, serdeContextBase);
-  } catch(error: unknown) {
-    if (serializer.isOperationError(error)) {
-      return serializer.serializeError(error, serdeContextBase);
-    }
-    console.log('Received an unexpected error', error);
-    return serializeFrameworkException(new __InternalFailureException(), serdeContextBase);
-  }
-}
+const RestJsonValidationServiceHandlerValidators: { [K in RestJsonValidationServiceOperations]: (input: any) => __ValidationFailure[] } = {
+  "MalformedEnum": MalformedEnumServerInput.validate,
+  "MalformedLength": MalformedLengthServerInput.validate,
+  "MalformedLengthOverride": MalformedLengthOverrideServerInput.validate,
+  "MalformedLengthQueryString": MalformedLengthQueryStringServerInput.validate,
+  "MalformedPattern": MalformedPatternServerInput.validate,
+  "MalformedPatternOverride": MalformedPatternOverrideServerInput.validate,
+  "MalformedRange": MalformedRangeServerInput.validate,
+  "MalformedRangeOverride": MalformedRangeOverrideServerInput.validate,
+  "MalformedRequired": MalformedRequiredServerInput.validate,
+  "MalformedUniqueItems": MalformedUniqueItemsServerInput.validate,
+  "RecursiveStructures": RecursiveStructuresServerInput.validate,
+  "SensitiveValidation": SensitiveValidationServerInput.validate,
+};
 export class RestJsonValidationServiceHandler<Context> implements __ServiceHandler<Context> {
-  private readonly service: RestJsonValidationService<Context>;
   private readonly mux: __Mux<"RestJsonValidation", RestJsonValidationServiceOperations>;
-  private readonly serializerFactory: <T extends RestJsonValidationServiceOperations>(operation: T) => __OperationSerializer<RestJsonValidationService<Context>, T, __ServiceException>;
+  private readonly service: RestJsonValidationService<Context>;
+  private readonly serializerFactory: <T extends RestJsonValidationServiceOperations>(op: T) => __OperationSerializer<RestJsonValidationService<Context>, T, __ServiceException>;
   private readonly serializeFrameworkException: (e: __SmithyFrameworkException, ctx: __ServerSerdeContext) => Promise<__HttpResponse>;
   private readonly validationCustomizer: __ValidationCustomizer<RestJsonValidationServiceOperations>;
+  private readonly interceptors: __ServerInterceptor<Context>[] = [];
+  private readonly authSchemes: __AuthScheme<Context>[] = [];
   /**
    * Construct a RestJsonValidationService handler.
    * @param service The {@link RestJsonValidationService} implementation that supplies the business logic for RestJsonValidationService
@@ -164,49 +145,158 @@ export class RestJsonValidationServiceHandler<Context> implements __ServiceHandl
     this.serializeFrameworkException = serializeFrameworkException;
     this.validationCustomizer = validationCustomizer;
   }
+  withAuth(...schemes: __AuthScheme<Context>[]): this {
+    this.authSchemes.push(...schemes);
+    return this;
+  }
+  addInterceptor(interceptor: __ServerInterceptor<Context>): this {
+    this.interceptors.unshift(interceptor);
+    return this;
+  }
+  addInterceptors(...interceptors: __ServerInterceptor<Context>[]): this {
+    this.interceptors.unshift(...[...interceptors].reverse());
+    return this;
+  }
   async handle(request: __HttpRequest, context: Context): Promise<__HttpResponse> {
-    const target = this.mux.match(request);
-    if (target === undefined) {
-      return this.serializeFrameworkException(new __UnknownOperationException(), serdeContextBase);
+    const steps: __FrameworkSteps<Context> = {
+      route: (request) => this.mux.match(request)?.operation,
+      deserialize: async (operation, request) => {
+        try {
+          return await this.serializerFactory(operation as RestJsonValidationServiceOperations).deserialize(request, { endpoint: () => Promise.resolve(request), ...serdeContextBase });
+        } catch (error: unknown) {
+          if (__isFrameworkException(error)) {
+            throw error;
+          }
+          throw new __SerializationException();
+        }
+      },
+      validate: (operation, input) => {
+        const validationFailures = RestJsonValidationServiceHandlerValidators[operation as RestJsonValidationServiceOperations](input);
+        if (validationFailures && validationFailures.length > 0) {
+          const validationException = this.validationCustomizer({ operation: operation as RestJsonValidationServiceOperations }, validationFailures);
+          if (validationException) {
+            throw validationException;
+          }
+        }
+      },
+      invoke: (operation, input, context) => (this.service[operation as RestJsonValidationServiceOperations] as any)(input, context),
+      serialize: (operation, output) => this.serializerFactory(operation as RestJsonValidationServiceOperations).serialize(output as any, serdeContextBase),
+      serializeError: (operation, error) => {
+        if (operation === undefined) {
+          return undefined;
+        }
+        const serializer = this.serializerFactory(operation as RestJsonValidationServiceOperations);
+        return serializer.isOperationError(error) ? serializer.serializeError(error, serdeContextBase) : undefined;
+      },
+      serializeFrameworkException: (e) => this.serializeFrameworkException(e, serdeContextBase),
+    };
+
+    const convertError = (op: string | undefined, caught: unknown): Promise<__HttpResponse> => {
+      const modeled = steps.serializeError(op, caught);
+      if (modeled) {
+        return modeled;
+      }
+      if (__isFrameworkException(caught)) {
+        return steps.serializeFrameworkException(caught);
+      }
+      return steps.serializeFrameworkException(new __InternalFailureException());
+    };
+
+    const base = { request, context };
+    let operation: string | undefined;
+    let input: unknown;
+    let output: unknown;
+    let response: __HttpResponse | undefined;
+    let caller: __Caller | undefined;
+    let error: unknown;
+
+    const entered = new Set<__ServerInterceptor<Context>>();
+
+    try {
+      for (const interceptor of this.interceptors) {
+        if (interceptor.readBeforeExecution) {
+          interceptor.readBeforeExecution(base);
+        }
+        entered.add(interceptor);
+      }
+
+      let authScheme: string | undefined;
+      if (this.authSchemes.length > 0) {
+        for (const scheme of this.authSchemes) {
+          const result = await scheme.authenticate(request, context);
+          if (result) {
+            caller = result;
+            authScheme = scheme.name;
+            break;
+          }
+        }
+        if (!caller) {
+          throw new __UnauthenticatedException();
+        }
+        this.fireRead("readAfterAuthentication", () => ({ ...base, authScheme: authScheme!, caller: caller! }));
+      }
+
+      const req = this.fireModify<__HttpRequest, typeof base>("modifyBeforeDeserialization", request, (r) => ({ ...base, request: r }));
+
+      operation = steps.route(req);
+      if (!operation) {
+        throw new __UnknownOperationException();
+      }
+
+      input = await steps.deserialize(operation, req);
+      const inputHook = () => ({ ...base, operation: operation!, input });
+      this.fireRead("readAfterDeserialization", inputHook);
+      input = this.fireModify("modifyBeforeValidation", input, (v) => ({ ...base, operation: operation!, input: v }));
+      steps.validate(operation, input);
+      this.fireRead("readAfterValidation", inputHook);
+      this.fireRead("readBeforeInvocation", inputHook);
+      output = await steps.invoke(operation, input, context);
+      this.fireRead("readAfterInvocation", () => ({ ...base, operation: operation!, input, output }));
+      output = this.fireModify("modifyBeforeSerialization", output, (v) => ({ ...base, operation: operation!, input, output: v }));
+      response = await steps.serialize(operation, output);
+      this.fireRead("readAfterSerialization", () => ({ ...base, operation: operation!, input, output, response: response! }));
+    } catch (caught: unknown) {
+      error = caught;
+      response = await convertError(operation, caught);
     }
-    switch (target.operation) {
-      case "MalformedEnum" : {
-        return handle(request, context, "MalformedEnum", this.serializerFactory("MalformedEnum"), this.service.MalformedEnum, this.serializeFrameworkException, MalformedEnumServerInput.validate, this.validationCustomizer);
-      }
-      case "MalformedLength" : {
-        return handle(request, context, "MalformedLength", this.serializerFactory("MalformedLength"), this.service.MalformedLength, this.serializeFrameworkException, MalformedLengthServerInput.validate, this.validationCustomizer);
-      }
-      case "MalformedLengthOverride" : {
-        return handle(request, context, "MalformedLengthOverride", this.serializerFactory("MalformedLengthOverride"), this.service.MalformedLengthOverride, this.serializeFrameworkException, MalformedLengthOverrideServerInput.validate, this.validationCustomizer);
-      }
-      case "MalformedLengthQueryString" : {
-        return handle(request, context, "MalformedLengthQueryString", this.serializerFactory("MalformedLengthQueryString"), this.service.MalformedLengthQueryString, this.serializeFrameworkException, MalformedLengthQueryStringServerInput.validate, this.validationCustomizer);
-      }
-      case "MalformedPattern" : {
-        return handle(request, context, "MalformedPattern", this.serializerFactory("MalformedPattern"), this.service.MalformedPattern, this.serializeFrameworkException, MalformedPatternServerInput.validate, this.validationCustomizer);
-      }
-      case "MalformedPatternOverride" : {
-        return handle(request, context, "MalformedPatternOverride", this.serializerFactory("MalformedPatternOverride"), this.service.MalformedPatternOverride, this.serializeFrameworkException, MalformedPatternOverrideServerInput.validate, this.validationCustomizer);
-      }
-      case "MalformedRange" : {
-        return handle(request, context, "MalformedRange", this.serializerFactory("MalformedRange"), this.service.MalformedRange, this.serializeFrameworkException, MalformedRangeServerInput.validate, this.validationCustomizer);
-      }
-      case "MalformedRangeOverride" : {
-        return handle(request, context, "MalformedRangeOverride", this.serializerFactory("MalformedRangeOverride"), this.service.MalformedRangeOverride, this.serializeFrameworkException, MalformedRangeOverrideServerInput.validate, this.validationCustomizer);
-      }
-      case "MalformedRequired" : {
-        return handle(request, context, "MalformedRequired", this.serializerFactory("MalformedRequired"), this.service.MalformedRequired, this.serializeFrameworkException, MalformedRequiredServerInput.validate, this.validationCustomizer);
-      }
-      case "MalformedUniqueItems" : {
-        return handle(request, context, "MalformedUniqueItems", this.serializerFactory("MalformedUniqueItems"), this.service.MalformedUniqueItems, this.serializeFrameworkException, MalformedUniqueItemsServerInput.validate, this.validationCustomizer);
-      }
-      case "RecursiveStructures" : {
-        return handle(request, context, "RecursiveStructures", this.serializerFactory("RecursiveStructures"), this.service.RecursiveStructures, this.serializeFrameworkException, RecursiveStructuresServerInput.validate, this.validationCustomizer);
-      }
-      case "SensitiveValidation" : {
-        return handle(request, context, "SensitiveValidation", this.serializerFactory("SensitiveValidation"), this.service.SensitiveValidation, this.serializeFrameworkException, SensitiveValidationServerInput.validate, this.validationCustomizer);
+
+    try {
+      response = this.fireModify("modifyBeforeCompletion", response!, (v) => ({ ...base, operation: operation!, input, output, response: v }));
+    } catch (caught: unknown) {
+      error = caught;
+      response = await convertError(operation, caught);
+    }
+
+    const execHook: __ExecutionHook<Context> = { request, context, operation, input, output, response, error };
+    for (const interceptor of this.interceptors) {
+      if (entered.has(interceptor) && interceptor.readAfterExecution) {
+        try {
+          interceptor.readAfterExecution(execHook);
+        } catch (e) {
+          // readAfterExecution is best-effort and must not mask the response; ignore hook failures.
+        }
       }
     }
+
+    return response!;
+  }
+  private fireRead<H>(method: keyof __ServerInterceptor<Context>, buildHook: () => H): void {
+    for (const interceptor of this.interceptors) {
+      const fn = interceptor[method] as ((hook: H) => void) | undefined;
+      if (fn) {
+        fn.call(interceptor, buildHook());
+      }
+    }
+  }
+  private fireModify<V, H>(method: keyof __ServerInterceptor<Context>, initial: V, buildHook: (current: V) => H): V {
+    let current = initial;
+    for (const interceptor of this.interceptors) {
+      const fn = interceptor[method] as ((hook: H) => V) | undefined;
+      if (fn) {
+        current = fn.call(interceptor, buildHook(current));
+      }
+    }
+    return current;
   }
 }
 

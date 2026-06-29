@@ -35,7 +35,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     "policyType": "__policyType__",
     "scope": "__scope__",
     "selectionCriteria": "__selectionCriteria__",
-    "accountId": "__accountId__"
+    "accountId": "123456789012"
   }
 }
 
@@ -49,7 +49,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     policyType: "__policyType__",
     scope: "__scope__",
     selectionCriteria: "__selectionCriteria__",
-    accountId: "__accountId__"
+    accountId: "123456789012"
   },
   $metadata: {
     httpStatusCode: (number) 200,
