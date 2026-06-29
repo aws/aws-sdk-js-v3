@@ -1031,7 +1031,7 @@ export interface ReplicationGroup {
   Engine?: string | undefined;
 
   /**
-   * <p>The durability setting of the replication group. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Durability.html">Durability</a>.</p>
+   * <p>The durability setting of the replication group. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/durability.html">Durability</a>.</p>
    * @public
    */
   Durability?: Durability | undefined;
@@ -1040,7 +1040,7 @@ export interface ReplicationGroup {
    * <p>The effective durability of the replication group. When <code>Durability</code> is set to
    *             <code>default</code>, the service resolves the actual durability based on the engine version,
    *             cluster mode, and other parameters. This field reflects the resolved value. For more
-   *             information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ConfiguringDurability.html">Configuring Durability</a>.</p>
+   *             information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Durability.Configuring.html">Configuring Durability</a>.</p>
    * @public
    */
   EffectiveDurability?: EffectiveDurability | undefined;
@@ -1771,7 +1771,7 @@ export interface Snapshot {
   /**
    * <p>The durability setting of the cluster when the snapshot was taken. When restoring from this snapshot,
    *             the cluster uses this durability setting unless overridden in the restore request. For more information,
-   *             see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Durability.html">Durability</a>.</p>
+   *             see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/durability.html">Durability</a>.</p>
    * @public
    */
   Durability?: Durability | undefined;
@@ -4466,7 +4466,7 @@ export interface CreateReplicationGroupMessage {
    *             When set to <code>default</code>, the service determines the effective durability based on
    *             the engine version, cluster mode, and other parameters. The resolved setting is reflected
    *             in the <code>EffectiveDurability</code> property of the replication group. For more
-   *             information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Durability.html">Durability</a>.</p>
+   *             information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/durability.html">Durability</a>.</p>
    * @public
    */
   Durability?: Durability | undefined;
@@ -8956,7 +8956,12 @@ export interface ModifyCacheClusterMessage {
    *             reboot, or the next failure reboot, whichever occurs first.</p>
    *          <important>
    *             <p>If you perform a <code>ModifyCacheCluster</code> before a pending modification is
-   *                 applied, the pending modification is replaced by the newer modification.</p>
+   *                 applied, the pending modification is replaced by the newer modification. However,
+   *                 a pending node-count increase on Memcached clusters cannot be superseded by a request
+   *                 to add fewer nodes. To change a pending node addition, first cancel it by setting
+   *                 <code>NumCacheNodes</code> equal to the current number of nodes in the cluster, then
+   *                 submit the new request. See the <code>NumCacheNodes</code> parameter for details on
+   *                 node scaling behavior.</p>
    *          </important>
    *          <p>Valid values: <code>true</code> | <code>false</code>
    *          </p>
@@ -9616,7 +9621,7 @@ export interface ModifyReplicationGroupMessage {
    * <p>Specifies the durability setting for the replication group.
    *             Use this parameter to change the durability mode of an existing replication group,
    *             for example from <code>sync</code> to <code>async</code> or vice versa. For more
-   *             information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Durability.html">Durability</a>.</p>
+   *             information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/durability.html">Durability</a>.</p>
    * @public
    */
   Durability?: Durability | undefined;
