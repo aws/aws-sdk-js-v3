@@ -914,7 +914,7 @@ export interface Scheduler {
   type: SchedulerType | undefined;
 
   /**
-   * <p>The version of the specified scheduling software that PCS uses to manage cluster scaling and job scheduling. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurm-versions.html">Slurm versions in PCS</a> in the <i>PCS User Guide</i>.</p> <p>Valid Values: <code>23.11 | 24.05 | 24.11 | 25.05 | 25.11</code> </p>
+   * <p>The version of the specified scheduling software that PCS uses to manage cluster scaling and job scheduling. You can upgrade this version using the <code>UpdateCluster</code> API action. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/working-with_clusters_upgrade.html">Upgrading the Slurm version on a cluster</a> and <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurm-versions.html">Slurm versions in PCS</a> in the <i>PCS User Guide</i>.</p> <p>Valid Values: <code>23.11 | 24.05 | 24.11 | 25.05 | 25.11</code> </p>
    * @public
    */
   version: string | undefined;
@@ -1640,6 +1640,18 @@ export interface RegisterComputeNodeGroupInstanceResponse {
 }
 
 /**
+ * <p>The scheduler configuration for updating a cluster. Use this to specify the Slurm version to upgrade to.</p>
+ * @public
+ */
+export interface UpdateSchedulerRequest {
+  /**
+   * <p>The Slurm version to upgrade the cluster to. You can only upgrade to a newer version. For more information about supported versions and upgrade paths, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/working-with_clusters_upgrade.html">Upgrading the Slurm version on a cluster</a> in the <i>PCS User Guide</i>.</p> <p>Valid Values: <code>24.05 | 24.11 | 25.05 | 25.11</code> </p>
+   * @public
+   */
+  version: string | undefined;
+}
+
+/**
  * <p>The accounting configuration includes configurable settings for Slurm accounting.</p>
  * @public
  */
@@ -1732,6 +1744,12 @@ export interface UpdateClusterRequest {
    * @public
    */
   slurmConfiguration?: UpdateClusterSlurmConfigurationRequest | undefined;
+
+  /**
+   * <p>The scheduler configuration to update for the cluster. Use this to upgrade the Slurm version. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/working-with_clusters_upgrade.html">Upgrading the Slurm version on a cluster</a> in the <i>PCS User Guide</i>.</p>
+   * @public
+   */
+  scheduler?: UpdateSchedulerRequest | undefined;
 }
 
 /**

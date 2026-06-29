@@ -111,6 +111,7 @@ const _UQSCR = "UpdateQueueSlurmConfigurationRequest";
 const _UR = "UntagResource";
 const _URR = "UntagResourceRequest";
 const _URRn = "UntagResourceResponse";
+const _USR = "UpdateSchedulerRequest";
 const _USRR = "UpdateSlurmRestRequest";
 const _VE = "ValidationException";
 const _VEF = "ValidationExceptionField";
@@ -620,8 +621,8 @@ export var UpdateAccountingRequest$: StaticStructureSchema = [3, n0, _UAR,
 ];
 export var UpdateClusterRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
-  [_cIl, _cT, _sCl],
-  [0, [0, 4], () => UpdateClusterSlurmConfigurationRequest$], 1
+  [_cIl, _cT, _sCl, _sc],
+  [0, [0, 4], () => UpdateClusterSlurmConfigurationRequest$, () => UpdateSchedulerRequest$], 1
 ];
 export var UpdateClusterResponse$: StaticStructureSchema = [3, n0, _UCRp,
   0,
@@ -662,6 +663,11 @@ export var UpdateQueueSlurmConfigurationRequest$: StaticStructureSchema = [3, n0
   0,
   [_sCS],
   [() => SlurmCustomSettings]
+];
+export var UpdateSchedulerRequest$: StaticStructureSchema = [3, n0, _USR,
+  0,
+  [_v],
+  [0], 1
 ];
 export var UpdateSlurmRestRequest$: StaticStructureSchema = [3, n0, _USRR,
   0,

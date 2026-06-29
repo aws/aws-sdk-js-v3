@@ -142,6 +142,7 @@ import {
   UpdateQueueRequest$,
   UpdateQueueResponse$,
   UpdateQueueSlurmConfigurationRequest$,
+  UpdateSchedulerRequest$,
   UpdateSlurmRestRequest$,
   ValidationException,
   ValidationException$,
@@ -268,6 +269,7 @@ assert(typeof UpdateComputeNodeGroupSlurmConfigurationRequest$ === "object");
 assert(typeof UpdateQueueRequest$ === "object");
 assert(typeof UpdateQueueResponse$ === "object");
 assert(typeof UpdateQueueSlurmConfigurationRequest$ === "object");
+assert(typeof UpdateSchedulerRequest$ === "object");
 assert(typeof UpdateSlurmRestRequest$ === "object");
 assert(typeof ValidationExceptionField$ === "object");
 // enums

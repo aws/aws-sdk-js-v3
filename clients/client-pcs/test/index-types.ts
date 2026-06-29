@@ -147,6 +147,7 @@ export type {
   UpdateQueueRequest,
   UpdateQueueResponse,
   UpdateQueueSlurmConfigurationRequest,
+  UpdateSchedulerRequest,
   UpdateSlurmRestRequest,
   ValidationExceptionField,
   AccessDeniedException,
