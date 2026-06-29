@@ -10,9 +10,7 @@
   },
   "react-native": {
     "./dist-es/fromTemporaryCredentials": "./dist-es/fromTemporaryCredentials.browser",
-    "./dist-cjs/fromTemporaryCredentials": "./dist-cjs/fromTemporaryCredentials.browser",
-    "./dist-es/index": "./dist-es/index.browser",
-    "./dist-cjs/index": "./dist-cjs/index.browser"
+    "./dist-es/index": "./dist-es/index.browser"
   },
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",

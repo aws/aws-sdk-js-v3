@@ -39,14 +39,8 @@
     },
     "./s3": {
       "types": "./dist-types/submodules/s3/index.d.ts",
-      "react-native": {
-        "import": "./dist-es/submodules/s3/index.browser.js",
-        "require": "./dist-cjs/submodules/s3/index.browser.js"
-      },
-      "browser": {
-        "import": "./dist-es/submodules/s3/index.browser.js",
-        "require": "./dist-cjs/submodules/s3/index.browser.js"
-      },
+      "react-native": "./dist-es/submodules/s3/index.browser.js",
+      "browser": "./dist-es/submodules/s3/index.browser.js",
       "module": "./dist-es/submodules/s3/index.js",
       "node": "./dist-cjs/submodules/s3/index.js",
       "import": "./dist-es/submodules/s3/index.js",

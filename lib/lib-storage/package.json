@@ -63,8 +63,7 @@
     "stream": "stream-browserify"
   },
   "react-native": {
-    "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.native",
-    "./dist-cjs/runtimeConfig": "./dist-cjs/runtimeConfig.native"
+    "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.native"
   },
   "files": [
     "dist-*/**"

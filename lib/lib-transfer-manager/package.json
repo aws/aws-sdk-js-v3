@@ -30,14 +30,8 @@
     },
     "./transfer-manager": {
       "types": "./dist-types/submodules/transfer-manager/index.d.ts",
-      "react-native": {
-        "import": "./dist-es/submodules/transfer-manager/index.browser.js",
-        "require": "./dist-cjs/submodules/transfer-manager/index.browser.js"
-      },
-      "browser": {
-        "import": "./dist-es/submodules/transfer-manager/index.browser.js",
-        "require": "./dist-cjs/submodules/transfer-manager/index.browser.js"
-      },
+      "react-native": "./dist-es/submodules/transfer-manager/index.browser.js",
+      "browser": "./dist-es/submodules/transfer-manager/index.browser.js",
       "module": "./dist-es/submodules/transfer-manager/index.js",
       "node": "./dist-cjs/submodules/transfer-manager/index.js",
       "import": "./dist-es/submodules/transfer-manager/index.js",
