@@ -24,7 +24,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>There is an error in the call or in a SQL statement. (This error only appears in calls from Aurora Serverless v1 databases.)</p>
+ * <p>There is an error in the call or in a SQL statement. This exception is deprecated.</p>
  * @public
  */
 export class BadRequestException extends __BaseException {
@@ -84,7 +84,7 @@ export class DatabaseNotFoundException extends __BaseException {
 }
 
 /**
- * <p>A request was cancelled because the Aurora Serverless v2 DB instance was paused. The Data API request automatically resumes the DB instance. Wait a few seconds and try again.</p>
+ * <p>A request was cancelled because the Aurora Serverless DB instance was paused. The Data API request automatically resumes the DB instance. Wait a few seconds and try again.</p>
  * @public
  */
 export class DatabaseResumingException extends __BaseException {

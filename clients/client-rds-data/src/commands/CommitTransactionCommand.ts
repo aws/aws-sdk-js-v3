@@ -59,7 +59,7 @@ export interface CommitTransactionCommandOutput extends CommitTransactionRespons
  *  <p>You don't have sufficient access to perform this action.</p>
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>There is an error in the call or in a SQL statement. (This error only appears in calls from Aurora Serverless v1 databases.)</p>
+ *  <p>There is an error in the call or in a SQL statement. This exception is deprecated.</p>
  *
  * @throws {@link DatabaseErrorException} (client fault)
  *  <p>There was an error in processing the SQL statement.</p>

@@ -191,7 +191,7 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementResponse,
  *  <p>You don't have sufficient access to perform this action.</p>
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>There is an error in the call or in a SQL statement. (This error only appears in calls from Aurora Serverless v1 databases.)</p>
+ *  <p>There is an error in the call or in a SQL statement. This exception is deprecated.</p>
  *
  * @throws {@link DatabaseErrorException} (client fault)
  *  <p>There was an error in processing the SQL statement.</p>
@@ -200,7 +200,7 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementResponse,
  *  <p>The DB cluster doesn't have a DB instance.</p>
  *
  * @throws {@link DatabaseResumingException} (client fault)
- *  <p>A request was cancelled because the Aurora Serverless v2 DB instance was paused. The Data API request automatically resumes the DB instance. Wait a few seconds and try again.</p>
+ *  <p>A request was cancelled because the Aurora Serverless DB instance was paused. The Data API request automatically resumes the DB instance. Wait a few seconds and try again.</p>
  *
  * @throws {@link DatabaseUnavailableException} (server fault)
  *  <p>The writer instance in the DB cluster isn't available.</p>
