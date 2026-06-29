@@ -28,12 +28,12 @@ export interface PutMetricAlarmCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Creates or updates an alarm and associates it with the specified metric, metric
- *             math expression, anomaly detection model, Metrics Insights query, or PromQL query. For more
- *             information about using a Metrics Insights query for an alarm, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Metrics_Insights_Alarm.html">Create
- *             alarms on Metrics Insights queries</a>.</p>
+ *             math expression, anomaly detection model, Metrics Insights query, or PromQL query. For
+ *             more information about using a Metrics Insights query for an alarm, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Metrics_Insights_Alarm.html">Create
+ *                 alarms on Metrics Insights queries</a>.</p>
  *          <p>Alarms based on anomaly detection models cannot have Auto Scaling actions.</p>
  *          <p>When this operation creates an alarm, the alarm state is immediately set to
- *             <code>INSUFFICIENT_DATA</code>. For PromQL alarms, the alarm state is instead
+ *                 <code>INSUFFICIENT_DATA</code>. For PromQL alarms, the alarm state is instead
  *             immediately set to <code>OK</code>. The alarm is then evaluated and its state is set
  *             appropriately. Any actions associated with the new state are then executed.</p>
  *          <p>When you update an existing alarm, its state is left unchanged, but the update
@@ -52,9 +52,9 @@ export interface PutMetricAlarmCommandOutput extends __MetadataBearer {}
  *          </ul>
  *          <p>The first time you create an alarm in the Amazon Web Services Management Console, the CLI, or by using the PutMetricAlarm API, CloudWatch creates the necessary
  *             service-linked role for you. The service-linked roles are called
- *             <code>AWSServiceRoleForCloudWatchEvents</code> and
- *             <code>AWSServiceRoleForCloudWatchAlarms_ActionSSM</code>. For more information, see
- *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role">Amazon Web Services service-linked role</a>.</p>
+ *                 <code>AWSServiceRoleForCloudWatchEvents</code> and
+ *                 <code>AWSServiceRoleForCloudWatchAlarms_ActionSSM</code>. For more information, see
+ *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role">Amazon Web Services service-linked role</a>.</p>
  *          <p>Each <code>PutMetricAlarm</code> action has a maximum uncompressed payload of 120
  *             KB.</p>
  *          <p>
@@ -66,15 +66,15 @@ export interface PutMetricAlarmCommandOutput extends __MetadataBearer {}
  *          <ul>
  *             <li>
  *                <p>The account where the metrics are located (the <i>sharing
- *                     account</i>) must already have a sharing role named <b>CloudWatch-CrossAccountSharingRole</b>. If it does not
+ *                         account</i>) must already have a sharing role named <b>CloudWatch-CrossAccountSharingRole</b>. If it does not
  *                     already have this role, you must create it using the instructions in <b>Set up a sharing account</b> in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html#enable-cross-account-cross-Region"> Cross-account cross-Region CloudWatch console</a>. The policy
  *                     for that role must grant access to the ID of the account where you are creating
  *                     the alarm. </p>
  *             </li>
  *             <li>
  *                <p>The account where you are creating the alarm (the <i>monitoring
- *                     account</i>) must already have a service-linked role named <b>AWSServiceRoleForCloudWatchCrossAccount</b> to allow
- *                     CloudWatch to assume the sharing role in the sharing account. If it
+ *                         account</i>) must already have a service-linked role named <b>AWSServiceRoleForCloudWatchCrossAccount</b> to allow
+ *                         CloudWatch to assume the sharing role in the sharing account. If it
  *                     does not, you must create it following the directions in <b>Set up a monitoring account</b> in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html#enable-cross-account-cross-Region"> Cross-account cross-Region CloudWatch console</a>.</p>
  *             </li>
  *          </ul>

@@ -63,23 +63,23 @@ export interface PutCompositeAlarmCommandOutput extends __MetadataBearer {}
  *             <p>To get out of such a situation, you must break the cycle by changing the rule of
  *                 one of the composite alarms in the cycle to remove a dependency that creates the
  *                 cycle. The simplest change to make to break a cycle is to change the
- *                 <code>AlarmRule</code> of one of the alarms to <code>false</code>. </p>
+ *                     <code>AlarmRule</code> of one of the alarms to <code>false</code>. </p>
  *             <p>Additionally, the evaluation of composite alarms stops if CloudWatch detects a
  *                 cycle in the evaluation path. </p>
  *          </note>
  *          <p>When this operation creates an alarm, the alarm state is immediately set to
- *             <code>INSUFFICIENT_DATA</code>. The alarm is then evaluated and its state is set
+ *                 <code>INSUFFICIENT_DATA</code>. The alarm is then evaluated and its state is set
  *             appropriately. Any actions associated with the new state are then executed. For a
  *             composite alarm, this initial time after creation is the only time that the alarm can be
  *             in <code>INSUFFICIENT_DATA</code> state.</p>
  *          <p>When you update an existing alarm, its state is left unchanged, but the update
  *             completely overwrites the previous configuration of the alarm.</p>
  *          <p>To use this operation, you must be signed on with the
- *             <code>cloudwatch:PutCompositeAlarm</code> permission that is scoped to
- *             <code>*</code>. You can't create a composite alarms if your
- *             <code>cloudwatch:PutCompositeAlarm</code> permission has a narrower scope.</p>
+ *                 <code>cloudwatch:PutCompositeAlarm</code> permission that is scoped to
+ *                 <code>*</code>. You can't create a composite alarms if your
+ *                 <code>cloudwatch:PutCompositeAlarm</code> permission has a narrower scope.</p>
  *          <p>If you are an IAM user, you must have
- *             <code>iam:CreateServiceLinkedRole</code> to create a composite alarm that has
+ *                 <code>iam:CreateServiceLinkedRole</code> to create a composite alarm that has
  *             Systems Manager OpsItem actions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

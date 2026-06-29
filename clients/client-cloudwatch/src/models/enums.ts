@@ -19,6 +19,7 @@ export type ActionsSuppressedBy = (typeof ActionsSuppressedBy)[keyof typeof Acti
  */
 export const AlarmType = {
   CompositeAlarm: "CompositeAlarm",
+  LogAlarm: "LogAlarm",
   MetricAlarm: "MetricAlarm",
 } as const;
 /**

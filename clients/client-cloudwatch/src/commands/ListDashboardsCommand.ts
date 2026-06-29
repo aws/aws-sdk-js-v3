@@ -28,7 +28,7 @@ export interface ListDashboardsCommandOutput extends ListDashboardsOutput, __Met
 
 /**
  * <p>Returns a list of the dashboards for your account. If you include
- *             <code>DashboardNamePrefix</code>, only those dashboards with names starting with the
+ *                 <code>DashboardNamePrefix</code>, only those dashboards with names starting with the
  *             prefix are listed. Otherwise, all dashboards in your account are listed. </p>
  *          <p>
  *             <code>ListDashboards</code> returns up to 1000 results on one page. If there are

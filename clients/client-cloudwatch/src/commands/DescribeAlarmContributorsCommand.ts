@@ -27,7 +27,9 @@ export interface DescribeAlarmContributorsCommandInput extends DescribeAlarmCont
 export interface DescribeAlarmContributorsCommandOutput extends DescribeAlarmContributorsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the information of the current alarm contributors that are in <code>ALARM</code> state. This operation returns details about the individual time series that contribute to the alarm's state.</p>
+ * <p>Returns the information of the current alarm contributors that are in
+ *                 <code>ALARM</code> state. This operation returns details about the individual time
+ *             series that contribute to the alarm's state.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

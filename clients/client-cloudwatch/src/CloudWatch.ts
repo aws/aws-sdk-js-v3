@@ -199,6 +199,11 @@ import {
   PutInsightRuleCommand,
 } from "./commands/PutInsightRuleCommand";
 import {
+  type PutLogAlarmCommandInput,
+  type PutLogAlarmCommandOutput,
+  PutLogAlarmCommand,
+} from "./commands/PutLogAlarmCommand";
+import {
   type PutManagedInsightRulesCommandInput,
   type PutManagedInsightRulesCommandOutput,
   PutManagedInsightRulesCommand,
@@ -267,6 +272,7 @@ import { paginateListMetricStreams } from "./pagination/ListMetricStreamsPaginat
 import { waitUntilAlarmExists } from "./waiters/waitForAlarmExists";
 import { waitUntilAlarmMuteRuleExists } from "./waiters/waitForAlarmMuteRuleExists";
 import { waitUntilCompositeAlarmExists } from "./waiters/waitForCompositeAlarmExists";
+import { waitUntilLogAlarmExists } from "./waiters/waitForLogAlarmExists";
 
 const commands = {
   AssociateDatasetKmsKeyCommand,
@@ -307,6 +313,7 @@ const commands = {
   PutCompositeAlarmCommand,
   PutDashboardCommand,
   PutInsightRuleCommand,
+  PutLogAlarmCommand,
   PutManagedInsightRulesCommand,
   PutMetricAlarmCommand,
   PutMetricDataCommand,
@@ -334,6 +341,7 @@ const paginators = {
 const waiters = {
   waitUntilAlarmExists,
   waitUntilCompositeAlarmExists,
+  waitUntilLogAlarmExists,
   waitUntilAlarmMuteRuleExists,
 };
 
@@ -996,6 +1004,23 @@ export interface CloudWatch {
   ): void;
 
   /**
+   * @see {@link PutLogAlarmCommand}
+   */
+  putLogAlarm(
+    args: PutLogAlarmCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutLogAlarmCommandOutput>;
+  putLogAlarm(
+    args: PutLogAlarmCommandInput,
+    cb: (err: any, data?: PutLogAlarmCommandOutput) => void
+  ): void;
+  putLogAlarm(
+    args: PutLogAlarmCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutLogAlarmCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link PutManagedInsightRulesCommand}
    */
   putManagedInsightRules(
@@ -1315,6 +1340,16 @@ export interface CloudWatch {
   ): Promise<WaiterResult<DescribeAlarmsCommandOutput>>;
 
   /**
+   * @see {@link DescribeAlarmsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilLogAlarmExists(
+    args: DescribeAlarmsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<CloudWatch>, "client">
+  ): Promise<WaiterResult<DescribeAlarmsCommandOutput>>;
+
+  /**
    * @see {@link GetAlarmMuteRuleCommand}
    * @param args - command input.
    * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
@@ -1326,19 +1361,57 @@ export interface CloudWatch {
 }
 
 /**
- * <p>Amazon CloudWatch monitors your Amazon Web Services (Amazon Web Services)
- *             resources and the applications you run on Amazon Web Services in real time. You can use
- *                 CloudWatch to collect and track metrics, which are the variables you want to
- *             measure for your resources and applications.</p>
- *          <p>CloudWatch alarms send notifications or automatically change the resources you are
- *             monitoring based on rules that you define. For example, you can monitor the CPU usage
- *             and disk reads and writes of your Amazon EC2 instances. Then, use this data to determine
- *             whether you should launch additional instances to handle increased load. You can also
- *             use this data to stop under-used instances to save money.</p>
- *          <p>In addition to monitoring the built-in metrics that come with Amazon Web Services,
- *             you can monitor your own custom metrics. With CloudWatch, you gain system-wide
- *             visibility into resource utilization, application performance, and operational
- *             health.</p>
+ * <p>Amazon CloudWatch enables you to publish, monitor, and manage various metrics, as well
+ *             as configure alarm actions based on data from metrics. This guide provides detailed
+ *             information about CloudWatch actions, data types, parameters, and errors. For
+ *             more information about CloudWatch features, see <a href="https://aws.amazon.com/cloudwatch">Amazon CloudWatch</a> and the
+ *                 <i>Amazon CloudWatch User Guide</i>.</p>
+ *          <p>For information about the metrics that other Amazon Web Services products send to
+ *                 CloudWatch, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html">Amazon CloudWatch
+ *                 Metrics and Dimensions Reference</a> in the <i>Amazon CloudWatch User
+ *                 Guide</i>.</p>
+ *          <p>Use the following links to get started using the CloudWatch Query API:</p>
+ *          <p>: An alphabetical list of all CloudWatch
+ *             actions.</p>
+ *          <p>: An alphabetical list of all CloudWatch data
+ *             types.</p>
+ *          <p>
+ *             <a>CommonParameters</a>: Parameters that all Query actions can use.</p>
+ *          <p>
+ *             <a>CommonErrors</a>: Client and server errors that all actions can
+ *             return.</p>
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#cw_region">Regions and Endpoints</a>: Supported regions and endpoints for all Amazon Web
+ *             Services products.</p>
+ *          <p>Alternatively, you can use one of the <a href="https://aws.amazon.com/tools/#sdk">Amazon Web Services SDKs</a> to access CloudWatch using an API tailored
+ *             to your programming language or platform.</p>
+ *          <p>Developers in the Amazon Web Services developer community also provide their own
+ *             libraries, which you can find at the following Amazon Web Services developer
+ *             centers:</p>
+ *          <p>
+ *             <a href="http://aws.amazon.com/java/">Java Developer Center</a>
+ *          </p>
+ *          <p>
+ *             <a href="http://aws.amazon.com/javascript/">JavaScript Developer
+ *             Center</a>
+ *          </p>
+ *          <p>
+ *             <a href="http://aws.amazon.com/mobile/">Amazon Web Services Mobile
+ *             Services</a>
+ *          </p>
+ *          <p>
+ *             <a href="http://aws.amazon.com/php/">PHP Developer Center</a>
+ *          </p>
+ *          <p>
+ *             <a href="http://aws.amazon.com/python/">Python Developer Center</a>
+ *          </p>
+ *          <p>
+ *             <a href="http://aws.amazon.com/ruby/">Ruby Developer Center</a>
+ *          </p>
+ *          <p>
+ *             <a href="http://aws.amazon.com/net/">Windows and .NET Developer
+ *             Center</a>
+ *          </p>
  * @public
  */
 export class CloudWatch extends CloudWatchClient implements CloudWatch {}

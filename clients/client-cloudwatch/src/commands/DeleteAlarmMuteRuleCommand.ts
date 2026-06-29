@@ -28,12 +28,16 @@ export interface DeleteAlarmMuteRuleCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a specific alarm mute rule.</p>
- *          <p>When you delete a mute rule, any alarms that are currently being muted by that rule are immediately unmuted. If those alarms are in an ALARM state, their configured actions will trigger.</p>
- *          <p>This operation is idempotent. If you delete a mute rule that does not exist, the operation succeeds without returning an error.</p>
+ *          <p>When you delete a mute rule, any alarms that are currently being muted by that rule
+ *             are immediately unmuted. If those alarms are in an ALARM state, their configured actions
+ *             will trigger.</p>
+ *          <p>This operation is idempotent. If you delete a mute rule that does not exist, the
+ *             operation succeeds without returning an error.</p>
  *          <p>
  *             <b>Permissions</b>
  *          </p>
- *          <p>To delete a mute rule, you need the <code>cloudwatch:DeleteAlarmMuteRule</code> permission on the alarm mute rule resource.</p>
+ *          <p>To delete a mute rule, you need the <code>cloudwatch:DeleteAlarmMuteRule</code>
+ *             permission on the alarm mute rule resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

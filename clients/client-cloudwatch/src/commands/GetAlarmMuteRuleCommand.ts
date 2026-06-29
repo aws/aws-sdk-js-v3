@@ -28,26 +28,32 @@ export interface GetAlarmMuteRuleCommandOutput extends GetAlarmMuteRuleOutput, _
 
 /**
  * <p>Retrieves details for a specific alarm mute rule.</p>
- *          <p>This operation returns complete information about the mute rule, including its configuration, status, targeted alarms, and metadata.</p>
+ *          <p>This operation returns complete information about the mute rule, including its
+ *             configuration, status, targeted alarms, and metadata.</p>
  *          <p>The returned status indicates the current state of the mute rule:</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <b>SCHEDULED</b>: The mute rule is configured and will become active in the future</p>
+ *                   <b>SCHEDULED</b>: The mute rule is configured and
+ *                     will become active in the future</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <b>ACTIVE</b>: The mute rule is currently muting alarm actions</p>
+ *                   <b>ACTIVE</b>: The mute rule is currently muting
+ *                     alarm actions</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <b>EXPIRED</b>: The mute rule has passed its expiration date and will no longer become active</p>
+ *                   <b>EXPIRED</b>: The mute rule has passed its
+ *                     expiration date and will no longer become active</p>
  *             </li>
  *          </ul>
  *          <p>
  *             <b>Permissions</b>
  *          </p>
- *          <p>To retrieve details for a mute rule, you need the <code>cloudwatch:GetAlarmMuteRule</code> permission on the alarm mute rule resource.</p>
+ *          <p>To retrieve details for a mute rule, you need the
+ *                 <code>cloudwatch:GetAlarmMuteRule</code> permission on the alarm mute rule
+ *             resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

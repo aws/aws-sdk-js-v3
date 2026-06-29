@@ -82,8 +82,8 @@ export interface GetMetricStatisticsCommandOutput extends GetMetricStatisticsOut
  *             2016.</p>
  *          <p>For information about metrics and dimensions supported by Amazon Web Services
  *             services, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Support_For_AWS.html">Amazon CloudWatch
- *             Metrics and Dimensions Reference</a> in the <i>Amazon CloudWatch User
- *             Guide</i>.</p>
+ *                 Metrics and Dimensions Reference</a> in the <i>Amazon CloudWatch User
+ *                 Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

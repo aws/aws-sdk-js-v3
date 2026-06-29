@@ -195,6 +195,26 @@ export class DashboardNotFoundError extends __BaseException {
 }
 
 /**
+ * <p>The operation could not be completed because the request conflicts with the current state of the alarm or its underlying scheduled query resource.</p>
+ * @public
+ */
+export class ResourceConflict extends __BaseException {
+  readonly name = "ResourceConflict" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceConflict, __BaseException>) {
+    super({
+      name: "ResourceConflict",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceConflict.prototype);
+  }
+}
+
+/**
  * <p>The named resource does not exist.</p>
  * @public
  */

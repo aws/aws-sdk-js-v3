@@ -32,7 +32,7 @@ export interface PutAnomalyDetectorCommandOutput extends PutAnomalyDetectorOutpu
  *          <p>If you have enabled unified cross-account observability, and this account is a
  *             monitoring account, the metric can be in the same account or a source account. You can
  *             specify the account ID in the object you specify in the
- *             <code>SingleMetricAnomalyDetector</code> parameter.</p>
+ *                 <code>SingleMetricAnomalyDetector</code> parameter.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Anomaly_Detection.html">CloudWatch Anomaly Detection</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

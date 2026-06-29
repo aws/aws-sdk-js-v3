@@ -27,10 +27,9 @@ export interface StopOTelEnrichmentCommandInput extends StopOTelEnrichmentInput 
 export interface StopOTelEnrichmentCommandOutput extends StopOTelEnrichmentOutput, __MetadataBearer {}
 
 /**
- * <p>Disables enrichment and PromQL access for CloudWatch vended metrics for
- *             <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/UsingResourceTagsForTelemetry.html">supported Amazon Web Services resources</a> in the account. After disabling, these metrics
- *             are no longer enriched with resource ARN and resource tag labels, and cannot be
- *             queried using PromQL.</p>
+ * <p>Disables enrichment and PromQL access for CloudWatch vended metrics for <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/UsingResourceTagsForTelemetry.html">supported Amazon Web Services resources</a> in the account. After disabling,
+ *             these metrics are no longer enriched with resource ARN and resource tag labels, and
+ *             cannot be queried using PromQL.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

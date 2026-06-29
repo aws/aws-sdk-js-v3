@@ -31,8 +31,8 @@ export interface DescribeAlarmsCommandOutput extends DescribeAlarmsOutput, __Met
  *             for the alarm name, the alarm state, or a prefix for any action.</p>
  *          <p>To use this operation and return information about composite alarms, you must be
  *             signed on with the <code>cloudwatch:DescribeAlarms</code> permission that is scoped to
- *             <code>*</code>. You can't return information about composite alarms if your
- *             <code>cloudwatch:DescribeAlarms</code> permission has a narrower scope.</p>
+ *                 <code>*</code>. You can't return information about composite alarms if your
+ *                 <code>cloudwatch:DescribeAlarms</code> permission has a narrower scope.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -47,7 +47,7 @@ export interface DescribeAlarmsCommandOutput extends DescribeAlarmsOutput, __Met
  *   ],
  *   AlarmNamePrefix: "STRING_VALUE",
  *   AlarmTypes: [ // AlarmTypes
- *     "CompositeAlarm" || "MetricAlarm",
+ *     "CompositeAlarm" || "MetricAlarm" || "LogAlarm",
  *   ],
  *   ChildrenOfAlarmName: "STRING_VALUE",
  *   ParentsOfAlarmName: "STRING_VALUE",
@@ -160,6 +160,51 @@ export interface DescribeAlarmsCommandOutput extends DescribeAlarmsOutput, __Met
  * //         },
  * //       },
  * //       EvaluationInterval: Number("int"),
+ * //     },
+ * //   ],
+ * //   LogAlarms: [ // LogAlarms
+ * //     { // LogAlarm
+ * //       AlarmName: "STRING_VALUE",
+ * //       AlarmArn: "STRING_VALUE",
+ * //       AlarmDescription: "STRING_VALUE",
+ * //       AlarmConfigurationUpdatedTimestamp: new Date("TIMESTAMP"),
+ * //       ActionsEnabled: true || false,
+ * //       OKActions: "<ResourceList>",
+ * //       AlarmActions: "<ResourceList>",
+ * //       InsufficientDataActions: "<ResourceList>",
+ * //       StateValue: "OK" || "ALARM" || "INSUFFICIENT_DATA",
+ * //       StateReason: "STRING_VALUE",
+ * //       StateReasonData: "STRING_VALUE",
+ * //       StateUpdatedTimestamp: new Date("TIMESTAMP"),
+ * //       ScheduledQueryConfiguration: { // ScheduledQueryConfiguration
+ * //         QueryString: "STRING_VALUE", // required
+ * //         LogGroupIdentifiers: [ // LogGroupIdentifiers
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         QueryARN: "STRING_VALUE",
+ * //         ScheduledQueryRoleARN: "STRING_VALUE", // required
+ * //         ScheduleConfiguration: { // ScheduleConfiguration
+ * //           ScheduleExpression: "STRING_VALUE", // required
+ * //           StartTimeOffset: Number("long"),
+ * //           EndTimeOffset: Number("long"),
+ * //         },
+ * //         AggregationExpression: "STRING_VALUE", // required
+ * //         Tags: [ // TagList
+ * //           { // Tag
+ * //             Key: "STRING_VALUE", // required
+ * //             Value: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //       },
+ * //       QueryResultsToEvaluate: Number("int"),
+ * //       QueryResultsToAlarm: Number("int"),
+ * //       Threshold: Number("double"),
+ * //       ComparisonOperator: "GreaterThanOrEqualToThreshold" || "GreaterThanThreshold" || "LessThanThreshold" || "LessThanOrEqualToThreshold" || "LessThanLowerOrGreaterThanUpperThreshold" || "LessThanLowerThreshold" || "GreaterThanUpperThreshold",
+ * //       TreatMissingData: "STRING_VALUE",
+ * //       StateTransitionedTimestamp: new Date("TIMESTAMP"),
+ * //       EvaluationState: "PARTIAL_DATA" || "EVALUATION_FAILURE" || "EVALUATION_ERROR",
+ * //       ActionLogLineCount: Number("int"),
+ * //       ActionLogLineRoleArn: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

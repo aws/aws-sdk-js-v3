@@ -31,7 +31,7 @@ export interface DescribeAnomalyDetectorsCommandOutput extends DescribeAnomalyDe
  *             metric anomaly detectors, you can list all of the models in your account or filter the
  *             results to only the models that are related to a certain namespace, metric name, or
  *             metric dimension. For metric math anomaly detectors, you can list them by adding
- *             <code>METRIC_MATH</code> to the <code>AnomalyDetectorTypes</code> array. This will
+ *                 <code>METRIC_MATH</code> to the <code>AnomalyDetectorTypes</code> array. This will
  *             return all metric math anomaly detectors in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

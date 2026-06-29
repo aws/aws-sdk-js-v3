@@ -28,12 +28,16 @@ export interface ListAlarmMuteRulesCommandOutput extends ListAlarmMuteRulesOutpu
 
 /**
  * <p>Lists alarm mute rules in your Amazon Web Services account and region.</p>
- *          <p>You can filter the results by alarm name to find all mute rules targeting a specific alarm, or by status to find rules that are scheduled, active, or expired.</p>
- *          <p>This operation supports pagination for accounts with many mute rules. Use the <code>MaxRecords</code> and <code>NextToken</code> parameters to retrieve results in multiple calls.</p>
+ *          <p>You can filter the results by alarm name to find all mute rules targeting a specific
+ *             alarm, or by status to find rules that are scheduled, active, or expired.</p>
+ *          <p>This operation supports pagination for accounts with many mute rules. Use the
+ *                 <code>MaxRecords</code> and <code>NextToken</code> parameters to retrieve results in
+ *             multiple calls.</p>
  *          <p>
  *             <b>Permissions</b>
  *          </p>
- *          <p>To list mute rules, you need the <code>cloudwatch:ListAlarmMuteRules</code> permission.</p>
+ *          <p>To list mute rules, you need the <code>cloudwatch:ListAlarmMuteRules</code>
+ *             permission.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

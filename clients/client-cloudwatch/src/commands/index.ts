@@ -37,6 +37,7 @@ export * from "./PutAnomalyDetectorCommand";
 export * from "./PutCompositeAlarmCommand";
 export * from "./PutDashboardCommand";
 export * from "./PutInsightRuleCommand";
+export * from "./PutLogAlarmCommand";
 export * from "./PutManagedInsightRulesCommand";
 export * from "./PutMetricAlarmCommand";
 export * from "./PutMetricDataCommand";

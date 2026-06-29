@@ -37,15 +37,15 @@ export interface GetMetricDataCommandOutput extends GetMetricDataOutput, __Metad
  *             data. For example, using Lambda metrics, you could divide the Errors metric by the
  *             Invocations metric to get an error rate time series. For more information about metric
  *             math expressions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax">Metric Math Syntax and Functions</a> in the <i>Amazon CloudWatch User
- *             Guide</i>.</p>
+ *                 Guide</i>.</p>
  *          <p>If you include a Metrics Insights query, each <code>GetMetricData</code> operation can
  *             include only one query. But the same <code>GetMetricData</code> operation can also
  *             retrieve other metrics. Metrics Insights queries can query only the most recent three
  *             hours of metric data. For more information about Metrics Insights, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/query_with_cloudwatch-metrics-insights.html">Query your metrics with CloudWatch Metrics Insights</a>.</p>
  *          <p>Calls to the <code>GetMetricData</code> API have a different pricing structure than
  *             calls to <code>GetMetricStatistics</code>. For more information about pricing, see
- *             <a href="https://aws.amazon.com/cloudwatch/pricing/">Amazon CloudWatch
- *             Pricing</a>.</p>
+ *                 <a href="https://aws.amazon.com/cloudwatch/pricing/">Amazon CloudWatch
+ *                 Pricing</a>.</p>
  *          <p>Amazon CloudWatch retains metric data as follows:</p>
  *          <ul>
  *             <li>

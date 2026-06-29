@@ -452,6 +452,203 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "EvaluationInterval": 0
     }
   ],
+  "LogAlarms": [
+    {
+      "AlarmName": "__AlarmName__",
+      "AlarmArn": "__AlarmArn__",
+      "AlarmDescription": "__AlarmDescription__",
+      "AlarmConfigurationUpdatedTimestamp": 946702799.999,
+      "ActionsEnabled": false,
+      "OKActions": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "AlarmActions": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "InsufficientDataActions": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "StateValue": "__StateValue__",
+      "StateReason": "__StateReason__",
+      "StateReasonData": "__StateReasonData__",
+      "StateUpdatedTimestamp": 946702799.999,
+      "ScheduledQueryConfiguration": {
+        "QueryString": "__QueryString__",
+        "ScheduledQueryRoleARN": "__ScheduledQueryRoleARN__",
+        "ScheduleConfiguration": {
+          "ScheduleExpression": "__ScheduleExpression__",
+          "StartTimeOffset": 0,
+          "EndTimeOffset": 0
+        },
+        "AggregationExpression": "__AggregationExpression__",
+        "LogGroupIdentifiers": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "QueryARN": "__QueryARN__",
+        "Tags": [
+          {
+            "Key": "__Key__",
+            "Value": "__Value__"
+          },
+          {
+            "Key": "__Key__",
+            "Value": "__Value__"
+          },
+          {
+            "Key": "__Key__",
+            "Value": "__Value__"
+          }
+        ]
+      },
+      "QueryResultsToEvaluate": 0,
+      "QueryResultsToAlarm": 0,
+      "Threshold": 0,
+      "ComparisonOperator": "__ComparisonOperator__",
+      "TreatMissingData": "__TreatMissingData__",
+      "StateTransitionedTimestamp": 946702799.999,
+      "EvaluationState": "__EvaluationState__",
+      "ActionLogLineCount": 0,
+      "ActionLogLineRoleArn": "__ActionLogLineRoleArn__"
+    },
+    {
+      "AlarmName": "__AlarmName__",
+      "AlarmArn": "__AlarmArn__",
+      "AlarmDescription": "__AlarmDescription__",
+      "AlarmConfigurationUpdatedTimestamp": 946702799.999,
+      "ActionsEnabled": false,
+      "OKActions": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "AlarmActions": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "InsufficientDataActions": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "StateValue": "__StateValue__",
+      "StateReason": "__StateReason__",
+      "StateReasonData": "__StateReasonData__",
+      "StateUpdatedTimestamp": 946702799.999,
+      "ScheduledQueryConfiguration": {
+        "QueryString": "__QueryString__",
+        "ScheduledQueryRoleARN": "__ScheduledQueryRoleARN__",
+        "ScheduleConfiguration": {
+          "ScheduleExpression": "__ScheduleExpression__",
+          "StartTimeOffset": 0,
+          "EndTimeOffset": 0
+        },
+        "AggregationExpression": "__AggregationExpression__",
+        "LogGroupIdentifiers": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "QueryARN": "__QueryARN__",
+        "Tags": [
+          {
+            "Key": "__Key__",
+            "Value": "__Value__"
+          },
+          {
+            "Key": "__Key__",
+            "Value": "__Value__"
+          },
+          {
+            "Key": "__Key__",
+            "Value": "__Value__"
+          }
+        ]
+      },
+      "QueryResultsToEvaluate": 0,
+      "QueryResultsToAlarm": 0,
+      "Threshold": 0,
+      "ComparisonOperator": "__ComparisonOperator__",
+      "TreatMissingData": "__TreatMissingData__",
+      "StateTransitionedTimestamp": 946702799.999,
+      "EvaluationState": "__EvaluationState__",
+      "ActionLogLineCount": 0,
+      "ActionLogLineRoleArn": "__ActionLogLineRoleArn__"
+    },
+    {
+      "AlarmName": "__AlarmName__",
+      "AlarmArn": "__AlarmArn__",
+      "AlarmDescription": "__AlarmDescription__",
+      "AlarmConfigurationUpdatedTimestamp": 946702799.999,
+      "ActionsEnabled": false,
+      "OKActions": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "AlarmActions": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "InsufficientDataActions": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "StateValue": "__StateValue__",
+      "StateReason": "__StateReason__",
+      "StateReasonData": "__StateReasonData__",
+      "StateUpdatedTimestamp": 946702799.999,
+      "ScheduledQueryConfiguration": {
+        "QueryString": "__QueryString__",
+        "ScheduledQueryRoleARN": "__ScheduledQueryRoleARN__",
+        "ScheduleConfiguration": {
+          "ScheduleExpression": "__ScheduleExpression__",
+          "StartTimeOffset": 0,
+          "EndTimeOffset": 0
+        },
+        "AggregationExpression": "__AggregationExpression__",
+        "LogGroupIdentifiers": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "QueryARN": "__QueryARN__",
+        "Tags": [
+          {
+            "Key": "__Key__",
+            "Value": "__Value__"
+          },
+          {
+            "Key": "__Key__",
+            "Value": "__Value__"
+          },
+          {
+            "Key": "__Key__",
+            "Value": "__Value__"
+          }
+        ]
+      },
+      "QueryResultsToEvaluate": 0,
+      "QueryResultsToAlarm": 0,
+      "Threshold": 0,
+      "ComparisonOperator": "__ComparisonOperator__",
+      "TreatMissingData": "__TreatMissingData__",
+      "StateTransitionedTimestamp": 946702799.999,
+      "EvaluationState": "__EvaluationState__",
+      "ActionLogLineCount": 0,
+      "ActionLogLineRoleArn": "__ActionLogLineRoleArn__"
+    }
+  ],
   "NextToken": "__NextToken__"
 }
 
@@ -880,6 +1077,203 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         }
       },
       EvaluationInterval: (number) 0
+    }
+  ],
+  LogAlarms: [
+    {
+      AlarmName: "__AlarmName__",
+      AlarmArn: "__AlarmArn__",
+      AlarmDescription: "__AlarmDescription__",
+      AlarmConfigurationUpdatedTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ActionsEnabled: (boolean) false,
+      OKActions: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      AlarmActions: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      InsufficientDataActions: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      StateValue: "__StateValue__",
+      StateReason: "__StateReason__",
+      StateReasonData: "__StateReasonData__",
+      StateUpdatedTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ScheduledQueryConfiguration: {
+        QueryString: "__QueryString__",
+        ScheduledQueryRoleARN: "__ScheduledQueryRoleARN__",
+        ScheduleConfiguration: {
+          ScheduleExpression: "__ScheduleExpression__",
+          StartTimeOffset: (number) 0,
+          EndTimeOffset: (number) 0
+        },
+        AggregationExpression: "__AggregationExpression__",
+        LogGroupIdentifiers: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        QueryARN: "__QueryARN__",
+        Tags: [
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          }
+        ]
+      },
+      QueryResultsToEvaluate: (number) 0,
+      QueryResultsToAlarm: (number) 0,
+      Threshold: (number) 0,
+      ComparisonOperator: "__ComparisonOperator__",
+      TreatMissingData: "__TreatMissingData__",
+      StateTransitionedTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EvaluationState: "__EvaluationState__",
+      ActionLogLineCount: (number) 0,
+      ActionLogLineRoleArn: "__ActionLogLineRoleArn__"
+    },
+    {
+      AlarmName: "__AlarmName__",
+      AlarmArn: "__AlarmArn__",
+      AlarmDescription: "__AlarmDescription__",
+      AlarmConfigurationUpdatedTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ActionsEnabled: (boolean) false,
+      OKActions: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      AlarmActions: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      InsufficientDataActions: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      StateValue: "__StateValue__",
+      StateReason: "__StateReason__",
+      StateReasonData: "__StateReasonData__",
+      StateUpdatedTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ScheduledQueryConfiguration: {
+        QueryString: "__QueryString__",
+        ScheduledQueryRoleARN: "__ScheduledQueryRoleARN__",
+        ScheduleConfiguration: {
+          ScheduleExpression: "__ScheduleExpression__",
+          StartTimeOffset: (number) 0,
+          EndTimeOffset: (number) 0
+        },
+        AggregationExpression: "__AggregationExpression__",
+        LogGroupIdentifiers: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        QueryARN: "__QueryARN__",
+        Tags: [
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          }
+        ]
+      },
+      QueryResultsToEvaluate: (number) 0,
+      QueryResultsToAlarm: (number) 0,
+      Threshold: (number) 0,
+      ComparisonOperator: "__ComparisonOperator__",
+      TreatMissingData: "__TreatMissingData__",
+      StateTransitionedTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EvaluationState: "__EvaluationState__",
+      ActionLogLineCount: (number) 0,
+      ActionLogLineRoleArn: "__ActionLogLineRoleArn__"
+    },
+    {
+      AlarmName: "__AlarmName__",
+      AlarmArn: "__AlarmArn__",
+      AlarmDescription: "__AlarmDescription__",
+      AlarmConfigurationUpdatedTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ActionsEnabled: (boolean) false,
+      OKActions: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      AlarmActions: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      InsufficientDataActions: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      StateValue: "__StateValue__",
+      StateReason: "__StateReason__",
+      StateReasonData: "__StateReasonData__",
+      StateUpdatedTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ScheduledQueryConfiguration: {
+        QueryString: "__QueryString__",
+        ScheduledQueryRoleARN: "__ScheduledQueryRoleARN__",
+        ScheduleConfiguration: {
+          ScheduleExpression: "__ScheduleExpression__",
+          StartTimeOffset: (number) 0,
+          EndTimeOffset: (number) 0
+        },
+        AggregationExpression: "__AggregationExpression__",
+        LogGroupIdentifiers: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        QueryARN: "__QueryARN__",
+        Tags: [
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          }
+        ]
+      },
+      QueryResultsToEvaluate: (number) 0,
+      QueryResultsToAlarm: (number) 0,
+      Threshold: (number) 0,
+      ComparisonOperator: "__ComparisonOperator__",
+      TreatMissingData: "__TreatMissingData__",
+      StateTransitionedTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EvaluationState: "__EvaluationState__",
+      ActionLogLineCount: (number) 0,
+      ActionLogLineRoleArn: "__ActionLogLineRoleArn__"
     }
   ],
   NextToken: "__NextToken__",

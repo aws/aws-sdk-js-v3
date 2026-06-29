@@ -34,7 +34,7 @@ export interface DescribeAlarmHistoryCommandOutput extends DescribeAlarmHistoryO
  *          <p>To use this operation and return information about a composite alarm, you must be
  *             signed on with the <code>cloudwatch:DescribeAlarmHistory</code> permission that is
  *             scoped to <code>*</code>. You can't return information about composite alarms if your
- *             <code>cloudwatch:DescribeAlarmHistory</code> permission has a narrower scope.</p>
+ *                 <code>cloudwatch:DescribeAlarmHistory</code> permission has a narrower scope.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -47,7 +47,7 @@ export interface DescribeAlarmHistoryCommandOutput extends DescribeAlarmHistoryO
  *   AlarmName: "STRING_VALUE",
  *   AlarmContributorId: "STRING_VALUE",
  *   AlarmTypes: [ // AlarmTypes
- *     "CompositeAlarm" || "MetricAlarm",
+ *     "CompositeAlarm" || "MetricAlarm" || "LogAlarm",
  *   ],
  *   HistoryItemType: "ConfigurationUpdate" || "StateUpdate" || "Action" || "AlarmContributorStateUpdate" || "AlarmContributorAction",
  *   StartDate: new Date("TIMESTAMP"),
@@ -63,7 +63,7 @@ export interface DescribeAlarmHistoryCommandOutput extends DescribeAlarmHistoryO
  * //     { // AlarmHistoryItem
  * //       AlarmName: "STRING_VALUE",
  * //       AlarmContributorId: "STRING_VALUE",
- * //       AlarmType: "CompositeAlarm" || "MetricAlarm",
+ * //       AlarmType: "CompositeAlarm" || "MetricAlarm" || "LogAlarm",
  * //       Timestamp: new Date("TIMESTAMP"),
  * //       HistoryItemType: "ConfigurationUpdate" || "StateUpdate" || "Action" || "AlarmContributorStateUpdate" || "AlarmContributorAction",
  * //       HistorySummary: "STRING_VALUE",

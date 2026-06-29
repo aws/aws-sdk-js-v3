@@ -17,9 +17,12 @@ const _ADT = "AnomalyDetectorTypes";
 const _ADl = "AlarmDescription";
 const _ADn = "AnomalyDetectors";
 const _AE = "ActionsEnabled";
+const _AEg = "AggregationExpression";
 const _AHI = "AlarmHistoryItem";
 const _AHIl = "AlarmHistoryItems";
 const _AI = "AccountId";
+const _ALLC = "ActionLogLineCount";
+const _ALLRA = "ActionLogLineRoleArn";
 const _AMRA = "AlarmMuteRuleArn";
 const _AMRN = "AlarmMuteRuleName";
 const _AMRS = "AlarmMuteRuleSummary";
@@ -144,6 +147,7 @@ const _ES = "ExtendedStatistics";
 const _ESv = "EvaluationState";
 const _ESx = "ExtendedStatistic";
 const _ET = "EndTime";
+const _ETO = "EndTimeOffset";
 const _ETR = "ExcludedTimeRanges";
 const _ETx = "ExceptionType";
 const _En = "Entries";
@@ -211,14 +215,17 @@ const _KKNFE = "KmsKeyNotFoundException";
 const _KL = "KeyLabels";
 const _Ke = "Key";
 const _L = "Label";
+const _LA = "LogAlarms";
 const _LAMR = "ListAlarmMuteRules";
 const _LAMRI = "ListAlarmMuteRulesInput";
 const _LAMRO = "ListAlarmMuteRulesOutput";
+const _LAo = "LogAlarm";
 const _LD = "ListDashboards";
 const _LDI = "ListDashboardsInput";
 const _LDO = "ListDashboardsOutput";
 const _LEE = "LimitExceededException";
 const _LEF = "LimitExceededFault";
+const _LGI = "LogGroupIdentifiers";
 const _LM = "LastModified";
 const _LMI = "ListMetricsInput";
 const _LMIR = "ListManagedInsightRules";
@@ -305,6 +312,8 @@ const _PF = "PartialFailure";
 const _PIR = "PutInsightRule";
 const _PIRI = "PutInsightRuleInput";
 const _PIRO = "PutInsightRuleOutput";
+const _PLA = "PutLogAlarm";
+const _PLAI = "PutLogAlarmInput";
 const _PMA = "PutMetricAlarm";
 const _PMAI = "PutMetricAlarmInput";
 const _PMD = "PutMetricData";
@@ -320,10 +329,15 @@ const _PP = "PendingPeriod";
 const _PQLC = "PromQLCriteria";
 const _PS = "PeriodicSpikes";
 const _Q = "Query";
+const _QARN = "QueryARN";
+const _QRTA = "QueryResultsToAlarm";
+const _QRTE = "QueryResultsToEvaluate";
+const _QS = "QueryString";
 const _R = "Rule";
 const _RA = "RoleArn";
 const _RARN = "ResourceARN";
 const _RAe = "RecentlyActive";
+const _RC = "ResourceConflict";
 const _RD = "ReturnData";
 const _RDu = "RuleDefinition";
 const _RI = "ResourceId";
@@ -340,9 +354,11 @@ const _SAS = "SetAlarmState";
 const _SASI = "SetAlarmStateInput";
 const _SB = "ScanBy";
 const _SC = "SampleCount";
+const _SCc = "ScheduleConfiguration";
 const _SCt = "StatisticsConfigurations";
 const _SCta = "StatusCode";
 const _SD = "StartDate";
+const _SE = "ScheduleExpression";
 const _SEV = "StrictEntityValidation";
 const _SMAD = "SingleMetricAnomalyDetector";
 const _SMS = "StartMetricStreams";
@@ -357,11 +373,14 @@ const _SOTEIt = "StopOTelEnrichmentInput";
 const _SOTEO = "StartOTelEnrichmentOutput";
 const _SOTEOt = "StopOTelEnrichmentOutput";
 const _SOTEt = "StopOTelEnrichment";
+const _SQC = "ScheduledQueryConfiguration";
+const _SQRARN = "ScheduledQueryRoleARN";
 const _SR = "StateReason";
 const _SRD = "StateReasonData";
 const _SRt = "StorageResolution";
 const _SS = "StatisticSet";
 const _ST = "StartTime";
+const _STO = "StartTimeOffset";
 const _STT = "StateTransitionedTimestamp";
 const _SUT = "StateUpdatedTimestamp";
 const _SV = "StateValue";
@@ -434,6 +453,7 @@ import {
   LimitExceededException,
   LimitExceededFault,
   MissingRequiredParameterException,
+  ResourceConflict,
   ResourceNotFound,
   ResourceNotFoundException,
 } from "../models/errors";
@@ -533,6 +553,12 @@ export var MissingRequiredParameterException$: StaticErrorSchema = [-3, n0, _MRP
   [0]
 ];
 n0_registry.registerError(MissingRequiredParameterException$, MissingRequiredParameterException);
+export var ResourceConflict$: StaticErrorSchema = [-3, n0, _RC,
+  { [_aQE]: [`ResourceConflict`, 409], [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceConflict$, ResourceConflict);
 export var ResourceNotFound$: StaticErrorSchema = [-3, n0, _RNF,
   { [_aQE]: [`ResourceNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
@@ -701,8 +727,8 @@ export var DescribeAlarmsInput$: StaticStructureSchema = [3, n0, _DAIe,
 ];
 export var DescribeAlarmsOutput$: StaticStructureSchema = [3, n0, _DAO,
   0,
-  [_CAom, _MA, _NT],
-  [() => CompositeAlarms, () => MetricAlarms, 0]
+  [_CAom, _MA, _LA, _NT],
+  [() => CompositeAlarms, () => MetricAlarms, () => LogAlarms, 0]
 ];
 export var DescribeAnomalyDetectorsInput$: StaticStructureSchema = [3, n0, _DADIe,
   0,
@@ -959,6 +985,11 @@ export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
   [_Ta],
   [() => TagList]
 ];
+export var LogAlarm$: StaticStructureSchema = [3, n0, _LAo,
+  0,
+  [_AN, _AAl, _ADl, _ACUT, _AE, _OKA, _AA, _IDA, _SV, _SR, _SRD, _SUT, _SQC, _QRTE, _QRTA, _Th, _CO, _TMD, _STT, _ESv, _ALLC, _ALLRA],
+  [0, 0, 0, 4, 2, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, 4, () => ScheduledQueryConfiguration$, 1, 1, 1, 0, 0, 4, 0, 1, 0]
+];
 export var ManagedRule$: StaticStructureSchema = [3, n0, _MRan,
   0,
   [_TN, _RARN, _Ta],
@@ -1089,6 +1120,11 @@ export var PutInsightRuleOutput$: StaticStructureSchema = [3, n0, _PIRO,
   [],
   []
 ];
+export var PutLogAlarmInput$: StaticStructureSchema = [3, n0, _PLAI,
+  0,
+  [_AN, _SQC, _QRTE, _QRTA, _Th, _CO, _ADl, _ALLC, _ALLRA, _AE, _OKA, _AA, _IDA, _TMD, _Ta],
+  [0, () => ScheduledQueryConfiguration$, 1, 1, 1, 0, 0, 1, 0, 2, 64 | 0, 64 | 0, 64 | 0, 0, () => TagList], 6
+];
 export var PutManagedInsightRulesInput$: StaticStructureSchema = [3, n0, _PMIRI,
   0,
   [_MRana],
@@ -1133,6 +1169,16 @@ export var Schedule$: StaticStructureSchema = [3, n0, _Sch,
   0,
   [_Ex, _Du, _Ti],
   [0, 0, 0], 2
+];
+export var ScheduleConfiguration$: StaticStructureSchema = [3, n0, _SCc,
+  0,
+  [_SE, _STO, _ETO],
+  [0, 1, 1], 1
+];
+export var ScheduledQueryConfiguration$: StaticStructureSchema = [3, n0, _SQC,
+  0,
+  [_QS, _SQRARN, _SCc, _AEg, _LGI, _QARN, _Ta],
+  [0, 0, () => ScheduleConfiguration$, 0, 64 | 0, 0, () => TagList], 4
 ];
 export var SetAlarmStateInput$: StaticStructureSchema = [3, n0, _SASI,
   0,
@@ -1278,6 +1324,10 @@ var InsightRuleNames = 64 | 0;
 var InsightRules: StaticListSchema = [1, n0, _IR,
   0, () => InsightRule$
 ];
+var LogAlarms: StaticListSchema = [1, n0, _LA,
+  0, () => LogAlarm$
+];
+var LogGroupIdentifiers = 64 | 0;
 var ManagedRuleDescriptions: StaticListSchema = [1, n0, _MRDa,
   0, () => ManagedRuleDescription$
 ];
@@ -1449,6 +1499,9 @@ export var PutDashboard$: StaticOperationSchema = [9, n0, _PD,
 ];
 export var PutInsightRule$: StaticOperationSchema = [9, n0, _PIR,
   0, () => PutInsightRuleInput$, () => PutInsightRuleOutput$
+];
+export var PutLogAlarm$: StaticOperationSchema = [9, n0, _PLA,
+  0, () => PutLogAlarmInput$, () => __Unit
 ];
 export var PutManagedInsightRules$: StaticOperationSchema = [9, n0, _PMIR,
   0, () => PutManagedInsightRulesInput$, () => PutManagedInsightRulesOutput$

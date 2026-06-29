@@ -36,7 +36,7 @@ export interface PutMetricDataCommandOutput extends __MetadataBearer {}
  *             found and viewed together), or publish metric data by itself. To send entity data with
  *             your metrics, use the <code>EntityMetricData</code> parameter. To send metrics without
  *             entity data, use the <code>MetricData</code> parameter. The
- *             <code>EntityMetricData</code> structure includes <code>MetricData</code> structures
+ *                 <code>EntityMetricData</code> structure includes <code>MetricData</code> structures
  *             for the metric data.</p>
  *          <p>You can publish either individual values in the <code>Value</code> field, or arrays of
  *             values and the number of times each value occurred during the period by using the
@@ -47,7 +47,7 @@ export interface PutMetricDataCommandOutput extends __MetadataBearer {}
  *          <p>Each <code>PutMetricData</code> request is limited to 1 MB in size for HTTP POST
  *             requests. You can send a payload compressed by gzip. Each request is also limited to no
  *             more than 1000 different metrics (across both the <code>MetricData</code> and
- *             <code>EntityMetricData</code> properties).</p>
+ *                 <code>EntityMetricData</code> properties).</p>
  *          <p>Although the <code>Value</code> parameter accepts numbers of type <code>Double</code>,
  *             CloudWatch rejects values that are either too small or too large. Values must be in the
  *             range of -2^360 to 2^360. In addition, special values (for example, NaN, +Infinity,

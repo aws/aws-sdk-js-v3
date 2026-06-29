@@ -186,6 +186,7 @@ import {
   ListTagsForResourceCommand,
   ListTagsForResourceInput$,
   ListTagsForResourceOutput$,
+  LogAlarm$,
   ManagedRule$,
   ManagedRuleDescription$,
   ManagedRuleState$,
@@ -236,6 +237,9 @@ import {
   PutInsightRuleCommand,
   PutInsightRuleInput$,
   PutInsightRuleOutput$,
+  PutLogAlarm$,
+  PutLogAlarmCommand,
+  PutLogAlarmInput$,
   PutManagedInsightRules$,
   PutManagedInsightRulesCommand,
   PutManagedInsightRulesInput$,
@@ -252,6 +256,8 @@ import {
   PutMetricStreamOutput$,
   Range$,
   RecentlyActive,
+  ResourceConflict,
+  ResourceConflict$,
   ResourceNotFound,
   ResourceNotFound$,
   ResourceNotFoundException,
@@ -259,6 +265,8 @@ import {
   Rule$,
   ScanBy,
   Schedule$,
+  ScheduleConfiguration$,
+  ScheduledQueryConfiguration$,
   SetAlarmState$,
   SetAlarmStateCommand,
   SetAlarmStateInput$,
@@ -296,9 +304,11 @@ import {
   waitForAlarmExists,
   waitForAlarmMuteRuleExists,
   waitForCompositeAlarmExists,
+  waitForLogAlarmExists,
   waitUntilAlarmExists,
   waitUntilAlarmMuteRuleExists,
   waitUntilCompositeAlarmExists,
+  waitUntilLogAlarmExists,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
@@ -381,6 +391,8 @@ assert(typeof PutDashboardCommand === "function");
 assert(typeof PutDashboard$ === "object");
 assert(typeof PutInsightRuleCommand === "function");
 assert(typeof PutInsightRule$ === "object");
+assert(typeof PutLogAlarmCommand === "function");
+assert(typeof PutLogAlarm$ === "object");
 assert(typeof PutManagedInsightRulesCommand === "function");
 assert(typeof PutManagedInsightRules$ === "object");
 assert(typeof PutMetricAlarmCommand === "function");
@@ -486,6 +498,7 @@ assert(typeof ListMetricStreamsInput$ === "object");
 assert(typeof ListMetricStreamsOutput$ === "object");
 assert(typeof ListTagsForResourceInput$ === "object");
 assert(typeof ListTagsForResourceOutput$ === "object");
+assert(typeof LogAlarm$ === "object");
 assert(typeof ManagedRule$ === "object");
 assert(typeof ManagedRuleDescription$ === "object");
 assert(typeof ManagedRuleState$ === "object");
@@ -512,6 +525,7 @@ assert(typeof PutDashboardInput$ === "object");
 assert(typeof PutDashboardOutput$ === "object");
 assert(typeof PutInsightRuleInput$ === "object");
 assert(typeof PutInsightRuleOutput$ === "object");
+assert(typeof PutLogAlarmInput$ === "object");
 assert(typeof PutManagedInsightRulesInput$ === "object");
 assert(typeof PutManagedInsightRulesOutput$ === "object");
 assert(typeof PutMetricAlarmInput$ === "object");
@@ -521,6 +535,8 @@ assert(typeof PutMetricStreamOutput$ === "object");
 assert(typeof Range$ === "object");
 assert(typeof Rule$ === "object");
 assert(typeof Schedule$ === "object");
+assert(typeof ScheduleConfiguration$ === "object");
+assert(typeof ScheduledQueryConfiguration$ === "object");
 assert(typeof SetAlarmStateInput$ === "object");
 assert(typeof SingleMetricAnomalyDetector$ === "object");
 assert(typeof StartMetricStreamsInput$ === "object");
@@ -585,6 +601,8 @@ assert(LimitExceededFault.prototype instanceof CloudWatchServiceException);
 assert(typeof LimitExceededFault$ === "object");
 assert(MissingRequiredParameterException.prototype instanceof CloudWatchServiceException);
 assert(typeof MissingRequiredParameterException$ === "object");
+assert(ResourceConflict.prototype instanceof CloudWatchServiceException);
+assert(typeof ResourceConflict$ === "object");
 assert(ResourceNotFound.prototype instanceof CloudWatchServiceException);
 assert(typeof ResourceNotFound$ === "object");
 assert(ResourceNotFoundException.prototype instanceof CloudWatchServiceException);
@@ -594,9 +612,11 @@ assert(CloudWatchServiceException.prototype instanceof Error);
 assert(typeof waitForAlarmExists === "function");
 assert(typeof waitForAlarmMuteRuleExists === "function");
 assert(typeof waitForCompositeAlarmExists === "function");
+assert(typeof waitForLogAlarmExists === "function");
 assert(typeof waitUntilAlarmExists === "function");
 assert(typeof waitUntilAlarmMuteRuleExists === "function");
 assert(typeof waitUntilCompositeAlarmExists === "function");
+assert(typeof waitUntilLogAlarmExists === "function");
 // paginators
 assert(typeof paginateDescribeAlarmHistory === "function");
 assert(typeof paginateDescribeAlarms === "function");

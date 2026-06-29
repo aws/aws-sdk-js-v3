@@ -35,7 +35,7 @@ export interface GetMetricWidgetImageCommandOutput extends GetMetricWidgetImageO
  *          <p>The graph you retrieve can include all CloudWatch metric graph features, including
  *             metric math and horizontal and vertical annotations.</p>
  *          <p>There is a limit of 20 transactions per second for this API. Each
- *             <code>GetMetricWidgetImage</code> action has the following limits:</p>
+ *                 <code>GetMetricWidgetImage</code> action has the following limits:</p>
  *          <ul>
  *             <li>
  *                <p>As many as 100 metrics in the graph.</p>
