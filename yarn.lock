@@ -702,52 +702,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/aws-restjson-server@workspace:private/aws-restjson-server":
-  version: 0.0.0-use.local
-  resolution: "@aws-sdk/aws-restjson-server@workspace:private/aws-restjson-server"
-  dependencies:
-    "@aws-crypto/sha256-browser": "npm:5.2.0"
-    "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/core": "workspace:^3.974.23"
-    "@aws-smithy/server-common": "npm:1.0.0-alpha.10"
-    "@smithy/core": "npm:^3.27.0"
-    "@smithy/fetch-http-handler": "npm:^5.6.0"
-    "@smithy/node-http-handler": "npm:^4.9.0"
-    "@smithy/types": "npm:^4.15.0"
-    "@tsconfig/node20": "npm:20.1.8"
-    "@types/node": "npm:^20.14.8"
-    concurrently: "npm:7.0.0"
-    downlevel-dts: "npm:0.10.1"
-    premove: "npm:4.0.0"
-    tslib: "npm:^2.6.2"
-    typescript: "npm:~5.8.3"
-    vitest: "npm:^4.0.17"
-  languageName: unknown
-  linkType: soft
-
-"@aws-sdk/aws-restjson-validation-server@workspace:private/aws-restjson-validation-server":
-  version: 0.0.0-use.local
-  resolution: "@aws-sdk/aws-restjson-validation-server@workspace:private/aws-restjson-validation-server"
-  dependencies:
-    "@aws-crypto/sha256-browser": "npm:5.2.0"
-    "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/core": "workspace:^3.974.23"
-    "@aws-smithy/server-common": "npm:1.0.0-alpha.10"
-    "@smithy/core": "npm:^3.27.0"
-    "@smithy/fetch-http-handler": "npm:^5.6.0"
-    "@smithy/node-http-handler": "npm:^4.9.0"
-    "@smithy/types": "npm:^4.15.0"
-    "@tsconfig/node20": "npm:20.1.8"
-    "@types/node": "npm:^20.14.8"
-    concurrently: "npm:7.0.0"
-    downlevel-dts: "npm:0.10.1"
-    premove: "npm:4.0.0"
-    tslib: "npm:^2.6.2"
-    typescript: "npm:~5.8.3"
-    vitest: "npm:^4.0.17"
-  languageName: unknown
-  linkType: soft
-
 "@aws-sdk/aws-util-test@workspace:private/aws-util-test":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/aws-util-test@workspace:private/aws-util-test"
@@ -11753,16 +11707,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/protocol-http@npm:^3.267.0":
-  version: 3.370.0
-  resolution: "@aws-sdk/protocol-http@npm:3.370.0"
-  dependencies:
-    "@aws-sdk/types": "npm:3.370.0"
-    tslib: "npm:^2.5.0"
-  checksum: 10c0/50ef3ac827c8fdedb3714e4e0338ccc4876a26d278cf265b51d3c00f727909ba8d503bd0ecd216f9864a31dfb1b608381e65a6818803eef55fa8c9f276acaa47
-  languageName: node
-  linkType: hard
-
 "@aws-sdk/rds-signer@workspace:packages/rds-signer":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/rds-signer@workspace:packages/rds-signer"
@@ -11957,17 +11901,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/types@npm:3.370.0":
-  version: 3.370.0
-  resolution: "@aws-sdk/types@npm:3.370.0"
-  dependencies:
-    "@smithy/types": "npm:^1.1.0"
-    tslib: "npm:^2.5.0"
-  checksum: 10c0/6a9d94014a83b4e1682529a36ef98f177ece93d2a738559c5bfc670df65c63315d183dcb7aa6c36dd0981a830094d83aa20e3c15afa8a4651fcbdf8f9f669184
-  languageName: node
-  linkType: hard
-
-"@aws-sdk/types@npm:^3.222.0, @aws-sdk/types@npm:^3.267.0, @aws-sdk/types@workspace:^3.973.13, @aws-sdk/types@workspace:packages-internal/types":
+"@aws-sdk/types@npm:^3.222.0, @aws-sdk/types@workspace:^3.973.13, @aws-sdk/types@workspace:packages-internal/types":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/types@workspace:packages-internal/types"
   dependencies:
@@ -12215,18 +12149,6 @@ __metadata:
     typescript: "npm:~5.8.3"
   languageName: unknown
   linkType: soft
-
-"@aws-smithy/server-common@npm:1.0.0-alpha.10":
-  version: 1.0.0-alpha.10
-  resolution: "@aws-smithy/server-common@npm:1.0.0-alpha.10"
-  dependencies:
-    "@aws-sdk/protocol-http": "npm:^3.267.0"
-    "@aws-sdk/types": "npm:^3.267.0"
-    re2-wasm: "npm:^1.0.2"
-    tslib: "npm:^1.8.0"
-  checksum: 10c0/d89cd7c9027d616ec920f4533af0971f1b19afe5832cbbd9b044bd8db98362f2c0c89f0dab78d1924a9c770245fec9b7b3e70b710d18215f952736ec640f7366
-  languageName: node
-  linkType: hard
 
 "@aws/lambda-invoke-store@npm:^0.2.2":
   version: 0.2.2
@@ -16657,15 +16579,6 @@ __metadata:
     "@smithy/types": "npm:^4.15.0"
     tslib: "npm:^2.6.2"
   checksum: 10c0/4de472e5ae0660aff0f01b82016c809cc3daf7dec53d3d603907dfcd75f4f0aae393f50afd8d83bdd9b087d6e9cb2f8e07fcb63d77053c4e194a4e80b6ec6506
-  languageName: node
-  linkType: hard
-
-"@smithy/types@npm:^1.1.0":
-  version: 1.2.0
-  resolution: "@smithy/types@npm:1.2.0"
-  dependencies:
-    tslib: "npm:^2.5.0"
-  checksum: 10c0/fd82b07fe9e3d6fe0877a3bba7d4e93aa0d9d2b64762509ef8235a8b0d0e41631a2eb0c55678aad1d6ff1c59a443fe9647d1b79bf0ec52f78c46040bb1d8ffb9
   languageName: node
   linkType: hard
 
@@ -27062,13 +26975,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"re2-wasm@npm:^1.0.2":
-  version: 1.0.2
-  resolution: "re2-wasm@npm:1.0.2"
-  checksum: 10c0/49f2026e4ad12da3d34cc27004f7005b6986123be6f60e8f5621717e8d6bdd1e74b5ac1ea79e47a6740023d11dc8ac91f5e6e1f5f18382642ce58074d304ad16
-  languageName: node
-  linkType: hard
-
 "react-is@npm:^18.0.0, react-is@npm:^18.3.1":
   version: 18.3.1
   resolution: "react-is@npm:18.3.1"
@@ -28962,14 +28868,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^1.8.0, tslib@npm:^1.8.1, tslib@npm:^1.9.0":
+"tslib@npm:^1.8.1, tslib@npm:^1.9.0":
   version: 1.14.1
   resolution: "tslib@npm:1.14.1"
   checksum: 10c0/69ae09c49eea644bc5ebe1bca4fa4cc2c82b7b3e02f43b84bd891504edf66dbc6b2ec0eef31a957042de2269139e4acff911e6d186a258fb14069cd7f6febce2
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.1.0, tslib@npm:^2.3.0, tslib@npm:^2.3.1, tslib@npm:^2.4.0, tslib@npm:^2.5.0, tslib@npm:^2.6.2":
+"tslib@npm:^2.1.0, tslib@npm:^2.3.0, tslib@npm:^2.3.1, tslib@npm:^2.4.0, tslib@npm:^2.6.2":
   version: 2.8.1
   resolution: "tslib@npm:2.8.1"
   checksum: 10c0/9c4759110a19c53f992d9aae23aac5ced636e99887b51b9e61def52611732872ff7668757d4e4c61f19691e36f4da981cd9485e869b4a7408d689f6bf1f14e62
