@@ -1,6 +1,5 @@
 import type { FromTokenFileInit } from "@aws-sdk/credential-provider-web-identity";
-import { fromTokenFile as _fromTokenFile } from "@aws-sdk/credential-provider-web-identity";
-import type { AwsCredentialIdentityProvider } from "@smithy/types";
+import type { AwsIdentityProperties, RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
 
 /**
  * Creates a credential provider function that reads OIDC token from given file, then call STS.AssumeRoleWithWebIdentity
@@ -32,7 +31,9 @@ import type { AwsCredentialIdentityProvider } from "@smithy/types";
  *
  * @public
  */
-export const fromTokenFile = (init: FromTokenFileInit = {}): AwsCredentialIdentityProvider =>
-  _fromTokenFile({
-    ...init,
-  });
+export const fromTokenFile = (init: FromTokenFileInit = {}): RuntimeConfigAwsCredentialIdentityProvider => {
+  return async (args?: AwsIdentityProperties) => {
+    const { fromTokenFile: _fromTokenFile } = await import("@aws-sdk/credential-provider-web-identity");
+    return _fromTokenFile({ ...init })(args);
+  };
+};

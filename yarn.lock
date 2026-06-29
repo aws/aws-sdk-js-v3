@@ -10062,7 +10062,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/credential-providers@workspace:packages/credential-providers"
   dependencies:
-    "@aws-sdk/client-cognito-identity": "workspace:3.1081.0"
     "@aws-sdk/core": "workspace:^3.974.29"
     "@aws-sdk/credential-provider-cognito-identity": "workspace:^3.972.54"
     "@aws-sdk/credential-provider-env": "workspace:^3.972.55"

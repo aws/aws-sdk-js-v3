@@ -13,7 +13,7 @@ vi.mock("@aws-sdk/nested-clients/sts", () => ({
 }));
 
 vi.mock("@aws-sdk/credential-provider-node", () => ({
-  defaultProvider: vi.fn(),
+  defaultProvider: vi.fn().mockReturnValue(vi.fn()),
 }));
 
 describe(fromNodeProviderChain.name, () => {
@@ -21,9 +21,10 @@ describe(fromNodeProviderChain.name, () => {
     vi.clearAllMocks();
   });
 
-  it("should not inject default role assumers", () => {
+  it("should not inject default role assumers", async () => {
     const profile = "profile";
-    fromNodeProviderChain({ profile });
+    const provider = fromNodeProviderChain({ profile });
+    await provider({});
     expect(defaultProvider).toHaveBeenCalledWith({
       profile,
     });
@@ -31,11 +32,12 @@ describe(fromNodeProviderChain.name, () => {
     expect(getDefaultRoleAssumerWithWebIdentity).not.toHaveBeenCalled();
   });
 
-  it("should use supplied role assumers", () => {
+  it("should use supplied role assumers", async () => {
     const profile = "profile";
     const roleAssumer = vi.fn();
     const roleAssumerWithWebIdentity = vi.fn();
-    fromNodeProviderChain({ profile, roleAssumer, roleAssumerWithWebIdentity });
+    const provider = fromNodeProviderChain({ profile, roleAssumer, roleAssumerWithWebIdentity });
+    await provider({});
     expect(defaultProvider).toHaveBeenCalledWith({
       profile,
       roleAssumer,
@@ -45,13 +47,14 @@ describe(fromNodeProviderChain.name, () => {
     expect(getDefaultRoleAssumerWithWebIdentity).not.toHaveBeenCalled();
   });
 
-  it("should defer to @aws-sdk/credential-provider-node", () => {
+  it("should defer to @aws-sdk/credential-provider-node", async () => {
     const profile = "profile";
     const clientConfig = {
       region: "US_BAR_1",
     };
     const plugin = { applyToStack: () => {} };
-    fromNodeProviderChain({ profile, clientConfig, clientPlugins: [plugin] });
+    const provider = fromNodeProviderChain({ profile, clientConfig, clientPlugins: [plugin] });
+    await provider({});
     expect(defaultProvider).toHaveBeenCalledWith({ profile, clientConfig, clientPlugins: [plugin] });
   });
 });

@@ -12,7 +12,7 @@ import { resolveSSOCredentials } from "./resolveSSOCredentials";
 import { validateSsoProfile } from "./validateSsoProfile";
 
 /**
- * @internal
+ * @public
  */
 export interface SsoCredentialsParameters {
   /**
@@ -43,7 +43,7 @@ export interface SsoCredentialsParameters {
 }
 
 /**
- * @internal
+ * @public
  */
 export interface FromSSOInit extends SourceProfileInit, CredentialProviderOptions {
   ssoClient?: SSOClient;
@@ -52,8 +52,6 @@ export interface FromSSOInit extends SourceProfileInit, CredentialProviderOption
 }
 
 /**
- * @internal
- *
  * Creates a credential provider that will read from a credential_process specified
  * in ini files.
  *
@@ -81,6 +79,8 @@ export interface FromSSOInit extends SourceProfileInit, CredentialProviderOption
  * sso_region = us-east-1
  * sso_start_url = https://www.....com/start
  * ```
+ *
+ * @internal
  */
 export const fromSSO =
   (init: FromSSOInit & Partial<SsoCredentialsParameters> = {}): RuntimeConfigAwsCredentialIdentityProvider =>
