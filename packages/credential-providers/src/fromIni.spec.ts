@@ -13,7 +13,7 @@ vi.mock("@aws-sdk/nested-clients/sts", () => ({
 }));
 
 vi.mock("@aws-sdk/credential-provider-ini", () => ({
-  fromIni: vi.fn(),
+  fromIni: vi.fn().mockReturnValue(vi.fn()),
 }));
 
 describe("fromIni", () => {
@@ -21,10 +21,11 @@ describe("fromIni", () => {
     vi.clearAllMocks();
   });
 
-  it("should not inject default role assumers", () => {
+  it("should not inject default role assumers", async () => {
     // these role assumers are now dynamically loaded.
     const profile = "profile";
-    fromIni({ profile });
+    const provider = fromIni({ profile });
+    await provider({});
     expect(coreProvider).toHaveBeenCalledWith({
       profile,
     });
@@ -32,11 +33,12 @@ describe("fromIni", () => {
     expect(getDefaultRoleAssumerWithWebIdentity).not.toHaveBeenCalled();
   });
 
-  it("should use supplied role assumers", () => {
+  it("should use supplied role assumers", async () => {
     const profile = "profile";
     const roleAssumer = vi.fn();
     const roleAssumerWithWebIdentity = vi.fn();
-    fromIni({ profile, roleAssumer, roleAssumerWithWebIdentity });
+    const provider = fromIni({ profile, roleAssumer, roleAssumerWithWebIdentity });
+    await provider({});
     expect(coreProvider).toHaveBeenCalledWith({
       profile,
       roleAssumer,
@@ -46,13 +48,14 @@ describe("fromIni", () => {
     expect(getDefaultRoleAssumerWithWebIdentity).not.toHaveBeenCalled();
   });
 
-  it("defers to @aws-sdk/credential-provider-ini", () => {
+  it("defers to @aws-sdk/credential-provider-ini", async () => {
     const profile = "profile";
     const clientConfig = {
       region: "US_BAR_1",
     };
     const plugin = { applyToStack: () => {} };
-    fromIni({ profile, clientConfig, clientPlugins: [plugin] });
+    const provider = fromIni({ profile, clientConfig, clientPlugins: [plugin] });
+    await provider({});
     expect(coreProvider).toHaveBeenCalledWith({ profile, clientConfig, clientPlugins: [plugin] });
   });
 });

@@ -1,6 +1,5 @@
 import type { FromProcessInit } from "@aws-sdk/credential-provider-process";
-import { fromProcess as _fromProcess } from "@aws-sdk/credential-provider-process";
-import type { AwsCredentialIdentityProvider } from "@smithy/types";
+import type { AwsIdentityProperties, RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
 
 /**
  * Creates a credential provider function that executes a given process and attempt to read its standard output to
@@ -27,4 +26,9 @@ import type { AwsCredentialIdentityProvider } from "@smithy/types";
  *
  * @public
  */
-export const fromProcess = (init?: FromProcessInit): AwsCredentialIdentityProvider => _fromProcess(init);
+export const fromProcess = (init?: FromProcessInit): RuntimeConfigAwsCredentialIdentityProvider => {
+  return async (args?: AwsIdentityProperties) => {
+    const { fromProcess: _fromProcess } = await import("@aws-sdk/credential-provider-process");
+    return _fromProcess(init)(args);
+  };
+};
