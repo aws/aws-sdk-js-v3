@@ -346,6 +346,7 @@ const _iC = "includeChildren";
 const _iD = "isDefault";
 const _iMA = "isManagedAssociation";
 const _iR = "ipResource";
+const _iTS = "idleTimeoutSeconds";
 const _it = "items";
 const _lESV = "lambdaEventStructureVersion";
 const _lI = "listenerIdentifier";
@@ -629,13 +630,13 @@ export var CreateServiceNetworkVpcAssociationResponse$: StaticStructureSchema = 
 ];
 export var CreateServiceRequest$: StaticStructureSchema = [3, n0, _CSR,
   0,
-  [_n, _cT, _t, _cDN, _cAe, _aT],
-  [0, [0, 4], 128 | 0, 0, 0, 0], 1
+  [_n, _cT, _t, _cDN, _cAe, _aT, _iTS],
+  [0, [0, 4], 128 | 0, 0, 0, 0, 1], 1
 ];
 export var CreateServiceResponse$: StaticStructureSchema = [3, n0, _CSRr,
   0,
-  [_i, _a, _n, _cDN, _cAe, _st, _aT, _dE],
-  [0, 0, 0, 0, 0, 0, 0, () => DnsEntry$]
+  [_i, _a, _n, _cDN, _cAe, _st, _aT, _iTS, _dE],
+  [0, 0, 0, 0, 0, 0, 0, 1, () => DnsEntry$]
 ];
 export var CreateTargetGroupRequest$: StaticStructureSchema = [3, n0, _CTGR,
   0,
@@ -964,8 +965,8 @@ export var GetServiceRequest$: StaticStructureSchema = [3, n0, _GSR,
 ];
 export var GetServiceResponse$: StaticStructureSchema = [3, n0, _GSRe,
   0,
-  [_i, _n, _a, _cA, _lUA, _dE, _cDN, _cAe, _st, _aT, _fC, _fM],
-  [0, 0, 0, 5, 5, () => DnsEntry$, 0, 0, 0, 0, 0, 0]
+  [_i, _n, _a, _cA, _lUA, _dE, _cDN, _cAe, _st, _aT, _iTS, _fC, _fM],
+  [0, 0, 0, 5, 5, () => DnsEntry$, 0, 0, 0, 0, 1, 0, 0]
 ];
 export var GetTargetGroupRequest$: StaticStructureSchema = [3, n0, _GTGR,
   0,
@@ -1399,13 +1400,13 @@ export var UpdateServiceNetworkVpcAssociationResponse$: StaticStructureSchema = 
 ];
 export var UpdateServiceRequest$: StaticStructureSchema = [3, n0, _USR,
   0,
-  [_sI, _cAe, _aT],
-  [[0, 1], 0, 0], 1
+  [_sI, _cAe, _aT, _iTS],
+  [[0, 1], 0, 0, 1], 1
 ];
 export var UpdateServiceResponse$: StaticStructureSchema = [3, n0, _USRp,
   0,
-  [_i, _a, _n, _cDN, _cAe, _aT],
-  [0, 0, 0, 0, 0, 0]
+  [_i, _a, _n, _cDN, _cAe, _aT, _iTS],
+  [0, 0, 0, 0, 0, 0, 1]
 ];
 export var UpdateTargetGroupRequest$: StaticStructureSchema = [3, n0, _UTGR,
   0,

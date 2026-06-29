@@ -55,6 +55,7 @@ export interface GetServiceCommandOutput extends GetServiceResponse, __MetadataB
  * //   certificateArn: "STRING_VALUE",
  * //   status: "STRING_VALUE",
  * //   authType: "STRING_VALUE",
+ * //   idleTimeoutSeconds: Number("int"),
  * //   failureCode: "STRING_VALUE",
  * //   failureMessage: "STRING_VALUE",
  * // };

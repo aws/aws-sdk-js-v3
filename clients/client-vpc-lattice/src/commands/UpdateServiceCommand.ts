@@ -40,6 +40,7 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *   serviceIdentifier: "STRING_VALUE", // required
  *   certificateArn: "STRING_VALUE",
  *   authType: "STRING_VALUE",
+ *   idleTimeoutSeconds: Number("int"),
  * };
  * const command = new UpdateServiceCommand(input);
  * const response = await client.send(command);
@@ -50,6 +51,7 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * //   customDomainName: "STRING_VALUE",
  * //   certificateArn: "STRING_VALUE",
  * //   authType: "STRING_VALUE",
+ * //   idleTimeoutSeconds: Number("int"),
  * // };
  *
  * ```

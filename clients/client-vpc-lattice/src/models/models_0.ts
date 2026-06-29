@@ -1469,6 +1469,12 @@ export interface CreateServiceRequest {
    * @public
    */
   authType?: AuthType | undefined;
+
+  /**
+   * <p>The amount of time, in seconds, that a connection can remain idle (no data sent) before VPC Lattice closes it. The valid range is 60 to 600 seconds. If you don't specify a value, the default is 60 seconds. This setting does not change the maximum connection duration of 10 minutes; connections are still closed when they reach that limit.</p>
+   * @public
+   */
+  idleTimeoutSeconds?: number | undefined;
 }
 
 /**
@@ -1534,6 +1540,12 @@ export interface CreateServiceResponse {
    * @public
    */
   authType?: AuthType | undefined;
+
+  /**
+   * <p>The amount of time, in seconds, that a connection can remain idle before VPC Lattice closes it.</p>
+   * @public
+   */
+  idleTimeoutSeconds?: number | undefined;
 
   /**
    * <p>The public DNS name of the service.</p>
@@ -3117,13 +3129,13 @@ export interface GetResourceGatewayResponse {
   subnetIds?: string[] | undefined;
 
   /**
-   * <p>Indicates whether the resource gateway is managed by an AWS service.</p>
+   * <p>Indicates whether the resource gateway is managed by an Amazon Web Services service.</p>
    * @public
    */
   serviceManaged?: boolean | undefined;
 
   /**
-   * <p>The AWS service that manages the resource gateway.</p>
+   * <p>The Amazon Web Services service that manages the resource gateway.</p>
    * @public
    */
   managedBy?: string | undefined;
@@ -3343,6 +3355,12 @@ export interface GetServiceResponse {
    * @public
    */
   authType?: AuthType | undefined;
+
+  /**
+   * <p>The amount of time, in seconds, that a connection can remain idle before VPC Lattice closes it.</p>
+   * @public
+   */
+  idleTimeoutSeconds?: number | undefined;
 
   /**
    * <p>The failure code.</p>
@@ -5710,6 +5728,12 @@ export interface UpdateServiceRequest {
    * @public
    */
   authType?: AuthType | undefined;
+
+  /**
+   * <p>The amount of time, in seconds, that a connection can remain idle (no data sent) before VPC Lattice closes it. The valid range is 60 to 600 seconds. If you don't specify a value, the default is 60 seconds. This setting does not change the maximum connection duration of 10 minutes; connections are still closed when they reach that limit.</p>
+   * @public
+   */
+  idleTimeoutSeconds?: number | undefined;
 }
 
 /**
@@ -5751,6 +5775,12 @@ export interface UpdateServiceResponse {
    * @public
    */
   authType?: AuthType | undefined;
+
+  /**
+   * <p>The amount of time, in seconds, that a connection can remain idle before VPC Lattice closes it.</p>
+   * @public
+   */
+  idleTimeoutSeconds?: number | undefined;
 }
 
 /**

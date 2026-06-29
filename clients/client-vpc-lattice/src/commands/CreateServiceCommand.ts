@@ -45,6 +45,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *   customDomainName: "STRING_VALUE",
  *   certificateArn: "STRING_VALUE",
  *   authType: "STRING_VALUE",
+ *   idleTimeoutSeconds: Number("int"),
  * };
  * const command = new CreateServiceCommand(input);
  * const response = await client.send(command);
@@ -56,6 +57,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * //   certificateArn: "STRING_VALUE",
  * //   status: "STRING_VALUE",
  * //   authType: "STRING_VALUE",
+ * //   idleTimeoutSeconds: Number("int"),
  * //   dnsEntry: { // DnsEntry
  * //     domainName: "STRING_VALUE",
  * //     hostedZoneId: "STRING_VALUE",
