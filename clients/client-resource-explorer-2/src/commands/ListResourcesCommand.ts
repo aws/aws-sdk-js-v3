@@ -58,6 +58,7 @@ export interface ListResourcesCommandOutput extends ListResourcesOutput, __Metad
  * //       Region: "STRING_VALUE",
  * //       ResourceType: "STRING_VALUE",
  * //       Service: "STRING_VALUE",
+ * //       CfnResourceType: "STRING_VALUE",
  * //       LastReportedAt: new Date("TIMESTAMP"),
  * //       Properties: [ // ResourcePropertyList
  * //         { // ResourceProperty

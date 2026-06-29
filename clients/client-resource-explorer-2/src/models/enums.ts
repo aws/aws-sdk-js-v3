@@ -76,3 +76,16 @@ export const OperationStatus = {
  * @public
  */
 export type OperationStatus = (typeof OperationStatus)[keyof typeof OperationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const RecorderType = {
+  AWS: "AWS",
+  THIRD_PARTY: "THIRD_PARTY",
+} as const;
+/**
+ * @public
+ */
+export type RecorderType = (typeof RecorderType)[keyof typeof RecorderType];

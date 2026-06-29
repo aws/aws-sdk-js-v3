@@ -59,6 +59,11 @@ export interface GetServiceViewCommandOutput extends GetServiceViewOutput, __Met
  * //     ],
  * //     StreamingAccessForService: "STRING_VALUE",
  * //     ScopeType: "STRING_VALUE",
+ * //     ServiceLinkedRecorder: { // ServiceLinkedRecorderInfo
+ * //       ServicePrincipal: "STRING_VALUE",
+ * //       RecorderName: "STRING_VALUE",
+ * //       RecorderType: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

@@ -130,6 +130,7 @@ import {
   paginateListSupportedResourceTypes,
   paginateListViews,
   paginateSearch,
+  RecorderType,
   RegionStatus$,
   Resource$,
   ResourceCount$,
@@ -144,6 +145,7 @@ import {
   SearchFilter$,
   SearchInput$,
   SearchOutput$,
+  ServiceLinkedRecorderInfo$,
   ServiceQuotaExceededException,
   ServiceQuotaExceededException$,
   ServiceView$,
@@ -308,6 +310,7 @@ assert(typeof ResourceProperty$ === "object");
 assert(typeof SearchFilter$ === "object");
 assert(typeof SearchInput$ === "object");
 assert(typeof SearchOutput$ === "object");
+assert(typeof ServiceLinkedRecorderInfo$ === "object");
 assert(typeof ServiceView$ === "object");
 assert(typeof StreamingAccessDetails$ === "object");
 assert(typeof SupportedResourceType$ === "object");
@@ -327,6 +330,7 @@ assert(typeof AWSServiceAccessStatus === "object");
 assert(typeof IndexState === "object");
 assert(typeof IndexType === "object");
 assert(typeof OperationStatus === "object");
+assert(typeof RecorderType === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof ResourceExplorer2ServiceException);
 assert(typeof AccessDeniedException$ === "object");

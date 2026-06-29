@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { DocumentType as __DocumentType } from "@smithy/types";
 
-import type { AWSServiceAccessStatus, IndexState, IndexType, OperationStatus } from "./enums";
+import type { AWSServiceAccessStatus, IndexState, IndexType, OperationStatus, RecorderType } from "./enums";
 
 /**
  * @public
@@ -923,6 +923,30 @@ export interface GetServiceViewInput {
 }
 
 /**
+ * <p>Contains information about the service-linked recorder paired with a service view.</p>
+ * @public
+ */
+export interface ServiceLinkedRecorderInfo {
+  /**
+   * <p>The service principal of the Amazon Web Services service that owns the service-linked recorder, such as <code>observabilityadmin.amazonaws.com</code>.</p>
+   * @public
+   */
+  ServicePrincipal?: string | undefined;
+
+  /**
+   * <p>The name of the service-linked recorder, such as <code>AWSConfigurationRecorderForObservabilityAdmin</code>.</p>
+   * @public
+   */
+  RecorderName?: string | undefined;
+
+  /**
+   * <p>The type of the recorder. Valid values are <code>AWS</code> and <code>THIRD_PARTY</code>.</p>
+   * @public
+   */
+  RecorderType?: RecorderType | undefined;
+}
+
+/**
  * <p>Contains the configuration and properties of a Resource Explorer service view.</p>
  * @public
  */
@@ -962,6 +986,12 @@ export interface ServiceView {
    * @public
    */
   ScopeType?: string | undefined;
+
+  /**
+   * <p>Information about the service-linked recorder associated with this service view. When a service view is paired with a service-linked recorder, Resource Explorer uses the recorder's resource type list to filter search results and streaming data.</p>
+   * @public
+   */
+  ServiceLinkedRecorder?: ServiceLinkedRecorderInfo | undefined;
 }
 
 /**
@@ -1174,6 +1204,12 @@ export interface Resource {
   Service?: string | undefined;
 
   /**
+   * <p>The CloudFormation resource type identifier for the resource, such as <code>AWS::EC2::Instance</code> or <code>AWS::S3::Bucket</code>.</p>
+   * @public
+   */
+  CfnResourceType?: string | undefined;
+
+  /**
    * <p>The date and time that Resource Explorer last queried this resource and updated the index with the latest information about the resource.</p>
    * @public
    */
@@ -1368,6 +1404,12 @@ export interface SupportedResourceType {
    * @public
    */
   ResourceType?: string | undefined;
+
+  /**
+   * <p>The CloudFormation resource type identifiers for this resource type, such as <code>AWS::EC2::Instance</code>.</p>
+   * @public
+   */
+  CFNResourceTypes?: string[] | undefined;
 }
 
 /**

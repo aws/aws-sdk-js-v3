@@ -15,12 +15,14 @@ const _BGVO = "BatchGetViewOutput";
 const _C = "Code";
 const _CA = "CreatedAt";
 const _CE = "ConflictException";
+const _CFNRT = "CFNResourceTypes";
 const _CI = "CreateIndex";
 const _CII = "CreateIndexInput";
 const _CIO = "CreateIndexOutput";
 const _CRES = "CreateResourceExplorerSetup";
 const _CRESI = "CreateResourceExplorerSetupInput";
 const _CRESO = "CreateResourceExplorerSetupOutput";
+const _CRT = "CfnResourceType";
 const _CT = "ClientToken";
 const _CV = "CreateView";
 const _CVI = "CreateViewInput";
@@ -125,6 +127,7 @@ const _RC = "ResourceCount";
 const _RF = "ReplicatingFrom";
 const _RL = "RegionList";
 const _RLe = "ResourceList";
+const _RN = "RecorderName";
 const _RNFE = "ResourceNotFoundException";
 const _RP = "ResourcePolicy";
 const _RPL = "ResourcePropertyList";
@@ -134,6 +137,7 @@ const _RSL = "RegionStatusList";
 const _RT = "ReplicatingTo";
 const _RTL = "ResourceTypeList";
 const _RTe = "ResourceTypes";
+const _RTec = "RecorderType";
 const _RTes = "ResourceType";
 const _Re = "Region";
 const _Res = "Resources";
@@ -147,6 +151,8 @@ const _SF = "SearchFilter";
 const _SI = "SearchInput";
 const _SL = "StringList";
 const _SLR = "ServiceLinkedRole";
+const _SLRI = "ServiceLinkedRecorderInfo";
+const _SLRe = "ServiceLinkedRecorder";
 const _SO = "SearchOutput";
 const _SP = "ServicePrincipal";
 const _SQEE = "ServiceQuotaExceededException";
@@ -577,8 +583,8 @@ export var RegionStatus$: StaticStructureSchema = [3, n0, _RS,
 ];
 export var Resource$: StaticStructureSchema = [3, n0, _Reso,
   0,
-  [_A, _OAI, _Re, _RTes, _Se, _LRA, _P],
-  [0, 0, 0, 0, 0, 5, () => ResourcePropertyList]
+  [_A, _OAI, _Re, _RTes, _Se, _CRT, _LRA, _P],
+  [0, 0, 0, 0, 0, 0, 5, () => ResourcePropertyList]
 ];
 export var ResourceCount$: StaticStructureSchema = [3, n0, _RC,
   0,
@@ -605,10 +611,15 @@ export var SearchOutput$: StaticStructureSchema = [3, n0, _SO,
   [_Res, _NT, _VA, _Cou],
   [() => ResourceList, 0, 0, () => ResourceCount$]
 ];
+export var ServiceLinkedRecorderInfo$: StaticStructureSchema = [3, n0, _SLRI,
+  0,
+  [_SP, _RN, _RTec],
+  [0, 0, 0]
+];
 export var ServiceView$: StaticStructureSchema = [3, n0, _SVe,
   0,
-  [_SVA, _SVN, _F, _IP, _SAFSt, _ST],
-  [0, 0, [() => SearchFilter$, 0], () => IncludedPropertyList, 0, 0], 1
+  [_SVA, _SVN, _F, _IP, _SAFSt, _ST, _SLRe],
+  [0, 0, [() => SearchFilter$, 0], () => IncludedPropertyList, 0, 0, () => ServiceLinkedRecorderInfo$], 1
 ];
 export var StreamingAccessDetails$: StaticStructureSchema = [3, n0, _SAD,
   0,
@@ -617,8 +628,8 @@ export var StreamingAccessDetails$: StaticStructureSchema = [3, n0, _SAD,
 ];
 export var SupportedResourceType$: StaticStructureSchema = [3, n0, _SRT,
   0,
-  [_Se, _RTes],
-  [0, 0]
+  [_Se, _RTes, _CFNRT],
+  [0, 0, 64 | 0]
 ];
 export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
   0,
@@ -680,6 +691,7 @@ var AccountIdList = 64 | 0;
 var BatchGetViewErrors: StaticListSchema = [1, n0, _BGVEa,
   0, () => BatchGetViewError$
 ];
+var CFNResourceTypeList = 64 | 0;
 var IncludedPropertyList: StaticListSchema = [1, n0, _IPL,
   0, () => IncludedProperty$
 ];

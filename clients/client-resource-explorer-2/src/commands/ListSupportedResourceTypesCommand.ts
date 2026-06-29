@@ -51,6 +51,9 @@ export interface ListSupportedResourceTypesCommandOutput extends ListSupportedRe
  * //     { // SupportedResourceType
  * //       Service: "STRING_VALUE",
  * //       ResourceType: "STRING_VALUE",
+ * //       CFNResourceTypes: [ // CFNResourceTypeList
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
