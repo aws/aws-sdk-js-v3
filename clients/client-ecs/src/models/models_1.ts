@@ -42,7 +42,6 @@ import type {
   Scale,
   ServiceConnectConfiguration,
   ServiceRegistry,
-  ServiceRevisionLoadBalancer,
   ServiceVolumeConfiguration,
   Tag,
   TaskDefinition,
@@ -51,6 +50,24 @@ import type {
   Volume,
   VpcLatticeConfiguration,
 } from "./models_0";
+
+/**
+ * <p>The resolved load balancer configuration for a service revision. This includes information about which target groups serve traffic and which listener rules direct traffic to them.</p>
+ * @public
+ */
+export interface ServiceRevisionLoadBalancer {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the target group associated with the service revision.</p>
+   * @public
+   */
+  targetGroupArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the production listener rule or listener that directs traffic to the target group associated with the service revision.</p>
+   * @public
+   */
+  productionListenerRule?: string | undefined;
+}
 
 /**
  * <p>The resolved configuration for a service revision, which contains the actual resources your service revision uses, such as which target groups serve traffic.</p>

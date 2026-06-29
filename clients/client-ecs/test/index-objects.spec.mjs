@@ -609,6 +609,8 @@ import {
   TaskSetNotFoundException$,
   TaskStopCode,
   TaskVolumeConfiguration$,
+  ThresholdConfiguration$,
+  ThresholdType,
   TimeoutConfiguration$,
   Tmpfs$,
   TotalLocalStorageGBRequest$,
@@ -1164,6 +1166,7 @@ assert(typeof TaskManagedEBSVolumeTerminationPolicy$ === "object");
 assert(typeof TaskOverride$ === "object");
 assert(typeof TaskSet$ === "object");
 assert(typeof TaskVolumeConfiguration$ === "object");
+assert(typeof ThresholdConfiguration$ === "object");
 assert(typeof TimeoutConfiguration$ === "object");
 assert(typeof Tmpfs$ === "object");
 assert(typeof TotalLocalStorageGBRequest$ === "object");
@@ -1302,6 +1305,7 @@ assert(typeof TaskField === "object");
 assert(typeof TaskFilesystemType === "object");
 assert(typeof TaskSetField === "object");
 assert(typeof TaskStopCode === "object");
+assert(typeof ThresholdType === "object");
 assert(typeof TransportProtocol === "object");
 assert(typeof UlimitName === "object");
 assert(typeof VersionConsistency === "object");

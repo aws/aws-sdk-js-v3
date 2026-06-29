@@ -89,6 +89,11 @@ export interface DescribeServiceDeploymentsCommandOutput extends DescribeService
  * //         deploymentCircuitBreaker: { // DeploymentCircuitBreaker
  * //           enable: true || false, // required
  * //           rollback: true || false, // required
+ * //           resetOnHealthyTask: true || false,
+ * //           thresholdConfiguration: { // ThresholdConfiguration
+ * //             type: "COUNT" || "BOUNDED_PERCENT" || "UNBOUNDED_PERCENT", // required
+ * //             value: Number("int"), // required
+ * //           },
  * //         },
  * //         maximumPercent: Number("int"),
  * //         minimumHealthyPercent: Number("int"),
@@ -206,8 +211,13 @@ export interface DescribeServiceDeploymentsCommandOutput extends DescribeService
  *       clusterArn: "arn:aws:ecs:us-west-2:123456789012:cluster/example",
  *       deploymentConfiguration: {
  *         deploymentCircuitBreaker: {
- *           enable: false,
- *           rollback: false
+ *           enable: true,
+ *           resetOnHealthyTask: true,
+ *           rollback: true,
+ *           thresholdConfiguration: {
+ *             type: "BOUNDED_PERCENT",
+ *             value: 50
+ *           }
  *         },
  *         maximumPercent: 200,
  *         minimumHealthyPercent: 100
@@ -246,8 +256,13 @@ export interface DescribeServiceDeploymentsCommandOutput extends DescribeService
  *       clusterArn: "arn:aws:ecs:us-east-1:123456789012:cluster/MyCluster",
  *       deploymentConfiguration: {
  *         deploymentCircuitBreaker: {
- *           enable: false,
- *           rollback: false
+ *           enable: true,
+ *           resetOnHealthyTask: true,
+ *           rollback: true,
+ *           thresholdConfiguration: {
+ *             type: "BOUNDED_PERCENT",
+ *             value: 50
+ *           }
  *         },
  *         lifecycleHooks: [
  *           {

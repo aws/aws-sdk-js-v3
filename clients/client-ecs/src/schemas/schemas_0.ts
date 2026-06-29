@@ -483,7 +483,8 @@ const _Set = "Setting";
 const _Sett = "Settings";
 const _St = "Statistics";
 const _T = "Tag";
-const _TC = "TimeoutConfiguration";
+const _TC = "ThresholdConfiguration";
+const _TCi = "TimeoutConfiguration";
 const _TD = "TaskDefinition";
 const _TDL = "TaskDefinitionList";
 const _TDPC = "TaskDefinitionPlacementConstraint";
@@ -954,6 +955,7 @@ const _rIe = "referenceId";
 const _rIu = "runtimeId";
 const _rMT = "resourceManagementType";
 const _rO = "readOnly";
+const _rOHT = "resetOnHealthyTask";
 const _rP = "reservationPreference";
 const _rPTW = "requestedProductionTrafficWeight";
 const _rPe = "restartPolicy";
@@ -1059,9 +1061,10 @@ const _tAN = "triggeredAlarmNames";
 const _tAa = "targetArn";
 const _tAas = "taskArns";
 const _tAi = "timeoutAction";
-const _tC = "timeoutConfiguration";
+const _tC = "thresholdConfiguration";
 const _tCa = "targetCapacity";
 const _tCar = "targetConfiguration";
+const _tCi = "timeoutConfiguration";
 const _tD = "taskDefinition";
 const _tDA = "taskDefinitionArn";
 const _tDAa = "taskDefinitionArns";
@@ -1803,8 +1806,8 @@ export var DeploymentAlarms$: StaticStructureSchema = [3, n0, _DA,
 ];
 export var DeploymentCircuitBreaker$: StaticStructureSchema = [3, n0, _DCBe,
   0,
-  [_enab, _rol],
-  [2, 2], 2
+  [_enab, _rol, _rOHT, _tC],
+  [2, 2, 2, () => ThresholdConfiguration$], 2
 ];
 export var DeploymentConfiguration$: StaticStructureSchema = [3, n0, _DC,
   0,
@@ -1823,7 +1826,7 @@ export var DeploymentEphemeralStorage$: StaticStructureSchema = [3, n0, _DES,
 ];
 export var DeploymentLifecycleHook$: StaticStructureSchema = [3, n0, _DLH,
   0,
-  [_tT, _hTA, _rA, _lSi, _hD, _tC],
+  [_tT, _hTA, _rA, _lSi, _hD, _tCi],
   [0, 0, 0, 64 | 0, 15, () => DeploymentLifecycleHookTimeoutConfiguration$]
 ];
 export var DeploymentLifecycleHookDetail$: StaticStructureSchema = [3, n0, _DLHD,
@@ -2916,7 +2919,12 @@ export var TaskVolumeConfiguration$: StaticStructureSchema = [3, n0, _TVC,
   [_n, _mEBSV],
   [0, () => TaskManagedEBSVolumeConfiguration$], 1
 ];
-export var TimeoutConfiguration$: StaticStructureSchema = [3, n0, _TC,
+export var ThresholdConfiguration$: StaticStructureSchema = [3, n0, _TC,
+  0,
+  [_t, _v],
+  [0, 1], 2
+];
+export var TimeoutConfiguration$: StaticStructureSchema = [3, n0, _TCi,
   0,
   [_iTS, _pRTS],
   [1, 1]

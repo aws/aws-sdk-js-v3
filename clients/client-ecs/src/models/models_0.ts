@@ -99,6 +99,7 @@ import type {
   TaskDefinitionPlacementConstraintType,
   TaskDefinitionStatus,
   TaskFilesystemType,
+  ThresholdType,
   TransportProtocol,
   UlimitName,
   VersionConsistency,
@@ -6069,6 +6070,24 @@ export interface CanaryConfiguration {
 }
 
 /**
+ * <p>Defines the failure threshold that the deployment circuit breaker uses to monitor a deployment. The <code>type</code> and <code>value</code> together determine the number of task failures that are tolerated before the circuit breaker triggers.</p> <p>By default, the threshold configuration uses a <code>type</code> of <code>BOUNDED_PERCENT</code> with a <code>value</code> of <code>50</code>.</p>
+ * @public
+ */
+export interface ThresholdConfiguration {
+  /**
+   * <p>Determines how <code>value</code> is used to calculate the failure threshold. For the percentage types (<code>BOUNDED_PERCENT</code> and <code>UNBOUNDED_PERCENT</code>), <code>value</code> is multiplied by the latest service desired count; for <code>COUNT</code>, <code>value</code> is used directly. The default is <code>BOUNDED_PERCENT</code>.</p>
+   * @public
+   */
+  type: ThresholdType | undefined;
+
+  /**
+   * <p>The integer used to calculate the failure threshold. When <code>type</code> is <code>COUNT</code>, this is the failure threshold itself. When <code>type</code> is a percentage type, this is the percentage that Amazon ECS multiplies by the latest service desired count to calculate the failure threshold.</p>
+   * @public
+   */
+  value: number | undefined;
+}
+
+/**
  * <note> <p>The deployment circuit breaker can only be used for services using the rolling update (<code>ECS</code>) deployment type.</p> </note> <p>The <b>deployment circuit breaker</b> determines whether a service deployment will fail if the service can't reach a steady state. If it is turned on, a service deployment will transition to a failed state and stop launching new tasks. You can also configure Amazon ECS to roll back your service to the last completed deployment after a failure. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html">Rolling update</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p> <p>For more information about API failure reasons, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/api_failures_messages.html">API failure reasons</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * @public
  */
@@ -6084,6 +6103,18 @@ export interface DeploymentCircuitBreaker {
    * @public
    */
   rollback: boolean | undefined;
+
+  /**
+   * <p>Determines whether the deployment circuit breaker resets its failure count when a task reaches a healthy state. When set to <code>true</code>, a healthy task resets the failure count to <code>0</code>; when <code>false</code>, it doesn't.</p>
+   * @public
+   */
+  resetOnHealthyTask?: boolean | undefined;
+
+  /**
+   * <p>The threshold configuration that controls when the deployment circuit breaker triggers. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ThresholdConfiguration.html">ThresholdConfiguration</a>.</p>
+   * @public
+   */
+  thresholdConfiguration?: ThresholdConfiguration | undefined;
 }
 
 /**
@@ -8576,7 +8607,7 @@ export interface UpdateExpressGatewayServiceRequest {
   scalingTarget?: ExpressGatewayScalingTarget | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a task definition to use to update the Express Gateway service. This allows you to manage your own task definition, giving you more control over the service configuration such as adding sidecar containers.</p> <p>The task definition must have a container named <code>Main</code> with a single TCP port mapping that includes a container port and port name. The task definition must also have <code>FARGATE</code> compatibility.</p> <p>If you provide a task definition ARN, you cannot also specify <code>primaryContainer</code>, <code>taskRoleArn</code>, <code>cpu</code>, or <code>memory</code>.</p>
+   * <p>The Amazon Resource Name (ARN) of a task definition to use to update the Express Gateway service. This allows you to manage your own task definition, giving you more control over the service configuration such as adding sidecar containers.</p> <p>The task definition must have a container named <code>Main</code> with a single TCP port mapping that includes a container port and port name. The task definition must also have <code>FARGATE</code> compatibility.</p> <p>If you provide a task definition ARN, you cannot also specify <code>primaryContainer</code>, <code>executionRoleArn</code>, <code>taskRoleArn</code>, <code>cpu</code>, or <code>memory</code>.</p>
    * @public
    */
   taskDefinitionArn?: string | undefined;
@@ -9350,22 +9381,4 @@ export interface ECSManagedResources {
    * @public
    */
   logGroups?: ManagedLogGroup[] | undefined;
-}
-
-/**
- * <p>The resolved load balancer configuration for a service revision. This includes information about which target groups serve traffic and which listener rules direct traffic to them.</p>
- * @public
- */
-export interface ServiceRevisionLoadBalancer {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the target group associated with the service revision.</p>
-   * @public
-   */
-  targetGroupArn?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the production listener rule or listener that directs traffic to the target group associated with the service revision.</p>
-   * @public
-   */
-  productionListenerRule?: string | undefined;
 }

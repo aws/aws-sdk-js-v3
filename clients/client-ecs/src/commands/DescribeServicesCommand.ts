@@ -94,6 +94,11 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  * //         deploymentCircuitBreaker: { // DeploymentCircuitBreaker
  * //           enable: true || false, // required
  * //           rollback: true || false, // required
+ * //           resetOnHealthyTask: true || false,
+ * //           thresholdConfiguration: { // ThresholdConfiguration
+ * //             type: "COUNT" || "BOUNDED_PERCENT" || "UNBOUNDED_PERCENT", // required
+ * //             value: Number("int"), // required
+ * //           },
  * //         },
  * //         maximumPercent: Number("int"),
  * //         minimumHealthyPercent: Number("int"),

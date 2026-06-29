@@ -1073,6 +1073,29 @@ export type ServiceDeploymentRollbackMonitorsStatus =
  * @public
  * @enum
  */
+export const ThresholdType = {
+  /**
+   * <p>Amazon ECS calculates the failure threshold by multiplying <code>value</code> by the latest service desired count, then clamps the result to a minimum of <code>3</code> and a maximum of <code>200</code>. This is the default threshold type.</p>
+   */
+  BOUNDED_PERCENT: "BOUNDED_PERCENT",
+  /**
+   * <p>Amazon ECS uses the integer provided in <code>value</code> directly as the failure threshold.</p>
+   */
+  COUNT: "COUNT",
+  /**
+   * <p>Amazon ECS calculates the failure threshold by multiplying <code>value</code> by the latest service desired count, without applying the <code>3</code>-to-<code>200</code> bounds. Use this when the desired count is large enough that the calculated threshold should be allowed to exceed <code>200</code>.</p>
+   */
+  UNBOUNDED_PERCENT: "UNBOUNDED_PERCENT",
+} as const;
+/**
+ * @public
+ */
+export type ThresholdType = (typeof ThresholdType)[keyof typeof ThresholdType];
+
+/**
+ * @public
+ * @enum
+ */
 export const DeploymentLifecycleHookStage = {
   POST_PRODUCTION_TRAFFIC_SHIFT: "POST_PRODUCTION_TRAFFIC_SHIFT",
   POST_SCALE_UP: "POST_SCALE_UP",
