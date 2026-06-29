@@ -520,10 +520,14 @@ export class S3TransferManager implements IS3TransferManager {
       discoveredFiles++;
       discoveredBytes += fileStat.size;
 
-      await semaphore.acquire();
+      const count = fileStat.size >= this.multipartUploadThresholdBytes
+        ? Math.min(Math.ceil(fileStat.size / this.targetPartSizeBytes), this.maxConcurrentUploads)
+        : 1;
+
+      await semaphore.acquire(count);
 
       if (terminated || abortController.signal.aborted) {
-        semaphore.release();
+        semaphore.release(count);
         break;
       }
 
@@ -577,7 +581,7 @@ export class S3TransferManager implements IS3TransferManager {
           }
           objectsFailed++;
         } finally {
-          semaphore.release();
+          semaphore.release(count);
         }
       })();
 

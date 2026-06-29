@@ -5,28 +5,34 @@ import { resolve } from "node:path";
 import type { CannedFailurePolicy, DirectoryTransferFailureContext, FailurePolicy } from "./types";
 
 /**
- * Simple counting semaphore for bounding concurrency.
+ * Weighted semaphore with a soft concurrency limit.
+ * Allows a job to start if in-flight weight is below the limit, even if
+ * that job pushes the total over. New jobs are paused until it drops back.
+ *
  * @internal
  */
 export class Semaphore {
-  private queue: Array<() => void> = [];
+  private inFlightRequests = 0;
+  private waiters: Array<() => void> = [];
 
-  public constructor(private slots: number) {}
+  public constructor(private readonly limit: number) {}
 
-  public async acquire(): Promise<void> {
-    if (this.slots > 0) {
-      this.slots--;
+  public async acquire(count = 1): Promise<void> {
+    if (this.inFlightRequests < this.limit) {
+      this.inFlightRequests += count;
       return;
     }
-    return new Promise((resolve) => this.queue.push(resolve));
+    await new Promise<void>((resolve) => this.waiters.push(resolve));
+    this.inFlightRequests += count;
   }
 
-  public release(): void {
-    const next = this.queue.shift();
-    if (next) {
-      next();
-    } else {
-      this.slots++;
+  public release(count = 1): void {
+    this.inFlightRequests -= count;
+    while (this.waiters.length > 0 && this.inFlightRequests < this.limit) {
+      const next = this.waiters.shift();
+      if (next) {
+        next();
+      }
     }
   }
 }
