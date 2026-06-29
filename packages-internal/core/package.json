@@ -78,8 +78,7 @@
     "./dist-es/submodules/client/index.js": "./dist-es/submodules/client/index.browser.js"
   },
   "react-native": {
-    "./dist-es/submodules/client/index.js": "./dist-es/submodules/client/index.native.js",
-    "./dist-cjs/submodules/client/index.js": "./dist-cjs/submodules/client/index.native.js"
+    "./dist-es/submodules/client/index.js": "./dist-es/submodules/client/index.native.js"
   },
   "files": [
     "./account-id-endpoint.d.ts",

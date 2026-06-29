@@ -126,7 +126,6 @@
     "./dist-es/submodules/requestHandler/index.js": "./dist-es/submodules/requestHandler/index.browser.js"
   },
   "react-native": {
-    "./dist-es/submodules/requestHandler/index.js": "./dist-es/submodules/requestHandler/index.browser.js",
-    "./dist-cjs/submodules/requestHandler/index.js": "./dist-cjs/submodules/requestHandler/index.browser.js"
+    "./dist-es/submodules/requestHandler/index.js": "./dist-es/submodules/requestHandler/index.browser.js"
   }
 }
