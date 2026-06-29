@@ -9,8 +9,7 @@
     "./dist-es/submodules/transfer-manager/index.js": "./dist-es/submodules/transfer-manager/index.browser.js"
   },
   "react-native": {
-    "./dist-es/submodules/transfer-manager/index.js": "./dist-es/submodules/transfer-manager/index.browser.js",
-    "./dist-cjs/submodules/transfer-manager/index.js": "./dist-cjs/submodules/transfer-manager/index.browser.js"
+    "./dist-es/submodules/transfer-manager/index.js": "./dist-es/submodules/transfer-manager/index.browser.js"
   },
   "types": "./dist-types/index.d.ts",
   "exports": {

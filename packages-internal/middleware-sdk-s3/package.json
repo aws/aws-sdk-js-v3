@@ -99,11 +99,8 @@
   },
   "react-native": {
     "./dist-es/submodules/s3/index": "./dist-es/submodules/s3/index.browser",
-    "./dist-cjs/submodules/s3/index": "./dist-cjs/submodules/s3/index.browser",
     "./dist-es/submodules/s3/to-stream/toStream": "./dist-es/submodules/s3/to-stream/toStream.browser",
-    "./dist-cjs/submodules/s3/to-stream/toStream": "./dist-cjs/submodules/s3/to-stream/toStream.browser",
-    "./dist-es/submodules/s3/index.js": "./dist-es/submodules/s3/index.browser.js",
-    "./dist-cjs/submodules/s3/index.js": "./dist-cjs/submodules/s3/index.browser.js"
+    "./dist-es/submodules/s3/index.js": "./dist-es/submodules/s3/index.browser.js"
   },
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/middleware-sdk-s3",
   "repository": {
