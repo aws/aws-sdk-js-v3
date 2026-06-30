@@ -34932,11 +34932,6 @@
             "cn-northwest-1": {}
           }
         },
-        "iotevents": {
-          "endpoints": {
-            "cn-north-1": {}
-          }
-        },
         "ioteventsdata": {
           "endpoints": {
             "cn-north-1": {
@@ -39065,25 +39060,6 @@
               "variants": [
                 {
                   "hostname": "iot-fips.us-gov-west-1.amazonaws.com",
-                  "tags": ["fips"]
-                }
-              ]
-            }
-          }
-        },
-        "iotevents": {
-          "endpoints": {
-            "fips-us-gov-west-1": {
-              "credentialScope": {
-                "region": "us-gov-west-1"
-              },
-              "deprecated": true,
-              "hostname": "iotevents-fips.us-gov-west-1.amazonaws.com"
-            },
-            "us-gov-west-1": {
-              "variants": [
-                {
-                  "hostname": "iotevents-fips.us-gov-west-1.amazonaws.com",
                   "tags": ["fips"]
                 }
               ]
