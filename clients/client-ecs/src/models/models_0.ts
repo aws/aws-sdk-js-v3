@@ -6111,7 +6111,7 @@ export interface DeploymentCircuitBreaker {
   resetOnHealthyTask?: boolean | undefined;
 
   /**
-   * <p>The threshold configuration that controls when the deployment circuit breaker triggers. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ThresholdConfiguration.html">ThresholdConfiguration</a>.</p>
+   * <p>The threshold configuration that controls when the deployment circuit breaker triggers.</p>
    * @public
    */
   thresholdConfiguration?: ThresholdConfiguration | undefined;
