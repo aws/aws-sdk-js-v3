@@ -9069,6 +9069,27 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@aws-sdk/client-supportauthz@workspace:clients/client-supportauthz":
+  version: 0.0.0-use.local
+  resolution: "@aws-sdk/client-supportauthz@workspace:clients/client-supportauthz"
+  dependencies:
+    "@aws-sdk/core": "workspace:^3.974.24"
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.59"
+    "@aws-sdk/types": "workspace:^3.973.14"
+    "@smithy/core": "npm:^3.28.0"
+    "@smithy/fetch-http-handler": "npm:^5.6.1"
+    "@smithy/node-http-handler": "npm:^4.9.1"
+    "@smithy/types": "npm:^4.15.0"
+    "@tsconfig/node20": "npm:20.1.8"
+    "@types/node": "npm:^20.14.8"
+    concurrently: "npm:7.0.0"
+    downlevel-dts: "npm:0.10.1"
+    premove: "npm:4.0.0"
+    tslib: "npm:^2.6.2"
+    typescript: "npm:~5.8.3"
+  languageName: unknown
+  linkType: soft
+
 "@aws-sdk/client-sustainability@workspace:clients/client-sustainability":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/client-sustainability@workspace:clients/client-sustainability"
