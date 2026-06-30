@@ -2,9 +2,8 @@
 // @ts-ignore: package.json will be imported from dist folders
 import packageInfo from "../package.json"; // eslint-disable-line
 
-import { Sha256 } from "@aws-crypto/sha256-browser";
 import { createDefaultUserAgentProvider } from "@aws-sdk/core/client";
-import { blobHasher as streamHasher, Md5 } from "@smithy/core/checksum";
+import { blobHasher as streamHasher } from "@smithy/core/checksum";
 import { invalidFunction, invalidProvider, loadConfigsForDefaultMode } from "@smithy/core/client";
 import {
   DEFAULT_USE_DUALSTACK_ENDPOINT,
@@ -44,12 +43,10 @@ export const getRuntimeConfig = (config: RestJsonProtocolClientConfig) => {
     })),
     eventStreamSerdeProvider: config?.eventStreamSerdeProvider ?? eventStreamSerdeProvider,
     maxAttempts: config?.maxAttempts ?? DEFAULT_MAX_ATTEMPTS,
-    md5: config?.md5 ?? Md5,
     region: config?.region ?? invalidProvider("Region is missing"),
     requestHandler: RequestHandler.create(config?.requestHandler ?? defaultConfigProvider),
     requestMinCompressionSizeBytes: config?.requestMinCompressionSizeBytes ?? DEFAULT_NODE_REQUEST_MIN_COMPRESSION_SIZE_BYTES,
     retryMode: config?.retryMode ?? (async () => (await defaultConfigProvider()).retryMode || DEFAULT_RETRY_MODE),
-    sha256: config?.sha256 ?? Sha256,
     streamCollector: config?.streamCollector ?? streamCollector,
     streamHasher: config?.streamHasher ?? streamHasher,
     useDualstackEndpoint: config?.useDualstackEndpoint ?? (() => Promise.resolve(DEFAULT_USE_DUALSTACK_ENDPOINT)),

@@ -1,7 +1,6 @@
 // eventbridge global endpoints: https://aws.amazon.com/blogs/compute/introducing-global-endpoints-for-amazon-eventbridge/
 import "@aws-sdk/signature-v4a";
 
-import { Sha256 } from "@aws-crypto/sha256-js";
 import type { PutEventsCommandInput, PutEventsCommandOutput } from "@aws-sdk/client-eventbridge";
 import {
   CreateEndpointCommand,
@@ -15,6 +14,7 @@ import {
 import { CreateHealthCheckCommand, Route53Client } from "@aws-sdk/client-route-53";
 import { defaultProvider } from "@aws-sdk/credential-provider-node";
 import { SignatureV4MultiRegion } from "@aws-sdk/signature-v4-multi-region";
+import { Sha256 } from "@smithy/core/checksum";
 import { HttpRequest } from "@smithy/core/protocols";
 import { afterAll, beforeAll, describe, expect, it, vi } from "vitest";
 

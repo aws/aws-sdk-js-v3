@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { AwsSdkSigV4Signer } from "@aws-sdk/core/httpAuthSchemes";
 import { AwsRestXmlProtocol } from "@aws-sdk/core/protocols";
+import { Md5, Sha256 } from "@smithy/core/checksum";
 import { NoOpLogger } from "@smithy/core/client";
 import { parseUrl } from "@smithy/core/protocols";
 import { fromBase64, fromUtf8, toBase64, toUtf8 } from "@smithy/core/serde";
@@ -32,6 +33,7 @@ export const getRuntimeConfig = (config: S3ControlClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
+    md5: config?.md5 ?? Md5,
     protocol: config?.protocol ?? AwsRestXmlProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.s3control",
@@ -41,6 +43,7 @@ export const getRuntimeConfig = (config: S3ControlClientConfig) => {
       serviceTarget: "AWSS3ControlServiceV20180820",
     },
     serviceId: config?.serviceId ?? "S3 Control",
+    sha256: config?.sha256 ?? Sha256,
     signingEscapePath: config?.signingEscapePath ?? false,
     urlParser: config?.urlParser ?? parseUrl,
     useArnRegion: config?.useArnRegion ?? undefined,

@@ -1,4 +1,4 @@
-import { Sha256 } from "@aws-crypto/sha256-js";
+import { Sha256 } from "@smithy/core/checksum";
 import { toHex } from "@smithy/core/serde";
 import { fromUtf8 } from "@smithy/core/serde";
 import { describe, expect, test as it } from "vitest";

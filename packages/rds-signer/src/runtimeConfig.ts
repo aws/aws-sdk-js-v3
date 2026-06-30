@@ -1,6 +1,5 @@
 import { fromNodeProviderChain } from "@aws-sdk/credential-providers";
 import { loadConfig, NODE_REGION_CONFIG_FILE_OPTIONS, NODE_REGION_CONFIG_OPTIONS } from "@smithy/core/config";
-import { Hash } from "@smithy/core/serde";
 
 import type { SignerConfig } from "./Signer";
 
@@ -11,7 +10,6 @@ export const getRuntimeConfig = (config: SignerConfig) => {
   return {
     runtime: "node",
     ...config,
-    sha256: config?.sha256 ?? Hash.bind(null, "sha256"),
     credentials:
       config?.credentials ??
       fromNodeProviderChain({

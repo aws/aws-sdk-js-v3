@@ -29,13 +29,12 @@ section bellow.
 
 ```javascript
 import { S3RequestPresigner } from "@aws-sdk/s3-request-presigner";
-import { Sha256 } from "@aws-crypto/sha256-browser";
-import { Hash } from "@aws-sdk/hash-node";
+import { Sha256 } from "@aws-sdk/checksums/sha";
+
 const signer = new S3RequestPresigner({
   region: regionProvider,
   credentials: credentialsProvider,
-  sha256: Hash.bind(null, "sha256"), // In Node.js
-  //sha256: Sha256 // In browsers
+  sha256: Sha256,
 });
 const presigned = await signer.presign(request);
 ```

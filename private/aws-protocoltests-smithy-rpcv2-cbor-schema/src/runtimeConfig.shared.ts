@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { AwsSmithyRpcV2CborProtocol } from "@aws-sdk/core/protocols";
 import { NoAuthSigner } from "@smithy/core";
+import { Sha256 } from "@smithy/core/checksum";
 import { NoOpLogger } from "@smithy/core/client";
 import { parseUrl } from "@smithy/core/protocols";
 import { fromBase64, fromUtf8, toBase64, toUtf8 } from "@smithy/core/serde";
@@ -39,6 +40,7 @@ export const getRuntimeConfig = (config: RpcV2ProtocolClientConfig) => {
       version: "2020-07-14",
       serviceTarget: "RpcV2Protocol",
     },
+    sha256: config?.sha256 ?? Sha256,
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,
     utf8Encoder: config?.utf8Encoder ?? toUtf8,

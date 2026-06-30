@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { AwsRestJsonProtocol } from "@aws-sdk/core/protocols";
+import { Sha256 } from "@smithy/core/checksum";
 import { NoOpLogger } from "@smithy/core/client";
 import { parseUrl } from "@smithy/core/protocols";
 import { fromBase64, fromUtf8, toBase64, toUtf8 } from "@smithy/core/serde";
@@ -27,6 +28,7 @@ export const getRuntimeConfig = (config: WeatherClientConfig) => {
       version: "2006-03-01",
       serviceTarget: "Weather",
     },
+    sha256: config?.sha256 ?? Sha256,
     signingName: config?.signingName ?? "weather",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

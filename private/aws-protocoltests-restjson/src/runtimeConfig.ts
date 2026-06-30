@@ -26,7 +26,7 @@ import {
   NODE_MAX_ATTEMPT_CONFIG_OPTIONS,
   NODE_RETRY_MODE_CONFIG_OPTIONS,
 } from "@smithy/core/retry";
-import { calculateBodyLength, Hash } from "@smithy/core/serde";
+import { calculateBodyLength } from "@smithy/core/serde";
 import {
   NODE_DISABLE_REQUEST_COMPRESSION_CONFIG_OPTIONS,
   NODE_REQUEST_MIN_COMPRESSION_SIZE_BYTES_CONFIG_OPTIONS,
@@ -62,7 +62,6 @@ export const getRuntimeConfig = (config: RestJsonProtocolClientConfig) => {
     eventStreamPayloadHandlerProvider: config?.eventStreamPayloadHandlerProvider ?? eventStreamPayloadHandlerProvider,
     eventStreamSerdeProvider: config?.eventStreamSerdeProvider ?? eventStreamSerdeProvider,
     maxAttempts: config?.maxAttempts ?? loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS, config),
-    md5: config?.md5 ?? Hash.bind(null, "md5"),
     region: config?.region ?? loadNodeConfig(
         NODE_REGION_CONFIG_OPTIONS,
         {...NODE_REGION_CONFIG_FILE_OPTIONS, ...loaderConfig}
@@ -78,7 +77,6 @@ export const getRuntimeConfig = (config: RestJsonProtocolClientConfig) => {
         },
         config
       ),
-    sha256: config?.sha256 ?? Hash.bind(null, "sha256"),
     streamCollector: config?.streamCollector ?? streamCollector,
     streamHasher: config?.streamHasher ?? streamHasher,
     useDualstackEndpoint: config?.useDualstackEndpoint ?? loadNodeConfig(NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS, loaderConfig),

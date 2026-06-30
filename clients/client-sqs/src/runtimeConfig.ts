@@ -9,7 +9,6 @@ import {
 } from "@aws-sdk/core/client";
 import { NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } from "@aws-sdk/core/httpAuthSchemes";
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
-import { ChecksumConstructor as __ChecksumConstructor, HashConstructor as __HashConstructor } from "@aws-sdk/types";
 import { emitWarningIfUnsupportedVersion, loadConfigsForDefaultMode } from "@smithy/core/client";
 import {
   loadConfig as loadNodeConfig,
@@ -24,7 +23,7 @@ import {
   NODE_MAX_ATTEMPT_CONFIG_OPTIONS,
   NODE_RETRY_MODE_CONFIG_OPTIONS,
 } from "@smithy/core/retry";
-import { calculateBodyLength, Hash } from "@smithy/core/serde";
+import { calculateBodyLength } from "@smithy/core/serde";
 import { NodeHttpHandler as RequestHandler, streamCollector } from "@smithy/node-http-handler";
 
 import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared";
@@ -53,7 +52,6 @@ export const getRuntimeConfig = (config: SQSClientConfig) => {
     credentialDefaultProvider: config?.credentialDefaultProvider ?? credentialDefaultProvider,
     defaultUserAgentProvider: config?.defaultUserAgentProvider ?? createDefaultUserAgentProvider({serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version}),
     maxAttempts: config?.maxAttempts ?? loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS, config),
-    md5: config?.md5 ?? Hash.bind(null, "md5"),
     region: config?.region ?? loadNodeConfig(
         NODE_REGION_CONFIG_OPTIONS,
         {...NODE_REGION_CONFIG_FILE_OPTIONS, ...loaderConfig}
@@ -68,7 +66,6 @@ export const getRuntimeConfig = (config: SQSClientConfig) => {
         },
         config
       ),
-    sha256: config?.sha256 ?? Hash.bind(null, "sha256"),
     streamCollector: config?.streamCollector ?? streamCollector,
     useDualstackEndpoint: config?.useDualstackEndpoint ?? loadNodeConfig(NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS, loaderConfig),
     useFipsEndpoint: config?.useFipsEndpoint ?? loadNodeConfig(NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS, loaderConfig),

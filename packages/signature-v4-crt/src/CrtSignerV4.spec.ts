@@ -1,5 +1,5 @@
-import { Sha256 } from "@aws-crypto/sha256-js";
 import { auth as crtAuth } from "@aws-sdk/crt-loader";
+import { Sha256 } from "@smithy/core/checksum";
 
 import {
   ALGORITHM_IDENTIFIER_V4A,

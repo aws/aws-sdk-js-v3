@@ -113,21 +113,7 @@ public class AddSqsDependency implements TypeScriptIntegration {
         }
 
         switch (target) {
-            case NODE:
-                return MapUtils.of("md5", writer -> {
-                    writer.addImport(
-                        "HashConstructor",
-                        "__HashConstructor",
-                        AwsDependency.TYPES
-                    );
-                    writer.addImport(
-                        "ChecksumConstructor",
-                        "__ChecksumConstructor",
-                        AwsDependency.TYPES
-                    );
-                    writer.write("Hash.bind(null, \"md5\")");
-                });
-            case BROWSER:
+            case SHARED:
                 return MapUtils.of("md5", writer -> {
                     writer.addDependency(TypeScriptDependency.SMITHY_CORE);
                     writer

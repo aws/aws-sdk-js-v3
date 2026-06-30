@@ -350,6 +350,9 @@ describe("S3 checksums", () => {
           )) {
             if (algo === checksumAlgorithm) {
               expect(spy).toHaveBeenCalled();
+            } else if (algo === "SHA256") {
+              // SHA256 is always called for SigV4 request signing,
+              // so we cannot assert it is not called.
             } else {
               expect(spy).not.toHaveBeenCalled();
             }

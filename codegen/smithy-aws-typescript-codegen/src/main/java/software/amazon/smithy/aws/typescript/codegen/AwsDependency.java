@@ -49,6 +49,10 @@ public enum AwsDependency implements Dependency {
     STS_CLIENT_PEER(PEER_DEPENDENCY, "@aws-sdk/client-sts"),
     SSO_OIDC_CLIENT(NORMAL_DEPENDENCY, "@aws-sdk/client-sso-oidc"),
     MIDDLEWARE_ENDPOINT_DISCOVERY(NORMAL_DEPENDENCY, "@aws-sdk/middleware-endpoint-discovery"),
+    /**
+     * @deprecated use {@code @aws-sdk/checksums/sha} via {@link AwsSdkChecksumsSubmodules#SHA}.
+     */
+    @Deprecated
     AWS_CRYPTO_SHA1_BROWSER(NORMAL_DEPENDENCY, "@aws-crypto/sha1-browser", "5.2.0"),
     SIGNATURE_V4_MULTIREGION(NORMAL_DEPENDENCY, "@aws-sdk/signature-v4-multi-region"),
     MIDDLEWARE_WEBSOCKET(NORMAL_DEPENDENCY, "@aws-sdk/middleware-websocket"),

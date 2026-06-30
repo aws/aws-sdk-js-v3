@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { AwsSdkSigV4Signer } from "@aws-sdk/core/httpAuthSchemes";
+import { Md5, Sha256 } from "@smithy/core/checksum";
 import { NoOpLogger } from "@smithy/core/client";
 import { parseUrl } from "@smithy/core/protocols";
 import { fromBase64, fromUtf8, sdkStreamMixin, toBase64, toUtf8 } from "@smithy/core/serde";
@@ -30,8 +31,10 @@ export const getRuntimeConfig = (config: RestJsonProtocolClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
+    md5: config?.md5 ?? Md5,
     sdkStreamMixin: config?.sdkStreamMixin ?? sdkStreamMixin,
     serviceId: config?.serviceId ?? "Rest Json Protocol",
+    sha256: config?.sha256 ?? Sha256,
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,
     utf8Encoder: config?.utf8Encoder ?? toUtf8,

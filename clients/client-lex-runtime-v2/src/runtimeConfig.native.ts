@@ -1,5 +1,4 @@
 // smithy-typescript generated code
-import { Sha256 } from "@aws-crypto/sha256-js";
 import { invalidFunction } from "@smithy/core/client";
 
 import type { LexRuntimeV2ClientConfig } from "./LexRuntimeV2Client";
@@ -17,6 +16,5 @@ export const getRuntimeConfig = (config: LexRuntimeV2ClientConfig) => {
     eventStreamPayloadHandlerProvider: config?.eventStreamPayloadHandlerProvider ?? (() => ({
       handle: invalidFunction("event stream request is not supported in ReactNative."),
     })),
-    sha256: config?.sha256 ?? Sha256,
   };
 };

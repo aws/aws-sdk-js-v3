@@ -1,5 +1,5 @@
-import { Sha256 } from "@aws-crypto/sha256-js";
 import { defaultProvider } from "@aws-sdk/credential-provider-node";
+import { Sha256 } from "@smithy/core/checksum";
 import { loadConfig } from "@smithy/core/config";
 import type { AwsCredentialIdentity } from "@smithy/types";
 import { beforeAll, beforeEach, describe, expect, test as it, vi } from "vitest";
