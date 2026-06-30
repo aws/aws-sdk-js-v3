@@ -23,6 +23,11 @@ import {
   AssociateIdentityProviderConfigCommand,
 } from "./commands/AssociateIdentityProviderConfigCommand";
 import {
+  type CancelUpdateCommandInput,
+  type CancelUpdateCommandOutput,
+  CancelUpdateCommand,
+} from "./commands/CancelUpdateCommand";
+import {
   type CreateAccessEntryCommandInput,
   type CreateAccessEntryCommandOutput,
   CreateAccessEntryCommand,
@@ -358,6 +363,7 @@ const commands = {
   AssociateAccessPolicyCommand,
   AssociateEncryptionConfigCommand,
   AssociateIdentityProviderConfigCommand,
+  CancelUpdateCommand,
   CreateAccessEntryCommand,
   CreateAddonCommand,
   CreateCapabilityCommand,
@@ -498,6 +504,23 @@ export interface EKS {
     args: AssociateIdentityProviderConfigCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociateIdentityProviderConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CancelUpdateCommand}
+   */
+  cancelUpdate(
+    args: CancelUpdateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelUpdateCommandOutput>;
+  cancelUpdate(
+    args: CancelUpdateCommandInput,
+    cb: (err: any, data?: CancelUpdateCommandOutput) => void
+  ): void;
+  cancelUpdate(
+    args: CancelUpdateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelUpdateCommandOutput) => void
   ): void;
 
   /**

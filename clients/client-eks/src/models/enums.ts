@@ -131,6 +131,20 @@ export type ArgoCdRole = (typeof ArgoCdRole)[keyof typeof ArgoCdRole];
  * @public
  * @enum
  */
+export const CancellationStatus = {
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  SUCCESSFUL: "Successful",
+} as const;
+/**
+ * @public
+ */
+export type CancellationStatus = (typeof CancellationStatus)[keyof typeof CancellationStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const ErrorCode = {
   ACCESS_DENIED: "AccessDenied",
   ADMISSION_REQUEST_DENIED: "AdmissionRequestDenied",
@@ -253,6 +267,7 @@ export const UpdateType = {
   REMOTE_NETWORK_CONFIG_UPDATE: "RemoteNetworkConfigUpdate",
   UPGRADE_POLICY_UPDATE: "UpgradePolicyUpdate",
   VENDED_LOGS_UPDATE: "VendedLogsUpdate",
+  VERSION_ROLLBACK: "VersionRollback",
   VERSION_UPDATE: "VersionUpdate",
   VPC_CONFIG_UPDATE: "VpcConfigUpdate",
   ZONAL_SHIFT_CONFIG_UPDATE: "ZonalShiftConfigUpdate",
@@ -706,6 +721,7 @@ export type ConfigStatus = (typeof ConfigStatus)[keyof typeof ConfigStatus];
  */
 export const Category = {
   MISCONFIGURATION: "MISCONFIGURATION",
+  ROLLBACK_READINESS: "ROLLBACK_READINESS",
   UPGRADE_READINESS: "UPGRADE_READINESS",
 } as const;
 /**

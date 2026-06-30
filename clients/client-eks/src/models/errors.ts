@@ -359,6 +359,39 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * <p>Amazon EKS detected upgrade readiness issues. Call the <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_ListInsights.html">
+ *                <code>ListInsights</code>
+ *             </a> API to view detected upgrade blocking issues.
+ *             Pass the <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateClusterVersion.html#API_UpdateClusterVersion_RequestBody">
+ *                <code>force</code>
+ *             </a> flag when updating to override upgrade readiness
+ *             errors.</p>
+ * @public
+ */
+export class InvalidStateException extends __BaseException {
+  readonly name = "InvalidStateException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>The Amazon EKS cluster associated with the exception.</p>
+   * @public
+   */
+  clusterName?: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidStateException, __BaseException>) {
+    super({
+      name: "InvalidStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidStateException.prototype);
+    this.clusterName = opts.clusterName;
+  }
+}
+
+/**
  * <p>You have encountered a service limit on the specified resource.</p>
  * @public
  */
@@ -523,38 +556,5 @@ export class ResourcePropagationDelayException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ResourcePropagationDelayException.prototype);
-  }
-}
-
-/**
- * <p>Amazon EKS detected upgrade readiness issues. Call the <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_ListInsights.html">
- *                <code>ListInsights</code>
- *             </a> API to view detected upgrade blocking issues.
- *             Pass the <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateClusterVersion.html#API_UpdateClusterVersion_RequestBody">
- *                <code>force</code>
- *             </a> flag when updating to override upgrade readiness
- *             errors.</p>
- * @public
- */
-export class InvalidStateException extends __BaseException {
-  readonly name = "InvalidStateException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * <p>The Amazon EKS cluster associated with the exception.</p>
-   * @public
-   */
-  clusterName?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidStateException, __BaseException>) {
-    super({
-      name: "InvalidStateException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidStateException.prototype);
-    this.clusterName = opts.clusterName;
   }
 }

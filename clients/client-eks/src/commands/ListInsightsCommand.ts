@@ -56,7 +56,7 @@ export interface ListInsightsCommandOutput extends ListInsightsResponse, __Metad
  *   clusterName: "STRING_VALUE", // required
  *   filter: { // InsightsFilter
  *     categories: [ // CategoryList
- *       "UPGRADE_READINESS" || "MISCONFIGURATION",
+ *       "UPGRADE_READINESS" || "MISCONFIGURATION" || "ROLLBACK_READINESS",
  *     ],
  *     kubernetesVersions: [ // StringList
  *       "STRING_VALUE",
@@ -75,7 +75,7 @@ export interface ListInsightsCommandOutput extends ListInsightsResponse, __Metad
  * //     { // InsightSummary
  * //       id: "STRING_VALUE",
  * //       name: "STRING_VALUE",
- * //       category: "UPGRADE_READINESS" || "MISCONFIGURATION",
+ * //       category: "UPGRADE_READINESS" || "MISCONFIGURATION" || "ROLLBACK_READINESS",
  * //       kubernetesVersion: "STRING_VALUE",
  * //       lastRefreshTime: new Date("TIMESTAMP"),
  * //       lastTransitionTime: new Date("TIMESTAMP"),

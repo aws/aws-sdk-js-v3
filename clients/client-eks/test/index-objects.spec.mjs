@@ -45,6 +45,12 @@ import {
   BadRequestException,
   BadRequestException$,
   BlockStorage$,
+  Cancellation$,
+  CancellationStatus,
+  CancelUpdate$,
+  CancelUpdateCommand,
+  CancelUpdateRequest$,
+  CancelUpdateResponse$,
   Capability$,
   CapabilityConfigurationRequest$,
   CapabilityConfigurationResponse$,
@@ -375,6 +381,7 @@ import {
   ResourceNotFoundException$,
   ResourcePropagationDelayException,
   ResourcePropagationDelayException$,
+  RollbackConfig$,
   ServerException,
   ServerException$,
   ServiceUnavailableException,
@@ -487,6 +494,8 @@ assert(typeof AssociateEncryptionConfigCommand === "function");
 assert(typeof AssociateEncryptionConfig$ === "object");
 assert(typeof AssociateIdentityProviderConfigCommand === "function");
 assert(typeof AssociateIdentityProviderConfig$ === "object");
+assert(typeof CancelUpdateCommand === "function");
+assert(typeof CancelUpdate$ === "object");
 assert(typeof CreateAccessEntryCommand === "function");
 assert(typeof CreateAccessEntry$ === "object");
 assert(typeof CreateAddonCommand === "function");
@@ -640,6 +649,9 @@ assert(typeof AssociateIdentityProviderConfigRequest$ === "object");
 assert(typeof AssociateIdentityProviderConfigResponse$ === "object");
 assert(typeof AutoScalingGroup$ === "object");
 assert(typeof BlockStorage$ === "object");
+assert(typeof Cancellation$ === "object");
+assert(typeof CancelUpdateRequest$ === "object");
+assert(typeof CancelUpdateResponse$ === "object");
 assert(typeof Capability$ === "object");
 assert(typeof CapabilityConfigurationRequest$ === "object");
 assert(typeof CapabilityConfigurationResponse$ === "object");
@@ -808,6 +820,7 @@ assert(typeof RemoteNetworkConfigRequest$ === "object");
 assert(typeof RemoteNetworkConfigResponse$ === "object");
 assert(typeof RemoteNodeNetwork$ === "object");
 assert(typeof RemotePodNetwork$ === "object");
+assert(typeof RollbackConfig$ === "object");
 assert(typeof SsoIdentity$ === "object");
 assert(typeof StartInsightsRefreshRequest$ === "object");
 assert(typeof StartInsightsRefreshResponse$ === "object");
@@ -858,6 +871,7 @@ assert(typeof AddonStatus === "object");
 assert(typeof AMITypes === "object");
 assert(typeof ArgoCdRole === "object");
 assert(typeof AuthenticationMode === "object");
+assert(typeof CancellationStatus === "object");
 assert(typeof CapabilityDeletePropagationPolicy === "object");
 assert(typeof CapabilityIssueCode === "object");
 assert(typeof CapabilityStatus === "object");

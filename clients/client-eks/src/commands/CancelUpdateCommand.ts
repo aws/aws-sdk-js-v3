@@ -5,8 +5,8 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { UpdateNodegroupVersionRequest, UpdateNodegroupVersionResponse } from "../models/models_0";
-import { UpdateNodegroupVersion$ } from "../schemas/schemas_0";
+import type { CancelUpdateRequest, CancelUpdateResponse } from "../models/models_0";
+import { CancelUpdate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,63 +16,40 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link UpdateNodegroupVersionCommand}.
+ * The input for {@link CancelUpdateCommand}.
  */
-export interface UpdateNodegroupVersionCommandInput extends UpdateNodegroupVersionRequest {}
+export interface CancelUpdateCommandInput extends CancelUpdateRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateNodegroupVersionCommand}.
+ * The output of {@link CancelUpdateCommand}.
  */
-export interface UpdateNodegroupVersionCommandOutput extends UpdateNodegroupVersionResponse, __MetadataBearer {}
+export interface CancelUpdateCommandOutput extends CancelUpdateResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the Kubernetes version or AMI version of an Amazon EKS managed node group.</p>
- *          <p>You can update a node group using a launch template only if the node group was
- *             originally deployed with a launch template. Additionally, the launch template ID or name
- *             must match what was used when the node group was created. You can update the launch
- *             template version with necessary changes.</p>
- *          <p>If you need to update a custom AMI in a node group that was deployed with a launch
- *             template, then update your custom AMI, specify the new ID in a new version of the launch
- *             template, and then update the node group to the new version of the launch
- *             template.</p>
- *          <p>If you update without a launch template, then you can update to the latest available
- *             AMI version of a node group's current Kubernetes version by not specifying a Kubernetes version in
- *             the request. You can update to the latest AMI version of your cluster's current Kubernetes
- *             version by specifying your cluster's Kubernetes version in the request. For information about
- *             Linux versions, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html">Amazon EKS optimized Amazon Linux AMI versions</a> in the
- *             <i>Amazon EKS User Guide</i>. For information about Windows versions, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-ami-versions-windows.html">Amazon EKS
- *                 optimized Windows AMI versions</a> in the <i>Amazon EKS User Guide</i>. </p>
- *          <p>You cannot roll back a node group to an earlier Kubernetes version or AMI version.</p>
- *          <p>When a node in a managed node group is terminated due to a scaling action or update,
- *             every <code>Pod</code> on that node is drained first. Amazon EKS attempts to drain the nodes
- *             gracefully and will fail if it is unable to do so. You can <code>force</code> the update
- *             if Amazon EKS is unable to drain the nodes as a result of a <code>Pod</code> disruption
- *             budget issue.</p>
+ * <p>Cancels an in-progress update to an Amazon EKS cluster on a best-effort basis. Cancellation
+ *             is only performed if the update can be cancelled. Currently, this is supported for
+ *             <code>VersionRollback</code> update types on EKS Auto Mode clusters when nodes are
+ *             rolling back.</p>
+ *          <p>A successful cancellation stops the node rollback. After cancellation, nodes converge
+ *             to the current cluster version honoring configured disruption controls. If the control
+ *             plane rollback has already begun, the cancellation request fails.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EKSClient, UpdateNodegroupVersionCommand } from "@aws-sdk/client-eks"; // ES Modules import
- * // const { EKSClient, UpdateNodegroupVersionCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * import { EKSClient, CancelUpdateCommand } from "@aws-sdk/client-eks"; // ES Modules import
+ * // const { EKSClient, CancelUpdateCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * // import type { EKSClientConfig } from "@aws-sdk/client-eks";
  * const config = {}; // type is EKSClientConfig
  * const client = new EKSClient(config);
- * const input = { // UpdateNodegroupVersionRequest
- *   clusterName: "STRING_VALUE", // required
- *   nodegroupName: "STRING_VALUE", // required
- *   version: "STRING_VALUE",
- *   releaseVersion: "STRING_VALUE",
- *   launchTemplate: { // LaunchTemplateSpecification
- *     name: "STRING_VALUE",
- *     version: "STRING_VALUE",
- *     id: "STRING_VALUE",
- *   },
- *   force: true || false,
+ * const input = { // CancelUpdateRequest
+ *   name: "STRING_VALUE", // required
+ *   updateId: "STRING_VALUE", // required
  *   clientRequestToken: "STRING_VALUE",
  * };
- * const command = new UpdateNodegroupVersionCommand(input);
+ * const command = new CancelUpdateCommand(input);
  * const response = await client.send(command);
- * // { // UpdateNodegroupVersionResponse
+ * // { // CancelUpdateResponse
  * //   update: { // Update
  * //     id: "STRING_VALUE",
  * //     status: "InProgress" || "Failed" || "Cancelled" || "Successful",
@@ -102,10 +79,10 @@ export interface UpdateNodegroupVersionCommandOutput extends UpdateNodegroupVers
  *
  * ```
  *
- * @param UpdateNodegroupVersionCommandInput - {@link UpdateNodegroupVersionCommandInput}
- * @returns {@link UpdateNodegroupVersionCommandOutput}
- * @see {@link UpdateNodegroupVersionCommandInput} for command's `input` shape.
- * @see {@link UpdateNodegroupVersionCommandOutput} for command's `response` shape.
+ * @param CancelUpdateCommandInput - {@link CancelUpdateCommandInput}
+ * @returns {@link CancelUpdateCommandOutput}
+ * @see {@link CancelUpdateCommandInput} for command's `input` shape.
+ * @see {@link CancelUpdateCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
  *
  * @throws {@link ClientException} (client fault)
@@ -121,6 +98,15 @@ export interface UpdateNodegroupVersionCommandOutput extends UpdateNodegroupVers
  *  <p>The request is invalid given the state of the cluster. Check the state of the cluster
  *             and the associated operations.</p>
  *
+ * @throws {@link InvalidStateException} (client fault)
+ *  <p>Amazon EKS detected upgrade readiness issues. Call the <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_ListInsights.html">
+ *                <code>ListInsights</code>
+ *             </a> API to view detected upgrade blocking issues.
+ *             Pass the <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateClusterVersion.html#API_UpdateClusterVersion_RequestBody">
+ *                <code>force</code>
+ *             </a> flag when updating to override upgrade readiness
+ *             errors.</p>
+ *
  * @throws {@link ResourceInUseException} (client fault)
  *  <p>The specified resource is in use.</p>
  *
@@ -133,16 +119,20 @@ export interface UpdateNodegroupVersionCommandOutput extends UpdateNodegroupVers
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request or operation couldn't be performed because a service is throttling
+ *             requests.</p>
+ *
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
  *
  * @public
  */
-export class UpdateNodegroupVersionCommand extends $Command
+export class CancelUpdateCommand extends $Command
   .classBuilder<
-    UpdateNodegroupVersionCommandInput,
-    UpdateNodegroupVersionCommandOutput,
+    CancelUpdateCommandInput,
+    CancelUpdateCommandOutput,
     EKSClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -151,19 +141,19 @@ export class UpdateNodegroupVersionCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: EKSClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("AWSWesleyFrontend", "UpdateNodegroupVersion", {})
-  .n("EKSClient", "UpdateNodegroupVersionCommand")
-  .sc(UpdateNodegroupVersion$)
+  .s("AWSWesleyFrontend", "CancelUpdate", {})
+  .n("EKSClient", "CancelUpdateCommand")
+  .sc(CancelUpdate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: UpdateNodegroupVersionRequest;
-      output: UpdateNodegroupVersionResponse;
+      input: CancelUpdateRequest;
+      output: CancelUpdateResponse;
     };
     sdk: {
-      input: UpdateNodegroupVersionCommandInput;
-      output: UpdateNodegroupVersionCommandOutput;
+      input: CancelUpdateCommandInput;
+      output: CancelUpdateCommandOutput;
     };
   };
 }

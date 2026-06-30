@@ -43,7 +43,7 @@ const _AVIL = "AddonVersionInfoList";
 const _Ad = "Addons";
 const _BRE = "BadRequestException";
 const _BS = "BlockStorage";
-const _C = "Capability";
+const _C = "Cancellation";
 const _CA = "CreateAddon";
 const _CACR = "CreateAccessConfigRequest";
 const _CAE = "CreateAccessEntry";
@@ -89,8 +89,12 @@ const _CS = "CapabilitySummary";
 const _CSL = "CapabilitySummaryList";
 const _CSl = "ClientStat";
 const _CSli = "ClientStats";
+const _CU = "CancelUpdate";
+const _CUR = "CancelUpdateRequest";
+const _CURa = "CancelUpdateResponse";
 const _CVI = "ClusterVersionInformation";
 const _CVL = "ClusterVersionList";
+const _Ca = "Capability";
 const _Ce = "Certificate";
 const _Cl = "Cluster";
 const _Co = "Compatibility";
@@ -278,9 +282,10 @@ const _PIA = "PodIdentityAssociation";
 const _PIAS = "PodIdentityAssociationSummary";
 const _PIASo = "PodIdentityAssociationSummaries";
 const _RAC = "RemoteAccessConfig";
-const _RC = "RegisterCluster";
+const _RC = "RollbackConfig";
 const _RCR = "RegisterClusterRequest";
 const _RCRe = "RegisterClusterResponse";
+const _RCe = "RegisterCluster";
 const _RIUE = "ResourceInUseException";
 const _RLEE = "ResourceLimitExceededException";
 const _RNCR = "RemoteNetworkConfigRequest";
@@ -417,6 +422,7 @@ const _cVl = "clusterVersion";
 const _cVlu = "clusterVersions";
 const _cVo = "compatibleVersions";
 const _ca = "capability";
+const _can = "cancellation";
 const _cap = "capabilities";
 const _cat = "category";
 const _cate = "categories";
@@ -575,6 +581,7 @@ const _rAes = "resourceArn";
 const _rC = "requiresConfiguration";
 const _rCe = "resolveConflicts";
 const _rCeq = "requiredClaims";
+const _rCo = "rollbackConfig";
 const _rD = "releaseDate";
 const _rI = "resourceIds";
 const _rIP = "requiresIamPermissions";
@@ -590,9 +597,9 @@ const _rT = "removeTaints";
 const _rV = "releaseVersion";
 const _rVC = "resourcesVpcConfig";
 const _rW = "replacedWith";
-const _re = "resources";
-const _rea = "reason";
+const _re = "reason";
 const _rec = "recommendation";
+const _res = "resources";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.eks";
 const _sA = "serviceAccount";
 const _sARA = "serviceAccountRoleArn";
@@ -620,6 +627,7 @@ const _subs = "subscriptions";
 const _t = "tags";
 const _tK = "tagKeys";
 const _tL = "taintsList";
+const _tM = "timeoutMinutes";
 const _tRA = "targetRoleArn";
 const _ta = "taints";
 const _te = "term";
@@ -932,7 +940,22 @@ export var BlockStorage$: StaticStructureSchema = [3, n0, _BS,
   [_en],
   [2]
 ];
-export var Capability$: StaticStructureSchema = [3, n0, _C,
+export var Cancellation$: StaticStructureSchema = [3, n0, _C,
+  0,
+  [_st, _re],
+  [0, 0]
+];
+export var CancelUpdateRequest$: StaticStructureSchema = [3, n0, _CUR,
+  0,
+  [_n, _uI, _cRT],
+  [[0, 1], [0, 1], [0, 4]], 2
+];
+export var CancelUpdateResponse$: StaticStructureSchema = [3, n0, _CURa,
+  0,
+  [_up],
+  [() => Update$]
+];
+export var Capability$: StaticStructureSchema = [3, n0, _Ca,
   0,
   [_cNa, _a, _cN, _ty, _rA, _st, _v, _con, _t, _h, _cA, _mA, _dPP],
   [0, 0, 0, 0, 0, 0, 0, () => CapabilityConfigurationResponse$, 128 | 0, () => CapabilityHealth$, 4, 4, 0]
@@ -1399,7 +1422,7 @@ export var ElasticLoadBalancing$: StaticStructureSchema = [3, n0, _ELB,
 ];
 export var EncryptionConfig$: StaticStructureSchema = [3, n0, _EC,
   0,
-  [_re, _pr],
+  [_res, _pr],
   [64 | 0, () => Provider$]
 ];
 export var ErrorDetail$: StaticStructureSchema = [3, n0, _ED,
@@ -1454,7 +1477,7 @@ export var IdentityProviderConfigResponse$: StaticStructureSchema = [3, n0, _IPC
 ];
 export var Insight$: StaticStructureSchema = [3, n0, _In,
   0,
-  [_id_, _n, _cat, _kV, _lRTa, _lTT, _de, _iS, _rec, _aId, _re, _cSS],
+  [_id_, _n, _cat, _kV, _lRTa, _lTT, _de, _iS, _rec, _aId, _res, _cSS],
   [0, 0, 0, 0, 4, 4, 0, () => InsightStatus$, 0, 128 | 0, () => InsightResourceDetails, () => InsightCategorySpecificSummary$]
 ];
 export var InsightCategorySpecificSummary$: StaticStructureSchema = [3, n0, _ICSS,
@@ -1474,7 +1497,7 @@ export var InsightsFilter$: StaticStructureSchema = [3, n0, _IF,
 ];
 export var InsightStatus$: StaticStructureSchema = [3, n0, _IS,
   0,
-  [_st, _rea],
+  [_st, _re],
   [0, 0]
 ];
 export var InsightSummary$: StaticStructureSchema = [3, n0, _ISn,
@@ -1664,7 +1687,7 @@ export var MarketplaceInformation$: StaticStructureSchema = [3, n0, _MI,
 ];
 export var Nodegroup$: StaticStructureSchema = [3, n0, _N,
   0,
-  [_nN, _nAo, _cN, _v, _rV, _cA, _mA, _st, _cTa, _sCc, _iT, _sub, _rAe, _aT, _nR, _la, _ta, _re, _dS, _h, _uC, _nRC, _lTa, _t, _wPC],
+  [_nN, _nAo, _cN, _v, _rV, _cA, _mA, _st, _cTa, _sCc, _iT, _sub, _rAe, _aT, _nR, _la, _ta, _res, _dS, _h, _uC, _nRC, _lTa, _t, _wPC],
   [0, 0, 0, 0, 0, 4, 4, 0, 0, () => NodegroupScalingConfig$, 64 | 0, 64 | 0, () => RemoteAccessConfig$, 0, 0, 128 | 0, () => taintsList, () => NodegroupResources$, 1, () => NodegroupHealth$, () => NodegroupUpdateConfig$, () => NodeRepairConfig$, () => LaunchTemplateSpecification$, 128 | 0, () => WarmPoolConfig$]
 ];
 export var NodegroupHealth$: StaticStructureSchema = [3, n0, _NH,
@@ -1772,6 +1795,11 @@ export var RemotePodNetwork$: StaticStructureSchema = [3, n0, _RPN,
   [_ci],
   [64 | 0]
 ];
+export var RollbackConfig$: StaticStructureSchema = [3, n0, _RC,
+  0,
+  [_tM],
+  [1]
+];
 export var SsoIdentity$: StaticStructureSchema = [3, n0, _SI,
   0,
   [_id_, _ty],
@@ -1824,8 +1852,8 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var Update$: StaticStructureSchema = [3, n0, _U,
   0,
-  [_id_, _st, _ty, _pa, _cA, _er],
-  [0, 0, 0, () => UpdateParams, 4, () => ErrorDetails]
+  [_id_, _st, _ty, _pa, _cA, _er, _can],
+  [0, 0, 0, () => UpdateParams, 4, () => ErrorDetails, () => Cancellation$]
 ];
 export var UpdateAccessConfigRequest$: StaticStructureSchema = [3, n0, _UACR,
   0,
@@ -1884,8 +1912,8 @@ export var UpdateClusterConfigResponse$: StaticStructureSchema = [3, n0, _UCCRp,
 ];
 export var UpdateClusterVersionRequest$: StaticStructureSchema = [3, n0, _UCVR,
   0,
-  [_n, _v, _cRT, _fo],
-  [[0, 1], 0, [0, 4], 2], 2
+  [_n, _v, _cRT, _fo, _rCo],
+  [[0, 1], 0, [0, 4], 2, () => RollbackConfig$], 2
 ];
 export var UpdateClusterVersionResponse$: StaticStructureSchema = [3, n0, _UCVRp,
   0,
@@ -2114,6 +2142,9 @@ export var AssociateEncryptionConfig$: StaticOperationSchema = [9, n0, _AEC,
 export var AssociateIdentityProviderConfig$: StaticOperationSchema = [9, n0, _AIPC,
   { [_ht]: ["POST", "/clusters/{clusterName}/identity-provider-configs/associate", 200] }, () => AssociateIdentityProviderConfigRequest$, () => AssociateIdentityProviderConfigResponse$
 ];
+export var CancelUpdate$: StaticOperationSchema = [9, n0, _CU,
+  { [_ht]: ["POST", "/clusters/{name}/updates/{updateId}/cancel-update", 200] }, () => CancelUpdateRequest$, () => CancelUpdateResponse$
+];
 export var CreateAccessEntry$: StaticOperationSchema = [9, n0, _CAE,
   { [_ht]: ["POST", "/clusters/{clusterName}/access-entries", 200] }, () => CreateAccessEntryRequest$, () => CreateAccessEntryResponse$
 ];
@@ -2258,7 +2289,7 @@ export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
 export var ListUpdates$: StaticOperationSchema = [9, n0, _LU,
   { [_ht]: ["GET", "/clusters/{name}/updates", 200] }, () => ListUpdatesRequest$, () => ListUpdatesResponse$
 ];
-export var RegisterCluster$: StaticOperationSchema = [9, n0, _RC,
+export var RegisterCluster$: StaticOperationSchema = [9, n0, _RCe,
   { [_ht]: ["POST", "/cluster-registrations", 200] }, () => RegisterClusterRequest$, () => RegisterClusterResponse$
 ];
 export var StartInsightsRefresh$: StaticOperationSchema = [9, n0, _SIR,

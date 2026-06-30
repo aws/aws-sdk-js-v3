@@ -66,6 +66,7 @@ import type {
   AssociateIdentityProviderConfigCommandInput,
   AssociateIdentityProviderConfigCommandOutput,
 } from "./commands/AssociateIdentityProviderConfigCommand";
+import type { CancelUpdateCommandInput, CancelUpdateCommandOutput } from "./commands/CancelUpdateCommand";
 import type {
   CreateAccessEntryCommandInput,
   CreateAccessEntryCommandOutput,
@@ -259,6 +260,7 @@ export type ServiceInputTypes =
   | AssociateAccessPolicyCommandInput
   | AssociateEncryptionConfigCommandInput
   | AssociateIdentityProviderConfigCommandInput
+  | CancelUpdateCommandInput
   | CreateAccessEntryCommandInput
   | CreateAddonCommandInput
   | CreateCapabilityCommandInput
@@ -328,6 +330,7 @@ export type ServiceOutputTypes =
   | AssociateAccessPolicyCommandOutput
   | AssociateEncryptionConfigCommandOutput
   | AssociateIdentityProviderConfigCommandOutput
+  | CancelUpdateCommandOutput
   | CreateAccessEntryCommandOutput
   | CreateAddonCommandOutput
   | CreateCapabilityCommandOutput

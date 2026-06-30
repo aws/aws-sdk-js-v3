@@ -211,6 +211,13 @@ AssociateIdentityProviderConfig
 </details>
 <details>
 <summary>
+CancelUpdate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/eks/command/CancelUpdateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/CancelUpdateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/CancelUpdateCommandOutput/)
+</details>
+<details>
+<summary>
 CreateAccessEntry
 </summary>
 

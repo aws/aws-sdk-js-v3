@@ -2,6 +2,7 @@
 export * from "./AssociateAccessPolicyCommand";
 export * from "./AssociateEncryptionConfigCommand";
 export * from "./AssociateIdentityProviderConfigCommand";
+export * from "./CancelUpdateCommand";
 export * from "./CreateAccessEntryCommand";
 export * from "./CreateAddonCommand";
 export * from "./CreateCapabilityCommand";

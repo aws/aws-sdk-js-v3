@@ -6,6 +6,7 @@ import type {
   AMITypes,
   ArgoCdRole,
   AuthenticationMode,
+  CancellationStatus,
   CapabilityDeletePropagationPolicy,
   CapabilityIssueCode,
   CapabilityStatus,
@@ -880,6 +881,26 @@ export interface AssociateEncryptionConfigRequest {
 }
 
 /**
+ * <p>Contains information about the latest cancellation of an update to an Amazon EKS cluster.</p>
+ * @public
+ */
+export interface Cancellation {
+  /**
+   * <p>The current status of the cancellation. Valid values are <code>InProgress</code>,
+   *             <code>Failed</code>, and <code>Successful</code>.</p>
+   * @public
+   */
+  status?: CancellationStatus | undefined;
+
+  /**
+   * <p>A message providing additional details about the cancellation, such as the reason for
+   *             the cancellation or failure details.</p>
+   * @public
+   */
+  reason?: string | undefined;
+}
+
+/**
  * <p>An object representing an error when an asynchronous operation fails.</p>
  * @public
  */
@@ -999,6 +1020,13 @@ export interface Update {
    * @public
    */
   errors?: ErrorDetail[] | undefined;
+
+  /**
+   * <p>The latest cancellation information for the update. This field is present only if any
+   *             cancellation is attempted for the update.</p>
+   * @public
+   */
+  cancellation?: Cancellation | undefined;
 }
 
 /**
@@ -1149,6 +1177,41 @@ export interface AutoScalingGroup {
    * @public
    */
   name?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelUpdateRequest {
+  /**
+   * <p>The name of the Amazon EKS cluster associated with the update.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The ID of the update to cancel.</p>
+   * @public
+   */
+  updateId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure
+   * the idempotency of the request.</p>
+   * @public
+   */
+  clientRequestToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelUpdateResponse {
+  /**
+   * <p>The full description of the specified update.</p>
+   * @public
+   */
+  update?: Update | undefined;
 }
 
 /**
@@ -7591,6 +7654,21 @@ export interface UpdateClusterConfigResponse {
 }
 
 /**
+ * <p>The rollback configuration for the cluster version rollback.</p>
+ * @public
+ */
+export interface RollbackConfig {
+  /**
+   * <p>The length of time in minutes to wait before cancelling the update. Timeout is a
+   *             minimum-bound property, meaning the timeout occurs no sooner than the time you specify,
+   *             but can occur shortly thereafter. This value can be between 120 (2 hours) and 10080
+   *             (7 days). Default: <code>720</code> (12 hours) if not specified.</p>
+   * @public
+   */
+  timeoutMinutes?: number | undefined;
+}
+
+/**
  * @public
  */
 export interface UpdateClusterVersionRequest {
@@ -7614,11 +7692,17 @@ export interface UpdateClusterVersionRequest {
   clientRequestToken?: string | undefined;
 
   /**
-   * <p>Set this value to <code>true</code> to override upgrade-blocking readiness checks when
+   * <p>Set this value to <code>true</code> to override upgrade-blocking or rollback-blocking readiness checks when
    *             updating a cluster.</p>
    * @public
    */
   force?: boolean | undefined;
+
+  /**
+   * <p>The rollback configuration for the cluster version rollback.</p>
+   * @public
+   */
+  rollbackConfig?: RollbackConfig | undefined;
 }
 
 /**
