@@ -131,6 +131,7 @@ export const LogType = {
   ACCESS: "ACCESS_LOGS",
   APPLICATION: "APPLICATION_LOGS",
   CONNECTION: "CONNECTION_LOGS",
+  S3_SERVER_ACCESS: "S3_SERVER_ACCESS_LOGS",
   SECURITY_FINDING: "SECURITY_FINDING_LOGS",
   USAGE: "USAGE_LOGS",
 } as const;
@@ -213,6 +214,7 @@ export const ResourceType = {
   AWS_MSK_CLUSTER: "AWS::MSK::Cluster",
   AWS_OTEL_ENRICHMENT: "AWS::CloudWatch::OTelEnrichment",
   AWS_ROUTE53_RESOLVER_RESOLVER_ENDPOINT: "AWS::Route53Resolver::ResolverEndpoint",
+  AWS_S3_BUCKET: "AWS::S3::Bucket",
   AWS_SECURITY_HUB: "AWS::SecurityHub::Hub",
   AWS_SECURITY_HUB_HUBV2: "AWS::SecurityHub::HubV2",
   AWS_WAF_V2_WEB_ACL: "AWS::WAFv2::WebACL",
@@ -342,3 +344,22 @@ export const RecordFormat = {
  * @public
  */
 export type RecordFormat = (typeof RecordFormat)[keyof typeof RecordFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const SignalType = {
+  /**
+   * <p>Log signal type. The pipeline processes log records.</p>
+   */
+  LOG: "LOG",
+  /**
+   * <p>Metric signal type. The pipeline processes metric records.</p>
+   */
+  METRIC: "METRIC",
+} as const;
+/**
+ * @public
+ */
+export type SignalType = (typeof SignalType)[keyof typeof SignalType];

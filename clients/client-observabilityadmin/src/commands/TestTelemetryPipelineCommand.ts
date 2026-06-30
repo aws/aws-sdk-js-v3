@@ -50,6 +50,7 @@ export interface TestTelemetryPipelineCommandOutput extends TestTelemetryPipelin
  *   Configuration: { // TelemetryPipelineConfiguration
  *     Body: "STRING_VALUE", // required
  *   },
+ *   SignalType: "LOG" || "METRIC",
  * };
  * const command = new TestTelemetryPipelineCommand(input);
  * const response = await client.send(command);

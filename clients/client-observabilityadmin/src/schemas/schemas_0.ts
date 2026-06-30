@@ -213,6 +213,7 @@ const _SMC = "SourceMetricsConfiguration";
 const _SOUI = "SourceOrganizationUnitIds";
 const _SQEE = "ServiceQuotaExceededException";
 const _SR = "StatusReason";
+const _ST = "SignalType";
 const _STE = "StartTelemetryEnrichment";
 const _STEFO = "StartTelemetryEvaluationForOrganization";
 const _STEFOI = "StartTelemetryEvaluationForOrganizationInput";
@@ -834,8 +835,8 @@ export var TelemetryRuleSummary$: StaticStructureSchema = [3, n0, _TRSe,
 ];
 export var TestTelemetryPipelineInput$: StaticStructureSchema = [3, n0, _TTPI,
   0,
-  [_Reco, _Co],
-  [() => Records, () => TelemetryPipelineConfiguration$], 2
+  [_Reco, _Co, _ST],
+  [() => Records, () => TelemetryPipelineConfiguration$, 0], 2
 ];
 export var TestTelemetryPipelineOutput$: StaticStructureSchema = [3, n0, _TTPO,
   0,

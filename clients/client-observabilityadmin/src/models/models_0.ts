@@ -15,6 +15,7 @@ import type {
   RecordFormat,
   ResourceType,
   RuleHealth,
+  SignalType,
   SSEAlgorithm,
   Status,
   TelemetryEnrichmentStatus,
@@ -2160,6 +2161,12 @@ export interface TestTelemetryPipelineInput {
    * @public
    */
   Configuration: TelemetryPipelineConfiguration | undefined;
+
+  /**
+   * <p>The type of telemetry signal to test. If not specified, defaults to log processing.</p>
+   * @public
+   */
+  SignalType?: SignalType | undefined;
 }
 
 /**

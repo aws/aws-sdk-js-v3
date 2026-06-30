@@ -137,6 +137,7 @@ export type {
   RecordFormat,
   ResourceType,
   RuleHealth,
+  SignalType,
   SSEAlgorithm,
   Status,
   TelemetryEnrichmentStatus,

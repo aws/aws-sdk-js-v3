@@ -46,7 +46,7 @@ export interface UpdateTelemetryRuleForOrganizationCommandOutput extends UpdateT
  * const input = { // UpdateTelemetryRuleForOrganizationInput
  *   RuleIdentifier: "STRING_VALUE", // required
  *   Rule: { // TelemetryRule
- *     ResourceType: "AWS::EC2::Instance" || "AWS::EC2::VPC" || "AWS::Lambda::Function" || "AWS::CloudTrail" || "AWS::EKS::Cluster" || "AWS::WAFv2::WebACL" || "AWS::ElasticLoadBalancingV2::LoadBalancer" || "AWS::Route53Resolver::ResolverEndpoint" || "AWS::BedrockAgentCore::Runtime" || "AWS::BedrockAgentCore::Browser" || "AWS::BedrockAgentCore::CodeInterpreter" || "AWS::BedrockAgentCore::Gateway" || "AWS::BedrockAgentCore::Memory" || "AWS::BedrockAgentCore::WorkloadIdentity" || "AWS::SecurityHub::Hub" || "AWS::CloudFront::Distribution" || "AWS::SecurityHub::HubV2" || "AWS::CloudWatch::OTelEnrichment" || "AWS::MSK::Cluster",
+ *     ResourceType: "AWS::EC2::Instance" || "AWS::EC2::VPC" || "AWS::Lambda::Function" || "AWS::CloudTrail" || "AWS::EKS::Cluster" || "AWS::WAFv2::WebACL" || "AWS::ElasticLoadBalancingV2::LoadBalancer" || "AWS::Route53Resolver::ResolverEndpoint" || "AWS::BedrockAgentCore::Runtime" || "AWS::BedrockAgentCore::Browser" || "AWS::BedrockAgentCore::CodeInterpreter" || "AWS::BedrockAgentCore::Gateway" || "AWS::BedrockAgentCore::Memory" || "AWS::BedrockAgentCore::WorkloadIdentity" || "AWS::SecurityHub::Hub" || "AWS::CloudFront::Distribution" || "AWS::SecurityHub::HubV2" || "AWS::CloudWatch::OTelEnrichment" || "AWS::MSK::Cluster" || "AWS::S3::Bucket",
  *     TelemetryType: "Logs" || "Metrics" || "Traces", // required
  *     TelemetrySourceTypes: [ // TelemetrySourceTypes
  *       "VPC_FLOW_LOGS" || "ROUTE53_RESOLVER_QUERY_LOGS" || "EKS_AUDIT_LOGS" || "EKS_AUTHENTICATOR_LOGS" || "EKS_CONTROLLER_MANAGER_LOGS" || "EKS_SCHEDULER_LOGS" || "EKS_API_LOGS",
@@ -126,7 +126,7 @@ export interface UpdateTelemetryRuleForOrganizationCommandOutput extends UpdateT
  *       },
  *       LogDeliveryParameters: { // LogDeliveryParameters
  *         LogTypes: [ // LogTypes
- *           "APPLICATION_LOGS" || "USAGE_LOGS" || "SECURITY_FINDING_LOGS" || "ACCESS_LOGS" || "CONNECTION_LOGS",
+ *           "APPLICATION_LOGS" || "USAGE_LOGS" || "SECURITY_FINDING_LOGS" || "ACCESS_LOGS" || "CONNECTION_LOGS" || "S3_SERVER_ACCESS_LOGS",
  *         ],
  *       },
  *       MskMonitoringParameters: { // MskMonitoringParameters

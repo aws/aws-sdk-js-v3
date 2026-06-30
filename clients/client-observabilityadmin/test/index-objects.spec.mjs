@@ -163,6 +163,7 @@ import {
   RuleHealth,
   ServiceQuotaExceededException,
   ServiceQuotaExceededException$,
+  SignalType,
   SingleHeader$,
   Source$,
   SourceLogsConfiguration$,
@@ -447,6 +448,7 @@ assert(typeof OutputFormat === "object");
 assert(typeof RecordFormat === "object");
 assert(typeof ResourceType === "object");
 assert(typeof RuleHealth === "object");
+assert(typeof SignalType === "object");
 assert(typeof SSEAlgorithm === "object");
 assert(typeof Status === "object");
 assert(typeof TelemetryEnrichmentStatus === "object");
