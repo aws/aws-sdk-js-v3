@@ -91,6 +91,11 @@ export interface UpdateStackCommandOutput extends UpdateStackOutput, __MetadataB
  *   DisableRollback: true || false,
  *   ClientRequestToken: "STRING_VALUE",
  *   RetainExceptOnCreate: true || false,
+ *   DeploymentConfig: { // DeploymentConfig
+ *     Mode: "STANDARD" || "EXPRESS",
+ *     DisableRollback: true || false,
+ *   },
+ *   DisableValidation: true || false,
  * };
  * const command = new UpdateStackCommand(input);
  * const response = await client.send(command);

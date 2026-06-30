@@ -19,6 +19,7 @@ import type {
   ChangeType,
   ConcurrencyMode,
   DeletionMode,
+  DeploymentConfigMode,
   DeploymentMode,
   DeprecatedStatus,
   DetailedStatus,
@@ -1412,6 +1413,40 @@ export interface ContinueUpdateRollbackInput {
 export interface ContinueUpdateRollbackOutput {}
 
 /**
+ * <p>The deployment configuration for a stack operation, including the deployment mode.</p>
+ * @public
+ */
+export interface DeploymentConfig {
+  /**
+   * <p>Specifies the deployment mode for the stack operation. Possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>STANDARD</code> - Use the standard deployment behavior, ensuring resources are
+   *      ready to serve traffic before completing the operation. This is the default. You do not need
+   *      to specify this value explicitly.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EXPRESS</code> - Complete the stack operation when resource configuration is
+   *      applied, without waiting for resources to become ready to serve traffic. Resources continue
+   *      becoming ready in the background.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Mode?: DeploymentConfigMode | undefined;
+
+  /**
+   * <p>Specifies whether to disable rollback of the stack if the stack operation fails.</p>
+   *          <p>Default: <code>false</code>
+   *          </p>
+   * @public
+   */
+  DisableRollback?: boolean | undefined;
+}
+
+/**
  * <p>The <code>Parameter</code> data type.</p>
  * @public
  */
@@ -1902,6 +1937,24 @@ export interface CreateChangeSetInput {
    * @public
    */
   DeploymentMode?: DeploymentMode | undefined;
+
+  /**
+   * <p>The deployment configuration for this stack operation, including the deployment
+   *       mode.</p>
+   * @public
+   */
+  DeploymentConfig?: DeploymentConfig | undefined;
+
+  /**
+   * <p>
+   *     Set to <code>true</code> to disable pre-deployment validations in changeset or stack operations.
+   *     </p>
+   *          <p>
+   *     Default: <code>false</code>
+   *          </p>
+   * @public
+   */
+  DisableValidation?: boolean | undefined;
 }
 
 /**
@@ -2343,6 +2396,24 @@ export interface CreateStackInput {
    * @public
    */
   RetainExceptOnCreate?: boolean | undefined;
+
+  /**
+   * <p>The deployment configuration for this stack operation, including the deployment
+   *       mode.</p>
+   * @public
+   */
+  DeploymentConfig?: DeploymentConfig | undefined;
+
+  /**
+   * <p>
+   *     Set to <code>true</code> to disable pre-deployment validations in changeset or stack operations.
+   *     </p>
+   *          <p>
+   *     Default: <code>false</code>
+   *          </p>
+   * @public
+   */
+  DisableValidation?: boolean | undefined;
 }
 
 /**
@@ -3203,6 +3274,13 @@ export interface DeleteStackInput {
    * @public
    */
   DeletionMode?: DeletionMode | undefined;
+
+  /**
+   * <p>The deployment configuration for this stack operation, including the deployment
+   *       mode.</p>
+   * @public
+   */
+  DeploymentConfig?: DeploymentConfig | undefined;
 }
 
 /**
@@ -3651,6 +3729,12 @@ export interface DescribeChangeSetOutput {
    * @public
    */
   DeploymentMode?: DeploymentMode | undefined;
+
+  /**
+   * <p>The deployment configuration specified when the change set was created.</p>
+   * @public
+   */
+  DeploymentConfig?: DeploymentConfig | undefined;
 }
 
 /**
@@ -3750,7 +3834,9 @@ export interface EventFilter {
  */
 export interface DescribeEventsInput {
   /**
-   * <p>The name or unique stack ID for which you want to retrieve events.</p>
+   * <p>The name or unique stack ID for which you want to retrieve events. If you specified the
+   *       name of a change set, specify the stack name or ID (ARN) of the change set you want to
+   *       describe.</p>
    * @public
    */
   StackName?: string | undefined;
@@ -5955,6 +6041,13 @@ export interface Stack {
    * @public
    */
   DisableRollback?: boolean | undefined;
+
+  /**
+   * <p>The deployment configuration for the stack, including the deployment mode used for stack
+   *    operations.</p>
+   * @public
+   */
+  DeploymentConfig?: DeploymentConfig | undefined;
 
   /**
    * <p>Amazon SNS topic Amazon Resource Names (ARNs) to which stack related events are published.</p>
@@ -11245,6 +11338,13 @@ export interface RollbackStackInput {
    * @public
    */
   RetainExceptOnCreate?: boolean | undefined;
+
+  /**
+   * <p>The deployment configuration for this stack operation, including the deployment
+   *       mode.</p>
+   * @public
+   */
+  DeploymentConfig?: DeploymentConfig | undefined;
 }
 
 /**
@@ -11950,6 +12050,24 @@ export interface UpdateStackInput {
    * @public
    */
   RetainExceptOnCreate?: boolean | undefined;
+
+  /**
+   * <p>The deployment configuration for this stack operation, including the deployment
+   *       mode.</p>
+   * @public
+   */
+  DeploymentConfig?: DeploymentConfig | undefined;
+
+  /**
+   * <p>
+   *     Set to <code>true</code> to disable pre-deployment validations in changeset or stack operations.
+   *     </p>
+   *          <p>
+   *     Default: <code>false</code>
+   *          </p>
+   * @public
+   */
+  DisableValidation?: boolean | undefined;
 }
 
 /**

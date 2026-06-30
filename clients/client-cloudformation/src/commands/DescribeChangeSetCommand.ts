@@ -153,6 +153,10 @@ export interface DescribeChangeSetCommandOutput extends DescribeChangeSetOutput,
  * //   OnStackFailure: "DO_NOTHING" || "ROLLBACK" || "DELETE",
  * //   ImportExistingResources: true || false,
  * //   DeploymentMode: "REVERT_DRIFT",
+ * //   DeploymentConfig: { // DeploymentConfig
+ * //     Mode: "STANDARD" || "EXPRESS",
+ * //     DisableRollback: true || false,
+ * //   },
  * // };
  *
  * ```

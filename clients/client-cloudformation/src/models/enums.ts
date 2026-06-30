@@ -438,6 +438,19 @@ export type ChangeSetType = (typeof ChangeSetType)[keyof typeof ChangeSetType];
  * @public
  * @enum
  */
+export const DeploymentConfigMode = {
+  EXPRESS: "EXPRESS",
+  STANDARD: "STANDARD",
+} as const;
+/**
+ * @public
+ */
+export type DeploymentConfigMode = (typeof DeploymentConfigMode)[keyof typeof DeploymentConfigMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const DeploymentMode = {
   REVERT_DRIFT: "REVERT_DRIFT",
 } as const;

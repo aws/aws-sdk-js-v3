@@ -102,6 +102,7 @@ const _D = "Description";
 const _DAL = "DescribeAccountLimits";
 const _DALI = "DescribeAccountLimitsInput";
 const _DALO = "DescribeAccountLimitsOutput";
+const _DC = "DeploymentConfig";
 const _DCS = "DeleteChangeSet";
 const _DCSH = "DescribeChangeSetHooks";
 const _DCSHI = "DescribeChangeSetHooksInput";
@@ -212,8 +213,9 @@ const _DTer = "DeregisterType";
 const _DTes = "DescribeType";
 const _DTi = "DifferenceType";
 const _DU = "DocumentationUrl";
-const _DV = "DefaultValue";
+const _DV = "DisableValidation";
 const _DVI = "DefaultVersionId";
+const _DVe = "DefaultValue";
 const _De = "Details";
 const _Des = "Destination";
 const _Det = "Detection";
@@ -401,6 +403,7 @@ const _MR = "MaxResults";
 const _MTIM = "MonitoringTimeInMinutes";
 const _MV = "MajorVersion";
 const _Me = "Metadata";
+const _Mo = "Mode";
 const _N = "Name";
 const _NAEE = "NameAlreadyExistsException";
 const _NARN = "NotificationARNs";
@@ -1098,8 +1101,8 @@ export var ContinueUpdateRollbackOutput$: StaticStructureSchema = [3, n0, _CURO,
 ];
 export var CreateChangeSetInput$: StaticStructureSchema = [3, n0, _CCSI,
   0,
-  [_SN, _CSN, _TB, _TURL, _UPT, _P, _Ca, _RTe, _RARN, _RCo, _NARN, _Ta, _CTl, _D, _CST, _RTI, _INS, _OSF, _IER, _DM],
-  [0, 0, 0, 0, 2, () => _Parameters, 64 | 0, 64 | 0, 0, () => RollbackConfiguration$, 64 | 0, () => Tags, 0, 0, 0, () => ResourcesToImport, 2, 0, 2, 0], 2
+  [_SN, _CSN, _TB, _TURL, _UPT, _P, _Ca, _RTe, _RARN, _RCo, _NARN, _Ta, _CTl, _D, _CST, _RTI, _INS, _OSF, _IER, _DM, _DC, _DV],
+  [0, 0, 0, 0, 2, () => _Parameters, 64 | 0, 64 | 0, 0, () => RollbackConfiguration$, 64 | 0, () => Tags, 0, 0, 0, () => ResourcesToImport, 2, 0, 2, 0, () => DeploymentConfig$, 2], 2
 ];
 export var CreateChangeSetOutput$: StaticStructureSchema = [3, n0, _CCSO,
   0,
@@ -1118,8 +1121,8 @@ export var CreateGeneratedTemplateOutput$: StaticStructureSchema = [3, n0, _CGTO
 ];
 export var CreateStackInput$: StaticStructureSchema = [3, n0, _CSIr,
   0,
-  [_SN, _TB, _TURL, _P, _DR, _RCo, _TIM, _NARN, _Ca, _RTe, _RARN, _OF, _SPB, _SPURL, _Ta, _CRT, _ETP, _REOC],
-  [0, 0, 0, () => _Parameters, 2, () => RollbackConfiguration$, 1, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, 0, () => Tags, 0, 2, 2], 1
+  [_SN, _TB, _TURL, _P, _DR, _RCo, _TIM, _NARN, _Ca, _RTe, _RARN, _OF, _SPB, _SPURL, _Ta, _CRT, _ETP, _REOC, _DC, _DV],
+  [0, 0, 0, () => _Parameters, 2, () => RollbackConfiguration$, 1, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, 0, () => Tags, 0, 2, 2, () => DeploymentConfig$, 2], 1
 ];
 export var CreateStackInstancesInput$: StaticStructureSchema = [3, n0, _CSII,
   0,
@@ -1193,8 +1196,8 @@ export var DeleteGeneratedTemplateInput$: StaticStructureSchema = [3, n0, _DGTI,
 ];
 export var DeleteStackInput$: StaticStructureSchema = [3, n0, _DSI,
   0,
-  [_SN, _RR, _RARN, _CRT, _DMe],
-  [0, 64 | 0, 0, 0, 0], 1
+  [_SN, _RR, _RARN, _CRT, _DMe, _DC],
+  [0, 64 | 0, 0, 0, 0, () => DeploymentConfig$], 1
 ];
 export var DeleteStackInstancesInput$: StaticStructureSchema = [3, n0, _DSII,
   0,
@@ -1215,6 +1218,11 @@ export var DeleteStackSetOutput$: StaticStructureSchema = [3, n0, _DSSO,
   0,
   [],
   []
+];
+export var DeploymentConfig$: StaticStructureSchema = [3, n0, _DC,
+  0,
+  [_Mo, _DR],
+  [0, 2]
 ];
 export var DeploymentTargets$: StaticStructureSchema = [3, n0, _DT,
   0,
@@ -1258,8 +1266,8 @@ export var DescribeChangeSetInput$: StaticStructureSchema = [3, n0, _DCSIe,
 ];
 export var DescribeChangeSetOutput$: StaticStructureSchema = [3, n0, _DCSOe,
   0,
-  [_CSN, _CSI, _SI, _SN, _D, _P, _CT, _ES, _S, _SR, _SDS, _NARN, _RCo, _Ca, _Ta, _Ch, _NT, _INS, _PCSI, _RCSI, _OSF, _IER, _DM],
-  [0, 0, 0, 0, 0, () => _Parameters, 4, 0, 0, 0, 0, 64 | 0, () => RollbackConfiguration$, 64 | 0, () => Tags, () => Changes, 0, 2, 0, 0, 0, 2, 0]
+  [_CSN, _CSI, _SI, _SN, _D, _P, _CT, _ES, _S, _SR, _SDS, _NARN, _RCo, _Ca, _Ta, _Ch, _NT, _INS, _PCSI, _RCSI, _OSF, _IER, _DM, _DC],
+  [0, 0, 0, 0, 0, () => _Parameters, 4, 0, 0, 0, 0, 64 | 0, () => RollbackConfiguration$, 64 | 0, () => Tags, () => Changes, 0, 2, 0, 0, 0, 2, 0, () => DeploymentConfig$]
 ];
 export var DescribeEventsInput$: StaticStructureSchema = [3, n0, _DEI,
   0,
@@ -1828,7 +1836,7 @@ export var ParameterConstraints$: StaticStructureSchema = [3, n0, _PCa,
 ];
 export var ParameterDeclaration$: StaticStructureSchema = [3, n0, _PD,
   0,
-  [_PK, _DV, _PTa, _NE, _D, _PCa],
+  [_PK, _DVe, _PTa, _NE, _D, _PCa],
   [0, 0, 0, 2, 0, () => ParameterConstraints$]
 ];
 export var PhysicalResourceIdContextKeyValuePair$: StaticStructureSchema = [3, n0, _PRICKVP,
@@ -1948,8 +1956,8 @@ export var RollbackConfiguration$: StaticStructureSchema = [3, n0, _RCo,
 ];
 export var RollbackStackInput$: StaticStructureSchema = [3, n0, _RSIo,
   0,
-  [_SN, _RARN, _CRT, _REOC],
-  [0, 0, 0, 2], 1
+  [_SN, _RARN, _CRT, _REOC, _DC],
+  [0, 0, 0, 2, () => DeploymentConfig$], 1
 ];
 export var RollbackStackOutput$: StaticStructureSchema = [3, n0, _RSO,
   0,
@@ -2008,8 +2016,8 @@ export var SignalResourceInput$: StaticStructureSchema = [3, n0, _SRIi,
 ];
 export var Stack$: StaticStructureSchema = [3, n0, _Sta,
   0,
-  [_SN, _CT, _SSta, _SI, _CSI, _D, _P, _DTel, _LUT, _RCo, _SSR, _DR, _NARN, _TIM, _Ca, _Ou, _RARN, _Ta, _ETP, _PIa, _RIo, _DI, _REOC, _DMe, _DSet, _LO],
-  [0, 4, 0, 0, 0, 0, () => _Parameters, 4, 4, () => RollbackConfiguration$, 0, 2, 64 | 0, 1, 64 | 0, () => Outputs, 0, () => Tags, 2, 0, 0, () => StackDriftInformation$, 2, 0, 0, () => LastOperations], 3
+  [_SN, _CT, _SSta, _SI, _CSI, _D, _P, _DTel, _LUT, _RCo, _SSR, _DR, _DC, _NARN, _TIM, _Ca, _Ou, _RARN, _Ta, _ETP, _PIa, _RIo, _DI, _REOC, _DMe, _DSet, _LO],
+  [0, 4, 0, 0, 0, 0, () => _Parameters, 4, 4, () => RollbackConfiguration$, 0, 2, () => DeploymentConfig$, 64 | 0, 1, 64 | 0, () => Outputs, 0, () => Tags, 2, 0, 0, () => StackDriftInformation$, 2, 0, 0, () => LastOperations], 3
 ];
 export var StackDefinition$: StaticStructureSchema = [3, n0, _SDt,
   0,
@@ -2178,7 +2186,7 @@ export var TemplateConfiguration$: StaticStructureSchema = [3, n0, _TCe,
 ];
 export var TemplateParameter$: StaticStructureSchema = [3, n0, _TP,
   0,
-  [_PK, _DV, _NE, _D],
+  [_PK, _DVe, _NE, _D],
   [0, 0, 2, 0]
 ];
 export var TemplateProgress$: StaticStructureSchema = [3, n0, _TPe,
@@ -2243,8 +2251,8 @@ export var UpdateGeneratedTemplateOutput$: StaticStructureSchema = [3, n0, _UGTO
 ];
 export var UpdateStackInput$: StaticStructureSchema = [3, n0, _USI,
   0,
-  [_SN, _TB, _TURL, _UPT, _SPDUB, _SPDUURL, _P, _Ca, _RTe, _RARN, _RCo, _SPB, _SPURL, _NARN, _Ta, _DR, _CRT, _REOC],
-  [0, 0, 0, 2, 0, 0, () => _Parameters, 64 | 0, 64 | 0, 0, () => RollbackConfiguration$, 0, 0, 64 | 0, () => Tags, 2, 0, 2], 1
+  [_SN, _TB, _TURL, _UPT, _SPDUB, _SPDUURL, _P, _Ca, _RTe, _RARN, _RCo, _SPB, _SPURL, _NARN, _Ta, _DR, _CRT, _REOC, _DC, _DV],
+  [0, 0, 0, 2, 0, 0, () => _Parameters, 64 | 0, 64 | 0, 0, () => RollbackConfiguration$, 0, 0, 64 | 0, () => Tags, 2, 0, 2, () => DeploymentConfig$, 2], 1
 ];
 export var UpdateStackInstancesInput$: StaticStructureSchema = [3, n0, _USII,
   0,

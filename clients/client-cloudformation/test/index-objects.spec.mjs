@@ -110,6 +110,8 @@ import {
   DeleteStackSetInput$,
   DeleteStackSetOutput$,
   DeletionMode,
+  DeploymentConfig$,
+  DeploymentConfigMode,
   DeploymentMode,
   DeploymentTargets$,
   DeprecatedStatus,
@@ -860,6 +862,7 @@ assert(typeof DeleteStackInstancesInput$ === "object");
 assert(typeof DeleteStackInstancesOutput$ === "object");
 assert(typeof DeleteStackSetInput$ === "object");
 assert(typeof DeleteStackSetOutput$ === "object");
+assert(typeof DeploymentConfig$ === "object");
 assert(typeof DeploymentTargets$ === "object");
 assert(typeof DeregisterTypeInput$ === "object");
 assert(typeof DeregisterTypeOutput$ === "object");
@@ -1098,6 +1101,7 @@ assert(typeof ChangeSource === "object");
 assert(typeof ChangeType === "object");
 assert(typeof ConcurrencyMode === "object");
 assert(typeof DeletionMode === "object");
+assert(typeof DeploymentConfigMode === "object");
 assert(typeof DeploymentMode === "object");
 assert(typeof DeprecatedStatus === "object");
 assert(typeof DetailedStatus === "object");
