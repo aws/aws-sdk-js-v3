@@ -1,0 +1,89 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ModifyVpcEndpointPayerResponsibilityResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ModifyVpcEndpointPayerResponsibilityResult xmlns="https://placeholder.amazonaws.com">
+    <vpcEndpointId>
+        __VpcEndpointId__
+    </vpcEndpointId>
+    <payerResponsibilitySet>
+        <item>
+            <scope>
+                __Scope__
+            </scope>
+            <payerResponsibilityType>
+                __PayerResponsibilityType__
+            </payerResponsibilityType>
+        </item>
+        <item>
+            <scope>
+                __Scope__
+            </scope>
+            <payerResponsibilityType>
+                __PayerResponsibilityType__
+            </payerResponsibilityType>
+        </item>
+        <item>
+            <scope>
+                __Scope__
+            </scope>
+            <payerResponsibilityType>
+                __PayerResponsibilityType__
+            </payerResponsibilityType>
+        </item>
+    </payerResponsibilitySet>
+</ModifyVpcEndpointPayerResponsibilityResult>
+
+
+--- [output object] ---
+{
+  VpcEndpointId: "__VpcEndpointId__",
+  PayerResponsibilities: [
+    {
+      Scope: "__Scope__",
+      PayerResponsibilityType: "__PayerResponsibilityType__"
+    },
+    {
+      Scope: "__Scope__",
+      PayerResponsibilityType: "__PayerResponsibilityType__"
+    },
+    {
+      Scope: "__Scope__",
+      PayerResponsibilityType: "__PayerResponsibilityType__"
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

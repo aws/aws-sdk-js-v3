@@ -3396,6 +3396,11 @@ import {
   ModifyVpcEndpointConnectionNotificationCommand,
 } from "./commands/ModifyVpcEndpointConnectionNotificationCommand";
 import {
+  type ModifyVpcEndpointPayerResponsibilityCommandInput,
+  type ModifyVpcEndpointPayerResponsibilityCommandOutput,
+  ModifyVpcEndpointPayerResponsibilityCommand,
+} from "./commands/ModifyVpcEndpointPayerResponsibilityCommand";
+import {
   type ModifyVpcEndpointServiceConfigurationCommandInput,
   type ModifyVpcEndpointServiceConfigurationCommandOutput,
   ModifyVpcEndpointServiceConfigurationCommand,
@@ -4806,6 +4811,7 @@ const commands = {
   ModifyVpcEncryptionControlCommand,
   ModifyVpcEndpointCommand,
   ModifyVpcEndpointConnectionNotificationCommand,
+  ModifyVpcEndpointPayerResponsibilityCommand,
   ModifyVpcEndpointServiceConfigurationCommand,
   ModifyVpcEndpointServicePayerResponsibilityCommand,
   ModifyVpcEndpointServicePermissionsCommand,
@@ -16897,6 +16903,23 @@ export interface EC2 {
     args: ModifyVpcEndpointConnectionNotificationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ModifyVpcEndpointConnectionNotificationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ModifyVpcEndpointPayerResponsibilityCommand}
+   */
+  modifyVpcEndpointPayerResponsibility(
+    args: ModifyVpcEndpointPayerResponsibilityCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyVpcEndpointPayerResponsibilityCommandOutput>;
+  modifyVpcEndpointPayerResponsibility(
+    args: ModifyVpcEndpointPayerResponsibilityCommandInput,
+    cb: (err: any, data?: ModifyVpcEndpointPayerResponsibilityCommandOutput) => void
+  ): void;
+  modifyVpcEndpointPayerResponsibility(
+    args: ModifyVpcEndpointPayerResponsibilityCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyVpcEndpointPayerResponsibilityCommandOutput) => void
   ): void;
 
   /**

@@ -679,6 +679,7 @@ export * from "./ModifyVpcBlockPublicAccessOptionsCommand";
 export * from "./ModifyVpcEncryptionControlCommand";
 export * from "./ModifyVpcEndpointCommand";
 export * from "./ModifyVpcEndpointConnectionNotificationCommand";
+export * from "./ModifyVpcEndpointPayerResponsibilityCommand";
 export * from "./ModifyVpcEndpointServiceConfigurationCommand";
 export * from "./ModifyVpcEndpointServicePayerResponsibilityCommand";
 export * from "./ModifyVpcEndpointServicePermissionsCommand";

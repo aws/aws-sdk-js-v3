@@ -3465,6 +3465,10 @@ import {
   ModifyVpcEndpointConnectionNotificationCommand,
   ModifyVpcEndpointConnectionNotificationRequest$,
   ModifyVpcEndpointConnectionNotificationResult$,
+  ModifyVpcEndpointPayerResponsibility$,
+  ModifyVpcEndpointPayerResponsibilityCommand,
+  ModifyVpcEndpointPayerResponsibilityRequest$,
+  ModifyVpcEndpointPayerResponsibilityResult$,
   ModifyVpcEndpointRequest$,
   ModifyVpcEndpointResult$,
   ModifyVpcEndpointServiceConfiguration$,
@@ -3759,6 +3763,9 @@ import {
   PathStatement$,
   PathStatementRequest$,
   PayerResponsibility,
+  PayerResponsibilityEntry$,
+  PayerResponsibilityScope,
+  PayerResponsibilityType,
   PaymentOption,
   PciId$,
   PeeringAttachmentStatus$,
@@ -6009,6 +6016,8 @@ assert(typeof ModifyVpcEndpointCommand === "function");
 assert(typeof ModifyVpcEndpoint$ === "object");
 assert(typeof ModifyVpcEndpointConnectionNotificationCommand === "function");
 assert(typeof ModifyVpcEndpointConnectionNotification$ === "object");
+assert(typeof ModifyVpcEndpointPayerResponsibilityCommand === "function");
+assert(typeof ModifyVpcEndpointPayerResponsibility$ === "object");
 assert(typeof ModifyVpcEndpointServiceConfigurationCommand === "function");
 assert(typeof ModifyVpcEndpointServiceConfiguration$ === "object");
 assert(typeof ModifyVpcEndpointServicePayerResponsibilityCommand === "function");
@@ -8030,6 +8039,8 @@ assert(typeof ModifyVpcEncryptionControlRequest$ === "object");
 assert(typeof ModifyVpcEncryptionControlResult$ === "object");
 assert(typeof ModifyVpcEndpointConnectionNotificationRequest$ === "object");
 assert(typeof ModifyVpcEndpointConnectionNotificationResult$ === "object");
+assert(typeof ModifyVpcEndpointPayerResponsibilityRequest$ === "object");
+assert(typeof ModifyVpcEndpointPayerResponsibilityResult$ === "object");
 assert(typeof ModifyVpcEndpointRequest$ === "object");
 assert(typeof ModifyVpcEndpointResult$ === "object");
 assert(typeof ModifyVpcEndpointServiceConfigurationRequest$ === "object");
@@ -8106,6 +8117,7 @@ assert(typeof PathFilter$ === "object");
 assert(typeof PathRequestFilter$ === "object");
 assert(typeof PathStatement$ === "object");
 assert(typeof PathStatementRequest$ === "object");
+assert(typeof PayerResponsibilityEntry$ === "object");
 assert(typeof PciId$ === "object");
 assert(typeof PeeringAttachmentStatus$ === "object");
 assert(typeof PeeringConnectionOptions$ === "object");
@@ -8871,6 +8883,8 @@ assert(typeof OperationType === "object");
 assert(typeof OutputFormat === "object");
 assert(typeof PartitionLoadFrequency === "object");
 assert(typeof PayerResponsibility === "object");
+assert(typeof PayerResponsibilityScope === "object");
+assert(typeof PayerResponsibilityType === "object");
 assert(typeof PaymentOption === "object");
 assert(typeof PeriodType === "object");
 assert(typeof PermissionGroup === "object");

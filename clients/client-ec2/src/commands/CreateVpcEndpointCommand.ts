@@ -161,6 +161,12 @@ export interface CreateVpcEndpointCommandOutput extends CreateVpcEndpointResult,
  * //     ServiceNetworkArn: "STRING_VALUE",
  * //     ResourceConfigurationArn: "STRING_VALUE",
  * //     ServiceRegion: "STRING_VALUE",
+ * //     PayerResponsibilities: [ // PayerResponsibilitySet
+ * //       { // PayerResponsibilityEntry
+ * //         Scope: "vpc-endpoint-charges",
+ * //         PayerResponsibilityType: "vpc-endpoint-account" || "vpc-endpoint-service-account",
+ * //       },
+ * //     ],
  * //   },
  * //   ClientToken: "STRING_VALUE",
  * // };

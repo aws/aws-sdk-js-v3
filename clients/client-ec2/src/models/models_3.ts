@@ -145,6 +145,33 @@ import type {
 /**
  * @public
  */
+export interface DeleteSecurityGroupRequest {
+  /**
+   * <p>The ID of the security group.</p>
+   * @public
+   */
+  GroupId?: string | undefined;
+
+  /**
+   * <p>[Default VPC] The name of the security group. You can specify either the
+   *             security group name or the security group ID. For security groups in a nondefault VPC,
+   *             you must specify the security group ID.</p>
+   * @public
+   */
+  GroupName?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteSecurityGroupResult {
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
@@ -10910,23 +10937,4 @@ export interface ImportImageTask {
    * @public
    */
   BootMode?: BootModeValues | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeImportImageTasksResult {
-  /**
-   * <p>A list of zero or more import image tasks that are currently active or were completed or canceled in the
-   *    previous 7 days.</p>
-   * @public
-   */
-  ImportImageTasks?: ImportImageTask[] | undefined;
-
-  /**
-   * <p>The token to use to get the next page of results. This value is <code>null</code> when there are no more results
-   *    to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
 }

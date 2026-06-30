@@ -316,6 +316,32 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <serviceRegion>
                 __ServiceRegion__
             </serviceRegion>
+            <payerResponsibilitySet>
+                <item>
+                    <scope>
+                        __Scope__
+                    </scope>
+                    <payerResponsibilityType>
+                        __PayerResponsibilityType__
+                    </payerResponsibilityType>
+                </item>
+                <item>
+                    <scope>
+                        __Scope__
+                    </scope>
+                    <payerResponsibilityType>
+                        __PayerResponsibilityType__
+                    </payerResponsibilityType>
+                </item>
+                <item>
+                    <scope>
+                        __Scope__
+                    </scope>
+                    <payerResponsibilityType>
+                        __PayerResponsibilityType__
+                    </payerResponsibilityType>
+                </item>
+            </payerResponsibilitySet>
         </item>
         <item>
             <vpcEndpointId>
@@ -604,6 +630,32 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <serviceRegion>
                 __ServiceRegion__
             </serviceRegion>
+            <payerResponsibilitySet>
+                <item>
+                    <scope>
+                        __Scope__
+                    </scope>
+                    <payerResponsibilityType>
+                        __PayerResponsibilityType__
+                    </payerResponsibilityType>
+                </item>
+                <item>
+                    <scope>
+                        __Scope__
+                    </scope>
+                    <payerResponsibilityType>
+                        __PayerResponsibilityType__
+                    </payerResponsibilityType>
+                </item>
+                <item>
+                    <scope>
+                        __Scope__
+                    </scope>
+                    <payerResponsibilityType>
+                        __PayerResponsibilityType__
+                    </payerResponsibilityType>
+                </item>
+            </payerResponsibilitySet>
         </item>
         <item>
             <vpcEndpointId>
@@ -892,6 +944,32 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <serviceRegion>
                 __ServiceRegion__
             </serviceRegion>
+            <payerResponsibilitySet>
+                <item>
+                    <scope>
+                        __Scope__
+                    </scope>
+                    <payerResponsibilityType>
+                        __PayerResponsibilityType__
+                    </payerResponsibilityType>
+                </item>
+                <item>
+                    <scope>
+                        __Scope__
+                    </scope>
+                    <payerResponsibilityType>
+                        __PayerResponsibilityType__
+                    </payerResponsibilityType>
+                </item>
+                <item>
+                    <scope>
+                        __Scope__
+                    </scope>
+                    <payerResponsibilityType>
+                        __PayerResponsibilityType__
+                    </payerResponsibilityType>
+                </item>
+            </payerResponsibilitySet>
         </item>
     </vpcEndpointSet>
     <nextToken>
@@ -1041,7 +1119,21 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       FailureReason: "__FailureReason__",
       ServiceNetworkArn: "__ServiceNetworkArn__",
       ResourceConfigurationArn: "__ResourceConfigurationArn__",
-      ServiceRegion: "__ServiceRegion__"
+      ServiceRegion: "__ServiceRegion__",
+      PayerResponsibilities: [
+        {
+          Scope: "__Scope__",
+          PayerResponsibilityType: "__PayerResponsibilityType__"
+        },
+        {
+          Scope: "__Scope__",
+          PayerResponsibilityType: "__PayerResponsibilityType__"
+        },
+        {
+          Scope: "__Scope__",
+          PayerResponsibilityType: "__PayerResponsibilityType__"
+        }
+      ]
     },
     {
       VpcEndpointId: "__VpcEndpointId__",
@@ -1181,7 +1273,21 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       FailureReason: "__FailureReason__",
       ServiceNetworkArn: "__ServiceNetworkArn__",
       ResourceConfigurationArn: "__ResourceConfigurationArn__",
-      ServiceRegion: "__ServiceRegion__"
+      ServiceRegion: "__ServiceRegion__",
+      PayerResponsibilities: [
+        {
+          Scope: "__Scope__",
+          PayerResponsibilityType: "__PayerResponsibilityType__"
+        },
+        {
+          Scope: "__Scope__",
+          PayerResponsibilityType: "__PayerResponsibilityType__"
+        },
+        {
+          Scope: "__Scope__",
+          PayerResponsibilityType: "__PayerResponsibilityType__"
+        }
+      ]
     },
     {
       VpcEndpointId: "__VpcEndpointId__",
@@ -1321,7 +1427,21 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       FailureReason: "__FailureReason__",
       ServiceNetworkArn: "__ServiceNetworkArn__",
       ResourceConfigurationArn: "__ResourceConfigurationArn__",
-      ServiceRegion: "__ServiceRegion__"
+      ServiceRegion: "__ServiceRegion__",
+      PayerResponsibilities: [
+        {
+          Scope: "__Scope__",
+          PayerResponsibilityType: "__PayerResponsibilityType__"
+        },
+        {
+          Scope: "__Scope__",
+          PayerResponsibilityType: "__PayerResponsibilityType__"
+        },
+        {
+          Scope: "__Scope__",
+          PayerResponsibilityType: "__PayerResponsibilityType__"
+        }
+      ]
     }
   ],
   NextToken: "__NextToken__",

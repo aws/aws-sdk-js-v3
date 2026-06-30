@@ -315,6 +315,32 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         <serviceRegion>
             __ServiceRegion__
         </serviceRegion>
+        <payerResponsibilitySet>
+            <item>
+                <scope>
+                    __Scope__
+                </scope>
+                <payerResponsibilityType>
+                    __PayerResponsibilityType__
+                </payerResponsibilityType>
+            </item>
+            <item>
+                <scope>
+                    __Scope__
+                </scope>
+                <payerResponsibilityType>
+                    __PayerResponsibilityType__
+                </payerResponsibilityType>
+            </item>
+            <item>
+                <scope>
+                    __Scope__
+                </scope>
+                <payerResponsibilityType>
+                    __PayerResponsibilityType__
+                </payerResponsibilityType>
+            </item>
+        </payerResponsibilitySet>
     </vpcEndpoint>
     <clientToken>
         __ClientToken__
@@ -462,7 +488,21 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     FailureReason: "__FailureReason__",
     ServiceNetworkArn: "__ServiceNetworkArn__",
     ResourceConfigurationArn: "__ResourceConfigurationArn__",
-    ServiceRegion: "__ServiceRegion__"
+    ServiceRegion: "__ServiceRegion__",
+    PayerResponsibilities: [
+      {
+        Scope: "__Scope__",
+        PayerResponsibilityType: "__PayerResponsibilityType__"
+      },
+      {
+        Scope: "__Scope__",
+        PayerResponsibilityType: "__PayerResponsibilityType__"
+      },
+      {
+        Scope: "__Scope__",
+        PayerResponsibilityType: "__PayerResponsibilityType__"
+      }
+    ]
   },
   ClientToken: "__ClientToken__",
   $metadata: {

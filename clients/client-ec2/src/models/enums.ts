@@ -5207,6 +5207,31 @@ export type VpcEndpointType = (typeof VpcEndpointType)[keyof typeof VpcEndpointT
  * @public
  * @enum
  */
+export const PayerResponsibilityType = {
+  VpcEndpointAccount: "vpc-endpoint-account",
+  VpcEndpointServiceAccount: "vpc-endpoint-service-account",
+} as const;
+/**
+ * @public
+ */
+export type PayerResponsibilityType = (typeof PayerResponsibilityType)[keyof typeof PayerResponsibilityType];
+
+/**
+ * @public
+ * @enum
+ */
+export const PayerResponsibilityScope = {
+  VpcEndpointCharges: "vpc-endpoint-charges",
+} as const;
+/**
+ * @public
+ */
+export type PayerResponsibilityScope = (typeof PayerResponsibilityScope)[keyof typeof PayerResponsibilityScope];
+
+/**
+ * @public
+ * @enum
+ */
 export const State = {
   Available: "Available",
   Deleted: "Deleted",

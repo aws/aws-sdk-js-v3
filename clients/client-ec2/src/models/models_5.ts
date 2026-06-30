@@ -14,6 +14,7 @@ import type {
   ImageBlockPublicAccessDisabledState,
   ImageBlockPublicAccessEnabledState,
   InitializationType,
+  InstanceInterruptionBehavior,
   InternetGatewayBlockMode,
   IpAddressType,
   ManagedBy,
@@ -26,6 +27,8 @@ import type {
   SecurityGroupVpcAssociationState,
   ServiceConnectivityType,
   SnapshotBlockPublicAccessState,
+  SpotInstanceState,
+  SpotInstanceType,
   State,
   StatisticType,
   TransitGatewayAssociationState,
@@ -77,8 +80,10 @@ import type { Vpc, VpcEncryptionControl } from "./models_1";
 import type {
   ConnectionNotification,
   DnsEntry,
+  PayerResponsibilityEntry,
   ServiceConfiguration,
   ServiceTypeDetail,
+  SpotInstanceStateFault,
   TrafficMirrorFilter,
   TrafficMirrorFilterRule,
   TrafficMirrorSession,
@@ -106,7 +111,156 @@ import type {
   Filter,
   ProductCode,
 } from "./models_3";
-import type { AttributeBooleanValue, RegisteredInstance, SpotInstanceRequest } from "./models_4";
+import type { AttributeBooleanValue, LaunchSpecification, RegisteredInstance, SpotInstanceStatus } from "./models_4";
+
+/**
+ * <p>Describes a Spot Instance request.</p>
+ * @public
+ */
+export interface SpotInstanceRequest {
+  /**
+   * <p>Deprecated.</p>
+   * @public
+   */
+  ActualBlockHourlyPrice?: string | undefined;
+
+  /**
+   * <p>The Availability Zone group. If you specify the same Availability Zone group for all Spot Instance requests, all Spot Instances are launched in the same Availability Zone.</p>
+   * @public
+   */
+  AvailabilityZoneGroup?: string | undefined;
+
+  /**
+   * <p>Deprecated.</p>
+   * @public
+   */
+  BlockDurationMinutes?: number | undefined;
+
+  /**
+   * <p>The date and time when the Spot Instance request was created, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
+   * @public
+   */
+  CreateTime?: Date | undefined;
+
+  /**
+   * <p>The fault codes for the Spot Instance request, if any.</p>
+   * @public
+   */
+  Fault?: SpotInstanceStateFault | undefined;
+
+  /**
+   * <p>The instance ID, if an instance has been launched to fulfill the Spot Instance request.</p>
+   * @public
+   */
+  InstanceId?: string | undefined;
+
+  /**
+   * <p>The instance launch group. Launch groups are Spot Instances that launch together and terminate together.</p>
+   * @public
+   */
+  LaunchGroup?: string | undefined;
+
+  /**
+   * <p>Additional information for launching instances.</p>
+   * @public
+   */
+  LaunchSpecification?: LaunchSpecification | undefined;
+
+  /**
+   * <p>The Availability Zone in which the request is launched.</p>
+   *          <p>Either <code>launchedAvailabilityZone</code> or <code>launchedAvailabilityZoneId</code> can be specified, but not both</p>
+   * @public
+   */
+  LaunchedAvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone in which the request is launched.</p>
+   *          <p>Either <code>launchedAvailabilityZone</code> or <code>launchedAvailabilityZoneId</code> can be specified, but not both</p>
+   * @public
+   */
+  LaunchedAvailabilityZoneId?: string | undefined;
+
+  /**
+   * <p>The product description associated with the Spot Instance.</p>
+   * @public
+   */
+  ProductDescription?: RIProductDescription | undefined;
+
+  /**
+   * <p>The ID of the Spot Instance request.</p>
+   * @public
+   */
+  SpotInstanceRequestId?: string | undefined;
+
+  /**
+   * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend
+   *             using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p>
+   *          <important>
+   *             <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p>
+   *          </important>
+   * @public
+   */
+  SpotPrice?: string | undefined;
+
+  /**
+   * <p>The state of the Spot Instance request. Spot request status information helps track your Spot
+   *             Instance requests. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-request-status.html">Spot request status</a> in the
+   *                 <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  State?: SpotInstanceState | undefined;
+
+  /**
+   * <p>The status code and status message describing the Spot Instance request.</p>
+   * @public
+   */
+  Status?: SpotInstanceStatus | undefined;
+
+  /**
+   * <p>Any tags assigned to the resource.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The Spot Instance request type.</p>
+   * @public
+   */
+  Type?: SpotInstanceType | undefined;
+
+  /**
+   * <p>The start date of the request, in UTC format (for example,
+   *                 <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
+   *             The request becomes active at this date and time.</p>
+   * @public
+   */
+  ValidFrom?: Date | undefined;
+
+  /**
+   * <p>The end date of the request, in UTC format
+   *                 (<i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
+   *          <ul>
+   *             <li>
+   *                <p>For a persistent request, the request remains active until the <code>validUntil</code> date
+   *                     and time is reached. Otherwise, the request remains active until you cancel it.
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>For a one-time request, the request remains active until all instances launch,
+   *                     the request is canceled, or the <code>validUntil</code> date and time is reached. By default, the
+   *                     request is valid for 7 days from the date the request was created.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ValidUntil?: Date | undefined;
+
+  /**
+   * <p>The behavior when a Spot Instance is interrupted.</p>
+   * @public
+   */
+  InstanceInterruptionBehavior?: InstanceInterruptionBehavior | undefined;
+}
 
 /**
  * <p>Contains the output of DescribeSpotInstanceRequests.</p>
@@ -4290,6 +4444,12 @@ export interface VpcEndpointConnection {
    * @public
    */
   VpcEndpointRegion?: string | undefined;
+
+  /**
+   * <p>The payer responsibility settings for the endpoint.</p>
+   * @public
+   */
+  PayerResponsibilities?: PayerResponsibilityEntry[] | undefined;
 }
 
 /**
@@ -9169,52 +9329,4 @@ export interface MetricPoint {
    * @public
    */
   Status?: string | undefined;
-}
-
-/**
- * <p>The response to a <code>DataQuery</code>.</p>
- * @public
- */
-export interface DataResponse {
-  /**
-   * <p>The ID passed in the <code>DataQuery</code>.</p>
-   * @public
-   */
-  Id?: string | undefined;
-
-  /**
-   * <p>The Region or Availability Zone that's the source for the data query. For example, <code>us-east-1</code>.</p>
-   * @public
-   */
-  Source?: string | undefined;
-
-  /**
-   * <p>The Region or Availability Zone that's the destination for the data query. For example, <code>eu-west-1</code>.</p>
-   * @public
-   */
-  Destination?: string | undefined;
-
-  /**
-   * <p>The metric used for the network performance request.</p>
-   * @public
-   */
-  Metric?: MetricType | undefined;
-
-  /**
-   * <p>The statistic used for the network performance request.</p>
-   * @public
-   */
-  Statistic?: StatisticType | undefined;
-
-  /**
-   * <p>The period used for the network performance request.</p>
-   * @public
-   */
-  Period?: PeriodType | undefined;
-
-  /**
-   * <p>A list of <code>MetricPoint</code> objects.</p>
-   * @public
-   */
-  MetricPoints?: MetricPoint[] | undefined;
 }

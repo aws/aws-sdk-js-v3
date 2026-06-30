@@ -76,5 +76,6 @@ export * from "./models/models_4";
 export * from "./models/models_5";
 export * from "./models/models_6";
 export * from "./models/models_7";
+export * from "./models/models_8";
 
 export { EC2ServiceException } from "./models/EC2ServiceException";

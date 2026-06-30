@@ -79,8 +79,6 @@ import type {
   ServiceLinkVirtualInterfaceConfigurationState,
   SnapshotAttributeName,
   SnapshotState,
-  SpotInstanceState,
-  SpotInstanceType,
   SqlServerLicenseUsage,
   StatusName,
   StatusType,
@@ -163,7 +161,6 @@ import type {
   SecondarySubnet,
   Snapshot,
   SpotDatafeedSubscription,
-  SpotInstanceStateFault,
 } from "./models_2";
 import type {
   Byoasn,
@@ -171,10 +168,30 @@ import type {
   Filter,
   IdFormat,
   ImageWatermark,
+  ImportImageTask,
   InstanceTagNotificationAttribute,
   ProductCode,
   UserBucketDetails,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface DescribeImportImageTasksResult {
+  /**
+   * <p>A list of zero or more import image tasks that are currently active or were completed or canceled in the
+   *    previous 7 days.</p>
+   * @public
+   */
+  ImportImageTasks?: ImportImageTask[] | undefined;
+
+  /**
+   * <p>The token to use to get the next page of results. This value is <code>null</code> when there are no more results
+   *    to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -14570,153 +14587,4 @@ export interface SpotInstanceStatus {
    * @public
    */
   UpdateTime?: Date | undefined;
-}
-
-/**
- * <p>Describes a Spot Instance request.</p>
- * @public
- */
-export interface SpotInstanceRequest {
-  /**
-   * <p>Deprecated.</p>
-   * @public
-   */
-  ActualBlockHourlyPrice?: string | undefined;
-
-  /**
-   * <p>The Availability Zone group. If you specify the same Availability Zone group for all Spot Instance requests, all Spot Instances are launched in the same Availability Zone.</p>
-   * @public
-   */
-  AvailabilityZoneGroup?: string | undefined;
-
-  /**
-   * <p>Deprecated.</p>
-   * @public
-   */
-  BlockDurationMinutes?: number | undefined;
-
-  /**
-   * <p>The date and time when the Spot Instance request was created, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
-   * @public
-   */
-  CreateTime?: Date | undefined;
-
-  /**
-   * <p>The fault codes for the Spot Instance request, if any.</p>
-   * @public
-   */
-  Fault?: SpotInstanceStateFault | undefined;
-
-  /**
-   * <p>The instance ID, if an instance has been launched to fulfill the Spot Instance request.</p>
-   * @public
-   */
-  InstanceId?: string | undefined;
-
-  /**
-   * <p>The instance launch group. Launch groups are Spot Instances that launch together and terminate together.</p>
-   * @public
-   */
-  LaunchGroup?: string | undefined;
-
-  /**
-   * <p>Additional information for launching instances.</p>
-   * @public
-   */
-  LaunchSpecification?: LaunchSpecification | undefined;
-
-  /**
-   * <p>The Availability Zone in which the request is launched.</p>
-   *          <p>Either <code>launchedAvailabilityZone</code> or <code>launchedAvailabilityZoneId</code> can be specified, but not both</p>
-   * @public
-   */
-  LaunchedAvailabilityZone?: string | undefined;
-
-  /**
-   * <p>The ID of the Availability Zone in which the request is launched.</p>
-   *          <p>Either <code>launchedAvailabilityZone</code> or <code>launchedAvailabilityZoneId</code> can be specified, but not both</p>
-   * @public
-   */
-  LaunchedAvailabilityZoneId?: string | undefined;
-
-  /**
-   * <p>The product description associated with the Spot Instance.</p>
-   * @public
-   */
-  ProductDescription?: RIProductDescription | undefined;
-
-  /**
-   * <p>The ID of the Spot Instance request.</p>
-   * @public
-   */
-  SpotInstanceRequestId?: string | undefined;
-
-  /**
-   * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend
-   *             using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p>
-   *          <important>
-   *             <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p>
-   *          </important>
-   * @public
-   */
-  SpotPrice?: string | undefined;
-
-  /**
-   * <p>The state of the Spot Instance request. Spot request status information helps track your Spot
-   *             Instance requests. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-request-status.html">Spot request status</a> in the
-   *                 <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  State?: SpotInstanceState | undefined;
-
-  /**
-   * <p>The status code and status message describing the Spot Instance request.</p>
-   * @public
-   */
-  Status?: SpotInstanceStatus | undefined;
-
-  /**
-   * <p>Any tags assigned to the resource.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>The Spot Instance request type.</p>
-   * @public
-   */
-  Type?: SpotInstanceType | undefined;
-
-  /**
-   * <p>The start date of the request, in UTC format (for example,
-   *                 <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
-   *             The request becomes active at this date and time.</p>
-   * @public
-   */
-  ValidFrom?: Date | undefined;
-
-  /**
-   * <p>The end date of the request, in UTC format
-   *                 (<i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
-   *          <ul>
-   *             <li>
-   *                <p>For a persistent request, the request remains active until the <code>validUntil</code> date
-   *                     and time is reached. Otherwise, the request remains active until you cancel it.
-   *                 </p>
-   *             </li>
-   *             <li>
-   *                <p>For a one-time request, the request remains active until all instances launch,
-   *                     the request is canceled, or the <code>validUntil</code> date and time is reached. By default, the
-   *                     request is valid for 7 days from the date the request was created.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ValidUntil?: Date | undefined;
-
-  /**
-   * <p>The behavior when a Spot Instance is interrupted.</p>
-   * @public
-   */
-  InstanceInterruptionBehavior?: InstanceInterruptionBehavior | undefined;
 }

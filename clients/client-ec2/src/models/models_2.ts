@@ -29,6 +29,8 @@ import type {
   LaunchTemplateErrorCode,
   MulticastSupportValue,
   PayerResponsibility,
+  PayerResponsibilityScope,
+  PayerResponsibilityType,
   ProtocolValue,
   RouteOrigin,
   RouteServerPeerState,
@@ -5982,6 +5984,24 @@ export interface LastError {
 }
 
 /**
+ * <p>Describes a payer responsibility setting for a VPC endpoint.</p>
+ * @public
+ */
+export interface PayerResponsibilityEntry {
+  /**
+   * <p>The scope of usage/charges.</p>
+   * @public
+   */
+  Scope?: PayerResponsibilityScope | undefined;
+
+  /**
+   * <p>The Amazon Web Services account to which the usage is charged.</p>
+   * @public
+   */
+  PayerResponsibilityType?: PayerResponsibilityType | undefined;
+}
+
+/**
  * <p>Describes a VPC endpoint.</p>
  * @public
  */
@@ -6136,6 +6156,12 @@ export interface VpcEndpoint {
    * @public
    */
   ServiceRegion?: string | undefined;
+
+  /**
+   * <p>The payer responsibility settings for the endpoint.</p>
+   * @public
+   */
+  PayerResponsibilities?: PayerResponsibilityEntry[] | undefined;
 }
 
 /**
@@ -9836,31 +9862,4 @@ export interface DeleteSecondarySubnetResult {
    * @public
    */
   ClientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteSecurityGroupRequest {
-  /**
-   * <p>The ID of the security group.</p>
-   * @public
-   */
-  GroupId?: string | undefined;
-
-  /**
-   * <p>[Default VPC] The name of the security group. You can specify either the
-   *             security group name or the security group ID. For security groups in a nondefault VPC,
-   *             you must specify the security group ID.</p>
-   * @public
-   */
-  GroupName?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
 }

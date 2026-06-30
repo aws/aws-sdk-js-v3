@@ -63,11 +63,13 @@ import type {
   ManagedResourceDefaultVisibility,
   MetadataDefaultHttpTokensState,
   Metric,
+  MetricType,
   ModifyAvailabilityZoneOptInStatus,
   NestedVirtualizationSpecification,
   OperationType,
   PartitionLoadFrequency,
   PaymentOption,
+  PeriodType,
   PermissionGroup,
   PlatformValues,
   ReservationEndDateType,
@@ -79,6 +81,7 @@ import type {
   ShutdownBehavior,
   SnapshotBlockPublicAccessState,
   SSEType,
+  StatisticType,
   TargetCapacityUnitType,
   TransitGatewayAssociationState,
   TransitGatewayAttachmentResourceType,
@@ -123,7 +126,6 @@ import type {
   IpamPrefixListResolver,
   IpamPrefixListResolverRuleRequest,
   IpamPrefixListResolverTarget,
-  IpamResourceDiscovery,
   IpamResourceTag,
   NetworkInsightsAccessScopeContent,
   Placement,
@@ -151,7 +153,55 @@ import type {
   InstanceStatusEvent,
   SnapshotTaskDetail,
 } from "./models_4";
-import type { DataResponse, RouteServerPropagation } from "./models_5";
+import type { MetricPoint, RouteServerPropagation } from "./models_5";
+
+/**
+ * <p>The response to a <code>DataQuery</code>.</p>
+ * @public
+ */
+export interface DataResponse {
+  /**
+   * <p>The ID passed in the <code>DataQuery</code>.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The Region or Availability Zone that's the source for the data query. For example, <code>us-east-1</code>.</p>
+   * @public
+   */
+  Source?: string | undefined;
+
+  /**
+   * <p>The Region or Availability Zone that's the destination for the data query. For example, <code>eu-west-1</code>.</p>
+   * @public
+   */
+  Destination?: string | undefined;
+
+  /**
+   * <p>The metric used for the network performance request.</p>
+   * @public
+   */
+  Metric?: MetricType | undefined;
+
+  /**
+   * <p>The statistic used for the network performance request.</p>
+   * @public
+   */
+  Statistic?: StatisticType | undefined;
+
+  /**
+   * <p>The period used for the network performance request.</p>
+   * @public
+   */
+  Period?: PeriodType | undefined;
+
+  /**
+   * <p>A list of <code>MetricPoint</code> objects.</p>
+   * @public
+   */
+  MetricPoints?: MetricPoint[] | undefined;
+}
 
 /**
  * @public
@@ -10118,15 +10168,4 @@ export interface ModifyIpamResourceDiscoveryRequest {
    * @public
    */
   RemoveOrganizationalUnitExclusions?: RemoveIpamOrganizationalUnitExclusion[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyIpamResourceDiscoveryResult {
-  /**
-   * <p>A resource discovery.</p>
-   * @public
-   */
-  IpamResourceDiscovery?: IpamResourceDiscovery | undefined;
 }

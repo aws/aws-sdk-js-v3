@@ -4134,6 +4134,9 @@ const _MVECNR = "ModifyVpcEndpointConnectionNotificationRequest";
 const _MVECNRo = "ModifyVpcEndpointConnectionNotificationResult";
 const _MVECR = "ModifyVpcEncryptionControlRequest";
 const _MVECRo = "ModifyVpcEncryptionControlResult";
+const _MVEPR = "ModifyVpcEndpointPayerResponsibility";
+const _MVEPRR = "ModifyVpcEndpointPayerResponsibilityRequest";
+const _MVEPRRo = "ModifyVpcEndpointPayerResponsibilityResult";
 const _MVER = "ModifyVpcEndpointRequest";
 const _MVERo = "ModifyVpcEndpointResult";
 const _MVESC = "ModifyVpcEndpointServiceConfiguration";
@@ -4602,6 +4605,7 @@ const _PPIPCR = "ProvisionPublicIpv4PoolCidrRequest";
 const _PPIPCRr = "ProvisionPublicIpv4PoolCidrResult";
 const _PR = "PtrRecord";
 const _PRD = "PersistRoutesDuration";
+const _PRE = "PayerResponsibilityEntry";
 const _PRF = "PathRequestFilter";
 const _PRIO = "PurchaseReservedInstancesOffering";
 const _PRIOR = "PurchaseReservedInstancesOfferingRequest";
@@ -4610,9 +4614,12 @@ const _PRL = "PortRangeList";
 const _PRN = "PolicyRuleNumber";
 const _PRNo = "PolicyReferenceName";
 const _PRS = "PersistRoutesState";
+const _PRSa = "PayerResponsibilitySet";
 const _PRSu = "PurchaseRequestSet";
+const _PRT = "PayerResponsibilityType";
 const _PRU = "PtrRecordUpdate";
 const _PRa = "PayerResponsibility";
+const _PRay = "PayerResponsibilities";
 const _PRe = "PersistRoutes";
 const _PRee = "PeerRegion";
 const _PRer = "PermanentRestore";
@@ -7531,7 +7538,9 @@ const _pRD = "persistRoutesDuration";
 const _pRN = "policyRuleNumber";
 const _pRNo = "policyReferenceName";
 const _pRS = "portRangeSet";
+const _pRSa = "payerResponsibilitySet";
 const _pRSe = "persistRoutesState";
+const _pRT = "payerResponsibilityType";
 const _pRU = "ptrRecordUpdate";
 const _pRa = "payerResponsibility";
 const _pRo = "portRange";
@@ -21036,6 +21045,18 @@ export var ModifyVpcEndpointConnectionNotificationResult$: StaticStructureSchema
   [[2, { [_eQN]: `Return`
   , [_xN]: _r }]]
 ];
+export var ModifyVpcEndpointPayerResponsibilityRequest$: StaticStructureSchema = [3, n0, _MVEPRR,
+  0,
+  [_VEIp, _PRa, _Sco, _DR, _SIe],
+  [0, 0, 0, 2, 0], 3
+];
+export var ModifyVpcEndpointPayerResponsibilityResult$: StaticStructureSchema = [3, n0, _MVEPRRo,
+  0,
+  [_VEIp, _PRay],
+  [[0, { [_eQN]: `VpcEndpointId`
+  , [_xN]: _vEI }], [() => PayerResponsibilitySet, { [_eQN]: `PayerResponsibilitySet`
+  , [_xN]: _pRSa }]]
+];
 export var ModifyVpcEndpointRequest$: StaticStructureSchema = [3, n0, _MVER,
   0,
   [_VEIp, _DR, _RP, _PDo, _ARTI, _RRTI, _ASId, _RSIe, _ASGI, _RSGI, _IAT, _DOn, _PDE, _SC],
@@ -21714,6 +21735,13 @@ export var PathStatementRequest$: StaticStructureSchema = [3, n0, _PSRa,
   0,
   [_PHS, _RSes],
   [[() => PacketHeaderStatementRequest$, 0], [() => ResourceStatementRequest$, 0]]
+];
+export var PayerResponsibilityEntry$: StaticStructureSchema = [3, n0, _PRE,
+  0,
+  [_Sco, _PRT],
+  [[0, { [_eQN]: `Scope`
+  , [_xN]: _sco }], [0, { [_eQN]: `PayerResponsibilityType`
+  , [_xN]: _pRT }]]
 ];
 export var PciId$: StaticStructureSchema = [3, n0, _PIc,
   0,
@@ -25670,7 +25698,7 @@ export var VpcEncryptionNonCompliantResource$: StaticStructureSchema = [3, n0, _
 ];
 export var VpcEndpoint$: StaticStructureSchema = [3, n0, _VE,
   0,
-  [_VEIp, _VET, _VI, _SN, _St, _PDo, _RTIo, _SI, _G, _IAT, _DOn, _PDE, _RMeq, _NIIe, _DEn, _CTrea, _T, _OI, _LEa, _IPpvr, _IPp, _FR, _SNA, _RCA, _SR],
+  [_VEIp, _VET, _VI, _SN, _St, _PDo, _RTIo, _SI, _G, _IAT, _DOn, _PDE, _RMeq, _NIIe, _DEn, _CTrea, _T, _OI, _LEa, _IPpvr, _IPp, _FR, _SNA, _RCA, _SR, _PRay],
   [[0, { [_eQN]: `VpcEndpointId`
   , [_xN]: _vEI }], [0, { [_eQN]: `VpcEndpointType`
   , [_xN]: _vET }], [0, { [_eQN]: `VpcId`
@@ -25696,7 +25724,8 @@ export var VpcEndpoint$: StaticStructureSchema = [3, n0, _VE,
   , [_xN]: _fR }], [0, { [_eQN]: `ServiceNetworkArn`
   , [_xN]: _sNAe }], [0, { [_eQN]: `ResourceConfigurationArn`
   , [_xN]: _rCA }], [0, { [_eQN]: `ServiceRegion`
-  , [_xN]: _sR }]]
+  , [_xN]: _sR }], [() => PayerResponsibilitySet, { [_eQN]: `PayerResponsibilitySet`
+  , [_xN]: _pRSa }]]
 ];
 export var VpcEndpointAssociation$: StaticStructureSchema = [3, n0, _VEAp,
   0,
@@ -25717,7 +25746,7 @@ export var VpcEndpointAssociation$: StaticStructureSchema = [3, n0, _VEAp,
 ];
 export var VpcEndpointConnection$: StaticStructureSchema = [3, n0, _VECpcn,
   0,
-  [_SIe, _VEIp, _VEO, _VESpc, _CTrea, _DEn, _NLBAe, _GLBA, _IAT, _VECIpc, _T, _VER],
+  [_SIe, _VEIp, _VEO, _VESpc, _CTrea, _DEn, _NLBAe, _GLBA, _IAT, _VECIpc, _T, _VER, _PRay],
   [[0, { [_eQN]: `ServiceId`
   , [_xN]: _sI }], [0, { [_eQN]: `VpcEndpointId`
   , [_xN]: _vEI }], [0, { [_eQN]: `VpcEndpointOwner`
@@ -25730,7 +25759,8 @@ export var VpcEndpointConnection$: StaticStructureSchema = [3, n0, _VECpcn,
   , [_xN]: _iAT }], [0, { [_eQN]: `VpcEndpointConnectionId`
   , [_xN]: _vECIp }], [() => TagList, { [_eQN]: `TagSet`
   , [_xN]: _tS }], [0, { [_eQN]: `VpcEndpointRegion`
-  , [_xN]: _vER }]]
+  , [_xN]: _vER }], [() => PayerResponsibilitySet, { [_eQN]: `PayerResponsibilitySet`
+  , [_xN]: _pRSa }]]
 ];
 export var VpcIpv6CidrBlockAssociation$: StaticStructureSchema = [3, n0, _VICBA,
   0,
@@ -27585,6 +27615,10 @@ var OwnerStringList: StaticListSchema = [1, n0, _OSL,
 ];
 var PathComponentList: StaticListSchema = [1, n0, _PCL,
   0, [() => PathComponent$,
+    { [_xN]: _it }]
+];
+var PayerResponsibilitySet: StaticListSchema = [1, n0, _PRSa,
+  0, [() => PayerResponsibilityEntry$,
     { [_xN]: _it }]
 ];
 var PerformanceFactorReferenceSet: StaticListSchema = [1, n0, _PFRS,
@@ -30836,6 +30870,9 @@ export var ModifyVpcEndpoint$: StaticOperationSchema = [9, n0, _MVEo,
 ];
 export var ModifyVpcEndpointConnectionNotification$: StaticOperationSchema = [9, n0, _MVECN,
   0, () => ModifyVpcEndpointConnectionNotificationRequest$, () => ModifyVpcEndpointConnectionNotificationResult$
+];
+export var ModifyVpcEndpointPayerResponsibility$: StaticOperationSchema = [9, n0, _MVEPR,
+  0, () => ModifyVpcEndpointPayerResponsibilityRequest$, () => ModifyVpcEndpointPayerResponsibilityResult$
 ];
 export var ModifyVpcEndpointServiceConfiguration$: StaticOperationSchema = [9, n0, _MVESC,
   0, () => ModifyVpcEndpointServiceConfigurationRequest$, () => ModifyVpcEndpointServiceConfigurationResult$

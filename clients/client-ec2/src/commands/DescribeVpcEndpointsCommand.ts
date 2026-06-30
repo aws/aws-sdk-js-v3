@@ -129,6 +129,12 @@ export interface DescribeVpcEndpointsCommandOutput extends DescribeVpcEndpointsR
  * //       ServiceNetworkArn: "STRING_VALUE",
  * //       ResourceConfigurationArn: "STRING_VALUE",
  * //       ServiceRegion: "STRING_VALUE",
+ * //       PayerResponsibilities: [ // PayerResponsibilitySet
+ * //         { // PayerResponsibilityEntry
+ * //           Scope: "vpc-endpoint-charges",
+ * //           PayerResponsibilityType: "vpc-endpoint-account" || "vpc-endpoint-service-account",
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

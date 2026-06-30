@@ -37,6 +37,8 @@ import type {
   NestedVirtualizationSpecification,
   OperationType,
   PayerResponsibility,
+  PayerResponsibilityScope,
+  PayerResponsibilityType,
   PublicIpDnsOption,
   ReportInstanceReasonCodes,
   ReportStatusType,
@@ -102,6 +104,7 @@ import type {
   ExternalAuthorityConfiguration,
   IcmpTypeCode,
   InstanceIpv6Address,
+  IpamResourceDiscovery,
   IpamScope,
   LaunchTemplate,
   LocalGatewayRoute,
@@ -114,6 +117,7 @@ import type {
 import type {
   DnsOptionsSpecification,
   IKEVersionsRequestListValue,
+  PayerResponsibilityEntry,
   Phase1DHGroupNumbersRequestListValue,
   Phase1EncryptionAlgorithmsRequestListValue,
   Phase1IntegrityAlgorithmsRequestListValue,
@@ -159,10 +163,10 @@ import type {
   RunInstancesMonitoringEnabled,
   ScheduledInstance,
   SpotFleetRequestConfigData,
-  SpotInstanceRequest,
   SpotPlacement,
 } from "./models_4";
 import type {
+  SpotInstanceRequest,
   VerifiedAccessInstanceLoggingConfiguration,
   VolumeModification,
   VpcBlockPublicAccessOptions,
@@ -174,6 +178,17 @@ import type {
   ManagedResourceVisibilitySettings,
   Purchase,
 } from "./models_6";
+
+/**
+ * @public
+ */
+export interface ModifyIpamResourceDiscoveryResult {
+  /**
+   * <p>A resource discovery.</p>
+   * @public
+   */
+  IpamResourceDiscovery?: IpamResourceDiscovery | undefined;
+}
 
 /**
  * @public
@@ -2976,6 +2991,60 @@ export interface ModifyVpcEndpointConnectionNotificationResult {
    * @public
    */
   ReturnValue?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVpcEndpointPayerResponsibilityRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the VPC endpoint service.</p>
+   * @public
+   */
+  ServiceId?: string | undefined;
+
+  /**
+   * <p>The ID of the VPC endpoint.</p>
+   * @public
+   */
+  VpcEndpointId: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account to which the usage of VPC endpoint is charged.</p>
+   * @public
+   */
+  PayerResponsibility: PayerResponsibilityType | undefined;
+
+  /**
+   * <p>The scope of usage/charges for which the billing account is being modified.</p>
+   * @public
+   */
+  Scope: PayerResponsibilityScope | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVpcEndpointPayerResponsibilityResult {
+  /**
+   * <p>The ID of the VPC endpoint.</p>
+   * @public
+   */
+  VpcEndpointId?: string | undefined;
+
+  /**
+   * <p>The payer responsibility settings for the VPC endpoint.</p>
+   * @public
+   */
+  PayerResponsibilities?: PayerResponsibilityEntry[] | undefined;
 }
 
 /**
@@ -9640,15 +9709,4 @@ export interface WithdrawByoipCidrRequest {
    * @public
    */
   DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface WithdrawByoipCidrResult {
-  /**
-   * <p>Information about the address pool.</p>
-   * @public
-   */
-  ByoipCidr?: ByoipCidr | undefined;
 }

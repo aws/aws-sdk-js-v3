@@ -2487,6 +2487,10 @@ import type {
   ModifyVpcEndpointConnectionNotificationCommandOutput,
 } from "./commands/ModifyVpcEndpointConnectionNotificationCommand";
 import type {
+  ModifyVpcEndpointPayerResponsibilityCommandInput,
+  ModifyVpcEndpointPayerResponsibilityCommandOutput,
+} from "./commands/ModifyVpcEndpointPayerResponsibilityCommand";
+import type {
   ModifyVpcEndpointServiceConfigurationCommandInput,
   ModifyVpcEndpointServiceConfigurationCommandOutput,
 } from "./commands/ModifyVpcEndpointServiceConfigurationCommand";
@@ -3495,6 +3499,7 @@ export type ServiceInputTypes =
   | ModifyVpcEncryptionControlCommandInput
   | ModifyVpcEndpointCommandInput
   | ModifyVpcEndpointConnectionNotificationCommandInput
+  | ModifyVpcEndpointPayerResponsibilityCommandInput
   | ModifyVpcEndpointServiceConfigurationCommandInput
   | ModifyVpcEndpointServicePayerResponsibilityCommandInput
   | ModifyVpcEndpointServicePermissionsCommandInput
@@ -4269,6 +4274,7 @@ export type ServiceOutputTypes =
   | ModifyVpcEncryptionControlCommandOutput
   | ModifyVpcEndpointCommandOutput
   | ModifyVpcEndpointConnectionNotificationCommandOutput
+  | ModifyVpcEndpointPayerResponsibilityCommandOutput
   | ModifyVpcEndpointServiceConfigurationCommandOutput
   | ModifyVpcEndpointServicePayerResponsibilityCommandOutput
   | ModifyVpcEndpointServicePermissionsCommandOutput

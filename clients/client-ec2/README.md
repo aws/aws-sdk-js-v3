@@ -4993,6 +4993,13 @@ ModifyVpcEndpointConnectionNotification
 </details>
 <details>
 <summary>
+ModifyVpcEndpointPayerResponsibility
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/ModifyVpcEndpointPayerResponsibilityCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyVpcEndpointPayerResponsibilityCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyVpcEndpointPayerResponsibilityCommandOutput/)
+</details>
+<details>
+<summary>
 ModifyVpcEndpointServiceConfiguration
 </summary>
 
