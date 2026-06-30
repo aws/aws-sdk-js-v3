@@ -1,10 +1,7 @@
-import { AwsCrc32c } from "@aws-crypto/crc32c";
+import { Crc32, Crc32c, Crc64Nvme } from "@aws-sdk/checksums/crc";
 import { describe, expect, test as it, vi } from "vitest";
 
-import { crc64NvmeCrtContainer } from "../crc64-nvme/crc64-nvme-crt-container";
-import { Crc64Nvme } from "../crc64-nvme/Crc64Nvme";
 import { ChecksumAlgorithm } from "./constants";
-import { getCrc32ChecksumAlgorithmFunction } from "./getCrc32ChecksumAlgorithmFunction";
 import { selectChecksumAlgorithmFunction } from "./selectChecksumAlgorithmFunction";
 
 describe(selectChecksumAlgorithmFunction.name, () => {
@@ -19,8 +16,8 @@ describe(selectChecksumAlgorithmFunction.name, () => {
 
   it.each([
     [ChecksumAlgorithm.MD5, mockConfig.md5],
-    [ChecksumAlgorithm.CRC32, getCrc32ChecksumAlgorithmFunction()],
-    [ChecksumAlgorithm.CRC32C, AwsCrc32c],
+    [ChecksumAlgorithm.CRC32, Crc32],
+    [ChecksumAlgorithm.CRC32C, Crc32c],
     [ChecksumAlgorithm.SHA1, mockConfig.sha1],
     [ChecksumAlgorithm.SHA256, mockConfig.sha256],
   ])("testing %s", (checksumAlgorithm, output) => {
@@ -35,15 +32,7 @@ describe(selectChecksumAlgorithmFunction.name, () => {
     expect(() => selectChecksumAlgorithmFunction("novel", mockConfig as any)).not.toThrow();
   });
 
-  it("returns Crc64Nvme if crc64NvmeCrtContainer.CrtCrc64Nvme is not a function", () => {
-    crc64NvmeCrtContainer.CrtCrc64Nvme = null;
+  it("returns Crc64Nvme for CRC64NVME", () => {
     expect(selectChecksumAlgorithmFunction(ChecksumAlgorithm.CRC64NVME, mockConfig as any)).toBe(Crc64Nvme);
-  });
-
-  it("returns crc64NvmeCrtContainer.CrtCrc64Nvme if available from container", () => {
-    crc64NvmeCrtContainer.CrtCrc64Nvme = vi.fn();
-    expect(selectChecksumAlgorithmFunction(ChecksumAlgorithm.CRC64NVME, mockConfig as any)).toEqual(
-      crc64NvmeCrtContainer.CrtCrc64Nvme
-    );
   });
 });

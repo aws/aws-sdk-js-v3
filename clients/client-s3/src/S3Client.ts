@@ -1,5 +1,10 @@
 // smithy-typescript generated code
 import {
+  type FlexibleChecksumsInputConfig,
+  type FlexibleChecksumsResolvedConfig,
+  resolveFlexibleChecksumsConfig,
+} from "@aws-sdk/checksums/flexible-checksums";
+import {
   type HostHeaderInputConfig,
   type HostHeaderResolvedConfig,
   type UserAgentInputConfig,
@@ -11,11 +16,6 @@ import {
   resolveHostHeaderConfig,
   resolveUserAgentConfig,
 } from "@aws-sdk/core/client";
-import {
-  type FlexibleChecksumsInputConfig,
-  type FlexibleChecksumsResolvedConfig,
-  resolveFlexibleChecksumsConfig,
-} from "@aws-sdk/middleware-flexible-checksums";
 import {
   type S3InputConfig,
   type S3ResolvedConfig,

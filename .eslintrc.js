@@ -49,20 +49,13 @@ module.exports = {
         "packages-internal/*/src/**/*.ts",
         "private/*/src/**/*.ts",
       ],
-      excludedFiles: [
-        "lib/*/src/**/*.spec.ts",
-        "clients/*/src/**/*.spec.ts",
-        "packages/*/src/**/*.spec.ts",
-        "packages-internal/*/src/**/*.spec.ts",
-        "private/*/src/**/*.spec.ts",
-      ],
       rules: {
         "no-restricted-imports": [
           "error",
           {
             patterns: [
               {
-                group: ["*src*", "*dist-*", "!*csrc*"],
+                group: ["*src*", "*dist-*", "!*csrc*", "!@aws-sdk/aws-util-test/src*"],
                 message:
                   "Imports must not contain the src folder in their path. Either import from the official package name, or you are already in the src folder and the relative path will not contain src.",
               },
@@ -70,24 +63,16 @@ module.exports = {
                 group: ["@aws-sdk/core", "!@aws-sdk/core/"],
                 message: "Import from a specific submodule like @aws-sdk/core/submodule instead.",
               },
-            ],
-          },
-        ],
-      },
-    },
-    {
-      files: [
-        "lib/*/src/**/*.ts",
-        "clients/*/src/**/*.ts",
-        "packages/*/src/**/*.ts",
-        "packages-internal/*/src/**/*.ts",
-        "private/*/src/**/*.ts",
-      ],
-      rules: {
-        "no-restricted-imports": [
-          "error",
-          {
-            patterns: [
+              {
+                group: ["@aws-sdk/checksums", "!@aws-sdk/checksums/"],
+                message:
+                  "Import from a specific submodule like @aws-sdk/checksums/crc, @aws-sdk/checksums/sha, or @aws-sdk/checksums/flexible-checksums instead.",
+              },
+              {
+                group: ["@aws-sdk/middleware-sdk-s3", "!@aws-sdk/middleware-sdk-s3/"],
+                message:
+                  "Import from a specific submodule like @aws-sdk/middleware-sdk-s3/s3 or @aws-sdk/middleware-sdk-s3/s3-control instead.",
+              },
               {
                 group: [
                   "@smithy/util-hex-encoding",
@@ -176,11 +161,6 @@ module.exports = {
               {
                 group: ["@aws-sdk/util-arn-parser", "@aws-sdk/util-format-url"],
                 message: "This package has been consolidated into @aws-sdk/core/util.",
-              },
-              {
-                group: ["@aws-sdk/middleware-sdk-s3", "!@aws-sdk/middleware-sdk-s3/"],
-                message:
-                  "Import from a specific submodule like @aws-sdk/middleware-sdk-s3/s3 or @aws-sdk/middleware-sdk-s3/s3-control instead.",
               },
               {
                 group: [

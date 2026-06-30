@@ -92,6 +92,7 @@ __metadata:
   resolution: "@aws-sdk/aws-client-api-test@workspace:private/aws-client-api-test"
   dependencies:
     "@aws-sdk/aws-protocoltests-ec2-schema": "workspace:3.1076.0"
+    "@aws-sdk/checksums": "workspace:^3.1000.9"
     "@aws-sdk/client-dynamodb": "workspace:3.1076.0"
     "@aws-sdk/client-ec2": "workspace:3.1076.0"
     "@aws-sdk/client-glacier": "workspace:3.1076.0"
@@ -105,7 +106,6 @@ __metadata:
     "@aws-sdk/core": "workspace:^3.974.24"
     "@aws-sdk/credential-provider-node": "workspace:^3.972.59"
     "@aws-sdk/middleware-bucket-endpoint": "workspace:^3.972.28"
-    "@aws-sdk/middleware-flexible-checksums": "workspace:^3.974.34"
     "@aws-sdk/middleware-sdk-s3": "workspace:^3.972.55"
     "@aws-sdk/signature-v4-multi-region": "workspace:^3.996.36"
     "@aws-sdk/weather": "workspace:3.1076.0"
@@ -766,9 +766,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/checksums@workspace:packages-internal/checksums"
   dependencies:
-    "@aws-crypto/crc32": "npm:5.2.0"
-    "@aws-crypto/crc32c": "npm:5.2.0"
-    "@aws-crypto/util": "npm:5.2.0"
     "@aws-sdk/core": "workspace:^3.974.24"
     "@aws-sdk/types": "workspace:^3.973.14"
     "@smithy/core": "npm:^3.27.0"
@@ -8744,9 +8741,9 @@ __metadata:
     "@aws-crypto/sha1-browser": "npm:5.2.0"
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
+    "@aws-sdk/checksums": "workspace:^3.1000.9"
     "@aws-sdk/core": "workspace:^3.974.24"
     "@aws-sdk/credential-provider-node": "workspace:^3.972.59"
-    "@aws-sdk/middleware-flexible-checksums": "workspace:^3.974.34"
     "@aws-sdk/middleware-sdk-s3": "workspace:^3.972.55"
     "@aws-sdk/signature-v4-crt": "workspace:3.1076.0"
     "@aws-sdk/signature-v4-multi-region": "workspace:^3.996.36"
@@ -11328,7 +11325,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/middleware-flexible-checksums@workspace:^3.974.34, @aws-sdk/middleware-flexible-checksums@workspace:packages-internal/middleware-flexible-checksums":
+"@aws-sdk/middleware-flexible-checksums@workspace:packages-internal/middleware-flexible-checksums":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/middleware-flexible-checksums@workspace:packages-internal/middleware-flexible-checksums"
   dependencies:
@@ -18429,6 +18426,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "aws-sdk-js-v3@workspace:."
   dependencies:
+    "@aws-crypto/crc32": "npm:5.2.0"
+    "@aws-crypto/crc32c": "npm:5.2.0"
+    "@aws-crypto/sha256-js": "npm:5.2.0"
+    "@aws-crypto/util": "npm:5.2.0"
     "@commitlint/cli": "npm:17.0.2"
     "@commitlint/config-conventional": "npm:17.0.2"
     "@fastify/formbody": "npm:^7.4.0"
@@ -18465,6 +18466,7 @@ __metadata:
     generate-changelog: "npm:^1.7.1"
     glob: "npm:7.1.6"
     happy-dom: "npm:20.8.3"
+    hash-test-vectors: "npm:^1.3.2"
     husky: "npm:^4.2.3"
     jest: "npm:29.7.0"
     jmespath: "npm:^0.15.0"
@@ -22331,6 +22333,13 @@ __metadata:
   version: 2.0.1
   resolution: "has-unicode@npm:2.0.1"
   checksum: 10c0/ebdb2f4895c26bb08a8a100b62d362e49b2190bcfd84b76bc4be1a3bd4d254ec52d0dd9f2fbcc093fc5eb878b20c52146f9dfd33e2686ed28982187be593b47c
+  languageName: node
+  linkType: hard
+
+"hash-test-vectors@npm:^1.3.2":
+  version: 1.3.2
+  resolution: "hash-test-vectors@npm:1.3.2"
+  checksum: 10c0/58dfa7b5014a2ce1e7b1d5e960460e2db68fe6f5521aa346c3c75d61e19a29eb8de1de50f76dbdb33aa4c78bdf20cfa9347f2051420fb044f4e87c1a642b282f
   languageName: node
   linkType: hard
 

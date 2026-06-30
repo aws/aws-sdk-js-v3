@@ -41,21 +41,11 @@ const ensureTablesInitialized = () => {
 };
 
 /**
- * Implements CRC-64/NVME checksum algorithm.
- *
- * This class provides CRC-64 checksum calculation using the NVMe polynomial (0x9a6c9329ac4bc9b5).
- * It uses an 8-slice lookup table for efficient computation.
- *
- * @example
- * ```typescript
- * const checksum = new Crc64Nvme();
- * checksum.update(new Uint8Array([1, 2, 3]));
- * const result = await checksum.digest();
- * ```
- *
+ * Pure JS CRC-64/NVME implementation using the NVMe polynomial (0x9a6c9329ac4bc9b5).
+ * Uses an 8-slice lookup table for efficient computation.
  * @public
  */
-export class Crc64Nvme implements Checksum {
+export class Crc64NvmeJs implements Checksum {
   private c1 = 0;
   private c2 = 0;
 
@@ -97,7 +87,7 @@ export class Crc64Nvme implements Checksum {
       crc2 = ((crc2 >>> 8) | ((crc1 & 255) << 24)) >>> 0;
       crc1 = (crc1 >>> 8) ^ t0[idx];
       crc2 ^= t0[idx + 1];
-      i++;
+      ++i;
     }
 
     this.c1 = crc1;

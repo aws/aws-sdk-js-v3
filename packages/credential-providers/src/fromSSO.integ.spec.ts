@@ -1,4 +1,4 @@
-import { REFRESH_MESSAGE } from "@aws-sdk/token-providers/src/constants";
+const REFRESH_MESSAGE = `To refresh this SSO session run 'aws sso login' with the corresponding profile.`;
 import { externalDataInterceptor } from "@smithy/core/config";
 import { homedir } from "node:os";
 import { join } from "node:path";

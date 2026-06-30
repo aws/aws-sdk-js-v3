@@ -1,7 +1,6 @@
+import { TestHttpHandler } from "@aws-sdk/aws-util-test/src";
 import { RDS } from "@aws-sdk/client-rds";
 import { describe, expect, test as it } from "vitest";
-
-import { TestHttpHandler } from "../../../private/aws-util-test/src";
 
 describe(RDS.name, () => {
   describe("middleware-sdk-rds", () => {

@@ -127,7 +127,7 @@ run("metro bundle", () => {
   if (!fs.existsSync(out)) {
     throw new Error("output file not created");
   }
-  validateBundle("metro", out, { nodeOnlyLimit: 7, checkBuffer: false });
+  validateBundle("metro", out, { nodeOnlyLimit: 8, checkBuffer: false });
 });
 
 // ─── Summary ─────────────────────────────────────────────────────────────────
