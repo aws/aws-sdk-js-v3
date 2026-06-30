@@ -63,6 +63,9 @@ export interface GetCertificateCommandOutput extends GetCertificateResponse, __M
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified certificate cannot be found in the caller's account or the caller's account cannot be found.</p>
  *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The supplied input failed to satisfy constraints of an Amazon Web Services service.</p>
+ *
  * @throws {@link ACMServiceException}
  * <p>Base exception class for all service exceptions from ACM service.</p>
  *
@@ -77,7 +80,10 @@ export class GetCertificateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep(commonParams)
+  .ep({
+    ...commonParams,
+    ServiceType: { type: "staticContextParams", value: `ACM` },
+  })
   .m(function (this: any, Command: any, cs: any, config: ACMClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })

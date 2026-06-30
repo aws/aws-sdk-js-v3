@@ -5,8 +5,8 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { PutAccountConfigurationRequest } from "../models/models_0";
-import { PutAccountConfiguration$ } from "../schemas/schemas_0";
+import type { RevokeAcmeAccountRequest } from "../models/models_0";
+import { RevokeAcmeAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,42 +16,40 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link PutAccountConfigurationCommand}.
+ * The input for {@link RevokeAcmeAccountCommand}.
  */
-export interface PutAccountConfigurationCommandInput extends PutAccountConfigurationRequest {}
+export interface RevokeAcmeAccountCommandInput extends RevokeAcmeAccountRequest {}
 /**
  * @public
  *
- * The output of {@link PutAccountConfigurationCommand}.
+ * The output of {@link RevokeAcmeAccountCommand}.
  */
-export interface PutAccountConfigurationCommandOutput extends __MetadataBearer {}
+export interface RevokeAcmeAccountCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Adds or modifies account-level configurations in ACM. </p> <p>The supported configuration option is <code>DaysBeforeExpiry</code>. This option specifies the number of days prior to certificate expiration when ACM starts generating <code>EventBridge</code> events. ACM sends one event per day per certificate until the certificate expires. By default, accounts receive events starting 45 days before certificate expiration.</p>
+ * <p>Revokes an ACME account, preventing it from requesting or revoking certificates. This operation is irreversible.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ACMClient, PutAccountConfigurationCommand } from "@aws-sdk/client-acm"; // ES Modules import
- * // const { ACMClient, PutAccountConfigurationCommand } = require("@aws-sdk/client-acm"); // CommonJS import
+ * import { ACMClient, RevokeAcmeAccountCommand } from "@aws-sdk/client-acm"; // ES Modules import
+ * // const { ACMClient, RevokeAcmeAccountCommand } = require("@aws-sdk/client-acm"); // CommonJS import
  * // import type { ACMClientConfig } from "@aws-sdk/client-acm";
  * const config = {}; // type is ACMClientConfig
  * const client = new ACMClient(config);
- * const input = { // PutAccountConfigurationRequest
- *   ExpiryEvents: { // ExpiryEventsConfiguration
- *     DaysBeforeExpiry: Number("int"),
- *   },
- *   IdempotencyToken: "STRING_VALUE", // required
+ * const input = { // RevokeAcmeAccountRequest
+ *   AcmeEndpointArn: "STRING_VALUE", // required
+ *   AccountUrl: "STRING_VALUE", // required
  * };
- * const command = new PutAccountConfigurationCommand(input);
+ * const command = new RevokeAcmeAccountCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param PutAccountConfigurationCommandInput - {@link PutAccountConfigurationCommandInput}
- * @returns {@link PutAccountConfigurationCommandOutput}
- * @see {@link PutAccountConfigurationCommandInput} for command's `input` shape.
- * @see {@link PutAccountConfigurationCommandOutput} for command's `response` shape.
+ * @param RevokeAcmeAccountCommandInput - {@link RevokeAcmeAccountCommandInput}
+ * @returns {@link RevokeAcmeAccountCommandOutput}
+ * @see {@link RevokeAcmeAccountCommandInput} for command's `input` shape.
+ * @see {@link RevokeAcmeAccountCommandOutput} for command's `response` shape.
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -59,6 +57,12 @@ export interface PutAccountConfigurationCommandOutput extends __MetadataBearer {
  *
  * @throws {@link ConflictException} (client fault)
  *  <p>You are trying to update a resource or configuration that is already being created or updated. Wait for the previous operation to finish and try again.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified certificate cannot be found in the caller's account or the caller's account cannot be found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied because it exceeded a quota.</p>
@@ -72,34 +76,34 @@ export interface PutAccountConfigurationCommandOutput extends __MetadataBearer {
  *
  * @public
  */
-export class PutAccountConfigurationCommand extends $Command
+export class RevokeAcmeAccountCommand extends $Command
   .classBuilder<
-    PutAccountConfigurationCommandInput,
-    PutAccountConfigurationCommandOutput,
+    RevokeAcmeAccountCommandInput,
+    RevokeAcmeAccountCommandOutput,
     ACMClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
   >()
   .ep({
     ...commonParams,
-    ServiceType: { type: "staticContextParams", value: `ACM` },
+    ServiceType: { type: "staticContextParams", value: `ACM-ACME` },
   })
   .m(function (this: any, Command: any, cs: any, config: ACMClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("CertificateManager", "PutAccountConfiguration", {})
-  .n("ACMClient", "PutAccountConfigurationCommand")
-  .sc(PutAccountConfiguration$)
+  .s("CertificateManager", "RevokeAcmeAccount", {})
+  .n("ACMClient", "RevokeAcmeAccountCommand")
+  .sc(RevokeAcmeAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: PutAccountConfigurationRequest;
+      input: RevokeAcmeAccountRequest;
       output: {};
     };
     sdk: {
-      input: PutAccountConfigurationCommandInput;
-      output: PutAccountConfigurationCommandOutput;
+      input: RevokeAcmeAccountCommandInput;
+      output: RevokeAcmeAccountCommandOutput;
     };
   };
 }

@@ -59,9 +59,49 @@ import type {
   AddTagsToCertificateCommandOutput,
 } from "./commands/AddTagsToCertificateCommand";
 import type {
+  CreateAcmeDomainValidationCommandInput,
+  CreateAcmeDomainValidationCommandOutput,
+} from "./commands/CreateAcmeDomainValidationCommand";
+import type {
+  CreateAcmeEndpointCommandInput,
+  CreateAcmeEndpointCommandOutput,
+} from "./commands/CreateAcmeEndpointCommand";
+import type {
+  CreateAcmeExternalAccountBindingCommandInput,
+  CreateAcmeExternalAccountBindingCommandOutput,
+} from "./commands/CreateAcmeExternalAccountBindingCommand";
+import type {
+  DeleteAcmeDomainValidationCommandInput,
+  DeleteAcmeDomainValidationCommandOutput,
+} from "./commands/DeleteAcmeDomainValidationCommand";
+import type {
+  DeleteAcmeEndpointCommandInput,
+  DeleteAcmeEndpointCommandOutput,
+} from "./commands/DeleteAcmeEndpointCommand";
+import type {
+  DeleteAcmeExternalAccountBindingCommandInput,
+  DeleteAcmeExternalAccountBindingCommandOutput,
+} from "./commands/DeleteAcmeExternalAccountBindingCommand";
+import type {
   DeleteCertificateCommandInput,
   DeleteCertificateCommandOutput,
 } from "./commands/DeleteCertificateCommand";
+import type {
+  DescribeAcmeAccountCommandInput,
+  DescribeAcmeAccountCommandOutput,
+} from "./commands/DescribeAcmeAccountCommand";
+import type {
+  DescribeAcmeDomainValidationCommandInput,
+  DescribeAcmeDomainValidationCommandOutput,
+} from "./commands/DescribeAcmeDomainValidationCommand";
+import type {
+  DescribeAcmeEndpointCommandInput,
+  DescribeAcmeEndpointCommandOutput,
+} from "./commands/DescribeAcmeEndpointCommand";
+import type {
+  DescribeAcmeExternalAccountBindingCommandInput,
+  DescribeAcmeExternalAccountBindingCommandOutput,
+} from "./commands/DescribeAcmeExternalAccountBindingCommand";
 import type {
   DescribeCertificateCommandInput,
   DescribeCertificateCommandOutput,
@@ -74,16 +114,37 @@ import type {
   GetAccountConfigurationCommandInput,
   GetAccountConfigurationCommandOutput,
 } from "./commands/GetAccountConfigurationCommand";
+import type {
+  GetAcmeExternalAccountBindingCredentialsCommandInput,
+  GetAcmeExternalAccountBindingCredentialsCommandOutput,
+} from "./commands/GetAcmeExternalAccountBindingCredentialsCommand";
 import type { GetCertificateCommandInput, GetCertificateCommandOutput } from "./commands/GetCertificateCommand";
 import type {
   ImportCertificateCommandInput,
   ImportCertificateCommandOutput,
 } from "./commands/ImportCertificateCommand";
+import type { ListAcmeAccountsCommandInput, ListAcmeAccountsCommandOutput } from "./commands/ListAcmeAccountsCommand";
+import type {
+  ListAcmeDomainValidationsCommandInput,
+  ListAcmeDomainValidationsCommandOutput,
+} from "./commands/ListAcmeDomainValidationsCommand";
+import type {
+  ListAcmeEndpointsCommandInput,
+  ListAcmeEndpointsCommandOutput,
+} from "./commands/ListAcmeEndpointsCommand";
+import type {
+  ListAcmeExternalAccountBindingsCommandInput,
+  ListAcmeExternalAccountBindingsCommandOutput,
+} from "./commands/ListAcmeExternalAccountBindingsCommand";
 import type { ListCertificatesCommandInput, ListCertificatesCommandOutput } from "./commands/ListCertificatesCommand";
 import type {
   ListTagsForCertificateCommandInput,
   ListTagsForCertificateCommandOutput,
 } from "./commands/ListTagsForCertificateCommand";
+import type {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
 import type {
   PutAccountConfigurationCommandInput,
   PutAccountConfigurationCommandOutput,
@@ -102,6 +163,14 @@ import type {
   ResendValidationEmailCommandOutput,
 } from "./commands/ResendValidationEmailCommand";
 import type {
+  RevokeAcmeAccountCommandInput,
+  RevokeAcmeAccountCommandOutput,
+} from "./commands/RevokeAcmeAccountCommand";
+import type {
+  RevokeAcmeExternalAccountBindingCommandInput,
+  RevokeAcmeExternalAccountBindingCommandOutput,
+} from "./commands/RevokeAcmeExternalAccountBindingCommand";
+import type {
   RevokeCertificateCommandInput,
   RevokeCertificateCommandOutput,
 } from "./commands/RevokeCertificateCommand";
@@ -109,6 +178,16 @@ import type {
   SearchCertificatesCommandInput,
   SearchCertificatesCommandOutput,
 } from "./commands/SearchCertificatesCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
+  UpdateAcmeDomainValidationCommandInput,
+  UpdateAcmeDomainValidationCommandOutput,
+} from "./commands/UpdateAcmeDomainValidationCommand";
+import type {
+  UpdateAcmeEndpointCommandInput,
+  UpdateAcmeEndpointCommandOutput,
+} from "./commands/UpdateAcmeEndpointCommand";
 import type {
   UpdateCertificateOptionsCommandInput,
   UpdateCertificateOptionsCommandOutput,
@@ -129,21 +208,43 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | AddTagsToCertificateCommandInput
+  | CreateAcmeDomainValidationCommandInput
+  | CreateAcmeEndpointCommandInput
+  | CreateAcmeExternalAccountBindingCommandInput
+  | DeleteAcmeDomainValidationCommandInput
+  | DeleteAcmeEndpointCommandInput
+  | DeleteAcmeExternalAccountBindingCommandInput
   | DeleteCertificateCommandInput
+  | DescribeAcmeAccountCommandInput
+  | DescribeAcmeDomainValidationCommandInput
+  | DescribeAcmeEndpointCommandInput
+  | DescribeAcmeExternalAccountBindingCommandInput
   | DescribeCertificateCommandInput
   | ExportCertificateCommandInput
   | GetAccountConfigurationCommandInput
+  | GetAcmeExternalAccountBindingCredentialsCommandInput
   | GetCertificateCommandInput
   | ImportCertificateCommandInput
+  | ListAcmeAccountsCommandInput
+  | ListAcmeDomainValidationsCommandInput
+  | ListAcmeEndpointsCommandInput
+  | ListAcmeExternalAccountBindingsCommandInput
   | ListCertificatesCommandInput
   | ListTagsForCertificateCommandInput
+  | ListTagsForResourceCommandInput
   | PutAccountConfigurationCommandInput
   | RemoveTagsFromCertificateCommandInput
   | RenewCertificateCommandInput
   | RequestCertificateCommandInput
   | ResendValidationEmailCommandInput
+  | RevokeAcmeAccountCommandInput
+  | RevokeAcmeExternalAccountBindingCommandInput
   | RevokeCertificateCommandInput
   | SearchCertificatesCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateAcmeDomainValidationCommandInput
+  | UpdateAcmeEndpointCommandInput
   | UpdateCertificateOptionsCommandInput;
 
 /**
@@ -151,21 +252,43 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | AddTagsToCertificateCommandOutput
+  | CreateAcmeDomainValidationCommandOutput
+  | CreateAcmeEndpointCommandOutput
+  | CreateAcmeExternalAccountBindingCommandOutput
+  | DeleteAcmeDomainValidationCommandOutput
+  | DeleteAcmeEndpointCommandOutput
+  | DeleteAcmeExternalAccountBindingCommandOutput
   | DeleteCertificateCommandOutput
+  | DescribeAcmeAccountCommandOutput
+  | DescribeAcmeDomainValidationCommandOutput
+  | DescribeAcmeEndpointCommandOutput
+  | DescribeAcmeExternalAccountBindingCommandOutput
   | DescribeCertificateCommandOutput
   | ExportCertificateCommandOutput
   | GetAccountConfigurationCommandOutput
+  | GetAcmeExternalAccountBindingCredentialsCommandOutput
   | GetCertificateCommandOutput
   | ImportCertificateCommandOutput
+  | ListAcmeAccountsCommandOutput
+  | ListAcmeDomainValidationsCommandOutput
+  | ListAcmeEndpointsCommandOutput
+  | ListAcmeExternalAccountBindingsCommandOutput
   | ListCertificatesCommandOutput
   | ListTagsForCertificateCommandOutput
+  | ListTagsForResourceCommandOutput
   | PutAccountConfigurationCommandOutput
   | RemoveTagsFromCertificateCommandOutput
   | RenewCertificateCommandOutput
   | RequestCertificateCommandOutput
   | ResendValidationEmailCommandOutput
+  | RevokeAcmeAccountCommandOutput
+  | RevokeAcmeExternalAccountBindingCommandOutput
   | RevokeCertificateCommandOutput
   | SearchCertificatesCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateAcmeDomainValidationCommandOutput
+  | UpdateAcmeEndpointCommandOutput
   | UpdateCertificateOptionsCommandOutput;
 
 /**

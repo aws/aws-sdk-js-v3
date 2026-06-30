@@ -1,42 +1,33 @@
 // smithy-typescript generated code
 import { BinaryDecisionDiagram } from "@smithy/core/endpoints";
 
-const k="ref";
-const a=-1,
-b=true,
-c="isSet",
-d="PartitionResult",
-e="booleanEquals",
-f="getAttr",
-g={[k]:"Endpoint"},
-h={[k]:d},
-i={},
-j=[{[k]:"Region"}];
+const a="PartitionResult",
+b="stringEquals",
+c="booleanEquals",
+d={"fn":"getAttr","argv":[{"ref":a},"name"]},
+e={};
 const _data={
   conditions: [
-    [c,[g]],
-    [c,j],
-    ["aws.partition",j,d],
-    [e,[{[k]:"UseFIPS"},b]],
-    [e,[{[k]:"UseDualStack"},b]],
-    [e,[{fn:f,argv:[h,"supportsDualStack"]},b]],
-    [e,[{fn:f,argv:[h,"supportsFIPS"]},b]],
-    ["stringEquals",[{fn:f,argv:[h,"name"]},"aws-us-gov"]]
+    ["isSet",[{ref:"Endpoint"}]],
+    ["aws.partition",[{ref:"Region"}],a],
+    [b,[{ref:"ServiceType"},"ACM-ACME"]],
+    [b,[d,"aws"]],
+    [c,[{ref:"UseFIPS"},true]],
+    [c,[{ref:"UseDualStack"},true]],
+    [b,[d,"aws-us-gov"]]
   ],
   results: [
-    [a],
-    [a,"Invalid Configuration: FIPS and custom endpoint are not supported"],
-    [a,"Invalid Configuration: Dualstack and custom endpoint are not supported"],
-    [g,i],
-    ["https://acm-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",i],
-    [a,"FIPS and DualStack are enabled, but this partition does not support one or both"],
-    ["https://acm.{Region}.amazonaws.com",i],
-    ["https://acm-fips.{Region}.{PartitionResult#dnsSuffix}",i],
-    [a,"FIPS is enabled but this partition does not support FIPS"],
-    ["https://acm.{Region}.{PartitionResult#dualStackDnsSuffix}",i],
-    [a,"DualStack is enabled but this partition does not support DualStack"],
-    ["https://acm.{Region}.{PartitionResult#dnsSuffix}",i],
-    [a,"Invalid Configuration: Missing Region"]
+    [-1],
+    ["{Endpoint}",e],
+    [-1,"FIPS endpoints are not available for ACME operations"],
+    ["https://acm-acme.{Region}.{PartitionResult#dualStackDnsSuffix}",e],
+    [-1,"ACME operations are only available in commercial AWS partitions"],
+    ["https://acm-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",e],
+    ["https://acm.{Region}.amazonaws.com",e],
+    ["https://acm-fips.{Region}.{PartitionResult#dnsSuffix}",e],
+    ["https://acm.{Region}.{PartitionResult#dualStackDnsSuffix}",e],
+    ["https://acm.{Region}.{PartitionResult#dnsSuffix}",e],
+    [-1,"Region must be set to resolve an endpoint."]
   ]
 };
 
@@ -44,18 +35,14 @@ const root = 2;
 const r = 100_000_000;
 const nodes = new Int32Array([
   -1, 1, -1,
-  0, 13, 3,
-  1, 4, r + 12,
-  2, 5, r + 12,
-  3, 8, 6,
-  4, 7, r + 11,
-  5, r + 9, r + 10,
-  4, 11, 9,
-  6, 10, r + 8,
-  7, r + 6, r + 7,
-  5, 12, r + 5,
-  6, r + 4, r + 5,
-  3, r + 1, 14,
+  0, r + 1, 3,
+  1, 4, r + 10,
+  2, 9, 5,
+  4, 7, 6,
+  5, r + 8, r + 9,
+  5, r + 5, 8,
+  6, r + 6, r + 7,
+  3, 10, r + 4,
   4, r + 2, r + 3,
 ]);
 export const bdd = BinaryDecisionDiagram.from(

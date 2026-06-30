@@ -27,7 +27,7 @@ export interface ListCertificatesCommandInput extends ListCertificatesRequest {}
 export interface ListCertificatesCommandOutput extends ListCertificatesResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of certificate ARNs and domain names. You can request that only certificates that match a specific status be listed. You can also filter by specific attributes of the certificate. Default filtering returns only <code>RSA_2048</code> certificates. For more information, see <a>Filters</a>.</p>
+ * <p>Retrieves a list of certificate ARNs and domain names. You can request that only certificates that match a specific status be listed. You can also filter by specific attributes of the certificate. Default filtering returns only <code>RSA_2048</code> certificates. For more information, see <a>Filters</a>.</p> <note> <p>By default, this action does not return certificates with a <code>CertificateKeyPairOrigin</code> of <code>ACME</code>. To include ACME certificates, specify <code>ACME</code> in the <code>CertificateKeyPairOrigins</code> filter.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -39,6 +39,9 @@ export interface ListCertificatesCommandOutput extends ListCertificatesResponse,
  * const input = { // ListCertificatesRequest
  *   CertificateStatuses: [ // CertificateStatuses
  *     "PENDING_VALIDATION" || "ISSUED" || "INACTIVE" || "EXPIRED" || "VALIDATION_TIMED_OUT" || "REVOKED" || "FAILED",
+ *   ],
+ *   CertificateKeyPairOrigins: [ // CertificateKeyPairOrigins
+ *     "AWS_MANAGED" || "ACME" || "CUSTOMER_PROVIDED",
  *   ],
  *   Includes: { // Filters
  *     extendedKeyUsage: [ // ExtendedKeyUsageFilterList
@@ -90,6 +93,7 @@ export interface ListCertificatesCommandOutput extends ListCertificatesResponse,
  * //       ImportedAt: new Date("TIMESTAMP"),
  * //       RevokedAt: new Date("TIMESTAMP"),
  * //       ManagedBy: "CLOUDFRONT",
+ * //       CertificateKeyPairOrigin: "AWS_MANAGED" || "ACME" || "CUSTOMER_PROVIDED",
  * //     },
  * //   ],
  * // };
@@ -122,7 +126,10 @@ export class ListCertificatesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep(commonParams)
+  .ep({
+    ...commonParams,
+    ServiceType: { type: "staticContextParams", value: `ACM` },
+  })
   .m(function (this: any, Command: any, cs: any, config: ACMClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })

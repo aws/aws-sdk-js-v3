@@ -84,6 +84,9 @@ export interface SearchCertificatesCommandOutput extends SearchCertificatesRespo
  *             ExportOption: "ENABLED" || "DISABLED",
  *             ManagedBy: "CLOUDFRONT",
  *             ValidationMethod: "EMAIL" || "DNS" || "HTTP",
+ *             CertificateKeyPairOrigin: "AWS_MANAGED" || "ACME" || "CUSTOMER_PROVIDED",
+ *             AcmeEndpointArn: "STRING_VALUE",
+ *             AcmeAccountId: "STRING_VALUE",
  *           },
  *         },
  *       },
@@ -129,12 +132,15 @@ export interface SearchCertificatesCommandOutput extends SearchCertificatesRespo
  *         ExportOption: "ENABLED" || "DISABLED",
  *         ManagedBy: "CLOUDFRONT",
  *         ValidationMethod: "EMAIL" || "DNS" || "HTTP",
+ *         CertificateKeyPairOrigin: "AWS_MANAGED" || "ACME" || "CUSTOMER_PROVIDED",
+ *         AcmeEndpointArn: "STRING_VALUE",
+ *         AcmeAccountId: "STRING_VALUE",
  *       },
  *     },
  *   },
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
- *   SortBy: "CREATED_AT" || "NOT_AFTER" || "STATUS" || "RENEWAL_STATUS" || "EXPORTED" || "IN_USE" || "NOT_BEFORE" || "KEY_ALGORITHM" || "TYPE" || "CERTIFICATE_ARN" || "COMMON_NAME" || "REVOKED_AT" || "RENEWAL_ELIGIBILITY" || "ISSUED_AT" || "MANAGED_BY" || "EXPORT_OPTION" || "VALIDATION_METHOD" || "IMPORTED_AT",
+ *   SortBy: "CREATED_AT" || "NOT_AFTER" || "STATUS" || "RENEWAL_STATUS" || "EXPORTED" || "IN_USE" || "NOT_BEFORE" || "KEY_ALGORITHM" || "TYPE" || "CERTIFICATE_ARN" || "COMMON_NAME" || "REVOKED_AT" || "RENEWAL_ELIGIBILITY" || "ISSUED_AT" || "MANAGED_BY" || "EXPORT_OPTION" || "VALIDATION_METHOD" || "IMPORTED_AT" || "ACME_ENDPOINT_ARN" || "ACME_ACCOUNT_ID" || "CERTIFICATE_KEY_PAIR_ORIGIN",
  *   SortOrder: "ASCENDING" || "DESCENDING",
  * };
  * const command = new SearchCertificatesCommand(input);
@@ -258,6 +264,9 @@ export interface SearchCertificatesCommandOutput extends SearchCertificatesRespo
  * //           ExportOption: "ENABLED" || "DISABLED",
  * //           ManagedBy: "CLOUDFRONT",
  * //           ValidationMethod: "EMAIL" || "DNS" || "HTTP",
+ * //           CertificateKeyPairOrigin: "AWS_MANAGED" || "ACME" || "CUSTOMER_PROVIDED",
+ * //           AcmeEndpointArn: "STRING_VALUE",
+ * //           AcmeAccountId: "STRING_VALUE",
  * //         },
  * //       },
  * //     },
@@ -296,7 +305,10 @@ export class SearchCertificatesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep(commonParams)
+  .ep({
+    ...commonParams,
+    ServiceType: { type: "staticContextParams", value: `ACM` },
+  })
   .m(function (this: any, Command: any, cs: any, config: ACMClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })

@@ -3,6 +3,20 @@
  * @public
  * @enum
  */
+export const CertificateKeyPairOrigin = {
+  ACME: "ACME",
+  AWS_MANAGED: "AWS_MANAGED",
+  CUSTOMER_PROVIDED: "CUSTOMER_PROVIDED",
+} as const;
+/**
+ * @public
+ */
+export type CertificateKeyPairOrigin = (typeof CertificateKeyPairOrigin)[keyof typeof CertificateKeyPairOrigin];
+
+/**
+ * @public
+ * @enum
+ */
 export const CertificateExport = {
   DISABLED: "DISABLED",
   ENABLED: "ENABLED",
@@ -102,6 +116,79 @@ export type ValidationMethod = (typeof ValidationMethod)[keyof typeof Validation
  * @public
  * @enum
  */
+export const AcmeAccountStatus = {
+  DEACTIVATED: "DEACTIVATED",
+  REVOKED: "REVOKED",
+  VALID: "VALID",
+} as const;
+/**
+ * @public
+ */
+export type AcmeAccountStatus = (typeof AcmeAccountStatus)[keyof typeof AcmeAccountStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const AcmeAuthorizationBehavior = {
+  PRE_APPROVED: "PRE_APPROVED",
+} as const;
+/**
+ * @public
+ */
+export type AcmeAuthorizationBehavior = (typeof AcmeAuthorizationBehavior)[keyof typeof AcmeAuthorizationBehavior];
+
+/**
+ * @public
+ * @enum
+ */
+export const AcmeContact = {
+  NOT_REQUIRED: "NOT_REQUIRED",
+  REQUIRED: "REQUIRED",
+} as const;
+/**
+ * @public
+ */
+export type AcmeContact = (typeof AcmeContact)[keyof typeof AcmeContact];
+
+/**
+ * @public
+ * @enum
+ */
+export const AcmeDomainValidationFailureReason = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  DOMAIN_MISMATCH: "DOMAIN_MISMATCH",
+  DOMAIN_NOT_ALLOWED: "DOMAIN_NOT_ALLOWED",
+  ENDPOINT_NOT_ACTIVE: "ENDPOINT_NOT_ACTIVE",
+  HOSTED_ZONE_NOT_FOUND: "HOSTED_ZONE_NOT_FOUND",
+  INTERNAL_FAILURE: "INTERNAL_FAILURE",
+  INVALID_CHANGE_BATCH: "INVALID_CHANGE_BATCH",
+  INVALID_PUBLIC_DOMAIN: "INVALID_PUBLIC_DOMAIN",
+  TIMED_OUT: "TIMED_OUT",
+} as const;
+/**
+ * @public
+ */
+export type AcmeDomainValidationFailureReason =
+  (typeof AcmeDomainValidationFailureReason)[keyof typeof AcmeDomainValidationFailureReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const DomainScopeOption = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type DomainScopeOption = (typeof DomainScopeOption)[keyof typeof DomainScopeOption];
+
+/**
+ * @public
+ * @enum
+ */
 export const RecordType = {
   CNAME: "CNAME",
 } as const;
@@ -109,6 +196,62 @@ export const RecordType = {
  * @public
  */
 export type RecordType = (typeof RecordType)[keyof typeof RecordType];
+
+/**
+ * @public
+ * @enum
+ */
+export const PrevalidationType = {
+  DNS_PREVALIDATION: "DNS_PREVALIDATION",
+} as const;
+/**
+ * @public
+ */
+export type PrevalidationType = (typeof PrevalidationType)[keyof typeof PrevalidationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AcmeDomainValidationStatus = {
+  DELETING: "DELETING",
+  INVALID: "INVALID",
+  VALID: "VALID",
+  VALIDATING: "VALIDATING",
+} as const;
+/**
+ * @public
+ */
+export type AcmeDomainValidationStatus = (typeof AcmeDomainValidationStatus)[keyof typeof AcmeDomainValidationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const PublicKeyAlgorithm = {
+  EC_PRIME256_V1: "EC_prime256v1",
+  EC_SECP384_R1: "EC_secp384r1",
+  RSA_2048: "RSA_2048",
+} as const;
+/**
+ * @public
+ */
+export type PublicKeyAlgorithm = (typeof PublicKeyAlgorithm)[keyof typeof PublicKeyAlgorithm];
+
+/**
+ * @public
+ * @enum
+ */
+export const AcmeEndpointStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+} as const;
+/**
+ * @public
+ */
+export type AcmeEndpointStatus = (typeof AcmeEndpointStatus)[keyof typeof AcmeEndpointStatus];
 
 /**
  * @public
@@ -268,6 +411,20 @@ export type ComparisonOperator = (typeof ComparisonOperator)[keyof typeof Compar
  * @public
  * @enum
  */
+export const TimeType = {
+  DAYS: "DAYS",
+  HOURS: "HOURS",
+  MINUTES: "MINUTES",
+} as const;
+/**
+ * @public
+ */
+export type TimeType = (typeof TimeType)[keyof typeof TimeType];
+
+/**
+ * @public
+ * @enum
+ */
 export const SortBy = {
   CREATED_AT: "CREATED_AT",
 } as const;
@@ -294,7 +451,10 @@ export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
  * @enum
  */
 export const SearchCertificatesSortBy = {
+  ACME_ACCOUNT_ID: "ACME_ACCOUNT_ID",
+  ACME_ENDPOINT_ARN: "ACME_ENDPOINT_ARN",
   CERTIFICATE_ARN: "CERTIFICATE_ARN",
+  CERTIFICATE_KEY_PAIR_ORIGIN: "CERTIFICATE_KEY_PAIR_ORIGIN",
   COMMON_NAME: "COMMON_NAME",
   CREATED_AT: "CREATED_AT",
   EXPORTED: "EXPORTED",
