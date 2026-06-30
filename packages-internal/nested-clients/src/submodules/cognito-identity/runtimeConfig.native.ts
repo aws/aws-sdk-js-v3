@@ -1,6 +1,4 @@
 // smithy-typescript generated code
-import { Sha256 } from "@aws-crypto/sha256-js";
-
 import type { CognitoIdentityClientConfig } from "./CognitoIdentityClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
@@ -13,6 +11,5 @@ export const getRuntimeConfig = (config: CognitoIdentityClientConfig) => {
     ...browserDefaults,
     ...config,
     runtime: "react-native",
-    sha256: config?.sha256 ?? Sha256,
   };
 };

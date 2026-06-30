@@ -80,7 +80,7 @@
   "dependencies": {
     "@aws-sdk/core": "workspace:^3.974.24",
     "@aws-sdk/types": "workspace:^3.973.14",
-    "@smithy/core": "^3.27.0",
+    "@smithy/core": "^3.28.0",
     "@smithy/types": "^4.15.0",
     "tslib": "^2.6.2"
   },

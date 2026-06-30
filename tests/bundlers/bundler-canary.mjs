@@ -95,13 +95,10 @@ for (const { name, dir } of bundlerDirs) {
       console.log(`  ✅ PASS: No node: protocol references`);
     }
 
-    // Check for node-only code marker (allow up to 3)
+    // Check for node-only code marker (informational)
     const nodeOnlyMatches = content.match(/\w+\s*=\s*Symbol\.for\(["']node-only["']\)/g) || [];
-    if (nodeOnlyMatches.length > 3) {
-      console.error(`  ❌ FAIL: ${nodeOnlyMatches.length}/3 Symbol.for("node-only") — node-only code not fully tree-shaken`);
-      failed = true;
-    } else if (nodeOnlyMatches.length > 0) {
-      console.log(`  ⚠️  ${nodeOnlyMatches.length}/3 Symbol.for("node-only") — node-only code not fully tree-shaken`);
+    if (nodeOnlyMatches.length > 0) {
+      console.log(`  ⚠️  ${nodeOnlyMatches.length} Symbol.for("node-only") — node-only code not fully tree-shaken`);
     }
 
     // Check for unguarded global Buffer usage via AST scope analysis

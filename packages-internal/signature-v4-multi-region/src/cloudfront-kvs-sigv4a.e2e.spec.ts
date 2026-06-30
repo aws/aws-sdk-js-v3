@@ -1,6 +1,5 @@
 import "@aws-sdk/signature-v4a";
 
-import { Sha256 } from "@aws-crypto/sha256-js";
 import { CloudFrontClient, CreateKeyValueStoreCommand, DescribeKeyValueStoreCommand } from "@aws-sdk/client-cloudfront";
 import {
   CloudFrontKeyValueStoreClient,
@@ -8,6 +7,7 @@ import {
 } from "@aws-sdk/client-cloudfront-keyvaluestore";
 import { defaultProvider } from "@aws-sdk/credential-provider-node";
 import { SignatureV4MultiRegion } from "@aws-sdk/signature-v4-multi-region";
+import { Sha256 } from "@smithy/core/checksum";
 import { HttpRequest } from "@smithy/core/protocols";
 import { afterAll, beforeAll, describe, expect, it, vi } from "vitest";
 

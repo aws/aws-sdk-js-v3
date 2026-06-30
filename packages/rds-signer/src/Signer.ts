@@ -1,4 +1,5 @@
 import { formatUrl } from "@aws-sdk/core/util";
+import { Sha256 } from "@smithy/core/checksum";
 import { HttpRequest } from "@smithy/core/protocols";
 import { SignatureV4 } from "@smithy/signature-v4";
 import type {
@@ -73,7 +74,7 @@ export class Signer {
     this.hostname = runtimeConfiguration.hostname;
     this.port = runtimeConfiguration.port;
     this.region = runtimeConfiguration.region;
-    this.sha256 = runtimeConfiguration.sha256;
+    this.sha256 = runtimeConfiguration.sha256 ?? Sha256;
     this.username = runtimeConfiguration.username;
   }
 

@@ -1,7 +1,9 @@
 // smithy-typescript generated code
+import { Sha1 } from "@aws-sdk/checksums/sha";
 import { AwsSdkSigV4ASigner, AwsSdkSigV4Signer } from "@aws-sdk/core/httpAuthSchemes";
 import { S3RestXmlProtocol } from "@aws-sdk/middleware-sdk-s3/s3";
 import { SignatureV4MultiRegion } from "@aws-sdk/signature-v4-multi-region";
+import { Md5, Sha256 } from "@smithy/core/checksum";
 import { NoOpLogger } from "@smithy/core/client";
 import { parseUrl } from "@smithy/core/protocols";
 import {
@@ -47,6 +49,7 @@ export const getRuntimeConfig = (config: S3ClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
+    md5: config?.md5 ?? Md5,
     protocol: config?.protocol ?? S3RestXmlProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.s3",
@@ -57,6 +60,8 @@ export const getRuntimeConfig = (config: S3ClientConfig) => {
     },
     sdkStreamMixin: config?.sdkStreamMixin ?? sdkStreamMixin,
     serviceId: config?.serviceId ?? "S3",
+    sha1: config?.sha1 ?? Sha1,
+    sha256: config?.sha256 ?? Sha256,
     signerConstructor: config?.signerConstructor ?? SignatureV4MultiRegion,
     signingEscapePath: config?.signingEscapePath ?? false,
     urlParser: config?.urlParser ?? parseUrl,

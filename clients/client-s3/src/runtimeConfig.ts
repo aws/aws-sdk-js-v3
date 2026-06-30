@@ -17,7 +17,6 @@ import {
   NODE_DISABLE_S3_EXPRESS_SESSION_AUTH_OPTIONS,
   NODE_USE_ARN_REGION_CONFIG_OPTIONS,
 } from "@aws-sdk/middleware-sdk-s3/s3";
-import { ChecksumConstructor as __ChecksumConstructor, HashConstructor as __HashConstructor } from "@aws-sdk/types";
 import { readableStreamHasher as streamHasher } from "@smithy/core/checksum";
 import { emitWarningIfUnsupportedVersion, loadConfigsForDefaultMode } from "@smithy/core/client";
 import {
@@ -34,7 +33,7 @@ import {
   NODE_MAX_ATTEMPT_CONFIG_OPTIONS,
   NODE_RETRY_MODE_CONFIG_OPTIONS,
 } from "@smithy/core/retry";
-import { calculateBodyLength, Hash } from "@smithy/core/serde";
+import { calculateBodyLength } from "@smithy/core/serde";
 import { NodeHttpHandler as RequestHandler, streamCollector } from "@smithy/node-http-handler";
 
 import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared";
@@ -65,7 +64,6 @@ export const getRuntimeConfig = (config: S3ClientConfig) => {
     disableS3ExpressSessionAuth: config?.disableS3ExpressSessionAuth ?? loadNodeConfig(NODE_DISABLE_S3_EXPRESS_SESSION_AUTH_OPTIONS, loaderConfig),
     eventStreamSerdeProvider: config?.eventStreamSerdeProvider ?? eventStreamSerdeProvider,
     maxAttempts: config?.maxAttempts ?? loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS, config),
-    md5: config?.md5 ?? Hash.bind(null, "md5"),
     region: config?.region ?? loadNodeConfig(
         NODE_REGION_CONFIG_OPTIONS,
         {...NODE_REGION_CONFIG_FILE_OPTIONS, ...loaderConfig}
@@ -82,8 +80,6 @@ export const getRuntimeConfig = (config: S3ClientConfig) => {
         },
         config
       ),
-    sha1: config?.sha1 ?? Hash.bind(null, "sha1"),
-    sha256: config?.sha256 ?? Hash.bind(null, "sha256"),
     sigv4aSigningRegionSet: config?.sigv4aSigningRegionSet ?? loadNodeConfig(NODE_SIGV4A_CONFIG_OPTIONS, loaderConfig),
     streamCollector: config?.streamCollector ?? streamCollector,
     streamHasher: config?.streamHasher ?? streamHasher,

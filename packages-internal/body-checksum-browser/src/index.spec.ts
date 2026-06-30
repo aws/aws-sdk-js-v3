@@ -1,4 +1,4 @@
-import { Sha256 } from "@aws-crypto/sha256-js";
+import { Sha256 } from "@smithy/core/checksum";
 import { HttpRequest } from "@smithy/core/protocols";
 import { fromUtf8 } from "@smithy/core/serde";
 import { Readable } from "node:stream";

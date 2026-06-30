@@ -3,6 +3,7 @@ import { AwsSdkSigV4ASigner, AwsSdkSigV4Signer } from "@aws-sdk/core/httpAuthSch
 import { AwsQueryProtocol } from "@aws-sdk/core/protocols";
 import { SignatureV4MultiRegion } from "@aws-sdk/signature-v4-multi-region";
 import { NoAuthSigner } from "@smithy/core";
+import { Sha256 } from "@smithy/core/checksum";
 import { NoOpLogger } from "@smithy/core/client";
 import { parseUrl } from "@smithy/core/protocols";
 import { fromBase64, fromUtf8, toBase64, toUtf8 } from "@smithy/core/serde";
@@ -55,6 +56,7 @@ export const getRuntimeConfig = (config: STSClientConfig) => {
       serviceTarget: "AWSSecurityTokenServiceV20110615",
     },
     serviceId: config?.serviceId ?? "STS",
+    sha256: config?.sha256 ?? Sha256,
     signerConstructor: config?.signerConstructor ?? SignatureV4MultiRegion,
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

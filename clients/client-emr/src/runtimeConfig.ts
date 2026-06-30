@@ -23,7 +23,7 @@ import {
   NODE_MAX_ATTEMPT_CONFIG_OPTIONS,
   NODE_RETRY_MODE_CONFIG_OPTIONS,
 } from "@smithy/core/retry";
-import { calculateBodyLength, Hash } from "@smithy/core/serde";
+import { calculateBodyLength } from "@smithy/core/serde";
 import { NodeHttpHandler as RequestHandler, streamCollector } from "@smithy/node-http-handler";
 
 import type { EMRClientConfig } from "./EMRClient";
@@ -66,7 +66,6 @@ export const getRuntimeConfig = (config: EMRClientConfig) => {
         },
         config
       ),
-    sha256: config?.sha256 ?? Hash.bind(null, "sha256"),
     streamCollector: config?.streamCollector ?? streamCollector,
     useDualstackEndpoint: config?.useDualstackEndpoint ?? loadNodeConfig(NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS, loaderConfig),
     useFipsEndpoint: config?.useFipsEndpoint ?? loadNodeConfig(NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS, loaderConfig),

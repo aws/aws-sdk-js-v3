@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { AwsSdkSigV4Signer } from "@aws-sdk/core/httpAuthSchemes";
 import { AwsRestJsonProtocol } from "@aws-sdk/core/protocols";
+import { Sha256 } from "@smithy/core/checksum";
 import { NoOpLogger } from "@smithy/core/client";
 import { parseUrl } from "@smithy/core/protocols";
 import { fromBase64, fromUtf8, toBase64, toUtf8 } from "@smithy/core/serde";
@@ -40,6 +41,7 @@ export const getRuntimeConfig = (config: ConnectCampaignsV2ClientConfig) => {
       serviceTarget: "AmazonConnectCampaignServiceV2",
     },
     serviceId: config?.serviceId ?? "ConnectCampaignsV2",
+    sha256: config?.sha256 ?? Sha256,
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,
     utf8Encoder: config?.utf8Encoder ?? toUtf8,

@@ -131,6 +131,26 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
                             SmithyCoreSubmodules.SERDE
                         );
                         writer.write("getAwsChunkedEncodingStream");
+                    },
+                    "sha1",
+                    writer -> {
+                        writer.addImportSubmodule(
+                            "Sha1",
+                            "Sha1",
+                            AwsDependency.FLEXIBLE_CHECKSUMS_MIDDLEWARE,
+                            AwsSdkChecksumsSubmodules.SHA
+                        );
+                        writer.write("Sha1");
+                    },
+                    "md5",
+                    writer -> {
+                        writer.addImportSubmodule(
+                            "Md5",
+                            "Md5",
+                            TypeScriptDependency.SMITHY_CORE,
+                            SmithyCoreSubmodules.CHECKSUM
+                        );
+                        writer.write("Md5");
                     }
                 );
             case NODE:
@@ -144,34 +164,6 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
                             SmithyCoreSubmodules.CHECKSUM
                         );
                         writer.write("streamHasher");
-                    },
-                    "md5",
-                    writer -> {
-                        writer.addImport(
-                            "HashConstructor",
-                            "__HashConstructor",
-                            AwsDependency.TYPES
-                        );
-                        writer.addImport(
-                            "ChecksumConstructor",
-                            "__ChecksumConstructor",
-                            AwsDependency.TYPES
-                        );
-                        writer.write("Hash.bind(null, \"md5\")");
-                    },
-                    "sha1",
-                    writer -> {
-                        writer.addImport(
-                            "HashConstructor",
-                            "__HashConstructor",
-                            AwsDependency.TYPES
-                        );
-                        writer.addImport(
-                            "ChecksumConstructor",
-                            "__ChecksumConstructor",
-                            AwsDependency.TYPES
-                        );
-                        writer.write("Hash.bind(null, \"sha1\")");
                     },
                     "requestChecksumCalculation",
                     writer -> {
@@ -217,21 +209,6 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
                             SmithyCoreSubmodules.CHECKSUM
                         );
                         writer.write("streamHasher");
-                    },
-                    "md5",
-                    writer -> {
-                        writer.addImportSubmodule(
-                            "Md5",
-                            "Md5",
-                            TypeScriptDependency.SMITHY_CORE,
-                            SmithyCoreSubmodules.CHECKSUM
-                        );
-                        writer.write("Md5");
-                    },
-                    "sha1",
-                    writer -> {
-                        writer.addImport("Sha1", "Sha1", AwsDependency.AWS_CRYPTO_SHA1_BROWSER);
-                        writer.write("Sha1");
                     }
                 );
             default:

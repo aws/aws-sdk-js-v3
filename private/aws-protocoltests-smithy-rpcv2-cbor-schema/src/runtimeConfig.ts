@@ -10,7 +10,7 @@ import {
   NODE_MAX_ATTEMPT_CONFIG_OPTIONS,
   NODE_RETRY_MODE_CONFIG_OPTIONS,
 } from "@smithy/core/retry";
-import { calculateBodyLength, Hash } from "@smithy/core/serde";
+import { calculateBodyLength } from "@smithy/core/serde";
 import { NodeHttpHandler as RequestHandler, streamCollector } from "@smithy/node-http-handler";
 
 import type { RpcV2ProtocolClientConfig } from "./RpcV2ProtocolClient";
@@ -46,7 +46,6 @@ export const getRuntimeConfig = (config: RpcV2ProtocolClientConfig) => {
         },
         config
       ),
-    sha256: config?.sha256 ?? Hash.bind(null, "sha256"),
     streamCollector: config?.streamCollector ?? streamCollector,
     userAgentAppId: config?.userAgentAppId ?? loadNodeConfig(NODE_APP_ID_CONFIG_OPTIONS, loaderConfig),
   };

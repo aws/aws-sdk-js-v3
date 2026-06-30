@@ -2,7 +2,6 @@
 // @ts-ignore: package.json will be imported from dist folders
 import packageInfo from "../package.json"; // eslint-disable-line
 
-import { Sha256 } from "@aws-crypto/sha256-browser";
 import { createDefaultUserAgentProvider } from "@aws-sdk/core/client";
 import { loadConfigsForDefaultMode } from "@smithy/core/client";
 import { resolveDefaultsModeConfig } from "@smithy/core/config";
@@ -30,7 +29,6 @@ export const getRuntimeConfig = (config: RpcV2ProtocolClientConfig) => {
     maxAttempts: config?.maxAttempts ?? DEFAULT_MAX_ATTEMPTS,
     requestHandler: RequestHandler.create(config?.requestHandler ?? defaultConfigProvider),
     retryMode: config?.retryMode ?? (async () => (await defaultConfigProvider()).retryMode || DEFAULT_RETRY_MODE),
-    sha256: config?.sha256 ?? Sha256,
     streamCollector: config?.streamCollector ?? streamCollector,
   };
 };

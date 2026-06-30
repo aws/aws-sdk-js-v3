@@ -1,4 +1,3 @@
-import { Sha256 } from "@aws-crypto/sha256-js";
 import { invalidProvider } from "@smithy/core/client";
 
 import type { DsqlSignerConfig } from "./Signer";
@@ -9,7 +8,6 @@ import type { DsqlSignerConfig } from "./Signer";
 export const getRuntimeConfig = (config: DsqlSignerConfig) => {
   return {
     runtime: "react-native",
-    sha256: config?.sha256 ?? Sha256,
     credentials: invalidProvider("Credential is missing"),
     region: invalidProvider("Region is missing"),
     ...config,
