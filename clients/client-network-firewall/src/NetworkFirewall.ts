@@ -28,6 +28,11 @@ import {
   AttachRuleGroupsToProxyConfigurationCommand,
 } from "./commands/AttachRuleGroupsToProxyConfigurationCommand";
 import {
+  type CreateContainerAssociationCommandInput,
+  type CreateContainerAssociationCommandOutput,
+  CreateContainerAssociationCommand,
+} from "./commands/CreateContainerAssociationCommand";
+import {
   type CreateFirewallCommandInput,
   type CreateFirewallCommandOutput,
   CreateFirewallCommand,
@@ -72,6 +77,11 @@ import {
   type CreateVpcEndpointAssociationCommandOutput,
   CreateVpcEndpointAssociationCommand,
 } from "./commands/CreateVpcEndpointAssociationCommand";
+import {
+  type DeleteContainerAssociationCommandInput,
+  type DeleteContainerAssociationCommandOutput,
+  DeleteContainerAssociationCommand,
+} from "./commands/DeleteContainerAssociationCommand";
 import {
   type DeleteFirewallCommandInput,
   type DeleteFirewallCommandOutput,
@@ -127,6 +137,11 @@ import {
   type DeleteVpcEndpointAssociationCommandOutput,
   DeleteVpcEndpointAssociationCommand,
 } from "./commands/DeleteVpcEndpointAssociationCommand";
+import {
+  type DescribeContainerAssociationCommandInput,
+  type DescribeContainerAssociationCommandOutput,
+  DescribeContainerAssociationCommand,
+} from "./commands/DescribeContainerAssociationCommand";
 import {
   type DescribeFirewallCommandInput,
   type DescribeFirewallCommandOutput,
@@ -228,6 +243,11 @@ import {
   ListAnalysisReportsCommand,
 } from "./commands/ListAnalysisReportsCommand";
 import {
+  type ListContainerAssociationsCommandInput,
+  type ListContainerAssociationsCommandOutput,
+  ListContainerAssociationsCommand,
+} from "./commands/ListContainerAssociationsCommand";
+import {
   type ListFirewallPoliciesCommandInput,
   type ListFirewallPoliciesCommandOutput,
   ListFirewallPoliciesCommand,
@@ -323,6 +343,11 @@ import {
   UpdateAvailabilityZoneChangeProtectionCommand,
 } from "./commands/UpdateAvailabilityZoneChangeProtectionCommand";
 import {
+  type UpdateContainerAssociationCommandInput,
+  type UpdateContainerAssociationCommandOutput,
+  UpdateContainerAssociationCommand,
+} from "./commands/UpdateContainerAssociationCommand";
+import {
   type UpdateFirewallAnalysisSettingsCommandInput,
   type UpdateFirewallAnalysisSettingsCommandOutput,
   UpdateFirewallAnalysisSettingsCommand,
@@ -400,6 +425,7 @@ import {
 import { NetworkFirewallClient } from "./NetworkFirewallClient";
 import { paginateGetAnalysisReportResults } from "./pagination/GetAnalysisReportResultsPaginator";
 import { paginateListAnalysisReports } from "./pagination/ListAnalysisReportsPaginator";
+import { paginateListContainerAssociations } from "./pagination/ListContainerAssociationsPaginator";
 import { paginateListFirewallPolicies } from "./pagination/ListFirewallPoliciesPaginator";
 import { paginateListFirewalls } from "./pagination/ListFirewallsPaginator";
 import { paginateListFlowOperationResults } from "./pagination/ListFlowOperationResultsPaginator";
@@ -418,6 +444,7 @@ const commands = {
   AssociateFirewallPolicyCommand,
   AssociateSubnetsCommand,
   AttachRuleGroupsToProxyConfigurationCommand,
+  CreateContainerAssociationCommand,
   CreateFirewallCommand,
   CreateFirewallPolicyCommand,
   CreateProxyCommand,
@@ -427,6 +454,7 @@ const commands = {
   CreateRuleGroupCommand,
   CreateTLSInspectionConfigurationCommand,
   CreateVpcEndpointAssociationCommand,
+  DeleteContainerAssociationCommand,
   DeleteFirewallCommand,
   DeleteFirewallPolicyCommand,
   DeleteNetworkFirewallTransitGatewayAttachmentCommand,
@@ -438,6 +466,7 @@ const commands = {
   DeleteRuleGroupCommand,
   DeleteTLSInspectionConfigurationCommand,
   DeleteVpcEndpointAssociationCommand,
+  DescribeContainerAssociationCommand,
   DescribeFirewallCommand,
   DescribeFirewallMetadataCommand,
   DescribeFirewallPolicyCommand,
@@ -458,6 +487,7 @@ const commands = {
   DisassociateSubnetsCommand,
   GetAnalysisReportResultsCommand,
   ListAnalysisReportsCommand,
+  ListContainerAssociationsCommand,
   ListFirewallPoliciesCommand,
   ListFirewallsCommand,
   ListFlowOperationResultsCommand,
@@ -477,6 +507,7 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateAvailabilityZoneChangeProtectionCommand,
+  UpdateContainerAssociationCommand,
   UpdateFirewallAnalysisSettingsCommand,
   UpdateFirewallDeleteProtectionCommand,
   UpdateFirewallDescriptionCommand,
@@ -496,6 +527,7 @@ const commands = {
 const paginators = {
   paginateGetAnalysisReportResults,
   paginateListAnalysisReports,
+  paginateListContainerAssociations,
   paginateListFirewallPolicies,
   paginateListFirewalls,
   paginateListFlowOperationResults,
@@ -593,6 +625,23 @@ export interface NetworkFirewall {
     args: AttachRuleGroupsToProxyConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AttachRuleGroupsToProxyConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateContainerAssociationCommand}
+   */
+  createContainerAssociation(
+    args: CreateContainerAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateContainerAssociationCommandOutput>;
+  createContainerAssociation(
+    args: CreateContainerAssociationCommandInput,
+    cb: (err: any, data?: CreateContainerAssociationCommandOutput) => void
+  ): void;
+  createContainerAssociation(
+    args: CreateContainerAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateContainerAssociationCommandOutput) => void
   ): void;
 
   /**
@@ -746,6 +795,24 @@ export interface NetworkFirewall {
     args: CreateVpcEndpointAssociationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateVpcEndpointAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteContainerAssociationCommand}
+   */
+  deleteContainerAssociation(): Promise<DeleteContainerAssociationCommandOutput>;
+  deleteContainerAssociation(
+    args: DeleteContainerAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteContainerAssociationCommandOutput>;
+  deleteContainerAssociation(
+    args: DeleteContainerAssociationCommandInput,
+    cb: (err: any, data?: DeleteContainerAssociationCommandOutput) => void
+  ): void;
+  deleteContainerAssociation(
+    args: DeleteContainerAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteContainerAssociationCommandOutput) => void
   ): void;
 
   /**
@@ -939,6 +1006,24 @@ export interface NetworkFirewall {
     args: DeleteVpcEndpointAssociationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteVpcEndpointAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeContainerAssociationCommand}
+   */
+  describeContainerAssociation(): Promise<DescribeContainerAssociationCommandOutput>;
+  describeContainerAssociation(
+    args: DescribeContainerAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeContainerAssociationCommandOutput>;
+  describeContainerAssociation(
+    args: DescribeContainerAssociationCommandInput,
+    cb: (err: any, data?: DescribeContainerAssociationCommandOutput) => void
+  ): void;
+  describeContainerAssociation(
+    args: DescribeContainerAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeContainerAssociationCommandOutput) => void
   ): void;
 
   /**
@@ -1294,6 +1379,24 @@ export interface NetworkFirewall {
   ): void;
 
   /**
+   * @see {@link ListContainerAssociationsCommand}
+   */
+  listContainerAssociations(): Promise<ListContainerAssociationsCommandOutput>;
+  listContainerAssociations(
+    args: ListContainerAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListContainerAssociationsCommandOutput>;
+  listContainerAssociations(
+    args: ListContainerAssociationsCommandInput,
+    cb: (err: any, data?: ListContainerAssociationsCommandOutput) => void
+  ): void;
+  listContainerAssociations(
+    args: ListContainerAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListContainerAssociationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListFirewallPoliciesCommand}
    */
   listFirewallPolicies(): Promise<ListFirewallPoliciesCommandOutput>;
@@ -1625,6 +1728,23 @@ export interface NetworkFirewall {
   ): void;
 
   /**
+   * @see {@link UpdateContainerAssociationCommand}
+   */
+  updateContainerAssociation(
+    args: UpdateContainerAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateContainerAssociationCommandOutput>;
+  updateContainerAssociation(
+    args: UpdateContainerAssociationCommandInput,
+    cb: (err: any, data?: UpdateContainerAssociationCommandOutput) => void
+  ): void;
+  updateContainerAssociation(
+    args: UpdateContainerAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateContainerAssociationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateFirewallAnalysisSettingsCommand}
    */
   updateFirewallAnalysisSettings(): Promise<UpdateFirewallAnalysisSettingsCommandOutput>;
@@ -1904,6 +2024,17 @@ export interface NetworkFirewall {
     args?: ListAnalysisReportsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListAnalysisReportsCommandOutput>;
+
+  /**
+   * @see {@link ListContainerAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListContainerAssociationsCommandOutput}.
+   */
+  paginateListContainerAssociations(
+    args?: ListContainerAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListContainerAssociationsCommandOutput>;
 
   /**
    * @see {@link ListFirewallPoliciesCommand}

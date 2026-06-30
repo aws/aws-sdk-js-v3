@@ -2,6 +2,8 @@
 import type {
   AttachmentStatus,
   ConfigurationSyncState,
+  ContainerAssociationStatus,
+  ContainerMonitoringType,
   EnabledAnalysisType,
   EncryptionType,
   FirewallStatusValue,
@@ -966,6 +968,148 @@ export interface CheckCertificateRevocationStatusActions {
 }
 
 /**
+ * <p>High-level information about a container association, returned by the <a>ListContainerAssociations</a> operation. You can use this information to retrieve the full details of a container association using <a>DescribeContainerAssociation</a>.</p>
+ * @public
+ */
+export interface ContainerAssociationSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the container association.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The descriptive name of the container association.</p>
+   * @public
+   */
+  Name?: string | undefined;
+}
+
+/**
+ * <p>A key-value pair that defines a container attribute filter for a container monitoring configuration.</p>
+ * @public
+ */
+export interface ContainerAttribute {
+  /**
+   * <p>The key of the container attribute to filter on.</p>
+   * @public
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The value of the container attribute to filter on.</p>
+   * @public
+   */
+  Value: string | undefined;
+}
+
+/**
+ * <p>Defines a container cluster to monitor, along with optional attribute filters that narrow the scope of monitored containers within the cluster.</p>
+ * @public
+ */
+export interface ContainerMonitoringConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the container cluster to monitor.</p>
+   * @public
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * <p>A list of key-value pairs that filter which containers within the cluster are monitored. Only containers that match the specified attributes are included.</p>
+   * @public
+   */
+  AttributeFilters?: ContainerAttribute[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateContainerAssociationRequest {
+  /**
+   * <p>The descriptive name of the container association. You can't change the name of a container association after you create it.</p>
+   * @public
+   */
+  ContainerAssociationName: string | undefined;
+
+  /**
+   * <p>A description of the container association.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The type of container orchestration platform for the clusters in this association. Valid values are <code>ECS</code> and <code>EKS</code>. You can't change the type after creation.</p>
+   * @public
+   */
+  Type: ContainerMonitoringType | undefined;
+
+  /**
+   * <p>The list of container monitoring configurations that define which clusters and container attributes to monitor.</p>
+   * @public
+   */
+  ContainerMonitoringConfigurations: ContainerMonitoringConfiguration[] | undefined;
+
+  /**
+   * <p>The key:value pairs to associate with the resource.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateContainerAssociationResponse {
+  /**
+   * <p>The descriptive name of the container association.</p>
+   * @public
+   */
+  ContainerAssociationName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the container association.</p>
+   * @public
+   */
+  ContainerAssociationArn?: string | undefined;
+
+  /**
+   * <p>A description of the container association.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The type of container orchestration platform. Either <code>ECS</code> or <code>EKS</code>.</p>
+   * @public
+   */
+  Type?: ContainerMonitoringType | undefined;
+
+  /**
+   * <p>The container monitoring configurations for this container association.</p>
+   * @public
+   */
+  ContainerMonitoringConfigurations?: ContainerMonitoringConfiguration[] | undefined;
+
+  /**
+   * <p>The current status of the container association.</p>
+   * @public
+   */
+  Status?: ContainerAssociationStatus | undefined;
+
+  /**
+   * <p>The key:value pairs associated with the resource.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the container association. The token marks the state of the container association resource at the time of the request. To make an update to the container association, provide the token in your request. Network Firewall uses the token to ensure that the container association hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the container association again to get a current copy of it with a new token. Reapply your changes as needed, then try the operation again using the new token.</p>
+   * @public
+   */
+  UpdateToken?: string | undefined;
+}
+
+/**
  * <p>A complex type that contains optional Amazon Web Services Key Management Service (KMS) encryption settings for your Network Firewall resources. Your data is encrypted by default with an Amazon Web Services owned key that Amazon Web Services owns and manages for you. You can use either the Amazon Web Services owned key, or provide your own customer managed key. To learn more about KMS encryption of your Network Firewall resources, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-encryption-at-rest.html">Encryption at rest with Amazon Web Services Key Managment Service</a> in the <i>Network Firewall Developer Guide</i>.</p>
  * @public
  */
@@ -1479,7 +1623,7 @@ export interface PolicyVariables {
 
 /**
  * <p>Describes the amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle and Network Firewall removes the flow entry from its flow table.
- *           Existing connections and flows are not impacted when you update this value. Only new connections after you update this value are impacted.
+ *           When you update this value, existing connections will be treated according to your stream exception policy configuration.
  *      </p>
  * @public
  */
@@ -3792,6 +3936,46 @@ export interface CreateVpcEndpointAssociationResponse {
 /**
  * @public
  */
+export interface DeleteContainerAssociationRequest {
+  /**
+   * <p>The descriptive name of the container association. You must specify the ARN or the name, and you can specify both.</p>
+   * @public
+   */
+  ContainerAssociationName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the container association. You must specify the ARN or the name, and you can specify both.</p>
+   * @public
+   */
+  ContainerAssociationArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteContainerAssociationResponse {
+  /**
+   * <p>The descriptive name of the container association.</p>
+   * @public
+   */
+  ContainerAssociationName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the container association.</p>
+   * @public
+   */
+  ContainerAssociationArn?: string | undefined;
+
+  /**
+   * <p>The current status of the container association.</p>
+   * @public
+   */
+  Status?: ContainerAssociationStatus | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteFirewallRequest {
   /**
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
@@ -4197,6 +4381,88 @@ export interface DeleteVpcEndpointAssociationResponse {
    * @public
    */
   VpcEndpointAssociationStatus?: VpcEndpointAssociationStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeContainerAssociationRequest {
+  /**
+   * <p>The descriptive name of the container association. You must specify the ARN or the name, and you can specify both.</p>
+   * @public
+   */
+  ContainerAssociationName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the container association. You must specify the ARN or the name, and you can specify both.</p>
+   * @public
+   */
+  ContainerAssociationArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeContainerAssociationResponse {
+  /**
+   * <p>The descriptive name of the container association.</p>
+   * @public
+   */
+  ContainerAssociationName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the container association.</p>
+   * @public
+   */
+  ContainerAssociationArn?: string | undefined;
+
+  /**
+   * <p>A description of the container association.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The type of container orchestration platform. Either <code>ECS</code> or <code>EKS</code>.</p>
+   * @public
+   */
+  Type?: ContainerMonitoringType | undefined;
+
+  /**
+   * <p>The container monitoring configurations for this container association.</p>
+   * @public
+   */
+  ContainerMonitoringConfigurations?: ContainerMonitoringConfiguration[] | undefined;
+
+  /**
+   * <p>The current status of the container association.</p>
+   * @public
+   */
+  Status?: ContainerAssociationStatus | undefined;
+
+  /**
+   * <p>The number of CIDR blocks that have been resolved from the monitored containers for this container association.</p>
+   * @public
+   */
+  ResolvedCidrCount?: number | undefined;
+
+  /**
+   * <p>The last time that the container association was updated or resolved new container IP addresses.</p>
+   * @public
+   */
+  LastUpdatedTime?: Date | undefined;
+
+  /**
+   * <p>The key:value pairs associated with the resource.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the container association. The token marks the state of the container association resource at the time of the request.</p>
+   * @public
+   */
+  UpdateToken?: string | undefined;
 }
 
 /**
@@ -5761,6 +6027,40 @@ export interface ListAnalysisReportsResponse {
 /**
  * @public
  */
+export interface ListContainerAssociationsRequest {
+  /**
+   * <p>The maximum number of objects that you want Network Firewall to return for this request. If more objects are available, in the response, Network Firewall provides a <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available for retrieval exceeds the maximum you requested, Network Firewall returns a <code>NextToken</code> value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListContainerAssociationsResponse {
+  /**
+   * <p>The container association metadata objects.</p>
+   * @public
+   */
+  ContainerAssociations?: ContainerAssociationSummary[] | undefined;
+
+  /**
+   * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available for retrieval exceeds the maximum you requested, Network Firewall returns a <code>NextToken</code> value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListFirewallPoliciesRequest {
   /**
    * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
@@ -6897,6 +7197,106 @@ export interface UpdateAvailabilityZoneChangeProtectionResponse {
    * @public
    */
   AvailabilityZoneChangeProtection?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateContainerAssociationRequest {
+  /**
+   * <p>The descriptive name of the container association. You must specify the ARN or the name, and you can specify both.</p>
+   * @public
+   */
+  ContainerAssociationName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the container association. You must specify the ARN or the name, and you can specify both.</p>
+   * @public
+   */
+  ContainerAssociationArn?: string | undefined;
+
+  /**
+   * <p>A description of the container association.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The type of container orchestration platform. This must match the type specified when the container association was created.</p>
+   * @public
+   */
+  Type: ContainerMonitoringType | undefined;
+
+  /**
+   * <p>The updated list of container monitoring configurations that define which clusters and container attributes to monitor.</p>
+   * @public
+   */
+  ContainerMonitoringConfigurations: ContainerMonitoringConfiguration[] | undefined;
+
+  /**
+   * <p>The key:value pairs associated with the resource.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the container association. The token marks the state of the container association resource at the time of the request. To make an update to the container association, provide the token in your request. Network Firewall uses the token to ensure that the container association hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the container association again to get a current copy of it with a new token. Reapply your changes as needed, then try the operation again using the new token.</p>
+   * @public
+   */
+  UpdateToken: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateContainerAssociationResponse {
+  /**
+   * <p>The descriptive name of the container association.</p>
+   * @public
+   */
+  ContainerAssociationName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the container association.</p>
+   * @public
+   */
+  ContainerAssociationArn?: string | undefined;
+
+  /**
+   * <p>A description of the container association.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The type of container orchestration platform. Either <code>ECS</code> or <code>EKS</code>.</p>
+   * @public
+   */
+  Type?: ContainerMonitoringType | undefined;
+
+  /**
+   * <p>The container monitoring configurations for this container association.</p>
+   * @public
+   */
+  ContainerMonitoringConfigurations?: ContainerMonitoringConfiguration[] | undefined;
+
+  /**
+   * <p>The current status of the container association.</p>
+   * @public
+   */
+  Status?: ContainerAssociationStatus | undefined;
+
+  /**
+   * <p>The key:value pairs associated with the resource.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the container association. The token marks the state of the container association resource at the time of the request.</p>
+   * @public
+   */
+  UpdateToken?: string | undefined;
 }
 
 /**

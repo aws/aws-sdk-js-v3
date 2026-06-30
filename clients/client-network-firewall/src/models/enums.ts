@@ -123,6 +123,33 @@ export type ConfigurationSyncState = (typeof ConfigurationSyncState)[keyof typeo
  * @public
  * @enum
  */
+export const ContainerAssociationStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+} as const;
+/**
+ * @public
+ */
+export type ContainerAssociationStatus = (typeof ContainerAssociationStatus)[keyof typeof ContainerAssociationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ContainerMonitoringType = {
+  ECS: "ECS",
+  EKS: "EKS",
+} as const;
+/**
+ * @public
+ */
+export type ContainerMonitoringType = (typeof ContainerMonitoringType)[keyof typeof ContainerMonitoringType];
+
+/**
+ * @public
+ * @enum
+ */
 export const EncryptionType = {
   AWS_OWNED_KMS_KEY: "AWS_OWNED_KMS_KEY",
   CUSTOMER_KMS: "CUSTOMER_KMS",

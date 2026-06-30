@@ -2,6 +2,7 @@
 export * from "./Interfaces";
 export * from "./GetAnalysisReportResultsPaginator";
 export * from "./ListAnalysisReportsPaginator";
+export * from "./ListContainerAssociationsPaginator";
 export * from "./ListFirewallPoliciesPaginator";
 export * from "./ListFirewallsPaginator";
 export * from "./ListFlowOperationResultsPaginator";

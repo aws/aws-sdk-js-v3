@@ -71,6 +71,10 @@ import type {
   AttachRuleGroupsToProxyConfigurationCommandInput,
   AttachRuleGroupsToProxyConfigurationCommandOutput,
 } from "./commands/AttachRuleGroupsToProxyConfigurationCommand";
+import type {
+  CreateContainerAssociationCommandInput,
+  CreateContainerAssociationCommandOutput,
+} from "./commands/CreateContainerAssociationCommand";
 import type { CreateFirewallCommandInput, CreateFirewallCommandOutput } from "./commands/CreateFirewallCommand";
 import type {
   CreateFirewallPolicyCommandInput,
@@ -95,6 +99,10 @@ import type {
   CreateVpcEndpointAssociationCommandInput,
   CreateVpcEndpointAssociationCommandOutput,
 } from "./commands/CreateVpcEndpointAssociationCommand";
+import type {
+  DeleteContainerAssociationCommandInput,
+  DeleteContainerAssociationCommandOutput,
+} from "./commands/DeleteContainerAssociationCommand";
 import type { DeleteFirewallCommandInput, DeleteFirewallCommandOutput } from "./commands/DeleteFirewallCommand";
 import type {
   DeleteFirewallPolicyCommandInput,
@@ -127,6 +135,10 @@ import type {
   DeleteVpcEndpointAssociationCommandInput,
   DeleteVpcEndpointAssociationCommandOutput,
 } from "./commands/DeleteVpcEndpointAssociationCommand";
+import type {
+  DescribeContainerAssociationCommandInput,
+  DescribeContainerAssociationCommandOutput,
+} from "./commands/DescribeContainerAssociationCommand";
 import type { DescribeFirewallCommandInput, DescribeFirewallCommandOutput } from "./commands/DescribeFirewallCommand";
 import type {
   DescribeFirewallMetadataCommandInput,
@@ -202,6 +214,10 @@ import type {
   ListAnalysisReportsCommandOutput,
 } from "./commands/ListAnalysisReportsCommand";
 import type {
+  ListContainerAssociationsCommandInput,
+  ListContainerAssociationsCommandOutput,
+} from "./commands/ListContainerAssociationsCommand";
+import type {
   ListFirewallPoliciesCommandInput,
   ListFirewallPoliciesCommandOutput,
 } from "./commands/ListFirewallPoliciesCommand";
@@ -256,6 +272,10 @@ import type {
   UpdateAvailabilityZoneChangeProtectionCommandInput,
   UpdateAvailabilityZoneChangeProtectionCommandOutput,
 } from "./commands/UpdateAvailabilityZoneChangeProtectionCommand";
+import type {
+  UpdateContainerAssociationCommandInput,
+  UpdateContainerAssociationCommandOutput,
+} from "./commands/UpdateContainerAssociationCommand";
 import type {
   UpdateFirewallAnalysisSettingsCommandInput,
   UpdateFirewallAnalysisSettingsCommandOutput,
@@ -327,6 +347,7 @@ export type ServiceInputTypes =
   | AssociateFirewallPolicyCommandInput
   | AssociateSubnetsCommandInput
   | AttachRuleGroupsToProxyConfigurationCommandInput
+  | CreateContainerAssociationCommandInput
   | CreateFirewallCommandInput
   | CreateFirewallPolicyCommandInput
   | CreateProxyCommandInput
@@ -336,6 +357,7 @@ export type ServiceInputTypes =
   | CreateRuleGroupCommandInput
   | CreateTLSInspectionConfigurationCommandInput
   | CreateVpcEndpointAssociationCommandInput
+  | DeleteContainerAssociationCommandInput
   | DeleteFirewallCommandInput
   | DeleteFirewallPolicyCommandInput
   | DeleteNetworkFirewallTransitGatewayAttachmentCommandInput
@@ -347,6 +369,7 @@ export type ServiceInputTypes =
   | DeleteRuleGroupCommandInput
   | DeleteTLSInspectionConfigurationCommandInput
   | DeleteVpcEndpointAssociationCommandInput
+  | DescribeContainerAssociationCommandInput
   | DescribeFirewallCommandInput
   | DescribeFirewallMetadataCommandInput
   | DescribeFirewallPolicyCommandInput
@@ -367,6 +390,7 @@ export type ServiceInputTypes =
   | DisassociateSubnetsCommandInput
   | GetAnalysisReportResultsCommandInput
   | ListAnalysisReportsCommandInput
+  | ListContainerAssociationsCommandInput
   | ListFirewallPoliciesCommandInput
   | ListFirewallsCommandInput
   | ListFlowOperationResultsCommandInput
@@ -386,6 +410,7 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAvailabilityZoneChangeProtectionCommandInput
+  | UpdateContainerAssociationCommandInput
   | UpdateFirewallAnalysisSettingsCommandInput
   | UpdateFirewallDeleteProtectionCommandInput
   | UpdateFirewallDescriptionCommandInput
@@ -411,6 +436,7 @@ export type ServiceOutputTypes =
   | AssociateFirewallPolicyCommandOutput
   | AssociateSubnetsCommandOutput
   | AttachRuleGroupsToProxyConfigurationCommandOutput
+  | CreateContainerAssociationCommandOutput
   | CreateFirewallCommandOutput
   | CreateFirewallPolicyCommandOutput
   | CreateProxyCommandOutput
@@ -420,6 +446,7 @@ export type ServiceOutputTypes =
   | CreateRuleGroupCommandOutput
   | CreateTLSInspectionConfigurationCommandOutput
   | CreateVpcEndpointAssociationCommandOutput
+  | DeleteContainerAssociationCommandOutput
   | DeleteFirewallCommandOutput
   | DeleteFirewallPolicyCommandOutput
   | DeleteNetworkFirewallTransitGatewayAttachmentCommandOutput
@@ -431,6 +458,7 @@ export type ServiceOutputTypes =
   | DeleteRuleGroupCommandOutput
   | DeleteTLSInspectionConfigurationCommandOutput
   | DeleteVpcEndpointAssociationCommandOutput
+  | DescribeContainerAssociationCommandOutput
   | DescribeFirewallCommandOutput
   | DescribeFirewallMetadataCommandOutput
   | DescribeFirewallPolicyCommandOutput
@@ -451,6 +479,7 @@ export type ServiceOutputTypes =
   | DisassociateSubnetsCommandOutput
   | GetAnalysisReportResultsCommandOutput
   | ListAnalysisReportsCommandOutput
+  | ListContainerAssociationsCommandOutput
   | ListFirewallPoliciesCommandOutput
   | ListFirewallsCommandOutput
   | ListFlowOperationResultsCommandOutput
@@ -470,6 +499,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAvailabilityZoneChangeProtectionCommandOutput
+  | UpdateContainerAssociationCommandOutput
   | UpdateFirewallAnalysisSettingsCommandOutput
   | UpdateFirewallDeleteProtectionCommandOutput
   | UpdateFirewallDescriptionCommandOutput

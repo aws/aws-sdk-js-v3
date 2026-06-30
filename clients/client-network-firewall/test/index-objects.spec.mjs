@@ -33,6 +33,15 @@ import {
   CheckCertificateRevocationStatusActions$,
   CIDRSummary$,
   ConfigurationSyncState,
+  ContainerAssociationStatus,
+  ContainerAssociationSummary$,
+  ContainerAttribute$,
+  ContainerMonitoringConfiguration$,
+  ContainerMonitoringType,
+  CreateContainerAssociation$,
+  CreateContainerAssociationCommand,
+  CreateContainerAssociationRequest$,
+  CreateContainerAssociationResponse$,
   CreateFirewall$,
   CreateFirewallCommand,
   CreateFirewallPolicy$,
@@ -72,6 +81,10 @@ import {
   CreateVpcEndpointAssociationRequest$,
   CreateVpcEndpointAssociationResponse$,
   CustomAction$,
+  DeleteContainerAssociation$,
+  DeleteContainerAssociationCommand,
+  DeleteContainerAssociationRequest$,
+  DeleteContainerAssociationResponse$,
   DeleteFirewall$,
   DeleteFirewallCommand,
   DeleteFirewallPolicy$,
@@ -116,6 +129,10 @@ import {
   DeleteVpcEndpointAssociationCommand,
   DeleteVpcEndpointAssociationRequest$,
   DeleteVpcEndpointAssociationResponse$,
+  DescribeContainerAssociation$,
+  DescribeContainerAssociationCommand,
+  DescribeContainerAssociationRequest$,
+  DescribeContainerAssociationResponse$,
   DescribeFirewall$,
   DescribeFirewallCommand,
   DescribeFirewallMetadata$,
@@ -237,6 +254,10 @@ import {
   ListAnalysisReportsCommand,
   ListAnalysisReportsRequest$,
   ListAnalysisReportsResponse$,
+  ListContainerAssociations$,
+  ListContainerAssociationsCommand,
+  ListContainerAssociationsRequest$,
+  ListContainerAssociationsResponse$,
   ListenerProperty$,
   ListenerPropertyRequest$,
   ListenerPropertyType,
@@ -297,6 +318,7 @@ import {
   OverrideAction,
   paginateGetAnalysisReportResults,
   paginateListAnalysisReports,
+  paginateListContainerAssociations,
   paginateListFirewallPolicies,
   paginateListFirewalls,
   paginateListFlowOperationResults,
@@ -425,6 +447,10 @@ import {
   UpdateAvailabilityZoneChangeProtectionCommand,
   UpdateAvailabilityZoneChangeProtectionRequest$,
   UpdateAvailabilityZoneChangeProtectionResponse$,
+  UpdateContainerAssociation$,
+  UpdateContainerAssociationCommand,
+  UpdateContainerAssociationRequest$,
+  UpdateContainerAssociationResponse$,
   UpdateFirewallAnalysisSettings$,
   UpdateFirewallAnalysisSettingsCommand,
   UpdateFirewallAnalysisSettingsRequest$,
@@ -504,6 +530,8 @@ assert(typeof AssociateSubnetsCommand === "function");
 assert(typeof AssociateSubnets$ === "object");
 assert(typeof AttachRuleGroupsToProxyConfigurationCommand === "function");
 assert(typeof AttachRuleGroupsToProxyConfiguration$ === "object");
+assert(typeof CreateContainerAssociationCommand === "function");
+assert(typeof CreateContainerAssociation$ === "object");
 assert(typeof CreateFirewallCommand === "function");
 assert(typeof CreateFirewall$ === "object");
 assert(typeof CreateFirewallPolicyCommand === "function");
@@ -522,6 +550,8 @@ assert(typeof CreateTLSInspectionConfigurationCommand === "function");
 assert(typeof CreateTLSInspectionConfiguration$ === "object");
 assert(typeof CreateVpcEndpointAssociationCommand === "function");
 assert(typeof CreateVpcEndpointAssociation$ === "object");
+assert(typeof DeleteContainerAssociationCommand === "function");
+assert(typeof DeleteContainerAssociation$ === "object");
 assert(typeof DeleteFirewallCommand === "function");
 assert(typeof DeleteFirewall$ === "object");
 assert(typeof DeleteFirewallPolicyCommand === "function");
@@ -544,6 +574,8 @@ assert(typeof DeleteTLSInspectionConfigurationCommand === "function");
 assert(typeof DeleteTLSInspectionConfiguration$ === "object");
 assert(typeof DeleteVpcEndpointAssociationCommand === "function");
 assert(typeof DeleteVpcEndpointAssociation$ === "object");
+assert(typeof DescribeContainerAssociationCommand === "function");
+assert(typeof DescribeContainerAssociation$ === "object");
 assert(typeof DescribeFirewallCommand === "function");
 assert(typeof DescribeFirewall$ === "object");
 assert(typeof DescribeFirewallMetadataCommand === "function");
@@ -584,6 +616,8 @@ assert(typeof GetAnalysisReportResultsCommand === "function");
 assert(typeof GetAnalysisReportResults$ === "object");
 assert(typeof ListAnalysisReportsCommand === "function");
 assert(typeof ListAnalysisReports$ === "object");
+assert(typeof ListContainerAssociationsCommand === "function");
+assert(typeof ListContainerAssociations$ === "object");
 assert(typeof ListFirewallPoliciesCommand === "function");
 assert(typeof ListFirewallPolicies$ === "object");
 assert(typeof ListFirewallsCommand === "function");
@@ -622,6 +656,8 @@ assert(typeof UntagResourceCommand === "function");
 assert(typeof UntagResource$ === "object");
 assert(typeof UpdateAvailabilityZoneChangeProtectionCommand === "function");
 assert(typeof UpdateAvailabilityZoneChangeProtection$ === "object");
+assert(typeof UpdateContainerAssociationCommand === "function");
+assert(typeof UpdateContainerAssociation$ === "object");
 assert(typeof UpdateFirewallAnalysisSettingsCommand === "function");
 assert(typeof UpdateFirewallAnalysisSettings$ === "object");
 assert(typeof UpdateFirewallDeleteProtectionCommand === "function");
@@ -675,6 +711,11 @@ assert(typeof AZSyncState$ === "object");
 assert(typeof CapacityUsageSummary$ === "object");
 assert(typeof CheckCertificateRevocationStatusActions$ === "object");
 assert(typeof CIDRSummary$ === "object");
+assert(typeof ContainerAssociationSummary$ === "object");
+assert(typeof ContainerAttribute$ === "object");
+assert(typeof ContainerMonitoringConfiguration$ === "object");
+assert(typeof CreateContainerAssociationRequest$ === "object");
+assert(typeof CreateContainerAssociationResponse$ === "object");
 assert(typeof CreateFirewallPolicyRequest$ === "object");
 assert(typeof CreateFirewallPolicyResponse$ === "object");
 assert(typeof CreateFirewallRequest$ === "object");
@@ -696,6 +737,8 @@ assert(typeof CreateTLSInspectionConfigurationResponse$ === "object");
 assert(typeof CreateVpcEndpointAssociationRequest$ === "object");
 assert(typeof CreateVpcEndpointAssociationResponse$ === "object");
 assert(typeof CustomAction$ === "object");
+assert(typeof DeleteContainerAssociationRequest$ === "object");
+assert(typeof DeleteContainerAssociationResponse$ === "object");
 assert(typeof DeleteFirewallPolicyRequest$ === "object");
 assert(typeof DeleteFirewallPolicyResponse$ === "object");
 assert(typeof DeleteFirewallRequest$ === "object");
@@ -718,6 +761,8 @@ assert(typeof DeleteTLSInspectionConfigurationRequest$ === "object");
 assert(typeof DeleteTLSInspectionConfigurationResponse$ === "object");
 assert(typeof DeleteVpcEndpointAssociationRequest$ === "object");
 assert(typeof DeleteVpcEndpointAssociationResponse$ === "object");
+assert(typeof DescribeContainerAssociationRequest$ === "object");
+assert(typeof DescribeContainerAssociationResponse$ === "object");
 assert(typeof DescribeFirewallMetadataRequest$ === "object");
 assert(typeof DescribeFirewallMetadataResponse$ === "object");
 assert(typeof DescribeFirewallPolicyRequest$ === "object");
@@ -777,6 +822,8 @@ assert(typeof IPSetMetadata$ === "object");
 assert(typeof IPSetReference$ === "object");
 assert(typeof ListAnalysisReportsRequest$ === "object");
 assert(typeof ListAnalysisReportsResponse$ === "object");
+assert(typeof ListContainerAssociationsRequest$ === "object");
+assert(typeof ListContainerAssociationsResponse$ === "object");
 assert(typeof ListenerProperty$ === "object");
 assert(typeof ListenerPropertyRequest$ === "object");
 assert(typeof ListFirewallPoliciesRequest$ === "object");
@@ -876,6 +923,8 @@ assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UntagResourceResponse$ === "object");
 assert(typeof UpdateAvailabilityZoneChangeProtectionRequest$ === "object");
 assert(typeof UpdateAvailabilityZoneChangeProtectionResponse$ === "object");
+assert(typeof UpdateContainerAssociationRequest$ === "object");
+assert(typeof UpdateContainerAssociationResponse$ === "object");
 assert(typeof UpdateFirewallAnalysisSettingsRequest$ === "object");
 assert(typeof UpdateFirewallAnalysisSettingsResponse$ === "object");
 assert(typeof UpdateFirewallDeleteProtectionRequest$ === "object");
@@ -912,6 +961,8 @@ assert(typeof VpcEndpointAssociationStatus$ === "object");
 // enums
 assert(typeof AttachmentStatus === "object");
 assert(typeof ConfigurationSyncState === "object");
+assert(typeof ContainerAssociationStatus === "object");
+assert(typeof ContainerMonitoringType === "object");
 assert(typeof EnabledAnalysisType === "object");
 assert(typeof EncryptionType === "object");
 assert(typeof FirewallStatusValue === "object");
@@ -974,6 +1025,7 @@ assert(NetworkFirewallServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateGetAnalysisReportResults === "function");
 assert(typeof paginateListAnalysisReports === "function");
+assert(typeof paginateListContainerAssociations === "function");
 assert(typeof paginateListFirewallPolicies === "function");
 assert(typeof paginateListFirewalls === "function");
 assert(typeof paginateListFlowOperationResults === "function");
