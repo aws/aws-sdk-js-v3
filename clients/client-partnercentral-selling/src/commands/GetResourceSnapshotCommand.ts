@@ -143,6 +143,12 @@ export interface GetResourceSnapshotCommandOutput extends GetResourceSnapshotRes
  * //         AwsProducts: [ // AwsProductIdentifiers
  * //           "STRING_VALUE",
  * //         ],
+ * //         AwsMarketplaceSolutions: [ // AwsMarketplaceSolutionIdentifiers
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         AwsMarketplaceProducts: [ // AwsMarketplaceProductIdentifiers
+ * //           "STRING_VALUE",
+ * //         ],
  * //       },
  * //     },
  * //     AwsOpportunitySummaryFullView: { // AwsOpportunitySummaryFullView
@@ -251,6 +257,12 @@ export interface GetResourceSnapshotCommandOutput extends GetResourceSnapshotRes
  * //           "STRING_VALUE",
  * //         ],
  * //         Solutions: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         AwsMarketplaceSolutions: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         AwsMarketplaceProducts: [
  * //           "STRING_VALUE",
  * //         ],
  * //       },

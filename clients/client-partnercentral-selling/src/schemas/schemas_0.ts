@@ -15,6 +15,9 @@ const _ALMD = "AfterLastModifiedDate";
 const _AM = "AwsMaturity";
 const _AMO = "AwsMarketplaceOffers";
 const _AMOS = "AwsMarketplaceOfferSets";
+const _AMP = "AwsMarketplaceProducts";
+const _AMS = "AwsMarketplaceSolutions";
+const _AMSA = "AwsMarketplaceSolutionArn";
 const _AMm = "AmountMap";
 const _AN = "AccountName";
 const _AO = "AssignOpportunity";
@@ -666,8 +669,8 @@ export var AwsOpportunityProject$: StaticStructureSchema = [3, n0, _AOP,
 ];
 export var AwsOpportunityRelatedEntities$: StaticStructureSchema = [3, n0, _AORE,
   0,
-  [_APws, _So],
-  [64 | 0, 64 | 0]
+  [_APws, _So, _AMS, _AMP],
+  [64 | 0, 64 | 0, 64 | 0, 64 | 0]
 ];
 export var AwsOpportunitySummaryFullView$: StaticStructureSchema = [3, n0, _AOSFV,
   0,
@@ -1131,8 +1134,8 @@ export var ListResourceSnapshotsResponse$: StaticStructureSchema = [3, n0, _LRSR
 ];
 export var ListSolutionsRequest$: StaticStructureSchema = [3, n0, _LSR,
   0,
-  [_C, _MR, _NT, _Sor, _St, _I, _Cat],
-  [0, 1, 0, () => SolutionSort$, 64 | 0, 64 | 0, 64 | 0], 1
+  [_C, _MR, _NT, _Sor, _St, _I, _Cat, _AMSA],
+  [0, 1, 0, () => SolutionSort$, 64 | 0, 64 | 0, 64 | 0, 64 | 0], 1
 ];
 export var ListSolutionsResponse$: StaticStructureSchema = [3, n0, _LSRi,
   0,
@@ -1276,8 +1279,8 @@ export var RejectEngagementInvitationRequest$: StaticStructureSchema = [3, n0, _
 ];
 export var RelatedEntityIdentifiers$: StaticStructureSchema = [3, n0, _REIel,
   0,
-  [_AMO, _AMOS, _So, _APws],
-  [64 | 0, 64 | 0, 64 | 0, 64 | 0]
+  [_AMO, _AMOS, _So, _APws, _AMS, _AMP],
+  [64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0]
 ];
 export var ResourceSnapshotJobSummary$: StaticStructureSchema = [3, n0, _RSJSe,
   0,
@@ -1301,8 +1304,8 @@ export var SoftwareRevenue$: StaticStructureSchema = [3, n0, _SR,
 ];
 export var SolutionBase$: StaticStructureSchema = [3, n0, _SBo,
   0,
-  [_C, _Id, _N, _St, _Cat, _CD, _Ar],
-  [0, 0, 0, 0, 0, 5, 0], 6
+  [_C, _Id, _N, _St, _Cat, _CD, _Ar, _AMSA],
+  [0, 0, 0, 0, 0, 5, 0, 0], 6
 ];
 export var SolutionSort$: StaticStructureSchema = [3, n0, _SSol,
   0,
@@ -1441,6 +1444,9 @@ var AwsAccountList: StaticListSchema = [1, n0, _AAL,
 ];
 var AwsMarketplaceOfferIdentifiers = 64 | 0;
 var AwsMarketplaceOfferSetIdentifiers = 64 | 0;
+var AwsMarketplaceProductIdentifiers = 64 | 0;
+var AwsMarketplaceSolutionArnList = 64 | 0;
+var AwsMarketplaceSolutionIdentifiers = 64 | 0;
 var AwsOpportunityTeamMembersList: StaticListSchema = [1, n0, _AOTML,
   0, [() => AwsTeamMember$,
     0]

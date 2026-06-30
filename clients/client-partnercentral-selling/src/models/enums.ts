@@ -353,6 +353,8 @@ export type Industry = (typeof Industry)[keyof typeof Industry];
 export const RelatedEntityType = {
   AWS_MARKETPLACE_OFFERS: "AwsMarketplaceOffers",
   AWS_MARKETPLACE_OFFER_SETS: "AwsMarketplaceOfferSets",
+  AWS_MARKETPLACE_PRODUCTS: "AwsMarketplaceProducts",
+  AWS_MARKETPLACE_SOLUTIONS: "AwsMarketplaceSolutions",
   AWS_PRODUCTS: "AwsProducts",
   SOLUTIONS: "Solutions",
 } as const;

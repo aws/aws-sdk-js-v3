@@ -154,6 +154,12 @@ export interface GetAwsOpportunitySummaryCommandOutput extends GetAwsOpportunity
  * //     Solutions: [ // SolutionIdentifiers
  * //       "STRING_VALUE",
  * //     ],
+ * //     AwsMarketplaceSolutions: [ // AwsMarketplaceSolutionIdentifiers
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     AwsMarketplaceProducts: [ // AwsMarketplaceProductIdentifiers
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * //   Customer: { // AwsOpportunityCustomer
  * //     Contacts: [ // CustomerContactsList

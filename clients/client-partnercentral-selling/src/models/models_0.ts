@@ -730,6 +730,18 @@ export interface AwsOpportunityRelatedEntities {
    * @public
    */
   Solutions?: string[] | undefined;
+
+  /**
+   * <p>The AWS Marketplace solution ARNs associated with this opportunity.</p>
+   * @public
+   */
+  AwsMarketplaceSolutions?: string[] | undefined;
+
+  /**
+   * <p>The AWS Marketplace product ARNs associated with this opportunity.</p>
+   * @public
+   */
+  AwsMarketplaceProducts?: string[] | undefined;
 }
 
 /**
@@ -3592,6 +3604,18 @@ export interface RelatedEntityIdentifiers {
    * @public
    */
   AwsProducts?: string[] | undefined;
+
+  /**
+   * <p>Specifies the AWS Marketplace solutions to associate with the <code>Opportunity</code>. Each value is an Amazon Resource Name (ARN) that identifies a solution listing in AWS Marketplace.</p>
+   * @public
+   */
+  AwsMarketplaceSolutions?: string[] | undefined;
+
+  /**
+   * <p>Specifies the AWS Marketplace products to associate with the <code>Opportunity</code>. Each value is an Amazon Resource Name (ARN) that identifies a product listing in AWS Marketplace.</p>
+   * @public
+   */
+  AwsMarketplaceProducts?: string[] | undefined;
 }
 
 /**
@@ -5661,6 +5685,12 @@ export interface ListSolutionsRequest {
    * @public
    */
   Category?: string[] | undefined;
+
+  /**
+   * <p>Filters results by AWS Marketplace solution ARN. You can provide up to 10 ARNs.</p>
+   * @public
+   */
+  AwsMarketplaceSolutionArn?: string[] | undefined;
 }
 
 /**
@@ -5709,6 +5739,12 @@ export interface SolutionBase {
    * @public
    */
   CreatedDate: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS Marketplace solution associated with this partner solution.</p>
+   * @public
+   */
+  AwsMarketplaceSolutionArn?: string | undefined;
 }
 
 /**

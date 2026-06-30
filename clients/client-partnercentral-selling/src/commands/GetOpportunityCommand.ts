@@ -150,6 +150,12 @@ export interface GetOpportunityCommandOutput extends GetOpportunityResponse, __M
  * //     AwsProducts: [ // AwsProductIdentifiers
  * //       "STRING_VALUE",
  * //     ],
+ * //     AwsMarketplaceSolutions: [ // AwsMarketplaceSolutionIdentifiers
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     AwsMarketplaceProducts: [ // AwsMarketplaceProductIdentifiers
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * //   LifeCycle: { // LifeCycle
  * //     Stage: "Prospect" || "Qualified" || "Technical Validation" || "Business Validation" || "Committed" || "Launched" || "Closed Lost",

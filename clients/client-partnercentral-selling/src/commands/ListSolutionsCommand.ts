@@ -57,6 +57,9 @@ export interface ListSolutionsCommandOutput extends ListSolutionsResponse, __Met
  *   Category: [ // StringList
  *     "STRING_VALUE",
  *   ],
+ *   AwsMarketplaceSolutionArn: [ // AwsMarketplaceSolutionArnList
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new ListSolutionsCommand(input);
  * const response = await client.send(command);
@@ -70,6 +73,7 @@ export interface ListSolutionsCommandOutput extends ListSolutionsResponse, __Met
  * //       Status: "Active" || "Inactive" || "Draft", // required
  * //       Category: "STRING_VALUE", // required
  * //       CreatedDate: new Date("TIMESTAMP"), // required
+ * //       AwsMarketplaceSolutionArn: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
