@@ -2517,6 +2517,36 @@ export interface GetPermissionsBoundaryForPermissionSetResponse {
 }
 
 /**
+ * <p>Contains information about an enabled Region of an IAM Identity Center instance, including the Region name, status, date added, and whether it is the primary Region.</p>
+ * @public
+ */
+export interface RegionMetadata {
+  /**
+   * <p>The Amazon Web Services Region name.</p>
+   * @public
+   */
+  RegionName?: string | undefined;
+
+  /**
+   * <p>The current status of the Region. Valid values are ACTIVE (Region is operational), ADDING (Region extension workflow is in progress), or REMOVING (Region removal workflow is in progress).</p>
+   * @public
+   */
+  Status?: RegionStatus | undefined;
+
+  /**
+   * <p>The timestamp when the Region was added to the IAM Identity Center instance. For the primary Region, this is the instance creation time.</p>
+   * @public
+   */
+  AddedDate?: Date | undefined;
+
+  /**
+   * <p>Indicates whether this is the primary Region where the IAM Identity Center instance was originally enabled. The primary Region cannot be removed.</p>
+   * @public
+   */
+  IsPrimaryRegion?: boolean | undefined;
+}
+
+/**
  * <p>Provides information about the IAM Identity Center instance.</p>
  * @public
  */
@@ -2562,6 +2592,18 @@ export interface InstanceMetadata {
    * @public
    */
   StatusReason?: string | undefined;
+
+  /**
+   * <p>The primary Region where the IAM Identity Center instance was originally enabled. The primary Region cannot be removed.</p>
+   * @public
+   */
+  PrimaryRegion?: string | undefined;
+
+  /**
+   * <p>The list of Regions enabled in the IAM Identity Center instance, including Regions with ACTIVE, ADDING, or REMOVING status.</p>
+   * @public
+   */
+  Regions?: RegionMetadata[] | undefined;
 }
 
 /**
@@ -3359,36 +3401,6 @@ export interface ListRegionsRequest {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * <p>Contains information about an enabled Region of an IAM Identity Center instance, including the Region name, status, date added, and whether it is the primary Region.</p>
- * @public
- */
-export interface RegionMetadata {
-  /**
-   * <p>The Amazon Web Services Region name.</p>
-   * @public
-   */
-  RegionName?: string | undefined;
-
-  /**
-   * <p>The current status of the Region. Valid values are ACTIVE (Region is operational), ADDING (Region extension workflow is in progress), or REMOVING (Region removal workflow is in progress).</p>
-   * @public
-   */
-  Status?: RegionStatus | undefined;
-
-  /**
-   * <p>The timestamp when the Region was added to the IAM Identity Center instance. For the primary Region, this is the instance creation time.</p>
-   * @public
-   */
-  AddedDate?: Date | undefined;
-
-  /**
-   * <p>Indicates whether this is the primary Region where the IAM Identity Center instance was originally enabled. The primary Region cannot be removed.</p>
-   * @public
-   */
-  IsPrimaryRegion?: boolean | undefined;
 }
 
 /**

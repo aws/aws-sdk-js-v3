@@ -52,6 +52,15 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  * //       CreatedDate: new Date("TIMESTAMP"),
  * //       Status: "CREATE_IN_PROGRESS" || "CREATE_FAILED" || "DELETE_IN_PROGRESS" || "ACTIVE",
  * //       StatusReason: "STRING_VALUE",
+ * //       PrimaryRegion: "STRING_VALUE",
+ * //       Regions: [ // RegionMetadataList
+ * //         { // RegionMetadata
+ * //           RegionName: "STRING_VALUE",
+ * //           Status: "ACTIVE" || "ADDING" || "REMOVING",
+ * //           AddedDate: new Date("TIMESTAMP"),
+ * //           IsPrimaryRegion: true || false,
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

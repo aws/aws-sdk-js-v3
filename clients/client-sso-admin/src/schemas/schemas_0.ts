@@ -321,6 +321,7 @@ const _PPS = "ProvisionPermissionSet";
 const _PPSR = "ProvisionPermissionSetRequest";
 const _PPSRI = "ProvisionPermissionSetRequestId";
 const _PPSRr = "ProvisionPermissionSetResponse";
+const _PR = "PrimaryRegion";
 const _PS = "PermissionSet";
 const _PSA = "PermissionSetArn";
 const _PSPS = "PermissionSetProvisioningStatus";
@@ -996,8 +997,8 @@ export var InstanceAccessControlAttributeConfiguration$: StaticStructureSchema =
 ];
 export var InstanceMetadata$: StaticStructureSchema = [3, n0, _IM,
   0,
-  [_IA, _ISI, _OAI, _N, _CD, _St, _SR],
-  [0, 0, 0, 0, 4, 0, 0]
+  [_IA, _ISI, _OAI, _N, _CD, _St, _SR, _PR, _Re],
+  [0, 0, 0, 0, 4, 0, 0, 0, () => RegionMetadataList]
 ];
 export var JwtBearerGrant$: StaticStructureSchema = [3, n0, _JBG,
   0,
