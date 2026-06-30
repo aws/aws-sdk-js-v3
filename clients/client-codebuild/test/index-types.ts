@@ -204,6 +204,7 @@ export type {
   FleetScalingType,
   FleetSortByType,
   FleetStatusCode,
+  HostKernel,
   ImagePullCredentialsType,
   LanguageType,
   LogsConfigStatusType,

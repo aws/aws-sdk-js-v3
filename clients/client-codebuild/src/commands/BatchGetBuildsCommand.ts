@@ -185,6 +185,7 @@ export interface BatchGetBuildsCommandOutput extends BatchGetBuildsOutput, __Met
  * //             message: "STRING_VALUE",
  * //           },
  * //         },
+ * //         hostKernel: "LINUX_KERNEL_4" || "LINUX_KERNEL_6" || "LINUX_KERNEL_LATEST",
  * //       },
  * //       serviceRole: "STRING_VALUE",
  * //       logs: { // LogsLocation

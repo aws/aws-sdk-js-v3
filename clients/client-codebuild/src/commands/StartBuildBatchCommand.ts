@@ -308,6 +308,7 @@ export interface StartBuildBatchCommandOutput extends StartBuildBatchOutput, __M
  * //           message: "STRING_VALUE",
  * //         },
  * //       },
+ * //       hostKernel: "LINUX_KERNEL_4" || "LINUX_KERNEL_6" || "LINUX_KERNEL_LATEST",
  * //     },
  * //     serviceRole: "STRING_VALUE",
  * //     logConfig: { // LogsConfig

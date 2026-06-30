@@ -418,6 +418,8 @@ const _gCDO = "gitCloneDepthOverride";
 const _gN = "groupName";
 const _gSC = "gitSubmodulesConfig";
 const _gSCO = "gitSubmodulesConfigOverride";
+const _hK = "hostKernel";
+const _hKO = "hostKernelOverride";
 const _i = "ids";
 const _iF = "ignoreFailure";
 const _iI = "imageId";
@@ -1302,8 +1304,8 @@ export var ProjectCache$: StaticStructureSchema = [3, n0, _PCr,
 ];
 export var ProjectEnvironment$: StaticStructureSchema = [3, n0, _PE,
   0,
-  [_t, _ima, _cT, _cC, _fl, _eV, _pM, _ce, _rC, _iPCT, _dSo],
-  [0, 0, 0, () => ComputeConfiguration$, () => ProjectFleet$, () => EnvironmentVariables, 2, 0, () => RegistryCredential$, 0, () => DockerServer$], 3
+  [_t, _ima, _cT, _cC, _fl, _eV, _pM, _ce, _rC, _iPCT, _dSo, _hK],
+  [0, 0, 0, () => ComputeConfiguration$, () => ProjectFleet$, () => EnvironmentVariables, 2, 0, () => RegistryCredential$, 0, () => DockerServer$, 0], 3
 ];
 export var ProjectFileSystemLocation$: StaticStructureSchema = [3, n0, _PFSL,
   0,
@@ -1472,8 +1474,8 @@ export var StartBuildBatchOutput$: StaticStructureSchema = [3, n0, _SBBO,
 ];
 export var StartBuildInput$: StaticStructureSchema = [3, n0, _SBI,
   0,
-  [_pN, _sSO, _sSVO, _sV, _aO, _sAO, _eVO, _sTO, _sLO, _sAOo, _gCDO, _gSCO, _bOu, _iSO, _rBSO, _bSCO, _eTO, _iO, _cTO, _cO, _cOa, _sRO, _pMO, _tIMO, _qTIMO, _eKO, _iTd, _lCO, _rCO, _iPCTO, _dSE, _fO, _aRLO],
-  [0, () => ProjectSources, () => ProjectSecondarySourceVersions, 0, () => ProjectArtifacts$, () => ProjectArtifactsList, () => EnvironmentVariables, 0, 0, () => SourceAuth$, 1, () => GitSubmodulesConfig$, 0, 2, 2, () => BuildStatusConfig$, 0, 0, 0, 0, () => ProjectCache$, 0, 2, 1, 1, 0, 0, () => LogsConfig$, () => RegistryCredential$, 0, 2, () => ProjectFleet$, 1], 1
+  [_pN, _sSO, _sSVO, _sV, _aO, _sAO, _eVO, _sTO, _sLO, _sAOo, _gCDO, _gSCO, _bOu, _iSO, _rBSO, _bSCO, _eTO, _iO, _cTO, _cO, _cOa, _sRO, _pMO, _tIMO, _qTIMO, _eKO, _iTd, _lCO, _rCO, _iPCTO, _dSE, _fO, _aRLO, _hKO],
+  [0, () => ProjectSources, () => ProjectSecondarySourceVersions, 0, () => ProjectArtifacts$, () => ProjectArtifactsList, () => EnvironmentVariables, 0, 0, () => SourceAuth$, 1, () => GitSubmodulesConfig$, 0, 2, 2, () => BuildStatusConfig$, 0, 0, 0, 0, () => ProjectCache$, 0, 2, 1, 1, 0, 0, () => LogsConfig$, () => RegistryCredential$, 0, 2, () => ProjectFleet$, 1, 0], 1
 ];
 export var StartBuildOutput$: StaticStructureSchema = [3, n0, _SBO,
   0,

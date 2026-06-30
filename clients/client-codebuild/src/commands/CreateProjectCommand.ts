@@ -160,6 +160,7 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  *         message: "STRING_VALUE",
  *       },
  *     },
+ *     hostKernel: "LINUX_KERNEL_4" || "LINUX_KERNEL_6" || "LINUX_KERNEL_LATEST",
  *   },
  *   serviceRole: "STRING_VALUE", // required
  *   timeoutInMinutes: Number("int"),
@@ -349,6 +350,7 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  * //           message: "STRING_VALUE",
  * //         },
  * //       },
+ * //       hostKernel: "LINUX_KERNEL_4" || "LINUX_KERNEL_6" || "LINUX_KERNEL_LATEST",
  * //     },
  * //     serviceRole: "STRING_VALUE",
  * //     timeoutInMinutes: Number("int"),

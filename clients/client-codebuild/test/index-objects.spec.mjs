@@ -160,6 +160,7 @@ import {
   GetResourcePolicyInput$,
   GetResourcePolicyOutput$,
   GitSubmodulesConfig$,
+  HostKernel,
   ImagePullCredentialsType,
   ImportSourceCredentials$,
   ImportSourceCredentialsCommand,
@@ -732,6 +733,7 @@ assert(typeof FleetScalingMetricType === "object");
 assert(typeof FleetScalingType === "object");
 assert(typeof FleetSortByType === "object");
 assert(typeof FleetStatusCode === "object");
+assert(typeof HostKernel === "object");
 assert(typeof ImagePullCredentialsType === "object");
 assert(typeof LanguageType === "object");
 assert(typeof LogsConfigStatusType === "object");

@@ -137,6 +137,7 @@ export interface StopSandboxCommandOutput extends StopSandboxOutput, __MetadataB
  * //           message: "STRING_VALUE",
  * //         },
  * //       },
+ * //       hostKernel: "LINUX_KERNEL_4" || "LINUX_KERNEL_6" || "LINUX_KERNEL_LATEST",
  * //     },
  * //     fileSystemLocations: [ // ProjectFileSystemLocations
  * //       { // ProjectFileSystemLocation

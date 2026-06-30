@@ -140,6 +140,7 @@ export interface BatchGetSandboxesCommandOutput extends BatchGetSandboxesOutput,
  * //             message: "STRING_VALUE",
  * //           },
  * //         },
+ * //         hostKernel: "LINUX_KERNEL_4" || "LINUX_KERNEL_6" || "LINUX_KERNEL_LATEST",
  * //       },
  * //       fileSystemLocations: [ // ProjectFileSystemLocations
  * //         { // ProjectFileSystemLocation

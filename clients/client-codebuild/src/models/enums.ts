@@ -181,6 +181,20 @@ export type EnvironmentVariableType = (typeof EnvironmentVariableType)[keyof typ
  * @public
  * @enum
  */
+export const HostKernel = {
+  LINUX_KERNEL_4: "LINUX_KERNEL_4",
+  LINUX_KERNEL_6: "LINUX_KERNEL_6",
+  LINUX_KERNEL_LATEST: "LINUX_KERNEL_LATEST",
+} as const;
+/**
+ * @public
+ */
+export type HostKernel = (typeof HostKernel)[keyof typeof HostKernel];
+
+/**
+ * @public
+ * @enum
+ */
 export const ImagePullCredentialsType = {
   CODEBUILD: "CODEBUILD",
   SERVICE_ROLE: "SERVICE_ROLE",

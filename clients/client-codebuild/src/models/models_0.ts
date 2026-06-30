@@ -25,6 +25,7 @@ import type {
   FleetScalingType,
   FleetSortByType,
   FleetStatusCode,
+  HostKernel,
   ImagePullCredentialsType,
   LanguageType,
   LogsConfigStatusType,
@@ -677,6 +678,9 @@ export interface DockerServer {
 
   /**
    * <p>A DockerServerStatus object to use for this docker server.</p>
+   *          <note>
+   *             <p>Note that <code>status</code> is only an output and cannot be passed in as an input.</p>
+   *          </note>
    * @public
    */
   status?: DockerServerStatus | undefined;
@@ -1014,6 +1018,32 @@ export interface ProjectEnvironment {
    * @public
    */
   dockerServer?: DockerServer | undefined;
+
+  /**
+   * <p>The host operating system kernel used for on-demand builds in the build project.
+   *             The host kernel does not affect the build environment operating system, which is determined by the image you specify.
+   *             Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>LINUX_KERNEL_4</code>: Runs on an Amazon Linux 2 host (kernel 4.x).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LINUX_KERNEL_6</code>: Runs on an Amazon Linux 2023 host (kernel 6.x).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LINUX_KERNEL_LATEST</code>: Runs on the latest supported host kernel.</p>
+   *             </li>
+   *          </ul>
+   *          <p>This setting applies to the <code>LINUX_CONTAINER</code>, <code>ARM_CONTAINER</code>,
+   *             <code>LINUX_EC2</code>, and <code>ARM_EC2</code>
+   *             environment types. It is not applicable to Windows, Lambda, or Mac environment
+   *             types.</p>
+   * @public
+   */
+  hostKernel?: HostKernel | undefined;
 }
 
 /**
@@ -7669,6 +7699,13 @@ export interface StartBuildInput {
    * @public
    */
   autoRetryLimitOverride?: number | undefined;
+
+  /**
+   * <p>The host operating system kernel for this build that overrides the one specified in the
+   *             build project.</p>
+   * @public
+   */
+  hostKernelOverride?: HostKernel | undefined;
 }
 
 /**
