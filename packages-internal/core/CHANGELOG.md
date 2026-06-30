@@ -56,6 +56,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.974.25 (2026-06-30)
+### Chores
+* **codegen:** sync for internal checksum impls and IMDSv2 region fallback ([#8134](https://github.com/aws/aws-sdk-js-v3/issues/8134)) ([c4b42a4](https://github.com/aws/aws-sdk-js-v3/commit/c4b42a44f7f9b7eaa329fcd2c4961bec6334f111))
+* **packages:** clean up remaining react-native dist-cjs instructions ([#8128](https://github.com/aws/aws-sdk-js-v3/issues/8128)) ([00460bb](https://github.com/aws/aws-sdk-js-v3/commit/00460bb43e4ff156712e286460fa54d80a0ac887))
+
+
+
 # 3.974.24 (2026-06-29)
 ### Chores
 * **codegen:** sync for checksum impls, hostLabel validation ([#8127](https://github.com/aws/aws-sdk-js-v3/issues/8127)) ([aa94fa0](https://github.com/aws/aws-sdk-js-v3/commit/aa94fa0469fa7e0933a4b36b4e6329fa88ee33ab))

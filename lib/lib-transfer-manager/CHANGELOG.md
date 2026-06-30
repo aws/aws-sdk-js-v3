@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1077.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1076.0...v3.1077.0) (2026-06-30)
+
+
+### Features
+
+* **lib-transfer-manager:** add uploadDirectory functionality ([#8121](https://github.com/aws/aws-sdk-js-v3/issues/8121)) ([29b5656](https://github.com/aws/aws-sdk-js-v3/commit/29b5656447cbf5367825a88c11f325a911652524))
+
+
+
+
+
 # [3.1076.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1075.0...v3.1076.0) (2026-06-29)
 
 **Note:** Version bump only for package @aws-sdk/lib-transfer-manager

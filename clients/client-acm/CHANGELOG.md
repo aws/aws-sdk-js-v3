@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1077.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1076.0...v3.1077.0) (2026-06-30)
+
+
+### Features
+
+* **client-acm:** AWS Certificate Manager now supports the Automatic Certificate Management Environment (ACME) protocol to issue public certificates. ACME is an industry-standard protocol for automating certificate lifecycle on customer-managed infrastructure such as on-premises servers and Kubernetes clusters. ([9841f50](https://github.com/aws/aws-sdk-js-v3/commit/9841f50ddef56a3a17896db869ec0d6468f492f5))
+
+
+
+
+
 # [3.1076.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1075.0...v3.1076.0) (2026-06-29)
 
 **Note:** Version bump only for package @aws-sdk/client-acm

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1077.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1076.0...v3.1077.0) (2026-06-30)
+
+
+### Features
+
+* **client-cloudwatch:** Customers can configure alarms with wall-clock-aligned evaluation windows instead of sliding windows, with optional timezone support for daily or weekly periods ([3b42825](https://github.com/aws/aws-sdk-js-v3/commit/3b4282598c3600ac2f442894880734cea0903207))
+
+
+
+
+
 # [3.1076.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1075.0...v3.1076.0) (2026-06-29)
 
 

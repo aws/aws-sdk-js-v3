@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1077.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1076.0...v3.1077.0) (2026-06-30)
+
+
+### Features
+
+* **client-sso-admin:** AWS IAM Identity Center now returns PrimaryRegion and Regions in the ListInstances response, providing information about replicated instances. ([8538563](https://github.com/aws/aws-sdk-js-v3/commit/8538563a100bec41b75ac2a04f5940947be39d18))
+
+
+
+
+
 # [3.1076.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1075.0...v3.1076.0) (2026-06-29)
 
 **Note:** Version bump only for package @aws-sdk/client-sso-admin

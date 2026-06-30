@@ -22,6 +22,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.20 (2026-06-30)
+### Chores
+* **middleware-sdk-sts:** update dependencies.
+
+
+
 # 3.972.19 (2026-06-25)
 ### Chores
 * **codegen:** sync for CBOR serde performance and retry fixes ([#8125](https://github.com/aws/aws-sdk-js-v3/issues/8125)) ([b6d6a75](https://github.com/aws/aws-sdk-js-v3/commit/b6d6a759f15f2c36745fb85905a90533998cae0e))

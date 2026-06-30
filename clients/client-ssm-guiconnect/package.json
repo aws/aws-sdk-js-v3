@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-ssm-guiconnect",
   "description": "AWS SDK for JavaScript Ssm Guiconnect Client for Node.js, Browser and React Native",
-  "version": "3.1076.0",
+  "version": "3.1077.0",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline",
@@ -19,8 +19,8 @@
   "module": "./dist-es/index.js",
   "sideEffects": false,
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.974.24",
-    "@aws-sdk/credential-provider-node": "workspace:^3.972.59",
+    "@aws-sdk/core": "workspace:^3.974.25",
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.60",
     "@aws-sdk/types": "workspace:^3.973.14",
     "@smithy/core": "^3.28.0",
     "@smithy/fetch-http-handler": "^5.6.1",

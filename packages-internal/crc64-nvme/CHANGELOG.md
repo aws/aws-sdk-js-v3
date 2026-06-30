@@ -22,6 +22,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.20 (2026-06-30)
+### Chores
+* **checksums:** add crc32c and sha1 checksums ([#8126](https://github.com/aws/aws-sdk-js-v3/issues/8126)) ([ea8faa0](https://github.com/aws/aws-sdk-js-v3/commit/ea8faa08e6826f49df2121c6b221906a15140549))
+
+
+
 # 3.972.19 (2026-06-29)
 ### Chores
 * **crc64-nvme:** update dependencies.

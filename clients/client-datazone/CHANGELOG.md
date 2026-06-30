@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1077.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1076.0...v3.1077.0) (2026-06-30)
+
+
+### Features
+
+* **client-datazone:** Amazon DataZone now supports SNOWFLAKE as a connection type in the CreateConnection API, enabling metadata and lineage retrieval from Snowflake databases. Specify snowflakeProperties with connection details, a Secrets Manager secret, an Athena spill bucket, and an identity mapping for Snowflake. ([4bdc89d](https://github.com/aws/aws-sdk-js-v3/commit/4bdc89d6d82100aa3569847fde1d1b2aefb73b83))
+
+
+
+
+
 # [3.1076.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1075.0...v3.1076.0) (2026-06-29)
 
 **Note:** Version bump only for package @aws-sdk/client-datazone

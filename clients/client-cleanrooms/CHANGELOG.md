@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1077.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1076.0...v3.1077.0) (2026-06-30)
+
+
+### Features
+
+* **client-cleanrooms:** Adds support for intermediate tables in AWS Clean Rooms collaborations. ([a259b5a](https://github.com/aws/aws-sdk-js-v3/commit/a259b5abe2e417dff759c0ad9fa6bfcd464123ca))
+
+
+
+
+
 # [3.1076.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1075.0...v3.1076.0) (2026-06-29)
 
 **Note:** Version bump only for package @aws-sdk/client-cleanrooms

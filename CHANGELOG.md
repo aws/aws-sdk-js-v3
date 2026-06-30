@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1077.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1076.0...v3.1077.0) (2026-06-30)
+
+
+### Features
+
+* **client-acm:** AWS Certificate Manager now supports the Automatic Certificate Management Environment (ACME) protocol to issue public certificates. ACME is an industry-standard protocol for automating certificate lifecycle on customer-managed infrastructure such as on-premises servers and Kubernetes clusters. ([9841f50](https://github.com/aws/aws-sdk-js-v3/commit/9841f50ddef56a3a17896db869ec0d6468f492f5))
+* **client-auto-scaling:** This release adds support for a new reservations-then-balanced capacity distribution strategy, which first attempts to launch instances into your Capacity Reservations and then balances remaining capacity across healthy Availability Zones. ([38d2d62](https://github.com/aws/aws-sdk-js-v3/commit/38d2d626cd0bfce2f88e1efd339ba83626300610))
+* **client-cleanrooms:** Adds support for intermediate tables in AWS Clean Rooms collaborations. ([a259b5a](https://github.com/aws/aws-sdk-js-v3/commit/a259b5abe2e417dff759c0ad9fa6bfcd464123ca))
+* **client-cloudformation:** AWS CloudFormation adds a DeploymentConfig parameter to enable Express mode, which completes stack operations as soon as resource configuration is applied. Also adds a DisableValidation parameter to skip pre-deployment validation, which now runs automatically on CreateStack and UpdateStak. ([5ac630b](https://github.com/aws/aws-sdk-js-v3/commit/5ac630b8e2ef81348a2961fe7bbd8423a238544b))
+* **client-cloudwatch:** Customers can configure alarms with wall-clock-aligned evaluation windows instead of sliding windows, with optional timezone support for daily or weekly periods ([3b42825](https://github.com/aws/aws-sdk-js-v3/commit/3b4282598c3600ac2f442894880734cea0903207))
+* **client-codebuild:** Adds support for host kernel selection for on-demand builds. ([c051e43](https://github.com/aws/aws-sdk-js-v3/commit/c051e4320a8e62c43d234a95c59db92b2229521f))
+* **client-connect:** Amazon Connect - Added CreateAttachedFile and StartContactConversationalAnalyticsJob APIs to import call recordings and run conversational analytics. ([526d3d5](https://github.com/aws/aws-sdk-js-v3/commit/526d3d5f4bd46d576a9781f1acc15d7c26c2ad77))
+* **client-datazone:** Amazon DataZone now supports SNOWFLAKE as a connection type in the CreateConnection API, enabling metadata and lineage retrieval from Snowflake databases. Specify snowflakeProperties with connection details, a Secrets Manager secret, an Athena spill bucket, and an identity mapping for Snowflake. ([4bdc89d](https://github.com/aws/aws-sdk-js-v3/commit/4bdc89d6d82100aa3569847fde1d1b2aefb73b83))
+* **client-ec2:** Adds ModifyVpcEndpointPayerResponsibility API, which enables VPC endpoint service owners to modify the billing account for VPC endpoint usage charges at the individual endpoint level ([843c934](https://github.com/aws/aws-sdk-js-v3/commit/843c934cc8917bee5e1246306a4e1fa0e83c4d23))
+* **client-eks:** Adds Kubernetes version rollback support, including the CancelUpdate operation to cancel an in-progress VersionRollback update, the RollbackConfig structure with a timeoutMinutes field, and the Cancellation structure surfaced via the new cancellation field on the Update object. ([17e627a](https://github.com/aws/aws-sdk-js-v3/commit/17e627a941f83c6b1f188d429e3d9f7825f0f41b))
+* **client-network-firewall:** AWS Network Firewall now supports container associations for monitoring ECS and EKS workloads. You can create container associations to dynamically track the IP addresses of running containers in your Amazon ECS and Amazon EKS clusters. ([a884f90](https://github.com/aws/aws-sdk-js-v3/commit/a884f90a81cf0df24453b8d9f600cf3ef008df47))
+* **client-observabilityadmin:** Organization and account level telemetry rule via Observability Admin and CloudWatch pipelines for metrics ([35b4d8a](https://github.com/aws/aws-sdk-js-v3/commit/35b4d8a28691cbe4398d3c7f62d48ee42f7cd1f7))
+* **client-partnercentral-selling:** This release adds AwsMarketplaceSolutions and AwsMarketplaceProducts entity types to the Associate and Disassociate APIs, returns them in GetOpportunity, and adds AwsMarketplaceSolutionArn to ListSolutions ,letting partners link Marketplace listings directly to opportunities. ([2d2de8d](https://github.com/aws/aws-sdk-js-v3/commit/2d2de8d10b708020f790070c278286192ba8ab90))
+* **client-sso-admin:** AWS IAM Identity Center now returns PrimaryRegion and Regions in the ListInstances response, providing information about replicated instances. ([8538563](https://github.com/aws/aws-sdk-js-v3/commit/8538563a100bec41b75ac2a04f5940947be39d18))
+* **client-supportauthz:** New SDK release for SupportAuthZ. ([bad44b4](https://github.com/aws/aws-sdk-js-v3/commit/bad44b4b85c952269b61546c69d947ef08af56ea))
+* **clients:** update client endpoints as of 2026-06-30 ([f184889](https://github.com/aws/aws-sdk-js-v3/commit/f1848891ea566dd097a9c69dd62759686658c68c))
+* **lib-transfer-manager:** add uploadDirectory functionality ([#8121](https://github.com/aws/aws-sdk-js-v3/issues/8121)) ([29b5656](https://github.com/aws/aws-sdk-js-v3/commit/29b5656447cbf5367825a88c11f325a911652524))
+
+
+
+
+
 # [3.1076.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1075.0...v3.1076.0) (2026-06-29)
 
 

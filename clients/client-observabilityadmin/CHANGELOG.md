@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1077.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1076.0...v3.1077.0) (2026-06-30)
+
+
+### Features
+
+* **client-observabilityadmin:** Organization and account level telemetry rule via Observability Admin and CloudWatch pipelines for metrics ([35b4d8a](https://github.com/aws/aws-sdk-js-v3/commit/35b4d8a28691cbe4398d3c7f62d48ee42f7cd1f7))
+
+
+
+
+
 # [3.1076.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1075.0...v3.1076.0) (2026-06-29)
 
 **Note:** Version bump only for package @aws-sdk/client-observabilityadmin
