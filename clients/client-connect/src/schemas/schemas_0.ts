@@ -52,6 +52,7 @@ const _ACl = "AliasConfiguration";
 const _ACli = "AliasConfigurations";
 const _ACll = "AllowedCapabilities";
 const _ACn = "AndConditions";
+const _ACna = "AnalyticsConfiguration";
 const _ACnd = "AndCondition";
 const _ACt = "AttributeCondition";
 const _ACtt = "AttributeConditions";
@@ -141,6 +142,7 @@ const _AMAQI = "AssociatedManualAssignmentQueueIds";
 const _AMC = "AllowedMonitorCapabilities";
 const _AMDC = "AnswerMachineDetectionConfig";
 const _AMDS = "AnsweringMachineDetectionStatus";
+const _AMn = "AnalyticsModes";
 const _AN = "AttributeName";
 const _ANL = "AvailableNumbersList";
 const _ANS = "AvailableNumberSummary";
@@ -295,9 +297,13 @@ const _BUDTVSRL = "BatchUpdateDataTableValueSuccessResultList";
 const _BV = "BooleanValue";
 const _BWO = "ByWeekdayOccurrence";
 const _Ba = "Background";
+const _Be = "Behavior";
 const _C = "Channel";
 const _CA = "ContactArn";
 const _CAAC = "CommonAttributeAndCondition";
+const _CAF = "CreateAttachedFile";
+const _CAFR = "CreateAttachedFileRequest";
+const _CAFRr = "CreateAttachedFileResponse";
 const _CAFU = "CompleteAttachedFileUpload";
 const _CAFUR = "CompleteAttachedFileUploadRequest";
 const _CAFURo = "CompleteAttachedFileUploadResponse";
@@ -1090,6 +1096,7 @@ const _En = "Enabled";
 const _Ena = "Enablement";
 const _End = "Endpoint";
 const _End_ = "End";
+const _Ent = "Entities";
 const _Enu = "Enum";
 const _Er = "Errors";
 const _Err = "Error";
@@ -1140,6 +1147,7 @@ const _FS = "FileStatus";
 const _FSIB = "FileSizeInBytes";
 const _FSN = "FragmentStartNumber";
 const _FSNr = "FragmentStopNumber";
+const _FSU = "FileSourceUri";
 const _FUCT = "FileUseCaseType";
 const _FV = "FieldValue";
 const _FVL = "FiltersV2List";
@@ -1372,7 +1380,7 @@ const _LBR = "ListBotsRequest";
 const _LBRi = "ListBotsResponse";
 const _LBe = "LexBots";
 const _LBi = "ListBots";
-const _LC = "LanguageCode";
+const _LC = "LanguageConfiguration";
 const _LCE = "ListContactEvaluations";
 const _LCER = "ListContactEvaluationsRequest";
 const _LCERi = "ListContactEvaluationsResponse";
@@ -1397,7 +1405,7 @@ const _LCHOORi = "ListChildHoursOfOperationsResponse";
 const _LCR = "ListContactReferences";
 const _LCRR = "ListContactReferencesRequest";
 const _LCRRi = "ListContactReferencesResponse";
-const _LCa = "LanguageConfiguration";
+const _LCa = "LanguageCode";
 const _LCi = "ListCondition";
 const _LDT = "ListDataTables";
 const _LDTA = "ListDataTableAttributes";
@@ -1454,6 +1462,7 @@ const _LIds_ = "L4Ids";
 const _LIds__ = "L5Ids";
 const _LIe = "LevelId";
 const _LIi = "ListInstances";
+const _LL = "LanguageLocale";
 const _LLB = "ListLexBots";
 const _LLBR = "ListLexBotsRequest";
 const _LLBRi = "ListLexBotsResponse";
@@ -1629,6 +1638,7 @@ const _ML = "MinLength";
 const _MLIC = "MessageLengthInChars";
 const _MLa = "MaxLength";
 const _MLe = "MediaList";
+const _MM = "MaskMode";
 const _MO = "MillisecondOffsets";
 const _MOu = "MultipleOf";
 const _MP = "MultiParty";
@@ -1876,6 +1886,7 @@ const _Pag = "Page";
 const _Pal = "Palette";
 const _Pe = "Permissions";
 const _Per = "Percentage";
+const _Po = "Policy";
 const _Pr = "Preview";
 const _Pre = "Prefix";
 const _Pri = "Primary";
@@ -1939,7 +1950,7 @@ const _RAu = "RuleArn";
 const _RAul = "RuleAction";
 const _RAule = "RuleActions";
 const _RB = "RequestedBy";
-const _RC = "RoutingCriteria";
+const _RC = "RedactionConfiguration";
 const _RCAS = "RealtimeContactAnalysisSegments";
 const _RCASe = "RealtimeContactAnalysisSegment";
 const _RCE = "ResourceConflictException";
@@ -1957,7 +1968,9 @@ const _RCe = "ReviewConfiguration";
 const _RCec = "RecurrenceConfig";
 const _RCep = "ReplicationConfiguration";
 const _RCes = "ResumeContact";
-const _RCu = "RuleCategory";
+const _RCo = "RoutingCriteria";
+const _RCu = "RulesConfiguration";
+const _RCul = "RuleCategory";
 const _RF = "RequiredFields";
 const _RFI = "RequiredFieldInfo";
 const _RI = "ResourceId";
@@ -2113,6 +2126,9 @@ const _SCATRCL = "SearchContactsAdditionalTimeRangeCriteriaList";
 const _SCAV = "SearchableContactAttributeValue";
 const _SCAVL = "SearchableContactAttributeValueList";
 const _SCC = "StartChatContact";
+const _SCCAJ = "StartContactConversationalAnalyticsJob";
+const _SCCAJR = "StartContactConversationalAnalyticsJobRequest";
+const _SCCAJRt = "StartContactConversationalAnalyticsJobResponse";
 const _SCCR = "StartChatContactRequest";
 const _SCCRt = "StartChatContactResponse";
 const _SCE = "SearchContactEvaluations";
@@ -2162,8 +2178,9 @@ const _SCSt = "StopContactStreaming";
 const _SCTC = "SearchContactsTimestampCondition";
 const _SCTR = "SearchContactsTimeRange";
 const _SCc = "ScoringConfiguration";
-const _SCe = "SearchCriteria";
-const _SCea = "SearchContacts";
+const _SCe = "SentimentConfiguration";
+const _SCea = "SearchCriteria";
+const _SCear = "SearchContacts";
 const _SCo = "SortCriteria";
 const _SCon = "S3Config";
 const _SCou = "SourceCampaign";
@@ -2173,6 +2190,7 @@ const _SCtat = "StatusCondition";
 const _SCto = "StorageConfigs";
 const _SCtop = "StopContact";
 const _SCtr = "StreamingConfiguration";
+const _SCu = "SummaryConfiguration";
 const _SDT = "SearchDataTables";
 const _SDTR = "SearchDataTablesRequest";
 const _SDTRe = "SearchDataTablesResponse";
@@ -2215,6 +2233,7 @@ const _SKL = "SecurityKeysList";
 const _SKe = "SecurityKey";
 const _SL = "SuccessfulList";
 const _SLt = "StringList";
+const _SM = "SummaryModes";
 const _SMCT = "SupportedMessagingContentTypes";
 const _SN = "StatusName";
 const _SNA = "ScoreNotApplicable";
@@ -3239,6 +3258,11 @@ export var AllowedExtension$: StaticStructureSchema = [3, n0, _AEl,
   [_Ex],
   [0], 1
 ];
+export var AnalyticsConfiguration$: StaticStructureSchema = [3, n0, _ACna,
+  0,
+  [_LC, _RC, _SCe, _SCu, _RCu],
+  [() => LanguageConfiguration$, () => RedactionConfiguration$, () => SentimentConfiguration$, () => SummaryConfiguration$, () => RulesConfiguration$], 5
+];
 export var AnalyticsDataAssociationResult$: StaticStructureSchema = [3, n0, _ADAR,
   0,
   [_DSI, _TAI, _RSI, _RSA, _RSS],
@@ -3306,7 +3330,7 @@ export var AssociatedContactSummary$: StaticStructureSchema = [3, n0, _ACSs,
 ];
 export var AssociateDefaultVocabularyRequest$: StaticStructureSchema = [3, n0, _ADVR,
   0,
-  [_II, _LC, _VI],
+  [_II, _LCa, _VI],
   [[0, 1], [0, 1], 0], 2
 ];
 export var AssociateDefaultVocabularyResponse$: StaticStructureSchema = [3, n0, _ADVRs,
@@ -3731,7 +3755,7 @@ export var ConnectionData$: StaticStructureSchema = [3, n0, _CD,
 ];
 export var Contact$: StaticStructureSchema = [3, n0, _Cont,
   0,
-  [_A, _I, _ICI, _PCI, _CAI, _IM, _N, _D, _C, _QIu, _AI, _IT, _DT, _LUT, _LPT, _LRT, _RST, _TPC, _TPDIS, _STc, _RCI, _WIi, _CIu, _CEu, _SE, _QTAS, _QP, _Ta, _CTST, _RC, _Cu, _Cam, _AMDS, _CVA, _QM, _CMh, _DD, _AER, _SAe, _Re, _DR, _CEo, _TTI, _CDo, _OSu, _Attr, _NCe, _GRM],
+  [_A, _I, _ICI, _PCI, _CAI, _IM, _N, _D, _C, _QIu, _AI, _IT, _DT, _LUT, _LPT, _LRT, _RST, _TPC, _TPDIS, _STc, _RCI, _WIi, _CIu, _CEu, _SE, _QTAS, _QP, _Ta, _CTST, _RCo, _Cu, _Cam, _AMDS, _CVA, _QM, _CMh, _DD, _AER, _SAe, _Re, _DR, _CEo, _TTI, _CDo, _OSu, _Attr, _NCe, _GRM],
   [0, 0, 0, 0, 0, 0, [() => Name, 0], [() => Description, 0], 0, () => QueueInfo$, () => AgentInfo$, 4, 4, 4, 4, 4, 4, 1, 1, 4, 0, () => WisdomInfo$, 0, () => EndpointInfo$, () => EndpointInfo$, 1, 1, 128 | 0, 4, () => RoutingCriteria$, () => Customer$, () => Campaign$, 0, () => CustomerVoiceActivity$, () => QualityMetrics$, () => ChatMetrics$, () => DisconnectDetails$, () => AdditionalEmailRecipients$, () => SegmentAttributes, () => Recordings, 0, () => ContactEvaluations, () => TaskTemplateInfoV2$, () => ContactDetails$, () => OutboundStrategy$, 128 | 0, () => NextContacts, () => GlobalResiliencyMetadata$]
 ];
 export var ContactAnalysis$: StaticStructureSchema = [3, n0, _CAo,
@@ -3871,7 +3895,7 @@ export var ContactMetricResult$: StaticStructureSchema = [3, n0, _CMR,
 ];
 export var ContactSearchSummary$: StaticStructureSchema = [3, n0, _CSS,
   0,
-  [_A, _I, _ICI, _PCI, _IM, _C, _QIu, _AI, _IT, _DT, _STc, _SAe, _N, _RC, _Ta, _GRM, _AAI],
+  [_A, _I, _ICI, _PCI, _IM, _C, _QIu, _AI, _IT, _DT, _STc, _SAe, _N, _RCo, _Ta, _GRM, _AAI],
   [0, 0, 0, 0, 0, 0, () => ContactSearchSummaryQueueInfo$, () => ContactSearchSummaryAgentInfo$, 4, 4, 4, [() => ContactSearchSummarySegmentAttributes, 0], [() => Name, 0], () => RoutingCriteria$, 128 | 0, () => GlobalResiliencyMetadata$, () => ContactSearchSummaryAiAgentInfoList]
 ];
 export var ContactSearchSummaryAgentInfo$: StaticStructureSchema = [3, n0, _CSSAI,
@@ -3918,6 +3942,16 @@ export var CreateAgentStatusResponse$: StaticStructureSchema = [3, n0, _CASRr,
   0,
   [_ASARN, _ASI],
   [0, 0]
+];
+export var CreateAttachedFileRequest$: StaticStructureSchema = [3, n0, _CAFR,
+  0,
+  [_II, _FUCT, _FSU, _ARA, _CT, _Ta],
+  [[0, 1], 0, 0, [0, { [_hQ]: _aRA }], [0, 4], 128 | 0], 4
+];
+export var CreateAttachedFileResponse$: StaticStructureSchema = [3, n0, _CAFRr,
+  0,
+  [_FAi, _FIi, _CTr, _FS],
+  [0, 0, 0, 0]
 ];
 export var CreateCaseActionDefinition$: StaticStructureSchema = [3, n0, _CCAD,
   0,
@@ -4016,7 +4050,7 @@ export var CreateEmailAddressResponse$: StaticStructureSchema = [3, n0, _CEARr,
 ];
 export var CreateEvaluationFormRequest$: StaticStructureSchema = [3, n0, _CEFR,
   0,
-  [_II, _Ti, _It, _D, _SS, _AEC, _CT, _ADs, _Ta, _RCe, _TCar, _LCa],
+  [_II, _Ti, _It, _D, _SS, _AEC, _CT, _ADs, _Ta, _RCe, _TCar, _LC],
   [[0, 1], 0, () => EvaluationFormItemsList, 0, () => EvaluationFormScoringStrategy$, () => EvaluationFormAutoEvaluationConfiguration$, [0, 4], 2, 128 | 0, () => EvaluationReviewConfiguration$, () => EvaluationFormTargetConfiguration$, () => EvaluationFormLanguageConfiguration$], 3
 ];
 export var CreateEvaluationFormResponse$: StaticStructureSchema = [3, n0, _CEFRr,
@@ -4251,7 +4285,7 @@ export var CreateViewVersionResponse$: StaticStructureSchema = [3, n0, _CVVRr,
 ];
 export var CreateVocabularyRequest$: StaticStructureSchema = [3, n0, _CVRre,
   0,
-  [_II, _VNo, _LC, _Co, _CT, _Ta],
+  [_II, _VNo, _LCa, _Co, _CT, _Ta],
   [[0, 1], 0, 0, 0, [0, 4], 128 | 0], 4
 ];
 export var CreateVocabularyResponse$: StaticStructureSchema = [3, n0, _CVRrea,
@@ -4421,7 +4455,7 @@ export var DecimalCondition$: StaticStructureSchema = [3, n0, _DCe,
 ];
 export var DefaultVocabulary$: StaticStructureSchema = [3, n0, _DV,
   0,
-  [_II, _LC, _VI, _VNo],
+  [_II, _LCa, _VI, _VNo],
   [0, 0, 0, 0], 4
 ];
 export var DeleteAttachedFileRequest$: StaticStructureSchema = [3, n0, _DAFR,
@@ -5336,7 +5370,7 @@ export var EvaluationContactParticipant$: StaticStructureSchema = [3, n0, _ECP,
 ];
 export var EvaluationForm$: StaticStructureSchema = [3, n0, _EFv,
   0,
-  [_EFI, _EFV, _L, _EFA, _Ti, _St, _It, _CTre, _CB, _LMT, _LMB, _D, _SS, _AEC, _RCe, _Ta, _TCar, _LCa, _LVS, _LVT],
+  [_EFI, _EFV, _L, _EFA, _Ti, _St, _It, _CTre, _CB, _LMT, _LMB, _D, _SS, _AEC, _RCe, _Ta, _TCar, _LC, _LVS, _LVT],
   [0, 1, 2, 0, 0, 0, () => EvaluationFormItemsList, 4, 0, 4, 0, 0, () => EvaluationFormScoringStrategy$, () => EvaluationFormAutoEvaluationConfiguration$, () => EvaluationReviewConfiguration$, 128 | 0, () => EvaluationFormTargetConfiguration$, () => EvaluationFormLanguageConfiguration$, 0, 4], 11
 ];
 export var EvaluationFormAutoEvaluationConfiguration$: StaticStructureSchema = [3, n0, _EFAEC,
@@ -5346,7 +5380,7 @@ export var EvaluationFormAutoEvaluationConfiguration$: StaticStructureSchema = [
 ];
 export var EvaluationFormContent$: StaticStructureSchema = [3, n0, _EFC,
   0,
-  [_EFV, _EFI, _EFA, _Ti, _It, _D, _SS, _AEC, _TCar, _LCa, _RCe],
+  [_EFV, _EFI, _EFA, _Ti, _It, _D, _SS, _AEC, _TCar, _LC, _RCe],
   [1, 0, 0, 0, () => EvaluationFormItemsList, 0, () => EvaluationFormScoringStrategy$, () => EvaluationFormAutoEvaluationConfiguration$, () => EvaluationFormTargetConfiguration$, () => EvaluationFormLanguageConfiguration$, () => EvaluationReviewConfiguration$], 5
 ];
 export var EvaluationFormItemEnablementCondition$: StaticStructureSchema = [3, n0, _EFIEC,
@@ -6049,6 +6083,11 @@ export var KinesisVideoStreamConfig$: StaticStructureSchema = [3, n0, _KVSC,
   [_Pre, _RPH, _ECn],
   [0, 1, () => EncryptionConfig$], 3
 ];
+export var LanguageConfiguration$: StaticStructureSchema = [3, n0, _LC,
+  0,
+  [_LL],
+  [0]
+];
 export var LexBot$: StaticStructureSchema = [3, n0, _LB,
   0,
   [_N, _LR],
@@ -6271,7 +6310,7 @@ export var ListDataTableValuesResponse$: StaticStructureSchema = [3, n0, _LDTVRi
 ];
 export var ListDefaultVocabulariesRequest$: StaticStructureSchema = [3, n0, _LDVR,
   0,
-  [_II, _LC, _MR, _NT],
+  [_II, _LCa, _MR, _NT],
   [[0, 1], 0, 1, 0], 1
 ];
 export var ListDefaultVocabulariesResponse$: StaticStructureSchema = [3, n0, _LDVRi,
@@ -7324,6 +7363,11 @@ export var RecurrencePattern$: StaticStructureSchema = [3, n0, _RPe,
   [_Fr, _Int, _BM, _BMD, _BWO],
   [0, 1, 64 | 1, 64 | 1, 64 | 1], 2
 ];
+export var RedactionConfiguration$: StaticStructureSchema = [3, n0, _RC,
+  0,
+  [_Be, _Po, _Ent, _MM],
+  [0, 0, 64 | 0, 0], 2
+];
 export var Reference$: StaticStructureSchema = [3, n0, _Refe,
   0,
   [_T, _V, _St, _A, _SRt],
@@ -7384,7 +7428,7 @@ export var ResumeContactResponse$: StaticStructureSchema = [3, n0, _RCRe,
   [],
   []
 ];
-export var RoutingCriteria$: StaticStructureSchema = [3, n0, _RC,
+export var RoutingCriteria$: StaticStructureSchema = [3, n0, _RCo,
   0,
   [_Ste, _ATct, _Ind],
   [() => Steps, 4, 1]
@@ -7464,6 +7508,11 @@ export var RuleAction$: StaticStructureSchema = [3, n0, _RAul,
   [_AT, _TAa, _EBA, _ACCA, _SNAe, _CCA, _UCAp, _ASA, _EATA, _SAEA],
   [0, () => TaskActionDefinition$, () => EventBridgeActionDefinition$, () => AssignContactCategoryActionDefinition$, () => SendNotificationActionDefinition$, () => CreateCaseActionDefinition$, () => UpdateCaseActionDefinition$, () => AssignSlaActionDefinition$, () => EndAssociatedTasksActionDefinition$, () => SubmitAutoEvaluationActionDefinition$], 1
 ];
+export var RulesConfiguration$: StaticStructureSchema = [3, n0, _RCu,
+  0,
+  [_Be],
+  [0]
+];
 export var RuleSummary$: StaticStructureSchema = [3, n0, _RSu,
   0,
   [_N, _RIu, _RAu, _ESN, _PS, _ASc, _CTre, _LUTa],
@@ -7516,7 +7565,7 @@ export var SearchableSegmentAttributesCriteria$: StaticStructureSchema = [3, n0,
 ];
 export var SearchAgentStatusesRequest$: StaticStructureSchema = [3, n0, _SASR,
   0,
-  [_II, _NT, _MR, _SF, _SCe],
+  [_II, _NT, _MR, _SF, _SCea],
   [0, 0, 1, () => AgentStatusSearchFilter$, () => AgentStatusSearchCriteria$], 1
 ];
 export var SearchAgentStatusesResponse$: StaticStructureSchema = [3, n0, _SASRe,
@@ -7536,7 +7585,7 @@ export var SearchAvailablePhoneNumbersResponse$: StaticStructureSchema = [3, n0,
 ];
 export var SearchContactEvaluationsRequest$: StaticStructureSchema = [3, n0, _SCER,
   0,
-  [_II, _NT, _MR, _SCe, _SF],
+  [_II, _NT, _MR, _SCea, _SF],
   [0, 0, 1, () => EvaluationSearchCriteria$, () => EvaluationSearchFilter$], 1
 ];
 export var SearchContactEvaluationsResponse$: StaticStructureSchema = [3, n0, _SCERe,
@@ -7546,7 +7595,7 @@ export var SearchContactEvaluationsResponse$: StaticStructureSchema = [3, n0, _S
 ];
 export var SearchContactFlowModulesRequest$: StaticStructureSchema = [3, n0, _SCFMR,
   0,
-  [_II, _NT, _MR, _SF, _SCe],
+  [_II, _NT, _MR, _SF, _SCea],
   [0, 0, 1, () => ContactFlowModuleSearchFilter$, () => ContactFlowModuleSearchCriteria$], 1
 ];
 export var SearchContactFlowModulesResponse$: StaticStructureSchema = [3, n0, _SCFMRe,
@@ -7556,7 +7605,7 @@ export var SearchContactFlowModulesResponse$: StaticStructureSchema = [3, n0, _S
 ];
 export var SearchContactFlowsRequest$: StaticStructureSchema = [3, n0, _SCFR,
   0,
-  [_II, _NT, _MR, _SF, _SCe],
+  [_II, _NT, _MR, _SF, _SCea],
   [0, 0, 1, () => ContactFlowSearchFilter$, () => ContactFlowSearchCriteria$], 1
 ];
 export var SearchContactFlowsResponse$: StaticStructureSchema = [3, n0, _SCFRe,
@@ -7576,7 +7625,7 @@ export var SearchContactsAdditionalTimeRangeCriteria$: StaticStructureSchema = [
 ];
 export var SearchContactsRequest$: StaticStructureSchema = [3, n0, _SCR,
   0,
-  [_II, _TR, _SCe, _MR, _NT, _Sor],
+  [_II, _TR, _SCea, _MR, _NT, _Sor],
   [0, () => SearchContactsTimeRange$, [() => SearchCriteria$, 0], 1, 0, () => Sort$], 2
 ];
 export var SearchContactsResponse$: StaticStructureSchema = [3, n0, _SCRe,
@@ -7594,14 +7643,14 @@ export var SearchContactsTimestampCondition$: StaticStructureSchema = [3, n0, _S
   [_T, _CTond],
   [0, 0], 2
 ];
-export var SearchCriteria$: StaticStructureSchema = [3, n0, _SCe,
+export var SearchCriteria$: StaticStructureSchema = [3, n0, _SCea,
   0,
-  [_N, _AIg, _AHGg, _Ch, _CAo, _IMn, _QIue, _RC, _ATR, _SCA, _SSA, _ARct, _CTonta, _AAi],
+  [_N, _AIg, _AHGg, _Ch, _CAo, _IMn, _QIue, _RCo, _ATR, _SCA, _SSA, _ARct, _CTonta, _AAi],
   [[() => NameCriteria$, 0], 64 | 0, () => AgentHierarchyGroups$, 64 | 0, [() => ContactAnalysis$, 0], 64 | 0, 64 | 0, () => SearchableRoutingCriteria$, () => SearchContactsAdditionalTimeRange$, [() => SearchableContactAttributes$, 0], [() => SearchableSegmentAttributes$, 0], 64 | 0, () => ControlPlaneTagFilter$, () => AiAgentsCriteria$]
 ];
 export var SearchDataTablesRequest$: StaticStructureSchema = [3, n0, _SDTR,
   0,
-  [_II, _NT, _MR, _SF, _SCe],
+  [_II, _NT, _MR, _SF, _SCea],
   [0, 0, 1, () => DataTableSearchFilter$, () => DataTableSearchCriteria$], 1
 ];
 export var SearchDataTablesResponse$: StaticStructureSchema = [3, n0, _SDTRe,
@@ -7611,7 +7660,7 @@ export var SearchDataTablesResponse$: StaticStructureSchema = [3, n0, _SDTRe,
 ];
 export var SearchEmailAddressesRequest$: StaticStructureSchema = [3, n0, _SEAR,
   0,
-  [_II, _MR, _NT, _SCe, _SF],
+  [_II, _MR, _NT, _SCea, _SF],
   [0, 1, 0, () => EmailAddressSearchCriteria$, () => EmailAddressSearchFilter$], 1
 ];
 export var SearchEmailAddressesResponse$: StaticStructureSchema = [3, n0, _SEARe,
@@ -7621,7 +7670,7 @@ export var SearchEmailAddressesResponse$: StaticStructureSchema = [3, n0, _SEARe
 ];
 export var SearchEvaluationFormsRequest$: StaticStructureSchema = [3, n0, _SEFR,
   0,
-  [_II, _NT, _MR, _SCe, _SF],
+  [_II, _NT, _MR, _SCea, _SF],
   [0, 0, 1, () => EvaluationFormSearchCriteria$, () => EvaluationFormSearchFilter$], 1
 ];
 export var SearchEvaluationFormsResponse$: StaticStructureSchema = [3, n0, _SEFRe,
@@ -7631,7 +7680,7 @@ export var SearchEvaluationFormsResponse$: StaticStructureSchema = [3, n0, _SEFR
 ];
 export var SearchHoursOfOperationOverridesRequest$: StaticStructureSchema = [3, n0, _SHOOOR,
   0,
-  [_II, _NT, _MR, _SF, _SCe],
+  [_II, _NT, _MR, _SF, _SCea],
   [0, 0, 1, () => HoursOfOperationSearchFilter$, () => HoursOfOperationOverrideSearchCriteria$], 1
 ];
 export var SearchHoursOfOperationOverridesResponse$: StaticStructureSchema = [3, n0, _SHOOORe,
@@ -7641,7 +7690,7 @@ export var SearchHoursOfOperationOverridesResponse$: StaticStructureSchema = [3,
 ];
 export var SearchHoursOfOperationsRequest$: StaticStructureSchema = [3, n0, _SHOOR,
   0,
-  [_II, _NT, _MR, _SF, _SCe],
+  [_II, _NT, _MR, _SF, _SCea],
   [0, 0, 1, () => HoursOfOperationSearchFilter$, () => HoursOfOperationSearchCriteria$], 1
 ];
 export var SearchHoursOfOperationsResponse$: StaticStructureSchema = [3, n0, _SHOORe,
@@ -7651,7 +7700,7 @@ export var SearchHoursOfOperationsResponse$: StaticStructureSchema = [3, n0, _SH
 ];
 export var SearchNotificationsRequest$: StaticStructureSchema = [3, n0, _SNR,
   0,
-  [_II, _NT, _MR, _SF, _SCe],
+  [_II, _NT, _MR, _SF, _SCea],
   [0, 0, 1, () => NotificationSearchFilter$, () => NotificationSearchCriteria$], 1
 ];
 export var SearchNotificationsResponse$: StaticStructureSchema = [3, n0, _SNRe,
@@ -7661,7 +7710,7 @@ export var SearchNotificationsResponse$: StaticStructureSchema = [3, n0, _SNRe,
 ];
 export var SearchPredefinedAttributesRequest$: StaticStructureSchema = [3, n0, _SPAR,
   0,
-  [_II, _NT, _MR, _SCe],
+  [_II, _NT, _MR, _SCea],
   [0, 0, 1, () => PredefinedAttributeSearchCriteria$], 1
 ];
 export var SearchPredefinedAttributesResponse$: StaticStructureSchema = [3, n0, _SPARe,
@@ -7671,7 +7720,7 @@ export var SearchPredefinedAttributesResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var SearchPromptsRequest$: StaticStructureSchema = [3, n0, _SPR,
   0,
-  [_II, _NT, _MR, _SF, _SCe],
+  [_II, _NT, _MR, _SF, _SCea],
   [0, 0, 1, () => PromptSearchFilter$, () => PromptSearchCriteria$], 1
 ];
 export var SearchPromptsResponse$: StaticStructureSchema = [3, n0, _SPRe,
@@ -7681,7 +7730,7 @@ export var SearchPromptsResponse$: StaticStructureSchema = [3, n0, _SPRe,
 ];
 export var SearchQueuesRequest$: StaticStructureSchema = [3, n0, _SQR,
   0,
-  [_II, _NT, _MR, _SF, _SCe],
+  [_II, _NT, _MR, _SF, _SCea],
   [0, 0, 1, () => QueueSearchFilter$, () => QueueSearchCriteria$], 1
 ];
 export var SearchQueuesResponse$: StaticStructureSchema = [3, n0, _SQRe,
@@ -7691,7 +7740,7 @@ export var SearchQueuesResponse$: StaticStructureSchema = [3, n0, _SQRe,
 ];
 export var SearchQuickConnectsRequest$: StaticStructureSchema = [3, n0, _SQCR,
   0,
-  [_II, _NT, _MR, _SF, _SCe],
+  [_II, _NT, _MR, _SF, _SCea],
   [0, 0, 1, () => QuickConnectSearchFilter$, () => QuickConnectSearchCriteria$], 1
 ];
 export var SearchQuickConnectsResponse$: StaticStructureSchema = [3, n0, _SQCRe,
@@ -7701,7 +7750,7 @@ export var SearchQuickConnectsResponse$: StaticStructureSchema = [3, n0, _SQCRe,
 ];
 export var SearchResourceTagsRequest$: StaticStructureSchema = [3, n0, _SRTR,
   0,
-  [_II, _RTes, _NT, _MR, _SCe],
+  [_II, _RTes, _NT, _MR, _SCea],
   [0, 64 | 0, 0, 1, () => ResourceTagsSearchCriteria$], 1
 ];
 export var SearchResourceTagsResponse$: StaticStructureSchema = [3, n0, _SRTRe,
@@ -7711,7 +7760,7 @@ export var SearchResourceTagsResponse$: StaticStructureSchema = [3, n0, _SRTRe,
 ];
 export var SearchRoutingProfilesRequest$: StaticStructureSchema = [3, n0, _SRPR,
   0,
-  [_II, _NT, _MR, _SF, _SCe],
+  [_II, _NT, _MR, _SF, _SCea],
   [0, 0, 1, () => RoutingProfileSearchFilter$, () => RoutingProfileSearchCriteria$], 1
 ];
 export var SearchRoutingProfilesResponse$: StaticStructureSchema = [3, n0, _SRPRe,
@@ -7721,7 +7770,7 @@ export var SearchRoutingProfilesResponse$: StaticStructureSchema = [3, n0, _SRPR
 ];
 export var SearchSecurityProfilesRequest$: StaticStructureSchema = [3, n0, _SSPR,
   0,
-  [_II, _NT, _MR, _SCe, _SF],
+  [_II, _NT, _MR, _SCea, _SF],
   [0, 0, 1, () => SecurityProfileSearchCriteria$, () => SecurityProfilesSearchFilter$], 1
 ];
 export var SearchSecurityProfilesResponse$: StaticStructureSchema = [3, n0, _SSPRe,
@@ -7731,7 +7780,7 @@ export var SearchSecurityProfilesResponse$: StaticStructureSchema = [3, n0, _SSP
 ];
 export var SearchTestCasesRequest$: StaticStructureSchema = [3, n0, _STCR,
   0,
-  [_II, _NT, _MR, _SF, _SCe],
+  [_II, _NT, _MR, _SF, _SCea],
   [0, 0, 1, () => TestCaseSearchFilter$, () => TestCaseSearchCriteria$], 1
 ];
 export var SearchTestCasesResponse$: StaticStructureSchema = [3, n0, _STCRe,
@@ -7741,7 +7790,7 @@ export var SearchTestCasesResponse$: StaticStructureSchema = [3, n0, _STCRe,
 ];
 export var SearchUserHierarchyGroupsRequest$: StaticStructureSchema = [3, n0, _SUHGR,
   0,
-  [_II, _NT, _MR, _SF, _SCe],
+  [_II, _NT, _MR, _SF, _SCea],
   [0, 0, 1, () => UserHierarchyGroupSearchFilter$, () => UserHierarchyGroupSearchCriteria$], 1
 ];
 export var SearchUserHierarchyGroupsResponse$: StaticStructureSchema = [3, n0, _SUHGRe,
@@ -7751,7 +7800,7 @@ export var SearchUserHierarchyGroupsResponse$: StaticStructureSchema = [3, n0, _
 ];
 export var SearchUsersRequest$: StaticStructureSchema = [3, n0, _SUR,
   0,
-  [_II, _NT, _MR, _SF, _SCe],
+  [_II, _NT, _MR, _SF, _SCea],
   [0, 0, 1, () => UserSearchFilter$, () => UserSearchCriteria$], 1
 ];
 export var SearchUsersResponse$: StaticStructureSchema = [3, n0, _SURe,
@@ -7761,7 +7810,7 @@ export var SearchUsersResponse$: StaticStructureSchema = [3, n0, _SURe,
 ];
 export var SearchViewsRequest$: StaticStructureSchema = [3, n0, _SVR,
   0,
-  [_II, _NT, _MR, _SF, _SCe],
+  [_II, _NT, _MR, _SF, _SCea],
   [0, 0, 1, () => ViewSearchFilter$, () => ViewSearchCriteria$], 1
 ];
 export var SearchViewsResponse$: StaticStructureSchema = [3, n0, _SVRe,
@@ -7771,7 +7820,7 @@ export var SearchViewsResponse$: StaticStructureSchema = [3, n0, _SVRe,
 ];
 export var SearchVocabulariesRequest$: StaticStructureSchema = [3, n0, _SVRea,
   0,
-  [_II, _MR, _NT, _S, _NSW, _LC],
+  [_II, _MR, _NT, _S, _NSW, _LCa],
   [[0, 1], 1, 0, 0, 0, 0], 1
 ];
 export var SearchVocabulariesResponse$: StaticStructureSchema = [3, n0, _SVRear,
@@ -7781,7 +7830,7 @@ export var SearchVocabulariesResponse$: StaticStructureSchema = [3, n0, _SVRear,
 ];
 export var SearchWorkspaceAssociationsRequest$: StaticStructureSchema = [3, n0, _SWAR,
   0,
-  [_II, _NT, _MR, _SF, _SCe],
+  [_II, _NT, _MR, _SF, _SCea],
   [0, 0, 1, () => WorkspaceAssociationSearchFilter$, () => WorkspaceAssociationSearchCriteria$], 1
 ];
 export var SearchWorkspaceAssociationsResponse$: StaticStructureSchema = [3, n0, _SWARe,
@@ -7791,7 +7840,7 @@ export var SearchWorkspaceAssociationsResponse$: StaticStructureSchema = [3, n0,
 ];
 export var SearchWorkspacesRequest$: StaticStructureSchema = [3, n0, _SWR,
   0,
-  [_II, _NT, _MR, _SF, _SCe],
+  [_II, _NT, _MR, _SF, _SCea],
   [0, 0, 1, () => WorkspaceSearchFilter$, () => WorkspaceSearchCriteria$], 1
 ];
 export var SearchWorkspacesResponse$: StaticStructureSchema = [3, n0, _SWRe,
@@ -7864,6 +7913,11 @@ export var SendOutboundEmailResponse$: StaticStructureSchema = [3, n0, _SOERe,
   [],
   []
 ];
+export var SentimentConfiguration$: StaticStructureSchema = [3, n0, _SCe,
+  0,
+  [_Be],
+  [0], 1
+];
 export var SignInConfig$: StaticStructureSchema = [3, n0, _SIC,
   0,
   [_Di],
@@ -7908,6 +7962,16 @@ export var StartChatContactResponse$: StaticStructureSchema = [3, n0, _SCCRt,
   0,
   [_CI, _PI, _PTa, _CFCI],
   [0, 0, 0, 0]
+];
+export var StartContactConversationalAnalyticsJobRequest$: StaticStructureSchema = [3, n0, _SCCAJR,
+  0,
+  [_II, _CI, _AMn, _ACna, _CT],
+  [[0, 1], [0, 1], 64 | 0, () => AnalyticsConfiguration$, 0], 4
+];
+export var StartContactConversationalAnalyticsJobResponse$: StaticStructureSchema = [3, n0, _SCCAJRt,
+  0,
+  [_II, _CI],
+  [0, 0]
 ];
 export var StartContactEvaluationRequest$: StaticStructureSchema = [3, n0, _SCERt,
   0,
@@ -8133,6 +8197,11 @@ export var SuccessfulRequest$: StaticStructureSchema = [3, n0, _SRu,
   0,
   [_RIeq, _CI],
   [0, 0]
+];
+export var SummaryConfiguration$: StaticStructureSchema = [3, n0, _SCu,
+  0,
+  [_SM],
+  [64 | 0], 1
 ];
 export var SuspendContactRecordingRequest$: StaticStructureSchema = [3, n0, _SCRRu,
   0,
@@ -8441,7 +8510,7 @@ export var UpdateContactResponse$: StaticStructureSchema = [3, n0, _UCRpd,
 ];
 export var UpdateContactRoutingDataRequest$: StaticStructureSchema = [3, n0, _UCRDR,
   0,
-  [_II, _CI, _QTAS, _QP, _RC],
+  [_II, _CI, _QTAS, _QP, _RCo],
   [[0, 1], [0, 1], 1, 1, () => RoutingCriteriaInput$], 2
 ];
 export var UpdateContactRoutingDataResponse$: StaticStructureSchema = [3, n0, _UCRDRp,
@@ -8501,7 +8570,7 @@ export var UpdateEmailAddressMetadataResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var UpdateEvaluationFormRequest$: StaticStructureSchema = [3, n0, _UEFR,
   0,
-  [_II, _EFI, _EFV, _Ti, _It, _CNV, _D, _SS, _AEC, _RCe, _ADs, _CT, _TCar, _LCa],
+  [_II, _EFI, _EFV, _Ti, _It, _CNV, _D, _SS, _AEC, _RCe, _ADs, _CT, _TCar, _LC],
   [[0, 1], [0, 1], 1, 0, () => EvaluationFormItemsList, 2, 0, () => EvaluationFormScoringStrategy$, () => EvaluationFormAutoEvaluationConfiguration$, () => EvaluationReviewConfiguration$, 2, [0, 4], () => EvaluationFormTargetConfiguration$, () => EvaluationFormLanguageConfiguration$], 5
 ];
 export var UpdateEvaluationFormResponse$: StaticStructureSchema = [3, n0, _UEFRp,
@@ -8961,12 +9030,12 @@ export var ViewVersionSummary$: StaticStructureSchema = [3, n0, _VVS,
 ];
 export var Vocabulary$: StaticStructureSchema = [3, n0, _Vo,
   0,
-  [_N, _I, _A, _LC, _S, _LMT, _FRa, _Co, _Ta],
+  [_N, _I, _A, _LCa, _S, _LMT, _FRa, _Co, _Ta],
   [0, 0, 0, 0, 0, 4, 0, 0, 128 | 0], 6
 ];
 export var VocabularySummary$: StaticStructureSchema = [3, n0, _VSo,
   0,
-  [_N, _I, _A, _LC, _S, _LMT, _FRa],
+  [_N, _I, _A, _LCa, _S, _LMT, _FRa],
   [0, 0, 0, 0, 0, 4, 0], 6
 ];
 export var VoiceCallEntryPointParameters$: StaticStructureSchema = [3, n0, _VCEPP,
@@ -9107,6 +9176,7 @@ var AnalyticsDataAssociationResults: StaticListSchema = [1, n0, _ADARn,
 var AnalyticsDataSetsResults: StaticListSchema = [1, n0, _ADSRn,
   0, () => AnalyticsDataSetsResult$
 ];
+var AnalyticsModes = 64 | 0;
 var ApplicationPermissions = 64 | 0;
 var Applications: StaticListSchema = [1, n0, _App,
   0, () => Application$
@@ -9311,6 +9381,7 @@ var EmailAttachments: StaticListSchema = [1, n0, _EAmai,
 var EmailRecipientsList: StaticListSchema = [1, n0, _ERL,
   0, () => EmailRecipient$
 ];
+var Entities = 64 | 0;
 var ErrorResults: StaticListSchema = [1, n0, _ERrr,
   0, () => ErrorResult$
 ];
@@ -9744,6 +9815,7 @@ var SuccessfulBatchAssociationSummaryList: StaticListSchema = [1, n0, _SBASL,
 var SuccessfulRequestList: StaticListSchema = [1, n0, _SRL,
   0, () => SuccessfulRequest$
 ];
+var SummaryModes = 64 | 0;
 var SupportedMessagingContentTypes = 64 | 0;
 var TagAndConditionList: StaticListSchema = [1, n0, _TACL,
   0, () => TagCondition$
@@ -9941,7 +10013,7 @@ export var EvaluationFormItemEnablementConditionOperand$: StaticUnionSchema = [4
 ];
 export var EvaluationFormMultiSelectQuestionAutomationOption$: StaticUnionSchema = [4, n0, _EFMSQAO,
   0,
-  [_RCu],
+  [_RCul],
   [() => MultiSelectQuestionRuleCategoryAutomation$]
 ];
 export var EvaluationFormNumericQuestionAutomation$: StaticUnionSchema = [4, n0, _EFNQA,
@@ -9956,7 +10028,7 @@ export var EvaluationFormQuestionTypeProperties$: StaticUnionSchema = [4, n0, _E
 ];
 export var EvaluationFormSingleSelectQuestionAutomationOption$: StaticUnionSchema = [4, n0, _EFSSQAO,
   0,
-  [_RCu],
+  [_RCul],
   [() => SingleSelectQuestionRuleCategoryAutomation$]
 ];
 export var EvaluationQuestionAnswerAnalysisDetails$: StaticUnionSchema = [4, n0, _EQAAD,
@@ -10112,6 +10184,9 @@ export var CompleteAttachedFileUpload$: StaticOperationSchema = [9, n0, _CAFU,
 ];
 export var CreateAgentStatus$: StaticOperationSchema = [9, n0, _CAS,
   { [_h]: ["PUT", "/agent-status/{InstanceId}", 200] }, () => CreateAgentStatusRequest$, () => CreateAgentStatusResponse$
+];
+export var CreateAttachedFile$: StaticOperationSchema = [9, n0, _CAF,
+  { [_h]: ["PUT", "/attached-files/{InstanceId}/files", 200] }, () => CreateAttachedFileRequest$, () => CreateAttachedFileResponse$
 ];
 export var CreateContact$: StaticOperationSchema = [9, n0, _CCr,
   { [_h]: ["PUT", "/contact/create-contact", 200] }, () => CreateContactRequest$, () => CreateContactResponse$
@@ -10788,7 +10863,7 @@ export var SearchContactFlowModules$: StaticOperationSchema = [9, n0, _SCFM,
 export var SearchContactFlows$: StaticOperationSchema = [9, n0, _SCF,
   { [_h]: ["POST", "/search-contact-flows", 200] }, () => SearchContactFlowsRequest$, () => SearchContactFlowsResponse$
 ];
-export var SearchContacts$: StaticOperationSchema = [9, n0, _SCea,
+export var SearchContacts$: StaticOperationSchema = [9, n0, _SCear,
   { [_h]: ["POST", "/search-contacts", 200] }, () => SearchContactsRequest$, () => SearchContactsResponse$
 ];
 export var SearchDataTables$: StaticOperationSchema = [9, n0, _SDT,
@@ -10862,6 +10937,9 @@ export var StartAttachedFileUpload$: StaticOperationSchema = [9, n0, _SAFU,
 ];
 export var StartChatContact$: StaticOperationSchema = [9, n0, _SCC,
   { [_h]: ["PUT", "/contact/chat", 200] }, () => StartChatContactRequest$, () => StartChatContactResponse$
+];
+export var StartContactConversationalAnalyticsJob$: StaticOperationSchema = [9, n0, _SCCAJ,
+  { [_h]: ["POST", "/contact/start-conversational-analytics-job/{InstanceId}/{ContactId}", 200] }, () => StartContactConversationalAnalyticsJobRequest$, () => StartContactConversationalAnalyticsJobResponse$
 ];
 export var StartContactEvaluation$: StaticOperationSchema = [9, n0, _SCEt,
   { [_h]: ["PUT", "/contact-evaluations/{InstanceId}", 200] }, () => StartContactEvaluationRequest$, () => StartContactEvaluationResponse$

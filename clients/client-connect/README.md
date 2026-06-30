@@ -437,6 +437,13 @@ CreateAgentStatus
 </details>
 <details>
 <summary>
+CreateAttachedFile
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/CreateAttachedFileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/CreateAttachedFileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/CreateAttachedFileCommandOutput/)
+</details>
+<details>
+<summary>
 CreateContact
 </summary>
 
@@ -2184,6 +2191,13 @@ StartChatContact
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/StartChatContactCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/StartChatContactCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/StartChatContactCommandOutput/)
+</details>
+<details>
+<summary>
+StartContactConversationalAnalyticsJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/StartContactConversationalAnalyticsJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/StartContactConversationalAnalyticsJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/StartContactConversationalAnalyticsJobCommandOutput/)
 </details>
 <details>
 <summary>

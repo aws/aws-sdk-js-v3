@@ -26,6 +26,7 @@ import type {
   EvaluationType,
   EventSourceName,
   ExecutionRecordStatus,
+  FilterV2StringConditionComparisonOperator,
   InstanceStatus,
   InstanceStorageResourceType,
   IntegrationType,
@@ -77,7 +78,6 @@ import type {
   AgentStatus,
   AgentStatusSummary,
   AiAgentsCriteria,
-  AliasConfiguration,
   AnalyticsDataAssociationResult,
   Application,
   ControlPlaneAttributeFilter,
@@ -105,12 +105,46 @@ import type {
   EvaluationContactParticipant,
   EvaluationScore,
   ExtensionConfiguration,
-  FilterV2StringCondition,
   HierarchyGroupSummary,
+  HistoricalMetricResult,
   HoursOfOperationOverride,
   HoursOfOperationsIdentifier,
   Notification,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface GetMetricDataResponse {
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   *          <p>The token expires after 5 minutes from the time it is created. Subsequent requests that use
+   *    the token must use the same request parameters as the request that generated the token.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Information about the historical metrics.</p>
+   *          <p>If no grouping is specified, a summary of metric data is returned.</p>
+   * @public
+   */
+  MetricResults?: HistoricalMetricResult[] | undefined;
+}
+
+/**
+ * <p> System defined filtering condition. For example, the NOT_EXISTS StringCondition returns documents where the
+ *    field specified by FilterKey does not exist in the document.</p>
+ *          <p>When the NOT_EXISTS StringCondition is added to a FilterV2 object, FilterValues must be null or empty. </p>
+ * @public
+ */
+export interface FilterV2StringCondition {
+  /**
+   * <p> The string condition. </p>
+   * @public
+   */
+  Comparison?: FilterV2StringConditionComparisonOperator | undefined;
+}
 
 /**
  * <p>Contains the filter to apply when retrieving metrics with the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricDataV2.html">GetMetricDataV2</a> API.</p>
@@ -10359,70 +10393,4 @@ export interface EmailAddressSearchFilter {
    * @public
    */
   TagFilter?: ControlPlaneTagFilter | undefined;
-}
-
-/**
- * <p>Contains information about an email address for a contact center.</p>
- * @public
- */
-export interface EmailAddressMetadata {
-  /**
-   * <p>The identifier of the email address.</p>
-   * @public
-   */
-  EmailAddressId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the email address.</p>
-   * @public
-   */
-  EmailAddressArn?: string | undefined;
-
-  /**
-   * <p>The email address, including the domain.</p>
-   * @public
-   */
-  EmailAddress?: string | undefined;
-
-  /**
-   * <p>The description of the email address.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The display name of email address.</p>
-   * @public
-   */
-  DisplayName?: string | undefined;
-
-  /**
-   * <p>A list of alias configurations for this email address, showing which email addresses forward to this primary
-   *    address. Each configuration contains the email address ID of an alias that forwards emails to this address.</p>
-   * @public
-   */
-  AliasConfigurations?: AliasConfiguration[] | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchEmailAddressesResponse {
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>List of email addresses matching SearchFilter and SearchCriteria </p>
-   * @public
-   */
-  EmailAddresses?: EmailAddressMetadata[] | undefined;
-
-  /**
-   * <p>The total number of email addresses which matched your search query.</p>
-   * @public
-   */
-  ApproximateTotalCount?: number | undefined;
 }

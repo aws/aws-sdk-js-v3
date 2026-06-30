@@ -36,8 +36,10 @@ import {
   AllowedCapabilities$,
   AllowedExtension$,
   AllowedUserAction,
+  AnalyticsConfiguration$,
   AnalyticsDataAssociationResult$,
   AnalyticsDataSetsResult$,
+  AnalyticsMode,
   AnsweringMachineDetectionStatus,
   AnswerMachineDetectionConfig$,
   Application$,
@@ -181,6 +183,7 @@ import {
   BatchUpdateDataTableValueRequest$,
   BatchUpdateDataTableValueResponse$,
   BatchUpdateDataTableValueSuccessResult$,
+  Behavior,
   BehaviorType,
   BooleanComparisonType,
   BooleanCondition$,
@@ -275,6 +278,10 @@ import {
   CreateAgentStatusCommand,
   CreateAgentStatusRequest$,
   CreateAgentStatusResponse$,
+  CreateAttachedFile$,
+  CreateAttachedFileCommand,
+  CreateAttachedFileRequest$,
+  CreateAttachedFileResponse$,
   CreateCaseActionDefinition$,
   CreateContact$,
   CreateContactCommand,
@@ -1076,6 +1083,7 @@ import {
   KinesisFirehoseConfig$,
   KinesisStreamConfig$,
   KinesisVideoStreamConfig$,
+  LanguageConfiguration$,
   LexBot$,
   LexBotConfig$,
   LexV2Bot$,
@@ -1362,6 +1370,7 @@ import {
   ListWorkspacesRequest$,
   ListWorkspacesResponse$,
   LocaleCode,
+  MaskMode,
   MatchCriteria$,
   MaximumResultReturnedException,
   MaximumResultReturnedException$,
@@ -1544,6 +1553,7 @@ import {
   PhoneNumberType,
   PhoneNumberWorkflowStatus,
   PhoneType,
+  Policy,
   PostAcceptTimeoutConfig$,
   PredefinedAttribute$,
   PredefinedAttributeConfiguration$,
@@ -1621,6 +1631,7 @@ import {
   RecurrenceConfig$,
   RecurrenceFrequency,
   RecurrencePattern$,
+  RedactionConfiguration$,
   Reference$,
   ReferenceStatus,
   ReferenceSummary$,
@@ -1673,6 +1684,7 @@ import {
   Rule$,
   RuleAction$,
   RulePublishStatus,
+  RulesConfiguration$,
   RuleSummary$,
   RuleTriggerEventSource$,
   S3Config$,
@@ -1814,6 +1826,7 @@ import {
   SendOutboundEmailCommand,
   SendOutboundEmailRequest$,
   SendOutboundEmailResponse$,
+  SentimentConfiguration$,
   ServiceQuotaExceededException,
   ServiceQuotaExceededException$,
   ServiceQuotaExceededExceptionReason$,
@@ -1836,6 +1849,10 @@ import {
   StartChatContactCommand,
   StartChatContactRequest$,
   StartChatContactResponse$,
+  StartContactConversationalAnalyticsJob$,
+  StartContactConversationalAnalyticsJobCommand,
+  StartContactConversationalAnalyticsJobRequest$,
+  StartContactConversationalAnalyticsJobResponse$,
   StartContactEvaluation$,
   StartContactEvaluationCommand,
   StartContactEvaluationRequest$,
@@ -1923,6 +1940,8 @@ import {
   SubmitContactEvaluationResponse$,
   SuccessfulBatchAssociationSummary$,
   SuccessfulRequest$,
+  SummaryConfiguration$,
+  SummaryMode,
   SuspendContactRecording$,
   SuspendContactRecordingCommand,
   SuspendContactRecordingRequest$,
@@ -2347,6 +2366,8 @@ assert(typeof CompleteAttachedFileUploadCommand === "function");
 assert(typeof CompleteAttachedFileUpload$ === "object");
 assert(typeof CreateAgentStatusCommand === "function");
 assert(typeof CreateAgentStatus$ === "object");
+assert(typeof CreateAttachedFileCommand === "function");
+assert(typeof CreateAttachedFile$ === "object");
 assert(typeof CreateContactCommand === "function");
 assert(typeof CreateContact$ === "object");
 assert(typeof CreateContactFlowCommand === "function");
@@ -2847,6 +2868,8 @@ assert(typeof StartAttachedFileUploadCommand === "function");
 assert(typeof StartAttachedFileUpload$ === "object");
 assert(typeof StartChatContactCommand === "function");
 assert(typeof StartChatContact$ === "object");
+assert(typeof StartContactConversationalAnalyticsJobCommand === "function");
+assert(typeof StartContactConversationalAnalyticsJob$ === "object");
 assert(typeof StartContactEvaluationCommand === "function");
 assert(typeof StartContactEvaluation$ === "object");
 assert(typeof StartContactMediaProcessingCommand === "function");
@@ -3052,6 +3075,7 @@ assert(typeof AiAgentSearchCriteria$ === "object");
 assert(typeof AliasConfiguration$ === "object");
 assert(typeof AllowedCapabilities$ === "object");
 assert(typeof AllowedExtension$ === "object");
+assert(typeof AnalyticsConfiguration$ === "object");
 assert(typeof AnalyticsDataAssociationResult$ === "object");
 assert(typeof AnalyticsDataSetsResult$ === "object");
 assert(typeof AnswerMachineDetectionConfig$ === "object");
@@ -3189,6 +3213,8 @@ assert(typeof ControlPlaneTagFilter$ === "object");
 assert(typeof ControlPlaneUserAttributeFilter$ === "object");
 assert(typeof CreateAgentStatusRequest$ === "object");
 assert(typeof CreateAgentStatusResponse$ === "object");
+assert(typeof CreateAttachedFileRequest$ === "object");
+assert(typeof CreateAttachedFileResponse$ === "object");
 assert(typeof CreateCaseActionDefinition$ === "object");
 assert(typeof CreateContactFlowModuleAliasRequest$ === "object");
 assert(typeof CreateContactFlowModuleAliasResponse$ === "object");
@@ -3626,6 +3652,7 @@ assert(typeof InvisibleFieldInfo$ === "object");
 assert(typeof KinesisFirehoseConfig$ === "object");
 assert(typeof KinesisStreamConfig$ === "object");
 assert(typeof KinesisVideoStreamConfig$ === "object");
+assert(typeof LanguageConfiguration$ === "object");
 assert(typeof LexBot$ === "object");
 assert(typeof LexBotConfig$ === "object");
 assert(typeof LexV2Bot$ === "object");
@@ -3886,6 +3913,7 @@ assert(typeof RecordingInfo$ === "object");
 assert(typeof RecordPrimaryValue$ === "object");
 assert(typeof RecurrenceConfig$ === "object");
 assert(typeof RecurrencePattern$ === "object");
+assert(typeof RedactionConfiguration$ === "object");
 assert(typeof Reference$ === "object");
 assert(typeof ReferenceSummary$ === "object");
 assert(typeof ReleasePhoneNumberRequest$ === "object");
@@ -3915,6 +3943,7 @@ assert(typeof RoutingProfileSearchFilter$ === "object");
 assert(typeof RoutingProfileSummary$ === "object");
 assert(typeof Rule$ === "object");
 assert(typeof RuleAction$ === "object");
+assert(typeof RulesConfiguration$ === "object");
 assert(typeof RuleSummary$ === "object");
 assert(typeof RuleTriggerEventSource$ === "object");
 assert(typeof S3Config$ === "object");
@@ -3995,6 +4024,7 @@ assert(typeof SendChatIntegrationEventResponse$ === "object");
 assert(typeof SendNotificationActionDefinition$ === "object");
 assert(typeof SendOutboundEmailRequest$ === "object");
 assert(typeof SendOutboundEmailResponse$ === "object");
+assert(typeof SentimentConfiguration$ === "object");
 assert(typeof ServiceQuotaExceededExceptionReason$ === "object");
 assert(typeof SignInConfig$ === "object");
 assert(typeof SignInDistribution$ === "object");
@@ -4005,6 +4035,8 @@ assert(typeof StartAttachedFileUploadRequest$ === "object");
 assert(typeof StartAttachedFileUploadResponse$ === "object");
 assert(typeof StartChatContactRequest$ === "object");
 assert(typeof StartChatContactResponse$ === "object");
+assert(typeof StartContactConversationalAnalyticsJobRequest$ === "object");
+assert(typeof StartContactConversationalAnalyticsJobResponse$ === "object");
 assert(typeof StartContactEvaluationRequest$ === "object");
 assert(typeof StartContactEvaluationResponse$ === "object");
 assert(typeof StartContactMediaProcessingRequest$ === "object");
@@ -4050,6 +4082,7 @@ assert(typeof SubmitContactEvaluationRequest$ === "object");
 assert(typeof SubmitContactEvaluationResponse$ === "object");
 assert(typeof SuccessfulBatchAssociationSummary$ === "object");
 assert(typeof SuccessfulRequest$ === "object");
+assert(typeof SummaryConfiguration$ === "object");
 assert(typeof SuspendContactRecordingRequest$ === "object");
 assert(typeof SuspendContactRecordingResponse$ === "object");
 assert(typeof TagCondition$ === "object");
@@ -4244,6 +4277,7 @@ assert(typeof AgentStatusState === "object");
 assert(typeof AgentStatusType === "object");
 assert(typeof AiUseCase === "object");
 assert(typeof AllowedUserAction === "object");
+assert(typeof AnalyticsMode === "object");
 assert(typeof AnsweringMachineDetectionStatus === "object");
 assert(typeof ApplicationType === "object");
 assert(typeof ArtifactStatus === "object");
@@ -4251,6 +4285,7 @@ assert(typeof AttachedFileInvalidRequestExceptionReason === "object");
 assert(typeof AttachedFileServiceQuotaExceededExceptionReason === "object");
 assert(typeof AttachmentScope === "object");
 assert(typeof AutoEvaluationStatus === "object");
+assert(typeof Behavior === "object");
 assert(typeof BehaviorType === "object");
 assert(typeof BooleanComparisonType === "object");
 assert(typeof Channel === "object");
@@ -4330,6 +4365,7 @@ assert(typeof IvrRecordingTrack === "object");
 assert(typeof LexVersion === "object");
 assert(typeof ListFlowAssociationResourceType === "object");
 assert(typeof LocaleCode === "object");
+assert(typeof MaskMode === "object");
 assert(typeof MediaStreamType === "object");
 assert(typeof MediaType === "object");
 assert(typeof MeetingFeatureStatus === "object");
@@ -4358,6 +4394,7 @@ assert(typeof PhoneNumberCountryCode === "object");
 assert(typeof PhoneNumberType === "object");
 assert(typeof PhoneNumberWorkflowStatus === "object");
 assert(typeof PhoneType === "object");
+assert(typeof Policy === "object");
 assert(typeof PropertyValidationExceptionReason === "object");
 assert(typeof QuestionRuleCategoryAutomationCondition === "object");
 assert(typeof QueueStatus === "object");
@@ -4394,6 +4431,7 @@ assert(typeof Statistic === "object");
 assert(typeof Status === "object");
 assert(typeof StorageType === "object");
 assert(typeof StringComparisonType === "object");
+assert(typeof SummaryMode === "object");
 assert(typeof TargetListType === "object");
 assert(typeof TaskTemplateFieldType === "object");
 assert(typeof TaskTemplateStatus === "object");

@@ -168,6 +168,11 @@ import {
   CreateAgentStatusCommand,
 } from "./commands/CreateAgentStatusCommand";
 import {
+  type CreateAttachedFileCommandInput,
+  type CreateAttachedFileCommandOutput,
+  CreateAttachedFileCommand,
+} from "./commands/CreateAttachedFileCommand";
+import {
   type CreateContactCommandInput,
   type CreateContactCommandOutput,
   CreateContactCommand,
@@ -1402,6 +1407,11 @@ import {
   StartChatContactCommand,
 } from "./commands/StartChatContactCommand";
 import {
+  type StartContactConversationalAnalyticsJobCommandInput,
+  type StartContactConversationalAnalyticsJobCommandOutput,
+  StartContactConversationalAnalyticsJobCommand,
+} from "./commands/StartContactConversationalAnalyticsJobCommand";
+import {
   type StartContactEvaluationCommandInput,
   type StartContactEvaluationCommandOutput,
   StartContactEvaluationCommand,
@@ -1972,6 +1982,7 @@ const commands = {
   ClaimPhoneNumberCommand,
   CompleteAttachedFileUploadCommand,
   CreateAgentStatusCommand,
+  CreateAttachedFileCommand,
   CreateContactCommand,
   CreateContactFlowCommand,
   CreateContactFlowModuleCommand,
@@ -2222,6 +2233,7 @@ const commands = {
   SendOutboundEmailCommand,
   StartAttachedFileUploadCommand,
   StartChatContactCommand,
+  StartContactConversationalAnalyticsJobCommand,
   StartContactEvaluationCommand,
   StartContactMediaProcessingCommand,
   StartContactRecordingCommand,
@@ -2961,6 +2973,23 @@ export interface Connect {
     args: CreateAgentStatusCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateAgentStatusCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAttachedFileCommand}
+   */
+  createAttachedFile(
+    args: CreateAttachedFileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAttachedFileCommandOutput>;
+  createAttachedFile(
+    args: CreateAttachedFileCommandInput,
+    cb: (err: any, data?: CreateAttachedFileCommandOutput) => void
+  ): void;
+  createAttachedFile(
+    args: CreateAttachedFileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAttachedFileCommandOutput) => void
   ): void;
 
   /**
@@ -7214,6 +7243,23 @@ export interface Connect {
     args: StartChatContactCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartChatContactCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartContactConversationalAnalyticsJobCommand}
+   */
+  startContactConversationalAnalyticsJob(
+    args: StartContactConversationalAnalyticsJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartContactConversationalAnalyticsJobCommandOutput>;
+  startContactConversationalAnalyticsJob(
+    args: StartContactConversationalAnalyticsJobCommandInput,
+    cb: (err: any, data?: StartContactConversationalAnalyticsJobCommandOutput) => void
+  ): void;
+  startContactConversationalAnalyticsJob(
+    args: StartContactConversationalAnalyticsJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartContactConversationalAnalyticsJobCommandOutput) => void
   ): void;
 
   /**

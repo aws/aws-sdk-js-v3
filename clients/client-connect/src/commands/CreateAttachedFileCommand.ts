@@ -5,8 +5,8 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { StartAttachedFileUploadRequest, StartAttachedFileUploadResponse } from "../models/models_3";
-import { StartAttachedFileUpload$ } from "../schemas/schemas_0";
+import type { CreateAttachedFileRequest, CreateAttachedFileResponse } from "../models/models_0";
+import { CreateAttachedFile$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,71 +16,62 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link StartAttachedFileUploadCommand}.
+ * The input for {@link CreateAttachedFileCommand}.
  */
-export interface StartAttachedFileUploadCommandInput extends StartAttachedFileUploadRequest {}
+export interface CreateAttachedFileCommandInput extends CreateAttachedFileRequest {}
 /**
  * @public
  *
- * The output of {@link StartAttachedFileUploadCommand}.
+ * The output of {@link CreateAttachedFileCommand}.
  */
-export interface StartAttachedFileUploadCommandOutput extends StartAttachedFileUploadResponse, __MetadataBearer {}
+export interface CreateAttachedFileCommandOutput extends CreateAttachedFileResponse, __MetadataBearer {}
 
 /**
- * <p>Provides a pre-signed Amazon S3 URL in response for uploading your content.</p>
+ * <p>Creates an attached file for a completed voice contact by copying a recording from a source S3 URI into
+ *    Connect Customer managed storage. Use this API to attach voice recordings to contacts for downstream
+ *    processing such as conversational analytics.</p>
  *          <important>
- *             <p>You may only use this API to upload attachments to an <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html">Connect Customer Case</a> or <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-email-channel.html">Connect Customer Email</a>. </p>
+ *             <p>The <code>AssociatedResourceArn</code> must be the ARN of a completed voice contact, <code>FileUseCaseType</code>
+ *     must be set to <code>VOICE_RECORDING</code>, and <code>FileSourceUri</code> must be a valid S3 URI.</p>
  *          </important>
+ *          <note>
+ *             <p>For example, you can call <code>CreateContact</code>, then <code>CreateAttachedFile</code>, then
+ *     <code>StartContactConversationalAnalyticsJob</code> to create a contact, attach a recording, and
+ *     run post-call analytics.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, StartAttachedFileUploadCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, StartAttachedFileUploadCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, CreateAttachedFileCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, CreateAttachedFileCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
  * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
- * const input = { // StartAttachedFileUploadRequest
+ * const input = { // CreateAttachedFileRequest
  *   ClientToken: "STRING_VALUE",
  *   InstanceId: "STRING_VALUE", // required
- *   FileName: "STRING_VALUE", // required
- *   FileSizeInBytes: Number("long"), // required
- *   UrlExpiryInSeconds: Number("int"),
  *   FileUseCaseType: "CONTACT_ANALYSIS" || "EMAIL_MESSAGE" || "EMAIL_MESSAGE_PLAIN_TEXT" || "EMAIL_MESSAGE_REDACTED" || "EMAIL_MESSAGE_PLAIN_TEXT_REDACTED" || "ATTACHMENT" || "VOICE_RECORDING", // required
+ *   FileSourceUri: "STRING_VALUE", // required
  *   AssociatedResourceArn: "STRING_VALUE", // required
- *   CreatedBy: { // CreatedByInfo Union: only one key present
- *     ConnectUserArn: "STRING_VALUE",
- *     AWSIdentityArn: "STRING_VALUE",
- *   },
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };
- * const command = new StartAttachedFileUploadCommand(input);
+ * const command = new CreateAttachedFileCommand(input);
  * const response = await client.send(command);
- * // { // StartAttachedFileUploadResponse
+ * // { // CreateAttachedFileResponse
  * //   FileArn: "STRING_VALUE",
  * //   FileId: "STRING_VALUE",
  * //   CreationTime: "STRING_VALUE",
  * //   FileStatus: "APPROVED" || "REJECTED" || "PROCESSING" || "FAILED",
- * //   CreatedBy: { // CreatedByInfo Union: only one key present
- * //     ConnectUserArn: "STRING_VALUE",
- * //     AWSIdentityArn: "STRING_VALUE",
- * //   },
- * //   UploadUrlMetadata: { // UploadUrlMetadata
- * //     Url: "STRING_VALUE",
- * //     UrlExpiry: "STRING_VALUE",
- * //     HeadersToInclude: { // UrlMetadataSignedHeaders
- * //       "<keys>": "STRING_VALUE",
- * //     },
- * //   },
  * // };
  *
  * ```
  *
- * @param StartAttachedFileUploadCommandInput - {@link StartAttachedFileUploadCommandInput}
- * @returns {@link StartAttachedFileUploadCommandOutput}
- * @see {@link StartAttachedFileUploadCommandInput} for command's `input` shape.
- * @see {@link StartAttachedFileUploadCommandOutput} for command's `response` shape.
+ * @param CreateAttachedFileCommandInput - {@link CreateAttachedFileCommandInput}
+ * @returns {@link CreateAttachedFileCommandOutput}
+ * @see {@link CreateAttachedFileCommandInput} for command's `input` shape.
+ * @see {@link CreateAttachedFileCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -107,10 +98,10 @@ export interface StartAttachedFileUploadCommandOutput extends StartAttachedFileU
  *
  * @public
  */
-export class StartAttachedFileUploadCommand extends $Command
+export class CreateAttachedFileCommand extends $Command
   .classBuilder<
-    StartAttachedFileUploadCommandInput,
-    StartAttachedFileUploadCommandOutput,
+    CreateAttachedFileCommandInput,
+    CreateAttachedFileCommandOutput,
     ConnectClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -119,19 +110,19 @@ export class StartAttachedFileUploadCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("AmazonConnectService", "StartAttachedFileUpload", {})
-  .n("ConnectClient", "StartAttachedFileUploadCommand")
-  .sc(StartAttachedFileUpload$)
+  .s("AmazonConnectService", "CreateAttachedFile", {})
+  .n("ConnectClient", "CreateAttachedFileCommand")
+  .sc(CreateAttachedFile$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: StartAttachedFileUploadRequest;
-      output: StartAttachedFileUploadResponse;
+      input: CreateAttachedFileRequest;
+      output: CreateAttachedFileResponse;
     };
     sdk: {
-      input: StartAttachedFileUploadCommandInput;
-      output: StartAttachedFileUploadCommandOutput;
+      input: CreateAttachedFileCommandInput;
+      output: CreateAttachedFileCommandOutput;
     };
   };
 }

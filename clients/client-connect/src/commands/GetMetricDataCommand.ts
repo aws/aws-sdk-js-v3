@@ -5,7 +5,8 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { GetMetricDataRequest, GetMetricDataResponse } from "../models/models_1";
+import type { GetMetricDataRequest } from "../models/models_1";
+import type { GetMetricDataResponse } from "../models/models_2";
 import { GetMetricData$ } from "../schemas/schemas_0";
 
 /**

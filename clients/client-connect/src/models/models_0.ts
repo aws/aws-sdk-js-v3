@@ -79,7 +79,6 @@ import type {
   UseCaseType,
   VideoCapability,
   ViewStatus,
-  ViewType,
   VocabularyLanguageCode,
   VoiceEnhancementMode,
 } from "./enums";
@@ -3424,6 +3423,90 @@ export interface CreateAgentStatusResponse {
    * @public
    */
   AgentStatusId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAttachedFileRequest {
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The use case for the file.</p>
+   *          <important>
+   *             <p>Only <code>VOICE_RECORDING</code> is supported.</p>
+   *          </important>
+   * @public
+   */
+  FileUseCaseType: FileUseCaseType | undefined;
+
+  /**
+   * <p>The S3 URI of the file to be attached. Only S3 source URIs are supported.</p>
+   * @public
+   */
+  FileSourceUri: string | undefined;
+
+  /**
+   * <p>The ARN of the completed voice contact to attach the file to. Only voice contacts with Telephony subtype are
+   *    supported.</p>
+   *          <note>
+   *             <p>This value must be a valid ARN.</p>
+   *          </note>
+   * @public
+   */
+  AssociatedResourceArn: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource. For example, <code>\{ "Tags":
+   *     \{"key1":"value1", "key2":"value2"\} \}</code>.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * Response from CreateAttachedFile API.
+ * @public
+ */
+export interface CreateAttachedFileResponse {
+  /**
+   * <p>The unique identifier of the attached file resource (ARN).</p>
+   * @public
+   */
+  FileArn?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the attached file resource.</p>
+   * @public
+   */
+  FileId?: string | undefined;
+
+  /**
+   * <p>The time of Creation of the file resource as an ISO timestamp. It's specified in ISO 8601 format:
+   *     <code>yyyy-MM-ddThh:mm:ss.SSSZ</code>. For example, <code>2024-05-03T02:41:28.172Z</code>.</p>
+   * @public
+   */
+  CreationTime?: string | undefined;
+
+  /**
+   * <p>The current status of the attached file. Valid values: <code>PROCESSING</code> | <code>APPROVED</code> |
+   *     <code>REJECTED</code> | <code>FAILED</code>.</p>
+   * @public
+   */
+  FileStatus?: FileStatusType | undefined;
 }
 
 /**
@@ -7959,113 +8042,4 @@ export interface CreateViewRequest {
    * @public
    */
   Tags?: Record<string, string> | undefined;
-}
-
-/**
- * <p>View content containing all content necessary to render a view except for runtime input data.</p>
- * @public
- */
-export interface ViewContent {
-  /**
-   * <p>The data schema matching data that the view template must be provided to render.</p>
-   * @public
-   */
-  InputSchema?: string | undefined;
-
-  /**
-   * <p>The view template representing the structure of the view.</p>
-   * @public
-   */
-  Template?: string | undefined;
-
-  /**
-   * <p>A list of possible actions from the view.</p>
-   * @public
-   */
-  Actions?: string[] | undefined;
-}
-
-/**
- * <p>A view resource object. Contains metadata and content necessary to render the view.</p>
- * @public
- */
-export interface View {
-  /**
-   * <p>The identifier of the view.</p>
-   * @public
-   */
-  Id?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the view.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The name of the view.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>Indicates the view status as either <code>SAVED</code> or <code>PUBLISHED</code>. The <code>PUBLISHED</code>
-   *    status will initiate validation on the content.</p>
-   * @public
-   */
-  Status?: ViewStatus | undefined;
-
-  /**
-   * <p>The type of the view - <code>CUSTOMER_MANAGED</code>.</p>
-   * @public
-   */
-  Type?: ViewType | undefined;
-
-  /**
-   * <p>The description of the view.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Current version of the view.</p>
-   * @public
-   */
-  Version?: number | undefined;
-
-  /**
-   * <p>The description of the version.</p>
-   * @public
-   */
-  VersionDescription?: string | undefined;
-
-  /**
-   * <p>View content containing all content necessary to render a view except for runtime input data.</p>
-   * @public
-   */
-  Content?: ViewContent | undefined;
-
-  /**
-   * <p>The tags associated with the view resource (not specific to view version).</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-
-  /**
-   * <p>The timestamp of when the view was created.</p>
-   * @public
-   */
-  CreatedTime?: Date | undefined;
-
-  /**
-   * <p>Latest timestamp of the <code>UpdateViewContent</code> or <code>CreateViewVersion</code> operations.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>Indicates the checksum value of the latest published view content.</p>
-   * @public
-   */
-  ViewContentSha256?: string | undefined;
 }

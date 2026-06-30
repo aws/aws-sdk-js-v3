@@ -428,6 +428,7 @@ export const FileUseCaseType = {
   EMAIL_MESSAGE_PLAIN_TEXT: "EMAIL_MESSAGE_PLAIN_TEXT",
   EMAIL_MESSAGE_PLAIN_TEXT_REDACTED: "EMAIL_MESSAGE_PLAIN_TEXT_REDACTED",
   EMAIL_MESSAGE_REDACTED: "EMAIL_MESSAGE_REDACTED",
+  VOICE_RECORDING: "VOICE_RECORDING",
 } as const;
 /**
  * @public
@@ -2822,6 +2823,75 @@ export const ResponseMode = {
  * @public
  */
 export type ResponseMode = (typeof ResponseMode)[keyof typeof ResponseMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const Behavior = {
+  Disable: "Disable",
+  Enable: "Enable",
+} as const;
+/**
+ * @public
+ */
+export type Behavior = (typeof Behavior)[keyof typeof Behavior];
+
+/**
+ * @public
+ * @enum
+ */
+export const MaskMode = {
+  EntityType: "EntityType",
+  PII: "PII",
+} as const;
+/**
+ * @public
+ */
+export type MaskMode = (typeof MaskMode)[keyof typeof MaskMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const Policy = {
+  None: "None",
+  RedactedAndOriginal: "RedactedAndOriginal",
+  RedactedOnly: "RedactedOnly",
+} as const;
+/**
+ * @public
+ */
+export type Policy = (typeof Policy)[keyof typeof Policy];
+
+/**
+ * @public
+ * @enum
+ */
+export const SummaryMode = {
+  AutomatedInteraction: "AutomatedInteraction",
+  ContactChain: "ContactChain",
+  PostContact: "PostContact",
+} as const;
+/**
+ * @public
+ */
+export type SummaryMode = (typeof SummaryMode)[keyof typeof SummaryMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalyticsMode = {
+  AutomatedInteraction: "AutomatedInteraction",
+  ContactLens: "ContactLens",
+  PostContact: "PostContact",
+  RealTime: "RealTime",
+} as const;
+/**
+ * @public
+ */
+export type AnalyticsMode = (typeof AnalyticsMode)[keyof typeof AnalyticsMode];
 
 /**
  * @public

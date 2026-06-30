@@ -171,6 +171,10 @@ import type {
   CreateAgentStatusCommandInput,
   CreateAgentStatusCommandOutput,
 } from "./commands/CreateAgentStatusCommand";
+import type {
+  CreateAttachedFileCommandInput,
+  CreateAttachedFileCommandOutput,
+} from "./commands/CreateAttachedFileCommand";
 import type { CreateContactCommandInput, CreateContactCommandOutput } from "./commands/CreateContactCommand";
 import type {
   CreateContactFlowCommandInput,
@@ -971,6 +975,10 @@ import type {
 } from "./commands/StartAttachedFileUploadCommand";
 import type { StartChatContactCommandInput, StartChatContactCommandOutput } from "./commands/StartChatContactCommand";
 import type {
+  StartContactConversationalAnalyticsJobCommandInput,
+  StartContactConversationalAnalyticsJobCommandOutput,
+} from "./commands/StartContactConversationalAnalyticsJobCommand";
+import type {
   StartContactEvaluationCommandInput,
   StartContactEvaluationCommandOutput,
 } from "./commands/StartContactEvaluationCommand";
@@ -1335,6 +1343,7 @@ export type ServiceInputTypes =
   | ClaimPhoneNumberCommandInput
   | CompleteAttachedFileUploadCommandInput
   | CreateAgentStatusCommandInput
+  | CreateAttachedFileCommandInput
   | CreateContactCommandInput
   | CreateContactFlowCommandInput
   | CreateContactFlowModuleAliasCommandInput
@@ -1585,6 +1594,7 @@ export type ServiceInputTypes =
   | SendOutboundEmailCommandInput
   | StartAttachedFileUploadCommandInput
   | StartChatContactCommandInput
+  | StartContactConversationalAnalyticsJobCommandInput
   | StartContactEvaluationCommandInput
   | StartContactMediaProcessingCommandInput
   | StartContactRecordingCommandInput
@@ -1712,6 +1722,7 @@ export type ServiceOutputTypes =
   | ClaimPhoneNumberCommandOutput
   | CompleteAttachedFileUploadCommandOutput
   | CreateAgentStatusCommandOutput
+  | CreateAttachedFileCommandOutput
   | CreateContactCommandOutput
   | CreateContactFlowCommandOutput
   | CreateContactFlowModuleAliasCommandOutput
@@ -1962,6 +1973,7 @@ export type ServiceOutputTypes =
   | SendOutboundEmailCommandOutput
   | StartAttachedFileUploadCommandOutput
   | StartChatContactCommandOutput
+  | StartContactConversationalAnalyticsJobCommandOutput
   | StartContactEvaluationCommandOutput
   | StartContactMediaProcessingCommandOutput
   | StartContactRecordingCommandOutput

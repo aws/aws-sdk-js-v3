@@ -2,7 +2,9 @@
 import type {
   AgentAvailabilityTimer,
   AgentStatusState,
+  AnalyticsMode,
   AttachmentScope,
+  Behavior,
   Channel,
   ChatEventType,
   ContactFlowModuleState,
@@ -17,7 +19,6 @@ import type {
   DataTableAttributeValueType,
   DataTableLockLevel,
   DateComparisonType,
-  DisconnectOnCustomerExitParticipantType,
   EmailHeaderType,
   EvaluationFormItemEnablementAction,
   EvaluationFormItemEnablementOperator,
@@ -33,6 +34,7 @@ import type {
   InstanceStorageResourceType,
   IvrRecordingTrack,
   LocaleCode,
+  MaskMode,
   MeetingFeatureStatus,
   NotificationPriority,
   NotificationStatus,
@@ -40,6 +42,7 @@ import type {
   OverrideType,
   ParticipantTimerAction,
   ParticipantTimerType,
+  Policy,
   QueueStatus,
   RehydrationType,
   ResponseMode,
@@ -47,6 +50,7 @@ import type {
   RulePublishStatus,
   SearchableQueueType,
   StringComparisonType,
+  SummaryMode,
   TargetListType,
   TaskTemplateStatus,
   TestCaseExecutionStatus,
@@ -64,22 +68,16 @@ import type {
   AfterContactWorkConfigPerChannel,
   AgentConfig,
   AgentStatusSearchFilter,
+  AliasConfiguration,
   AllowedCapabilities,
   Application,
   AutoAcceptConfig,
   ControlPlaneAttributeFilter,
   CreatedByInfo,
   DataTableLockVersion,
-  Endpoint,
-  EvaluationFormAutoEvaluationConfiguration,
   EvaluationFormItemEnablementExpression,
-  EvaluationFormLanguageConfiguration,
   EvaluationFormQuestionScoringConfiguration,
   EvaluationFormQuestionTypeProperties,
-  EvaluationFormScoreThreshold,
-  EvaluationFormScoringStrategy,
-  EvaluationFormTargetConfiguration,
-  EvaluationReviewConfiguration,
   FlowModule,
   GranularAccessControlConfiguration,
   HoursOfOperationConfig,
@@ -110,7 +108,6 @@ import type {
   UserPhoneConfig,
   UserProficiency,
   Validation,
-  View,
   ViewInputContent,
   VoiceEnhancementConfig,
 } from "./models_0";
@@ -129,6 +126,7 @@ import type {
   QuickConnect,
   RoutingProfile,
   TestCase,
+  View,
   WorkspaceTheme,
 } from "./models_1";
 import type {
@@ -145,6 +143,72 @@ import type {
   SignInConfig,
   TelephonyConfig,
 } from "./models_2";
+
+/**
+ * <p>Contains information about an email address for a contact center.</p>
+ * @public
+ */
+export interface EmailAddressMetadata {
+  /**
+   * <p>The identifier of the email address.</p>
+   * @public
+   */
+  EmailAddressId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the email address.</p>
+   * @public
+   */
+  EmailAddressArn?: string | undefined;
+
+  /**
+   * <p>The email address, including the domain.</p>
+   * @public
+   */
+  EmailAddress?: string | undefined;
+
+  /**
+   * <p>The description of the email address.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The display name of email address.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>A list of alias configurations for this email address, showing which email addresses forward to this primary
+   *    address. Each configuration contains the email address ID of an alias that forwards emails to this address.</p>
+   * @public
+   */
+  AliasConfigurations?: AliasConfiguration[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchEmailAddressesResponse {
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>List of email addresses matching SearchFilter and SearchCriteria </p>
+   * @public
+   */
+  EmailAddresses?: EmailAddressMetadata[] | undefined;
+
+  /**
+   * <p>The total number of email addresses which matched your search query.</p>
+   * @public
+   */
+  ApproximateTotalCount?: number | undefined;
+}
 
 /**
  * <p>Filters to be applied to search results.</p>
@@ -2276,6 +2340,184 @@ export interface StartChatContactResponse {
    * @public
    */
   ContinuedFromContactId?: string | undefined;
+}
+
+/**
+ * <p>The language configuration for conversational analytics.</p>
+ * @public
+ */
+export interface LanguageConfiguration {
+  /**
+   * <p>The language locale setting for conversational analytics.</p>
+   * @public
+   */
+  LanguageLocale?: string | undefined;
+}
+
+/**
+ * <p>The redaction configuration for conversational analytics.</p>
+ * @public
+ */
+export interface RedactionConfiguration {
+  /**
+   * <p>Controls whether redaction is applied to the analytics output. Valid values: <code>Enable</code> |
+   *     <code>Disable</code>.</p>
+   * @public
+   */
+  Behavior: Behavior | undefined;
+
+  /**
+   * <p>The redaction output policy that determines which versions of the transcript are stored. Valid values:
+   *     <code>None</code> | <code>RedactedOnly</code> | <code>RedactedAndOriginal</code>.</p>
+   * @public
+   */
+  Policy: Policy | undefined;
+
+  /**
+   * <p>The list of PII entity types to redact from the transcript (for example, <code>NAME</code>,
+   *     <code>ADDRESS</code>, <code>CREDIT_DEBIT_NUMBER</code>).</p>
+   * @public
+   */
+  Entities?: string[] | undefined;
+
+  /**
+   * <p>The masking mode that determines how redacted content is replaced in the output. Valid values:
+   *     <code>PII</code> (replaces with the literal string [PII]) | <code>EntityType</code> (replaces with the
+   *    entity type name, for example [NAME]).</p>
+   * @public
+   */
+  MaskMode?: MaskMode | undefined;
+}
+
+/**
+ * <p>The rules configuration for conversational analytics. Controls whether Contact Lens rules are evaluated against
+ *    the analytics output.</p>
+ * @public
+ */
+export interface RulesConfiguration {
+  /**
+   * <p>Controls whether Contact Lens rules are evaluated for the contact. Valid values: <code>Enable</code> |
+   *     <code>Disable</code>.</p>
+   * @public
+   */
+  Behavior?: Behavior | undefined;
+}
+
+/**
+ * <p>The sentiment configuration for conversational analytics.</p>
+ * @public
+ */
+export interface SentimentConfiguration {
+  /**
+   * <p>Controls whether sentiment analysis is applied to the analytics output. Valid values: <code>Enable</code> |
+   *     <code>Disable</code>.</p>
+   * @public
+   */
+  Behavior: Behavior | undefined;
+}
+
+/**
+ * <p>The summary configuration for conversational analytics.</p>
+ * @public
+ */
+export interface SummaryConfiguration {
+  /**
+   * <p>The summary modes that determine what type of summarization is generated. Valid values:
+   *     <code>PostContact</code> | <code>AutomatedInteraction</code> | <code>ContactChain</code>.</p>
+   * @public
+   */
+  SummaryModes: SummaryMode[] | undefined;
+}
+
+/**
+ * <p>The configuration for conversational analytics.</p>
+ * @public
+ */
+export interface AnalyticsConfiguration {
+  /**
+   * <p>The language configuration for conversational analytics.</p>
+   * @public
+   */
+  LanguageConfiguration: LanguageConfiguration | undefined;
+
+  /**
+   * <p>The redaction configuration for conversational analytics.</p>
+   * @public
+   */
+  RedactionConfiguration: RedactionConfiguration | undefined;
+
+  /**
+   * <p>The sentiment configuration for conversational analytics.</p>
+   * @public
+   */
+  SentimentConfiguration: SentimentConfiguration | undefined;
+
+  /**
+   * <p>The summary configuration for conversational analytics.</p>
+   * @public
+   */
+  SummaryConfiguration: SummaryConfiguration | undefined;
+
+  /**
+   * <p>The rules configuration for conversational analytics.</p>
+   * @public
+   */
+  RulesConfiguration: RulesConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartContactConversationalAnalyticsJobRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact in this instance of Connect Customer. </p>
+   * @public
+   */
+  ContactId: string | undefined;
+
+  /**
+   * <p>The analytics modes to run for the contact. Valid values: <code>PostContact</code>.</p>
+   * @public
+   */
+  AnalyticsModes: AnalyticsMode[] | undefined;
+
+  /**
+   * <p>The configuration for the conversational analytics job.</p>
+   * @public
+   */
+  AnalyticsConfiguration: AnalyticsConfiguration | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartContactConversationalAnalyticsJobResponse {
+  /**
+   * <p>The identifier of the Connect Customer instance.</p>
+   * @public
+   */
+  InstanceId?: string | undefined;
+
+  /**
+   * <p>The identifier of the contact.</p>
+   * @public
+   */
+  ContactId?: string | undefined;
 }
 
 /**
@@ -8286,825 +8528,4 @@ export interface CreateContactRequest {
    * @public
    */
   PreviousContactId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartChatContactRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the flow for initiating the chat.
-   *    To
-   *    see the ContactFlowId in the Connect Customer admin website, on the navigation menu go to <b>Routing</b>, <b>Flows</b>. Choose the flow. On the flow page, under the name of the flow, choose <b>Show additional flow information</b>. The ContactFlowId is the last part of the ARN, shown here
-   *    in bold: </p>
-   *          <p>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b>
-   *          </p>
-   * @public
-   */
-  ContactFlowId: string | undefined;
-
-  /**
-   * <p>A custom key-value pair using an attribute map. The attributes are standard Connect Customer attributes. They
-   *    can be accessed in flows just like any other contact attributes. </p>
-   *          <p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only
-   *    alphanumeric, dash, and underscore characters.</p>
-   * @public
-   */
-  Attributes?: Record<string, string> | undefined;
-
-  /**
-   * <p>Information identifying the participant.</p>
-   * @public
-   */
-  ParticipantDetails: ParticipantDetails | undefined;
-
-  /**
-   * <p> The configuration of the participant. </p>
-   * @public
-   */
-  ParticipantConfiguration?: ParticipantConfiguration | undefined;
-
-  /**
-   * <p>The initial message to be sent to the newly created chat.</p>
-   * @public
-   */
-  InitialMessage?: ChatMessage | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>The total duration of the newly started chat session. If not specified, the chat session duration defaults to 25
-   *    hour. The minimum configurable time is 60 minutes. The maximum configurable time is 10,080 minutes (7 days).</p>
-   * @public
-   */
-  ChatDurationInMinutes?: number | undefined;
-
-  /**
-   * <p>The supported chat message content types. Supported types are <code>text/plain</code>,
-   *     <code>text/markdown</code>, <code>application/json</code>,
-   *     <code>application/vnd.amazonaws.connect.message.interactive</code>, and
-   *     <code>application/vnd.amazonaws.connect.message.interactive.response</code>. </p>
-   *          <p>Content types must always contain <code>text/plain</code>. You can then put any other supported type in the
-   *    list. For example, all the following lists are valid because they contain <code>text/plain</code>: <code>[text/plain,
-   *     text/markdown, application/json]</code>, <code>[text/markdown, text/plain]</code>, <code>[text/plain,
-   *     application/json, application/vnd.amazonaws.connect.message.interactive.response]</code>. </p>
-   *          <note>
-   *             <p>The type <code>application/vnd.amazonaws.connect.message.interactive</code> is required to use the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/show-view-block.html">Show view</a> flow block.</p>
-   *          </note>
-   * @public
-   */
-  SupportedMessagingContentTypes?: string[] | undefined;
-
-  /**
-   * <p>Enable persistent chats. For more information about enabling persistent chat, and for example use cases and how
-   *    to configure for them, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable
-   *     persistent chat</a>.</p>
-   * @public
-   */
-  PersistentChat?: PersistentChat | undefined;
-
-  /**
-   * <p>The unique identifier for an Connect Customer contact. This identifier is related to the chat starting.</p>
-   *          <note>
-   *             <p>You cannot provide data for both RelatedContactId and PersistentChat. </p>
-   *          </note>
-   * @public
-   */
-  RelatedContactId?: string | undefined;
-
-  /**
-   * <p>A set of system defined key-value pairs stored on individual contact segments using an attribute map. The
-   *    attributes are standard Connect Customer attributes. They can be accessed in flows.</p>
-   *          <p>Attribute keys can include only alphanumeric, -, and _.</p>
-   *          <p>This field can be used to show channel subtype, such as <code>connect:Guide</code>.</p>
-   *          <note>
-   *             <p>The types <code>application/vnd.amazonaws.connect.message.interactive</code> and
-   *      <code>application/vnd.amazonaws.connect.message.interactive.response</code> must be present in the
-   *     SupportedMessagingContentTypes field of this API in order to set <code>SegmentAttributes</code> as \{<code>
-   *      "connect:Subtype": \{"valueString" : "connect:Guide" \}\}</code>.</p>
-   *          </note>
-   * @public
-   */
-  SegmentAttributes?: Record<string, SegmentAttributeValue> | undefined;
-
-  /**
-   * <p>The customer's identification number. For example, the <code>CustomerId</code> may be a customer number from
-   *    your CRM.</p>
-   * @public
-   */
-  CustomerId?: string | undefined;
-
-  /**
-   * <p>A list of participant types to automatically disconnect when the end customer ends the chat session, allowing them to continue through disconnect flows such as surveys or feedback forms.</p>
-   * @public
-   */
-  DisconnectOnCustomerExit?: DisconnectOnCustomerExitParticipantType[] | undefined;
-}
-
-/**
- * @public
- */
-export interface StartEmailContactRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The email address of the customer.</p>
-   * @public
-   */
-  FromEmailAddress: EmailAddressInfo | undefined;
-
-  /**
-   * <p>The email address associated with the Connect Customer instance.</p>
-   * @public
-   */
-  DestinationEmailAddress: string | undefined;
-
-  /**
-   * <p>A description of the email contact.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>A formatted URL that is shown to an agent in the Contact Control Panel (CCP). Emails can have the following
-   *    reference types at the time of creation: <code>URL</code> | <code>NUMBER</code> | <code>STRING</code> |
-   *     <code>DATE</code>. <code>EMAIL</code> | <code>EMAIL_MESSAGE</code> |<code>ATTACHMENT</code> are not a supported
-   *    reference type during email creation.</p>
-   * @public
-   */
-  References?: Record<string, Reference> | undefined;
-
-  /**
-   * <p>The name of a email that is shown to an agent in the Contact Control Panel (CCP).</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The email message body to be sent to the newly created email.</p>
-   * @public
-   */
-  EmailMessage: InboundEmailContent | undefined;
-
-  /**
-   * <p>The additional recipients address of the email.</p>
-   * @public
-   */
-  AdditionalRecipients?: InboundAdditionalRecipients | undefined;
-
-  /**
-   * <p>List of S3 presigned URLs of email attachments and their file name. </p>
-   * @public
-   */
-  Attachments?: EmailAttachment[] | undefined;
-
-  /**
-   * <p>The identifier of the flow for initiating the emails. To see the ContactFlowId in the Connect Customer admin website, on the navigation
-   *    menu go to <b>Routing</b>, <b>Flows</b>. Choose the flow. On the
-   *    flow page, under the name of the flow, choose <b>Show additional flow information</b>. The
-   *    ContactFlowId is the last part of the ARN, shown here in bold: </p>
-   *          <p>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b>
-   *          </p>
-   * @public
-   */
-  ContactFlowId?: string | undefined;
-
-  /**
-   * <p>The contactId that is related to this contact. Linking emails together by using <code>RelatedContactID</code>
-   *    copies over contact attributes from the related email contact to the new email contact. All updates to user-defined
-   *    attributes in the new email contact are limited to the individual contact ID. There are no limits to the number of
-   *    contacts that can be linked by using <code>RelatedContactId</code>. </p>
-   * @public
-   */
-  RelatedContactId?: string | undefined;
-
-  /**
-   * <p>A custom key-value pair using an attribute map. The attributes are standard Connect Customer attributes, and
-   *    can be accessed in flows just like any other contact attributes.</p>
-   *          <p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only
-   *    alphanumeric, dash, and underscore characters.</p>
-   * @public
-   */
-  Attributes?: Record<string, string> | undefined;
-
-  /**
-   * <p>A set of system defined key-value pairs stored on individual contact segments using an attribute map. The
-   *    attributes are standard Connect Customer attributes. They can be accessed in flows.</p>
-   *          <p>Attribute keys can include only alphanumeric, -, and _.</p>
-   *          <p>This field can be used to show channel subtype, such as <code>connect:Guide</code>.</p>
-   *          <note>
-   *             <p>To set contact expiry, a <code>ValueMap</code> must be specified containing the integer number of minutes the
-   *     contact will be active for before expiring, with <code>SegmentAttributes</code> like \{ <code>
-   *      "connect:ContactExpiry": \{"ValueMap" : \{ "ExpiryDuration": \{ "ValueInteger":135\}\}\}\}</code>.</p>
-   *          </note>
-   * @public
-   */
-  SegmentAttributes?: Record<string, SegmentAttributeValue> | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartOutboundChatContactRequest {
-  /**
-   * <p>Information about the endpoint.</p>
-   * @public
-   */
-  SourceEndpoint: Endpoint | undefined;
-
-  /**
-   * <p>Information about the endpoint.</p>
-   * @public
-   */
-  DestinationEndpoint: Endpoint | undefined;
-
-  /**
-   * <p>The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name
-   *    (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>A set of system defined key-value pairs stored on individual contact segments using an attribute map. The
-   *    attributes are standard Connect Customer attributes. They can be accessed in flows.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Attribute keys can include only alphanumeric, <code>-</code>, and <code>_</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>This field can be used to show channel subtype, such as <code>connect:SMS</code> and
-   *       <code>connect:WhatsApp</code>.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  SegmentAttributes: Record<string, SegmentAttributeValue> | undefined;
-
-  /**
-   * <p>A custom key-value pair using an attribute map. The attributes are standard Connect Customer attributes, and
-   *    can be accessed in flows just like any other contact attributes.</p>
-   * @public
-   */
-  Attributes?: Record<string, string> | undefined;
-
-  /**
-   * <p>The identifier of the flow for the call. To see the ContactFlowId in the Connect Customer console user
-   *    interface, on the navigation menu go to <b>Routing, Contact Flows</b>. Choose the flow. On
-   *    the flow page, under the name of the flow, choose <b>Show additional flow information</b>.
-   *    The ContactFlowId is the last part of the ARN, shown here in bold:</p>
-   *          <ul>
-   *             <li>
-   *                <p>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>123ec456-a007-89c0-1234-xxxxxxxxxxxx</b>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ContactFlowId: string | undefined;
-
-  /**
-   * <p>The total duration of the newly started chat session. If not specified, the chat session duration defaults to 25
-   *    hour. The minimum configurable time is 60 minutes. The maximum configurable time is 10,080 minutes (7 days).</p>
-   * @public
-   */
-  ChatDurationInMinutes?: number | undefined;
-
-  /**
-   * <p>The customer's details.</p>
-   * @public
-   */
-  ParticipantDetails?: ParticipantDetails | undefined;
-
-  /**
-   * <p>A chat message.</p>
-   * @public
-   */
-  InitialSystemMessage?: ChatMessage | undefined;
-
-  /**
-   * <p>Information about template message configuration.</p>
-   * @public
-   */
-  InitialTemplatedSystemMessage?: TemplatedMessageConfig | undefined;
-
-  /**
-   * <p>The unique identifier for an Connect Customer contact. This identifier is related to the contact
-   *    starting.</p>
-   * @public
-   */
-  RelatedContactId?: string | undefined;
-
-  /**
-   * <p>The supported chat message content types. Supported types are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>text/plain</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>text/markdown</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>application/json, application/vnd.amazonaws.connect.message.interactive</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>application/vnd.amazonaws.connect.message.interactive.response</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>Content types must always contain <code>text/plain</code>. You can then put any other supported type in the
-   *    list. For example, all the following lists are valid because they contain <code>text/plain</code>:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>[text/plain, text/markdown, application/json]</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>[text/markdown, text/plain]</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>[text/plain, application/json,
-   *      application/vnd.amazonaws.connect.message.interactive.response]</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  SupportedMessagingContentTypes?: string[] | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided,
-   *    the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with
-   *     idempotent APIs</a>. The token is valid for 7 days after creation. If a contact is already started, the contact
-   *    ID is returned.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartTaskContactRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the previous chat, voice, or task contact. Any updates to user-defined attributes to task
-   *    contacts linked using the same <code>PreviousContactID</code> will affect every contact in the chain. There can be a
-   *    maximum of 12 linked task contacts in a chain.</p>
-   * @public
-   */
-  PreviousContactId?: string | undefined;
-
-  /**
-   * <p>The identifier of the flow for initiating the tasks. To see the ContactFlowId in the Connect Customer admin website, on the navigation
-   *    menu go to <b>Routing</b>, <b>Flows</b>. Choose the flow. On the
-   *    flow page, under the name of the flow, choose <b>Show additional flow information</b>. The
-   *    ContactFlowId is the last part of the ARN, shown here in bold: </p>
-   *          <p>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b>
-   *          </p>
-   * @public
-   */
-  ContactFlowId?: string | undefined;
-
-  /**
-   * <p>A custom key-value pair using an attribute map. The attributes are standard Connect Customer attributes, and
-   *    can be accessed in flows just like any other contact attributes.</p>
-   *          <p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only
-   *    alphanumeric, dash, and underscore characters.</p>
-   * @public
-   */
-  Attributes?: Record<string, string> | undefined;
-
-  /**
-   * <p>The name of a task that is shown to an agent in the Contact Control Panel (CCP).</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>A formatted URL that is shown to an agent in the Contact Control Panel (CCP). Tasks can have the following
-   *    reference types at the time of creation: <code>URL</code> | <code>NUMBER</code> | <code>STRING</code> |
-   *     <code>DATE</code> | <code>EMAIL</code>. <code>ATTACHMENT</code> is not a supported reference type during task
-   *    creation.</p>
-   * @public
-   */
-  References?: Record<string, Reference> | undefined;
-
-  /**
-   * <p>A description of the task that is shown to an agent in the Contact Control Panel (CCP).</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>The timestamp, in Unix Epoch seconds format, at which to start running the inbound flow. The scheduled time cannot be in the past. It must be within up to 6 days in future. </p>
-   * @public
-   */
-  ScheduledTime?: Date | undefined;
-
-  /**
-   * <p>A unique identifier for the task template. For more information about task templates, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/task-templates.html">Create task templates</a> in the <i>Connect Customer Administrator Guide</i>. </p>
-   * @public
-   */
-  TaskTemplateId?: string | undefined;
-
-  /**
-   * <p>The identifier for the quick connect. Tasks that are created by using <code>QuickConnectId</code> will use the flow that is defined
-   *    on agent or queue quick connect. For more information about quick connects, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/quick-connects.html">Create quick connects</a>.</p>
-   * @public
-   */
-  QuickConnectId?: string | undefined;
-
-  /**
-   * <p>The contactId that is <a href="https://docs.aws.amazon.com/connect/latest/adminguide/tasks.html#linked-tasks">related</a> to this contact. Linking tasks together by using <code>RelatedContactID</code> copies over contact
-   *    attributes from the related task contact to the new task contact. All updates to user-defined attributes in the new
-   *    task contact are limited to the individual contact ID, unlike what happens when tasks are linked by using
-   *     <code>PreviousContactID</code>. There are no limits to the number of contacts that can be linked by using
-   *     <code>RelatedContactId</code>. </p>
-   * @public
-   */
-  RelatedContactId?: string | undefined;
-
-  /**
-   * <p>A set of system defined key-value pairs stored on individual contact segments (unique contact ID) using an
-   *    attribute map. The attributes are standard Connect Customer attributes. They can be accessed in flows.</p>
-   *          <p>Attribute keys can include only alphanumeric, -, and _.</p>
-   *          <p>This field can be used to set Contact Expiry as a duration in minutes and set a UserId for the User who created
-   *    a task.</p>
-   *          <note>
-   *             <p>To set contact expiry, a ValueMap must be specified containing the integer number of minutes the contact will
-   *     be active for before expiring, with <code>SegmentAttributes</code> like \{ <code> "connect:ContactExpiry":
-   *      \{"ValueMap" : \{ "ExpiryDuration": \{ "ValueInteger": 135\}\}\}\}</code>. </p>
-   *             <p>To set the created by user, a valid AgentResourceId must be supplied, with <code>SegmentAttributes</code> like
-   *     \{ <code>"connect:CreatedByUser" \{ "ValueString":
-   *      "arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/agent/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"\}\}\}</code>.
-   *    </p>
-   *          </note>
-   * @public
-   */
-  SegmentAttributes?: Record<string, SegmentAttributeValue> | undefined;
-
-  /**
-   * <p>List of S3 presigned URLs of task attachments and their file name. You can have a maximum of 5 attachments per task.</p>
-   * @public
-   */
-  Attachments?: TaskAttachment[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateContactRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the contact. This is the identifier of the contact associated with the first interaction with
-   *    your contact center.</p>
-   * @public
-   */
-  ContactId: string | undefined;
-
-  /**
-   * <p>The name of the contact.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The description of the contact.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Well-formed data on contact, shown to agents on Contact Control Panel (CCP).</p>
-   * @public
-   */
-  References?: Record<string, Reference> | undefined;
-
-  /**
-   * <p>A set of system defined key-value pairs stored on individual contact segments (unique contact ID) using an
-   *    attribute map. The attributes are standard Connect Customer attributes. They can be accessed in flows.</p>
-   *          <p>Attribute keys can include only alphanumeric, -, and _.</p>
-   *          <p>This field can be used to show channel subtype, such as <code>connect:Guide</code>.</p>
-   *          <p>Contact Expiry, and user-defined attributes (String - String) that are defined in predefined attributes, can be
-   *    updated by using the UpdateContact API.</p>
-   * @public
-   */
-  SegmentAttributes?: Record<string, SegmentAttributeValue> | undefined;
-
-  /**
-   * <p> Information about the queue associated with a contact. This parameter can only be updated for external audio
-   *    contacts. It is used when you integrate third-party systems with Contact Lens for analytics. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-integration.html">Connect Customer Contact Lens integration</a> in
-   *    the <i>
-   *     Connect Customer Administrator Guide</i>.</p>
-   * @public
-   */
-  QueueInfo?: QueueInfoInput | undefined;
-
-  /**
-   * <p>Information about the agent associated with a contact. This parameter can only be updated for external audio
-   *    contacts. It is used when you integrate third-party systems with Contact Lens for analytics. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-integration.html">Connect Customer Contact Lens integration</a> in
-   *    the <i>
-   *     Connect Customer Administrator Guide</i>.</p>
-   * @public
-   */
-  UserInfo?: UserInfo | undefined;
-
-  /**
-   * <p>The endpoint of the customer for which the contact was initiated. For external audio contacts, this is usually
-   *    the end customer's phone number. This value can only be updated for external audio contacts. For more information,
-   *    see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-integration.html">Connect Customer
-   *     Contact Lens integration</a> in the <i>Connect Customer Administrator Guide</i>.</p>
-   * @public
-   */
-  CustomerEndpoint?: Endpoint | undefined;
-
-  /**
-   * <p>External system endpoint for the contact was initiated. For external audio contacts, this is the phone number of
-   *    the external system such as the contact center. This value can only be updated for external audio contacts. For more
-   *    information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-integration.html">Connect Customer Contact Lens integration</a> in the <i>Connect Customer Administrator
-   *    Guide</i>.</p>
-   * @public
-   */
-  SystemEndpoint?: Endpoint | undefined;
-}
-
-/**
- * <p>Information about an item from an evaluation form. The item must be either a section or a question.</p>
- * @public
- */
-export type EvaluationFormItem =
-  | EvaluationFormItem.QuestionMember
-  | EvaluationFormItem.SectionMember
-  | EvaluationFormItem.$UnknownMember;
-
-/**
- * @public
- */
-export namespace EvaluationFormItem {
-  /**
-   * <p>The information of the section.</p>
-   * @public
-   */
-  export interface SectionMember {
-    Section: EvaluationFormSection;
-    Question?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The information of the question.</p>
-   * @public
-   */
-  export interface QuestionMember {
-    Section?: never;
-    Question: EvaluationFormQuestion;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    Section?: never;
-    Question?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    Section: (value: EvaluationFormSection) => T;
-    Question: (value: EvaluationFormQuestion) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Latest routing criteria on the contact.</p>
- * @public
- */
-export interface RoutingCriteria {
-  /**
-   * <p>List of routing steps. When Connect Customer does not find an available agent meeting the requirements in a
-   *    step for a given step duration, the routing criteria will move on to the next step sequentially until a join is
-   *    completed with an agent. When all steps are exhausted, the contact will be offered to any agent in the queue.</p>
-   * @public
-   */
-  Steps?: Step[] | undefined;
-
-  /**
-   * <p>The timestamp indicating when the routing criteria is set to active. A routing criteria is activated when
-   *    contact is transferred to a queue. ActivationTimestamp will be set on routing criteria for contacts in agent queue
-   *    even though Routing criteria is never activated for contacts in agent queue.</p>
-   * @public
-   */
-  ActivationTimestamp?: Date | undefined;
-
-  /**
-   * <p>Information about the index of the routing criteria.</p>
-   * @public
-   */
-  Index?: number | undefined;
-}
-
-/**
- * <p>An object to define the RoutingCriteria.</p>
- * @public
- */
-export interface RoutingCriteriaInput {
-  /**
-   * <p>When Connect Customer does not find an available agent meeting the requirements in a step for a given step
-   *    duration, the routing criteria will move on to the next step sequentially until a join is completed with an agent.
-   *    When all steps are exhausted, the contact will be offered to any agent in the queue.</p>
-   * @public
-   */
-  Steps?: RoutingCriteriaInputStep[] | undefined;
-}
-
-/**
- * <p>Information about a section from an evaluation form. A section can contain sections and/or questions. Evaluation
- *    forms can only contain sections and subsections (two level nesting).</p>
- * @public
- */
-export interface EvaluationFormSection {
-  /**
-   * <p>The title of the section.</p>
-   * @public
-   */
-  Title: string | undefined;
-
-  /**
-   * <p>The identifier of the section. An identifier must be unique within the evaluation form.</p>
-   * @public
-   */
-  RefId: string | undefined;
-
-  /**
-   * <p>The instructions of the section.</p>
-   * @public
-   */
-  Instructions?: string | undefined;
-
-  /**
-   * <p>The items of the section.</p>
-   * @public
-   */
-  Items: EvaluationFormItem[] | undefined;
-
-  /**
-   * <p>The scoring weight of the section.</p>
-   * @public
-   */
-  Weight?: number | undefined;
-
-  /**
-   * <p>The flag to exclude the section from scoring.</p>
-   * @public
-   */
-  IsExcludedFromScoring?: boolean | undefined;
-
-  /**
-   * <p>The score thresholds for performance categories.</p>
-   * @public
-   */
-  ScoreThresholds?: EvaluationFormScoreThreshold[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateEvaluationFormRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>A title of the evaluation form.</p>
-   * @public
-   */
-  Title: string | undefined;
-
-  /**
-   * <p>The description of the evaluation form.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Items that are part of the evaluation form.  The total number of sections and questions must not exceed 100 each.  Questions must be contained in a section.</p>
-   * @public
-   */
-  Items: EvaluationFormItem[] | undefined;
-
-  /**
-   * <p>A scoring strategy of the evaluation form.</p>
-   * @public
-   */
-  ScoringStrategy?: EvaluationFormScoringStrategy | undefined;
-
-  /**
-   * <p>Configuration information about automated evaluations.</p>
-   * @public
-   */
-  AutoEvaluationConfiguration?: EvaluationFormAutoEvaluationConfiguration | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>A boolean flag indicating whether to create evaluation form in draft state.</p>
-   * @public
-   */
-  AsDraft?: boolean | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-
-  /**
-   * <p>Configuration information about evaluation reviews.</p>
-   * @public
-   */
-  ReviewConfiguration?: EvaluationReviewConfiguration | undefined;
-
-  /**
-   * <p>Configuration that specifies the target for the evaluation form.</p>
-   * @public
-   */
-  TargetConfiguration?: EvaluationFormTargetConfiguration | undefined;
-
-  /**
-   * <p>Configuration for language settings of the evaluation form.</p>
-   * @public
-   */
-  LanguageConfiguration?: EvaluationFormLanguageConfiguration | undefined;
 }

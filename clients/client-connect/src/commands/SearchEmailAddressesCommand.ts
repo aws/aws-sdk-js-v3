@@ -5,8 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { SearchEmailAddressesResponse } from "../models/models_2";
-import type { SearchEmailAddressesRequest } from "../models/models_3";
+import type { SearchEmailAddressesRequest, SearchEmailAddressesResponse } from "../models/models_3";
 import { SearchEmailAddresses$ } from "../schemas/schemas_0";
 
 /**

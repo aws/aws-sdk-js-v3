@@ -29,7 +29,6 @@ import type {
   EvaluationType,
   FileStatusType,
   FileUseCaseType,
-  FilterV2StringConditionComparisonOperator,
   FlowAssociationResourceType,
   Grouping,
   HistoricalMetricName,
@@ -61,6 +60,8 @@ import type {
   TestCaseStatus,
   TrafficDistributionGroupStatus,
   Unit,
+  ViewStatus,
+  ViewType,
   Visibility,
   VocabularyLanguageCode,
   VocabularyState,
@@ -111,9 +112,117 @@ import type {
   UserIdentityInfo,
   UserPhoneConfig,
   Validation,
-  View,
   VoiceEnhancementConfig,
 } from "./models_0";
+
+/**
+ * <p>View content containing all content necessary to render a view except for runtime input data.</p>
+ * @public
+ */
+export interface ViewContent {
+  /**
+   * <p>The data schema matching data that the view template must be provided to render.</p>
+   * @public
+   */
+  InputSchema?: string | undefined;
+
+  /**
+   * <p>The view template representing the structure of the view.</p>
+   * @public
+   */
+  Template?: string | undefined;
+
+  /**
+   * <p>A list of possible actions from the view.</p>
+   * @public
+   */
+  Actions?: string[] | undefined;
+}
+
+/**
+ * <p>A view resource object. Contains metadata and content necessary to render the view.</p>
+ * @public
+ */
+export interface View {
+  /**
+   * <p>The identifier of the view.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the view.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The name of the view.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>Indicates the view status as either <code>SAVED</code> or <code>PUBLISHED</code>. The <code>PUBLISHED</code>
+   *    status will initiate validation on the content.</p>
+   * @public
+   */
+  Status?: ViewStatus | undefined;
+
+  /**
+   * <p>The type of the view - <code>CUSTOMER_MANAGED</code>.</p>
+   * @public
+   */
+  Type?: ViewType | undefined;
+
+  /**
+   * <p>The description of the view.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Current version of the view.</p>
+   * @public
+   */
+  Version?: number | undefined;
+
+  /**
+   * <p>The description of the version.</p>
+   * @public
+   */
+  VersionDescription?: string | undefined;
+
+  /**
+   * <p>View content containing all content necessary to render a view except for runtime input data.</p>
+   * @public
+   */
+  Content?: ViewContent | undefined;
+
+  /**
+   * <p>The tags associated with the view resource (not specific to view version).</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The timestamp of when the view was created.</p>
+   * @public
+   */
+  CreatedTime?: Date | undefined;
+
+  /**
+   * <p>Latest timestamp of the <code>UpdateViewContent</code> or <code>CreateViewVersion</code> operations.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>Indicates the checksum value of the latest published view content.</p>
+   * @public
+   */
+  ViewContentSha256?: string | undefined;
+}
 
 /**
  * @public
@@ -8654,38 +8763,4 @@ export interface HistoricalMetricResult {
    * @public
    */
   Collections?: HistoricalMetricData[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMetricDataResponse {
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   *          <p>The token expires after 5 minutes from the time it is created. Subsequent requests that use
-   *    the token must use the same request parameters as the request that generated the token.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Information about the historical metrics.</p>
-   *          <p>If no grouping is specified, a summary of metric data is returned.</p>
-   * @public
-   */
-  MetricResults?: HistoricalMetricResult[] | undefined;
-}
-
-/**
- * <p> System defined filtering condition. For example, the NOT_EXISTS StringCondition returns documents where the
- *    field specified by FilterKey does not exist in the document.</p>
- *          <p>When the NOT_EXISTS StringCondition is added to a FilterV2 object, FilterValues must be null or empty. </p>
- * @public
- */
-export interface FilterV2StringCondition {
-  /**
-   * <p> The string condition. </p>
-   * @public
-   */
-  Comparison?: FilterV2StringConditionComparisonOperator | undefined;
 }
