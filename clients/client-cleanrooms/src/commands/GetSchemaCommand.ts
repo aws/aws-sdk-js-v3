@@ -70,13 +70,13 @@ export interface GetSchemaCommandOutput extends GetSchemaOutput, __MetadataBeare
  * //     description: "STRING_VALUE", // required
  * //     createTime: new Date("TIMESTAMP"), // required
  * //     updateTime: new Date("TIMESTAMP"), // required
- * //     type: "TABLE" || "ID_MAPPING_TABLE", // required
+ * //     type: "TABLE" || "ID_MAPPING_TABLE" || "INTERMEDIATE_TABLE", // required
  * //     schemaStatusDetails: [ // SchemaStatusDetailList // required
  * //       { // SchemaStatusDetail
  * //         status: "READY" || "NOT_READY", // required
  * //         reasons: [ // SchemaStatusReasonList
  * //           { // SchemaStatusReason
- * //             code: "ANALYSIS_RULE_MISSING" || "ANALYSIS_TEMPLATES_NOT_CONFIGURED" || "ANALYSIS_PROVIDERS_NOT_CONFIGURED" || "DIFFERENTIAL_PRIVACY_POLICY_NOT_CONFIGURED" || "ID_MAPPING_TABLE_NOT_POPULATED" || "COLLABORATION_ANALYSIS_RULE_NOT_CONFIGURED" || "ADDITIONAL_ANALYSES_NOT_CONFIGURED" || "RESULT_RECEIVERS_NOT_CONFIGURED" || "ADDITIONAL_ANALYSES_NOT_ALLOWED" || "RESULT_RECEIVERS_NOT_ALLOWED" || "ANALYSIS_RULE_TYPES_NOT_COMPATIBLE", // required
+ * //             code: "ANALYSIS_RULE_MISSING" || "ANALYSIS_TEMPLATES_NOT_CONFIGURED" || "ANALYSIS_PROVIDERS_NOT_CONFIGURED" || "DIFFERENTIAL_PRIVACY_POLICY_NOT_CONFIGURED" || "ID_MAPPING_TABLE_NOT_POPULATED" || "COLLABORATION_ANALYSIS_RULE_NOT_CONFIGURED" || "ADDITIONAL_ANALYSES_NOT_CONFIGURED" || "RESULT_RECEIVERS_NOT_CONFIGURED" || "ADDITIONAL_ANALYSES_NOT_ALLOWED" || "RESULT_RECEIVERS_NOT_ALLOWED" || "ANALYSIS_RULE_TYPES_NOT_COMPATIBLE" || "INTERMEDIATE_TABLE_NOT_POPULATED" || "INTERMEDIATE_TABLE_ANALYSIS_RULE_MISSING" || "INTERMEDIATE_TABLE_BASE_TABLE_REMOVED" || "INTERMEDIATE_TABLE_INHERITED_CONSTRAINTS_VIOLATED" || "INTERMEDIATE_TABLE_DISALLOWED_BY_DATA_PROVIDER" || "INTERMEDIATE_TABLE_RETENTION_PERIOD_EXPIRED", // required
  * //             message: "STRING_VALUE", // required
  * //           },
  * //         ],
@@ -96,6 +96,13 @@ export interface GetSchemaCommandOutput extends GetSchemaOutput, __MetadataBeare
  * //             type: "SOURCE" || "TARGET", // required
  * //           },
  * //         ],
+ * //         idMappingTableId: "STRING_VALUE",
+ * //       },
+ * //       intermediateTable: { // IntermediateTableSchemaTypeProperties
+ * //         intermediateTableId: "STRING_VALUE", // required
+ * //       },
+ * //       configuredTableAssociation: { // ConfiguredTableAssociationSchemaTypeProperties
+ * //         configuredTableAssociationId: "STRING_VALUE", // required
  * //       },
  * //     },
  * //   },

@@ -69,6 +69,15 @@ export interface UpdateIdMappingTableCommandOutput extends UpdateIdMappingTableO
  * //       ],
  * //     },
  * //     kmsKeyArn: "STRING_VALUE",
+ * //     childResources: [ // ChildResourceList
+ * //       { // ChildResource
+ * //         resourceId: "STRING_VALUE",
+ * //         resourceType: "INTERMEDIATE_TABLE", // required
+ * //         resourceName: "STRING_VALUE", // required
+ * //         ownerAccountId: "STRING_VALUE", // required
+ * //         resourceStatus: "CREATED" || "POPULATE_STARTED" || "POPULATE_SUCCESS" || "POPULATE_FAILED" || "DISALLOWED_BY_DATA_PROVIDER" || "BASE_TABLE_REMOVED" || "RETENTION_PERIOD_EXPIRED",
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

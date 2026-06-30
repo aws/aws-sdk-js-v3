@@ -5,8 +5,8 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { DeleteMembershipInput, DeleteMembershipOutput } from "../models/models_1";
-import { DeleteMembership$ } from "../schemas/schemas_0";
+import type { DeleteIntermediateTableInput, DeleteIntermediateTableOutput } from "../models/models_0";
+import { DeleteIntermediateTable$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,39 +16,40 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DeleteMembershipCommand}.
+ * The input for {@link DeleteIntermediateTableCommand}.
  */
-export interface DeleteMembershipCommandInput extends DeleteMembershipInput {}
+export interface DeleteIntermediateTableCommandInput extends DeleteIntermediateTableInput {}
 /**
  * @public
  *
- * The output of {@link DeleteMembershipCommand}.
+ * The output of {@link DeleteIntermediateTableCommand}.
  */
-export interface DeleteMembershipCommandOutput extends DeleteMembershipOutput, __MetadataBearer {}
+export interface DeleteIntermediateTableCommandOutput extends DeleteIntermediateTableOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes a specified membership. All resources under a membership must be deleted.</p>
+ * <p>Deletes an intermediate table. When you delete the table, the service marks it as DELETED, removes its analysis rule and schema, and triggers storage cleanup. This operation is idempotent. Only the intermediate table owner can call this operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CleanRoomsClient, DeleteMembershipCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
- * // const { CleanRoomsClient, DeleteMembershipCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * import { CleanRoomsClient, DeleteIntermediateTableCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
+ * // const { CleanRoomsClient, DeleteIntermediateTableCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * // import type { CleanRoomsClientConfig } from "@aws-sdk/client-cleanrooms";
  * const config = {}; // type is CleanRoomsClientConfig
  * const client = new CleanRoomsClient(config);
- * const input = { // DeleteMembershipInput
+ * const input = { // DeleteIntermediateTableInput
  *   membershipIdentifier: "STRING_VALUE", // required
+ *   intermediateTableIdentifier: "STRING_VALUE", // required
  * };
- * const command = new DeleteMembershipCommand(input);
+ * const command = new DeleteIntermediateTableCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param DeleteMembershipCommandInput - {@link DeleteMembershipCommandInput}
- * @returns {@link DeleteMembershipCommandOutput}
- * @see {@link DeleteMembershipCommandInput} for command's `input` shape.
- * @see {@link DeleteMembershipCommandOutput} for command's `response` shape.
+ * @param DeleteIntermediateTableCommandInput - {@link DeleteIntermediateTableCommandInput}
+ * @returns {@link DeleteIntermediateTableCommandOutput}
+ * @see {@link DeleteIntermediateTableCommandInput} for command's `input` shape.
+ * @see {@link DeleteIntermediateTableCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -75,10 +76,10 @@ export interface DeleteMembershipCommandOutput extends DeleteMembershipOutput, _
  *
  * @public
  */
-export class DeleteMembershipCommand extends $Command
+export class DeleteIntermediateTableCommand extends $Command
   .classBuilder<
-    DeleteMembershipCommandInput,
-    DeleteMembershipCommandOutput,
+    DeleteIntermediateTableCommandInput,
+    DeleteIntermediateTableCommandOutput,
     CleanRoomsClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -87,19 +88,19 @@ export class DeleteMembershipCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("AWSBastionControlPlaneServiceLambda", "DeleteMembership", {})
-  .n("CleanRoomsClient", "DeleteMembershipCommand")
-  .sc(DeleteMembership$)
+  .s("AWSBastionControlPlaneServiceLambda", "DeleteIntermediateTable", {})
+  .n("CleanRoomsClient", "DeleteIntermediateTableCommand")
+  .sc(DeleteIntermediateTable$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DeleteMembershipInput;
+      input: DeleteIntermediateTableInput;
       output: {};
     };
     sdk: {
-      input: DeleteMembershipCommandInput;
-      output: DeleteMembershipCommandOutput;
+      input: DeleteIntermediateTableCommandInput;
+      output: DeleteIntermediateTableCommandOutput;
     };
   };
 }

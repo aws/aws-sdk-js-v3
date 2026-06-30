@@ -13,6 +13,8 @@ export * from "./ListConfiguredTableAssociationsPaginator";
 export * from "./ListConfiguredTablesPaginator";
 export * from "./ListIdMappingTablesPaginator";
 export * from "./ListIdNamespaceAssociationsPaginator";
+export * from "./ListIntermediateTablesPaginator";
+export * from "./ListIntermediateTableVersionsPaginator";
 export * from "./ListMembersPaginator";
 export * from "./ListMembershipsPaginator";
 export * from "./ListPrivacyBudgetsPaginator";

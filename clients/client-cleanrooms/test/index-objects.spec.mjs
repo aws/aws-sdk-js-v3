@@ -43,6 +43,8 @@ import {
   AthenaTableReference$,
   AutoApprovedChangeType,
   AutoRefreshMode,
+  BaseTableDependencyType,
+  BaseTableParentType,
   BatchGetCollaborationAnalysisTemplate$,
   BatchGetCollaborationAnalysisTemplateCommand,
   BatchGetCollaborationAnalysisTemplateError$,
@@ -68,6 +70,8 @@ import {
   ChangeSpecification$,
   ChangeSpecificationType,
   ChangeType,
+  ChildResource$,
+  ChildResourceType,
   CleanRooms,
   CleanRoomsClient,
   CleanRoomsServiceException,
@@ -89,6 +93,7 @@ import {
   CollaborationSummary$,
   Column$,
   ColumnClassificationDetails$,
+  ColumnLineageEntry$,
   CommercialRegion,
   ComputeConfiguration$,
   ConfigurationDetails$,
@@ -107,6 +112,7 @@ import {
   ConfiguredTableAssociationAnalysisRulePolicy$,
   ConfiguredTableAssociationAnalysisRulePolicyV1$,
   ConfiguredTableAssociationAnalysisRuleType,
+  ConfiguredTableAssociationSchemaTypeProperties$,
   ConfiguredTableAssociationSummary$,
   ConfiguredTableSummary$,
   ConflictException,
@@ -157,6 +163,14 @@ import {
   CreateIdNamespaceAssociationCommand,
   CreateIdNamespaceAssociationInput$,
   CreateIdNamespaceAssociationOutput$,
+  CreateIntermediateTable$,
+  CreateIntermediateTableAnalysisRule$,
+  CreateIntermediateTableAnalysisRuleCommand,
+  CreateIntermediateTableAnalysisRuleInput$,
+  CreateIntermediateTableAnalysisRuleOutput$,
+  CreateIntermediateTableCommand,
+  CreateIntermediateTableInput$,
+  CreateIntermediateTableOutput$,
   CreateMembership$,
   CreateMembershipCommand,
   CreateMembershipInput$,
@@ -203,6 +217,14 @@ import {
   DeleteIdNamespaceAssociationCommand,
   DeleteIdNamespaceAssociationInput$,
   DeleteIdNamespaceAssociationOutput$,
+  DeleteIntermediateTable$,
+  DeleteIntermediateTableAnalysisRule$,
+  DeleteIntermediateTableAnalysisRuleCommand,
+  DeleteIntermediateTableAnalysisRuleInput$,
+  DeleteIntermediateTableAnalysisRuleOutput$,
+  DeleteIntermediateTableCommand,
+  DeleteIntermediateTableInput$,
+  DeleteIntermediateTableOutput$,
   DeleteMember$,
   DeleteMemberCommand,
   DeleteMemberInput$,
@@ -229,6 +251,10 @@ import {
   DifferentialPrivacyTemplateParametersOutput$,
   DifferentialPrivacyTemplateUpdateParameters$,
   DirectAnalysisConfigurationDetails$,
+  DisallowIntermediateTable$,
+  DisallowIntermediateTableCommand,
+  DisallowIntermediateTableInput$,
+  DisallowIntermediateTableOutput$,
   ErrorMessageConfiguration$,
   ErrorMessageType,
   FilterableMemberStatus,
@@ -288,6 +314,14 @@ import {
   GetIdNamespaceAssociationCommand,
   GetIdNamespaceAssociationInput$,
   GetIdNamespaceAssociationOutput$,
+  GetIntermediateTable$,
+  GetIntermediateTableAnalysisRule$,
+  GetIntermediateTableAnalysisRuleCommand,
+  GetIntermediateTableAnalysisRuleInput$,
+  GetIntermediateTableAnalysisRuleOutput$,
+  GetIntermediateTableCommand,
+  GetIntermediateTableInput$,
+  GetIntermediateTableOutput$,
   GetMembership$,
   GetMembershipCommand,
   GetMembershipInput$,
@@ -327,6 +361,31 @@ import {
   IdNamespaceAssociationInputReferencePropertiesSummary$,
   IdNamespaceAssociationSummary$,
   IdNamespaceType,
+  InheritedAdditionalAnalyses$,
+  InheritedAdditionalAnalysesSource$,
+  InheritedAllowedAdditionalAnalyses$,
+  InheritedAllowedAdditionalAnalysesSource$,
+  InheritedAllowedResultReceivers$,
+  InheritedAllowedResultReceiversSource$,
+  InheritedDisallowedOutputColumns$,
+  IntermediateTable$,
+  IntermediateTableActiveVersion$,
+  IntermediateTableAnalysisRule$,
+  IntermediateTableAnalysisRuleCustom$,
+  IntermediateTableAnalysisRulePolicy$,
+  IntermediateTableAnalysisRulePolicyV1$,
+  IntermediateTableAnalysisRuleType,
+  IntermediateTableColumn$,
+  IntermediateTableComputeConfiguration$,
+  IntermediateTableDependency$,
+  IntermediateTableInheritedConstraints$,
+  IntermediateTableOutputConfiguration$,
+  IntermediateTableSchema$,
+  IntermediateTableSchemaTypeProperties$,
+  IntermediateTableStatus,
+  IntermediateTableSummary$,
+  IntermediateTableVersionStatus,
+  IntermediateTableVersionSummary$,
   InternalServerException,
   InternalServerException$,
   JobComputePaymentConfig$,
@@ -385,6 +444,14 @@ import {
   ListIdNamespaceAssociationsCommand,
   ListIdNamespaceAssociationsInput$,
   ListIdNamespaceAssociationsOutput$,
+  ListIntermediateTables$,
+  ListIntermediateTablesCommand,
+  ListIntermediateTablesInput$,
+  ListIntermediateTablesOutput$,
+  ListIntermediateTableVersions$,
+  ListIntermediateTableVersionsCommand,
+  ListIntermediateTableVersionsInput$,
+  ListIntermediateTableVersionsOutput$,
   ListMembers$,
   ListMembersCommand,
   ListMemberships$,
@@ -456,6 +523,8 @@ import {
   paginateListConfiguredTables,
   paginateListIdMappingTables,
   paginateListIdNamespaceAssociations,
+  paginateListIntermediateTables,
+  paginateListIntermediateTableVersions,
   paginateListMembers,
   paginateListMemberships,
   paginateListPrivacyBudgets,
@@ -469,6 +538,13 @@ import {
   PopulateIdMappingTableCommand,
   PopulateIdMappingTableInput$,
   PopulateIdMappingTableOutput$,
+  PopulateIntermediateTable$,
+  PopulateIntermediateTableAnalysisType,
+  PopulateIntermediateTableCommand,
+  PopulateIntermediateTableInput$,
+  PopulateIntermediateTableOutput$,
+  PopulationAnalysisConfiguration$,
+  PopulationAnalysisSqlParameters$,
   PreviewPrivacyImpact$,
   PreviewPrivacyImpactCommand,
   PreviewPrivacyImpactInput$,
@@ -534,6 +610,7 @@ import {
   ReceiverConfiguration$,
   ResourceNotFoundException,
   ResourceNotFoundException$,
+  ResourceStatus,
   ResourceType,
   ResultFormat,
   S3Location$,
@@ -620,6 +697,14 @@ import {
   UpdateIdNamespaceAssociationCommand,
   UpdateIdNamespaceAssociationInput$,
   UpdateIdNamespaceAssociationOutput$,
+  UpdateIntermediateTable$,
+  UpdateIntermediateTableAnalysisRule$,
+  UpdateIntermediateTableAnalysisRuleCommand,
+  UpdateIntermediateTableAnalysisRuleInput$,
+  UpdateIntermediateTableAnalysisRuleOutput$,
+  UpdateIntermediateTableCommand,
+  UpdateIntermediateTableInput$,
+  UpdateIntermediateTableOutput$,
   UpdateMembership$,
   UpdateMembershipCommand,
   UpdateMembershipInput$,
@@ -676,6 +761,10 @@ assert(typeof CreateIdMappingTableCommand === "function");
 assert(typeof CreateIdMappingTable$ === "object");
 assert(typeof CreateIdNamespaceAssociationCommand === "function");
 assert(typeof CreateIdNamespaceAssociation$ === "object");
+assert(typeof CreateIntermediateTableCommand === "function");
+assert(typeof CreateIntermediateTable$ === "object");
+assert(typeof CreateIntermediateTableAnalysisRuleCommand === "function");
+assert(typeof CreateIntermediateTableAnalysisRule$ === "object");
 assert(typeof CreateMembershipCommand === "function");
 assert(typeof CreateMembership$ === "object");
 assert(typeof CreatePrivacyBudgetTemplateCommand === "function");
@@ -698,12 +787,18 @@ assert(typeof DeleteIdMappingTableCommand === "function");
 assert(typeof DeleteIdMappingTable$ === "object");
 assert(typeof DeleteIdNamespaceAssociationCommand === "function");
 assert(typeof DeleteIdNamespaceAssociation$ === "object");
+assert(typeof DeleteIntermediateTableCommand === "function");
+assert(typeof DeleteIntermediateTable$ === "object");
+assert(typeof DeleteIntermediateTableAnalysisRuleCommand === "function");
+assert(typeof DeleteIntermediateTableAnalysisRule$ === "object");
 assert(typeof DeleteMemberCommand === "function");
 assert(typeof DeleteMember$ === "object");
 assert(typeof DeleteMembershipCommand === "function");
 assert(typeof DeleteMembership$ === "object");
 assert(typeof DeletePrivacyBudgetTemplateCommand === "function");
 assert(typeof DeletePrivacyBudgetTemplate$ === "object");
+assert(typeof DisallowIntermediateTableCommand === "function");
+assert(typeof DisallowIntermediateTable$ === "object");
 assert(typeof GetAnalysisTemplateCommand === "function");
 assert(typeof GetAnalysisTemplate$ === "object");
 assert(typeof GetCollaborationCommand === "function");
@@ -732,6 +827,10 @@ assert(typeof GetIdMappingTableCommand === "function");
 assert(typeof GetIdMappingTable$ === "object");
 assert(typeof GetIdNamespaceAssociationCommand === "function");
 assert(typeof GetIdNamespaceAssociation$ === "object");
+assert(typeof GetIntermediateTableCommand === "function");
+assert(typeof GetIntermediateTable$ === "object");
+assert(typeof GetIntermediateTableAnalysisRuleCommand === "function");
+assert(typeof GetIntermediateTableAnalysisRule$ === "object");
 assert(typeof GetMembershipCommand === "function");
 assert(typeof GetMembership$ === "object");
 assert(typeof GetPrivacyBudgetTemplateCommand === "function");
@@ -770,6 +869,10 @@ assert(typeof ListIdMappingTablesCommand === "function");
 assert(typeof ListIdMappingTables$ === "object");
 assert(typeof ListIdNamespaceAssociationsCommand === "function");
 assert(typeof ListIdNamespaceAssociations$ === "object");
+assert(typeof ListIntermediateTablesCommand === "function");
+assert(typeof ListIntermediateTables$ === "object");
+assert(typeof ListIntermediateTableVersionsCommand === "function");
+assert(typeof ListIntermediateTableVersions$ === "object");
 assert(typeof ListMembersCommand === "function");
 assert(typeof ListMembers$ === "object");
 assert(typeof ListMembershipsCommand === "function");
@@ -788,6 +891,8 @@ assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
 assert(typeof PopulateIdMappingTableCommand === "function");
 assert(typeof PopulateIdMappingTable$ === "object");
+assert(typeof PopulateIntermediateTableCommand === "function");
+assert(typeof PopulateIntermediateTable$ === "object");
 assert(typeof PreviewPrivacyImpactCommand === "function");
 assert(typeof PreviewPrivacyImpact$ === "object");
 assert(typeof StartProtectedJobCommand === "function");
@@ -818,6 +923,10 @@ assert(typeof UpdateIdMappingTableCommand === "function");
 assert(typeof UpdateIdMappingTable$ === "object");
 assert(typeof UpdateIdNamespaceAssociationCommand === "function");
 assert(typeof UpdateIdNamespaceAssociation$ === "object");
+assert(typeof UpdateIntermediateTableCommand === "function");
+assert(typeof UpdateIntermediateTable$ === "object");
+assert(typeof UpdateIntermediateTableAnalysisRuleCommand === "function");
+assert(typeof UpdateIntermediateTableAnalysisRule$ === "object");
 assert(typeof UpdateMembershipCommand === "function");
 assert(typeof UpdateMembership$ === "object");
 assert(typeof UpdatePrivacyBudgetTemplateCommand === "function");
@@ -869,6 +978,7 @@ assert(typeof BudgetParameter$ === "object");
 assert(typeof Change$ === "object");
 assert(typeof ChangeInput$ === "object");
 assert(typeof ChangeSpecification$ === "object");
+assert(typeof ChildResource$ === "object");
 assert(typeof Collaboration$ === "object");
 assert(typeof CollaborationAnalysisTemplate$ === "object");
 assert(typeof CollaborationAnalysisTemplateSummary$ === "object");
@@ -885,6 +995,7 @@ assert(typeof CollaborationPrivacyBudgetTemplateSummary$ === "object");
 assert(typeof CollaborationSummary$ === "object");
 assert(typeof Column$ === "object");
 assert(typeof ColumnClassificationDetails$ === "object");
+assert(typeof ColumnLineageEntry$ === "object");
 assert(typeof ComputeConfiguration$ === "object");
 assert(typeof ConfigurationDetails$ === "object");
 assert(typeof ConfiguredAudienceModelAssociation$ === "object");
@@ -900,6 +1011,7 @@ assert(typeof ConfiguredTableAssociationAnalysisRuleCustom$ === "object");
 assert(typeof ConfiguredTableAssociationAnalysisRuleList$ === "object");
 assert(typeof ConfiguredTableAssociationAnalysisRulePolicy$ === "object");
 assert(typeof ConfiguredTableAssociationAnalysisRulePolicyV1$ === "object");
+assert(typeof ConfiguredTableAssociationSchemaTypeProperties$ === "object");
 assert(typeof ConfiguredTableAssociationSummary$ === "object");
 assert(typeof ConfiguredTableSummary$ === "object");
 assert(typeof ConsolidatedPolicy$ === "object");
@@ -927,6 +1039,10 @@ assert(typeof CreateIdMappingTableInput$ === "object");
 assert(typeof CreateIdMappingTableOutput$ === "object");
 assert(typeof CreateIdNamespaceAssociationInput$ === "object");
 assert(typeof CreateIdNamespaceAssociationOutput$ === "object");
+assert(typeof CreateIntermediateTableAnalysisRuleInput$ === "object");
+assert(typeof CreateIntermediateTableAnalysisRuleOutput$ === "object");
+assert(typeof CreateIntermediateTableInput$ === "object");
+assert(typeof CreateIntermediateTableOutput$ === "object");
 assert(typeof CreateMembershipInput$ === "object");
 assert(typeof CreateMembershipOutput$ === "object");
 assert(typeof CreatePrivacyBudgetTemplateInput$ === "object");
@@ -950,6 +1066,10 @@ assert(typeof DeleteIdMappingTableInput$ === "object");
 assert(typeof DeleteIdMappingTableOutput$ === "object");
 assert(typeof DeleteIdNamespaceAssociationInput$ === "object");
 assert(typeof DeleteIdNamespaceAssociationOutput$ === "object");
+assert(typeof DeleteIntermediateTableAnalysisRuleInput$ === "object");
+assert(typeof DeleteIntermediateTableAnalysisRuleOutput$ === "object");
+assert(typeof DeleteIntermediateTableInput$ === "object");
+assert(typeof DeleteIntermediateTableOutput$ === "object");
 assert(typeof DeleteMemberInput$ === "object");
 assert(typeof DeleteMemberOutput$ === "object");
 assert(typeof DeleteMembershipInput$ === "object");
@@ -969,6 +1089,8 @@ assert(typeof DifferentialPrivacyTemplateParametersInput$ === "object");
 assert(typeof DifferentialPrivacyTemplateParametersOutput$ === "object");
 assert(typeof DifferentialPrivacyTemplateUpdateParameters$ === "object");
 assert(typeof DirectAnalysisConfigurationDetails$ === "object");
+assert(typeof DisallowIntermediateTableInput$ === "object");
+assert(typeof DisallowIntermediateTableOutput$ === "object");
 assert(typeof ErrorMessageConfiguration$ === "object");
 assert(typeof GetAnalysisTemplateInput$ === "object");
 assert(typeof GetAnalysisTemplateOutput$ === "object");
@@ -998,6 +1120,10 @@ assert(typeof GetIdMappingTableInput$ === "object");
 assert(typeof GetIdMappingTableOutput$ === "object");
 assert(typeof GetIdNamespaceAssociationInput$ === "object");
 assert(typeof GetIdNamespaceAssociationOutput$ === "object");
+assert(typeof GetIntermediateTableAnalysisRuleInput$ === "object");
+assert(typeof GetIntermediateTableAnalysisRuleOutput$ === "object");
+assert(typeof GetIntermediateTableInput$ === "object");
+assert(typeof GetIntermediateTableOutput$ === "object");
 assert(typeof GetMembershipInput$ === "object");
 assert(typeof GetMembershipOutput$ === "object");
 assert(typeof GetPrivacyBudgetTemplateInput$ === "object");
@@ -1024,6 +1150,28 @@ assert(typeof IdNamespaceAssociationInputReferenceConfig$ === "object");
 assert(typeof IdNamespaceAssociationInputReferenceProperties$ === "object");
 assert(typeof IdNamespaceAssociationInputReferencePropertiesSummary$ === "object");
 assert(typeof IdNamespaceAssociationSummary$ === "object");
+assert(typeof InheritedAdditionalAnalyses$ === "object");
+assert(typeof InheritedAdditionalAnalysesSource$ === "object");
+assert(typeof InheritedAllowedAdditionalAnalyses$ === "object");
+assert(typeof InheritedAllowedAdditionalAnalysesSource$ === "object");
+assert(typeof InheritedAllowedResultReceivers$ === "object");
+assert(typeof InheritedAllowedResultReceiversSource$ === "object");
+assert(typeof InheritedDisallowedOutputColumns$ === "object");
+assert(typeof IntermediateTable$ === "object");
+assert(typeof IntermediateTableActiveVersion$ === "object");
+assert(typeof IntermediateTableAnalysisRule$ === "object");
+assert(typeof IntermediateTableAnalysisRuleCustom$ === "object");
+assert(typeof IntermediateTableAnalysisRulePolicy$ === "object");
+assert(typeof IntermediateTableAnalysisRulePolicyV1$ === "object");
+assert(typeof IntermediateTableColumn$ === "object");
+assert(typeof IntermediateTableComputeConfiguration$ === "object");
+assert(typeof IntermediateTableDependency$ === "object");
+assert(typeof IntermediateTableInheritedConstraints$ === "object");
+assert(typeof IntermediateTableOutputConfiguration$ === "object");
+assert(typeof IntermediateTableSchema$ === "object");
+assert(typeof IntermediateTableSchemaTypeProperties$ === "object");
+assert(typeof IntermediateTableSummary$ === "object");
+assert(typeof IntermediateTableVersionSummary$ === "object");
 assert(typeof JobComputePaymentConfig$ === "object");
 assert(typeof ListAnalysisTemplatesInput$ === "object");
 assert(typeof ListAnalysisTemplatesOutput$ === "object");
@@ -1051,6 +1199,10 @@ assert(typeof ListIdMappingTablesInput$ === "object");
 assert(typeof ListIdMappingTablesOutput$ === "object");
 assert(typeof ListIdNamespaceAssociationsInput$ === "object");
 assert(typeof ListIdNamespaceAssociationsOutput$ === "object");
+assert(typeof ListIntermediateTablesInput$ === "object");
+assert(typeof ListIntermediateTablesOutput$ === "object");
+assert(typeof ListIntermediateTableVersionsInput$ === "object");
+assert(typeof ListIntermediateTableVersionsOutput$ === "object");
 assert(typeof ListMembershipsInput$ === "object");
 assert(typeof ListMembershipsOutput$ === "object");
 assert(typeof ListMembersInput$ === "object");
@@ -1091,6 +1243,10 @@ assert(typeof ModelTrainingPaymentConfig$ === "object");
 assert(typeof PaymentConfiguration$ === "object");
 assert(typeof PopulateIdMappingTableInput$ === "object");
 assert(typeof PopulateIdMappingTableOutput$ === "object");
+assert(typeof PopulateIntermediateTableInput$ === "object");
+assert(typeof PopulateIntermediateTableOutput$ === "object");
+assert(typeof PopulationAnalysisConfiguration$ === "object");
+assert(typeof PopulationAnalysisSqlParameters$ === "object");
 assert(typeof PreviewPrivacyImpactInput$ === "object");
 assert(typeof PreviewPrivacyImpactOutput$ === "object");
 assert(typeof PreviewPrivacyImpactParametersInput$ === "object");
@@ -1186,6 +1342,10 @@ assert(typeof UpdateIdMappingTableInput$ === "object");
 assert(typeof UpdateIdMappingTableOutput$ === "object");
 assert(typeof UpdateIdNamespaceAssociationInput$ === "object");
 assert(typeof UpdateIdNamespaceAssociationOutput$ === "object");
+assert(typeof UpdateIntermediateTableAnalysisRuleInput$ === "object");
+assert(typeof UpdateIntermediateTableAnalysisRuleOutput$ === "object");
+assert(typeof UpdateIntermediateTableInput$ === "object");
+assert(typeof UpdateIntermediateTableOutput$ === "object");
 assert(typeof UpdateMembershipInput$ === "object");
 assert(typeof UpdateMembershipOutput$ === "object");
 assert(typeof UpdateMembershipPaymentConfiguration$ === "object");
@@ -1214,10 +1374,13 @@ assert(typeof AnalyticsEngine === "object");
 assert(typeof ApprovalStatus === "object");
 assert(typeof AutoApprovedChangeType === "object");
 assert(typeof AutoRefreshMode === "object");
+assert(typeof BaseTableDependencyType === "object");
+assert(typeof BaseTableParentType === "object");
 assert(typeof ChangeRequestAction === "object");
 assert(typeof ChangeRequestStatus === "object");
 assert(typeof ChangeSpecificationType === "object");
 assert(typeof ChangeType === "object");
+assert(typeof ChildResourceType === "object");
 assert(typeof CollaborationJobLogStatus === "object");
 assert(typeof CollaborationQueryLogStatus === "object");
 assert(typeof CommercialRegion === "object");
@@ -1229,6 +1392,9 @@ assert(typeof DifferentialPrivacyAggregationType === "object");
 assert(typeof ErrorMessageType === "object");
 assert(typeof FilterableMemberStatus === "object");
 assert(typeof IdNamespaceType === "object");
+assert(typeof IntermediateTableAnalysisRuleType === "object");
+assert(typeof IntermediateTableStatus === "object");
+assert(typeof IntermediateTableVersionStatus === "object");
 assert(typeof JobType === "object");
 assert(typeof JoinOperator === "object");
 assert(typeof JoinRequiredOption === "object");
@@ -1238,6 +1404,7 @@ assert(typeof MembershipQueryLogStatus === "object");
 assert(typeof MembershipStatus === "object");
 assert(typeof MemberStatus === "object");
 assert(typeof ParameterType === "object");
+assert(typeof PopulateIntermediateTableAnalysisType === "object");
 assert(typeof PrivacyBudgetTemplateAutoRefresh === "object");
 assert(typeof PrivacyBudgetType === "object");
 assert(typeof ProtectedJobAnalysisType === "object");
@@ -1246,6 +1413,7 @@ assert(typeof ProtectedJobType === "object");
 assert(typeof ProtectedJobWorkerComputeType === "object");
 assert(typeof ProtectedQueryStatus === "object");
 assert(typeof ProtectedQueryType === "object");
+assert(typeof ResourceStatus === "object");
 assert(typeof ResourceType === "object");
 assert(typeof ResultFormat === "object");
 assert(typeof ScalarFunctions === "object");
@@ -1290,6 +1458,8 @@ assert(typeof paginateListConfiguredTableAssociations === "function");
 assert(typeof paginateListConfiguredTables === "function");
 assert(typeof paginateListIdMappingTables === "function");
 assert(typeof paginateListIdNamespaceAssociations === "function");
+assert(typeof paginateListIntermediateTableVersions === "function");
+assert(typeof paginateListIntermediateTables === "function");
 assert(typeof paginateListMembers === "function");
 assert(typeof paginateListMemberships === "function");
 assert(typeof paginateListPrivacyBudgetTemplates === "function");

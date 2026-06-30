@@ -72,6 +72,11 @@ export interface StartProtectedQueryCommandOutput extends StartProtectedQueryOut
  *           },
  *         ],
  *       },
+ *       intermediateTable: { // IntermediateTableOutputConfiguration
+ *         id: "STRING_VALUE", // required
+ *         arn: "STRING_VALUE", // required
+ *         name: "STRING_VALUE", // required
+ *       },
  *     },
  *   },
  *   computeConfiguration: { // ComputeConfiguration Union: only one key present
@@ -128,6 +133,11 @@ export interface StartProtectedQueryCommandOutput extends StartProtectedQueryOut
  * //               },
  * //             },
  * //           ],
+ * //         },
+ * //         intermediateTable: { // IntermediateTableOutputConfiguration
+ * //           id: "STRING_VALUE", // required
+ * //           arn: "STRING_VALUE", // required
+ * //           name: "STRING_VALUE", // required
  * //         },
  * //       },
  * //     },

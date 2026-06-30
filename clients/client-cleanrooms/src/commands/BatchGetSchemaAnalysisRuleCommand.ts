@@ -118,6 +118,12 @@ export interface BatchGetSchemaAnalysisRuleCommandOutput extends BatchGetSchemaA
  * //                 },
  * //               ],
  * //             },
+ * //             allowedResultReceivers: [ // AllowedResultReceivers
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             allowedAdditionalAnalyses: [ // AllowedAdditionalAnalyses
+ * //               "STRING_VALUE",
+ * //             ],
  * //           },
  * //           idMappingTable: { // AnalysisRuleIdMappingTable
  * //             joinColumns: "<AnalysisRuleColumnList>", // required
@@ -135,10 +141,10 @@ export interface BatchGetSchemaAnalysisRuleCommandOutput extends BatchGetSchemaA
  * //       collaborationPolicy: { // ConfiguredTableAssociationAnalysisRulePolicy Union: only one key present
  * //         v1: { // ConfiguredTableAssociationAnalysisRulePolicyV1 Union: only one key present
  * //           list: { // ConfiguredTableAssociationAnalysisRuleList
- * //             allowedResultReceivers: [ // AllowedResultReceivers
+ * //             allowedResultReceivers: [
  * //               "STRING_VALUE",
  * //             ],
- * //             allowedAdditionalAnalyses: [ // AllowedAdditionalAnalyses
+ * //             allowedAdditionalAnalyses: [
  * //               "STRING_VALUE",
  * //             ],
  * //           },
@@ -202,12 +208,8 @@ export interface BatchGetSchemaAnalysisRuleCommandOutput extends BatchGetSchemaA
  * //               },
  * //             ],
  * //             additionalAnalyses: "ALLOWED" || "REQUIRED" || "NOT_ALLOWED",
- * //             allowedResultReceivers: [
- * //               "STRING_VALUE",
- * //             ],
- * //             allowedAdditionalAnalyses: [
- * //               "STRING_VALUE",
- * //             ],
+ * //             allowedResultReceivers: "<AllowedResultReceivers>",
+ * //             allowedAdditionalAnalyses: "<AllowedAdditionalAnalyses>",
  * //           },
  * //           custom: { // ConsolidatedPolicyCustom
  * //             allowedAnalyses: [ // required

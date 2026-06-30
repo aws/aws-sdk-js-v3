@@ -16,10 +16,13 @@ import type {
   ApprovalStatus,
   AutoApprovedChangeType,
   AutoRefreshMode,
+  BaseTableDependencyType,
+  BaseTableParentType,
   ChangeRequestAction,
   ChangeRequestStatus,
   ChangeSpecificationType,
   ChangeType,
+  ChildResourceType,
   CollaborationJobLogStatus,
   CollaborationQueryLogStatus,
   CommercialRegion,
@@ -30,20 +33,19 @@ import type {
   ErrorMessageType,
   FilterableMemberStatus,
   IdNamespaceType,
+  IntermediateTableAnalysisRuleType,
+  IntermediateTableStatus,
+  IntermediateTableVersionStatus,
   JobType,
   JoinOperator,
   JoinRequiredOption,
   MemberAbility,
-  MembershipJobLogStatus,
-  MembershipQueryLogStatus,
-  MembershipStatus,
   MemberStatus,
   ParameterType,
+  PopulateIntermediateTableAnalysisType,
   PrivacyBudgetTemplateAutoRefresh,
   PrivacyBudgetType,
-  ProtectedJobStatus,
-  ProtectedJobWorkerComputeType,
-  ResultFormat,
+  ResourceStatus,
   ScalarFunctions,
   SchemaConfiguration,
   SchemaStatus,
@@ -797,6 +799,18 @@ export interface AnalysisRuleCustom {
    * @public
    */
   differentialPrivacy?: DifferentialPrivacyConfiguration | undefined;
+
+  /**
+   * <p>The list of Amazon Web Services account IDs that are allowed to receive results from queries run on the configured table.</p>
+   * @public
+   */
+  allowedResultReceivers?: string[] | undefined;
+
+  /**
+   * <p>The list of allowed additional analyses for the custom analysis rule.</p>
+   * @public
+   */
+  allowedAdditionalAnalyses?: string[] | undefined;
 }
 
 /**
@@ -2157,6 +2171,18 @@ export interface SchemaStatusDetail {
 }
 
 /**
+ * <p>Contains the schema type properties for a configured table association.</p>
+ * @public
+ */
+export interface ConfiguredTableAssociationSchemaTypeProperties {
+  /**
+   * <p>The unique identifier of the configured table association.</p>
+   * @public
+   */
+  configuredTableAssociationId: string | undefined;
+}
+
+/**
  * <p>The input source of the ID mapping table.</p>
  * @public
  */
@@ -2184,6 +2210,24 @@ export interface IdMappingTableSchemaTypeProperties {
    * @public
    */
   idMappingTableInputSource: IdMappingTableInputSource[] | undefined;
+
+  /**
+   * <p>The unique identifier of the ID mapping table.</p>
+   * @public
+   */
+  idMappingTableId?: string | undefined;
+}
+
+/**
+ * <p>Contains the schema type properties for an intermediate table.</p>
+ * @public
+ */
+export interface IntermediateTableSchemaTypeProperties {
+  /**
+   * <p>The unique identifier of the intermediate table.</p>
+   * @public
+   */
+  intermediateTableId: string | undefined;
 }
 
 /**
@@ -2191,7 +2235,9 @@ export interface IdMappingTableSchemaTypeProperties {
  * @public
  */
 export type SchemaTypeProperties =
+  | SchemaTypeProperties.ConfiguredTableAssociationMember
   | SchemaTypeProperties.IdMappingTableMember
+  | SchemaTypeProperties.IntermediateTableMember
   | SchemaTypeProperties.$UnknownMember;
 
 /**
@@ -2204,6 +2250,30 @@ export namespace SchemaTypeProperties {
    */
   export interface IdMappingTableMember {
     idMappingTable: IdMappingTableSchemaTypeProperties;
+    intermediateTable?: never;
+    configuredTableAssociation?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The schema type properties for an intermediate table.</p>
+   * @public
+   */
+  export interface IntermediateTableMember {
+    idMappingTable?: never;
+    intermediateTable: IntermediateTableSchemaTypeProperties;
+    configuredTableAssociation?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The schema type properties for a configured table association.</p>
+   * @public
+   */
+  export interface ConfiguredTableAssociationMember {
+    idMappingTable?: never;
+    intermediateTable?: never;
+    configuredTableAssociation: ConfiguredTableAssociationSchemaTypeProperties;
     $unknown?: never;
   }
 
@@ -2212,6 +2282,8 @@ export namespace SchemaTypeProperties {
    */
   export interface $UnknownMember {
     idMappingTable?: never;
+    intermediateTable?: never;
+    configuredTableAssociation?: never;
     $unknown: [string, any];
   }
 
@@ -2221,6 +2293,8 @@ export namespace SchemaTypeProperties {
    */
   export interface Visitor<T> {
     idMappingTable: (value: IdMappingTableSchemaTypeProperties) => T;
+    intermediateTable: (value: IntermediateTableSchemaTypeProperties) => T;
+    configuredTableAssociation: (value: ConfiguredTableAssociationSchemaTypeProperties) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -2444,7 +2518,7 @@ export interface MLMemberAbilities {
  */
 export interface JobComputePaymentConfig {
   /**
-   * <p>Indicates whether the collaboration creator has configured the collaboration member to pay for query and job compute costs (<code>TRUE</code>) or has not configured the collaboration member to pay for query and job compute costs (<code>FALSE</code>).</p> <p>Exactly one member can be configured to pay for query and job compute costs. An error is returned if the collaboration creator sets a <code>TRUE</code> value for more than one member in the collaboration. </p> <p>An error is returned if the collaboration creator sets a <code>FALSE</code> value for the member who can run queries and jobs.</p>
+   * <p>Indicates whether the collaboration creator has configured the collaboration member to pay for query and job compute costs (<code>TRUE</code>) or has not configured the collaboration member to pay for query and job compute costs (<code>FALSE</code>).</p> <p>One or more members can be configured as payer candidates for query and job compute costs.</p> <p>An error is returned if the collaboration creator sets a <code>FALSE</code> value for the member who can run queries and jobs.</p>
    * @public
    */
   isResponsible: boolean | undefined;
@@ -2456,7 +2530,7 @@ export interface JobComputePaymentConfig {
  */
 export interface ModelInferencePaymentConfig {
   /**
-   * <p>Indicates whether the collaboration creator has configured the collaboration member to pay for model inference costs (<code>TRUE</code>) or has not configured the collaboration member to pay for model inference costs (<code>FALSE</code>).</p> <p>Exactly one member can be configured to pay for model inference costs. An error is returned if the collaboration creator sets a <code>TRUE</code> value for more than one member in the collaboration. </p> <p>If the collaboration creator hasn't specified anyone as the member paying for model inference costs, then the member who can query is the default payer. An error is returned if the collaboration creator sets a <code>FALSE</code> value for the member who can query.</p>
+   * <p>Indicates whether the collaboration creator has configured the collaboration member to pay for model inference costs (<code>TRUE</code>) or has not configured the collaboration member to pay for model inference costs (<code>FALSE</code>).</p> <p>One or more members can be configured as payer candidates for model inference costs.</p> <p>If the collaboration creator hasn't specified anyone as the member paying for model inference costs, then the member who can query is the default payer.</p>
    * @public
    */
   isResponsible: boolean | undefined;
@@ -2468,7 +2542,7 @@ export interface ModelInferencePaymentConfig {
  */
 export interface ModelTrainingPaymentConfig {
   /**
-   * <p>Indicates whether the collaboration creator has configured the collaboration member to pay for model training costs (<code>TRUE</code>) or has not configured the collaboration member to pay for model training costs (<code>FALSE</code>).</p> <p>Exactly one member can be configured to pay for model training costs. An error is returned if the collaboration creator sets a <code>TRUE</code> value for more than one member in the collaboration. </p> <p>If the collaboration creator hasn't specified anyone as the member paying for model training costs, then the member who can query is the default payer. An error is returned if the collaboration creator sets a <code>FALSE</code> value for the member who can query.</p>
+   * <p>Indicates whether the collaboration creator has configured the collaboration member to pay for model training costs (<code>TRUE</code>) or has not configured the collaboration member to pay for model training costs (<code>FALSE</code>).</p> <p>One or more members can be configured as payer candidates for model training costs.</p> <p>If the collaboration creator hasn't specified anyone as the member paying for model training costs, then the member who can query is the default payer.</p>
    * @public
    */
   isResponsible: boolean | undefined;
@@ -2516,7 +2590,7 @@ export interface MLPaymentConfig {
  */
 export interface QueryComputePaymentConfig {
   /**
-   * <p>Indicates whether the collaboration creator has configured the collaboration member to pay for query compute costs (<code>TRUE</code>) or has not configured the collaboration member to pay for query compute costs (<code>FALSE</code>).</p> <p>Exactly one member can be configured to pay for query compute costs. An error is returned if the collaboration creator sets a <code>TRUE</code> value for more than one member in the collaboration. </p> <p>If the collaboration creator hasn't specified anyone as the member paying for query compute costs, then the member who can query is the default payer. An error is returned if the collaboration creator sets a <code>FALSE</code> value for the member who can query.</p>
+   * <p>Indicates whether the collaboration creator has configured the collaboration member to pay for query compute costs (<code>TRUE</code>) or has not configured the collaboration member to pay for query compute costs (<code>FALSE</code>).</p> <p>One or more members can be configured as payer candidates for query compute costs.</p> <p>If the collaboration creator hasn't specified anyone as the member paying for query compute costs, then the member who can query is the default payer.</p>
    * @public
    */
   isResponsible: boolean | undefined;
@@ -2632,7 +2706,7 @@ export interface CreateCollaborationInput {
    * <p>A description of the collaboration provided by the collaboration owner.</p>
    * @public
    */
-  description: string | undefined;
+  description?: string | undefined;
 
   /**
    * <p>The abilities granted to the collaboration creator.</p>
@@ -5169,6 +5243,42 @@ export interface CreateConfiguredTableAssociationInput {
 }
 
 /**
+ * <p>Contains information about a child resource of a given resource in a collaboration.</p>
+ * @public
+ */
+export interface ChildResource {
+  /**
+   * <p>The unique identifier of the child resource.</p>
+   * @public
+   */
+  resourceId?: string | undefined;
+
+  /**
+   * <p>The type of the child resource.</p>
+   * @public
+   */
+  resourceType: ChildResourceType | undefined;
+
+  /**
+   * <p>The name of the child resource.</p>
+   * @public
+   */
+  resourceName: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the member who owns the child resource.</p>
+   * @public
+   */
+  ownerAccountId: string | undefined;
+
+  /**
+   * <p>The current status of the child resource.</p>
+   * @public
+   */
+  resourceStatus?: ResourceStatus | undefined;
+}
+
+/**
  * <p>A configured table association links a configured table to a collaboration.</p>
  * @public
  */
@@ -5244,6 +5354,12 @@ export interface ConfiguredTableAssociation {
    * @public
    */
   updateTime: Date | undefined;
+
+  /**
+   * <p>The child resources that depend on this configured table association.</p>
+   * @public
+   */
+  childResources?: ChildResource[] | undefined;
 }
 
 /**
@@ -6566,6 +6682,12 @@ export interface IdMappingTable {
    * @public
    */
   kmsKeyArn?: string | undefined;
+
+  /**
+   * <p>The child resources that depend on this ID mapping table.</p>
+   * @public
+   */
+  childResources?: ChildResource[] | undefined;
 }
 
 /**
@@ -7166,63 +7288,41 @@ export interface UpdateIdNamespaceAssociationOutput {
 }
 
 /**
+ * <p>Contains the SQL parameters used to populate an intermediate table.</p>
  * @public
  */
-export interface ListTagsForResourceInput {
+export interface PopulationAnalysisSqlParameters {
   /**
-   * <p>The Amazon Resource Name (ARN) associated with the resource you want to list tags on.</p>
+   * <p>The SQL query string used to populate the intermediate table. Maximum length of 500,000 characters.</p>
    * @public
    */
-  resourceArn: string | undefined;
+  queryString?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the analysis template to use for populating the intermediate table.</p>
+   * @public
+   */
+  analysisTemplateArn?: string | undefined;
 }
 
 /**
+ * <p>Contains the configuration that defines the analysis used to populate an intermediate table.</p>
  * @public
  */
-export interface ListTagsForResourceOutput {
-  /**
-   * <p>A map of objects specifying each key name and value.</p>
-   * @public
-   */
-  tags: Record<string, string> | undefined;
-}
-
-/**
- * <p>Contains input information for protected jobs with an S3 output type.</p>
- * @public
- */
-export interface ProtectedJobS3OutputConfigurationInput {
-  /**
-   * <p> The S3 bucket for job output.</p>
-   * @public
-   */
-  bucket: string | undefined;
-
-  /**
-   * <p>The S3 prefix to unload the protected job results.</p>
-   * @public
-   */
-  keyPrefix?: string | undefined;
-}
-
-/**
- * <p>Contains configurations for protected job results.</p>
- * @public
- */
-export type MembershipProtectedJobOutputConfiguration =
-  | MembershipProtectedJobOutputConfiguration.S3Member
-  | MembershipProtectedJobOutputConfiguration.$UnknownMember;
+export type PopulationAnalysisConfiguration =
+  | PopulationAnalysisConfiguration.SqlParametersMember
+  | PopulationAnalysisConfiguration.$UnknownMember;
 
 /**
  * @public
  */
-export namespace MembershipProtectedJobOutputConfiguration {
+export namespace PopulationAnalysisConfiguration {
   /**
-   * <p>Contains the configuration to write the job results to S3.</p>
+   * <p>The SQL parameters for the population analysis, including the query string or analysis template ARN.</p>
    * @public
    */
-  export interface S3Member {
-    s3: ProtectedJobS3OutputConfigurationInput;
+  export interface SqlParametersMember {
+    sqlParameters: PopulationAnalysisSqlParameters;
     $unknown?: never;
   }
 
@@ -7230,7 +7330,7 @@ export namespace MembershipProtectedJobOutputConfiguration {
    * @public
    */
   export interface $UnknownMember {
-    s3?: never;
+    sqlParameters?: never;
     $unknown: [string, any];
   }
 
@@ -7239,408 +7339,813 @@ export namespace MembershipProtectedJobOutputConfiguration {
    *
    */
   export interface Visitor<T> {
-    s3: (value: ProtectedJobS3OutputConfigurationInput) => T;
+    sqlParameters: (value: PopulationAnalysisSqlParameters) => T;
     _: (name: string, value: any) => T;
   }
 }
 
 /**
- * <p>Contains configurations for protected job results.</p>
  * @public
  */
-export interface MembershipProtectedJobResultConfiguration {
+export interface CreateIntermediateTableInput {
   /**
-   * <p> The output configuration for a protected job result.</p>
+   * <p>The unique identifier of the membership where the intermediate table is created.</p>
    * @public
    */
-  outputConfiguration: MembershipProtectedJobOutputConfiguration | undefined;
+  membershipIdentifier: string | undefined;
 
   /**
-   * <p>The unique ARN for an IAM role that is used by Clean Rooms to write protected job results to the result location, given by the member who can receive results.</p>
+   * <p>The display name for the intermediate table.</p>
    * @public
    */
-  roleArn: string | undefined;
-}
+  name: string | undefined;
 
-/**
- * <p>Contains the configuration to write the query results to S3.</p>
- * @public
- */
-export interface ProtectedQueryS3OutputConfiguration {
   /**
-   * <p>Intended file format of the result.</p>
+   * <p>A description of the intermediate table.</p>
    * @public
    */
-  resultFormat: ResultFormat | undefined;
+  description?: string | undefined;
 
   /**
-   * <p>The S3 bucket to unload the protected query results.</p>
+   * <p>The configuration that defines the analysis used to populate the intermediate table. This configuration contains the SQL query or analysis template reference.</p>
    * @public
    */
-  bucket: string | undefined;
+  populationAnalysisConfiguration: PopulationAnalysisConfiguration | undefined;
 
   /**
-   * <p>The S3 prefix to unload the protected query results.</p>
+   * <p>The Amazon Resource Name (ARN) of the customer-managed KMS key used to encrypt the intermediate table data.</p>
    * @public
    */
-  keyPrefix?: string | undefined;
+  kmsKeyArn?: string | undefined;
 
   /**
-   * <p>Indicates whether files should be output as a single file (<code>TRUE</code>) or output as multiple files (<code>FALSE</code>). This parameter is only supported for analyses with the Spark analytics engine.</p>
+   * <p>The number of days to retain populated data versions. Minimum value of 1, maximum value of 365.</p>
    * @public
    */
-  singleFileOutput?: boolean | undefined;
-}
-
-/**
- * <p>Contains configurations for protected query results.</p>
- * @public
- */
-export type MembershipProtectedQueryOutputConfiguration =
-  | MembershipProtectedQueryOutputConfiguration.S3Member
-  | MembershipProtectedQueryOutputConfiguration.$UnknownMember;
-
-/**
- * @public
- */
-export namespace MembershipProtectedQueryOutputConfiguration {
-  /**
-   * <p>Contains the configuration to write the query results to S3.</p>
-   * @public
-   */
-  export interface S3Member {
-    s3: ProtectedQueryS3OutputConfiguration;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    s3?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    s3: (value: ProtectedQueryS3OutputConfiguration) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Contains configurations for protected query results.</p>
- * @public
- */
-export interface MembershipProtectedQueryResultConfiguration {
-  /**
-   * <p>Configuration for protected query results.</p>
-   * @public
-   */
-  outputConfiguration: MembershipProtectedQueryOutputConfiguration | undefined;
-
-  /**
-   * <p>The unique ARN for an IAM role that is used by Clean Rooms to write protected query results to the result location, given by the member who can receive results.</p>
-   * @public
-   */
-  roleArn?: string | undefined;
-}
-
-/**
- * <p>An object representing the payment responsibilities accepted by the collaboration member for query and job compute costs.</p>
- * @public
- */
-export interface MembershipJobComputePaymentConfig {
-  /**
-   * <p>Indicates whether the collaboration member has accepted to pay for job compute costs (<code>TRUE</code>) or has not accepted to pay for query and job compute costs (<code>FALSE</code>).</p> <p>There is only one member who pays for queries and jobs. </p> <p>An error message is returned for the following reasons: </p> <ul> <li> <p>If you set the value to <code>FALSE</code> but you are responsible to pay for query and job compute costs. </p> </li> <li> <p>If you set the value to <code>TRUE</code> but you are not responsible to pay for query and job compute costs. </p> </li> </ul>
-   * @public
-   */
-  isResponsible: boolean | undefined;
-}
-
-/**
- * <p>An object representing the collaboration member's model inference payment responsibilities set by the collaboration creator.</p>
- * @public
- */
-export interface MembershipModelInferencePaymentConfig {
-  /**
-   * <p>Indicates whether the collaboration member has accepted to pay for model inference costs (<code>TRUE</code>) or has not accepted to pay for model inference costs (<code>FALSE</code>).</p> <p>If the collaboration creator has not specified anyone to pay for model inference costs, then the member who can query is the default payer. </p> <p>An error message is returned for the following reasons: </p> <ul> <li> <p>If you set the value to <code>FALSE</code> but you are responsible to pay for model inference costs. </p> </li> <li> <p>If you set the value to <code>TRUE</code> but you are not responsible to pay for model inference costs. </p> </li> </ul>
-   * @public
-   */
-  isResponsible: boolean | undefined;
-}
-
-/**
- * <p>An object representing the collaboration member's model training payment responsibilities set by the collaboration creator.</p>
- * @public
- */
-export interface MembershipModelTrainingPaymentConfig {
-  /**
-   * <p>Indicates whether the collaboration member has accepted to pay for model training costs (<code>TRUE</code>) or has not accepted to pay for model training costs (<code>FALSE</code>).</p> <p>If the collaboration creator has not specified anyone to pay for model training costs, then the member who can query is the default payer. </p> <p>An error message is returned for the following reasons: </p> <ul> <li> <p>If you set the value to <code>FALSE</code> but you are responsible to pay for model training costs. </p> </li> <li> <p>If you set the value to <code>TRUE</code> but you are not responsible to pay for model training costs. </p> </li> </ul>
-   * @public
-   */
-  isResponsible: boolean | undefined;
-}
-
-/**
- * <p>Configuration for payment for synthetic data generation in a membership.</p>
- * @public
- */
-export interface MembershipSyntheticDataGenerationPaymentConfig {
-  /**
-   * <p>Indicates if this membership is responsible for paying for synthetic data generation.</p>
-   * @public
-   */
-  isResponsible: boolean | undefined;
-}
-
-/**
- * <p>An object representing the collaboration member's machine learning payment responsibilities set by the collaboration creator.</p>
- * @public
- */
-export interface MembershipMLPaymentConfig {
-  /**
-   * <p>The payment responsibilities accepted by the member for model training.</p>
-   * @public
-   */
-  modelTraining?: MembershipModelTrainingPaymentConfig | undefined;
-
-  /**
-   * <p>The payment responsibilities accepted by the member for model inference.</p>
-   * @public
-   */
-  modelInference?: MembershipModelInferencePaymentConfig | undefined;
-
-  /**
-   * <p>The payment configuration for synthetic data generation for this machine learning membership.</p>
-   * @public
-   */
-  syntheticDataGeneration?: MembershipSyntheticDataGenerationPaymentConfig | undefined;
-}
-
-/**
- * <p>An object representing the payment responsibilities accepted by the collaboration member for query compute costs.</p>
- * @public
- */
-export interface MembershipQueryComputePaymentConfig {
-  /**
-   * <p>Indicates whether the collaboration member has accepted to pay for query compute costs (<code>TRUE</code>) or has not accepted to pay for query compute costs (<code>FALSE</code>).</p> <p>If the collaboration creator has not specified anyone to pay for query compute costs, then the member who can query is the default payer. </p> <p>An error message is returned for the following reasons: </p> <ul> <li> <p>If you set the value to <code>FALSE</code> but you are responsible to pay for query compute costs. </p> </li> <li> <p>If you set the value to <code>TRUE</code> but you are not responsible to pay for query compute costs. </p> </li> </ul>
-   * @public
-   */
-  isResponsible: boolean | undefined;
-}
-
-/**
- * <p>An object representing the payment responsibilities accepted by the collaboration member.</p>
- * @public
- */
-export interface MembershipPaymentConfiguration {
-  /**
-   * <p>The payment responsibilities accepted by the collaboration member for query compute costs.</p>
-   * @public
-   */
-  queryCompute: MembershipQueryComputePaymentConfig | undefined;
-
-  /**
-   * <p>The payment responsibilities accepted by the collaboration member for machine learning costs.</p>
-   * @public
-   */
-  machineLearning?: MembershipMLPaymentConfig | undefined;
-
-  /**
-   * <p>The payment responsibilities accepted by the collaboration member for job compute costs.</p>
-   * @public
-   */
-  jobCompute?: MembershipJobComputePaymentConfig | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateMembershipInput {
-  /**
-   * <p>The unique ID for the associated collaboration.</p>
-   * @public
-   */
-  collaborationIdentifier: string | undefined;
-
-  /**
-   * <p>An indicator as to whether query logging has been enabled or disabled for the membership.</p> <p>When <code>ENABLED</code>, Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is <code>DISABLED</code>.</p>
-   * @public
-   */
-  queryLogStatus: MembershipQueryLogStatus | undefined;
-
-  /**
-   * <p>An indicator as to whether job logging has been enabled or disabled for the collaboration. </p> <p>When <code>ENABLED</code>, Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is <code>DISABLED</code>.</p>
-   * @public
-   */
-  jobLogStatus?: MembershipJobLogStatus | undefined;
+  retentionInDays?: number | undefined;
 
   /**
    * <p>An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.</p>
    * @public
    */
   tags?: Record<string, string> | undefined;
-
-  /**
-   * <p>The default protected query result configuration as specified by the member who can receive results.</p>
-   * @public
-   */
-  defaultResultConfiguration?: MembershipProtectedQueryResultConfiguration | undefined;
-
-  /**
-   * <p>The default job result configuration that determines how job results are protected and managed within this membership. This configuration applies to all jobs.</p>
-   * @public
-   */
-  defaultJobResultConfiguration?: MembershipProtectedJobResultConfiguration | undefined;
-
-  /**
-   * <p>The payment responsibilities accepted by the collaboration member.</p> <p>Not required if the collaboration member has the member ability to run queries. </p> <p>Required if the collaboration member doesn't have the member ability to run queries but is configured as a payer by the collaboration creator. </p>
-   * @public
-   */
-  paymentConfiguration?: MembershipPaymentConfiguration | undefined;
-
-  /**
-   * <p>An indicator as to whether Amazon CloudWatch metrics have been enabled or disabled for the membership.</p> <p>Amazon CloudWatch metrics are only available when the collaboration has metrics enabled. This option can be set by collaboration members who have the ability to run queries (analysis runners) or by members who are configured as payers.</p> <p>When <code>true</code>, metrics about query execution are collected in Amazon CloudWatch. The default value is <code>false</code>.</p>
-   * @public
-   */
-  isMetricsEnabled?: boolean | undefined;
 }
 
 /**
- * <p>The membership object.</p>
+ * <p>Contains information about a parent table that contributes an additional analyses constraint.</p>
  * @public
  */
-export interface Membership {
+export interface InheritedAdditionalAnalysesSource {
   /**
-   * <p>The unique ID of the membership.</p>
+   * <p>The name of the parent table.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The unique identifier of the parent table.</p>
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The unique ARN for the membership.</p>
+   * <p>The type of the parent table.</p>
+   * @public
+   */
+  type: BaseTableDependencyType | undefined;
+
+  /**
+   * <p>The additional analyses setting defined on the parent table.</p>
+   * @public
+   */
+  value: AdditionalAnalyses | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the member who owns the parent table.</p>
+   * @public
+   */
+  sourceAccountId: string | undefined;
+}
+
+/**
+ * <p>Contains the inherited additional analyses constraint and its sources from parent tables.</p>
+ * @public
+ */
+export interface InheritedAdditionalAnalyses {
+  /**
+   * <p>The effective additional analyses setting inherited from parent tables.</p>
+   * @public
+   */
+  value: AdditionalAnalyses | undefined;
+
+  /**
+   * <p>The list of parent tables that contribute to this inherited constraint.</p>
+   * @public
+   */
+  sources: InheritedAdditionalAnalysesSource[] | undefined;
+}
+
+/**
+ * <p>Contains information about a parent table that contributes an allowed additional analyses constraint.</p>
+ * @public
+ */
+export interface InheritedAllowedAdditionalAnalysesSource {
+  /**
+   * <p>The name of the parent table.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The unique identifier of the parent table.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The type of the parent table.</p>
+   * @public
+   */
+  type: BaseTableDependencyType | undefined;
+
+  /**
+   * <p>The allowed additional analyses defined on the parent table.</p>
+   * @public
+   */
+  value: string[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the member who owns the parent table.</p>
+   * @public
+   */
+  sourceAccountId: string | undefined;
+}
+
+/**
+ * <p>Contains the inherited allowed additional analyses constraint and its sources from parent tables.</p>
+ * @public
+ */
+export interface InheritedAllowedAdditionalAnalyses {
+  /**
+   * <p>The effective list of allowed additional analyses inherited from parent tables.</p>
+   * @public
+   */
+  value: string[] | undefined;
+
+  /**
+   * <p>The list of parent tables that contribute to this inherited constraint.</p>
+   * @public
+   */
+  sources: InheritedAllowedAdditionalAnalysesSource[] | undefined;
+}
+
+/**
+ * <p>Contains information about a parent table that contributes an allowed result receivers constraint.</p>
+ * @public
+ */
+export interface InheritedAllowedResultReceiversSource {
+  /**
+   * <p>The name of the parent table.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The unique identifier of the parent table.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The type of the parent table.</p>
+   * @public
+   */
+  type: BaseTableDependencyType | undefined;
+
+  /**
+   * <p>The allowed result receiver account IDs defined on the parent table.</p>
+   * @public
+   */
+  value: string[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the member who owns the parent table.</p>
+   * @public
+   */
+  sourceAccountId: string | undefined;
+}
+
+/**
+ * <p>Contains the inherited allowed result receivers constraint and its sources from parent tables.</p>
+ * @public
+ */
+export interface InheritedAllowedResultReceivers {
+  /**
+   * <p>The effective list of Amazon Web Services account IDs allowed to receive results, inherited from parent tables.</p>
+   * @public
+   */
+  value: string[] | undefined;
+
+  /**
+   * <p>The list of parent tables that contribute to this inherited constraint.</p>
+   * @public
+   */
+  sources: InheritedAllowedResultReceiversSource[] | undefined;
+}
+
+/**
+ * <p>Contains column lineage information that traces a disallowed output column back to its source in a base table.</p>
+ * @public
+ */
+export interface ColumnLineageEntry {
+  /**
+   * <p>The name of the column in the intermediate table.</p>
+   * @public
+   */
+  column: string | undefined;
+
+  /**
+   * <p>The name of the column in the source table.</p>
+   * @public
+   */
+  sourceColumn: string | undefined;
+
+  /**
+   * <p>The name of the source table.</p>
+   * @public
+   */
+  sourceName: string | undefined;
+
+  /**
+   * <p>The unique identifier of the source table.</p>
+   * @public
+   */
+  sourceId: string | undefined;
+
+  /**
+   * <p>The type of the source table.</p>
+   * @public
+   */
+  sourceType: BaseTableDependencyType | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the owner of the source table.</p>
+   * @public
+   */
+  sourceAccountId: string | undefined;
+}
+
+/**
+ * <p>Contains the inherited disallowed output columns constraint and the column lineage tracing each column to its source.</p>
+ * @public
+ */
+export interface InheritedDisallowedOutputColumns {
+  /**
+   * <p>The list of column names that are disallowed from appearing in query output, inherited from parent tables.</p>
+   * @public
+   */
+  value: string[] | undefined;
+
+  /**
+   * <p>The lineage information that traces each disallowed output column back to its source in a parent table.</p>
+   * @public
+   */
+  columnLineage: ColumnLineageEntry[] | undefined;
+}
+
+/**
+ * <p>Contains the privacy constraints inherited from parent tables for an intermediate table version.</p>
+ * @public
+ */
+export interface IntermediateTableInheritedConstraints {
+  /**
+   * <p>The inherited additional analyses constraint.</p>
+   * @public
+   */
+  additionalAnalyses?: InheritedAdditionalAnalyses | undefined;
+
+  /**
+   * <p>The inherited allowed additional analyses constraint.</p>
+   * @public
+   */
+  allowedAdditionalAnalyses?: InheritedAllowedAdditionalAnalyses | undefined;
+
+  /**
+   * <p>The inherited allowed result receivers constraint.</p>
+   * @public
+   */
+  allowedResultReceivers?: InheritedAllowedResultReceivers | undefined;
+
+  /**
+   * <p>The inherited disallowed output columns constraint.</p>
+   * @public
+   */
+  disallowedOutputColumns?: InheritedDisallowedOutputColumns | undefined;
+}
+
+/**
+ * <p>Contains the details of the currently active version of an intermediate table.</p>
+ * @public
+ */
+export interface IntermediateTableActiveVersion {
+  /**
+   * <p>The unique identifier of the active version.</p>
+   * @public
+   */
+  versionId: string | undefined;
+
+  /**
+   * <p>The identifier of the protected query that created this version.</p>
+   * @public
+   */
+  analysisId: string | undefined;
+
+  /**
+   * <p>The type of analysis that created this version.</p>
+   * @public
+   */
+  analysisType: PopulateIntermediateTableAnalysisType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt this version's data.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
+
+  /**
+   * <p>The runtime parameters that were used when populating this version.</p>
+   * @public
+   */
+  parameters?: Record<string, string> | undefined;
+
+  /**
+   * <p>The privacy constraints inherited from parent tables at the time this version was populated.</p>
+   * @public
+   */
+  inheritedConstraints: IntermediateTableInheritedConstraints | undefined;
+
+  /**
+   * <p>The time when this version expires based on the retention period.</p>
+   * @public
+   */
+  expirationTime?: Date | undefined;
+}
+
+/**
+ * <p>Contains the schema definition of an intermediate table.</p>
+ * @public
+ */
+export interface IntermediateTableSchema {
+  /**
+   * <p>The list of columns in the intermediate table schema.</p>
+   * @public
+   */
+  columns: Column[] | undefined;
+}
+
+/**
+ * <p>Contains information about a base table that an intermediate table depends on.</p>
+ * @public
+ */
+export interface IntermediateTableDependency {
+  /**
+   * <p>The unique identifier of the dependency table.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the dependency table.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of the dependency table.</p>
+   * @public
+   */
+  type: BaseTableDependencyType | undefined;
+
+  /**
+   * <p>Whether the dependency is direct or indirect. A direct dependency is a table explicitly referenced in the stored query, while an indirect dependency is referenced through another intermediate table.</p>
+   * @public
+   */
+  parentType: BaseTableParentType | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the member who owns the dependency table.</p>
+   * @public
+   */
+  creatorAccountId: string | undefined;
+}
+
+/**
+ * <p>Contains the details of an intermediate table in Clean Rooms. An intermediate table stores a query definition and its materialized results within a collaboration.</p>
+ * @public
+ */
+export interface IntermediateTable {
+  /**
+   * <p>The unique identifier of the intermediate table.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the intermediate table.</p>
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The unique ARN for the membership's associated collaboration.</p>
+   * <p>The name of the intermediate table.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the intermediate table.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the membership that contains the intermediate table.</p>
+   * @public
+   */
+  membershipArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the membership that contains the intermediate table.</p>
+   * @public
+   */
+  membershipId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the collaboration that contains the intermediate table.</p>
    * @public
    */
   collaborationArn: string | undefined;
 
   /**
-   * <p>The unique ID for the membership's collaboration.</p>
+   * <p>The unique identifier of the collaboration that contains the intermediate table.</p>
    * @public
    */
   collaborationId: string | undefined;
 
   /**
-   * <p>The identifier used to reference members of the collaboration. Currently only supports Amazon Web Services account ID.</p>
+   * <p>The child resources that depend on this intermediate table.</p>
    * @public
    */
-  collaborationCreatorAccountId: string | undefined;
+  childResources?: ChildResource[] | undefined;
 
   /**
-   * <p>The display name of the collaboration creator.</p>
-   * @public
-   */
-  collaborationCreatorDisplayName: string | undefined;
-
-  /**
-   * <p>The name of the membership's collaboration.</p>
-   * @public
-   */
-  collaborationName: string | undefined;
-
-  /**
-   * <p>The time when the membership was created.</p>
+   * <p>The time the intermediate table was created.</p>
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The time the membership metadata was last updated.</p>
+   * <p>The time the intermediate table was last updated.</p>
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The status of the membership.</p>
+   * <p>The current status of the intermediate table.</p>
    * @public
    */
-  status: MembershipStatus | undefined;
+  status: IntermediateTableStatus | undefined;
 
   /**
-   * <p>The abilities granted to the collaboration member.</p>
+   * <p>The reason for the current status of the intermediate table.</p>
    * @public
    */
-  memberAbilities: MemberAbility[] | undefined;
+  statusReason?: string | undefined;
 
   /**
-   * <p>Specifies the ML member abilities that are granted to a collaboration member.</p>
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the intermediate table data.</p>
    * @public
    */
-  mlMemberAbilities?: MLMemberAbilities | undefined;
+  kmsKeyArn?: string | undefined;
 
   /**
-   * <p>An indicator as to whether query logging has been enabled or disabled for the membership.</p> <p>When <code>ENABLED</code>, Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is <code>DISABLED</code>.</p>
+   * <p>The analysis configuration that defines the query used to populate the intermediate table.</p>
    * @public
    */
-  queryLogStatus: MembershipQueryLogStatus | undefined;
+  populationAnalysisConfiguration: PopulationAnalysisConfiguration | undefined;
 
   /**
-   * <p>An indicator as to whether job logging has been enabled or disabled for the collaboration. </p> <p>When <code>ENABLED</code>, Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is <code>DISABLED</code>.</p>
+   * <p>The number of days that populated data is retained before expiring.</p>
    * @public
    */
-  jobLogStatus?: MembershipJobLogStatus | undefined;
+  retentionInDays?: number | undefined;
 
   /**
-   * <p>The default protected query result configuration as specified by the member who can receive results.</p>
+   * <p>The list of base tables that this intermediate table depends on.</p>
    * @public
    */
-  defaultResultConfiguration?: MembershipProtectedQueryResultConfiguration | undefined;
+  tableDependencies?: IntermediateTableDependency[] | undefined;
 
   /**
-   * <p> The default job result configuration for the membership.</p>
+   * <p>The details of the currently active version of the intermediate table.</p>
    * @public
    */
-  defaultJobResultConfiguration?: MembershipProtectedJobResultConfiguration | undefined;
+  intermediateTableVersion?: IntermediateTableActiveVersion | undefined;
 
   /**
-   * <p>The payment responsibilities accepted by the collaboration member.</p>
+   * <p>The types of analysis rules associated with the intermediate table.</p>
    * @public
    */
-  paymentConfiguration: MembershipPaymentConfiguration | undefined;
+  analysisRuleTypes?: IntermediateTableAnalysisRuleType[] | undefined;
 
   /**
-   * <p>An indicator as to whether Amazon CloudWatch metrics are enabled for the membership.</p> <p>When <code>true</code>, metrics about query execution are collected in Amazon CloudWatch.</p>
+   * <p>The schema of the intermediate table, containing column definitions. Available after the table has been successfully populated.</p>
    * @public
    */
-  isMetricsEnabled?: boolean | undefined;
+  schema?: IntermediateTableSchema | undefined;
 }
 
 /**
  * @public
  */
-export interface CreateMembershipOutput {
+export interface CreateIntermediateTableOutput {
   /**
-   * <p>The membership that was created.</p>
+   * <p>The intermediate table that was created.</p>
    * @public
    */
-  membership: Membership | undefined;
+  intermediateTable: IntermediateTable | undefined;
+}
+
+/**
+ * <p>Contains the custom analysis rule configuration for an intermediate table.</p>
+ * @public
+ */
+export interface IntermediateTableAnalysisRuleCustom {
+  /**
+   * <p>The list of allowed analyses that can be performed on the intermediate table.</p>
+   * @public
+   */
+  allowedAnalyses?: string[] | undefined;
+
+  /**
+   * <p>The setting that controls whether additional analyses are allowed on the intermediate table.</p>
+   * @public
+   */
+  additionalAnalyses?: AdditionalAnalyses | undefined;
+
+  /**
+   * <p>The list of allowed additional analyses for the intermediate table.</p>
+   * @public
+   */
+  allowedAdditionalAnalyses?: string[] | undefined;
+
+  /**
+   * <p>The list of Amazon Web Services account IDs for the allowed analysis providers.</p>
+   * @public
+   */
+  allowedAnalysisProviders?: string[] | undefined;
+
+  /**
+   * <p>The list of Amazon Web Services account IDs that are allowed to receive results from queries run on the intermediate table.</p>
+   * @public
+   */
+  allowedResultReceivers?: string[] | undefined;
+
+  /**
+   * <p>Specifies the unique identifier for your users.</p>
+   * @public
+   */
+  differentialPrivacy?: DifferentialPrivacyConfiguration | undefined;
+
+  /**
+   * <p>The list of columns that are not allowed in the query output.</p>
+   * @public
+   */
+  disallowedOutputColumns?: string[] | undefined;
+}
+
+/**
+ * <p>Contains the version 1 policy for an intermediate table analysis rule.</p>
+ * @public
+ */
+export type IntermediateTableAnalysisRulePolicyV1 =
+  | IntermediateTableAnalysisRulePolicyV1.CustomMember
+  | IntermediateTableAnalysisRulePolicyV1.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace IntermediateTableAnalysisRulePolicyV1 {
+  /**
+   * <p>The custom analysis rule policy.</p>
+   * @public
+   */
+  export interface CustomMember {
+    custom: IntermediateTableAnalysisRuleCustom;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    custom?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    custom: (value: IntermediateTableAnalysisRuleCustom) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Contains the policy for an intermediate table analysis rule.</p>
+ * @public
+ */
+export type IntermediateTableAnalysisRulePolicy =
+  | IntermediateTableAnalysisRulePolicy.V1Member
+  | IntermediateTableAnalysisRulePolicy.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace IntermediateTableAnalysisRulePolicy {
+  /**
+   * <p>The version 1 policy for the analysis rule.</p>
+   * @public
+   */
+  export interface V1Member {
+    v1: IntermediateTableAnalysisRulePolicyV1;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    v1?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    v1: (value: IntermediateTableAnalysisRulePolicyV1) => T;
+    _: (name: string, value: any) => T;
+  }
 }
 
 /**
  * @public
  */
-export interface DeleteMembershipInput {
+export interface CreateIntermediateTableAnalysisRuleInput {
   /**
-   * <p>The identifier for a membership resource.</p>
+   * <p>The unique identifier of the membership that contains the intermediate table.</p>
+   * @public
+   */
+  membershipIdentifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the intermediate table for which to create the analysis rule.</p>
+   * @public
+   */
+  intermediateTableIdentifier: string | undefined;
+
+  /**
+   * <p>The type of analysis rule to create. Currently, only <code>CUSTOM</code> is supported.</p>
+   * @public
+   */
+  analysisRuleType: IntermediateTableAnalysisRuleType | undefined;
+
+  /**
+   * <p>The analysis rule policy to apply to the intermediate table.</p>
+   * @public
+   */
+  analysisRulePolicy: IntermediateTableAnalysisRulePolicy | undefined;
+}
+
+/**
+ * <p>Contains the details of an analysis rule for an intermediate table.</p>
+ * @public
+ */
+export interface IntermediateTableAnalysisRule {
+  /**
+   * <p>The unique identifier of the intermediate table associated with this analysis rule.</p>
+   * @public
+   */
+  intermediateTableIdentifier: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the intermediate table associated with this analysis rule.</p>
+   * @public
+   */
+  intermediateTableArn: string | undefined;
+
+  /**
+   * <p>The policy of the analysis rule.</p>
+   * @public
+   */
+  analysisRulePolicy: IntermediateTableAnalysisRulePolicy | undefined;
+
+  /**
+   * <p>The type of the analysis rule.</p>
+   * @public
+   */
+  analysisRuleType: IntermediateTableAnalysisRuleType | undefined;
+
+  /**
+   * <p>The time the analysis rule was created.</p>
+   * @public
+   */
+  createTime: Date | undefined;
+
+  /**
+   * <p>The time the analysis rule was last updated.</p>
+   * @public
+   */
+  updateTime: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateIntermediateTableAnalysisRuleOutput {
+  /**
+   * <p>The analysis rule that was created for the intermediate table.</p>
+   * @public
+   */
+  analysisRule: IntermediateTableAnalysisRule | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIntermediateTableInput {
+  /**
+   * <p>The unique identifier of the membership that contains the intermediate table.</p>
+   * @public
+   */
+  membershipIdentifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the intermediate table to delete.</p>
+   * @public
+   */
+  intermediateTableIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIntermediateTableOutput {}
+
+/**
+ * @public
+ */
+export interface DeleteIntermediateTableAnalysisRuleInput {
+  /**
+   * <p>The unique identifier of the membership that contains the intermediate table.</p>
+   * @public
+   */
+  membershipIdentifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the intermediate table from which to delete the analysis rule.</p>
+   * @public
+   */
+  intermediateTableIdentifier: string | undefined;
+
+  /**
+   * <p>The type of analysis rule to delete. Currently, only <code>CUSTOM</code> is supported.</p>
+   * @public
+   */
+  analysisRuleType: IntermediateTableAnalysisRuleType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIntermediateTableAnalysisRuleOutput {}
+
+/**
+ * @public
+ */
+export interface GetIntermediateTableInput {
+  /**
+   * <p>The unique identifier of the intermediate table to retrieve.</p>
+   * @public
+   */
+  intermediateTableIdentifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the membership that contains the intermediate table.</p>
    * @public
    */
   membershipIdentifier: string | undefined;
@@ -7649,45 +8154,270 @@ export interface DeleteMembershipInput {
 /**
  * @public
  */
-export interface DeleteMembershipOutput {}
-
-/**
- * @public
- */
-export interface GetMembershipInput {
+export interface GetIntermediateTableOutput {
   /**
-   * <p>The identifier for a membership resource.</p>
+   * <p>The intermediate table retrieved.</p>
    * @public
    */
-  membershipIdentifier: string | undefined;
+  intermediateTable: IntermediateTable | undefined;
 }
 
 /**
  * @public
  */
-export interface GetMembershipOutput {
+export interface GetIntermediateTableAnalysisRuleInput {
   /**
-   * <p>The membership retrieved for the provided identifier.</p>
-   * @public
-   */
-  membership: Membership | undefined;
-}
-
-/**
- * @public
- */
-export interface GetProtectedJobInput {
-  /**
-   * <p> The identifier for a membership in a protected job instance.</p>
+   * <p>The unique identifier of the membership that contains the intermediate table.</p>
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p> The identifier for the protected job instance.</p>
+   * <p>The unique identifier of the intermediate table for which to retrieve the analysis rule.</p>
    * @public
    */
-  protectedJobIdentifier: string | undefined;
+  intermediateTableIdentifier: string | undefined;
+
+  /**
+   * <p>The type of analysis rule to retrieve. Currently, only <code>CUSTOM</code> is supported.</p>
+   * @public
+   */
+  analysisRuleType: IntermediateTableAnalysisRuleType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetIntermediateTableAnalysisRuleOutput {
+  /**
+   * <p>The analysis rule for the intermediate table.</p>
+   * @public
+   */
+  analysisRule: IntermediateTableAnalysisRule | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListIntermediateTablesInput {
+  /**
+   * <p>The unique identifier of the membership for which to list intermediate tables.</p>
+   * @public
+   */
+  membershipIdentifier: string | undefined;
+
+  /**
+   * <p>The pagination token that's used to fetch the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a <code>nextToken</code> even if the <code>maxResults</code> value has not been met.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Contains summary information about an intermediate table.</p>
+ * @public
+ */
+export interface IntermediateTableSummary {
+  /**
+   * <p>The unique identifier of the intermediate table.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the intermediate table.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The name of the intermediate table.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the intermediate table.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the membership that contains the intermediate table.</p>
+   * @public
+   */
+  membershipArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the membership that contains the intermediate table.</p>
+   * @public
+   */
+  membershipId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the collaboration that contains the intermediate table.</p>
+   * @public
+   */
+  collaborationArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the collaboration that contains the intermediate table.</p>
+   * @public
+   */
+  collaborationId: string | undefined;
+
+  /**
+   * <p>The time the intermediate table was created.</p>
+   * @public
+   */
+  createTime: Date | undefined;
+
+  /**
+   * <p>The time the intermediate table was last updated.</p>
+   * @public
+   */
+  updateTime: Date | undefined;
+
+  /**
+   * <p>The current status of the intermediate table.</p>
+   * @public
+   */
+  status: IntermediateTableStatus | undefined;
+
+  /**
+   * <p>The number of days that populated data is retained before expiring.</p>
+   * @public
+   */
+  retentionInDays?: number | undefined;
+
+  /**
+   * <p>The types of analysis rules associated with the intermediate table.</p>
+   * @public
+   */
+  analysisRuleTypes?: IntermediateTableAnalysisRuleType[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListIntermediateTablesOutput {
+  /**
+   * <p>The list of intermediate table summaries.</p>
+   * @public
+   */
+  intermediateTableSummaries: IntermediateTableSummary[] | undefined;
+
+  /**
+   * <p>The pagination token that's used to fetch the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListIntermediateTableVersionsInput {
+  /**
+   * <p>The unique identifier of the membership that contains the intermediate table.</p>
+   * @public
+   */
+  membershipIdentifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the intermediate table for which to list versions.</p>
+   * @public
+   */
+  intermediateTableIdentifier: string | undefined;
+
+  /**
+   * <p>The pagination token that's used to fetch the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a <code>nextToken</code> even if the <code>maxResults</code> value has not been met.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Contains summary information about a version of an intermediate table.</p>
+ * @public
+ */
+export interface IntermediateTableVersionSummary {
+  /**
+   * <p>The unique identifier of the version.</p>
+   * @public
+   */
+  versionId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the intermediate table that this version belongs to.</p>
+   * @public
+   */
+  tableId: string | undefined;
+
+  /**
+   * <p>The time the version was created.</p>
+   * @public
+   */
+  createTime: Date | undefined;
+
+  /**
+   * <p>The identifier of the protected query that created this version.</p>
+   * @public
+   */
+  analysisId: string | undefined;
+
+  /**
+   * <p>The status of the version.</p>
+   * @public
+   */
+  status: IntermediateTableVersionStatus | undefined;
+
+  /**
+   * <p>The type of analysis that created this version.</p>
+   * @public
+   */
+  analysisType: PopulateIntermediateTableAnalysisType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt this version's data.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
+
+  /**
+   * <p>The time when this version expires based on the retention period.</p>
+   * @public
+   */
+  expirationTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListIntermediateTableVersionsOutput {
+  /**
+   * <p>The list of intermediate table version summaries.</p>
+   * @public
+   */
+  intermediateTableVersionSummaries: IntermediateTableVersionSummary[] | undefined;
+
+  /**
+   * <p>The pagination token that's used to fetch the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**
@@ -7730,425 +8460,6 @@ export namespace WorkerComputeConfigurationProperties {
 }
 
 /**
- * <p>The configuration of the compute resources for a PySpark job.</p>
- * @public
- */
-export interface ProtectedJobWorkerComputeConfiguration {
-  /**
-   * <p>The worker compute configuration type.</p>
-   * @public
-   */
-  type: ProtectedJobWorkerComputeType | undefined;
-
-  /**
-   * <p>The number of workers for a PySpark job.</p>
-   * @public
-   */
-  number: number | undefined;
-
-  /**
-   * <p>The configuration properties for the worker compute environment. These properties allow you to customize the compute settings for your Clean Rooms workloads.</p>
-   * @public
-   */
-  properties?: WorkerComputeConfigurationProperties | undefined;
-}
-
-/**
- * <p>The configuration of the compute resources for a PySpark job.</p>
- * @public
- */
-export type ProtectedJobComputeConfiguration =
-  | ProtectedJobComputeConfiguration.WorkerMember
-  | ProtectedJobComputeConfiguration.$UnknownMember;
-
-/**
- * @public
- */
-export namespace ProtectedJobComputeConfiguration {
-  /**
-   * <p>The worker configuration for the compute environment.</p>
-   * @public
-   */
-  export interface WorkerMember {
-    worker: ProtectedJobWorkerComputeConfiguration;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    worker?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    worker: (value: ProtectedJobWorkerComputeConfiguration) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>The protected job error.</p>
- * @public
- */
-export interface ProtectedJobError {
-  /**
-   * <p> The message for the protected job error.</p>
-   * @public
-   */
-  message: string | undefined;
-
-  /**
-   * <p> The error code for the protected job.</p>
-   * @public
-   */
-  code: string | undefined;
-}
-
-/**
- * <p>The parameters for the protected job.</p>
- * @public
- */
-export interface ProtectedJobParameters {
-  /**
-   * <p> The ARN of the analysis template.</p>
-   * @public
-   */
-  analysisTemplateArn: string | undefined;
-
-  /**
-   * <p>Runtime configuration values passed to the PySpark analysis script. Parameter names and types must match those defined in the analysis template.</p>
-   * @public
-   */
-  parameters?: Record<string, string> | undefined;
-}
-
-/**
- * <p>Details about the member who received the job result.</p>
- * @public
- */
-export interface ProtectedJobSingleMemberOutput {
-  /**
-   * <p>The Amazon Web Services account ID of the member in the collaboration who can receive results from analyses.</p>
-   * @public
-   */
-  accountId: string | undefined;
-}
-
-/**
- * <p>Contains output information for protected jobs with an S3 output type.</p>
- * @public
- */
-export interface ProtectedJobS3Output {
-  /**
-   * <p> The S3 location for the protected job output.</p>
-   * @public
-   */
-  location: string | undefined;
-}
-
-/**
- * <p>Contains details about the protected job output.</p>
- * @public
- */
-export type ProtectedJobOutput =
-  | ProtectedJobOutput.MemberListMember
-  | ProtectedJobOutput.S3Member
-  | ProtectedJobOutput.$UnknownMember;
-
-/**
- * @public
- */
-export namespace ProtectedJobOutput {
-  /**
-   * <p>If present, the output for a protected job with an `S3` output type.</p>
-   * @public
-   */
-  export interface S3Member {
-    s3: ProtectedJobS3Output;
-    memberList?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The list of member Amazon Web Services account(s) that received the results of the job. </p>
-   * @public
-   */
-  export interface MemberListMember {
-    s3?: never;
-    memberList: ProtectedJobSingleMemberOutput[];
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    s3?: never;
-    memberList?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    s3: (value: ProtectedJobS3Output) => T;
-    memberList: (value: ProtectedJobSingleMemberOutput[]) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Details about the job results.</p>
- * @public
- */
-export interface ProtectedJobResult {
-  /**
-   * <p> The output of the protected job.</p>
-   * @public
-   */
-  output: ProtectedJobOutput | undefined;
-}
-
-/**
- * <p> The protected job member output configuration output.</p>
- * @public
- */
-export interface ProtectedJobMemberOutputConfigurationOutput {
-  /**
-   * <p> The account ID.</p>
-   * @public
-   */
-  accountId: string | undefined;
-}
-
-/**
- * <p> The output configuration for a protected job's S3 output.</p>
- * @public
- */
-export interface ProtectedJobS3OutputConfigurationOutput {
-  /**
-   * <p> The S3 bucket for job output.</p>
-   * @public
-   */
-  bucket: string | undefined;
-
-  /**
-   * <p>The S3 prefix to unload the protected job results.</p>
-   * @public
-   */
-  keyPrefix?: string | undefined;
-}
-
-/**
- * <p> The protected job output configuration output.</p>
- * @public
- */
-export type ProtectedJobOutputConfigurationOutput =
-  | ProtectedJobOutputConfigurationOutput.MemberMember
-  | ProtectedJobOutputConfigurationOutput.S3Member
-  | ProtectedJobOutputConfigurationOutput.$UnknownMember;
-
-/**
- * @public
- */
-export namespace ProtectedJobOutputConfigurationOutput {
-  /**
-   * <p>If present, the output for a protected job with an `S3` output type.</p>
-   * @public
-   */
-  export interface S3Member {
-    s3: ProtectedJobS3OutputConfigurationOutput;
-    member?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p> The member output configuration for a protected job.</p>
-   * @public
-   */
-  export interface MemberMember {
-    s3?: never;
-    member: ProtectedJobMemberOutputConfigurationOutput;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    s3?: never;
-    member?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    s3: (value: ProtectedJobS3OutputConfigurationOutput) => T;
-    member: (value: ProtectedJobMemberOutputConfigurationOutput) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>The output configuration for a protected job result.</p>
- * @public
- */
-export interface ProtectedJobResultConfigurationOutput {
-  /**
-   * <p>The output configuration.</p>
-   * @public
-   */
-  outputConfiguration: ProtectedJobOutputConfigurationOutput | undefined;
-}
-
-/**
- * <p> Information related to the utilization of resources that have been billed or charged for in a given context, such as a protected job.</p>
- * @public
- */
-export interface BilledJobResourceUtilization {
-  /**
-   * <p> The number of Clean Rooms Processing Unit (CRPU) hours that have been billed.</p>
-   * @public
-   */
-  units: number | undefined;
-}
-
-/**
- * <p>Contains statistics about the execution of the protected job.</p>
- * @public
- */
-export interface ProtectedJobStatistics {
-  /**
-   * <p>The duration of the protected job, from creation until job completion, in milliseconds.</p>
-   * @public
-   */
-  totalDurationInMillis?: number | undefined;
-
-  /**
-   * <p> The billed resource utilization for the protected job.</p>
-   * @public
-   */
-  billedResourceUtilization?: BilledJobResourceUtilization | undefined;
-}
-
-/**
- * <p>The parameters for an Clean Rooms protected job.</p>
- * @public
- */
-export interface ProtectedJob {
-  /**
-   * <p>The identifier for a protected job instance.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>he identifier for the membership.</p>
-   * @public
-   */
-  membershipId: string | undefined;
-
-  /**
-   * <p>The ARN of the membership.</p>
-   * @public
-   */
-  membershipArn: string | undefined;
-
-  /**
-   * <p> The creation time of the protected job.</p>
-   * @public
-   */
-  createTime: Date | undefined;
-
-  /**
-   * <p> The job parameters for the protected job.</p>
-   * @public
-   */
-  jobParameters?: ProtectedJobParameters | undefined;
-
-  /**
-   * <p> The status of the protected job.</p>
-   * @public
-   */
-  status: ProtectedJobStatus | undefined;
-
-  /**
-   * <p>Contains any details needed to write the job results.</p>
-   * @public
-   */
-  resultConfiguration?: ProtectedJobResultConfigurationOutput | undefined;
-
-  /**
-   * <p> The statistics of the protected job.</p>
-   * @public
-   */
-  statistics?: ProtectedJobStatistics | undefined;
-
-  /**
-   * <p> The result of the protected job.</p>
-   * @public
-   */
-  result?: ProtectedJobResult | undefined;
-
-  /**
-   * <p> The error from the protected job.</p>
-   * @public
-   */
-  error?: ProtectedJobError | undefined;
-
-  /**
-   * <p>The compute configuration for the protected job.</p>
-   * @public
-   */
-  computeConfiguration?: ProtectedJobComputeConfiguration | undefined;
-
-  /**
-   * <p>The account ID of the member that pays for the job compute costs.</p>
-   * @public
-   */
-  jobComputePayerAccountId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetProtectedJobOutput {
-  /**
-   * <p> The protected job metadata.</p>
-   * @public
-   */
-  protectedJob: ProtectedJob | undefined;
-}
-
-/**
- * @public
- */
-export interface GetProtectedQueryInput {
-  /**
-   * <p>The identifier for a membership in a protected query instance.</p>
-   * @public
-   */
-  membershipIdentifier: string | undefined;
-
-  /**
-   * <p>The identifier for a protected query instance.</p>
-   * @public
-   */
-  protectedQueryIdentifier: string | undefined;
-}
-
-/**
  * <p> The configuration of the compute resources for workers running an analysis with the Clean Rooms SQL analytics engine.</p>
  * @public
  */
@@ -8173,23 +8484,23 @@ export interface WorkerComputeConfiguration {
 }
 
 /**
- * <p> The configuration of the compute resources for an analysis with the Spark analytics engine.</p>
+ * <p>The compute configuration for an intermediate table population operation.</p>
  * @public
  */
-export type ComputeConfiguration =
-  | ComputeConfiguration.WorkerMember
-  | ComputeConfiguration.$UnknownMember;
+export type IntermediateTableComputeConfiguration =
+  | IntermediateTableComputeConfiguration.QueryComputeConfigurationMember
+  | IntermediateTableComputeConfiguration.$UnknownMember;
 
 /**
  * @public
  */
-export namespace ComputeConfiguration {
+export namespace IntermediateTableComputeConfiguration {
   /**
-   * <p> The worker configuration for the compute environment.</p>
+   * <p> The configuration of the compute resources for workers running an analysis with the Clean Rooms SQL analytics engine.</p>
    * @public
    */
-  export interface WorkerMember {
-    worker: WorkerComputeConfiguration;
+  export interface QueryComputeConfigurationMember {
+    queryComputeConfiguration: WorkerComputeConfiguration;
     $unknown?: never;
   }
 
@@ -8197,7 +8508,7 @@ export namespace ComputeConfiguration {
    * @public
    */
   export interface $UnknownMember {
-    worker?: never;
+    queryComputeConfiguration?: never;
     $unknown: [string, any];
   }
 
@@ -8206,115 +8517,158 @@ export namespace ComputeConfiguration {
    *
    */
   export interface Visitor<T> {
-    worker: (value: WorkerComputeConfiguration) => T;
+    queryComputeConfiguration: (value: WorkerComputeConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 }
 
 /**
- * <p>Provides the sensitivity parameters.</p>
  * @public
  */
-export interface DifferentialPrivacySensitivityParameters {
+export interface PopulateIntermediateTableInput {
   /**
-   * <p>The type of aggregation function that was run.</p>
+   * <p>The unique identifier of the intermediate table to populate.</p>
    * @public
    */
-  aggregationType: DifferentialPrivacyAggregationType | undefined;
+  intermediateTableIdentifier: string | undefined;
 
   /**
-   * <p>The aggregation expression that was run.</p>
+   * <p>The unique identifier of the membership that contains the intermediate table.</p>
    * @public
    */
-  aggregationExpression: string | undefined;
+  membershipIdentifier: string | undefined;
 
   /**
-   * <p>The maximum number of rows contributed by a user in a SQL query.</p>
+   * <p>The runtime parameter values that override the defaults in the stored query.</p>
    * @public
    */
-  userContributionLimit: number | undefined;
+  parameters?: Record<string, string> | undefined;
 
   /**
-   * <p>The lower bound of the aggregation expression.</p>
+   * <p>The compute configuration for the population query execution.</p>
    * @public
    */
-  minColumnValue?: number | undefined;
+  computeConfiguration?: IntermediateTableComputeConfiguration | undefined;
 
   /**
-   * <p>The upper bound of the aggregation expression.</p>
+   * <p>The account ID of the member that pays for the analysis compute costs.</p>
    * @public
    */
-  maxColumnValue?: number | undefined;
+  analysisPayerAccountId?: string | undefined;
 }
 
 /**
- * <p>An array that contains the sensitivity parameters.</p>
  * @public
  */
-export interface DifferentialPrivacyParameters {
+export interface PopulateIntermediateTableOutput {
   /**
-   * <p>Provides the sensitivity parameters that you can use to better understand the total amount of noise in query results.</p>
+   * <p>The identifier for the protected query execution. Use this value with <code>GetProtectedQuery</code> to track the population progress.</p>
    * @public
    */
-  sensitivityParameters: DifferentialPrivacySensitivityParameters[] | undefined;
+  analysisId: string | undefined;
+
+  /**
+   * <p>The type of analysis performed to populate the intermediate table.</p>
+   * @public
+   */
+  analysisType: PopulateIntermediateTableAnalysisType | undefined;
+
+  /**
+   * <p>The unique identifier of the version created by this population operation.</p>
+   * @public
+   */
+  versionId: string | undefined;
 }
 
 /**
- * <p>Details of errors thrown by the protected query.</p>
+ * <p>Contains the name and type of a column in an intermediate table.</p>
  * @public
  */
-export interface ProtectedQueryError {
+export interface IntermediateTableColumn {
   /**
-   * <p>A description of why the query failed.</p>
+   * <p>The name of the column.</p>
    * @public
    */
-  message: string | undefined;
+  name: string | undefined;
 
   /**
-   * <p>An error code for the error.</p>
+   * <p>The data type of the column.</p>
    * @public
    */
-  code: string | undefined;
+  type: string | undefined;
 }
 
 /**
- * <p>Details about the member who received the query result.</p>
  * @public
  */
-export interface ProtectedQuerySingleMemberOutput {
+export interface UpdateIntermediateTableInput {
   /**
-   * <p>The Amazon Web Services account ID of the member in the collaboration who can receive results for the query.</p>
+   * <p>The unique identifier of the intermediate table to update.</p>
    * @public
    */
-  accountId: string | undefined;
+  intermediateTableIdentifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the membership that contains the intermediate table.</p>
+   * @public
+   */
+  membershipIdentifier: string | undefined;
+
+  /**
+   * <p>A new description for the intermediate table.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the customer-managed KMS key to use for encrypting future population data.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
+
+  /**
+   * <p>The list of columns with updated type definitions. Only the type of existing columns can be updated.</p>
+   * @public
+   */
+  columns?: IntermediateTableColumn[] | undefined;
 }
 
 /**
- * <p>Contains output information for protected queries with an S3 output type.</p>
  * @public
  */
-export interface ProtectedQueryS3Output {
+export interface UpdateIntermediateTableOutput {
   /**
-   * <p>The S3 location of the result.</p>
+   * <p>The updated intermediate table.</p>
    * @public
    */
-  location: string | undefined;
+  intermediateTable: IntermediateTable | undefined;
 }
 
 /**
- * <p> Contains the output information for a protected query with a distribute output configuration.</p> <p> This output type allows query results to be distributed to multiple receivers, including S3 and collaboration members. It is only available for queries using the Spark analytics engine.</p>
  * @public
  */
-export interface ProtectedQueryDistributeOutput {
+export interface UpdateIntermediateTableAnalysisRuleInput {
   /**
-   * <p>Contains output information for protected queries with an S3 output type.</p>
+   * <p>The unique identifier of the membership that contains the intermediate table.</p>
    * @public
    */
-  s3?: ProtectedQueryS3Output | undefined;
+  membershipIdentifier: string | undefined;
 
   /**
-   * <p> Contains the output results for each member location specified in the distribute output configuration. Each entry provides details about the result distribution to a specific collaboration member. </p>
+   * <p>The unique identifier of the intermediate table for which to update the analysis rule.</p>
    * @public
    */
-  memberList?: ProtectedQuerySingleMemberOutput[] | undefined;
+  intermediateTableIdentifier: string | undefined;
+
+  /**
+   * <p>The type of analysis rule to update. Currently, only <code>CUSTOM</code> is supported.</p>
+   * @public
+   */
+  analysisRuleType: IntermediateTableAnalysisRuleType | undefined;
+
+  /**
+   * <p>The updated analysis rule policy for the intermediate table.</p>
+   * @public
+   */
+  analysisRulePolicy: IntermediateTableAnalysisRulePolicy | undefined;
 }

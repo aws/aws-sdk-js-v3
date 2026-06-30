@@ -103,6 +103,14 @@ import type {
   CreateIdNamespaceAssociationCommandInput,
   CreateIdNamespaceAssociationCommandOutput,
 } from "./commands/CreateIdNamespaceAssociationCommand";
+import type {
+  CreateIntermediateTableAnalysisRuleCommandInput,
+  CreateIntermediateTableAnalysisRuleCommandOutput,
+} from "./commands/CreateIntermediateTableAnalysisRuleCommand";
+import type {
+  CreateIntermediateTableCommandInput,
+  CreateIntermediateTableCommandOutput,
+} from "./commands/CreateIntermediateTableCommand";
 import type { CreateMembershipCommandInput, CreateMembershipCommandOutput } from "./commands/CreateMembershipCommand";
 import type {
   CreatePrivacyBudgetTemplateCommandInput,
@@ -144,12 +152,24 @@ import type {
   DeleteIdNamespaceAssociationCommandInput,
   DeleteIdNamespaceAssociationCommandOutput,
 } from "./commands/DeleteIdNamespaceAssociationCommand";
+import type {
+  DeleteIntermediateTableAnalysisRuleCommandInput,
+  DeleteIntermediateTableAnalysisRuleCommandOutput,
+} from "./commands/DeleteIntermediateTableAnalysisRuleCommand";
+import type {
+  DeleteIntermediateTableCommandInput,
+  DeleteIntermediateTableCommandOutput,
+} from "./commands/DeleteIntermediateTableCommand";
 import type { DeleteMemberCommandInput, DeleteMemberCommandOutput } from "./commands/DeleteMemberCommand";
 import type { DeleteMembershipCommandInput, DeleteMembershipCommandOutput } from "./commands/DeleteMembershipCommand";
 import type {
   DeletePrivacyBudgetTemplateCommandInput,
   DeletePrivacyBudgetTemplateCommandOutput,
 } from "./commands/DeletePrivacyBudgetTemplateCommand";
+import type {
+  DisallowIntermediateTableCommandInput,
+  DisallowIntermediateTableCommandOutput,
+} from "./commands/DisallowIntermediateTableCommand";
 import type {
   GetAnalysisTemplateCommandInput,
   GetAnalysisTemplateCommandOutput,
@@ -203,6 +223,14 @@ import type {
   GetIdNamespaceAssociationCommandInput,
   GetIdNamespaceAssociationCommandOutput,
 } from "./commands/GetIdNamespaceAssociationCommand";
+import type {
+  GetIntermediateTableAnalysisRuleCommandInput,
+  GetIntermediateTableAnalysisRuleCommandOutput,
+} from "./commands/GetIntermediateTableAnalysisRuleCommand";
+import type {
+  GetIntermediateTableCommandInput,
+  GetIntermediateTableCommandOutput,
+} from "./commands/GetIntermediateTableCommand";
 import type { GetMembershipCommandInput, GetMembershipCommandOutput } from "./commands/GetMembershipCommand";
 import type {
   GetPrivacyBudgetTemplateCommandInput,
@@ -270,6 +298,14 @@ import type {
   ListIdNamespaceAssociationsCommandInput,
   ListIdNamespaceAssociationsCommandOutput,
 } from "./commands/ListIdNamespaceAssociationsCommand";
+import type {
+  ListIntermediateTablesCommandInput,
+  ListIntermediateTablesCommandOutput,
+} from "./commands/ListIntermediateTablesCommand";
+import type {
+  ListIntermediateTableVersionsCommandInput,
+  ListIntermediateTableVersionsCommandOutput,
+} from "./commands/ListIntermediateTableVersionsCommand";
 import type { ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand";
 import type { ListMembershipsCommandInput, ListMembershipsCommandOutput } from "./commands/ListMembershipsCommand";
 import type {
@@ -297,6 +333,10 @@ import type {
   PopulateIdMappingTableCommandInput,
   PopulateIdMappingTableCommandOutput,
 } from "./commands/PopulateIdMappingTableCommand";
+import type {
+  PopulateIntermediateTableCommandInput,
+  PopulateIntermediateTableCommandOutput,
+} from "./commands/PopulateIntermediateTableCommand";
 import type {
   PreviewPrivacyImpactCommandInput,
   PreviewPrivacyImpactCommandOutput,
@@ -351,6 +391,14 @@ import type {
   UpdateIdNamespaceAssociationCommandInput,
   UpdateIdNamespaceAssociationCommandOutput,
 } from "./commands/UpdateIdNamespaceAssociationCommand";
+import type {
+  UpdateIntermediateTableAnalysisRuleCommandInput,
+  UpdateIntermediateTableAnalysisRuleCommandOutput,
+} from "./commands/UpdateIntermediateTableAnalysisRuleCommand";
+import type {
+  UpdateIntermediateTableCommandInput,
+  UpdateIntermediateTableCommandOutput,
+} from "./commands/UpdateIntermediateTableCommand";
 import type { UpdateMembershipCommandInput, UpdateMembershipCommandOutput } from "./commands/UpdateMembershipCommand";
 import type {
   UpdatePrivacyBudgetTemplateCommandInput,
@@ -392,6 +440,8 @@ export type ServiceInputTypes =
   | CreateConfiguredTableCommandInput
   | CreateIdMappingTableCommandInput
   | CreateIdNamespaceAssociationCommandInput
+  | CreateIntermediateTableAnalysisRuleCommandInput
+  | CreateIntermediateTableCommandInput
   | CreateMembershipCommandInput
   | CreatePrivacyBudgetTemplateCommandInput
   | DeleteAnalysisTemplateCommandInput
@@ -403,9 +453,12 @@ export type ServiceInputTypes =
   | DeleteConfiguredTableCommandInput
   | DeleteIdMappingTableCommandInput
   | DeleteIdNamespaceAssociationCommandInput
+  | DeleteIntermediateTableAnalysisRuleCommandInput
+  | DeleteIntermediateTableCommandInput
   | DeleteMemberCommandInput
   | DeleteMembershipCommandInput
   | DeletePrivacyBudgetTemplateCommandInput
+  | DisallowIntermediateTableCommandInput
   | GetAnalysisTemplateCommandInput
   | GetCollaborationAnalysisTemplateCommandInput
   | GetCollaborationChangeRequestCommandInput
@@ -420,6 +473,8 @@ export type ServiceInputTypes =
   | GetConfiguredTableCommandInput
   | GetIdMappingTableCommandInput
   | GetIdNamespaceAssociationCommandInput
+  | GetIntermediateTableAnalysisRuleCommandInput
+  | GetIntermediateTableCommandInput
   | GetMembershipCommandInput
   | GetPrivacyBudgetTemplateCommandInput
   | GetProtectedJobCommandInput
@@ -439,6 +494,8 @@ export type ServiceInputTypes =
   | ListConfiguredTablesCommandInput
   | ListIdMappingTablesCommandInput
   | ListIdNamespaceAssociationsCommandInput
+  | ListIntermediateTableVersionsCommandInput
+  | ListIntermediateTablesCommandInput
   | ListMembersCommandInput
   | ListMembershipsCommandInput
   | ListPrivacyBudgetTemplatesCommandInput
@@ -448,6 +505,7 @@ export type ServiceInputTypes =
   | ListSchemasCommandInput
   | ListTagsForResourceCommandInput
   | PopulateIdMappingTableCommandInput
+  | PopulateIntermediateTableCommandInput
   | PreviewPrivacyImpactCommandInput
   | StartProtectedJobCommandInput
   | StartProtectedQueryCommandInput
@@ -463,6 +521,8 @@ export type ServiceInputTypes =
   | UpdateConfiguredTableCommandInput
   | UpdateIdMappingTableCommandInput
   | UpdateIdNamespaceAssociationCommandInput
+  | UpdateIntermediateTableAnalysisRuleCommandInput
+  | UpdateIntermediateTableCommandInput
   | UpdateMembershipCommandInput
   | UpdatePrivacyBudgetTemplateCommandInput
   | UpdateProtectedJobCommandInput
@@ -485,6 +545,8 @@ export type ServiceOutputTypes =
   | CreateConfiguredTableCommandOutput
   | CreateIdMappingTableCommandOutput
   | CreateIdNamespaceAssociationCommandOutput
+  | CreateIntermediateTableAnalysisRuleCommandOutput
+  | CreateIntermediateTableCommandOutput
   | CreateMembershipCommandOutput
   | CreatePrivacyBudgetTemplateCommandOutput
   | DeleteAnalysisTemplateCommandOutput
@@ -496,9 +558,12 @@ export type ServiceOutputTypes =
   | DeleteConfiguredTableCommandOutput
   | DeleteIdMappingTableCommandOutput
   | DeleteIdNamespaceAssociationCommandOutput
+  | DeleteIntermediateTableAnalysisRuleCommandOutput
+  | DeleteIntermediateTableCommandOutput
   | DeleteMemberCommandOutput
   | DeleteMembershipCommandOutput
   | DeletePrivacyBudgetTemplateCommandOutput
+  | DisallowIntermediateTableCommandOutput
   | GetAnalysisTemplateCommandOutput
   | GetCollaborationAnalysisTemplateCommandOutput
   | GetCollaborationChangeRequestCommandOutput
@@ -513,6 +578,8 @@ export type ServiceOutputTypes =
   | GetConfiguredTableCommandOutput
   | GetIdMappingTableCommandOutput
   | GetIdNamespaceAssociationCommandOutput
+  | GetIntermediateTableAnalysisRuleCommandOutput
+  | GetIntermediateTableCommandOutput
   | GetMembershipCommandOutput
   | GetPrivacyBudgetTemplateCommandOutput
   | GetProtectedJobCommandOutput
@@ -532,6 +599,8 @@ export type ServiceOutputTypes =
   | ListConfiguredTablesCommandOutput
   | ListIdMappingTablesCommandOutput
   | ListIdNamespaceAssociationsCommandOutput
+  | ListIntermediateTableVersionsCommandOutput
+  | ListIntermediateTablesCommandOutput
   | ListMembersCommandOutput
   | ListMembershipsCommandOutput
   | ListPrivacyBudgetTemplatesCommandOutput
@@ -541,6 +610,7 @@ export type ServiceOutputTypes =
   | ListSchemasCommandOutput
   | ListTagsForResourceCommandOutput
   | PopulateIdMappingTableCommandOutput
+  | PopulateIntermediateTableCommandOutput
   | PreviewPrivacyImpactCommandOutput
   | StartProtectedJobCommandOutput
   | StartProtectedQueryCommandOutput
@@ -556,6 +626,8 @@ export type ServiceOutputTypes =
   | UpdateConfiguredTableCommandOutput
   | UpdateIdMappingTableCommandOutput
   | UpdateIdNamespaceAssociationCommandOutput
+  | UpdateIntermediateTableAnalysisRuleCommandOutput
+  | UpdateIntermediateTableCommandOutput
   | UpdateMembershipCommandOutput
   | UpdatePrivacyBudgetTemplateCommandOutput
   | UpdateProtectedJobCommandOutput

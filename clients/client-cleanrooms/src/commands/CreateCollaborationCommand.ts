@@ -71,7 +71,7 @@ export interface CreateCollaborationCommandOutput extends CreateCollaborationOut
  *     },
  *   ],
  *   name: "STRING_VALUE", // required
- *   description: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
  *   creatorMemberAbilities: [ // required
  *     "CAN_QUERY" || "CAN_RECEIVE_RESULTS" || "CAN_RUN_JOB",
  *   ],

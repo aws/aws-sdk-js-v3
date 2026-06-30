@@ -109,6 +109,12 @@ export interface GetConfiguredTableAnalysisRuleCommandOutput extends GetConfigur
  * //               },
  * //             ],
  * //           },
+ * //           allowedResultReceivers: [ // AllowedResultReceivers
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           allowedAdditionalAnalyses: [ // AllowedAdditionalAnalyses
+ * //             "STRING_VALUE",
+ * //           ],
  * //         },
  * //       },
  * //     },

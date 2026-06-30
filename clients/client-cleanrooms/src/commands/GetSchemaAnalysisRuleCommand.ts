@@ -113,6 +113,12 @@ export interface GetSchemaAnalysisRuleCommandOutput extends GetSchemaAnalysisRul
  * //               },
  * //             ],
  * //           },
+ * //           allowedResultReceivers: [ // AllowedResultReceivers
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           allowedAdditionalAnalyses: [ // AllowedAdditionalAnalyses
+ * //             "STRING_VALUE",
+ * //           ],
  * //         },
  * //         idMappingTable: { // AnalysisRuleIdMappingTable
  * //           joinColumns: "<AnalysisRuleColumnList>", // required
@@ -130,10 +136,10 @@ export interface GetSchemaAnalysisRuleCommandOutput extends GetSchemaAnalysisRul
  * //     collaborationPolicy: { // ConfiguredTableAssociationAnalysisRulePolicy Union: only one key present
  * //       v1: { // ConfiguredTableAssociationAnalysisRulePolicyV1 Union: only one key present
  * //         list: { // ConfiguredTableAssociationAnalysisRuleList
- * //           allowedResultReceivers: [ // AllowedResultReceivers
+ * //           allowedResultReceivers: [
  * //             "STRING_VALUE",
  * //           ],
- * //           allowedAdditionalAnalyses: [ // AllowedAdditionalAnalyses
+ * //           allowedAdditionalAnalyses: [
  * //             "STRING_VALUE",
  * //           ],
  * //         },
@@ -197,12 +203,8 @@ export interface GetSchemaAnalysisRuleCommandOutput extends GetSchemaAnalysisRul
  * //             },
  * //           ],
  * //           additionalAnalyses: "ALLOWED" || "REQUIRED" || "NOT_ALLOWED",
- * //           allowedResultReceivers: [
- * //             "STRING_VALUE",
- * //           ],
- * //           allowedAdditionalAnalyses: [
- * //             "STRING_VALUE",
- * //           ],
+ * //           allowedResultReceivers: "<AllowedResultReceivers>",
+ * //           allowedAdditionalAnalyses: "<AllowedAdditionalAnalyses>",
  * //         },
  * //         custom: { // ConsolidatedPolicyCustom
  * //           allowedAnalyses: [ // required

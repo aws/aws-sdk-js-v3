@@ -488,6 +488,12 @@ export const SchemaStatusReasonCode = {
   COLLABORATION_ANALYSIS_RULE_NOT_CONFIGURED: "COLLABORATION_ANALYSIS_RULE_NOT_CONFIGURED",
   DIFFERENTIAL_PRIVACY_POLICY_NOT_CONFIGURED: "DIFFERENTIAL_PRIVACY_POLICY_NOT_CONFIGURED",
   ID_MAPPING_TABLE_NOT_POPULATED: "ID_MAPPING_TABLE_NOT_POPULATED",
+  INTERMEDIATE_TABLE_ANALYSIS_RULE_MISSING: "INTERMEDIATE_TABLE_ANALYSIS_RULE_MISSING",
+  INTERMEDIATE_TABLE_BASE_TABLE_REMOVED: "INTERMEDIATE_TABLE_BASE_TABLE_REMOVED",
+  INTERMEDIATE_TABLE_DISALLOWED_BY_DATA_PROVIDER: "INTERMEDIATE_TABLE_DISALLOWED_BY_DATA_PROVIDER",
+  INTERMEDIATE_TABLE_INHERITED_CONSTRAINTS_VIOLATED: "INTERMEDIATE_TABLE_INHERITED_CONSTRAINTS_VIOLATED",
+  INTERMEDIATE_TABLE_NOT_POPULATED: "INTERMEDIATE_TABLE_NOT_POPULATED",
+  INTERMEDIATE_TABLE_RETENTION_PERIOD_EXPIRED: "INTERMEDIATE_TABLE_RETENTION_PERIOD_EXPIRED",
   RESULT_RECEIVERS_NOT_ALLOWED: "RESULT_RECEIVERS_NOT_ALLOWED",
   RESULT_RECEIVERS_NOT_CONFIGURED: "RESULT_RECEIVERS_NOT_CONFIGURED",
 } as const;
@@ -541,6 +547,7 @@ export type SelectedAnalysisMethod = (typeof SelectedAnalysisMethod)[keyof typeo
  */
 export const SchemaType = {
   ID_MAPPING_TABLE: "ID_MAPPING_TABLE",
+  INTERMEDIATE_TABLE: "INTERMEDIATE_TABLE",
   TABLE: "TABLE",
 } as const;
 /**
@@ -758,6 +765,36 @@ export type ConfiguredTableAssociationAnalysisRuleType =
  * @public
  * @enum
  */
+export const ResourceStatus = {
+  BASE_TABLE_REMOVED: "BASE_TABLE_REMOVED",
+  CREATED: "CREATED",
+  DISALLOWED_BY_DATA_PROVIDER: "DISALLOWED_BY_DATA_PROVIDER",
+  POPULATE_FAILED: "POPULATE_FAILED",
+  POPULATE_STARTED: "POPULATE_STARTED",
+  POPULATE_SUCCESS: "POPULATE_SUCCESS",
+  RETENTION_PERIOD_EXPIRED: "RETENTION_PERIOD_EXPIRED",
+} as const;
+/**
+ * @public
+ */
+export type ResourceStatus = (typeof ResourceStatus)[keyof typeof ResourceStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ChildResourceType = {
+  INTERMEDIATE_TABLE: "INTERMEDIATE_TABLE",
+} as const;
+/**
+ * @public
+ */
+export type ChildResourceType = (typeof ChildResourceType)[keyof typeof ChildResourceType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ConfiguredTableAnalysisRuleType = {
   AGGREGATION: "AGGREGATION",
   CUSTOM: "CUSTOM",
@@ -782,6 +819,106 @@ export const JobType = {
  * @public
  */
 export type JobType = (typeof JobType)[keyof typeof JobType];
+
+/**
+ * @public
+ * @enum
+ */
+export const IntermediateTableAnalysisRuleType = {
+  CUSTOM: "CUSTOM",
+} as const;
+/**
+ * @public
+ */
+export type IntermediateTableAnalysisRuleType =
+  (typeof IntermediateTableAnalysisRuleType)[keyof typeof IntermediateTableAnalysisRuleType];
+
+/**
+ * @public
+ * @enum
+ */
+export const PopulateIntermediateTableAnalysisType = {
+  QUERY: "QUERY",
+} as const;
+/**
+ * @public
+ */
+export type PopulateIntermediateTableAnalysisType =
+  (typeof PopulateIntermediateTableAnalysisType)[keyof typeof PopulateIntermediateTableAnalysisType];
+
+/**
+ * @public
+ * @enum
+ */
+export const BaseTableDependencyType = {
+  ID_MAPPING_TABLE: "ID_MAPPING_TABLE",
+  INTERMEDIATE_TABLE: "INTERMEDIATE_TABLE",
+  TABLE: "TABLE",
+} as const;
+/**
+ * @public
+ */
+export type BaseTableDependencyType = (typeof BaseTableDependencyType)[keyof typeof BaseTableDependencyType];
+
+/**
+ * @public
+ * @enum
+ */
+export const IntermediateTableStatus = {
+  BASE_TABLE_REMOVED: "BASE_TABLE_REMOVED",
+  CREATED: "CREATED",
+  DISALLOWED_BY_DATA_PROVIDER: "DISALLOWED_BY_DATA_PROVIDER",
+  POPULATE_FAILED: "POPULATE_FAILED",
+  POPULATE_STARTED: "POPULATE_STARTED",
+  POPULATE_SUCCESS: "POPULATE_SUCCESS",
+  RETENTION_PERIOD_EXPIRED: "RETENTION_PERIOD_EXPIRED",
+} as const;
+/**
+ * @public
+ */
+export type IntermediateTableStatus = (typeof IntermediateTableStatus)[keyof typeof IntermediateTableStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const BaseTableParentType = {
+  DIRECT: "DIRECT",
+  INDIRECT: "INDIRECT",
+} as const;
+/**
+ * @public
+ */
+export type BaseTableParentType = (typeof BaseTableParentType)[keyof typeof BaseTableParentType];
+
+/**
+ * @public
+ * @enum
+ */
+export const IntermediateTableVersionStatus = {
+  POPULATE_FAILED: "POPULATE_FAILED",
+  POPULATE_STARTED: "POPULATE_STARTED",
+  POPULATE_SUCCESS: "POPULATE_SUCCESS",
+  RETENTION_PERIOD_EXPIRED: "RETENTION_PERIOD_EXPIRED",
+} as const;
+/**
+ * @public
+ */
+export type IntermediateTableVersionStatus =
+  (typeof IntermediateTableVersionStatus)[keyof typeof IntermediateTableVersionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const WorkerComputeType = {
+  CR1X: "CR.1X",
+  CR4X: "CR.4X",
+} as const;
+/**
+ * @public
+ */
+export type WorkerComputeType = (typeof WorkerComputeType)[keyof typeof WorkerComputeType];
 
 /**
  * @public
@@ -866,19 +1003,6 @@ export const ProtectedJobStatus = {
  * @public
  */
 export type ProtectedJobStatus = (typeof ProtectedJobStatus)[keyof typeof ProtectedJobStatus];
-
-/**
- * @public
- * @enum
- */
-export const WorkerComputeType = {
-  CR1X: "CR.1X",
-  CR4X: "CR.4X",
-} as const;
-/**
- * @public
- */
-export type WorkerComputeType = (typeof WorkerComputeType)[keyof typeof WorkerComputeType];
 
 /**
  * @public

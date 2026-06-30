@@ -105,6 +105,12 @@ export interface CreateConfiguredTableAnalysisRuleCommandOutput extends CreateCo
  *             },
  *           ],
  *         },
+ *         allowedResultReceivers: [ // AllowedResultReceivers
+ *           "STRING_VALUE",
+ *         ],
+ *         allowedAdditionalAnalyses: [ // AllowedAdditionalAnalyses
+ *           "STRING_VALUE",
+ *         ],
  *       },
  *     },
  *   },
@@ -178,6 +184,12 @@ export interface CreateConfiguredTableAnalysisRuleCommandOutput extends CreateCo
  * //               },
  * //             ],
  * //           },
+ * //           allowedResultReceivers: [ // AllowedResultReceivers
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           allowedAdditionalAnalyses: [ // AllowedAdditionalAnalyses
+ * //             "STRING_VALUE",
+ * //           ],
  * //         },
  * //       },
  * //     },

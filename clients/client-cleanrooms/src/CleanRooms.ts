@@ -69,6 +69,16 @@ import {
   CreateIdNamespaceAssociationCommand,
 } from "./commands/CreateIdNamespaceAssociationCommand";
 import {
+  type CreateIntermediateTableAnalysisRuleCommandInput,
+  type CreateIntermediateTableAnalysisRuleCommandOutput,
+  CreateIntermediateTableAnalysisRuleCommand,
+} from "./commands/CreateIntermediateTableAnalysisRuleCommand";
+import {
+  type CreateIntermediateTableCommandInput,
+  type CreateIntermediateTableCommandOutput,
+  CreateIntermediateTableCommand,
+} from "./commands/CreateIntermediateTableCommand";
+import {
   type CreateMembershipCommandInput,
   type CreateMembershipCommandOutput,
   CreateMembershipCommand,
@@ -124,6 +134,16 @@ import {
   DeleteIdNamespaceAssociationCommand,
 } from "./commands/DeleteIdNamespaceAssociationCommand";
 import {
+  type DeleteIntermediateTableAnalysisRuleCommandInput,
+  type DeleteIntermediateTableAnalysisRuleCommandOutput,
+  DeleteIntermediateTableAnalysisRuleCommand,
+} from "./commands/DeleteIntermediateTableAnalysisRuleCommand";
+import {
+  type DeleteIntermediateTableCommandInput,
+  type DeleteIntermediateTableCommandOutput,
+  DeleteIntermediateTableCommand,
+} from "./commands/DeleteIntermediateTableCommand";
+import {
   type DeleteMemberCommandInput,
   type DeleteMemberCommandOutput,
   DeleteMemberCommand,
@@ -138,6 +158,11 @@ import {
   type DeletePrivacyBudgetTemplateCommandOutput,
   DeletePrivacyBudgetTemplateCommand,
 } from "./commands/DeletePrivacyBudgetTemplateCommand";
+import {
+  type DisallowIntermediateTableCommandInput,
+  type DisallowIntermediateTableCommandOutput,
+  DisallowIntermediateTableCommand,
+} from "./commands/DisallowIntermediateTableCommand";
 import {
   type GetAnalysisTemplateCommandInput,
   type GetAnalysisTemplateCommandOutput,
@@ -208,6 +233,16 @@ import {
   type GetIdNamespaceAssociationCommandOutput,
   GetIdNamespaceAssociationCommand,
 } from "./commands/GetIdNamespaceAssociationCommand";
+import {
+  type GetIntermediateTableAnalysisRuleCommandInput,
+  type GetIntermediateTableAnalysisRuleCommandOutput,
+  GetIntermediateTableAnalysisRuleCommand,
+} from "./commands/GetIntermediateTableAnalysisRuleCommand";
+import {
+  type GetIntermediateTableCommandInput,
+  type GetIntermediateTableCommandOutput,
+  GetIntermediateTableCommand,
+} from "./commands/GetIntermediateTableCommand";
 import {
   type GetMembershipCommandInput,
   type GetMembershipCommandOutput,
@@ -300,6 +335,16 @@ import {
   ListIdNamespaceAssociationsCommand,
 } from "./commands/ListIdNamespaceAssociationsCommand";
 import {
+  type ListIntermediateTablesCommandInput,
+  type ListIntermediateTablesCommandOutput,
+  ListIntermediateTablesCommand,
+} from "./commands/ListIntermediateTablesCommand";
+import {
+  type ListIntermediateTableVersionsCommandInput,
+  type ListIntermediateTableVersionsCommandOutput,
+  ListIntermediateTableVersionsCommand,
+} from "./commands/ListIntermediateTableVersionsCommand";
+import {
   type ListMembersCommandInput,
   type ListMembersCommandOutput,
   ListMembersCommand,
@@ -344,6 +389,11 @@ import {
   type PopulateIdMappingTableCommandOutput,
   PopulateIdMappingTableCommand,
 } from "./commands/PopulateIdMappingTableCommand";
+import {
+  type PopulateIntermediateTableCommandInput,
+  type PopulateIntermediateTableCommandOutput,
+  PopulateIntermediateTableCommand,
+} from "./commands/PopulateIntermediateTableCommand";
 import {
   type PreviewPrivacyImpactCommandInput,
   type PreviewPrivacyImpactCommandOutput,
@@ -420,6 +470,16 @@ import {
   UpdateIdNamespaceAssociationCommand,
 } from "./commands/UpdateIdNamespaceAssociationCommand";
 import {
+  type UpdateIntermediateTableAnalysisRuleCommandInput,
+  type UpdateIntermediateTableAnalysisRuleCommandOutput,
+  UpdateIntermediateTableAnalysisRuleCommand,
+} from "./commands/UpdateIntermediateTableAnalysisRuleCommand";
+import {
+  type UpdateIntermediateTableCommandInput,
+  type UpdateIntermediateTableCommandOutput,
+  UpdateIntermediateTableCommand,
+} from "./commands/UpdateIntermediateTableCommand";
+import {
   type UpdateMembershipCommandInput,
   type UpdateMembershipCommandOutput,
   UpdateMembershipCommand,
@@ -460,6 +520,8 @@ import { paginateListConfiguredTableAssociations } from "./pagination/ListConfig
 import { paginateListConfiguredTables } from "./pagination/ListConfiguredTablesPaginator";
 import { paginateListIdMappingTables } from "./pagination/ListIdMappingTablesPaginator";
 import { paginateListIdNamespaceAssociations } from "./pagination/ListIdNamespaceAssociationsPaginator";
+import { paginateListIntermediateTables } from "./pagination/ListIntermediateTablesPaginator";
+import { paginateListIntermediateTableVersions } from "./pagination/ListIntermediateTableVersionsPaginator";
 import { paginateListMemberships } from "./pagination/ListMembershipsPaginator";
 import { paginateListMembers } from "./pagination/ListMembersPaginator";
 import { paginateListPrivacyBudgets } from "./pagination/ListPrivacyBudgetsPaginator";
@@ -482,6 +544,8 @@ const commands = {
   CreateConfiguredTableAssociationAnalysisRuleCommand,
   CreateIdMappingTableCommand,
   CreateIdNamespaceAssociationCommand,
+  CreateIntermediateTableCommand,
+  CreateIntermediateTableAnalysisRuleCommand,
   CreateMembershipCommand,
   CreatePrivacyBudgetTemplateCommand,
   DeleteAnalysisTemplateCommand,
@@ -493,9 +557,12 @@ const commands = {
   DeleteConfiguredTableAssociationAnalysisRuleCommand,
   DeleteIdMappingTableCommand,
   DeleteIdNamespaceAssociationCommand,
+  DeleteIntermediateTableCommand,
+  DeleteIntermediateTableAnalysisRuleCommand,
   DeleteMemberCommand,
   DeleteMembershipCommand,
   DeletePrivacyBudgetTemplateCommand,
+  DisallowIntermediateTableCommand,
   GetAnalysisTemplateCommand,
   GetCollaborationCommand,
   GetCollaborationAnalysisTemplateCommand,
@@ -510,6 +577,8 @@ const commands = {
   GetConfiguredTableAssociationAnalysisRuleCommand,
   GetIdMappingTableCommand,
   GetIdNamespaceAssociationCommand,
+  GetIntermediateTableCommand,
+  GetIntermediateTableAnalysisRuleCommand,
   GetMembershipCommand,
   GetPrivacyBudgetTemplateCommand,
   GetProtectedJobCommand,
@@ -529,6 +598,8 @@ const commands = {
   ListConfiguredTablesCommand,
   ListIdMappingTablesCommand,
   ListIdNamespaceAssociationsCommand,
+  ListIntermediateTablesCommand,
+  ListIntermediateTableVersionsCommand,
   ListMembersCommand,
   ListMembershipsCommand,
   ListPrivacyBudgetsCommand,
@@ -538,6 +609,7 @@ const commands = {
   ListSchemasCommand,
   ListTagsForResourceCommand,
   PopulateIdMappingTableCommand,
+  PopulateIntermediateTableCommand,
   PreviewPrivacyImpactCommand,
   StartProtectedJobCommand,
   StartProtectedQueryCommand,
@@ -553,6 +625,8 @@ const commands = {
   UpdateConfiguredTableAssociationAnalysisRuleCommand,
   UpdateIdMappingTableCommand,
   UpdateIdNamespaceAssociationCommand,
+  UpdateIntermediateTableCommand,
+  UpdateIntermediateTableAnalysisRuleCommand,
   UpdateMembershipCommand,
   UpdatePrivacyBudgetTemplateCommand,
   UpdateProtectedJobCommand,
@@ -572,6 +646,8 @@ const paginators = {
   paginateListConfiguredTables,
   paginateListIdMappingTables,
   paginateListIdNamespaceAssociations,
+  paginateListIntermediateTables,
+  paginateListIntermediateTableVersions,
   paginateListMembers,
   paginateListMemberships,
   paginateListPrivacyBudgets,
@@ -804,6 +880,40 @@ export interface CleanRooms {
   ): void;
 
   /**
+   * @see {@link CreateIntermediateTableCommand}
+   */
+  createIntermediateTable(
+    args: CreateIntermediateTableCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateIntermediateTableCommandOutput>;
+  createIntermediateTable(
+    args: CreateIntermediateTableCommandInput,
+    cb: (err: any, data?: CreateIntermediateTableCommandOutput) => void
+  ): void;
+  createIntermediateTable(
+    args: CreateIntermediateTableCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateIntermediateTableCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateIntermediateTableAnalysisRuleCommand}
+   */
+  createIntermediateTableAnalysisRule(
+    args: CreateIntermediateTableAnalysisRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateIntermediateTableAnalysisRuleCommandOutput>;
+  createIntermediateTableAnalysisRule(
+    args: CreateIntermediateTableAnalysisRuleCommandInput,
+    cb: (err: any, data?: CreateIntermediateTableAnalysisRuleCommandOutput) => void
+  ): void;
+  createIntermediateTableAnalysisRule(
+    args: CreateIntermediateTableAnalysisRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateIntermediateTableAnalysisRuleCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateMembershipCommand}
    */
   createMembership(
@@ -991,6 +1101,40 @@ export interface CleanRooms {
   ): void;
 
   /**
+   * @see {@link DeleteIntermediateTableCommand}
+   */
+  deleteIntermediateTable(
+    args: DeleteIntermediateTableCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteIntermediateTableCommandOutput>;
+  deleteIntermediateTable(
+    args: DeleteIntermediateTableCommandInput,
+    cb: (err: any, data?: DeleteIntermediateTableCommandOutput) => void
+  ): void;
+  deleteIntermediateTable(
+    args: DeleteIntermediateTableCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteIntermediateTableCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteIntermediateTableAnalysisRuleCommand}
+   */
+  deleteIntermediateTableAnalysisRule(
+    args: DeleteIntermediateTableAnalysisRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteIntermediateTableAnalysisRuleCommandOutput>;
+  deleteIntermediateTableAnalysisRule(
+    args: DeleteIntermediateTableAnalysisRuleCommandInput,
+    cb: (err: any, data?: DeleteIntermediateTableAnalysisRuleCommandOutput) => void
+  ): void;
+  deleteIntermediateTableAnalysisRule(
+    args: DeleteIntermediateTableAnalysisRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteIntermediateTableAnalysisRuleCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteMemberCommand}
    */
   deleteMember(
@@ -1039,6 +1183,23 @@ export interface CleanRooms {
     args: DeletePrivacyBudgetTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeletePrivacyBudgetTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisallowIntermediateTableCommand}
+   */
+  disallowIntermediateTable(
+    args: DisallowIntermediateTableCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisallowIntermediateTableCommandOutput>;
+  disallowIntermediateTable(
+    args: DisallowIntermediateTableCommandInput,
+    cb: (err: any, data?: DisallowIntermediateTableCommandOutput) => void
+  ): void;
+  disallowIntermediateTable(
+    args: DisallowIntermediateTableCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisallowIntermediateTableCommandOutput) => void
   ): void;
 
   /**
@@ -1277,6 +1438,40 @@ export interface CleanRooms {
     args: GetIdNamespaceAssociationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetIdNamespaceAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetIntermediateTableCommand}
+   */
+  getIntermediateTable(
+    args: GetIntermediateTableCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIntermediateTableCommandOutput>;
+  getIntermediateTable(
+    args: GetIntermediateTableCommandInput,
+    cb: (err: any, data?: GetIntermediateTableCommandOutput) => void
+  ): void;
+  getIntermediateTable(
+    args: GetIntermediateTableCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIntermediateTableCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetIntermediateTableAnalysisRuleCommand}
+   */
+  getIntermediateTableAnalysisRule(
+    args: GetIntermediateTableAnalysisRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIntermediateTableAnalysisRuleCommandOutput>;
+  getIntermediateTableAnalysisRule(
+    args: GetIntermediateTableAnalysisRuleCommandInput,
+    cb: (err: any, data?: GetIntermediateTableAnalysisRuleCommandOutput) => void
+  ): void;
+  getIntermediateTableAnalysisRule(
+    args: GetIntermediateTableAnalysisRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIntermediateTableAnalysisRuleCommandOutput) => void
   ): void;
 
   /**
@@ -1605,6 +1800,40 @@ export interface CleanRooms {
   ): void;
 
   /**
+   * @see {@link ListIntermediateTablesCommand}
+   */
+  listIntermediateTables(
+    args: ListIntermediateTablesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListIntermediateTablesCommandOutput>;
+  listIntermediateTables(
+    args: ListIntermediateTablesCommandInput,
+    cb: (err: any, data?: ListIntermediateTablesCommandOutput) => void
+  ): void;
+  listIntermediateTables(
+    args: ListIntermediateTablesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListIntermediateTablesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListIntermediateTableVersionsCommand}
+   */
+  listIntermediateTableVersions(
+    args: ListIntermediateTableVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListIntermediateTableVersionsCommandOutput>;
+  listIntermediateTableVersions(
+    args: ListIntermediateTableVersionsCommandInput,
+    cb: (err: any, data?: ListIntermediateTableVersionsCommandOutput) => void
+  ): void;
+  listIntermediateTableVersions(
+    args: ListIntermediateTableVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListIntermediateTableVersionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListMembersCommand}
    */
   listMembers(
@@ -1756,6 +1985,23 @@ export interface CleanRooms {
     args: PopulateIdMappingTableCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PopulateIdMappingTableCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PopulateIntermediateTableCommand}
+   */
+  populateIntermediateTable(
+    args: PopulateIntermediateTableCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PopulateIntermediateTableCommandOutput>;
+  populateIntermediateTable(
+    args: PopulateIntermediateTableCommandInput,
+    cb: (err: any, data?: PopulateIntermediateTableCommandOutput) => void
+  ): void;
+  populateIntermediateTable(
+    args: PopulateIntermediateTableCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PopulateIntermediateTableCommandOutput) => void
   ): void;
 
   /**
@@ -2014,6 +2260,40 @@ export interface CleanRooms {
   ): void;
 
   /**
+   * @see {@link UpdateIntermediateTableCommand}
+   */
+  updateIntermediateTable(
+    args: UpdateIntermediateTableCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateIntermediateTableCommandOutput>;
+  updateIntermediateTable(
+    args: UpdateIntermediateTableCommandInput,
+    cb: (err: any, data?: UpdateIntermediateTableCommandOutput) => void
+  ): void;
+  updateIntermediateTable(
+    args: UpdateIntermediateTableCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateIntermediateTableCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateIntermediateTableAnalysisRuleCommand}
+   */
+  updateIntermediateTableAnalysisRule(
+    args: UpdateIntermediateTableAnalysisRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateIntermediateTableAnalysisRuleCommandOutput>;
+  updateIntermediateTableAnalysisRule(
+    args: UpdateIntermediateTableAnalysisRuleCommandInput,
+    cb: (err: any, data?: UpdateIntermediateTableAnalysisRuleCommandOutput) => void
+  ): void;
+  updateIntermediateTableAnalysisRule(
+    args: UpdateIntermediateTableAnalysisRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateIntermediateTableAnalysisRuleCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateMembershipCommand}
    */
   updateMembership(
@@ -2223,6 +2503,28 @@ export interface CleanRooms {
     args: ListIdNamespaceAssociationsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListIdNamespaceAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListIntermediateTablesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListIntermediateTablesCommandOutput}.
+   */
+  paginateListIntermediateTables(
+    args: ListIntermediateTablesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListIntermediateTablesCommandOutput>;
+
+  /**
+   * @see {@link ListIntermediateTableVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListIntermediateTableVersionsCommandOutput}.
+   */
+  paginateListIntermediateTableVersions(
+    args: ListIntermediateTableVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListIntermediateTableVersionsCommandOutput>;
 
   /**
    * @see {@link ListMembersCommand}

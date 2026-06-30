@@ -38,7 +38,7 @@ export interface ListSchemasCommandOutput extends ListSchemasOutput, __MetadataB
  * const client = new CleanRoomsClient(config);
  * const input = { // ListSchemasInput
  *   collaborationIdentifier: "STRING_VALUE", // required
- *   schemaType: "TABLE" || "ID_MAPPING_TABLE",
+ *   schemaType: "TABLE" || "ID_MAPPING_TABLE" || "INTERMEDIATE_TABLE",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };
@@ -48,7 +48,7 @@ export interface ListSchemasCommandOutput extends ListSchemasOutput, __MetadataB
  * //   schemaSummaries: [ // SchemaSummaryList // required
  * //     { // SchemaSummary
  * //       name: "STRING_VALUE", // required
- * //       type: "TABLE" || "ID_MAPPING_TABLE", // required
+ * //       type: "TABLE" || "ID_MAPPING_TABLE" || "INTERMEDIATE_TABLE", // required
  * //       creatorAccountId: "STRING_VALUE", // required
  * //       createTime: new Date("TIMESTAMP"), // required
  * //       updateTime: new Date("TIMESTAMP"), // required

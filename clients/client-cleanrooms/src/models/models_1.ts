@@ -11,35 +11,1153 @@ import type {
   ProtectedJobAnalysisType,
   ProtectedJobStatus,
   ProtectedJobType,
+  ProtectedJobWorkerComputeType,
   ProtectedQueryStatus,
   ProtectedQueryType,
+  ResultFormat,
   TargetProtectedJobStatus,
   TargetProtectedQueryStatus,
 } from "./enums";
 import type {
   AccessBudgetsPrivacyTemplateParametersInput,
   AccessBudgetsPrivacyTemplateUpdateParameters,
-  ComputeConfiguration,
-  DifferentialPrivacyParameters,
-  Membership,
-  MembershipJobComputePaymentConfig,
-  MembershipMLPaymentConfig,
-  MembershipPaymentConfiguration,
-  MembershipProtectedJobResultConfiguration,
-  MembershipProtectedQueryResultConfiguration,
-  MembershipQueryComputePaymentConfig,
+  IntermediateTableAnalysisRule,
   MLMemberAbilities,
   PrivacyBudget,
   PrivacyBudgetTemplateParametersOutput,
-  ProtectedJob,
-  ProtectedJobComputeConfiguration,
-  ProtectedJobParameters,
-  ProtectedQueryDistributeOutput,
-  ProtectedQueryError,
-  ProtectedQueryS3Output,
-  ProtectedQueryS3OutputConfiguration,
-  ProtectedQuerySingleMemberOutput,
+  WorkerComputeConfiguration,
+  WorkerComputeConfigurationProperties,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface UpdateIntermediateTableAnalysisRuleOutput {
+  /**
+   * <p>The updated analysis rule for the intermediate table.</p>
+   * @public
+   */
+  analysisRule: IntermediateTableAnalysisRule | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) associated with the resource you want to list tags on.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceOutput {
+  /**
+   * <p>A map of objects specifying each key name and value.</p>
+   * @public
+   */
+  tags: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Contains input information for protected jobs with an S3 output type.</p>
+ * @public
+ */
+export interface ProtectedJobS3OutputConfigurationInput {
+  /**
+   * <p> The S3 bucket for job output.</p>
+   * @public
+   */
+  bucket: string | undefined;
+
+  /**
+   * <p>The S3 prefix to unload the protected job results.</p>
+   * @public
+   */
+  keyPrefix?: string | undefined;
+}
+
+/**
+ * <p>Contains configurations for protected job results.</p>
+ * @public
+ */
+export type MembershipProtectedJobOutputConfiguration =
+  | MembershipProtectedJobOutputConfiguration.S3Member
+  | MembershipProtectedJobOutputConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace MembershipProtectedJobOutputConfiguration {
+  /**
+   * <p>Contains the configuration to write the job results to S3.</p>
+   * @public
+   */
+  export interface S3Member {
+    s3: ProtectedJobS3OutputConfigurationInput;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    s3: (value: ProtectedJobS3OutputConfigurationInput) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Contains configurations for protected job results.</p>
+ * @public
+ */
+export interface MembershipProtectedJobResultConfiguration {
+  /**
+   * <p> The output configuration for a protected job result.</p>
+   * @public
+   */
+  outputConfiguration: MembershipProtectedJobOutputConfiguration | undefined;
+
+  /**
+   * <p>The unique ARN for an IAM role that is used by Clean Rooms to write protected job results to the result location, given by the member who can receive results.</p>
+   * @public
+   */
+  roleArn: string | undefined;
+}
+
+/**
+ * <p>Contains the configuration to write the query results to S3.</p>
+ * @public
+ */
+export interface ProtectedQueryS3OutputConfiguration {
+  /**
+   * <p>Intended file format of the result.</p>
+   * @public
+   */
+  resultFormat: ResultFormat | undefined;
+
+  /**
+   * <p>The S3 bucket to unload the protected query results.</p>
+   * @public
+   */
+  bucket: string | undefined;
+
+  /**
+   * <p>The S3 prefix to unload the protected query results.</p>
+   * @public
+   */
+  keyPrefix?: string | undefined;
+
+  /**
+   * <p>Indicates whether files should be output as a single file (<code>TRUE</code>) or output as multiple files (<code>FALSE</code>). This parameter is only supported for analyses with the Spark analytics engine.</p>
+   * @public
+   */
+  singleFileOutput?: boolean | undefined;
+}
+
+/**
+ * <p>Contains configurations for protected query results.</p>
+ * @public
+ */
+export type MembershipProtectedQueryOutputConfiguration =
+  | MembershipProtectedQueryOutputConfiguration.S3Member
+  | MembershipProtectedQueryOutputConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace MembershipProtectedQueryOutputConfiguration {
+  /**
+   * <p>Contains the configuration to write the query results to S3.</p>
+   * @public
+   */
+  export interface S3Member {
+    s3: ProtectedQueryS3OutputConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    s3: (value: ProtectedQueryS3OutputConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Contains configurations for protected query results.</p>
+ * @public
+ */
+export interface MembershipProtectedQueryResultConfiguration {
+  /**
+   * <p>Configuration for protected query results.</p>
+   * @public
+   */
+  outputConfiguration: MembershipProtectedQueryOutputConfiguration | undefined;
+
+  /**
+   * <p>The unique ARN for an IAM role that is used by Clean Rooms to write protected query results to the result location, given by the member who can receive results.</p>
+   * @public
+   */
+  roleArn?: string | undefined;
+}
+
+/**
+ * <p>An object representing the payment responsibilities accepted by the collaboration member for query and job compute costs.</p>
+ * @public
+ */
+export interface MembershipJobComputePaymentConfig {
+  /**
+   * <p>Indicates whether the collaboration member has accepted to pay for job compute costs (<code>TRUE</code>) or has not accepted to pay for query and job compute costs (<code>FALSE</code>).</p> <p>There can be one or more members who are designated as payer candidates for queries and jobs. </p> <p>An error message is returned for the following reasons: </p> <ul> <li> <p>If you set the value to <code>FALSE</code> but you are responsible to pay for query and job compute costs. </p> </li> <li> <p>If you set the value to <code>TRUE</code> but you are not responsible to pay for query and job compute costs. </p> </li> </ul>
+   * @public
+   */
+  isResponsible: boolean | undefined;
+}
+
+/**
+ * <p>An object representing the collaboration member's model inference payment responsibilities set by the collaboration creator.</p>
+ * @public
+ */
+export interface MembershipModelInferencePaymentConfig {
+  /**
+   * <p>Indicates whether the collaboration member has accepted to pay for model inference costs (<code>TRUE</code>) or has not accepted to pay for model inference costs (<code>FALSE</code>).</p> <p>If the collaboration creator has not specified anyone to pay for model inference costs, then the member who can query is the default payer. </p> <p>An error message is returned for the following reasons: </p> <ul> <li> <p>If you set the value to <code>FALSE</code> but you are responsible to pay for model inference costs. </p> </li> <li> <p>If you set the value to <code>TRUE</code> but you are not responsible to pay for model inference costs. </p> </li> </ul>
+   * @public
+   */
+  isResponsible: boolean | undefined;
+}
+
+/**
+ * <p>An object representing the collaboration member's model training payment responsibilities set by the collaboration creator.</p>
+ * @public
+ */
+export interface MembershipModelTrainingPaymentConfig {
+  /**
+   * <p>Indicates whether the collaboration member has accepted to pay for model training costs (<code>TRUE</code>) or has not accepted to pay for model training costs (<code>FALSE</code>).</p> <p>If the collaboration creator has not specified anyone to pay for model training costs, then the member who can query is the default payer. </p> <p>An error message is returned for the following reasons: </p> <ul> <li> <p>If you set the value to <code>FALSE</code> but you are responsible to pay for model training costs. </p> </li> <li> <p>If you set the value to <code>TRUE</code> but you are not responsible to pay for model training costs. </p> </li> </ul>
+   * @public
+   */
+  isResponsible: boolean | undefined;
+}
+
+/**
+ * <p>Configuration for payment for synthetic data generation in a membership.</p>
+ * @public
+ */
+export interface MembershipSyntheticDataGenerationPaymentConfig {
+  /**
+   * <p>Indicates if this membership is responsible for paying for synthetic data generation.</p>
+   * @public
+   */
+  isResponsible: boolean | undefined;
+}
+
+/**
+ * <p>An object representing the collaboration member's machine learning payment responsibilities set by the collaboration creator.</p>
+ * @public
+ */
+export interface MembershipMLPaymentConfig {
+  /**
+   * <p>The payment responsibilities accepted by the member for model training.</p>
+   * @public
+   */
+  modelTraining?: MembershipModelTrainingPaymentConfig | undefined;
+
+  /**
+   * <p>The payment responsibilities accepted by the member for model inference.</p>
+   * @public
+   */
+  modelInference?: MembershipModelInferencePaymentConfig | undefined;
+
+  /**
+   * <p>The payment configuration for synthetic data generation for this machine learning membership.</p>
+   * @public
+   */
+  syntheticDataGeneration?: MembershipSyntheticDataGenerationPaymentConfig | undefined;
+}
+
+/**
+ * <p>An object representing the payment responsibilities accepted by the collaboration member for query compute costs.</p>
+ * @public
+ */
+export interface MembershipQueryComputePaymentConfig {
+  /**
+   * <p>Indicates whether the collaboration member has accepted to pay for query compute costs (<code>TRUE</code>) or has not accepted to pay for query compute costs (<code>FALSE</code>).</p> <p>If the collaboration creator has not specified anyone to pay for query compute costs, then the member who can query is the default payer. </p> <p>An error message is returned for the following reasons: </p> <ul> <li> <p>If you set the value to <code>FALSE</code> but you are responsible to pay for query compute costs. </p> </li> <li> <p>If you set the value to <code>TRUE</code> but you are not responsible to pay for query compute costs. </p> </li> </ul>
+   * @public
+   */
+  isResponsible: boolean | undefined;
+}
+
+/**
+ * <p>An object representing the payment responsibilities accepted by the collaboration member.</p>
+ * @public
+ */
+export interface MembershipPaymentConfiguration {
+  /**
+   * <p>The payment responsibilities accepted by the collaboration member for query compute costs.</p>
+   * @public
+   */
+  queryCompute: MembershipQueryComputePaymentConfig | undefined;
+
+  /**
+   * <p>The payment responsibilities accepted by the collaboration member for machine learning costs.</p>
+   * @public
+   */
+  machineLearning?: MembershipMLPaymentConfig | undefined;
+
+  /**
+   * <p>The payment responsibilities accepted by the collaboration member for job compute costs.</p>
+   * @public
+   */
+  jobCompute?: MembershipJobComputePaymentConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateMembershipInput {
+  /**
+   * <p>The unique ID for the associated collaboration.</p>
+   * @public
+   */
+  collaborationIdentifier: string | undefined;
+
+  /**
+   * <p>An indicator as to whether query logging has been enabled or disabled for the membership.</p> <p>When <code>ENABLED</code>, Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is <code>DISABLED</code>.</p>
+   * @public
+   */
+  queryLogStatus: MembershipQueryLogStatus | undefined;
+
+  /**
+   * <p>An indicator as to whether job logging has been enabled or disabled for the collaboration. </p> <p>When <code>ENABLED</code>, Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is <code>DISABLED</code>.</p>
+   * @public
+   */
+  jobLogStatus?: MembershipJobLogStatus | undefined;
+
+  /**
+   * <p>An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The default protected query result configuration as specified by the member who can receive results.</p>
+   * @public
+   */
+  defaultResultConfiguration?: MembershipProtectedQueryResultConfiguration | undefined;
+
+  /**
+   * <p>The default job result configuration that determines how job results are protected and managed within this membership. This configuration applies to all jobs.</p>
+   * @public
+   */
+  defaultJobResultConfiguration?: MembershipProtectedJobResultConfiguration | undefined;
+
+  /**
+   * <p>The payment responsibilities accepted by the collaboration member.</p> <p>Not required if the collaboration member has the member ability to run queries. </p> <p>Required if the collaboration member doesn't have the member ability to run queries but is configured as a payer by the collaboration creator. </p>
+   * @public
+   */
+  paymentConfiguration?: MembershipPaymentConfiguration | undefined;
+
+  /**
+   * <p>An indicator as to whether Amazon CloudWatch metrics have been enabled or disabled for the membership.</p> <p>Amazon CloudWatch metrics are only available when the collaboration has metrics enabled. This option can be set by collaboration members who have the ability to run queries (analysis runners) or by members who are configured as payers.</p> <p>When <code>true</code>, metrics about query execution are collected in Amazon CloudWatch. The default value is <code>false</code>.</p>
+   * @public
+   */
+  isMetricsEnabled?: boolean | undefined;
+}
+
+/**
+ * <p>The membership object.</p>
+ * @public
+ */
+export interface Membership {
+  /**
+   * <p>The unique ID of the membership.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The unique ARN for the membership.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The unique ARN for the membership's associated collaboration.</p>
+   * @public
+   */
+  collaborationArn: string | undefined;
+
+  /**
+   * <p>The unique ID for the membership's collaboration.</p>
+   * @public
+   */
+  collaborationId: string | undefined;
+
+  /**
+   * <p>The identifier used to reference members of the collaboration. Currently only supports Amazon Web Services account ID.</p>
+   * @public
+   */
+  collaborationCreatorAccountId: string | undefined;
+
+  /**
+   * <p>The display name of the collaboration creator.</p>
+   * @public
+   */
+  collaborationCreatorDisplayName: string | undefined;
+
+  /**
+   * <p>The name of the membership's collaboration.</p>
+   * @public
+   */
+  collaborationName: string | undefined;
+
+  /**
+   * <p>The time when the membership was created.</p>
+   * @public
+   */
+  createTime: Date | undefined;
+
+  /**
+   * <p>The time the membership metadata was last updated.</p>
+   * @public
+   */
+  updateTime: Date | undefined;
+
+  /**
+   * <p>The status of the membership.</p>
+   * @public
+   */
+  status: MembershipStatus | undefined;
+
+  /**
+   * <p>The abilities granted to the collaboration member.</p>
+   * @public
+   */
+  memberAbilities: MemberAbility[] | undefined;
+
+  /**
+   * <p>Specifies the ML member abilities that are granted to a collaboration member.</p>
+   * @public
+   */
+  mlMemberAbilities?: MLMemberAbilities | undefined;
+
+  /**
+   * <p>An indicator as to whether query logging has been enabled or disabled for the membership.</p> <p>When <code>ENABLED</code>, Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is <code>DISABLED</code>.</p>
+   * @public
+   */
+  queryLogStatus: MembershipQueryLogStatus | undefined;
+
+  /**
+   * <p>An indicator as to whether job logging has been enabled or disabled for the collaboration. </p> <p>When <code>ENABLED</code>, Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is <code>DISABLED</code>.</p>
+   * @public
+   */
+  jobLogStatus?: MembershipJobLogStatus | undefined;
+
+  /**
+   * <p>The default protected query result configuration as specified by the member who can receive results.</p>
+   * @public
+   */
+  defaultResultConfiguration?: MembershipProtectedQueryResultConfiguration | undefined;
+
+  /**
+   * <p> The default job result configuration for the membership.</p>
+   * @public
+   */
+  defaultJobResultConfiguration?: MembershipProtectedJobResultConfiguration | undefined;
+
+  /**
+   * <p>The payment responsibilities accepted by the collaboration member.</p>
+   * @public
+   */
+  paymentConfiguration: MembershipPaymentConfiguration | undefined;
+
+  /**
+   * <p>An indicator as to whether Amazon CloudWatch metrics are enabled for the membership.</p> <p>When <code>true</code>, metrics about query execution are collected in Amazon CloudWatch.</p>
+   * @public
+   */
+  isMetricsEnabled?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateMembershipOutput {
+  /**
+   * <p>The membership that was created.</p>
+   * @public
+   */
+  membership: Membership | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteMembershipInput {
+  /**
+   * <p>The identifier for a membership resource.</p>
+   * @public
+   */
+  membershipIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteMembershipOutput {}
+
+/**
+ * @public
+ */
+export interface DisallowIntermediateTableInput {
+  /**
+   * <p>The unique identifier of the membership that contains the intermediate table to disallow.</p>
+   * @public
+   */
+  membershipIdentifier: string | undefined;
+
+  /**
+   * <p>The name of the intermediate table to disallow.</p>
+   * @public
+   */
+  intermediateTableName: string | undefined;
+
+  /**
+   * <p>Specifies whether to cascade the disallow action to descendant intermediate tables. Default is <code>true</code>.</p>
+   * @public
+   */
+  includeDescendants?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisallowIntermediateTableOutput {}
+
+/**
+ * @public
+ */
+export interface GetMembershipInput {
+  /**
+   * <p>The identifier for a membership resource.</p>
+   * @public
+   */
+  membershipIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMembershipOutput {
+  /**
+   * <p>The membership retrieved for the provided identifier.</p>
+   * @public
+   */
+  membership: Membership | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetProtectedJobInput {
+  /**
+   * <p> The identifier for a membership in a protected job instance.</p>
+   * @public
+   */
+  membershipIdentifier: string | undefined;
+
+  /**
+   * <p> The identifier for the protected job instance.</p>
+   * @public
+   */
+  protectedJobIdentifier: string | undefined;
+}
+
+/**
+ * <p>The configuration of the compute resources for a PySpark job.</p>
+ * @public
+ */
+export interface ProtectedJobWorkerComputeConfiguration {
+  /**
+   * <p>The worker compute configuration type.</p>
+   * @public
+   */
+  type: ProtectedJobWorkerComputeType | undefined;
+
+  /**
+   * <p>The number of workers for a PySpark job.</p>
+   * @public
+   */
+  number: number | undefined;
+
+  /**
+   * <p>The configuration properties for the worker compute environment. These properties allow you to customize the compute settings for your Clean Rooms workloads.</p>
+   * @public
+   */
+  properties?: WorkerComputeConfigurationProperties | undefined;
+}
+
+/**
+ * <p>The configuration of the compute resources for a PySpark job.</p>
+ * @public
+ */
+export type ProtectedJobComputeConfiguration =
+  | ProtectedJobComputeConfiguration.WorkerMember
+  | ProtectedJobComputeConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ProtectedJobComputeConfiguration {
+  /**
+   * <p>The worker configuration for the compute environment.</p>
+   * @public
+   */
+  export interface WorkerMember {
+    worker: ProtectedJobWorkerComputeConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    worker?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    worker: (value: ProtectedJobWorkerComputeConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The protected job error.</p>
+ * @public
+ */
+export interface ProtectedJobError {
+  /**
+   * <p> The message for the protected job error.</p>
+   * @public
+   */
+  message: string | undefined;
+
+  /**
+   * <p> The error code for the protected job.</p>
+   * @public
+   */
+  code: string | undefined;
+}
+
+/**
+ * <p>The parameters for the protected job.</p>
+ * @public
+ */
+export interface ProtectedJobParameters {
+  /**
+   * <p> The ARN of the analysis template.</p>
+   * @public
+   */
+  analysisTemplateArn: string | undefined;
+
+  /**
+   * <p>Runtime configuration values passed to the PySpark analysis script. Parameter names and types must match those defined in the analysis template.</p>
+   * @public
+   */
+  parameters?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Details about the member who received the job result.</p>
+ * @public
+ */
+export interface ProtectedJobSingleMemberOutput {
+  /**
+   * <p>The Amazon Web Services account ID of the member in the collaboration who can receive results from analyses.</p>
+   * @public
+   */
+  accountId: string | undefined;
+}
+
+/**
+ * <p>Contains output information for protected jobs with an S3 output type.</p>
+ * @public
+ */
+export interface ProtectedJobS3Output {
+  /**
+   * <p> The S3 location for the protected job output.</p>
+   * @public
+   */
+  location: string | undefined;
+}
+
+/**
+ * <p>Contains details about the protected job output.</p>
+ * @public
+ */
+export type ProtectedJobOutput =
+  | ProtectedJobOutput.MemberListMember
+  | ProtectedJobOutput.S3Member
+  | ProtectedJobOutput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ProtectedJobOutput {
+  /**
+   * <p>If present, the output for a protected job with an `S3` output type.</p>
+   * @public
+   */
+  export interface S3Member {
+    s3: ProtectedJobS3Output;
+    memberList?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The list of member Amazon Web Services account(s) that received the results of the job. </p>
+   * @public
+   */
+  export interface MemberListMember {
+    s3?: never;
+    memberList: ProtectedJobSingleMemberOutput[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3?: never;
+    memberList?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    s3: (value: ProtectedJobS3Output) => T;
+    memberList: (value: ProtectedJobSingleMemberOutput[]) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Details about the job results.</p>
+ * @public
+ */
+export interface ProtectedJobResult {
+  /**
+   * <p> The output of the protected job.</p>
+   * @public
+   */
+  output: ProtectedJobOutput | undefined;
+}
+
+/**
+ * <p> The protected job member output configuration output.</p>
+ * @public
+ */
+export interface ProtectedJobMemberOutputConfigurationOutput {
+  /**
+   * <p> The account ID.</p>
+   * @public
+   */
+  accountId: string | undefined;
+}
+
+/**
+ * <p> The output configuration for a protected job's S3 output.</p>
+ * @public
+ */
+export interface ProtectedJobS3OutputConfigurationOutput {
+  /**
+   * <p> The S3 bucket for job output.</p>
+   * @public
+   */
+  bucket: string | undefined;
+
+  /**
+   * <p>The S3 prefix to unload the protected job results.</p>
+   * @public
+   */
+  keyPrefix?: string | undefined;
+}
+
+/**
+ * <p> The protected job output configuration output.</p>
+ * @public
+ */
+export type ProtectedJobOutputConfigurationOutput =
+  | ProtectedJobOutputConfigurationOutput.MemberMember
+  | ProtectedJobOutputConfigurationOutput.S3Member
+  | ProtectedJobOutputConfigurationOutput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ProtectedJobOutputConfigurationOutput {
+  /**
+   * <p>If present, the output for a protected job with an `S3` output type.</p>
+   * @public
+   */
+  export interface S3Member {
+    s3: ProtectedJobS3OutputConfigurationOutput;
+    member?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p> The member output configuration for a protected job.</p>
+   * @public
+   */
+  export interface MemberMember {
+    s3?: never;
+    member: ProtectedJobMemberOutputConfigurationOutput;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3?: never;
+    member?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    s3: (value: ProtectedJobS3OutputConfigurationOutput) => T;
+    member: (value: ProtectedJobMemberOutputConfigurationOutput) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The output configuration for a protected job result.</p>
+ * @public
+ */
+export interface ProtectedJobResultConfigurationOutput {
+  /**
+   * <p>The output configuration.</p>
+   * @public
+   */
+  outputConfiguration: ProtectedJobOutputConfigurationOutput | undefined;
+}
+
+/**
+ * <p> Information related to the utilization of resources that have been billed or charged for in a given context, such as a protected job.</p>
+ * @public
+ */
+export interface BilledJobResourceUtilization {
+  /**
+   * <p> The number of Clean Rooms Processing Unit (CRPU) hours that have been billed.</p>
+   * @public
+   */
+  units: number | undefined;
+}
+
+/**
+ * <p>Contains statistics about the execution of the protected job.</p>
+ * @public
+ */
+export interface ProtectedJobStatistics {
+  /**
+   * <p>The duration of the protected job, from creation until job completion, in milliseconds.</p>
+   * @public
+   */
+  totalDurationInMillis?: number | undefined;
+
+  /**
+   * <p> The billed resource utilization for the protected job.</p>
+   * @public
+   */
+  billedResourceUtilization?: BilledJobResourceUtilization | undefined;
+}
+
+/**
+ * <p>The parameters for an Clean Rooms protected job.</p>
+ * @public
+ */
+export interface ProtectedJob {
+  /**
+   * <p>The identifier for a protected job instance.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>he identifier for the membership.</p>
+   * @public
+   */
+  membershipId: string | undefined;
+
+  /**
+   * <p>The ARN of the membership.</p>
+   * @public
+   */
+  membershipArn: string | undefined;
+
+  /**
+   * <p> The creation time of the protected job.</p>
+   * @public
+   */
+  createTime: Date | undefined;
+
+  /**
+   * <p> The job parameters for the protected job.</p>
+   * @public
+   */
+  jobParameters?: ProtectedJobParameters | undefined;
+
+  /**
+   * <p> The status of the protected job.</p>
+   * @public
+   */
+  status: ProtectedJobStatus | undefined;
+
+  /**
+   * <p>Contains any details needed to write the job results.</p>
+   * @public
+   */
+  resultConfiguration?: ProtectedJobResultConfigurationOutput | undefined;
+
+  /**
+   * <p> The statistics of the protected job.</p>
+   * @public
+   */
+  statistics?: ProtectedJobStatistics | undefined;
+
+  /**
+   * <p> The result of the protected job.</p>
+   * @public
+   */
+  result?: ProtectedJobResult | undefined;
+
+  /**
+   * <p> The error from the protected job.</p>
+   * @public
+   */
+  error?: ProtectedJobError | undefined;
+
+  /**
+   * <p>The compute configuration for the protected job.</p>
+   * @public
+   */
+  computeConfiguration?: ProtectedJobComputeConfiguration | undefined;
+
+  /**
+   * <p>The account ID of the member that pays for the job compute costs.</p>
+   * @public
+   */
+  jobComputePayerAccountId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetProtectedJobOutput {
+  /**
+   * <p> The protected job metadata.</p>
+   * @public
+   */
+  protectedJob: ProtectedJob | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetProtectedQueryInput {
+  /**
+   * <p>The identifier for a membership in a protected query instance.</p>
+   * @public
+   */
+  membershipIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier for a protected query instance.</p>
+   * @public
+   */
+  protectedQueryIdentifier: string | undefined;
+}
+
+/**
+ * <p> The configuration of the compute resources for an analysis with the Spark analytics engine.</p>
+ * @public
+ */
+export type ComputeConfiguration =
+  | ComputeConfiguration.WorkerMember
+  | ComputeConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ComputeConfiguration {
+  /**
+   * <p> The worker configuration for the compute environment.</p>
+   * @public
+   */
+  export interface WorkerMember {
+    worker: WorkerComputeConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    worker?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    worker: (value: WorkerComputeConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Provides the sensitivity parameters.</p>
+ * @public
+ */
+export interface DifferentialPrivacySensitivityParameters {
+  /**
+   * <p>The type of aggregation function that was run.</p>
+   * @public
+   */
+  aggregationType: DifferentialPrivacyAggregationType | undefined;
+
+  /**
+   * <p>The aggregation expression that was run.</p>
+   * @public
+   */
+  aggregationExpression: string | undefined;
+
+  /**
+   * <p>The maximum number of rows contributed by a user in a SQL query.</p>
+   * @public
+   */
+  userContributionLimit: number | undefined;
+
+  /**
+   * <p>The lower bound of the aggregation expression.</p>
+   * @public
+   */
+  minColumnValue?: number | undefined;
+
+  /**
+   * <p>The upper bound of the aggregation expression.</p>
+   * @public
+   */
+  maxColumnValue?: number | undefined;
+}
+
+/**
+ * <p>An array that contains the sensitivity parameters.</p>
+ * @public
+ */
+export interface DifferentialPrivacyParameters {
+  /**
+   * <p>Provides the sensitivity parameters that you can use to better understand the total amount of noise in query results.</p>
+   * @public
+   */
+  sensitivityParameters: DifferentialPrivacySensitivityParameters[] | undefined;
+}
+
+/**
+ * <p>Details of errors thrown by the protected query.</p>
+ * @public
+ */
+export interface ProtectedQueryError {
+  /**
+   * <p>A description of why the query failed.</p>
+   * @public
+   */
+  message: string | undefined;
+
+  /**
+   * <p>An error code for the error.</p>
+   * @public
+   */
+  code: string | undefined;
+}
+
+/**
+ * <p>Details about the member who received the query result.</p>
+ * @public
+ */
+export interface ProtectedQuerySingleMemberOutput {
+  /**
+   * <p>The Amazon Web Services account ID of the member in the collaboration who can receive results for the query.</p>
+   * @public
+   */
+  accountId: string | undefined;
+}
+
+/**
+ * <p>Contains output information for protected queries with an S3 output type.</p>
+ * @public
+ */
+export interface ProtectedQueryS3Output {
+  /**
+   * <p>The S3 location of the result.</p>
+   * @public
+   */
+  location: string | undefined;
+}
+
+/**
+ * <p> Contains the output information for a protected query with a distribute output configuration.</p> <p> This output type allows query results to be distributed to multiple receivers, including S3 and collaboration members. It is only available for queries using the Spark analytics engine.</p>
+ * @public
+ */
+export interface ProtectedQueryDistributeOutput {
+  /**
+   * <p>Contains output information for protected queries with an S3 output type.</p>
+   * @public
+   */
+  s3?: ProtectedQueryS3Output | undefined;
+
+  /**
+   * <p> Contains the output results for each member location specified in the distribute output configuration. Each entry provides details about the result distribution to a specific collaboration member. </p>
+   * @public
+   */
+  memberList?: ProtectedQuerySingleMemberOutput[] | undefined;
+}
 
 /**
  * <p>Contains details about the protected query output.</p>
@@ -200,11 +1318,36 @@ export interface ProtectedQueryDistributeOutputConfiguration {
 }
 
 /**
+ * <p>Contains the output configuration of an intermediate table when a protected query populates it.</p>
+ * @public
+ */
+export interface IntermediateTableOutputConfiguration {
+  /**
+   * <p>The unique identifier of the intermediate table.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the intermediate table.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The name of the intermediate table.</p>
+   * @public
+   */
+  name: string | undefined;
+}
+
+/**
  * <p>Contains configuration details for protected query output.</p>
  * @public
  */
 export type ProtectedQueryOutputConfiguration =
   | ProtectedQueryOutputConfiguration.DistributeMember
+  | ProtectedQueryOutputConfiguration.IntermediateTableMember
   | ProtectedQueryOutputConfiguration.MemberMember
   | ProtectedQueryOutputConfiguration.S3Member
   | ProtectedQueryOutputConfiguration.$UnknownMember;
@@ -221,6 +1364,7 @@ export namespace ProtectedQueryOutputConfiguration {
     s3: ProtectedQueryS3OutputConfiguration;
     member?: never;
     distribute?: never;
+    intermediateTable?: never;
     $unknown?: never;
   }
 
@@ -232,6 +1376,7 @@ export namespace ProtectedQueryOutputConfiguration {
     s3?: never;
     member: ProtectedQueryMemberOutputConfiguration;
     distribute?: never;
+    intermediateTable?: never;
     $unknown?: never;
   }
 
@@ -243,6 +1388,19 @@ export namespace ProtectedQueryOutputConfiguration {
     s3?: never;
     member?: never;
     distribute: ProtectedQueryDistributeOutputConfiguration;
+    intermediateTable?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The intermediate table output configuration, present when the protected query was triggered by a populate operation.</p>
+   * @public
+   */
+  export interface IntermediateTableMember {
+    s3?: never;
+    member?: never;
+    distribute?: never;
+    intermediateTable: IntermediateTableOutputConfiguration;
     $unknown?: never;
   }
 
@@ -253,6 +1411,7 @@ export namespace ProtectedQueryOutputConfiguration {
     s3?: never;
     member?: never;
     distribute?: never;
+    intermediateTable?: never;
     $unknown: [string, any];
   }
 
@@ -264,6 +1423,7 @@ export namespace ProtectedQueryOutputConfiguration {
     s3: (value: ProtectedQueryS3OutputConfiguration) => T;
     member: (value: ProtectedQueryMemberOutputConfiguration) => T;
     distribute: (value: ProtectedQueryDistributeOutputConfiguration) => T;
+    intermediateTable: (value: IntermediateTableOutputConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -984,6 +2144,12 @@ export interface ProtectedQuerySummary {
    * @public
    */
   queryComputePayerAccountId?: string | undefined;
+
+  /**
+   * <p>The intermediate table configuration, present when the protected query was triggered by a populate operation.</p>
+   * @public
+   */
+  intermediateTableConfiguration?: IntermediateTableOutputConfiguration | undefined;
 }
 
 /**

@@ -5,8 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { GetProtectedQueryInput } from "../models/models_0";
-import type { GetProtectedQueryOutput } from "../models/models_1";
+import type { GetProtectedQueryInput, GetProtectedQueryOutput } from "../models/models_1";
 import { GetProtectedQuery$ } from "../schemas/schemas_0";
 
 /**
@@ -82,6 +81,11 @@ export interface GetProtectedQueryCommandOutput extends GetProtectedQueryOutput,
  * //               },
  * //             },
  * //           ],
+ * //         },
+ * //         intermediateTable: { // IntermediateTableOutputConfiguration
+ * //           id: "STRING_VALUE", // required
+ * //           arn: "STRING_VALUE", // required
+ * //           name: "STRING_VALUE", // required
  * //         },
  * //       },
  * //     },

@@ -66,6 +66,11 @@ export interface ListProtectedQueriesCommandOutput extends ListProtectedQueriesO
  * //         },
  * //       ],
  * //       queryComputePayerAccountId: "STRING_VALUE",
+ * //       intermediateTableConfiguration: { // IntermediateTableOutputConfiguration
+ * //         id: "STRING_VALUE", // required
+ * //         arn: "STRING_VALUE", // required
+ * //         name: "STRING_VALUE", // required
+ * //       },
  * //     },
  * //   ],
  * // };
