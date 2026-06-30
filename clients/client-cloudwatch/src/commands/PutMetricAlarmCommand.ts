@@ -149,6 +149,12 @@ export interface PutMetricAlarmCommandOutput extends __MetadataBearer {}
  *     },
  *   ],
  *   ThresholdMetricId: "STRING_VALUE",
+ *   EvaluationWindow: { // EvaluationWindow Union: only one key present
+ *     WallClockWindow: { // WallClockWindow
+ *       Timezone: "STRING_VALUE",
+ *     },
+ *     SlidingWindow: {},
+ *   },
  *   EvaluationCriteria: { // EvaluationCriteria Union: only one key present
  *     PromQLCriteria: { // AlarmPromQLCriteria
  *       Query: "STRING_VALUE", // required

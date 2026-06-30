@@ -123,6 +123,12 @@ export interface DescribeAlarmsForMetricCommandOutput extends DescribeAlarmsForM
  * //       ThresholdMetricId: "STRING_VALUE",
  * //       EvaluationState: "PARTIAL_DATA" || "EVALUATION_FAILURE" || "EVALUATION_ERROR",
  * //       StateTransitionedTimestamp: new Date("TIMESTAMP"),
+ * //       EvaluationWindow: { // EvaluationWindow Union: only one key present
+ * //         WallClockWindow: { // WallClockWindow
+ * //           Timezone: "STRING_VALUE",
+ * //         },
+ * //         SlidingWindow: {},
+ * //       },
  * //       EvaluationCriteria: { // EvaluationCriteria Union: only one key present
  * //         PromQLCriteria: { // AlarmPromQLCriteria
  * //           Query: "STRING_VALUE", // required

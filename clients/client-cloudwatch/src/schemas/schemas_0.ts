@@ -150,6 +150,7 @@ const _ET = "EndTime";
 const _ETO = "EndTimeOffset";
 const _ETR = "ExcludedTimeRanges";
 const _ETx = "ExceptionType";
+const _EW = "EvaluationWindow";
 const _En = "Entries";
 const _Ex = "Expression";
 const _F = "Failures";
@@ -385,6 +386,7 @@ const _STT = "StateTransitionedTimestamp";
 const _SUT = "StateUpdatedTimestamp";
 const _SV = "StateValue";
 const _SVt = "StatisticValues";
+const _SW = "SlidingWindow";
 const _Sc = "Schema";
 const _Sch = "Schedule";
 const _Si = "Size";
@@ -415,6 +417,7 @@ const _URI = "UntagResourceInput";
 const _URO = "UntagResourceOutput";
 const _V = "Value";
 const _Va = "Values";
+const _WCW = "WallClockWindow";
 const _aQE = "awsQueryError";
 const _c = "client";
 const _dVM = "dashboardValidationMessages";
@@ -1017,8 +1020,8 @@ export var Metric$: StaticStructureSchema = [3, n0, _Met,
 ];
 export var MetricAlarm$: StaticStructureSchema = [3, n0, _MAe,
   0,
-  [_AN, _AAl, _ADl, _ACUT, _AE, _OKA, _AA, _IDA, _SV, _SR, _SRD, _SUT, _MN, _N, _Sta, _ESx, _D, _P, _U, _EP, _DTA, _Th, _CO, _TMD, _ELSCP, _Me, _TMI, _ESv, _STT, _EC, _EI],
-  [0, 0, 0, 4, 2, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, 4, 0, 0, 0, 0, () => Dimensions, 1, 0, 1, 1, 1, 0, 0, 0, () => MetricDataQueries, 0, 0, 4, () => EvaluationCriteria$, 1]
+  [_AN, _AAl, _ADl, _ACUT, _AE, _OKA, _AA, _IDA, _SV, _SR, _SRD, _SUT, _MN, _N, _Sta, _ESx, _D, _P, _U, _EP, _DTA, _Th, _CO, _TMD, _ELSCP, _Me, _TMI, _ESv, _STT, _EW, _EC, _EI],
+  [0, 0, 0, 4, 2, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, 4, 0, 0, 0, 0, () => Dimensions, 1, 0, 1, 1, 1, 0, 0, 0, () => MetricDataQueries, 0, 0, 4, () => EvaluationWindow$, () => EvaluationCriteria$, 1]
 ];
 export var MetricCharacteristics$: StaticStructureSchema = [3, n0, _MC,
   0,
@@ -1137,8 +1140,8 @@ export var PutManagedInsightRulesOutput$: StaticStructureSchema = [3, n0, _PMIRO
 ];
 export var PutMetricAlarmInput$: StaticStructureSchema = [3, n0, _PMAI,
   0,
-  [_AN, _ADl, _AE, _OKA, _AA, _IDA, _MN, _N, _Sta, _ESx, _D, _P, _U, _EP, _DTA, _Th, _CO, _TMD, _ELSCP, _Me, _Ta, _TMI, _EC, _EI],
-  [0, 0, 2, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, 0, () => Dimensions, 1, 0, 1, 1, 1, 0, 0, 0, () => MetricDataQueries, () => TagList, 0, () => EvaluationCriteria$, 1], 1
+  [_AN, _ADl, _AE, _OKA, _AA, _IDA, _MN, _N, _Sta, _ESx, _D, _P, _U, _EP, _DTA, _Th, _CO, _TMD, _ELSCP, _Me, _Ta, _TMI, _EW, _EC, _EI],
+  [0, 0, 2, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, 0, () => Dimensions, 1, 0, 1, 1, 1, 0, 0, 0, () => MetricDataQueries, () => TagList, 0, () => EvaluationWindow$, () => EvaluationCriteria$, 1], 1
 ];
 export var PutMetricDataInput$: StaticStructureSchema = [3, n0, _PMDI,
   0,
@@ -1189,6 +1192,11 @@ export var SingleMetricAnomalyDetector$: StaticStructureSchema = [3, n0, _SMAD,
   0,
   [_AI, _N, _MN, _D, _St],
   [0, 0, 0, () => Dimensions, 0]
+];
+export var SlidingWindow$: StaticStructureSchema = [3, n0, _SW,
+  0,
+  [],
+  []
 ];
 export var StartMetricStreamsInput$: StaticStructureSchema = [3, n0, _SMSI,
   0,
@@ -1259,6 +1267,11 @@ export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
   0,
   [],
   []
+];
+export var WallClockWindow$: StaticStructureSchema = [3, n0, _WCW,
+  0,
+  [_Ti],
+  [0]
 ];
 var __Unit = "unit" as const;
 var AlarmContributors: StaticListSchema = [1, n0, _ACl,
@@ -1385,6 +1398,11 @@ export var EvaluationCriteria$: StaticUnionSchema = [4, n0, _EC,
   0,
   [_PQLC],
   [() => AlarmPromQLCriteria$]
+];
+export var EvaluationWindow$: StaticUnionSchema = [4, n0, _EW,
+  0,
+  [_WCW, _SW],
+  [() => WallClockWindow$, () => SlidingWindow$]
 ];
 export var AssociateDatasetKmsKey$: StaticOperationSchema = [9, n0, _ADKK,
   0, () => AssociateDatasetKmsKeyInput$, () => AssociateDatasetKmsKeyOutput$

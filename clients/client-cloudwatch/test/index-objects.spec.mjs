@@ -100,6 +100,7 @@ import {
   EntityMetricData$,
   EvaluationCriteria$,
   EvaluationState,
+  EvaluationWindow$,
   GetAlarmMuteRule$,
   GetAlarmMuteRuleCommand,
   GetAlarmMuteRuleInput$,
@@ -271,6 +272,7 @@ import {
   SetAlarmStateCommand,
   SetAlarmStateInput$,
   SingleMetricAnomalyDetector$,
+  SlidingWindow$,
   StandardUnit,
   StartMetricStreams$,
   StartMetricStreamsCommand,
@@ -309,6 +311,7 @@ import {
   waitUntilAlarmMuteRuleExists,
   waitUntilCompositeAlarmExists,
   waitUntilLogAlarmExists,
+  WallClockWindow$,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
@@ -463,6 +466,7 @@ assert(typeof EnableInsightRulesOutput$ === "object");
 assert(typeof Entity$ === "object");
 assert(typeof EntityMetricData$ === "object");
 assert(typeof EvaluationCriteria$ === "object");
+assert(typeof EvaluationWindow$ === "object");
 assert(typeof GetAlarmMuteRuleInput$ === "object");
 assert(typeof GetAlarmMuteRuleOutput$ === "object");
 assert(typeof GetDashboardInput$ === "object");
@@ -539,6 +543,7 @@ assert(typeof ScheduleConfiguration$ === "object");
 assert(typeof ScheduledQueryConfiguration$ === "object");
 assert(typeof SetAlarmStateInput$ === "object");
 assert(typeof SingleMetricAnomalyDetector$ === "object");
+assert(typeof SlidingWindow$ === "object");
 assert(typeof StartMetricStreamsInput$ === "object");
 assert(typeof StartMetricStreamsOutput$ === "object");
 assert(typeof StartOTelEnrichmentInput$ === "object");
@@ -553,6 +558,7 @@ assert(typeof TagResourceInput$ === "object");
 assert(typeof TagResourceOutput$ === "object");
 assert(typeof UntagResourceInput$ === "object");
 assert(typeof UntagResourceOutput$ === "object");
+assert(typeof WallClockWindow$ === "object");
 // enums
 assert(typeof ActionsSuppressedBy === "object");
 assert(typeof AlarmMuteRuleStatus === "object");

@@ -1617,6 +1617,107 @@ export namespace EvaluationCriteria {
 }
 
 /**
+ * <p>An evaluation window that advances each time the alarm is evaluated, forming a rolling
+ *             time window. This is the default evaluation window. A sliding window has no additional
+ *             configuration options.</p>
+ *          <p>Choose a sliding window when you need the fastest detection and the calendar
+ *             boundaries of the data don't matter, such as for continuous performance, latency, or
+ *             resource-exhaustion monitoring.</p>
+ * @public
+ */
+export interface SlidingWindow {}
+
+/**
+ * <p>An evaluation window that aligns the evaluated range to fixed clock boundaries that
+ *             match the alarm's period, such as the top of the hour, midnight, or the start of the
+ *             calendar week, optionally in a specific time zone.</p>
+ *          <p>When you use a wall clock window, the alarm's period must be 1 minute (60 seconds),
+ *             5 minutes (300 seconds), 1 hour (3,600 seconds), 1 day (86,400 seconds), or 1 week
+ *             (604,800 seconds). Other period values aren't supported with a wall clock window.</p>
+ *          <p>Choose a wall clock window when your monitoring is tied to a business or calendar
+ *             period, such as daily reports, batch jobs, or backups, or when you want alarm
+ *             evaluations to match the periods shown on a metric dashboard.</p>
+ * @public
+ */
+export interface WallClockWindow {
+  /**
+   * <p>The time zone to use when the alarm aligns the evaluation window to clock boundaries.
+   *             You can specify an IANA time zone name (for example, <code>America/New_York</code>), a
+   *             fixed UTC offset (for example, <code>+05:30</code>), or an offset-prefixed identifier
+   *             (for example, <code>UTC+05:30</code>). The offset must be aligned to a multiple of
+   *             5 minutes. If you don't specify a time zone, CloudWatch uses
+   *             <code>UTC</code>.</p>
+   *          <p>The time zone affects window alignment for all periods, including periods of one
+   *             hour or shorter.</p>
+   * @public
+   */
+  Timezone?: string | undefined;
+}
+
+/**
+ * <p>The evaluation window that an alarm uses to select the range of metric data that it
+ *             evaluates each time it runs. This is a union type. Set exactly one of its members,
+ *             <code>SlidingWindow</code> or <code>WallClockWindow</code>. If you don't set
+ *             <code>EvaluationWindow</code>, the alarm uses a <code>SlidingWindow</code> by
+ *             default.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-evaluation-window.html">Alarm
+ *                 evaluation windows</a> in the <i>CloudWatch User
+ *             Guide</i>.</p>
+ * @public
+ */
+export type EvaluationWindow =
+  | EvaluationWindow.SlidingWindowMember
+  | EvaluationWindow.WallClockWindowMember
+  | EvaluationWindow.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace EvaluationWindow {
+  /**
+   * <p>A wall clock window, which aligns the evaluated range to fixed clock boundaries that
+   *             match the alarm's period, such as the top of the hour, midnight, or the start of the
+   *             calendar week.</p>
+   * @public
+   */
+  export interface WallClockWindowMember {
+    WallClockWindow: WallClockWindow;
+    SlidingWindow?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A sliding window, which advances each time the alarm is evaluated, forming a rolling
+   *             time window. This is the default evaluation window.</p>
+   * @public
+   */
+  export interface SlidingWindowMember {
+    WallClockWindow?: never;
+    SlidingWindow: SlidingWindow;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    WallClockWindow?: never;
+    SlidingWindow?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    WallClockWindow: (value: WallClockWindow) => T;
+    SlidingWindow: (value: SlidingWindow) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p>The details about a metric alarm.</p>
  * @public
  */
@@ -1831,6 +1932,16 @@ export interface MetricAlarm {
    * @public
    */
   StateTransitionedTimestamp?: Date | undefined;
+
+  /**
+   * <p>The evaluation window that the alarm uses to select the range of metric data that it
+   *             evaluates. This is either a sliding window or a wall clock window. For more information,
+   *             see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-evaluation-window.html">Alarm
+   *                 evaluation windows</a> in the <i>CloudWatch User
+   *             Guide</i>.</p>
+   * @public
+   */
+  EvaluationWindow?: EvaluationWindow | undefined;
 
   /**
    * <p>The evaluation criteria for the alarm.</p>
@@ -5507,6 +5618,22 @@ export interface PutMetricAlarmInput {
    * @public
    */
   ThresholdMetricId?: string | undefined;
+
+  /**
+   * <p>The evaluation window that the alarm uses to select the range of metric data that it
+   *             evaluates. Specify either a sliding window or a wall clock window. If you omit this
+   *             parameter, the alarm uses a sliding window.</p>
+   *          <p>A sliding window advances each time the alarm is evaluated, forming a rolling time
+   *             window. A wall clock window aligns the evaluated range to fixed clock boundaries, such
+   *             as the top of the hour or the start of the day.</p>
+   *          <p>You can use <code>EvaluationWindow</code> with any type of metric alarm except alarms
+   *             that are based on a PromQL query.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-evaluation-window.html">Alarm
+   *                 evaluation windows</a> in the <i>CloudWatch User
+   *             Guide</i>.</p>
+   * @public
+   */
+  EvaluationWindow?: EvaluationWindow | undefined;
 
   /**
    * <p>The evaluation criteria for the alarm. For each <code>PutMetricAlarm</code>
