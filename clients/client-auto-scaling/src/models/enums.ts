@@ -80,6 +80,7 @@ export type ScalingActivityStatusCode = (typeof ScalingActivityStatusCode)[keyof
 export const CapacityDistributionStrategy = {
   BALANCED_BEST_EFFORT: "balanced-best-effort",
   BALANCED_ONLY: "balanced-only",
+  RESERVATIONS_THEN_BALANCED: "reservations-then-balanced",
 } as const;
 /**
  * @public

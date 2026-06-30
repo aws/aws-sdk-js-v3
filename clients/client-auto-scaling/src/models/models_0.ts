@@ -632,6 +632,10 @@ export interface AvailabilityZoneDistribution {
    *                <p>
    *                   <code>balanced-best-effort</code> - If launches fail in an Availability Zone, Auto Scaling will attempt to launch in another healthy Availability Zone instead.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>reservations-then-balanced</code> - Auto Scaling will first attempt to launch into your Capacity Reservations, and then balance any remaining capacity across the healthy Availability Zones.</p>
+   *             </li>
    *          </ul>
    * @public
    */

@@ -219,7 +219,7 @@ export interface UpdateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  *     MaxHealthyPercentage: Number("int"),
  *   },
  *   AvailabilityZoneDistribution: { // AvailabilityZoneDistribution
- *     CapacityDistributionStrategy: "balanced-only" || "balanced-best-effort",
+ *     CapacityDistributionStrategy: "balanced-only" || "balanced-best-effort" || "reservations-then-balanced",
  *   },
  *   AvailabilityZoneImpairmentPolicy: { // AvailabilityZoneImpairmentPolicy
  *     ZonalShiftEnabled: true || false,
