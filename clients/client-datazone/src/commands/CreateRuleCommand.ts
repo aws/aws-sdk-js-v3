@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { CreateRuleInput, CreateRuleOutput } from "../models/models_0";
+import type { CreateRuleInput, CreateRuleOutput } from "../models/models_1";
 import { CreateRule$ } from "../schemas/schemas_0";
 
 /**

@@ -185,6 +185,77 @@ export interface CreateConnectionCommandOutput extends CreateConnectionOutput, _
  *       s3AccessGrantLocationId: "STRING_VALUE",
  *       registerS3AccessGrantLocation: true || false,
  *     },
+ *     snowflakeProperties: { // SnowflakePropertiesInput
+ *       connectivityProperties: { // ConnectivityProperties
+ *         connectionProperties: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         physicalConnectionRequirements: {
+ *           subnetId: "STRING_VALUE",
+ *           subnetIdList: [
+ *             "STRING_VALUE",
+ *           ],
+ *           securityGroupIdList: [
+ *             "STRING_VALUE",
+ *           ],
+ *           availabilityZone: "STRING_VALUE",
+ *         },
+ *         name: "STRING_VALUE",
+ *         description: "STRING_VALUE",
+ *         validateCredentials: true || false,
+ *         validateForComputeEnvironments: [
+ *           "SPARK" || "ATHENA" || "PYTHON",
+ *         ],
+ *         sparkProperties: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         athenaProperties: "<PropertyMap>",
+ *         pythonProperties: "<PropertyMap>",
+ *         authenticationConfiguration: {
+ *           authenticationType: "BASIC" || "OAUTH2" || "CUSTOM",
+ *           oAuth2Properties: {
+ *             oAuth2GrantType: "AUTHORIZATION_CODE" || "CLIENT_CREDENTIALS" || "JWT_BEARER",
+ *             oAuth2ClientApplication: {
+ *               userManagedClientApplicationClientId: "STRING_VALUE",
+ *               aWSManagedClientApplicationReference: "STRING_VALUE",
+ *             },
+ *             tokenUrl: "STRING_VALUE",
+ *             tokenUrlParametersMap: {
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *             authorizationCodeProperties: {
+ *               authorizationCode: "STRING_VALUE",
+ *               redirectUri: "STRING_VALUE",
+ *             },
+ *             oAuth2Credentials: {
+ *               userManagedClientApplicationClientSecret: "STRING_VALUE",
+ *               accessToken: "STRING_VALUE",
+ *               refreshToken: "STRING_VALUE",
+ *               jwtToken: "STRING_VALUE",
+ *             },
+ *           },
+ *           secretArn: "STRING_VALUE",
+ *           kmsKeyArn: "STRING_VALUE",
+ *           basicAuthenticationCredentials: {
+ *             userName: "STRING_VALUE",
+ *             password: "STRING_VALUE",
+ *           },
+ *           customAuthenticationCredentials: {
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *         },
+ *       },
+ *       snowflakeRole: "STRING_VALUE", // required
+ *       identityMapping: { // IdentityMapping
+ *         usernameAttribute: "STRING_VALUE", // required
+ *         prefix: "STRING_VALUE",
+ *       },
+ *       lineageSync: { // LineageSyncInput
+ *         timezone: "UTC" || "AFRICA_JOHANNESBURG" || "AMERICA_MONTREAL" || "AMERICA_SAO_PAULO" || "ASIA_BAHRAIN" || "ASIA_BANGKOK" || "ASIA_CALCUTTA" || "ASIA_DUBAI" || "ASIA_HONG_KONG" || "ASIA_JAKARTA" || "ASIA_KUALA_LUMPUR" || "ASIA_SEOUL" || "ASIA_SHANGHAI" || "ASIA_SINGAPORE" || "ASIA_TAIPEI" || "ASIA_TOKYO" || "AUSTRALIA_MELBOURNE" || "AUSTRALIA_SYDNEY" || "CANADA_CENTRAL" || "CET" || "CST6CDT" || "ETC_GMT" || "ETC_GMT0" || "ETC_GMT_ADD_0" || "ETC_GMT_ADD_1" || "ETC_GMT_ADD_10" || "ETC_GMT_ADD_11" || "ETC_GMT_ADD_12" || "ETC_GMT_ADD_2" || "ETC_GMT_ADD_3" || "ETC_GMT_ADD_4" || "ETC_GMT_ADD_5" || "ETC_GMT_ADD_6" || "ETC_GMT_ADD_7" || "ETC_GMT_ADD_8" || "ETC_GMT_ADD_9" || "ETC_GMT_NEG_0" || "ETC_GMT_NEG_1" || "ETC_GMT_NEG_10" || "ETC_GMT_NEG_11" || "ETC_GMT_NEG_12" || "ETC_GMT_NEG_13" || "ETC_GMT_NEG_14" || "ETC_GMT_NEG_2" || "ETC_GMT_NEG_3" || "ETC_GMT_NEG_4" || "ETC_GMT_NEG_5" || "ETC_GMT_NEG_6" || "ETC_GMT_NEG_7" || "ETC_GMT_NEG_8" || "ETC_GMT_NEG_9" || "EUROPE_DUBLIN" || "EUROPE_LONDON" || "EUROPE_PARIS" || "EUROPE_STOCKHOLM" || "EUROPE_ZURICH" || "ISRAEL" || "MEXICO_GENERAL" || "MST7MDT" || "PACIFIC_AUCKLAND" || "US_CENTRAL" || "US_EASTERN" || "US_MOUNTAIN" || "US_PACIFIC",
+ *         enabled: true || false, // required
+ *         schedule: "STRING_VALUE",
+ *       },
+ *     },
  *     amazonQProperties: { // AmazonQPropertiesInput
  *       isEnabled: true || false, // required
  *       profileArn: "STRING_VALUE",
@@ -398,6 +469,21 @@ export interface CreateConnectionCommandOutput extends CreateConnectionOutput, _
  * //       s3AccessGrantLocationId: "STRING_VALUE",
  * //       registerS3AccessGrantLocation: true || false,
  * //       status: "CREATING" || "CREATE_FAILED" || "DELETING" || "DELETE_FAILED" || "READY" || "UPDATING" || "UPDATE_FAILED" || "DELETED",
+ * //       errorMessage: "STRING_VALUE",
+ * //     },
+ * //     snowflakeProperties: { // SnowflakePropertiesOutput
+ * //       snowflakeRole: "STRING_VALUE", // required
+ * //       identityMapping: { // IdentityMapping
+ * //         usernameAttribute: "STRING_VALUE", // required
+ * //         prefix: "STRING_VALUE",
+ * //       },
+ * //       lineageSync: { // LineageSyncOutput
+ * //         lineageJobId: "STRING_VALUE",
+ * //         timezone: "UTC" || "AFRICA_JOHANNESBURG" || "AMERICA_MONTREAL" || "AMERICA_SAO_PAULO" || "ASIA_BAHRAIN" || "ASIA_BANGKOK" || "ASIA_CALCUTTA" || "ASIA_DUBAI" || "ASIA_HONG_KONG" || "ASIA_JAKARTA" || "ASIA_KUALA_LUMPUR" || "ASIA_SEOUL" || "ASIA_SHANGHAI" || "ASIA_SINGAPORE" || "ASIA_TAIPEI" || "ASIA_TOKYO" || "AUSTRALIA_MELBOURNE" || "AUSTRALIA_SYDNEY" || "CANADA_CENTRAL" || "CET" || "CST6CDT" || "ETC_GMT" || "ETC_GMT0" || "ETC_GMT_ADD_0" || "ETC_GMT_ADD_1" || "ETC_GMT_ADD_10" || "ETC_GMT_ADD_11" || "ETC_GMT_ADD_12" || "ETC_GMT_ADD_2" || "ETC_GMT_ADD_3" || "ETC_GMT_ADD_4" || "ETC_GMT_ADD_5" || "ETC_GMT_ADD_6" || "ETC_GMT_ADD_7" || "ETC_GMT_ADD_8" || "ETC_GMT_ADD_9" || "ETC_GMT_NEG_0" || "ETC_GMT_NEG_1" || "ETC_GMT_NEG_10" || "ETC_GMT_NEG_11" || "ETC_GMT_NEG_12" || "ETC_GMT_NEG_13" || "ETC_GMT_NEG_14" || "ETC_GMT_NEG_2" || "ETC_GMT_NEG_3" || "ETC_GMT_NEG_4" || "ETC_GMT_NEG_5" || "ETC_GMT_NEG_6" || "ETC_GMT_NEG_7" || "ETC_GMT_NEG_8" || "ETC_GMT_NEG_9" || "EUROPE_DUBLIN" || "EUROPE_LONDON" || "EUROPE_PARIS" || "EUROPE_STOCKHOLM" || "EUROPE_ZURICH" || "ISRAEL" || "MEXICO_GENERAL" || "MST7MDT" || "PACIFIC_AUCKLAND" || "US_CENTRAL" || "US_EASTERN" || "US_MOUNTAIN" || "US_PACIFIC",
+ * //         enabled: true || false,
+ * //         schedule: "STRING_VALUE",
+ * //       },
+ * //       status: "CREATING" || "CREATE_FAILED" || "DELETING" || "DELETE_FAILED" || "READY" || "UPDATING" || "UPDATE_FAILED" || "DELETED", // required
  * //       errorMessage: "STRING_VALUE",
  * //     },
  * //     amazonQProperties: { // AmazonQPropertiesOutput

@@ -114,6 +114,8 @@ import {
   ConnectionStatus,
   ConnectionSummary$,
   ConnectionType,
+  ConnectivityProperties$,
+  ConnectivityPropertiesPatch$,
   CreateAccountPool$,
   CreateAccountPoolCommand,
   CreateAccountPoolInput$,
@@ -629,6 +631,7 @@ import {
   IamPropertiesOutput$,
   IamPropertiesPatch$,
   IamUserProfileDetails$,
+  IdentityMapping$,
   Import$,
   InExpression$,
   InternalServerException,
@@ -659,6 +662,8 @@ import {
   LineageNodeTypeItem$,
   LineageRunDetails$,
   LineageSqlQueryRunDetails$,
+  LineageSyncInput$,
+  LineageSyncOutput$,
   LineageSyncSchedule$,
   ListAccountPools$,
   ListAccountPoolsCommand,
@@ -1047,6 +1052,9 @@ import {
   ServiceQuotaExceededException,
   ServiceQuotaExceededException$,
   SingleSignOn$,
+  SnowflakePropertiesInput$,
+  SnowflakePropertiesOutput$,
+  SnowflakePropertiesPatch$,
   SortFieldAccountPool,
   SortFieldConnection,
   SortFieldProject,
@@ -1713,6 +1721,8 @@ assert(typeof ConnectionPropertiesInput$ === "object");
 assert(typeof ConnectionPropertiesOutput$ === "object");
 assert(typeof ConnectionPropertiesPatch$ === "object");
 assert(typeof ConnectionSummary$ === "object");
+assert(typeof ConnectivityProperties$ === "object");
+assert(typeof ConnectivityPropertiesPatch$ === "object");
 assert(typeof CreateAccountPoolInput$ === "object");
 assert(typeof CreateAccountPoolOutput$ === "object");
 assert(typeof CreateAssetFilterInput$ === "object");
@@ -1994,6 +2004,7 @@ assert(typeof IamPropertiesInput$ === "object");
 assert(typeof IamPropertiesOutput$ === "object");
 assert(typeof IamPropertiesPatch$ === "object");
 assert(typeof IamUserProfileDetails$ === "object");
+assert(typeof IdentityMapping$ === "object");
 assert(typeof Import$ === "object");
 assert(typeof InExpression$ === "object");
 assert(typeof IsNotNullExpression$ === "object");
@@ -2016,6 +2027,8 @@ assert(typeof LineageNodeSummary$ === "object");
 assert(typeof LineageNodeTypeItem$ === "object");
 assert(typeof LineageRunDetails$ === "object");
 assert(typeof LineageSqlQueryRunDetails$ === "object");
+assert(typeof LineageSyncInput$ === "object");
+assert(typeof LineageSyncOutput$ === "object");
 assert(typeof LineageSyncSchedule$ === "object");
 assert(typeof ListAccountPoolsInput$ === "object");
 assert(typeof ListAccountPoolsOutput$ === "object");
@@ -2229,6 +2242,9 @@ assert(typeof SearchUserProfilesOutput$ === "object");
 assert(typeof SelfGrantStatusDetail$ === "object");
 assert(typeof SelfGrantStatusOutput$ === "object");
 assert(typeof SingleSignOn$ === "object");
+assert(typeof SnowflakePropertiesInput$ === "object");
+assert(typeof SnowflakePropertiesOutput$ === "object");
+assert(typeof SnowflakePropertiesPatch$ === "object");
 assert(typeof SourceLocation$ === "object");
 assert(typeof SparkEmrPropertiesInput$ === "object");
 assert(typeof SparkEmrPropertiesOutput$ === "object");

@@ -47,10 +47,7 @@ import type {
   Protocol,
   ResolutionStrategy,
   ResourceTagSource,
-  RuleAction,
   RuleScopeSelectionMode,
-  RuleTargetType,
-  RuleType,
   S3Permission,
   Status,
   SubscriptionRequestStatus,
@@ -5542,6 +5539,144 @@ export interface S3PropertiesInput {
 }
 
 /**
+ * <p>Contains the network and authentication settings for a connection, including connection credentials, physical network requirements, and compute-environment validation options.</p>
+ * @public
+ */
+export interface ConnectivityProperties {
+  /**
+   * <p>The connection properties for this configuration.</p>
+   * @public
+   */
+  connectionProperties?: Record<string, string> | undefined;
+
+  /**
+   * <p>The physical network requirements for the connection, such as the subnet, security group, and VPC settings needed to reach the data source.</p>
+   * @public
+   */
+  physicalConnectionRequirements?: PhysicalConnectionRequirements | undefined;
+
+  /**
+   * <p>The name of the connectivity configuration.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The description of the connectivity configuration.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Specifies whether to validate credentials for the connectivity configuration. Defaults to true if not specified.</p>
+   * @public
+   */
+  validateCredentials?: boolean | undefined;
+
+  /**
+   * <p>The compute environments to use when validating connectivity. The service validates that the connection is reachable from each specified environment.</p>
+   * @public
+   */
+  validateForComputeEnvironments?: ComputeEnvironments[] | undefined;
+
+  /**
+   * <p>The Spark properties for this configuration.</p>
+   * @public
+   */
+  sparkProperties?: Record<string, string> | undefined;
+
+  /**
+   * <p>The Athena properties for this configuration.</p>
+   * @public
+   */
+  athenaProperties?: Record<string, string> | undefined;
+
+  /**
+   * <p>The Python properties for this configuration.</p>
+   * @public
+   */
+  pythonProperties?: Record<string, string> | undefined;
+
+  /**
+   * <p>The authentication settings for this configuration.</p>
+   * @public
+   */
+  authenticationConfiguration?: AuthenticationConfigurationInput | undefined;
+}
+
+/**
+ * <p>Contains the configuration for mapping user identities to Snowflake users, including the username attribute and optional prefix applied during the mapping.</p>
+ * @public
+ */
+export interface IdentityMapping {
+  /**
+   * <p>The username attribute used for the identity mapping.</p>
+   * @public
+   */
+  usernameAttribute: string | undefined;
+
+  /**
+   * <p>The prefix used for the identity mapping.</p>
+   * @public
+   */
+  prefix?: string | undefined;
+}
+
+/**
+ * <p>Contains the settings for configuring lineage sync on a Snowflake connection, including the schedule, timezone, and enabled state.</p>
+ * @public
+ */
+export interface LineageSyncInput {
+  /**
+   * <p>The timezone of the lineage sync schedule.</p>
+   * @public
+   */
+  timezone?: Timezone | undefined;
+
+  /**
+   * <p>Specifies whether lineage sync is enabled.</p>
+   * @public
+   */
+  enabled: boolean | undefined;
+
+  /**
+   * <p>The schedule of the lineage sync.</p>
+   * @public
+   */
+  schedule?: string | undefined;
+}
+
+/**
+ * <p>Contains the Snowflake-specific settings required when creating or updating a connection, including the Snowflake role, identity mapping, and lineage sync configuration.</p>
+ * @public
+ */
+export interface SnowflakePropertiesInput {
+  /**
+   * <p>The connectivity properties of the Snowflake connection.</p>
+   * @public
+   */
+  connectivityProperties?: ConnectivityProperties | undefined;
+
+  /**
+   * <p>The Snowflake role used to access Snowflake resources.</p>
+   * @public
+   */
+  snowflakeRole: string | undefined;
+
+  /**
+   * <p>The identity mapping configuration for the Snowflake connection.</p>
+   * @public
+   */
+  identityMapping: IdentityMapping | undefined;
+
+  /**
+   * <p>The lineage sync configuration for the Snowflake connection.</p>
+   * @public
+   */
+  lineageSync?: LineageSyncInput | undefined;
+}
+
+/**
  * <p>The Spark EMR properties.</p>
  * @public
  */
@@ -5723,6 +5858,7 @@ export type ConnectionPropertiesInput =
   | ConnectionPropertiesInput.MlflowPropertiesMember
   | ConnectionPropertiesInput.RedshiftPropertiesMember
   | ConnectionPropertiesInput.S3PropertiesMember
+  | ConnectionPropertiesInput.SnowflakePropertiesMember
   | ConnectionPropertiesInput.SparkEmrPropertiesMember
   | ConnectionPropertiesInput.SparkGluePropertiesMember
   | ConnectionPropertiesInput.VpcPropertiesMember
@@ -5747,6 +5883,7 @@ export namespace ConnectionPropertiesInput {
     sparkEmrProperties?: never;
     sparkGlueProperties?: never;
     s3Properties?: never;
+    snowflakeProperties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
@@ -5769,6 +5906,7 @@ export namespace ConnectionPropertiesInput {
     sparkEmrProperties?: never;
     sparkGlueProperties?: never;
     s3Properties?: never;
+    snowflakeProperties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
@@ -5791,6 +5929,7 @@ export namespace ConnectionPropertiesInput {
     sparkEmrProperties?: never;
     sparkGlueProperties?: never;
     s3Properties?: never;
+    snowflakeProperties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
@@ -5813,6 +5952,7 @@ export namespace ConnectionPropertiesInput {
     sparkEmrProperties?: never;
     sparkGlueProperties?: never;
     s3Properties?: never;
+    snowflakeProperties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
@@ -5835,6 +5975,7 @@ export namespace ConnectionPropertiesInput {
     sparkEmrProperties?: never;
     sparkGlueProperties?: never;
     s3Properties?: never;
+    snowflakeProperties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
@@ -5857,6 +5998,7 @@ export namespace ConnectionPropertiesInput {
     sparkEmrProperties: SparkEmrPropertiesInput;
     sparkGlueProperties?: never;
     s3Properties?: never;
+    snowflakeProperties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
@@ -5879,6 +6021,7 @@ export namespace ConnectionPropertiesInput {
     sparkEmrProperties?: never;
     sparkGlueProperties: SparkGluePropertiesInput;
     s3Properties?: never;
+    snowflakeProperties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
@@ -5901,6 +6044,30 @@ export namespace ConnectionPropertiesInput {
     sparkEmrProperties?: never;
     sparkGlueProperties?: never;
     s3Properties: S3PropertiesInput;
+    snowflakeProperties?: never;
+    amazonQProperties?: never;
+    mlflowProperties?: never;
+    workflowsMwaaProperties?: never;
+    workflowsServerlessProperties?: never;
+    lakehouseProperties?: never;
+    vpcProperties?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The Snowflake-specific connection properties to use when creating the connection.</p>
+   * @public
+   */
+  export interface SnowflakePropertiesMember {
+    athenaProperties?: never;
+    glueProperties?: never;
+    hyperPodProperties?: never;
+    iamProperties?: never;
+    redshiftProperties?: never;
+    sparkEmrProperties?: never;
+    sparkGlueProperties?: never;
+    s3Properties?: never;
+    snowflakeProperties: SnowflakePropertiesInput;
     amazonQProperties?: never;
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
@@ -5923,6 +6090,7 @@ export namespace ConnectionPropertiesInput {
     sparkEmrProperties?: never;
     sparkGlueProperties?: never;
     s3Properties?: never;
+    snowflakeProperties?: never;
     amazonQProperties: AmazonQPropertiesInput;
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
@@ -5945,6 +6113,7 @@ export namespace ConnectionPropertiesInput {
     sparkEmrProperties?: never;
     sparkGlueProperties?: never;
     s3Properties?: never;
+    snowflakeProperties?: never;
     amazonQProperties?: never;
     mlflowProperties: MlflowPropertiesInput;
     workflowsMwaaProperties?: never;
@@ -5967,6 +6136,7 @@ export namespace ConnectionPropertiesInput {
     sparkEmrProperties?: never;
     sparkGlueProperties?: never;
     s3Properties?: never;
+    snowflakeProperties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
     workflowsMwaaProperties: WorkflowsMwaaPropertiesInput;
@@ -5989,6 +6159,7 @@ export namespace ConnectionPropertiesInput {
     sparkEmrProperties?: never;
     sparkGlueProperties?: never;
     s3Properties?: never;
+    snowflakeProperties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
@@ -6011,6 +6182,7 @@ export namespace ConnectionPropertiesInput {
     sparkEmrProperties?: never;
     sparkGlueProperties?: never;
     s3Properties?: never;
+    snowflakeProperties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
@@ -6033,6 +6205,7 @@ export namespace ConnectionPropertiesInput {
     sparkEmrProperties?: never;
     sparkGlueProperties?: never;
     s3Properties?: never;
+    snowflakeProperties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
@@ -6054,6 +6227,7 @@ export namespace ConnectionPropertiesInput {
     sparkEmrProperties?: never;
     sparkGlueProperties?: never;
     s3Properties?: never;
+    snowflakeProperties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
@@ -6076,6 +6250,7 @@ export namespace ConnectionPropertiesInput {
     sparkEmrProperties: (value: SparkEmrPropertiesInput) => T;
     sparkGlueProperties: (value: SparkGluePropertiesInput) => T;
     s3Properties: (value: S3PropertiesInput) => T;
+    snowflakeProperties: (value: SnowflakePropertiesInput) => T;
     amazonQProperties: (value: AmazonQPropertiesInput) => T;
     mlflowProperties: (value: MlflowPropertiesInput) => T;
     workflowsMwaaProperties: (value: WorkflowsMwaaPropertiesInput) => T;
@@ -6285,6 +6460,72 @@ export interface S3PropertiesOutput {
 
   /**
    * <p>The error message that gets displayed.</p>
+   * @public
+   */
+  errorMessage?: string | undefined;
+}
+
+/**
+ * <p>Contains the current state of lineage sync for a Snowflake connection, including the schedule, timezone, enabled state, and the ID of the associated lineage job.</p>
+ * @public
+ */
+export interface LineageSyncOutput {
+  /**
+   * <p>The ID of the lineage sync job.</p>
+   * @public
+   */
+  lineageJobId?: string | undefined;
+
+  /**
+   * <p>The timezone of the lineage sync schedule.</p>
+   * @public
+   */
+  timezone?: Timezone | undefined;
+
+  /**
+   * <p>Specifies whether lineage sync is enabled.</p>
+   * @public
+   */
+  enabled?: boolean | undefined;
+
+  /**
+   * <p>The schedule of the lineage sync.</p>
+   * @public
+   */
+  schedule?: string | undefined;
+}
+
+/**
+ * <p>Contains the Snowflake-specific settings returned for an existing connection, including the current role, identity mapping, lineage sync state, and connection status.</p>
+ * @public
+ */
+export interface SnowflakePropertiesOutput {
+  /**
+   * <p>The Snowflake role used to access Snowflake resources.</p>
+   * @public
+   */
+  snowflakeRole: string | undefined;
+
+  /**
+   * <p>The identity mapping configuration for the Snowflake connection.</p>
+   * @public
+   */
+  identityMapping: IdentityMapping | undefined;
+
+  /**
+   * <p>The lineage sync configuration for the Snowflake connection.</p>
+   * @public
+   */
+  lineageSync: LineageSyncOutput | undefined;
+
+  /**
+   * <p>The status of the Snowflake connection.</p>
+   * @public
+   */
+  status: ConnectionStatus | undefined;
+
+  /**
+   * <p>An error message returned if the Snowflake connection failed to establish or validate.</p>
    * @public
    */
   errorMessage?: string | undefined;
@@ -6526,6 +6767,7 @@ export type ConnectionPropertiesOutput =
   | ConnectionPropertiesOutput.MlflowPropertiesMember
   | ConnectionPropertiesOutput.RedshiftPropertiesMember
   | ConnectionPropertiesOutput.S3PropertiesMember
+  | ConnectionPropertiesOutput.SnowflakePropertiesMember
   | ConnectionPropertiesOutput.SparkEmrPropertiesMember
   | ConnectionPropertiesOutput.SparkGluePropertiesMember
   | ConnectionPropertiesOutput.VpcPropertiesMember
@@ -6550,6 +6792,7 @@ export namespace ConnectionPropertiesOutput {
     sparkEmrProperties?: never;
     sparkGlueProperties?: never;
     s3Properties?: never;
+    snowflakeProperties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
@@ -6572,6 +6815,7 @@ export namespace ConnectionPropertiesOutput {
     sparkEmrProperties?: never;
     sparkGlueProperties?: never;
     s3Properties?: never;
+    snowflakeProperties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
@@ -6594,6 +6838,7 @@ export namespace ConnectionPropertiesOutput {
     sparkEmrProperties?: never;
     sparkGlueProperties?: never;
     s3Properties?: never;
+    snowflakeProperties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
@@ -6616,6 +6861,7 @@ export namespace ConnectionPropertiesOutput {
     sparkEmrProperties?: never;
     sparkGlueProperties?: never;
     s3Properties?: never;
+    snowflakeProperties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
@@ -6638,6 +6884,7 @@ export namespace ConnectionPropertiesOutput {
     sparkEmrProperties?: never;
     sparkGlueProperties?: never;
     s3Properties?: never;
+    snowflakeProperties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
@@ -6660,6 +6907,7 @@ export namespace ConnectionPropertiesOutput {
     sparkEmrProperties: SparkEmrPropertiesOutput;
     sparkGlueProperties?: never;
     s3Properties?: never;
+    snowflakeProperties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
@@ -6682,6 +6930,7 @@ export namespace ConnectionPropertiesOutput {
     sparkEmrProperties?: never;
     sparkGlueProperties: SparkGluePropertiesOutput;
     s3Properties?: never;
+    snowflakeProperties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
@@ -6704,6 +6953,30 @@ export namespace ConnectionPropertiesOutput {
     sparkEmrProperties?: never;
     sparkGlueProperties?: never;
     s3Properties: S3PropertiesOutput;
+    snowflakeProperties?: never;
+    amazonQProperties?: never;
+    mlflowProperties?: never;
+    workflowsMwaaProperties?: never;
+    workflowsServerlessProperties?: never;
+    lakehouseProperties?: never;
+    vpcProperties?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The Snowflake-specific connection properties for an existing connection.</p>
+   * @public
+   */
+  export interface SnowflakePropertiesMember {
+    athenaProperties?: never;
+    glueProperties?: never;
+    hyperPodProperties?: never;
+    iamProperties?: never;
+    redshiftProperties?: never;
+    sparkEmrProperties?: never;
+    sparkGlueProperties?: never;
+    s3Properties?: never;
+    snowflakeProperties: SnowflakePropertiesOutput;
     amazonQProperties?: never;
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
@@ -6726,6 +6999,7 @@ export namespace ConnectionPropertiesOutput {
     sparkEmrProperties?: never;
     sparkGlueProperties?: never;
     s3Properties?: never;
+    snowflakeProperties?: never;
     amazonQProperties: AmazonQPropertiesOutput;
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
@@ -6748,6 +7022,7 @@ export namespace ConnectionPropertiesOutput {
     sparkEmrProperties?: never;
     sparkGlueProperties?: never;
     s3Properties?: never;
+    snowflakeProperties?: never;
     amazonQProperties?: never;
     mlflowProperties: MlflowPropertiesOutput;
     workflowsMwaaProperties?: never;
@@ -6770,6 +7045,7 @@ export namespace ConnectionPropertiesOutput {
     sparkEmrProperties?: never;
     sparkGlueProperties?: never;
     s3Properties?: never;
+    snowflakeProperties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
     workflowsMwaaProperties: WorkflowsMwaaPropertiesOutput;
@@ -6792,6 +7068,7 @@ export namespace ConnectionPropertiesOutput {
     sparkEmrProperties?: never;
     sparkGlueProperties?: never;
     s3Properties?: never;
+    snowflakeProperties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
@@ -6814,6 +7091,7 @@ export namespace ConnectionPropertiesOutput {
     sparkEmrProperties?: never;
     sparkGlueProperties?: never;
     s3Properties?: never;
+    snowflakeProperties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
@@ -6836,6 +7114,7 @@ export namespace ConnectionPropertiesOutput {
     sparkEmrProperties?: never;
     sparkGlueProperties?: never;
     s3Properties?: never;
+    snowflakeProperties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
@@ -6857,6 +7136,7 @@ export namespace ConnectionPropertiesOutput {
     sparkEmrProperties?: never;
     sparkGlueProperties?: never;
     s3Properties?: never;
+    snowflakeProperties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
@@ -6879,6 +7159,7 @@ export namespace ConnectionPropertiesOutput {
     sparkEmrProperties: (value: SparkEmrPropertiesOutput) => T;
     sparkGlueProperties: (value: SparkGluePropertiesOutput) => T;
     s3Properties: (value: S3PropertiesOutput) => T;
+    snowflakeProperties: (value: SnowflakePropertiesOutput) => T;
     amazonQProperties: (value: AmazonQPropertiesOutput) => T;
     mlflowProperties: (value: MlflowPropertiesOutput) => T;
     workflowsMwaaProperties: (value: WorkflowsMwaaPropertiesOutput) => T;
@@ -7028,6 +7309,54 @@ export interface S3PropertiesPatch {
 }
 
 /**
+ * <p>Contains the connectivity settings to update on an existing connection. Include only the fields you want to change.</p>
+ * @public
+ */
+export interface ConnectivityPropertiesPatch {
+  /**
+   * <p>A description of the connectivity properties update.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The connection properties to update.</p>
+   * @public
+   */
+  connectionProperties?: Record<string, string> | undefined;
+
+  /**
+   * <p>The authentication settings to update.</p>
+   * @public
+   */
+  authenticationConfiguration?: AuthenticationConfigurationPatch | undefined;
+}
+
+/**
+ * <p>Contains the Snowflake-specific settings to update on an existing connection. Include only the fields you want to change.</p>
+ * @public
+ */
+export interface SnowflakePropertiesPatch {
+  /**
+   * <p>The connectivity properties patch of the Snowflake connection.</p>
+   * @public
+   */
+  connectivityPropertiesPatch?: ConnectivityPropertiesPatch | undefined;
+
+  /**
+   * <p>The Snowflake role used to access Snowflake resources.</p>
+   * @public
+   */
+  snowflakeRole?: string | undefined;
+
+  /**
+   * <p>The lineage sync configuration for the Snowflake connection.</p>
+   * @public
+   */
+  lineageSync?: LineageSyncInput | undefined;
+}
+
+/**
  * <p>The Spark EMR properties patch.</p>
  * @public
  */
@@ -7118,6 +7447,7 @@ export type ConnectionPropertiesPatch =
   | ConnectionPropertiesPatch.MlflowPropertiesMember
   | ConnectionPropertiesPatch.RedshiftPropertiesMember
   | ConnectionPropertiesPatch.S3PropertiesMember
+  | ConnectionPropertiesPatch.SnowflakePropertiesMember
   | ConnectionPropertiesPatch.SparkEmrPropertiesMember
   | ConnectionPropertiesPatch.VpcPropertiesMember
   | ConnectionPropertiesPatch.$UnknownMember;
@@ -7137,6 +7467,7 @@ export namespace ConnectionPropertiesPatch {
     redshiftProperties?: never;
     sparkEmrProperties?: never;
     s3Properties?: never;
+    snowflakeProperties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
     lakehouseProperties?: never;
@@ -7155,6 +7486,7 @@ export namespace ConnectionPropertiesPatch {
     redshiftProperties?: never;
     sparkEmrProperties?: never;
     s3Properties?: never;
+    snowflakeProperties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
     lakehouseProperties?: never;
@@ -7173,6 +7505,7 @@ export namespace ConnectionPropertiesPatch {
     redshiftProperties?: never;
     sparkEmrProperties?: never;
     s3Properties?: never;
+    snowflakeProperties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
     lakehouseProperties?: never;
@@ -7191,6 +7524,7 @@ export namespace ConnectionPropertiesPatch {
     redshiftProperties: RedshiftPropertiesPatch;
     sparkEmrProperties?: never;
     s3Properties?: never;
+    snowflakeProperties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
     lakehouseProperties?: never;
@@ -7209,6 +7543,7 @@ export namespace ConnectionPropertiesPatch {
     redshiftProperties?: never;
     sparkEmrProperties: SparkEmrPropertiesPatch;
     s3Properties?: never;
+    snowflakeProperties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
     lakehouseProperties?: never;
@@ -7227,6 +7562,26 @@ export namespace ConnectionPropertiesPatch {
     redshiftProperties?: never;
     sparkEmrProperties?: never;
     s3Properties: S3PropertiesPatch;
+    snowflakeProperties?: never;
+    amazonQProperties?: never;
+    mlflowProperties?: never;
+    lakehouseProperties?: never;
+    vpcProperties?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The Snowflake-specific connection properties to update.</p>
+   * @public
+   */
+  export interface SnowflakePropertiesMember {
+    athenaProperties?: never;
+    glueProperties?: never;
+    iamProperties?: never;
+    redshiftProperties?: never;
+    sparkEmrProperties?: never;
+    s3Properties?: never;
+    snowflakeProperties: SnowflakePropertiesPatch;
     amazonQProperties?: never;
     mlflowProperties?: never;
     lakehouseProperties?: never;
@@ -7245,6 +7600,7 @@ export namespace ConnectionPropertiesPatch {
     redshiftProperties?: never;
     sparkEmrProperties?: never;
     s3Properties?: never;
+    snowflakeProperties?: never;
     amazonQProperties: AmazonQPropertiesPatch;
     mlflowProperties?: never;
     lakehouseProperties?: never;
@@ -7263,6 +7619,7 @@ export namespace ConnectionPropertiesPatch {
     redshiftProperties?: never;
     sparkEmrProperties?: never;
     s3Properties?: never;
+    snowflakeProperties?: never;
     amazonQProperties?: never;
     mlflowProperties: MlflowPropertiesPatch;
     lakehouseProperties?: never;
@@ -7281,6 +7638,7 @@ export namespace ConnectionPropertiesPatch {
     redshiftProperties?: never;
     sparkEmrProperties?: never;
     s3Properties?: never;
+    snowflakeProperties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
     lakehouseProperties: LakehousePropertiesPatch;
@@ -7299,6 +7657,7 @@ export namespace ConnectionPropertiesPatch {
     redshiftProperties?: never;
     sparkEmrProperties?: never;
     s3Properties?: never;
+    snowflakeProperties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
     lakehouseProperties?: never;
@@ -7316,6 +7675,7 @@ export namespace ConnectionPropertiesPatch {
     redshiftProperties?: never;
     sparkEmrProperties?: never;
     s3Properties?: never;
+    snowflakeProperties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
     lakehouseProperties?: never;
@@ -7334,6 +7694,7 @@ export namespace ConnectionPropertiesPatch {
     redshiftProperties: (value: RedshiftPropertiesPatch) => T;
     sparkEmrProperties: (value: SparkEmrPropertiesPatch) => T;
     s3Properties: (value: S3PropertiesPatch) => T;
+    snowflakeProperties: (value: SnowflakePropertiesPatch) => T;
     amazonQProperties: (value: AmazonQPropertiesPatch) => T;
     mlflowProperties: (value: MlflowPropertiesPatch) => T;
     lakehouseProperties: (value: LakehousePropertiesPatch) => T;
@@ -9281,7 +9642,7 @@ export interface CreateEnvironmentInput {
   environmentAccountRegion?: string | undefined;
 
   /**
-   * <p>The ID of the blueprint with which the environment is being created.</p>
+   * <p>The ID of the blueprint with which the environment is being created.</p> <note> <p>This parameter is only valid for V1 domains. If provided for a V2 domain, the service returns a ValidationException.</p> </note>
    * @public
    */
   environmentBlueprintIdentifier?: string | undefined;
@@ -11483,307 +11844,4 @@ export interface ProjectsForRule {
    * @public
    */
   specificProjects?: string[] | undefined;
-}
-
-/**
- * <p>The scope of a rule.</p>
- * @public
- */
-export interface RuleScope {
-  /**
-   * <p>The asset type included in the rule scope.</p>
-   * @public
-   */
-  assetType?: AssetTypesForRule | undefined;
-
-  /**
-   * <p>The data product included in the rule scope.</p>
-   * @public
-   */
-  dataProduct?: boolean | undefined;
-
-  /**
-   * <p>The project included in the rule scope.</p>
-   * @public
-   */
-  project?: ProjectsForRule | undefined;
-}
-
-/**
- * <p>The target for the domain unit.</p>
- * @public
- */
-export interface DomainUnitTarget {
-  /**
-   * <p>The ID of the domain unit.</p>
-   * @public
-   */
-  domainUnitId: string | undefined;
-
-  /**
-   * <p>Specifies whether to apply a rule to the child domain units.</p>
-   * @public
-   */
-  includeChildDomainUnits?: boolean | undefined;
-}
-
-/**
- * <p>The target of the rule.</p>
- * @public
- */
-export type RuleTarget =
-  | RuleTarget.DomainUnitTargetMember
-  | RuleTarget.$UnknownMember;
-
-/**
- * @public
- */
-export namespace RuleTarget {
-  /**
-   * <p>The ID of the domain unit.</p>
-   * @public
-   */
-  export interface DomainUnitTargetMember {
-    domainUnitTarget: DomainUnitTarget;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    domainUnitTarget?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    domainUnitTarget: (value: DomainUnitTarget) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * @public
- */
-export interface CreateRuleInput {
-  /**
-   * <p>The ID of the domain where the rule is created.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The name of the rule.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The target of the rule.</p>
-   * @public
-   */
-  target: RuleTarget | undefined;
-
-  /**
-   * <p>The action of the rule.</p>
-   * @public
-   */
-  action: RuleAction | undefined;
-
-  /**
-   * <p>The scope of the rule.</p>
-   * @public
-   */
-  scope: RuleScope | undefined;
-
-  /**
-   * <p>The detail of the rule.</p>
-   * @public
-   */
-  detail: RuleDetail | undefined;
-
-  /**
-   * <p>The description of the rule.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateRuleOutput {
-  /**
-   * <p>The ID of the rule.</p>
-   * @public
-   */
-  identifier: string | undefined;
-
-  /**
-   * <p>The name of the rule.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The type of the rule.</p>
-   * @public
-   */
-  ruleType: RuleType | undefined;
-
-  /**
-   * <p>The target of the rule.</p>
-   * @public
-   */
-  target: RuleTarget | undefined;
-
-  /**
-   * <p>The action of the rule.</p>
-   * @public
-   */
-  action: RuleAction | undefined;
-
-  /**
-   * <p>The scope of the rule.</p>
-   * @public
-   */
-  scope: RuleScope | undefined;
-
-  /**
-   * <p>The detail of the rule.</p>
-   * @public
-   */
-  detail: RuleDetail | undefined;
-
-  /**
-   * <p>The target type of the rule.</p>
-   * @public
-   */
-  targetType?: RuleTargetType | undefined;
-
-  /**
-   * <p>The description of the rule.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The timestamp at which the rule is created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The user who creates the rule.</p>
-   * @public
-   */
-  createdBy: string | undefined;
-}
-
-/**
- * <p>A revision to be made to an asset published in a Amazon DataZone catalog.</p>
- * @public
- */
-export interface ListingRevisionInput {
-  /**
-   * <p>An identifier of revision to be made to an asset published in a Amazon DataZone catalog.</p>
-   * @public
-   */
-  identifier: string | undefined;
-
-  /**
-   * <p>The details of a revision to be made to an asset published in a Amazon DataZone catalog.</p>
-   * @public
-   */
-  revision: string | undefined;
-}
-
-/**
- * <p>The details of a listing for which a subscription is to be granted.</p>
- * @public
- */
-export type GrantedEntityInput =
-  | GrantedEntityInput.ListingMember
-  | GrantedEntityInput.$UnknownMember;
-
-/**
- * @public
- */
-export namespace GrantedEntityInput {
-  /**
-   * <p>The listing for which a subscription is to be granted.</p>
-   * @public
-   */
-  export interface ListingMember {
-    listing: ListingRevisionInput;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    listing?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    listing: (value: ListingRevisionInput) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * @public
- */
-export interface CreateSubscriptionGrantInput {
-  /**
-   * <p>The ID of the Amazon DataZone domain in which the subscription grant is created.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The ID of the environment in which the subscription grant is created.</p>
-   * @public
-   */
-  environmentIdentifier: string | undefined;
-
-  /**
-   * <p>The ID of the subscription target for which the subscription grant is created.</p>
-   * @public
-   */
-  subscriptionTargetIdentifier?: string | undefined;
-
-  /**
-   * <p>The entity to which the subscription is to be granted.</p>
-   * @public
-   */
-  grantedEntity: GrantedEntityInput | undefined;
-
-  /**
-   * <p>The names of the assets for which the subscription grant is created.</p>
-   * @public
-   */
-  assetTargetNames?: AssetTargetNameMap[] | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
 }

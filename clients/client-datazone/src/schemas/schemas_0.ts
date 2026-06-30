@@ -177,7 +177,7 @@ const _CN = "CreateNotebook";
 const _CNI = "CreateNotebookInput";
 const _CNO = "CreateNotebookOutput";
 const _CO = "CellOrder";
-const _CP = "CustomParameter";
+const _CP = "ConnectivityProperties";
 const _CPFPPPGD = "CreateProjectFromProjectProfilePolicyGrantDetail";
 const _CPI = "CreateProjectInput";
 const _CPIo = "ConnectionPropertiesInput";
@@ -187,12 +187,14 @@ const _CPMI = "CreateProjectMembershipInput";
 const _CPMO = "CreateProjectMembershipOutput";
 const _CPO = "CreateProjectOutput";
 const _CPOo = "ConnectionPropertiesOutput";
-const _CPP = "ConnectionPropertiesPatch";
+const _CPP = "ConnectivityPropertiesPatch";
 const _CPPGD = "CreateProjectPolicyGrantDetail";
 const _CPPI = "CreateProjectProfileInput";
 const _CPPO = "CreateProjectProfileOutput";
+const _CPPo = "ConnectionPropertiesPatch";
 const _CPPr = "CreateProjectProfile";
 const _CPr = "CreateProject";
+const _CPu = "CustomParameter";
 const _CR = "CreateRule";
 const _CRI = "CreateRuleInput";
 const _CRO = "CreateRuleOutput";
@@ -550,6 +552,7 @@ const _HPPO = "HyperPodPropertiesOutput";
 const _I = "Id";
 const _IE = "InExpression";
 const _IL = "ImportList";
+const _IM = "IdentityMapping";
 const _INE = "IsNullExpression";
 const _INNE = "IsNotNullExpression";
 const _IPI = "IamPropertiesInput";
@@ -675,10 +678,12 @@ const _LS = "ListingSummary";
 const _LSG = "ListSubscriptionGrants";
 const _LSGI = "ListSubscriptionGrantsInput";
 const _LSGO = "ListSubscriptionGrantsOutput";
-const _LSI = "ListingSummaryItem";
-const _LSIi = "ListSubscriptionsInput";
-const _LSIis = "ListingSummaryItems";
-const _LSO = "ListSubscriptionsOutput";
+const _LSI = "LineageSyncInput";
+const _LSIi = "ListingSummaryItem";
+const _LSIis = "ListSubscriptionsInput";
+const _LSIist = "ListingSummaryItems";
+const _LSO = "LineageSyncOutput";
+const _LSOi = "ListSubscriptionsOutput";
 const _LSQRD = "LineageSqlQueryRunDetails";
 const _LSR = "ListSubscriptionRequests";
 const _LSRI = "ListSubscriptionRequestsInput";
@@ -927,12 +932,15 @@ const _SNRt = "StopNotebookRun";
 const _SO = "SearchOutput";
 const _SP = "SubscribedProject";
 const _SPI = "S3PropertiesInput";
+const _SPIn = "SnowflakePropertiesInput";
 const _SPIu = "SubscribedProjectInput";
 const _SPIub = "SubscribedPrincipalInputs";
 const _SPIubs = "SubscribedPrincipalInput";
 const _SPL = "SubscribedProductListing";
 const _SPO = "S3PropertiesOutput";
+const _SPOn = "SnowflakePropertiesOutput";
 const _SPP = "S3PropertiesPatch";
+const _SPPn = "SnowflakePropertiesPatch";
 const _SPu = "SubscribedPrincipals";
 const _SPub = "SubscribedPrincipal";
 const _SQEE = "ServiceQuotaExceededException";
@@ -1169,9 +1177,11 @@ const _cNa = "catalogName";
 const _cNl = "clusterName";
 const _cO = "cellOrder";
 const _cOu = "currentOwner";
-const _cP = "configurationParameters";
+const _cP = "connectionProperties";
 const _cPFPP = "createProjectFromProjectProfile";
-const _cPo = "connectionProperties";
+const _cPP = "connectivityPropertiesPatch";
+const _cPo = "configurationParameters";
+const _cPon = "connectivityProperties";
 const _cPr = "createProject";
 const _cS = "contentSummary";
 const _cSV = "connectionSchemaVersion";
@@ -1360,6 +1370,7 @@ const _iE = "isEnabled";
 const _iEE = "isExportEnabled";
 const _iEs = "isEditable";
 const _iIA = "idcInstanceArn";
+const _iM = "identityMapping";
 const _iN = "isNull";
 const _iNN = "isNotNull";
 const _iO = "isOptional";
@@ -1523,11 +1534,11 @@ const _pL = "productListing";
 const _pM = "packageManager";
 const _pO = "parameterOverrides";
 const _pOI = "publishOnImport";
-const _pP = "provisioningProperties";
+const _pP = "pythonProperties";
 const _pPI = "projectProfileId";
 const _pPV = "projectProfileVersion";
-const _pPr = "projectProfiles";
-const _pPy = "pythonProperties";
+const _pPr = "provisioningProperties";
+const _pPro = "projectProfiles";
 const _pR = "provisionedResources";
 const _pRA = "provisioningRoleArn";
 const _pRT = "projectResourceTags";
@@ -1545,6 +1556,7 @@ const _par = "parameters";
 const _pe = "permissions";
 const _po = "port";
 const _pr = "properties";
+const _pre = "prefix";
 const _pro = "props";
 const _proj = "project";
 const _prot = "protocol";
@@ -1643,6 +1655,7 @@ const _sNc = "schemaName";
 const _sO = "sortOrder";
 const _sOt = "startOffset";
 const _sP = "subscribedPrincipals";
+const _sPn = "snowflakeProperties";
 const _sPp = "sparkProperties";
 const _sPpe = "specificProjects";
 const _sPr = "s3Properties";
@@ -1653,6 +1666,7 @@ const _sR = "supportedRegions";
 const _sRI = "subscriptionRequestId";
 const _sRIu = "subscriptionRequestIdentifier";
 const _sRe = "serviceRole";
+const _sRn = "snowflakeRole";
 const _sRt = "statusReason";
 const _sS = "searchScope";
 const _sSO = "singleSignOn";
@@ -1721,7 +1735,8 @@ const _typ = "types";
 const _u = "uri";
 const _uA = "updatedAt";
 const _uAT = "useAssetType";
-const _uAs = "userAssignment";
+const _uAs = "usernameAttribute";
+const _uAse = "userAssignment";
 const _uB = "updatedBy";
 const _uI = "userIdentifier";
 const _uIs = "userId";
@@ -2247,6 +2262,16 @@ export var ConnectionSummary$: StaticStructureSchema = [3, n0, _CS,
   [_cI, _dIo, _dUI, _n, _pE, _ty, _con, _eInvi, _pI, _pro, _sc],
   [0, 0, 0, 0, [() => PhysicalEndpoints, 0], 0, () => Configurations, 0, 0, [() => ConnectionPropertiesOutput$, 0], 0], 6
 ];
+export var ConnectivityProperties$: StaticStructureSchema = [3, n0, _CP,
+  0,
+  [_cP, _pCR, _n, _de, _vC, _vFCE, _sPp, _aPt, _pP, _aCut],
+  [128 | 0, () => PhysicalConnectionRequirements$, 0, 0, 2, 64 | 0, 128 | 0, 128 | 0, 128 | 0, [() => AuthenticationConfigurationInput$, 0]]
+];
+export var ConnectivityPropertiesPatch$: StaticStructureSchema = [3, n0, _CPP,
+  0,
+  [_de, _cP, _aCut],
+  [0, 128 | 0, [() => AuthenticationConfigurationPatch$, 0]]
+];
 export var CreateAccountPoolInput$: StaticStructureSchema = [3, n0, _CAPI,
   0,
   [_dI, _n, _rS, _aSc, _de],
@@ -2379,12 +2404,12 @@ export var CreateEnvironmentActionOutput$: StaticStructureSchema = [3, n0, _CEAO
 ];
 export var CreateEnvironmentBlueprintInput$: StaticStructureSchema = [3, n0, _CEBI,
   0,
-  [_dI, _n, _pP, _de, _uP],
+  [_dI, _n, _pPr, _de, _uP],
   [[0, 1], 0, () => ProvisioningProperties$, [() => Description, 0], [() => CustomParameterList, 0]], 3
 ];
 export var CreateEnvironmentBlueprintOutput$: StaticStructureSchema = [3, n0, _CEBO,
   0,
-  [_id, _n, _prov, _pP, _de, _dP, _uP, _gT, _cA, _uA],
+  [_id, _n, _prov, _pPr, _de, _dP, _uP, _gT, _cA, _uA],
   [0, 0, 0, () => ProvisioningProperties$, [() => Description, 0], () => DeploymentProperties$, [() => CustomParameterList, 0], 64 | 0, 5, 5], 4
 ];
 export var CreateEnvironmentInput$: StaticStructureSchema = [3, n0, _CEI,
@@ -2394,7 +2419,7 @@ export var CreateEnvironmentInput$: StaticStructureSchema = [3, n0, _CEI,
 ];
 export var CreateEnvironmentOutput$: StaticStructureSchema = [3, n0, _CEO,
   0,
-  [_pI, _dIo, _cB, _n, _prov, _id, _cA, _uA, _de, _ePIn, _aAI, _aAR, _pR, _st, _eA, _gT, _uP, _lD, _pP, _dP, _eBIn, _eCI, _eCNn],
+  [_pI, _dIo, _cB, _n, _prov, _id, _cA, _uA, _de, _ePIn, _aAI, _aAR, _pR, _st, _eA, _gT, _uP, _lD, _pPr, _dP, _eBIn, _eCI, _eCNn],
   [0, 0, 0, [() => EnvironmentName, 0], 0, 0, 5, 5, [() => Description, 0], 0, 0, 0, () => ResourceList, 0, () => EnvironmentActionList, 64 | 0, [() => CustomParameterList, 0], () => Deployment$, () => ProvisioningProperties$, () => DeploymentProperties$, 0, [() => EnvironmentConfigurationId, 0], [() => EnvironmentConfigurationName, 0]], 5
 ];
 export var CreateEnvironmentProfileInput$: StaticStructureSchema = [3, n0, _CEPI,
@@ -2484,7 +2509,7 @@ export var CreateNotebookOutput$: StaticStructureSchema = [3, n0, _CNO,
 ];
 export var CreateProjectFromProjectProfilePolicyGrantDetail$: StaticStructureSchema = [3, n0, _CPFPPPGD,
   0,
-  [_iCDU, _pPr],
+  [_iCDU, _pPro],
   [2, 64 | 0]
 ];
 export var CreateProjectInput$: StaticStructureSchema = [3, n0, _CPI,
@@ -2577,7 +2602,7 @@ export var CustomAccountPoolHandler$: StaticStructureSchema = [3, n0, _CAPH,
   [_lFA, _lERA],
   [0, 0], 1
 ];
-export var CustomParameter$: StaticStructureSchema = [3, n0, _CP,
+export var CustomParameter$: StaticStructureSchema = [3, n0, _CPu,
   0,
   [_kN, _fT, _de, _dVe, _iEs, _iO, _iUS],
   [0, 0, [() => Description, 0], 0, 2, 2, 2], 2
@@ -2989,7 +3014,7 @@ export var EnvironmentBlueprintConfigurationItem$: StaticStructureSchema = [3, n
 ];
 export var EnvironmentBlueprintSummary$: StaticStructureSchema = [3, n0, _EBS,
   0,
-  [_id, _n, _prov, _pP, _de, _cA, _uA],
+  [_id, _n, _prov, _pPr, _de, _cA, _uA],
   [0, 0, 0, () => ProvisioningProperties$, [() => Description, 0], 5, 5], 4
 ];
 export var EnvironmentConfig$: StaticStructureSchema = [3, n0, _ECn,
@@ -2999,7 +3024,7 @@ export var EnvironmentConfig$: StaticStructureSchema = [3, n0, _ECn,
 ];
 export var EnvironmentConfiguration$: StaticStructureSchema = [3, n0, _ECnv,
   0,
-  [_n, _eBIn, _id, _de, _dM, _cP, _aAw, _aPc, _aRw, _dO],
+  [_n, _eBIn, _id, _de, _dM, _cPo, _aAw, _aPc, _aRw, _dO],
   [[() => EnvironmentConfigurationName, 0], 0, [() => EnvironmentConfigurationId, 0], [() => Description, 0], 0, () => EnvironmentConfigurationParametersDetails$, () => AwsAccount$, 64 | 0, () => Region$, 1], 2
 ];
 export var EnvironmentConfigurationParameter$: StaticStructureSchema = [3, n0, _ECP,
@@ -3229,7 +3254,7 @@ export var GetEnvironmentBlueprintInput$: StaticStructureSchema = [3, n0, _GEBI,
 ];
 export var GetEnvironmentBlueprintOutput$: StaticStructureSchema = [3, n0, _GEBO,
   0,
-  [_id, _n, _prov, _pP, _de, _dP, _uP, _gT, _cA, _uA],
+  [_id, _n, _prov, _pPr, _de, _dP, _uP, _gT, _cA, _uA],
   [0, 0, 0, () => ProvisioningProperties$, [() => Description, 0], () => DeploymentProperties$, [() => CustomParameterList, 0], 64 | 0, 5, 5], 4
 ];
 export var GetEnvironmentCredentialsInput$: StaticStructureSchema = [3, n0, _GECI,
@@ -3249,7 +3274,7 @@ export var GetEnvironmentInput$: StaticStructureSchema = [3, n0, _GEI,
 ];
 export var GetEnvironmentOutput$: StaticStructureSchema = [3, n0, _GEO,
   0,
-  [_pI, _dIo, _cB, _n, _prov, _id, _cA, _uA, _de, _ePIn, _aAI, _aAR, _pR, _st, _eA, _gT, _uP, _lD, _pP, _dP, _eBIn, _eCI, _eCNn],
+  [_pI, _dIo, _cB, _n, _prov, _id, _cA, _uA, _de, _ePIn, _aAI, _aAR, _pR, _st, _eA, _gT, _uP, _lD, _pPr, _dP, _eBIn, _eCI, _eCNn],
   [0, 0, 0, [() => EnvironmentName, 0], 0, 0, 5, 5, [() => Description, 0], 0, 0, 0, () => ResourceList, 0, () => EnvironmentActionList, 64 | 0, [() => CustomParameterList, 0], () => Deployment$, () => ProvisioningProperties$, () => DeploymentProperties$, 0, [() => EnvironmentConfigurationId, 0], [() => EnvironmentConfigurationName, 0]], 5
 ];
 export var GetEnvironmentProfileInput$: StaticStructureSchema = [3, n0, _GEPI,
@@ -3509,17 +3534,17 @@ export var GlossaryTermItemAdditionalAttributes$: StaticStructureSchema = [3, n0
 ];
 export var GlueConnection$: StaticStructureSchema = [3, n0, _GC,
   0,
-  [_n, _de, _cTo, _mC, _cPo, _sPp, _aPt, _pPy, _pCR, _cTr, _lUT, _lUBa, _st, _sRt, _lCVT, _aCut, _cSV, _cCE],
+  [_n, _de, _cTo, _mC, _cP, _sPp, _aPt, _pP, _pCR, _cTr, _lUT, _lUBa, _st, _sRt, _lCVT, _aCut, _cSV, _cCE],
   [0, 0, 0, 64 | 0, 128 | 0, 128 | 0, 128 | 0, 128 | 0, () => PhysicalConnectionRequirements$, 4, 4, 0, 0, 0, 4, [() => AuthenticationConfiguration$, 0], 1, 64 | 0]
 ];
 export var GlueConnectionInput$: StaticStructureSchema = [3, n0, _GCIl,
   0,
-  [_cPo, _pCR, _n, _de, _cTo, _mC, _vC, _vFCE, _sPp, _aPt, _pPy, _aCut],
+  [_cP, _pCR, _n, _de, _cTo, _mC, _vC, _vFCE, _sPp, _aPt, _pP, _aCut],
   [128 | 0, () => PhysicalConnectionRequirements$, 0, 0, 0, 0, 2, 64 | 0, 128 | 0, 128 | 0, 128 | 0, [() => AuthenticationConfigurationInput$, 0]]
 ];
 export var GlueConnectionPatch$: StaticStructureSchema = [3, n0, _GCP,
   0,
-  [_de, _cPo, _aCut],
+  [_de, _cP, _aCut],
   [0, 128 | 0, [() => AuthenticationConfigurationPatch$, 0]]
 ];
 export var GlueOAuth2Credentials$: StaticStructureSchema = [3, n0, _GOAC,
@@ -3606,6 +3631,11 @@ export var IamUserProfileDetails$: StaticStructureSchema = [3, n0, _IUPD,
   0,
   [_ar, _pIri, _sN, _gPI],
   [0, 0, 0, 0]
+];
+export var IdentityMapping$: StaticStructureSchema = [3, n0, _IM,
+  0,
+  [_uAs, _pre],
+  [0, 0], 1
 ];
 export var Import$: StaticStructureSchema = [3, n0, _Im,
   0,
@@ -3711,6 +3741,16 @@ export var LineageSqlQueryRunDetails$: StaticStructureSchema = [3, n0, _LSQRD,
   0,
   [_qST, _qET, _tQP, _nQF, _eMr],
   [4, 4, 1, 1, 64 | 0]
+];
+export var LineageSyncInput$: StaticStructureSchema = [3, n0, _LSI,
+  0,
+  [_en, _tim, _sch],
+  [2, 0, 0], 1
+];
+export var LineageSyncOutput$: StaticStructureSchema = [3, n0, _LSO,
+  0,
+  [_lJI, _tim, _en, _sch],
+  [0, 0, 2, 0]
 ];
 export var LineageSyncSchedule$: StaticStructureSchema = [3, n0, _LSS,
   0,
@@ -3902,7 +3942,7 @@ export var ListingSummary$: StaticStructureSchema = [3, n0, _LS,
   [_lI, _lR, _gT],
   [0, 0, [() => DetailedGlossaryTerms, 0]]
 ];
-export var ListingSummaryItem$: StaticStructureSchema = [3, n0, _LSI,
+export var ListingSummaryItem$: StaticStructureSchema = [3, n0, _LSIi,
   0,
   [_lI, _lR, _gT],
   [0, 0, [() => DetailedGlossaryTerms, 0]]
@@ -4047,12 +4087,12 @@ export var ListSubscriptionRequestsOutput$: StaticStructureSchema = [3, n0, _LSR
   [_it, _nT],
   [[() => SubscriptionRequests, 0], 0], 1
 ];
-export var ListSubscriptionsInput$: StaticStructureSchema = [3, n0, _LSIi,
+export var ListSubscriptionsInput$: StaticStructureSchema = [3, n0, _LSIis,
   0,
   [_dI, _sRIu, _st, _sLI, _oPI, _oIPA, _oUI, _oGI, _aPI, _sB, _sO, _mRa, _nT],
   [[0, 1], [0, { [_hQ]: _sRIu }], [0, { [_hQ]: _st }], [0, { [_hQ]: _sLI }], [0, { [_hQ]: _oPI }], [0, { [_hQ]: _oIPA }], [0, { [_hQ]: _oUI }], [0, { [_hQ]: _oGI }], [0, { [_hQ]: _aPI }], [0, { [_hQ]: _sB }], [0, { [_hQ]: _sO }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]], 1
 ];
-export var ListSubscriptionsOutput$: StaticStructureSchema = [3, n0, _LSO,
+export var ListSubscriptionsOutput$: StaticStructureSchema = [3, n0, _LSOi,
   0,
   [_it, _nT],
   [[() => Subscriptions, 0], 0], 1
@@ -4634,8 +4674,23 @@ export var SelfGrantStatusDetail$: StaticStructureSchema = [3, n0, _SGSD,
 ];
 export var SingleSignOn$: StaticStructureSchema = [3, n0, _SSO,
   0,
-  [_ty, _uAs, _iIA],
+  [_ty, _uAse, _iIA],
   [0, 0, 0]
+];
+export var SnowflakePropertiesInput$: StaticStructureSchema = [3, n0, _SPIn,
+  0,
+  [_sRn, _iM, _cPon, _lSin],
+  [0, () => IdentityMapping$, [() => ConnectivityProperties$, 0], () => LineageSyncInput$], 2
+];
+export var SnowflakePropertiesOutput$: StaticStructureSchema = [3, n0, _SPOn,
+  0,
+  [_sRn, _iM, _lSin, _st, _eM],
+  [0, () => IdentityMapping$, () => LineageSyncOutput$, 0, 0], 4
+];
+export var SnowflakePropertiesPatch$: StaticStructureSchema = [3, n0, _SPPn,
+  0,
+  [_cPP, _sRn, _lSin],
+  [[() => ConnectivityPropertiesPatch$, 0], 0, () => LineageSyncInput$]
 ];
 export var SparkEmrPropertiesInput$: StaticStructureSchema = [3, n0, _SEPI,
   0,
@@ -4964,12 +5019,12 @@ export var UpdateEnvironmentActionOutput$: StaticStructureSchema = [3, n0, _UEAO
 ];
 export var UpdateEnvironmentBlueprintInput$: StaticStructureSchema = [3, n0, _UEBI,
   0,
-  [_dI, _i, _de, _pP, _uP],
+  [_dI, _i, _de, _pPr, _uP],
   [[0, 1], [0, 1], 0, () => ProvisioningProperties$, [() => CustomParameterList, 0]], 2
 ];
 export var UpdateEnvironmentBlueprintOutput$: StaticStructureSchema = [3, n0, _UEBO,
   0,
-  [_id, _n, _prov, _pP, _de, _dP, _uP, _gT, _cA, _uA],
+  [_id, _n, _prov, _pPr, _de, _dP, _uP, _gT, _cA, _uA],
   [0, 0, 0, () => ProvisioningProperties$, [() => Description, 0], () => DeploymentProperties$, [() => CustomParameterList, 0], 64 | 0, 5, 5], 4
 ];
 export var UpdateEnvironmentInput$: StaticStructureSchema = [3, n0, _UEI,
@@ -4979,7 +5034,7 @@ export var UpdateEnvironmentInput$: StaticStructureSchema = [3, n0, _UEI,
 ];
 export var UpdateEnvironmentOutput$: StaticStructureSchema = [3, n0, _UEO,
   0,
-  [_pI, _dIo, _cB, _n, _prov, _id, _cA, _uA, _de, _ePIn, _aAI, _aAR, _pR, _st, _eA, _gT, _uP, _lD, _pP, _dP, _eBIn, _eCI, _eCNn],
+  [_pI, _dIo, _cB, _n, _prov, _id, _cA, _uA, _de, _ePIn, _aAI, _aAR, _pR, _st, _eA, _gT, _uP, _lD, _pPr, _dP, _eBIn, _eCI, _eCNn],
   [0, 0, 0, [() => EnvironmentName, 0], 0, 0, 5, 5, [() => Description, 0], 0, 0, 0, () => ResourceList, 0, () => EnvironmentActionList, 64 | 0, [() => CustomParameterList, 0], () => Deployment$, () => ProvisioningProperties$, () => DeploymentProperties$, 0, [() => EnvironmentConfigurationId, 0], [() => EnvironmentConfigurationName, 0]], 5
 ];
 export var UpdateEnvironmentProfileInput$: StaticStructureSchema = [3, n0, _UEPI,
@@ -5373,7 +5428,7 @@ var ListingSummaries: StaticListSchema = [1, n0, _LSi,
   0, [() => ListingSummary$,
     0]
 ];
-var ListingSummaryItems: StaticListSchema = [1, n0, _LSIis,
+var ListingSummaryItems: StaticListSchema = [1, n0, _LSIist,
   0, [() => ListingSummaryItem$,
     0]
 ];
@@ -5625,18 +5680,18 @@ export var AwsAccount$: StaticUnionSchema = [4, n0, _AAw,
 ];
 export var ConnectionPropertiesInput$: StaticUnionSchema = [4, n0, _CPIo,
   0,
-  [_aPt, _gPl, _hPP, _iP, _rPed, _sEP, _sGP, _sPr, _aQP, _mP, _wMP, _wSP, _lP, _vP],
-  [() => AthenaPropertiesInput$, [() => GluePropertiesInput$, 0], () => HyperPodPropertiesInput$, () => IamPropertiesInput$, [() => RedshiftPropertiesInput$, 0], () => SparkEmrPropertiesInput$, () => SparkGluePropertiesInput$, () => S3PropertiesInput$, () => AmazonQPropertiesInput$, () => MlflowPropertiesInput$, () => WorkflowsMwaaPropertiesInput$, () => WorkflowsServerlessPropertiesInput$, () => LakehousePropertiesInput$, () => VpcPropertiesInput$]
+  [_aPt, _gPl, _hPP, _iP, _rPed, _sEP, _sGP, _sPr, _sPn, _aQP, _mP, _wMP, _wSP, _lP, _vP],
+  [() => AthenaPropertiesInput$, [() => GluePropertiesInput$, 0], () => HyperPodPropertiesInput$, () => IamPropertiesInput$, [() => RedshiftPropertiesInput$, 0], () => SparkEmrPropertiesInput$, () => SparkGluePropertiesInput$, () => S3PropertiesInput$, [() => SnowflakePropertiesInput$, 0], () => AmazonQPropertiesInput$, () => MlflowPropertiesInput$, () => WorkflowsMwaaPropertiesInput$, () => WorkflowsServerlessPropertiesInput$, () => LakehousePropertiesInput$, () => VpcPropertiesInput$]
 ];
 export var ConnectionPropertiesOutput$: StaticUnionSchema = [4, n0, _CPOo,
   0,
-  [_aPt, _gPl, _hPP, _iP, _rPed, _sEP, _sGP, _sPr, _aQP, _mP, _wMP, _wSP, _lP, _vP],
-  [() => AthenaPropertiesOutput$, () => GluePropertiesOutput$, () => HyperPodPropertiesOutput$, () => IamPropertiesOutput$, [() => RedshiftPropertiesOutput$, 0], [() => SparkEmrPropertiesOutput$, 0], () => SparkGluePropertiesOutput$, () => S3PropertiesOutput$, () => AmazonQPropertiesOutput$, () => MlflowPropertiesOutput$, () => WorkflowsMwaaPropertiesOutput$, () => WorkflowsServerlessPropertiesOutput$, () => LakehousePropertiesOutput$, () => VpcPropertiesOutput$]
+  [_aPt, _gPl, _hPP, _iP, _rPed, _sEP, _sGP, _sPr, _sPn, _aQP, _mP, _wMP, _wSP, _lP, _vP],
+  [() => AthenaPropertiesOutput$, () => GluePropertiesOutput$, () => HyperPodPropertiesOutput$, () => IamPropertiesOutput$, [() => RedshiftPropertiesOutput$, 0], [() => SparkEmrPropertiesOutput$, 0], () => SparkGluePropertiesOutput$, () => S3PropertiesOutput$, () => SnowflakePropertiesOutput$, () => AmazonQPropertiesOutput$, () => MlflowPropertiesOutput$, () => WorkflowsMwaaPropertiesOutput$, () => WorkflowsServerlessPropertiesOutput$, () => LakehousePropertiesOutput$, () => VpcPropertiesOutput$]
 ];
-export var ConnectionPropertiesPatch$: StaticUnionSchema = [4, n0, _CPP,
+export var ConnectionPropertiesPatch$: StaticUnionSchema = [4, n0, _CPPo,
   0,
-  [_aPt, _gPl, _iP, _rPed, _sEP, _sPr, _aQP, _mP, _lP, _vP],
-  [() => AthenaPropertiesPatch$, [() => GluePropertiesPatch$, 0], () => IamPropertiesPatch$, [() => RedshiftPropertiesPatch$, 0], () => SparkEmrPropertiesPatch$, () => S3PropertiesPatch$, () => AmazonQPropertiesPatch$, () => MlflowPropertiesPatch$, () => LakehousePropertiesPatch$, () => VpcPropertiesPatch$]
+  [_aPt, _gPl, _iP, _rPed, _sEP, _sPr, _sPn, _aQP, _mP, _lP, _vP],
+  [() => AthenaPropertiesPatch$, [() => GluePropertiesPatch$, 0], () => IamPropertiesPatch$, [() => RedshiftPropertiesPatch$, 0], () => SparkEmrPropertiesPatch$, () => S3PropertiesPatch$, [() => SnowflakePropertiesPatch$, 0], () => AmazonQPropertiesPatch$, () => MlflowPropertiesPatch$, () => LakehousePropertiesPatch$, () => VpcPropertiesPatch$]
 ];
 export var DataSourceConfigurationInput$: StaticUnionSchema = [4, n0, _DSCI,
   0,

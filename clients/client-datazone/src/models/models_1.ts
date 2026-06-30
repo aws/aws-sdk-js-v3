@@ -32,9 +32,7 @@ import type {
   MetadataGenerationRunStatus,
   MetadataGenerationRunType,
   MetadataGenerationTargetType,
-  NetworkAccessType,
   NotebookExportStatus,
-  NotebookRunStatus,
   NotebookStatus,
   NotificationResourceType,
   NotificationRole,
@@ -42,6 +40,9 @@ import type {
   OpenLineageRunState,
   ProjectStatus,
   ResolutionStrategy,
+  RuleAction,
+  RuleTargetType,
+  RuleType,
   SelfGrantStatus,
   SortFieldAccountPool,
   SortFieldConnection,
@@ -57,7 +58,6 @@ import type {
   TargetEntityType,
   TaskStatus,
   TimeSeriesEntityType,
-  TriggerSourceType,
   UserDesignation,
   UserProfileStatus,
   UserProfileType,
@@ -74,8 +74,9 @@ import type {
   AssetPermission,
   AssetRevision,
   AssetScope,
+  AssetTargetNameMap,
+  AssetTypesForRule,
   CellInformation,
-  ComputeConfig,
   ConfigurableEnvironmentAction,
   Configuration,
   ConnectionCredentials,
@@ -105,11 +106,13 @@ import type {
   PolicyGrantDetail,
   PolicyGrantPrincipal,
   ProjectDeletionError,
+  ProjectsForRule,
   ProvisioningProperties,
   RecommendationConfiguration,
   Resource,
   ResourceTag,
   ResourceTagParameter,
+  RuleDetail,
   ScheduleConfiguration,
   SingleSignOn,
   SubscribedListing,
@@ -118,6 +121,309 @@ import type {
   TimeSeriesDataPointSummaryFormOutput,
   UserProfileDetails,
 } from "./models_0";
+
+/**
+ * <p>The scope of a rule.</p>
+ * @public
+ */
+export interface RuleScope {
+  /**
+   * <p>The asset type included in the rule scope.</p>
+   * @public
+   */
+  assetType?: AssetTypesForRule | undefined;
+
+  /**
+   * <p>The data product included in the rule scope.</p>
+   * @public
+   */
+  dataProduct?: boolean | undefined;
+
+  /**
+   * <p>The project included in the rule scope.</p>
+   * @public
+   */
+  project?: ProjectsForRule | undefined;
+}
+
+/**
+ * <p>The target for the domain unit.</p>
+ * @public
+ */
+export interface DomainUnitTarget {
+  /**
+   * <p>The ID of the domain unit.</p>
+   * @public
+   */
+  domainUnitId: string | undefined;
+
+  /**
+   * <p>Specifies whether to apply a rule to the child domain units.</p>
+   * @public
+   */
+  includeChildDomainUnits?: boolean | undefined;
+}
+
+/**
+ * <p>The target of the rule.</p>
+ * @public
+ */
+export type RuleTarget =
+  | RuleTarget.DomainUnitTargetMember
+  | RuleTarget.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RuleTarget {
+  /**
+   * <p>The ID of the domain unit.</p>
+   * @public
+   */
+  export interface DomainUnitTargetMember {
+    domainUnitTarget: DomainUnitTarget;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    domainUnitTarget?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    domainUnitTarget: (value: DomainUnitTarget) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateRuleInput {
+  /**
+   * <p>The ID of the domain where the rule is created.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The name of the rule.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The target of the rule.</p>
+   * @public
+   */
+  target: RuleTarget | undefined;
+
+  /**
+   * <p>The action of the rule.</p>
+   * @public
+   */
+  action: RuleAction | undefined;
+
+  /**
+   * <p>The scope of the rule.</p>
+   * @public
+   */
+  scope: RuleScope | undefined;
+
+  /**
+   * <p>The detail of the rule.</p>
+   * @public
+   */
+  detail: RuleDetail | undefined;
+
+  /**
+   * <p>The description of the rule.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRuleOutput {
+  /**
+   * <p>The ID of the rule.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The name of the rule.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of the rule.</p>
+   * @public
+   */
+  ruleType: RuleType | undefined;
+
+  /**
+   * <p>The target of the rule.</p>
+   * @public
+   */
+  target: RuleTarget | undefined;
+
+  /**
+   * <p>The action of the rule.</p>
+   * @public
+   */
+  action: RuleAction | undefined;
+
+  /**
+   * <p>The scope of the rule.</p>
+   * @public
+   */
+  scope: RuleScope | undefined;
+
+  /**
+   * <p>The detail of the rule.</p>
+   * @public
+   */
+  detail: RuleDetail | undefined;
+
+  /**
+   * <p>The target type of the rule.</p>
+   * @public
+   */
+  targetType?: RuleTargetType | undefined;
+
+  /**
+   * <p>The description of the rule.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The timestamp at which the rule is created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The user who creates the rule.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+}
+
+/**
+ * <p>A revision to be made to an asset published in a Amazon DataZone catalog.</p>
+ * @public
+ */
+export interface ListingRevisionInput {
+  /**
+   * <p>An identifier of revision to be made to an asset published in a Amazon DataZone catalog.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The details of a revision to be made to an asset published in a Amazon DataZone catalog.</p>
+   * @public
+   */
+  revision: string | undefined;
+}
+
+/**
+ * <p>The details of a listing for which a subscription is to be granted.</p>
+ * @public
+ */
+export type GrantedEntityInput =
+  | GrantedEntityInput.ListingMember
+  | GrantedEntityInput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace GrantedEntityInput {
+  /**
+   * <p>The listing for which a subscription is to be granted.</p>
+   * @public
+   */
+  export interface ListingMember {
+    listing: ListingRevisionInput;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    listing?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    listing: (value: ListingRevisionInput) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateSubscriptionGrantInput {
+  /**
+   * <p>The ID of the Amazon DataZone domain in which the subscription grant is created.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the environment in which the subscription grant is created.</p>
+   * @public
+   */
+  environmentIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the subscription target for which the subscription grant is created.</p>
+   * @public
+   */
+  subscriptionTargetIdentifier?: string | undefined;
+
+  /**
+   * <p>The entity to which the subscription is to be granted.</p>
+   * @public
+   */
+  grantedEntity: GrantedEntityInput | undefined;
+
+  /**
+   * <p>The names of the assets for which the subscription grant is created.</p>
+   * @public
+   */
+  assetTargetNames?: AssetTargetNameMap[] | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
 
 /**
  * <p>Specifies the error message that is returned if the operation cannot be successfully completed.</p>
@@ -11139,368 +11445,4 @@ export interface GetNotebookRunInput {
    * @public
    */
   identifier: string | undefined;
-}
-
-/**
- * <p>The error details of a failed notebook run in Amazon SageMaker Unified Studio.</p>
- * @public
- */
-export interface NotebookRunError {
-  /**
-   * <p>The error message. The maximum length is 1024 characters.</p>
-   * @public
-   */
-  message: string | undefined;
-}
-
-/**
- * <p>The network configuration for a notebook run in Amazon SageMaker Unified Studio.</p>
- * @public
- */
-export interface NetworkConfig {
-  /**
-   * <p>The network access type for the notebook run. Valid values are <code>PUBLIC_INTERNET_ONLY</code> and <code>VPC_ONLY</code>.</p>
-   * @public
-   */
-  networkAccessType: NetworkAccessType | undefined;
-
-  /**
-   * <p>The identifier of the VPC for the notebook run. This is required when the network access type is <code>VPC_ONLY</code>.</p>
-   * @public
-   */
-  vpcId?: string | undefined;
-
-  /**
-   * <p>The identifiers of the subnets for the notebook run. You can specify up to 10 subnets.</p>
-   * @public
-   */
-  subnetIds?: string[] | undefined;
-
-  /**
-   * <p>The identifiers of the security groups for the notebook run. You can specify up to 5 security groups.</p>
-   * @public
-   */
-  securityGroupIds?: string[] | undefined;
-}
-
-/**
- * <p>The storage configuration for a notebook run in Amazon SageMaker Unified Studio.</p>
- * @public
- */
-export interface StorageConfig {
-  /**
-   * <p>The Amazon Simple Storage Service path for the project storage.</p>
-   * @public
-   */
-  projectS3Path?: string | undefined;
-
-  /**
-   * <p>The ARN of the KMS key used for encryption.</p>
-   * @public
-   */
-  kmsKeyArn?: string | undefined;
-}
-
-/**
- * <p>The timeout configuration for a notebook run in Amazon SageMaker Unified Studio.</p>
- * @public
- */
-export interface TimeoutConfig {
-  /**
-   * <p>The timeout for the notebook run, in minutes. The minimum value is 60 minutes (1 hour), the maximum value is 1440 minutes (24 hours), and the default value is 720 minutes (12 hours).</p>
-   * @public
-   */
-  runTimeoutInMinutes?: number | undefined;
-}
-
-/**
- * <p>The source that triggered a notebook run in Amazon SageMaker Unified Studio.</p>
- * @public
- */
-export interface TriggerSource {
-  /**
-   * <p>The type of the trigger source. Valid values are <code>MANUAL</code>, <code>SCHEDULED</code>, and <code>WORKFLOW</code>.</p>
-   * @public
-   */
-  type?: TriggerSourceType | undefined;
-
-  /**
-   * <p>The name of the trigger source.</p>
-   * @public
-   */
-  name?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetNotebookRunOutput {
-  /**
-   * <p>The identifier of the notebook run.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon SageMaker Unified Studio domain.</p>
-   * @public
-   */
-  domainId: string | undefined;
-
-  /**
-   * <p>The identifier of the project that owns the notebook run.</p>
-   * @public
-   */
-  owningProjectId: string | undefined;
-
-  /**
-   * <p>The identifier of the notebook.</p>
-   * @public
-   */
-  notebookId: string | undefined;
-
-  /**
-   * <p>The identifier of the schedule associated with the notebook run.</p>
-   * @public
-   */
-  scheduleId?: string | undefined;
-
-  /**
-   * <p>The status of the notebook run.</p>
-   * @public
-   */
-  status: NotebookRunStatus | undefined;
-
-  /**
-   * <p>The ordered list of cells in the notebook run.</p>
-   * @public
-   */
-  cellOrder?: CellInformation[] | undefined;
-
-  /**
-   * <p>The metadata of the notebook run.</p>
-   * @public
-   */
-  metadata?: Record<string, string> | undefined;
-
-  /**
-   * <p>The sensitive parameters of the notebook run.</p>
-   * @public
-   */
-  parameters?: Record<string, string> | undefined;
-
-  /**
-   * <p>The compute configuration of the notebook run.</p>
-   * @public
-   */
-  computeConfiguration?: ComputeConfig | undefined;
-
-  /**
-   * <p>The network configuration of the notebook run.</p>
-   * @public
-   */
-  networkConfiguration?: NetworkConfig | undefined;
-
-  /**
-   * <p>The timeout configuration of the notebook run.</p>
-   * @public
-   */
-  timeoutConfiguration?: TimeoutConfig | undefined;
-
-  /**
-   * <p>The environment configuration of the notebook run, including image version and package settings.</p>
-   * @public
-   */
-  environmentConfiguration?: EnvironmentConfig | undefined;
-
-  /**
-   * <p>The storage configuration of the notebook run, including the Amazon Simple Storage Service path and KMS key ARN.</p>
-   * @public
-   */
-  storageConfiguration?: StorageConfig | undefined;
-
-  /**
-   * <p>The source that triggered the notebook run.</p>
-   * @public
-   */
-  triggerSource?: TriggerSource | undefined;
-
-  /**
-   * <p>The error details if the notebook run failed.</p>
-   * @public
-   */
-  error?: NotebookRunError | undefined;
-
-  /**
-   * <p>The timestamp of when the notebook run was created.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>The identifier of the user who created the notebook run.</p>
-   * @public
-   */
-  createdBy?: string | undefined;
-
-  /**
-   * <p>The timestamp of when the notebook run was last updated.</p>
-   * @public
-   */
-  updatedAt?: Date | undefined;
-
-  /**
-   * <p>The identifier of the user who last updated the notebook run.</p>
-   * @public
-   */
-  updatedBy?: string | undefined;
-
-  /**
-   * <p>The timestamp of when the notebook run started executing.</p>
-   * @public
-   */
-  startedAt?: Date | undefined;
-
-  /**
-   * <p>The timestamp of when the notebook run completed.</p>
-   * @public
-   */
-  completedAt?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListNotebookRunsInput {
-  /**
-   * <p>The identifier of the Amazon SageMaker Unified Studio domain in which to list notebook runs.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The identifier of the project that owns the notebook runs.</p>
-   * @public
-   */
-  owningProjectIdentifier: string | undefined;
-
-  /**
-   * <p>The identifier of the notebook to filter runs by.</p>
-   * @public
-   */
-  notebookIdentifier?: string | undefined;
-
-  /**
-   * <p>The status to filter notebook runs by.</p>
-   * @public
-   */
-  status?: NotebookRunStatus | undefined;
-
-  /**
-   * <p>The identifier of the schedule to filter notebook runs by.</p>
-   * @public
-   */
-  scheduleIdentifier?: string | undefined;
-
-  /**
-   * <p>The maximum number of notebook runs to return in a single call. When the number of notebook runs exceeds the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>The sort order for the results.</p>
-   * @public
-   */
-  sortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>When the number of notebook runs is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of notebook runs, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListNotebookRuns</code> to list the next set of notebook runs.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * <p>The summary of a notebook run in Amazon SageMaker Unified Studio.</p>
- * @public
- */
-export interface NotebookRunSummary {
-  /**
-   * <p>The identifier of the notebook run.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon SageMaker Unified Studio domain.</p>
-   * @public
-   */
-  domainId: string | undefined;
-
-  /**
-   * <p>The identifier of the project that owns the notebook run.</p>
-   * @public
-   */
-  owningProjectId: string | undefined;
-
-  /**
-   * <p>The identifier of the notebook.</p>
-   * @public
-   */
-  notebookId: string | undefined;
-
-  /**
-   * <p>The identifier of the schedule associated with the notebook run.</p>
-   * @public
-   */
-  scheduleId?: string | undefined;
-
-  /**
-   * <p>The status of the notebook run.</p>
-   * @public
-   */
-  status: NotebookRunStatus | undefined;
-
-  /**
-   * <p>The source that triggered the notebook run.</p>
-   * @public
-   */
-  triggerSource?: TriggerSource | undefined;
-
-  /**
-   * <p>The timestamp of when the notebook run was created.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>The identifier of the user who created the notebook run.</p>
-   * @public
-   */
-  createdBy?: string | undefined;
-
-  /**
-   * <p>The timestamp of when the notebook run was last updated.</p>
-   * @public
-   */
-  updatedAt?: Date | undefined;
-
-  /**
-   * <p>The identifier of the user who last updated the notebook run.</p>
-   * @public
-   */
-  updatedBy?: string | undefined;
-
-  /**
-   * <p>The timestamp of when the notebook run started executing.</p>
-   * @public
-   */
-  startedAt?: Date | undefined;
-
-  /**
-   * <p>The timestamp of when the notebook run completed.</p>
-   * @public
-   */
-  completedAt?: Date | undefined;
 }

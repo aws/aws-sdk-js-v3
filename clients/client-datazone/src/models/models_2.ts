@@ -15,6 +15,7 @@ import type {
   GroupSearchType,
   InventorySearchScope,
   ManagedPolicyType,
+  NetworkAccessType,
   NotebookRunStatus,
   NotebookStatus,
   ProjectStatus,
@@ -35,6 +36,7 @@ import type {
   SubscriptionStatus,
   TargetEntityType,
   TimeSeriesEntityType,
+  TriggerSourceType,
   TypesSearchScope,
   UserProfileStatus,
   UserProfileType,
@@ -79,8 +81,6 @@ import type {
   ResourceTagParameter,
   RowFilterExpression,
   RuleDetail,
-  RuleScope,
-  RuleTarget,
   SubscribedListing,
   SubscribedPrincipal,
   TermRelations,
@@ -93,16 +93,376 @@ import type {
   FailureCause,
   GrantedEntity,
   Import,
-  NetworkConfig,
-  NotebookRunError,
-  NotebookRunSummary,
-  StorageConfig,
+  RuleScope,
+  RuleTarget,
   SubscribedAsset,
   SubscriptionTargetForm,
-  TimeoutConfig,
   TimeSeriesDataPointFormOutput,
-  TriggerSource,
 } from "./models_1";
+
+/**
+ * <p>The error details of a failed notebook run in Amazon SageMaker Unified Studio.</p>
+ * @public
+ */
+export interface NotebookRunError {
+  /**
+   * <p>The error message. The maximum length is 1024 characters.</p>
+   * @public
+   */
+  message: string | undefined;
+}
+
+/**
+ * <p>The network configuration for a notebook run in Amazon SageMaker Unified Studio.</p>
+ * @public
+ */
+export interface NetworkConfig {
+  /**
+   * <p>The network access type for the notebook run. Valid values are <code>PUBLIC_INTERNET_ONLY</code> and <code>VPC_ONLY</code>.</p>
+   * @public
+   */
+  networkAccessType: NetworkAccessType | undefined;
+
+  /**
+   * <p>The identifier of the VPC for the notebook run. This is required when the network access type is <code>VPC_ONLY</code>.</p>
+   * @public
+   */
+  vpcId?: string | undefined;
+
+  /**
+   * <p>The identifiers of the subnets for the notebook run. You can specify up to 10 subnets.</p>
+   * @public
+   */
+  subnetIds?: string[] | undefined;
+
+  /**
+   * <p>The identifiers of the security groups for the notebook run. You can specify up to 5 security groups.</p>
+   * @public
+   */
+  securityGroupIds?: string[] | undefined;
+}
+
+/**
+ * <p>The storage configuration for a notebook run in Amazon SageMaker Unified Studio.</p>
+ * @public
+ */
+export interface StorageConfig {
+  /**
+   * <p>The Amazon Simple Storage Service path for the project storage.</p>
+   * @public
+   */
+  projectS3Path?: string | undefined;
+
+  /**
+   * <p>The ARN of the KMS key used for encryption.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
+}
+
+/**
+ * <p>The timeout configuration for a notebook run in Amazon SageMaker Unified Studio.</p>
+ * @public
+ */
+export interface TimeoutConfig {
+  /**
+   * <p>The timeout for the notebook run, in minutes. The minimum value is 60 minutes (1 hour), the maximum value is 1440 minutes (24 hours), and the default value is 720 minutes (12 hours).</p>
+   * @public
+   */
+  runTimeoutInMinutes?: number | undefined;
+}
+
+/**
+ * <p>The source that triggered a notebook run in Amazon SageMaker Unified Studio.</p>
+ * @public
+ */
+export interface TriggerSource {
+  /**
+   * <p>The type of the trigger source. Valid values are <code>MANUAL</code>, <code>SCHEDULED</code>, and <code>WORKFLOW</code>.</p>
+   * @public
+   */
+  type?: TriggerSourceType | undefined;
+
+  /**
+   * <p>The name of the trigger source.</p>
+   * @public
+   */
+  name?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetNotebookRunOutput {
+  /**
+   * <p>The identifier of the notebook run.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon SageMaker Unified Studio domain.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The identifier of the project that owns the notebook run.</p>
+   * @public
+   */
+  owningProjectId: string | undefined;
+
+  /**
+   * <p>The identifier of the notebook.</p>
+   * @public
+   */
+  notebookId: string | undefined;
+
+  /**
+   * <p>The identifier of the schedule associated with the notebook run.</p>
+   * @public
+   */
+  scheduleId?: string | undefined;
+
+  /**
+   * <p>The status of the notebook run.</p>
+   * @public
+   */
+  status: NotebookRunStatus | undefined;
+
+  /**
+   * <p>The ordered list of cells in the notebook run.</p>
+   * @public
+   */
+  cellOrder?: CellInformation[] | undefined;
+
+  /**
+   * <p>The metadata of the notebook run.</p>
+   * @public
+   */
+  metadata?: Record<string, string> | undefined;
+
+  /**
+   * <p>The sensitive parameters of the notebook run.</p>
+   * @public
+   */
+  parameters?: Record<string, string> | undefined;
+
+  /**
+   * <p>The compute configuration of the notebook run.</p>
+   * @public
+   */
+  computeConfiguration?: ComputeConfig | undefined;
+
+  /**
+   * <p>The network configuration of the notebook run.</p>
+   * @public
+   */
+  networkConfiguration?: NetworkConfig | undefined;
+
+  /**
+   * <p>The timeout configuration of the notebook run.</p>
+   * @public
+   */
+  timeoutConfiguration?: TimeoutConfig | undefined;
+
+  /**
+   * <p>The environment configuration of the notebook run, including image version and package settings.</p>
+   * @public
+   */
+  environmentConfiguration?: EnvironmentConfig | undefined;
+
+  /**
+   * <p>The storage configuration of the notebook run, including the Amazon Simple Storage Service path and KMS key ARN.</p>
+   * @public
+   */
+  storageConfiguration?: StorageConfig | undefined;
+
+  /**
+   * <p>The source that triggered the notebook run.</p>
+   * @public
+   */
+  triggerSource?: TriggerSource | undefined;
+
+  /**
+   * <p>The error details if the notebook run failed.</p>
+   * @public
+   */
+  error?: NotebookRunError | undefined;
+
+  /**
+   * <p>The timestamp of when the notebook run was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The identifier of the user who created the notebook run.</p>
+   * @public
+   */
+  createdBy?: string | undefined;
+
+  /**
+   * <p>The timestamp of when the notebook run was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The identifier of the user who last updated the notebook run.</p>
+   * @public
+   */
+  updatedBy?: string | undefined;
+
+  /**
+   * <p>The timestamp of when the notebook run started executing.</p>
+   * @public
+   */
+  startedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the notebook run completed.</p>
+   * @public
+   */
+  completedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListNotebookRunsInput {
+  /**
+   * <p>The identifier of the Amazon SageMaker Unified Studio domain in which to list notebook runs.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the project that owns the notebook runs.</p>
+   * @public
+   */
+  owningProjectIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the notebook to filter runs by.</p>
+   * @public
+   */
+  notebookIdentifier?: string | undefined;
+
+  /**
+   * <p>The status to filter notebook runs by.</p>
+   * @public
+   */
+  status?: NotebookRunStatus | undefined;
+
+  /**
+   * <p>The identifier of the schedule to filter notebook runs by.</p>
+   * @public
+   */
+  scheduleIdentifier?: string | undefined;
+
+  /**
+   * <p>The maximum number of notebook runs to return in a single call. When the number of notebook runs exceeds the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The sort order for the results.</p>
+   * @public
+   */
+  sortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>When the number of notebook runs is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of notebook runs, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListNotebookRuns</code> to list the next set of notebook runs.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>The summary of a notebook run in Amazon SageMaker Unified Studio.</p>
+ * @public
+ */
+export interface NotebookRunSummary {
+  /**
+   * <p>The identifier of the notebook run.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon SageMaker Unified Studio domain.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The identifier of the project that owns the notebook run.</p>
+   * @public
+   */
+  owningProjectId: string | undefined;
+
+  /**
+   * <p>The identifier of the notebook.</p>
+   * @public
+   */
+  notebookId: string | undefined;
+
+  /**
+   * <p>The identifier of the schedule associated with the notebook run.</p>
+   * @public
+   */
+  scheduleId?: string | undefined;
+
+  /**
+   * <p>The status of the notebook run.</p>
+   * @public
+   */
+  status: NotebookRunStatus | undefined;
+
+  /**
+   * <p>The source that triggered the notebook run.</p>
+   * @public
+   */
+  triggerSource?: TriggerSource | undefined;
+
+  /**
+   * <p>The timestamp of when the notebook run was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The identifier of the user who created the notebook run.</p>
+   * @public
+   */
+  createdBy?: string | undefined;
+
+  /**
+   * <p>The timestamp of when the notebook run was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The identifier of the user who last updated the notebook run.</p>
+   * @public
+   */
+  updatedBy?: string | undefined;
+
+  /**
+   * <p>The timestamp of when the notebook run started executing.</p>
+   * @public
+   */
+  startedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the notebook run completed.</p>
+   * @public
+   */
+  completedAt?: Date | undefined;
+}
 
 /**
  * @public
