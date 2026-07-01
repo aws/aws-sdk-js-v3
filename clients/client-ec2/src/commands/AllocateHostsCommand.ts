@@ -54,6 +54,9 @@ export interface AllocateHostsCommandOutput extends AllocateHostsResult, __Metad
  *     "STRING_VALUE",
  *   ],
  *   AvailabilityZoneId: "STRING_VALUE",
+ *   CpuOptions: { // HostCpuOptionsRequest
+ *     AmdSevSnp: "enabled" || "disabled",
+ *   },
  *   AutoPlacement: "on" || "off",
  *   ClientToken: "STRING_VALUE",
  *   InstanceType: "STRING_VALUE",

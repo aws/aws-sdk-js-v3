@@ -27,8 +27,6 @@ import type {
   InstanceMetadataTagsState,
   InternetGatewayBlockMode,
   InternetGatewayExclusionMode,
-  InterruptibleCapacityReservationAllocationStatus,
-  InterruptionType,
   IpAddressType,
   Ipv6SupportValue,
   ManagedResourceDefaultVisibility,
@@ -73,6 +71,8 @@ import type {
 } from "./enums";
 import type {
   AddedPrincipal,
+  AddIpamOperatingRegion,
+  AddIpamOrganizationalUnitExclusion,
   AddPrefixListEntry,
   AddressAttribute,
   ByoipCidr,
@@ -104,6 +104,9 @@ import type {
   ExternalAuthorityConfiguration,
   IcmpTypeCode,
   InstanceIpv6Address,
+  IpamPrefixListResolver,
+  IpamPrefixListResolverRuleRequest,
+  IpamPrefixListResolverTarget,
   IpamResourceDiscovery,
   IpamScope,
   LaunchTemplate,
@@ -160,12 +163,12 @@ import type {
   NetworkInsightsAnalysis,
   PublicIpv4PoolRange,
   ReservedInstancesConfiguration,
-  RunInstancesMonitoringEnabled,
   ScheduledInstance,
   SpotFleetRequestConfigData,
   SpotPlacement,
 } from "./models_4";
 import type {
+  RunInstancesMonitoringEnabled,
   SpotInstanceRequest,
   VerifiedAccessInstanceLoggingConfiguration,
   VolumeModification,
@@ -175,9 +178,263 @@ import type {
   CapacityManagerMonitoredTagKey,
   CapacityReservationSpecification,
   EnclaveOptionsRequest,
+  IpamResourceCidr,
   ManagedResourceVisibilitySettings,
   Purchase,
+  RemoveIpamOperatingRegion,
 } from "./models_6";
+
+/**
+ * @public
+ */
+export interface ModifyIpamPrefixListResolverRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the IPAM prefix list resolver to modify.</p>
+   * @public
+   */
+  IpamPrefixListResolverId: string | undefined;
+
+  /**
+   * <p>A new description for the IPAM prefix list resolver.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The updated CIDR selection rules for the resolver. These rules replace the existing rules entirely.</p>
+   * @public
+   */
+  Rules?: IpamPrefixListResolverRuleRequest[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyIpamPrefixListResolverResult {
+  /**
+   * <p>Information about the modified IPAM prefix list resolver.</p>
+   * @public
+   */
+  IpamPrefixListResolver?: IpamPrefixListResolver | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyIpamPrefixListResolverTargetRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the IPAM prefix list resolver target to modify.</p>
+   * @public
+   */
+  IpamPrefixListResolverTargetId: string | undefined;
+
+  /**
+   * <p>The desired version of the prefix list to target. This allows you to pin the target to a specific version.</p>
+   * @public
+   */
+  DesiredVersion?: number | undefined;
+
+  /**
+   * <p>Indicates whether the resolver target should automatically track the latest version of the prefix list. When enabled, the target will always synchronize with the most current version.</p>
+   *          <p>Choose this for automatic updates when you want your prefix lists to stay current with infrastructure changes without manual intervention.</p>
+   * @public
+   */
+  TrackLatestVersion?: boolean | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyIpamPrefixListResolverTargetResult {
+  /**
+   * <p>Information about the modified IPAM prefix list resolver target.</p>
+   * @public
+   */
+  IpamPrefixListResolverTarget?: IpamPrefixListResolverTarget | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyIpamResourceCidrRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the resource you want to modify.</p>
+   * @public
+   */
+  ResourceId: string | undefined;
+
+  /**
+   * <p>The CIDR of the resource you want to modify.</p>
+   * @public
+   */
+  ResourceCidr: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region of the resource you want to modify.</p>
+   * @public
+   */
+  ResourceRegion: string | undefined;
+
+  /**
+   * <p>The ID of the current scope that the resource CIDR is in.</p>
+   * @public
+   */
+  CurrentIpamScopeId: string | undefined;
+
+  /**
+   * <p>The ID of the scope you want to transfer the resource CIDR to.</p>
+   * @public
+   */
+  DestinationIpamScopeId?: string | undefined;
+
+  /**
+   * <p>Determines if the resource is monitored by IPAM. If a resource is monitored, the resource is discovered by IPAM and you can view details about the resource’s CIDR.</p>
+   * @public
+   */
+  Monitored: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyIpamResourceCidrResult {
+  /**
+   * <p>The CIDR of the resource.</p>
+   * @public
+   */
+  IpamResourceCidr?: IpamResourceCidr | undefined;
+}
+
+/**
+ * <p>Remove an Organizational Unit (OU) exclusion to your IPAM. If your IPAM is integrated with Amazon Web Services Organizations and you add an organizational unit (OU) exclusion, IPAM will not manage the IP addresses in accounts in that OU exclusion. There is a limit on the number of exclusions you can create. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html">Quotas for your IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+ * @public
+ */
+export interface RemoveIpamOrganizationalUnitExclusion {
+  /**
+   * <p>An Amazon Web Services Organizations entity path. Build the path for the OU(s) using Amazon Web Services Organizations IDs separated by a <code>/</code>. Include all child OUs by ending the path with <code>/*</code>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Example 1</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Path to a child OU: <code>o-a1b2c3d4e5/r-f6g7h8i9j0example/ou-ghi0-awsccccc/ou-jkl0-awsddddd/</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>In this example, <code>o-a1b2c3d4e5</code> is the organization ID, <code>r-f6g7h8i9j0example</code> is the root ID , <code>ou-ghi0-awsccccc</code> is an OU ID, and <code>ou-jkl0-awsddddd</code> is a child OU ID.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>IPAM will not manage the IP addresses in accounts in the child OU.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>Example 2</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Path where all child OUs will be part of the exclusion: <code>o-a1b2c3d4e5/r-f6g7h8i9j0example/ou-ghi0-awsccccc/*</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>In this example, IPAM will not manage the IP addresses in accounts in the OU (<code>ou-ghi0-awsccccc</code>) or in accounts in any OUs that are children of the OU.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
+   *          <p>For more information on how to construct an entity path, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_last-accessed-view-data-orgs.html#access_policies_access-advisor-viewing-orgs-entity-path">Understand the Amazon Web Services Organizations entity path</a> in the <i>Amazon Web Services Identity and Access Management User Guide</i>.</p>
+   * @public
+   */
+  OrganizationsEntityPath?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyIpamResourceDiscoveryRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>A resource discovery ID.</p>
+   * @public
+   */
+  IpamResourceDiscoveryId: string | undefined;
+
+  /**
+   * <p>A resource discovery description.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Add operating Regions to the resource discovery. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>
+   * @public
+   */
+  AddOperatingRegions?: AddIpamOperatingRegion[] | undefined;
+
+  /**
+   * <p>Remove operating Regions.</p>
+   * @public
+   */
+  RemoveOperatingRegions?: RemoveIpamOperatingRegion[] | undefined;
+
+  /**
+   * <p>Add an Organizational Unit (OU) exclusion to your IPAM. If your IPAM is integrated with Amazon Web Services Organizations and you add an organizational unit (OU) exclusion, IPAM will not manage the IP addresses in accounts in that OU exclusion. There is a limit on the number of exclusions you can create. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html">Quotas for your IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   *          <note>
+   *             <p>The resulting set of exclusions must not result in "overlap", meaning two or more OU
+   *          exclusions must not exclude the same OU. For more information and examples, see the Amazon Web Services CLI request process in <a href="https://docs.aws.amazon.com/vpc/latest/ipam/exclude-ous.html#exclude-ous-create-delete">Add or remove OU exclusions
+   *          </a> in the <i>Amazon VPC User Guide</i>.</p>
+   *          </note>
+   * @public
+   */
+  AddOrganizationalUnitExclusions?: AddIpamOrganizationalUnitExclusion[] | undefined;
+
+  /**
+   * <p>Remove an Organizational Unit (OU) exclusion to your IPAM. If your IPAM is integrated with Amazon Web Services Organizations and you add an organizational unit (OU) exclusion, IPAM will not manage the IP addresses in accounts in that OU exclusion. There is a limit on the number of exclusions you can create. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html">Quotas for your IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   *          <note>
+   *             <p>The resulting set of exclusions must not result in "overlap", meaning two or more OU
+   *             exclusions must not exclude the same OU. For more information and examples, see the Amazon Web Services CLI request process in <a href="https://docs.aws.amazon.com/vpc/latest/ipam/exclude-ous.html#exclude-ous-create-delete">Add or remove OU exclusions
+   *             </a> in the <i>Amazon VPC User Guide</i>.</p>
+   *          </note>
+   * @public
+   */
+  RemoveOrganizationalUnitExclusions?: RemoveIpamOrganizationalUnitExclusion[] | undefined;
+}
 
 /**
  * @public
@@ -9482,231 +9739,4 @@ export interface UpdateCapacityManagerOrganizationsAccessResult {
    * @public
    */
   OrganizationsAccess?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateInterruptibleCapacityReservationAllocationRequest {
-  /**
-   * <p>
-   * 			The ID of the source Capacity Reservation containing the interruptible allocation to modify.
-   * 		</p>
-   * @public
-   */
-  CapacityReservationId: string | undefined;
-
-  /**
-   * <p>
-   * 			The new number of instances to allocate. Enter a higher number to add more capacity to share, or a lower number to reclaim capacity to your source Capacity Reservation.
-   * 		</p>
-   * @public
-   */
-  TargetInstanceCount: number | undefined;
-
-  /**
-   * <p>
-   * 			Checks whether you have the required permissions for the action, without actually making the request, and provides an error response.
-   * 		</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateInterruptibleCapacityReservationAllocationResult {
-  /**
-   * <p>
-   * 			The ID of the interruptible Capacity Reservation that was modified.
-   * 		</p>
-   * @public
-   */
-  InterruptibleCapacityReservationId?: string | undefined;
-
-  /**
-   * <p>
-   * 			The ID of the source Capacity Reservation to which capacity was reclaimed or from which capacity was allocated.
-   * 		</p>
-   * @public
-   */
-  SourceCapacityReservationId?: string | undefined;
-
-  /**
-   * <p>
-   * 			The current number of instances allocated to the interruptible reservation.
-   * 		</p>
-   * @public
-   */
-  InstanceCount?: number | undefined;
-
-  /**
-   * <p>
-   * 			The requested number of instances for the interruptible Capacity Reservation.
-   * 		</p>
-   * @public
-   */
-  TargetInstanceCount?: number | undefined;
-
-  /**
-   * <p>
-   * 			The current status of the allocation (updating during reclamation, active when complete).
-   * 		</p>
-   * @public
-   */
-  Status?: InterruptibleCapacityReservationAllocationStatus | undefined;
-
-  /**
-   * <p>
-   * 			The interruption type for the interruptible reservation.
-   * 		</p>
-   * @public
-   */
-  InterruptionType?: InterruptionType | undefined;
-}
-
-/**
- * <p>Describes the description of a security group rule.</p>
- *          <p>You can use this when you want to update the security group rule description for either an inbound or outbound rule.</p>
- * @public
- */
-export interface SecurityGroupRuleDescription {
-  /**
-   * <p>The ID of the security group rule.</p>
-   * @public
-   */
-  SecurityGroupRuleId?: string | undefined;
-
-  /**
-   * <p>The description of the security group rule.</p>
-   * @public
-   */
-  Description?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateSecurityGroupRuleDescriptionsEgressRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the security group. You must specify either the security group ID or the
-   * 			security group name in the request. For security groups in a nondefault VPC, you must
-   * 			specify the security group ID.</p>
-   * @public
-   */
-  GroupId?: string | undefined;
-
-  /**
-   * <p>[Default VPC] The name of the security group. You must specify either the security group
-   * 			ID or the security group name.</p>
-   * @public
-   */
-  GroupName?: string | undefined;
-
-  /**
-   * <p>The IP permissions for the security group rule. You must specify either the IP permissions
-   * 		    or the description.</p>
-   * @public
-   */
-  IpPermissions?: IpPermission[] | undefined;
-
-  /**
-   * <p>The description for the egress security group rules. You must specify either the
-   *             description or the IP permissions.</p>
-   * @public
-   */
-  SecurityGroupRuleDescriptions?: SecurityGroupRuleDescription[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateSecurityGroupRuleDescriptionsEgressResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
-   * @public
-   */
-  Return?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateSecurityGroupRuleDescriptionsIngressRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the security group. You must specify either the security group ID or the
-   * 			security group name in the request. For security groups in a nondefault VPC, you must
-   * 			specify the security group ID.</p>
-   * @public
-   */
-  GroupId?: string | undefined;
-
-  /**
-   * <p>[Default VPC] The name of the security group. You must specify either the
-   *             security group ID or the security group name. For security groups in a
-   *             nondefault VPC, you must specify the security group ID.</p>
-   * @public
-   */
-  GroupName?: string | undefined;
-
-  /**
-   * <p>The IP permissions for the security group rule. You must specify either IP permissions
-   * 		    or a description.</p>
-   * @public
-   */
-  IpPermissions?: IpPermission[] | undefined;
-
-  /**
-   * <p>The description for the ingress security group rules. You must specify either
-   *             a description or IP permissions.</p>
-   * @public
-   */
-  SecurityGroupRuleDescriptions?: SecurityGroupRuleDescription[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateSecurityGroupRuleDescriptionsIngressResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
-   * @public
-   */
-  Return?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface WithdrawByoipCidrRequest {
-  /**
-   * <p>The address range, in CIDR notation.</p>
-   * @public
-   */
-  Cidr: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
 }

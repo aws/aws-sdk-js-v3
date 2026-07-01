@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { ModifyIpamResourceCidrRequest, ModifyIpamResourceCidrResult } from "../models/models_6";
+import type { ModifyIpamResourceCidrRequest, ModifyIpamResourceCidrResult } from "../models/models_7";
 import { ModifyIpamResourceCidr$ } from "../schemas/schemas_0";
 
 /**

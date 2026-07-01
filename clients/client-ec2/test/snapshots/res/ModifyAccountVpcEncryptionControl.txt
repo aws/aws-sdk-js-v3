@@ -1,0 +1,101 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ModifyAccountVpcEncryptionControlResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ModifyAccountVpcEncryptionControlResult xmlns="https://placeholder.amazonaws.com">
+    <accountVpcEncryptionControl>
+        <state>
+            __State__
+        </state>
+        <mode>
+            __Mode__
+        </mode>
+        <exclusions>
+            <internetGateway>
+                __InternetGateway__
+            </internetGateway>
+            <egressOnlyInternetGateway>
+                __EgressOnlyInternetGateway__
+            </egressOnlyInternetGateway>
+            <natGateway>
+                __NatGateway__
+            </natGateway>
+            <virtualPrivateGateway>
+                __VirtualPrivateGateway__
+            </virtualPrivateGateway>
+            <vpcPeering>
+                __VpcPeering__
+            </vpcPeering>
+            <lambda>
+                __Lambda__
+            </lambda>
+            <vpcLattice>
+                __VpcLattice__
+            </vpcLattice>
+            <elasticFileSystem>
+                __ElasticFileSystem__
+            </elasticFileSystem>
+        </exclusions>
+        <managedBy>
+            __ManagedBy__
+        </managedBy>
+        <lastUpdateTimestamp>
+            2000-01-01T04:59:59.999Z
+        </lastUpdateTimestamp>
+    </accountVpcEncryptionControl>
+</ModifyAccountVpcEncryptionControlResult>
+
+
+--- [output object] ---
+{
+  AccountVpcEncryptionControl: {
+    State: "__State__",
+    Mode: "__Mode__",
+    Exclusions: {
+      InternetGateway: "__InternetGateway__",
+      EgressOnlyInternetGateway: "__EgressOnlyInternetGateway__",
+      NatGateway: "__NatGateway__",
+      VirtualPrivateGateway: "__VirtualPrivateGateway__",
+      VpcPeering: "__VpcPeering__",
+      Lambda: "__Lambda__",
+      VpcLattice: "__VpcLattice__",
+      ElasticFileSystem: "__ElasticFileSystem__"
+    },
+    ManagedBy: "__ManagedBy__",
+    LastUpdateTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

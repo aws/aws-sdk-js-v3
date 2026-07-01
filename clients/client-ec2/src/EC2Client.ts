@@ -964,6 +964,10 @@ import type {
   DescribeAccountAttributesCommandOutput,
 } from "./commands/DescribeAccountAttributesCommand";
 import type {
+  DescribeAccountVpcEncryptionControlCommandInput,
+  DescribeAccountVpcEncryptionControlCommandOutput,
+} from "./commands/DescribeAccountVpcEncryptionControlCommand";
+import type {
   DescribeAddressesAttributeCommandInput,
   DescribeAddressesAttributeCommandOutput,
 } from "./commands/DescribeAddressesAttributeCommand";
@@ -2228,6 +2232,10 @@ import type {
 } from "./commands/ListVolumesInRecycleBinCommand";
 import type { LockSnapshotCommandInput, LockSnapshotCommandOutput } from "./commands/LockSnapshotCommand";
 import type {
+  ModifyAccountVpcEncryptionControlCommandInput,
+  ModifyAccountVpcEncryptionControlCommandOutput,
+} from "./commands/ModifyAccountVpcEncryptionControlCommand";
+import type {
   ModifyAddressAttributeCommandInput,
   ModifyAddressAttributeCommandOutput,
 } from "./commands/ModifyAddressAttributeCommand";
@@ -3089,6 +3097,7 @@ export type ServiceInputTypes =
   | DeregisterTransitGatewayMulticastGroupMembersCommandInput
   | DeregisterTransitGatewayMulticastGroupSourcesCommandInput
   | DescribeAccountAttributesCommandInput
+  | DescribeAccountVpcEncryptionControlCommandInput
   | DescribeAddressTransfersCommandInput
   | DescribeAddressesAttributeCommandInput
   | DescribeAddressesCommandInput
@@ -3429,6 +3438,7 @@ export type ServiceInputTypes =
   | ListSnapshotsInRecycleBinCommandInput
   | ListVolumesInRecycleBinCommandInput
   | LockSnapshotCommandInput
+  | ModifyAccountVpcEncryptionControlCommandInput
   | ModifyAddressAttributeCommandInput
   | ModifyAvailabilityZoneGroupCommandInput
   | ModifyCapacityReservationCommandInput
@@ -3864,6 +3874,7 @@ export type ServiceOutputTypes =
   | DeregisterTransitGatewayMulticastGroupMembersCommandOutput
   | DeregisterTransitGatewayMulticastGroupSourcesCommandOutput
   | DescribeAccountAttributesCommandOutput
+  | DescribeAccountVpcEncryptionControlCommandOutput
   | DescribeAddressTransfersCommandOutput
   | DescribeAddressesAttributeCommandOutput
   | DescribeAddressesCommandOutput
@@ -4204,6 +4215,7 @@ export type ServiceOutputTypes =
   | ListSnapshotsInRecycleBinCommandOutput
   | ListVolumesInRecycleBinCommandOutput
   | LockSnapshotCommandOutput
+  | ModifyAccountVpcEncryptionControlCommandOutput
   | ModifyAddressAttributeCommandOutput
   | ModifyAvailabilityZoneGroupCommandOutput
   | ModifyCapacityReservationCommandOutput

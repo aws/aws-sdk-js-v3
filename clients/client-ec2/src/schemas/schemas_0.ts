@@ -383,9 +383,11 @@ const _AVC = "AvailableVCpus";
 const _AVCB = "AssociateVpcCidrBlock";
 const _AVCBR = "AssociateVpcCidrBlockRequest";
 const _AVCBRs = "AssociateVpcCidrBlockResult";
-const _AVEC = "AcceptVpcEndpointConnections";
+const _AVEC = "AccountVpcEncryptionControl";
+const _AVECE = "AccountVpcEncryptionControlExclusions";
 const _AVECR = "AcceptVpcEndpointConnectionsRequest";
 const _AVECRc = "AcceptVpcEndpointConnectionsResult";
+const _AVECc = "AcceptVpcEndpointConnections";
 const _AVG = "AttachVpnGateway";
 const _AVGR = "AttachVpnGatewayRequest";
 const _AVGRt = "AttachVpnGatewayResult";
@@ -1219,6 +1221,9 @@ const _DATRi = "DisableAddressTransferRequest";
 const _DATRis = "DisableAddressTransferResult";
 const _DATe = "DescribeAddressTransfers";
 const _DATi = "DisableAddressTransfer";
+const _DAVEC = "DescribeAccountVpcEncryptionControl";
+const _DAVECR = "DescribeAccountVpcEncryptionControlRequest";
+const _DAVECRe = "DescribeAccountVpcEncryptionControlResult";
 const _DAZ = "DestinationAvailabilityZone";
 const _DAZI = "DestinationAvailabilityZoneId";
 const _DAZR = "DescribeAvailabilityZonesRequest";
@@ -2355,7 +2360,7 @@ const _Dis = "Disks";
 const _Do = "Domain";
 const _Du = "Duration";
 const _Dua = "Dualstack";
-const _E = "Egress";
+const _E = "Exclusions";
 const _EA = "EniAddress";
 const _EAC = "ExternalAuthorityConfiguration";
 const _EAIL = "EipAssociationIdList";
@@ -2606,6 +2611,7 @@ const _EVRP = "EnableVgwRoutePropagation";
 const _EVRPR = "EnableVgwRoutePropagationRequest";
 const _EWD = "EndWeekDay";
 const _Eb = "Ebs";
+const _Eg = "Egress";
 const _En = "Enabled";
 const _Enc = "Encrypted";
 const _End = "End";
@@ -2970,6 +2976,8 @@ const _Gp = "Gpus";
 const _Gr = "Group";
 const _H = "Hosts";
 const _HBD = "HiddenByDefault";
+const _HCO = "HostCpuOptions";
+const _HCOR = "HostCpuOptionsRequest";
 const _HCP = "HiveCompatiblePartitions";
 const _HE = "HttpEndpoint";
 const _HI = "HostIds";
@@ -3562,7 +3570,7 @@ const _KT = "KeyType";
 const _KV = "KeyValue";
 const _Ke = "Kernel";
 const _Key = "Keyword";
-const _L = "Lifecycle";
+const _L = "Lambda";
 const _LA = "LocalAddress";
 const _LADT = "LastAttemptedDiscoveryTime";
 const _LAZ = "LaunchedAvailabilityZone";
@@ -3778,9 +3786,9 @@ const _LTau = "LaunchTime";
 const _LTi = "LicenseType";
 const _LTo = "LocationType";
 const _LToc = "LocalTarget";
-const _LUT = "LastUpdateTime";
-const _LUTa = "LastUpdatedTime";
-const _LUTas = "LastUpdateTimestamp";
+const _LUT = "LastUpdateTimestamp";
+const _LUTa = "LastUpdateTime";
+const _LUTas = "LastUpdatedTime";
 const _LV = "LogVersion";
 const _LVCS = "LastVersionCreationStatus";
 const _LVCSM = "LastVersionCreationStatusMessage";
@@ -3789,8 +3797,8 @@ const _LVIRBR = "ListVolumesInRecycleBinRequest";
 const _LVIRBRi = "ListVolumesInRecycleBinResult";
 const _LVN = "LatestVersionNumber";
 const _La = "Latest";
-const _Lam = "Lambda";
-const _Li = "Licenses";
+const _Li = "Lifecycle";
+const _Lic = "Licenses";
 const _Lo = "Locale";
 const _Loc = "Location";
 const _M = "Min";
@@ -3810,6 +3818,9 @@ const _MASo = "MovingAddressStatus";
 const _MATV = "MoveAddressToVpc";
 const _MATVR = "MoveAddressToVpcRequest";
 const _MATVRo = "MoveAddressToVpcResult";
+const _MAVEC = "ModifyAccountVpcEncryptionControl";
+const _MAVECR = "ModifyAccountVpcEncryptionControlRequest";
+const _MAVECRo = "ModifyAccountVpcEncryptionControlResult";
 const _MAZG = "ModifyAvailabilityZoneGroup";
 const _MAZGR = "ModifyAvailabilityZoneGroupRequest";
 const _MAZGRo = "ModifyAvailabilityZoneGroupResult";
@@ -6064,7 +6075,7 @@ const _VNI = "VirtualNetworkId";
 const _VNe = "VersionNumber";
 const _VOI = "VolumeOwnerId";
 const _VOIp = "VpcOwnerId";
-const _VP = "VpnProtocol";
+const _VP = "VpcPeering";
 const _VPC = "VpcPeeringConnection";
 const _VPCI = "VpcPeeringConnectionId";
 const _VPCIL = "VpcPeeringConnectionIdList";
@@ -6077,8 +6088,8 @@ const _VPCp = "VpcPeeringConnections";
 const _VPE = "VpcPeeringExclusion";
 const _VPG = "VirtualPrivateGateway";
 const _VPGE = "VirtualPrivateGatewayExclusion";
-const _VPp = "VpnPort";
-const _VPpc = "VpcPeering";
+const _VPp = "VpnProtocol";
+const _VPpn = "VpnPort";
 const _VRBI = "VolumeRecycleBinInfo";
 const _VRBIL = "VolumeRecycleBinInfoList";
 const _VS = "VolumeStatuses";
@@ -6283,6 +6294,7 @@ const _aTtt = "attachedTo";
 const _aTtta = "attachmentType";
 const _aV = "attributeValue";
 const _aVC = "availableVCpus";
+const _aVEC = "accountVpcEncryptionControl";
 const _aVI = "accepterVpcInfo";
 const _aVS = "attributeValueSet";
 const _aVTS = "activeVpnTunnelStatus";
@@ -6641,7 +6653,7 @@ const _dis = "disks";
 const _do = "domain";
 const _du = "duration";
 const _dua = "dualstack";
-const _e = "egress";
+const _e = "exclusions";
 const _eA = "eniAddress";
 const _eAC = "externalAuthorityConfiguration";
 const _eAn = "enableAcceleration";
@@ -6746,6 +6758,7 @@ const _eTv = "eventType";
 const _eTx = "exportTask";
 const _eWD = "endWeekDay";
 const _eb = "ebs";
+const _eg = "egress";
 const _en = "enabled";
 const _enc = "encrypted";
 const _end = "end";
@@ -7096,7 +7109,7 @@ const _kT = "keyType";
 const _kV = "keyValue";
 const _ke = "kernel";
 const _key = "keyword";
-const _l = "lifecycle";
+const _l = "lambda";
 const _lA = "localAddress";
 const _lADT = "lastAttemptedDiscoveryTime";
 const _lAZ = "launchedAvailabilityZone";
@@ -7196,14 +7209,14 @@ const _lTa = "launchTemplates";
 const _lTau = "launchTime";
 const _lTi = "licenseType";
 const _lTo = "locationType";
-const _lUT = "lastUpdateTime";
-const _lUTa = "lastUpdatedTime";
-const _lUTas = "lastUpdateTimestamp";
+const _lUT = "lastUpdateTimestamp";
+const _lUTa = "lastUpdateTime";
+const _lUTas = "lastUpdatedTime";
 const _lV = "logVersion";
 const _lVCS = "lastVersionCreationStatus";
 const _lVCSM = "lastVersionCreationStatusMessage";
 const _lVN = "latestVersionNumber";
-const _la = "lambda";
+const _li = "lifecycle";
 const _lo = "location";
 const _loc = "locale";
 const _m = "min";
@@ -7289,8 +7302,8 @@ const _mar = "marketplace";
 const _me = "message";
 const _med = "med";
 const _met = "metric";
-const _mo = "monitoring";
-const _mod = "mode";
+const _mo = "mode";
+const _mon = "monitoring";
 const _n = "name";
 const _nA = "networkAcl";
 const _nAAI = "networkAclAssociationId";
@@ -8205,13 +8218,13 @@ const _vNI = "virtualNetworkId";
 const _vNe = "versionNumber";
 const _vOI = "volumeOwnerId";
 const _vOIp = "vpcOwnerId";
-const _vP = "vpnProtocol";
+const _vP = "vpcPeering";
 const _vPC = "vpcPeeringConnection";
 const _vPCI = "vpcPeeringConnectionId";
 const _vPCS = "vpcPeeringConnectionSet";
 const _vPG = "virtualPrivateGateway";
-const _vPp = "vpnPort";
-const _vPpc = "vpcPeering";
+const _vPp = "vpnProtocol";
+const _vPpn = "vpnPort";
 const _vS = "volumeSet";
 const _vSS = "volumeStatusSet";
 const _vSa = "valueSet";
@@ -8445,6 +8458,29 @@ export var AccountAttributeValue$: StaticStructureSchema = [3, n0, _AAV,
   [[0, { [_eQN]: `AttributeValue`
   , [_xN]: _aV }]]
 ];
+export var AccountVpcEncryptionControl$: StaticStructureSchema = [3, n0, _AVEC,
+  0,
+  [_St, _Mo, _E, _MB, _LUT],
+  [[0, { [_eQN]: `State`
+  , [_xN]: _st }], [0, { [_eQN]: `Mode`
+  , [_xN]: _mo }], [() => AccountVpcEncryptionControlExclusions$, { [_eQN]: `Exclusions`
+  , [_xN]: _e }], [0, { [_eQN]: `ManagedBy`
+  , [_xN]: _mB }], [4, { [_eQN]: `LastUpdateTimestamp`
+  , [_xN]: _lUT }]]
+];
+export var AccountVpcEncryptionControlExclusions$: StaticStructureSchema = [3, n0, _AVECE,
+  0,
+  [_IG, _EOIG, _NG, _VPG, _VP, _L, _VL, _EFS],
+  [[0, { [_eQN]: `InternetGateway`
+  , [_xN]: _iG }], [0, { [_eQN]: `EgressOnlyInternetGateway`
+  , [_xN]: _eOIG }], [0, { [_eQN]: `NatGateway`
+  , [_xN]: _nG }], [0, { [_eQN]: `VirtualPrivateGateway`
+  , [_xN]: _vPG }], [0, { [_eQN]: `VpcPeering`
+  , [_xN]: _vP }], [0, { [_eQN]: `Lambda`
+  , [_xN]: _l }], [0, { [_eQN]: `VpcLattice`
+  , [_xN]: _vL }], [0, { [_eQN]: `ElasticFileSystem`
+  , [_xN]: _eFS }]]
+];
 export var ActiveInstance$: StaticStructureSchema = [3, n0, _AI,
   0,
   [_II, _IT, _SIRI, _IH],
@@ -8578,8 +8614,8 @@ export var AllocateAddressResult$: StaticStructureSchema = [3, n0, _AARl,
 ];
 export var AllocateHostsRequest$: StaticStructureSchema = [3, n0, _AHR,
   0,
-  [_IF, _TS, _HR, _OA, _HM, _AIss, _AZI, _APu, _CT, _IT, _Q, _AZ],
-  [0, [() => TagSpecificationList, { [_xN]: _TSa }], 0, 0, 0, [64 | 0, { [_xN]: _AIsse }], 0, [0, { [_eQN]: `AutoPlacement`
+  [_IF, _TS, _HR, _OA, _HM, _AIss, _AZI, _CO, _APu, _CT, _IT, _Q, _AZ],
+  [0, [() => TagSpecificationList, { [_xN]: _TSa }], 0, 0, 0, [64 | 0, { [_xN]: _AIsse }], 0, () => HostCpuOptionsRequest$, [0, { [_eQN]: `AutoPlacement`
   , [_xN]: _aP }], [0, { [_eQN]: `ClientToken`
   , [_xN]: _cT }], [0, { [_eQN]: `InstanceType`
   , [_xN]: _iT }], [1, { [_eQN]: `Quantity`
@@ -8622,10 +8658,10 @@ export var AlternatePathHint$: StaticStructureSchema = [3, n0, _APH,
 ];
 export var AnalysisAclRule$: StaticStructureSchema = [3, n0, _AARn,
   0,
-  [_Ci, _E, _PRo, _Pr, _RA, _RNu],
+  [_Ci, _Eg, _PRo, _Pr, _RA, _RNu],
   [[0, { [_eQN]: `Cidr`
   , [_xN]: _ci }], [2, { [_eQN]: `Egress`
-  , [_xN]: _e }], [() => PortRange$, { [_eQN]: `PortRange`
+  , [_xN]: _eg }], [() => PortRange$, { [_eQN]: `PortRange`
   , [_xN]: _pRo }], [0, { [_eQN]: `Protocol`
   , [_xN]: _pr }], [0, { [_eQN]: `RuleAction`
   , [_xN]: _rA }], [1, { [_eQN]: `RuleNumber`
@@ -9715,12 +9751,12 @@ export var CapacityReservation$: StaticStructureSchema = [3, n0, _CRa,
 ];
 export var CapacityReservationBillingRequest$: StaticStructureSchema = [3, n0, _CRBR,
   0,
-  [_CRI, _RB, _URBOI, _LUT, _Sta, _SMt, _CRIap],
+  [_CRI, _RB, _URBOI, _LUTa, _Sta, _SMt, _CRIap],
   [[0, { [_eQN]: `CapacityReservationId`
   , [_xN]: _cRI }], [0, { [_eQN]: `RequestedBy`
   , [_xN]: _rB }], [0, { [_eQN]: `UnusedReservationBillingOwnerId`
   , [_xN]: _uRBOI }], [4, { [_eQN]: `LastUpdateTime`
-  , [_xN]: _lUT }], [0, { [_eQN]: `Status`
+  , [_xN]: _lUTa }], [0, { [_eQN]: `Status`
   , [_xN]: _sta }], [0, { [_eQN]: `StatusMessage`
   , [_xN]: _sMt }], [() => CapacityReservationInfo$, { [_eQN]: `CapacityReservationInfo`
   , [_xN]: _cRIa }]]
@@ -10008,7 +10044,7 @@ export var ClientVpnConnectionStatus$: StaticStructureSchema = [3, n0, _CVCS,
 ];
 export var ClientVpnEndpoint$: StaticStructureSchema = [3, n0, _CVE,
   0,
-  [_CVEI, _De, _Sta, _CTre, _DT, _DNn, _CCB, _DS, _STp, _VP, _TPr, _VPp, _ATNs, _SCA, _AO, _CLO, _T, _SGIe, _VI, _SSPU, _CCO, _STH, _CLBO, _CREO, _DOST, _EIAT, _TIAT, _TGC],
+  [_CVEI, _De, _Sta, _CTre, _DT, _DNn, _CCB, _DS, _STp, _VPp, _TPr, _VPpn, _ATNs, _SCA, _AO, _CLO, _T, _SGIe, _VI, _SSPU, _CCO, _STH, _CLBO, _CREO, _DOST, _EIAT, _TIAT, _TGC],
   [[0, { [_eQN]: `ClientVpnEndpointId`
   , [_xN]: _cVEI }], [0, { [_eQN]: `Description`
   , [_xN]: _de }], [() => ClientVpnEndpointStatus$, { [_eQN]: `Status`
@@ -10019,9 +10055,9 @@ export var ClientVpnEndpoint$: StaticStructureSchema = [3, n0, _CVE,
   , [_xN]: _cCB }], [() => ValueStringList, { [_eQN]: `DnsServer`
   , [_xN]: _dS }], [2, { [_eQN]: `SplitTunnel`
   , [_xN]: _sTp }], [0, { [_eQN]: `VpnProtocol`
-  , [_xN]: _vP }], [0, { [_eQN]: `TransportProtocol`
+  , [_xN]: _vPp }], [0, { [_eQN]: `TransportProtocol`
   , [_xN]: _tPr }], [1, { [_eQN]: `VpnPort`
-  , [_xN]: _vPp }], [() => AssociatedTargetNetworkSet, { [_eQN]: `AssociatedTargetNetwork`
+  , [_xN]: _vPpn }], [() => AssociatedTargetNetworkSet, { [_eQN]: `AssociatedTargetNetwork`
   , [_xN]: _aTN }], [0, { [_eQN]: `ServerCertificateArn`
   , [_xN]: _sCA }], [() => ClientVpnAuthenticationList, { [_eQN]: `AuthenticationOptions`
   , [_xN]: _aO }], [() => ConnectionLogResponseOptions$, { [_eQN]: `ConnectionLogOptions`
@@ -10351,7 +10387,7 @@ export var CreateCarrierGatewayResult$: StaticStructureSchema = [3, n0, _CCGRr,
 ];
 export var CreateClientVpnEndpointRequest$: StaticStructureSchema = [3, n0, _CCVER,
   0,
-  [_SCA, _AO, _CLO, _CCB, _DS, _TPr, _VPp, _De, _STp, _DR, _CT, _TS, _SGIe, _VI, _SSP, _CCO, _STH, _CLBO, _CREO, _DOST, _EIAT, _TIAT, _TGC],
+  [_SCA, _AO, _CLO, _CCB, _DS, _TPr, _VPpn, _De, _STp, _DR, _CT, _TS, _SGIe, _VI, _SSP, _CCO, _STH, _CLBO, _CREO, _DOST, _EIAT, _TIAT, _TGC],
   [0, [() => ClientVpnAuthenticationRequestList, { [_xN]: _Au }], () => ConnectionLogOptions$, 0, [() => ValueStringList, 0], 0, 1, 0, 2, 2, [0, 4], [() => TagSpecificationList, { [_xN]: _TSa }], [() => ClientVpnSecurityGroupIdSet, { [_xN]: _SGI }], 0, 0, () => ClientConnectOptions$, 1, () => ClientLoginBannerOptions$, () => ClientRouteEnforcementOptions$, 2, 0, 0, [() => TransitGatewayConfigurationInputStructure$, 0]], 3
 ];
 export var CreateClientVpnEndpointResult$: StaticStructureSchema = [3, n0, _CCVERr,
@@ -10467,19 +10503,19 @@ export var CreateEgressOnlyInternetGatewayResult$: StaticStructureSchema = [3, n
 ];
 export var CreateFleetError$: StaticStructureSchema = [3, n0, _CFE,
   0,
-  [_LTAO, _L, _EC, _EM],
+  [_LTAO, _Li, _EC, _EM],
   [[() => LaunchTemplateAndOverridesResponse$, { [_eQN]: `LaunchTemplateAndOverrides`
   , [_xN]: _lTAO }], [0, { [_eQN]: `Lifecycle`
-  , [_xN]: _l }], [0, { [_eQN]: `ErrorCode`
+  , [_xN]: _li }], [0, { [_eQN]: `ErrorCode`
   , [_xN]: _eC }], [0, { [_eQN]: `ErrorMessage`
   , [_xN]: _eM }]]
 ];
 export var CreateFleetInstance$: StaticStructureSchema = [3, n0, _CFI,
   0,
-  [_LTAO, _L, _IIns, _IT, _Pl],
+  [_LTAO, _Li, _IIns, _IT, _Pl],
   [[() => LaunchTemplateAndOverridesResponse$, { [_eQN]: `LaunchTemplateAndOverrides`
   , [_xN]: _lTAO }], [0, { [_eQN]: `Lifecycle`
-  , [_xN]: _l }], [() => InstanceIdsSet, { [_eQN]: `InstanceIds`
+  , [_xN]: _li }], [() => InstanceIdsSet, { [_eQN]: `InstanceIds`
   , [_xN]: _iIns }], [0, { [_eQN]: `InstanceType`
   , [_xN]: _iT }], [0, { [_eQN]: `Platform`
   , [_xN]: _pl }]]
@@ -10834,13 +10870,13 @@ export var CreateNatGatewayResult$: StaticStructureSchema = [3, n0, _CNGRr,
 ];
 export var CreateNetworkAclEntryRequest$: StaticStructureSchema = [3, n0, _CNAER,
   0,
-  [_NAI, _RNu, _Pr, _RA, _E, _DR, _CB, _ICB, _ITC, _PRo],
+  [_NAI, _RNu, _Pr, _RA, _Eg, _DR, _CB, _ICB, _ITC, _PRo],
   [[0, { [_eQN]: `NetworkAclId`
   , [_xN]: _nAI }], [1, { [_eQN]: `RuleNumber`
   , [_xN]: _rN }], [0, { [_eQN]: `Protocol`
   , [_xN]: _pr }], [0, { [_eQN]: `RuleAction`
   , [_xN]: _rA }], [2, { [_eQN]: `Egress`
-  , [_xN]: _e }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _eg }], [2, { [_eQN]: `DryRun`
   , [_xN]: _dR }], [0, { [_eQN]: `CidrBlock`
   , [_xN]: _cB }], [0, { [_eQN]: `Ipv6CidrBlock`
   , [_xN]: _iCB }], [() => IcmpTypeCode$, { [_xN]: _Ic }], [() => PortRange$, { [_eQN]: `PortRange`
@@ -12085,11 +12121,11 @@ export var DeleteNatGatewayResult$: StaticStructureSchema = [3, n0, _DNGRe,
 ];
 export var DeleteNetworkAclEntryRequest$: StaticStructureSchema = [3, n0, _DNAER,
   0,
-  [_NAI, _RNu, _E, _DR],
+  [_NAI, _RNu, _Eg, _DR],
   [[0, { [_eQN]: `NetworkAclId`
   , [_xN]: _nAI }], [1, { [_eQN]: `RuleNumber`
   , [_xN]: _rN }], [2, { [_eQN]: `Egress`
-  , [_xN]: _e }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _eg }], [2, { [_eQN]: `DryRun`
   , [_xN]: _dR }]], 3
 ];
 export var DeleteNetworkAclRequest$: StaticStructureSchema = [3, n0, _DNAR,
@@ -12798,6 +12834,17 @@ export var DescribeAccountAttributesResult$: StaticStructureSchema = [3, n0, _DA
   [[() => AccountAttributeList, { [_eQN]: `AccountAttributeSet`
   , [_xN]: _aASc }]]
 ];
+export var DescribeAccountVpcEncryptionControlRequest$: StaticStructureSchema = [3, n0, _DAVECR,
+  0,
+  [_DR],
+  [2]
+];
+export var DescribeAccountVpcEncryptionControlResult$: StaticStructureSchema = [3, n0, _DAVECRe,
+  0,
+  [_AVEC],
+  [[() => AccountVpcEncryptionControl$, { [_eQN]: `AccountVpcEncryptionControl`
+  , [_xN]: _aVEC }]]
+];
 export var DescribeAddressesAttributeRequest$: StaticStructureSchema = [3, n0, _DAARes,
   0,
   [_AIll, _At, _NTe, _MR, _DR],
@@ -13281,10 +13328,10 @@ export var DescribeFastSnapshotRestoreSuccessItem$: StaticStructureSchema = [3, 
 ];
 export var DescribeFleetError$: StaticStructureSchema = [3, n0, _DFEe,
   0,
-  [_LTAO, _L, _EC, _EM],
+  [_LTAO, _Li, _EC, _EM],
   [[() => LaunchTemplateAndOverridesResponse$, { [_eQN]: `LaunchTemplateAndOverrides`
   , [_xN]: _lTAO }], [0, { [_eQN]: `Lifecycle`
-  , [_xN]: _l }], [0, { [_eQN]: `ErrorCode`
+  , [_xN]: _li }], [0, { [_eQN]: `ErrorCode`
   , [_xN]: _eC }], [0, { [_eQN]: `ErrorMessage`
   , [_xN]: _eM }]]
 ];
@@ -13318,10 +13365,10 @@ export var DescribeFleetInstancesResult$: StaticStructureSchema = [3, n0, _DFIRe
 ];
 export var DescribeFleetsInstances$: StaticStructureSchema = [3, n0, _DFI,
   0,
-  [_LTAO, _L, _IIns, _IT, _Pl],
+  [_LTAO, _Li, _IIns, _IT, _Pl],
   [[() => LaunchTemplateAndOverridesResponse$, { [_eQN]: `LaunchTemplateAndOverrides`
   , [_xN]: _lTAO }], [0, { [_eQN]: `Lifecycle`
-  , [_xN]: _l }], [() => InstanceIdsSet, { [_eQN]: `InstanceIds`
+  , [_xN]: _li }], [() => InstanceIdsSet, { [_eQN]: `InstanceIds`
   , [_xN]: _iIns }], [0, { [_eQN]: `InstanceType`
   , [_xN]: _iT }], [0, { [_eQN]: `Platform`
   , [_xN]: _pl }]]
@@ -14899,8 +14946,8 @@ export var DescribeVolumeAttributeResult$: StaticStructureSchema = [3, n0, _DVAR
 ];
 export var DescribeVolumesModificationsRequest$: StaticStructureSchema = [3, n0, _DVMR,
   0,
-  [_DR, _VIol, _Fi, _NTe, _MR],
-  [2, [() => VolumeIdStringList, { [_xN]: _VIo }], [() => FilterList, { [_xN]: _Fil }], 0, 1]
+  [_DR, _VIol, _Fi, _NTe, _MR, _IMR],
+  [2, [() => VolumeIdStringList, { [_xN]: _VIo }], [() => FilterList, { [_xN]: _Fil }], 0, 1, 2]
 ];
 export var DescribeVolumesModificationsResult$: StaticStructureSchema = [3, n0, _DVMRe,
   0,
@@ -17757,7 +17804,7 @@ export var HistoryRecordEntry$: StaticStructureSchema = [3, n0, _HRE,
 ];
 export var Host$: StaticStructureSchema = [3, n0, _Ho,
   0,
-  [_APu, _AZ, _ACv, _CT, _HIo, _HP, _HRI, _Ins, _St, _ATll, _RTel, _T, _HR, _AMIT, _OI, _AZI, _MOSLRG, _OA, _HM, _AIsse],
+  [_APu, _AZ, _ACv, _CT, _HIo, _HP, _HRI, _Ins, _St, _ATll, _RTel, _T, _HR, _AMIT, _OI, _AZI, _MOSLRG, _OA, _HM, _AIsse, _CO],
   [[0, { [_eQN]: `AutoPlacement`
   , [_xN]: _aP }], [0, { [_eQN]: `AvailabilityZone`
   , [_xN]: _aZ }], [() => AvailableCapacity$, { [_eQN]: `AvailableCapacity`
@@ -17778,7 +17825,19 @@ export var Host$: StaticStructureSchema = [3, n0, _Ho,
   , [_xN]: _mOSLRG }], [0, { [_eQN]: `OutpostArn`
   , [_xN]: _oA }], [0, { [_eQN]: `HostMaintenance`
   , [_xN]: _hM }], [0, { [_eQN]: `AssetId`
-  , [_xN]: _aIss }]]
+  , [_xN]: _aIss }], [() => HostCpuOptions$, { [_eQN]: `CpuOptions`
+  , [_xN]: _cO }]]
+];
+export var HostCpuOptions$: StaticStructureSchema = [3, n0, _HCO,
+  0,
+  [_ASS],
+  [[0, { [_eQN]: `AmdSevSnp`
+  , [_xN]: _aSS }]]
+];
+export var HostCpuOptionsRequest$: StaticStructureSchema = [3, n0, _HCOR,
+  0,
+  [_ASS],
+  [0]
 ];
 export var HostInstance$: StaticStructureSchema = [3, n0, _HIos,
   0,
@@ -18157,7 +18216,7 @@ export var ImportInstanceLaunchSpecification$: StaticStructureSchema = [3, n0, _
   , [_xN]: _uDs }], [0, { [_eQN]: `InstanceType`
   , [_xN]: _iT }], [() => Placement$, { [_eQN]: `Placement`
   , [_xN]: _pla }], [2, { [_eQN]: `Monitoring`
-  , [_xN]: _mo }], [0, { [_eQN]: `SubnetId`
+  , [_xN]: _mon }], [0, { [_eQN]: `SubnetId`
   , [_xN]: _sIu }], [0, { [_eQN]: `InstanceInitiatedShutdownBehavior`
   , [_xN]: _iISB }], [0, { [_eQN]: `PrivateIpAddress`
   , [_xN]: _pIAr }]]
@@ -18299,7 +18358,7 @@ export var InitializationStatusDetails$: StaticStructureSchema = [3, n0, _ISD,
 ];
 export var Instance$: StaticStructureSchema = [3, n0, _In,
   0,
-  [_Arc, _BDMl, _CT, _EO, _ESna, _Hy, _IIP, _ILn, _EGAl, _EIAAla, _NIet, _OA, _RDN, _RDT, _SGe, _SDC, _SIRI, _SNS, _SRt, _T, _VTir, _CO, _CBI, _CRI, _CRSa, _HO, _Li, _MO, _EOn, _BM, _PDl, _UO, _UOUT, _PDNO, _IApv, _TSp, _MOa, _CIBM, _NPO, _Op, _SIec, _II, _IIm, _St, _PDN, _PDNub, _STR, _KN, _ALI, _PCro, _IT, _LTau, _Pla, _KI, _RIa, _Pl, _Mon, _SIu, _VI, _PIAr, _PIAu],
+  [_Arc, _BDMl, _CT, _EO, _ESna, _Hy, _IIP, _ILn, _EGAl, _EIAAla, _NIet, _OA, _RDN, _RDT, _SGe, _SDC, _SIRI, _SNS, _SRt, _T, _VTir, _CO, _CBI, _CRI, _CRSa, _HO, _Lic, _MO, _EOn, _BM, _PDl, _UO, _UOUT, _PDNO, _IApv, _TSp, _MOa, _CIBM, _NPO, _Op, _SIec, _II, _IIm, _St, _PDN, _PDNub, _STR, _KN, _ALI, _PCro, _IT, _LTau, _Pla, _KI, _RIa, _Pl, _Mon, _SIu, _VI, _PIAr, _PIAu],
   [[0, { [_eQN]: `Architecture`
   , [_xN]: _arc }], [() => InstanceBlockDeviceMappingList, { [_eQN]: `BlockDeviceMapping`
   , [_xN]: _bDM }], [0, { [_eQN]: `ClientToken`
@@ -18357,7 +18416,7 @@ export var Instance$: StaticStructureSchema = [3, n0, _In,
   , [_xN]: _kI }], [0, { [_eQN]: `RamdiskId`
   , [_xN]: _rIa }], [0, { [_eQN]: `Platform`
   , [_xN]: _pl }], [() => Monitoring$, { [_eQN]: `Monitoring`
-  , [_xN]: _mo }], [0, { [_eQN]: `SubnetId`
+  , [_xN]: _mon }], [0, { [_eQN]: `SubnetId`
   , [_xN]: _sIu }], [0, { [_eQN]: `VpcId`
   , [_xN]: _vI }], [0, { [_eQN]: `PrivateIpAddress`
   , [_xN]: _pIAr }], [0, { [_eQN]: `IpAddress`
@@ -18609,7 +18668,7 @@ export var InstanceMonitoring$: StaticStructureSchema = [3, n0, _IMn,
   [_II, _Mon],
   [[0, { [_eQN]: `InstanceId`
   , [_xN]: _iI }], [() => Monitoring$, { [_eQN]: `Monitoring`
-  , [_xN]: _mo }]]
+  , [_xN]: _mon }]]
 ];
 export var InstanceNetworkInterface$: StaticStructureSchema = [3, n0, _INI,
   0,
@@ -19531,7 +19590,7 @@ export var LaunchSpecification$: StaticStructureSchema = [3, n0, _LSa,
   , [_xN]: _rIa }], [0, { [_eQN]: `SubnetId`
   , [_xN]: _sIu }], [() => GroupIdentifierList, { [_eQN]: `GroupSet`
   , [_xN]: _gSr }], [() => RunInstancesMonitoringEnabled$, { [_eQN]: `Monitoring`
-  , [_xN]: _mo }]]
+  , [_xN]: _mon }]]
 ];
 export var LaunchTemplate$: StaticStructureSchema = [3, n0, _LT,
   0,
@@ -20001,7 +20060,7 @@ export var LocalGatewayRouteTable$: StaticStructureSchema = [3, n0, _LGRT,
   , [_xN]: _oI }], [0, { [_eQN]: `State`
   , [_xN]: _st }], [() => TagList, { [_eQN]: `TagSet`
   , [_xN]: _tS }], [0, { [_eQN]: `Mode`
-  , [_xN]: _mod }], [() => StateReason$, { [_eQN]: `StateReason`
+  , [_xN]: _mo }], [() => StateReason$, { [_eQN]: `StateReason`
   , [_xN]: _sRt }]]
 ];
 export var LocalGatewayRouteTableVirtualInterfaceGroupAssociation$: StaticStructureSchema = [3, n0, _LGRTVIGA,
@@ -20239,6 +20298,17 @@ export var MetricValue$: StaticStructureSchema = [3, n0, _MVet,
   , [_xN]: _met }], [1, { [_eQN]: `Value`
   , [_xN]: _v }]]
 ];
+export var ModifyAccountVpcEncryptionControlRequest$: StaticStructureSchema = [3, n0, _MAVECR,
+  0,
+  [_DR, _Mo, _IG, _EOIG, _NG, _VPG, _VP, _L, _VL, _EFS],
+  [2, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+];
+export var ModifyAccountVpcEncryptionControlResult$: StaticStructureSchema = [3, n0, _MAVECRo,
+  0,
+  [_AVEC],
+  [[() => AccountVpcEncryptionControl$, { [_eQN]: `AccountVpcEncryptionControl`
+  , [_xN]: _aVEC }]]
+];
 export var ModifyAddressAttributeRequest$: StaticStructureSchema = [3, n0, _MAAR,
   0,
   [_AIl, _DNo, _DR],
@@ -20285,7 +20355,7 @@ export var ModifyCapacityReservationResult$: StaticStructureSchema = [3, n0, _MC
 ];
 export var ModifyClientVpnEndpointRequest$: StaticStructureSchema = [3, n0, _MCVER,
   0,
-  [_CVEI, _SCA, _CLO, _DS, _VPp, _De, _STp, _DR, _SGIe, _VI, _SSP, _CCO, _STH, _CLBO, _CREO, _DOST, _TGC],
+  [_CVEI, _SCA, _CLO, _DS, _VPpn, _De, _STp, _DR, _SGIe, _VI, _SSP, _CCO, _STH, _CLBO, _CREO, _DOST, _TGC],
   [0, 0, () => ConnectionLogOptions$, [() => DnsServersOptionsModifyStructure$, 0], 1, 0, 2, 2, [() => ClientVpnSecurityGroupIdSet, { [_xN]: _SGI }], 0, 0, () => ClientConnectOptions$, 1, () => ClientLoginBannerOptions$, () => ClientRouteEnforcementOptions$, 2, [() => TransitGatewayConfigurationInputStructure$, 0]], 1
 ];
 export var ModifyClientVpnEndpointResult$: StaticStructureSchema = [3, n0, _MCVERo,
@@ -21320,10 +21390,10 @@ export var NetworkAclAssociation$: StaticStructureSchema = [3, n0, _NAA,
 ];
 export var NetworkAclEntry$: StaticStructureSchema = [3, n0, _NAE,
   0,
-  [_CB, _E, _ITC, _ICB, _PRo, _Pr, _RA, _RNu],
+  [_CB, _Eg, _ITC, _ICB, _PRo, _Pr, _RA, _RNu],
   [[0, { [_eQN]: `CidrBlock`
   , [_xN]: _cB }], [2, { [_eQN]: `Egress`
-  , [_xN]: _e }], [() => IcmpTypeCode$, { [_eQN]: `IcmpTypeCode`
+  , [_xN]: _eg }], [() => IcmpTypeCode$, { [_eQN]: `IcmpTypeCode`
   , [_xN]: _iTC }], [0, { [_eQN]: `Ipv6CidrBlock`
   , [_xN]: _iCB }], [() => PortRange$, { [_eQN]: `PortRange`
   , [_xN]: _pRo }], [0, { [_eQN]: `Protocol`
@@ -22256,13 +22326,13 @@ export var RegionGeography$: StaticStructureSchema = [3, n0, _RG,
 ];
 export var RegisteredInstance$: StaticStructureSchema = [3, n0, _RIeg,
   0,
-  [_II, _SSLU, _HSa, _PSro, _LUTa, _SSC, _T],
+  [_II, _SSLU, _HSa, _PSro, _LUTas, _SSC, _T],
   [[0, { [_eQN]: `InstanceId`
   , [_xN]: _iI }], [0, { [_eQN]: `SqlServerLicenseUsage`
   , [_xN]: _sSLU }], [0, { [_eQN]: `HaStatus`
   , [_xN]: _hSa }], [0, { [_eQN]: `ProcessingStatus`
   , [_xN]: _pSroc }], [4, { [_eQN]: `LastUpdatedTime`
-  , [_xN]: _lUTa }], [0, { [_eQN]: `SqlServerCredentials`
+  , [_xN]: _lUTas }], [0, { [_eQN]: `SqlServerCredentials`
   , [_xN]: _sSC }], [() => TagList, { [_eQN]: `TagSet`
   , [_xN]: _tS }]]
 ];
@@ -22487,13 +22557,13 @@ export var ReplaceNetworkAclAssociationResult$: StaticStructureSchema = [3, n0, 
 ];
 export var ReplaceNetworkAclEntryRequest$: StaticStructureSchema = [3, n0, _RNAER,
   0,
-  [_NAI, _RNu, _Pr, _RA, _E, _DR, _CB, _ICB, _ITC, _PRo],
+  [_NAI, _RNu, _Pr, _RA, _Eg, _DR, _CB, _ICB, _ITC, _PRo],
   [[0, { [_eQN]: `NetworkAclId`
   , [_xN]: _nAI }], [1, { [_eQN]: `RuleNumber`
   , [_xN]: _rN }], [0, { [_eQN]: `Protocol`
   , [_xN]: _pr }], [0, { [_eQN]: `RuleAction`
   , [_xN]: _rA }], [2, { [_eQN]: `Egress`
-  , [_xN]: _e }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _eg }], [2, { [_eQN]: `DryRun`
   , [_xN]: _dR }], [0, { [_eQN]: `CidrBlock`
   , [_xN]: _cB }], [0, { [_eQN]: `Ipv6CidrBlock`
   , [_xN]: _iCB }], [() => IcmpTypeCode$, { [_xN]: _Ic }], [() => PortRange$, { [_eQN]: `PortRange`
@@ -22638,7 +22708,7 @@ export var RequestSpotLaunchSpecification$: StaticStructureSchema = [3, n0, _RSL
   , [_xN]: _iT }], [0, { [_eQN]: `KernelId`
   , [_xN]: _kI }], [0, { [_eQN]: `KeyName`
   , [_xN]: _kN }], [() => RunInstancesMonitoringEnabled$, { [_eQN]: `Monitoring`
-  , [_xN]: _mo }], [() => InstanceNetworkInterfaceSpecificationList, { [_xN]: _NIe }], [() => SpotPlacement$, { [_eQN]: `Placement`
+  , [_xN]: _mon }], [() => InstanceNetworkInterfaceSpecificationList, { [_xN]: _NIe }], [() => SpotPlacement$, { [_eQN]: `Placement`
   , [_xN]: _pla }], [0, { [_eQN]: `RamdiskId`
   , [_xN]: _rIa }], [0, { [_eQN]: `SubnetId`
   , [_xN]: _sIu }], [() => SensitiveUserData, { [_eQN]: `UserData`
@@ -22892,7 +22962,7 @@ export var ResponseLaunchTemplateData$: StaticStructureSchema = [3, n0, _RLTDe,
   , [_xN]: _iIma }], [0, { [_eQN]: `InstanceType`
   , [_xN]: _iT }], [0, { [_eQN]: `KeyName`
   , [_xN]: _kN }], [() => LaunchTemplatesMonitoring$, { [_eQN]: `Monitoring`
-  , [_xN]: _mo }], [() => LaunchTemplatePlacement$, { [_eQN]: `Placement`
+  , [_xN]: _mon }], [() => LaunchTemplatePlacement$, { [_eQN]: `Placement`
   , [_xN]: _pla }], [0, { [_eQN]: `RamDiskId`
   , [_xN]: _rDI }], [2, { [_eQN]: `DisableApiTermination`
   , [_xN]: _dAT }], [0, { [_eQN]: `InstanceInitiatedShutdownBehavior`
@@ -23830,7 +23900,7 @@ export var SpotFleetLaunchSpecification$: StaticStructureSchema = [3, n0, _SFLS,
   , [_xN]: _iT }], [0, { [_eQN]: `KernelId`
   , [_xN]: _kI }], [0, { [_eQN]: `KeyName`
   , [_xN]: _kN }], [() => SpotFleetMonitoring$, { [_eQN]: `Monitoring`
-  , [_xN]: _mo }], [() => InstanceNetworkInterfaceSpecificationList, { [_eQN]: `NetworkInterfaceSet`
+  , [_xN]: _mon }], [() => InstanceNetworkInterfaceSpecificationList, { [_eQN]: `NetworkInterfaceSet`
   , [_xN]: _nIS }], [() => SpotPlacement$, { [_eQN]: `Placement`
   , [_xN]: _pla }], [0, { [_eQN]: `RamdiskId`
   , [_xN]: _rIa }], [0, { [_eQN]: `SpotPrice`
@@ -25163,7 +25233,7 @@ export var VCpuInfo$: StaticStructureSchema = [3, n0, _VCIpu,
 ];
 export var VerifiedAccessEndpoint$: StaticStructureSchema = [3, n0, _VAE,
   0,
-  [_VAII, _VAGI, _VAEI, _ADp, _ETn, _ATt, _DCA, _EDnd, _DVD, _SGIe, _LBO, _NIO, _Sta, _De, _CTre, _LUTa, _DT, _T, _SSs, _ROd, _COi],
+  [_VAII, _VAGI, _VAEI, _ADp, _ETn, _ATt, _DCA, _EDnd, _DVD, _SGIe, _LBO, _NIO, _Sta, _De, _CTre, _LUTas, _DT, _T, _SSs, _ROd, _COi],
   [[0, { [_eQN]: `VerifiedAccessInstanceId`
   , [_xN]: _vAII }], [0, { [_eQN]: `VerifiedAccessGroupId`
   , [_xN]: _vAGI }], [0, { [_eQN]: `VerifiedAccessEndpointId`
@@ -25180,7 +25250,7 @@ export var VerifiedAccessEndpoint$: StaticStructureSchema = [3, n0, _VAE,
   , [_xN]: _sta }], [0, { [_eQN]: `Description`
   , [_xN]: _de }], [0, { [_eQN]: `CreationTime`
   , [_xN]: _cTre }], [0, { [_eQN]: `LastUpdatedTime`
-  , [_xN]: _lUTa }], [0, { [_eQN]: `DeletionTime`
+  , [_xN]: _lUTas }], [0, { [_eQN]: `DeletionTime`
   , [_xN]: _dT }], [() => TagList, { [_eQN]: `TagSet`
   , [_xN]: _tS }], [() => VerifiedAccessSseSpecificationResponse$, { [_eQN]: `SseSpecification`
   , [_xN]: _sSs }], [() => VerifiedAccessEndpointRdsOptions$, { [_eQN]: `RdsOptions`
@@ -25251,7 +25321,7 @@ export var VerifiedAccessEndpointTarget$: StaticStructureSchema = [3, n0, _VAETe
 ];
 export var VerifiedAccessGroup$: StaticStructureSchema = [3, n0, _VAG,
   0,
-  [_VAGI, _VAII, _De, _Own, _VAGA, _CTre, _LUTa, _DT, _T, _SSs],
+  [_VAGI, _VAII, _De, _Own, _VAGA, _CTre, _LUTas, _DT, _T, _SSs],
   [[0, { [_eQN]: `VerifiedAccessGroupId`
   , [_xN]: _vAGI }], [0, { [_eQN]: `VerifiedAccessInstanceId`
   , [_xN]: _vAII }], [0, { [_eQN]: `Description`
@@ -25259,20 +25329,20 @@ export var VerifiedAccessGroup$: StaticStructureSchema = [3, n0, _VAG,
   , [_xN]: _ow }], [0, { [_eQN]: `VerifiedAccessGroupArn`
   , [_xN]: _vAGA }], [0, { [_eQN]: `CreationTime`
   , [_xN]: _cTre }], [0, { [_eQN]: `LastUpdatedTime`
-  , [_xN]: _lUTa }], [0, { [_eQN]: `DeletionTime`
+  , [_xN]: _lUTas }], [0, { [_eQN]: `DeletionTime`
   , [_xN]: _dT }], [() => TagList, { [_eQN]: `TagSet`
   , [_xN]: _tS }], [() => VerifiedAccessSseSpecificationResponse$, { [_eQN]: `SseSpecification`
   , [_xN]: _sSs }]]
 ];
 export var VerifiedAccessInstance$: StaticStructureSchema = [3, n0, _VAI,
   0,
-  [_VAII, _De, _VATPe, _CTre, _LUTa, _T, _FE, _CECSD],
+  [_VAII, _De, _VATPe, _CTre, _LUTas, _T, _FE, _CECSD],
   [[0, { [_eQN]: `VerifiedAccessInstanceId`
   , [_xN]: _vAII }], [0, { [_eQN]: `Description`
   , [_xN]: _de }], [() => VerifiedAccessTrustProviderCondensedList, { [_eQN]: `VerifiedAccessTrustProviderSet`
   , [_xN]: _vATPS }], [0, { [_eQN]: `CreationTime`
   , [_xN]: _cTre }], [0, { [_eQN]: `LastUpdatedTime`
-  , [_xN]: _lUTa }], [() => TagList, { [_eQN]: `TagSet`
+  , [_xN]: _lUTas }], [() => TagList, { [_eQN]: `TagSet`
   , [_xN]: _tS }], [2, { [_eQN]: `FipsEnabled`
   , [_xN]: _fE }], [() => VerifiedAccessInstanceCustomSubDomain$, { [_eQN]: `CidrEndpointsCustomSubDomain`
   , [_xN]: _cECSD }]]
@@ -25396,7 +25466,7 @@ export var VerifiedAccessSseSpecificationResponse$: StaticStructureSchema = [3, 
 ];
 export var VerifiedAccessTrustProvider$: StaticStructureSchema = [3, n0, _VATP,
   0,
-  [_VATPI, _De, _TPT, _UTPT, _DTPT, _OO, _DOev, _PRNo, _CTre, _LUTa, _T, _SSs, _NAOO],
+  [_VATPI, _De, _TPT, _UTPT, _DTPT, _OO, _DOev, _PRNo, _CTre, _LUTas, _T, _SSs, _NAOO],
   [[0, { [_eQN]: `VerifiedAccessTrustProviderId`
   , [_xN]: _vATPI }], [0, { [_eQN]: `Description`
   , [_xN]: _de }], [0, { [_eQN]: `TrustProviderType`
@@ -25407,7 +25477,7 @@ export var VerifiedAccessTrustProvider$: StaticStructureSchema = [3, n0, _VATP,
   , [_xN]: _dOev }], [0, { [_eQN]: `PolicyReferenceName`
   , [_xN]: _pRNo }], [0, { [_eQN]: `CreationTime`
   , [_xN]: _cTre }], [0, { [_eQN]: `LastUpdatedTime`
-  , [_xN]: _lUTa }], [() => TagList, { [_eQN]: `TagSet`
+  , [_xN]: _lUTas }], [() => TagList, { [_eQN]: `TagSet`
   , [_xN]: _tS }], [() => VerifiedAccessSseSpecificationResponse$, { [_eQN]: `SseSpecification`
   , [_xN]: _sSs }], [() => NativeApplicationOidcOptions$, { [_eQN]: `NativeApplicationOidcOptions`
   , [_xN]: _nAOO }]]
@@ -25481,7 +25551,7 @@ export var VolumeDetail$: StaticStructureSchema = [3, n0, _VDo,
 ];
 export var VolumeModification$: StaticStructureSchema = [3, n0, _VMo,
   0,
-  [_VIo, _MSod, _SMt, _TSarg, _TIar, _TVT, _TTar, _TMAE, _OSr, _OIr, _OVT, _OTri, _OMAE, _Pro, _ST, _ETnd],
+  [_VIo, _MSod, _SMt, _TSarg, _TIar, _TVT, _TTar, _TMAE, _OSr, _OIr, _OVT, _OTri, _OMAE, _Pro, _ST, _ETnd, _Op],
   [[0, { [_eQN]: `VolumeId`
   , [_xN]: _vIo }], [0, { [_eQN]: `ModificationState`
   , [_xN]: _mSod }], [0, { [_eQN]: `StatusMessage`
@@ -25498,7 +25568,8 @@ export var VolumeModification$: StaticStructureSchema = [3, n0, _VMo,
   , [_xN]: _oMAE }], [1, { [_eQN]: `Progress`
   , [_xN]: _pro }], [4, { [_eQN]: `StartTime`
   , [_xN]: _sT }], [4, { [_eQN]: `EndTime`
-  , [_xN]: _eTn }]]
+  , [_xN]: _eTn }], [() => OperatorResponse$, { [_eQN]: `Operator`
+  , [_xN]: _ope }]]
 ];
 export var VolumeRecycleBinInfo$: StaticStructureSchema = [3, n0, _VRBI,
   0,
@@ -25602,7 +25673,7 @@ export var VpcAttachment$: StaticStructureSchema = [3, n0, _VA,
 ];
 export var VpcBlockPublicAccessExclusion$: StaticStructureSchema = [3, n0, _VBPAE,
   0,
-  [_EIx, _IGEM, _RAeso, _St, _Rea, _CTrea, _LUTas, _DTele, _T],
+  [_EIx, _IGEM, _RAeso, _St, _Rea, _CTrea, _LUT, _DTele, _T],
   [[0, { [_eQN]: `ExclusionId`
   , [_xN]: _eIx }], [0, { [_eQN]: `InternetGatewayExclusionMode`
   , [_xN]: _iGEM }], [0, { [_eQN]: `ResourceArn`
@@ -25610,20 +25681,20 @@ export var VpcBlockPublicAccessExclusion$: StaticStructureSchema = [3, n0, _VBPA
   , [_xN]: _st }], [0, { [_eQN]: `Reason`
   , [_xN]: _rea }], [4, { [_eQN]: `CreationTimestamp`
   , [_xN]: _cTrea }], [4, { [_eQN]: `LastUpdateTimestamp`
-  , [_xN]: _lUTas }], [4, { [_eQN]: `DeletionTimestamp`
+  , [_xN]: _lUT }], [4, { [_eQN]: `DeletionTimestamp`
   , [_xN]: _dTele }], [() => TagList, { [_eQN]: `TagSet`
   , [_xN]: _tS }]]
 ];
 export var VpcBlockPublicAccessOptions$: StaticStructureSchema = [3, n0, _VBPAO,
   0,
-  [_AAI, _ARw, _St, _IGBM, _Rea, _LUTas, _MB, _EAx],
+  [_AAI, _ARw, _St, _IGBM, _Rea, _LUT, _MB, _EAx],
   [[0, { [_eQN]: `AwsAccountId`
   , [_xN]: _aAI }], [0, { [_eQN]: `AwsRegion`
   , [_xN]: _aRw }], [0, { [_eQN]: `State`
   , [_xN]: _st }], [0, { [_eQN]: `InternetGatewayBlockMode`
   , [_xN]: _iGBM }], [0, { [_eQN]: `Reason`
   , [_xN]: _rea }], [4, { [_eQN]: `LastUpdateTimestamp`
-  , [_xN]: _lUTas }], [0, { [_eQN]: `ManagedBy`
+  , [_xN]: _lUT }], [0, { [_eQN]: `ManagedBy`
   , [_xN]: _mB }], [0, { [_eQN]: `ExclusionsAllowed`
   , [_xN]: _eAx }]]
 ];
@@ -25656,7 +25727,7 @@ export var VpcEncryptionControl$: StaticStructureSchema = [3, n0, _VEC,
   [[0, { [_eQN]: `VpcId`
   , [_xN]: _vI }], [0, { [_eQN]: `VpcEncryptionControlId`
   , [_xN]: _vECI }], [0, { [_eQN]: `Mode`
-  , [_xN]: _mod }], [0, { [_eQN]: `State`
+  , [_xN]: _mo }], [0, { [_eQN]: `State`
   , [_xN]: _st }], [0, { [_eQN]: `StateMessage`
   , [_xN]: _sMta }], [() => VpcEncryptionControlExclusions$, { [_eQN]: `ResourceExclusions`
   , [_xN]: _rEes }], [() => TagList, { [_eQN]: `TagSet`
@@ -25676,14 +25747,14 @@ export var VpcEncryptionControlExclusion$: StaticStructureSchema = [3, n0, _VECE
 ];
 export var VpcEncryptionControlExclusions$: StaticStructureSchema = [3, n0, _VECEp,
   0,
-  [_IG, _EOIG, _NG, _VPG, _VPpc, _Lam, _VL, _EFS],
+  [_IG, _EOIG, _NG, _VPG, _VP, _L, _VL, _EFS],
   [[() => VpcEncryptionControlExclusion$, { [_eQN]: `InternetGateway`
   , [_xN]: _iG }], [() => VpcEncryptionControlExclusion$, { [_eQN]: `EgressOnlyInternetGateway`
   , [_xN]: _eOIG }], [() => VpcEncryptionControlExclusion$, { [_eQN]: `NatGateway`
   , [_xN]: _nG }], [() => VpcEncryptionControlExclusion$, { [_eQN]: `VirtualPrivateGateway`
   , [_xN]: _vPG }], [() => VpcEncryptionControlExclusion$, { [_eQN]: `VpcPeering`
-  , [_xN]: _vPpc }], [() => VpcEncryptionControlExclusion$, { [_eQN]: `Lambda`
-  , [_xN]: _la }], [() => VpcEncryptionControlExclusion$, { [_eQN]: `VpcLattice`
+  , [_xN]: _vP }], [() => VpcEncryptionControlExclusion$, { [_eQN]: `Lambda`
+  , [_xN]: _l }], [() => VpcEncryptionControlExclusion$, { [_eQN]: `VpcLattice`
   , [_xN]: _vL }], [() => VpcEncryptionControlExclusion$, { [_eQN]: `ElasticFileSystem`
   , [_xN]: _eFS }]]
 ];
@@ -28852,7 +28923,7 @@ export var AcceptTransitGatewayPeeringAttachment$: StaticOperationSchema = [9, n
 export var AcceptTransitGatewayVpcAttachment$: StaticOperationSchema = [9, n0, _ATGVA,
   0, () => AcceptTransitGatewayVpcAttachmentRequest$, () => AcceptTransitGatewayVpcAttachmentResult$
 ];
-export var AcceptVpcEndpointConnections$: StaticOperationSchema = [9, n0, _AVEC,
+export var AcceptVpcEndpointConnections$: StaticOperationSchema = [9, n0, _AVECc,
   0, () => AcceptVpcEndpointConnectionsRequest$, () => AcceptVpcEndpointConnectionsResult$
 ];
 export var AcceptVpcPeeringConnection$: StaticOperationSchema = [9, n0, _AVPC,
@@ -29640,6 +29711,9 @@ export var DeregisterTransitGatewayMulticastGroupSources$: StaticOperationSchema
 ];
 export var DescribeAccountAttributes$: StaticOperationSchema = [9, n0, _DAA,
   0, () => DescribeAccountAttributesRequest$, () => DescribeAccountAttributesResult$
+];
+export var DescribeAccountVpcEncryptionControl$: StaticOperationSchema = [9, n0, _DAVEC,
+  0, () => DescribeAccountVpcEncryptionControlRequest$, () => DescribeAccountVpcEncryptionControlResult$
 ];
 export var DescribeAddresses$: StaticOperationSchema = [9, n0, _DAesc,
   0, () => DescribeAddressesRequest$, () => DescribeAddressesResult$
@@ -30660,6 +30734,9 @@ export var ListVolumesInRecycleBin$: StaticOperationSchema = [9, n0, _LVIRB,
 ];
 export var LockSnapshot$: StaticOperationSchema = [9, n0, _LSock,
   0, () => LockSnapshotRequest$, () => LockSnapshotResult$
+];
+export var ModifyAccountVpcEncryptionControl$: StaticOperationSchema = [9, n0, _MAVEC,
+  0, () => ModifyAccountVpcEncryptionControlRequest$, () => ModifyAccountVpcEncryptionControlResult$
 ];
 export var ModifyAddressAttribute$: StaticOperationSchema = [9, n0, _MAA,
   0, () => ModifyAddressAttributeRequest$, () => ModifyAddressAttributeResult$

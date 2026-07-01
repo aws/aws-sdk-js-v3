@@ -2,8 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { WithdrawByoipCidrRequest } from "../models/models_7";
-import type { WithdrawByoipCidrResult } from "../models/models_8";
+import type { WithdrawByoipCidrRequest, WithdrawByoipCidrResult } from "../models/models_8";
 import { WithdrawByoipCidr$ } from "../schemas/schemas_0";
 
 /**

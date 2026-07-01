@@ -394,6 +394,67 @@ export type AccountAttributeName = (typeof AccountAttributeName)[keyof typeof Ac
  * @public
  * @enum
  */
+export const VpcEncryptionControlExclusionState = {
+  disabled: "disabled",
+  disabling: "disabling",
+  enabled: "enabled",
+  enabling: "enabling",
+} as const;
+/**
+ * @public
+ */
+export type VpcEncryptionControlExclusionState =
+  (typeof VpcEncryptionControlExclusionState)[keyof typeof VpcEncryptionControlExclusionState];
+
+/**
+ * @public
+ * @enum
+ */
+export const ManagedBy = {
+  account: "account",
+  declarative_policy: "declarative-policy",
+} as const;
+/**
+ * @public
+ */
+export type ManagedBy = (typeof ManagedBy)[keyof typeof ManagedBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const AccountVpcEncryptionControlMode = {
+  attempt_enforce: "attempt-enforce",
+  attempt_monitor: "attempt-monitor",
+  unmanaged: "unmanaged",
+} as const;
+/**
+ * @public
+ */
+export type AccountVpcEncryptionControlMode =
+  (typeof AccountVpcEncryptionControlMode)[keyof typeof AccountVpcEncryptionControlMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const AccountVpcEncryptionControlState = {
+  default_state: "default-state",
+  transitions_failed: "transitions-failed",
+  transitions_in_progress: "transitions-in-progress",
+  transitions_partially_successful: "transitions-partially-successful",
+  transitions_successful: "transitions-successful",
+} as const;
+/**
+ * @public
+ */
+export type AccountVpcEncryptionControlState =
+  (typeof AccountVpcEncryptionControlState)[keyof typeof AccountVpcEncryptionControlState];
+
+/**
+ * @public
+ * @enum
+ */
 export const InstanceHealthStatus = {
   HEALTHY_STATUS: "healthy",
   UNHEALTHY_STATUS: "unhealthy",
@@ -571,6 +632,19 @@ export type AutoPlacement = (typeof AutoPlacement)[keyof typeof AutoPlacement];
  * @public
  * @enum
  */
+export const AmdSevSnp = {
+  disabled: "disabled",
+  enabled: "enabled",
+} as const;
+/**
+ * @public
+ */
+export type AmdSevSnp = (typeof AmdSevSnp)[keyof typeof AmdSevSnp];
+
+/**
+ * @public
+ * @enum
+ */
 export const HostMaintenance = {
   off: "off",
   on: "on",
@@ -618,6 +692,7 @@ export type IpamPoolAllocationResourceType =
  */
 export const AllocationState = {
   available: "available",
+  configuring: "configuring",
   pending: "pending",
   permanent_failure: "permanent-failure",
   released: "released",
@@ -2857,22 +2932,6 @@ export const VpcEncryptionControlMode = {
  * @public
  */
 export type VpcEncryptionControlMode = (typeof VpcEncryptionControlMode)[keyof typeof VpcEncryptionControlMode];
-
-/**
- * @public
- * @enum
- */
-export const VpcEncryptionControlExclusionState = {
-  disabled: "disabled",
-  disabling: "disabling",
-  enabled: "enabled",
-  enabling: "enabling",
-} as const;
-/**
- * @public
- */
-export type VpcEncryptionControlExclusionState =
-  (typeof VpcEncryptionControlExclusionState)[keyof typeof VpcEncryptionControlExclusionState];
 
 /**
  * @public
@@ -7176,19 +7235,6 @@ export const InternetGatewayBlockMode = {
  * @public
  */
 export type InternetGatewayBlockMode = (typeof InternetGatewayBlockMode)[keyof typeof InternetGatewayBlockMode];
-
-/**
- * @public
- * @enum
- */
-export const ManagedBy = {
-  account: "account",
-  declarative_policy: "declarative-policy",
-} as const;
-/**
- * @public
- */
-export type ManagedBy = (typeof ManagedBy)[keyof typeof ManagedBy];
 
 /**
  * @public

@@ -2,8 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DescribeSpotInstanceRequestsRequest } from "../models/models_4";
-import type { DescribeSpotInstanceRequestsResult } from "../models/models_5";
+import type { DescribeSpotInstanceRequestsRequest, DescribeSpotInstanceRequestsResult } from "../models/models_5";
 import { DescribeSpotInstanceRequests$ } from "../schemas/schemas_0";
 
 /**

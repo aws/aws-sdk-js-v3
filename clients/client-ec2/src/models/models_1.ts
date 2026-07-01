@@ -11,6 +11,7 @@ import type {
   AutoScalingIpsState,
   AvailabilityMode,
   BareMetal,
+  BlockPublicAccessMode,
   BurstablePerformance,
   CapacityReservationPreference,
   ConnectivityType,
@@ -94,8 +95,6 @@ import type {
   Protocol,
   ReplaceRootVolumeTaskState,
   ResourceType,
-  RouteServerBfdState,
-  RouteServerBgpState,
   RouteServerEndpointState,
   RouteServerPeerLivenessMode,
   RouteServerPersistRoutesAction,
@@ -109,6 +108,7 @@ import type {
   SpotInstanceInterruptionBehavior,
   SpotInstanceType,
   SpreadLevel,
+  SubnetState,
   TaggableResourceType,
   TargetCapacityUnitType,
   Tenancy,
@@ -130,20 +130,246 @@ import type {
   AccessScopePathRequest,
   AddIpamOperatingRegion,
   AddPrefixListEntry,
-  BlockPublicAccessStates,
   InstanceEventWindow,
   Ipv4PrefixSpecification,
   NatGatewayAddress,
   OperatorResponse,
   PortRange,
   ReservedInstancesListing,
-  Subnet,
+  SubnetIpv6CidrBlockAssociation,
   Tag,
   TagSpecification,
   UnsuccessfulItem,
   VpcCidrBlockAssociation,
   VpcIpv6CidrBlockAssociation,
 } from "./models_0";
+
+/**
+ * <p>The state of VPC Block Public Access (BPA).</p>
+ * @public
+ */
+export interface BlockPublicAccessStates {
+  /**
+   * <p>The mode of VPC BPA.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>off</code>: VPC BPA is not enabled and traffic is allowed to and from internet gateways and egress-only internet gateways in this Region.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>block-bidirectional</code>: Block all traffic to and from internet gateways and egress-only internet gateways in this Region (except for excluded VPCs and subnets).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>block-ingress</code>: Block all internet traffic to the VPCs in this Region (except for VPCs or subnets which are excluded). Only traffic to and from NAT gateways and egress-only internet gateways is allowed because these gateways only allow outbound connections to be established.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  InternetGatewayBlockMode?: BlockPublicAccessMode | undefined;
+}
+
+/**
+ * <p>Describes the options for instance hostnames.</p>
+ * @public
+ */
+export interface PrivateDnsNameOptionsOnLaunch {
+  /**
+   * <p>The type of hostname for EC2 instances. For IPv4 only subnets, an instance DNS name
+   *             must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name
+   *             must be based on the instance ID. For dual-stack subnets, you can specify whether DNS
+   *             names use the instance IPv4 address or the instance ID.</p>
+   * @public
+   */
+  HostnameType?: HostnameType | undefined;
+
+  /**
+   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS A
+   *             records.</p>
+   * @public
+   */
+  EnableResourceNameDnsARecord?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether to respond to DNS queries for instance hostname with DNS AAAA
+   *             records.</p>
+   * @public
+   */
+  EnableResourceNameDnsAAAARecord?: boolean | undefined;
+}
+
+/**
+ * <p>Describes a subnet.</p>
+ * @public
+ */
+export interface Subnet {
+  /**
+   * <p>The AZ ID of the subnet.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
+   * <p>
+   *             Indicates the device position for local network interfaces in this subnet. For example,
+   *             <code>1</code> indicates local network interfaces in this subnet are the secondary
+   *             network interface (eth1).
+   *         </p>
+   * @public
+   */
+  EnableLniAtDeviceIndex?: number | undefined;
+
+  /**
+   * <p>Indicates whether a network interface created in this subnet (including a network
+   *             interface created by <a>RunInstances</a>) receives a customer-owned IPv4 address.</p>
+   * @public
+   */
+  MapCustomerOwnedIpOnLaunch?: boolean | undefined;
+
+  /**
+   * <p>The customer-owned IPv4 address pool associated with the subnet.</p>
+   * @public
+   */
+  CustomerOwnedIpv4Pool?: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the subnet.</p>
+   * @public
+   */
+  OwnerId?: string | undefined;
+
+  /**
+   * <p>Indicates whether a network interface created in this subnet (including a network
+   *             interface created by <a>RunInstances</a>) receives an IPv6 address.</p>
+   * @public
+   */
+  AssignIpv6AddressOnCreation?: boolean | undefined;
+
+  /**
+   * <p>Information about the IPv6 CIDR blocks associated with the subnet.</p>
+   * @public
+   */
+  Ipv6CidrBlockAssociationSet?: SubnetIpv6CidrBlockAssociation[] | undefined;
+
+  /**
+   * <p>Any tags assigned to the subnet.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the subnet.</p>
+   * @public
+   */
+  SubnetArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+   * @public
+   */
+  OutpostArn?: string | undefined;
+
+  /**
+   * <p>Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet
+   *             should return synthetic IPv6 addresses for IPv4-only destinations.</p>
+   * @public
+   */
+  EnableDns64?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether this is an IPv6 only subnet.</p>
+   * @public
+   */
+  Ipv6Native?: boolean | undefined;
+
+  /**
+   * <p>The type of hostnames to assign to instances in the subnet at launch. An instance hostname
+   *             is based on the IPv4 address or ID of the instance.</p>
+   * @public
+   */
+  PrivateDnsNameOptionsOnLaunch?: PrivateDnsNameOptionsOnLaunch | undefined;
+
+  /**
+   * <p>The state of VPC Block Public Access (BPA).</p>
+   * @public
+   */
+  BlockPublicAccessStates?: BlockPublicAccessStates | undefined;
+
+  /**
+   * <p>Indicates if this is a subnet used with Amazon Elastic VMware Service (EVS).
+   *             Possible values are <code>Elastic VMware Service</code> or no value. For more
+   *             information about Amazon EVS, see <a href="https://docs.aws.amazon.com/evs/latest/APIReference/Welcome.html">
+   *                <i>Amazon Elastic VMware Service
+   *                     API Reference</i>
+   *             </a>.</p>
+   * @public
+   */
+  Type?: string | undefined;
+
+  /**
+   * <p>The ID of the subnet.</p>
+   * @public
+   */
+  SubnetId?: string | undefined;
+
+  /**
+   * <p>The current state of the subnet.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>failed</code>: The underlying infrastructure to support the subnet failed to provision
+   *                     as expected.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>failed-insufficient-capacity</code>: The underlying infrastructure to support the subnet
+   *                     failed to provision due to a shortage of EC2 instance capacity.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  State?: SubnetState | undefined;
+
+  /**
+   * <p>The ID of the VPC the subnet is in.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+
+  /**
+   * <p>The IPv4 CIDR block assigned to the subnet.</p>
+   * @public
+   */
+  CidrBlock?: string | undefined;
+
+  /**
+   * <p>The number of unused private IPv4 addresses in the subnet. The IPv4 addresses for any
+   * 			stopped instances are considered unavailable.</p>
+   * @public
+   */
+  AvailableIpAddressCount?: number | undefined;
+
+  /**
+   * <p>The Availability Zone of the subnet.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>Indicates whether this is the default subnet for the Availability Zone.</p>
+   * @public
+   */
+  DefaultForAz?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether instances launched in this subnet receive a public IPv4 address.</p>
+   *          <p>Amazon Web Services charges for all public IPv4 addresses, including public IPv4 addresses
+   * associated with running instances and Elastic IP addresses. For more information, see the <i>Public IPv4 Address</i> tab on the <a href="http://aws.amazon.com/vpc/pricing/">Amazon VPC pricing page</a>.</p>
+   * @public
+   */
+  MapPublicIpOnLaunch?: boolean | undefined;
+}
 
 /**
  * @public
@@ -14040,58 +14266,4 @@ export interface CreateRouteServerPeerRequest {
    * @public
    */
   TagSpecifications?: TagSpecification[] | undefined;
-}
-
-/**
- * <p>The current status of Bidirectional Forwarding Detection (BFD) for a BGP session.</p>
- * @public
- */
-export interface RouteServerBfdStatus {
-  /**
-   * <p>The operational status of the BFD session.</p>
-   * @public
-   */
-  Status?: RouteServerBfdState | undefined;
-}
-
-/**
- * <p>The BGP configuration options for a route server peer.</p>
- * @public
- */
-export interface RouteServerBgpOptions {
-  /**
-   * <p>The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.</p>
-   * @public
-   */
-  PeerAsn?: number | undefined;
-
-  /**
-   * <p>The liveness detection protocol used for the BGP peer.</p>
-   *          <p>The requested liveness detection protocol for the BGP peer.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>bgp-keepalive</code>: The standard BGP keep alive mechanism (<a href="https://www.rfc-editor.org/rfc/rfc4271#page-21">RFC4271</a>) that is stable but may take longer to fail-over in cases of network impact or router failure.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>bfd</code>: An additional Bidirectional Forwarding Detection (BFD) protocol (<a href="https://www.rfc-editor.org/rfc/rfc5880">RFC5880</a>) that enables fast failover by using more sensitive liveness detection.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Defaults to <code>bgp-keepalive</code>.</p>
-   * @public
-   */
-  PeerLivenessDetection?: RouteServerPeerLivenessMode | undefined;
-}
-
-/**
- * <p>The current status of a BGP session.</p>
- * @public
- */
-export interface RouteServerBgpStatus {
-  /**
-   * <p>The operational status of the BGP session. The status enables you to monitor session liveness if you lack monitoring on your router/appliance.</p>
-   * @public
-   */
-  Status?: RouteServerBgpState | undefined;
 }

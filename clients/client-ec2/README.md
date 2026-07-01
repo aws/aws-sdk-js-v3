@@ -2123,6 +2123,13 @@ DescribeAccountAttributes
 </details>
 <details>
 <summary>
+DescribeAccountVpcEncryptionControl
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeAccountVpcEncryptionControlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeAccountVpcEncryptionControlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeAccountVpcEncryptionControlCommandOutput/)
+</details>
+<details>
+<summary>
 DescribeAddresses
 </summary>
 
@@ -4500,6 +4507,13 @@ LockSnapshot
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/LockSnapshotCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/LockSnapshotCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/LockSnapshotCommandOutput/)
+</details>
+<details>
+<summary>
+ModifyAccountVpcEncryptionControl
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/ModifyAccountVpcEncryptionControlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyAccountVpcEncryptionControlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyAccountVpcEncryptionControlCommandOutput/)
 </details>
 <details>
 <summary>

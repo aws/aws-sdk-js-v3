@@ -2,8 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DescribeImportImageTasksRequest } from "../models/models_3";
-import type { DescribeImportImageTasksResult } from "../models/models_4";
+import type { DescribeImportImageTasksRequest, DescribeImportImageTasksResult } from "../models/models_4";
 import { DescribeImportImageTasks$ } from "../schemas/schemas_0";
 
 /**

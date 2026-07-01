@@ -33,6 +33,9 @@ import type {
   PayerResponsibilityType,
   ProtocolValue,
   RouteOrigin,
+  RouteServerBfdState,
+  RouteServerBgpState,
+  RouteServerPeerLivenessMode,
   RouteServerPeerState,
   RouteState,
   SecondaryNetworkCidrBlockAssociationState,
@@ -98,7 +101,6 @@ import type {
   CoipCidr,
   CoipPool,
   RouteTableAssociationState,
-  Subnet,
   Tag,
   TagSpecification,
   TransitGatewayPeeringAttachment,
@@ -130,13 +132,65 @@ import type {
   ManagedPrefixList,
   OperatorRequest,
   RouteServer,
-  RouteServerBfdStatus,
-  RouteServerBgpOptions,
-  RouteServerBgpStatus,
   RouteServerEndpoint,
+  Subnet,
   Vpc,
   VpcEncryptionControl,
 } from "./models_1";
+
+/**
+ * <p>The current status of Bidirectional Forwarding Detection (BFD) for a BGP session.</p>
+ * @public
+ */
+export interface RouteServerBfdStatus {
+  /**
+   * <p>The operational status of the BFD session.</p>
+   * @public
+   */
+  Status?: RouteServerBfdState | undefined;
+}
+
+/**
+ * <p>The BGP configuration options for a route server peer.</p>
+ * @public
+ */
+export interface RouteServerBgpOptions {
+  /**
+   * <p>The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.</p>
+   * @public
+   */
+  PeerAsn?: number | undefined;
+
+  /**
+   * <p>The liveness detection protocol used for the BGP peer.</p>
+   *          <p>The requested liveness detection protocol for the BGP peer.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>bgp-keepalive</code>: The standard BGP keep alive mechanism (<a href="https://www.rfc-editor.org/rfc/rfc4271#page-21">RFC4271</a>) that is stable but may take longer to fail-over in cases of network impact or router failure.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>bfd</code>: An additional Bidirectional Forwarding Detection (BFD) protocol (<a href="https://www.rfc-editor.org/rfc/rfc5880">RFC5880</a>) that enables fast failover by using more sensitive liveness detection.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Defaults to <code>bgp-keepalive</code>.</p>
+   * @public
+   */
+  PeerLivenessDetection?: RouteServerPeerLivenessMode | undefined;
+}
+
+/**
+ * <p>The current status of a BGP session.</p>
+ * @public
+ */
+export interface RouteServerBgpStatus {
+  /**
+   * <p>The operational status of the BGP session. The status enables you to monitor session liveness if you lack monitoring on your router/appliance.</p>
+   * @public
+   */
+  Status?: RouteServerBgpState | undefined;
+}
 
 /**
  * <p>Describes a BGP peer configuration for a route server endpoint.</p>
@@ -9805,61 +9859,4 @@ export interface DeleteSecondaryNetworkRequest {
    * @public
    */
   SecondaryNetworkId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteSecondaryNetworkResult {
-  /**
-   * <p>Information about the secondary network.</p>
-   * @public
-   */
-  SecondaryNetwork?: SecondaryNetwork | undefined;
-
-  /**
-   * <p>Unique, case-sensitive identifier to ensure the idempotency of the request. Only returned if a client token was provided in the request.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteSecondarySubnetRequest {
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensure Idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the secondary subnet to delete.</p>
-   * @public
-   */
-  SecondarySubnetId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteSecondarySubnetResult {
-  /**
-   * <p>Information about the secondary subnet being deleted.</p>
-   * @public
-   */
-  SecondarySubnet?: SecondarySubnet | undefined;
-
-  /**
-   * <p>Unique, case-sensitive identifier to ensure the idempotency of the request. Only returned if a client token was provided in the request.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
 }

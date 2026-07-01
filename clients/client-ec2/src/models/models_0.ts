@@ -1,8 +1,11 @@
 // smithy-typescript generated code
 import type {
   _InstanceType,
+  AccountVpcEncryptionControlMode,
+  AccountVpcEncryptionControlState,
   AddressTransferStatus,
   AllocationType,
+  AmdSevSnp,
   ApplianceModeSupportValue,
   ApplyCancellationCharges,
   AsnAssociationState,
@@ -10,7 +13,6 @@ import type {
   AttachmentStatus,
   AutoPlacement,
   BatchState,
-  BlockPublicAccessMode,
   BundleTaskState,
   ByoipCidrState,
   CancelBatchErrorCode,
@@ -38,7 +40,6 @@ import type {
   FleetInstanceMatchCriteria,
   GatewayType,
   HostMaintenance,
-  HostnameType,
   HostRecovery,
   IamInstanceProfileAssociationState,
   InstanceEventWindowState,
@@ -55,6 +56,7 @@ import type {
   Ipv6SupportValue,
   ListingState,
   ListingStatus,
+  ManagedBy,
   NatGatewayAddressStatus,
   OutputFormat,
   PrincipalType,
@@ -69,7 +71,6 @@ import type {
   ServiceManaged,
   SSEType,
   SubnetCidrBlockStateCode,
-  SubnetState,
   TrafficIpAddressType,
   TransitGatewayAssociationState,
   TransitGatewayAttachmentResourceType,
@@ -83,6 +84,7 @@ import type {
   VolumeState,
   VolumeType,
   VpcCidrBlockStateCode,
+  VpcEncryptionControlExclusionState,
   VpcPeeringConnectionStateReasonCode,
   VpnTunnelProvisioningStatus,
   WeekDay,
@@ -2466,6 +2468,98 @@ export interface AccountAttribute {
 }
 
 /**
+ * <p>Describes the exclusion configurations for the various resource types in the account-level VPC Encryption Control configuration.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html">Enforce VPC encryption in transit</a> in the <i>Amazon VPC User Guide</i>.</p>
+ * @public
+ */
+export interface AccountVpcEncryptionControlExclusions {
+  /**
+   * <p>The exclusion configuration for internet gateway resource.</p>
+   * @public
+   */
+  InternetGateway?: VpcEncryptionControlExclusionState | undefined;
+
+  /**
+   * <p>The exclusion configuration for egress-only internet gateway resource.</p>
+   * @public
+   */
+  EgressOnlyInternetGateway?: VpcEncryptionControlExclusionState | undefined;
+
+  /**
+   * <p>The exclusion configuration for NAT gateway resource.</p>
+   * @public
+   */
+  NatGateway?: VpcEncryptionControlExclusionState | undefined;
+
+  /**
+   * <p>The exclusion configuration for virtual private gateway resource.</p>
+   * @public
+   */
+  VirtualPrivateGateway?: VpcEncryptionControlExclusionState | undefined;
+
+  /**
+   * <p>The exclusion configuration for VPC peering connection resource.</p>
+   * @public
+   */
+  VpcPeering?: VpcEncryptionControlExclusionState | undefined;
+
+  /**
+   * <p>The exclusion configuration for Lambda service.</p>
+   * @public
+   */
+  Lambda?: VpcEncryptionControlExclusionState | undefined;
+
+  /**
+   * <p>The exclusion configuration for VPC Lattice service.</p>
+   * @public
+   */
+  VpcLattice?: VpcEncryptionControlExclusionState | undefined;
+
+  /**
+   * <p>The exclusion configuration for Elastic File System service.</p>
+   * @public
+   */
+  ElasticFileSystem?: VpcEncryptionControlExclusionState | undefined;
+}
+
+/**
+ * <p>Describes the account-level VPC Encryption Control configuration, including its mode, state, and exclusions.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html">Enforce VPC encryption in transit</a> in the <i>Amazon VPC User Guide</i>.</p>
+ * @public
+ */
+export interface AccountVpcEncryptionControl {
+  /**
+   * <p>The current state of the account-level VPC Encryption Control configuration.</p>
+   * @public
+   */
+  State?: AccountVpcEncryptionControlState | undefined;
+
+  /**
+   * <p>The encryption mode for the account-level VPC Encryption Control configuration.</p>
+   * @public
+   */
+  Mode?: AccountVpcEncryptionControlMode | undefined;
+
+  /**
+   * <p>Information about the traffic exclusions for the account-level VPC Encryption Control configuration.</p>
+   * @public
+   */
+  Exclusions?: AccountVpcEncryptionControlExclusions | undefined;
+
+  /**
+   * <p>The entity that manages the account-level VPC Encryption Control configuration.</p>
+   * @public
+   */
+  ManagedBy?: ManagedBy | undefined;
+
+  /**
+   * <p>The date and time when the account-level VPC Encryption Control configuration was last updated.</p>
+   * @public
+   */
+  LastUpdateTimestamp?: Date | undefined;
+}
+
+/**
  * <p>Describes a running instance in a Spot Fleet.</p>
  * @public
  */
@@ -3136,6 +3230,18 @@ export interface AllocateAddressResult {
 }
 
 /**
+ * <p>Contains the CPU configuration options for a Dedicated Host allocation request. Options include AMD Secure Encrypted Virtualization-Secure Nested Paging (AMD SEV-SNP) settings.</p>
+ * @public
+ */
+export interface HostCpuOptionsRequest {
+  /**
+   * <p>Specifies whether AMD Secure Encrypted Virtualization-Secure Nested Paging (AMD SEV-SNP) is enabled or disabled for the Dedicated Host. If you don't specify a value, AMD SEV-SNP is <code>disabled</code>.</p>
+   * @public
+   */
+  AmdSevSnp?: AmdSevSnp | undefined;
+}
+
+/**
  * @public
  */
 export interface AllocateHostsRequest {
@@ -3210,6 +3316,12 @@ export interface AllocateHostsRequest {
    * @public
    */
   AvailabilityZoneId?: string | undefined;
+
+  /**
+   * <p>The CPU configuration options to apply to the Dedicated Host.</p>
+   * @public
+   */
+  CpuOptions?: HostCpuOptionsRequest | undefined;
 
   /**
    * <p>Indicates whether the host accepts any untargeted instance launches that match its
@@ -10508,231 +10620,4 @@ export interface CreateDefaultSubnetRequest {
    * @public
    */
   AvailabilityZoneId?: string | undefined;
-}
-
-/**
- * <p>The state of VPC Block Public Access (BPA).</p>
- * @public
- */
-export interface BlockPublicAccessStates {
-  /**
-   * <p>The mode of VPC BPA.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>off</code>: VPC BPA is not enabled and traffic is allowed to and from internet gateways and egress-only internet gateways in this Region.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>block-bidirectional</code>: Block all traffic to and from internet gateways and egress-only internet gateways in this Region (except for excluded VPCs and subnets).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>block-ingress</code>: Block all internet traffic to the VPCs in this Region (except for VPCs or subnets which are excluded). Only traffic to and from NAT gateways and egress-only internet gateways is allowed because these gateways only allow outbound connections to be established.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  InternetGatewayBlockMode?: BlockPublicAccessMode | undefined;
-}
-
-/**
- * <p>Describes the options for instance hostnames.</p>
- * @public
- */
-export interface PrivateDnsNameOptionsOnLaunch {
-  /**
-   * <p>The type of hostname for EC2 instances. For IPv4 only subnets, an instance DNS name
-   *             must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name
-   *             must be based on the instance ID. For dual-stack subnets, you can specify whether DNS
-   *             names use the instance IPv4 address or the instance ID.</p>
-   * @public
-   */
-  HostnameType?: HostnameType | undefined;
-
-  /**
-   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS A
-   *             records.</p>
-   * @public
-   */
-  EnableResourceNameDnsARecord?: boolean | undefined;
-
-  /**
-   * <p>Indicates whether to respond to DNS queries for instance hostname with DNS AAAA
-   *             records.</p>
-   * @public
-   */
-  EnableResourceNameDnsAAAARecord?: boolean | undefined;
-}
-
-/**
- * <p>Describes a subnet.</p>
- * @public
- */
-export interface Subnet {
-  /**
-   * <p>The AZ ID of the subnet.</p>
-   * @public
-   */
-  AvailabilityZoneId?: string | undefined;
-
-  /**
-   * <p>
-   *             Indicates the device position for local network interfaces in this subnet. For example,
-   *             <code>1</code> indicates local network interfaces in this subnet are the secondary
-   *             network interface (eth1).
-   *         </p>
-   * @public
-   */
-  EnableLniAtDeviceIndex?: number | undefined;
-
-  /**
-   * <p>Indicates whether a network interface created in this subnet (including a network
-   *             interface created by <a>RunInstances</a>) receives a customer-owned IPv4 address.</p>
-   * @public
-   */
-  MapCustomerOwnedIpOnLaunch?: boolean | undefined;
-
-  /**
-   * <p>The customer-owned IPv4 address pool associated with the subnet.</p>
-   * @public
-   */
-  CustomerOwnedIpv4Pool?: string | undefined;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the subnet.</p>
-   * @public
-   */
-  OwnerId?: string | undefined;
-
-  /**
-   * <p>Indicates whether a network interface created in this subnet (including a network
-   *             interface created by <a>RunInstances</a>) receives an IPv6 address.</p>
-   * @public
-   */
-  AssignIpv6AddressOnCreation?: boolean | undefined;
-
-  /**
-   * <p>Information about the IPv6 CIDR blocks associated with the subnet.</p>
-   * @public
-   */
-  Ipv6CidrBlockAssociationSet?: SubnetIpv6CidrBlockAssociation[] | undefined;
-
-  /**
-   * <p>Any tags assigned to the subnet.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the subnet.</p>
-   * @public
-   */
-  SubnetArn?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
-   * @public
-   */
-  OutpostArn?: string | undefined;
-
-  /**
-   * <p>Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet
-   *             should return synthetic IPv6 addresses for IPv4-only destinations.</p>
-   * @public
-   */
-  EnableDns64?: boolean | undefined;
-
-  /**
-   * <p>Indicates whether this is an IPv6 only subnet.</p>
-   * @public
-   */
-  Ipv6Native?: boolean | undefined;
-
-  /**
-   * <p>The type of hostnames to assign to instances in the subnet at launch. An instance hostname
-   *             is based on the IPv4 address or ID of the instance.</p>
-   * @public
-   */
-  PrivateDnsNameOptionsOnLaunch?: PrivateDnsNameOptionsOnLaunch | undefined;
-
-  /**
-   * <p>The state of VPC Block Public Access (BPA).</p>
-   * @public
-   */
-  BlockPublicAccessStates?: BlockPublicAccessStates | undefined;
-
-  /**
-   * <p>Indicates if this is a subnet used with Amazon Elastic VMware Service (EVS).
-   *             Possible values are <code>Elastic VMware Service</code> or no value. For more
-   *             information about Amazon EVS, see <a href="https://docs.aws.amazon.com/evs/latest/APIReference/Welcome.html">
-   *                <i>Amazon Elastic VMware Service
-   *                     API Reference</i>
-   *             </a>.</p>
-   * @public
-   */
-  Type?: string | undefined;
-
-  /**
-   * <p>The ID of the subnet.</p>
-   * @public
-   */
-  SubnetId?: string | undefined;
-
-  /**
-   * <p>The current state of the subnet.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>failed</code>: The underlying infrastructure to support the subnet failed to provision
-   *                     as expected.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>failed-insufficient-capacity</code>: The underlying infrastructure to support the subnet
-   *                     failed to provision due to a shortage of EC2 instance capacity.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  State?: SubnetState | undefined;
-
-  /**
-   * <p>The ID of the VPC the subnet is in.</p>
-   * @public
-   */
-  VpcId?: string | undefined;
-
-  /**
-   * <p>The IPv4 CIDR block assigned to the subnet.</p>
-   * @public
-   */
-  CidrBlock?: string | undefined;
-
-  /**
-   * <p>The number of unused private IPv4 addresses in the subnet. The IPv4 addresses for any
-   * 			stopped instances are considered unavailable.</p>
-   * @public
-   */
-  AvailableIpAddressCount?: number | undefined;
-
-  /**
-   * <p>The Availability Zone of the subnet.</p>
-   * @public
-   */
-  AvailabilityZone?: string | undefined;
-
-  /**
-   * <p>Indicates whether this is the default subnet for the Availability Zone.</p>
-   * @public
-   */
-  DefaultForAz?: boolean | undefined;
-
-  /**
-   * <p>Indicates whether instances launched in this subnet receive a public IPv4 address.</p>
-   *          <p>Amazon Web Services charges for all public IPv4 addresses, including public IPv4 addresses
-   * associated with running instances and Elastic IP addresses. For more information, see the <i>Public IPv4 Address</i> tab on the <a href="http://aws.amazon.com/vpc/pricing/">Amazon VPC pricing page</a>.</p>
-   * @public
-   */
-  MapPublicIpOnLaunch?: boolean | undefined;
 }

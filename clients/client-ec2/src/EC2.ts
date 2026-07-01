@@ -1346,6 +1346,11 @@ import {
   DescribeAccountAttributesCommand,
 } from "./commands/DescribeAccountAttributesCommand";
 import {
+  type DescribeAccountVpcEncryptionControlCommandInput,
+  type DescribeAccountVpcEncryptionControlCommandOutput,
+  DescribeAccountVpcEncryptionControlCommand,
+} from "./commands/DescribeAccountVpcEncryptionControlCommand";
+import {
   type DescribeAddressesAttributeCommandInput,
   type DescribeAddressesAttributeCommandOutput,
   DescribeAddressesAttributeCommand,
@@ -3046,6 +3051,11 @@ import {
   LockSnapshotCommand,
 } from "./commands/LockSnapshotCommand";
 import {
+  type ModifyAccountVpcEncryptionControlCommandInput,
+  type ModifyAccountVpcEncryptionControlCommandOutput,
+  ModifyAccountVpcEncryptionControlCommand,
+} from "./commands/ModifyAccountVpcEncryptionControlCommand";
+import {
   type ModifyAddressAttributeCommandInput,
   type ModifyAddressAttributeCommandOutput,
   ModifyAddressAttributeCommand,
@@ -4401,6 +4411,7 @@ const commands = {
   DeregisterTransitGatewayMulticastGroupMembersCommand,
   DeregisterTransitGatewayMulticastGroupSourcesCommand,
   DescribeAccountAttributesCommand,
+  DescribeAccountVpcEncryptionControlCommand,
   DescribeAddressesCommand,
   DescribeAddressesAttributeCommand,
   DescribeAddressTransfersCommand,
@@ -4741,6 +4752,7 @@ const commands = {
   ListSnapshotsInRecycleBinCommand,
   ListVolumesInRecycleBinCommand,
   LockSnapshotCommand,
+  ModifyAccountVpcEncryptionControlCommand,
   ModifyAddressAttributeCommand,
   ModifyAvailabilityZoneGroupCommand,
   ModifyCapacityReservationCommand,
@@ -9737,6 +9749,24 @@ export interface EC2 {
     args: DescribeAccountAttributesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeAccountAttributesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeAccountVpcEncryptionControlCommand}
+   */
+  describeAccountVpcEncryptionControl(): Promise<DescribeAccountVpcEncryptionControlCommandOutput>;
+  describeAccountVpcEncryptionControl(
+    args: DescribeAccountVpcEncryptionControlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAccountVpcEncryptionControlCommandOutput>;
+  describeAccountVpcEncryptionControl(
+    args: DescribeAccountVpcEncryptionControlCommandInput,
+    cb: (err: any, data?: DescribeAccountVpcEncryptionControlCommandOutput) => void
+  ): void;
+  describeAccountVpcEncryptionControl(
+    args: DescribeAccountVpcEncryptionControlCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAccountVpcEncryptionControlCommandOutput) => void
   ): void;
 
   /**
@@ -15711,6 +15741,24 @@ export interface EC2 {
     args: LockSnapshotCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: LockSnapshotCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ModifyAccountVpcEncryptionControlCommand}
+   */
+  modifyAccountVpcEncryptionControl(): Promise<ModifyAccountVpcEncryptionControlCommandOutput>;
+  modifyAccountVpcEncryptionControl(
+    args: ModifyAccountVpcEncryptionControlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyAccountVpcEncryptionControlCommandOutput>;
+  modifyAccountVpcEncryptionControl(
+    args: ModifyAccountVpcEncryptionControlCommandInput,
+    cb: (err: any, data?: ModifyAccountVpcEncryptionControlCommandOutput) => void
+  ): void;
+  modifyAccountVpcEncryptionControl(
+    args: ModifyAccountVpcEncryptionControlCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyAccountVpcEncryptionControlCommandOutput) => void
   ): void;
 
   /**

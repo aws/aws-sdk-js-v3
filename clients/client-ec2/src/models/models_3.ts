@@ -5,6 +5,7 @@ import type {
   AddressAttributeName,
   AllocationState,
   AllowsMultipleInstanceTypes,
+  AmdSevSnp,
   ArchitectureValues,
   AsnState,
   AssociatedNetworkType,
@@ -86,6 +87,7 @@ import type {
 } from "./enums";
 import type {
   AccountAttribute,
+  AccountVpcEncryptionControl,
   ActiveInstance,
   Address,
   AddressAttribute,
@@ -125,6 +127,8 @@ import type {
   VpcEncryptionControl,
 } from "./models_1";
 import type {
+  SecondaryNetwork,
+  SecondarySubnet,
   SubnetCidrReservation,
   TransitGateway,
   TransitGatewayConnect,
@@ -141,6 +145,63 @@ import type {
   VerifiedAccessGroup,
   VpcBlockPublicAccessExclusion,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DeleteSecondaryNetworkResult {
+  /**
+   * <p>Information about the secondary network.</p>
+   * @public
+   */
+  SecondaryNetwork?: SecondaryNetwork | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier to ensure the idempotency of the request. Only returned if a client token was provided in the request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSecondarySubnetRequest {
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensure Idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the secondary subnet to delete.</p>
+   * @public
+   */
+  SecondarySubnetId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSecondarySubnetResult {
+  /**
+   * <p>Information about the secondary subnet being deleted.</p>
+   * @public
+   */
+  SecondarySubnet?: SecondarySubnet | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier to ensure the idempotency of the request. Only returned if a client token was provided in the request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
 
 /**
  * @public
@@ -1875,6 +1936,30 @@ export interface DescribeAccountAttributesResult {
    * @public
    */
   AccountAttributes?: AccountAttribute[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAccountVpcEncryptionControlRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAccountVpcEncryptionControlResult {
+  /**
+   * <p>Information about the account-level VPC Encryption Control configuration.</p>
+   * @public
+   */
+  AccountVpcEncryptionControl?: AccountVpcEncryptionControl | undefined;
 }
 
 /**
@@ -9057,6 +9142,18 @@ export interface AvailableCapacity {
 }
 
 /**
+ * <p>Contains the CPU options for a Dedicated Host, including AMD Secure Encrypted Virtualization-Secure Nested Paging (AMD SEV-SNP) settings.</p>
+ * @public
+ */
+export interface HostCpuOptions {
+  /**
+   * <p>Specifies whether AMD Secure Encrypted Virtualization-Secure Nested Paging (AMD SEV-SNP) is enabled or disabled for the Dedicated Host. If you don't specify a value, AMD SEV-SNP is <code>disabled</code>.</p>
+   * @public
+   */
+  AmdSevSnp?: AmdSevSnp | undefined;
+}
+
+/**
  * <p>Describes the properties of a Dedicated Host.</p>
  * @public
  */
@@ -9250,6 +9347,12 @@ export interface Host {
    * @public
    */
   AssetId?: string | undefined;
+
+  /**
+   * <p>The CPU options for the Dedicated Host, including AMD Secure Encrypted Virtualization-Secure Nested Paging (AMD SEV-SNP) settings.</p>
+   * @public
+   */
+  CpuOptions?: HostCpuOptions | undefined;
 }
 
 /**
@@ -10673,268 +10776,4 @@ export interface ImageUsageReport {
    * @public
    */
   Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeImageUsageReportsResult {
-  /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
-   *          are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The image usage reports.</p>
-   * @public
-   */
-  ImageUsageReports?: ImageUsageReport[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeImportImageTasksRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>Filter tasks using the <code>task-state</code> filter and one of the following values: <code>active</code>,
-   *     <code>completed</code>, <code>deleting</code>, or <code>deleted</code>.</p>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The IDs of the import image tasks.</p>
-   * @public
-   */
-  ImportTaskIds?: string[] | undefined;
-
-  /**
-   * <p>The maximum number of results to return in a single call.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>A token that indicates the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p> The response information for license configurations.</p>
- * @public
- */
-export interface ImportImageLicenseConfigurationResponse {
-  /**
-   * <p>The ARN of a license configuration.</p>
-   * @public
-   */
-  LicenseConfigurationArn?: string | undefined;
-}
-
-/**
- * <p>Describes the Amazon S3 bucket for the disk image.</p>
- * @public
- */
-export interface UserBucketDetails {
-  /**
-   * <p>The Amazon S3 bucket from which the disk image was created.</p>
-   * @public
-   */
-  S3Bucket?: string | undefined;
-
-  /**
-   * <p>The file name of the disk image.</p>
-   * @public
-   */
-  S3Key?: string | undefined;
-}
-
-/**
- * <p>Describes the snapshot created from the imported disk.</p>
- * @public
- */
-export interface SnapshotDetail {
-  /**
-   * <p>A description for the snapshot.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The block device mapping for the snapshot.</p>
-   * @public
-   */
-  DeviceName?: string | undefined;
-
-  /**
-   * <p>The size of the disk in the snapshot, in GiB.</p>
-   * @public
-   */
-  DiskImageSize?: number | undefined;
-
-  /**
-   * <p>The format of the disk image from which the snapshot is created.</p>
-   * @public
-   */
-  Format?: string | undefined;
-
-  /**
-   * <p>The percentage of progress for the task.</p>
-   * @public
-   */
-  Progress?: string | undefined;
-
-  /**
-   * <p>The snapshot ID of the disk being imported.</p>
-   * @public
-   */
-  SnapshotId?: string | undefined;
-
-  /**
-   * <p>A brief status of the snapshot creation.</p>
-   * @public
-   */
-  Status?: string | undefined;
-
-  /**
-   * <p>A detailed status message for the snapshot creation.</p>
-   * @public
-   */
-  StatusMessage?: string | undefined;
-
-  /**
-   * <p>The URL used to access the disk image.</p>
-   * @public
-   */
-  Url?: string | undefined;
-
-  /**
-   * <p>The Amazon S3 bucket for the disk image.</p>
-   * @public
-   */
-  UserBucket?: UserBucketDetails | undefined;
-}
-
-/**
- * <p>Describes an import image task.</p>
- * @public
- */
-export interface ImportImageTask {
-  /**
-   * <p>The architecture of the virtual machine.</p>
-   *          <p>Valid values: <code>i386</code> | <code>x86_64</code> | <code>arm64</code>
-   *          </p>
-   * @public
-   */
-  Architecture?: string | undefined;
-
-  /**
-   * <p>A description of the import task.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Indicates whether the image is encrypted.</p>
-   * @public
-   */
-  Encrypted?: boolean | undefined;
-
-  /**
-   * <p>The target hypervisor for the import task.</p>
-   *          <p>Valid values: <code>xen</code>
-   *          </p>
-   * @public
-   */
-  Hypervisor?: string | undefined;
-
-  /**
-   * <p>The ID of the Amazon Machine Image (AMI) of the imported virtual machine.</p>
-   * @public
-   */
-  ImageId?: string | undefined;
-
-  /**
-   * <p>The ID of the import image task.</p>
-   * @public
-   */
-  ImportTaskId?: string | undefined;
-
-  /**
-   * <p>The identifier for the KMS key that was used to create the encrypted image.</p>
-   * @public
-   */
-  KmsKeyId?: string | undefined;
-
-  /**
-   * <p>The license type of the virtual machine.</p>
-   * @public
-   */
-  LicenseType?: string | undefined;
-
-  /**
-   * <p>The description string for the import image task.</p>
-   * @public
-   */
-  Platform?: string | undefined;
-
-  /**
-   * <p>The percentage of progress of the import image task.</p>
-   * @public
-   */
-  Progress?: string | undefined;
-
-  /**
-   * <p>Information about the snapshots.</p>
-   * @public
-   */
-  SnapshotDetails?: SnapshotDetail[] | undefined;
-
-  /**
-   * <p>A brief status for the import image task.</p>
-   * @public
-   */
-  Status?: string | undefined;
-
-  /**
-   * <p>A descriptive status message for the import image task.</p>
-   * @public
-   */
-  StatusMessage?: string | undefined;
-
-  /**
-   * <p>The tags for the import image task.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>The ARNs of the license configurations that are associated with the import image task.</p>
-   * @public
-   */
-  LicenseSpecifications?: ImportImageLicenseConfigurationResponse[] | undefined;
-
-  /**
-   * <p>The usage operation value.</p>
-   * @public
-   */
-  UsageOperation?: string | undefined;
-
-  /**
-   * <p>The boot mode of the virtual machine.</p>
-   * @public
-   */
-  BootMode?: BootModeValues | undefined;
 }

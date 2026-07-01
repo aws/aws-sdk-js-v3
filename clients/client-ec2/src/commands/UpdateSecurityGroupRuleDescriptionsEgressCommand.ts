@@ -5,7 +5,7 @@ import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   UpdateSecurityGroupRuleDescriptionsEgressRequest,
   UpdateSecurityGroupRuleDescriptionsEgressResult,
-} from "../models/models_7";
+} from "../models/models_8";
 import { UpdateSecurityGroupRuleDescriptionsEgress$ } from "../schemas/schemas_0";
 
 /**

@@ -49,6 +49,10 @@ import {
   AccountAttribute$,
   AccountAttributeName,
   AccountAttributeValue$,
+  AccountVpcEncryptionControl$,
+  AccountVpcEncryptionControlExclusions$,
+  AccountVpcEncryptionControlMode,
+  AccountVpcEncryptionControlState,
   ActiveInstance$,
   ActiveVpnTunnelStatus$,
   ActivityStatus,
@@ -88,6 +92,7 @@ import {
   AllowedPrincipal$,
   AllowsMultipleInstanceTypes,
   AlternatePathHint$,
+  AmdSevSnp,
   AmdSevSnpSpecification,
   AnalysisAclRule$,
   AnalysisComponent$,
@@ -1314,6 +1319,10 @@ import {
   DescribeAccountAttributesCommand,
   DescribeAccountAttributesRequest$,
   DescribeAccountAttributesResult$,
+  DescribeAccountVpcEncryptionControl$,
+  DescribeAccountVpcEncryptionControlCommand,
+  DescribeAccountVpcEncryptionControlRequest$,
+  DescribeAccountVpcEncryptionControlResult$,
   DescribeAddresses$,
   DescribeAddressesAttribute$,
   DescribeAddressesAttributeCommand,
@@ -2785,6 +2794,8 @@ import {
   HistoryRecord$,
   HistoryRecordEntry$,
   Host$,
+  HostCpuOptions$,
+  HostCpuOptionsRequest$,
   HostInstance$,
   HostMaintenance,
   HostnameType,
@@ -3185,6 +3196,10 @@ import {
   MetricPoint$,
   MetricType,
   MetricValue$,
+  ModifyAccountVpcEncryptionControl$,
+  ModifyAccountVpcEncryptionControlCommand,
+  ModifyAccountVpcEncryptionControlRequest$,
+  ModifyAccountVpcEncryptionControlResult$,
   ModifyAddressAttribute$,
   ModifyAddressAttributeCommand,
   ModifyAddressAttributeRequest$,
@@ -5196,6 +5211,8 @@ assert(typeof DeregisterTransitGatewayMulticastGroupSourcesCommand === "function
 assert(typeof DeregisterTransitGatewayMulticastGroupSources$ === "object");
 assert(typeof DescribeAccountAttributesCommand === "function");
 assert(typeof DescribeAccountAttributes$ === "object");
+assert(typeof DescribeAccountVpcEncryptionControlCommand === "function");
+assert(typeof DescribeAccountVpcEncryptionControl$ === "object");
 assert(typeof DescribeAddressesCommand === "function");
 assert(typeof DescribeAddresses$ === "object");
 assert(typeof DescribeAddressesAttributeCommand === "function");
@@ -5876,6 +5893,8 @@ assert(typeof ListVolumesInRecycleBinCommand === "function");
 assert(typeof ListVolumesInRecycleBin$ === "object");
 assert(typeof LockSnapshotCommand === "function");
 assert(typeof LockSnapshot$ === "object");
+assert(typeof ModifyAccountVpcEncryptionControlCommand === "function");
+assert(typeof ModifyAccountVpcEncryptionControl$ === "object");
 assert(typeof ModifyAddressAttributeCommand === "function");
 assert(typeof ModifyAddressAttribute$ === "object");
 assert(typeof ModifyAvailabilityZoneGroupCommand === "function");
@@ -6224,6 +6243,8 @@ assert(typeof AccessScopePath$ === "object");
 assert(typeof AccessScopePathRequest$ === "object");
 assert(typeof AccountAttribute$ === "object");
 assert(typeof AccountAttributeValue$ === "object");
+assert(typeof AccountVpcEncryptionControl$ === "object");
+assert(typeof AccountVpcEncryptionControlExclusions$ === "object");
 assert(typeof ActiveInstance$ === "object");
 assert(typeof ActiveVpnTunnelStatus$ === "object");
 assert(typeof AddedPrincipal$ === "object");
@@ -6881,6 +6902,8 @@ assert(typeof DeregisterTransitGatewayMulticastGroupSourcesRequest$ === "object"
 assert(typeof DeregisterTransitGatewayMulticastGroupSourcesResult$ === "object");
 assert(typeof DescribeAccountAttributesRequest$ === "object");
 assert(typeof DescribeAccountAttributesResult$ === "object");
+assert(typeof DescribeAccountVpcEncryptionControlRequest$ === "object");
+assert(typeof DescribeAccountVpcEncryptionControlResult$ === "object");
 assert(typeof DescribeAddressesAttributeRequest$ === "object");
 assert(typeof DescribeAddressesAttributeResult$ === "object");
 assert(typeof DescribeAddressesRequest$ === "object");
@@ -7636,6 +7659,8 @@ assert(typeof HibernationOptionsRequest$ === "object");
 assert(typeof HistoryRecord$ === "object");
 assert(typeof HistoryRecordEntry$ === "object");
 assert(typeof Host$ === "object");
+assert(typeof HostCpuOptions$ === "object");
+assert(typeof HostCpuOptionsRequest$ === "object");
 assert(typeof HostInstance$ === "object");
 assert(typeof HostOffering$ === "object");
 assert(typeof HostProperties$ === "object");
@@ -7900,6 +7925,8 @@ assert(typeof MemoryMiBRequest$ === "object");
 assert(typeof MetricDataResult$ === "object");
 assert(typeof MetricPoint$ === "object");
 assert(typeof MetricValue$ === "object");
+assert(typeof ModifyAccountVpcEncryptionControlRequest$ === "object");
+assert(typeof ModifyAccountVpcEncryptionControlResult$ === "object");
 assert(typeof ModifyAddressAttributeRequest$ === "object");
 assert(typeof ModifyAddressAttributeResult$ === "object");
 assert(typeof ModifyAvailabilityZoneGroupRequest$ === "object");
@@ -8603,6 +8630,8 @@ assert(typeof AcceleratorManufacturer === "object");
 assert(typeof AcceleratorName === "object");
 assert(typeof AcceleratorType === "object");
 assert(typeof AccountAttributeName === "object");
+assert(typeof AccountVpcEncryptionControlMode === "object");
+assert(typeof AccountVpcEncryptionControlState === "object");
 assert(typeof ActivityStatus === "object");
 assert(typeof AddressAttributeName === "object");
 assert(typeof AddressFamily === "object");
@@ -8614,6 +8643,7 @@ assert(typeof AllocationType === "object");
 assert(typeof AllowedImagesSettingsDisabledState === "object");
 assert(typeof AllowedImagesSettingsEnabledState === "object");
 assert(typeof AllowsMultipleInstanceTypes === "object");
+assert(typeof AmdSevSnp === "object");
 assert(typeof AmdSevSnpSpecification === "object");
 assert(typeof AnalysisStatus === "object");
 assert(typeof ApplianceModeSupportValue === "object");

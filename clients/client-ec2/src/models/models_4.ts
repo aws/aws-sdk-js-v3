@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import type {
   _InstanceType,
-  ActivityStatus,
   AllocationStrategy,
   AmdSevSnpSpecification,
   AnalysisStatus,
@@ -10,7 +9,6 @@ import type {
   AttachmentLimitType,
   AttachmentStatus,
   BandwidthWeightingType,
-  BatchState,
   BootModeType,
   BootModeValues,
   CapacityReservationPreference,
@@ -167,12 +165,275 @@ import type {
   EventInformation,
   Filter,
   IdFormat,
+  ImageUsageReport,
   ImageWatermark,
-  ImportImageTask,
   InstanceTagNotificationAttribute,
   ProductCode,
-  UserBucketDetails,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface DescribeImageUsageReportsResult {
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The image usage reports.</p>
+   * @public
+   */
+  ImageUsageReports?: ImageUsageReport[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeImportImageTasksRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>Filter tasks using the <code>task-state</code> filter and one of the following values: <code>active</code>,
+   *     <code>completed</code>, <code>deleting</code>, or <code>deleted</code>.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The IDs of the import image tasks.</p>
+   * @public
+   */
+  ImportTaskIds?: string[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A token that indicates the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p> The response information for license configurations.</p>
+ * @public
+ */
+export interface ImportImageLicenseConfigurationResponse {
+  /**
+   * <p>The ARN of a license configuration.</p>
+   * @public
+   */
+  LicenseConfigurationArn?: string | undefined;
+}
+
+/**
+ * <p>Describes the Amazon S3 bucket for the disk image.</p>
+ * @public
+ */
+export interface UserBucketDetails {
+  /**
+   * <p>The Amazon S3 bucket from which the disk image was created.</p>
+   * @public
+   */
+  S3Bucket?: string | undefined;
+
+  /**
+   * <p>The file name of the disk image.</p>
+   * @public
+   */
+  S3Key?: string | undefined;
+}
+
+/**
+ * <p>Describes the snapshot created from the imported disk.</p>
+ * @public
+ */
+export interface SnapshotDetail {
+  /**
+   * <p>A description for the snapshot.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The block device mapping for the snapshot.</p>
+   * @public
+   */
+  DeviceName?: string | undefined;
+
+  /**
+   * <p>The size of the disk in the snapshot, in GiB.</p>
+   * @public
+   */
+  DiskImageSize?: number | undefined;
+
+  /**
+   * <p>The format of the disk image from which the snapshot is created.</p>
+   * @public
+   */
+  Format?: string | undefined;
+
+  /**
+   * <p>The percentage of progress for the task.</p>
+   * @public
+   */
+  Progress?: string | undefined;
+
+  /**
+   * <p>The snapshot ID of the disk being imported.</p>
+   * @public
+   */
+  SnapshotId?: string | undefined;
+
+  /**
+   * <p>A brief status of the snapshot creation.</p>
+   * @public
+   */
+  Status?: string | undefined;
+
+  /**
+   * <p>A detailed status message for the snapshot creation.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+
+  /**
+   * <p>The URL used to access the disk image.</p>
+   * @public
+   */
+  Url?: string | undefined;
+
+  /**
+   * <p>The Amazon S3 bucket for the disk image.</p>
+   * @public
+   */
+  UserBucket?: UserBucketDetails | undefined;
+}
+
+/**
+ * <p>Describes an import image task.</p>
+ * @public
+ */
+export interface ImportImageTask {
+  /**
+   * <p>The architecture of the virtual machine.</p>
+   *          <p>Valid values: <code>i386</code> | <code>x86_64</code> | <code>arm64</code>
+   *          </p>
+   * @public
+   */
+  Architecture?: string | undefined;
+
+  /**
+   * <p>A description of the import task.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Indicates whether the image is encrypted.</p>
+   * @public
+   */
+  Encrypted?: boolean | undefined;
+
+  /**
+   * <p>The target hypervisor for the import task.</p>
+   *          <p>Valid values: <code>xen</code>
+   *          </p>
+   * @public
+   */
+  Hypervisor?: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Machine Image (AMI) of the imported virtual machine.</p>
+   * @public
+   */
+  ImageId?: string | undefined;
+
+  /**
+   * <p>The ID of the import image task.</p>
+   * @public
+   */
+  ImportTaskId?: string | undefined;
+
+  /**
+   * <p>The identifier for the KMS key that was used to create the encrypted image.</p>
+   * @public
+   */
+  KmsKeyId?: string | undefined;
+
+  /**
+   * <p>The license type of the virtual machine.</p>
+   * @public
+   */
+  LicenseType?: string | undefined;
+
+  /**
+   * <p>The description string for the import image task.</p>
+   * @public
+   */
+  Platform?: string | undefined;
+
+  /**
+   * <p>The percentage of progress of the import image task.</p>
+   * @public
+   */
+  Progress?: string | undefined;
+
+  /**
+   * <p>Information about the snapshots.</p>
+   * @public
+   */
+  SnapshotDetails?: SnapshotDetail[] | undefined;
+
+  /**
+   * <p>A brief status for the import image task.</p>
+   * @public
+   */
+  Status?: string | undefined;
+
+  /**
+   * <p>A descriptive status message for the import image task.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+
+  /**
+   * <p>The tags for the import image task.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The ARNs of the license configurations that are associated with the import image task.</p>
+   * @public
+   */
+  LicenseSpecifications?: ImportImageLicenseConfigurationResponse[] | undefined;
+
+  /**
+   * <p>The usage operation value.</p>
+   * @public
+   */
+  UsageOperation?: string | undefined;
+
+  /**
+   * <p>The boot mode of the virtual machine.</p>
+   * @public
+   */
+  BootMode?: BootModeValues | undefined;
+}
 
 /**
  * @public
@@ -14145,446 +14406,4 @@ export interface SpotFleetRequestConfigData {
    * @public
    */
   TagSpecifications?: TagSpecification[] | undefined;
-}
-
-/**
- * <p>Describes a Spot Fleet request.</p>
- * @public
- */
-export interface SpotFleetRequestConfig {
-  /**
-   * <p>The progress of the Spot Fleet request.
-   *           If there is an error, the status is <code>error</code>.
-   *           After all requests are placed, the status is <code>pending_fulfillment</code>.
-   *           If the size of the fleet is equal to or greater than its target capacity, the status is <code>fulfilled</code>.
-   *           If the size of the fleet is decreased, the status is <code>pending_termination</code>
-   *           while Spot Instances are terminating.</p>
-   * @public
-   */
-  ActivityStatus?: ActivityStatus | undefined;
-
-  /**
-   * <p>The creation date and time of the request.</p>
-   * @public
-   */
-  CreateTime?: Date | undefined;
-
-  /**
-   * <p>The configuration of the Spot Fleet request.</p>
-   * @public
-   */
-  SpotFleetRequestConfig?: SpotFleetRequestConfigData | undefined;
-
-  /**
-   * <p>The ID of the Spot Fleet request.</p>
-   * @public
-   */
-  SpotFleetRequestId?: string | undefined;
-
-  /**
-   * <p>The state of the Spot Fleet request.</p>
-   * @public
-   */
-  SpotFleetRequestState?: BatchState | undefined;
-
-  /**
-   * <p>The tags for a Spot Fleet resource.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * <p>Contains the output of DescribeSpotFleetRequests.</p>
- * @public
- */
-export interface DescribeSpotFleetRequestsResponse {
-  /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
-   *          are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Information about the configuration of your Spot Fleet.</p>
-   * @public
-   */
-  SpotFleetRequestConfigs?: SpotFleetRequestConfig[] | undefined;
-}
-
-/**
- * <p>Contains the parameters for DescribeSpotInstanceRequests.</p>
- * @public
- */
-export interface DescribeSpotInstanceRequestsRequest {
-  /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   *          To get the next page of items, make another request with the token returned in the output.
-   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The IDs of the Spot Instance requests.</p>
-   * @public
-   */
-  SpotInstanceRequestIds?: string[] | undefined;
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>availability-zone-group</code> - The Availability Zone group.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>create-time</code> - The time stamp when the Spot Instance request was
-   *                     created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>fault-code</code> - The fault code related to the request.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>fault-message</code> - The fault message related to the request.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-id</code> - The ID of the instance that fulfilled the
-   *                     request.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>launch-group</code> - The Spot Instance launch group.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>launch.block-device-mapping.delete-on-termination</code> - Indicates
-   *                     whether the EBS volume is deleted on instance termination.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>launch.block-device-mapping.device-name</code> - The device name for the
-   *                     volume in the block device mapping (for example, <code>/dev/sdh</code> or
-   *                         <code>xvdh</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>launch.block-device-mapping.snapshot-id</code> - The ID of the snapshot
-   *                     for the EBS volume.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>launch.block-device-mapping.volume-size</code> - The size of the EBS
-   *                     volume, in GiB.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>launch.block-device-mapping.volume-type</code> - The type of EBS volume:
-   *                     <code>gp2</code> or <code>gp3</code> for General Purpose SSD, <code>io1</code>
-   *                     or <code>io2</code> for Provisioned IOPS SSD, <code>st1</code> for Throughput
-   *                     Optimized HDD, <code>sc1</code> for Cold HDD, or <code>standard</code> for
-   *                     Magnetic.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>launch.group-id</code> - The ID of the security group for the
-   *                     instance.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>launch.group-name</code> - The name of the security group for the
-   *                     instance.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>launch.image-id</code> - The ID of the AMI.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>launch.instance-type</code> - The type of instance (for example,
-   *                         <code>m3.medium</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>launch.kernel-id</code> - The kernel ID.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>launch.key-name</code> - The name of the key pair the instance launched
-   *                     with.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>launch.monitoring-enabled</code> - Whether detailed monitoring is
-   *                     enabled for the Spot Instance.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>launch.ramdisk-id</code> - The RAM disk ID.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>launched-availability-zone</code> - The Availability Zone in which the
-   *                     request is launched.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>launched-availability-zone-id</code> - The ID of the Availability Zone
-   *                     in which the request is launched.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-interface.addresses.primary</code> - Indicates whether the IP
-   *                     address is the primary private IP address.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-interface.delete-on-termination</code> - Indicates whether the
-   *                     network interface is deleted when the instance is terminated.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-interface.description</code> - A description of the network
-   *                     interface.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-interface.device-index</code> - The index of the device for the
-   *                     network interface attachment on the instance.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-interface.group-id</code> - The ID of the security group
-   *                     associated with the network interface.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-interface.network-interface-id</code> - The ID of the network
-   *                     interface.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-interface.private-ip-address</code> - The primary private IP
-   *                     address of the network interface.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-interface.subnet-id</code> - The ID of the subnet for the
-   *                     instance.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>product-description</code> - The product description associated with the
-   *                     instance (<code>Linux/UNIX</code> | <code>Windows</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>spot-instance-request-id</code> - The Spot Instance request ID.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>spot-price</code> - The maximum hourly price for any Spot Instance
-   *                     launched to fulfill the request.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the Spot Instance request (<code>open</code>
-   *                     | <code>active</code> | <code>closed</code> | <code>cancelled</code> |
-   *                         <code>failed</code>). Spot request status information can help you track
-   *                     your Amazon EC2 Spot Instance requests. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-request-status.html">Spot
-   *                         request status</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>status-code</code> - The short code describing the most recent
-   *                     evaluation of your Spot Instance request.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>status-message</code> - The message explaining the status of the Spot
-   *                     Instance request.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag:<key></code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>type</code> - The type of Spot Instance request (<code>one-time</code> |
-   *                         <code>persistent</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>valid-from</code> - The start date of the request.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>valid-until</code> - The end date of the request.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-}
-
-/**
- * <p>Describes the monitoring of an instance.</p>
- * @public
- */
-export interface RunInstancesMonitoringEnabled {
-  /**
-   * <p>Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is
-   *             enabled.</p>
-   * @public
-   */
-  Enabled: boolean | undefined;
-}
-
-/**
- * <p>Describes the launch specification for an instance.</p>
- * @public
- */
-export interface LaunchSpecification {
-  /**
-   * <p>The base64-encoded user data that instances use when starting up. User data is limited to 16 KB.</p>
-   * @public
-   */
-  UserData?: string | undefined;
-
-  /**
-   * <p>Deprecated.</p>
-   * @public
-   */
-  AddressingType?: string | undefined;
-
-  /**
-   * <p>The block device mapping entries.</p>
-   * @public
-   */
-  BlockDeviceMappings?: BlockDeviceMapping[] | undefined;
-
-  /**
-   * <p>Indicates whether the instance is optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.</p>
-   *          <p>Default: <code>false</code>
-   *          </p>
-   * @public
-   */
-  EbsOptimized?: boolean | undefined;
-
-  /**
-   * <p>The IAM instance profile.</p>
-   * @public
-   */
-  IamInstanceProfile?: IamInstanceProfileSpecification | undefined;
-
-  /**
-   * <p>The ID of the AMI.</p>
-   * @public
-   */
-  ImageId?: string | undefined;
-
-  /**
-   * <p>The instance type. Only one instance type can be specified.</p>
-   * @public
-   */
-  InstanceType?: _InstanceType | undefined;
-
-  /**
-   * <p>The ID of the kernel.</p>
-   * @public
-   */
-  KernelId?: string | undefined;
-
-  /**
-   * <p>The name of the key pair.</p>
-   * @public
-   */
-  KeyName?: string | undefined;
-
-  /**
-   * <p>The network interfaces. If you specify a network interface, you must specify
-   *            subnet IDs and security group IDs using the network interface.</p>
-   * @public
-   */
-  NetworkInterfaces?: InstanceNetworkInterfaceSpecification[] | undefined;
-
-  /**
-   * <p>The placement information for the instance.</p>
-   * @public
-   */
-  Placement?: SpotPlacement | undefined;
-
-  /**
-   * <p>The ID of the RAM disk.</p>
-   * @public
-   */
-  RamdiskId?: string | undefined;
-
-  /**
-   * <p>The ID of the subnet in which to launch the instance.</p>
-   * @public
-   */
-  SubnetId?: string | undefined;
-
-  /**
-   * <p>The IDs of the security groups.</p>
-   * @public
-   */
-  SecurityGroups?: GroupIdentifier[] | undefined;
-
-  /**
-   * <p>Describes the monitoring of an instance.</p>
-   * @public
-   */
-  Monitoring?: RunInstancesMonitoringEnabled | undefined;
-}
-
-/**
- * <p>Describes the status of a Spot Instance request.</p>
- * @public
- */
-export interface SpotInstanceStatus {
-  /**
-   * <p>The status code. For a list of status codes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-request-status.html#spot-instance-request-status-understand">Spot request status codes</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  Code?: string | undefined;
-
-  /**
-   * <p>The description for the status code.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The date and time of the most recent status update, in UTC format (for example,
-   *                 <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
-   * @public
-   */
-  UpdateTime?: Date | undefined;
 }

@@ -196,6 +196,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <assetId>
                 __AssetId__
             </assetId>
+            <cpuOptions>
+                <amdSevSnp>
+                    __AmdSevSnp__
+                </amdSevSnp>
+            </cpuOptions>
         </item>
         <item>
             <autoPlacement>
@@ -364,6 +369,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <assetId>
                 __AssetId__
             </assetId>
+            <cpuOptions>
+                <amdSevSnp>
+                    __AmdSevSnp__
+                </amdSevSnp>
+            </cpuOptions>
         </item>
         <item>
             <autoPlacement>
@@ -532,6 +542,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <assetId>
                 __AssetId__
             </assetId>
+            <cpuOptions>
+                <amdSevSnp>
+                    __AmdSevSnp__
+                </amdSevSnp>
+            </cpuOptions>
         </item>
     </hostSet>
     <nextToken>
@@ -617,7 +632,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       MemberOfServiceLinkedResourceGroup: (boolean) false,
       OutpostArn: "__OutpostArn__",
       HostMaintenance: "__HostMaintenance__",
-      AssetId: "__AssetId__"
+      AssetId: "__AssetId__",
+      CpuOptions: {
+        AmdSevSnp: "__AmdSevSnp__"
+      }
     },
     {
       AutoPlacement: "__AutoPlacement__",
@@ -693,7 +711,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       MemberOfServiceLinkedResourceGroup: (boolean) false,
       OutpostArn: "__OutpostArn__",
       HostMaintenance: "__HostMaintenance__",
-      AssetId: "__AssetId__"
+      AssetId: "__AssetId__",
+      CpuOptions: {
+        AmdSevSnp: "__AmdSevSnp__"
+      }
     },
     {
       AutoPlacement: "__AutoPlacement__",
@@ -769,7 +790,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       MemberOfServiceLinkedResourceGroup: (boolean) false,
       OutpostArn: "__OutpostArn__",
       HostMaintenance: "__HostMaintenance__",
-      AssetId: "__AssetId__"
+      AssetId: "__AssetId__",
+      CpuOptions: {
+        AmdSevSnp: "__AmdSevSnp__"
+      }
     }
   ],
   NextToken: "__NextToken__",

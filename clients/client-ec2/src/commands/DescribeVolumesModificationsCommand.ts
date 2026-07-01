@@ -49,6 +49,7 @@ export interface DescribeVolumesModificationsCommandOutput extends DescribeVolum
  *   ],
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
+ *   IncludeManagedResources: true || false,
  * };
  * const command = new DescribeVolumesModificationsCommand(input);
  * const response = await client.send(command);
@@ -72,6 +73,11 @@ export interface DescribeVolumesModificationsCommandOutput extends DescribeVolum
  * //       Progress: Number("long"),
  * //       StartTime: new Date("TIMESTAMP"),
  * //       EndTime: new Date("TIMESTAMP"),
+ * //       Operator: { // OperatorResponse
+ * //         Managed: true || false,
+ * //         Principal: "STRING_VALUE",
+ * //         HiddenByDefault: true || false,
+ * //       },
  * //     },
  * //   ],
  * // };

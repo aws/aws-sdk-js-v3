@@ -84,7 +84,7 @@ export interface DescribeHostsCommandOutput extends DescribeHostsResult, __Metad
  * //           OwnerId: "STRING_VALUE",
  * //         },
  * //       ],
- * //       State: "available" || "under-assessment" || "permanent-failure" || "released" || "released-permanent-failure" || "pending",
+ * //       State: "available" || "under-assessment" || "permanent-failure" || "released" || "released-permanent-failure" || "pending" || "configuring",
  * //       AllocationTime: new Date("TIMESTAMP"),
  * //       ReleaseTime: new Date("TIMESTAMP"),
  * //       Tags: [ // TagList
@@ -101,6 +101,9 @@ export interface DescribeHostsCommandOutput extends DescribeHostsResult, __Metad
  * //       OutpostArn: "STRING_VALUE",
  * //       HostMaintenance: "on" || "off",
  * //       AssetId: "STRING_VALUE",
+ * //       CpuOptions: { // HostCpuOptions
+ * //         AmdSevSnp: "enabled" || "disabled",
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
