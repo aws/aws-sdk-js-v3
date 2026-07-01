@@ -164,7 +164,8 @@ const client = new STSClient({
 1. `client-region`
 2. `env-region`
 3. `profile-region` (config file)
-4. thrown error (no us-east-1 fallback)
+4. EC2 IMDSv2 (`/latest/meta-data/placement/region`). Opt out with `AWS_EC2_METADATA_DISABLED=true`.
+5. thrown error (no us-east-1 fallback)
 
 # Credential providers
 
