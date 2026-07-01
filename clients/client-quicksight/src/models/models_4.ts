@@ -129,6 +129,23 @@ import type {
 /**
  * @public
  */
+export interface DescribeDataSetRequest {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the dataset that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  DataSetId: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeDataSetResponse {
   /**
    * <p>Information on the dataset.</p>
@@ -9764,17 +9781,4 @@ export interface StartAutomationJobResponse {
    * @public
    */
   RequestId?: string | undefined;
-}
-
-/**
- * <p>A structure that contains information on the anonymous user configuration.</p>
- * @public
- */
-export interface SnapshotAnonymousUser {
-  /**
-   * <p>The tags to be used for row-level security (RLS). Make sure that the relevant datasets have RLS tags configured before you start a snapshot export job. You can configure the RLS tags of a dataset with a <code>DataSet$RowLevelPermissionTagConfiguration</code> API call.</p>
-   *          <p>These are not the tags that are used for Amazon Web Services resource tagging. For more information on row level security in Amazon Quick Sight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-rls-tags.html">Using Row-Level Security (RLS) with Tags</a>in the <i>Amazon Quick User Guide</i>.</p>
-   * @public
-   */
-  RowLevelPermissionTags?: SessionTag[] | undefined;
 }

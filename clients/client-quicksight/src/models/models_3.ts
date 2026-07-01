@@ -1091,42 +1091,6 @@ export interface CustomSql {
 }
 
 /**
- * <p>A physical table type for relational data sources.</p>
- * @public
- */
-export interface RelationalTable {
-  /**
-   * <p>The Amazon Resource Name (ARN) for the data source.</p>
-   * @public
-   */
-  DataSourceArn: string | undefined;
-
-  /**
-   * <p>The catalog associated with a table.</p>
-   * @public
-   */
-  Catalog?: string | undefined;
-
-  /**
-   * <p>The schema name. This name applies to certain relational database engines.</p>
-   * @public
-   */
-  Schema?: string | undefined;
-
-  /**
-   * <p>The name of the relational table.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The column schema of the table.</p>
-   * @public
-   */
-  InputColumns: InputColumn[] | undefined;
-}
-
-/**
  * <p>Information about the format for a source file or files.</p>
  * @public
  */
@@ -1166,6 +1130,74 @@ export interface UploadSettings {
    * @public
    */
   CustomCellAddressRange?: string | undefined;
+}
+
+/**
+ * <p>A physical table type that contains the schema and upload settings for a file-based data source.</p>
+ * @public
+ */
+export interface FileSource {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the data source.</p>
+   * @public
+   */
+  DataSourceArn: string | undefined;
+
+  /**
+   * <p>Information about the format for the source file.</p>
+   * @public
+   */
+  UploadSettings?: UploadSettings | undefined;
+
+  /**
+   * <p>The zero-based index of the sheet to use within the file. For files that contain
+   *             multiple sheets, this identifies which sheet to read. Files that contain a single sheet,
+   *             or that have no concept of sheets, use sheet 0.</p>
+   * @public
+   */
+  SheetIndex: number | undefined;
+
+  /**
+   * <p>The column schema of the file.</p>
+   * @public
+   */
+  InputColumns: InputColumn[] | undefined;
+}
+
+/**
+ * <p>A physical table type for relational data sources.</p>
+ * @public
+ */
+export interface RelationalTable {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the data source.</p>
+   * @public
+   */
+  DataSourceArn: string | undefined;
+
+  /**
+   * <p>The catalog associated with a table.</p>
+   * @public
+   */
+  Catalog?: string | undefined;
+
+  /**
+   * <p>The schema name. This name applies to certain relational database engines.</p>
+   * @public
+   */
+  Schema?: string | undefined;
+
+  /**
+   * <p>The name of the relational table.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The column schema of the table.</p>
+   * @public
+   */
+  InputColumns: InputColumn[] | undefined;
 }
 
 /**
@@ -1245,6 +1277,7 @@ export interface SaaSTable {
  */
 export type PhysicalTable =
   | PhysicalTable.CustomSqlMember
+  | PhysicalTable.FileSourceMember
   | PhysicalTable.RelationalTableMember
   | PhysicalTable.S3SourceMember
   | PhysicalTable.SaaSTableMember
@@ -1263,6 +1296,7 @@ export namespace PhysicalTable {
     CustomSql?: never;
     S3Source?: never;
     SaaSTable?: never;
+    FileSource?: never;
     $unknown?: never;
   }
 
@@ -1275,11 +1309,12 @@ export namespace PhysicalTable {
     CustomSql: CustomSql;
     S3Source?: never;
     SaaSTable?: never;
+    FileSource?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>A physical table type for as S3 data source.</p>
+   * <p>A physical table type for an S3 data source.</p>
    * @public
    */
   export interface S3SourceMember {
@@ -1287,6 +1322,7 @@ export namespace PhysicalTable {
     CustomSql?: never;
     S3Source: S3Source;
     SaaSTable?: never;
+    FileSource?: never;
     $unknown?: never;
   }
 
@@ -1299,6 +1335,20 @@ export namespace PhysicalTable {
     CustomSql?: never;
     S3Source?: never;
     SaaSTable: SaaSTable;
+    FileSource?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A physical table type for a file data source.</p>
+   * @public
+   */
+  export interface FileSourceMember {
+    RelationalTable?: never;
+    CustomSql?: never;
+    S3Source?: never;
+    SaaSTable?: never;
+    FileSource: FileSource;
     $unknown?: never;
   }
 
@@ -1310,6 +1360,7 @@ export namespace PhysicalTable {
     CustomSql?: never;
     S3Source?: never;
     SaaSTable?: never;
+    FileSource?: never;
     $unknown: [string, any];
   }
 
@@ -1322,6 +1373,7 @@ export namespace PhysicalTable {
     CustomSql: (value: CustomSql) => T;
     S3Source: (value: S3Source) => T;
     SaaSTable: (value: SaaSTable) => T;
+    FileSource: (value: FileSource) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -9653,21 +9705,4 @@ export interface DescribeDashboardsQAConfigurationResponse {
    * @public
    */
   Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeDataSetRequest {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the dataset that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  DataSetId: string | undefined;
 }

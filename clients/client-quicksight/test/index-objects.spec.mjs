@@ -1052,6 +1052,7 @@ import {
   FieldSortOptions$,
   FieldTooltipItem$,
   FileFormat,
+  FileSource$,
   FilledMapAggregatedFieldWells$,
   FilledMapConditionalFormatting$,
   FilledMapConditionalFormattingOption$,
@@ -3770,6 +3771,7 @@ assert(typeof FieldSeriesItem$ === "object");
 assert(typeof FieldSort$ === "object");
 assert(typeof FieldSortOptions$ === "object");
 assert(typeof FieldTooltipItem$ === "object");
+assert(typeof FileSource$ === "object");
 assert(typeof FilledMapAggregatedFieldWells$ === "object");
 assert(typeof FilledMapConditionalFormatting$ === "object");
 assert(typeof FilledMapConditionalFormattingOption$ === "object");

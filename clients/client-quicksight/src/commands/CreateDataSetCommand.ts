@@ -102,6 +102,26 @@ export interface CreateDataSetCommandOutput extends CreateDataSetResponse, __Met
  *           },
  *         ],
  *       },
+ *       FileSource: { // FileSource
+ *         DataSourceArn: "STRING_VALUE", // required
+ *         UploadSettings: {
+ *           Format: "CSV" || "TSV" || "CLF" || "ELF" || "XLSX" || "JSON",
+ *           StartFromRow: Number("int"),
+ *           ContainsHeader: true || false,
+ *           TextQualifier: "DOUBLE_QUOTE" || "SINGLE_QUOTE",
+ *           Delimiter: "STRING_VALUE",
+ *           CustomCellAddressRange: "STRING_VALUE",
+ *         },
+ *         SheetIndex: Number("int"), // required
+ *         InputColumns: [ // required
+ *           {
+ *             Name: "STRING_VALUE", // required
+ *             Id: "STRING_VALUE",
+ *             Type: "STRING" || "INTEGER" || "DECIMAL" || "DATETIME" || "BIT" || "BOOLEAN" || "JSON" || "SEMISTRUCT", // required
+ *             SubType: "FLOAT" || "FIXED",
+ *           },
+ *         ],
+ *       },
  *     },
  *   },
  *   LogicalTableMap: { // LogicalTableMap
@@ -401,14 +421,7 @@ export interface CreateDataSetCommandOutput extends CreateDataSetResponse, __Met
  *         PhysicalTableId: "STRING_VALUE",
  *         DataSet: { // ParentDataSet
  *           DataSetArn: "STRING_VALUE", // required
- *           InputColumns: [ // required
- *             {
- *               Name: "STRING_VALUE", // required
- *               Id: "STRING_VALUE",
- *               Type: "STRING" || "INTEGER" || "DECIMAL" || "DATETIME" || "BIT" || "BOOLEAN" || "JSON" || "SEMISTRUCT", // required
- *               SubType: "FLOAT" || "FIXED",
- *             },
- *           ],
+ *           InputColumns: "<InputColumnList>", // required
  *         },
  *       },
  *     },

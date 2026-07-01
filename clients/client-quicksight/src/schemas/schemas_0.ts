@@ -1605,8 +1605,9 @@ const _FSROa = "FailedSpaceResourceOperations";
 const _FSV = "FilterSelectableValues";
 const _FSi = "FillStyle";
 const _FSie = "FieldSort";
-const _FSil = "FilterSynonyms";
-const _FSilt = "FiltersStep";
+const _FSil = "FileSource";
+const _FSilt = "FilterSynonyms";
+const _FSilte = "FiltersStep";
 const _FSl = "FlowSummary";
 const _FSo = "FolderSummary";
 const _FSon = "FontSize";
@@ -1834,7 +1835,7 @@ const _IAMU = "IAMUser";
 const _IAa = "IamArn";
 const _IAn = "IntercomAction";
 const _IAng = "IngestionArn";
-const _IC = "ImageConfiguration";
+const _IC = "InputColumns";
 const _ICA = "ImageCustomAction";
 const _ICAL = "ImageCustomActionList";
 const _ICAO = "ImageCustomActionOperation";
@@ -1847,8 +1848,8 @@ const _ICIT = "InlineCustomInstructionText";
 const _ICL = "InputColumnList";
 const _ICM = "IamConnectionMetadata";
 const _ICN = "InputColumnName";
+const _ICm = "ImageConfiguration";
 const _ICn = "InputColumn";
-const _ICnp = "InputColumns";
 const _ICns = "InsightConfiguration";
 const _IDI = "InitialDashboardId";
 const _IDO = "IconDisplayOption";
@@ -3016,7 +3017,8 @@ const _SIV = "SortIconVisibility";
 const _SIe = "SectionId";
 const _SIer = "SeriesItem";
 const _SIh = "SheetId";
-const _SIhe = "SheetImage";
+const _SIhe = "SheetIndex";
+const _SIhee = "SheetImage";
 const _SIl = "SlotId";
 const _SIp = "SpaceId";
 const _SIt = "StepId";
@@ -7611,6 +7613,11 @@ export var FieldTooltipItem$: StaticStructureSchema = [3, n0, _FTI,
   [_FIi, _Lab, _Vi, _TT],
   [0, 0, 0, 0], 1
 ];
+export var FileSource$: StaticStructureSchema = [3, n0, _FSil,
+  0,
+  [_DSAa, _SIhe, _IC, _USp],
+  [0, 1, () => InputColumnList, () => UploadSettings$], 3
+];
 export var FilledMapAggregatedFieldWells$: StaticStructureSchema = [3, n0, _FMAFW,
   0,
   [_Ge, _Va],
@@ -8381,7 +8388,7 @@ export var Image$: StaticStructureSchema = [3, n0, _Im,
   [_So, _GIU],
   [() => ImageSource$, 0]
 ];
-export var ImageConfiguration$: StaticStructureSchema = [3, n0, _IC,
+export var ImageConfiguration$: StaticStructureSchema = [3, n0, _ICm,
   0,
   [_So],
   [() => ImageSource$]
@@ -9538,7 +9545,7 @@ export var ParameterTextFieldControl$: StaticStructureSchema = [3, n0, _PTFC,
 ];
 export var ParentDataSet$: StaticStructureSchema = [3, n0, _PDS,
   0,
-  [_DSAat, _ICnp],
+  [_DSAat, _IC],
   [0, () => InputColumnList], 2
 ];
 export var PercentageDisplayFormatConfiguration$: StaticStructureSchema = [3, n0, _PDFC,
@@ -10083,7 +10090,7 @@ export var RegisterUserResponse$: StaticStructureSchema = [3, n0, _RURe,
 ];
 export var RelationalTable$: StaticStructureSchema = [3, n0, _RTel,
   0,
-  [_DSAa, _N, _ICnp, _Cata, _Schem],
+  [_DSAa, _N, _IC, _Cata, _Schem],
   [0, 0, () => InputColumnList, 0, 0], 3
 ];
 export var RelativeDatesFilter$: StaticStructureSchema = [3, n0, _RDF,
@@ -10173,7 +10180,7 @@ export var S3Parameters$: StaticStructureSchema = [3, n0, _SPa,
 ];
 export var S3Source$: StaticStructureSchema = [3, n0, _SSo,
   0,
-  [_DSAa, _ICnp, _USp],
+  [_DSAa, _IC, _USp],
   [0, () => InputColumnList, () => UploadSettings$], 2
 ];
 export var S3TablesParameters$: StaticStructureSchema = [3, n0, _STP,
@@ -10183,7 +10190,7 @@ export var S3TablesParameters$: StaticStructureSchema = [3, n0, _STP,
 ];
 export var SaaSTable$: StaticStructureSchema = [3, n0, _SST,
   0,
-  [_DSAa, _TP, _ICnp],
+  [_DSAa, _TP, _IC],
   [0, () => TablePathElementList, () => InputColumnList], 3
 ];
 export var SameSheetTargetVisualConfiguration$: StaticStructureSchema = [3, n0, _SSTVC,
@@ -10546,7 +10553,7 @@ export var SheetElementRenderingRule$: StaticStructureSchema = [3, n0, _SERR,
   [_Ex, _COon],
   [[() => Expression, 0], () => SheetElementConfigurationOverrides$], 2
 ];
-export var SheetImage$: StaticStructureSchema = [3, n0, _SIhe,
+export var SheetImage$: StaticStructureSchema = [3, n0, _SIhee,
   0,
   [_SII, _So, _Scal, _To, _ICAT, _I, _Ac],
   [0, () => SheetImageSource$, () => SheetImageScalingConfiguration$, () => SheetImageTooltipConfiguration$, 0, () => ImageInteractionOptions$, [() => ImageCustomActionList, 0]], 2
@@ -11013,7 +11020,7 @@ export var TableFieldOptions$: StaticStructureSchema = [3, n0, _TFOa,
 ];
 export var TableFieldURLConfiguration$: StaticStructureSchema = [3, n0, _TFURLC,
   0,
-  [_LCin, _IC],
+  [_LCin, _ICm],
   [() => TableFieldLinkConfiguration$, () => TableFieldImageConfiguration$]
 ];
 export var TableFieldWells$: StaticStructureSchema = [3, n0, _TFW,
@@ -11338,7 +11345,7 @@ export var TopicDetails$: StaticStructureSchema = [3, n0, _TD,
 ];
 export var TopicFilter$: StaticStructureSchema = [3, n0, _TFo,
   0,
-  [_FNil, _OFN, _FDi, _FCilte, _FSil, _FTi, _CFat, _NEF, _NRF, _DRF, _RDFe, _NFu],
+  [_FNil, _OFN, _FDi, _FCilte, _FSilt, _FTi, _CFat, _NEF, _NRF, _DRF, _RDFe, _NFu],
   [0, 0, 0, 0, 64 | 0, 0, [() => TopicCategoryFilter$, 0], [() => TopicNumericEqualityFilter$, 0], [() => TopicNumericRangeFilter$, 0], [() => TopicDateRangeFilter$, 0], [() => TopicRelativeDateFilter$, 0], [() => TopicNullFilter$, 0]], 2
 ];
 export var TopicIR$: StaticStructureSchema = [3, n0, _TIR,
@@ -11478,7 +11485,7 @@ export var TransformOperationSource$: StaticStructureSchema = [3, n0, _TOS,
 ];
 export var TransformStep$: StaticStructureSchema = [3, n0, _TSr,
   0,
-  [_ITS, _PSr, _FSilt, _CCSr, _RCS, _CCTS, _JSo, _ASgg, _PSi, _USn, _ASp],
+  [_ITS, _PSr, _FSilte, _CCSr, _RCS, _CCTS, _JSo, _ASgg, _PSi, _USn, _ASp],
   [() => ImportTableOperation$, () => ProjectOperation$, [() => FiltersOperation$, 0], [() => CreateColumnsOperation$, 0], () => RenameColumnsOperation$, () => CastColumnTypesOperation$, [() => JoinOperation$, 0], () => AggregateOperation$, () => PivotOperation$, () => UnpivotOperation$, () => AppendOperation$]
 ];
 export var TransposedTableOption$: StaticStructureSchema = [3, n0, _TTOr,
@@ -13558,8 +13565,8 @@ export var ImageSource$: StaticUnionSchema = [4, n0, _ISmag,
 ];
 export var PhysicalTable$: StaticUnionSchema = [4, n0, _PTh,
   0,
-  [_RTel, _CSu, _SSo, _SST],
-  [() => RelationalTable$, [() => CustomSql$, 0], () => S3Source$, () => SaaSTable$]
+  [_RTel, _CSu, _SSo, _SST, _FSil],
+  [() => RelationalTable$, [() => CustomSql$, 0], () => S3Source$, () => SaaSTable$, () => FileSource$]
 ];
 export var ReadAuthenticationMetadata$: StaticUnionSchema = [4, n0, _RAM,
   0,

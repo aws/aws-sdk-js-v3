@@ -2,8 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DescribeDataSetRequest } from "../models/models_3";
-import type { DescribeDataSetResponse } from "../models/models_4";
+import type { DescribeDataSetRequest, DescribeDataSetResponse } from "../models/models_4";
 import { DescribeDataSet$ } from "../schemas/schemas_0";
 
 /**
@@ -103,6 +102,26 @@ export interface DescribeDataSetCommandOutput extends DescribeDataSetResponse, _
  * //               Id: "STRING_VALUE",
  * //             },
  * //           ],
+ * //           InputColumns: [ // required
+ * //             {
+ * //               Name: "STRING_VALUE", // required
+ * //               Id: "STRING_VALUE",
+ * //               Type: "STRING" || "INTEGER" || "DECIMAL" || "DATETIME" || "BIT" || "BOOLEAN" || "JSON" || "SEMISTRUCT", // required
+ * //               SubType: "FLOAT" || "FIXED",
+ * //             },
+ * //           ],
+ * //         },
+ * //         FileSource: { // FileSource
+ * //           DataSourceArn: "STRING_VALUE", // required
+ * //           UploadSettings: {
+ * //             Format: "CSV" || "TSV" || "CLF" || "ELF" || "XLSX" || "JSON",
+ * //             StartFromRow: Number("int"),
+ * //             ContainsHeader: true || false,
+ * //             TextQualifier: "DOUBLE_QUOTE" || "SINGLE_QUOTE",
+ * //             Delimiter: "STRING_VALUE",
+ * //             CustomCellAddressRange: "STRING_VALUE",
+ * //           },
+ * //           SheetIndex: Number("int"), // required
  * //           InputColumns: [ // required
  * //             {
  * //               Name: "STRING_VALUE", // required
@@ -404,14 +423,7 @@ export interface DescribeDataSetCommandOutput extends DescribeDataSetResponse, _
  * //           PhysicalTableId: "STRING_VALUE",
  * //           DataSet: { // ParentDataSet
  * //             DataSetArn: "STRING_VALUE", // required
- * //             InputColumns: [ // required
- * //               {
- * //                 Name: "STRING_VALUE", // required
- * //                 Id: "STRING_VALUE",
- * //                 Type: "STRING" || "INTEGER" || "DECIMAL" || "DATETIME" || "BIT" || "BOOLEAN" || "JSON" || "SEMISTRUCT", // required
- * //                 SubType: "FLOAT" || "FIXED",
- * //               },
- * //             ],
+ * //             InputColumns: "<InputColumnList>", // required
  * //           },
  * //         },
  * //       },

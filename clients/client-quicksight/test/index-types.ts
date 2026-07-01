@@ -1774,6 +1774,7 @@ export type {
   FieldSort,
   FieldSortOptions,
   FieldTooltipItem,
+  FileSource,
   FilledMapAggregatedFieldWells,
   FilledMapConditionalFormatting,
   FilledMapConditionalFormattingOption,
