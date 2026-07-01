@@ -1,9 +1,8 @@
 // smithy-typescript generated code
-import type {
+import {
   AwsSdkSigV4AuthInputConfig,
   AwsSdkSigV4AuthResolvedConfig,
-  AwsSdkSigV4PreviouslyResolved} from "@aws-sdk/core/httpAuthSchemes";
-import {
+  AwsSdkSigV4PreviouslyResolved,
   resolveAwsSdkSigV4Config,
 } from "@aws-sdk/core/httpAuthSchemes";
 import { getSmithyContext, normalizeProvider } from "@smithy/core/client";
@@ -17,8 +16,7 @@ import type {
   Provider,
 } from "@smithy/types";
 
-import type { CognitoIdentityClientConfig } from "../CognitoIdentityClient";
-import { type CognitoIdentityClientResolvedConfig } from "../CognitoIdentityClient";
+import { type CognitoIdentityClientResolvedConfig, CognitoIdentityClientConfig } from "../CognitoIdentityClient";
 
 /**
  * @internal
@@ -94,11 +92,11 @@ export const defaultCognitoIdentityHttpAuthSchemeProvider: CognitoIdentityHttpAu
     case "GetCredentialsForIdentity": {
       options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
       break;
-    }
+    };
     case "GetId": {
       options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
       break;
-    }
+    };
     default: {
       options.push(createAwsAuthSigv4HttpAuthOption(authParameters));
     }

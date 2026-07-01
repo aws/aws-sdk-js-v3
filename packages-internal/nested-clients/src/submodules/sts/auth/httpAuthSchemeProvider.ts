@@ -1,12 +1,11 @@
 // smithy-typescript generated code
-import type {
+import {
   AwsSdkSigV4AAuthInputConfig,
   AwsSdkSigV4AAuthResolvedConfig,
   AwsSdkSigV4APreviouslyResolved,
   AwsSdkSigV4AuthInputConfig,
   AwsSdkSigV4AuthResolvedConfig,
-  AwsSdkSigV4PreviouslyResolved} from "@aws-sdk/core/httpAuthSchemes";
-import {
+  AwsSdkSigV4PreviouslyResolved,
   resolveAwsSdkSigV4AConfig,
   resolveAwsSdkSigV4Config,
 } from "@aws-sdk/core/httpAuthSchemes";
@@ -26,9 +25,9 @@ import type {
   Provider,
 } from "@smithy/types";
 
-import type { EndpointParameters } from "../endpoint/EndpointParameters";
+import { EndpointParameters } from "../endpoint/EndpointParameters";
 import { defaultEndpointResolver } from "../endpoint/endpointResolver";
-import type { STSClientConfig, STSClientResolvedConfig } from "../STSClient";
+import { STSClientConfig, STSClientResolvedConfig } from "../STSClient";
 
 /**
  * @internal
