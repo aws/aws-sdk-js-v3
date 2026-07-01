@@ -3,6 +3,7 @@ export * from "./AddStreamGroupLocationsCommand";
 export * from "./AssociateApplicationsCommand";
 export * from "./CreateApplicationCommand";
 export * from "./CreateStreamGroupCommand";
+export * from "./CreateStreamSessionAdminShellCommand";
 export * from "./CreateStreamSessionConnectionCommand";
 export * from "./DeleteApplicationCommand";
 export * from "./DeleteStreamGroupCommand";

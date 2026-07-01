@@ -188,3 +188,30 @@ export class ConflictException extends __BaseException {
     this.Message = opts.Message;
   }
 }
+
+/**
+ * <p>The terminal connection to the stream session is not yet available. Wait before retrying the request.</p>
+ * @public
+ */
+export class StreamSessionAccessNotReadyException extends __BaseException {
+  readonly name = "StreamSessionAccessNotReadyException" as const;
+  readonly $fault = "client" as const;
+  $retryable = {};
+  /**
+   * <p>Description of the error.</p>
+   * @public
+   */
+  Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<StreamSessionAccessNotReadyException, __BaseException>) {
+    super({
+      name: "StreamSessionAccessNotReadyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, StreamSessionAccessNotReadyException.prototype);
+    this.Message = opts.Message;
+  }
+}

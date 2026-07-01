@@ -29,6 +29,9 @@ const _CE = "ConflictException";
 const _CSG = "CreateStreamGroup";
 const _CSGI = "CreateStreamGroupInput";
 const _CSGO = "CreateStreamGroupOutput";
+const _CSSAS = "CreateStreamSessionAdminShell";
+const _CSSASI = "CreateStreamSessionAdminShellInput";
+const _CSSASO = "CreateStreamSessionAdminShellOutput";
 const _CSSC = "CreateStreamSessionConnection";
 const _CSSCI = "CreateStreamSessionConnectionInput";
 const _CSSCO = "CreateStreamSessionConnectionOutput";
@@ -112,17 +115,20 @@ const _SC = "StreamClass";
 const _SGI = "StreamGroupId";
 const _SGS = "StreamGroupSummary";
 const _SGSL = "StreamGroupSummaryList";
+const _SI = "SessionId";
 const _SLS = "SessionLengthSeconds";
 const _SQEE = "ServiceQuotaExceededException";
 const _SR = "SignalRequest";
 const _SRi = "SignalResponse";
 const _SRt = "StatusReason";
+const _SSANRE = "StreamSessionAccessNotReadyException";
 const _SSI = "StreamSessionIdentifier";
 const _SSS = "StreamSessionSummary";
 const _SSSI = "StartStreamSessionInput";
 const _SSSL = "StreamSessionSummaryList";
 const _SSSO = "StartStreamSessionOutput";
 const _SSSt = "StartStreamSession";
+const _SU = "StreamUrl";
 const _SWC = "SharedWithClient";
 const _T = "Tags";
 const _TE = "ThrottlingException";
@@ -135,6 +141,7 @@ const _TRR = "TagResourceRequest";
 const _TRRa = "TagResourceResponse";
 const _TSS = "TerminateStreamSession";
 const _TSSI = "TerminateStreamSessionInput";
+const _TV = "TokenValue";
 const _Ty = "Type";
 const _UA = "UpdateApplication";
 const _UAI = "UpdateApplicationInput";
@@ -180,6 +187,7 @@ import {
   InternalServerException,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
+  StreamSessionAccessNotReadyException,
   ThrottlingException,
   ValidationException,
 } from "../models/errors";
@@ -220,6 +228,12 @@ export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   [0], 1
 ];
 n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var StreamSessionAccessNotReadyException$: StaticErrorSchema = [-3, n0, _SSANRE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(StreamSessionAccessNotReadyException$, StreamSessionAccessNotReadyException);
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_M],
@@ -243,6 +257,7 @@ export const errorTypeRegistries = [
 ]
 var SignalRequest: StaticSimpleSchema = [0, n0, _SR, 8, 0];
 var SignalResponse: StaticSimpleSchema = [0, n0, _SRi, 8, 0];
+var TokenValue: StaticSimpleSchema = [0, n0, _TV, 8, 0];
 export var AddStreamGroupLocationsInput$: StaticStructureSchema = [3, n0, _ASGLI,
   0,
   [_I, _LC],
@@ -287,6 +302,16 @@ export var CreateStreamGroupOutput$: StaticStructureSchema = [3, n0, _CSGO,
   0,
   [_A, _D, _DA, _LS, _SC, _Id, _S, _SRt, _LUA, _CA, _EA, _AAs],
   [0, 0, () => DefaultApplication$, () => LocationStates, 0, 0, 0, 0, 4, 4, 4, 64 | 0], 1
+];
+export var CreateStreamSessionAdminShellInput$: StaticStructureSchema = [3, n0, _CSSASI,
+  0,
+  [_I, _SSI],
+  [[0, 1], [0, 1]], 2
+];
+export var CreateStreamSessionAdminShellOutput$: StaticStructureSchema = [3, n0, _CSSASO,
+  0,
+  [_SI, _SU, _TV],
+  [0, 0, [() => TokenValue, 0]]
 ];
 export var CreateStreamSessionConnectionInput$: StaticStructureSchema = [3, n0, _CSSCI,
   0,
@@ -563,6 +588,9 @@ export var CreateApplication$: StaticOperationSchema = [9, n0, _CAr,
 ];
 export var CreateStreamGroup$: StaticOperationSchema = [9, n0, _CSG,
   { [_h]: ["POST", "/streamgroups", 201] }, () => CreateStreamGroupInput$, () => CreateStreamGroupOutput$
+];
+export var CreateStreamSessionAdminShell$: StaticOperationSchema = [9, n0, _CSSAS,
+  { [_h]: ["POST", "/streamgroups/{Identifier}/streamsessions/{StreamSessionIdentifier}/access", 200] }, () => CreateStreamSessionAdminShellInput$, () => CreateStreamSessionAdminShellOutput$
 ];
 export var CreateStreamSessionConnection$: StaticOperationSchema = [9, n0, _CSSC,
   { [_h]: ["POST", "/streamgroups/{Identifier}/streamsessions/{StreamSessionIdentifier}/connections", 200] }, () => CreateStreamSessionConnectionInput$, () => CreateStreamSessionConnectionOutput$

@@ -874,6 +874,46 @@ export interface CreateStreamGroupOutput {
 /**
  * @public
  */
+export interface CreateStreamSessionAdminShellInput {
+  /**
+   * <p>The stream group that runs this stream session.</p> <p>This value is an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4</code>. Example ID: <code>sg-1AB2C3De4</code>. </p>
+   * @public
+   */
+  Identifier: string | undefined;
+
+  /**
+   * <p>An <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream session resource. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:streamsession/sg-1AB2C3De4/ABC123def4567</code>. Example ID: <code>ABC123def4567</code>. </p>
+   * @public
+   */
+  StreamSessionIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateStreamSessionAdminShellOutput {
+  /**
+   * <p>An Amazon Web Services Systems Manager session identifier that uniquely identifies the requested terminal session. Use this value with the Amazon Web Services Systems Manager Session Manager plugin.</p>
+   * @public
+   */
+  SessionId?: string | undefined;
+
+  /**
+   * <p>An Amazon Web Services Systems Manager WebSocket connection endpoint for the requested terminal session.</p>
+   * @public
+   */
+  StreamUrl?: string | undefined;
+
+  /**
+   * <p>An Amazon Web Services Systems Manager authentication token that authenticates your access to the session ID and WebSocket URL. This token must be treated with the same level of security as other user credentials. The token value is only valid for establishing a new connection within 60 seconds of generation.</p>
+   * @public
+   */
+  TokenValue?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface CreateStreamSessionConnectionInput {
   /**
    * <p> A unique identifier that represents a client request. The request is idempotent, which ensures that an API request completes only once. When users send a request, Amazon GameLift Streams automatically populates this field. </p>

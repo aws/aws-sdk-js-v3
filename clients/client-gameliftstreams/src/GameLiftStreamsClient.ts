@@ -71,6 +71,10 @@ import type {
   CreateStreamGroupCommandOutput,
 } from "./commands/CreateStreamGroupCommand";
 import type {
+  CreateStreamSessionAdminShellCommandInput,
+  CreateStreamSessionAdminShellCommandOutput,
+} from "./commands/CreateStreamSessionAdminShellCommand";
+import type {
   CreateStreamSessionConnectionCommandInput,
   CreateStreamSessionConnectionCommandOutput,
 } from "./commands/CreateStreamSessionConnectionCommand";
@@ -148,6 +152,7 @@ export type ServiceInputTypes =
   | AssociateApplicationsCommandInput
   | CreateApplicationCommandInput
   | CreateStreamGroupCommandInput
+  | CreateStreamSessionAdminShellCommandInput
   | CreateStreamSessionConnectionCommandInput
   | DeleteApplicationCommandInput
   | DeleteStreamGroupCommandInput
@@ -177,6 +182,7 @@ export type ServiceOutputTypes =
   | AssociateApplicationsCommandOutput
   | CreateApplicationCommandOutput
   | CreateStreamGroupCommandOutput
+  | CreateStreamSessionAdminShellCommandOutput
   | CreateStreamSessionConnectionCommandOutput
   | DeleteApplicationCommandOutput
   | DeleteStreamGroupCommandOutput

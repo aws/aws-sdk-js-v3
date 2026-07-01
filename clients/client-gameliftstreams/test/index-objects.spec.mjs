@@ -22,6 +22,10 @@ import {
   CreateStreamGroupCommand,
   CreateStreamGroupInput$,
   CreateStreamGroupOutput$,
+  CreateStreamSessionAdminShell$,
+  CreateStreamSessionAdminShellCommand,
+  CreateStreamSessionAdminShellInput$,
+  CreateStreamSessionAdminShellOutput$,
   CreateStreamSessionConnection$,
   CreateStreamSessionConnectionCommand,
   CreateStreamSessionConnectionInput$,
@@ -108,6 +112,8 @@ import {
   StreamGroupStatus,
   StreamGroupStatusReason,
   StreamGroupSummary$,
+  StreamSessionAccessNotReadyException,
+  StreamSessionAccessNotReadyException$,
   StreamSessionStatus,
   StreamSessionStatusReason,
   StreamSessionSummary$,
@@ -160,6 +166,8 @@ assert(typeof CreateApplicationCommand === "function");
 assert(typeof CreateApplication$ === "object");
 assert(typeof CreateStreamGroupCommand === "function");
 assert(typeof CreateStreamGroup$ === "object");
+assert(typeof CreateStreamSessionAdminShellCommand === "function");
+assert(typeof CreateStreamSessionAdminShell$ === "object");
 assert(typeof CreateStreamSessionConnectionCommand === "function");
 assert(typeof CreateStreamSessionConnection$ === "object");
 assert(typeof DeleteApplicationCommand === "function");
@@ -210,6 +218,8 @@ assert(typeof CreateApplicationInput$ === "object");
 assert(typeof CreateApplicationOutput$ === "object");
 assert(typeof CreateStreamGroupInput$ === "object");
 assert(typeof CreateStreamGroupOutput$ === "object");
+assert(typeof CreateStreamSessionAdminShellInput$ === "object");
+assert(typeof CreateStreamSessionAdminShellOutput$ === "object");
 assert(typeof CreateStreamSessionConnectionInput$ === "object");
 assert(typeof CreateStreamSessionConnectionOutput$ === "object");
 assert(typeof DefaultApplication$ === "object");
@@ -281,6 +291,8 @@ assert(ResourceNotFoundException.prototype instanceof GameLiftStreamsServiceExce
 assert(typeof ResourceNotFoundException$ === "object");
 assert(ServiceQuotaExceededException.prototype instanceof GameLiftStreamsServiceException);
 assert(typeof ServiceQuotaExceededException$ === "object");
+assert(StreamSessionAccessNotReadyException.prototype instanceof GameLiftStreamsServiceException);
+assert(typeof StreamSessionAccessNotReadyException$ === "object");
 assert(ThrottlingException.prototype instanceof GameLiftStreamsServiceException);
 assert(typeof ThrottlingException$ === "object");
 assert(ValidationException.prototype instanceof GameLiftStreamsServiceException);

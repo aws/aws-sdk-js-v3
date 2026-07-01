@@ -28,6 +28,11 @@ import {
   CreateStreamGroupCommand,
 } from "./commands/CreateStreamGroupCommand";
 import {
+  type CreateStreamSessionAdminShellCommandInput,
+  type CreateStreamSessionAdminShellCommandOutput,
+  CreateStreamSessionAdminShellCommand,
+} from "./commands/CreateStreamSessionAdminShellCommand";
+import {
   type CreateStreamSessionConnectionCommandInput,
   type CreateStreamSessionConnectionCommandOutput,
   CreateStreamSessionConnectionCommand,
@@ -145,6 +150,7 @@ const commands = {
   AssociateApplicationsCommand,
   CreateApplicationCommand,
   CreateStreamGroupCommand,
+  CreateStreamSessionAdminShellCommand,
   CreateStreamSessionConnectionCommand,
   DeleteApplicationCommand,
   DeleteStreamGroupCommand,
@@ -247,6 +253,23 @@ export interface GameLiftStreams {
     args: CreateStreamGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateStreamGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateStreamSessionAdminShellCommand}
+   */
+  createStreamSessionAdminShell(
+    args: CreateStreamSessionAdminShellCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateStreamSessionAdminShellCommandOutput>;
+  createStreamSessionAdminShell(
+    args: CreateStreamSessionAdminShellCommandInput,
+    cb: (err: any, data?: CreateStreamSessionAdminShellCommandOutput) => void
+  ): void;
+  createStreamSessionAdminShell(
+    args: CreateStreamSessionAdminShellCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateStreamSessionAdminShellCommandOutput) => void
   ): void;
 
   /**
