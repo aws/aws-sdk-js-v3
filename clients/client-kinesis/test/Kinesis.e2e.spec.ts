@@ -1,5 +1,6 @@
-import { Kinesis } from "@aws-sdk/client-kinesis";
+import { CreateStreamCommand, Kinesis } from "@aws-sdk/client-kinesis";
 import { NodeHttp2Handler } from "@aws-sdk/config/requestHandler";
+import { getEndpointFromInstructions } from "@smithy/core/endpoints";
 import { type MetadataBearer } from "@smithy/types";
 import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
 
@@ -124,11 +125,8 @@ describe("@aws-sdk/client-kinesis", () => {
   }
 
   beforeAll(async () => {
-    const { url } = client.config.endpointProvider({
-      Region: await client.config.region(),
-      UseFIPS: await client.config.useFipsEndpoint(),
-      UseDualStack: await client.config.useDualstackEndpoint(),
-    });
+    // Resolve the endpoint the same way the SDK does at request time.
+    const { url } = await getEndpointFromInstructions({}, CreateStreamCommand, client.config);
     endpoint = url.toString();
 
     connectionManagerStates.initial = debug();
