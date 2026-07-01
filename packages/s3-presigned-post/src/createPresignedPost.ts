@@ -71,15 +71,26 @@ export const createPresignedPost = async (
     conditionsSet.add(stringifiedCondition);
   }
 
+  // Per S3 docs, any form field value can contain the `${filename}` variable, which S3 substitutes
+  // with the uploaded file's name at request time. An exact-match policy condition for such a field
+  // would be invalidated by that substitution, so emit a `starts-with` condition keyed off the
+  // prefix that precedes `${filename}` instead.
+  // See: https://docs.aws.amazon.com/AmazonS3/latest/userguide/HTTPPOSTForms.html#HTTPPOSTFormFields
+  const FILENAME_PLACEHOLDER = "${filename}";
+  const addFieldCondition = (name: string, value: string) => {
+    const placeholderIndex = value.indexOf(FILENAME_PLACEHOLDER);
+    if (placeholderIndex !== -1) {
+      conditionsSet.add(JSON.stringify(["starts-with", `$${name}`, value.substring(0, placeholderIndex)]));
+    } else {
+      conditionsSet.add(JSON.stringify({ [name]: value }));
+    }
+  };
+
   for (const [k, v] of Object.entries(fields)) {
-    conditionsSet.add(JSON.stringify({ [k]: v }));
+    addFieldCondition(k, v);
   }
 
-  if (Key.endsWith("${filename}")) {
-    conditionsSet.add(JSON.stringify(["starts-with", "$key", Key.substring(0, Key.lastIndexOf("${filename}"))]));
-  } else {
-    conditionsSet.add(JSON.stringify({ key: Key }));
-  }
+  addFieldCondition("key", Key);
 
   const conditions = Array.from(conditionsSet).map((item) => JSON.parse(item));
 
