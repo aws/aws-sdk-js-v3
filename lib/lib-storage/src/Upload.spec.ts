@@ -1066,4 +1066,99 @@ describe(Upload.name, () => {
       }).not.toThrow();
     });
   });
+
+  // Regression tests for https://github.com/aws/aws-sdk-js-v3/issues/4321:
+  // a user-supplied file-level ContentMD5 must not be forwarded to per-part
+  // UploadPart commands or to CompleteMultipartUpload, since S3 would reject
+  // the upload (e.g. with MalformedXML) when those commands carry the
+  // whole-object MD5.
+  describe("ContentMD5 handling on multipart uploads (issue #4321)", () => {
+    const MOCK_PART_SIZE = 24;
+
+    beforeEach(() => {
+      (Upload as any).MIN_PART_SIZE = MOCK_PART_SIZE;
+    });
+
+    afterAll(() => {
+      (Upload as any).MIN_PART_SIZE = 1024 * 1024 * 5;
+    });
+
+    it("should strip file-level ContentMD5 from UploadPartCommand on multipart uploads", async () => {
+      const largeBuffer = Buffer.from("#".repeat(MOCK_PART_SIZE + 10));
+      const fileLevelContentMD5 = "Q2hlY2sgSW50ZWdyaXR5IQ==";
+      const actionParams = { ...params, Body: largeBuffer, ContentMD5: fileLevelContentMD5 };
+
+      const upload = new Upload({
+        params: actionParams,
+        partSize: MOCK_PART_SIZE,
+        client: new S3({}),
+      });
+
+      await upload.done();
+
+      // Two parts must be uploaded.
+      expect(UploadPartCommand).toHaveBeenCalledTimes(2);
+
+      // Neither UploadPart call may carry the file-level ContentMD5.
+      const firstPartInput = vi.mocked(UploadPartCommand).mock.calls[0][0];
+      const secondPartInput = vi.mocked(UploadPartCommand).mock.calls[1][0];
+      expect(firstPartInput).not.toHaveProperty("ContentMD5");
+      expect(secondPartInput).not.toHaveProperty("ContentMD5");
+
+      // CompleteMultipartUpload must also not carry the file-level ContentMD5.
+      expect(CompleteMultipartUploadCommand).toHaveBeenCalledTimes(1);
+      const completeInput = vi.mocked(CompleteMultipartUploadCommand).mock.calls[0][0];
+      expect(completeInput).not.toHaveProperty("ContentMD5");
+
+      // The single-part PUT path is not exercised here.
+      expect(PutObjectCommand).toHaveBeenCalledTimes(0);
+    });
+
+    it("should preserve other user params (e.g. Bucket, Key, Metadata) on UploadPartCommand", async () => {
+      const largeBuffer = Buffer.from("#".repeat(MOCK_PART_SIZE + 10));
+      const actionParams = {
+        ...params,
+        Body: largeBuffer,
+        ContentMD5: "Q2hlY2sgSW50ZWdyaXR5IQ==",
+        Metadata: { foo: "bar" },
+      };
+
+      const upload = new Upload({
+        params: actionParams,
+        partSize: MOCK_PART_SIZE,
+        client: new S3({}),
+      });
+
+      await upload.done();
+
+      expect(UploadPartCommand).toHaveBeenCalledTimes(2);
+      const firstPartInput = vi.mocked(UploadPartCommand).mock.calls[0][0] as any;
+      expect(firstPartInput.Bucket).toEqual("example-bucket");
+      expect(firstPartInput.Key).toEqual("example-key");
+      expect(firstPartInput.Metadata).toEqual({ foo: "bar" });
+      expect(firstPartInput.PartNumber).toEqual(1);
+      expect(firstPartInput.UploadId).toEqual("mockuploadId");
+    });
+  });
+
+  it("should preserve ContentMD5 on single-part PutObjectCommand uploads (issue #4321)", async () => {
+    const fileLevelContentMD5 = "Q2hlY2sgSW50ZWdyaXR5IQ==";
+    const actionParams = { ...params, ContentMD5: fileLevelContentMD5 };
+
+    const upload = new Upload({
+      params: actionParams,
+      client: new S3({}),
+    });
+
+    await upload.done();
+
+    // Single-part path is unaffected by the multipart ContentMD5 fix.
+    expect(PutObjectCommand).toHaveBeenCalledTimes(1);
+    expect(PutObjectCommand).toHaveBeenCalledWith({
+      ...actionParams,
+      Body: Buffer.from(params.Body),
+    });
+    expect(UploadPartCommand).toHaveBeenCalledTimes(0);
+    expect(CompleteMultipartUploadCommand).toHaveBeenCalledTimes(0);
+  });
 });
