@@ -247,6 +247,7 @@ import {
   DolbyVisionMapping,
   DolbyVisionProfile,
   DropFrameTimecode,
+  DurationControl$,
   DvbddsHandling,
   DvbNitSettings$,
   DvbSdtSettings$,
@@ -355,6 +356,7 @@ import {
   H264DynamicSubGop,
   H264EndOfStreamMarkers,
   H264EntropyEncoding,
+  H264ExplicitWeightedPrediction,
   H264FieldEncoding,
   H264FlickerAdaptiveQuantization,
   H264FramerateControl,
@@ -999,6 +1001,7 @@ assert(typeof DisassociateCertificateRequest$ === "object");
 assert(typeof DisassociateCertificateResponse$ === "object");
 assert(typeof DolbyVision$ === "object");
 assert(typeof DolbyVisionLevel6Metadata$ === "object");
+assert(typeof DurationControl$ === "object");
 assert(typeof DvbNitSettings$ === "object");
 assert(typeof DvbSdtSettings$ === "object");
 assert(typeof DvbSubDestinationSettings$ === "object");
@@ -1393,6 +1396,7 @@ assert(typeof H264CodecProfile === "object");
 assert(typeof H264DynamicSubGop === "object");
 assert(typeof H264EndOfStreamMarkers === "object");
 assert(typeof H264EntropyEncoding === "object");
+assert(typeof H264ExplicitWeightedPrediction === "object");
 assert(typeof H264FieldEncoding === "object");
 assert(typeof H264FlickerAdaptiveQuantization === "object");
 assert(typeof H264FramerateControl === "object");

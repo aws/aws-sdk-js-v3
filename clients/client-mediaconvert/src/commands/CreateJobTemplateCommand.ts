@@ -1276,6 +1276,7 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  *                   DynamicSubGop: "ADAPTIVE" || "STATIC",
  *                   EndOfStreamMarkers: "INCLUDE" || "SUPPRESS",
  *                   EntropyEncoding: "CABAC" || "CAVLC",
+ *                   ExplicitWeightedPrediction: "DISABLED" || "ENABLED",
  *                   FieldEncoding: "PAFF" || "FORCE_FIELD" || "MBAFF",
  *                   FlickerAdaptiveQuantization: "DISABLED" || "ENABLED",
  *                   FramerateControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
@@ -1603,6 +1604,11 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  *                   L6Mode: "PASSTHROUGH" || "RECALCULATE" || "SPECIFY",
  *                   Mapping: "HDR10_NOMAP" || "HDR10_1000",
  *                   Profile: "PROFILE_5" || "PROFILE_8_1",
+ *                 },
+ *                 DurationControl: { // DurationControl
+ *                   IntegerDurationMaximumCompressionDenominator: Number("int"),
+ *                   IntegerDurationMaximumCompressionNumerator: Number("int"),
+ *                   IntegerDurationTrimThresholdMilliseconds: Number("int"),
  *                 },
  *                 Hdr10Plus: { // Hdr10Plus
  *                   MasteringMonitorNits: Number("int"),
@@ -2934,6 +2940,7 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * //                     DynamicSubGop: "ADAPTIVE" || "STATIC",
  * //                     EndOfStreamMarkers: "INCLUDE" || "SUPPRESS",
  * //                     EntropyEncoding: "CABAC" || "CAVLC",
+ * //                     ExplicitWeightedPrediction: "DISABLED" || "ENABLED",
  * //                     FieldEncoding: "PAFF" || "FORCE_FIELD" || "MBAFF",
  * //                     FlickerAdaptiveQuantization: "DISABLED" || "ENABLED",
  * //                     FramerateControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
@@ -3261,6 +3268,11 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * //                     L6Mode: "PASSTHROUGH" || "RECALCULATE" || "SPECIFY",
  * //                     Mapping: "HDR10_NOMAP" || "HDR10_1000",
  * //                     Profile: "PROFILE_5" || "PROFILE_8_1",
+ * //                   },
+ * //                   DurationControl: { // DurationControl
+ * //                     IntegerDurationMaximumCompressionDenominator: Number("int"),
+ * //                     IntegerDurationMaximumCompressionNumerator: Number("int"),
+ * //                     IntegerDurationTrimThresholdMilliseconds: Number("int"),
  * //                   },
  * //                   Hdr10Plus: { // Hdr10Plus
  * //                     MasteringMonitorNits: Number("int"),

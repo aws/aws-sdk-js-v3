@@ -4439,6 +4439,20 @@ export type H264EntropyEncoding = (typeof H264EntropyEncoding)[keyof typeof H264
  * @public
  * @enum
  */
+export const H264ExplicitWeightedPrediction = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type H264ExplicitWeightedPrediction =
+  (typeof H264ExplicitWeightedPrediction)[keyof typeof H264ExplicitWeightedPrediction];
+
+/**
+ * @public
+ * @enum
+ */
 export const H264FieldEncoding = {
   FORCE_FIELD: "FORCE_FIELD",
   MBAFF: "MBAFF",
@@ -6632,6 +6646,7 @@ export type Type = (typeof Type)[keyof typeof Type];
 export const Format = {
   avi: "avi",
   matroska: "matroska",
+  mp3: "mp3",
   mp4: "mp4",
   mpegps: "mpegps",
   mpegts: "mpegts",

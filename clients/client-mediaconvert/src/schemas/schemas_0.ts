@@ -203,11 +203,12 @@ const _D = "Dialnorm";
 const _DAM = "DashAdditionalManifest";
 const _DAS = "DynamicAudioSelector";
 const _DASy = "DynamicAudioSelectors";
-const _DC = "DownmixControl";
+const _DC = "DurationControl";
 const _DCN = "Destination608ChannelNumber";
 const _DCR = "DisassociateCertificateRequest";
 const _DCRi = "DisassociateCertificateResponse";
 const _DCi = "DisassociateCertificate";
+const _DCo = "DownmixControl";
 const _DE = "DescribeEndpoints";
 const _DER = "DescribeEndpointsRequest";
 const _DERe = "DescribeEndpointsResponse";
@@ -308,6 +309,7 @@ const _ET = "EndTimecode";
 const _ETO = "EmbeddedTimecodeOverride";
 const _ETa = "ETag";
 const _ETn = "EncryptionType";
+const _EWP = "ExplicitWeightedPrediction";
 const _En = "Endpoints";
 const _End = "Endpoint";
 const _Es = "Esam";
@@ -429,9 +431,12 @@ const _ICS = "InputColorSpace";
 const _ICn = "InputClippings";
 const _ICnp = "InputClipping";
 const _ICnpu = "InputChannels";
+const _IDMCD = "IntegerDurationMaximumCompressionDenominator";
+const _IDMCN = "IntegerDurationMaximumCompressionNumerator";
 const _IDP = "IntraDcPrecision";
 const _IDS = "ImscDestinationSettings";
 const _IDSn = "InputDecryptionSettings";
+const _IDTTM = "IntegerDurationTrimThresholdMilliseconds";
 const _IF = "InputFiles";
 const _IFOM = "IFrameOnlyManifest";
 const _IFn = "InputFile";
@@ -1154,6 +1159,7 @@ const _d = "dialnorm";
 const _dAS = "dynamicAudioSelectors";
 const _dC = "downmixControl";
 const _dCN = "destination608ChannelNumber";
+const _dCu = "durationControl";
 const _dF = "dcFilter";
 const _dFT = "dropFrameTimecode";
 const _dFe = "deblockFilter";
@@ -1231,6 +1237,7 @@ const _eT = "endTimecode";
 const _eTO = "embeddedTimecodeOverride";
 const _eTa = "eTag";
 const _eTn = "encryptionType";
+const _eWP = "explicitWeightedPrediction";
 const _en = "encryption";
 const _end = "endpoints";
 const _es = "esam";
@@ -1326,8 +1333,11 @@ const _iCFT = "inputChannelsFineTune";
 const _iCS = "inputColorSpace";
 const _iCn = "inputClippings";
 const _iCnp = "inputChannels";
+const _iDMCD = "integerDurationMaximumCompressionDenominator";
+const _iDMCN = "integerDurationMaximumCompressionNumerator";
 const _iDP = "intraDcPrecision";
 const _iDS = "imscDestinationSettings";
+const _iDTTM = "integerDurationTrimThresholdMilliseconds";
 const _iF = "inputFiles";
 const _iFOM = "iFrameOnlyManifest";
 const _iFn = "inputFile";
@@ -2330,6 +2340,11 @@ export var DolbyVisionLevel6Metadata$: StaticStructureSchema = [3, n0, _DVLM,
   [_MCax, _MF],
   [[1, { [_jN]: _mCax }], [1, { [_jN]: _mF }]]
 ];
+export var DurationControl$: StaticStructureSchema = [3, n0, _DC,
+  0,
+  [_IDMCD, _IDMCN, _IDTTM],
+  [[1, { [_jN]: _iDMCD }], [1, { [_jN]: _iDMCN }], [1, { [_jN]: _iDTTM }]]
+];
 export var DvbNitSettings$: StaticStructureSchema = [3, n0, _DNS,
   0,
   [_NI, _NN, _NIi],
@@ -2362,7 +2377,7 @@ export var DynamicAudioSelector$: StaticStructureSchema = [3, n0, _DAS,
 ];
 export var Eac3AtmosSettings$: StaticStructureSchema = [3, n0, _EAS,
   0,
-  [_B, _BM, _CM, _DI, _DC, _DRCL, _DRCR, _DRC, _LRCML, _LRSML, _LRCMLt, _LRSMLt, _MM, _SR, _STp, _SD, _SEM],
+  [_B, _BM, _CM, _DI, _DCo, _DRCL, _DRCR, _DRC, _LRCML, _LRSML, _LRCMLt, _LRSMLt, _MM, _SR, _STp, _SD, _SEM],
   [[1, { [_jN]: _b }], [0, { [_jN]: _bM }], [0, { [_jN]: _cM }], [0, { [_jN]: _dI }], [0, { [_jN]: _dC }], [0, { [_jN]: _dRCL }], [0, { [_jN]: _dRCR }], [0, { [_jN]: _dRC }], [1, { [_jN]: _lRCML }], [1, { [_jN]: _lRSML }], [1, { [_jN]: _lRCMLt }], [1, { [_jN]: _lRSMLt }], [0, { [_jN]: _mM }], [1, { [_jN]: _sR }], [1, { [_jN]: _sTp }], [0, { [_jN]: _sD }], [0, { [_jN]: _sEM }]]
 ];
 export var Eac3Settings$: StaticStructureSchema = [3, n0, _ES,
@@ -2527,8 +2542,8 @@ export var H264QvbrSettings$: StaticStructureSchema = [3, n0, _HQS,
 ];
 export var H264Settings$: StaticStructureSchema = [3, n0, _HS,
   0,
-  [_AQ, _BRF, _B, _CLo, _CP, _DSG, _EOSM, _EE, _FEi, _FAQ, _FC, _FCA, _FD, _FN, _GBR, _GCC, _GS, _GSU, _HBFFP, _HBIFP, _HBS, _IM, _MB, _MII, _NBFBRF, _NRF, _PCar, _PD, _PN, _PFM, _QTL, _QS, _RCM, _RP, _SAE, _STCM, _SCD, _Sl, _SP, _So, _SAQ, _Sy, _Te, _TAQ, _UST, _WMPT],
-  [[0, { [_jN]: _aQ }], [() => BandwidthReductionFilter$, { [_jN]: _bRF }], [1, { [_jN]: _b }], [0, { [_jN]: _cLo }], [0, { [_jN]: _cP }], [0, { [_jN]: _dSG }], [0, { [_jN]: _eOSM }], [0, { [_jN]: _eE }], [0, { [_jN]: _fE }], [0, { [_jN]: _fAQ }], [0, { [_jN]: _fC }], [0, { [_jN]: _fCA }], [1, { [_jN]: _fD }], [1, { [_jN]: _fN }], [0, { [_jN]: _gBR }], [1, { [_jN]: _gCC }], [1, { [_jN]: _gS }], [0, { [_jN]: _gSU }], [1, { [_jN]: _hBFFP }], [1, { [_jN]: _hBIFP }], [1, { [_jN]: _hBS }], [0, { [_jN]: _iM }], [1, { [_jN]: _mB }], [1, { [_jN]: _mII }], [1, { [_jN]: _nBFBRF }], [1, { [_jN]: _nRF }], [0, { [_jN]: _pCar }], [1, { [_jN]: _pD }], [1, { [_jN]: _pN }], [64 | 0, { [_jN]: _pFM }], [0, { [_jN]: _qTL }], [() => H264QvbrSettings$, { [_jN]: _qS }], [0, { [_jN]: _rCM }], [0, { [_jN]: _rP }], [0, { [_jN]: _sAE }], [0, { [_jN]: _sTCM }], [0, { [_jN]: _sCD }], [1, { [_jN]: _sl }], [0, { [_jN]: _sP }], [1, { [_jN]: _so }], [0, { [_jN]: _sAQ }], [0, { [_jN]: _sy }], [0, { [_jN]: _te }], [0, { [_jN]: _tAQ }], [0, { [_jN]: _uST }], [0, { [_jN]: _wMPT }]]
+  [_AQ, _BRF, _B, _CLo, _CP, _DSG, _EOSM, _EE, _EWP, _FEi, _FAQ, _FC, _FCA, _FD, _FN, _GBR, _GCC, _GS, _GSU, _HBFFP, _HBIFP, _HBS, _IM, _MB, _MII, _NBFBRF, _NRF, _PCar, _PD, _PN, _PFM, _QTL, _QS, _RCM, _RP, _SAE, _STCM, _SCD, _Sl, _SP, _So, _SAQ, _Sy, _Te, _TAQ, _UST, _WMPT],
+  [[0, { [_jN]: _aQ }], [() => BandwidthReductionFilter$, { [_jN]: _bRF }], [1, { [_jN]: _b }], [0, { [_jN]: _cLo }], [0, { [_jN]: _cP }], [0, { [_jN]: _dSG }], [0, { [_jN]: _eOSM }], [0, { [_jN]: _eE }], [0, { [_jN]: _eWP }], [0, { [_jN]: _fE }], [0, { [_jN]: _fAQ }], [0, { [_jN]: _fC }], [0, { [_jN]: _fCA }], [1, { [_jN]: _fD }], [1, { [_jN]: _fN }], [0, { [_jN]: _gBR }], [1, { [_jN]: _gCC }], [1, { [_jN]: _gS }], [0, { [_jN]: _gSU }], [1, { [_jN]: _hBFFP }], [1, { [_jN]: _hBIFP }], [1, { [_jN]: _hBS }], [0, { [_jN]: _iM }], [1, { [_jN]: _mB }], [1, { [_jN]: _mII }], [1, { [_jN]: _nBFBRF }], [1, { [_jN]: _nRF }], [0, { [_jN]: _pCar }], [1, { [_jN]: _pD }], [1, { [_jN]: _pN }], [64 | 0, { [_jN]: _pFM }], [0, { [_jN]: _qTL }], [() => H264QvbrSettings$, { [_jN]: _qS }], [0, { [_jN]: _rCM }], [0, { [_jN]: _rP }], [0, { [_jN]: _sAE }], [0, { [_jN]: _sTCM }], [0, { [_jN]: _sCD }], [1, { [_jN]: _sl }], [0, { [_jN]: _sP }], [1, { [_jN]: _so }], [0, { [_jN]: _sAQ }], [0, { [_jN]: _sy }], [0, { [_jN]: _te }], [0, { [_jN]: _tAQ }], [0, { [_jN]: _uST }], [0, { [_jN]: _wMPT }]]
 ];
 export var H265QvbrSettings$: StaticStructureSchema = [3, n0, _HQSv,
   0,
@@ -3257,8 +3272,8 @@ export var VideoOverlayTransition$: StaticStructureSchema = [3, n0, _VOT,
 ];
 export var VideoPreprocessor$: StaticStructureSchema = [3, n0, _VPide,
   0,
-  [_CCo, _Dei, _DV, _HP, _IIm, _NR, _PW, _TB],
-  [[() => ColorCorrector$, { [_jN]: _cCo }], [() => Deinterlacer$, { [_jN]: _dei }], [() => DolbyVision$, { [_jN]: _dV }], [() => Hdr10Plus$, { [_jN]: _hP }], [() => ImageInserter$, { [_jN]: _iIm }], [() => NoiseReducer$, { [_jN]: _nR }], [() => PartnerWatermarking$, { [_jN]: _pW }], [() => TimecodeBurnin$, { [_jN]: _tB }]]
+  [_CCo, _Dei, _DV, _DC, _HP, _IIm, _NR, _PW, _TB],
+  [[() => ColorCorrector$, { [_jN]: _cCo }], [() => Deinterlacer$, { [_jN]: _dei }], [() => DolbyVision$, { [_jN]: _dV }], [() => DurationControl$, { [_jN]: _dCu }], [() => Hdr10Plus$, { [_jN]: _hP }], [() => ImageInserter$, { [_jN]: _iIm }], [() => NoiseReducer$, { [_jN]: _nR }], [() => PartnerWatermarking$, { [_jN]: _pW }], [() => TimecodeBurnin$, { [_jN]: _tB }]]
 ];
 export var VideoProperties$: StaticStructureSchema = [3, n0, _VPi,
   0,

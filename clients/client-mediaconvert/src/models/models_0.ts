@@ -192,6 +192,7 @@ import type {
   H264DynamicSubGop,
   H264EndOfStreamMarkers,
   H264EntropyEncoding,
+  H264ExplicitWeightedPrediction,
   H264FieldEncoding,
   H264FlickerAdaptiveQuantization,
   H264FramerateControl,
@@ -6816,6 +6817,12 @@ export interface H264Settings {
   EntropyEncoding?: H264EntropyEncoding | undefined;
 
   /**
+   * Enable or disable explicit weighted prediction for the H.264 encoder. Weighted prediction improves compression efficiency for content with fading or brightness changes between frames.
+   * @public
+   */
+  ExplicitWeightedPrediction?: H264ExplicitWeightedPrediction | undefined;
+
+  /**
    * The video encoding method for your MPEG-4 AVC output. Keep the default value, PAFF, to have MediaConvert use PAFF encoding for interlaced outputs. Choose Force field to disable PAFF encoding and create separate interlaced fields. Choose MBAFF to disable PAFF and have MediaConvert use MBAFF encoding for interlaced outputs.
    * @public
    */
@@ -8529,6 +8536,30 @@ export interface DolbyVision {
 }
 
 /**
+ * Settings for integer-second duration normalization. When this preprocessor is present, the output duration will be adjusted to an exact integer-second boundary. If the input is within the trim threshold of an integer second, trailing frames are dropped. If within the compression threshold and less than 500ms over the previous integer second, the output is sped up slightly. Otherwise, black frames are padded to the next integer second.
+ * @public
+ */
+export interface DurationControl {
+  /**
+   * Required. Denominator of the maximum allowed compression ratio.
+   * @public
+   */
+  IntegerDurationMaximumCompressionDenominator?: number | undefined;
+
+  /**
+   * Required. Numerator of the maximum allowed compression ratio, defined as overrun divided by target duration. For example, numerator 5 with denominator 100 means max 5% compression. Set to 0 to disable compression entirely (only trim or pad will be used).
+   * @public
+   */
+  IntegerDurationMaximumCompressionNumerator?: number | undefined;
+
+  /**
+   * Maximum number of fractional milliseconds past an integer second that qualify for the trim path (frame dropping). Default is 0 (trimming disabled).
+   * @public
+   */
+  IntegerDurationTrimThresholdMilliseconds?: number | undefined;
+}
+
+/**
  * Setting for HDR10+ metadata insertion
  * @public
  */
@@ -8736,6 +8767,12 @@ export interface VideoPreprocessor {
    * @public
    */
   DolbyVision?: DolbyVision | undefined;
+
+  /**
+   * Enable integer-second duration normalization. When enabled, the output duration is adjusted to land on an exact integer-second boundary. The adjustment method (trim, compress, or pad) is chosen automatically based on how far the input duration is from the nearest integer second.
+   * @public
+   */
+  DurationControl?: DurationControl | undefined;
 
   /**
    * Enable HDR10+ analysis and metadata injection. Compatible with HEVC only.
@@ -9044,7 +9081,7 @@ export interface JobSettings {
   ExtendedDataServices?: ExtendedDataServices | undefined;
 
   /**
-   * Specify the input that MediaConvert references for your default output settings.  MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all  outputs that you don't manually specify different output settings for. Enabling this setting will disable "Follow source" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.
+   * Specify the input that MediaConvert references for your default output settings. MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all outputs that you don't manually specify different output settings for. Enabling this setting will disable "Follow source" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.
    * @public
    */
   FollowSource?: number | undefined;
@@ -9410,7 +9447,7 @@ export interface JobTemplateSettings {
   ExtendedDataServices?: ExtendedDataServices | undefined;
 
   /**
-   * Specify the input that MediaConvert references for your default output settings.  MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all  outputs that you don't manually specify different output settings for. Enabling this setting will disable "Follow source" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.
+   * Specify the input that MediaConvert references for your default output settings. MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all outputs that you don't manually specify different output settings for. Enabling this setting will disable "Follow source" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.
    * @public
    */
   FollowSource?: number | undefined;
@@ -10040,7 +10077,7 @@ export interface Container {
   Duration?: number | undefined;
 
   /**
-   * The format of your media file. For example: MP4, QuickTime (MOV), Matroska (MKV), WebM, MXF, Wave, AVI, MPEG-TS, or MPEG-PS. Note that this will be blank if your media file has a format that the MediaConvert Probe operation does not recognize.
+   * The format of your media file. For example: MP4, QuickTime (MOV), Matroska (MKV), WebM, MXF, Wave, AVI, MPEG-TS, MPEG-PS, or MP3. Note that this will be blank if your media file has a format that the MediaConvert Probe operation does not recognize.
    * @public
    */
   Format?: Format | undefined;
