@@ -10,7 +10,11 @@ import { NumberValue } from "./NumberValue";
  * @param data - The data to convert to a DynamoDB AttributeValue.
  * @param options - An optional configuration object for `convertToAttr`.
  */
-export const convertToAttr = (data: NativeAttributeValue, options?: marshallOptions): AttributeValue => {
+export const convertToAttr = (input: NativeAttributeValue, options?: marshallOptions): AttributeValue => {
+  // This function performs a runtime type dispatch, so we widen the input
+  // to `any` locally to avoid having to manually narrow against every branch
+  // of the public NativeAttributeValue union.
+  const data: any = input;
   if (data === undefined) {
     throw new Error(`Pass options.removeUndefinedValues=true to remove undefined values from map/array/set.`);
   } else if (data === null && typeof data === "object") {

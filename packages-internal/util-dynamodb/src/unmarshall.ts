@@ -37,7 +37,7 @@ export const unmarshall = (
   options?: unmarshallOptions
 ): Record<string, NativeAttributeValue> => {
   if (options?.convertWithoutMapWrapper) {
-    return convertToNative(data as AttributeValue, options);
+    return convertToNative(data as AttributeValue, options) as Record<string, NativeAttributeValue>;
   }
   return convertToNative({ M: data as Record<string, AttributeValue> }, options) as Record<
     string,
